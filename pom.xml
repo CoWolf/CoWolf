@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>de.uni-stuttgart.informatik.iste.cowolf</groupId>
+  <artifactId>parent</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <name>ModelCoEvolv</name>
+  <packaging>pom</packaging>
+  <modules>
+    <!-- <module>src/main/java/plugins/de.informatik.uni-stuttgart.iste.cowolf.tycho.xtext</module> -->
+    <!-- features -->
+    <module>src/main/java/features/de.uni_stuttgart.informatik.iste.cowolf.tycho.feature</module>
+    <module>src/main/java/features/de.uni-stuttgart.informatik.iste.cowolf.xtext.sdk</module>
+    <!-- plugins -->
+    <module>src/main/java/plugins/de.uni_stuttgart.informatik.iste.cowolf.tycho.plugin</module>
+    <module>src/main/java/plugins/de.uni-stuttgart.informatik.iste.cowolf.xtext.dsl</module>
+    <module>src/main/java/plugins/de.uni-stuttgart.informatik.iste.cowolf.SiLift.plugin</module>
+    <!-- ui -->
+    <module>src/main/java/ui/de.uni-stuttgart.informatik.iste.cowolf.xtext.ui</module>
+    <!-- tests -->
+    <module>src/test/de.uni-stuttgart.informatik.iste.cowolf.xtext.tests</module>
+    <module>src/test/de.uni-stuttgart.informatik.iste.cowolf.tycho.plugin.tests</module> 
+    <!-- repository -->
+    <module>src/main/java/p2updatesite/de.uni-stuttgart.informatik.iste.cowolf.tycho.p2updatesite</module>
+    <module>src/main/java/p2updatesite/de.uni-stuttgart.informatik.iste.cowolf.xtext.repository</module>
+  </modules>
+
+  <properties>
+    <targetJdk>1.7</targetJdk>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <build.number>SNAPSHOT</build.number>
+    <tycho.version>0.20.0</tycho.version>
+    <juno-repo.url>http://download.eclipse.org/releases/juno</juno-repo.url>
+  </properties>
+
+
+   <repositories>
+        <repository>
+          <id>juno</id>
+          <url>${juno-repo.url}</url>
+          <layout>p2</layout>
+      </repository>
+  </repositories>
+
+  <profiles>
+    <profile>
+        <id>releases</id>
+        <activation>
+            <activeByDefault>true</activeByDefault>
+        </activation>
+    </profile>
+</profiles>
+
+<build>
+    <plugins>
+
+    <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-source-plugin</artifactId>
+        <version>${tycho.version}</version>
+        <executions>
+            <execution>
+                <id>plugin-source</id>
+                <goals>
+                    <goal>plugin-source</goal>
+                </goals>
+            </execution>
+        </executions>
+    </plugin>
+
+    <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-versions-plugin</artifactId>
+        <version>${tycho.version}</version>
+    </plugin>
+
+    <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-maven-plugin</artifactId>
+        <version>${tycho.version}</version>
+        <extensions>true</extensions>
+    </plugin>
+
+       <plugin>
+          <groupId>org.eclipse.tycho</groupId>
+          <artifactId>target-platform-configuration</artifactId>
+          <version>${tycho.version}</version>
+          <configuration>
+            <resolver>p2</resolver>
+        </configuration>
+    </plugin>
+
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>2.3.2</version>
+            <configuration>
+                <source>1.7</source>
+                <target>1.7</target>
+            </configuration>
+        </plugin>
+<plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>target-platform-configuration</artifactId>
+        <configuration>
+          <environments>
+            <environment>
+              <os>linux</os>
+              <ws>gtk</ws>
+              <arch>x86</arch>
+          </environment>
+          <environment>
+              <os>linux</os>
+              <ws>gtk</ws>
+              <arch>x86_64</arch>
+          </environment>
+          <environment>
+              <os>win32</os>
+              <ws>win32</ws>
+              <arch>x86</arch>
+          </environment>
+          <environment>
+              <os>win32</os>
+              <ws>win32</ws>
+              <arch>x86_64</arch>
+          </environment>
+          <environment>
+              <os>macosx</os>
+              <ws>cocoa</ws>
+              <arch>x86_64</arch>
+          </environment>
+      </environments>
+  </configuration>
+</plugin>
+</plugins>
+
+</build>
+
+</project> 

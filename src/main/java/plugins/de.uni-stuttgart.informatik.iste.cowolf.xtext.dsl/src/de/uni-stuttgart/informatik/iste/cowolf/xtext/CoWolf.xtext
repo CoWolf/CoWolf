@@ -1,0 +1,9 @@
+grammar  de.uni-stuttgart.informatik.iste.cowolf.xtext.CoWolf with org.eclipse.xtext.common.Terminals
+
+generate coWolf "http://www.informatik.uni-stuttgart.de/CoWolf/CoWolf"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';
