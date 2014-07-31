@@ -1,9 +1,9 @@
 package de.uni_stuttgart.iste.cowolf.model.statechart;
 
-import de.uni_stuttgart.iste.cowolf.model.IQoSModel;
+import de.uni_stuttgart.iste.cowolf.model.IArchitectureModel;
 import de.uni_stuttgart.iste.cowolf.model.ModelTypeInfo;
 
-public class Statechart implements IQoSModel {
+public class Statechart implements IArchitectureModel {
 	
 	private final ModelTypeInfo info;
 	
@@ -19,9 +19,9 @@ public class Statechart implements IQoSModel {
 	}
 
 	@Override
-	public void certificate() {
+	public void dummy() {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 }
