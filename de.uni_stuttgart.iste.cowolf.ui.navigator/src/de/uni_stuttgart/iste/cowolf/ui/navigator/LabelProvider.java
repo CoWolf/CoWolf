@@ -1,4 +1,4 @@
-package customnavigator;
+package de.uni_stuttgart.iste.cowolf.ui.navigator;
 
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ILabelProviderListener;

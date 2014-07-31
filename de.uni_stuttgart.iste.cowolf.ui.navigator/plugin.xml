@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            category="de.uni_stuttgart.iste.cowolf.ui.navigator.category"
+            class="org.eclipse.ui.navigator.CommonNavigator"
+            icon="src/de/uni_stuttgart/iste/cowolf/ui/navigator/icons/logo_wulf_15x15.png"
+            id="de.uni_stuttgart.iste.cowolf.ui.navigator"
+            name="%view.name">
+      </view>
+      <category
+            id="de.uni_stuttgart.iste.cowolf.ui.navigator.category"
+            name="%category.name">
+      </category>
+   </extension>
+   <extension
+         point="org.eclipse.ui.navigator.viewer">
+      <viewerActionBinding
+            viewerId="de.uni_stuttgart.iste.cowolf.ui.navigator">
+         <includes>
+            <actionExtension
+                  pattern="org.eclipse.ui.navigator.resources.*">
+            </actionExtension>
+         </includes>
+      </viewerActionBinding>
+      <viewerContentBinding
+            viewerId="de.uni_stuttgart.iste.cowolf.ui.navigator">
+         <includes>
+            <contentExtension
+                  pattern="de.uni_stuttgart.iste.cowolf.ui.navigator.navigatorContent">
+            </contentExtension>
+         </includes>
+      </viewerContentBinding>
+   </extension>
+   <extension
+         point="org.eclipse.ui.navigator.navigatorContent">
+      <navigatorContent
+            contentProvider="de.uni_stuttgart.iste.cowolf.ui.navigator.ContentProvider"
+            id="de.uni_stuttgart.iste.cowolf.ui.navigator.navigatorContent"
+            labelProvider="de.uni_stuttgart.iste.cowolf.ui.navigator.LabelProvider"
+            name="%navigatorContent.name">
+         <triggerPoints>
+            <instanceof
+                  value="org.eclipse.core.resources.IWorkspaceRoot">
+            </instanceof>
+         </triggerPoints>
+      </navigatorContent>
+   </extension>
+
+</plugin>

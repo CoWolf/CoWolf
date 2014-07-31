@@ -1,4 +1,4 @@
-package customnavigator.popup.actions;
+package de.uni_stuttgart.iste.cowolf.ui.navigator.popup.actions;
 
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.dialogs.MessageDialog;

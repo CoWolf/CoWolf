@@ -1,4 +1,4 @@
-package customnavigator;
+package de.uni_stuttgart.iste.cowolf.ui.navigator;
 
 import java.util.ArrayList;
 import java.util.List;
