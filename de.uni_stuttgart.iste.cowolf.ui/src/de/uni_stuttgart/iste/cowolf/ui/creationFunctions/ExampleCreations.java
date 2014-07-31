@@ -1,4 +1,4 @@
-package de.uni_stuttgart.iste.cowolf.ui.basicExampleFunctions;
+package de.uni_stuttgart.iste.cowolf.ui.creationFunctions;
 
 import java.net.URI;
 
