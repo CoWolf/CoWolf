@@ -1,4 +1,4 @@
-package de.uni.stuttgart.informatik.iste.cowolf;
+package de.uni_stuttgart.iste.cowolf.ui;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;

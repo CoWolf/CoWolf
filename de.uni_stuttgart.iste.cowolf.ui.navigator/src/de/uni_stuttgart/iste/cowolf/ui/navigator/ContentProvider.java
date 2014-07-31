@@ -2,6 +2,7 @@ package de.uni_stuttgart.iste.cowolf.ui.navigator;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResourceChangeEvent;
 import org.eclipse.core.resources.IResourceChangeListener;
@@ -11,7 +12,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 
-import de.uni.stuttgart.informatik.iste.cowolf.natures.ProjectNature;
+import de.uni_stuttgart.iste.cowolf.ui.natures.ProjectNature;
 
 public class ContentProvider implements ITreeContentProvider, IResourceChangeListener {
 

@@ -1,4 +1,4 @@
-package de.uni.stuttgart.informatik.iste.cowolf.basicExampleFunctions;
+package de.uni_stuttgart.iste.cowolf.ui.basicExampleFunctions;
 
 import java.net.URI;
 
@@ -10,7 +10,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 
-import de.uni.stuttgart.informatik.iste.cowolf.natures.ProjectNature;
+import de.uni_stuttgart.iste.cowolf.ui.natures.ProjectNature;
 
 public class ExampleCreations {
 

@@ -1,4 +1,4 @@
-package de.uni.stuttgart.informatik.iste.cowolf.externalizedStrings;
+package de.uni_stuttgart.iste.cowolf.ui.externalizedStrings;
 
 import org.eclipse.osgi.util.NLS;
 

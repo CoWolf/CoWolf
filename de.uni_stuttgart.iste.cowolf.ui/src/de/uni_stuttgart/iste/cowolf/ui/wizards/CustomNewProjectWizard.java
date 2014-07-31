@@ -1,4 +1,4 @@
-package de.uni.stuttgart.informatik.iste.cowolf.wizards;
+package de.uni_stuttgart.iste.cowolf.ui.wizards;
 
 import java.net.URI;
 
@@ -12,8 +12,8 @@ import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
 import org.eclipse.ui.wizards.newresource.BasicNewProjectResourceWizard;
 
-import de.uni.stuttgart.informatik.iste.cowolf.basicExampleFunctions.ExampleCreations;
-import de.uni.stuttgart.informatik.iste.cowolf.externalizedStrings.Messages;
+import de.uni_stuttgart.iste.cowolf.ui.basicExampleFunctions.ExampleCreations;
+import de.uni_stuttgart.iste.cowolf.ui.externalizedStrings.Messages;
 
 public class CustomNewProjectWizard extends Wizard implements INewWizard,
 		IExecutableExtension {
