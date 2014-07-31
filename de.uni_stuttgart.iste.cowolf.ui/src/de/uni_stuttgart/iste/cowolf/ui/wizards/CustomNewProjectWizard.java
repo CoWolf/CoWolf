@@ -44,8 +44,8 @@ public class CustomNewProjectWizard extends Wizard implements INewWizard,
 		} // else location == null
 
 		ExampleCreations.createProject(name, location);
-		
-		//now the wizard automatically opens the correct perspective
+
+		// now the wizard automatically opens the correct perspective
 		BasicNewProjectResourceWizard.updatePerspective(configurationElement);
 
 		return true;

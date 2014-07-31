@@ -6,30 +6,30 @@ import org.eclipse.core.runtime.CoreException;
 
 public class ProjectNature implements IProjectNature {
 
-	 public static final String NATURE_ID = "CoWolfPlugin.projectNature"; //$NON-NLS-1$
-	
-	@Override
-	public void configure() throws CoreException {
-		// TODO Auto-generated method stub
+public static final String NATURE_ID = "de.uni_stuttgart.iste.cowolf.ui.projectNature"; //$NON-NLS-1$
 
-	}
+@Override
+public void configure() throws CoreException {
+// TODO Auto-generated method stub
 
-	@Override
-	public void deconfigure() throws CoreException {
-		// TODO Auto-generated method stub
+}
 
-	}
+@Override
+public void deconfigure() throws CoreException {
+// TODO Auto-generated method stub
 
-	@Override
-	public IProject getProject() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+}
 
-	@Override
-	public void setProject(IProject project) {
-		// TODO Auto-generated method stub
+@Override
+public IProject getProject() {
+// TODO Auto-generated method stub
+return null;
+}
 
-	}
+@Override
+public void setProject(IProject project) {
+// TODO Auto-generated method stub
+
+}
 
 }

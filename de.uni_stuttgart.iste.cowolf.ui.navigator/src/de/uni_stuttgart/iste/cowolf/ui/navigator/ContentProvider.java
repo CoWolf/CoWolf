@@ -1,3 +1,7 @@
+/**
+ * Coder beware: this code is not warranted to do anything.
+ * Copyright Oct 17, 2009 Carlos Valcarcel
+ */
 package de.uni_stuttgart.iste.cowolf.ui.navigator;
 
 import java.util.ArrayList;
@@ -14,6 +18,10 @@ import org.eclipse.jface.viewers.Viewer;
 
 import de.uni_stuttgart.iste.cowolf.ui.natures.ProjectNature;
 
+
+/**
+ * @author carlos
+ */
 public class ContentProvider implements ITreeContentProvider, IResourceChangeListener {
 
     private static final Object[]   NO_CHILDREN = {};
@@ -32,6 +40,7 @@ public class ContentProvider implements ITreeContentProvider, IResourceChangeLis
     public Object[] getChildren(Object parentElement) {
         System.out.println("ContentProvider.getChildren: " + parentElement.getClass().getName()); //$NON-NLS-1$
         Object[] children = null;
+        //TODO folder must be CustomPArent
         if (IWorkspaceRoot.class.isInstance(parentElement)) {
             IProject[] projects = ((IWorkspaceRoot)parentElement).getProjects(); 
             children = createCustomProjectParents(projects);

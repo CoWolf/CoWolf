@@ -28,7 +28,7 @@ public class ExampleCreations {
 		try {
 			addNature(project);
 
-			//TODO basic folder structure
+			// TODO basic folder structure
 			String[] paths = { "meta models", //$NON-NLS-1$
 					"models/subfolder", //$NON-NLS-1$
 					"other folder/subfolder/subsubfolder/hidden-clause" }; //$NON-NLS-1$
