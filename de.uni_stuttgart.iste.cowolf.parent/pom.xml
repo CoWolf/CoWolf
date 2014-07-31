@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.uni_stuttgart.iste.cowolf</groupId>
 	<artifactId>de.uni_stuttgart.iste.cowolf.parent</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<properties>
@@ -65,23 +65,6 @@
 				<artifactId>target-platform-configuration</artifactId>
 				<version>${tycho.version}</version>
 				<configuration>
-					<resolver>p2</resolver>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>
-				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>target-platform-configuration</artifactId>
-				<configuration>
 					<environments>
 						<environment>
 							<os>linux</os>
@@ -109,8 +92,20 @@
 							<arch>x86_64</arch>
 						</environment>
 					</environments>
+					<resolver>p2</resolver>
 				</configuration>
 			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+
 		</plugins>
 
 	</build>
@@ -170,7 +165,7 @@
 			../de.uni_stuttgart.iste.cowolf.transformation.statechart.tests
 		</module>
 		<module>
-			../../Eclipse_Workspace_DevP/de.uni_stuttgart.iste.cowolf.ui.navigator
+			../de.uni_stuttgart.iste.cowolf.ui.navigator
 		</module>
 		<module>../de.uni_stuttgart.iste.cowolf.transformation</module>
 		<module>../de.uni_stuttgart.iste.cowolf.ui</module>
