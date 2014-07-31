@@ -12,7 +12,7 @@ import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
 import org.eclipse.ui.wizards.newresource.BasicNewProjectResourceWizard;
 
-import de.uni_stuttgart.iste.cowolf.ui.basicExampleFunctions.ExampleCreations;
+import de.uni_stuttgart.iste.cowolf.ui.creationFunctions.ExampleCreations;
 import de.uni_stuttgart.iste.cowolf.ui.externalizedStrings.Messages;
 
 public class CustomNewProjectWizard extends Wizard implements INewWizard,
