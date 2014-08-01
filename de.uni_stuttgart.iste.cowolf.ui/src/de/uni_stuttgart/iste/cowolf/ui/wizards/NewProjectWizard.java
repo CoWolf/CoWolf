@@ -12,10 +12,14 @@ import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
 import org.eclipse.ui.wizards.newresource.BasicNewProjectResourceWizard;
 
-import de.uni_stuttgart.iste.cowolf.ui.creationFunctions.ExampleCreations;
+import de.uni_stuttgart.iste.cowolf.ui.creationFunctions.CreationFunctions;
 import de.uni_stuttgart.iste.cowolf.ui.externalizedStrings.Messages;
 
-public class CustomNewProjectWizard extends Wizard implements INewWizard,
+/**
+ * this class holds the wizard for a new project
+ *
+ */
+public class NewProjectWizard extends Wizard implements INewWizard,
 		IExecutableExtension {
 
 	private static final String PAGE_NAME = Messages.CustomNewProjectWizard_page_1_name;
@@ -24,7 +28,7 @@ public class CustomNewProjectWizard extends Wizard implements INewWizard,
 	private WizardNewProjectCreationPage pageOne;
 	private IConfigurationElement configurationElement;
 
-	public CustomNewProjectWizard() {
+	public NewProjectWizard() {
 		setWindowTitle(WIZARD_NAME);
 	}
 
@@ -36,19 +40,12 @@ public class CustomNewProjectWizard extends Wizard implements INewWizard,
 
 	@Override
 	public boolean performFinish() {
-		// TODO
 		String name = pageOne.getProjectName();
 		URI location = null;
 		if (!pageOne.useDefaults()) {
 			location = pageOne.getLocationURI();
-		} // else location == null
-
-		try {
-			ExampleCreations.createProject(name, location);
-		} catch (CoreException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
+		CreationFunctions.createProject(name, location);
 
 		// now the wizard automatically opens the correct perspective
 		BasicNewProjectResourceWizard.updatePerspective(configurationElement);

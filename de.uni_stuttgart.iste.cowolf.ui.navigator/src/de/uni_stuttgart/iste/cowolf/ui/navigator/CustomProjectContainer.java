@@ -1,7 +1,3 @@
-/**
- * Coder beware: this code is not warranted to do anything.
- * Copyright Oct 17, 2009 Carlos Valcarcel
- */
 package de.uni_stuttgart.iste.cowolf.ui.navigator;
 
 import java.util.ArrayList;
@@ -13,46 +9,82 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.swt.graphics.Image;
 
 /**
- * @author carlos
+ * this class holds methods for a CoWolf folder
  */
 public class CustomProjectContainer implements ICustomProjectElement {
 
-	IContainer _container;
-	Image _image;
+	IContainer originalContainer;
+	Image image;
 
+	/**
+	 * @param icontainer
+	 *            the original container
+	 */
 	public CustomProjectContainer(IContainer icontainer) {
-		_container = icontainer;
+		originalContainer = icontainer;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * de.uni_stuttgart.iste.cowolf.ui.navigator.ICustomProjectElement#getText()
+	 */
 	public String getText() {
-		return _container.getName();
+		return originalContainer.getName();
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * de.uni_stuttgart.iste.cowolf.ui.navigator.ICustomProjectElement#getImage
+	 * ()
+	 */
 	public Image getImage() {
-		if (_image == null) {
-			_image = Activator.getImage("icons/logo_wulf_15x15.png");
+		if (image == null) {
+			image = Activator.getImage("icons/logo_wulf_15x15.png"); //$NON-NLS-1$
 		}
 
-		return _image;
+		return image;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * de.uni_stuttgart.iste.cowolf.ui.navigator.ICustomProjectElement#getProject
+	 * ()
+	 */
 	@Override
-	public IResource getProject() {
-		return _container;
+	public IResource getOriginalResource() {
+		return originalContainer;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * de.uni_stuttgart.iste.cowolf.ui.navigator.ICustomProjectElement#getParent
+	 * ()
+	 */
 	@Override
 	public Object getParent() {
 		return null;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * de.uni_stuttgart.iste.cowolf.ui.navigator.ICustomProjectElement#getChildren
+	 * ()
+	 */
 	@Override
 	public ArrayList<Object> getChildren() {
-		// else we have already initialized them
-
 		ArrayList<Object> list = new ArrayList<Object>();
 		try {
-			IResource[] resources = _container.members();
+			IResource[] resources = originalContainer.members();
 
 			for (IResource r : resources) {
 				if (IContainer.class.isInstance(r)) {
@@ -70,11 +102,17 @@ public class CustomProjectContainer implements ICustomProjectElement {
 		return list;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * de.uni_stuttgart.iste.cowolf.ui.navigator.ICustomProjectElement#hasChildren
+	 * ()
+	 */
 	@Override
 	public boolean hasChildren() {
-		// else we have already initialized them
 		try {
-			return _container.members().length > 0;
+			return originalContainer.members().length > 0;
 		} catch (CoreException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -82,18 +120,30 @@ public class CustomProjectContainer implements ICustomProjectElement {
 		return false;
 	}
 
-	private Object createCustomProjectContainer(IContainer parentElement) {
+	/**
+	 * Creates a custom container from a IContainer
+	 * 
+	 * @param originalContainer
+	 *            the Container to wrapp
+	 * @return the wrapped object
+	 */
+	private Object createCustomProjectContainer(IContainer originalContainer) {
 
 		Object result = null;
-		result = new CustomProjectContainer(parentElement);
+		result = new CustomProjectContainer(originalContainer);
 
 		return result;
 	}
 
+	/**
+	 * @param originalElement
+	 *            the IFile to warpp
+	 * @return the wrapped object
+	 */
 	private Object createCustomProjectElement(IFile originalElement) {
 
 		Object result = null;
-		result = new CustomProjectElement(originalElement);
+		result = new CustomProjectFile(originalElement);
 
 		return result;
 	}
