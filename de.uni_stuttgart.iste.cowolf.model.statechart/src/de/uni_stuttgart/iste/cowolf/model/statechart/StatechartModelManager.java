@@ -3,11 +3,11 @@ package de.uni_stuttgart.iste.cowolf.model.statechart;
 import de.uni_stuttgart.iste.cowolf.model.IArchitectureModelManager;
 import de.uni_stuttgart.iste.cowolf.model.ModelTypeInfo;
 
-public class Statechart implements IArchitectureModelManager {
+public class StatechartModelManager implements IArchitectureModelManager {
 	
 	private final ModelTypeInfo info;
 	
-	public Statechart() {
+	public StatechartModelManager() {
 		// TODO Auto-generated constructor stub
 		info = new ModelTypeInfo("Statechart");
 	}
