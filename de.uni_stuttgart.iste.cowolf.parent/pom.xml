@@ -31,6 +31,11 @@
 	</profiles>
 
 	<build>
+
+		<!-- <pluginManagement> <plugins> <plugin> <groupId>org.eclipse.tycho</groupId> 
+			<artifactId>tycho-surefire-plugin</artifactId> <version>0.21.0</version> 
+			</plugin> </plugins> </pluginManagement> -->
+
 		<plugins>
 
 			<plugin>
@@ -103,6 +108,16 @@
 				<configuration>
 					<source>1.7</source>
 					<target>1.7</target>
+				</configuration>
+			</plugin>
+
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-surefire-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					<failIfNoTests>false</failIfNoTests>
 				</configuration>
 			</plugin>
 
