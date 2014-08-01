@@ -1,9 +1,9 @@
 package de.uni_stuttgart.iste.cowolf.model.statechart;
 
-import de.uni_stuttgart.iste.cowolf.model.IArchitectureModel;
+import de.uni_stuttgart.iste.cowolf.model.IArchitectureModelManager;
 import de.uni_stuttgart.iste.cowolf.model.ModelTypeInfo;
 
-public class Statechart implements IArchitectureModel {
+public class Statechart implements IArchitectureModelManager {
 	
 	private final ModelTypeInfo info;
 	
