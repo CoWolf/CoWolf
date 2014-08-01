@@ -1,8 +1,13 @@
 package de.uni_stuttgart.iste.cowolf.ui.navigator;
 
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.runtime.content.IContentType;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.ide.IDE;
 
 /**
  * this class provides the methods for the display of our navigator (names,
@@ -20,8 +25,18 @@ public class LabelProvider implements ILabelProvider {
 	public Image getImage(Object element) {
 		Image image = null;
 
-		if (ICustomProjectElement.class.isInstance(element)) {
+		if (CustomProjectContainer.class.isInstance(element)) {
 			image = ((ICustomProjectElement) element).getImage();
+		} else {
+
+			IFile ifile = ((CustomProjectFile) element).getOriginalResource();
+
+			IContentType contentType = IDE.getContentType(ifile);
+			ImageDescriptor imageDescriptor = PlatformUI.getWorkbench()
+					.getEditorRegistry()
+					.getImageDescriptor(ifile.getName(), contentType);
+
+			image = imageDescriptor.createImage();
 		}
 
 		// else ignore the element

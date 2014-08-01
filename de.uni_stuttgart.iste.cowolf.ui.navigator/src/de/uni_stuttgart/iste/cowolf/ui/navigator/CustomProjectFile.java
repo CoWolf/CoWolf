@@ -3,7 +3,6 @@ package de.uni_stuttgart.iste.cowolf.ui.navigator;
 import java.util.ArrayList;
 
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IResource;
 import org.eclipse.swt.graphics.Image;
 
 /**
@@ -55,7 +54,7 @@ public class CustomProjectFile implements ICustomProjectElement {
 	 * ()
 	 */
 	@Override
-	public IResource getOriginalResource() {
+	public IFile getOriginalResource() {
 		return originalFile;
 	}
 

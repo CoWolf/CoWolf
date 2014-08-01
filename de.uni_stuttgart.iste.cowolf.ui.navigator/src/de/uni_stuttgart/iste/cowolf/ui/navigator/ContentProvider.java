@@ -169,7 +169,7 @@ public class ContentProvider implements ITreeContentProvider,
 		try {
 			// only our projects are displayed
 			if (originalProject.getNature(ProjectNature.NATURE_ID) != null) {
-				result = new CustomProject(originalProject);
+				result = new CustomProjectContainer(originalProject);
 			}
 		} catch (CoreException e) {
 		}
