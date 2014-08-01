@@ -1,13 +1,13 @@
 package de.uni_stuttgart.iste.cowolf.model.dtmc;
 
-import de.uni_stuttgart.iste.cowolf.model.IQoSModel;
+import de.uni_stuttgart.iste.cowolf.model.IQoSModelManager;
 import de.uni_stuttgart.iste.cowolf.model.ModelTypeInfo;
 
-public class DTMCModel implements IQoSModel {
+public class DTMCModelManager implements IQoSModelManager {
 
 	private final ModelTypeInfo info;
 	
-	public DTMCModel() {
+	public DTMCModelManager() {
 		// TODO Auto-generated constructor stub
 		info = new ModelTypeInfo("DTMC");
 	}
