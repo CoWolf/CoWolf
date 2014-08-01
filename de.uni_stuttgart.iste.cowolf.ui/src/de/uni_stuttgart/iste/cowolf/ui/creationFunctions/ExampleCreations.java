@@ -21,22 +21,25 @@ public class ExampleCreations {
 	 * @param location
 	 * @param natureId
 	 * @return
+	 * @throws CoreException
 	 */
-	public static IProject createProject(String projectName, URI location) {
+	public static IProject createProject(String projectName, URI location)
+			throws CoreException {
 
 		IProject project = createBaseProject(projectName, location);
 		try {
 			addNature(project);
 
-			// TODO basic folder structure
-			String[] paths = { "meta models", //$NON-NLS-1$
-					"models/subfolder", //$NON-NLS-1$
-					"other folder/subfolder/subsubfolder/hidden-clause" }; //$NON-NLS-1$
-			addToProjectStructure(project, paths);
 		} catch (CoreException e) {
 			e.printStackTrace();
 			project = null;
 		}
+
+		IFolder folder = project.getFolder("test");
+
+		createFolder(folder);
+		IFolder secondFolder = folder.getFolder("test2");
+		createFolder(secondFolder);
 
 		return project;
 	}
@@ -90,22 +93,7 @@ public class ExampleCreations {
 		if (!folder.exists()) {
 			folder.create(false, true, null);
 		}
-	}
 
-	/**
-	 * Create a folder structure with a parent root, overlay, and a few child
-	 * folders.
-	 *
-	 * @param newProject
-	 * @param paths
-	 * @throws CoreException
-	 */
-	private static void addToProjectStructure(IProject newProject,
-			String[] paths) throws CoreException {
-		for (String path : paths) {
-			IFolder etcFolders = newProject.getFolder(path);
-			createFolder(etcFolders);
-		}
 	}
 
 	private static void addNature(IProject project) throws CoreException {

@@ -43,7 +43,12 @@ public class CustomNewProjectWizard extends Wizard implements INewWizard,
 			location = pageOne.getLocationURI();
 		} // else location == null
 
-		ExampleCreations.createProject(name, location);
+		try {
+			ExampleCreations.createProject(name, location);
+		} catch (CoreException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		// now the wizard automatically opens the correct perspective
 		BasicNewProjectResourceWizard.updatePerspective(configurationElement);

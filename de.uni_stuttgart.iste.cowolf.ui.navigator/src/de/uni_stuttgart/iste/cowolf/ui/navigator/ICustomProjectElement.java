@@ -1,18 +1,20 @@
 package de.uni_stuttgart.iste.cowolf.ui.navigator;
 
-import org.eclipse.core.resources.IProject;
+import java.util.ArrayList;
+
+import org.eclipse.core.resources.IResource;
 import org.eclipse.swt.graphics.Image;
 
 public interface ICustomProjectElement {
 	public Image getImage();
 
-	public Object[] getChildren();
+	public ArrayList<Object> getChildren();
 
 	public String getText();
 
 	public boolean hasChildren();
 
-	public IProject getProject();
+	public IResource getProject();
 
 	public Object getParent();
 }
