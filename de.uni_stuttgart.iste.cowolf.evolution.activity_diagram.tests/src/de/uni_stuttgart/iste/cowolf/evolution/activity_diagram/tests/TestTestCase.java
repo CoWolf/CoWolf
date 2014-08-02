@@ -7,7 +7,7 @@ public class TestTestCase {
 	
 	@Test
 	public void testEquals(){
-	 assertEquals("tefst", "test");	
+	 assertEquals("test", "test");	
 	}
 	
 }
