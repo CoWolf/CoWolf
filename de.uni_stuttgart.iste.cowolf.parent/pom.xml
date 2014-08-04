@@ -132,17 +132,10 @@
 				</configuration>
 			</plugin>
 
-			<plugin>
-				<groupId>org.sonatype.plugins</groupId>
-				<artifactId>nexus-staging-maven-plugin</artifactId>
-				<version>1.6.2</version>
-				<extensions>true</extensions>
-				<configuration>
-					<serverId>lismore-nexus</serverId>
-					<nexusUrl>https://lismore.informatik.uni-stuttgart.de/nexus/</nexusUrl>
-					<skipStaging>true</skipStaging>
-				</configuration>
-			</plugin>
+			<!-- <plugin> <groupId>org.sonatype.plugins</groupId> <artifactId>nexus-staging-maven-plugin</artifactId> 
+				<version>1.6.2</version> <extensions>true</extensions> <configuration> <serverId>lismore-nexus</serverId> 
+				<nexusUrl>https://lismore.informatik.uni-stuttgart.de/nexus/</nexusUrl> <skipStaging>true</skipStaging> 
+				</configuration> </plugin> -->
 
 		</plugins>
 
@@ -150,12 +143,12 @@
 
 	<!-- <distributionManagement>
 		<repository>
-			<id>lismore_nexus</id>
+			<id>lismore-nexus-release</id>
 			<name>Releases</name>
 			<url>https://lismore.informatik.uni-stuttgart.de/nexus/content/repositories/releases</url>
 		</repository>
 		<snapshotRepository>
-			<id>lismore_nexus</id>
+			<id>lismore-nexus-snapshot</id>
 			<name>Snapshot Releases</name>
 			<url>https://lismore.informatik.uni-stuttgart.de/nexus/content/repositories/snapshots</url>
 		</snapshotRepository>
@@ -240,7 +233,7 @@
 		<module>
 			../de.uni_stuttgart.iste.cowolf.evolution.ctmc.tests
 		</module>
-		
+
 	</modules>
-	
+
 </project>
