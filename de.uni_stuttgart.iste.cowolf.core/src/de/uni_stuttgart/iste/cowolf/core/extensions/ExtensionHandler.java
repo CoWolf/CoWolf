@@ -21,22 +21,22 @@ public class ExtensionHandler {
 	/**
 	 * ID for the QoS model manager extension.
 	 */
-	public static final String QOS_MODEL_MANAGER_EXTENSION_ID = "de.uni_stuttgart.iste.cowolf.model.QoSModelManagerExtension";
+	public static final String QOS_MODEL_MANAGER_EXTENSION_ID = "de.uni_stuttgart.iste.cowolf.model.qosModelManagerExtension";
 
 	/**
 	 * ID for the architecture model manager extension.
 	 */
-	public static final String ARCHITECTURE_MODEL_MANAGER_EXTENSION_ID = "de.uni_stuttgart.iste.cowolf.model.ArchitectureModelManagerExtension";
+	public static final String ARCHITECTURE_MODEL_MANAGER_EXTENSION_ID = "de.uni_stuttgart.iste.cowolf.model.architectureModelManagerExtension";
 
 	/**
 	 * ID for the evolution manager extension.
 	 */
-	public static final String EVOLUTION_MANAGER_EXTENSION_ID = "de.uni_stuttgart.iste.cowolf.evolution.EvolutionManagerExtension";
+	public static final String EVOLUTION_MANAGER_EXTENSION_ID = "de.uni_stuttgart.iste.cowolf.evolution.evolutionManagerExtension";
 
 	/**
 	 * ID for the transformation manager extension.
 	 */
-	public static final String TRANSFORMATION_MANAGER_EXTENSION_ID = "de.uni_stuttgart.iste.cowolf.TransformationManagerExtension";
+	public static final String TRANSFORMATION_MANAGER_EXTENSION_ID = "de.uni_stuttgart.iste.cowolf.transformationManagerExtension";
 
 	/**
 	 * Holds an instance of all installed QoSModelManager.
