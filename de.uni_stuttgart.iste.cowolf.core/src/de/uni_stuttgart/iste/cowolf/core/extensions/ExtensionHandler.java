@@ -7,9 +7,11 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.emf.ecore.EPackage;
 
 import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
 import de.uni_stuttgart.iste.cowolf.model.IArchitectureModelManager;
+import de.uni_stuttgart.iste.cowolf.model.IModelManager;
 import de.uni_stuttgart.iste.cowolf.model.IQoSModelManager;
 import de.uni_stuttgart.iste.cowolf.transformation.AbstractTransformationManager;
 
@@ -51,24 +53,24 @@ public class ExtensionHandler {
 	/**
 	 * Holds an instance of all installed EvolutionModelManager.
 	 */
-	private List<AbstractEvolutionManager> evolutionModelManagers;
+	private List<AbstractEvolutionManager> evolutionManagers;
 
 	/**
 	 * Holds an instance of all installed TransformationModelManager.
 	 */
-	private List<AbstractTransformationManager> transformationModelManagers;
+	private List<AbstractTransformationManager> transformationManagers;
 
 	/**
 	 * Basic constructor. Initializes model managers.
 	 */
 	public ExtensionHandler() {
-		this.refreshModelManagers();
+		this.refreshManagers();
 	}
 
 	/**
 	 * Refreshes the list of model managers.
 	 */
-	private void refreshModelManagers() {
+	private void refreshManagers() {
 		this.createQoSModelManagerExtensions();
 		this.createArchitectureModelManagerExtensions();
 		this.createEvolutionManagerExtensions();
@@ -93,14 +95,14 @@ public class ExtensionHandler {
 	 * Create the evolution manager extensions, which are registered.
 	 */
 	private void createEvolutionManagerExtensions() {
-		this.evolutionModelManagers = this.createExecuteableExtensions(EVOLUTION_MANAGER_EXTENSION_ID, "class", AbstractEvolutionManager.class);
+		this.evolutionManagers = this.createExecuteableExtensions(EVOLUTION_MANAGER_EXTENSION_ID, "class", AbstractEvolutionManager.class);
 	}
 
 	/**
 	 * Create the transformation manager extensions, which are registered.
 	 */
 	private void createTransformationManagerExtensions() {
-		this.transformationModelManagers = this.createExecuteableExtensions(TRANSFORMATION_MANAGER_EXTENSION_ID, "class", AbstractTransformationManager.class);
+		this.transformationManagers = this.createExecuteableExtensions(TRANSFORMATION_MANAGER_EXTENSION_ID, "class", AbstractTransformationManager.class);
 	}
 
 	/**
@@ -131,31 +133,53 @@ public class ExtensionHandler {
 	}
 
 	/**
-	 * @return the qosModelManagers
+	 * Searches the model manager for a given model, which handles this type of model.
+	 * @param model model to search for a manager.
+	 * @return IModelManager, which can handle this model or null if none is defined or installed.
 	 */
-	public List<IQoSModelManager> getQosModelManagers() {
-		return this.qosModelManagers;
+	public IModelManager getModelManager(EPackage model) {
+		for (final IModelManager manager : this.architectureModelManagers) {
+			if (manager.isManaged(model)) {
+				return manager;
+			}
+		}
+
+		for (final IModelManager manager : this.qosModelManagers) {
+			if (manager.isManaged(model)) {
+				return manager;
+			}
+		}
+		return null;
+	}
+
+
+	/**
+	 * Searches the evolution manager for a given model, which handles this type of model.
+	 * @param model model to search for a manager.
+	 * @return IModelManager, which can handle this model or null if none is defined or installed.
+	 */
+	public AbstractEvolutionManager getEvolutionManager(EPackage model) {
+		for (final AbstractEvolutionManager manager : this.evolutionManagers) {
+			if (manager.isManaged(model)) {
+				return manager;
+			}
+		}
+		return null;
 	}
 
 	/**
-	 * @return the architectureModelManagers
+	 * Searches the right transformation manager for a given transformation from source to target.
+	 * @param source Source model of transformation
+	 * @param target Target model of transformation
+	 * @return TransformationManager, which is responsible for this transformation, null if none is registered or installed.
 	 */
-	public List<IArchitectureModelManager> getArchitectureModelManagers() {
-		return this.architectureModelManagers;
-	}
-
-	/**
-	 * @return the evolutionModelManagers
-	 */
-	public List<AbstractEvolutionManager> getEvolutionModelManagers() {
-		return this.evolutionModelManagers;
-	}
-
-	/**
-	 * @return the transformationModelManagers
-	 */
-	public List<AbstractTransformationManager> getTransformationModelManagers() {
-		return this.transformationModelManagers;
+	public AbstractTransformationManager getTransformationManager(EPackage source, EPackage target) {
+		for (final AbstractTransformationManager manager : this.transformationManagers) {
+			if (manager.isManaged(source, target)) {
+				return manager;
+			}
+		}
+		return null;
 	}
 
 }

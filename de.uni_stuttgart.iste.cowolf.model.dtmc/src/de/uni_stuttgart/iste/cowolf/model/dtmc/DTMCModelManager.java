@@ -1,27 +1,34 @@
 package de.uni_stuttgart.iste.cowolf.model.dtmc;
 
+import java.util.Map;
+
+import org.eclipse.emf.ecore.EPackage;
+
 import de.uni_stuttgart.iste.cowolf.model.IQoSModelManager;
 import de.uni_stuttgart.iste.cowolf.model.ModelTypeInfo;
 
 public class DTMCModelManager implements IQoSModelManager {
 
-	private final ModelTypeInfo info;
-	
 	public DTMCModelManager() {
 		// TODO Auto-generated constructor stub
-		info = new ModelTypeInfo("DTMC");
 	}
 
 	@Override
 	public ModelTypeInfo getModelTypeInfo() {
 		// TODO Auto-generated method stub
-		return info;
+		return null;
 	}
 
 	@Override
-	public void certificate() {
+	public boolean isManaged(EPackage model) {
 		// TODO Auto-generated method stub
+		return false;
+	}
 
+	@Override
+	public String certificate(EPackage model, Map<String, Object> parameters) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
