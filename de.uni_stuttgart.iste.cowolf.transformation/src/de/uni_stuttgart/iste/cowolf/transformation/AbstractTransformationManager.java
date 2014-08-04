@@ -1,9 +1,17 @@
 package de.uni_stuttgart.iste.cowolf.transformation;
 
-public class AbstractTransformationManager {
+import java.util.List;
 
-	public AbstractTransformationManager() {
-		// TODO Auto-generated constructor stub
-	}
+import org.eclipse.emf.ecore.EPackage;
 
+import de.uni_stuttgart.iste.cowolf.evolution.ModelOperation;
+
+
+public abstract class AbstractTransformationManager {
+
+	public abstract boolean isManaged(EPackage source, EPackage target);
+
+	public abstract boolean transform(EPackage source, EPackage target, List<ModelOperation> operations);
+
+	public abstract TransformationTypeInfo getTransformationTypeInfo();
 }
