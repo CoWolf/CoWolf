@@ -39,39 +39,68 @@ public class ExtensionHandler {
 	public static final String TRANSFORMATION_MANAGER_EXTENSION_ID = "de.uni_stuttgart.iste.cowolf.TransformationManagerExtension";
 
 	/**
-	 * Create the QoS model manager extensions, which are registered.
-	 * @return created QoS model manager extensions.
+	 * Holds an instance of all installed QoSModelManager.
 	 */
-	public static List<IQoSModelManager> createQoSModelManagerExtensions() {
-		final List<IQoSModelManager> modelManagers = createExecuteableExtensions(QOS_MODEL_MANAGER_EXTENSION_ID, "class", IQoSModelManager.class);
-		return modelManagers;
+	private List<IQoSModelManager> qosModelManagers;
+
+	/**
+	 * Holds an instance of all installed ArchitectureModelManager.
+	 */
+	private List<IArchitectureModelManager> architectureModelManagers;
+
+	/**
+	 * Holds an instance of all installed EvolutionModelManager.
+	 */
+	private List<AbstractEvolutionManager> evolutionModelManagers;
+
+	/**
+	 * Holds an instance of all installed TransformationModelManager.
+	 */
+	private List<AbstractTransformationManager> transformationModelManagers;
+
+	/**
+	 * Basic constructor. Initializes model managers.
+	 */
+	public ExtensionHandler() {
+		this.refreshModelManagers();
+	}
+
+	/**
+	 * Refreshes the list of model managers.
+	 */
+	private void refreshModelManagers() {
+		this.createQoSModelManagerExtensions();
+		this.createArchitectureModelManagerExtensions();
+		this.createEvolutionManagerExtensions();
+		this.createTransformationManagerExtensions();
+	}
+
+	/**
+	 * Create the QoS model manager extensions, which are registered.
+	 */
+	private void createQoSModelManagerExtensions() {
+		this.qosModelManagers = this.createExecuteableExtensions(QOS_MODEL_MANAGER_EXTENSION_ID, "class", IQoSModelManager.class);
 	}
 
 	/**
 	 * Create the architecture model manager extensions, which are registered.
-	 * @return created architecture model manager extensions.
 	 */
-	public static List<IArchitectureModelManager> createArchitectureModelManagerExtensions() {
-		final List<IArchitectureModelManager> modelManagers = createExecuteableExtensions(ARCHITECTURE_MODEL_MANAGER_EXTENSION_ID, "class", IArchitectureModelManager.class);
-		return modelManagers;
+	private void createArchitectureModelManagerExtensions() {
+		this.architectureModelManagers = this.createExecuteableExtensions(ARCHITECTURE_MODEL_MANAGER_EXTENSION_ID, "class", IArchitectureModelManager.class);
 	}
 
 	/**
 	 * Create the evolution manager extensions, which are registered.
-	 * @return created evolution manager extensions.
 	 */
-	public static List<AbstractEvolutionManager> createTransformationManagerExtensions() {
-		final List<AbstractEvolutionManager> modelManagers = createExecuteableExtensions(EVOLUTION_MANAGER_EXTENSION_ID, "class", AbstractEvolutionManager.class);
-		return modelManagers;
+	private void createEvolutionManagerExtensions() {
+		this.evolutionModelManagers = this.createExecuteableExtensions(EVOLUTION_MANAGER_EXTENSION_ID, "class", AbstractEvolutionManager.class);
 	}
 
 	/**
 	 * Create the transformation manager extensions, which are registered.
-	 * @return created transformation manager extensions.
 	 */
-	public static List<AbstractTransformationManager> createEvolutionManagerExtensions() {
-		final List<AbstractTransformationManager> modelManagers = createExecuteableExtensions(TRANSFORMATION_MANAGER_EXTENSION_ID, "class", AbstractTransformationManager.class);
-		return modelManagers;
+	private void createTransformationManagerExtensions() {
+		this.transformationModelManagers = this.createExecuteableExtensions(TRANSFORMATION_MANAGER_EXTENSION_ID, "class", AbstractTransformationManager.class);
 	}
 
 	/**
@@ -83,7 +112,7 @@ public class ExtensionHandler {
 	 * @return All created extensions.
 	 */
 	@SuppressWarnings("unchecked")
-	private static <T> List<T> createExecuteableExtensions(String extensionPointID, String propertyName, Class<T> type) {
+	private <T> List<T> createExecuteableExtensions(String extensionPointID, String propertyName, Class<T> type) {
 		final IExtensionRegistry registry = Platform.getExtensionRegistry();
 		final IConfigurationElement[] config = registry.getConfigurationElementsFor(extensionPointID);
 		final List<T> extensions = new LinkedList<T>();
@@ -100,4 +129,33 @@ public class ExtensionHandler {
 		}
 		return extensions;
 	}
+
+	/**
+	 * @return the qosModelManagers
+	 */
+	public List<IQoSModelManager> getQosModelManagers() {
+		return this.qosModelManagers;
+	}
+
+	/**
+	 * @return the architectureModelManagers
+	 */
+	public List<IArchitectureModelManager> getArchitectureModelManagers() {
+		return this.architectureModelManagers;
+	}
+
+	/**
+	 * @return the evolutionModelManagers
+	 */
+	public List<AbstractEvolutionManager> getEvolutionModelManagers() {
+		return this.evolutionModelManagers;
+	}
+
+	/**
+	 * @return the transformationModelManagers
+	 */
+	public List<AbstractTransformationManager> getTransformationModelManagers() {
+		return this.transformationModelManagers;
+	}
+
 }
