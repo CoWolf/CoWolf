@@ -4,24 +4,24 @@
    <extension
          point="org.eclipse.ui.views">
       <category
-            id="customnavigator.category"
+            id="de.uni_stuttgart.iste.cowolf.ui.navigator.category"
             name="%category.name">
       </category>
       <view
             allowMultiple="false"
-            category="customnavigator.category"
+            category="de.uni_stuttgart.iste.cowolf.ui.navigator.category"
             class="org.eclipse.ui.navigator.CommonNavigator"
             icon="icons/logo_wulf_15x15.png"
-            id="customnavigator.navigator"
+            id="de.uni_stuttgart.iste.cowolf.ui.navigator.navigator"
             name="%view.name">
       </view>
    </extension>
    <extension
          point="org.eclipse.ui.navigator.viewer">
       <viewer
-            viewerId="customnavigator.navigator">
+            viewerId="de.uni_stuttgart.iste.cowolf.ui.navigator.navigator">
          <popupMenu
-               id="customnavigator.navigator#PopupMenu">
+               id="de.uni_stuttgart.iste.cowolf.ui.navigator.navigator#PopupMenu">
             <insertionPoint
                   name="group.new">
             </insertionPoint>
@@ -32,21 +32,21 @@
          </popupMenu>
       </viewer>
       <viewerContentBinding
-            viewerId="customnavigator.navigator">
+            viewerId="de.uni_stuttgart.iste.cowolf.ui.navigator.navigator">
          <includes>
             <contentExtension
-                  pattern="customnavigator.navigatorContent">
+                  pattern="de.uni_stuttgart.iste.cowolf.ui.navigator.navigatorContent">
             </contentExtension>
          </includes>
       </viewerContentBinding>
       <viewerActionBinding
-            viewerId="customnavigator.navigator">
+            viewerId="de.uni_stuttgart.iste.cowolf.ui.navigator.navigator">
          <includes>
             <actionExtension
-                  pattern="customnavigator.popup.actionprovider.CustomNewAction">
+                  pattern="de.uni_stuttgart.iste.cowolf.ui.navigator.popup.actionprovider.CustomNewAction">
             </actionExtension>
             <actionExtension
-                  pattern="customnavigator.popup.actionprovider.CustomRefreshAction">
+                  pattern="de.uni_stuttgart.iste.cowolf.ui.navigator.popup.actionprovider.CustomRefreshAction">
             </actionExtension>
          </includes>
       </viewerActionBinding>
@@ -56,7 +56,7 @@
       <navigatorContent
             activeByDefault="true"
             contentProvider="de.uni_stuttgart.iste.cowolf.ui.navigator.ContentProvider"
-            id="customnavigator.navigatorContent"
+            id="de.uni_stuttgart.iste.cowolf.ui.navigator.navigatorContent"
             labelProvider="de.uni_stuttgart.iste.cowolf.ui.navigator.LabelProvider"
             name="%navigatorContent.name">
          <triggerPoints>
@@ -67,7 +67,7 @@
       </navigatorContent>
       <actionProvider
             class="de.uni_stuttgart.iste.cowolf.ui.navigator.actionprovider.NewActionProvider"
-            id="customnavigator.popup.actionprovider.CustomNewAction">
+            id="de.uni_stuttgart.iste.cowolf.ui.navigator.popup.actionprovider.CustomNewAction">
          <enablement>
             <or>
                <instanceof
@@ -84,7 +84,7 @@
       </actionProvider>
       <actionProvider
             class="de.uni_stuttgart.iste.cowolf.ui.navigator.actionprovider.RefreshActionProvider"
-            id="customnavigator.popup.actionprovider.CustomRefreshAction">
+            id="de.uni_stuttgart.iste.cowolf.ui.navigator.popup.actionprovider.CustomRefreshAction">
          <enablement>
             <or>
                <instanceof
@@ -108,20 +108,20 @@
    <extension
          point="org.eclipse.ui.commands">
       <command
-            id="customnavigator.newSchemaTable"
-            name="TestWhatever">
+            id="de.uni_stuttgart.iste.cowolf.ui.navigator.newCoWolfProject"
+            name="CoWolf Project">
       </command>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
       <handler
-            class="de.uni_stuttgart.iste.cowolf.ui.navigator.handler.BogusHandler"
-            commandId="customnavigator.newSchemaTable">
+            class="de.uni_stuttgart.iste.cowolf.ui.navigator.handler.NewProjectHandler"
+            commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.newCoWolfProject">
          <enabledWhen>
             <with
                   variable="selection">
                <iterate
-                     ifEmpty="false">
+                     ifEmpty="true">
                   <instanceof
                         value="de.uni_stuttgart.iste.cowolf.ui.navigator.ICustomProjectElement">
                   </instanceof>
@@ -134,9 +134,9 @@
          point="org.eclipse.ui.menus">
       <menuContribution
             allPopups="false"
-            locationURI="popup:common.new.menu?after=additions">
+            locationURI="popup:common.new.menu?before=additions">
          <command
-               commandId="customnavigator.newSchemaTable"
+               commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.newCoWolfProject"
                style="push">
             <visibleWhen
                   checkEnabled="true">
@@ -147,7 +147,7 @@
    <extension
          point="org.eclipse.ui.commandImages">
       <image
-            commandId="customnavigator.newSchemaTable"
+            commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.newCoWolfProject"
             icon="icons/logo_wulf_15x15.png">
       </image>
    </extension>

@@ -1,11 +1,13 @@
 package de.uni_stuttgart.iste.cowolf.ui.navigator.handler;
 
+import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.core.commands.IHandler;
 import org.eclipse.core.commands.IHandlerListener;
 
-public class BogusHandler implements IHandler {
+import de.uni_stuttgart.iste.cowolf.ui.wizards.NewProjectWizard;
+
+public class NewProjectHandler extends AbstractHandler {
 
 	@Override
 	public void addHandlerListener(IHandlerListener handlerListener) {
@@ -20,15 +22,16 @@ public class BogusHandler implements IHandler {
 	}
 
 	@Override
-	public Object execute(ExecutionEvent event) throws ExecutionException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	  public Object execute(ExecutionEvent event) throws ExecutionException {
+	 NewProjectWizard wizard = new NewProjectWizard();
+	 wizard.init(null, null);
+	    return null;
+	  }
 
 	@Override
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
