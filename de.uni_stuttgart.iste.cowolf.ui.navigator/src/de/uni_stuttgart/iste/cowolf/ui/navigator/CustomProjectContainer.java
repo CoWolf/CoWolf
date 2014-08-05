@@ -87,7 +87,7 @@ public class CustomProjectContainer implements ICustomProjectElement {
 			IResource[] resources = originalProject.members();
 
 			for (IResource r : resources) {
-				if (r.getName().startsWith(".")) {
+				if (r.getName().startsWith(".")) { //$NON-NLS-1$
 					// do nothing, those files should not be shown
 				}
 				// folder

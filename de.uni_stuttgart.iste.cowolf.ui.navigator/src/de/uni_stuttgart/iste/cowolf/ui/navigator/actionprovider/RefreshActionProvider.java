@@ -151,7 +151,7 @@ public class RefreshActionProvider extends CommonActionProvider {
 										});
 							}
 						} catch (InvocationTargetException e) {
-							String msg = NLS.bind("Exception in {0}. run: {1}",
+							String msg = NLS.bind("Exception in {0}. run: {1}", //$NON-NLS-1$
 									getClass().getName(),
 									e.getTargetException());
 							throw new CoreException(new Status(IStatus.ERROR,

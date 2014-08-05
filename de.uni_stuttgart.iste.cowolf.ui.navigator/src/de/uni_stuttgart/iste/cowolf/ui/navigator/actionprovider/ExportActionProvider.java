@@ -59,7 +59,7 @@ public class ExportActionProvider extends CommonActionProvider {
 	 */
 	@Override
 	public void fillContextMenu(IMenuManager menu) {
-		IMenuManager submenu = new MenuManager("Export", ExPORT_MENU_NAME);
+		IMenuManager submenu = new MenuManager("Export", ExPORT_MENU_NAME); //$NON-NLS-1$
 		if (!contribute) {
 			return;
 		}

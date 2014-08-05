@@ -23,7 +23,7 @@ public class ExportProjectHandler implements IHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		JOptionPane.showMessageDialog(null, "Export");
+		JOptionPane.showMessageDialog(null, "Export"); //$NON-NLS-1$
 		return null;
 	}
 

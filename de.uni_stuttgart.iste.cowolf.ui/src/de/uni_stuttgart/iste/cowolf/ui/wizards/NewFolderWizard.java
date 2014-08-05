@@ -18,8 +18,8 @@ import org.eclipse.ui.dialogs.WizardNewFolderMainPage;
 public class NewFolderWizard extends Wizard implements INewWizard,
 		IExecutableExtension {
 
-	private static final String PAGE_NAME = "Wizard";
-	private static final String WIZARD_NAME = "Folder Wizard";
+	private static final String PAGE_NAME = Messages.NewFolderWizard_page_1_name;
+	private static final String WIZARD_NAME = Messages.NewFolderWizard_name;
 
 	private WizardNewFolderMainPage pageOne;
 
@@ -48,8 +48,8 @@ public class NewFolderWizard extends Wizard implements INewWizard,
 			IStructuredSelection selection = (IStructuredSelection) window.getSelectionService().getSelection();
 		
 		pageOne = new WizardNewFolderMainPage(PAGE_NAME, selection);
-		pageOne.setTitle("Folder");
-		pageOne.setDescription("This wizard helps you to create a folder");
+		pageOne.setTitle(Messages.NewFolderWizard_title);
+		pageOne.setDescription(Messages.NewFolderWizard_description);
 
 		addPage(pageOne);
 	}
