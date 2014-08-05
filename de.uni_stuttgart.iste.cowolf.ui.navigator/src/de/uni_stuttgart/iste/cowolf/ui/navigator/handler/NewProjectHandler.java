@@ -4,12 +4,10 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandlerListener;
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.jface.wizard.IWizard;
 import org.eclipse.jface.wizard.WizardDialog;
-import org.eclipse.swt.widgets.Display;
-import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.wizards.IWizardDescriptor;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.handlers.HandlerUtil;
+import de.uni_stuttgart.iste.cowolf.ui.wizards.NewProjectWizard;
 
 /**
  * This class shows the wizard for a new project
@@ -39,26 +37,13 @@ public class NewProjectHandler extends AbstractHandler {
 	 * @see org.eclipse.core.commands.AbstractHandler#execute(org.eclipse.core.commands.ExecutionEvent)
 	 */
 	@Override
-	public Object execute(ExecutionEvent event) throws ExecutionException {
-		IWizardDescriptor descriptor = PlatformUI
-				.getWorkbench()
-				.getNewWizardRegistry()
-				.findWizard("de.uni_stuttgart.iste.cowolf.ui.wizard.new.custom");
-		if (descriptor != null) {
-			IWizard wizard = null;
-			try {
-				wizard = descriptor.createWizard();
-			} catch (CoreException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			Display display = Display.getCurrent();
-			WizardDialog wd = new WizardDialog(display.getActiveShell(), wizard);
-			wd.setTitle(wizard.getWindowTitle());
-			wd.open();
-		}
-		return null;
-	}
+	 public Object execute(ExecutionEvent event) throws ExecutionException {
+        Shell shell = HandlerUtil.getActiveShell(event);
+        WizardDialog wizard = new WizardDialog(shell,
+                new NewProjectWizard());
+        wizard.open();
+        return null;
+    }
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.core.commands.AbstractHandler#isEnabled()

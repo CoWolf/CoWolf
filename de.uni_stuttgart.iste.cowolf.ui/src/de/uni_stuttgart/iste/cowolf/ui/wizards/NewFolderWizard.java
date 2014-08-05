@@ -7,6 +7,8 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
+import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.WizardNewFolderMainPage;
 
 /**
@@ -20,7 +22,6 @@ public class NewFolderWizard extends Wizard implements INewWizard,
 	private static final String WIZARD_NAME = "Folder Wizard";
 
 	private WizardNewFolderMainPage pageOne;
-	IStructuredSelection selection;
 
 	public NewFolderWizard() {
 		setWindowTitle(WIZARD_NAME);
@@ -28,7 +29,7 @@ public class NewFolderWizard extends Wizard implements INewWizard,
 
 	@Override
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
-		this.selection = selection;
+
 	}
 
 	@Override
@@ -42,6 +43,10 @@ public class NewFolderWizard extends Wizard implements INewWizard,
 	public void addPages() {
 		super.addPages();
 
+		IWorkbenchWindow window =
+			    PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+			IStructuredSelection selection = (IStructuredSelection) window.getSelectionService().getSelection();
+		
 		pageOne = new WizardNewFolderMainPage(PAGE_NAME, selection);
 		pageOne.setTitle("Folder");
 		pageOne.setDescription("This wizard helps you to create a folder");

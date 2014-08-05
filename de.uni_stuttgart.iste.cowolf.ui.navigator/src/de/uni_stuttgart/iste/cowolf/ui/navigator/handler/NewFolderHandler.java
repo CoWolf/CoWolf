@@ -4,12 +4,11 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandlerListener;
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.jface.wizard.IWizard;
 import org.eclipse.jface.wizard.WizardDialog;
-import org.eclipse.swt.widgets.Display;
-import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.wizards.IWizardDescriptor;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.handlers.HandlerUtil;
+
+import de.uni_stuttgart.iste.cowolf.ui.wizards.NewFolderWizard;
 
 /**
  * This class shows the wizard for a new project
@@ -17,8 +16,12 @@ import org.eclipse.ui.wizards.IWizardDescriptor;
  */
 public class NewFolderHandler extends AbstractHandler {
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.core.commands.AbstractHandler#addHandlerListener(org.eclipse.core.commands.IHandlerListener)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.eclipse.core.commands.AbstractHandler#addHandlerListener(org.eclipse
+	 * .core.commands.IHandlerListener)
 	 */
 	@Override
 	public void addHandlerListener(IHandlerListener handlerListener) {
@@ -26,7 +29,9 @@ public class NewFolderHandler extends AbstractHandler {
 
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.eclipse.core.commands.AbstractHandler#dispose()
 	 */
 	@Override
@@ -35,33 +40,24 @@ public class NewFolderHandler extends AbstractHandler {
 
 	}
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.core.commands.AbstractHandler#execute(org.eclipse.core.commands.ExecutionEvent)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.eclipse.core.commands.AbstractHandler#execute(org.eclipse.core.commands
+	 * .ExecutionEvent)
 	 */
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		System.out.print("test");
-		IWizardDescriptor descriptor = PlatformUI
-				.getWorkbench()
-				.getNewWizardRegistry()
-				.findWizard("de.uni_stuttgart.iste.cowolf.ui.wizard.new.folder");
-		if (descriptor != null) {
-			IWizard wizard = null;
-			try {
-				wizard = descriptor.createWizard();
-			} catch (CoreException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			Display display = Display.getCurrent();
-			WizardDialog wd = new WizardDialog(display.getActiveShell(), wizard);
-			wd.setTitle(wizard.getWindowTitle());
-			wd.open();
-		}
+		Shell shell = HandlerUtil.getActiveShell(event);
+		WizardDialog wizard = new WizardDialog(shell, new NewFolderWizard());
+		wizard.open();
 		return null;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.eclipse.core.commands.AbstractHandler#isEnabled()
 	 */
 	@Override
@@ -70,7 +66,9 @@ public class NewFolderHandler extends AbstractHandler {
 		return true;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.eclipse.core.commands.AbstractHandler#isHandled()
 	 */
 	@Override
@@ -79,8 +77,12 @@ public class NewFolderHandler extends AbstractHandler {
 		return false;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.core.commands.AbstractHandler#removeHandlerListener(org.eclipse.core.commands.IHandlerListener)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.eclipse.core.commands.AbstractHandler#removeHandlerListener(org.eclipse
+	 * .core.commands.IHandlerListener)
 	 */
 	@Override
 	public void removeHandlerListener(IHandlerListener handlerListener) {
