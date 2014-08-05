@@ -23,7 +23,12 @@
          <popupMenu
                id="de.uni_stuttgart.iste.cowolf.ui.navigator.navigator#PopupMenu">
             <insertionPoint
-                  name="group.new">
+                  name="group.new"
+                  separator="true">
+            </insertionPoint>
+            <insertionPoint
+                  name="group.port"
+                  separator="true">
             </insertionPoint>
             <insertionPoint
                   name="group.build"
@@ -43,10 +48,16 @@
             viewerId="de.uni_stuttgart.iste.cowolf.ui.navigator.navigator">
          <includes>
             <actionExtension
-                  pattern="de.uni_stuttgart.iste.cowolf.ui.navigator.popup.actionprovider.CustomNewAction">
+                  pattern="de.uni_stuttgart.iste.cowolf.ui.navigator.popup.actionprovider.NewAction">
             </actionExtension>
             <actionExtension
-                  pattern="de.uni_stuttgart.iste.cowolf.ui.navigator.popup.actionprovider.CustomRefreshAction">
+                  pattern="de.uni_stuttgart.iste.cowolf.ui.navigator.popup.actionprovider.RefreshAction">
+            </actionExtension>
+            <actionExtension
+                  pattern="de.uni_stuttgart.iste.cowolf.ui.navigator.popup.actionprovider.ImportAction">
+            </actionExtension>
+            <actionExtension
+                  pattern="de.uni_stuttgart.iste.cowolf.ui.navigator.popup.actionprovider.ExportAction">
             </actionExtension>
          </includes>
       </viewerActionBinding>
@@ -67,7 +78,24 @@
       </navigatorContent>
       <actionProvider
             class="de.uni_stuttgart.iste.cowolf.ui.navigator.actionprovider.NewActionProvider"
-            id="de.uni_stuttgart.iste.cowolf.ui.navigator.popup.actionprovider.CustomNewAction">
+            id="de.uni_stuttgart.iste.cowolf.ui.navigator.popup.actionprovider.NewAction">
+         <enablement>
+            <or>
+               <instanceof
+                     value="de.uni_stuttgart.iste.cowolf.ui.navigator.ICustomProjectElement">
+               </instanceof>
+               <adapt
+                     type="java.util.Collection">
+                  <count
+                        value="0">
+                  </count>
+               </adapt>
+            </or>
+         </enablement>
+      </actionProvider>
+      <actionProvider
+            class="de.uni_stuttgart.iste.cowolf.ui.navigator.actionprovider.ImportActionProvider"
+            id="de.uni_stuttgart.iste.cowolf.ui.navigator.popup.actionprovider.ImportAction">
          <enablement>
             <or>
                <instanceof
@@ -84,7 +112,7 @@
       </actionProvider>
       <actionProvider
             class="de.uni_stuttgart.iste.cowolf.ui.navigator.actionprovider.RefreshActionProvider"
-            id="de.uni_stuttgart.iste.cowolf.ui.navigator.popup.actionprovider.CustomRefreshAction">
+            id="de.uni_stuttgart.iste.cowolf.ui.navigator.popup.actionprovider.RefreshAction">
          <enablement>
             <or>
                <instanceof
@@ -99,17 +127,37 @@
             </or>
          </enablement>
       </actionProvider>
-      <commonWizard
-            type="new"
-            wizardId="customplugin.wizard.new.custom">
-         <enablement></enablement>
-      </commonWizard>
+      <actionProvider
+            class="de.uni_stuttgart.iste.cowolf.ui.navigator.actionprovider.ExportActionProvider"
+            id="de.uni_stuttgart.iste.cowolf.ui.navigator.popup.actionprovider.ExportAction">
+         <enablement>
+            <or>
+               <instanceof
+                     value="de.uni_stuttgart.iste.cowolf.ui.navigator.ICustomProjectElement">
+               </instanceof>
+               <adapt
+                     type="java.util.Collection">
+                  <count
+                        value="0">
+                  </count>
+               </adapt>
+            </or>
+         </enablement>
+      </actionProvider>
    </extension>
    <extension
          point="org.eclipse.ui.commands">
       <command
             id="de.uni_stuttgart.iste.cowolf.ui.navigator.newCoWolfProject"
-            name="CoWolf Project">
+            name="New CoWolf Project">
+      </command>
+      <command
+            id="de.uni_stuttgart.iste.cowolf.ui.navigator.importCoWolfProject"
+            name="Import CoWolf Project">
+      </command>
+       <command
+            id="de.uni_stuttgart.iste.cowolf.ui.navigator.exportCoWolfProject"
+            name="Export CoWolf Project">
       </command>
    </extension>
    <extension
@@ -129,14 +177,66 @@
             </with>
          </enabledWhen>
       </handler>
+      <handler
+            class="de.uni_stuttgart.iste.cowolf.ui.navigator.handler.ImportProjectHandler"
+            commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.importCoWolfProject">
+         <enabledWhen>
+            <with
+                  variable="selection">
+               <iterate
+                     ifEmpty="true">
+                  <instanceof
+                        value="de.uni_stuttgart.iste.cowolf.ui.navigator.ICustomProjectElement">
+                  </instanceof>
+               </iterate>
+            </with>
+         </enabledWhen>
+      </handler>
+      <handler
+            class="de.uni_stuttgart.iste.cowolf.ui.navigator.handler.ExportProjectHandler"
+            commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.exportCoWolfProject">
+         <enabledWhen>
+            <with
+                  variable="selection">
+               <iterate
+                     ifEmpty="true">
+                  <instanceof
+                        value="de.uni_stuttgart.iste.cowolf.ui.navigator.ICustomProjectElement">
+                  </instanceof>
+               </iterate>
+            </with>
+         </enabledWhen>
+      </handler>
    </extension>
    <extension
          point="org.eclipse.ui.menus">
       <menuContribution
             allPopups="false"
-            locationURI="popup:common.new.menu?before=additions">
+            locationURI="popup:common.new.menu?before=new">
          <command
                commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.newCoWolfProject"
+               style="push">
+            <visibleWhen
+                  checkEnabled="true">
+            </visibleWhen>
+         </command>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:common.port.menu?before=import">
+         <command
+               commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.importCoWolfProject"
+               style="push">
+            <visibleWhen
+                  checkEnabled="true">
+            </visibleWhen>
+         </command>
+      </menuContribution>
+       <menuContribution
+            allPopups="false"
+            locationURI="popup:common.port.menu?before=export">
+         <command
+               commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.exportCoWolfProject"
                style="push">
             <visibleWhen
                   checkEnabled="true">
@@ -148,6 +248,14 @@
          point="org.eclipse.ui.commandImages">
       <image
             commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.newCoWolfProject"
+            icon="icons/logo_wulf_15x15.png">
+      </image>
+      <image
+            commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.importCoWolfProject"
+            icon="icons/logo_wulf_15x15.png">
+      </image>
+       <image
+            commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.exportCoWolfProject"
             icon="icons/logo_wulf_15x15.png">
       </image>
    </extension>

@@ -13,16 +13,16 @@ import org.eclipse.ui.navigator.ICommonViewerWorkbenchSite;
 import org.eclipse.ui.navigator.WizardActionGroup;
 
 /**
- * This class creates a New -> something menu in the popup menu
+ * This class creates a Import -> something menu in the popup menu
  *
  */
-public class NewActionProvider extends CommonActionProvider {
+public class ImportActionProvider extends CommonActionProvider {
 
-	private static final String NEW_MENU_NAME = "common.new.menu";//$NON-NLS-1$
+	private static final String IMPORT_MENU_NAME = "common.port.menu";//$NON-NLS-1$
 
 	private ActionFactory.IWorkbenchAction showDlgAction;
 
-	private WizardActionGroup newWizardActionGroup;
+	private WizardActionGroup importWizardActionGroup;
 
 	private boolean contribute = false;
 
@@ -39,11 +39,11 @@ public class NewActionProvider extends CommonActionProvider {
 		if (anExtensionSite.getViewSite() instanceof ICommonViewerWorkbenchSite) {
 			IWorkbenchWindow window = ((ICommonViewerWorkbenchSite) anExtensionSite
 					.getViewSite()).getWorkbenchWindow();
-			showDlgAction = ActionFactory.NEW.create(window);
+			showDlgAction = ActionFactory.IMPORT.create(window);
 
-			newWizardActionGroup = new WizardActionGroup(window, PlatformUI
+			importWizardActionGroup = new WizardActionGroup(window, PlatformUI
 					.getWorkbench().getNewWizardRegistry(),
-					WizardActionGroup.TYPE_NEW,
+					WizardActionGroup.TYPE_IMPORT,
 					anExtensionSite.getContentService());
 
 			contribute = true;
@@ -59,23 +59,23 @@ public class NewActionProvider extends CommonActionProvider {
 	 */
 	@Override
 	public void fillContextMenu(IMenuManager menu) {
-		IMenuManager submenu = new MenuManager("New", NEW_MENU_NAME);
+		IMenuManager submenu = new MenuManager("Import", IMPORT_MENU_NAME);
 		if (!contribute) {
 			return;
 		}
 
 		// fill the menu from the newWizard contributions
-		newWizardActionGroup.setContext(getContext());
-		newWizardActionGroup.fillContextMenu(submenu);
+		importWizardActionGroup.setContext(getContext());
+		importWizardActionGroup.fillContextMenu(submenu);
 
-		submenu.add(new Separator(ICommonMenuConstants.GROUP_ADDITIONS));
+		submenu.add(new Separator(ICommonMenuConstants.GROUP_PORT));
 
 		// Add other ..
 		submenu.add(new Separator());
 		submenu.add(showDlgAction);
 
-		// append the submenu after the GROUP_NEW group.
-		menu.insertAfter(ICommonMenuConstants.GROUP_NEW, submenu);
+		// append the submenu after the GROUP_PORT group.
+		menu.insertAfter(ICommonMenuConstants.GROUP_PORT, submenu);
 	}
 
 	/*
