@@ -153,6 +153,11 @@
             name="New CoWolf Project">
       </command>
       <command
+            description="Creates a new CoWolf folder"
+            id="de.uni_stuttgart.iste.cowolf.ui.navigator.newCoWolfFolder"
+            name="New CoWolf Folder">
+      </command>
+      <command
             description="Imports an existing CoWolf project"
             id="de.uni_stuttgart.iste.cowolf.ui.navigator.importCoWolfProject"
             name="Import CoWolf Project">
@@ -175,6 +180,21 @@
                      ifEmpty="true">
                   <instanceof
                         value="de.uni_stuttgart.iste.cowolf.ui.navigator.ICustomProjectElement">
+                  </instanceof>
+               </iterate>
+            </with>
+         </enabledWhen>
+      </handler>
+       <handler
+            class="de.uni_stuttgart.iste.cowolf.ui.navigator.handler.NewFolderHandler"
+            commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.newCoWolfFolder">
+         <enabledWhen>
+            <with
+                  variable="selection">
+               <iterate
+                     ifEmpty="false">
+                  <instanceof
+                        value="de.uni_stuttgart.iste.cowolf.ui.navigator.CustomProjectContainer">
                   </instanceof>
                </iterate>
             </with>
@@ -216,6 +236,13 @@
       <menuContribution
             allPopups="false"
             locationURI="popup:common.new.menu?before=new">
+         <command
+               commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.newCoWolfFolder"
+               style="push">
+            <visibleWhen
+                  checkEnabled="true">
+            </visibleWhen>
+         </command>
          <command
                commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.newCoWolfProject"
                style="push">
