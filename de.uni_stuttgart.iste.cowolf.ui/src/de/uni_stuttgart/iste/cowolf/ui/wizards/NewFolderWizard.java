@@ -11,6 +11,8 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.WizardNewFolderMainPage;
 
+import de.uni_stuttgart.iste.cowolf.ui.externalizedStrings.Messages;
+
 /**
  * this class holds the wizard for a new project
  *

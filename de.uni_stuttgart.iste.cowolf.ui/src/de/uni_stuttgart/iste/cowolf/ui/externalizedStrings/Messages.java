@@ -10,6 +10,10 @@ public class Messages extends NLS {
 	public static String CustomNewProjectWizard_page_1_description;
 	public static String CustomNewProjectWizard_page_1_name;
 	public static String CustomNewProjectWizard_page_1_title;
+	public static String NewFolderWizard_description;
+	public static String NewFolderWizard_name;
+	public static String NewFolderWizard_page_1_name;
+	public static String NewFolderWizard_title;
 	static {
 		// initialize resource bundle
 		NLS.initializeMessages(BUNDLE_NAME, Messages.class);
