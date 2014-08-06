@@ -9,19 +9,16 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.swt.graphics.Image;
 
 /**
- * this class holds methods for a CoWolf folder
+ * this class holds the functions for a CoWolf project
+ *
  */
 public class CustomProjectContainer implements ICustomProjectElement {
 
-	IContainer originalContainer;
-	Image image;
+	IContainer originalProject;
+	Image shownImage;
 
-	/**
-	 * @param icontainer
-	 *            the original container
-	 */
-	public CustomProjectContainer(IContainer icontainer) {
-		originalContainer = icontainer;
+	public CustomProjectContainer(IContainer originalElement) {
+		originalProject = originalElement;
 	}
 
 	/*
@@ -31,7 +28,7 @@ public class CustomProjectContainer implements ICustomProjectElement {
 	 * de.uni_stuttgart.iste.cowolf.ui.navigator.ICustomProjectElement#getText()
 	 */
 	public String getText() {
-		return originalContainer.getName();
+		return originalProject.getName();
 	}
 
 	/*
@@ -42,11 +39,11 @@ public class CustomProjectContainer implements ICustomProjectElement {
 	 * ()
 	 */
 	public Image getImage() {
-		if (image == null) {
-			image = Activator.getImage("icons/logo_wulf_15x15.png"); //$NON-NLS-1$
+		if (shownImage == null) {
+			shownImage = Activator.getImage("icons/logo_wulf_15x15.png"); //$NON-NLS-1$
 		}
 
-		return image;
+		return shownImage;
 	}
 
 	/*
@@ -57,8 +54,8 @@ public class CustomProjectContainer implements ICustomProjectElement {
 	 * ()
 	 */
 	@Override
-	public IResource getOriginalResource() {
-		return originalContainer;
+	public IContainer getOriginalResource() {
+		return originalProject;
 	}
 
 	/*
@@ -82,14 +79,23 @@ public class CustomProjectContainer implements ICustomProjectElement {
 	 */
 	@Override
 	public ArrayList<Object> getChildren() {
+
 		ArrayList<Object> list = new ArrayList<Object>();
+
 		try {
-			IResource[] resources = originalContainer.members();
+			// get the children of the IProject
+			IResource[] resources = originalProject.members();
 
 			for (IResource r : resources) {
-				if (IContainer.class.isInstance(r)) {
+				if (r.getName().startsWith(".")) { //$NON-NLS-1$
+					// do nothing, those files should not be shown
+				}
+				// folder
+				else if (IContainer.class.isInstance(r)) {
 					list.add(createCustomProjectContainer((IContainer) r));
-				} else {
+
+				}// files
+				else {
 					list.add(createCustomProjectElement((IFile) r));
 				}
 			}
@@ -111,8 +117,9 @@ public class CustomProjectContainer implements ICustomProjectElement {
 	 */
 	@Override
 	public boolean hasChildren() {
+		// else we have already initialized them
 		try {
-			return originalContainer.members().length > 0;
+			return originalProject.members().length > 0;
 		} catch (CoreException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -121,23 +128,21 @@ public class CustomProjectContainer implements ICustomProjectElement {
 	}
 
 	/**
-	 * Creates a custom container from a IContainer
-	 * 
-	 * @param originalContainer
-	 *            the Container to wrapp
+	 * @param originalElement
+	 *            the IContainer to be wrapped
 	 * @return the wrapped object
 	 */
-	private Object createCustomProjectContainer(IContainer originalContainer) {
+	private Object createCustomProjectContainer(IContainer originalElement) {
 
 		Object result = null;
-		result = new CustomProjectContainer(originalContainer);
+		result = new CustomProjectContainer(originalElement);
 
 		return result;
 	}
 
 	/**
 	 * @param originalElement
-	 *            the IFile to warpp
+	 *            the IFile to be wrapped
 	 * @return the wrapped object
 	 */
 	private Object createCustomProjectElement(IFile originalElement) {

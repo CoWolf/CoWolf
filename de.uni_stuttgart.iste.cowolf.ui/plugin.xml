@@ -5,25 +5,60 @@
          point="org.eclipse.ui.newWizards">
       <category
             id="de.uni_stuttgart.iste.cowolf.ui.category.wizards"
-            name="CoWolf">
+            name="%category.name">
       </category>
       <wizard
             category="de.uni_stuttgart.iste.cowolf.ui.category.wizards"
             class="de.uni_stuttgart.iste.cowolf.ui.wizards.NewProjectWizard"
             finalPerspective="de.uni_stuttgart.iste.cowolf.ui.perspective"
-            icon="src/de/uni_stuttgart/iste/cowolf/ui/icons/logo_wulf_15x15.png"
+            icon="icons/logo_wulf_15x15.png"
             id="de.uni_stuttgart.iste.cowolf.ui.wizard.new.custom"
-            name="CoWolf Project"
+            name="%wizard.name"
             project="true">
+      </wizard>
+      <wizard
+            category="de.uni_stuttgart.iste.cowolf.ui.category.wizards"
+            class="de.uni_stuttgart.iste.cowolf.ui.wizards.NewFolderWizard"
+            icon="icons/logo_wulf_15x15.png"
+            id="de.uni_stuttgart.iste.cowolf.ui.wizard.new.folder"
+            name="%wizard.name.0">
+      </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.ui.importWizards">
+      <category
+            id="de.uni_stuttgart.iste.cowolf.ui.category.wizards"
+            name="%category.name.0">
+      </category>
+      <wizard
+            category="de.uni_stuttgart.iste.cowolf.ui.category.wizards"
+            class="de.uni_stuttgart.iste.cowolf.ui.wizards.ImportWizard"
+            icon="icons/logo_wulf_15x15.png"
+            id="de.uni_stuttgart.iste.cowolf.ui.wizard.import"
+            name="%wizard.name.1">
+      </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.ui.exportWizards">
+      <category
+            id="de.uni_stuttgart.iste.cowolf.ui.category.wizards"
+            name="%category.name.1">
+      </category>
+      <wizard
+            category="de.uni_stuttgart.iste.cowolf.ui.category.wizards"
+            class="de.uni_stuttgart.iste.cowolf.ui.wizards.ExportWizard"
+            icon="icons/logo_wulf_15x15.png"
+            id="de.uni_stuttgart.iste.cowolf.ui.wizard.export"
+            name="%wizard.name.2">
       </wizard>
    </extension>
    <extension
          point="org.eclipse.ui.perspectives">
       <perspective
             class="de.uni_stuttgart.iste.cowolf.ui.perspectives.Perspective"
-            icon="src/de/uni_stuttgart/iste/cowolf/ui/icons/logo_wulf_15x15.png"
+            icon="icons/logo_wulf_15x15.png"
             id="de.uni_stuttgart.iste.cowolf.ui.perspective"
-            name="CoWolf perspective">
+            name="%perspective.name">
       </perspective>
    </extension>
    <extension
@@ -31,12 +66,18 @@
       <perspectiveExtension
             targetID="de.uni_stuttgart.iste.cowolf.ui.perspective">
          <view
-               id="de.uni_stuttgart.iste.cowolf.ui.navigator"
+               id="de.uni_stuttgart.iste.cowolf.ui.navigator.navigator"
                minimized="false"
                ratio="0.25"
                relationship="left"
                relative="org.eclipse.ui.editorss">
          </view>
+         <newWizardShortcut
+               id="de.uni_stuttgart.iste.cowolf.ui.wizard.new.custom">
+         </newWizardShortcut>
+         <newWizardShortcut
+               id="de.uni_stuttgart.iste.cowolf.ui.wizard.new.folder">
+         </newWizardShortcut>
       </perspectiveExtension>
    </extension>
    <extension
@@ -51,7 +92,7 @@
    <extension
          point="org.eclipse.ui.ide.projectNatureImages">
       <image
-            icon="src/de/uni_stuttgart/iste/cowolf/ui/icons/logo_wulf_15x15.png"
+            icon="icons/logo_wulf_15x15.png"
             id="de.uni_stuttgart.iste.cowolf.ui.natureImage"
             natureId="de.uni_stuttgart.iste.cowolf.ui.projectNature">
       </image>

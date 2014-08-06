@@ -1,6 +1,7 @@
 package de.uni_stuttgart.iste.cowolf.ui.navigator;
 
 import java.util.ArrayList;
+
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResourceChangeEvent;
 import org.eclipse.core.resources.IResourceChangeListener;
@@ -9,6 +10,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.swt.widgets.Display;
 
 import de.uni_stuttgart.iste.cowolf.ui.natures.ProjectNature;
 
@@ -135,7 +137,16 @@ public class ContentProvider implements ITreeContentProvider,
 	 */
 	@Override
 	public void resourceChanged(IResourceChangeEvent event) {
-		viewer.refresh();
+		if (Display.getCurrent() != null) {
+			if (viewer != null)
+				viewer.refresh();
+		} else
+			Display.getDefault().asyncExec(new Runnable() {
+				public void run() {
+					if (viewer != null)
+						viewer.refresh();
+				}
+			});
 	}
 
 	/**
@@ -169,7 +180,7 @@ public class ContentProvider implements ITreeContentProvider,
 		try {
 			// only our projects are displayed
 			if (originalProject.getNature(ProjectNature.NATURE_ID) != null) {
-				result = new CustomProject(originalProject);
+				result = new CustomProjectContainer(originalProject);
 			}
 		} catch (CoreException e) {
 		}
