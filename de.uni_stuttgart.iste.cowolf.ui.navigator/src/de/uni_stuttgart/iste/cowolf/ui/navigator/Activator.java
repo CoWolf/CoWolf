@@ -55,11 +55,20 @@ public class Activator extends AbstractUIPlugin {
 		return plugin;
 	}
 
+	/**
+	 * @param imagePath
+	 *            the path to the image
+	 * @return the image
+	 */
 	public static Image getImage(String imagePath) {
 		ImageDescriptor imageDescriptor = AbstractUIPlugin
 				.imageDescriptorFromPlugin(Activator.PLUGIN_ID, imagePath);
 		Image image = imageDescriptor.createImage();
 		return image;
 	}
+	
+	public static ImageDescriptor getIDEImageDescriptor(String imagePath) {
+        return AbstractUIPlugin.imageDescriptorFromPlugin(Activator.PLUGIN_ID, imagePath);
+    }
 
 }

@@ -19,6 +19,21 @@
 			<url>http://download.eclipse.org/releases/luna</url>
 			<layout>p2</layout>
 		</repository>
+		<repository>
+			<id>henshin</id>
+			<url>http://download.eclipse.org/modeling/emft/henshin/updates/release</url>
+			<layout>p2</layout>
+		</repository>
+		<repository>
+			<id>xtext</id>
+			<url>http://download.itemis.com/updates/releases</url>
+			<layout>p2</layout>
+		</repository>
+		<repository>
+			<id>silift</id>
+			<url>http://pi.informatik.uni-siegen.de/Projekte/SiLift/updatesite</url>
+			<layout>p2</layout>
+		</repository>
 	</repositories>
 
 	<profiles>
@@ -31,6 +46,7 @@
 	</profiles>
 
 	<build>
+
 		<plugins>
 
 			<plugin>
@@ -106,9 +122,44 @@
 				</configuration>
 			</plugin>
 
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-surefire-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					<failIfNoTests>false</failIfNoTests>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.sonatype.plugins</groupId>
+				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<version>1.6.2</version>
+				<extensions>true</extensions>
+				<configuration>
+					<serverId>lismore-nexus</serverId>
+					<nexusUrl>https://lismore.informatik.uni-stuttgart.de/nexus</nexusUrl>
+					<skipStaging>true</skipStaging>
+				</configuration>
+			</plugin>
+
 		</plugins>
 
 	</build>
+
+	<distributionManagement>
+		<repository>
+			<id>lismore-nexus</id>
+			<name>Lismore Nexus Releases</name>
+			<url>https://lismore.informatik.uni-stuttgart.de/nexus/content/repositories/releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>lismore-nexus</id>
+			<name>Lismore Nexus Snapshots</name>
+			<url>https://lismore.informatik.uni-stuttgart.de/nexus/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
 
 	<modules>
 		<module>../de.uni_stuttgart.iste.cowolf.core</module>
@@ -189,5 +240,7 @@
 		<module>
 			../de.uni_stuttgart.iste.cowolf.evolution.ctmc.tests
 		</module>
+
 	</modules>
+
 </project>
