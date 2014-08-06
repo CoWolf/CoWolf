@@ -3,5 +3,14 @@
 <plugin>
    <extension-point id="de.uni_stuttgart.iste.cowolf.model.qosModelManagerExtension" name="qosModelExtension" schema="schema/de.uni_stuttgart.iste.cowolf.model.QoSModelExtension.exsd"/>
    <extension-point id="de.uni_stuttgart.iste.cowolf.model.architectureModelManagerExtension" name="architectureModelExtension" schema="schema/de.uni_Stuttgart.iste.cowolf.model.ArchitectureModelExtension.exsd"/>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="de.uni_stuttgart.iste.cowolf.core.mainPage"
+            class="de.uni_stuttgart.iste.cowolf.model.preference.ModelPreferencePage"
+            id="de.uni_stuttgart.iste.cowolf.model.modelPage"
+            name="Models">
+      </page>
+   </extension>
 
 </plugin>
