@@ -2,7 +2,9 @@
 <feature
       id="de.uni_stuttgart.iste.cowolf.ui.feature"
       label="UI"
-      version="1.0.0.qualifier">
+      version="1.0.0.qualifier"
+      license-feature="de.uni_stuttgart.iste.cowolf.license.feature"
+      license-feature-version="1.0.0.qualifier">
 
    <description url="http://www.example.com/description">
       [Enter Feature Description here.]
@@ -15,6 +17,16 @@
    <license url="http://www.example.com/license">
       [Enter License Description here.]
    </license>
+
+   <requires>
+      <import plugin="org.eclipse.ui" version="3.106.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.runtime" version="3.10.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.ide" version="3.10.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.resources" version="3.9.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.navigator" version="3.5.400" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.navigator.resources" version="3.4.700" match="greaterOrEqual"/>
+      <import plugin="org.junit"/>
+   </requires>
 
    <plugin
          id="de.uni_stuttgart.iste.cowolf.ui"
