@@ -110,23 +110,14 @@
       </commonFilter>
    </extension>
    <extension
-         point="org.eclipse.ui.commands">
-      <category
-            id="de.uni_stuttgart.iste.cowolf.ui.navigator.commandCategory"
-            name="CoWolf">
-      </category>
-      <command
-            categoryId="de.uni_stuttgart.iste.cowolf.ui.navigator.commandCategory"
-            defaultHandler="de.uni_stuttgart.iste.cowolf.ui.navigator.handlers.evolve"
-            id="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.evolve"
-            name="Co-evolve">
-      </command>
-   </extension>
-   <extension
          point="org.eclipse.ui.handlers">
       <handler
             class="de.uni_stuttgart.iste.cowolf.ui.navigator.handlers.evolve"
             commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.evolve">
+      </handler>
+      <handler
+            class="de.uni_stuttgart.iste.cowolf.ui.navigator.handlers.CoEvolve"
+            commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.co-evolve">
       </handler>
    </extension>
    <extension
@@ -142,6 +133,12 @@
             </separator>
             <command
                   commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.evolve"
+                  label="Evolve"
+                  style="push">
+            </command>
+            <command
+                  commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.co-evolve"
+                  label="Co-Evolve"
                   style="push">
             </command>
          </menu>
