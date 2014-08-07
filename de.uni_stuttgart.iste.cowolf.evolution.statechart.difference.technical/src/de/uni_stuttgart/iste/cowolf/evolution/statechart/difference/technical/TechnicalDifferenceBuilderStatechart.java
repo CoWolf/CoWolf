@@ -7,10 +7,11 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.sidiff.difference.technical.TechnicalDifferenceBuilder;
 import org.silift.common.util.access.EMFModelAccessEx;
+
+import de.uni_stuttgart.ieste.cowolf.model.Statechart.statchartemfPackage;
 
 /**
  * To filter not needed stuff. Nothing filtered here.
@@ -27,30 +28,29 @@ public class TechnicalDifferenceBuilderStatechart extends
 	@Override
 	protected Set<EClass> getUnconsideredNodeTypes() {
 		Set<EClass> unconsideredNodeTypes = new HashSet<EClass>();
-
+		// No filtering
 		return unconsideredNodeTypes;
 	}
 
 	@Override
 	protected Set<EReference> getUnconsideredEdgeTypes() {
 		Set<EReference> unconsideredEdgeTypes = new HashSet<EReference>();
-
+		// No filtering
 		return unconsideredEdgeTypes;
 	}
 
 	@Override
 	protected Set<EAttribute> getUnconsideredAttributeTypes() {
 		Set<EAttribute> unconsideredAttributeTypes = new HashSet<EAttribute>();
-
+		// No filtering
 		return unconsideredAttributeTypes;
 	}
 
 	@Override
 	protected void checkDocumentType(Resource model) {
-		// TODO Change EcorePackage into Statechart model package
 		String docType = EMFModelAccessEx.getCharacteristicDocumentType(model);
-		assert (docType == EcorePackage.eNS_URI) : "Wrong document type: Expected "
-				+ EcorePackage.eNS_URI + " but got " + docType;
+		assert (docType == statchartemfPackage.eNS_URI) : "Wrong document type: Expected "
+				+ statchartemfPackage.eNS_URI + " but got " + docType;
 	}
 
 	@Override
@@ -60,8 +60,7 @@ public class TechnicalDifferenceBuilderStatechart extends
 
 	@Override
 	public String getDocumentType() {
-		// TODO Change EcorePackage into Statechart model package
-		return EcorePackage.eNS_URI;
+		return statchartemfPackage.eNS_URI;
 	}
 
 	@Override
