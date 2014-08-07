@@ -7,16 +7,24 @@ import de.uni_stuttgart.iste.cowolf.evolution.EvolutionTypeInfo;
 
 public class StatechartEvolutionManager extends AbstractEvolutionManager {
 
+	/**
+	 * TODO: reference namespace of model package
+	 */
+	public final static String KEY = "statechart";
+	
 	@Override
 	public boolean isManaged(EPackage model) {
-		// TODO Auto-generated method stub
-		return false;
+		if(model.getNsURI() == null) {
+			return false;
+		}
+		return model.getNsURI().equals(KEY);
 	}
 
 	@Override
 	public EvolutionTypeInfo getEvolutionTypeInfo() {
+		EvolutionTypeInfo info = new EvolutionTypeInfo();
 		// TODO Auto-generated method stub
-		return null;
+		return info;
 	}
 
 }

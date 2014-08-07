@@ -26,8 +26,18 @@ import org.silift.common.util.exceptions.NoCorrespondencesException;
  *
  */
 public abstract class AbstractEvolutionManager {
+
+	/**
+	 * TODO: set matcher
+	 */
 	public static final String MATCHER = NamedElementMatcher.KEY;
 
+	/**
+	 * Says whether the manager is able to handle a specific model.
+	 * 
+	 * @param model
+	 * @return true if it is able to handle model.
+	 */
 	public abstract boolean isManaged(EPackage model);
 
 	/**
