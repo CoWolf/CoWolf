@@ -4,11 +4,16 @@
    <extension
          point="org.eclipse.ui.newWizards">
       <category
-            id="de.uni_stuttgart.iste.cowolf.ui.category.wizards"
+            id="de.uni_stuttgart.iste.cowolf.ui.category.wizards.main"
             name="%category.name">
       </category>
+      <category
+            id="de.uni_stuttgart.iste.cowolf.ui.category.wizards.models"
+            name="Models"
+            parentCategory="de.uni_stuttgart.iste.cowolf.ui.category.wizards.main">
+      </category>
       <wizard
-            category="de.uni_stuttgart.iste.cowolf.ui.category.wizards"
+            category="de.uni_stuttgart.iste.cowolf.ui.category.wizards.main"
             class="de.uni_stuttgart.iste.cowolf.ui.wizards.NewProjectWizard"
             finalPerspective="de.uni_stuttgart.iste.cowolf.ui.perspective"
             icon="icons/logo_wulf_15x15.png"
@@ -17,7 +22,7 @@
             project="true">
       </wizard>
       <wizard
-            category="de.uni_stuttgart.iste.cowolf.ui.category.wizards"
+            category="de.uni_stuttgart.iste.cowolf.ui.category.wizards.main"
             class="de.uni_stuttgart.iste.cowolf.ui.wizards.NewFolderWizard"
             icon="icons/logo_wulf_15x15.png"
             id="de.uni_stuttgart.iste.cowolf.ui.wizard.new.folder"
