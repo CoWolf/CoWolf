@@ -24,9 +24,6 @@
             <contentExtension
                   pattern="de.uni_stuttgart.iste.cowolf.ui.navigator.filters.*">
             </contentExtension>
-            <contentExtension
-                  pattern="de.uni_stuttgart.iste.cowolf.ui.navigator.decorator.folders">
-            </contentExtension>
          </includes>
       </viewerContentBinding>
       <viewerActionBinding viewerId="de.uni_stuttgart.iste.cowolf.ui.navigator.view">
@@ -135,9 +132,20 @@
             class="de.uni_stuttgart.iste.cowolf.ui.navigator.handlers.CoEvolve"
             commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.co-evolve">
             <enabledWhen>
+           <and>
+            <with
+                  variable="selection">
+               <count
+                     value="2">
+               </count>
+            </with>
+            <instanceof
+                  value="org.eclipse.emf.ecore.EcorePackage">
+            </instanceof>
             <test
                   property="de.uni_stuttgart.iste.cowolf.ui.navigator.propertyTester.coevolve.canFoo">
             </test>
+            </and>
          </enabledWhen>
       </handler>
       <handler
