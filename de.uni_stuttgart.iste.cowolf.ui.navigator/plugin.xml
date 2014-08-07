@@ -5,13 +5,13 @@
          point="org.eclipse.ui.views">
       <category
             id="de.uni_stuttgart.iste.cowolf.ui.navigator.category"
-            name="CoWolf"/>
+            name="%category.name.0"/>
       <view
             allowMultiple="false"
             category="de.uni_stuttgart.iste.cowolf.ui.navigator.category"
             class="org.eclipse.ui.navigator.CommonNavigator"
             id="de.uni_stuttgart.iste.cowolf.ui.navigator.view"
-            name="CoWolf View"/>
+            name="%view.name.0"/>
    </extension>
    <extension
          point="org.eclipse.ui.navigator.viewer">
@@ -90,7 +90,7 @@
       <commonFilter
             activeByDefault="true"
             id="de.uni_stuttgart.iste.cowolf.ui.navigator.filters.onlyCowolf"
-            name="Hide non-Cowolf projects">
+            name="%commonFilter.name">
          <filterExpression>
             <and>
                <not>
@@ -126,22 +126,35 @@
             allPopups="false"
             locationURI="popup:de.uni_stuttgart.iste.cowolf.ui.navigator.view#PopupMenu?before=additions">
          <menu
-               label="CoWolf">
+               label="%menu.label">
             <separator
                   name="de.uni_stuttgart.iste.cowolf.ui.navigator.separator"
                   visible="true">
             </separator>
             <command
                   commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.evolve"
-                  label="Evolve"
+                  label="%command.label"
                   style="push">
             </command>
             <command
                   commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.co-evolve"
-                  label="Co-Evolve"
+                  label="%command.label.0"
                   style="push">
             </command>
          </menu>
       </menuContribution>
+   </extension>
+   <extension
+         id="de.uni_stuttgart.iste.cowolf.ui.navigator.commands"
+         name="%extension.name"
+         point="org.eclipse.ui.commands">
+      <command
+            id="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.evolve"
+            name="%command.name.3">
+      </command>
+      <command
+            id="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.co-evolve"
+            name="%command.name.4">
+      </command>
    </extension> 
 </plugin>
