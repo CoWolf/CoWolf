@@ -1,4 +1,4 @@
-package de.uni_stuttgart.iste.cowolf.model.dtmc.analyse;
+package de.uni_stuttgart.iste.cowolf.model.dtmc.analyze;
 
 import java.util.Map;
 
@@ -8,12 +8,12 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.ecore.EPackage;
 
-public class DTMCAnalyseJob extends Job {
+public class DTMCAnalyzeJob extends Job {
 
 	private final EPackage model;
 	private final Map<String, Object> parameters;
 
-	public DTMCAnalyseJob(EPackage model, Map<String, Object> parameters) {
+	public DTMCAnalyzeJob(EPackage model, Map<String, Object> parameters) {
 		super("DTMC Analyse");
 		this.model = model;
 		this.parameters = parameters;

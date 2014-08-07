@@ -115,14 +115,15 @@
            <and>
             <with
                   variable="selection">
-               <and>
                   <count
                         value="1">
                   </count>
-               </and>
             </with>
+            <instanceof
+                  value="org.eclipse.emf.ecore.EcorePackage">
+            </instanceof>
             <test
-                  property="de.uni_stuttgart.iste.cowolf.ui.navigator.propertyTester.evolution.canFoo">
+                  property="de.uni_stuttgart.iste.cowolf.ui.navigator.propertyTester.evolve.canFoo">
             </test>
             </and>
          </enabledWhen>
@@ -138,8 +139,11 @@
                      value="2">
                </count>
             </with>
+            <instanceof
+                  value="org.eclipse.emf.ecore.EcorePackage">
+            </instanceof>
             <test
-                  property="de.uni_stuttgart.iste.cowolf.ui.navigator.propertyTester.coevolution.canFoo">
+                  property="de.uni_stuttgart.iste.cowolf.ui.navigator.propertyTester.coevolve.canFoo">
             </test>
             </and>
          </enabledWhen>
@@ -155,6 +159,9 @@
                      value="1">
                </count>
             </with>
+            <instanceof
+                  value="org.eclipse.emf.ecore.EcorePackage">
+            </instanceof>
             <test
                   property="de.uni_stuttgart.iste.cowolf.ui.navigator.propertyTester.analyze.canFoo">
             </test>
@@ -231,11 +238,5 @@
             properties="canFoo"
             type="java.lang.Object">
       </propertyTester>
-   </extension>
-   <extension
-         point="org.eclipse.ui.startup">
-      <startup
-            class="de.uni_stuttgart.iste.cowolf.ui.navigator.trigger.DummyTrigger">
-      </startup>
    </extension>
 </plugin>

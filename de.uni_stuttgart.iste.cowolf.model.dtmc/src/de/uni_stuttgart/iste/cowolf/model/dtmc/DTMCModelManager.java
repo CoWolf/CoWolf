@@ -7,7 +7,6 @@ import org.eclipse.emf.ecore.EPackage;
 
 import de.uni_stuttgart.iste.cowolf.model.IQoSModelManager;
 import de.uni_stuttgart.iste.cowolf.model.ModelTypeInfo;
-import de.uni_stuttgart.iste.cowolf.model.dtmc.analyse.DTMCAnalyseJob;
 
 public class DTMCModelManager implements IQoSModelManager {
 
