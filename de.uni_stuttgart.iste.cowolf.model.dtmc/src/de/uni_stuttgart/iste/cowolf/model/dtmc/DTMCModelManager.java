@@ -2,11 +2,12 @@ package de.uni_stuttgart.iste.cowolf.model.dtmc;
 
 import java.util.Map;
 
+import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.resource.Resource;
 
 import de.uni_stuttgart.iste.cowolf.model.IQoSModelManager;
 import de.uni_stuttgart.iste.cowolf.model.ModelTypeInfo;
+import de.uni_stuttgart.iste.cowolf.model.dtmc.analyse.DTMCAnalyseJob;
 
 public class DTMCModelManager implements IQoSModelManager {
 
@@ -21,14 +22,17 @@ public class DTMCModelManager implements IQoSModelManager {
 	}
 
 	@Override
-	public boolean isManaged(Resource model) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public String certificate(EPackage model, Map<String, Object> parameters) {
-		// TODO Auto-generated method stub
+
+		// TODO Add return values
+		final DTMCAnalyseJob job = new DTMCAnalyseJob(model, parameters);
+		job.setPriority(Job.LONG);
+		job.schedule();
 		return null;
 	}
 
