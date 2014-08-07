@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
-
-   <!-- Phase 1 -->
-   <!-- Declare the view part to hold the default implementation --> 
    <extension
          point="org.eclipse.ui.views">
       <category
@@ -16,8 +13,6 @@
             id="de.uni_stuttgart.iste.cowolf.ui.navigator.view"
             name="CoWolf View"/>
    </extension>
-   
-   <!-- Declare the viewer configuration, and the default content/action bindings -->
    <extension
          point="org.eclipse.ui.navigator.viewer">
       <viewerContentBinding viewerId="de.uni_stuttgart.iste.cowolf.ui.navigator.view">
@@ -39,9 +34,57 @@
             <actionExtension pattern="org.eclipse.ui.navigator.resources.*"/>
          </includes>
       </viewerActionBinding>
+      <viewer
+            viewerId="de.uni_stuttgart.iste.cowolf.ui.navigator.view">
+         <popupMenu
+               id="de.uni_stuttgart.iste.cowolf.ui.navigator.view#PopupMenu">
+            <insertionPoint
+                  name="group.new"
+                  separator="true">
+            </insertionPoint>
+            <insertionPoint
+                  name="group.open"
+                  separator="true">
+            </insertionPoint>
+            <insertionPoint
+                  name="group.openWith"
+                  separator="true">
+            </insertionPoint>
+            <insertionPoint
+                  name="group.edit"
+                  separator="true">
+            </insertionPoint>
+            <insertionPoint
+                  name="group.reorganize"
+                  separator="true">
+            </insertionPoint>
+            <insertionPoint
+                  name="group.port"
+                  separator="true">
+            </insertionPoint>
+            <insertionPoint
+                  name="group.build"
+                  separator="true">
+            </insertionPoint>
+            <insertionPoint
+                  name="group.generate"
+                  separator="true">
+            </insertionPoint>
+            <insertionPoint
+                  name="group.search"
+                  separator="true">
+            </insertionPoint>
+            <insertionPoint
+                  name="group.additions"
+                  separator="true">
+            </insertionPoint>
+            <insertionPoint
+                  name="group.properties"
+                  separator="true">
+            </insertionPoint>
+         </popupMenu>
+      </viewer>
    </extension>
-   
-   <!-- Declare a simple filter example that uses core expressions -->
    <extension
          point="org.eclipse.ui.navigator.navigatorContent">
       <commonFilter
@@ -66,9 +109,42 @@
          </filterExpression>
       </commonFilter>
    </extension>
-  
-  <!-- Phase 2 -->
-  <!-- Declare a content extension that renders the contents of a properties file -->
-   <!-- Bind the Properties content extension to the viewer -->
-  
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="de.uni_stuttgart.iste.cowolf.ui.navigator.commandCategory"
+            name="CoWolf">
+      </category>
+      <command
+            categoryId="de.uni_stuttgart.iste.cowolf.ui.navigator.commandCategory"
+            defaultHandler="de.uni_stuttgart.iste.cowolf.ui.navigator.handlers.evolve"
+            id="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.evolve"
+            name="Co-evolve">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="de.uni_stuttgart.iste.cowolf.ui.navigator.handlers.evolve"
+            commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.evolve">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:de.uni_stuttgart.iste.cowolf.ui.navigator.view#PopupMenu?before=additions">
+         <menu
+               label="CoWolf">
+            <separator
+                  name="de.uni_stuttgart.iste.cowolf.ui.navigator.separator"
+                  visible="true">
+            </separator>
+            <command
+                  commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.evolve"
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension> 
 </plugin>
