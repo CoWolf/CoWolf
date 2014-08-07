@@ -11,7 +11,6 @@ import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
 
 public class EvolutionTester extends PropertyTester {
 
-
 	public EvolutionTester() {
 		// TODO Auto-generated constructor stub
 	}
@@ -27,7 +26,8 @@ public class EvolutionTester extends PropertyTester {
 				.getSelectionService().getSelection();
 
 		Object selectedElement = selection.getFirstElement();
-		AbstractEvolutionManager modelManager = extensionHandler.getEvolutionManager((EPackage) selectedElement);
+		AbstractEvolutionManager modelManager = extensionHandler
+				.getEvolutionManager((EPackage) selectedElement);
 
 		// must find model manager
 		if (modelManager != null) {
