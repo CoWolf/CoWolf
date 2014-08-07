@@ -6,7 +6,6 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandler;
 import org.eclipse.core.commands.IHandlerListener;
-
 import de.uni_stuttgart.iste.cowolf.ui.navigator.externalizedStrings.Messages;
 
 public class CoEvolve implements IHandler {
@@ -32,7 +31,6 @@ public class CoEvolve implements IHandler {
 
 	@Override
 	public boolean isEnabled() {
-		// TODO check selection
 		return true;
 	}
 
