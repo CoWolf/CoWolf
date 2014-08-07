@@ -2,9 +2,9 @@ package de.uni_stuttgart.iste.cowolf.evolution.statechart;
 
 import org.eclipse.emf.ecore.resource.Resource;
 
-import de.uni_stuttgart.ieste.cowolf.model.Statechart.StateMachine;
 import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
 import de.uni_stuttgart.iste.cowolf.evolution.EvolutionTypeInfo;
+import de.uni_stuttgart.iste.cowolf.model.statechart.Statechart.StateMachine;
 
 public class StatechartEvolutionManager extends AbstractEvolutionManager {	
 	@Override
@@ -24,4 +24,5 @@ public class StatechartEvolutionManager extends AbstractEvolutionManager {
 		// TODO Auto-generated method stub
 		return info;
 	}
+
 }
