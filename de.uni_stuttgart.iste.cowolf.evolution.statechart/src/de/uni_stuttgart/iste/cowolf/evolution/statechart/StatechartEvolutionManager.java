@@ -7,14 +7,11 @@ import de.uni_stuttgart.iste.cowolf.evolution.EvolutionTypeInfo;
 
 public class StatechartEvolutionManager extends AbstractEvolutionManager {
 
-	/**
-	 * TODO: reference namespace of model package
-	 */
-	public final static String KEY = "statechart";
-	
+	public final static String KEY = "http/Statechart/1.0";
+
 	@Override
 	public boolean isManaged(EPackage model) {
-		if(model.getNsURI() == null) {
+		if (model.getNsURI() == null) {
 			return false;
 		}
 		return model.getNsURI().equals(KEY);
