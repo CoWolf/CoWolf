@@ -11,6 +11,7 @@
             name="CoWolf"/>
       <view
             allowMultiple="false"
+            category="de.uni_stuttgart.iste.cowolf.ui.navigator.category"
             class="org.eclipse.ui.navigator.CommonNavigator"
             id="de.uni_stuttgart.iste.cowolf.ui.navigator.view"
             name="CoWolf View"/>
@@ -21,8 +22,16 @@
          point="org.eclipse.ui.navigator.viewer">
       <viewerContentBinding viewerId="de.uni_stuttgart.iste.cowolf.ui.navigator.view">
          <includes>
-            <contentExtension pattern="org.eclipse.ui.navigator.resourceContent"/>
             <contentExtension pattern="org.eclipse.ui.navigator.resources.filters.*"/> 
+            <contentExtension
+                  pattern="org.eclipse.ui.navigator.resourceContent">
+            </contentExtension>
+            <contentExtension
+                  pattern="de.uni_stuttgart.iste.cowolf.ui.navigator.filters.*">
+            </contentExtension>
+            <contentExtension
+                  pattern="de.uni_stuttgart.iste.cowolf.ui.navigator.decorator.folders">
+            </contentExtension>
          </includes>
       </viewerContentBinding>
       <viewerActionBinding viewerId="de.uni_stuttgart.iste.cowolf.ui.navigator.view">
@@ -30,32 +39,32 @@
             <actionExtension pattern="org.eclipse.ui.navigator.resources.*"/>
          </includes>
       </viewerActionBinding>
-      <viewerContentBinding
-            viewerId="de.uni_stuttgart.iste.cowolf.ui.navigator.view">
-         <includes>
-            <contentExtension
-                  pattern="de.uni_stuttgart.iste.cowolf.ui.navigator.propertiesContent">
-            </contentExtension>
-         </includes>
-      </viewerContentBinding>
    </extension>
    
    <!-- Declare a simple filter example that uses core expressions -->
    <extension
          point="org.eclipse.ui.navigator.navigatorContent">
-      <navigatorContent
+      <commonFilter
             activeByDefault="true"
-            contentProvider="de.uni_stuttgart.iste.cowolf.ui.navigator.ContentProvider"
-            id="de.uni_stuttgart.iste.cowolf.ui.navigator.propertiesContent"
-            labelProvider="de.uni_stuttgart.iste.cowolf.ui.navigator.LabelProvider"
-            name="Properties File Contents"
-            priority="normal">
-         <triggerPoints>
-            <instanceof
-                  value="de.uni_stuttgart.iste.cowolf.ui.navigator.CustomProjectWorkbenchRoot">
-            </instanceof>
-         </triggerPoints>
-      </navigatorContent>
+            id="de.uni_stuttgart.iste.cowolf.ui.navigator.filters.onlyCowolf"
+            name="Hide non-Cowolf projects">
+         <filterExpression>
+            <and>
+               <not>
+                  <adapt
+                        type="org.eclipse.core.resources.IProject">
+                     <test
+                           property="org.eclipse.core.resources.projectNature"
+                           value="de.uni_stuttgart.iste.cowolf.ui.projectNature">
+                     </test>
+                  </adapt>
+               </not>
+               <instanceof
+                     value="org.eclipse.core.resources.IProject">
+               </instanceof>
+            </and>
+         </filterExpression>
+      </commonFilter>
    </extension>
   
   <!-- Phase 2 -->
