@@ -5,25 +5,54 @@
          point="org.eclipse.ui.views">
       <category
             id="de.uni_stuttgart.iste.cowolf.ui.navigator.category"
-            name="%category.name">
-      </category>
+            name="%category.name.0"/>
       <view
             allowMultiple="false"
             category="de.uni_stuttgart.iste.cowolf.ui.navigator.category"
             class="org.eclipse.ui.navigator.CommonNavigator"
-            icon="icons/logo_wulf_15x15.png"
-            id="de.uni_stuttgart.iste.cowolf.ui.navigator.navigator"
-            name="%view.name">
-      </view>
+            id="de.uni_stuttgart.iste.cowolf.ui.navigator.view"
+            name="%view.name.0"/>
    </extension>
    <extension
          point="org.eclipse.ui.navigator.viewer">
+      <viewerContentBinding viewerId="de.uni_stuttgart.iste.cowolf.ui.navigator.view">
+         <includes>
+            <contentExtension pattern="org.eclipse.ui.navigator.resources.filters.*"/> 
+            <contentExtension
+                  pattern="org.eclipse.ui.navigator.resourceContent">
+            </contentExtension>
+            <contentExtension
+                  pattern="de.uni_stuttgart.iste.cowolf.ui.navigator.filters.*">
+            </contentExtension>
+         </includes>
+      </viewerContentBinding>
+      <viewerActionBinding viewerId="de.uni_stuttgart.iste.cowolf.ui.navigator.view">
+         <includes>
+            <actionExtension pattern="org.eclipse.ui.navigator.resources.*"/>
+         </includes>
+      </viewerActionBinding>
       <viewer
-            viewerId="de.uni_stuttgart.iste.cowolf.ui.navigator.navigator">
+            viewerId="de.uni_stuttgart.iste.cowolf.ui.navigator.view">
          <popupMenu
-               id="de.uni_stuttgart.iste.cowolf.ui.navigator.navigator#PopupMenu">
+               id="de.uni_stuttgart.iste.cowolf.ui.navigator.view#PopupMenu">
             <insertionPoint
                   name="group.new"
+                  separator="true">
+            </insertionPoint>
+            <insertionPoint
+                  name="group.open"
+                  separator="true">
+            </insertionPoint>
+            <insertionPoint
+                  name="group.openWith"
+                  separator="true">
+            </insertionPoint>
+            <insertionPoint
+                  name="group.edit"
+                  separator="true">
+            </insertionPoint>
+            <insertionPoint
+                  name="group.reorganize"
                   separator="true">
             </insertionPoint>
             <insertionPoint
@@ -34,200 +63,109 @@
                   name="group.build"
                   separator="true">
             </insertionPoint>
+            <insertionPoint
+                  name="group.generate"
+                  separator="true">
+            </insertionPoint>
+            <insertionPoint
+                  name="group.search"
+                  separator="true">
+            </insertionPoint>
+            <insertionPoint
+                  name="group.additions"
+                  separator="true">
+            </insertionPoint>
+            <insertionPoint
+                  name="group.properties"
+                  separator="true">
+            </insertionPoint>
          </popupMenu>
       </viewer>
-      <viewerContentBinding
-            viewerId="de.uni_stuttgart.iste.cowolf.ui.navigator.navigator">
-         <includes>
-            <contentExtension
-                  pattern="de.uni_stuttgart.iste.cowolf.ui.navigator.navigatorContent">
-            </contentExtension>
-         </includes>
-      </viewerContentBinding>
-      <viewerActionBinding
-            viewerId="de.uni_stuttgart.iste.cowolf.ui.navigator.navigator">
-         <includes>
-            <actionExtension
-                  pattern="de.uni_stuttgart.iste.cowolf.ui.navigator.popup.actionprovider.NewAction">
-            </actionExtension>
-            <actionExtension
-                  pattern="de.uni_stuttgart.iste.cowolf.ui.navigator.popup.actionprovider.RefreshAction">
-            </actionExtension>
-            <actionExtension
-                  pattern="de.uni_stuttgart.iste.cowolf.ui.navigator.popup.actionprovider.ImportAction">
-            </actionExtension>
-            <actionExtension
-                  pattern="de.uni_stuttgart.iste.cowolf.ui.navigator.popup.actionprovider.ExportAction">
-            </actionExtension>
-         </includes>
-      </viewerActionBinding>
    </extension>
    <extension
          point="org.eclipse.ui.navigator.navigatorContent">
-      <navigatorContent
+      <commonFilter
             activeByDefault="true"
-            contentProvider="de.uni_stuttgart.iste.cowolf.ui.navigator.ContentProvider"
-            id="de.uni_stuttgart.iste.cowolf.ui.navigator.navigatorContent"
-            labelProvider="de.uni_stuttgart.iste.cowolf.ui.navigator.LabelProvider"
-            name="%navigatorContent.name">
-         <triggerPoints>
-            <instanceof
-                  value="org.eclipse.core.resources.IWorkspaceRoot">
-            </instanceof>
-         </triggerPoints>
-      </navigatorContent>
-      <actionProvider
-            class="de.uni_stuttgart.iste.cowolf.ui.navigator.actionprovider.NewActionProvider"
-            id="de.uni_stuttgart.iste.cowolf.ui.navigator.popup.actionprovider.NewAction">
-         <enablement>
-            <or>
+            id="de.uni_stuttgart.iste.cowolf.ui.navigator.filters.onlyCowolf"
+            name="%commonFilter.name">
+         <filterExpression>
+            <and>
+               <not>
+                  <adapt
+                        type="org.eclipse.core.resources.IProject">
+                     <test
+                           property="org.eclipse.core.resources.projectNature"
+                           value="de.uni_stuttgart.iste.cowolf.ui.projectNature">
+                     </test>
+                  </adapt>
+               </not>
                <instanceof
-                     value="de.uni_stuttgart.iste.cowolf.ui.navigator.ICustomProjectElement">
+                     value="org.eclipse.core.resources.IProject">
                </instanceof>
-               <adapt
-                     type="java.util.Collection">
-                  <count
-                        value="0">
-                  </count>
-               </adapt>
-            </or>
-         </enablement>
-      </actionProvider>
-      <actionProvider
-            class="de.uni_stuttgart.iste.cowolf.ui.navigator.actionprovider.ImportActionProvider"
-            id="de.uni_stuttgart.iste.cowolf.ui.navigator.popup.actionprovider.ImportAction">
-         <enablement>
-            <or>
-               <instanceof
-                     value="de.uni_stuttgart.iste.cowolf.ui.navigator.ICustomProjectElement">
-               </instanceof>
-               <adapt
-                     type="java.util.Collection">
-                  <count
-                        value="0">
-                  </count>
-               </adapt>
-            </or>
-         </enablement>
-      </actionProvider>
-      <actionProvider
-            class="de.uni_stuttgart.iste.cowolf.ui.navigator.actionprovider.RefreshActionProvider"
-            id="de.uni_stuttgart.iste.cowolf.ui.navigator.popup.actionprovider.RefreshAction">
-         <enablement>
-            <or>
-               <instanceof
-                     value="de.uni_stuttgart.iste.cowolf.ui.navigator.ICustomProjectElement">
-               </instanceof>
-               <adapt
-                     type="java.util.Collection">
-                  <count
-                        value="0">
-                  </count>
-               </adapt>
-            </or>
-         </enablement>
-      </actionProvider>
-      <actionProvider
-            class="de.uni_stuttgart.iste.cowolf.ui.navigator.actionprovider.ExportActionProvider"
-            id="de.uni_stuttgart.iste.cowolf.ui.navigator.popup.actionprovider.ExportAction">
-         <enablement>
-            <or>
-               <instanceof
-                     value="de.uni_stuttgart.iste.cowolf.ui.navigator.ICustomProjectElement">
-               </instanceof>
-               <adapt
-                     type="java.util.Collection">
-                  <count
-                        value="0">
-                  </count>
-               </adapt>
-            </or>
-         </enablement>
-      </actionProvider>
-   </extension>
-   <extension
-         point="org.eclipse.ui.commands">
-      <command
-            description="%command.description"
-            id="de.uni_stuttgart.iste.cowolf.ui.navigator.newCoWolfProject"
-            name="%command.name">
-      </command>
-      <command
-            description="%command.description.0"
-            id="de.uni_stuttgart.iste.cowolf.ui.navigator.newCoWolfFolder"
-            name="%command.name.0">
-      </command>
-      <command
-            description="%command.description.1"
-            id="de.uni_stuttgart.iste.cowolf.ui.navigator.importCoWolfProject"
-            name="%command.name.1">
-      </command>
-       <command
-             description="%command.description.2"
-             id="de.uni_stuttgart.iste.cowolf.ui.navigator.exportCoWolfProject"
-             name="%command.name.2">
-      </command>
+            </and>
+         </filterExpression>
+      </commonFilter>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
       <handler
-            class="de.uni_stuttgart.iste.cowolf.ui.navigator.handler.NewProjectHandler"
-            commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.newCoWolfProject">
+            class="de.uni_stuttgart.iste.cowolf.ui.navigator.handlers.Evolve"
+            commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.evolve">
          <enabledWhen>
+           <and>
             <with
                   variable="selection">
-               <iterate
-                     ifEmpty="true">
-                  <instanceof
-                        value="de.uni_stuttgart.iste.cowolf.ui.navigator.ICustomProjectElement">
-                  </instanceof>
-               </iterate>
+               <count
+                     value="1">
+               </count>
             </with>
-         </enabledWhen>
-      </handler>
-       <handler
-            class="de.uni_stuttgart.iste.cowolf.ui.navigator.handler.NewFolderHandler"
-            commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.newCoWolfFolder">
-         <enabledWhen>
-            <with
-                  variable="selection">
-               <iterate
-                     ifEmpty="false">
-                  <instanceof
-                        value="de.uni_stuttgart.iste.cowolf.ui.navigator.CustomProjectContainer">
-                  </instanceof>
-               </iterate>
-            </with>
+            <instanceof
+                  value="org.eclipse.emf.ecore.EcorePackage">
+            </instanceof>
+            <test
+                  property="de.uni_stuttgart.iste.cowolf.ui.navigator.propertyTester.evolve.canFoo">
+            </test>
+            </and>
          </enabledWhen>
       </handler>
       <handler
-            class="de.uni_stuttgart.iste.cowolf.ui.navigator.handler.ImportProjectHandler"
-            commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.importCoWolfProject">
-         <enabledWhen>
+            class="de.uni_stuttgart.iste.cowolf.ui.navigator.handlers.CoEvolve"
+            commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.co-evolve">
+            <enabledWhen>
+           <and>
             <with
                   variable="selection">
-               <iterate
-                     ifEmpty="true">
-                  <instanceof
-                        value="de.uni_stuttgart.iste.cowolf.ui.navigator.ICustomProjectElement">
-                  </instanceof>
-               </iterate>
+               <count
+                     value="2">
+               </count>
             </with>
+            <instanceof
+                  value="org.eclipse.emf.ecore.EcorePackage">
+            </instanceof>
+            <test
+                  property="de.uni_stuttgart.iste.cowolf.ui.navigator.propertyTester.coevolve.canFoo">
+            </test>
+            </and>
          </enabledWhen>
       </handler>
       <handler
-            class="de.uni_stuttgart.iste.cowolf.ui.navigator.handler.ExportProjectHandler"
-            commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.exportCoWolfProject">
-         <enabledWhen>
+            class="de.uni_stuttgart.iste.cowolf.ui.navigator.handlers.Analyze"
+            commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.analyze">
+            <enabledWhen>
+            <and>
             <with
                   variable="selection">
-               <iterate
-                     ifEmpty="true">
-                  <instanceof
-                        value="de.uni_stuttgart.iste.cowolf.ui.navigator.ICustomProjectElement">
-                  </instanceof>
-               </iterate>
+               <count
+                     value="1">
+               </count>
             </with>
+            <instanceof
+                  value="org.eclipse.emf.ecore.EcorePackage">
+            </instanceof>
+            <test
+                  property="de.uni_stuttgart.iste.cowolf.ui.navigator.propertyTester.analyze.canFoo">
+            </test>
+            </and>
          </enabledWhen>
       </handler>
    </extension>
@@ -235,60 +173,71 @@
          point="org.eclipse.ui.menus">
       <menuContribution
             allPopups="false"
-            locationURI="popup:common.new.menu?before=new">
-         <command
-               commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.newCoWolfFolder"
-               style="push">
-            <visibleWhen
-                  checkEnabled="true">
-            </visibleWhen>
-         </command>
-         <command
-               commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.newCoWolfProject"
-               style="push">
-            <visibleWhen
-                  checkEnabled="true">
-            </visibleWhen>
-         </command>
-      </menuContribution>
-      <menuContribution
-            allPopups="false"
-            locationURI="popup:common.port.menu?before=import">
-         <command
-               commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.importCoWolfProject"
-               style="push">
-            <visibleWhen
-                  checkEnabled="true">
-            </visibleWhen>
-         </command>
-      </menuContribution>
-       <menuContribution
-            allPopups="false"
-            locationURI="popup:common.port.menu?before=export">
-         <command
-               commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.exportCoWolfProject"
-               style="push">
-            <visibleWhen
-                  checkEnabled="true">
-            </visibleWhen>
-         </command>
+            locationURI="popup:de.uni_stuttgart.iste.cowolf.ui.navigator.view#PopupMenu?before=additions">
+         <menu
+               label="%menu.label">
+            <command
+                  commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.evolve"
+                  label="%evolve.label"
+                  style="push">
+            </command>
+            <command
+                  commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.co-evolve"
+                  label="%coevolve.label"
+                  style="push">
+            </command>
+            <command
+                  commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.analyze"
+                  label="%analyze.label"
+                  style="push">
+            </command>
+            <separator
+                  name="de.uni_stuttgart.iste.cowolf.ui.navigator.separator"
+                  visible="true">
+            </separator>
+         </menu>
       </menuContribution>
    </extension>
    <extension
-         point="org.eclipse.ui.commandImages">
-      <image
-            commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.newCoWolfProject"
-            disabledIcon="icons/logo_wulf_15x15.png"
-            icon="icons/logo_wulf_15x15.png">
-      </image>
-      <image
-            commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.importCoWolfProject"
-            icon="icons/logo_wulf_15x15.png">
-      </image>
-       <image
-            commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.exportCoWolfProject"
-            icon="icons/logo_wulf_15x15.png">
-      </image>
+         id="de.uni_stuttgart.iste.cowolf.ui.navigator.commands"
+         name="%extension.name"
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="de.uni_stuttgart.iste.cowolf.ui.navigator.handlers.Evolve"
+            id="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.evolve"
+            name="%command.evolve.name">
+      </command>
+      <command
+            id="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.co-evolve"
+            name="%command.coevolve.name">
+      </command>
+      <command
+            id="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.analyze"
+            name="%command.analyze.name">
+      </command>
    </extension>
-
+   <extension
+         point="org.eclipse.core.expressions.propertyTesters">
+      <propertyTester
+            class="de.uni_stuttgart.iste.cowolf.ui.navigator.PropertyTester.EvolutionTester"
+            id="de.uni_stuttgart.iste.cowolf.ui.navigator.propertyTester.evolution"
+            namespace="de.uni_stuttgart.iste.cowolf.ui.navigator.propertyTester.evolution"
+            properties="canFoo"
+            type="java.lang.Object">
+      </propertyTester>
+      <propertyTester
+            class="de.uni_stuttgart.iste.cowolf.ui.navigator.PropertyTester.CoEvolutionTester"
+            id="de.uni_stuttgart.iste.cowolf.ui.navigator.propertyTester.coevolution"
+            namespace="de.uni_stuttgart.iste.cowolf.ui.navigator.propertyTester.coevolution"
+            properties="canFoo"
+            type="java.lang.Object">
+      </propertyTester>
+      <propertyTester
+            class="de.uni_stuttgart.iste.cowolf.ui.navigator.PropertyTester.AnalyzeTester"
+            id="de.uni_stuttgart.iste.cowolf.ui.navigator.propertyTester.analyze"
+            namespace="de.uni_stuttgart.iste.cowolf.ui.navigator.propertyTester.analyze"
+            properties="canFoo"
+            type="java.lang.Object">
+      </propertyTester>
+   </extension>
 </plugin>

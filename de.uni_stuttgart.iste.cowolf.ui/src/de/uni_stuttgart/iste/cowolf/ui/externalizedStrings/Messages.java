@@ -14,6 +14,10 @@ public class Messages extends NLS {
 	public static String NewFolderWizard_name;
 	public static String NewFolderWizard_page_1_name;
 	public static String NewFolderWizard_title;
+	public static String ExportWizard_description;
+	public static String ExportWizard_name;
+	public static String ExportWizard_page_1_name;
+	public static String ExportWizard_title;
 	static {
 		// initialize resource bundle
 		NLS.initializeMessages(BUNDLE_NAME, Messages.class);

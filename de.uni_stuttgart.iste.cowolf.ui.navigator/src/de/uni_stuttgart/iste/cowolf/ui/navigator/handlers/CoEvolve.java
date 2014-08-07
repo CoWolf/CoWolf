@@ -1,4 +1,4 @@
-package de.uni_stuttgart.iste.cowolf.ui.navigator.handler;
+package de.uni_stuttgart.iste.cowolf.ui.navigator.handlers;
 
 import javax.swing.JOptionPane;
 
@@ -6,8 +6,9 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandler;
 import org.eclipse.core.commands.IHandlerListener;
+import de.uni_stuttgart.iste.cowolf.ui.navigator.externalizedStrings.Messages;
 
-public class ExportProjectHandler implements IHandler {
+public class CoEvolve implements IHandler {
 
 	@Override
 	public void addHandlerListener(IHandlerListener handlerListener) {
@@ -23,13 +24,13 @@ public class ExportProjectHandler implements IHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		JOptionPane.showMessageDialog(null, "Export"); //$NON-NLS-1$
+		JOptionPane.showMessageDialog(null, Messages.CoEvolve_co_evolve_menu);
+		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public boolean isEnabled() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
