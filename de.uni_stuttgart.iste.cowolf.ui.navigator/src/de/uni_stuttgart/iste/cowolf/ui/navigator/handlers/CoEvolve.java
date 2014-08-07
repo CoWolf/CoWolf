@@ -23,7 +23,7 @@ public class CoEvolve implements IHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		JOptionPane.showMessageDialog(null, "Co-Evolve");
+		JOptionPane.showMessageDialog(null, Messages.CoEvolve_co_evolve_menu);
 		// TODO Auto-generated method stub
 		return null;
 	}

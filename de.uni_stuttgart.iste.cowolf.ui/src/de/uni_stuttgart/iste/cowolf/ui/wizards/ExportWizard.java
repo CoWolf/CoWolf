@@ -10,7 +10,7 @@ import de.uni_stuttgart.iste.cowolf.ui.externalizedStrings.Messages;
 
 public class ExportWizard extends Wizard implements IExportWizard {
 
-	private static final String PAGE_NAME = "Export Wizard";
+	private static final String PAGE_NAME = Messages.ExportWizard_page_1_name;
 	private WizardNewProjectCreationPage pageOne;
 
 	public ExportWizard() {
@@ -34,8 +34,8 @@ public class ExportWizard extends Wizard implements IExportWizard {
 		super.addPages();
 
 		pageOne = new WizardNewProjectCreationPage(PAGE_NAME);
-		pageOne.setTitle(Messages.CustomNewProjectWizard_page_1_title);
-		pageOne.setDescription(Messages.CustomNewProjectWizard_page_1_description);
+		pageOne.setTitle(Messages.ExportWizard_title);
+		pageOne.setDescription(Messages.ExportWizard_description);
 
 		addPage(pageOne);
 	}

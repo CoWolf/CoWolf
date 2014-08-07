@@ -23,7 +23,7 @@ public class evolve implements IHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		JOptionPane.showMessageDialog(null, "Evolve");
+		JOptionPane.showMessageDialog(null, Messages.evolve_evolve_menu);
 		// TODO Auto-generated method stub
 		return null;
 	}
