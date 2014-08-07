@@ -7,6 +7,8 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandler;
 import org.eclipse.core.commands.IHandlerListener;
 
+import de.uni_stuttgart.iste.cowolf.ui.navigator.externalizedStrings.Messages;
+
 public class evolve implements IHandler {
 
 	@Override
@@ -23,7 +25,7 @@ public class evolve implements IHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		JOptionPane.showMessageDialog(null, Messages.evolve_evolve_menu);
+		JOptionPane.showMessageDialog(null, Messages.Evolve_evolve_menu);
 		// TODO Auto-generated method stub
 		return null;
 	}
