@@ -7,7 +7,7 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandler;
 import org.eclipse.core.commands.IHandlerListener;
 
-public class evolve implements IHandler {
+public class CoEvolve implements IHandler {
 
 	@Override
 	public void addHandlerListener(IHandlerListener handlerListener) {
@@ -23,14 +23,14 @@ public class evolve implements IHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		JOptionPane.showMessageDialog(null, "Evolve");
+		JOptionPane.showMessageDialog(null, "Co-Evolve");
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public boolean isEnabled() {
-		// TODO Check on selection
+		// TODO check selection
 		return true;
 	}
 
