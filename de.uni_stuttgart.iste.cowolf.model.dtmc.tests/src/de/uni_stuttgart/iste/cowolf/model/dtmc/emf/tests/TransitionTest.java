@@ -4,9 +4,7 @@ package de.uni_stuttgart.iste.cowolf.model.dtmc.emf.tests;
 
 import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfFactory;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.Transition;
-
 import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 /**
