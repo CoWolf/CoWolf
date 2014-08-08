@@ -42,5 +42,6 @@ public class Association {
 
 	public void setIProject(IProject iProject) {
 		this.iProject = iProject;
+
 	}
 }
