@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_dM7Lfx8DEeSzVfnzja_zGg" name="UNSET_REFERENCE_Transition_(trigger)_TGT_Event" description="Sets Transition's reference trigger the target Event">
+  <imports href="http/Statechart/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_dM7LgB8DEeSzVfnzja_zGg" name="setTransition_trigger_TO_Event" description="SetTransitionReftriggerToEvent">
+    <parameters xmi:id="_dM7LgR8DEeSzVfnzja_zGg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http/Statechart/1.0#//Transition"/>
+    </parameters>
+    <parameters xmi:id="_dM7Lgh8DEeSzVfnzja_zGg" name="NewTarget">
+      <type xsi:type="ecore:EClass" href="http/Statechart/1.0#//Event"/>
+    </parameters>
+    <lhs xmi:id="_dM7Lgx8DEeSzVfnzja_zGg" name="LHS">
+      <nodes xmi:id="_dM7LhB8DEeSzVfnzja_zGg" name="Selected" incoming="_dM7Lhx8DEeSzVfnzja_zGg" outgoing="_dM7Lhh8DEeSzVfnzja_zGg">
+        <type href="http/Statechart/1.0#//Transition"/>
+      </nodes>
+      <nodes xmi:id="_dM7LhR8DEeSzVfnzja_zGg" name="NewTarget" incoming="_dM7Lhh8DEeSzVfnzja_zGg" outgoing="_dM7Lhx8DEeSzVfnzja_zGg">
+        <type href="http/Statechart/1.0#//Event"/>
+      </nodes>
+      <edges xmi:id="_dM7Lhh8DEeSzVfnzja_zGg" source="_dM7LhB8DEeSzVfnzja_zGg" target="_dM7LhR8DEeSzVfnzja_zGg">
+        <type href="http/Statechart/1.0#//Transition/trigger"/>
+      </edges>
+      <edges xmi:id="_dM7Lhx8DEeSzVfnzja_zGg" source="_dM7LhR8DEeSzVfnzja_zGg" target="_dM7LhB8DEeSzVfnzja_zGg">
+        <type href="http/Statechart/1.0#//Event/evt_container"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_dM7LiB8DEeSzVfnzja_zGg" name="RHS">
+      <nodes xmi:id="_dM7LiR8DEeSzVfnzja_zGg" name="Selected">
+        <type href="http/Statechart/1.0#//Transition"/>
+      </nodes>
+      <nodes xmi:id="_dM7Lih8DEeSzVfnzja_zGg" name="NewTarget">
+        <type href="http/Statechart/1.0#//Event"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_dM7Lix8DEeSzVfnzja_zGg" origin="_dM7LhB8DEeSzVfnzja_zGg" image="_dM7LiR8DEeSzVfnzja_zGg"/>
+    <mappings xmi:id="_dM7LjB8DEeSzVfnzja_zGg" origin="_dM7LhR8DEeSzVfnzja_zGg" image="_dM7Lih8DEeSzVfnzja_zGg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_dM7LjR8DEeSzVfnzja_zGg" name="mainUnit" subUnits="_dM7LgB8DEeSzVfnzja_zGg">
+    <parameters xmi:id="_dM7Ljh8DEeSzVfnzja_zGg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http/Statechart/1.0#//Transition"/>
+    </parameters>
+    <parameters xmi:id="_dM7Ljx8DEeSzVfnzja_zGg" name="NewTarget">
+      <type xsi:type="ecore:EClass" href="http/Statechart/1.0#//Event"/>
+    </parameters>
+    <parameterMappings xmi:id="_dM7LkB8DEeSzVfnzja_zGg" source="_dM7Ljh8DEeSzVfnzja_zGg" target="_dM7LgR8DEeSzVfnzja_zGg"/>
+    <parameterMappings xmi:id="_dM7LkR8DEeSzVfnzja_zGg" source="_dM7Ljx8DEeSzVfnzja_zGg" target="_dM7Lgh8DEeSzVfnzja_zGg"/>
+  </units>
+</henshin:Module>

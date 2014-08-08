@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_dMo3kB8DEeSzVfnzja_zGg" name="SET_ATTRIBUTE_BooleanExpression_Value" description="Sets BooleanExpression Value">
+  <imports href="http/Statechart/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_dMo3kR8DEeSzVfnzja_zGg" name="setBooleanExpressionValue" description="Sets the EAttribute value">
+    <parameters xmi:id="_dMo3kh8DEeSzVfnzja_zGg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http/Statechart/1.0#//BooleanExpression"/>
+    </parameters>
+    <parameters xmi:id="_dMo3kx8DEeSzVfnzja_zGg" name="Value">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_dMo3lB8DEeSzVfnzja_zGg" name="Lhs">
+      <nodes xmi:id="_dMo3lR8DEeSzVfnzja_zGg" name="Selected">
+        <type href="http/Statechart/1.0#//BooleanExpression"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_dMo3lh8DEeSzVfnzja_zGg" name="Rhs">
+      <nodes xmi:id="_dMo3lx8DEeSzVfnzja_zGg" name="Selected">
+        <type href="http/Statechart/1.0#//BooleanExpression"/>
+        <attributes xmi:id="_dMo3mB8DEeSzVfnzja_zGg" value="Value">
+          <type href="http/Statechart/1.0#//BooleanExpression/value"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_dMo3mR8DEeSzVfnzja_zGg" origin="_dMo3lR8DEeSzVfnzja_zGg" image="_dMo3lx8DEeSzVfnzja_zGg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_dMo3mh8DEeSzVfnzja_zGg" name="mainUnit" subUnits="_dMo3kR8DEeSzVfnzja_zGg">
+    <parameters xmi:id="_dMo3mx8DEeSzVfnzja_zGg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http/Statechart/1.0#//BooleanExpression"/>
+    </parameters>
+    <parameterMappings xmi:id="_dMo3nB8DEeSzVfnzja_zGg" source="_dMo3mx8DEeSzVfnzja_zGg" target="_dMo3kh8DEeSzVfnzja_zGg"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_dM4IMx8DEeSzVfnzja_zGg" name="CREATE_Guard_IN_Transition_(guard)" description="Creates one Guard in Transition">
+  <imports href="http/Statechart/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_dM4INB8DEeSzVfnzja_zGg" name="createGuard_IN_Transition" description="creates one Guard in the context: Transition">
+    <parameters xmi:id="_dM4INR8DEeSzVfnzja_zGg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http/Statechart/1.0#//Transition"/>
+    </parameters>
+    <parameters xmi:id="_dM4INh8DEeSzVfnzja_zGg" name="Existing">
+      <type xsi:type="ecore:EClass" href="http/Statechart/1.0#//BooleanExpression"/>
+    </parameters>
+    <parameters xmi:id="_dM4INx8DEeSzVfnzja_zGg" name="New">
+      <type xsi:type="ecore:EClass" href="http/Statechart/1.0#//Guard"/>
+    </parameters>
+    <lhs xmi:id="_dM4IOB8DEeSzVfnzja_zGg" name="Lhs">
+      <nodes xmi:id="_dM4IOR8DEeSzVfnzja_zGg" name="Selected">
+        <type href="http/Statechart/1.0#//Transition"/>
+      </nodes>
+      <nodes xmi:id="_dM4IOh8DEeSzVfnzja_zGg" name="Existing">
+        <type href="http/Statechart/1.0#//BooleanExpression"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_dM4IOx8DEeSzVfnzja_zGg" name="Rhs">
+      <nodes xmi:id="_dM4IPB8DEeSzVfnzja_zGg" name="Selected" incoming="_dM4IQB8DEeSzVfnzja_zGg" outgoing="_dM4IPx8DEeSzVfnzja_zGg">
+        <type href="http/Statechart/1.0#//Transition"/>
+      </nodes>
+      <nodes xmi:id="_dM4IPR8DEeSzVfnzja_zGg" name="New" incoming="_dM4IPx8DEeSzVfnzja_zGg" outgoing="_dM4IQB8DEeSzVfnzja_zGg _dM4IQR8DEeSzVfnzja_zGg">
+        <type href="http/Statechart/1.0#//Guard"/>
+      </nodes>
+      <nodes xmi:id="_dM4IPh8DEeSzVfnzja_zGg" name="Existing" incoming="_dM4IQR8DEeSzVfnzja_zGg">
+        <type href="http/Statechart/1.0#//BooleanExpression"/>
+      </nodes>
+      <edges xmi:id="_dM4IPx8DEeSzVfnzja_zGg" source="_dM4IPB8DEeSzVfnzja_zGg" target="_dM4IPR8DEeSzVfnzja_zGg">
+        <type href="http/Statechart/1.0#//Transition/guard"/>
+      </edges>
+      <edges xmi:id="_dM4IQB8DEeSzVfnzja_zGg" source="_dM4IPR8DEeSzVfnzja_zGg" target="_dM4IPB8DEeSzVfnzja_zGg">
+        <type href="http/Statechart/1.0#//Guard/gua_container"/>
+      </edges>
+      <edges xmi:id="_dM4IQR8DEeSzVfnzja_zGg" source="_dM4IPR8DEeSzVfnzja_zGg" target="_dM4IPh8DEeSzVfnzja_zGg">
+        <type href="http/Statechart/1.0#//Guard/expression"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_dM4IQh8DEeSzVfnzja_zGg" origin="_dM4IOR8DEeSzVfnzja_zGg" image="_dM4IPB8DEeSzVfnzja_zGg"/>
+    <mappings xmi:id="_dM4IQx8DEeSzVfnzja_zGg" origin="_dM4IOh8DEeSzVfnzja_zGg" image="_dM4IPh8DEeSzVfnzja_zGg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_dM4IRB8DEeSzVfnzja_zGg" name="mainUnit" subUnits="_dM4INB8DEeSzVfnzja_zGg">
+    <parameters xmi:id="_dM4IRR8DEeSzVfnzja_zGg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http/Statechart/1.0#//Transition"/>
+    </parameters>
+    <parameters xmi:id="_dM4IRh8DEeSzVfnzja_zGg" name="Existing">
+      <type xsi:type="ecore:EClass" href="http/Statechart/1.0#//BooleanExpression"/>
+    </parameters>
+    <parameters xmi:id="_dM4IRx8DEeSzVfnzja_zGg" name="New">
+      <type xsi:type="ecore:EClass" href="http/Statechart/1.0#//Guard"/>
+    </parameters>
+    <parameterMappings xmi:id="_dM4ISB8DEeSzVfnzja_zGg" source="_dM4IRR8DEeSzVfnzja_zGg" target="_dM4INR8DEeSzVfnzja_zGg"/>
+    <parameterMappings xmi:id="_dM4vMB8DEeSzVfnzja_zGg" source="_dM4IRh8DEeSzVfnzja_zGg" target="_dM4INh8DEeSzVfnzja_zGg"/>
+    <parameterMappings xmi:id="_dM4vMR8DEeSzVfnzja_zGg" source="_dM4INx8DEeSzVfnzja_zGg" target="_dM4IRx8DEeSzVfnzja_zGg"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_dMtwHR8DEeSzVfnzja_zGg" name="MOVE_REF_COMBI_CompositeState_FROM_CompositeState_(subVertexes)_TO_StateMachine_(top)" description="MOVEs CompositeState from CompositeState(Reference:subVertexes) to StateMachine(Reference:top">
+  <imports href="http/Statechart/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_dMtwHh8DEeSzVfnzja_zGg" name="moveCompositeState_FROM_CompositeState_subVertexes_TO_StateMachine_StateMachine" description="Moves CompositeState from CompositeState(Reference:subVertexes) toStateMachine(Reference:StateMachine)">
+    <parameters xmi:id="_dMtwHx8DEeSzVfnzja_zGg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http/Statechart/1.0#//CompositeState"/>
+    </parameters>
+    <parameters xmi:id="_dMtwIB8DEeSzVfnzja_zGg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http/Statechart/1.0#//CompositeState"/>
+    </parameters>
+    <parameters xmi:id="_dMtwIR8DEeSzVfnzja_zGg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http/Statechart/1.0#//StateMachine"/>
+    </parameters>
+    <lhs xmi:id="_dMtwIh8DEeSzVfnzja_zGg" name="Lhs">
+      <nodes xmi:id="_dMtwIx8DEeSzVfnzja_zGg" name="Selected" incoming="_dMtwJh8DEeSzVfnzja_zGg" outgoing="_dMtwJx8DEeSzVfnzja_zGg">
+        <type href="http/Statechart/1.0#//CompositeState"/>
+      </nodes>
+      <nodes xmi:id="_dMtwJB8DEeSzVfnzja_zGg" name="OldSource" incoming="_dMtwJx8DEeSzVfnzja_zGg" outgoing="_dMtwJh8DEeSzVfnzja_zGg">
+        <type href="http/Statechart/1.0#//CompositeState"/>
+      </nodes>
+      <nodes xmi:id="_dMtwJR8DEeSzVfnzja_zGg" name="NewSource">
+        <type href="http/Statechart/1.0#//StateMachine"/>
+      </nodes>
+      <edges xmi:id="_dMtwJh8DEeSzVfnzja_zGg" source="_dMtwJB8DEeSzVfnzja_zGg" target="_dMtwIx8DEeSzVfnzja_zGg">
+        <type href="http/Statechart/1.0#//CompositeState/subVertexes"/>
+      </edges>
+      <edges xmi:id="_dMtwJx8DEeSzVfnzja_zGg" source="_dMtwIx8DEeSzVfnzja_zGg" target="_dMtwJB8DEeSzVfnzja_zGg">
+        <type href="http/Statechart/1.0#//StateVertex/sv_container"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_dMtwKB8DEeSzVfnzja_zGg" name="Rhs">
+      <nodes xmi:id="_dMtwKR8DEeSzVfnzja_zGg" name="Selected" incoming="_dMtwLB8DEeSzVfnzja_zGg" outgoing="_dMtwLR8DEeSzVfnzja_zGg">
+        <type href="http/Statechart/1.0#//CompositeState"/>
+      </nodes>
+      <nodes xmi:id="_dMtwKh8DEeSzVfnzja_zGg" name="OldSource">
+        <type href="http/Statechart/1.0#//CompositeState"/>
+      </nodes>
+      <nodes xmi:id="_dMtwKx8DEeSzVfnzja_zGg" name="NewSource" incoming="_dMtwLR8DEeSzVfnzja_zGg" outgoing="_dMtwLB8DEeSzVfnzja_zGg">
+        <type href="http/Statechart/1.0#//StateMachine"/>
+      </nodes>
+      <edges xmi:id="_dMtwLB8DEeSzVfnzja_zGg" source="_dMtwKx8DEeSzVfnzja_zGg" target="_dMtwKR8DEeSzVfnzja_zGg">
+        <type href="http/Statechart/1.0#//StateMachine/top"/>
+      </edges>
+      <edges xmi:id="_dMtwLR8DEeSzVfnzja_zGg" source="_dMtwKR8DEeSzVfnzja_zGg" target="_dMtwKx8DEeSzVfnzja_zGg">
+        <type href="http/Statechart/1.0#//State/state_container"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_dMtwLh8DEeSzVfnzja_zGg" origin="_dMtwIx8DEeSzVfnzja_zGg" image="_dMtwKR8DEeSzVfnzja_zGg"/>
+    <mappings xmi:id="_dMtwLx8DEeSzVfnzja_zGg" origin="_dMtwJB8DEeSzVfnzja_zGg" image="_dMtwKh8DEeSzVfnzja_zGg"/>
+    <mappings xmi:id="_dMtwMB8DEeSzVfnzja_zGg" origin="_dMtwJR8DEeSzVfnzja_zGg" image="_dMtwKx8DEeSzVfnzja_zGg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_dMtwMR8DEeSzVfnzja_zGg" name="mainUnit" subUnits="_dMtwHh8DEeSzVfnzja_zGg">
+    <parameters xmi:id="_dMtwMh8DEeSzVfnzja_zGg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http/Statechart/1.0#//CompositeState"/>
+    </parameters>
+    <parameters xmi:id="_dMtwMx8DEeSzVfnzja_zGg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http/Statechart/1.0#//CompositeState"/>
+    </parameters>
+    <parameters xmi:id="_dMtwNB8DEeSzVfnzja_zGg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http/Statechart/1.0#//StateMachine"/>
+    </parameters>
+    <parameterMappings xmi:id="_dMtwNR8DEeSzVfnzja_zGg" source="_dMtwMh8DEeSzVfnzja_zGg" target="_dMtwHx8DEeSzVfnzja_zGg"/>
+    <parameterMappings xmi:id="_dMtwNh8DEeSzVfnzja_zGg" source="_dMtwMx8DEeSzVfnzja_zGg" target="_dMtwIB8DEeSzVfnzja_zGg"/>
+    <parameterMappings xmi:id="_dMtwNx8DEeSzVfnzja_zGg" source="_dMtwNB8DEeSzVfnzja_zGg" target="_dMtwIR8DEeSzVfnzja_zGg"/>
+  </units>
+</henshin:Module>

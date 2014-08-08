@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_dMTgYB8DEeSzVfnzja_zGg" name="CHANGE_REFERENCE_Transition_(target)_TGT_StateVertex" description="CHANGEs Transition's reference target the target StateVertex">
+  <imports href="http/Statechart/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_dMTgYR8DEeSzVfnzja_zGg" name="changeTransition_target_TO_StateVertex" description="Change the EReference target">
+    <parameters xmi:id="_dMTgYh8DEeSzVfnzja_zGg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http/Statechart/1.0#//Transition"/>
+    </parameters>
+    <parameters xmi:id="_dMTgYx8DEeSzVfnzja_zGg" name="OldTarget">
+      <type xsi:type="ecore:EClass" href="http/Statechart/1.0#//StateVertex"/>
+    </parameters>
+    <parameters xmi:id="_dMTgZB8DEeSzVfnzja_zGg" name="NewTarget">
+      <type xsi:type="ecore:EClass" href="http/Statechart/1.0#//StateVertex"/>
+    </parameters>
+    <lhs xmi:id="_dMTgZR8DEeSzVfnzja_zGg" name="Lhs">
+      <nodes xmi:id="_dMTgZh8DEeSzVfnzja_zGg" name="Selected" incoming="_dMTgah8DEeSzVfnzja_zGg" outgoing="_dMTgaR8DEeSzVfnzja_zGg">
+        <type href="http/Statechart/1.0#//Transition"/>
+      </nodes>
+      <nodes xmi:id="_dMTgZx8DEeSzVfnzja_zGg" name="OldTarget" incoming="_dMTgaR8DEeSzVfnzja_zGg" outgoing="_dMTgah8DEeSzVfnzja_zGg">
+        <type href="http/Statechart/1.0#//StateVertex"/>
+      </nodes>
+      <nodes xmi:id="_dMTgaB8DEeSzVfnzja_zGg" name="NewTarget">
+        <type href="http/Statechart/1.0#//StateVertex"/>
+      </nodes>
+      <edges xmi:id="_dMTgaR8DEeSzVfnzja_zGg" source="_dMTgZh8DEeSzVfnzja_zGg" target="_dMTgZx8DEeSzVfnzja_zGg">
+        <type href="http/Statechart/1.0#//Transition/target"/>
+      </edges>
+      <edges xmi:id="_dMTgah8DEeSzVfnzja_zGg" source="_dMTgZx8DEeSzVfnzja_zGg" target="_dMTgZh8DEeSzVfnzja_zGg">
+        <type href="http/Statechart/1.0#//StateVertex/incoming"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_dMTgax8DEeSzVfnzja_zGg" name="Rhs">
+      <nodes xmi:id="_dMTgbB8DEeSzVfnzja_zGg" name="Selected" incoming="_dMTgcB8DEeSzVfnzja_zGg" outgoing="_dMTgbx8DEeSzVfnzja_zGg">
+        <type href="http/Statechart/1.0#//Transition"/>
+      </nodes>
+      <nodes xmi:id="_dMTgbR8DEeSzVfnzja_zGg" name="OldTarget">
+        <type href="http/Statechart/1.0#//StateVertex"/>
+      </nodes>
+      <nodes xmi:id="_dMTgbh8DEeSzVfnzja_zGg" name="NewTarget" incoming="_dMTgbx8DEeSzVfnzja_zGg" outgoing="_dMTgcB8DEeSzVfnzja_zGg">
+        <type href="http/Statechart/1.0#//StateVertex"/>
+      </nodes>
+      <edges xmi:id="_dMTgbx8DEeSzVfnzja_zGg" source="_dMTgbB8DEeSzVfnzja_zGg" target="_dMTgbh8DEeSzVfnzja_zGg">
+        <type href="http/Statechart/1.0#//Transition/target"/>
+      </edges>
+      <edges xmi:id="_dMTgcB8DEeSzVfnzja_zGg" source="_dMTgbh8DEeSzVfnzja_zGg" target="_dMTgbB8DEeSzVfnzja_zGg">
+        <type href="http/Statechart/1.0#//StateVertex/incoming"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_dMTgcR8DEeSzVfnzja_zGg" origin="_dMTgZh8DEeSzVfnzja_zGg" image="_dMTgbB8DEeSzVfnzja_zGg"/>
+    <mappings xmi:id="_dMTgch8DEeSzVfnzja_zGg" origin="_dMTgZx8DEeSzVfnzja_zGg" image="_dMTgbR8DEeSzVfnzja_zGg"/>
+    <mappings xmi:id="_dMTgcx8DEeSzVfnzja_zGg" origin="_dMTgaB8DEeSzVfnzja_zGg" image="_dMTgbh8DEeSzVfnzja_zGg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_dMTgdB8DEeSzVfnzja_zGg" name="mainUnit" subUnits="_dMTgYR8DEeSzVfnzja_zGg">
+    <parameters xmi:id="_dMTgdR8DEeSzVfnzja_zGg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http/Statechart/1.0#//Transition"/>
+    </parameters>
+    <parameters xmi:id="_dMTgdh8DEeSzVfnzja_zGg" name="OldTarget">
+      <type xsi:type="ecore:EClass" href="http/Statechart/1.0#//StateVertex"/>
+    </parameters>
+    <parameters xmi:id="_dMTgdx8DEeSzVfnzja_zGg" name="NewTarget">
+      <type xsi:type="ecore:EClass" href="http/Statechart/1.0#//StateVertex"/>
+    </parameters>
+    <parameterMappings xmi:id="_dMTgeB8DEeSzVfnzja_zGg" source="_dMTgdR8DEeSzVfnzja_zGg" target="_dMTgYh8DEeSzVfnzja_zGg"/>
+    <parameterMappings xmi:id="_dMTgeR8DEeSzVfnzja_zGg" source="_dMTgdh8DEeSzVfnzja_zGg" target="_dMTgYx8DEeSzVfnzja_zGg"/>
+    <parameterMappings xmi:id="_dMTgeh8DEeSzVfnzja_zGg" source="_dMTgdx8DEeSzVfnzja_zGg" target="_dMTgZB8DEeSzVfnzja_zGg"/>
+  </units>
+</henshin:Module>

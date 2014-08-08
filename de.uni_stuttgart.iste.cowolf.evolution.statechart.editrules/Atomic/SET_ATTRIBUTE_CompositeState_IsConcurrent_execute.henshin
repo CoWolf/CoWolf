@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_dMtwEB8DEeSzVfnzja_zGg" name="SET_ATTRIBUTE_CompositeState_IsConcurrent" description="Sets CompositeState IsConcurrent">
+  <imports href="http/Statechart/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_dMtwER8DEeSzVfnzja_zGg" name="setCompositeStateIsConcurrent" description="Sets the EAttribute isConcurrent">
+    <parameters xmi:id="_dMtwEh8DEeSzVfnzja_zGg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http/Statechart/1.0#//CompositeState"/>
+    </parameters>
+    <parameters xmi:id="_dMtwEx8DEeSzVfnzja_zGg" name="IsConcurrent">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </parameters>
+    <lhs xmi:id="_dMtwFB8DEeSzVfnzja_zGg" name="Lhs">
+      <nodes xmi:id="_dMtwFR8DEeSzVfnzja_zGg" name="Selected">
+        <type href="http/Statechart/1.0#//CompositeState"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_dMtwFh8DEeSzVfnzja_zGg" name="Rhs">
+      <nodes xmi:id="_dMtwFx8DEeSzVfnzja_zGg" name="Selected">
+        <type href="http/Statechart/1.0#//CompositeState"/>
+        <attributes xmi:id="_dMtwGB8DEeSzVfnzja_zGg" value="IsConcurrent">
+          <type href="http/Statechart/1.0#//CompositeState/isConcurrent"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_dMtwGR8DEeSzVfnzja_zGg" origin="_dMtwFR8DEeSzVfnzja_zGg" image="_dMtwFx8DEeSzVfnzja_zGg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_dMtwGh8DEeSzVfnzja_zGg" name="mainUnit" subUnits="_dMtwER8DEeSzVfnzja_zGg">
+    <parameters xmi:id="_dMtwGx8DEeSzVfnzja_zGg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http/Statechart/1.0#//CompositeState"/>
+    </parameters>
+    <parameterMappings xmi:id="_dMtwHB8DEeSzVfnzja_zGg" source="_dMtwGx8DEeSzVfnzja_zGg" target="_dMtwEh8DEeSzVfnzja_zGg"/>
+  </units>
+</henshin:Module>
