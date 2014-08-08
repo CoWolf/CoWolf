@@ -25,21 +25,20 @@ public class EvolutionTester extends PropertyTester {
 	}
 
 	@Override
-	public boolean test(Object receiver, String property, Object[] args,
-			Object expectedValue) {
+	public boolean test(final Object receiver, final String property, final Object[] args,
+			final Object expectedValue) {
 		ExtensionHandler extensionHandler = new ExtensionHandler();
 
 		IWorkbenchWindow window = PlatformUI.getWorkbench()
 				.getActiveWorkbenchWindow();
-		IStructuredSelection selection = (IStructuredSelection) window
-				.getSelectionService().getSelection();
+		IStructuredSelection selection = (IStructuredSelection) window.getSelectionService().getSelection();
 
 		Object selectedElement = selection.getFirstElement();
 
 		// catch exceptions from wrong parsing as we can only recognize IFiles
 		try {
 			// file then try to parse
-			if (selectedElement instanceof IFile) {
+			if (selectedElement != null && selectedElement instanceof IFile) {
 				IFile iFile = (IFile) selectedElement;
 				File file = iFile.getLocation().toFile();
 

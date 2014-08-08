@@ -3,7 +3,6 @@ package de.uni_stuttgart.iste.cowolf.model.dtmc;
 import java.util.Map;
 
 import org.eclipse.core.runtime.jobs.Job;
-import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 
 import de.uni_stuttgart.iste.cowolf.model.IQoSModelManager;
@@ -23,7 +22,7 @@ public class DTMCModelManager implements IQoSModelManager {
 	}
 
 	@Override
-	public String certificate(final EPackage model, final Map<String, Object> parameters) {
+	public String analyse(final Resource model, final Map<String, Object> parameters) {
 
 		// TODO Add return values
 		final DTMCAnalyzeJob job = new DTMCAnalyzeJob(model, parameters);

@@ -6,21 +6,21 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
-import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.resource.Resource;
 
 public class DTMCAnalyzeJob extends Job {
 
-	private final EPackage model;
+	private final Resource model;
 	private final Map<String, Object> parameters;
 
-	public DTMCAnalyzeJob(EPackage model, Map<String, Object> parameters) {
+	public DTMCAnalyzeJob(final Resource model, final Map<String, Object> parameters) {
 		super("DTMC Analyse");
 		this.model = model;
 		this.parameters = parameters;
 	}
 
 	@Override
-	protected IStatus run(IProgressMonitor monitor) {
+	protected IStatus run(final IProgressMonitor monitor) {
 		//TODO use parameters to do the job
 		monitor.beginTask("Analyse DTMC", 1000);
 		try {
