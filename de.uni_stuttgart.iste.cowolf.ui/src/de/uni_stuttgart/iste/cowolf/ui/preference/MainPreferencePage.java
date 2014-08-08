@@ -1,10 +1,10 @@
-package de.uni_stuttgart.iste.cowolf.core.preference;
+package de.uni_stuttgart.iste.cowolf.ui.preference;
 
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
 
-import de.uni_stuttgart.iste.cowolf.core.Activator;
+import de.uni_stuttgart.iste.cowolf.ui.Activator;
 
 public class MainPreferencePage extends FieldEditorPreferencePage implements
 		IWorkbenchPreferencePage {

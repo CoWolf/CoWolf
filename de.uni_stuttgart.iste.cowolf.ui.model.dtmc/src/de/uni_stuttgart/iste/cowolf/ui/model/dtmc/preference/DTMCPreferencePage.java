@@ -1,11 +1,11 @@
-package de.uni_stuttgart.iste.cowolf.model.dtmc.preference;
+package de.uni_stuttgart.iste.cowolf.ui.model.dtmc.preference;
 
 import org.eclipse.jface.preference.DirectoryFieldEditor;
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
 
-import de.uni_stuttgart.iste.cowolf.model.Activator;
+import de.uni_stuttgart.iste.cowolf.ui.model.dtmc.Activator;
 
 public class DTMCPreferencePage extends FieldEditorPreferencePage implements
 		IWorkbenchPreferencePage {

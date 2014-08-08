@@ -4,9 +4,11 @@ import java.util.Map;
 
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.resource.Resource;
 
 import de.uni_stuttgart.iste.cowolf.model.IQoSModelManager;
 import de.uni_stuttgart.iste.cowolf.model.ModelTypeInfo;
+import de.uni_stuttgart.iste.cowolf.model.dtmc.analyze.DTMCAnalyzeJob;
 
 public class DTMCModelManager implements IQoSModelManager {
 
@@ -21,18 +23,19 @@ public class DTMCModelManager implements IQoSModelManager {
 	}
 
 	@Override
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public String certificate(EPackage model, Map<String, Object> parameters) {
+	public String certificate(final EPackage model, final Map<String, Object> parameters) {
 
 		// TODO Add return values
-		final DTMCAnalyseJob job = new DTMCAnalyseJob(model, parameters);
+		final DTMCAnalyzeJob job = new DTMCAnalyzeJob(model, parameters);
 		job.setPriority(Job.LONG);
 		job.schedule();
 		return null;
+	}
+
+	@Override
+	public boolean isManaged(final Resource model) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }
