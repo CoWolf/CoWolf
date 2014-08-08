@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.uni_stuttgart.iste.cowolf.model.statechart/src"
+    editDirectory="/de.uni_stuttgart.iste.cowolf.model.statechartemf.edit/src" editorDirectory="/de.uni_stuttgart.iste.cowolf.model.statechartemf.editor/src"
+    modelPluginID="de.uni_stuttgart.iste.cowolf.model.statechart" modelName="Statechart"
+    editPluginClass="de.uni_stuttgart.iste.cowolf.model.statechart.Statechartemf.provider.StatechartEditPlugin"
+    editorPluginClass="de.uni_stuttgart.iste.cowolf.model.statechartemf.Statechart.presentation.StatechartEditorPlugin"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" testsDirectory="/de.uni_stuttgart.iste.cowolf.model.statechartemf.tests/src"
+    testSuiteClass="de.uni_stuttgart.iste.cowolf.model.statechart.Statechartemf.tests.StatechartAllTests"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    editPluginID="de.uni_stuttgart.iste.cowolf.model.statechartemf.edit" editorPluginID="de.uni_stuttgart.iste.cowolf.model.statechartemf.editor"
+    testsPluginID="de.uni_stuttgart.iste.cowolf.model.statechartemf.tests" operationReflection="true"
+    importOrganizing="true">
+  <foreignModel>statechart.ecore</foreignModel>
+  <genPackages prefix="Statechartemf" basePackage="de.uni_stuttgart.iste.cowolf.model.statechart"
+      disposableProviderFactory="true" ecorePackage="statechart.ecore#/">
+    <genClasses ecoreClass="statechart.ecore#//BooleanExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute statechart.ecore#//BooleanExpression/value"/>
+    </genClasses>
+    <genClasses ecoreClass="statechart.ecore#//StateMachine">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference statechart.ecore#//StateMachine/transitions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference statechart.ecore#//StateMachine/top"/>
+    </genClasses>
+    <genClasses ecoreClass="statechart.ecore#//State">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference statechart.ecore#//State/state_container"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference statechart.ecore#//State/internalTransitions"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference statechart.ecore#//State/deferrableEvents"/>
+    </genClasses>
+    <genClasses ecoreClass="statechart.ecore#//CompositeState">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference statechart.ecore#//CompositeState/subVertexes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute statechart.ecore#//CompositeState/isConcurrent"/>
+    </genClasses>
+    <genClasses ecoreClass="statechart.ecore#//Transition">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference statechart.ecore#//Transition/transSM_container"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference statechart.ecore#//Transition/transS_container"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference statechart.ecore#//Transition/trigger"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference statechart.ecore#//Transition/guard"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference statechart.ecore#//Transition/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference statechart.ecore#//Transition/target"/>
+    </genClasses>
+    <genClasses ecoreClass="statechart.ecore#//StateVertex">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference statechart.ecore#//StateVertex/sv_container"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference statechart.ecore#//StateVertex/outgoing"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference statechart.ecore#//StateVertex/incoming"/>
+    </genClasses>
+    <genClasses ecoreClass="statechart.ecore#//Guard">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference statechart.ecore#//Guard/gua_container"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference statechart.ecore#//Guard/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="statechart.ecore#//Event">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference statechart.ecore#//Event/evt_container"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference statechart.ecore#//Event/targets"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
