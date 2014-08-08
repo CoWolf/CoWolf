@@ -3,6 +3,7 @@ package de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.resource.Resource;
 
 import de.uni_stuttgart.iste.cowolf.evolution.ModelOperation;
 import de.uni_stuttgart.iste.cowolf.transformation.AbstractTransformationManager;
@@ -12,7 +13,7 @@ public class DTMCStatechartTransformationManager extends
 		AbstractTransformationManager {
 
 	@Override
-	public boolean isManaged(EPackage source, EPackage target) {
+	public boolean isManaged(Resource source, Resource target) {
 		// TODO Auto-generated method stub
 		return false;
 	}
