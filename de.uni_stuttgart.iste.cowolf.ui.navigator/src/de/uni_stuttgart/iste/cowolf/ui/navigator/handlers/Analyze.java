@@ -60,7 +60,7 @@ public class Analyze implements IHandler {
 				HashMap<String, Object> properties = new HashMap<String, Object>();
 				//TODO call UI to define Properties
 
-				qosModelManager.analyse(resource, properties);
+				qosModelManager.analyze(resource, properties);
 			}
 		}
 
