@@ -3,7 +3,7 @@ package de.uni_stuttgart.iste.cowolf.ui.navigator.PropertyTester;
 import java.util.List;
 
 import org.eclipse.core.expressions.PropertyTester;
-import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
@@ -31,17 +31,17 @@ public class CoEvolutionTester extends PropertyTester {
 		Object firstElement = list.get(0);
 		Object secondElement = list.get(1);
 		AbstractTransformationManager modelManager1 = extensionHandler
-				.getTransformationManager((EPackage) firstElement,
-						(EPackage) secondElement);
+				.getTransformationManager((Resource) firstElement,
+						(Resource) secondElement);
 		AbstractTransformationManager modelManager2 = extensionHandler
-				.getTransformationManager((EPackage) secondElement,
-						(EPackage) firstElement);
+				.getTransformationManager((Resource) secondElement,
+						(Resource) firstElement);
 
 		// must find model manager
 		if (modelManager1 != null || modelManager2 != null) {
 			return true;
 		} else {
-			return false;
+			return true;
 		}
 	}
 
