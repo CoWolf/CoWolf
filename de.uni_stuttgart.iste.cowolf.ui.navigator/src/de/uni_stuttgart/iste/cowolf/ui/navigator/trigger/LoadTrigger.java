@@ -2,11 +2,13 @@ package de.uni_stuttgart.iste.cowolf.ui.navigator.trigger;
 
 import org.eclipse.ui.IStartup;
 
-public class DummyTrigger implements IStartup {
+
+public class LoadTrigger implements IStartup {
 
 	@Override
 	public void earlyStartup() {
-		// TODO Auto-generated method stub
+
+		de.uni_stuttgart.iste.cowolf.core.ModelAssociationManager.ModelAssociationManager.load();
 
 	}
 
