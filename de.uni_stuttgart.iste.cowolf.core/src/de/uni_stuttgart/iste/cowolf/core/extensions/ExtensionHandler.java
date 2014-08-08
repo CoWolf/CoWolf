@@ -8,6 +8,7 @@ import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.resource.Resource;
 
 import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
 import de.uni_stuttgart.iste.cowolf.model.IArchitectureModelManager;
@@ -158,7 +159,7 @@ public class ExtensionHandler {
 	 * @param model model to search for a manager.
 	 * @return IModelManager, which can handle this model or null if none is defined or installed.
 	 */
-	public AbstractEvolutionManager getEvolutionManager(EPackage model) {
+	public AbstractEvolutionManager getEvolutionManager(Resource model) {
 		for (final AbstractEvolutionManager manager : this.evolutionManagers) {
 			if (manager.isManaged(model)) {
 				return manager;
