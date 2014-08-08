@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.sidiff.difference.technical.TechnicalDifferenceBuilder;
 import org.silift.common.util.access.EMFModelAccessEx;
 
-import de.uni_stuttgart.ieste.cowolf.model.Statechart.statchartemfPackage;
+import de.uni_stuttgart.iste.cowolf.model.statechart.Statechart.StatechartemfPackage;
 
 /**
  * To filter not needed stuff. Nothing filtered here.
@@ -49,8 +49,8 @@ public class TechnicalDifferenceBuilderStatechart extends
 	@Override
 	protected void checkDocumentType(Resource model) {
 		String docType = EMFModelAccessEx.getCharacteristicDocumentType(model);
-		assert (docType == statchartemfPackage.eNS_URI) : "Wrong document type: Expected "
-				+ statchartemfPackage.eNS_URI + " but got " + docType;
+		assert (docType == StatechartemfPackage.eNS_URI) : "Wrong document type: Expected "
+				+ StatechartemfPackage.eNS_URI + " but got " + docType;
 	}
 
 	@Override
@@ -60,7 +60,7 @@ public class TechnicalDifferenceBuilderStatechart extends
 
 	@Override
 	public String getDocumentType() {
-		return statchartemfPackage.eNS_URI;
+		return StatechartemfPackage.eNS_URI;
 	}
 
 	@Override
