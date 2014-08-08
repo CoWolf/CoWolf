@@ -22,7 +22,7 @@ public class DTMCModelManager implements IQoSModelManager {
 	}
 
 	@Override
-	public String analyse(final Resource model, final Map<String, Object> parameters) {
+	public String analyze(final Resource model, final Map<String, Object> parameters) {
 
 		// TODO Add return values
 		final DTMCAnalyzeJob job = new DTMCAnalyzeJob(model, parameters);
