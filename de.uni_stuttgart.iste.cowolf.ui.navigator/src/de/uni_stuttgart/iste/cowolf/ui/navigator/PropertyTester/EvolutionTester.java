@@ -2,6 +2,7 @@ package de.uni_stuttgart.iste.cowolf.ui.navigator.PropertyTester;
 
 import org.eclipse.core.expressions.PropertyTester;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
@@ -27,7 +28,7 @@ public class EvolutionTester extends PropertyTester {
 
 		Object selectedElement = selection.getFirstElement();
 		AbstractEvolutionManager modelManager = extensionHandler
-				.getEvolutionManager((EPackage) selectedElement);
+				.getEvolutionManager((Resource) selectedElement);
 
 		// must find model manager
 		if (modelManager != null) {
