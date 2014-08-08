@@ -1,6 +1,5 @@
 package de.uni_stuttgart.iste.cowolf.model.statechart.tests;
 
-
 public class StatechartModelManagerTest {
 /*
 	Resource res;
