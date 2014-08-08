@@ -5,7 +5,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.logging.Logger;
 
-import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.sidiff.common.emf.exceptions.InvalidModelException;
 import org.sidiff.difference.lifting.facade.LiftingFacade;
@@ -39,7 +38,7 @@ public abstract class AbstractEvolutionManager {
 	 * @param model
 	 * @return true if it is able to handle model.
 	 */
-	public abstract boolean isManaged(EPackage model);
+	public abstract boolean isManaged(Resource model);
 
 	/**
 	 * This method handles the evolution between two models of the same class.
@@ -51,21 +50,18 @@ public abstract class AbstractEvolutionManager {
 	 *            new model for comparison
 	 * @return differences between two models.
 	 */
-	public SymmetricDifference evolve(EPackage oldModel, EPackage newModel) {
+	public SymmetricDifference evolve(Resource oldModel, Resource newModel) {
 		if (!this.isManaged(oldModel) || !this.isManaged(newModel)) {
 			// TODO: return value?
 			Logger.getLogger("evolution").warning("Model can not be handled by evolution");
 			return null;
 		}
 		// do required pre-computing work
-		Resource oldResource = oldModel.eResource();
-		Resource newResource = newModel.eResource();
-		String documentType = EMFModelAccessEx
-				.getCharacteristicDocumentType(oldResource);
+		String documentType = EMFModelAccessEx.getCharacteristicDocumentType(oldModel);
 		LiftingSettings settings = this.getDefaultSettings(documentType,
-				oldResource, newResource);
+				oldModel, newModel);
 		try {
-			return LiftingFacade.liftMeUp(oldResource, newResource, settings);
+			return LiftingFacade.liftMeUp(oldModel, newModel, settings);
 		} catch (NoCorrespondencesException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
