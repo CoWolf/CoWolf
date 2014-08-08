@@ -24,5 +24,4 @@ public class StatechartEvolutionManager extends AbstractEvolutionManager {
 		// TODO Auto-generated method stub
 		return info;
 	}
-
 }
