@@ -3,6 +3,7 @@ package de.uni_stuttgart.iste.cowolf.evolution;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.logging.Logger;
 
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -53,6 +54,7 @@ public abstract class AbstractEvolutionManager {
 	public SymmetricDifference evolve(EPackage oldModel, EPackage newModel) {
 		if (!this.isManaged(oldModel) || !this.isManaged(newModel)) {
 			// TODO: return value?
+			Logger.getLogger("evolution").warning("Model can not be handled by evolution");
 			return null;
 		}
 		// do required pre-computing work

@@ -2,19 +2,17 @@ package de.uni_stuttgart.iste.cowolf.evolution.statechart;
 
 import org.eclipse.emf.ecore.EPackage;
 
+import de.uni_stuttgart.ieste.cowolf.model.Statechart.statchartemfPackage;
 import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
 import de.uni_stuttgart.iste.cowolf.evolution.EvolutionTypeInfo;
 
-public class StatechartEvolutionManager extends AbstractEvolutionManager {
-
-	public final static String KEY = "http/Statechart/1.0";
-
+public class StatechartEvolutionManager extends AbstractEvolutionManager {	
 	@Override
 	public boolean isManaged(EPackage model) {
-		if (model.getNsURI() == null) {
+		if(model == null || model.getNsURI() == null) {
 			return false;
 		}
-		return model.getNsURI().equals(KEY);
+		return model.getNsURI().equals(statchartemfPackage.eINSTANCE.getNsURI());
 	}
 
 	@Override
