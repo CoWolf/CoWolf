@@ -1,7 +1,8 @@
 package de.uni_stuttgart.iste.cowolf.ui.navigator.PropertyTester;
 
+import java.util.List;
+
 import org.eclipse.core.expressions.PropertyTester;
-import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IWorkbenchWindow;
@@ -13,7 +14,6 @@ import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
 public class EvolutionTester extends PropertyTester {
 
 	public EvolutionTester() {
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -26,16 +26,32 @@ public class EvolutionTester extends PropertyTester {
 		IStructuredSelection selection = (IStructuredSelection) window
 				.getSelectionService().getSelection();
 
-		Object selectedElement = selection.getFirstElement();
-		AbstractEvolutionManager modelManager = extensionHandler
-				.getEvolutionManager((Resource) selectedElement);
+		List list = selection.toList();
+		Object firstElement = list.get(0);
+		Object secondElement = list.get(1);
 
-		// must find model manager
-		if (modelManager != null) {
-			return true;
-		} else {
-			return false;
+		// Models must be of same type
+
+		AbstractEvolutionManager firstElementEvolutionManager = extensionHandler
+				.getEvolutionManager((Resource) firstElement);
+
+		if (firstElementEvolutionManager != null) {
+
+			AbstractEvolutionManager secondElementEvolutionManager = extensionHandler
+					.getEvolutionManager((Resource) secondElement);
+
+			if (secondElementEvolutionManager != null) {
+
+				if (firstElementEvolutionManager
+						.equals(secondElementEvolutionManager)) {
+					return true;
+				}
+
+			}
+
 		}
-	}
 
+		return false;
+
+	}
 }

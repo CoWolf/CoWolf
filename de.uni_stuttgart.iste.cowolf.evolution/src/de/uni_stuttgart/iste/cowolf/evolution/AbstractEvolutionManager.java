@@ -1,5 +1,6 @@
 package de.uni_stuttgart.iste.cowolf.evolution;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -21,9 +22,9 @@ import org.silift.common.util.exceptions.NoCorrespondencesException;
  * Abstract implementation of the manager that handles evolution of a single
  * model type. Has to be extended by the specific evolution plugin for a model
  * type.
- * 
- * @author Michael Müller
  *
+ * @author Michael Müller
+ * @author Rene Trefft
  */
 public abstract class AbstractEvolutionManager {
 
@@ -34,7 +35,7 @@ public abstract class AbstractEvolutionManager {
 
 	/**
 	 * Says whether the manager is able to handle a specific model.
-	 * 
+	 *
 	 * @param model
 	 * @return true if it is able to handle model.
 	 */
@@ -43,7 +44,7 @@ public abstract class AbstractEvolutionManager {
 	/**
 	 * This method handles the evolution between two models of the same class.
 	 * It returns the differences between two models.
-	 * 
+	 *
 	 * @param oldModel
 	 *            old model for comparison
 	 * @param newModel
@@ -53,20 +54,19 @@ public abstract class AbstractEvolutionManager {
 	public SymmetricDifference evolve(Resource oldModel, Resource newModel) {
 		if (!this.isManaged(oldModel) || !this.isManaged(newModel)) {
 			// TODO: return value?
-			Logger.getLogger("evolution").warning("Model can not be handled by evolution");
+			Logger.getLogger("evolution").warning(
+					"Model can not be handled by evolution");
 			return null;
 		}
 		// do required pre-computing work
-		String documentType = EMFModelAccessEx.getCharacteristicDocumentType(oldModel);
+		String documentType = this.getDocumentType(oldModel);
 		LiftingSettings settings = this.getDefaultSettings(documentType,
 				oldModel, newModel);
 		try {
 			return LiftingFacade.liftMeUp(oldModel, newModel, settings);
 		} catch (NoCorrespondencesException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (InvalidModelException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
@@ -77,7 +77,7 @@ public abstract class AbstractEvolutionManager {
 	/**
 	 * This method returns default settings for generating differences between
 	 * models. Can be overwritten by inheriting managers.
-	 * 
+	 *
 	 * @param documentType
 	 * @param modelA
 	 * @param modelB
@@ -94,7 +94,7 @@ public abstract class AbstractEvolutionManager {
 
 	/**
 	 * Get matcher for two models by key.
-	 * 
+	 *
 	 * @param matcherKey
 	 *            Key to use.
 	 * @param modelA
@@ -114,9 +114,42 @@ public abstract class AbstractEvolutionManager {
 
 		// Assert matcher is available
 		assert (key2matcher.containsKey(matcherKey)) : "Matcher with key '"
-				+ matcherKey + "' not found!";
+		+ matcherKey + "' not found!";
 
 		return key2matcher.get(matcherKey);
+	}
+
+	/**
+	 * @param model
+	 * @return Document type of resource {@code model}.
+	 */
+	private String getDocumentType(Resource model) {
+		return EMFModelAccessEx.getCharacteristicDocumentType(model);
+	}
+
+	/**
+	 * @param symmetricDifference
+	 * @param savePath
+	 * @return
+	 */
+	public String saveEvolveResults(SymmetricDifference symmetricDifference,
+			String savePath) {
+
+		Resource modelA = symmetricDifference.getModelA();
+		Resource modelB = symmetricDifference.getModelB();
+
+		String documentType = this.getDocumentType(modelA);
+
+		final String fileName = LiftingFacade.generateDifferenceFileName(
+				modelA, modelB,
+				this.getDefaultSettings(documentType, modelA, modelB));
+
+		LiftingFacade.serializeDifference(symmetricDifference, savePath,
+				fileName);
+
+		return savePath + File.separator + fileName + "."
+		+ LiftingFacade.SYMMETRIC_DIFF_EXT;
+
 	}
 
 }
