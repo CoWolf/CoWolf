@@ -39,7 +39,7 @@ public class DTMCAnalyzeJob extends Job {
 	 * transfered into a PRISM-readable format and saved to a temporary file.
 	 * For every end-state that is defined in the DTMC, a evaluation will be
 	 * run.
-	 * 
+	 *
 	 * @param model
 	 *            The DTMC resource containing a Root node and
 	 *            states/transitions.
@@ -58,13 +58,13 @@ public class DTMCAnalyzeJob extends Job {
 		this.parameters = parameters;
 
 		if (this.parameters.containsKey("prismRootPath")) {
-			prismRootPath = this.parameters.get("prismRootPath") + "bin\\";
+			this.prismRootPath = this.parameters.get("prismRootPath") + File.separator + "bin" + File.separator;
 		}
 		if (this.parameters.containsKey("verify")) {
-			prismParameters = ""; // PRISM uses verify as default setting.
+			this.prismParameters = ""; // PRISM uses verify as default setting.
 		}
 		if (this.parameters.containsKey("simulation")) {
-			prismParameters = " -sim -simmethod ci -simsamples "
+			this.prismParameters = " -sim -simmethod ci -simsamples "
 					+ parameters.get("samples") + " -simconf "
 					+ parameters.get("confidence") + " -simpathlen "
 					+ parameters.get("pathlength");
@@ -74,13 +74,13 @@ public class DTMCAnalyzeJob extends Job {
 
 	@Override
 	protected IStatus run(final IProgressMonitor monitor) {
-		if (model == null || model.getContents() == null
-				|| model.getContents().size() == 0
-				|| !(model.getContents().get(0) instanceof RootImpl)) {
+		if (this.model == null || this.model.getContents() == null
+				|| this.model.getContents().size() == 0
+				|| !(this.model.getContents().get(0) instanceof RootImpl)) {
 			return Status.CANCEL_STATUS;
 		}
 		try {
-			RootImpl root = (RootImpl) model.getContents().get(0);
+			RootImpl root = (RootImpl) this.model.getContents().get(0);
 			EList<State> states = root.getStates();
 			ArrayList<State> endStates = new ArrayList<State>();
 
@@ -96,11 +96,11 @@ public class DTMCAnalyzeJob extends Job {
 			// 1. Generate pm-file from model and save it to a temporary file.
 			File pmFile = File.createTempFile("dtmc_prism_pm", ".pm");
 
-			System.out.println(generator.generatePM(model));
+			System.out.println(generator.generatePM(this.model));
 
 			FileOutputStream out = new FileOutputStream(
 					pmFile.getAbsolutePath());
-			out.write(generator.generatePM(model).toString().getBytes());
+			out.write(generator.generatePM(this.model).toString().getBytes());
 			out.close();
 
 			monitor.worked(1);
@@ -108,26 +108,26 @@ public class DTMCAnalyzeJob extends Job {
 			// 2. Generate pctl-file from model and save it to a temporary file.
 			File pctlFile = File.createTempFile("dtmc_prism_pctl", ".pctl");
 
-			System.out.println(generator.generatePCTL(model));
+			System.out.println(generator.generatePCTL(this.model));
 
 			out = new FileOutputStream(pctlFile.getAbsolutePath());
-			out.write(generator.generatePCTL(model).toString().getBytes());
+			out.write(generator.generatePCTL(this.model).toString().getBytes());
 			out.close();
 			monitor.worked(1);
 
 			// 3. Generate result-file and set paths.
 			File resultFile = File.createTempFile("dtmc_prism_result", ".txt");
-			prismPMPath = pmFile.getAbsolutePath();
-			prismPCTLPath = pctlFile.getAbsolutePath();
-			prismResultPath = resultFile.getAbsolutePath();
+			this.prismPMPath = pmFile.getAbsolutePath();
+			this.prismPCTLPath = pctlFile.getAbsolutePath();
+			this.prismResultPath = resultFile.getAbsolutePath();
 			monitor.worked(1);
 
 			// 4. Use CommandLineExecutor to execute PRISM.
 			Reader r = new InputStreamReader(
-					CommandLineExecutor.execCommandAndGetStream(prismRootPath,
-							"prism \"" + prismPMPath + "\" \"" + prismPCTLPath
-									+ "\" -exportresults \"" + prismResultPath
-									+ "\"" + prismParameters));
+					CommandLineExecutor.execCommandAndGetStream(this.prismRootPath,
+							"prism \"" + this.prismPMPath + "\" \"" + this.prismPCTLPath
+									+ "\" -exportresults \"" + this.prismResultPath
+									+ "\"" + this.prismParameters));
 			BufferedReader in = new BufferedReader(r);
 			String line;
 			while ((line = in.readLine()) != null) {
@@ -141,17 +141,17 @@ public class DTMCAnalyzeJob extends Job {
 			in.close();
 			monitor.done();
 
-			parseResultFile(prismResultPath);
+			this.parseResultFile(this.prismResultPath);
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		return Status.OK_STATUS;
 	}
 
-	public void parseResultFile(String file) {
+	public void parseResultFile(final String file) {
 		BufferedReader br;
 		try {
 			br = new BufferedReader(new FileReader(file));
