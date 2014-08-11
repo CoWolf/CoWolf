@@ -14,7 +14,7 @@ public class StatechartModelManagerTest {
 
 		// Create a resource set.
 		ResourceSet resourceSet = new ResourceSetImpl();
-		this.res = resourceSet.createResource(URI.createFileURI("myTestStatechart.statechartemf"));
+
 	}
 
 	@Test
