@@ -64,10 +64,12 @@ public class ModelAssociationManager {
 		AssociationProject associationProject = getAssociationProject(iProject);
 
 		if (associationProject == null) {
+
 			return null;
 		}
 
 		return associationProject.getReachableAssociations(source);
+
 	}
 
 	/**
@@ -102,6 +104,7 @@ public class ModelAssociationManager {
 		if (associationProject == null) {
 			associationProject = new AssociationProject(iProject);
 			associationProjects.add(associationProject);
+
 		}
 
 		return associationProject.addAssociation(source, target);
@@ -291,6 +294,7 @@ public class ModelAssociationManager {
 					e.printStackTrace();
 				}
 			}
+
 		}
 
 		return null;
@@ -305,6 +309,7 @@ public class ModelAssociationManager {
 		for (AssociationProject associationProject : associationProjects) {
 			if (associationProject.getIProject().equals(iProject)) {
 				return associationProject;
+
 			}
 		}
 		return null;

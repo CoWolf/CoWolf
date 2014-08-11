@@ -32,6 +32,7 @@ public class CreationFunctions {
 		IProject iProject = createBasicProject(projectName, location);
 		addNature(iProject);
 
+		// our basic folder structure
 		// models
 		IFolder modelFolder = createFolder(
 				Messages.CreationFunctions_folder_title_models, iProject);
@@ -96,6 +97,7 @@ public class CreationFunctions {
 
 		IFolder iFolder = parentContainer.getFolder(path);
 		if (!iFolder.exists()) {
+
 			try {
 				iFolder.create(false, true, null);
 			} catch (CoreException e) {

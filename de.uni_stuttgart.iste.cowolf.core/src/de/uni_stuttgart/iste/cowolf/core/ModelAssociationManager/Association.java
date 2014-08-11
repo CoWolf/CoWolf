@@ -18,6 +18,7 @@ public class Association {
 		this.setSource(source);
 		this.setTarget(target);
 		this.setIProject(project);
+
 	}
 
 	public Resource getSource() {

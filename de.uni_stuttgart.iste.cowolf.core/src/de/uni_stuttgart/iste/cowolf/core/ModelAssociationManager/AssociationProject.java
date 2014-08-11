@@ -115,6 +115,7 @@ public class AssociationProject {
 
 	public ArrayList<Association> getAssociations() {
 		return associations;
+
 	}
 
 }
