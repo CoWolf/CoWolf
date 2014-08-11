@@ -19,13 +19,17 @@ public class DTMCPreferencePage extends FieldEditorPreferencePage implements
 	@Override
 	protected void createFieldEditors() {
 		// TODO Auto-generated method stub
-		this.addField(new DirectoryFieldEditor("PATH", "&Path to Prism:",
+		this.addField(new DirectoryFieldEditor("PRISM_PATH", "&Path to Prism:",
 		        this.getFieldEditorParent()));
 	}
 
 	@Override
-	public void init(IWorkbench workbench) {
+	public void init(final IWorkbench workbench) {
 		// TODO Auto-generated method stub
 
+	}
+
+	public static String getPrismPath() {
+		return Activator.getDefault().getPreferenceStore().getString("PRISM_PATH");
 	}
 }

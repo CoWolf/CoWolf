@@ -1,5 +1,7 @@
 package de.uni_stuttgart.iste.cowolf.ui.model.dtmc.analyze;
 
+import java.util.HashMap;
+
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
@@ -169,8 +171,8 @@ public class AnalyzeWizardPage1 extends WizardPage {
 
 	private void setPageComplete() {
 		if (this.btnVerification.getSelection()) {
+			this.setErrorMessage(null);
 			this.setPageComplete(true);
-			return;
 		}
 
 		if (this.btnSimulation.getSelection()) {
@@ -200,14 +202,44 @@ public class AnalyzeWizardPage1 extends WizardPage {
 					pathlength = -1;
 				}
 			}
-			if (numberSamples > 0
-					&& confidence > 0 && confidence < 1
-					&& pathlength > 0) {
-				this.setPageComplete(true);
+
+			if (numberSamples <= 0) {
+				if (this.getErrorMessage() == null) {
+					this.setErrorMessage("Number of samples has to be > 0");
+				}
+				this.setPageComplete(false);
+				return;
+			}
+
+			if (confidence <= 0 || confidence >= 1) {
+				if (this.getErrorMessage() == null) {
+					this.setErrorMessage("Confidence has to be > 0 and < 1");
+				}
+				this.setPageComplete(false);
+				return;
+			}
+			if (pathlength <= 0) {
+				if (this.getErrorMessage() == null) {
+					this.setErrorMessage("Maximum length of path has to be > 0");
+				}
+				this.setPageComplete(false);
 				return;
 			}
 		}
 
-		this.setPageComplete(false);
+		this.setErrorMessage(null);
+		this.setPageComplete(true);
+	}
+
+	public void setProperties(final HashMap<String, Object> properties) {
+		if (this.btnVerification.getSelection()) {
+			properties.put("verify", "true");
+		}
+		if (this.btnSimulation.getSelection()) {
+			properties.put("simulation", "true");
+			properties.put("samples", this.txtNumberofsamples.getText());
+			properties.put("confidence", this.txtConfidence.getText());
+			properties.put("pathlength", this.txtPathlength.getText());
+		}
 	}
 }

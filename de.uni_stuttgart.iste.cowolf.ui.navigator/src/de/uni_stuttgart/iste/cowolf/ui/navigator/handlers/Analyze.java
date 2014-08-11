@@ -22,6 +22,7 @@ import de.uni_stuttgart.iste.cowolf.model.IModelManager;
 import de.uni_stuttgart.iste.cowolf.model.IQoSModelManager;
 import de.uni_stuttgart.iste.cowolf.ui.model.AbstractQoSAnalyzeWizard;
 import de.uni_stuttgart.iste.cowolf.ui.model.AnalyzeWizardHandler;
+import de.uni_stuttgart.iste.cowolf.ui.model.dtmc.preference.DTMCPreferencePage;
 
 public class Analyze implements IHandler {
 
@@ -59,7 +60,10 @@ public class Analyze implements IHandler {
 				IQoSModelManager qosModelManager = (IQoSModelManager) modelManager;
 				HashMap<String, Object> properties = new HashMap<String, Object>();
 				AbstractQoSAnalyzeWizard wizard = AnalyzeWizardHandler.getInstance().getQosAnalyzeWizard((IQoSModelManager) modelManager);
-
+				if (!wizard.checkConditions()) {
+					return null;
+				}
+				properties.put("prismRootPath", DTMCPreferencePage.getPrismPath());
 				if (wizard != null) {
 					//TODO call UI to define Properties
 					wizard.initialize(qosModelManager, resource, properties);

@@ -27,4 +27,5 @@ public abstract class AbstractQoSAnalyzeWizard extends Wizard {
 
 	public abstract boolean isManaged(final IQoSModelManager manager);
 
+	public abstract boolean checkConditions();
 }
