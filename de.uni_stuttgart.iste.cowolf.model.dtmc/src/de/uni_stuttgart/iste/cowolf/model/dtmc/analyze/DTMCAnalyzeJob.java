@@ -33,7 +33,7 @@ public class DTMCAnalyzeJob extends Job {
 	private EList<State> states;
 	private HashMap<State, Double> prismResult;
 
-	private String prismRootPath = "/home/philipp/Downloads/Skype/prism-4.2.beta1-linux64/bin/";
+	private String prismRootPath = "";
 	private String prismPMPath = "";
 	private String prismPCTLPath = "";
 	private String prismResultPath = "";
