@@ -22,7 +22,8 @@ public class DTMCModelManager implements IQoSModelManager {
 	}
 
 	@Override
-	public String analyze(final Resource model, final Map<String, Object> parameters) {
+	public String analyze(final Resource model,
+			final Map<String, Object> parameters) {
 
 		// TODO Add return values
 		final DTMCAnalyzeJob job = new DTMCAnalyzeJob(model, parameters);
@@ -33,8 +34,11 @@ public class DTMCModelManager implements IQoSModelManager {
 
 	@Override
 	public boolean isManaged(final Resource model) {
-		// TODO Auto-generated method stub
-		return true;
+		if (model == null || model.getContents() == null
+				|| model.getContents().size() == 0)
+			return false;
+		else
+			return (model.getContents().get(0) instanceof Root);
 	}
 
 }

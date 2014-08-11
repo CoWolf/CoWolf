@@ -6,16 +6,19 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.util.ArrayList;
 import java.util.Map;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.xtext.example.mydsl.generator.MyDslGenerator;
 
 import de.uni_stuttgart.iste.cowolf.core.utilities.CommandLineExecutor;
+import de.uni_stuttgart.iste.cowolf.model.dtmc.State;
+import de.uni_stuttgart.iste.cowolf.model.dtmc.impl.RootImpl;
 
 public class DTMCAnalyzeJob extends Job {
 
@@ -23,76 +26,125 @@ public class DTMCAnalyzeJob extends Job {
 	private final Map<String, Object> parameters;
 
 	private String prismRootPath = "C:\\Program Files (x86)\\prism-4.2.beta1\\bin\\";
-	private String prismPMPath = "C:\\Program Files (x86)\\prism-4.2.beta1\\bin\\die.pm";
-	private String prismPCTLPath = "C:\\Program Files (x86)\\prism-4.2.beta1\\bin\\die.pctl";
-	private String prismResultPath = "C:\\Users\\David\\Desktop\\result.txt";
+	private String prismPMPath = "";
+	private String prismPCTLPath = "";
+	private String prismResultPath = "";
+	private String prismParameters = "";
 
+	/**
+	 * Used to analyze a DTMC using PRISM. As this might take some time for
+	 * large models, a job is created to run as a thread. The DTMC resource is
+	 * transfered into a PRISM-readable format and saved to a temporary file.
+	 * For every end-state that is defined in the DTMC, a evaluation will be
+	 * run.
+	 * 
+	 * @param model
+	 *            The DTMC resource containing a Root node and
+	 *            states/transitions.
+	 * @param parameters
+	 *            prismRootPath : The path to the PRISM root directory.
+	 *            verify : Calculate reachability using verification. Doesn't require any other parameters.
+	 *            simulate : Calculate reachability by simulation. Requires:
+	 *            	samples : number of samples, ]0, 2147483647] 
+	 *            	confidence : Confidence for reachability, ]0, 1[
+	 *            	pathlength : Maximum pathlength, ]0, 2147483647]
+	 */
 	public DTMCAnalyzeJob(final Resource model,
 			final Map<String, Object> parameters) {
 		super("DTMC Analyse");
 		this.model = model;
 		this.parameters = parameters;
+
+		if (this.parameters.containsKey("prismRootPath")) {
+			prismRootPath = this.parameters.get("prismRootPath") + "bin\\";
+		}
+		if (this.parameters.containsKey("verify")) {
+			prismParameters = ""; // PRISM uses verify as default setting.
+		}
+		if (this.parameters.containsKey("simulation")) {
+			prismParameters = " -sim -simmethod ci -simsamples " + parameters.get("samples") + " -simconf " + parameters.get("confidence") + " -simpathlen " + parameters.get("pathlength");
+		}
 		
-//		this.prismRootPath = prismRootPath + "bin\\";
-//		this.prismPMPath = prismPMPath;
-//		this.prismPCTLPath = prismPCTLPath;
-//		this.prismResultPath = prismResultPath;
 	}
 
 	@Override
 	protected IStatus run(final IProgressMonitor monitor) {
 		// TODO use parameters to do the job
-		monitor.beginTask("Analyse DTMC", 1000);
-
-		MyDslGenerator generator = new MyDslGenerator();
-		System.out.println(generator.doGenerate(model));
-
+		if (model == null || model.getContents() == null
+				|| model.getContents().size() == 0
+				|| !(model.getContents().get(0) instanceof RootImpl)) {
+			return Status.CANCEL_STATUS;
+		}
 		try {
-			// 1. Generate file from model and save it to temporary file.
-			File temp = File.createTempFile("dtmc_prism_file", ".pm");
-			System.out.println("Temp file : " + temp.getAbsolutePath());
+			RootImpl root = (RootImpl) model.getContents().get(0);
+			EList<State> states = root.getStates();
+			ArrayList<State> startStates = new ArrayList<State>();
+			ArrayList<State> endStates = new ArrayList<State>();
 
-			FileOutputStream out = new FileOutputStream(temp.getAbsolutePath());
-			out.write(generator.doGenerate(model).toString().getBytes("UTF-8"));
+			for (State state : states) {
+				if (state.isIsStart())
+					startStates.add(state);
+				if (state.isIsEnd())
+					endStates.add(state);
+			}
+
+			monitor.beginTask("Analyse DTMC", endStates.size() + 4);
+
+			// 1. Generate pm-file from model and save it to temporary file.
+			File pmFile = File.createTempFile("dtmc_prism_pm", ".pm");
+
+			 System.out.println(GeneratePRISM.generatePM(model));
+
+			FileOutputStream out = new FileOutputStream(
+					pmFile.getAbsolutePath());
+			out.write(GeneratePRISM.generatePM(model).getBytes());
 			out.close();
 
-			// 2. Call CommandLineExecutor to evaluate.
+			monitor.worked(1);
+
+			// 2. Generate pctl-file from model and save it to temporary file.
+			File pctlFile = File.createTempFile("dtmc_prism_pctl", ".pctl");
+
+			 System.out.println(GeneratePRISM.generatePCTL(model));
+
+			out = new FileOutputStream(pctlFile.getAbsolutePath());
+			out.write(GeneratePRISM.generatePCTL(model).getBytes());
+			out.close();
+			monitor.worked(1);
+
+			// 3. Generate result-file and set paths.
+			File resultFile = File.createTempFile("dtmc_prism_result", ".txt");
+			prismPMPath = pmFile.getAbsolutePath();
+			prismPCTLPath = pctlFile.getAbsolutePath();
+			prismResultPath = resultFile.getAbsolutePath();
+
+			monitor.worked(1);
+
+			// 4. Use CommandLineExecutor to execute PRISM.
 			Reader r = new InputStreamReader(
 					CommandLineExecutor.execCommandAndGetStream(prismRootPath,
 							"prism \"" + prismPMPath + "\" \"" + prismPCTLPath
 									+ "\" -exportresults \"" + prismResultPath
-									+ "\""));
+									+ "\"" + prismParameters));
 			BufferedReader in = new BufferedReader(r);
-			while ((in.readLine()) != null) { /*
-											 * Read output until process
-											 * finished.
-											 */
+			String line;
+			while ((line = in.readLine()) != null) {
+				// Every time a PRISM test run finishes, a line of dashes is
+				// printed. We look for them and display it to the progress bar.
+				System.out.println(line);
+				if (line.contains("-------------------------------------------------------------------")) {
+					monitor.worked(1);
+				}
 			}
 			in.close();
+			monitor.done();
+			System.out.println(prismResultPath);
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
-		catch (Exception e) {
-			// TODO Auto-generated catch block
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		try {
-			// TODO do analyse
-			int i = 0;
-			while (true) {
-				i += 10;
-				monitor.worked(10);
-				Thread.sleep(2000);
-				if (i == 1000) {
-					break;
-				}
-			}
-		} catch (final InterruptedException e) {
-			e.printStackTrace();
-		} finally {
-			this.schedule(600); // start again in an
-		}
 		return Status.OK_STATUS;
 	}
 }
