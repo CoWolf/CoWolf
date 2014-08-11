@@ -6,9 +6,9 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 
-public class commandLineExecutor {
+public class CommandLineExecutor {
 
-	static void execCommand(String directory, String command) throws Exception {
+	public static void execCommand(String directory, String command) throws Exception {
 		Reader r = new InputStreamReader(execCommandAndGetStream(directory,
 				command));
 		BufferedReader in = new BufferedReader(r);
@@ -17,7 +17,7 @@ public class commandLineExecutor {
 		in.close();
 	}
 
-	static InputStream execCommandAndGetStream(String directory, String command)
+	public static InputStream execCommandAndGetStream(String directory, String command)
 			throws Exception {
 		File dir = new File(directory);
 		Process process;
