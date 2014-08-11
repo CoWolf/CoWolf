@@ -34,7 +34,7 @@ public class DTMCModelManager implements IQoSModelManager {
 	@Override
 	public boolean isManaged(final Resource model) {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 }

@@ -14,12 +14,16 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.window.Window;
+import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 
 import de.uni_stuttgart.iste.cowolf.core.extensions.ExtensionHandler;
 import de.uni_stuttgart.iste.cowolf.model.IModelManager;
 import de.uni_stuttgart.iste.cowolf.model.IQoSModelManager;
+import de.uni_stuttgart.iste.cowolf.ui.model.AbstractQoSAnalyzeWizard;
+import de.uni_stuttgart.iste.cowolf.ui.model.AnalyzeWizardHandler;
 import de.uni_stuttgart.iste.cowolf.ui.navigator.externalizedStrings.Messages;
 
 public class Analyze implements IHandler {
@@ -39,7 +43,7 @@ public class Analyze implements IHandler {
 	@Override
 	public Object execute(final ExecutionEvent event) throws ExecutionException {
 		JOptionPane.showMessageDialog(null, Messages.Analyze_analyze_menu);
-
+		System.out.println("Doing Analyze");
 		ExtensionHandler extensionHandler = new ExtensionHandler();
 		IWorkbenchWindow window = PlatformUI.getWorkbench()
 				.getActiveWorkbenchWindow();
@@ -58,9 +62,20 @@ public class Analyze implements IHandler {
 			if (modelManager != null && modelManager instanceof IQoSModelManager) {
 				IQoSModelManager qosModelManager = (IQoSModelManager) modelManager;
 				HashMap<String, Object> properties = new HashMap<String, Object>();
-				//TODO call UI to define Properties
+				AbstractQoSAnalyzeWizard wizard = AnalyzeWizardHandler.getInstance().getQosAnalyzeWizard((IQoSModelManager) modelManager);
 
-				qosModelManager.analyze(resource, properties);
+				if (wizard != null) {
+					//TODO call UI to define Properties
+					wizard.initialize(qosModelManager, resource, properties);
+					WizardDialog wizardDialog = new WizardDialog(window.getShell(), wizard);
+					wizardDialog.setBlockOnOpen(true);
+					if (wizardDialog.open() == Window.OK) {
+						System.out.println("Ok pressed");
+						qosModelManager.analyze(resource, properties);
+					} else {
+						System.out.println("Cancel pressed");
+					}
+				}
 			}
 		}
 
@@ -76,7 +91,7 @@ public class Analyze implements IHandler {
 	@Override
 	public boolean isHandled() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
