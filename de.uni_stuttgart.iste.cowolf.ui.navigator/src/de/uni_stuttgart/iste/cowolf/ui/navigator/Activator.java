@@ -1,10 +1,11 @@
 package de.uni_stuttgart.iste.cowolf.ui.navigator;
 
-
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
+
+import de.uni_stuttgart.iste.cowolf.core.ModelAssociationManager.ModelAssociationManager;
 
 /**
  * The activator class controls the plug-in life cycle
@@ -14,11 +15,9 @@ public class Activator extends AbstractUIPlugin {
 	// The plug-in ID
 	public static final String PLUGIN_ID = "de.uni_stuttgart.iste.cowolf.ui.navigator"; //$NON-NLS-1$
 
-
 	// The shared instance
 	private static Activator plugin;
 	
-
 	/**
 	 * The constructor
 	 */
@@ -35,7 +34,7 @@ public class Activator extends AbstractUIPlugin {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
-
+		ModelAssociationManager.getInstance().saveAll();
 	}
 
 	/*
@@ -46,6 +45,7 @@ public class Activator extends AbstractUIPlugin {
 	 * )
 	 */
 	public void stop(BundleContext context) throws Exception {
+
 		plugin = null;
 		super.stop(context);
 

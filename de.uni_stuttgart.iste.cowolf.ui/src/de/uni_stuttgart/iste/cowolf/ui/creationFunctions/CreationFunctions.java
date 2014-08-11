@@ -33,9 +33,12 @@ public class CreationFunctions {
 		addNature(project);
 
 		// our basic folder structure
-		IFolder newFolder = createFolder(Messages.CreationFunctions_folder_title_models, project);
-		
-		createFolder(Messages.CreationFunctions_folder_title_State_charts, newFolder);
+		IFolder modelFolder = createFolder(
+				Messages.CreationFunctions_folder_title_models, project);
+		createFolder(".properties", project);
+
+		createFolder(Messages.CreationFunctions_folder_title_State_charts,
+				modelFolder);
 
 	}
 
@@ -88,7 +91,7 @@ public class CreationFunctions {
 	 */
 	public static IFolder createFolder(String name, IContainer parent) {
 		Path myPath = new Path(name);
-		
+
 		IFolder folder = parent.getFolder(myPath);
 		if (!folder.exists()) {
 			try {
