@@ -54,6 +54,7 @@ public class StatechartModelManagerTest {
 		StatechartModelManager target = new StatechartModelManager();
 		
 		Assert.isTrue(!target.isManaged(res));
+
 		
 	}
 
