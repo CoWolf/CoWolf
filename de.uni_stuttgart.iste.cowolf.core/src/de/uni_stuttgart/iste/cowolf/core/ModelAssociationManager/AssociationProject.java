@@ -15,7 +15,7 @@ public class AssociationProject {
 		this.setProject(project);
 	}
 
-	public IProject getProject() {
+	public IProject getAssociationProject() {
 		return project;
 	}
 
@@ -107,6 +107,10 @@ public class AssociationProject {
 		}
 		return foundMatches;
 		// TODO
+	}
+
+	public ArrayList<Association> getAssociations() {
+		return associations;
 	}
 
 }
