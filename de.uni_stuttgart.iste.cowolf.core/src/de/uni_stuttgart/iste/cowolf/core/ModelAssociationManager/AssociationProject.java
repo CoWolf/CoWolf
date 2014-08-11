@@ -36,8 +36,8 @@ public class AssociationProject {
 	 */
 	public boolean add(Resource source, Resource target) {
 		for (Association association : associations) {
-			if (association.getSource().equals(source)
-					&& association.getTarget().equals(target)) {
+			if (association.getSource().getURI().equals(source.getURI())
+					&& association.getTarget().getURI().equals(target.getURI())) {
 				// association exists already
 				return false;
 			}

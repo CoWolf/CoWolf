@@ -87,10 +87,10 @@ public class ModelAssociationManager {
 	public boolean add(Resource source, Resource target, IProject iProject) {
 
 		AssociationProject associationProject = getAssociationProject(iProject);
-
-		if (associationProject == null) {
-			// project does not exist yet
+		
+		if(associationProject == null){
 			associationProject = new AssociationProject(iProject);
+			associationProjects.add(associationProject);
 		}
 
 		return associationProject.add(source, target);
@@ -143,9 +143,10 @@ public class ModelAssociationManager {
 			Element associationElement = new Element("association"); //$NON-NLS-1$
 
 			Attribute sourceAttribute = new Attribute("source", association //$NON-NLS-1$
-					.getSource().getURI().toString());
+					.getSource().getURI().toPlatformString(true));
+
 			Attribute targetAttribute = new Attribute("target", association //$NON-NLS-1$
-					.getTarget().getURI().toString());
+					.getTarget().getURI().toPlatformString(true));
 
 			associationElement.setAttribute(sourceAttribute);
 			associationElement.setAttribute(targetAttribute);
@@ -154,10 +155,12 @@ public class ModelAssociationManager {
 		}
 
 		File propertyFile = getPropertyFile(project.getAssociationProject());
+
 		XMLOutputter out = new XMLOutputter(Format.getPrettyFormat());
 		try {
 			out.output(doc, new FileOutputStream(propertyFile));
 		} catch (IOException e) {
+			e.printStackTrace();
 		}
 
 	}
@@ -221,13 +224,17 @@ public class ModelAssociationManager {
 			for (Element associationElement : associationElements) {
 				String sourceUriString = associationElement
 						.getAttributeValue("source"); //$NON-NLS-1$
-				URI sourceUri = URI.createFileURI(sourceUriString);
+				URI sourceUri = URI.createFileURI(iProject.getWorkspace()
+						.getRoot().getLocation()
+						+ sourceUriString);
 				Resource sourceResource = resourceSet.getResource(sourceUri,
 						true);
 
 				String targetUriString = associationElement
 						.getAttributeValue("target"); //$NON-NLS-1$
-				URI targetUri = URI.createFileURI(targetUriString);
+				URI targetUri = URI.createFileURI(iProject.getWorkspace()
+						.getRoot().getLocation()
+						+ targetUriString);
 				Resource targetResource = resourceSet.getResource(targetUri,
 						true);
 
@@ -243,15 +250,24 @@ public class ModelAssociationManager {
 	}
 
 	/**
-	 * @param iProjectp
+	 * @param iProject
 	 *            the project
 	 * @return the file with the properties
 	 */
-	private File getPropertyFile(IProject iProjectp) {
-		IFile propertyIFile = iProjectp.getFile(iProjectp.getFullPath()
-				.toString() + "/.properties/properties.xml"); //$NON-NLS-1$
+	private File getPropertyFile(IProject iProject) {
 
-		return new File(propertyIFile.getFullPath().toString());
+		IFile propertyIFile = iProject.getFile(".properties/properties.xml"); //$NON-NLS-1$
+
+		File file = new File(propertyIFile.getLocation().toString());
+
+		try {
+			file.createNewFile();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return file;
 
 	}
 

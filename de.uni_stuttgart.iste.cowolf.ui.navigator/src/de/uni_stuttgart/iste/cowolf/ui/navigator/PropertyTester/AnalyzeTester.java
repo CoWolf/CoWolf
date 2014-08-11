@@ -43,6 +43,8 @@ public class AnalyzeTester extends PropertyTester {
 
 				ResourceSet resourceSet = new ResourceSetImpl();
 				Resource resource;
+				
+				
 
 				URI uri = URI.createPlatformResourceURI(iFile.getFullPath()
 						.toString(), true);
