@@ -28,6 +28,8 @@ public class EvolutionTester extends PropertyTester {
 	@Override
 	public boolean test(Object receiver, String property, Object[] args,
 			Object expectedValue) {
+
+		System.out.println("Hallo!!!!!!");
 		ExtensionHandler extensionHandler = new ExtensionHandler();
 		IWorkbenchWindow window = PlatformUI.getWorkbench()
 				.getActiveWorkbenchWindow();
@@ -35,45 +37,50 @@ public class EvolutionTester extends PropertyTester {
 				.getSelectionService().getSelection();
 
 		List list = selection.toList();
-		Object firstElement = list.get(0);
-		Object secondElement = list.get(1);
 
-		// // catch exceptions from wrong parsing as we can only recognize
-		// IFiles
-		// try {
+		if (list.size() == 2) {
 
-		if (firstElement instanceof IFile && secondElement instanceof IFile) {
-			IFile firstElementeIFile = (IFile) firstElement;
-			IFile secondElementeIFile = (IFile) secondElement;
+			Object firstElement = list.get(0);
+			Object secondElement = list.get(1);
 
-			URI firstElementURI = URI.createPlatformResourceURI(
-					firstElementeIFile.getFullPath().toString(), true);
-			URI secondElementURI = URI.createPlatformResourceURI(
-					secondElementeIFile.getFullPath().toString(), true);
-			// File file = iFile.getLocation().toFile();
-			// if (!file.exists()) {
-			// return false;
-			// }
+			// // catch exceptions from wrong parsing as we can only recognize
+			// IFiles
+			// try {
 
-			ResourceSet resourceSet = new ResourceSetImpl();
-			Resource firstElementResource = resourceSet.getResource(
-					firstElementURI, true);
-			Resource secondElementResource = resourceSet.getResource(
-					secondElementURI, true);
+			if (firstElement instanceof IFile && secondElement instanceof IFile) {
+				IFile firstElementeIFile = (IFile) firstElement;
+				IFile secondElementeIFile = (IFile) secondElement;
 
-			AbstractEvolutionManager firstElementEvolutionManager = extensionHandler
-					.getEvolutionManager(firstElementResource);
+				URI firstElementURI = URI.createPlatformResourceURI(
+						firstElementeIFile.getFullPath().toString(), true);
+				URI secondElementURI = URI.createPlatformResourceURI(
+						secondElementeIFile.getFullPath().toString(), true);
+				// File file = iFile.getLocation().toFile();
+				// if (!file.exists()) {
+				// return false;
+				// }
 
-			if (firstElementEvolutionManager != null) {
+				ResourceSet resourceSet = new ResourceSetImpl();
+				Resource firstElementResource = resourceSet.getResource(
+						firstElementURI, true);
+				Resource secondElementResource = resourceSet.getResource(
+						secondElementURI, true);
 
-				AbstractEvolutionManager secondElementEvolutionManager = extensionHandler
-						.getEvolutionManager(secondElementResource);
+				AbstractEvolutionManager firstElementEvolutionManager = extensionHandler
+						.getEvolutionManager(firstElementResource);
 
-				if (secondElementEvolutionManager != null) {
+				if (firstElementEvolutionManager != null) {
 
-					if (firstElementEvolutionManager
-							.equals(secondElementEvolutionManager)) {
-						return true;
+					AbstractEvolutionManager secondElementEvolutionManager = extensionHandler
+							.getEvolutionManager(secondElementResource);
+
+					if (secondElementEvolutionManager != null) {
+
+						if (firstElementEvolutionManager
+								.equals(secondElementEvolutionManager)) {
+							return true;
+						}
+
 					}
 
 				}
