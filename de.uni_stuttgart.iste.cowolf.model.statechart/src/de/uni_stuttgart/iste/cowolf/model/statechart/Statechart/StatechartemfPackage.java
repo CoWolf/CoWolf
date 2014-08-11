@@ -38,7 +38,7 @@ public interface StatechartemfPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http/Statechart/1.0";
+	String eNS_URI = "http://Statechart/1.0";
 
 	/**
 	 * The package namespace name.

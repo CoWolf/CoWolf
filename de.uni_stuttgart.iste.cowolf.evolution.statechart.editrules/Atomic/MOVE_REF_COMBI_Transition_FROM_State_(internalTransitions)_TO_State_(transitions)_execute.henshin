@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_YCilUCE0EeSMxJhMVj0eIQ" name="MOVE_REF_COMBI_Transition_FROM_State_(internalTransitions)_TO_State_(transitions)" description="MOVEs Transition from State(Reference:internalTransitions) to State(Reference:transitions">
+  <imports href="http://Statechart/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_YCilUSE0EeSMxJhMVj0eIQ" name="moveTransition_FROM_State_internalTransitions_TO_State_State" description="Moves Transition from State(Reference:internalTransitions) toState(Reference:State)">
+    <parameters xmi:id="_YCjMYCE0EeSMxJhMVj0eIQ" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://Statechart/1.0#//Transition"/>
+    </parameters>
+    <parameters xmi:id="_YCjMYSE0EeSMxJhMVj0eIQ" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://Statechart/1.0#//State"/>
+    </parameters>
+    <parameters xmi:id="_YCjMYiE0EeSMxJhMVj0eIQ" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://Statechart/1.0#//State"/>
+    </parameters>
+    <lhs xmi:id="_YCjMYyE0EeSMxJhMVj0eIQ" name="Lhs">
+      <nodes xmi:id="_YCjMZCE0EeSMxJhMVj0eIQ" name="Selected" incoming="_YCjMZyE0EeSMxJhMVj0eIQ" outgoing="_YCjMaCE0EeSMxJhMVj0eIQ">
+        <type href="http://Statechart/1.0#//Transition"/>
+      </nodes>
+      <nodes xmi:id="_YCjMZSE0EeSMxJhMVj0eIQ" name="OldSource" incoming="_YCjMaCE0EeSMxJhMVj0eIQ" outgoing="_YCjMZyE0EeSMxJhMVj0eIQ">
+        <type href="http://Statechart/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_YCjMZiE0EeSMxJhMVj0eIQ" name="NewSource">
+        <type href="http://Statechart/1.0#//State"/>
+      </nodes>
+      <edges xmi:id="_YCjMZyE0EeSMxJhMVj0eIQ" source="_YCjMZSE0EeSMxJhMVj0eIQ" target="_YCjMZCE0EeSMxJhMVj0eIQ">
+        <type href="http://Statechart/1.0#//State/internalTransitions"/>
+      </edges>
+      <edges xmi:id="_YCjMaCE0EeSMxJhMVj0eIQ" source="_YCjMZCE0EeSMxJhMVj0eIQ" target="_YCjMZSE0EeSMxJhMVj0eIQ">
+        <type href="http://Statechart/1.0#//Transition/transS_container"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_YCjMaSE0EeSMxJhMVj0eIQ" name="Rhs">
+      <nodes xmi:id="_YCjMaiE0EeSMxJhMVj0eIQ" name="Selected" incoming="_YCjMbSE0EeSMxJhMVj0eIQ" outgoing="_YCjMbiE0EeSMxJhMVj0eIQ">
+        <type href="http://Statechart/1.0#//Transition"/>
+      </nodes>
+      <nodes xmi:id="_YCjMayE0EeSMxJhMVj0eIQ" name="OldSource">
+        <type href="http://Statechart/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_YCjMbCE0EeSMxJhMVj0eIQ" name="NewSource" incoming="_YCjMbiE0EeSMxJhMVj0eIQ" outgoing="_YCjMbSE0EeSMxJhMVj0eIQ">
+        <type href="http://Statechart/1.0#//State"/>
+      </nodes>
+      <edges xmi:id="_YCjMbSE0EeSMxJhMVj0eIQ" source="_YCjMbCE0EeSMxJhMVj0eIQ" target="_YCjMaiE0EeSMxJhMVj0eIQ">
+        <type href="http://Statechart/1.0#//StateMachine/transitions"/>
+      </edges>
+      <edges xmi:id="_YCjMbiE0EeSMxJhMVj0eIQ" source="_YCjMaiE0EeSMxJhMVj0eIQ" target="_YCjMbCE0EeSMxJhMVj0eIQ">
+        <type href="http://Statechart/1.0#//Transition/transSM_container"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_YCjMbyE0EeSMxJhMVj0eIQ" origin="_YCjMZCE0EeSMxJhMVj0eIQ" image="_YCjMaiE0EeSMxJhMVj0eIQ"/>
+    <mappings xmi:id="_YCjMcCE0EeSMxJhMVj0eIQ" origin="_YCjMZSE0EeSMxJhMVj0eIQ" image="_YCjMayE0EeSMxJhMVj0eIQ"/>
+    <mappings xmi:id="_YCjMcSE0EeSMxJhMVj0eIQ" origin="_YCjMZiE0EeSMxJhMVj0eIQ" image="_YCjMbCE0EeSMxJhMVj0eIQ"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_YCjMciE0EeSMxJhMVj0eIQ" name="mainUnit" subUnits="_YCilUSE0EeSMxJhMVj0eIQ">
+    <parameters xmi:id="_YCjMcyE0EeSMxJhMVj0eIQ" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://Statechart/1.0#//Transition"/>
+    </parameters>
+    <parameters xmi:id="_YCjMdCE0EeSMxJhMVj0eIQ" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://Statechart/1.0#//State"/>
+    </parameters>
+    <parameters xmi:id="_YCjMdSE0EeSMxJhMVj0eIQ" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://Statechart/1.0#//State"/>
+    </parameters>
+    <parameterMappings xmi:id="_YCjMdiE0EeSMxJhMVj0eIQ" source="_YCjMcyE0EeSMxJhMVj0eIQ" target="_YCjMYCE0EeSMxJhMVj0eIQ"/>
+    <parameterMappings xmi:id="_YCjMdyE0EeSMxJhMVj0eIQ" source="_YCjMdCE0EeSMxJhMVj0eIQ" target="_YCjMYSE0EeSMxJhMVj0eIQ"/>
+    <parameterMappings xmi:id="_YCjMeCE0EeSMxJhMVj0eIQ" source="_YCjMdSE0EeSMxJhMVj0eIQ" target="_YCjMYiE0EeSMxJhMVj0eIQ"/>
+  </units>
+</henshin:Module>
