@@ -25,7 +25,8 @@ public class LoadTrigger implements IStartup {
 				 */
 				@Override
 				public boolean preShutdown(IWorkbench workbench, boolean forced) {
-					return ModelAssociationManager.getInstance().saveAll();
+					ModelAssociationManager.getInstance().saveAll();
+					return true;
 				}
 
 				/*
