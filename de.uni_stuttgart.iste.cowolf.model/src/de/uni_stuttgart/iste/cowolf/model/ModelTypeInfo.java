@@ -1,11 +1,15 @@
 package de.uni_stuttgart.iste.cowolf.model;
 
+import java.util.List;
+
 public class ModelTypeInfo {
-	//TODO dummy
-	public ModelTypeInfo(String info) {
-		this.dummyString = info;
+
+	public ModelTypeInfo(String metaModelName, List<Class> properContents) {
+		this.METAMODEL_NAME = metaModelName;
+		this.PROPER_CONTENTS = properContents;
 	}
 	
-	//TODO dummy
-	public final String dummyString;
+	public final String METAMODEL_NAME;
+	
+	public final List<Class> PROPER_CONTENTS;
 }
