@@ -22,6 +22,7 @@ public class AssociationProject {
 
 	public IProject getIProject() {
 		return iProject;
+
 	}
 
 	public void setIProject(IProject project) {
