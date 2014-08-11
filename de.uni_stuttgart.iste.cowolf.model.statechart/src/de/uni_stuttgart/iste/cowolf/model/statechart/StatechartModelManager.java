@@ -2,7 +2,6 @@ package de.uni_stuttgart.iste.cowolf.model.statechart;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import de.uni_stuttgart.iste.cowolf.model.AbstractArchitectureModelManager;
 import de.uni_stuttgart.iste.cowolf.model.ModelTypeInfo;
 import de.uni_stuttgart.iste.cowolf.model.statechart.Statechart.impl.BooleanExpressionImpl;
@@ -15,6 +14,7 @@ import de.uni_stuttgart.iste.cowolf.model.statechart.Statechart.impl.StateVertex
 import de.uni_stuttgart.iste.cowolf.model.statechart.Statechart.impl.TransitionImpl;
 
 public class StatechartModelManager extends AbstractArchitectureModelManager {
+
 
 	@Override
 	public ModelTypeInfo getModelTypeInfo() {
