@@ -6,8 +6,6 @@ import java.util.List;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 
-import de.uni_stuttgart.iste.cowolf.model.IArchitectureModelManager;
-import de.uni_stuttgart.iste.cowolf.model.ModelTypeInfo;
 import de.uni_stuttgart.iste.cowolf.model.statechart.Statechart.impl.BooleanExpressionImpl;
 import de.uni_stuttgart.iste.cowolf.model.statechart.Statechart.impl.CompositeStateImpl;
 import de.uni_stuttgart.iste.cowolf.model.statechart.Statechart.impl.EventImpl;
@@ -45,6 +43,7 @@ public class StatechartModelManager implements IArchitectureModelManager {
 		
 		return true;
 	}
+
 
 	@Override
 	public ModelTypeInfo getModelTypeInfo() {
