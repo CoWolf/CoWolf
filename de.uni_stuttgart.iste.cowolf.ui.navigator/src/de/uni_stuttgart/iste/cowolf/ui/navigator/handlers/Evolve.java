@@ -3,6 +3,8 @@ package de.uni_stuttgart.iste.cowolf.ui.navigator.handlers;
 import java.io.File;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
@@ -18,6 +20,7 @@ import org.sidiff.difference.symmetric.SymmetricDifference;
 
 import de.uni_stuttgart.iste.cowolf.core.extensions.ExtensionHandler;
 import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
+import de.uni_stuttgart.iste.cowolf.evolution.EvolutionException;
 import de.uni_stuttgart.iste.cowolf.ui.evolution.DifferencesView;
 
 public class Evolve extends AbstractHandler {
@@ -53,16 +56,20 @@ public class Evolve extends AbstractHandler {
 		AbstractEvolutionManager modelManager = extensionHandler
 				.getEvolutionManager(firstElementResource);
 
-		SymmetricDifference symmetricDifference = modelManager.evolve(
-				firstElementResource, secondElementResource);
+		SymmetricDifference symmetricDifference;
+		try {
+			symmetricDifference = modelManager.evolve(
+					firstElementResource, secondElementResource);
+			String firstElementParentDir = new File(firstElementeIFile
+					.getFullPath().toString()).getParentFile().getParent();
 
-		String firstElementParentDir = new File(firstElementeIFile
-				.getFullPath().toString()).getParentFile().getParent();
-
-		String evolveResultsFilePath = modelManager.saveEvolveResults(
-				symmetricDifference, firstElementParentDir + "differences");
-
-		new DifferencesView().open(evolveResultsFilePath);
+			String evolveResultsFilePath = modelManager.saveEvolveResults(
+					symmetricDifference, firstElementParentDir + "differences");
+			new DifferencesView().open(evolveResultsFilePath);
+		} catch (EvolutionException e) {
+			JOptionPane.showMessageDialog(null, e.getLocalizedMessage());
+			e.printStackTrace();
+		}
 
 		return null;
 	}

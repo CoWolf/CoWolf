@@ -50,8 +50,9 @@ public abstract class AbstractEvolutionManager {
 	 * @param newModel
 	 *            new model for comparison
 	 * @return differences between two models.
+	 * @throws EvolutionException 
 	 */
-	public SymmetricDifference evolve(Resource oldModel, Resource newModel) {
+	public SymmetricDifference evolve(Resource oldModel, Resource newModel) throws EvolutionException {
 		if (!this.isManaged(oldModel) || !this.isManaged(newModel)) {
 			// TODO: return value?
 			Logger.getLogger("evolution").warning(
@@ -66,10 +67,11 @@ public abstract class AbstractEvolutionManager {
 			return LiftingFacade.liftMeUp(oldModel, newModel, settings);
 		} catch (NoCorrespondencesException e) {
 			e.printStackTrace();
+			throw new EvolutionException("No correspondences found.");
 		} catch (InvalidModelException e) {
 			e.printStackTrace();
+			throw new EvolutionException("Invalid Model used for evolution.");
 		}
-		return null;
 	}
 
 	public abstract EvolutionTypeInfo getEvolutionTypeInfo();
