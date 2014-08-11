@@ -31,6 +31,7 @@ public class CoEvolutionTester extends PropertyTester {
 		IStructuredSelection selection = (IStructuredSelection) window
 				.getSelectionService().getSelection();
 
+		@SuppressWarnings("rawtypes")
 		List list = selection.toList();
 		
 		if (list.size() != 2) {

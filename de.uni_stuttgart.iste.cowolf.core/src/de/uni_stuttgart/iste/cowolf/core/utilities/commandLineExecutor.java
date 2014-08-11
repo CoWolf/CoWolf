@@ -22,22 +22,22 @@ public class commandLineExecutor {
 		File dir = new File(directory);
 		Process process;
 		if (isWindowsSystem()) {
-			process = Runtime.getRuntime().exec("cmd /c " + command, null, dir);
+			process = Runtime.getRuntime().exec("cmd /c " + command, null, dir); //$NON-NLS-1$
 		} else if (isLinuxSystem()) {
 			process = Runtime.getRuntime().exec(command, null, dir);
 		} else {
-			throw new Exception("Unknown operating system.");
+			throw new Exception(Messages.commandLineExecutor_unknown_operating_system);
 		}
 		return process.getInputStream();
 	}
 
 	static boolean isWindowsSystem() {
-		String osName = System.getProperty("os.name").toLowerCase();
-		return osName.indexOf("windows") >= 0;
+		String osName = System.getProperty("os.name").toLowerCase(); //$NON-NLS-1$
+		return osName.indexOf("windows") >= 0; //$NON-NLS-1$
 	}
 
 	static boolean isLinuxSystem() {
-		String osName = System.getProperty("os.name").toLowerCase();
-		return osName.indexOf("linux") >= 0;
+		String osName = System.getProperty("os.name").toLowerCase(); //$NON-NLS-1$
+		return osName.indexOf("linux") >= 0; //$NON-NLS-1$
 	}
 }

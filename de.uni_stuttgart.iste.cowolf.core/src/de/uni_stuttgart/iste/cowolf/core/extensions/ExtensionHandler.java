@@ -23,22 +23,22 @@ public class ExtensionHandler {
 	/**
 	 * ID for the QoS model manager extension.
 	 */
-	public static final String QOS_MODEL_MANAGER_EXTENSION_ID = "de.uni_stuttgart.iste.cowolf.model.qosModelManagerExtension";
+	public static final String QOS_MODEL_MANAGER_EXTENSION_ID = "de.uni_stuttgart.iste.cowolf.model.qosModelManagerExtension"; //$NON-NLS-1$
 
 	/**
 	 * ID for the architecture model manager extension.
 	 */
-	public static final String ARCHITECTURE_MODEL_MANAGER_EXTENSION_ID = "de.uni_stuttgart.iste.cowolf.model.architectureModelManagerExtension";
+	public static final String ARCHITECTURE_MODEL_MANAGER_EXTENSION_ID = "de.uni_stuttgart.iste.cowolf.model.architectureModelManagerExtension"; //$NON-NLS-1$
 
 	/**
 	 * ID for the evolution manager extension.
 	 */
-	public static final String EVOLUTION_MANAGER_EXTENSION_ID = "de.uni_stuttgart.iste.cowolf.evolution.evolutionManagerExtension";
+	public static final String EVOLUTION_MANAGER_EXTENSION_ID = "de.uni_stuttgart.iste.cowolf.evolution.evolutionManagerExtension"; //$NON-NLS-1$
 
 	/**
 	 * ID for the transformation manager extension.
 	 */
-	public static final String TRANSFORMATION_MANAGER_EXTENSION_ID = "de.uni_stuttgart.iste.cowolf.transformationManagerExtension";
+	public static final String TRANSFORMATION_MANAGER_EXTENSION_ID = "de.uni_stuttgart.iste.cowolf.transformationManagerExtension"; //$NON-NLS-1$
 
 	/**
 	 * Holds an instance of all installed QoSModelManager.
@@ -81,28 +81,28 @@ public class ExtensionHandler {
 	 * Create the QoS model manager extensions, which are registered.
 	 */
 	private void createQoSModelManagerExtensions() {
-		this.qosModelManagers = this.createExecuteableExtensions(QOS_MODEL_MANAGER_EXTENSION_ID, "class", IQoSModelManager.class);
+		this.qosModelManagers = this.createExecuteableExtensions(QOS_MODEL_MANAGER_EXTENSION_ID, "class", IQoSModelManager.class); //$NON-NLS-1$
 	}
 
 	/**
 	 * Create the architecture model manager extensions, which are registered.
 	 */
 	private void createArchitectureModelManagerExtensions() {
-		this.architectureModelManagers = this.createExecuteableExtensions(ARCHITECTURE_MODEL_MANAGER_EXTENSION_ID, "class", IArchitectureModelManager.class);
+		this.architectureModelManagers = this.createExecuteableExtensions(ARCHITECTURE_MODEL_MANAGER_EXTENSION_ID, "class", IArchitectureModelManager.class); //$NON-NLS-1$
 	}
 
 	/**
 	 * Create the evolution manager extensions, which are registered.
 	 */
 	private void createEvolutionManagerExtensions() {
-		this.evolutionManagers = this.createExecuteableExtensions(EVOLUTION_MANAGER_EXTENSION_ID, "class", AbstractEvolutionManager.class);
+		this.evolutionManagers = this.createExecuteableExtensions(EVOLUTION_MANAGER_EXTENSION_ID, "class", AbstractEvolutionManager.class); //$NON-NLS-1$
 	}
 
 	/**
 	 * Create the transformation manager extensions, which are registered.
 	 */
 	private void createTransformationManagerExtensions() {
-		this.transformationManagers = this.createExecuteableExtensions(TRANSFORMATION_MANAGER_EXTENSION_ID, "class", AbstractTransformationManager.class);
+		this.transformationManagers = this.createExecuteableExtensions(TRANSFORMATION_MANAGER_EXTENSION_ID, "class", AbstractTransformationManager.class); //$NON-NLS-1$
 	}
 
 	/**

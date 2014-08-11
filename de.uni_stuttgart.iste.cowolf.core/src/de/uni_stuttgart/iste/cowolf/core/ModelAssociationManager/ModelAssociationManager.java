@@ -117,26 +117,34 @@ public class ModelAssociationManager {
 		return associationProject.remove(source, target);
 	}
 
-	public boolean saveAll() {
+	/**
+	 * Saves all associations
+	 */
+	public void saveAll() {
 
 		for (AssociationProject associationProject : associationProjects) {
 			save(associationProject);
+
 		}
 
-		return true;
 	}
 
-	private boolean save(AssociationProject project) {
+	/**
+	 * @param project
+	 *            the project whose associations will be saved
+	 * @return
+	 */
+	private void save(AssociationProject project) {
 
-		Element rootElement = new Element("root");
+		Element rootElement = new Element("root"); //$NON-NLS-1$
 		Document doc = new Document(rootElement);
 
 		for (Association association : project.getAssociations()) {
-			Element associationElement = new Element("association");
+			Element associationElement = new Element("association"); //$NON-NLS-1$
 
-			Attribute sourceAttribute = new Attribute("source", association
+			Attribute sourceAttribute = new Attribute("source", association //$NON-NLS-1$
 					.getSource().getURI().toString());
-			Attribute targetAttribute = new Attribute("target", association
+			Attribute targetAttribute = new Attribute("target", association //$NON-NLS-1$
 					.getTarget().getURI().toString());
 
 			associationElement.setAttribute(sourceAttribute);
@@ -150,12 +158,13 @@ public class ModelAssociationManager {
 		try {
 			out.output(doc, new FileOutputStream(propertyFile));
 		} catch (IOException e) {
-			return false;
 		}
-		System.out.print("save");
-		return true;
+
 	}
 
+	/**
+	 * Loads all associations
+	 */
 	public void loadAll() {
 		try {
 			IProject[] projects = ResourcesPlugin.getWorkspace().getRoot()
@@ -168,25 +177,33 @@ public class ModelAssociationManager {
 						&& iProject.getDescription().hasNature(
 								ProjectNature.NATURE_ID)) {
 					AssociationProject associationProject = load(iProject);
-					associationProjects.add(associationProject);
+					if (associationProject != null) {
+						associationProjects.add(associationProject);
+					}
 				}
 
 			}
 
 		} catch (CoreException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 	}
 
-	public AssociationProject load(IProject iProject) {
+	/**
+	 * Loads the associations for one project
+	 * 
+	 * @param iProject
+	 *            the project to load
+	 * @return an association project with the associations
+	 */
+	private AssociationProject load(IProject iProject) {
 
 		AssociationProject project = new AssociationProject(iProject);
 
 		try {
 			Document document = new Document();
-			Element root = new Element("root");
+			Element root = new Element("root"); //$NON-NLS-1$
 
 			SAXBuilder saxBuilder = new SAXBuilder();
 
@@ -196,19 +213,20 @@ public class ModelAssociationManager {
 
 			root = document.getRootElement();
 
-			List<Element> associationElements = root.getChildren("association");
+			@SuppressWarnings("unchecked")
+			List<Element> associationElements = root.getChildren("association"); //$NON-NLS-1$
 
 			ResourceSet resourceSet = new ResourceSetImpl();
 
 			for (Element associationElement : associationElements) {
 				String sourceUriString = associationElement
-						.getAttributeValue("source");
+						.getAttributeValue("source"); //$NON-NLS-1$
 				URI sourceUri = URI.createFileURI(sourceUriString);
 				Resource sourceResource = resourceSet.getResource(sourceUri,
 						true);
 
 				String targetUriString = associationElement
-						.getAttributeValue("target");
+						.getAttributeValue("target"); //$NON-NLS-1$
 				URI targetUri = URI.createFileURI(targetUriString);
 				Resource targetResource = resourceSet.getResource(targetUri,
 						true);
@@ -216,24 +234,31 @@ public class ModelAssociationManager {
 				project.add(sourceResource, targetResource);
 			}
 		} catch (JDOMException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			return null;
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			return null;
 		}
 
 		return project;
 	}
 
-	private File getPropertyFile(IProject p) {
-		IFile propertyIFile = p.getFile(p.getFullPath().toString()
-				+ "/.properties/properties.xml");
+	/**
+	 * @param iProjectp
+	 *            the project
+	 * @return the file with the properties
+	 */
+	private File getPropertyFile(IProject iProjectp) {
+		IFile propertyIFile = iProjectp.getFile(iProjectp.getFullPath()
+				.toString() + "/.properties/properties.xml"); //$NON-NLS-1$
 
 		return new File(propertyIFile.getFullPath().toString());
 
 	}
 
+	/**
+	 * @param iProject
+	 * @return the association project for the IProject
+	 */
 	private AssociationProject getAssociationProject(IProject iProject) {
 		for (AssociationProject ap : associationProjects) {
 			if (ap.getAssociationProject().equals(iProject)) {

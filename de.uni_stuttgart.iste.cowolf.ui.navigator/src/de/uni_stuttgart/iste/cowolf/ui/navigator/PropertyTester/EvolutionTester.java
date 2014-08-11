@@ -17,8 +17,8 @@ import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
 
 public class EvolutionTester extends PropertyTester {
 
-	public static final String PROPERTY_NAMESPACE = "de.uni_stuttgart.iste.cowolf.ui.navigator.propertyTester.evolution";
-	public static final String PROPERTY_CAN_FOO = "canFoo";
+	public static final String PROPERTY_NAMESPACE = "de.uni_stuttgart.iste.cowolf.ui.navigator.propertyTester.evolution"; //$NON-NLS-1$
+	public static final String PROPERTY_CAN_FOO = "canFoo"; //$NON-NLS-1$
 
 	public EvolutionTester() {
 		// TODO Auto-generated constructor stub
