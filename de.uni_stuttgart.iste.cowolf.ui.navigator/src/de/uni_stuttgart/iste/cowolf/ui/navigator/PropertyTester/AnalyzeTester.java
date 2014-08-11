@@ -18,7 +18,6 @@ import de.uni_stuttgart.iste.cowolf.model.IModelManager;
 public class AnalyzeTester extends PropertyTester {
 
 	public AnalyzeTester() {
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -29,10 +28,17 @@ public class AnalyzeTester extends PropertyTester {
 
 		IWorkbenchWindow window = PlatformUI.getWorkbench()
 				.getActiveWorkbenchWindow();
-		IStructuredSelection selection = (IStructuredSelection) window
-				.getSelectionService().getSelection();
-
+		if (window == null) {
+			return false;
+		}
+		IStructuredSelection selection = (IStructuredSelection) window.getSelectionService().getSelection();
+		if (selection == null) {
+			return false;
+		}
 		Object selectedElement = selection.getFirstElement();
+		if (selectedElement == null) {
+			return false;
+		}
 		// catch exceptions from wrong parsing as we can only recognize IFiles
 		try {
 			// file then try to parse
