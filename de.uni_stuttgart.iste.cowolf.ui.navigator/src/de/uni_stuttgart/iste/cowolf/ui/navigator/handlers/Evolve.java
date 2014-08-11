@@ -29,9 +29,9 @@ public class Evolve extends AbstractHandler {
 				.getSelectionService().getSelection();
 
 		List list = selection.toList();
-		Resource firstElement = (Resource) list.get(0);
-		Resource secondElement = (Resource) list.get(1);
-
+		Resource firstElement =  (Resource)list.get(0);
+		Resource secondElement =  (Resource) list.get(1);
+		
 		AbstractEvolutionManager modelManager = extensionHandler
 				.getEvolutionManager(firstElement);
 
