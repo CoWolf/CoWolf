@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.uni_stuttgart.iste.cowolf.model.statechart/src"
-    editDirectory="/de.uni_stuttgart.iste.cowolf.model.statechart.presentation.edit/src"
-    editorDirectory="/de.uni_stuttgart.iste.cowolf.model.statechart.presentation.editor/src"
-    modelPluginID="de.uni_stuttgart.iste.cowolf.model.statechart" modelName="Statechart"
-    editPluginClass="de.uni_stuttgart.iste.cowol.model.Statechart.presentation.provider.StatechartEditPlugin"
-    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" testsDirectory="/de.uni_stuttgart.iste.cowolf.model.statechart.presenation.tests/src"
-    testSuiteClass="de.uni_stuttgart.iste.cowol.model.Statechart.tests.presentationStatechartAllTests"
-    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
-    editPluginID="de.uni_stuttgart.iste.cowolf.model.statechart.presentation.edit"
-    editorPluginID="de.uni_stuttgart.iste.cowolf.model.statechart.presentation.editor"
-    testsPluginID="de.uni_stuttgart.iste.cowolf.model.statechart.presentation.tests"
-    operationReflection="true" importOrganizing="true">
+    editDirectory="/de.uni_stuttgart.iste.cowolf.model.statechart.emf.edit/src" editorDirectory="/de.uni_stuttgart.iste.cowolf.model.statechart.emf.editor/src"
+    modelPluginID="de.uni_stuttgart.iste.cowolf.model.statechart" modelName="Statechartemf"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="7.0" copyrightFields="false" editPluginID="de.uni_stuttgart.iste.cowolf.model.statechart.emf.edit"
+    editorPluginID="de.uni_stuttgart.iste.cowolf.model.statechart.emf.editor" operationReflection="true"
+    importOrganizing="true">
   <foreignModel>statechart.ecore</foreignModel>
-  <genPackages prefix="statechart" basePackage="de.uni_stuttgart.iste.cowol.model"
-      disposableProviderFactory="true" ecorePackage="statechart.ecore#/">
+  <genPackages prefix="Statechartemf" basePackage="de.uni_stuttgart.iste.cowolf.model"
+      disposableProviderFactory="true" providerPackageSuffix="emf.provider" presentationPackageSuffix="emf.presentation"
+      testsPackageSuffix="emf.tests" ecorePackage="statechart.ecore#/">
     <genClasses ecoreClass="statechart.ecore#//BooleanExpression">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute statechart.ecore#//BooleanExpression/value"/>
     </genClasses>
@@ -43,6 +39,7 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference statechart.ecore#//StateVertex/sv_container"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference statechart.ecore#//StateVertex/outgoing"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference statechart.ecore#//StateVertex/incoming"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute statechart.ecore#//StateVertex/id"/>
     </genClasses>
     <genClasses ecoreClass="statechart.ecore#//Guard">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference statechart.ecore#//Guard/gua_container"/>
