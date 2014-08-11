@@ -33,7 +33,7 @@ public class CoEvolutionTester extends PropertyTester {
 
 		@SuppressWarnings("rawtypes")
 		List list = selection.toList();
-		
+
 		if (list.size() != 2) {
 			return false;
 		}

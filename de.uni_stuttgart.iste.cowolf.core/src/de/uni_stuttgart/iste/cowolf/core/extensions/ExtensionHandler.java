@@ -81,28 +81,32 @@ public class ExtensionHandler {
 	 * Create the QoS model manager extensions, which are registered.
 	 */
 	private void createQoSModelManagerExtensions() {
+
 		this.qosModelManagers = this.createExecuteableExtensions(QOS_MODEL_MANAGER_EXTENSION_ID, "class", AbstractQoSModelManager.class);
+
 	}
 
 	/**
 	 * Create the architecture model manager extensions, which are registered.
 	 */
 	private void createArchitectureModelManagerExtensions() {
+
 		this.architectureModelManagers = this.createExecuteableExtensions(ARCHITECTURE_MODEL_MANAGER_EXTENSION_ID, "class", AbstractArchitectureModelManager.class);
+
 	}
 
 	/**
 	 * Create the evolution manager extensions, which are registered.
 	 */
 	private void createEvolutionManagerExtensions() {
-		this.evolutionManagers = this.createExecuteableExtensions(EVOLUTION_MANAGER_EXTENSION_ID, "class", AbstractEvolutionManager.class);
+		this.evolutionManagers = this.createExecuteableExtensions(EVOLUTION_MANAGER_EXTENSION_ID, "class", AbstractEvolutionManager.class); //$NON-NLS-1$
 	}
 
 	/**
 	 * Create the transformation manager extensions, which are registered.
 	 */
 	private void createTransformationManagerExtensions() {
-		this.transformationManagers = this.createExecuteableExtensions(TRANSFORMATION_MANAGER_EXTENSION_ID, "class", AbstractTransformationManager.class);
+		this.transformationManagers = this.createExecuteableExtensions(TRANSFORMATION_MANAGER_EXTENSION_ID, "class", AbstractTransformationManager.class); //$NON-NLS-1$
 	}
 
 	/**

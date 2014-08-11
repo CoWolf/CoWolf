@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 /**
  * This class holds the connection between a project and the known associations
  * in this project
+
  *
  */
 public class AssociationProject {

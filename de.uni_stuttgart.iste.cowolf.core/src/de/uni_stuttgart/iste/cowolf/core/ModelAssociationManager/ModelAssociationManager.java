@@ -178,6 +178,7 @@ public class ModelAssociationManager {
 			outputter.output(document, new FileOutputStream(propertyFile));
 		} catch (IOException e) {
 			e.printStackTrace();
+
 		}
 
 	}
