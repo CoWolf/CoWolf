@@ -29,7 +29,6 @@ public class EvolutionTester extends PropertyTester {
 	public boolean test(Object receiver, String property, Object[] args,
 			Object expectedValue) {
 
-		System.out.println("Hallo!!!!!!");
 		ExtensionHandler extensionHandler = new ExtensionHandler();
 		IWorkbenchWindow window = PlatformUI.getWorkbench()
 				.getActiveWorkbenchWindow();
