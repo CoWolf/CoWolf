@@ -8,8 +8,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
@@ -26,8 +29,11 @@ public class DTMCAnalyzeJob extends Job {
 
 	private final Resource model;
 	private final Map<String, Object> parameters;
+	
+	private EList<State> states;
+	private HashMap<State, Double> prismResult;
 
-	private String prismRootPath = "C:\\Program Files (x86)\\prism-4.2.beta1\\bin\\";
+	private String prismRootPath = "/home/philipp/Downloads/Skype/prism-4.2.beta1-linux64/bin/";
 	private String prismPMPath = "";
 	private String prismPCTLPath = "";
 	private String prismResultPath = "";
@@ -70,6 +76,10 @@ public class DTMCAnalyzeJob extends Job {
 					+ parameters.get("pathlength");
 		}
 
+	}	
+
+	public HashMap<State, Double> getAnalysis() {
+		return this.prismResult;
 	}
 
 	@Override
@@ -79,17 +89,14 @@ public class DTMCAnalyzeJob extends Job {
 				|| !(this.model.getContents().get(0) instanceof RootImpl)) {
 			return Status.CANCEL_STATUS;
 		}
+	
 		try {
 			RootImpl root = (RootImpl) this.model.getContents().get(0);
-			EList<State> states = root.getStates();
-			ArrayList<State> endStates = new ArrayList<State>();
+			states = root.getStates();
+			
+			this.prismResult = new HashMap<State,Double>();
 
-			for (State state : states) {
-				if (state.isIsEnd())
-					endStates.add(state);
-			}
-
-			monitor.beginTask("Analyse DTMC", endStates.size() + 4);
+			monitor.beginTask("Analyse DTMC", prismResult.size() + 4);
 
 			PRISMGenerator generator = new PRISMGenerator();
 
@@ -125,9 +132,9 @@ public class DTMCAnalyzeJob extends Job {
 			// 4. Use CommandLineExecutor to execute PRISM.
 			Reader r = new InputStreamReader(
 					CommandLineExecutor.execCommandAndGetStream(this.prismRootPath,
-							"prism \"" + this.prismPMPath + "\" \"" + this.prismPCTLPath
-									+ "\" -exportresults \"" + this.prismResultPath
-									+ "\"" + this.prismParameters));
+							"./prism " + this.prismPMPath + " " + this.prismPCTLPath
+									+ " -exportresults " + this.prismResultPath
+									+ "" + this.prismParameters));
 			BufferedReader in = new BufferedReader(r);
 			String line;
 			while ((line = in.readLine()) != null) {
@@ -142,6 +149,17 @@ public class DTMCAnalyzeJob extends Job {
 			monitor.done();
 
 			this.parseResultFile(this.prismResultPath);
+			
+			resultFile.delete();
+			
+			System.out.println("Results:");
+			for(Entry<State, Double> entry : this.prismResult.entrySet()) {
+				  State key = entry.getKey();
+				  Double value = entry.getValue();
+
+				  System.out.println(key.getName() + " => " + value);
+				}
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
@@ -151,13 +169,46 @@ public class DTMCAnalyzeJob extends Job {
 		return Status.OK_STATUS;
 	}
 
-	public void parseResultFile(final String file) {
+	protected void parseResultFile(final String file) {
 		BufferedReader br;
 		try {
 			br = new BufferedReader(new FileReader(file));
 			String line;
+			Pattern propPattern = Pattern.compile("^P=\\?\\s*\\[\\s*F\\s*s=(\\d+)\\s*\\]:\\s*$");
+			Pattern resultPattern = Pattern.compile("^([0|1]?\\.\\d+)$");
+			boolean first = true;
 			while ((line = br.readLine()) != null) {
-				System.out.println(line);
+				Matcher m = propPattern.matcher(line);
+				int index = -1;
+				if (!m.find()) {
+					if (!first) {
+						// no useful line, try next one.
+						continue;
+					} else {
+						// maybe only one result, save into first end state.
+						for (int i=0; i<this.states.size(); i++) {
+							if (this.states.get(i).isIsEnd()) {
+								index = i;
+							}
+						}
+					}
+				} else {
+					index = Integer.parseInt(m.group(1));
+					line = br.readLine();
+				}
+
+				if (line == null || !line.equals("Result")) {
+					continue;
+				}
+				line = br.readLine();
+
+				m = resultPattern.matcher(line);
+				if (line == null || !m.find()) {
+					continue;
+				}
+				double result = Double.valueOf(m.group(1));
+				this.prismResult.put(states.get(index), result);
+				
 			}
 			br.close();
 		} catch (FileNotFoundException e) {

@@ -24,10 +24,8 @@ class PRISMGenerator {
 				&& resource.getContents().get(0) instanceof RootImpl) {
 			var e = resource.getContents().get(0) as RootImpl;
 			addStatesToMap(e);
-			for (State state : e.states) {
-				if (state.isIsEnd()) {
-					result += "P=? [ F s=" + getID(state) + " ]\n";
-				}
+			for (State state : e.states.filter[isIsEnd]) {
+				result += "P=? [ F s=" + getID(state) + " ]\n";
 			}
 		} else {
 			return "";
