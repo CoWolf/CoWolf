@@ -10,19 +10,25 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.jdom.Attribute;
 import org.jdom.Document;
 import org.jdom.Element;
+import org.jdom.JDOMException;
+import org.jdom.input.SAXBuilder;
 import org.jdom.output.Format;
 import org.jdom.output.XMLOutputter;
 
-import de.uni_stuttgart.iste.cowolf.ui.natures.ProjectNature;
+import de.uni_stuttgart.iste.cowolf.core.natures.ProjectNature;
 
 public class ModelAssociationManager {
 
 	private static ModelAssociationManager instance;
 
-	ArrayList<AssociationProject> projects = new ArrayList<AssociationProject>();
+	ArrayList<AssociationProject> associationProjects = new ArrayList<AssociationProject>();
 
 	/**
 	 * for singleton
@@ -113,20 +119,33 @@ public class ModelAssociationManager {
 
 	public boolean saveAll() {
 
-		for (AssociationProject associationProject : projects) {
-			IProject iProject = associationProject.getProject();
-			save(iProject);
+		for (AssociationProject associationProject : associationProjects) {
+			save(associationProject);
 		}
 
 		return true;
 	}
 
-	private boolean save(IProject iProject) {
+	private boolean save(AssociationProject project) {
 
 		Element rootElement = new Element("root");
 		Document doc = new Document(rootElement);
 
-		File propertyFile = getPropertyFile(iProject);
+		for (Association association : project.getAssociations()) {
+			Element associationElement = new Element("association");
+
+			Attribute sourceAttribute = new Attribute("source", association
+					.getSource().getURI().toString());
+			Attribute targetAttribute = new Attribute("target", association
+					.getTarget().getURI().toString());
+
+			associationElement.setAttribute(sourceAttribute);
+			associationElement.setAttribute(targetAttribute);
+
+			rootElement.addContent(associationElement);
+		}
+
+		File propertyFile = getPropertyFile(project.getAssociationProject());
 		XMLOutputter out = new XMLOutputter(Format.getPrettyFormat());
 		try {
 			out.output(doc, new FileOutputStream(propertyFile));
@@ -148,7 +167,8 @@ public class ModelAssociationManager {
 				if (iProject.isOpen()
 						&& iProject.getDescription().hasNature(
 								ProjectNature.NATURE_ID)) {
-					load(iProject);
+					AssociationProject associationProject = load(iProject);
+					associationProjects.add(associationProject);
 				}
 
 			}
@@ -160,12 +180,50 @@ public class ModelAssociationManager {
 
 	}
 
-	public void load(IProject iProject) {
-		File propertyFile = getPropertyFile(iProject);
+	public AssociationProject load(IProject iProject) {
 
-		
-			System.out.print("load");
-				// TODO
+		AssociationProject project = new AssociationProject(iProject);
+
+		try {
+			Document document = new Document();
+			Element root = new Element("root");
+
+			SAXBuilder saxBuilder = new SAXBuilder();
+
+			// Create a new JDOM document from a XML file
+			File propertyFile = getPropertyFile(iProject);
+			document = saxBuilder.build(propertyFile);
+
+			root = document.getRootElement();
+
+			List<Element> associationElements = root.getChildren("association");
+
+			ResourceSet resourceSet = new ResourceSetImpl();
+
+			for (Element associationElement : associationElements) {
+				String sourceUriString = associationElement
+						.getAttributeValue("source");
+				URI sourceUri = URI.createFileURI(sourceUriString);
+				Resource sourceResource = resourceSet.getResource(sourceUri,
+						true);
+
+				String targetUriString = associationElement
+						.getAttributeValue("target");
+				URI targetUri = URI.createFileURI(targetUriString);
+				Resource targetResource = resourceSet.getResource(targetUri,
+						true);
+
+				project.add(sourceResource, targetResource);
+			}
+		} catch (JDOMException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return project;
 	}
 
 	private File getPropertyFile(IProject p) {
@@ -177,8 +235,8 @@ public class ModelAssociationManager {
 	}
 
 	private AssociationProject getAssociationProject(IProject iProject) {
-		for (AssociationProject ap : projects) {
-			if (ap.getProject().equals(iProject)) {
+		for (AssociationProject ap : associationProjects) {
+			if (ap.getAssociationProject().equals(iProject)) {
 				return ap;
 			}
 		}

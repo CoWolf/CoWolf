@@ -1,16 +1,11 @@
 package de.uni_stuttgart.iste.cowolf.ui.navigator.trigger;
 
-import org.eclipse.core.resources.IResourceChangeEvent;
-import org.eclipse.core.resources.IResourceChangeListener;
-import org.eclipse.core.resources.IWorkspace;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.ui.IStartup;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchListener;
 import org.eclipse.ui.PlatformUI;
 
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociationManager.ModelAssociationManager;
-import de.uni_stuttgart.iste.cowolf.ui.listeners.ResourceChangedListener;
 
 public class LoadTrigger implements IStartup {
 
