@@ -2,8 +2,6 @@ package de.uni_stuttgart.iste.cowolf.ui.navigator.handlers;
 
 import java.util.HashMap;
 
-import javax.swing.JOptionPane;
-
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandler;
@@ -24,7 +22,6 @@ import de.uni_stuttgart.iste.cowolf.model.IModelManager;
 import de.uni_stuttgart.iste.cowolf.model.IQoSModelManager;
 import de.uni_stuttgart.iste.cowolf.ui.model.AbstractQoSAnalyzeWizard;
 import de.uni_stuttgart.iste.cowolf.ui.model.AnalyzeWizardHandler;
-import de.uni_stuttgart.iste.cowolf.ui.navigator.externalizedStrings.Messages;
 
 public class Analyze implements IHandler {
 
@@ -42,7 +39,6 @@ public class Analyze implements IHandler {
 
 	@Override
 	public Object execute(final ExecutionEvent event) throws ExecutionException {
-		JOptionPane.showMessageDialog(null, Messages.Analyze_analyze_menu);
 		System.out.println("Doing Analyze");
 		ExtensionHandler extensionHandler = new ExtensionHandler();
 		IWorkbenchWindow window = PlatformUI.getWorkbench()

@@ -57,20 +57,16 @@ public class AnalyzeTester extends PropertyTester {
 
 				// must find model manager
 				if (modelManager != null) {
-					System.out.println("testing Analyze true");
 					return true;
 				} else {
-					System.out.println("testing Analyze false");
 					return false;
 				}
 			} else {
 				// no file -> cannot open
-				System.out.println("testing Analyze false no file");
 				return false;
 			}
 
 		} catch (Exception e) {
-			System.out.println("testing Analyze false exception");
 			return false;
 		}
 	}

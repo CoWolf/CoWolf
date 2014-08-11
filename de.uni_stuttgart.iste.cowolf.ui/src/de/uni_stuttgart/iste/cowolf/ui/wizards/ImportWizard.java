@@ -12,9 +12,8 @@ public class ImportWizard extends Wizard implements IImportWizard {
 	}
 
 	@Override
-	public void init(IWorkbench workbench, IStructuredSelection selection) {
+	public void init(final IWorkbench workbench, final IStructuredSelection selection) {
 		// TODO Auto-generated method stub
-
 	}
 
 	@Override
