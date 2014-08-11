@@ -1,5 +1,6 @@
 package de.uni_stuttgart.iste.cowolf.evolution;
 
+
 public class EvolutionException extends Exception {
 	
 	/**
@@ -11,7 +12,7 @@ public class EvolutionException extends Exception {
 		
 	}
 	
-	public EvolutionException(String message) {
-		super(message);
+	public EvolutionException(String message, Throwable e) {
+		super(message, e);
 	}
 }

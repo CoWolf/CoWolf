@@ -67,7 +67,8 @@ public class Evolve extends AbstractHandler {
 					symmetricDifference, firstElementParentDir + "differences");
 			new DifferencesView().open(evolveResultsFilePath);
 		} catch (EvolutionException e) {
-			JOptionPane.showMessageDialog(null, e.getLocalizedMessage());
+			JOptionPane.showMessageDialog(null, e.getLocalizedMessage(), 
+					"Exception", JOptionPane.ERROR_MESSAGE);
 			e.printStackTrace();
 		}
 

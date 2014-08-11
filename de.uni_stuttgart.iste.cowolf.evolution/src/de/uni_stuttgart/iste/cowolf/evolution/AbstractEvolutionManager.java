@@ -66,11 +66,9 @@ public abstract class AbstractEvolutionManager {
 		try {
 			return LiftingFacade.liftMeUp(oldModel, newModel, settings);
 		} catch (NoCorrespondencesException e) {
-			e.printStackTrace();
-			throw new EvolutionException("No correspondences found.");
+			throw new EvolutionException("No correspondences found.", e);
 		} catch (InvalidModelException e) {
-			e.printStackTrace();
-			throw new EvolutionException("Invalid Model used for evolution.");
+			throw new EvolutionException("Invalid Model used for evolution.", e);
 		}
 	}
 
