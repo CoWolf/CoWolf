@@ -6,7 +6,11 @@ import java.util.List;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.core.resources.IFile;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
@@ -29,17 +33,31 @@ public class Evolve extends AbstractHandler {
 				.getSelectionService().getSelection();
 
 		List list = selection.toList();
-		Resource firstElement =  (Resource)list.get(0);
-		Resource secondElement =  (Resource) list.get(1);
+		Object firstElement = list.get(0);
+		Object secondElement = list.get(1);
 		
+		IFile firstElementeIFile = (IFile) firstElement;
+		IFile secondElementeIFile = (IFile) secondElement;
+
+		URI firstElementURI = URI.createPlatformResourceURI(firstElementeIFile
+				.getFullPath().toString(), true);
+		URI secondElementURI = URI.createPlatformResourceURI(
+				secondElementeIFile.getFullPath().toString(), true);
+
+		ResourceSet resourceSet = new ResourceSetImpl();
+		Resource firstElementResource = resourceSet.getResource(
+				firstElementURI, true);
+		Resource secondElementResource = resourceSet.getResource(
+				secondElementURI, true);
+
 		AbstractEvolutionManager modelManager = extensionHandler
-				.getEvolutionManager(firstElement);
+				.getEvolutionManager(firstElementResource);
 
 		SymmetricDifference symmetricDifference = modelManager.evolve(
-				firstElement, secondElement);
+				firstElementResource, secondElementResource);
 
-		String firstElementParentDir = new File(firstElement.getURI()
-				.toFileString()).getParentFile().getParent();
+		String firstElementParentDir = new File(firstElementeIFile
+				.getFullPath().toString()).getParentFile().getParent();
 
 		String evolveResultsFilePath = modelManager.saveEvolveResults(
 				symmetricDifference, firstElementParentDir + "differences");
