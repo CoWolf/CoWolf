@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            name="Sample Preferences"
+            class="de.uni_stuttgart.iste.cowolf.ui.model.fault_tree.preferences.FaultTreePreferencePage"
+            id="de.uni_stuttgart.iste.cowolf.ui.model.fault_tree.preferences.SamplePreferencePage">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="de.uni_stuttgart.iste.cowolf.ui.model.fault_tree.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+
+</plugin>

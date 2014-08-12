@@ -1,28 +1,25 @@
-package de.uni_stuttgart.iste.cowolf.ui.model.dtmc.analyze;
+package de.uni_stuttgart.iste.cowolf.ui.model.fault_tree.analyze;
 
 import java.util.HashMap;
 
-import javax.swing.JOptionPane;
-
 import org.eclipse.emf.ecore.resource.Resource;
 
-
 import de.uni_stuttgart.iste.cowolf.model.AbstractQoSModelManager;
-import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCModelManager;
+import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreeModelManager;
 import de.uni_stuttgart.iste.cowolf.ui.model.analyze.AbstractQoSAnalyzeWizard;
-import de.uni_stuttgart.iste.cowolf.ui.model.dtmc.preference.DTMCPreferencePage;
 
-public class DTMCAnalyzeWizard extends AbstractQoSAnalyzeWizard {
+public class FaultTreeAnalyzeWizard extends AbstractQoSAnalyzeWizard {
 
 	protected AnalyzeWizardPage1 pageOne;
 
-	public DTMCAnalyzeWizard() {
+	public FaultTreeAnalyzeWizard() {
 		super();
 	}
 
 	@Override
-	public void initialize(final AbstractQoSModelManager manager, final Resource resource, final HashMap<String, Object> properties) {
-		super.setWindowTitle("Analyze DTMC");
+	public void initialize(final AbstractQoSModelManager manager,
+			final Resource resource, final HashMap<String, Object> properties) {
+		super.setWindowTitle("Analyze Fault Tree");
 		super.initialize(manager, resource, properties);
 		this.pageOne = new AnalyzeWizardPage1("Page 1");
 	}
@@ -45,7 +42,7 @@ public class DTMCAnalyzeWizard extends AbstractQoSAnalyzeWizard {
 
 	@Override
 	public boolean isManaged(final AbstractQoSModelManager manager) {
-		return manager instanceof DTMCModelManager;
+		return manager instanceof FaultTreeModelManager;
 	}
 
 	@Override
@@ -55,11 +52,13 @@ public class DTMCAnalyzeWizard extends AbstractQoSAnalyzeWizard {
 
 	@Override
 	public boolean checkConditions() {
-		String path = DTMCPreferencePage.getPrismPath().trim();
-		if (path.isEmpty() || path.equals("")) {
-			JOptionPane.showMessageDialog(null, "Path to PRISM is missing, please add in the preferences!", "Missing Path", JOptionPane.ERROR_MESSAGE);
-			return false;
-		}
+		// String path = DTMCPreferencePage.getPrismPath().trim();
+		// if (path.isEmpty() || path.equals("")) {
+		// JOptionPane.showMessageDialog(null,
+		// "Path to PRISM is missing, please add in the preferences!",
+		// "Missing Path", JOptionPane.ERROR_MESSAGE);
+		// return false;
+		// }
 		return true;
 	}
 }

@@ -2,10 +2,10 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.fault_tree.impl;
 
+import org.eclipse.emf.ecore.EClass;
+
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.AND;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreePackage;
-
-import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
