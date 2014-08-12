@@ -275,13 +275,11 @@ public class ModelAssociationManager {
 				return null;
 			} catch (IOException e) {
 				return null;
-
 			}
 
 			return associationProject;
 		}
 		return null;
-
 	}
 
 	/**
@@ -289,7 +287,6 @@ public class ModelAssociationManager {
 	 *            the project
 	 * @return the file with the properties
 	 */
-
 	private File getPropertyFile(IProject iProject, boolean save) {
 
 		IFile propertyIFile = iProject.getFile(PROPERTIES_XML); //$NON-NLS-1$
