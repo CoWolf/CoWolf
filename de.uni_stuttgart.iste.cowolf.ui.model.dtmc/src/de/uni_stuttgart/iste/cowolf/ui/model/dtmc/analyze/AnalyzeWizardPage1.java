@@ -10,6 +10,8 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.events.VerifyEvent;
 import org.eclipse.swt.events.VerifyListener;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
@@ -39,23 +41,36 @@ public class AnalyzeWizardPage1 extends WizardPage {
 	public void createControl(final Composite parent) {
 		this.container = new Composite(parent, SWT.NONE);
 		this.setControl(this.container);
+		this.container.setLayout(new GridLayout(1, false));
 
 		Group grpVerificationMethod = new Group(this.container, SWT.NONE);
+		grpVerificationMethod.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		grpVerificationMethod.setText("Verification Method");
-		grpVerificationMethod.setBounds(10, 10, 554, 314);
-
-		this.btnSimulation = new Button(grpVerificationMethod, SWT.RADIO);
-		this.btnSimulation.setBounds(10, 41, 90, 16);
-		this.btnSimulation.setText("Simulation");
+		grpVerificationMethod.setLayout(new GridLayout(1, false));
 
 		this.btnVerification = new Button(grpVerificationMethod, SWT.RADIO);
 		this.btnVerification.setSelection(true);
-		this.btnVerification.setBounds(10, 19, 90, 16);
 		this.btnVerification.setText("Verification");
 
+				this.btnSimulation = new Button(grpVerificationMethod, SWT.RADIO);
+				this.btnSimulation.setText("Simulation");
+
 		final Group grpSimulationProperties = new Group(grpVerificationMethod, SWT.NONE);
+		grpSimulationProperties.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		grpSimulationProperties.setText("Simulation properties");
-		grpSimulationProperties.setBounds(10, 63, 534, 115);
+
+		this.btnSimulation.addSelectionListener(new SelectionListener() {
+			@Override
+			public void widgetSelected(final SelectionEvent e) {
+				AnalyzeWizardPage1.this.recursiveSetEnabled(grpSimulationProperties, true);
+				AnalyzeWizardPage1.this.setPageComplete();
+			}
+
+			@Override
+			public void widgetDefaultSelected(final SelectionEvent e) {
+			}
+		});
+
 		this.btnVerification.addSelectionListener(new SelectionListener() {
 			@Override
 			public void widgetSelected(final SelectionEvent e) {
@@ -68,44 +83,31 @@ public class AnalyzeWizardPage1 extends WizardPage {
 			public void widgetDefaultSelected(final SelectionEvent e) {
 			}
 		});
-
-		this.btnSimulation.addSelectionListener(new SelectionListener() {
-			@Override
-			public void widgetSelected(final SelectionEvent e) {
-				System.out.println("Toggle simulation");
-				AnalyzeWizardPage1.this.recursiveSetEnabled(grpSimulationProperties, true);
-				AnalyzeWizardPage1.this.setPageComplete();
-			}
-
-			@Override
-			public void widgetDefaultSelected(final SelectionEvent e) {
-			}
-		});
 		this.recursiveSetEnabled(grpSimulationProperties, false);
+		GridLayout gl_grpSimulationProperties = new GridLayout(2, false);
+		gl_grpSimulationProperties.horizontalSpacing = 50;
+		grpSimulationProperties.setLayout(gl_grpSimulationProperties);
 
 		this.lblNumberOfSamples = new Label(grpSimulationProperties, SWT.NONE);
-		this.lblNumberOfSamples.setBounds(10, 23, 123, 15);
 		this.lblNumberOfSamples.setText("Number of Samples:");
 
 		this.txtNumberofsamples = new Text(grpSimulationProperties, SWT.BORDER);
+		this.txtNumberofsamples.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
 		this.txtNumberofsamples.setText("1000");
-		this.txtNumberofsamples.setBounds(139, 20, 76, 21);
 
 		this.lblConfidence = new Label(grpSimulationProperties, SWT.NONE);
-		this.lblConfidence.setBounds(10, 50, 88, 15);
 		this.lblConfidence.setText("Confidence:");
 
 		this.txtConfidence = new Text(grpSimulationProperties, SWT.BORDER);
+		this.txtConfidence.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
 		this.txtConfidence.setText("0.01");
-		this.txtConfidence.setBounds(139, 47, 76, 21);
+
+				this.lblPathlength = new Label(grpSimulationProperties, SWT.NONE);
+				this.lblPathlength.setText("Maximum path length:");
 
 		this.txtPathlength = new Text(grpSimulationProperties, SWT.BORDER);
+		this.txtPathlength.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
 		this.txtPathlength.setText("10000");
-		this.txtPathlength.setBounds(139, 79, 76, 21);
-
-		this.lblPathlength = new Label(grpSimulationProperties, SWT.NONE);
-		this.lblPathlength.setBounds(10, 82, 123, 15);
-		this.lblPathlength.setText("Maximum path length:");
 		this.setPageComplete();
 
 		ModifyListener changeListener = new ModifyListener() {
