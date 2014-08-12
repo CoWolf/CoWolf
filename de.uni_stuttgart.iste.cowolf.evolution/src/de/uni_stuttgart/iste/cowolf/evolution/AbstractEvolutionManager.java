@@ -20,7 +20,7 @@ import org.silift.common.util.exceptions.NoCorrespondencesException;
 
 /**
  * Abstract implementation of the manager that handles evolution of a single
- * model type. Has to be extended by the specific evolution plugin for a model
+ * model type. Has to be extended by the specific evolution plug-in for a model
  * type.
  *
  * @author Michael Müller
@@ -50,9 +50,10 @@ public abstract class AbstractEvolutionManager {
 	 * @param newModel
 	 *            new model for comparison
 	 * @return differences between two models.
-	 * @throws EvolutionException 
+	 * @throws EvolutionException
 	 */
-	public SymmetricDifference evolve(Resource oldModel, Resource newModel) throws EvolutionException {
+	public SymmetricDifference evolve(Resource oldModel, Resource newModel)
+			throws EvolutionException {
 		if (!this.isManaged(oldModel) || !this.isManaged(newModel)) {
 			// TODO: return value?
 			Logger.getLogger("evolution").warning(
@@ -114,7 +115,7 @@ public abstract class AbstractEvolutionManager {
 
 		// Assert matcher is available
 		assert (key2matcher.containsKey(matcherKey)) : "Matcher with key '"
-		+ matcherKey + "' not found!";
+				+ matcherKey + "' not found!";
 
 		return key2matcher.get(matcherKey);
 	}
@@ -128,9 +129,15 @@ public abstract class AbstractEvolutionManager {
 	}
 
 	/**
+	 * 
+	 * Saves the differences {@code symmetricDifference} between the models as
+	 * file in the directory {@code savePath}.
+	 * 
 	 * @param symmetricDifference
+	 *            to save as file.
 	 * @param savePath
-	 * @return
+	 *            - the directory where the differences should be saved as file.
+	 * @return the absolute path of the file that contains the differences.
 	 */
 	public String saveEvolveResults(SymmetricDifference symmetricDifference,
 			String savePath) {
@@ -148,7 +155,7 @@ public abstract class AbstractEvolutionManager {
 				fileName);
 
 		return savePath + File.separator + fileName + "."
-		+ LiftingFacade.SYMMETRIC_DIFF_EXT;
+				+ LiftingFacade.SYMMETRIC_DIFF_EXT;
 
 	}
 

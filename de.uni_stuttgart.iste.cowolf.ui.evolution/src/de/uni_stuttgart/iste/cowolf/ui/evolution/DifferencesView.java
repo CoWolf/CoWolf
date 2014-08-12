@@ -7,12 +7,20 @@ import org.eclipse.swt.widgets.Display;
 import org.silift.common.util.ui.UIUtil;
 
 /**
- * Differences view
+ * Difference view that shows the differences between two models. It uses the
+ * view provided by SiLift.
  *
  * @author Rene Trefft
  */
 public class DifferencesView {
 
+	/**
+	 * Opens the difference view of SiLift with the symmetric or asymmetric
+	 * difference file at {@code differenceFilePath}.
+	 * 
+	 * @param differenceFilePath
+	 *            to open in difference view.
+	 */
 	public void open(final String differenceFilePath) {
 
 		Display.getDefault().asyncExec(new Runnable() {
