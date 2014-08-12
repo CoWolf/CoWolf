@@ -24,7 +24,7 @@ public class CommandLineExecutor {
 		if (isWindowsSystem()) {
 			process = Runtime.getRuntime().exec("cmd /c " + command, null, dir);
 		} else if (isLinuxSystem()) {
-			process = Runtime.getRuntime().exec(command, null, dir);
+			process = Runtime.getRuntime().exec("./" + command, null, dir);
 		} else {
 			throw new Exception("Unknown operating system.");
 		}

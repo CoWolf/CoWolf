@@ -31,7 +31,7 @@ public class DTMCAnalyzeJob extends Job {
 	private final Map<String, Object> parameters;
 	
 	private EList<State> states;
-	private HashMap<State, Double> prismResult;
+	private HashMap<State, String> prismResult;
 
 	private String prismRootPath = "";
 	private String prismPMPath = "";
@@ -50,12 +50,13 @@ public class DTMCAnalyzeJob extends Job {
 	 *            The DTMC resource containing a Root node and
 	 *            states/transitions.
 	 * @param parameters
-	 *            prismRootPath : The path to the PRISM root directory. verify :
-	 *            Calculate reachability using verification. Doesn't require any
-	 *            other parameters. simulate : Calculate reachability by
-	 *            simulation. Requires: samples : number of samples, ]0,
-	 *            2147483647] confidence : Confidence for reachability, ]0, 1[
-	 *            pathlength : Maximum pathlength, ]0, 2147483647]
+	 *            prismRootPath : The path to the PRISM root directory. 
+	 *            verify : Calculate reachability using verification. Doesn't require any other parameters. 
+	 *            simulate : Calculate reachability by simulation. Requires:
+	 *            	samples : number of samples, ]0, 2147483647] 
+	 *            	confidence : Confidence for reachability, ]0, 1[
+	 *            	pathlength : Maximum pathlength, ]0, 2147483647]
+	 *      
 	 */
 	public DTMCAnalyzeJob(final Resource model,
 			final Map<String, Object> parameters) {
@@ -78,7 +79,7 @@ public class DTMCAnalyzeJob extends Job {
 
 	}	
 
-	public HashMap<State, Double> getAnalysis() {
+	public HashMap<State, String> getAnalysis() {
 		return this.prismResult;
 	}
 
@@ -94,7 +95,7 @@ public class DTMCAnalyzeJob extends Job {
 			RootImpl root = (RootImpl) this.model.getContents().get(0);
 			states = root.getStates();
 			
-			this.prismResult = new HashMap<State,Double>();
+			this.prismResult = new HashMap<State,String>();
 
 			monitor.beginTask("Analyse DTMC", prismResult.size() + 4);
 
@@ -132,7 +133,7 @@ public class DTMCAnalyzeJob extends Job {
 			// 4. Use CommandLineExecutor to execute PRISM.
 			Reader r = new InputStreamReader(
 					CommandLineExecutor.execCommandAndGetStream(this.prismRootPath,
-							"./prism " + this.prismPMPath + " " + this.prismPCTLPath
+							"prism " + this.prismPMPath + " " + this.prismPCTLPath
 									+ " -exportresults " + this.prismResultPath
 									+ "" + this.prismParameters));
 			BufferedReader in = new BufferedReader(r);
@@ -150,15 +151,17 @@ public class DTMCAnalyzeJob extends Job {
 
 			this.parseResultFile(this.prismResultPath);
 			
+			pmFile.delete();
+			pctlFile.delete();
 			resultFile.delete();
 			
 			System.out.println("Results:");
-			for(Entry<State, Double> entry : this.prismResult.entrySet()) {
+			for(Entry<State, String> entry : this.prismResult.entrySet()) {
 				  State key = entry.getKey();
-				  Double value = entry.getValue();
+				  String value = entry.getValue();
 
 				  System.out.println(key.getName() + " => " + value);
-				}
+			}
 			
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -206,7 +209,7 @@ public class DTMCAnalyzeJob extends Job {
 				if (line == null || !m.find()) {
 					continue;
 				}
-				double result = Double.valueOf(m.group(1));
+				String result = m.group(1);
 				this.prismResult.put(states.get(index), result);
 				
 			}
