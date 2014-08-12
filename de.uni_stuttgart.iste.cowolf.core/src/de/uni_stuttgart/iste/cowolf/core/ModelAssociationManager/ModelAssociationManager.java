@@ -166,7 +166,7 @@ public class ModelAssociationManager {
 			rootElement.addContent(associationElement);
 		}
 
-		File propertyFile = getPropertyFile(project.getIProject());
+		File propertyFile = getPropertyFile(project.getIProject(), true);
 
 		XMLOutputter outputter = new XMLOutputter(Format.getPrettyFormat());
 		try {
@@ -216,49 +216,55 @@ public class ModelAssociationManager {
 
 		AssociationProject associationProject = new AssociationProject(iProject);
 
-		try {
-			Document document = new Document();
-			Element rootElement = new Element(ROOT); //$NON-NLS-1$
+		File propertyFile = getPropertyFile(iProject, false);
 
-			SAXBuilder saxBuilder = new SAXBuilder();
+		if (propertyFile != null) {
+			try {
+				Document document = new Document();
+				Element rootElement = new Element(ROOT); //$NON-NLS-1$
 
-			// Create a new JDOM document from a XML file
-			File propertyFile = getPropertyFile(iProject);
-			document = saxBuilder.build(propertyFile);
+				SAXBuilder saxBuilder = new SAXBuilder();
 
-			rootElement = document.getRootElement();
+				// Create a new JDOM document from a XML file
 
-			@SuppressWarnings("unchecked")
-			List<Element> associationElements = rootElement
-					.getChildren(ASSOCIATION); //$NON-NLS-1$
+				document = saxBuilder.build(propertyFile);
 
-			ResourceSet resourceSet = new ResourceSetImpl();
+				rootElement = document.getRootElement();
 
-			for (Element associationElement : associationElements) {
-				String sourceUriString = associationElement
-						.getAttributeValue(SOURCE); //$NON-NLS-1$
-				URI sourceUri = URI.createPlatformResourceURI(sourceUriString,
-						true);
-				Resource sourceResource = resourceSet.getResource(sourceUri,
-						true);
+				@SuppressWarnings("unchecked")
+				List<Element> associationElements = rootElement
+						.getChildren(ASSOCIATION); //$NON-NLS-1$
 
-				String targetUriString = associationElement
-						.getAttributeValue(TARGET); //$NON-NLS-1$
-				URI targetUri = URI.createPlatformResourceURI(targetUriString,
-						true);
-				Resource targetResource = resourceSet.getResource(targetUri,
-						true);
+				ResourceSet resourceSet = new ResourceSetImpl();
 
-				associationProject.addAssociation(sourceResource,
-						targetResource);
+				for (Element associationElement : associationElements) {
+					String sourceUriString = associationElement
+							.getAttributeValue(SOURCE); //$NON-NLS-1$
+					URI sourceUri = URI.createPlatformResourceURI(
+							sourceUriString, true);
+					Resource sourceResource = resourceSet.getResource(
+							sourceUri, true);
+
+					String targetUriString = associationElement
+							.getAttributeValue(TARGET); //$NON-NLS-1$
+					URI targetUri = URI.createPlatformResourceURI(
+							targetUriString, true);
+					Resource targetResource = resourceSet.getResource(
+							targetUri, true);
+
+					associationProject.addAssociation(sourceResource,
+							targetResource);
+				}
+
+			} catch (JDOMException e) {
+				return null;
+			} catch (IOException e) {
+				return null;
 			}
-		} catch (JDOMException e) {
-			return null;
-		} catch (IOException e) {
-			return null;
-		}
 
-		return associationProject;
+			return associationProject;
+		}
+		return null;
 	}
 
 	/**
@@ -266,20 +272,28 @@ public class ModelAssociationManager {
 	 *            the project
 	 * @return the file with the properties
 	 */
-	private File getPropertyFile(IProject iProject) {
+	private File getPropertyFile(IProject iProject, boolean save) {
 
 		IFile propertyIFile = iProject.getFile(PROPERTIES_XML); //$NON-NLS-1$
+		File file = null;
+		if (propertyIFile.exists()) {
+			file = new File(propertyIFile.getLocation().toString());
 
-		File file = new File(propertyIFile.getLocation().toString());
-
-		try {
-			file.createNewFile();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			return file;
+		} else {
+			if (save) {
+				try {
+					file = new File(propertyIFile.getLocation().toString());
+					file.createNewFile();
+					return file;
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 		}
 
-		return file;
+		return null;
 
 	}
 
