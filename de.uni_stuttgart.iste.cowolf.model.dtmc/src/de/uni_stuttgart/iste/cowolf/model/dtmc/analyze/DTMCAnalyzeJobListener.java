@@ -66,7 +66,7 @@ public class DTMCAnalyzeJobListener implements IJobChangeListener {
 
 		IFile modelfile = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(resource.getURI().toPlatformString(true)));
 
-		IFile resultfile = ResourcesPlugin.getWorkspace().getRoot().getFile(modelfile.getFullPath().addFileExtension(".analysis.csv"));
+		IFile resultfile = ResourcesPlugin.getWorkspace().getRoot().getFile(modelfile.getFullPath().addFileExtension("analysis.csv"));
 
 
 		OutputStream out;
