@@ -14,6 +14,8 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.window.Window;
+import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.sidiff.difference.symmetric.SymmetricDifference;
@@ -21,6 +23,7 @@ import org.sidiff.difference.symmetric.SymmetricDifference;
 import de.uni_stuttgart.iste.cowolf.core.extensions.ExtensionHandler;
 import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
 import de.uni_stuttgart.iste.cowolf.evolution.EvolutionException;
+import de.uni_stuttgart.iste.cowolf.ui.evolution.ComponentSelectionWizard;
 import de.uni_stuttgart.iste.cowolf.ui.evolution.DifferencesView;
 
 public class Evolve extends AbstractHandler {
@@ -28,10 +31,12 @@ public class Evolve extends AbstractHandler {
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 
+		
 		ExtensionHandler extensionHandler = new ExtensionHandler();
 
 		IWorkbenchWindow window = PlatformUI.getWorkbench()
 				.getActiveWorkbenchWindow();
+		
 		IStructuredSelection selection = (IStructuredSelection) window
 				.getSelectionService().getSelection();
 
@@ -52,14 +57,28 @@ public class Evolve extends AbstractHandler {
 				firstElementURI, true);
 		Resource secondElementResource = resourceSet.getResource(
 				secondElementURI, true);
-
+		ComponentSelectionWizard modelWizard = new ComponentSelectionWizard(firstElementResource, secondElementResource);
+		WizardDialog wizard = new WizardDialog(window.getShell(), modelWizard);
+		if(wizard.open() == Window.CANCEL) {
+			return null;
+		}
+		Resource firstModel;
+		Resource secondModel;
+		if(modelWizard.isFirstModelSelected()) {
+			firstModel = firstElementResource;
+			secondModel = secondElementResource;
+		} else {
+			firstModel = secondElementResource;
+			secondModel = firstElementResource;
+		}
+		
 		AbstractEvolutionManager modelManager = extensionHandler
 				.getEvolutionManager(firstElementResource);
 
 		SymmetricDifference symmetricDifference;
 		try {
 			symmetricDifference = modelManager.evolve(
-					firstElementResource, secondElementResource);
+					firstModel, secondModel);
 			String firstElementParentDir = new File(firstElementeIFile
 					.getFullPath().toString()).getParentFile().getParent();
 
