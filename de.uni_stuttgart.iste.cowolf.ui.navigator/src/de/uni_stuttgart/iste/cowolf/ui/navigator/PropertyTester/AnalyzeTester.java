@@ -58,11 +58,7 @@ public class AnalyzeTester extends PropertyTester {
 						.getModelManager(resource);
 
 				// must find model manager
-				if (modelManager != null) {
-					return true;
-				} else {
-					return false;
-				}
+				return (modelManager != null);
 			} else {
 				// no file -> cannot open
 				return false;

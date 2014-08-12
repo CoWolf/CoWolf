@@ -2,6 +2,8 @@ package de.uni_stuttgart.iste.cowolf.ui.creationFunctions;
 
 import java.net.URI;
 
+import javax.swing.JOptionPane;
+
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
@@ -76,8 +78,8 @@ public class CreationFunctions {
 					newIProject.open(null);
 				}
 			} catch (CoreException e) {
-				// TODO
-				e.printStackTrace();
+				JOptionPane.showMessageDialog(null, "Could not create project"
+						+ e.getLocalizedMessage());
 			}
 		}
 
@@ -99,8 +101,8 @@ public class CreationFunctions {
 			try {
 				iFolder.create(false, true, null);
 			} catch (CoreException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				JOptionPane.showMessageDialog(null, "Could not create folder"
+						+ e.getLocalizedMessage());
 			}
 		}
 		return iFolder;
@@ -125,8 +127,8 @@ public class CreationFunctions {
 				iProject.setDescription(description, monitor);
 			}
 		} catch (CoreException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null,
+					"Could not add nature" + e.getLocalizedMessage());
 		}
 	}
 }

@@ -56,6 +56,7 @@ public class StartTrigger implements IStartup {
 				 */
 				@Override
 				public void postShutdown(IWorkbench workbench) {
+					// nothing to do
 				}
 
 			};
