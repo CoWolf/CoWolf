@@ -7,6 +7,8 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -78,12 +80,16 @@ public class Evolve extends AbstractHandler {
 		try {
 			symmetricDifference = modelManager.evolve(
 					firstModel, secondModel);
-			String firstElementParentDir = new File(firstElementeIFile
-					.getFullPath().toString()).getParentFile().getParent();
-
-			String evolveResultsFilePath = modelManager.saveEvolveResults(
-					symmetricDifference, firstElementParentDir + File.separator + "differences");
-			new DifferencesView().open(evolveResultsFilePath);
+			URI uri = firstModel.getURI();
+			if (uri.isPlatformResource()) {
+				String platformString = uri.toPlatformString(true);
+				IResource resource = ResourcesPlugin.getWorkspace().getRoot().findMember(platformString);
+				String path = resource.getProject().getLocation().toFile().toString();
+				String evolveResultsFilePath = modelManager.saveEvolveResults(
+						symmetricDifference, path + File.separator + "differences");
+				new DifferencesView().open(evolveResultsFilePath);
+			}
+			
 		} catch (EvolutionException e) {
 			MessageDialog.openError(window.getShell(), "Evolution Exception occured", e.getLocalizedMessage());
 			e.printStackTrace();
