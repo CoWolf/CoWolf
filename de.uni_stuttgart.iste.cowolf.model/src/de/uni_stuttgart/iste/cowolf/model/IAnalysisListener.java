@@ -8,7 +8,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 /**
  *
  */
-public interface AnalysisListener {
+public interface IAnalysisListener {
 
 	public void finished(Resource resource, String result);
 }
