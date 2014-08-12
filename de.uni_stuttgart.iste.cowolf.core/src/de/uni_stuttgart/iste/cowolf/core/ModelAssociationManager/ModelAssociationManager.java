@@ -64,7 +64,6 @@ public class ModelAssociationManager {
 		AssociationProject associationProject = getAssociationProject(iProject);
 
 		if (associationProject == null) {
-
 			return null;
 		}
 
@@ -100,7 +99,6 @@ public class ModelAssociationManager {
 			IProject iProject) {
 
 		AssociationProject associationProject = getAssociationProject(iProject);
-
 
 		if (associationProject == null) {
 
@@ -158,14 +156,12 @@ public class ModelAssociationManager {
 
 		for (Association association : project.getAssociations()) {
 
-
 			Element associationElement = new Element(ASSOCIATION); //$NON-NLS-1$
 
 			Attribute sourceAttribute = new Attribute(SOURCE, association //$NON-NLS-1$
 					.getSource().getURI().toPlatformString(true));
 
 			Attribute targetAttribute = new Attribute(TARGET, association //$NON-NLS-1$
-
 					.getTarget().getURI().toPlatformString(true));
 
 			associationElement.setAttribute(sourceAttribute);
@@ -174,11 +170,9 @@ public class ModelAssociationManager {
 			rootElement.addContent(associationElement);
 		}
 
-
 		File propertyFile = getPropertyFile(project.getIProject(), true);
 
 		XMLOutputter outputter = new XMLOutputter(Format.getPrettyFormat());
-
 
 		try {
 			outputter.output(document, new FileOutputStream(propertyFile));
@@ -245,14 +239,11 @@ public class ModelAssociationManager {
 
 				rootElement = document.getRootElement();
 
-
 				@SuppressWarnings("unchecked")
 				List<Element> associationElements = rootElement
 						.getChildren(ASSOCIATION); //$NON-NLS-1$
 
-
 				ResourceSet resourceSet = new ResourceSetImpl();
-
 
 				for (Element associationElement : associationElements) {
 					String sourceUriString = associationElement
@@ -277,11 +268,13 @@ public class ModelAssociationManager {
 				return null;
 			} catch (IOException e) {
 				return null;
+
 			}
 
 			return associationProject;
 		}
 		return null;
+
 	}
 
 	/**
@@ -313,7 +306,6 @@ public class ModelAssociationManager {
 		}
 
 		return null;
-
 
 	}
 
