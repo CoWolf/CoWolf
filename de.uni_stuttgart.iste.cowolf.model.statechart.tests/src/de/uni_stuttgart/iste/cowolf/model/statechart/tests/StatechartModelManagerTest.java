@@ -9,6 +9,8 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.junit.Test;
 
+import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfFactory;
+import de.uni_stuttgart.iste.cowolf.model.dtmc.Root;
 import de.uni_stuttgart.iste.cowolf.model.statechart.StatechartModelManager;
 import de.uni_stuttgart.iste.cowolf.model.statechart.Statechart.StateMachine;
 import de.uni_stuttgart.iste.cowolf.model.statechart.Statechart.StatechartemfFactory;
@@ -16,7 +18,7 @@ import de.uni_stuttgart.iste.cowolf.model.statechart.Statechart.StatechartemfFac
 public class StatechartModelManagerTest {
 
 	@Test
-	public void testIsManaged() {
+	public void testIsManaged1() {
 		
 		//create test model
 		StatechartemfFactory factory = StatechartemfFactory.eINSTANCE;
@@ -33,6 +35,27 @@ public class StatechartModelManagerTest {
 		StatechartModelManager target = new StatechartModelManager();
 		
 		Assert.isTrue(target.isManaged(res));
+		
+	}
+	
+	@Test
+	public void testIsManaged2() {
+		
+		//create test model
+		DTMCemfFactory factory = DTMCemfFactory.eINSTANCE;
+		
+		Root root = factory.createRoot();
+		
+		// Create a resource set.
+		ResourceSet resourceSet = new ResourceSetImpl();
+		Resource res = resourceSet.createResource(URI.createFileURI("myTestStatechart.statechartemf"));
+		
+		res.getContents().add(root);
+		
+		//create test target
+		StatechartModelManager target = new StatechartModelManager();
+		
+		Assert.isTrue(!target.isManaged(res));
 		
 	}
 
