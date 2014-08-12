@@ -1,4 +1,4 @@
-package de.uni_stuttgart.iste.cowolf.ui.navigator.handlers;
+package de.uni_stuttgart.iste.cowolf.ui.evolution.handlers;
 
 import java.io.File;
 import java.util.List;
@@ -7,6 +7,9 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -27,9 +30,10 @@ import de.uni_stuttgart.iste.cowolf.ui.evolution.DifferencesView;
 
 public class Evolve extends AbstractHandler {
 
-    @Override
-    public Object execute(ExecutionEvent event) throws ExecutionException {
-        // initialize variables
+	@Override
+	public Object execute(ExecutionEvent event) throws ExecutionException {
+
+		 // initialize variables
         Resource firstElementResource = null;
         Resource secondElementResource = null;
         ResourceSet resourceSet = new ResourceSetImpl();

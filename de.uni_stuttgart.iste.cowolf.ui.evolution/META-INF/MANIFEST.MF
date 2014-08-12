@@ -1,17 +1,19 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: CoWolf UI Evolution
-Bundle-SymbolicName: de.uni_stuttgart.iste.cowolf.ui.evolution
+Bundle-SymbolicName: de.uni_stuttgart.iste.cowolf.ui.evolution;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Import-Package: de.uni_stuttgart.iste.cowolf.ui.evolution,
+Import-Package: de.uni_stuttgart.iste.cowolf.core.extensions,
+ de.uni_stuttgart.iste.cowolf.evolution,
+ de.uni_stuttgart.iste.cowolf.ui.evolution,
+ org.eclipse.core.expressions,
  org.eclipse.core.runtime;version="3.4.0",
  org.eclipse.emf.common.ui.dialogs,
  org.eclipse.emf.common.util,
  org.eclipse.emf.ecore.resource,
  org.eclipse.emf.ecore.resource.impl,
  org.eclipse.jface.dialogs,
- org.eclipse.jface.resource,
  org.eclipse.jface.viewers,
  org.eclipse.jface.wizard,
  org.eclipse.swt,
@@ -19,8 +21,10 @@ Import-Package: de.uni_stuttgart.iste.cowolf.ui.evolution,
  org.eclipse.swt.graphics,
  org.eclipse.swt.layout,
  org.eclipse.swt.widgets,
- org.eclipse.ui.dialogs,
- org.osgi.framework;version="1.8.0",
+ org.eclipse.ui,
+ org.sidiff.difference.symmetric,
  org.silift.common.util.ui
 Export-Package: de.uni_stuttgart.iste.cowolf.ui.evolution
-Require-Bundle: org.eclipse.core.resources
+Require-Bundle: org.eclipse.core.resources,
+ org.eclipse.ui
+Bundle-ActivationPolicy: lazy

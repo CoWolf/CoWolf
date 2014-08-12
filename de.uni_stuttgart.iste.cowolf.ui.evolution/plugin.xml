@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="de.uni_stuttgart.iste.cowolf.ui.evolution.handlers.Evolve"
+            commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.evolve">
+         <enabledWhen>
+            <and>
+               <with
+                     variable="selection">
+               </with>
+               <test
+                     property="de.uni_stuttgart.iste.cowolf.ui.evolution.properties.evolution.canFoo">
+               </test>
+            </and>
+         </enabledWhen>
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.core.expressions.propertyTesters">
+      <propertyTester
+            class="de.uni_stuttgart.iste.cowolf.ui.evolution.properties.EvolutionTester"
+            id="de.uni_stuttgart.iste.cowolf.ui.evolution.properties.evolution"
+            namespace="de.uni_stuttgart.iste.cowolf.ui.evolution.properties.evolution"
+            properties="canFoo"
+            type="java.lang.Object">
+      </propertyTester>
+   </extension>
+   <extension
+         id="de.uni_stuttgart.iste.cowolf.ui.navigator.commands"
+         name="%extension.name"
+         point="org.eclipse.ui.commands">
+      <command
+            id="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.evolve"
+            name="Evolve">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.startup">
+      <startup
+            class="de.uni_stuttgart.iste.cowolf.ui.evolution.triggers.DummyTrigger">
+      </startup>
+   </extension>
+
+</plugin>
