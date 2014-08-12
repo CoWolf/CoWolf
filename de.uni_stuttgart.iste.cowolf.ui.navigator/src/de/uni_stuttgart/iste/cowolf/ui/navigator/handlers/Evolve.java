@@ -7,6 +7,7 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.emf.common.util.URI;
@@ -32,19 +33,18 @@ public class Evolve extends AbstractHandler {
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 
-		
 		ExtensionHandler extensionHandler = new ExtensionHandler();
 
 		IWorkbenchWindow window = PlatformUI.getWorkbench()
 				.getActiveWorkbenchWindow();
-		
+
 		IStructuredSelection selection = (IStructuredSelection) window
 				.getSelectionService().getSelection();
 
 		List list = selection.toList();
 		Object firstElement = list.get(0);
 		Object secondElement = list.get(1);
-		
+
 		IFile firstElementeIFile = (IFile) firstElement;
 		IFile secondElementeIFile = (IFile) secondElement;
 
@@ -58,40 +58,43 @@ public class Evolve extends AbstractHandler {
 				firstElementURI, true);
 		Resource secondElementResource = resourceSet.getResource(
 				secondElementURI, true);
-		ComponentSelectionWizard modelWizard = new ComponentSelectionWizard(firstElementResource, secondElementResource);
+		ComponentSelectionWizard modelWizard = new ComponentSelectionWizard(
+				firstElementResource, secondElementResource);
 		WizardDialog wizard = new WizardDialog(window.getShell(), modelWizard);
-		if(wizard.open() == Window.CANCEL) {
+		if (wizard.open() == Window.CANCEL) {
 			return null;
 		}
 		Resource firstModel;
 		Resource secondModel;
-		if(modelWizard.isFirstModelSelected()) {
+		if (modelWizard.isFirstModelSelected()) {
 			firstModel = firstElementResource;
 			secondModel = secondElementResource;
 		} else {
 			firstModel = secondElementResource;
 			secondModel = firstElementResource;
 		}
-		
+
 		AbstractEvolutionManager modelManager = extensionHandler
 				.getEvolutionManager(firstElementResource);
 
 		SymmetricDifference symmetricDifference;
+	
 		try {
-			symmetricDifference = modelManager.evolve(
-					firstModel, secondModel);
-			URI uri = firstModel.getURI();
-			if (uri.isPlatformResource()) {
-				String platformString = uri.toPlatformString(true);
-				IResource resource = ResourcesPlugin.getWorkspace().getRoot().findMember(platformString);
-				String path = resource.getProject().getLocation().toFile().toString();
-				String evolveResultsFilePath = modelManager.saveEvolveResults(
-						symmetricDifference, path + File.separator + "differences");
-				new DifferencesView().open(evolveResultsFilePath);
-			}
 			
+			symmetricDifference = modelManager.evolve(firstModel, secondModel);
+
+			String projectRoot = firstElementeIFile.getProject().getLocation()
+					.toFile().toString();
+
+			String evolveResultsFilePath = modelManager.saveEvolveResults(
+					symmetricDifference, projectRoot + File.separator
+							+ "differences");
+			
+			new DifferencesView().open(evolveResultsFilePath);
+
 		} catch (EvolutionException e) {
-			MessageDialog.openError(window.getShell(), "Evolution Exception occured", e.getLocalizedMessage());
+			MessageDialog.openError(window.getShell(),
+					"Evolution Exception occured", e.getLocalizedMessage());
 			e.printStackTrace();
 		}
 
