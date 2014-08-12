@@ -138,7 +138,7 @@ public class ExtensionHandler {
 	 * @param model model to search for a manager.
 	 * @return IModelManager, which can handle this model or null if none is defined or installed.
 	 */
-	public IModelManager getModelManager(EPackage model) {
+	public IModelManager getModelManager(Resource model) {
 		for (final IModelManager manager : this.architectureModelManagers) {
 			if (manager.isManaged(model)) {
 				return manager;

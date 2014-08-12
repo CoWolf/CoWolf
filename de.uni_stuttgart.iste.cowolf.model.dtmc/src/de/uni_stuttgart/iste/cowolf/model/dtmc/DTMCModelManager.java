@@ -3,6 +3,7 @@ package de.uni_stuttgart.iste.cowolf.model.dtmc;
 import java.util.Map;
 
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.resource.Resource;
 
 import de.uni_stuttgart.iste.cowolf.model.IQoSModelManager;
 import de.uni_stuttgart.iste.cowolf.model.ModelTypeInfo;
@@ -20,7 +21,7 @@ public class DTMCModelManager implements IQoSModelManager {
 	}
 
 	@Override
-	public boolean isManaged(EPackage model) {
+	public boolean isManaged(Resource model) {
 		// TODO Auto-generated method stub
 		return false;
 	}

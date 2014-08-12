@@ -1,6 +1,7 @@
 package de.uni_stuttgart.iste.cowolf.model;
 
-import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.resource.Resource;
+
 
 public interface IModelManager {
 	public ModelTypeInfo getModelTypeInfo();
@@ -10,5 +11,5 @@ public interface IModelManager {
 	 * @param model model to check
 	 * @return true if this model is handled by this manager, false otherwise.
 	 */
-	public boolean isManaged(EPackage model);
+	public boolean isManaged(Resource model);
 }
