@@ -35,14 +35,9 @@ class PRISMGenerator {
 	}
 
 	def addStatesToMap(RootImpl e) '''
-		nameToIDMap = newHashMap()
+		«nameToIDMap = newHashMap()»
 		«FOR i : 0 .. e.states.size - 1»  
 			«nameToIDMap.put(e.states.get(i).name, i)»	
-		«ENDFOR»
-		«FOR i : 0 .. e.states.size - 1»  
-			«IF nameToIDMap.containsKey(e.states.get(i).name)»
-				«nameToIDMap.get(e.states.get(i).name)»
-			«ENDIF»	
 		«ENDFOR»
 	'''
 
