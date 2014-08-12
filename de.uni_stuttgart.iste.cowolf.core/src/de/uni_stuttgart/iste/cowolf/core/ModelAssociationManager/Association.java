@@ -12,12 +12,12 @@ public class Association {
 
 	private Resource target;
 	private Resource source;
-	private IProject project;
+	private IProject iProject;
 
 	public Association(Resource source, Resource target, IProject project) {
 		this.setSource(source);
 		this.setTarget(target);
-		this.setProject(project);
+		this.setIProject(project);
 	}
 
 	public Resource getSource() {
@@ -36,11 +36,11 @@ public class Association {
 		this.target = target;
 	}
 
-	public IProject getProject() {
-		return project;
+	public IProject getIProject() {
+		return iProject;
 	}
 
-	public void setProject(IProject project) {
-		this.project = project;
+	public void setIProject(IProject iProject) {
+		this.iProject = iProject;
 	}
 }
