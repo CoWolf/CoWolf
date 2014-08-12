@@ -1,7 +1,7 @@
 package de.uni_stuttgart.iste.cowolf.model.statechart.tests;
 
 public class StatechartModelManagerTest {
-/*
+
 	Resource res;
 	StateMachine root;
 
@@ -25,8 +25,10 @@ public class StatechartModelManagerTest {
 
 		//create test target
 		StatechartModelManager target = new StatechartModelManager();
-		Assert.assertTrue(target.isManaged(this.res));
+
+		
+		Assert.isTrue(!target.isManaged(res));
 
 	}
-*/
+
 }
