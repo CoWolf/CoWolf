@@ -19,15 +19,18 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 
+/**
+ * This class provides the main wizard content for selecting model
+ * and evolution direction.
+ * @author Michael Müller
+ *
+ */
 public class ComponentSelectionWizardPage extends WizardPage {
+
 	/**
-	 * First model to use for evolution.
+	 * Wizard for Model Selection
 	 */
-	private Resource modelA;
-	/**
-	 * Second model to use for evolution.
-	 */
-	private Resource modelB;
+	private ComponentSelectionWizard wizard;
 	/**
 	 * Radio button for first model.
 	 */
@@ -37,75 +40,65 @@ public class ComponentSelectionWizardPage extends WizardPage {
 	 */
 	private Button modelBButton;
 	
-	protected ComponentSelectionWizardPage(Resource modelA, Resource modelB) {
+	/**
+	 * Label for arrow icon.
+	 */
+	private Label arrowLabel;
+
+	protected ComponentSelectionWizardPage(ComponentSelectionWizard wizard) {
 		super("Model Selection");
-		this.setModels(modelA, modelB);
+		this.wizard = wizard;
 	}
 
-	public void setModels(Resource modelA, Resource modelB) {
-		this.modelA = modelA;
-		this.modelB = modelB;
-	}
 	@Override
 	public void createControl(final Composite parent) {
 		Composite container = new Composite(parent, SWT.NONE);
-	    GridLayout layout = new GridLayout(3, false);
-	    container.setLayout(layout);
-	    this.modelAButton = new Button(container, SWT.RADIO);
-	    this.modelAButton.setSelection(true);
-	    Label labelA = new Label(container, SWT.NONE);
-	    labelA.setText(this.modelToString(this.modelA));
-	    Button modelAChooser = new Button(container, 0);
-	    modelAChooser.setText("Browse ...");
-	    modelAChooser.addSelectionListener(this.browseWorkspace(modelA, labelA, parent.getShell()));
-	    new Label(container, SWT.NONE);
-	    final Label arrow = new Label(container, SWT.NONE);
-	    arrow.setLayoutData(new GridData(SWT.FILL, SWT.BEGINNING, true, false));
-	    arrow.setFont(new Font(null, "Arial", 35 ,SWT.BOLD));
-	    arrow.setAlignment(SWT.CENTER);
-	    arrow.setText("\u2193");
-	    new Label(container, SWT.NONE);
-	    this.modelBButton = new Button(container, SWT.RADIO);
-	    this.modelBButton.setSelection(false);
-	    this.modelAButton.addSelectionListener(new SelectionListener() {
-			
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				if(modelAButton.getSelection()) {
-					arrow.setText("\u2193");
-				}
-			}
-			
-			@Override
-			public void widgetDefaultSelected(SelectionEvent e) {
-			}
-		});
-	    this.modelBButton.addSelectionListener(new SelectionListener() {
-			
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				if(modelBButton.getSelection()) {
-					arrow.setText("\u2191");
-				}
-			}
-			
-			@Override
-			public void widgetDefaultSelected(SelectionEvent e) {
-			}
-		});
-	    final Label labelB = new Label(container, SWT.NONE);
-	    labelB.setText(this.modelToString(this.modelB));
-	    Button modelBChooser = new Button(container, 0);
-	    modelBChooser.setText("Browse ...");
-	    modelBChooser.addSelectionListener(this.browseWorkspace(modelB, labelB, parent.getShell()));
-	    this.setControl(container);
-	    this.setPageComplete(true);
+		GridLayout layout = new GridLayout(3, false);
+		container.setLayout(layout);
+		
+		// row for first model
+		this.modelAButton = new Button(container, SWT.RADIO);
+		this.modelAButton.setSelection(true);
+		Label labelA = new Label(container, SWT.NONE);
+		labelA.setText(this.modelToString(this.wizard.modelA));
+		Button modelAChooser = new Button(container, 0);
+		modelAChooser.setText("Browse ...");
+		modelAChooser.addSelectionListener(this.browseWorkspace(
+				this.wizard.modelA, labelA, parent.getShell()));
+		
+		// "arrow" row
+		new Label(container, SWT.NONE);
+		this.arrowLabel = new Label(container, SWT.NONE);
+		this.arrowLabel.setLayoutData(new GridData(SWT.FILL, SWT.BEGINNING, true, false));
+		this.arrowLabel.setFont(new Font(null, "Arial", 35, SWT.BOLD));
+		this.arrowLabel.setAlignment(SWT.CENTER);
+		this.arrowLabel.setText("\u2193");
+		new Label(container, SWT.NONE);
+		
+		// row for second model
+		this.modelBButton = new Button(container, SWT.RADIO);
+		this.modelAButton.addSelectionListener(this.radioButtonChanged());
+		this.modelBButton.addSelectionListener(this.radioButtonChanged());
+		final Label labelB = new Label(container, SWT.NONE);
+		labelB.setText(this.modelToString(this.wizard.modelB));
+		Button modelBChooser = new Button(container, 0);
+		modelBChooser.setText("Browse ...");
+		modelBChooser.addSelectionListener(this.browseWorkspace(
+				this.wizard.modelB, labelB, parent.getShell()));
+		
+		// complete wizard page
+		this.setControl(container);
+		this.setPageComplete(true);
 	}
 
+	/**
+	 * 
+	 * @return true if first model is selected.
+	 */
 	public boolean isFirstModelSelected() {
 		return this.modelAButton.getSelection();
 	}
-	
+
 	/**
 	 * 
 	 * @param model
@@ -113,31 +106,35 @@ public class ComponentSelectionWizardPage extends WizardPage {
 	 */
 	protected String modelToString(Resource model) {
 		if (model != null) {
-	    	IPath path = new Path(model.getURI().toString());
-		    return path.toString();
-	    }
+			IPath path = new Path(model.getURI().toString());
+			return path.toString();
+		}
 		return "";
 	}
 	
-	protected SelectionListener browseWorkspace(final Resource originalModel, final Label label, final Shell shell) {
+	protected SelectionListener browseWorkspace(final Resource originalModel,
+			final Label label, final Shell shell) {
 		SelectionListener listener = new SelectionListener() {
-			
+
 			@Override
-			public void widgetSelected(SelectionEvent e) {				
-				IFile[] files = WorkspaceResourceDialog.openFileSelection(shell, "Choose model file", "Choose model file", true, null, null);
-				if(files.length >= 1) {
-					URI uri = URI.createPlatformResourceURI(files[0].getFullPath().toString(), true);
+			public void widgetSelected(SelectionEvent e) {
+				IFile[] files = WorkspaceResourceDialog.openFileSelection(
+						shell, "Choose model file", "Choose model file", true,
+						null, null);
+				if (files.length >= 1) {
+					URI uri = URI.createPlatformResourceURI(files[0]
+							.getFullPath().toString(), true);
 					Resource model = new ResourceSetImpl().createResource(uri);
-					if(originalModel.equals(modelA)) {
-						modelA = model;
+					if (originalModel.equals(wizard.modelA)) {
+						wizard.modelA = model;
 					} else {
-						modelB = model;
+						wizard.modelB = model;
 					}
 					label.setText(modelToString(model));
 				}
-				
+
 			}
-			
+
 			@Override
 			public void widgetDefaultSelected(SelectionEvent e) {
 				// nothing to do
@@ -146,5 +143,24 @@ public class ComponentSelectionWizardPage extends WizardPage {
 		return listener;
 	}
 	
+	protected SelectionListener radioButtonChanged() {
+		SelectionListener listener = new SelectionListener() {
+			
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				if (modelAButton.getSelection()) {
+					arrowLabel.setText("\u2193");
+				} else if (modelBButton.getSelection()) {
+					arrowLabel.setText("\u2191");
+				}
+				
+			}
+			
+			@Override
+			public void widgetDefaultSelected(SelectionEvent e) {
+			}
+		};
+		return listener;
+	}
 
 }

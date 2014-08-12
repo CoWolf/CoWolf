@@ -13,11 +13,11 @@ public class ComponentSelectionWizard extends Wizard {
 	/**
 	 * First model to use for evolution.
 	 */
-	private Resource modelA;
+	protected Resource modelA;
 	/**
 	 * Second model to use for evolution.
 	 */
-	private Resource modelB;
+	protected Resource modelB;
 	/**
 	 * Wizard page displaying contents of wizard.
 	 */
@@ -34,7 +34,7 @@ public class ComponentSelectionWizard extends Wizard {
 	}
 	@Override
 	public void addPages() {
-		this.page = new ComponentSelectionWizardPage(modelA, modelB);
+		this.page = new ComponentSelectionWizardPage(this);
 		this.addPage(this.page);
 	}
 
@@ -51,6 +51,8 @@ public class ComponentSelectionWizard extends Wizard {
 	public boolean isFirstModelSelected() {
 		return this.isFirstElementSelected;
 	}
+	
+	
 	
 	
 
