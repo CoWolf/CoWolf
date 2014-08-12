@@ -26,6 +26,10 @@ import org.jdom.output.XMLOutputter;
 
 import de.uni_stuttgart.iste.cowolf.core.natures.ProjectNature;
 
+/**
+ * @author Verena Käfer
+ *
+ */
 public class ModelAssociationManager {
 
 	private static final String TARGET = "target";
