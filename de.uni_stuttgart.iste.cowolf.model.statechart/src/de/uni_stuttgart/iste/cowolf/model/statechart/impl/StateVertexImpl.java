@@ -2,27 +2,23 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.statechart.impl;
 
-import de.uni_stuttgart.iste.cowolf.model.statechart.CompositeState;
-import de.uni_stuttgart.iste.cowolf.model.statechart.StateVertex;
-import de.uni_stuttgart.iste.cowolf.model.statechart.Transition;
-import de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import de.uni_stuttgart.iste.cowolf.model.statechart.CompositeState;
+import de.uni_stuttgart.iste.cowolf.model.statechart.StateVertex;
+import de.uni_stuttgart.iste.cowolf.model.statechart.Transition;
+import de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -88,6 +84,7 @@ public class StateVertexImpl extends MinimalEObjectImpl.Container implements Sta
 	 */
 	protected StateVertexImpl() {
 		super();
+		this.id = EcoreUtil.generateUUID();
 	}
 
 	/**

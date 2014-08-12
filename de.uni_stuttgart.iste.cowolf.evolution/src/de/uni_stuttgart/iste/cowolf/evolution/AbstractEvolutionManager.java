@@ -12,7 +12,6 @@ import org.sidiff.difference.lifting.facade.LiftingFacade;
 import org.sidiff.difference.lifting.settings.LiftingSettings;
 import org.sidiff.difference.lifting.settings.LiftingSettings.RecognitionEngineMode;
 import org.sidiff.difference.matcher.IMatcher;
-import org.sidiff.difference.matcher.namedelement.NamedElementMatcher;
 import org.sidiff.difference.symmetric.SymmetricDifference;
 import org.silift.common.util.access.EMFModelAccessEx;
 import org.silift.common.util.emf.Scope;
@@ -31,7 +30,7 @@ public abstract class AbstractEvolutionManager {
 	/**
 	 * TODO: set matcher
 	 */
-	public static final String MATCHER = NamedElementMatcher.KEY;
+	public static final String MATCHER = "EcoreIDMatcher";
 
 	/**
 	 * Says whether the manager is able to handle a specific model.

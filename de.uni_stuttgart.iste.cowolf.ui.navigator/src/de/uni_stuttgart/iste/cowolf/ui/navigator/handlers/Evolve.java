@@ -3,8 +3,6 @@ package de.uni_stuttgart.iste.cowolf.ui.navigator.handlers;
 import java.io.File;
 import java.util.List;
 
-import javax.swing.JOptionPane;
-
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
@@ -13,6 +11,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.window.Window;
 import org.eclipse.jface.wizard.WizardDialog;
@@ -83,11 +82,10 @@ public class Evolve extends AbstractHandler {
 					.getFullPath().toString()).getParentFile().getParent();
 
 			String evolveResultsFilePath = modelManager.saveEvolveResults(
-					symmetricDifference, firstElementParentDir + "differences");
+					symmetricDifference, firstElementParentDir + File.separator + "differences");
 			new DifferencesView().open(evolveResultsFilePath);
 		} catch (EvolutionException e) {
-			JOptionPane.showMessageDialog(null, e.getLocalizedMessage(), 
-					"Exception", JOptionPane.ERROR_MESSAGE);
+			MessageDialog.openError(window.getShell(), "Evolution Exception occured", e.getLocalizedMessage());
 			e.printStackTrace();
 		}
 
