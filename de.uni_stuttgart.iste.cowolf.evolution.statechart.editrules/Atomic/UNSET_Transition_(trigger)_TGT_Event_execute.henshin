@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_qf_vUCIJEeSqwIxN9LIEjA" name="UNSET_Transition_(trigger)_TGT_Event" description="Unsets Transition's reference trigger the target Event">
+  <imports href="http://Statechart/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_qf_vUSIJEeSqwIxN9LIEjA" name="unsetTransition_trigger_TO_Event" description="UnsetTransitionReftriggerToEvent">
+    <parameters xmi:id="_qf_vUiIJEeSqwIxN9LIEjA" name="Selected"/>
+    <parameters xmi:id="_qf_vUyIJEeSqwIxN9LIEjA" name="OldTarget"/>
+    <lhs xmi:id="_qf_vVCIJEeSqwIxN9LIEjA" name="LHS">
+      <nodes xmi:id="_qf_vVSIJEeSqwIxN9LIEjA" name="Selected" incoming="_qf_vWCIJEeSqwIxN9LIEjA" outgoing="_qf_vVyIJEeSqwIxN9LIEjA">
+        <type href="http://Statechart/1.0#//Transition"/>
+      </nodes>
+      <nodes xmi:id="_qf_vViIJEeSqwIxN9LIEjA" name="OldTarget" incoming="_qf_vVyIJEeSqwIxN9LIEjA" outgoing="_qf_vWCIJEeSqwIxN9LIEjA">
+        <type href="http://Statechart/1.0#//Event"/>
+      </nodes>
+      <edges xmi:id="_qf_vVyIJEeSqwIxN9LIEjA" source="_qf_vVSIJEeSqwIxN9LIEjA" target="_qf_vViIJEeSqwIxN9LIEjA">
+        <type href="http://Statechart/1.0#//Transition/trigger"/>
+      </edges>
+      <edges xmi:id="_qf_vWCIJEeSqwIxN9LIEjA" source="_qf_vViIJEeSqwIxN9LIEjA" target="_qf_vVSIJEeSqwIxN9LIEjA">
+        <type href="http://Statechart/1.0#//Event/evt_container"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_qf_vWSIJEeSqwIxN9LIEjA" name="RHS">
+      <nodes xmi:id="_qf_vWiIJEeSqwIxN9LIEjA" name="Selected">
+        <type href="http://Statechart/1.0#//Transition"/>
+      </nodes>
+      <nodes xmi:id="_qf_vWyIJEeSqwIxN9LIEjA" name="OldTarget">
+        <type href="http://Statechart/1.0#//Event"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_qf_vXCIJEeSqwIxN9LIEjA" origin="_qf_vVSIJEeSqwIxN9LIEjA" image="_qf_vWiIJEeSqwIxN9LIEjA"/>
+    <mappings xmi:id="_qf_vXSIJEeSqwIxN9LIEjA" origin="_qf_vViIJEeSqwIxN9LIEjA" image="_qf_vWyIJEeSqwIxN9LIEjA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_qf_vXiIJEeSqwIxN9LIEjA" name="mainUnit" subUnits="_qf_vUSIJEeSqwIxN9LIEjA">
+    <parameters xmi:id="_qgBkgCIJEeSqwIxN9LIEjA" name="selectedEObject"/>
+    <parameters xmi:id="_qgCLkCIJEeSqwIxN9LIEjA" name="OldTarget"/>
+    <parameterMappings xmi:id="_qgCLkSIJEeSqwIxN9LIEjA" source="_qgBkgCIJEeSqwIxN9LIEjA" target="_qf_vUiIJEeSqwIxN9LIEjA"/>
+    <parameterMappings xmi:id="_qgCLkiIJEeSqwIxN9LIEjA" source="_qgCLkCIJEeSqwIxN9LIEjA" target="_qf_vUyIJEeSqwIxN9LIEjA"/>
+  </units>
+</henshin:Module>

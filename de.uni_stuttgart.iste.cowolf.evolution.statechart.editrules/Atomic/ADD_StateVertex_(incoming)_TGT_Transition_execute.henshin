@@ -1,46 +1,58 @@
 <?xml version="1.0" encoding="ASCII"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_CVCFECH6EeSBVYr6brtThw" name="ADD_StateVertex_(incoming)_TGT_Transition" description="Adds to StateVertex's reference incoming the target Transition">
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_qhPsgCIJEeSqwIxN9LIEjA" name="ADD_StateVertex_(incoming)_TGT_Transition" description="Adds to StateVertex's reference incoming the target Transition">
   <imports href="http://Statechart/1.0#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="_CVCFESH6EeSBVYr6brtThw" name="addToStateVertex_incoming_Transition" description="Adds to StateVertex's reference incoming the target Transition">
-    <parameters xmi:id="_CVCFEiH6EeSBVYr6brtThw" name="Selected">
-      <type xsi:type="ecore:EClass" href="http://Statechart/1.0#//StateVertex"/>
-    </parameters>
-    <parameters xmi:id="_CVCFEyH6EeSBVYr6brtThw" name="NewTarget">
-      <type xsi:type="ecore:EClass" href="http://Statechart/1.0#//Transition"/>
-    </parameters>
-    <lhs xmi:id="_CVCFFCH6EeSBVYr6brtThw" name="Lhs">
-      <nodes xmi:id="_CVCFFSH6EeSBVYr6brtThw" name="Selected">
+  <units xsi:type="henshin:Rule" xmi:id="_qhPsgSIJEeSqwIxN9LIEjA" name="addToStateVertex_incoming_Transition" description="Adds to StateVertex's reference incoming the target Transition">
+    <parameters xmi:id="_qhPsgiIJEeSqwIxN9LIEjA" name="Selected"/>
+    <parameters xmi:id="_qhPsgyIJEeSqwIxN9LIEjA" name="NewTarget"/>
+    <lhs xmi:id="_qhPshCIJEeSqwIxN9LIEjA" name="Lhs">
+      <nodes xmi:id="_qhPshSIJEeSqwIxN9LIEjA" name="Selected">
         <type href="http://Statechart/1.0#//StateVertex"/>
       </nodes>
-      <nodes xmi:id="_CVCFFiH6EeSBVYr6brtThw" name="NewTarget">
+      <nodes xmi:id="_qhPshiIJEeSqwIxN9LIEjA" name="NewTarget">
         <type href="http://Statechart/1.0#//Transition"/>
       </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_qhPshyIJEeSqwIxN9LIEjA">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_qhPsiCIJEeSqwIxN9LIEjA">
+          <conclusion xmi:id="_qhPsiSIJEeSqwIxN9LIEjA" name="doNotExceedUpperBound">
+            <nodes xmi:id="_qhPsiiIJEeSqwIxN9LIEjA" name="NewTarget" outgoing="_qhPsjSIJEeSqwIxN9LIEjA">
+              <type href="http://Statechart/1.0#//Transition"/>
+            </nodes>
+            <nodes xmi:id="_qhPsiyIJEeSqwIxN9LIEjA" name="Selected">
+              <type href="http://Statechart/1.0#//StateVertex"/>
+            </nodes>
+            <nodes xmi:id="_qhPsjCIJEeSqwIxN9LIEjA" incoming="_qhPsjSIJEeSqwIxN9LIEjA">
+              <type href="http://Statechart/1.0#//StateVertex"/>
+            </nodes>
+            <edges xmi:id="_qhPsjSIJEeSqwIxN9LIEjA" source="_qhPsiiIJEeSqwIxN9LIEjA" target="_qhPsjCIJEeSqwIxN9LIEjA">
+              <type href="http://Statechart/1.0#//Transition/target"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_qhQTkCIJEeSqwIxN9LIEjA" origin="_qhPshiIJEeSqwIxN9LIEjA" image="_qhPsiiIJEeSqwIxN9LIEjA"/>
+          <mappings xmi:id="_qhQTkSIJEeSqwIxN9LIEjA" origin="_qhPshSIJEeSqwIxN9LIEjA" image="_qhPsiyIJEeSqwIxN9LIEjA"/>
+        </child>
+      </formula>
     </lhs>
-    <rhs xmi:id="_CVCFFyH6EeSBVYr6brtThw" name="Rhs">
-      <nodes xmi:id="_CVCFGCH6EeSBVYr6brtThw" name="Selected" incoming="_CVCFGyH6EeSBVYr6brtThw" outgoing="_CVCFGiH6EeSBVYr6brtThw">
+    <rhs xmi:id="_qhQTkiIJEeSqwIxN9LIEjA" name="Rhs">
+      <nodes xmi:id="_qhQTkyIJEeSqwIxN9LIEjA" name="Selected" incoming="_qhQTliIJEeSqwIxN9LIEjA" outgoing="_qhQTlSIJEeSqwIxN9LIEjA">
         <type href="http://Statechart/1.0#//StateVertex"/>
       </nodes>
-      <nodes xmi:id="_CVCFGSH6EeSBVYr6brtThw" name="NewTarget" incoming="_CVCFGiH6EeSBVYr6brtThw" outgoing="_CVCFGyH6EeSBVYr6brtThw">
+      <nodes xmi:id="_qhQTlCIJEeSqwIxN9LIEjA" name="NewTarget" incoming="_qhQTlSIJEeSqwIxN9LIEjA" outgoing="_qhQTliIJEeSqwIxN9LIEjA">
         <type href="http://Statechart/1.0#//Transition"/>
       </nodes>
-      <edges xmi:id="_CVCFGiH6EeSBVYr6brtThw" source="_CVCFGCH6EeSBVYr6brtThw" target="_CVCFGSH6EeSBVYr6brtThw">
+      <edges xmi:id="_qhQTlSIJEeSqwIxN9LIEjA" source="_qhQTkyIJEeSqwIxN9LIEjA" target="_qhQTlCIJEeSqwIxN9LIEjA">
         <type href="http://Statechart/1.0#//StateVertex/incoming"/>
       </edges>
-      <edges xmi:id="_CVCFGyH6EeSBVYr6brtThw" source="_CVCFGSH6EeSBVYr6brtThw" target="_CVCFGCH6EeSBVYr6brtThw">
+      <edges xmi:id="_qhQTliIJEeSqwIxN9LIEjA" source="_qhQTlCIJEeSqwIxN9LIEjA" target="_qhQTkyIJEeSqwIxN9LIEjA">
         <type href="http://Statechart/1.0#//Transition/target"/>
       </edges>
     </rhs>
-    <mappings xmi:id="_CVCFHCH6EeSBVYr6brtThw" origin="_CVCFFSH6EeSBVYr6brtThw" image="_CVCFGCH6EeSBVYr6brtThw"/>
-    <mappings xmi:id="_CVCFHSH6EeSBVYr6brtThw" origin="_CVCFFiH6EeSBVYr6brtThw" image="_CVCFGSH6EeSBVYr6brtThw"/>
+    <mappings xmi:id="_qhQTlyIJEeSqwIxN9LIEjA" origin="_qhPshSIJEeSqwIxN9LIEjA" image="_qhQTkyIJEeSqwIxN9LIEjA"/>
+    <mappings xmi:id="_qhQTmCIJEeSqwIxN9LIEjA" origin="_qhPshiIJEeSqwIxN9LIEjA" image="_qhQTlCIJEeSqwIxN9LIEjA"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="_CVCFHiH6EeSBVYr6brtThw" name="mainUnit" subUnits="_CVCFESH6EeSBVYr6brtThw">
-    <parameters xmi:id="_CVCsICH6EeSBVYr6brtThw" name="selectedEObject">
-      <type xsi:type="ecore:EClass" href="http://Statechart/1.0#//StateVertex"/>
-    </parameters>
-    <parameters xmi:id="_CVCsISH6EeSBVYr6brtThw" name="NewTarget">
-      <type xsi:type="ecore:EClass" href="http://Statechart/1.0#//Transition"/>
-    </parameters>
-    <parameterMappings xmi:id="_CVCsIiH6EeSBVYr6brtThw" source="_CVCsICH6EeSBVYr6brtThw" target="_CVCFEiH6EeSBVYr6brtThw"/>
-    <parameterMappings xmi:id="_CVCsIyH6EeSBVYr6brtThw" source="_CVCsISH6EeSBVYr6brtThw" target="_CVCFEyH6EeSBVYr6brtThw"/>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_qhQTmSIJEeSqwIxN9LIEjA" name="mainUnit" subUnits="_qhPsgSIJEeSqwIxN9LIEjA">
+    <parameters xmi:id="_qhQTmiIJEeSqwIxN9LIEjA" name="selectedEObject"/>
+    <parameters xmi:id="_qhQTmyIJEeSqwIxN9LIEjA" name="NewTarget"/>
+    <parameterMappings xmi:id="_qhQTnCIJEeSqwIxN9LIEjA" source="_qhQTmiIJEeSqwIxN9LIEjA" target="_qhPsgiIJEeSqwIxN9LIEjA"/>
+    <parameterMappings xmi:id="_qhQTnSIJEeSqwIxN9LIEjA" source="_qhQTmyIJEeSqwIxN9LIEjA" target="_qhPsgyIJEeSqwIxN9LIEjA"/>
   </units>
 </henshin:Module>

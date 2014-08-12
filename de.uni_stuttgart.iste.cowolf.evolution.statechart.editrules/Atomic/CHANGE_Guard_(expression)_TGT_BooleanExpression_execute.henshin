@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_qhvbwCIJEeSqwIxN9LIEjA" name="CHANGE_Guard_(expression)_TGT_BooleanExpression" description="CHANGEs Guard's reference expression the target BooleanExpression">
+  <imports href="http://Statechart/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_qhvbwSIJEeSqwIxN9LIEjA" name="changeGuard_expression_TO_BooleanExpression" description="Change the EReference expression">
+    <parameters xmi:id="_qhvbwiIJEeSqwIxN9LIEjA" name="Selected"/>
+    <parameters xmi:id="_qhvbwyIJEeSqwIxN9LIEjA" name="OldTarget"/>
+    <parameters xmi:id="_qhvbxCIJEeSqwIxN9LIEjA" name="NewTarget"/>
+    <lhs xmi:id="_qhvbxSIJEeSqwIxN9LIEjA" name="Lhs">
+      <nodes xmi:id="_qhvbxiIJEeSqwIxN9LIEjA" name="Selected" outgoing="_qhvbySIJEeSqwIxN9LIEjA">
+        <type href="http://Statechart/1.0#//Guard"/>
+      </nodes>
+      <nodes xmi:id="_qhvbxyIJEeSqwIxN9LIEjA" name="OldTarget" incoming="_qhvbySIJEeSqwIxN9LIEjA">
+        <type href="http://Statechart/1.0#//BooleanExpression"/>
+      </nodes>
+      <nodes xmi:id="_qhvbyCIJEeSqwIxN9LIEjA" name="NewTarget">
+        <type href="http://Statechart/1.0#//BooleanExpression"/>
+      </nodes>
+      <edges xmi:id="_qhvbySIJEeSqwIxN9LIEjA" source="_qhvbxiIJEeSqwIxN9LIEjA" target="_qhvbxyIJEeSqwIxN9LIEjA">
+        <type href="http://Statechart/1.0#//Guard/expression"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_qhvbyiIJEeSqwIxN9LIEjA" name="Rhs">
+      <nodes xmi:id="_qhvbyyIJEeSqwIxN9LIEjA" name="Selected" outgoing="_qhvbziIJEeSqwIxN9LIEjA">
+        <type href="http://Statechart/1.0#//Guard"/>
+      </nodes>
+      <nodes xmi:id="_qhvbzCIJEeSqwIxN9LIEjA" name="OldTarget">
+        <type href="http://Statechart/1.0#//BooleanExpression"/>
+      </nodes>
+      <nodes xmi:id="_qhvbzSIJEeSqwIxN9LIEjA" name="NewTarget" incoming="_qhvbziIJEeSqwIxN9LIEjA">
+        <type href="http://Statechart/1.0#//BooleanExpression"/>
+      </nodes>
+      <edges xmi:id="_qhvbziIJEeSqwIxN9LIEjA" source="_qhvbyyIJEeSqwIxN9LIEjA" target="_qhvbzSIJEeSqwIxN9LIEjA">
+        <type href="http://Statechart/1.0#//Guard/expression"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_qhvbzyIJEeSqwIxN9LIEjA" origin="_qhvbxiIJEeSqwIxN9LIEjA" image="_qhvbyyIJEeSqwIxN9LIEjA"/>
+    <mappings xmi:id="_qhvb0CIJEeSqwIxN9LIEjA" origin="_qhvbxyIJEeSqwIxN9LIEjA" image="_qhvbzCIJEeSqwIxN9LIEjA"/>
+    <mappings xmi:id="_qhvb0SIJEeSqwIxN9LIEjA" origin="_qhvbyCIJEeSqwIxN9LIEjA" image="_qhvbzSIJEeSqwIxN9LIEjA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_qhvb0iIJEeSqwIxN9LIEjA" name="mainUnit" subUnits="_qhvbwSIJEeSqwIxN9LIEjA">
+    <parameters xmi:id="_qhvb0yIJEeSqwIxN9LIEjA" name="selectedEObject"/>
+    <parameters xmi:id="_qhvb1CIJEeSqwIxN9LIEjA" name="OldTarget"/>
+    <parameters xmi:id="_qhvb1SIJEeSqwIxN9LIEjA" name="NewTarget"/>
+    <parameterMappings xmi:id="_qhvb1iIJEeSqwIxN9LIEjA" source="_qhvb0yIJEeSqwIxN9LIEjA" target="_qhvbwiIJEeSqwIxN9LIEjA"/>
+    <parameterMappings xmi:id="_qhvb1yIJEeSqwIxN9LIEjA" source="_qhvb1CIJEeSqwIxN9LIEjA" target="_qhvbwyIJEeSqwIxN9LIEjA"/>
+    <parameterMappings xmi:id="_qhvb2CIJEeSqwIxN9LIEjA" source="_qhvb1SIJEeSqwIxN9LIEjA" target="_qhvbxCIJEeSqwIxN9LIEjA"/>
+  </units>
+</henshin:Module>
