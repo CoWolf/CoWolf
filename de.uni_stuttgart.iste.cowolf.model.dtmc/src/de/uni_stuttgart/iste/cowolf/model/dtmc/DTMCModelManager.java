@@ -1,7 +1,6 @@
 package de.uni_stuttgart.iste.cowolf.model.dtmc;
 
 import java.util.Map;
-
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.ecore.resource.Resource;
 

@@ -20,8 +20,8 @@ public class AnalyzeTester extends PropertyTester {
 	}
 
 	@Override
-	public boolean test(final Object receiver, final String property, final Object[] args,
-			final Object expectedValue) {
+	public boolean test(final Object receiver, final String property,
+			final Object[] args, final Object expectedValue) {
 
 		ExtensionHandler extensionHandler = new ExtensionHandler();
 
@@ -30,7 +30,8 @@ public class AnalyzeTester extends PropertyTester {
 		if (window == null) {
 			return false;
 		}
-		IStructuredSelection selection = (IStructuredSelection) window.getSelectionService().getSelection();
+		IStructuredSelection selection = (IStructuredSelection) window
+				.getSelectionService().getSelection();
 		if (selection == null) {
 			return false;
 		}
