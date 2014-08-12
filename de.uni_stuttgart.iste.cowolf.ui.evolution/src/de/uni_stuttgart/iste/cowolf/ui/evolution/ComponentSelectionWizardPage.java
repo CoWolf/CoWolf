@@ -19,6 +19,8 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 
+import de.uni_stuttgart.iste.cowolf.ui.evolution.properties.EvolutionTester;
+
 /**
  * This class provides the main wizard content for selecting model and evolution
  * direction.
@@ -95,7 +97,7 @@ public class ComponentSelectionWizardPage extends WizardPage {
 
         // complete wizard page
         this.setControl(container);
-        this.setPageComplete(true);
+        this.setPageComplete(new EvolutionTester().isEvolutionPossible(wizard.modelA, wizard.modelB));
     }
 
     /**
@@ -149,10 +151,10 @@ public class ComponentSelectionWizardPage extends WizardPage {
                     } else {
                         wizard.modelB = model;
                     }
-                    System.out.println(modelToString(model));
-                    System.out.println(wizard.modelB);
                     label.setText(modelToString(model));
                     label.pack();
+       
+                    setPageComplete(new EvolutionTester().isEvolutionPossible(wizard.modelA, wizard.modelB));
                 }
 
             }
