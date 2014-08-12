@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_zx9E4CHzEeSmSo6lQfAIMg" name="SET_State_Name" description="Sets State Name">
+  <imports href="http://dtmc/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_zx9E4SHzEeSmSo6lQfAIMg" name="setStateName" description="Sets the EAttribute name">
+    <parameters xmi:id="_zx9E4iHzEeSmSo6lQfAIMg" name="Selected"/>
+    <parameters xmi:id="_zx9E4yHzEeSmSo6lQfAIMg" name="Name"/>
+    <lhs xmi:id="_zx9E5CHzEeSmSo6lQfAIMg" name="Lhs">
+      <nodes xmi:id="_zx9E5SHzEeSmSo6lQfAIMg" name="Selected">
+        <type href="http://dtmc/1.0#//State"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_zx9E5iHzEeSmSo6lQfAIMg" name="Rhs">
+      <nodes xmi:id="_zx9E5yHzEeSmSo6lQfAIMg" name="Selected">
+        <type href="http://dtmc/1.0#//State"/>
+        <attributes xmi:id="_zx9E6CHzEeSmSo6lQfAIMg" value="Name">
+          <type href="http://dtmc/1.0#//State/name"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_zx9E6SHzEeSmSo6lQfAIMg" origin="_zx9E5SHzEeSmSo6lQfAIMg" image="_zx9E5yHzEeSmSo6lQfAIMg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_zx9E6iHzEeSmSo6lQfAIMg" name="mainUnit" subUnits="_zx9E4SHzEeSmSo6lQfAIMg">
+    <parameters xmi:id="_zx9E6yHzEeSmSo6lQfAIMg" name="selectedEObject"/>
+    <parameters xmi:id="_zx9E7CHzEeSmSo6lQfAIMg" name="Name"/>
+    <parameterMappings xmi:id="_zx9E7SHzEeSmSo6lQfAIMg" source="_zx9E6yHzEeSmSo6lQfAIMg" target="_zx9E4iHzEeSmSo6lQfAIMg"/>
+    <parameterMappings xmi:id="_zx9E7iHzEeSmSo6lQfAIMg" source="_zx9E7CHzEeSmSo6lQfAIMg" target="_zx9E4yHzEeSmSo6lQfAIMg"/>
+  </units>
+</henshin:Module>

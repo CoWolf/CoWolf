@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_zxejwCHzEeSmSo6lQfAIMg" name="REMOVE_State_(outGoing)_TGT_Transition" description="Removes State's reference outGoing the target Transition">
+  <imports href="http://dtmc/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_zxejwSHzEeSmSo6lQfAIMg" name="removeFromState_outGoing_Transition" description="Removes from State's reference outGoing the target Transition">
+    <parameters xmi:id="_zxfK0CHzEeSmSo6lQfAIMg" name="Selected"/>
+    <parameters xmi:id="_zxfK0SHzEeSmSo6lQfAIMg" name="OldTarget"/>
+    <lhs xmi:id="_zxfK0iHzEeSmSo6lQfAIMg" name="LHS">
+      <nodes xmi:id="_zxfK0yHzEeSmSo6lQfAIMg" name="Selected" incoming="_zxfK1iHzEeSmSo6lQfAIMg" outgoing="_zxfK1SHzEeSmSo6lQfAIMg">
+        <type href="http://dtmc/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_zxfK1CHzEeSmSo6lQfAIMg" name="OldTarget" incoming="_zxfK1SHzEeSmSo6lQfAIMg" outgoing="_zxfK1iHzEeSmSo6lQfAIMg">
+        <type href="http://dtmc/1.0#//Transition"/>
+      </nodes>
+      <edges xmi:id="_zxfK1SHzEeSmSo6lQfAIMg" source="_zxfK0yHzEeSmSo6lQfAIMg" target="_zxfK1CHzEeSmSo6lQfAIMg">
+        <type href="http://dtmc/1.0#//State/outGoing"/>
+      </edges>
+      <edges xmi:id="_zxfK1iHzEeSmSo6lQfAIMg" source="_zxfK1CHzEeSmSo6lQfAIMg" target="_zxfK0yHzEeSmSo6lQfAIMg">
+        <type href="http://dtmc/1.0#//Transition/from"/>
+      </edges>
+      <formula xsi:type="henshin:NestedCondition" xmi:id="_zxfK1yHzEeSmSo6lQfAIMg">
+        <conclusion xmi:id="_zxfK2CHzEeSmSo6lQfAIMg" name="sufficientElementsMustExist">
+          <nodes xmi:id="_zxfK2SHzEeSmSo6lQfAIMg" name="OldTarget" outgoing="_zxfK3SHzEeSmSo6lQfAIMg _zxfK3iHzEeSmSo6lQfAIMg">
+            <type href="http://dtmc/1.0#//Transition"/>
+          </nodes>
+          <nodes xmi:id="_zxfK2iHzEeSmSo6lQfAIMg" name="Selected">
+            <type href="http://dtmc/1.0#//State"/>
+          </nodes>
+          <nodes xmi:id="_zxfK2yHzEeSmSo6lQfAIMg" incoming="_zxfK3SHzEeSmSo6lQfAIMg">
+            <type href="http://dtmc/1.0#//State"/>
+          </nodes>
+          <nodes xmi:id="_zxfK3CHzEeSmSo6lQfAIMg" incoming="_zxfK3iHzEeSmSo6lQfAIMg">
+            <type href="http://dtmc/1.0#//State"/>
+          </nodes>
+          <edges xmi:id="_zxfK3SHzEeSmSo6lQfAIMg" source="_zxfK2SHzEeSmSo6lQfAIMg" target="_zxfK2yHzEeSmSo6lQfAIMg">
+            <type href="http://dtmc/1.0#//Transition/from"/>
+          </edges>
+          <edges xmi:id="_zxfK3iHzEeSmSo6lQfAIMg" source="_zxfK2SHzEeSmSo6lQfAIMg" target="_zxfK3CHzEeSmSo6lQfAIMg">
+            <type href="http://dtmc/1.0#//Transition/from"/>
+          </edges>
+        </conclusion>
+        <mappings xmi:id="_zxfK3yHzEeSmSo6lQfAIMg" origin="_zxfK1CHzEeSmSo6lQfAIMg" image="_zxfK2SHzEeSmSo6lQfAIMg"/>
+        <mappings xmi:id="_zxfK4CHzEeSmSo6lQfAIMg" origin="_zxfK0yHzEeSmSo6lQfAIMg" image="_zxfK2iHzEeSmSo6lQfAIMg"/>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_zxfK4SHzEeSmSo6lQfAIMg" name="RHS">
+      <nodes xmi:id="_zxfK4iHzEeSmSo6lQfAIMg" name="Selected">
+        <type href="http://dtmc/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_zxfK4yHzEeSmSo6lQfAIMg" name="OldTarget">
+        <type href="http://dtmc/1.0#//Transition"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_zxfK5CHzEeSmSo6lQfAIMg" origin="_zxfK0yHzEeSmSo6lQfAIMg" image="_zxfK4iHzEeSmSo6lQfAIMg"/>
+    <mappings xmi:id="_zxfK5SHzEeSmSo6lQfAIMg" origin="_zxfK1CHzEeSmSo6lQfAIMg" image="_zxfK4yHzEeSmSo6lQfAIMg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_zxfx4CHzEeSmSo6lQfAIMg" name="mainUnit" subUnits="_zxejwSHzEeSmSo6lQfAIMg">
+    <parameters xmi:id="_zxfx4SHzEeSmSo6lQfAIMg" name="selectedEObject"/>
+    <parameters xmi:id="_zxfx4iHzEeSmSo6lQfAIMg" name="OldTarget"/>
+    <parameterMappings xmi:id="_zxfx4yHzEeSmSo6lQfAIMg" source="_zxfx4SHzEeSmSo6lQfAIMg" target="_zxfK0CHzEeSmSo6lQfAIMg"/>
+    <parameterMappings xmi:id="_zxfx5CHzEeSmSo6lQfAIMg" source="_zxfx4iHzEeSmSo6lQfAIMg" target="_zxfK0SHzEeSmSo6lQfAIMg"/>
+  </units>
+</henshin:Module>

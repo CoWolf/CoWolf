@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_zyyyYCHzEeSmSo6lQfAIMg" name="MOVE_Transition_FROM_Root_(Transitions)_TO_Root_(Transitions)" description="MOVEs Transition from Root(Reference:Transitions) to Root(Reference:Transitions">
+  <imports href="http://dtmc/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_zyyyYSHzEeSmSo6lQfAIMg" name="moveTransition_FROM_Root_Transitions_TO_Root_Root" description="Moves Transition from Root(Reference:Transitions) toRoot(Reference:Root)">
+    <parameters xmi:id="_zyyyYiHzEeSmSo6lQfAIMg" name="Selected"/>
+    <parameters xmi:id="_zyyyYyHzEeSmSo6lQfAIMg" name="OldSource"/>
+    <parameters xmi:id="_zyyyZCHzEeSmSo6lQfAIMg" name="NewSource"/>
+    <lhs xmi:id="_zyyyZSHzEeSmSo6lQfAIMg" name="Lhs">
+      <nodes xmi:id="_zyyyZiHzEeSmSo6lQfAIMg" name="Selected" incoming="_zyyyaSHzEeSmSo6lQfAIMg">
+        <type href="http://dtmc/1.0#//Transition"/>
+      </nodes>
+      <nodes xmi:id="_zyyyZyHzEeSmSo6lQfAIMg" name="OldSource" outgoing="_zyyyaSHzEeSmSo6lQfAIMg">
+        <type href="http://dtmc/1.0#//Root"/>
+      </nodes>
+      <nodes xmi:id="_zyyyaCHzEeSmSo6lQfAIMg" name="NewSource">
+        <type href="http://dtmc/1.0#//Root"/>
+      </nodes>
+      <edges xmi:id="_zyyyaSHzEeSmSo6lQfAIMg" source="_zyyyZyHzEeSmSo6lQfAIMg" target="_zyyyZiHzEeSmSo6lQfAIMg">
+        <type href="http://dtmc/1.0#//Root/Transitions"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_zyyyaiHzEeSmSo6lQfAIMg" name="Rhs">
+      <nodes xmi:id="_zyyyayHzEeSmSo6lQfAIMg" name="Selected" incoming="_zyyybiHzEeSmSo6lQfAIMg">
+        <type href="http://dtmc/1.0#//Transition"/>
+      </nodes>
+      <nodes xmi:id="_zyyybCHzEeSmSo6lQfAIMg" name="OldSource">
+        <type href="http://dtmc/1.0#//Root"/>
+      </nodes>
+      <nodes xmi:id="_zyyybSHzEeSmSo6lQfAIMg" name="NewSource" outgoing="_zyyybiHzEeSmSo6lQfAIMg">
+        <type href="http://dtmc/1.0#//Root"/>
+      </nodes>
+      <edges xmi:id="_zyyybiHzEeSmSo6lQfAIMg" source="_zyyybSHzEeSmSo6lQfAIMg" target="_zyyyayHzEeSmSo6lQfAIMg">
+        <type href="http://dtmc/1.0#//Root/Transitions"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_zyyybyHzEeSmSo6lQfAIMg" origin="_zyyyZiHzEeSmSo6lQfAIMg" image="_zyyyayHzEeSmSo6lQfAIMg"/>
+    <mappings xmi:id="_zyzZcCHzEeSmSo6lQfAIMg" origin="_zyyyZyHzEeSmSo6lQfAIMg" image="_zyyybCHzEeSmSo6lQfAIMg"/>
+    <mappings xmi:id="_zyzZcSHzEeSmSo6lQfAIMg" origin="_zyyyaCHzEeSmSo6lQfAIMg" image="_zyyybSHzEeSmSo6lQfAIMg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_zyzZciHzEeSmSo6lQfAIMg" name="mainUnit" subUnits="_zyyyYSHzEeSmSo6lQfAIMg">
+    <parameters xmi:id="_zyzZcyHzEeSmSo6lQfAIMg" name="selectedEObject"/>
+    <parameters xmi:id="_zyzZdCHzEeSmSo6lQfAIMg" name="OldSource"/>
+    <parameters xmi:id="_zyzZdSHzEeSmSo6lQfAIMg" name="NewSource"/>
+    <parameterMappings xmi:id="_zyzZdiHzEeSmSo6lQfAIMg" source="_zyzZcyHzEeSmSo6lQfAIMg" target="_zyyyYiHzEeSmSo6lQfAIMg"/>
+    <parameterMappings xmi:id="_zyzZdyHzEeSmSo6lQfAIMg" source="_zyzZdCHzEeSmSo6lQfAIMg" target="_zyyyYyHzEeSmSo6lQfAIMg"/>
+    <parameterMappings xmi:id="_zyzZeCHzEeSmSo6lQfAIMg" source="_zyzZdSHzEeSmSo6lQfAIMg" target="_zyyyZCHzEeSmSo6lQfAIMg"/>
+  </units>
+</henshin:Module>

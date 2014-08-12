@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_zx2XMCHzEeSmSo6lQfAIMg" name="SET_State_IsFail" description="Sets State IsFail">
+  <imports href="http://dtmc/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_zx2XMSHzEeSmSo6lQfAIMg" name="setStateIsFail" description="Sets the EAttribute isFail">
+    <parameters xmi:id="_zx2XMiHzEeSmSo6lQfAIMg" name="Selected"/>
+    <parameters xmi:id="_zx2XMyHzEeSmSo6lQfAIMg" name="IsFail"/>
+    <lhs xmi:id="_zx2XNCHzEeSmSo6lQfAIMg" name="Lhs">
+      <nodes xmi:id="_zx2-QCHzEeSmSo6lQfAIMg" name="Selected">
+        <type href="http://dtmc/1.0#//State"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_zx2-QSHzEeSmSo6lQfAIMg" name="Rhs">
+      <nodes xmi:id="_zx2-QiHzEeSmSo6lQfAIMg" name="Selected">
+        <type href="http://dtmc/1.0#//State"/>
+        <attributes xmi:id="_zx2-QyHzEeSmSo6lQfAIMg" value="IsFail">
+          <type href="http://dtmc/1.0#//State/isFail"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_zx2-RCHzEeSmSo6lQfAIMg" origin="_zx2-QCHzEeSmSo6lQfAIMg" image="_zx2-QiHzEeSmSo6lQfAIMg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_zx2-RSHzEeSmSo6lQfAIMg" name="mainUnit" subUnits="_zx2XMSHzEeSmSo6lQfAIMg">
+    <parameters xmi:id="_zx2-RiHzEeSmSo6lQfAIMg" name="selectedEObject"/>
+    <parameters xmi:id="_zx2-RyHzEeSmSo6lQfAIMg" name="IsFail"/>
+    <parameterMappings xmi:id="_zx2-SCHzEeSmSo6lQfAIMg" source="_zx2-RiHzEeSmSo6lQfAIMg" target="_zx2XMiHzEeSmSo6lQfAIMg"/>
+    <parameterMappings xmi:id="_zx2-SSHzEeSmSo6lQfAIMg" source="_zx2-RyHzEeSmSo6lQfAIMg" target="_zx2XMyHzEeSmSo6lQfAIMg"/>
+  </units>
+</henshin:Module>

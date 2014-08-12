@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_zx4zcCHzEeSmSo6lQfAIMg" name="ADD_State_(outGoing)_TGT_Transition" description="Adds to State's reference outGoing the target Transition">
+  <imports href="http://dtmc/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_zx5agCHzEeSmSo6lQfAIMg" name="addToState_outGoing_Transition" description="Adds to State's reference outGoing the target Transition">
+    <parameters xmi:id="_zx5agSHzEeSmSo6lQfAIMg" name="Selected"/>
+    <parameters xmi:id="_zx5agiHzEeSmSo6lQfAIMg" name="NewTarget"/>
+    <lhs xmi:id="_zx5agyHzEeSmSo6lQfAIMg" name="Lhs">
+      <nodes xmi:id="_zx5ahCHzEeSmSo6lQfAIMg" name="Selected">
+        <type href="http://dtmc/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_zx5ahSHzEeSmSo6lQfAIMg" name="NewTarget">
+        <type href="http://dtmc/1.0#//Transition"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_zx5ahiHzEeSmSo6lQfAIMg">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_zx5ahyHzEeSmSo6lQfAIMg">
+          <conclusion xmi:id="_zx5aiCHzEeSmSo6lQfAIMg" name="doNotExceedUpperBound">
+            <nodes xmi:id="_zx5aiSHzEeSmSo6lQfAIMg" name="NewTarget" outgoing="_zx5ajCHzEeSmSo6lQfAIMg">
+              <type href="http://dtmc/1.0#//Transition"/>
+            </nodes>
+            <nodes xmi:id="_zx5aiiHzEeSmSo6lQfAIMg" name="Selected">
+              <type href="http://dtmc/1.0#//State"/>
+            </nodes>
+            <nodes xmi:id="_zx5aiyHzEeSmSo6lQfAIMg" incoming="_zx5ajCHzEeSmSo6lQfAIMg">
+              <type href="http://dtmc/1.0#//State"/>
+            </nodes>
+            <edges xmi:id="_zx5ajCHzEeSmSo6lQfAIMg" source="_zx5aiSHzEeSmSo6lQfAIMg" target="_zx5aiyHzEeSmSo6lQfAIMg">
+              <type href="http://dtmc/1.0#//Transition/from"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_zx5ajSHzEeSmSo6lQfAIMg" origin="_zx5ahSHzEeSmSo6lQfAIMg" image="_zx5aiSHzEeSmSo6lQfAIMg"/>
+          <mappings xmi:id="_zx5ajiHzEeSmSo6lQfAIMg" origin="_zx5ahCHzEeSmSo6lQfAIMg" image="_zx5aiiHzEeSmSo6lQfAIMg"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_zx5ajyHzEeSmSo6lQfAIMg" name="Rhs">
+      <nodes xmi:id="_zx5akCHzEeSmSo6lQfAIMg" name="Selected" incoming="_zx5akyHzEeSmSo6lQfAIMg" outgoing="_zx5akiHzEeSmSo6lQfAIMg">
+        <type href="http://dtmc/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_zx5akSHzEeSmSo6lQfAIMg" name="NewTarget" incoming="_zx5akiHzEeSmSo6lQfAIMg" outgoing="_zx5akyHzEeSmSo6lQfAIMg">
+        <type href="http://dtmc/1.0#//Transition"/>
+      </nodes>
+      <edges xmi:id="_zx5akiHzEeSmSo6lQfAIMg" source="_zx5akCHzEeSmSo6lQfAIMg" target="_zx5akSHzEeSmSo6lQfAIMg">
+        <type href="http://dtmc/1.0#//State/outGoing"/>
+      </edges>
+      <edges xmi:id="_zx5akyHzEeSmSo6lQfAIMg" source="_zx5akSHzEeSmSo6lQfAIMg" target="_zx5akCHzEeSmSo6lQfAIMg">
+        <type href="http://dtmc/1.0#//Transition/from"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_zx5alCHzEeSmSo6lQfAIMg" origin="_zx5ahCHzEeSmSo6lQfAIMg" image="_zx5akCHzEeSmSo6lQfAIMg"/>
+    <mappings xmi:id="_zx5alSHzEeSmSo6lQfAIMg" origin="_zx5ahSHzEeSmSo6lQfAIMg" image="_zx5akSHzEeSmSo6lQfAIMg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_zx5aliHzEeSmSo6lQfAIMg" name="mainUnit" subUnits="_zx5agCHzEeSmSo6lQfAIMg">
+    <parameters xmi:id="_zx6BkCHzEeSmSo6lQfAIMg" name="selectedEObject"/>
+    <parameters xmi:id="_zx6BkSHzEeSmSo6lQfAIMg" name="NewTarget"/>
+    <parameterMappings xmi:id="_zx6BkiHzEeSmSo6lQfAIMg" source="_zx6BkCHzEeSmSo6lQfAIMg" target="_zx5agSHzEeSmSo6lQfAIMg"/>
+    <parameterMappings xmi:id="_zx6BkyHzEeSmSo6lQfAIMg" source="_zx6BkSHzEeSmSo6lQfAIMg" target="_zx5agiHzEeSmSo6lQfAIMg"/>
+  </units>
+</henshin:Module>

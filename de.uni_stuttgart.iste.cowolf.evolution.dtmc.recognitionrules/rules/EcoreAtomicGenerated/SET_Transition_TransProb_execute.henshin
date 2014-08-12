@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_zylXACHzEeSmSo6lQfAIMg" name="SET_Transition_TransProb" description="Sets Transition TransProb">
+  <imports href="http://dtmc/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_zylXASHzEeSmSo6lQfAIMg" name="setTransitionTransProb" description="Sets the EAttribute transProb">
+    <parameters xmi:id="_zylXAiHzEeSmSo6lQfAIMg" name="Selected"/>
+    <parameters xmi:id="_zylXAyHzEeSmSo6lQfAIMg" name="TransProb"/>
+    <lhs xmi:id="_zylXBCHzEeSmSo6lQfAIMg" name="Lhs">
+      <nodes xmi:id="_zylXBSHzEeSmSo6lQfAIMg" name="Selected">
+        <type href="http://dtmc/1.0#//Transition"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_zyl-ECHzEeSmSo6lQfAIMg" name="Rhs">
+      <nodes xmi:id="_zyl-ESHzEeSmSo6lQfAIMg" name="Selected">
+        <type href="http://dtmc/1.0#//Transition"/>
+        <attributes xmi:id="_zyl-EiHzEeSmSo6lQfAIMg" value="TransProb">
+          <type href="http://dtmc/1.0#//Transition/transProb"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_zyl-EyHzEeSmSo6lQfAIMg" origin="_zylXBSHzEeSmSo6lQfAIMg" image="_zyl-ESHzEeSmSo6lQfAIMg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_zyl-FCHzEeSmSo6lQfAIMg" name="mainUnit" subUnits="_zylXASHzEeSmSo6lQfAIMg">
+    <parameters xmi:id="_zyl-FSHzEeSmSo6lQfAIMg" name="selectedEObject"/>
+    <parameters xmi:id="_zyl-FiHzEeSmSo6lQfAIMg" name="TransProb"/>
+    <parameterMappings xmi:id="_zyl-FyHzEeSmSo6lQfAIMg" source="_zyl-FSHzEeSmSo6lQfAIMg" target="_zylXAiHzEeSmSo6lQfAIMg"/>
+    <parameterMappings xmi:id="_zyl-GCHzEeSmSo6lQfAIMg" source="_zyl-FiHzEeSmSo6lQfAIMg" target="_zylXAyHzEeSmSo6lQfAIMg"/>
+  </units>
+</henshin:Module>

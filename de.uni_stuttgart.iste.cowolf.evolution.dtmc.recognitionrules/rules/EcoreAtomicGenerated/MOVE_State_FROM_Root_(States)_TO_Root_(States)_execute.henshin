@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_zyJ5MCHzEeSmSo6lQfAIMg" name="MOVE_State_FROM_Root_(States)_TO_Root_(States)" description="MOVEs State from Root(Reference:States) to Root(Reference:States">
+  <imports href="http://dtmc/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_zyJ5MSHzEeSmSo6lQfAIMg" name="moveState_FROM_Root_States_TO_Root_Root" description="Moves State from Root(Reference:States) toRoot(Reference:Root)">
+    <parameters xmi:id="_zyJ5MiHzEeSmSo6lQfAIMg" name="Selected"/>
+    <parameters xmi:id="_zyKgQCHzEeSmSo6lQfAIMg" name="OldSource"/>
+    <parameters xmi:id="_zyKgQSHzEeSmSo6lQfAIMg" name="NewSource"/>
+    <lhs xmi:id="_zyKgQiHzEeSmSo6lQfAIMg" name="Lhs">
+      <nodes xmi:id="_zyKgQyHzEeSmSo6lQfAIMg" name="Selected" incoming="_zyKgRiHzEeSmSo6lQfAIMg">
+        <type href="http://dtmc/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_zyKgRCHzEeSmSo6lQfAIMg" name="OldSource" outgoing="_zyKgRiHzEeSmSo6lQfAIMg">
+        <type href="http://dtmc/1.0#//Root"/>
+      </nodes>
+      <nodes xmi:id="_zyKgRSHzEeSmSo6lQfAIMg" name="NewSource">
+        <type href="http://dtmc/1.0#//Root"/>
+      </nodes>
+      <edges xmi:id="_zyKgRiHzEeSmSo6lQfAIMg" source="_zyKgRCHzEeSmSo6lQfAIMg" target="_zyKgQyHzEeSmSo6lQfAIMg">
+        <type href="http://dtmc/1.0#//Root/States"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_zyKgRyHzEeSmSo6lQfAIMg" name="Rhs">
+      <nodes xmi:id="_zyKgSCHzEeSmSo6lQfAIMg" name="Selected" incoming="_zyKgSyHzEeSmSo6lQfAIMg">
+        <type href="http://dtmc/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_zyKgSSHzEeSmSo6lQfAIMg" name="OldSource">
+        <type href="http://dtmc/1.0#//Root"/>
+      </nodes>
+      <nodes xmi:id="_zyKgSiHzEeSmSo6lQfAIMg" name="NewSource" outgoing="_zyKgSyHzEeSmSo6lQfAIMg">
+        <type href="http://dtmc/1.0#//Root"/>
+      </nodes>
+      <edges xmi:id="_zyKgSyHzEeSmSo6lQfAIMg" source="_zyKgSiHzEeSmSo6lQfAIMg" target="_zyKgSCHzEeSmSo6lQfAIMg">
+        <type href="http://dtmc/1.0#//Root/States"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_zyKgTCHzEeSmSo6lQfAIMg" origin="_zyKgQyHzEeSmSo6lQfAIMg" image="_zyKgSCHzEeSmSo6lQfAIMg"/>
+    <mappings xmi:id="_zyKgTSHzEeSmSo6lQfAIMg" origin="_zyKgRCHzEeSmSo6lQfAIMg" image="_zyKgSSHzEeSmSo6lQfAIMg"/>
+    <mappings xmi:id="_zyKgTiHzEeSmSo6lQfAIMg" origin="_zyKgRSHzEeSmSo6lQfAIMg" image="_zyKgSiHzEeSmSo6lQfAIMg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_zyKgTyHzEeSmSo6lQfAIMg" name="mainUnit" subUnits="_zyJ5MSHzEeSmSo6lQfAIMg">
+    <parameters xmi:id="_zyKgUCHzEeSmSo6lQfAIMg" name="selectedEObject"/>
+    <parameters xmi:id="_zyKgUSHzEeSmSo6lQfAIMg" name="OldSource"/>
+    <parameters xmi:id="_zyKgUiHzEeSmSo6lQfAIMg" name="NewSource"/>
+    <parameterMappings xmi:id="_zyKgUyHzEeSmSo6lQfAIMg" source="_zyKgUCHzEeSmSo6lQfAIMg" target="_zyJ5MiHzEeSmSo6lQfAIMg"/>
+    <parameterMappings xmi:id="_zyKgVCHzEeSmSo6lQfAIMg" source="_zyKgUSHzEeSmSo6lQfAIMg" target="_zyKgQCHzEeSmSo6lQfAIMg"/>
+    <parameterMappings xmi:id="_zyKgVSHzEeSmSo6lQfAIMg" source="_zyKgUiHzEeSmSo6lQfAIMg" target="_zyKgQSHzEeSmSo6lQfAIMg"/>
+  </units>
+</henshin:Module>
