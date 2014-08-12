@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.uni_stuttgart.iste.cowolf.model.fault_tree/src"
+    editDirectory="/de.uni_stuttgart.iste.cowolf.model.fault_tree.emf.edit/src" editorDirectory="/de.uni_stuttgart.iste.cowolf.model.fault_tree.emf.editor/src"
+    modelPluginID="de.uni_stuttgart.iste.cowolf.model.fault_tree" modelName="FaultTree"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    editPluginID="de.uni_stuttgart.iste.cowolf.model.fault_tree.emf.edit" editorPluginID="de.uni_stuttgart.iste.cowolf.model.fault_tree.emf.editor">
+  <foreignModel>FaultTree.ecore</foreignModel>
+  <genPackages prefix="FaultTree" basePackage="de.uni_stuttgart.iste.cowolf.model"
+      disposableProviderFactory="true" providerPackageSuffix="emf.provider" presentationPackageSuffix="emf.presentation"
+      testsPackageSuffix="emf.tests" ecorePackage="FaultTree.ecore#/">
+    <genClasses ecoreClass="FaultTree.ecore#//Hazard">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FaultTree.ecore#//Hazard/inEvent"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="FaultTree.ecore#//Gate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FaultTree.ecore#//Gate/id"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FaultTree.ecore#//Gate/inputGates"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FaultTree.ecore#//Gate/inputEvents"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FaultTree.ecore#//Gate/outputGate"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FaultTree.ecore#//Gate/outputEvent"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference FaultTree.ecore#//Gate/root"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="FaultTree.ecore#//Event">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FaultTree.ecore#//Event/description"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FaultTree.ecore#//Event/inputGate"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FaultTree.ecore#//Event/outputGate"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference FaultTree.ecore#//Event/root"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FaultTree.ecore#//Event/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FaultTree.ecore#//Event/id"/>
+    </genClasses>
+    <genClasses ecoreClass="FaultTree.ecore#//IntermediateEvent">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FaultTree.ecore#//IntermediateEvent/instance"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FaultTree.ecore#//IntermediateEvent/inEvent"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FaultTree.ecore#//IntermediateEvent/outEvent"/>
+    </genClasses>
+    <genClasses ecoreClass="FaultTree.ecore#//FailureType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FaultTree.ecore#//FailureType/instance"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference FaultTree.ecore#//FailureType/root"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FaultTree.ecore#//FailureType/name"/>
+    </genClasses>
+    <genClasses ecoreClass="FaultTree.ecore#//FailureInstance">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FaultTree.ecore#//FailureInstance/type"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference FaultTree.ecore#//FailureInstance/root"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FaultTree.ecore#//FailureInstance/previousFailure"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FaultTree.ecore#//FailureInstance/previousError"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FaultTree.ecore#//FailureInstance/event"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FaultTree.ecore#//FailureInstance/name"/>
+    </genClasses>
+    <genClasses ecoreClass="FaultTree.ecore#//BasicEvent">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FaultTree.ecore#//BasicEvent/instance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FaultTree.ecore#//BasicEvent/probability"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FaultTree.ecore#//BasicEvent/outEvent"/>
+    </genClasses>
+    <genClasses ecoreClass="FaultTree.ecore#//UndevelopedEvent"/>
+    <genClasses ecoreClass="FaultTree.ecore#//ErrorType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FaultTree.ecore#//ErrorType/error"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference FaultTree.ecore#//ErrorType/root"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FaultTree.ecore#//ErrorType/name"/>
+    </genClasses>
+    <genClasses ecoreClass="FaultTree.ecore#//ErrorInstance">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FaultTree.ecore#//ErrorInstance/error"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FaultTree.ecore#//ErrorInstance/type"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference FaultTree.ecore#//ErrorInstance/root"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FaultTree.ecore#//ErrorInstance/name"/>
+    </genClasses>
+    <genClasses ecoreClass="FaultTree.ecore#//OR"/>
+    <genClasses ecoreClass="FaultTree.ecore#//AND"/>
+    <genClasses ecoreClass="FaultTree.ecore#//XOR"/>
+    <genClasses ecoreClass="FaultTree.ecore#//PriorAND"/>
+    <genClasses ecoreClass="FaultTree.ecore#//Inhibit"/>
+    <genClasses ecoreClass="FaultTree.ecore#//Root">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FaultTree.ecore#//Root/hazard"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FaultTree.ecore#//Root/gate"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FaultTree.ecore#//Root/event"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FaultTree.ecore#//Root/failure_instance"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FaultTree.ecore#//Root/failure_type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FaultTree.ecore#//Root/error_instance"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FaultTree.ecore#//Root/error_type"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

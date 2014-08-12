@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:FaultTree="http://FaultTree/1.0" xmlns:trace="http://www.eclipse.org/emf/2011/Henshin/Trace">
+  <FaultTree:Root>
+    <hazard inputGate="/0/@gate.3" name="WP outside the system"/>
+    <gate xsi:type="FaultTree:OR" id="8" inputEvents="/0/@event.5 /0/@event.6 /0/@event.7 /0/@event.8" outputEvent="/0/@event.1"/>
+    <gate xsi:type="FaultTree:OR" id="13" inputEvents="/0/@event.10 /0/@event.9" outputEvent="/0/@event.2"/>
+    <gate xsi:type="FaultTree:OR" id="2" inputEvents="/0/@event.11 /0/@event.4" outputEvent="/0/@event.3"/>
+    <gate xsi:type="FaultTree:OR" id="11" inputEvents="/0/@event.0 /0/@event.2 /0/@event.3" outputEvent="/0/@hazard"/>
+    <event xsi:type="FaultTree:IntermediateEvent" description="" outputGate="/0/@gate.3" name="Crane lets WP fall outside the system" instance="/0/@failure_instance.0" inEvent="/0/@event.1"/>
+    <event xsi:type="FaultTree:IntermediateEvent" description="" inputGate="/0/@gate.0" name="Crane turns wrong direction" instance="/0/@failure_instance.1" outEvent="/0/@event.0"/>
+    <event xsi:type="FaultTree:IntermediateEvent" inputGate="/0/@gate.1" outputGate="/0/@gate.3" name="Crane throws WP away" instance="/0/@failure_instance.2"/>
+    <event xsi:type="FaultTree:IntermediateEvent" inputGate="/0/@gate.2" outputGate="/0/@gate.3" name="WP at full stations" instance="/0/@failure_instance.3"/>
+    <event xsi:type="FaultTree:BasicEvent" outputGate="/0/@gate.2" name="craneImplError occurs" instance="/0/@error_instance.0"/>
+    <event xsi:type="FaultTree:BasicEvent" description="" outputGate="/0/@gate.0" name="maxLeftSTactileError occurs" instance="/0/@error_instance.1"/>
+    <event xsi:type="FaultTree:BasicEvent" outputGate="/0/@gate.0" name="maxRightSTactileError occurs " instance="/0/@error_instance.2"/>
+    <event xsi:type="FaultTree:BasicEvent" outputGate="/0/@gate.0" name="toSlideSTactileError occurs " instance="/0/@error_instance.3"/>
+    <event xsi:type="FaultTree:BasicEvent" outputGate="/0/@gate.0" name="toStackSTactileError occurs " instance="/0/@error_instance.4"/>
+    <event xsi:type="FaultTree:BasicEvent" outputGate="/0/@gate.1" name="Vacuum opens in a wrong time" instance="/0/@error_instance.5"/>
+    <event xsi:type="FaultTree:BasicEvent" outputGate="/0/@gate.1" name="Vacuum is lost" instance="/0/@error_instance.6"/>
+    <event xsi:type="FaultTree:BasicEvent" outputGate="/0/@gate.2" name="Slide's capacity exceeds" instance="/0/@error_instance.7"/>
+    <failure_instance type="/0/@failure_type.0" event="/0/@event.0" name="cranePositionFailure"/>
+    <failure_instance type="/0/@failure_type.0" event="/0/@event.1" name="cylinderPositionFailure"/>
+    <failure_instance type="/0/@failure_type.2" event="/0/@event.2" name="vacuumTimingFailure"/>
+    <failure_instance type="/0/@failure_type.1" event="/0/@event.3" name="slideCapacityExceedFailure"/>
+    <failure_type instance="/0/@failure_instance.0 /0/@failure_instance.1" name="PositionFailure"/>
+    <failure_type instance="/0/@failure_instance.3" name="CapacityExceedFailure"/>
+    <failure_type instance="/0/@failure_instance.2" name="TimingFailure"/>
+    <error_instance error="/0/@event.4" type="/0/@error_type.0" name="craneImplError"/>
+    <error_instance error="/0/@event.5" type="/0/@error_type.1" name="maxLeftSTactileError"/>
+    <error_instance error="/0/@event.6" type="/0/@error_type.1" name="maxRightSTactileError"/>
+    <error_instance error="/0/@event.7" type="/0/@error_type.1" name="toSlideSTactileError"/>
+    <error_instance error="/0/@event.8" type="/0/@error_type.1" name="toStackSTactileError"/>
+    <error_instance error="/0/@event.9" type="/0/@error_type.2" name="vacuumWrongTimeError"/>
+    <error_instance error="/0/@event.10" type="/0/@error_type.4" name="vacuumLostError"/>
+    <error_instance error="/0/@event.11" type="/0/@error_type.3" name="slideExceeds"/>
+    <error_type error="/0/@error_instance.0" name="ImplError"/>
+    <error_type error="/0/@error_instance.1 /0/@error_instance.2 /0/@error_instance.3 /0/@error_instance.4" name="SensorError"/>
+    <error_type error="/0/@error_instance.5" name="VacuumTimingError"/>
+    <error_type error="/0/@error_instance.7" name="ExternalCauses"/>
+    <error_type error="/0/@error_instance.6" name="VacuumError"/>
+  </FaultTree:Root>
+  <trace:Trace target="/0/@error_instance.0">
+    <source href="model/scenario_02.sa#//@instances.1/@subcomponent.0"/>
+  </trace:Trace>
+  <trace:Trace target="/0/@error_instance.1">
+    <source href="model/scenario_02.sa#//@instances.1/@subcomponent.1"/>
+  </trace:Trace>
+  <trace:Trace target="/0/@error_instance.2">
+    <source href="model/scenario_02.sa#//@instances.1/@subcomponent.2"/>
+  </trace:Trace>
+  <trace:Trace target="/0/@error_instance.3">
+    <source href="model/scenario_02.sa#//@instances.1/@subcomponent.3"/>
+  </trace:Trace>
+  <trace:Trace target="/0/@error_instance.4">
+    <source href="model/scenario_02.sa#//@instances.1/@subcomponent.4"/>
+  </trace:Trace>
+  <trace:Trace target="/0/@error_instance.5">
+    <source href="model/scenario_02.sa#//@instances.1/@subcomponent.5/@subcomponent.2"/>
+  </trace:Trace>
+  <trace:Trace target="/0/@error_instance.6">
+    <source href="model/scenario_02.sa#//@instances.1/@subcomponent.5/@subcomponent.2"/>
+  </trace:Trace>
+  <trace:Trace target="/0/@error_instance.7">
+    <source href="model/scenario_02.sa#//@instances.2"/>
+  </trace:Trace>
+  <trace:Trace target="/0/@failure_instance.0">
+    <source href="model/scenario_02.sa#//@instances.1/@subcomponent.0"/>
+  </trace:Trace>
+  <trace:Trace target="/0/@failure_instance.1">
+    <source href="model/scenario_02.sa#//@instances.1/@subcomponent.5"/>
+  </trace:Trace>
+  <trace:Trace target="/0/@failure_instance.2">
+    <source href="model/scenario_02.sa#//@instances.1/@subcomponent.5/@subcomponent.2"/>
+  </trace:Trace>
+  <trace:Trace target="/0/@failure_instance.3">
+    <source href="model/scenario_02.sa#//@instances.2"/>
+  </trace:Trace>
+</xmi:XMI>
