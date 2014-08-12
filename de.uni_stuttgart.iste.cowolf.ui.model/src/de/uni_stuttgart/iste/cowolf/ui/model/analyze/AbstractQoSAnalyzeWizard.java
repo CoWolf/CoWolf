@@ -5,11 +5,11 @@ import java.util.HashMap;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jface.wizard.Wizard;
 
-import de.uni_stuttgart.iste.cowolf.model.IQoSModelManager;
+import de.uni_stuttgart.iste.cowolf.model.AbstractQoSModelManager;
 
 public abstract class AbstractQoSAnalyzeWizard extends Wizard {
 
-	protected IQoSModelManager manager;
+	protected AbstractQoSModelManager manager;
 	protected Resource resource;
 	protected HashMap<String, Object> properties;
 
@@ -17,7 +17,7 @@ public abstract class AbstractQoSAnalyzeWizard extends Wizard {
 		super();
 	}
 
-	public void initialize(final IQoSModelManager manager, final Resource resource, final HashMap<String, Object> properties) {
+	public void initialize(final AbstractQoSModelManager manager, final Resource resource, final HashMap<String, Object> properties) {
 		super.setWindowTitle("Analyse DTMC");
 		this.setNeedsProgressMonitor(true);
 		this.manager = manager;
@@ -25,7 +25,7 @@ public abstract class AbstractQoSAnalyzeWizard extends Wizard {
 		this.properties = properties;
 	}
 
-	public abstract boolean isManaged(final IQoSModelManager manager);
+	public abstract boolean isManaged(final AbstractQoSModelManager manager);
 
 	public abstract boolean checkConditions();
 }

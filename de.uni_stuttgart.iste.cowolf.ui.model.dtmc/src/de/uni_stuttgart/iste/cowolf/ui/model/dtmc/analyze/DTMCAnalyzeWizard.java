@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 
 import org.eclipse.emf.ecore.resource.Resource;
 
-import de.uni_stuttgart.iste.cowolf.model.IQoSModelManager;
+import de.uni_stuttgart.iste.cowolf.model.AbstractQoSModelManager;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCModelManager;
 import de.uni_stuttgart.iste.cowolf.ui.model.analyze.AbstractQoSAnalyzeWizard;
 import de.uni_stuttgart.iste.cowolf.ui.model.dtmc.preference.DTMCPreferencePage;
@@ -20,7 +20,7 @@ public class DTMCAnalyzeWizard extends AbstractQoSAnalyzeWizard {
 	}
 
 	@Override
-	public void initialize(final IQoSModelManager manager, final Resource resource, final HashMap<String, Object> properties) {
+	public void initialize(final AbstractQoSModelManager manager, final Resource resource, final HashMap<String, Object> properties) {
 		super.setWindowTitle("Analyze DTMC");
 		super.initialize(manager, resource, properties);
 		this.pageOne = new AnalyzeWizardPage1("Page 1");
@@ -43,7 +43,7 @@ public class DTMCAnalyzeWizard extends AbstractQoSAnalyzeWizard {
 	}
 
 	@Override
-	public boolean isManaged(final IQoSModelManager manager) {
+	public boolean isManaged(final AbstractQoSModelManager manager) {
 		return manager instanceof DTMCModelManager;
 	}
 

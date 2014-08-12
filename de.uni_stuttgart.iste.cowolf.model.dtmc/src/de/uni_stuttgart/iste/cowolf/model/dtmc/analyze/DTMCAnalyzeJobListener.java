@@ -66,7 +66,7 @@ public class DTMCAnalyzeJobListener implements IJobChangeListener {
 
 		IFile modelfile = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(resource.getURI().toPlatformString(true)));
 
-		IFile resultfile = ResourcesPlugin.getWorkspace().getRoot().getFile(modelfile.getFullPath().addFileExtension(".analysis.csv"));
+		IFile resultfile = ResourcesPlugin.getWorkspace().getRoot().getFile(modelfile.getFullPath().addFileExtension("analysis.csv"));
 
 
 		OutputStream out;
@@ -74,11 +74,11 @@ public class DTMCAnalyzeJobListener implements IJobChangeListener {
 
 			out = new FileOutputStream(resultfile.getLocation().toOSString());
 
-			out.write("State,Probability\n".getBytes());
+			out.write("sep=\t\nState\tProbability\n".getBytes());
 
 			for(Entry<State, String> entry : job.getAnalysis().entrySet()) {
 				out.write(entry.getKey().getName().getBytes());
-				out.write(',');
+				out.write('\t');
 				out.write(entry.getValue().toString().getBytes());
 				out.write('\n');
 			}

@@ -18,8 +18,8 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 
 import de.uni_stuttgart.iste.cowolf.core.extensions.ExtensionHandler;
-import de.uni_stuttgart.iste.cowolf.model.IModelManager;
-import de.uni_stuttgart.iste.cowolf.model.IQoSModelManager;
+import de.uni_stuttgart.iste.cowolf.model.AbstractModelManager;
+import de.uni_stuttgart.iste.cowolf.model.AbstractQoSModelManager;
 import de.uni_stuttgart.iste.cowolf.ui.model.analyze.AbstractQoSAnalyzeWizard;
 import de.uni_stuttgart.iste.cowolf.ui.model.analyze.AnalyzeWizardHandler;
 import de.uni_stuttgart.iste.cowolf.ui.model.analyze.FileOpenAnalysisListener;
@@ -55,12 +55,12 @@ public class Analyze implements IHandler {
 			Resource resource;
 			URI uri = URI.createPlatformResourceURI(iFile.getFullPath().toString(), true);
 			resource = resSet.getResource(uri, true);
-			IModelManager modelManager = extensionHandler.getModelManager(resource);
+			AbstractModelManager modelManager = extensionHandler.getModelManager(resource);
 
-			if (modelManager != null && modelManager instanceof IQoSModelManager) {
-				IQoSModelManager qosModelManager = (IQoSModelManager) modelManager;
+			if (modelManager != null && modelManager instanceof AbstractQoSModelManager) {
+				AbstractQoSModelManager qosModelManager = (AbstractQoSModelManager) modelManager;
 				HashMap<String, Object> properties = new HashMap<String, Object>();
-				AbstractQoSAnalyzeWizard wizard = AnalyzeWizardHandler.getInstance().getQosAnalyzeWizard((IQoSModelManager) modelManager);
+				AbstractQoSAnalyzeWizard wizard = AnalyzeWizardHandler.getInstance().getQosAnalyzeWizard((AbstractQoSModelManager) modelManager);
 				if (!wizard.checkConditions()) {
 					return null;
 				}

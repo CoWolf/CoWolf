@@ -8,7 +8,7 @@ import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
 
-import de.uni_stuttgart.iste.cowolf.model.IQoSModelManager;
+import de.uni_stuttgart.iste.cowolf.model.AbstractQoSModelManager;
 
 public class AnalyzeWizardHandler {
 
@@ -26,7 +26,7 @@ public class AnalyzeWizardHandler {
 	/**
 	 * @return the qosAnalyzeWizards
 	 */
-	public AbstractQoSAnalyzeWizard getQosAnalyzeWizard(final IQoSModelManager modelManager) {
+	public AbstractQoSAnalyzeWizard getQosAnalyzeWizard(final AbstractQoSModelManager modelManager) {
 		for (AbstractQoSAnalyzeWizard wizard : this.qosAnalyzeWizards) {
 			if (wizard.isManaged(modelManager)) {
 				return wizard;

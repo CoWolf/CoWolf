@@ -4,7 +4,9 @@ import java.util.Map;
 
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.ecore.resource.Resource;
+
 import de.uni_stuttgart.iste.cowolf.model.AbstractQoSModelManager;
+import de.uni_stuttgart.iste.cowolf.model.IAnalysisListener;
 import de.uni_stuttgart.iste.cowolf.model.ModelTypeInfo;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.analyze.DTMCAnalyzeJob;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.analyze.DTMCAnalyzeJobListener;
@@ -21,6 +23,7 @@ public class DTMCModelManager extends AbstractQoSModelManager {
 		return null;
 	}
 
+	@Override
 	public String analyze(final Resource model,
 			final Map<String, Object> parameters, final IAnalysisListener listener) {
 
