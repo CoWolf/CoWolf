@@ -7,6 +7,8 @@ import org.eclipse.emf.ecore.resource.Resource;
  * This class holds an association between two models and the project where the
  * projects belong to
  *
+ * @author Verena Käfer
+ *
  */
 public class Association {
 

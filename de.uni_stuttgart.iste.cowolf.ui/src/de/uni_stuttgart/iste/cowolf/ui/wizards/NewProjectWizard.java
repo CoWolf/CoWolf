@@ -17,6 +17,8 @@ import de.uni_stuttgart.iste.cowolf.ui.externalizedStrings.Messages;
 
 /**
  * this class holds the wizard for a new project
+ * 
+ * @author Verena Käfer
  *
  */
 public class NewProjectWizard extends Wizard implements INewWizard,

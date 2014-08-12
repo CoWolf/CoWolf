@@ -18,6 +18,8 @@ import de.uni_stuttgart.iste.cowolf.ui.externalizedStrings.Messages;
 
 /**
  * This class holds the functions to create a new project and a folder
+ * 
+ * @author Verena Käfer
  *
  */
 public class CreationFunctions {

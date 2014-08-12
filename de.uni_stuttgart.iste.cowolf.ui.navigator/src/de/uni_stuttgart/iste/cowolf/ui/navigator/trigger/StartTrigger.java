@@ -10,6 +10,8 @@ import de.uni_stuttgart.iste.cowolf.core.ModelAssociationManager.ModelAssociatio
 /**
  * This trigger is executed at the very start of eclipse. You can add necessary
  * listeners here.
+ * 
+ * @author Verena Käfer
  *
  */
 public class StartTrigger implements IStartup {
