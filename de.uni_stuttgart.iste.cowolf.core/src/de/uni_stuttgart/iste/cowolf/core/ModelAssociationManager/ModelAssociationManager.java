@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -177,8 +179,9 @@ public class ModelAssociationManager {
 		try {
 			outputter.output(document, new FileOutputStream(propertyFile));
 		} catch (IOException e) {
-			e.printStackTrace();
 
+			JOptionPane.showMessageDialog(null, "Could not load associations. "
+					+ e.getLocalizedMessage());
 		}
 
 	}
@@ -208,7 +211,8 @@ public class ModelAssociationManager {
 			}
 
 		} catch (CoreException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Could not load associations. "
+					+ e.getLocalizedMessage());
 		}
 
 	}
@@ -228,8 +232,8 @@ public class ModelAssociationManager {
 
 		if (propertyFile != null) {
 			try {
-				Document document = new Document();
-				Element rootElement = new Element(ROOT); //$NON-NLS-1$
+				Document document;
+				Element rootElement; //$NON-NLS-1$
 
 				SAXBuilder saxBuilder = new SAXBuilder();
 
@@ -295,8 +299,8 @@ public class ModelAssociationManager {
 					file.createNewFile();
 					return file;
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					JOptionPane.showMessageDialog(null,
+							"Could not load property file");
 				}
 			}
 

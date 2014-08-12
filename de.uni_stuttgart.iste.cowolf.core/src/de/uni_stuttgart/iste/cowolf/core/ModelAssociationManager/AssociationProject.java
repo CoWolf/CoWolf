@@ -84,7 +84,7 @@ public class AssociationProject {
 		for (Association association : associations) {
 			if (association.getSource().equals(source)) {
 				foundMatches.add(association.getTarget());
-				List<Resource> newMatches = new ArrayList<Resource>();
+				List<Resource> newMatches;
 
 				// find reachable resources for the found matches
 				newMatches = getReachableAssociations(association.getTarget());

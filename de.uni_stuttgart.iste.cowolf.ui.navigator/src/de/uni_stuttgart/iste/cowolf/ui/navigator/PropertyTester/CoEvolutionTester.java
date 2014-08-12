@@ -72,11 +72,7 @@ public class CoEvolutionTester extends PropertyTester {
 						.getTransformationManager(secondResource, firstResource);
 
 				// must find at least one model manager
-				if (modelManager1 != null || modelManager2 != null) {
-					return true;
-				} else {
-					return false;
-				}
+				return (modelManager1 != null || modelManager2 != null);
 			} else {
 				// no file -> cannot open
 				return false;

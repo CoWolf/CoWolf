@@ -17,28 +17,22 @@ import de.uni_stuttgart.iste.cowolf.model.AbstractModelManager;
 public class AnalyzeTester extends PropertyTester {
 
 	public AnalyzeTester() {
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	public boolean test(final Object receiver, final String property,
-			final Object[] args, final Object expectedValue) {
+	public boolean test(Object receiver, String property, Object[] args,
+			Object expectedValue) {
 
 		ExtensionHandler extensionHandler = new ExtensionHandler();
 
 		IWorkbenchWindow window = PlatformUI.getWorkbench()
 				.getActiveWorkbenchWindow();
-		if (window == null) {
-			return false;
-		}
 		IStructuredSelection selection = (IStructuredSelection) window
 				.getSelectionService().getSelection();
-		if (selection == null) {
-			return false;
-		}
+
 		Object selectedElement = selection.getFirstElement();
-		if (selectedElement == null) {
-			return false;
-		}
+
 		// catch exceptions from wrong parsing as we can only recognize IFiles
 		try {
 			// file then try to parse
@@ -48,6 +42,8 @@ public class AnalyzeTester extends PropertyTester {
 
 				ResourceSet resourceSet = new ResourceSetImpl();
 				Resource resource;
+				
+				
 
 				URI uri = URI.createPlatformResourceURI(iFile.getFullPath()
 						.toString(), true);
@@ -57,15 +53,12 @@ public class AnalyzeTester extends PropertyTester {
 				}
 
 				resource = resourceSet.getResource(uri, true);
+
 				AbstractModelManager modelManager = extensionHandler
 						.getModelManager(resource);
 
 				// must find model manager
-				if (modelManager != null) {
-					return true;
-				} else {
-					return false;
-				}
+				return (modelManager != null);
 			} else {
 				// no file -> cannot open
 				return false;

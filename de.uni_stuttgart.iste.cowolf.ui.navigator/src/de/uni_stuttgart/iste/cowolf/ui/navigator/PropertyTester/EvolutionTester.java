@@ -17,15 +17,15 @@ import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
 
 public class EvolutionTester extends PropertyTester {
 
-	public static final String PROPERTY_CAN_FOO = "canFoo"; //$NON-NLS-1$
+	public static final String PROPERTY_NAMESPACE = "de.uni_stuttgart.iste.cowolf.ui.navigator.propertyTester.evolution"; //$NON-NLS-1$
 
 	public EvolutionTester() {
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	public boolean test(final Object receiver, final String property,
-			final Object[] args, final Object expectedValue) {
+	public boolean test(Object receiver, String property, Object[] args,
+			Object expectedValue) {
 		ExtensionHandler extensionHandler = new ExtensionHandler();
 
 		IWorkbenchWindow window = PlatformUI.getWorkbench()
@@ -38,7 +38,7 @@ public class EvolutionTester extends PropertyTester {
 		// catch exceptions from wrong parsing as we can only recognize IFiles
 		try {
 			// file then try to parse
-			if (selectedElement != null && selectedElement instanceof IFile) {
+			if (selectedElement instanceof IFile) {
 				IFile iFile = (IFile) selectedElement;
 				File file = iFile.getLocation().toFile();
 
@@ -58,11 +58,7 @@ public class EvolutionTester extends PropertyTester {
 						.getEvolutionManager(resource);
 
 				// must find model manager
-				if (modelManager != null) {
-					return true;
-				} else {
-					return false;
-				}
+				return (modelManager != null);
 			} else {
 				// no file -> cannot open
 				return false;
@@ -74,3 +70,4 @@ public class EvolutionTester extends PropertyTester {
 	}
 
 }
+>>>>>>> 40f6309 fixed a few sonar issues
