@@ -52,13 +52,6 @@ public class FaultTreeAnalyzeWizard extends AbstractQoSAnalyzeWizard {
 
 	@Override
 	public boolean checkConditions() {
-		// String path = DTMCPreferencePage.getPrismPath().trim();
-		// if (path.isEmpty() || path.equals("")) {
-		// JOptionPane.showMessageDialog(null,
-		// "Path to PRISM is missing, please add in the preferences!",
-		// "Missing Path", JOptionPane.ERROR_MESSAGE);
-		// return false;
-		// }
 		return true;
 	}
 }

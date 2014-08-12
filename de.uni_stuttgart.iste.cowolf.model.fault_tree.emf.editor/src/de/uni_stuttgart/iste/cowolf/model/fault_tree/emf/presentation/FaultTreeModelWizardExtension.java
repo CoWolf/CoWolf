@@ -19,7 +19,7 @@ public class FaultTreeModelWizardExtension extends FaultTreeModelWizard {
 					EClass eClass = (EClass) eClassifier;
 					if (!eClass.isAbstract()
 							&& eClass.getName().equalsIgnoreCase(
-									"[TODO Change This to root-node]")) {
+									"Root")) {
 						initialObjectNames.add(eClass.getName());
 					}
 				}

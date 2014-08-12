@@ -1,5 +1,7 @@
 package de.uni_stuttgart.iste.cowolf.model.fault_tree;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.runtime.jobs.Job;
@@ -9,12 +11,17 @@ import de.uni_stuttgart.iste.cowolf.model.AbstractQoSModelManager;
 import de.uni_stuttgart.iste.cowolf.model.IAnalysisListener;
 import de.uni_stuttgart.iste.cowolf.model.ModelTypeInfo;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.analyze.FaultTreeAnalyzeJob;
+import de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.RootImpl;
 
 public class FaultTreeModelManager extends AbstractQoSModelManager {
 
 	@Override
 	public ModelTypeInfo getModelTypeInfo() {
-		return null;
+		String metaModelName = "FaultTree";
+		List<Class> properContents = new ArrayList<>();
+		properContents.add(RootImpl.class);
+		ModelTypeInfo modelTypeInfo = new ModelTypeInfo(metaModelName, properContents);
+		return modelTypeInfo;
 	}
 
 	@Override
