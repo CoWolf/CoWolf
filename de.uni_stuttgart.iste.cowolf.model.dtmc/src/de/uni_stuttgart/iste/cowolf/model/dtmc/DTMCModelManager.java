@@ -5,10 +5,10 @@ import java.util.Map;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 
-import de.uni_stuttgart.iste.cowolf.model.IQoSModelManager;
+import de.uni_stuttgart.iste.cowolf.model.AbstractQoSModelManager;
 import de.uni_stuttgart.iste.cowolf.model.ModelTypeInfo;
 
-public class DTMCModelManager implements IQoSModelManager {
+public class DTMCModelManager extends AbstractQoSModelManager {
 
 	public DTMCModelManager() {
 		// TODO Auto-generated constructor stub
@@ -18,12 +18,6 @@ public class DTMCModelManager implements IQoSModelManager {
 	public ModelTypeInfo getModelTypeInfo() {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-	@Override
-	public boolean isManaged(Resource model) {
-		// TODO Auto-generated method stub
-		return false;
 	}
 
 	@Override

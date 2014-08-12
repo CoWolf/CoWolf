@@ -13,7 +13,7 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 
 import de.uni_stuttgart.iste.cowolf.core.extensions.ExtensionHandler;
-import de.uni_stuttgart.iste.cowolf.model.IModelManager;
+import de.uni_stuttgart.iste.cowolf.model.AbstractModelManager;
 
 public class AnalyzeTester extends PropertyTester {
 
@@ -53,7 +53,7 @@ public class AnalyzeTester extends PropertyTester {
 
 				resource = resourceSet.getResource(uri, true);
 
-				IModelManager modelManager = extensionHandler
+				AbstractModelManager modelManager = extensionHandler
 						.getModelManager(resource);
 
 				// must find model manager

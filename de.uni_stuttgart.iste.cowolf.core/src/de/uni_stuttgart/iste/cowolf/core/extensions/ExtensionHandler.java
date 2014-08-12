@@ -10,9 +10,9 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.resource.Resource;
 
 import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
-import de.uni_stuttgart.iste.cowolf.model.IArchitectureModelManager;
-import de.uni_stuttgart.iste.cowolf.model.IModelManager;
-import de.uni_stuttgart.iste.cowolf.model.IQoSModelManager;
+import de.uni_stuttgart.iste.cowolf.model.AbstractArchitectureModelManager;
+import de.uni_stuttgart.iste.cowolf.model.AbstractModelManager;
+import de.uni_stuttgart.iste.cowolf.model.AbstractQoSModelManager;
 import de.uni_stuttgart.iste.cowolf.transformation.AbstractTransformationManager;
 
 /**
@@ -43,12 +43,12 @@ public class ExtensionHandler {
 	/**
 	 * Holds an instance of all installed QoSModelManager.
 	 */
-	private List<IQoSModelManager> qosModelManagers;
+	private List<AbstractQoSModelManager> qosModelManagers;
 
 	/**
 	 * Holds an instance of all installed ArchitectureModelManager.
 	 */
-	private List<IArchitectureModelManager> architectureModelManagers;
+	private List<AbstractArchitectureModelManager> architectureModelManagers;
 
 	/**
 	 * Holds an instance of all installed EvolutionModelManager.
@@ -81,14 +81,14 @@ public class ExtensionHandler {
 	 * Create the QoS model manager extensions, which are registered.
 	 */
 	private void createQoSModelManagerExtensions() {
-		this.qosModelManagers = this.createExecuteableExtensions(QOS_MODEL_MANAGER_EXTENSION_ID, "class", IQoSModelManager.class);
+		this.qosModelManagers = this.createExecuteableExtensions(QOS_MODEL_MANAGER_EXTENSION_ID, "class", AbstractQoSModelManager.class);
 	}
 
 	/**
 	 * Create the architecture model manager extensions, which are registered.
 	 */
 	private void createArchitectureModelManagerExtensions() {
-		this.architectureModelManagers = this.createExecuteableExtensions(ARCHITECTURE_MODEL_MANAGER_EXTENSION_ID, "class", IArchitectureModelManager.class);
+		this.architectureModelManagers = this.createExecuteableExtensions(ARCHITECTURE_MODEL_MANAGER_EXTENSION_ID, "class", AbstractArchitectureModelManager.class);
 	}
 
 	/**
@@ -137,14 +137,14 @@ public class ExtensionHandler {
 	 * @param model model to search for a manager.
 	 * @return IModelManager, which can handle this model or null if none is defined or installed.
 	 */
-	public IModelManager getModelManager(Resource model) {
-		for (final IModelManager manager : this.architectureModelManagers) {
+	public AbstractModelManager getModelManager(Resource model) {
+		for (final AbstractModelManager manager : this.architectureModelManagers) {
 			if (manager.isManaged(model)) {
 				return manager;
 			}
 		}
 
-		for (final IModelManager manager : this.qosModelManagers) {
+		for (final AbstractModelManager manager : this.qosModelManagers) {
 			if (manager.isManaged(model)) {
 				return manager;
 			}
