@@ -1,52 +1,62 @@
 <?xml version="1.0" encoding="ASCII"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_YCx14CE0EeSMxJhMVj0eIQ" name="CREATE_CompositeState_IN_StateMachine_(top)" description="Creates one CompositeState in StateMachine">
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_CVRVriH6EeSBVYr6brtThw" name="CREATE_CompositeState_IN_StateMachine_(top)" description="Creates one CompositeState in StateMachine">
   <imports href="http://Statechart/1.0#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="_YCx14SE0EeSMxJhMVj0eIQ" name="createCompositeState_IN_StateMachine" description="creates one CompositeState in the context: StateMachine">
-    <parameters xmi:id="_YCx14iE0EeSMxJhMVj0eIQ" name="Selected">
+  <units xsi:type="henshin:Rule" xmi:id="_CVRVryH6EeSBVYr6brtThw" name="createCompositeState_IN_StateMachine" description="creates one CompositeState in the context: StateMachine">
+    <parameters xmi:id="_CVRVsCH6EeSBVYr6brtThw" name="Selected">
       <type xsi:type="ecore:EClass" href="http://Statechart/1.0#//StateMachine"/>
     </parameters>
-    <parameters xmi:id="_YCx14yE0EeSMxJhMVj0eIQ" name="New">
+    <parameters xmi:id="_CVRVsSH6EeSBVYr6brtThw" name="New">
       <type xsi:type="ecore:EClass" href="http://Statechart/1.0#//CompositeState"/>
     </parameters>
-    <parameters xmi:id="_YCx15CE0EeSMxJhMVj0eIQ" name="IsConcurrent">
+    <parameters xmi:id="_CVRVsiH6EeSBVYr6brtThw" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_CVRVsyH6EeSBVYr6brtThw" name="IsConcurrent">
       <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </parameters>
-    <lhs xmi:id="_YCx15SE0EeSMxJhMVj0eIQ" name="Lhs">
-      <nodes xmi:id="_YCx15iE0EeSMxJhMVj0eIQ" name="Selected">
+    <lhs xmi:id="_CVRVtCH6EeSBVYr6brtThw" name="Lhs">
+      <nodes xmi:id="_CVRVtSH6EeSBVYr6brtThw" name="Selected">
         <type href="http://Statechart/1.0#//StateMachine"/>
       </nodes>
     </lhs>
-    <rhs xmi:id="_YCx15yE0EeSMxJhMVj0eIQ" name="Rhs">
-      <nodes xmi:id="_YCx16CE0EeSMxJhMVj0eIQ" name="Selected" incoming="_YCx17CE0EeSMxJhMVj0eIQ" outgoing="_YCx16yE0EeSMxJhMVj0eIQ">
+    <rhs xmi:id="_CVRVtiH6EeSBVYr6brtThw" name="Rhs">
+      <nodes xmi:id="_CVRVtyH6EeSBVYr6brtThw" name="Selected" incoming="_CVRVvCH6EeSBVYr6brtThw" outgoing="_CVRVuyH6EeSBVYr6brtThw">
         <type href="http://Statechart/1.0#//StateMachine"/>
       </nodes>
-      <nodes xmi:id="_YCx16SE0EeSMxJhMVj0eIQ" name="New" incoming="_YCx16yE0EeSMxJhMVj0eIQ" outgoing="_YCx17CE0EeSMxJhMVj0eIQ">
+      <nodes xmi:id="_CVRVuCH6EeSBVYr6brtThw" name="New" incoming="_CVRVuyH6EeSBVYr6brtThw" outgoing="_CVRVvCH6EeSBVYr6brtThw">
         <type href="http://Statechart/1.0#//CompositeState"/>
-        <attributes xmi:id="_YCx16iE0EeSMxJhMVj0eIQ" value="IsConcurrent">
+        <attributes xmi:id="_CVRVuSH6EeSBVYr6brtThw" value="Id">
+          <type href="http://Statechart/1.0#//StateVertex/id"/>
+        </attributes>
+        <attributes xmi:id="_CVRVuiH6EeSBVYr6brtThw" value="IsConcurrent">
           <type href="http://Statechart/1.0#//CompositeState/isConcurrent"/>
         </attributes>
       </nodes>
-      <edges xmi:id="_YCx16yE0EeSMxJhMVj0eIQ" source="_YCx16CE0EeSMxJhMVj0eIQ" target="_YCx16SE0EeSMxJhMVj0eIQ">
+      <edges xmi:id="_CVRVuyH6EeSBVYr6brtThw" source="_CVRVtyH6EeSBVYr6brtThw" target="_CVRVuCH6EeSBVYr6brtThw">
         <type href="http://Statechart/1.0#//StateMachine/top"/>
       </edges>
-      <edges xmi:id="_YCx17CE0EeSMxJhMVj0eIQ" source="_YCx16SE0EeSMxJhMVj0eIQ" target="_YCx16CE0EeSMxJhMVj0eIQ">
+      <edges xmi:id="_CVRVvCH6EeSBVYr6brtThw" source="_CVRVuCH6EeSBVYr6brtThw" target="_CVRVtyH6EeSBVYr6brtThw">
         <type href="http://Statechart/1.0#//State/state_container"/>
       </edges>
     </rhs>
-    <mappings xmi:id="_YCx17SE0EeSMxJhMVj0eIQ" origin="_YCx15iE0EeSMxJhMVj0eIQ" image="_YCx16CE0EeSMxJhMVj0eIQ"/>
+    <mappings xmi:id="_CVRVvSH6EeSBVYr6brtThw" origin="_CVRVtSH6EeSBVYr6brtThw" image="_CVRVtyH6EeSBVYr6brtThw"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="_YCx17iE0EeSMxJhMVj0eIQ" name="mainUnit" subUnits="_YCx14SE0EeSMxJhMVj0eIQ">
-    <parameters xmi:id="_YCx17yE0EeSMxJhMVj0eIQ" name="selectedEObject">
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_CVR8sCH6EeSBVYr6brtThw" name="mainUnit" subUnits="_CVRVryH6EeSBVYr6brtThw">
+    <parameters xmi:id="_CVR8sSH6EeSBVYr6brtThw" name="selectedEObject">
       <type xsi:type="ecore:EClass" href="http://Statechart/1.0#//StateMachine"/>
     </parameters>
-    <parameters xmi:id="_YCx18CE0EeSMxJhMVj0eIQ" name="New">
+    <parameters xmi:id="_CVR8siH6EeSBVYr6brtThw" name="New">
       <type xsi:type="ecore:EClass" href="http://Statechart/1.0#//CompositeState"/>
     </parameters>
-    <parameters xmi:id="_YCx18SE0EeSMxJhMVj0eIQ" name="IsConcurrent">
+    <parameters xmi:id="_CVR8syH6EeSBVYr6brtThw" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_CVR8tCH6EeSBVYr6brtThw" name="IsConcurrent">
       <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </parameters>
-    <parameterMappings xmi:id="_YCx18iE0EeSMxJhMVj0eIQ" source="_YCx17yE0EeSMxJhMVj0eIQ" target="_YCx14iE0EeSMxJhMVj0eIQ"/>
-    <parameterMappings xmi:id="_YCx18yE0EeSMxJhMVj0eIQ" source="_YCx14yE0EeSMxJhMVj0eIQ" target="_YCx18CE0EeSMxJhMVj0eIQ"/>
-    <parameterMappings xmi:id="_YCx19CE0EeSMxJhMVj0eIQ" source="_YCx18SE0EeSMxJhMVj0eIQ" target="_YCx15CE0EeSMxJhMVj0eIQ"/>
+    <parameterMappings xmi:id="_CVR8tSH6EeSBVYr6brtThw" source="_CVR8sSH6EeSBVYr6brtThw" target="_CVRVsCH6EeSBVYr6brtThw"/>
+    <parameterMappings xmi:id="_CVR8tiH6EeSBVYr6brtThw" source="_CVRVsSH6EeSBVYr6brtThw" target="_CVR8siH6EeSBVYr6brtThw"/>
+    <parameterMappings xmi:id="_CVR8tyH6EeSBVYr6brtThw" source="_CVR8syH6EeSBVYr6brtThw" target="_CVRVsiH6EeSBVYr6brtThw"/>
+    <parameterMappings xmi:id="_CVR8uCH6EeSBVYr6brtThw" source="_CVR8tCH6EeSBVYr6brtThw" target="_CVRVsyH6EeSBVYr6brtThw"/>
   </units>
 </henshin:Module>
