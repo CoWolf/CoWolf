@@ -7,9 +7,6 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -30,74 +27,76 @@ import de.uni_stuttgart.iste.cowolf.ui.evolution.DifferencesView;
 
 public class Evolve extends AbstractHandler {
 
-	@Override
-	public Object execute(ExecutionEvent event) throws ExecutionException {
+    @Override
+    public Object execute(ExecutionEvent event) throws ExecutionException {
+        // initialize variables
+        Resource firstElementResource = null;
+        Resource secondElementResource = null;
+        ResourceSet resourceSet = new ResourceSetImpl();
+        IFile firstElement = null;
+        ExtensionHandler extensionHandler = new ExtensionHandler();
 
-		ExtensionHandler extensionHandler = new ExtensionHandler();
+        IWorkbenchWindow window = PlatformUI.getWorkbench()
+                .getActiveWorkbenchWindow();
 
-		IWorkbenchWindow window = PlatformUI.getWorkbench()
-				.getActiveWorkbenchWindow();
+        IStructuredSelection selection = (IStructuredSelection) window
+                .getSelectionService().getSelection();
+        List list = selection.toList();
+        if (list.size() >= 1) {
+            firstElement = (IFile) list.get(0);
+            URI firstElementURI = URI.createPlatformResourceURI(firstElement
+                    .getFullPath().toString(), true);
+            firstElementResource = resourceSet.getResource(firstElementURI,
+                    true);
+        }
+        if (list.size() == 2) {
+            IFile secondElement = (IFile) list.get(1);
+            URI secondElementURI = URI.createPlatformResourceURI(secondElement
+                    .getFullPath().toString(), true);
 
-		IStructuredSelection selection = (IStructuredSelection) window
-				.getSelectionService().getSelection();
+            secondElementResource = resourceSet.getResource(secondElementURI,
+                    true);
+        }
+        ComponentSelectionWizard modelWizard = new ComponentSelectionWizard(
+                firstElementResource, secondElementResource);
+        WizardDialog wizard = new WizardDialog(window.getShell(), modelWizard);
+        if (wizard.open() == Window.CANCEL) {
+            return null;
+        }
+        Resource firstModel;
+        Resource secondModel;
+        if (modelWizard.isFirstModelSelected()) {
+            firstModel = firstElementResource;
+            secondModel = secondElementResource;
+        } else {
+            firstModel = secondElementResource;
+            secondModel = firstElementResource;
+        }
 
-		List list = selection.toList();
-		Object firstElement = list.get(0);
-		Object secondElement = list.get(1);
+        AbstractEvolutionManager modelManager = extensionHandler
+                .getEvolutionManager(firstElementResource);
 
-		IFile firstElementeIFile = (IFile) firstElement;
-		IFile secondElementeIFile = (IFile) secondElement;
+        SymmetricDifference symmetricDifference;
 
-		URI firstElementURI = URI.createPlatformResourceURI(firstElementeIFile
-				.getFullPath().toString(), true);
-		URI secondElementURI = URI.createPlatformResourceURI(
-				secondElementeIFile.getFullPath().toString(), true);
+        try {
 
-		ResourceSet resourceSet = new ResourceSetImpl();
-		Resource firstElementResource = resourceSet.getResource(
-				firstElementURI, true);
-		Resource secondElementResource = resourceSet.getResource(
-				secondElementURI, true);
-		ComponentSelectionWizard modelWizard = new ComponentSelectionWizard(
-				firstElementResource, secondElementResource);
-		WizardDialog wizard = new WizardDialog(window.getShell(), modelWizard);
-		if (wizard.open() == Window.CANCEL) {
-			return null;
-		}
-		Resource firstModel;
-		Resource secondModel;
-		if (modelWizard.isFirstModelSelected()) {
-			firstModel = firstElementResource;
-			secondModel = secondElementResource;
-		} else {
-			firstModel = secondElementResource;
-			secondModel = firstElementResource;
-		}
+            symmetricDifference = modelManager.evolve(firstModel, secondModel);
 
-		AbstractEvolutionManager modelManager = extensionHandler
-				.getEvolutionManager(firstElementResource);
+            String projectRoot = firstElement.getProject().getLocation()
+                    .toFile().toString();
 
-		SymmetricDifference symmetricDifference;
-	
-		try {
-			
-			symmetricDifference = modelManager.evolve(firstModel, secondModel);
+            String evolveResultsFilePath = modelManager.saveEvolveResults(
+                    symmetricDifference, projectRoot + File.separator
+                            + "differences");
 
-			String projectRoot = firstElementeIFile.getProject().getLocation()
-					.toFile().toString();
+            new DifferencesView().open(evolveResultsFilePath);
 
-			String evolveResultsFilePath = modelManager.saveEvolveResults(
-					symmetricDifference, projectRoot + File.separator
-							+ "differences");
-			
-			new DifferencesView().open(evolveResultsFilePath);
+        } catch (EvolutionException e) {
+            MessageDialog.openError(window.getShell(),
+                    "Evolution Exception occured", e.getLocalizedMessage());
+            e.printStackTrace();
+        }
 
-		} catch (EvolutionException e) {
-			MessageDialog.openError(window.getShell(),
-					"Evolution Exception occured", e.getLocalizedMessage());
-			e.printStackTrace();
-		}
-
-		return null;
-	}
+        return null;
+    }
 }
