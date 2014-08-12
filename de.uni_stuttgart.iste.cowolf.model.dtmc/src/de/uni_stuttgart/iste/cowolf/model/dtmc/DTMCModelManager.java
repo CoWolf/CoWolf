@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import de.uni_stuttgart.iste.cowolf.model.IQoSModelManager;
 import de.uni_stuttgart.iste.cowolf.model.ModelTypeInfo;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.analyze.DTMCAnalyzeJob;
+import de.uni_stuttgart.iste.cowolf.model.dtmc.analyze.DTMCAnalyzeJobListener;
 
 public class DTMCModelManager implements IQoSModelManager {
 
@@ -27,6 +28,7 @@ public class DTMCModelManager implements IQoSModelManager {
 
 		// TODO Add return values
 		final DTMCAnalyzeJob job = new DTMCAnalyzeJob(model, parameters);
+		job.addJobChangeListener(new DTMCAnalyzeJobListener(null));
 		job.setPriority(Job.LONG);
 		job.schedule();
 		return null;

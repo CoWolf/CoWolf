@@ -78,6 +78,10 @@ public class DTMCAnalyzeJob extends Job {
 		}
 
 	}	
+	
+	public Resource getModel() {
+		return this.model;
+	}
 
 	public HashMap<State, String> getAnalysis() {
 		return this.prismResult;
