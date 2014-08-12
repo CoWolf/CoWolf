@@ -1,6 +1,5 @@
 package de.uni_stuttgart.iste.cowolf.ui.navigator.PropertyTester;
 
-import java.io.File;
 import java.util.List;
 
 import org.eclipse.core.expressions.PropertyTester;
@@ -16,20 +15,28 @@ import org.eclipse.ui.PlatformUI;
 import de.uni_stuttgart.iste.cowolf.core.extensions.ExtensionHandler;
 import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
 
+/**
+ * 
+ * Checks if the evolution can be executed on the selected files.
+ * 
+ * @author Verena Käfer
+ * @author Rene Trefft
+ *
+ */
 public class EvolutionTester extends PropertyTester {
 
 	public static final String PROPERTY_NAMESPACE = "de.uni_stuttgart.iste.cowolf.ui.navigator.propertyTester.evolution";
 	public static final String PROPERTY_CAN_FOO = "canFoo";
 
 	public EvolutionTester() {
-		// TODO Auto-generated constructor stub
 	}
+
 
 	@Override
 	public boolean test(Object receiver, String property, Object[] args,
 			Object expectedValue) {
 
-		ExtensionHandler extensionHandler = new ExtensionHandler();
+		// gets the currently selected files
 		IWorkbenchWindow window = PlatformUI.getWorkbench()
 				.getActiveWorkbenchWindow();
 		IStructuredSelection selection = (IStructuredSelection) window
@@ -50,21 +57,20 @@ public class EvolutionTester extends PropertyTester {
 				IFile firstElementeIFile = (IFile) firstElement;
 				IFile secondElementeIFile = (IFile) secondElement;
 
+				// transforms the two selected models to Resources
 				URI firstElementURI = URI.createPlatformResourceURI(
 						firstElementeIFile.getFullPath().toString(), true);
 				URI secondElementURI = URI.createPlatformResourceURI(
 						secondElementeIFile.getFullPath().toString(), true);
-				// File file = iFile.getLocation().toFile();
-				// if (!file.exists()) {
-				// return false;
-				// }
-
 				ResourceSet resourceSet = new ResourceSetImpl();
 				Resource firstElementResource = resourceSet.getResource(
 						firstElementURI, true);
 				Resource secondElementResource = resourceSet.getResource(
 						secondElementURI, true);
 
+				ExtensionHandler extensionHandler = new ExtensionHandler();
+				
+				// both selected models are of the same type if the returned evolution managers are equal
 				AbstractEvolutionManager firstElementEvolutionManager = extensionHandler
 						.getEvolutionManager(firstElementResource);
 
