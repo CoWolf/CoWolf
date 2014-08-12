@@ -44,7 +44,8 @@ public class AnalyzeWizardPage1 extends WizardPage {
 		this.container.setLayout(new GridLayout(1, false));
 
 		Group grpVerificationMethod = new Group(this.container, SWT.NONE);
-		grpVerificationMethod.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		grpVerificationMethod.setLayoutData(new GridData(SWT.FILL, SWT.FILL,
+				true, false, 1, 1));
 		grpVerificationMethod.setText("Verification Method");
 		grpVerificationMethod.setLayout(new GridLayout(1, false));
 
@@ -52,63 +53,8 @@ public class AnalyzeWizardPage1 extends WizardPage {
 		this.btnVerification.setSelection(true);
 		this.btnVerification.setText("Verification");
 
-				this.btnSimulation = new Button(grpVerificationMethod, SWT.RADIO);
-				this.btnSimulation.setText("Simulation");
-
-		final Group grpSimulationProperties = new Group(grpVerificationMethod, SWT.NONE);
-		grpSimulationProperties.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		grpSimulationProperties.setText("Simulation properties");
-
-		this.btnSimulation.addSelectionListener(new SelectionListener() {
-			@Override
-			public void widgetSelected(final SelectionEvent e) {
-				AnalyzeWizardPage1.this.recursiveSetEnabled(grpSimulationProperties, true);
-				AnalyzeWizardPage1.this.setPageComplete();
-			}
-
-			@Override
-			public void widgetDefaultSelected(final SelectionEvent e) {
-			}
-		});
-
-		this.btnVerification.addSelectionListener(new SelectionListener() {
-			@Override
-			public void widgetSelected(final SelectionEvent e) {
-				System.out.println("Toggle verification");
-				AnalyzeWizardPage1.this.recursiveSetEnabled(grpSimulationProperties, false);
-				AnalyzeWizardPage1.this.setPageComplete();
-			}
-
-			@Override
-			public void widgetDefaultSelected(final SelectionEvent e) {
-			}
-		});
-		this.recursiveSetEnabled(grpSimulationProperties, false);
-		GridLayout gl_grpSimulationProperties = new GridLayout(2, false);
-		gl_grpSimulationProperties.horizontalSpacing = 50;
-		grpSimulationProperties.setLayout(gl_grpSimulationProperties);
-
-		this.lblNumberOfSamples = new Label(grpSimulationProperties, SWT.NONE);
-		this.lblNumberOfSamples.setText("Number of Samples:");
-
-		this.txtNumberofsamples = new Text(grpSimulationProperties, SWT.BORDER);
-		this.txtNumberofsamples.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
-		this.txtNumberofsamples.setText("1000");
-
-		this.lblConfidence = new Label(grpSimulationProperties, SWT.NONE);
-		this.lblConfidence.setText("Confidence:");
-
-		this.txtConfidence = new Text(grpSimulationProperties, SWT.BORDER);
-		this.txtConfidence.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
-		this.txtConfidence.setText("0.01");
-
-				this.lblPathlength = new Label(grpSimulationProperties, SWT.NONE);
-				this.lblPathlength.setText("Maximum path length:");
-
-		this.txtPathlength = new Text(grpSimulationProperties, SWT.BORDER);
-		this.txtPathlength.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
-		this.txtPathlength.setText("10000");
-		this.setPageComplete();
+		this.btnSimulation = new Button(grpVerificationMethod, SWT.RADIO);
+		this.btnSimulation.setText("Simulation");
 
 		ModifyListener changeListener = new ModifyListener() {
 			@Override
@@ -131,13 +77,76 @@ public class AnalyzeWizardPage1 extends WizardPage {
 			}
 		};
 
+		final Group grpSimulationProperties = new Group(this.container, SWT.NONE);
+		grpSimulationProperties.setLayoutData(new GridData(SWT.FILL,
+				SWT.CENTER, false, false, 1, 1));
+		grpSimulationProperties.setText("Simulation properties");
+		this.recursiveSetEnabled(grpSimulationProperties, false);
+		GridLayout gl_grpSimulationProperties = new GridLayout(2, false);
+		gl_grpSimulationProperties.horizontalSpacing = 50;
+		grpSimulationProperties.setLayout(gl_grpSimulationProperties);
+
+		this.lblNumberOfSamples = new Label(grpSimulationProperties, SWT.NONE);
+		this.lblNumberOfSamples.setText("Number of Samples:");
+
+		this.txtNumberofsamples = new Text(grpSimulationProperties, SWT.BORDER);
+		this.txtNumberofsamples.setLayoutData(new GridData(SWT.FILL,
+				SWT.CENTER, false, false, 1, 1));
+		this.txtNumberofsamples.setText("1000");
+
+		this.lblConfidence = new Label(grpSimulationProperties, SWT.NONE);
+		this.lblConfidence.setText("Confidence:");
+
+		this.txtConfidence = new Text(grpSimulationProperties, SWT.BORDER);
+		this.txtConfidence.setLayoutData(new GridData(SWT.FILL, SWT.CENTER,
+				false, false, 1, 1));
+		this.txtConfidence.setText("0.01");
+
+		this.lblPathlength = new Label(grpSimulationProperties, SWT.NONE);
+		this.lblPathlength.setText("Maximum path length:");
+
+		this.txtPathlength = new Text(grpSimulationProperties, SWT.BORDER);
+		this.txtPathlength.setLayoutData(new GridData(SWT.FILL, SWT.CENTER,
+				false, false, 1, 1));
+		this.txtPathlength.setText("10000");
+
 		this.txtConfidence.addVerifyListener(floatListener);
 		this.txtConfidence.addModifyListener(changeListener);
 		this.txtNumberofsamples.addVerifyListener(integerListener);
 		this.txtNumberofsamples.addModifyListener(changeListener);
 		this.txtPathlength.addVerifyListener(integerListener);
 		this.txtPathlength.addModifyListener(changeListener);
-		AnalyzeWizardPage1.this.recursiveSetEnabled(grpSimulationProperties, false);
+		AnalyzeWizardPage1.this.recursiveSetEnabled(grpSimulationProperties,
+				false);
+
+
+		this.btnSimulation.addSelectionListener(new SelectionListener() {
+			@Override
+			public void widgetSelected(final SelectionEvent e) {
+				AnalyzeWizardPage1.this.recursiveSetEnabled(
+						grpSimulationProperties, true);
+				AnalyzeWizardPage1.this.setPageComplete();
+			}
+
+			@Override
+			public void widgetDefaultSelected(final SelectionEvent e) {
+			}
+		});
+
+		this.btnVerification.addSelectionListener(new SelectionListener() {
+			@Override
+			public void widgetSelected(final SelectionEvent e) {
+				System.out.println("Toggle verification");
+				AnalyzeWizardPage1.this.recursiveSetEnabled(
+						grpSimulationProperties, false);
+				AnalyzeWizardPage1.this.setPageComplete();
+			}
+
+			@Override
+			public void widgetDefaultSelected(final SelectionEvent e) {
+			}
+		});
+		this.setPageComplete();
 	}
 
 	/**
@@ -183,7 +192,8 @@ public class AnalyzeWizardPage1 extends WizardPage {
 			int pathlength = -1;
 			if (!this.txtConfidence.getText().isEmpty()) {
 				try {
-					confidence = Double.parseDouble(this.txtConfidence.getText());
+					confidence = Double.parseDouble(this.txtConfidence
+							.getText());
 				} catch (NumberFormatException e) {
 					confidence = -1;
 				}
@@ -191,7 +201,8 @@ public class AnalyzeWizardPage1 extends WizardPage {
 
 			if (!this.txtNumberofsamples.getText().isEmpty()) {
 				try {
-					numberSamples = Integer.parseInt(this.txtNumberofsamples.getText());
+					numberSamples = Integer.parseInt(this.txtNumberofsamples
+							.getText());
 				} catch (NumberFormatException e) {
 					numberSamples = -1;
 				}

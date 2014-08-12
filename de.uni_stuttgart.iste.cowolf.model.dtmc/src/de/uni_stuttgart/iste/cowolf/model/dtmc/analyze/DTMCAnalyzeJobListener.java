@@ -19,7 +19,7 @@ import org.eclipse.core.runtime.jobs.IJobChangeListener;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 
-import de.uni_stuttgart.iste.cowolf.core.AnalysisListener;
+import de.uni_stuttgart.iste.cowolf.model.AnalysisListener;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.State;
 
 /**
