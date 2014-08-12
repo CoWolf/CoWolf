@@ -40,12 +40,12 @@ public class NewProjectWizard extends Wizard implements INewWizard,
 
 	@Override
 	public boolean performFinish() {
-		String name = pageOne.getProjectName();
+		String projectName = pageOne.getProjectName();
 		URI location = null;
 		if (!pageOne.useDefaults()) {
 			location = pageOne.getLocationURI();
 		}
-		CreationFunctions.createProject(name, location);
+		CreationFunctions.createProject(projectName, location);
 
 		// now the wizard automatically opens the correct perspective
 		BasicNewProjectResourceWizard.updatePerspective(configurationElement);

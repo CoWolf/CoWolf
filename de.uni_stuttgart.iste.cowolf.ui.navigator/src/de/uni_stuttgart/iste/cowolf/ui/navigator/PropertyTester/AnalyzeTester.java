@@ -1,7 +1,6 @@
 package de.uni_stuttgart.iste.cowolf.ui.navigator.PropertyTester;
 
 import java.io.File;
-
 import org.eclipse.core.expressions.PropertyTester;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.emf.common.util.URI;
@@ -43,6 +42,8 @@ public class AnalyzeTester extends PropertyTester {
 
 				ResourceSet resourceSet = new ResourceSetImpl();
 				Resource resource;
+				
+				
 
 				URI uri = URI.createPlatformResourceURI(iFile.getFullPath()
 						.toString(), true);

@@ -11,8 +11,8 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
 
+import de.uni_stuttgart.iste.cowolf.core.natures.ProjectNature;
 import de.uni_stuttgart.iste.cowolf.ui.externalizedStrings.Messages;
-import de.uni_stuttgart.iste.cowolf.ui.natures.ProjectNature;
 
 /**
  * This class holds the functions to create a new project and a folder
@@ -29,13 +29,18 @@ public class CreationFunctions {
 	 */
 	public static void createProject(String projectName, URI location) {
 
-		IProject project = createBasicProject(projectName, location);
-		addNature(project);
+		IProject iProject = createBasicProject(projectName, location);
+		addNature(iProject);
 
-		// our basic folder structure
-		IFolder newFolder = createFolder(Messages.CreationFunctions_folder_title_models, project);
-		
-		createFolder(Messages.CreationFunctions_folder_title_State_charts, newFolder);
+		// models
+		IFolder modelFolder = createFolder(
+				Messages.CreationFunctions_folder_title_models, iProject);
+		// properties
+		createFolder(".properties", iProject);
+
+		// state charts
+		createFolder(Messages.CreationFunctions_folder_title_State_charts,
+				modelFolder);
 
 	}
 
@@ -49,26 +54,26 @@ public class CreationFunctions {
 	 * @return
 	 */
 	private static IProject createBasicProject(String projectName, URI location) {
-		IProject newProject = ResourcesPlugin.getWorkspace().getRoot()
+		IProject newIProject = ResourcesPlugin.getWorkspace().getRoot()
 				.getProject(projectName);
 
 		// if project exists not, then create one
-		if (!newProject.exists()) {
+		if (!newIProject.exists()) {
 			URI projectLocation = location;
 			// Set description
-			IProjectDescription desc = newProject.getWorkspace()
-					.newProjectDescription(newProject.getName());
+			IProjectDescription description = newIProject.getWorkspace()
+					.newProjectDescription(newIProject.getName());
 			if (location != null
 					&& ResourcesPlugin.getWorkspace().getRoot()
 							.getLocationURI().equals(location)) {
 				projectLocation = null;
 			}
 
-			desc.setLocationURI(projectLocation);
+			description.setLocationURI(projectLocation);
 			try {
-				newProject.create(desc, null);
-				if (!newProject.isOpen()) {
-					newProject.open(null);
+				newIProject.create(description, null);
+				if (!newIProject.isOpen()) {
+					newIProject.open(null);
 				}
 			} catch (CoreException e) {
 				// TODO
@@ -76,48 +81,48 @@ public class CreationFunctions {
 			}
 		}
 
-		return newProject;
+		return newIProject;
 	}
 
 	/**
 	 * @param name
 	 *            the name of the folder
-	 * @param parent
+	 * @param parentContainer
 	 *            the parent container
 	 * @return the created folder
 	 */
-	public static IFolder createFolder(String name, IContainer parent) {
-		Path myPath = new Path(name);
-		
-		IFolder folder = parent.getFolder(myPath);
-		if (!folder.exists()) {
+	public static IFolder createFolder(String name, IContainer parentContainer) {
+		Path path = new Path(name);
+
+		IFolder iFolder = parentContainer.getFolder(path);
+		if (!iFolder.exists()) {
 			try {
-				folder.create(false, true, null);
+				iFolder.create(false, true, null);
 			} catch (CoreException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-		return folder;
+		return iFolder;
 	}
 
 	/**
-	 * @param project
+	 * @param iProject
 	 *            the project the nature will be added to
 	 */
-	private static void addNature(IProject project) {
+	private static void addNature(IProject iProject) {
 		try {
-			if (!project.hasNature(ProjectNature.NATURE_ID)) {
-				IProjectDescription description = project.getDescription();
-				String[] prevNatures = description.getNatureIds();
-				String[] newNatures = new String[prevNatures.length + 1];
-				System.arraycopy(prevNatures, 0, newNatures, 0,
-						prevNatures.length);
-				newNatures[prevNatures.length] = ProjectNature.NATURE_ID;
+			if (!iProject.hasNature(ProjectNature.NATURE_ID)) {
+				IProjectDescription description = iProject.getDescription();
+				String[] previousNatures = description.getNatureIds();
+				String[] newNatures = new String[previousNatures.length + 1];
+				System.arraycopy(previousNatures, 0, newNatures, 0,
+						previousNatures.length);
+				newNatures[previousNatures.length] = ProjectNature.NATURE_ID;
 				description.setNatureIds(newNatures);
 
 				IProgressMonitor monitor = null;
-				project.setDescription(description, monitor);
+				iProject.setDescription(description, monitor);
 			}
 		} catch (CoreException e) {
 			// TODO Auto-generated catch block

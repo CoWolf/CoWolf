@@ -1,4 +1,4 @@
-package de.uni_stuttgart.iste.cowolf.ui.natures;
+package de.uni_stuttgart.iste.cowolf.core.natures;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectNature;
