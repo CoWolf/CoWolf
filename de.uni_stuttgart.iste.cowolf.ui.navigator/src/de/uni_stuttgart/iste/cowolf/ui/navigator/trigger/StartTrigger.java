@@ -7,13 +7,31 @@ import org.eclipse.ui.PlatformUI;
 
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociationManager.ModelAssociationManager;
 
-public class LoadTrigger implements IStartup {
+/**
+ * This trigger is executed at the very start of eclipse. You can add necessary
+ * listeners here.
+ *
+ */
+public class StartTrigger implements IStartup {
 
 	private IWorkbenchListener workbenchListener;
 
 	@Override
 	public void earlyStartup() {
 
+		// listener for end of eclipse
+		addWorkbenchListener();
+
+		// load properties
+		ModelAssociationManager.getInstance().loadAll();
+
+	}
+
+	/**
+	 * Adds a workbench listener which saves the properties at the end of
+	 * eclipse
+	 */
+	private void addWorkbenchListener() {
 		if (workbenchListener == null) {
 			workbenchListener = new IWorkbenchListener() {
 				/*
@@ -43,9 +61,6 @@ public class LoadTrigger implements IStartup {
 			};
 			PlatformUI.getWorkbench().addWorkbenchListener(workbenchListener);
 		}
-		
-		ModelAssociationManager.getInstance().loadAll();
-
 	}
 
 }

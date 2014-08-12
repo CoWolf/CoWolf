@@ -26,6 +26,16 @@ import de.uni_stuttgart.iste.cowolf.core.natures.ProjectNature;
 
 public class ModelAssociationManager {
 
+	private static final String TARGET = "target";
+
+	private static final String SOURCE = "source";
+
+	private static final String ASSOCIATION = "association";
+
+	private static final String ROOT = "root";
+
+	private static final String PROPERTIES_XML = ".properties/properties.xml";
+
 	private static ModelAssociationManager instance;
 
 	ArrayList<AssociationProject> associationProjects = new ArrayList<AssociationProject>();
@@ -49,15 +59,15 @@ public class ModelAssociationManager {
 	 *         does not exist
 	 */
 	public List<Resource> getReachableAssociations(Resource source,
-			IProject project) {
+			IProject iProject) {
 
-		AssociationProject p = getAssociationProject(project);
+		AssociationProject associationProject = getAssociationProject(iProject);
 
-		if (p == null) {
+		if (associationProject == null) {
 			return null;
 		}
 
-		return p.getReachableAssociations(source);
+		return associationProject.getReachableAssociations(source);
 	}
 
 	/**
@@ -84,16 +94,17 @@ public class ModelAssociationManager {
 	 * @param target
 	 * @return false if association already exists
 	 */
-	public boolean add(Resource source, Resource target, IProject iProject) {
+	public boolean addAssociation(Resource source, Resource target,
+			IProject iProject) {
 
 		AssociationProject associationProject = getAssociationProject(iProject);
-		
-		if(associationProject == null){
+
+		if (associationProject == null) {
 			associationProject = new AssociationProject(iProject);
 			associationProjects.add(associationProject);
 		}
 
-		return associationProject.add(source, target);
+		return associationProject.addAssociation(source, target);
 
 	}
 
@@ -105,7 +116,8 @@ public class ModelAssociationManager {
 	 * @return True if a match of these two resources was found and deleted.
 	 *         False else
 	 */
-	public boolean remove(Resource source, Resource target, IProject iProject) {
+	public boolean removeAssociation(Resource source, Resource target,
+			IProject iProject) {
 
 		AssociationProject associationProject = getAssociationProject(iProject);
 
@@ -114,7 +126,7 @@ public class ModelAssociationManager {
 			return false;
 		}
 
-		return associationProject.remove(source, target);
+		return associationProject.removeAssociation(source, target);
 	}
 
 	/**
@@ -136,16 +148,16 @@ public class ModelAssociationManager {
 	 */
 	private void save(AssociationProject project) {
 
-		Element rootElement = new Element("root"); //$NON-NLS-1$
-		Document doc = new Document(rootElement);
+		Element rootElement = new Element(ROOT); //$NON-NLS-1$
+		Document document = new Document(rootElement);
 
 		for (Association association : project.getAssociations()) {
-			Element associationElement = new Element("association"); //$NON-NLS-1$
+			Element associationElement = new Element(ASSOCIATION); //$NON-NLS-1$
 
-			Attribute sourceAttribute = new Attribute("source", association //$NON-NLS-1$
+			Attribute sourceAttribute = new Attribute(SOURCE, association //$NON-NLS-1$
 					.getSource().getURI().toPlatformString(true));
 
-			Attribute targetAttribute = new Attribute("target", association //$NON-NLS-1$
+			Attribute targetAttribute = new Attribute(TARGET, association //$NON-NLS-1$
 					.getTarget().getURI().toPlatformString(true));
 
 			associationElement.setAttribute(sourceAttribute);
@@ -154,11 +166,11 @@ public class ModelAssociationManager {
 			rootElement.addContent(associationElement);
 		}
 
-		File propertyFile = getPropertyFile(project.getAssociationProject());
+		File propertyFile = getPropertyFile(project.getIProject());
 
-		XMLOutputter out = new XMLOutputter(Format.getPrettyFormat());
+		XMLOutputter outputter = new XMLOutputter(Format.getPrettyFormat());
 		try {
-			out.output(doc, new FileOutputStream(propertyFile));
+			outputter.output(document, new FileOutputStream(propertyFile));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -202,11 +214,11 @@ public class ModelAssociationManager {
 	 */
 	private AssociationProject load(IProject iProject) {
 
-		AssociationProject project = new AssociationProject(iProject);
+		AssociationProject associationProject = new AssociationProject(iProject);
 
 		try {
 			Document document = new Document();
-			Element root = new Element("root"); //$NON-NLS-1$
+			Element rootElement = new Element(ROOT); //$NON-NLS-1$
 
 			SAXBuilder saxBuilder = new SAXBuilder();
 
@@ -214,31 +226,31 @@ public class ModelAssociationManager {
 			File propertyFile = getPropertyFile(iProject);
 			document = saxBuilder.build(propertyFile);
 
-			root = document.getRootElement();
+			rootElement = document.getRootElement();
 
 			@SuppressWarnings("unchecked")
-			List<Element> associationElements = root.getChildren("association"); //$NON-NLS-1$
+			List<Element> associationElements = rootElement
+					.getChildren(ASSOCIATION); //$NON-NLS-1$
 
 			ResourceSet resourceSet = new ResourceSetImpl();
 
 			for (Element associationElement : associationElements) {
 				String sourceUriString = associationElement
-						.getAttributeValue("source"); //$NON-NLS-1$
-				URI sourceUri = URI.createFileURI(iProject.getWorkspace()
-						.getRoot().getLocation()
-						+ sourceUriString);
+						.getAttributeValue(SOURCE); //$NON-NLS-1$
+				URI sourceUri = URI.createPlatformResourceURI(sourceUriString,
+						true);
 				Resource sourceResource = resourceSet.getResource(sourceUri,
 						true);
 
 				String targetUriString = associationElement
-						.getAttributeValue("target"); //$NON-NLS-1$
-				URI targetUri = URI.createFileURI(iProject.getWorkspace()
-						.getRoot().getLocation()
-						+ targetUriString);
+						.getAttributeValue(TARGET); //$NON-NLS-1$
+				URI targetUri = URI.createPlatformResourceURI(targetUriString,
+						true);
 				Resource targetResource = resourceSet.getResource(targetUri,
 						true);
 
-				project.add(sourceResource, targetResource);
+				associationProject.addAssociation(sourceResource,
+						targetResource);
 			}
 		} catch (JDOMException e) {
 			return null;
@@ -246,7 +258,7 @@ public class ModelAssociationManager {
 			return null;
 		}
 
-		return project;
+		return associationProject;
 	}
 
 	/**
@@ -256,7 +268,7 @@ public class ModelAssociationManager {
 	 */
 	private File getPropertyFile(IProject iProject) {
 
-		IFile propertyIFile = iProject.getFile(".properties/properties.xml"); //$NON-NLS-1$
+		IFile propertyIFile = iProject.getFile(PROPERTIES_XML); //$NON-NLS-1$
 
 		File file = new File(propertyIFile.getLocation().toString());
 
@@ -276,9 +288,9 @@ public class ModelAssociationManager {
 	 * @return the association project for the IProject
 	 */
 	private AssociationProject getAssociationProject(IProject iProject) {
-		for (AssociationProject ap : associationProjects) {
-			if (ap.getAssociationProject().equals(iProject)) {
-				return ap;
+		for (AssociationProject associationProject : associationProjects) {
+			if (associationProject.getIProject().equals(iProject)) {
+				return associationProject;
 			}
 		}
 		return null;

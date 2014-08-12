@@ -13,19 +13,19 @@ import org.eclipse.emf.ecore.resource.Resource;
  */
 public class AssociationProject {
 
-	private IProject project;
+	private IProject iProject;
 	ArrayList<Association> associations = new ArrayList<Association>();
 
-	public AssociationProject(IProject project) {
-		this.setProject(project);
+	public AssociationProject(IProject iProject) {
+		this.iProject = iProject;
 	}
 
-	public IProject getAssociationProject() {
-		return project;
+	public IProject getIProject() {
+		return iProject;
 	}
 
-	public void setProject(IProject project) {
-		this.project = project;
+	public void setIProject(IProject project) {
+		this.iProject = project;
 	}
 
 	/**
@@ -35,7 +35,7 @@ public class AssociationProject {
 	 * @param target
 	 * @return false if association already exists
 	 */
-	public boolean add(Resource source, Resource target) {
+	public boolean addAssociation(Resource source, Resource target) {
 		for (Association association : associations) {
 			if (association.getSource().getURI().equals(source.getURI())
 					&& association.getTarget().getURI().equals(target.getURI())) {
@@ -43,7 +43,7 @@ public class AssociationProject {
 				return false;
 			}
 		}
-		Association newAssociation = new Association(source, target, project);
+		Association newAssociation = new Association(source, target, iProject);
 		associations.add(newAssociation);
 		return true;
 
@@ -57,7 +57,7 @@ public class AssociationProject {
 	 * @return True if a match of these two resources was found and deleted.
 	 *         False else
 	 */
-	public boolean remove(Resource source, Resource target) {
+	public boolean removeAssociation(Resource source, Resource target) {
 		boolean foundMatch = false;
 		for (Association association : associations) {
 			if (association.getSource().equals(source)
@@ -89,8 +89,8 @@ public class AssociationProject {
 				newMatches = getReachableAssociations(association.getTarget());
 
 				// and add them to the return list
-				for (Resource r : newMatches) {
-					foundMatches.add(r);
+				for (Resource ressource : newMatches) {
+					foundMatches.add(ressource);
 				}
 			}
 		}
@@ -111,7 +111,6 @@ public class AssociationProject {
 			}
 		}
 		return foundMatches;
-		// TODO
 	}
 
 	public ArrayList<Association> getAssociations() {

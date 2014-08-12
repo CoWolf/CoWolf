@@ -45,10 +45,11 @@ public class NewFolderWizard extends Wizard implements INewWizard,
 	public void addPages() {
 		super.addPages();
 
-		IWorkbenchWindow window =
-			    PlatformUI.getWorkbench().getActiveWorkbenchWindow();
-			IStructuredSelection selection = (IStructuredSelection) window.getSelectionService().getSelection();
-		
+		IWorkbenchWindow window = PlatformUI.getWorkbench()
+				.getActiveWorkbenchWindow();
+		IStructuredSelection selection = (IStructuredSelection) window
+				.getSelectionService().getSelection();
+
 		pageOne = new WizardNewFolderMainPage(PAGE_NAME, selection);
 		pageOne.setTitle(Messages.NewFolderWizard_title);
 		pageOne.setDescription(Messages.NewFolderWizard_description);
