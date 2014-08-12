@@ -8,7 +8,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 
 import de.uni_stuttgart.iste.cowolf.model.IQoSModelManager;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCModelManager;
-import de.uni_stuttgart.iste.cowolf.ui.model.AbstractQoSAnalyzeWizard;
+import de.uni_stuttgart.iste.cowolf.ui.model.analyze.AbstractQoSAnalyzeWizard;
 import de.uni_stuttgart.iste.cowolf.ui.model.dtmc.preference.DTMCPreferencePage;
 
 public class DTMCAnalyzeWizard extends AbstractQoSAnalyzeWizard {

@@ -5,7 +5,7 @@ import java.util.Map;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.ecore.resource.Resource;
 
-import de.uni_stuttgart.iste.cowolf.model.AnalysisListener;
+import de.uni_stuttgart.iste.cowolf.model.IAnalysisListener;
 import de.uni_stuttgart.iste.cowolf.model.IQoSModelManager;
 import de.uni_stuttgart.iste.cowolf.model.ModelTypeInfo;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.analyze.DTMCAnalyzeJob;
@@ -25,7 +25,7 @@ public class DTMCModelManager implements IQoSModelManager {
 
 	@Override
 	public String analyze(final Resource model,
-			final Map<String, Object> parameters, final AnalysisListener listener) {
+			final Map<String, Object> parameters, final IAnalysisListener listener) {
 
 		// TODO Add return values
 		final DTMCAnalyzeJob job = new DTMCAnalyzeJob(model, parameters);

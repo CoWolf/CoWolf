@@ -20,8 +20,9 @@ import org.eclipse.ui.PlatformUI;
 import de.uni_stuttgart.iste.cowolf.core.extensions.ExtensionHandler;
 import de.uni_stuttgart.iste.cowolf.model.IModelManager;
 import de.uni_stuttgart.iste.cowolf.model.IQoSModelManager;
-import de.uni_stuttgart.iste.cowolf.ui.model.AbstractQoSAnalyzeWizard;
-import de.uni_stuttgart.iste.cowolf.ui.model.AnalyzeWizardHandler;
+import de.uni_stuttgart.iste.cowolf.ui.model.analyze.AbstractQoSAnalyzeWizard;
+import de.uni_stuttgart.iste.cowolf.ui.model.analyze.AnalyzeWizardHandler;
+import de.uni_stuttgart.iste.cowolf.ui.model.analyze.FileOpenAnalysisListener;
 import de.uni_stuttgart.iste.cowolf.ui.model.dtmc.preference.DTMCPreferencePage;
 
 public class Analyze implements IHandler {
@@ -54,8 +55,8 @@ public class Analyze implements IHandler {
 			Resource resource;
 			URI uri = URI.createPlatformResourceURI(iFile.getFullPath().toString(), true);
 			resource = resSet.getResource(uri, true);
-			IModelManager modelManager = extensionHandler
-					.getModelManager(resource);
+			IModelManager modelManager = extensionHandler.getModelManager(resource);
+
 			if (modelManager != null && modelManager instanceof IQoSModelManager) {
 				IQoSModelManager qosModelManager = (IQoSModelManager) modelManager;
 				HashMap<String, Object> properties = new HashMap<String, Object>();
@@ -69,9 +70,10 @@ public class Analyze implements IHandler {
 					wizard.initialize(qosModelManager, resource, properties);
 					WizardDialog wizardDialog = new WizardDialog(window.getShell(), wizard);
 					wizardDialog.setBlockOnOpen(true);
+					FileOpenAnalysisListener fileOpenListener = new FileOpenAnalysisListener();
 					if (wizardDialog.open() == Window.OK) {
 						System.out.println("Ok pressed");
-						qosModelManager.analyze(resource, properties);
+						qosModelManager.analyze(resource, properties, fileOpenListener);
 					} else {
 						System.out.println("Cancel pressed");
 					}

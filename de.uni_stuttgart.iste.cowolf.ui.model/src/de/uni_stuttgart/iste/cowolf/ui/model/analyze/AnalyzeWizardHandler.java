@@ -1,4 +1,4 @@
-package de.uni_stuttgart.iste.cowolf.ui.model;
+package de.uni_stuttgart.iste.cowolf.ui.model.analyze;
 
 import java.util.LinkedList;
 import java.util.List;
