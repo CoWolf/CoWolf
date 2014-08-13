@@ -1,8 +1,19 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-SymbolicName: de.uni_stuttgart.iste.cowolf.model.statechart.tests
+Bundle-Name: %pluginName
+Bundle-SymbolicName: de.uni_stuttgart.iste.cowolf.model.statechart.tests;singleton:=true
 Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
 Fragment-Host: de.uni_stuttgart.iste.cowolf.model.statechart;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Import-Package: org.junit;version="4.11.0",
+Export-Package: de.uni_stuttgart.iste.cowolf.model.statechart.tests
+Require-Bundle: org.eclipse.core.runtime,
+ de.uni_stuttgart.iste.cowolf.model.statechart;visibility:=reexport,
+ org.eclipse.emf.ecore.xmi;visibility:=reexport
+Bundle-ActivationPolicy: lazy
+Import-Package: junit.framework;version="4.11.0",
+ junit.textui;version="4.11.0",
+ org.junit;version="4.11.0",
  org.junit.runner;version="4.11.0"

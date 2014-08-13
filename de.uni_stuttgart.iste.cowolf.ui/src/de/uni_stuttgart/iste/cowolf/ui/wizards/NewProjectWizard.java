@@ -17,10 +17,9 @@ import de.uni_stuttgart.iste.cowolf.ui.externalizedStrings.Messages;
 
 /**
  * this class holds the wizard for a new project
- *
  */
 public class NewProjectWizard extends Wizard implements INewWizard,
-		IExecutableExtension {
+IExecutableExtension {
 
 	private static final String PAGE_NAME = Messages.CustomNewProjectWizard_page_1_name;
 	private static final String WIZARD_NAME = Messages.CustomNewProjectWizard_new_project_wizard_name;
@@ -29,7 +28,7 @@ public class NewProjectWizard extends Wizard implements INewWizard,
 	private IConfigurationElement configurationElement;
 
 	public NewProjectWizard() {
-		setWindowTitle(WIZARD_NAME);
+		this.setWindowTitle(WIZARD_NAME);
 	}
 
 	@Override
@@ -42,13 +41,14 @@ public class NewProjectWizard extends Wizard implements INewWizard,
 	public boolean performFinish() {
 		String projectName = pageOne.getProjectName();
 		URI location = null;
-		if (!pageOne.useDefaults()) {
-			location = pageOne.getLocationURI();
+		if (!this.pageOne.useDefaults()) {
+			location = this.pageOne.getLocationURI();
 		}
 		CreationFunctions.createProject(projectName, location);
 
 		// now the wizard automatically opens the correct perspective
-		BasicNewProjectResourceWizard.updatePerspective(configurationElement);
+		BasicNewProjectResourceWizard
+				.updatePerspective(this.configurationElement);
 
 		return true;
 	}
@@ -57,17 +57,18 @@ public class NewProjectWizard extends Wizard implements INewWizard,
 	public void addPages() {
 		super.addPages();
 
-		pageOne = new WizardNewProjectCreationPage(PAGE_NAME);
-		pageOne.setTitle(Messages.CustomNewProjectWizard_page_1_title);
-		pageOne.setDescription(Messages.CustomNewProjectWizard_page_1_description);
+		this.pageOne = new WizardNewProjectCreationPage(PAGE_NAME);
+		this.pageOne.setTitle(Messages.CustomNewProjectWizard_page_1_title);
+		this.pageOne
+				.setDescription(Messages.CustomNewProjectWizard_page_1_description);
 
-		addPage(pageOne);
+		this.addPage(this.pageOne);
 	}
 
 	@Override
 	public void setInitializationData(IConfigurationElement config,
 			String propertyName, Object data) throws CoreException {
-		configurationElement = config;
+		this.configurationElement = config;
 	}
 
 }

@@ -4,6 +4,7 @@ import java.util.Map;
 
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.Resource;
 
 import de.uni_stuttgart.iste.cowolf.model.AbstractQoSModelManager;
 import de.uni_stuttgart.iste.cowolf.model.IAnalysisListener;

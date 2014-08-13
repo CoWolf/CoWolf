@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_qhUlACIJEeSqwIxN9LIEjA" name="ADD_StateVertex_(outgoing)_TGT_Transition" description="Adds to StateVertex's reference outgoing the target Transition">
+  <imports href="http://Statechart/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_qhVMECIJEeSqwIxN9LIEjA" name="addToStateVertex_outgoing_Transition" description="Adds to StateVertex's reference outgoing the target Transition">
+    <parameters xmi:id="_qhVMESIJEeSqwIxN9LIEjA" name="Selected"/>
+    <parameters xmi:id="_qhXBQCIJEeSqwIxN9LIEjA" name="NewTarget"/>
+    <lhs xmi:id="_qhXBQSIJEeSqwIxN9LIEjA" name="Lhs">
+      <nodes xmi:id="_qhXBQiIJEeSqwIxN9LIEjA" name="Selected">
+        <type href="http://Statechart/1.0#//StateVertex"/>
+      </nodes>
+      <nodes xmi:id="_qhXBQyIJEeSqwIxN9LIEjA" name="NewTarget">
+        <type href="http://Statechart/1.0#//Transition"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_qhXBRCIJEeSqwIxN9LIEjA">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_qhXBRSIJEeSqwIxN9LIEjA">
+          <conclusion xmi:id="_qhXBRiIJEeSqwIxN9LIEjA" name="doNotExceedUpperBound">
+            <nodes xmi:id="_qhXBRyIJEeSqwIxN9LIEjA" name="NewTarget" outgoing="_qhXBSiIJEeSqwIxN9LIEjA">
+              <type href="http://Statechart/1.0#//Transition"/>
+            </nodes>
+            <nodes xmi:id="_qhXBSCIJEeSqwIxN9LIEjA" name="Selected">
+              <type href="http://Statechart/1.0#//StateVertex"/>
+            </nodes>
+            <nodes xmi:id="_qhXBSSIJEeSqwIxN9LIEjA" incoming="_qhXBSiIJEeSqwIxN9LIEjA">
+              <type href="http://Statechart/1.0#//StateVertex"/>
+            </nodes>
+            <edges xmi:id="_qhXBSiIJEeSqwIxN9LIEjA" source="_qhXBRyIJEeSqwIxN9LIEjA" target="_qhXBSSIJEeSqwIxN9LIEjA">
+              <type href="http://Statechart/1.0#//Transition/source"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_qhXBSyIJEeSqwIxN9LIEjA" origin="_qhXBQyIJEeSqwIxN9LIEjA" image="_qhXBRyIJEeSqwIxN9LIEjA"/>
+          <mappings xmi:id="_qhXBTCIJEeSqwIxN9LIEjA" origin="_qhXBQiIJEeSqwIxN9LIEjA" image="_qhXBSCIJEeSqwIxN9LIEjA"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_qhXBTSIJEeSqwIxN9LIEjA" name="Rhs">
+      <nodes xmi:id="_qhXBTiIJEeSqwIxN9LIEjA" name="Selected" incoming="_qhXBUSIJEeSqwIxN9LIEjA" outgoing="_qhXBUCIJEeSqwIxN9LIEjA">
+        <type href="http://Statechart/1.0#//StateVertex"/>
+      </nodes>
+      <nodes xmi:id="_qhXBTyIJEeSqwIxN9LIEjA" name="NewTarget" incoming="_qhXBUCIJEeSqwIxN9LIEjA" outgoing="_qhXBUSIJEeSqwIxN9LIEjA">
+        <type href="http://Statechart/1.0#//Transition"/>
+      </nodes>
+      <edges xmi:id="_qhXBUCIJEeSqwIxN9LIEjA" source="_qhXBTiIJEeSqwIxN9LIEjA" target="_qhXBTyIJEeSqwIxN9LIEjA">
+        <type href="http://Statechart/1.0#//StateVertex/outgoing"/>
+      </edges>
+      <edges xmi:id="_qhXBUSIJEeSqwIxN9LIEjA" source="_qhXBTyIJEeSqwIxN9LIEjA" target="_qhXBTiIJEeSqwIxN9LIEjA">
+        <type href="http://Statechart/1.0#//Transition/source"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_qhXoUCIJEeSqwIxN9LIEjA" origin="_qhXBQiIJEeSqwIxN9LIEjA" image="_qhXBTiIJEeSqwIxN9LIEjA"/>
+    <mappings xmi:id="_qhXoUSIJEeSqwIxN9LIEjA" origin="_qhXBQyIJEeSqwIxN9LIEjA" image="_qhXBTyIJEeSqwIxN9LIEjA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_qhXoUiIJEeSqwIxN9LIEjA" name="mainUnit" subUnits="_qhVMECIJEeSqwIxN9LIEjA">
+    <parameters xmi:id="_qhXoUyIJEeSqwIxN9LIEjA" name="selectedEObject"/>
+    <parameters xmi:id="_qhXoVCIJEeSqwIxN9LIEjA" name="NewTarget"/>
+    <parameterMappings xmi:id="_qhXoVSIJEeSqwIxN9LIEjA" source="_qhXoUyIJEeSqwIxN9LIEjA" target="_qhVMESIJEeSqwIxN9LIEjA"/>
+    <parameterMappings xmi:id="_qhXoViIJEeSqwIxN9LIEjA" source="_qhXoVCIJEeSqwIxN9LIEjA" target="_qhXBQCIJEeSqwIxN9LIEjA"/>
+  </units>
+</henshin:Module>

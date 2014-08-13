@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_qhlqwCIJEeSqwIxN9LIEjA" name="CREATE_Guard_IN_Transition_(guard)" description="Creates one Guard in Transition">
+  <imports href="http://Statechart/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_qhlqwSIJEeSqwIxN9LIEjA" name="createGuard_IN_Transition" description="creates one Guard in the context: Transition">
+    <parameters xmi:id="_qhlqwiIJEeSqwIxN9LIEjA" name="Selected"/>
+    <parameters xmi:id="_qhlqwyIJEeSqwIxN9LIEjA" name="New"/>
+    <parameters xmi:id="_qhlqxCIJEeSqwIxN9LIEjA" name="Existing"/>
+    <lhs xmi:id="_qhlqxSIJEeSqwIxN9LIEjA" name="Lhs">
+      <nodes xmi:id="_qhlqxiIJEeSqwIxN9LIEjA" name="Selected">
+        <type href="http://Statechart/1.0#//Transition"/>
+      </nodes>
+      <nodes xmi:id="_qhlqxyIJEeSqwIxN9LIEjA" name="Existing">
+        <type href="http://Statechart/1.0#//BooleanExpression"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_qhlqyCIJEeSqwIxN9LIEjA">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_qhlqySIJEeSqwIxN9LIEjA">
+          <conclusion xmi:id="_qhlqyiIJEeSqwIxN9LIEjA" name="doNotExceedUpperBound">
+            <nodes xmi:id="_qhlqyyIJEeSqwIxN9LIEjA" name="Selected" outgoing="_qhlqziIJEeSqwIxN9LIEjA">
+              <type href="http://Statechart/1.0#//Transition"/>
+            </nodes>
+            <nodes xmi:id="_qhlqzCIJEeSqwIxN9LIEjA" name="New">
+              <type href="http://Statechart/1.0#//Guard"/>
+            </nodes>
+            <nodes xmi:id="_qhlqzSIJEeSqwIxN9LIEjA" incoming="_qhlqziIJEeSqwIxN9LIEjA">
+              <type href="http://Statechart/1.0#//Guard"/>
+            </nodes>
+            <edges xmi:id="_qhlqziIJEeSqwIxN9LIEjA" source="_qhlqyyIJEeSqwIxN9LIEjA" target="_qhlqzSIJEeSqwIxN9LIEjA">
+              <type href="http://Statechart/1.0#//Transition/guard"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_qhlqzyIJEeSqwIxN9LIEjA" origin="_qhmR0SIJEeSqwIxN9LIEjA" image="_qhlqyyIJEeSqwIxN9LIEjA"/>
+          <mappings xmi:id="_qhlq0CIJEeSqwIxN9LIEjA" origin="_qhmR0iIJEeSqwIxN9LIEjA" image="_qhlqzCIJEeSqwIxN9LIEjA"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_qhmR0CIJEeSqwIxN9LIEjA" name="Rhs">
+      <nodes xmi:id="_qhmR0SIJEeSqwIxN9LIEjA" name="Selected" incoming="_qhmR1SIJEeSqwIxN9LIEjA" outgoing="_qhmR1CIJEeSqwIxN9LIEjA">
+        <type href="http://Statechart/1.0#//Transition"/>
+      </nodes>
+      <nodes xmi:id="_qhmR0iIJEeSqwIxN9LIEjA" name="New" incoming="_qhmR1CIJEeSqwIxN9LIEjA" outgoing="_qhmR1SIJEeSqwIxN9LIEjA _qhmR1iIJEeSqwIxN9LIEjA">
+        <type href="http://Statechart/1.0#//Guard"/>
+      </nodes>
+      <nodes xmi:id="_qhmR0yIJEeSqwIxN9LIEjA" name="Existing" incoming="_qhmR1iIJEeSqwIxN9LIEjA">
+        <type href="http://Statechart/1.0#//BooleanExpression"/>
+      </nodes>
+      <edges xmi:id="_qhmR1CIJEeSqwIxN9LIEjA" source="_qhmR0SIJEeSqwIxN9LIEjA" target="_qhmR0iIJEeSqwIxN9LIEjA">
+        <type href="http://Statechart/1.0#//Transition/guard"/>
+      </edges>
+      <edges xmi:id="_qhmR1SIJEeSqwIxN9LIEjA" source="_qhmR0iIJEeSqwIxN9LIEjA" target="_qhmR0SIJEeSqwIxN9LIEjA">
+        <type href="http://Statechart/1.0#//Guard/gua_container"/>
+      </edges>
+      <edges xmi:id="_qhmR1iIJEeSqwIxN9LIEjA" source="_qhmR0iIJEeSqwIxN9LIEjA" target="_qhmR0yIJEeSqwIxN9LIEjA">
+        <type href="http://Statechart/1.0#//Guard/expression"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_qhmR1yIJEeSqwIxN9LIEjA" origin="_qhlqxiIJEeSqwIxN9LIEjA" image="_qhmR0SIJEeSqwIxN9LIEjA"/>
+    <mappings xmi:id="_qhmR2CIJEeSqwIxN9LIEjA" origin="_qhlqxyIJEeSqwIxN9LIEjA" image="_qhmR0yIJEeSqwIxN9LIEjA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_qhmR2SIJEeSqwIxN9LIEjA" name="mainUnit" description="Creates one Guard depending on available contexts in model instance" subUnits="_qhlqwSIJEeSqwIxN9LIEjA">
+    <parameters xmi:id="_qhmR2iIJEeSqwIxN9LIEjA" name="New"/>
+    <parameters xmi:id="_qhmR2yIJEeSqwIxN9LIEjA" name="selectedEObject"/>
+    <parameters xmi:id="_qhmR3CIJEeSqwIxN9LIEjA" name="Existing"/>
+    <parameterMappings xmi:id="_qhmR3SIJEeSqwIxN9LIEjA" source="_qhmR2yIJEeSqwIxN9LIEjA" target="_qhlqwiIJEeSqwIxN9LIEjA"/>
+    <parameterMappings xmi:id="_qhmR3iIJEeSqwIxN9LIEjA" source="_qhlqwyIJEeSqwIxN9LIEjA" target="_qhmR2iIJEeSqwIxN9LIEjA"/>
+    <parameterMappings xmi:id="_qhmR3yIJEeSqwIxN9LIEjA" source="_qhmR3CIJEeSqwIxN9LIEjA" target="_qhlqxCIJEeSqwIxN9LIEjA"/>
+  </units>
+</henshin:Module>

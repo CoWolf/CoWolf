@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
-   <extension
-         point="org.eclipse.ui.views">
-      <category
-            id="de.uni_stuttgart.iste.cowolf.ui.navigator.category"
+<extension
+point="org.eclipse.ui.views">
+<category
+id="de.uni_stuttgart.iste.cowolf.ui.navigator.category"
             name="%category.name.0"/>
-      <view
-            allowMultiple="false"
-            category="de.uni_stuttgart.iste.cowolf.ui.navigator.category"
-            class="org.eclipse.ui.navigator.CommonNavigator"
+<view
+allowMultiple="false"
+category="de.uni_stuttgart.iste.cowolf.ui.navigator.category"
+class="org.eclipse.ui.navigator.CommonNavigator"
             icon="icons/logo_wulf_15x15.png"
             id="de.uni_stuttgart.iste.cowolf.ui.navigator.view"
             name="%view.name.0"/>
-   </extension>
-   <extension
-         point="org.eclipse.ui.navigator.viewer">
+</extension>
+<extension
+point="org.eclipse.ui.navigator.viewer">
       <viewerContentBinding viewerId="de.uni_stuttgart.iste.cowolf.ui.navigator.view">
          <includes>
             <contentExtension pattern="org.eclipse.ui.navigator.resources.filters.*"/> 
@@ -32,15 +32,15 @@
             <actionExtension pattern="org.eclipse.ui.navigator.resources.*"/>
          </includes>
       </viewerActionBinding>
-      <viewer
+<viewer
             viewerId="de.uni_stuttgart.iste.cowolf.ui.navigator.view">
-         <popupMenu
+<popupMenu
                id="de.uni_stuttgart.iste.cowolf.ui.navigator.view#PopupMenu">
-            <insertionPoint
-                  name="group.new"
-                  separator="true">
-            </insertionPoint>
-            <insertionPoint
+<insertionPoint
+name="group.new"
+separator="true">
+</insertionPoint>
+<insertionPoint
                   name="group.open"
                   separator="true">
             </insertionPoint>
@@ -57,13 +57,13 @@
                   separator="true">
             </insertionPoint>
             <insertionPoint
-                  name="group.port"
-                  separator="true">
-            </insertionPoint>
-            <insertionPoint
-                  name="group.build"
-                  separator="true">
-            </insertionPoint>
+name="group.port"
+separator="true">
+</insertionPoint>
+<insertionPoint
+name="group.build"
+separator="true">
+</insertionPoint>
             <insertionPoint
                   name="group.generate"
                   separator="true">
@@ -80,13 +80,13 @@
                   name="group.properties"
                   separator="true">
             </insertionPoint>
-         </popupMenu>
-      </viewer>
-   </extension>
-   <extension
-         point="org.eclipse.ui.navigator.navigatorContent">
+</popupMenu>
+</viewer>
+</extension>
+<extension
+point="org.eclipse.ui.navigator.navigatorContent">
       <commonFilter
-            activeByDefault="true"
+activeByDefault="true"
             id="de.uni_stuttgart.iste.cowolf.ui.navigator.filters.onlyCowolf"
             name="%commonFilter.name">
          <filterExpression>
@@ -100,34 +100,15 @@
                      </test>
                   </adapt>
                </not>
-               <instanceof
+<instanceof
                      value="org.eclipse.core.resources.IProject">
-               </instanceof>
+</instanceof>
             </and>
          </filterExpression>
       </commonFilter>
-   </extension>
-   <extension
-         point="org.eclipse.ui.handlers">
-      <handler
-            class="de.uni_stuttgart.iste.cowolf.ui.navigator.handlers.Evolve"
-            commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.evolve">
-         <enabledWhen>
-           <and>
-            <with
-                  variable="selection">
-               <and>
-                  <count
-                        value="1">
-                  </count>
-               </and>
-            </with>
-            <test
-                  property="de.uni_stuttgart.iste.cowolf.ui.navigator.propertyTester.evolution.canFoo">
-            </test>
-            </and>
-         </enabledWhen>
-      </handler>
+</extension>
+<extension
+point="org.eclipse.ui.handlers">
       <handler
             class="de.uni_stuttgart.iste.cowolf.ui.navigator.handlers.CoEvolve"
             commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.co-evolve">
@@ -144,7 +125,7 @@
             </test>
             </and>
          </enabledWhen>
-      </handler>
+</handler>
       <handler
             class="de.uni_stuttgart.iste.cowolf.ui.navigator.handlers.Analyze"
             commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.analyze">
@@ -162,11 +143,11 @@
             </and>
          </enabledWhen>
       </handler>
-   </extension>
-   <extension
-         point="org.eclipse.ui.menus">
-      <menuContribution
-            allPopups="false"
+</extension>
+<extension
+point="org.eclipse.ui.menus">
+<menuContribution
+allPopups="false"
             locationURI="popup:de.uni_stuttgart.iste.cowolf.ui.navigator.view#PopupMenu?before=additions">
          <menu
                icon="icons/logo_wulf_15x15.png"
@@ -194,16 +175,12 @@
                   visible="true">
             </separator>
          </menu>
-      </menuContribution>
+</menuContribution>
    </extension>
    <extension
          id="de.uni_stuttgart.iste.cowolf.ui.navigator.commands"
          name="%extension.name"
          point="org.eclipse.ui.commands">
-      <command
-            id="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.evolve"
-            name="%command.evolve.name">
-      </command>
       <command
             id="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.co-evolve"
             name="%command.coevolve.name">
@@ -212,16 +189,9 @@
             id="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.analyze"
             name="%command.analyze.name">
       </command>
-   </extension>
-   <extension
+</extension>
+<extension
          point="org.eclipse.core.expressions.propertyTesters">
-      <propertyTester
-            class="de.uni_stuttgart.iste.cowolf.ui.navigator.PropertyTester.EvolutionTester"
-            id="de.uni_stuttgart.iste.cowolf.ui.navigator.propertyTester.evolution"
-            namespace="de.uni_stuttgart.iste.cowolf.ui.navigator.propertyTester.evolution"
-            properties="canFoo"
-            type="java.lang.Object">
-      </propertyTester>
       <propertyTester
             class="de.uni_stuttgart.iste.cowolf.ui.navigator.PropertyTester.CoEvolutionTester"
             id="de.uni_stuttgart.iste.cowolf.ui.navigator.propertyTester.coevolution"
@@ -236,7 +206,7 @@
             properties="canFoo"
             type="java.lang.Object">
       </propertyTester>
-   </extension>
+</extension>
    <extension
          point="org.eclipse.ui.startup">
       <startup

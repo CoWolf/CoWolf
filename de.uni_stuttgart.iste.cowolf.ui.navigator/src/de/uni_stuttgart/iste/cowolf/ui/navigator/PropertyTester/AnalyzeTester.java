@@ -1,6 +1,8 @@
 package de.uni_stuttgart.iste.cowolf.ui.navigator.PropertyTester;
 
 import java.io.File;
+import java.util.AbstractQueue;
+
 import org.eclipse.core.expressions.PropertyTester;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.emf.common.util.URI;
@@ -13,6 +15,7 @@ import org.eclipse.ui.PlatformUI;
 
 import de.uni_stuttgart.iste.cowolf.core.extensions.ExtensionHandler;
 import de.uni_stuttgart.iste.cowolf.model.AbstractModelManager;
+import de.uni_stuttgart.iste.cowolf.model.AbstractQoSModelManager;
 
 public class AnalyzeTester extends PropertyTester {
 
@@ -60,7 +63,7 @@ public class AnalyzeTester extends PropertyTester {
 						.getModelManager(resource);
 
 				// must find model manager
-				if (modelManager != null) {
+				if (modelManager != null && modelManager instanceof AbstractQoSModelManager) {
 					return true;
 				} else {
 					return false;

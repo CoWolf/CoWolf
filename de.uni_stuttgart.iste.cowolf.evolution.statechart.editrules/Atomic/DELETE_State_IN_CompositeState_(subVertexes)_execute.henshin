@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_qbfCwCIJEeSqwIxN9LIEjA" name="DELETE_State_IN_CompositeState_(subVertexes)" description="Deletes one State in CompositeState">
+  <imports href="http://Statechart/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_qbfCwSIJEeSqwIxN9LIEjA" name="deleteState_IN_CompositeState" description="deletes one State in the context: CompositeState">
+    <parameters xmi:id="_qbfCwiIJEeSqwIxN9LIEjA" name="Existing"/>
+    <parameters xmi:id="_qbfCwyIJEeSqwIxN9LIEjA" name="Selected"/>
+    <parameters xmi:id="_qbfCxCIJEeSqwIxN9LIEjA" name="ToBeDeleted"/>
+    <lhs xmi:id="_qbfCxSIJEeSqwIxN9LIEjA" name="LHS">
+      <nodes xmi:id="_qbfCxiIJEeSqwIxN9LIEjA" name="Selected" incoming="_qbfCyiIJEeSqwIxN9LIEjA" outgoing="_qbfCySIJEeSqwIxN9LIEjA">
+        <type href="http://Statechart/1.0#//CompositeState"/>
+      </nodes>
+      <nodes xmi:id="_qbfCxyIJEeSqwIxN9LIEjA" name="ToBeDeleted" incoming="_qbfCySIJEeSqwIxN9LIEjA _qbfCzCIJEeSqwIxN9LIEjA" outgoing="_qbfCyiIJEeSqwIxN9LIEjA _qbfCyyIJEeSqwIxN9LIEjA">
+        <type href="http://Statechart/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_qbfCyCIJEeSqwIxN9LIEjA" name="Existing" incoming="_qbfCyyIJEeSqwIxN9LIEjA" outgoing="_qbfCzCIJEeSqwIxN9LIEjA">
+        <type href="http://Statechart/1.0#//StateMachine"/>
+      </nodes>
+      <edges xmi:id="_qbfCySIJEeSqwIxN9LIEjA" source="_qbfCxiIJEeSqwIxN9LIEjA" target="_qbfCxyIJEeSqwIxN9LIEjA">
+        <type href="http://Statechart/1.0#//CompositeState/subVertexes"/>
+      </edges>
+      <edges xmi:id="_qbfCyiIJEeSqwIxN9LIEjA" source="_qbfCxyIJEeSqwIxN9LIEjA" target="_qbfCxiIJEeSqwIxN9LIEjA">
+        <type href="http://Statechart/1.0#//StateVertex/sv_container"/>
+      </edges>
+      <edges xmi:id="_qbfCyyIJEeSqwIxN9LIEjA" source="_qbfCxyIJEeSqwIxN9LIEjA" target="_qbfCyCIJEeSqwIxN9LIEjA">
+        <type href="http://Statechart/1.0#//State/state_container"/>
+      </edges>
+      <edges xmi:id="_qbfCzCIJEeSqwIxN9LIEjA" source="_qbfCyCIJEeSqwIxN9LIEjA" target="_qbfCxyIJEeSqwIxN9LIEjA">
+        <type href="http://Statechart/1.0#//StateMachine/top"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_qbfCzSIJEeSqwIxN9LIEjA" name="RHS">
+      <nodes xmi:id="_qbfCziIJEeSqwIxN9LIEjA" name="Selected">
+        <type href="http://Statechart/1.0#//CompositeState"/>
+      </nodes>
+      <nodes xmi:id="_qbfCzyIJEeSqwIxN9LIEjA" name="Existing">
+        <type href="http://Statechart/1.0#//StateMachine"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_qbfC0CIJEeSqwIxN9LIEjA" origin="_qbfCxiIJEeSqwIxN9LIEjA" image="_qbfCziIJEeSqwIxN9LIEjA"/>
+    <mappings xmi:id="_qbfC0SIJEeSqwIxN9LIEjA" origin="_qbfCyCIJEeSqwIxN9LIEjA" image="_qbfCzyIJEeSqwIxN9LIEjA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_qbfC0iIJEeSqwIxN9LIEjA" name="mainUnit" description="Deletes one State depending on available contexts in model instance" subUnits="_qbfCwSIJEeSqwIxN9LIEjA">
+    <parameters xmi:id="_qbfC0yIJEeSqwIxN9LIEjA" name="Existing"/>
+    <parameters xmi:id="_qbfC1CIJEeSqwIxN9LIEjA" name="ToBeDeleted"/>
+    <parameters xmi:id="_qbfC1SIJEeSqwIxN9LIEjA" name="selectedEObject"/>
+    <parameterMappings xmi:id="_qbfC1iIJEeSqwIxN9LIEjA" source="_qbfC0yIJEeSqwIxN9LIEjA" target="_qbfCwiIJEeSqwIxN9LIEjA"/>
+    <parameterMappings xmi:id="_qbfC1yIJEeSqwIxN9LIEjA" source="_qbfC1SIJEeSqwIxN9LIEjA" target="_qbfCwyIJEeSqwIxN9LIEjA"/>
+    <parameterMappings xmi:id="_qbfC2CIJEeSqwIxN9LIEjA" source="_qbfC1CIJEeSqwIxN9LIEjA" target="_qbfCxCIJEeSqwIxN9LIEjA"/>
+  </units>
+</henshin:Module>
