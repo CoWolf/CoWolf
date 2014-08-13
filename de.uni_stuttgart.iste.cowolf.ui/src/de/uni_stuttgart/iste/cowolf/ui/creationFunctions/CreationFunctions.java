@@ -97,7 +97,6 @@ public class CreationFunctions {
 	 *            the parent container
 	 * @return the created folder
 	 */
-
 	public static IFolder createFolder(String name, IContainer parentContainer) {
 		Path path = new Path(name);
 

@@ -107,10 +107,8 @@ public class ModelAssociationManager {
 		AssociationProject associationProject = getAssociationProject(iProject);
 
 		if (associationProject == null) {
-
 			associationProject = new AssociationProject(iProject);
 			associationProjects.add(associationProject);
-
 		}
 
 		return associationProject.addAssociation(source, target);
@@ -161,7 +159,6 @@ public class ModelAssociationManager {
 		Document document = new Document(rootElement);
 
 		for (Association association : project.getAssociations()) {
-
 			Element associationElement = new Element(ASSOCIATION); //$NON-NLS-1$
 
 			Attribute sourceAttribute = new Attribute(SOURCE, association //$NON-NLS-1$
@@ -179,11 +176,9 @@ public class ModelAssociationManager {
 		File propertyFile = getPropertyFile(project.getIProject(), true);
 
 		XMLOutputter outputter = new XMLOutputter(Format.getPrettyFormat());
-
 		try {
 			outputter.output(document, new FileOutputStream(propertyFile));
 		} catch (IOException e) {
-
 			JOptionPane.showMessageDialog(null, "Could not load associations. "
 					+ e.getLocalizedMessage());
 		}
@@ -205,11 +200,9 @@ public class ModelAssociationManager {
 						&& iProject.getDescription().hasNature(
 								ProjectNature.NATURE_ID)) {
 					AssociationProject associationProject = load(iProject);
-
 					if (associationProject != null) {
 						associationProjects.add(associationProject);
 					}
-
 				}
 
 			}
@@ -307,7 +300,6 @@ public class ModelAssociationManager {
 							"Could not load property file");
 				}
 			}
-
 		}
 
 		return null;
@@ -319,11 +311,9 @@ public class ModelAssociationManager {
 	 * @return the association project for the IProject
 	 */
 	private AssociationProject getAssociationProject(IProject iProject) {
-
 		for (AssociationProject associationProject : associationProjects) {
 			if (associationProject.getIProject().equals(iProject)) {
 				return associationProject;
-
 			}
 		}
 		return null;

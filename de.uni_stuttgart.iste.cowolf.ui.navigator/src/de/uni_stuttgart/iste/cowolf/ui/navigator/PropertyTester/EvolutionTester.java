@@ -70,4 +70,4 @@ public class EvolutionTester extends PropertyTester {
 	}
 
 }
->>>>>>> 40f6309 fixed a few sonar issues
+

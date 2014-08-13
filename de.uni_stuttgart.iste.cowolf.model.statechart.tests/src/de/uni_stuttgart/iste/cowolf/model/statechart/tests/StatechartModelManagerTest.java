@@ -1,5 +1,6 @@
 package de.uni_stuttgart.iste.cowolf.model.statechart.tests;
 
+import static org.junit.Assert.*;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
