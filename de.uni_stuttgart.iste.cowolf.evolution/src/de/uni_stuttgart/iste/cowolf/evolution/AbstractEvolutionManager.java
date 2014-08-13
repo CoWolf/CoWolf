@@ -22,7 +22,7 @@ import org.silift.common.util.exceptions.NoCorrespondencesException;
  * model type. Has to be extended by the specific evolution plug-in for a model
  * type.
  *
- * @author Michael MÃ¼ller
+ * @author Michael Müller
  * @author Rene Trefft
  */
 public abstract class AbstractEvolutionManager {

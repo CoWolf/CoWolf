@@ -53,7 +53,7 @@ public class ComponentSelectionWizardPage extends WizardPage {
 	private Image arrowDown;
 
 	private Image arrowUp;
-	
+
 	private boolean isEvolutionPossible;
 
 	/**
@@ -113,9 +113,10 @@ public class ComponentSelectionWizardPage extends WizardPage {
 
 		// complete wizard page
 		this.setControl(container);
-		boolean isEvolutionPossible = new EvolutionTester()
-				.isEvolutionPossible(wizard.getModelA(), wizard.getModelB());
-		setErrorMessage(wizard.getModelA(), wizard.getModelB(), isEvolutionPossible);
+		isEvolutionPossible = new EvolutionTester().isEvolutionPossible(
+				wizard.getModelA(), wizard.getModelB());
+		setErrorMessage(wizard.getModelA(), wizard.getModelB(),
+				isEvolutionPossible);
 		this.setPageComplete(isEvolutionPossible);
 	}
 
@@ -175,10 +176,11 @@ public class ComponentSelectionWizardPage extends WizardPage {
 					label.setText(modelToString(model));
 					label.pack();
 
-					boolean isEvolutionPossible = new EvolutionTester()
+					isEvolutionPossible = new EvolutionTester()
 							.isEvolutionPossible(wizard.getModelA(),
 									wizard.getModelB());
-					setErrorMessage(wizard.getModelA(),wizard.getModelB(), isEvolutionPossible);
+					setErrorMessage(wizard.getModelA(), wizard.getModelB(),
+							isEvolutionPossible);
 					setPageComplete(isEvolutionPossible);
 				}
 
@@ -204,14 +206,14 @@ public class ComponentSelectionWizardPage extends WizardPage {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				if (modelAButton.getSelection()) {
-					setErrorMessage(wizard.getModelA(),wizard.getModelB(), isEvolutionPossible);
+					setErrorMessage(wizard.getModelA(), wizard.getModelB(),
+							isEvolutionPossible);
 					arrowLabel.setImage(arrowDown);
 				} else if (modelBButton.getSelection()) {
 					arrowLabel.setImage(arrowUp);
-					setErrorMessage(wizard.getModelB(),wizard.getModelA(), isEvolutionPossible);
+					setErrorMessage(wizard.getModelB(), wizard.getModelA(),
+							isEvolutionPossible);
 				}
-				
-				
 
 			}
 
