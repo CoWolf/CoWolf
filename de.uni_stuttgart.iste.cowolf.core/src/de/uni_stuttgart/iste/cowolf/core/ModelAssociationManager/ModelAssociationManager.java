@@ -161,8 +161,7 @@ public class ModelAssociationManager {
 		for (Association association : project.getAssociations()) {
 			Element associationElement = new Element(ASSOCIATION); //$NON-NLS-1$
 
-			Attribute sourceAttribute = new Attribute(SOURCE, association //$NON-NLS-1$
-					.getSource().getURI().toPlatformString(true));
+			Attribute sourceAttribute = new Attribute(SOURCE, association.getSource().getURI().toPlatformString(true));
 
 			Attribute targetAttribute = new Attribute(TARGET, association //$NON-NLS-1$
 					.getTarget().getURI().toPlatformString(true));

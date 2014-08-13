@@ -3,6 +3,7 @@ package de.uni_stuttgart.iste.cowolf.core.listeners;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchListener;
 
+
 public class WorkbenchListener implements IWorkbenchListener {
 
 	@Override
