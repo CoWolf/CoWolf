@@ -204,12 +204,14 @@ public class ComponentSelectionWizardPage extends WizardPage {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				if (modelAButton.getSelection()) {
+					setErrorMessage(wizard.getModelA(),wizard.getModelB(), isEvolutionPossible);
 					arrowLabel.setImage(arrowDown);
 				} else if (modelBButton.getSelection()) {
 					arrowLabel.setImage(arrowUp);
+					setErrorMessage(wizard.getModelB(),wizard.getModelA(), isEvolutionPossible);
 				}
 				
-				setErrorMessage(wizard.getModelA(),wizard.getModelB(), isEvolutionPossible);
+				
 
 			}
 
