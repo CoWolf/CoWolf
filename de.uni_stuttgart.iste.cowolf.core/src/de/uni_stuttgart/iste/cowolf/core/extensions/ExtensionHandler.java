@@ -10,7 +10,7 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.resource.Resource;
 
 import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
-import de.uni_stuttgart.iste.cowolf.model.AbstractArchitectureModelManager;
+import de.uni_stuttgart.iste.cowolf.AbstractArchitectureModelManager;
 import de.uni_stuttgart.iste.cowolf.model.AbstractModelManager;
 import de.uni_stuttgart.iste.cowolf.model.AbstractQoSModelManager;
 import de.uni_stuttgart.iste.cowolf.transformation.AbstractTransformationManager;
