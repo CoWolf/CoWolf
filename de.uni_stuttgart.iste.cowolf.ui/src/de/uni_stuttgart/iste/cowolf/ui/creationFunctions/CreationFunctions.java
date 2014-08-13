@@ -13,6 +13,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
 
+import de.uni_stuttgart.iste.cowolf.core.extensions.ExtensionHandler;
 import de.uni_stuttgart.iste.cowolf.core.natures.ProjectNature;
 import de.uni_stuttgart.iste.cowolf.ui.externalizedStrings.Messages;
 
@@ -44,9 +45,11 @@ public class CreationFunctions {
 		// properties
 		createFolder(".properties", iProject);
 
-		// state charts
-		createFolder(Messages.CreationFunctions_folder_title_State_charts,
-				modelFolder);
+		//one folder for every registered model
+		for (String folderName : ExtensionHandler.getInstance()
+				.getAllModelNames()) {
+			createFolder(folderName, modelFolder);
+		}
 
 	}
 

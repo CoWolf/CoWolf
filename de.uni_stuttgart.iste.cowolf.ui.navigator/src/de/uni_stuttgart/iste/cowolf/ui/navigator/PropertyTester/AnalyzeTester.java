@@ -26,7 +26,7 @@ public class AnalyzeTester extends PropertyTester {
 	public boolean test(Object receiver, String property, Object[] args,
 			Object expectedValue) {
 
-		ExtensionHandler extensionHandler = new ExtensionHandler();
+		ExtensionHandler extensionHandler = ExtensionHandler.getInstance();
 
 		IWorkbenchWindow window = PlatformUI.getWorkbench()
 				.getActiveWorkbenchWindow();

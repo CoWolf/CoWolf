@@ -42,7 +42,7 @@ public class Analyze implements IHandler {
 	@Override
 	public Object execute(final ExecutionEvent event) throws ExecutionException {
 		System.out.println("Doing Analyze");
-		ExtensionHandler extensionHandler = new ExtensionHandler();
+		ExtensionHandler extensionHandler = ExtensionHandler.getInstance();
 		IWorkbenchWindow window = PlatformUI.getWorkbench()
 				.getActiveWorkbenchWindow();
 		IStructuredSelection selection = (IStructuredSelection) window.getSelectionService().getSelection();
