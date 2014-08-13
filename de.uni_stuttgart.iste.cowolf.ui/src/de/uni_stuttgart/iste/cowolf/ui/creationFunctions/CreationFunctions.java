@@ -16,6 +16,7 @@ import org.eclipse.core.runtime.Path;
 import de.uni_stuttgart.iste.cowolf.core.extensions.ExtensionHandler;
 import de.uni_stuttgart.iste.cowolf.core.natures.ProjectNature;
 import de.uni_stuttgart.iste.cowolf.ui.externalizedStrings.Messages;
+import de.uni_stuttgart.iste.cowolf.ui.preference.FolderCreationPreferencePage;
 
 /**
  * This class holds the functions to create a new project and a folder
@@ -45,10 +46,13 @@ public class CreationFunctions {
 		// properties
 		createFolder(".properties", iProject);
 
-		//one folder for every registered model
-		for (String folderName : ExtensionHandler.getInstance()
-				.getAllModelNames()) {
-			createFolder(folderName, modelFolder);
+		if (FolderCreationPreferencePage.getFolderPreference()) {
+
+			// one folder for every registered model
+			for (String folderName : ExtensionHandler.getInstance()
+					.getAllModelNames()) {
+				createFolder(folderName, modelFolder);
+			}
 		}
 
 	}
