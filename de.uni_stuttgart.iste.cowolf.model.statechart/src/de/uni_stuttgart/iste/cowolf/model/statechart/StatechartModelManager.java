@@ -3,6 +3,7 @@ package de.uni_stuttgart.iste.cowolf.model.statechart;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 
@@ -48,7 +49,7 @@ public class StatechartModelManager implements IArchitectureModelManager {
 	@Override
 	public ModelTypeInfo getModelTypeInfo() {
 		
-		List<Class> propercontents = new ArrayList();
+		List<Class<?>> propercontents = new ArrayList<Class<?>>();
 		
 		// create the allowed EClasses
 		propercontents.add(BooleanExpressionImpl.class);
