@@ -1,15 +1,18 @@
 package de.uni_stuttgart.iste.cowolf.model.statechart.tests;
 
 
-import org.eclipse.core.runtime.Assert;
+import java.io.IOException;
+
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
-import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfFactory;
-import de.uni_stuttgart.iste.cowolf.model.dtmc.Root;
 import de.uni_stuttgart.iste.cowolf.model.statechart.StatechartModelManager;
 import de.uni_stuttgart.iste.cowolf.model.statechart.Statechart.StateMachine;
 import de.uni_stuttgart.iste.cowolf.model.statechart.Statechart.StatechartemfFactory;
@@ -42,7 +45,7 @@ public class StatechartModelManagerTest {
 		StatechartModelManager target = new StatechartModelManager();
 
 		
-		Assert.isTrue(!target.isManaged(res));
+		Assert.assertTrue((!target.isManaged(res)));
 
 	}
 

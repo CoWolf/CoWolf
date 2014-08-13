@@ -26,7 +26,7 @@ public class EvolutionTester extends PropertyTester {
 	@Override
 	public boolean test(final Object receiver, final String property, final Object[] args,
 			final Object expectedValue) {
-		ExtensionHandler extensionHandler = new ExtensionHandler();
+		ExtensionHandler extensionHandler = ExtensionHandler.getInstance();
 
 		IWorkbenchWindow window = PlatformUI.getWorkbench()
 				.getActiveWorkbenchWindow();
