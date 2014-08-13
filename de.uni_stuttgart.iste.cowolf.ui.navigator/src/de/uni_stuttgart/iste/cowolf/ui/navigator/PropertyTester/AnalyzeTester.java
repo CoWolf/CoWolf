@@ -75,5 +75,4 @@ public class AnalyzeTester extends PropertyTester {
 			return false;
 		}
 	}
-
 }
