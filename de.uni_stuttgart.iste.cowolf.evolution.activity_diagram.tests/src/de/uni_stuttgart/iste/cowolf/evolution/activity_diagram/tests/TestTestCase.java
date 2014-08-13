@@ -5,9 +5,9 @@ import org.junit.Test;
 
 public class TestTestCase {
 	
-	@Test
-	public void testEquals(){
-	 assertEquals("test", "test");	
-	}
+//	@Test
+//	public void testEquals(){
+//	 assertEquals("test", "test");	
+//	}
 	
 }

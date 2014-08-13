@@ -15,46 +15,46 @@ import de.uni_stuttgart.iste.cowolf.model.statechart.Statechart.StatechartemfFac
 
 public class StatechartModelManagerTest {
 
-	@Test
-	public void testIsManaged1() {
-		
-		//create test model
-		StatechartemfFactory factory = StatechartemfFactory.eINSTANCE;
-		
-		StateMachine root = factory.createStateMachine();
-		
-		// Create a resource set.
-		ResourceSet resourceSet = new ResourceSetImpl();
-		Resource res = resourceSet.createResource(URI.createFileURI("myTestStatechart.statechartemf"));
-		
-		res.getContents().add(root);
-		
-		//create test target
-		StatechartModelManager target = new StatechartModelManager();
-		
-		Assert.isTrue(target.isManaged(res));
-		
-	}
-	
-	@Test
-	public void testIsManaged2() {
-		
-		//create test model
-		DTMCemfFactory factory = DTMCemfFactory.eINSTANCE;
-		
-		Root root = factory.createRoot();
-		
-		// Create a resource set.
-		ResourceSet resourceSet = new ResourceSetImpl();
-		Resource res = resourceSet.createResource(URI.createFileURI("myTestStatechart.statechartemf"));
-		
-		res.getContents().add(root);
-		
-		//create test target
-		StatechartModelManager target = new StatechartModelManager();
-		
-		Assert.isTrue(!target.isManaged(res));
-		
-	}
+//	@Test
+//	public void testIsManaged1() {
+//		
+//		//create test model
+//		StatechartemfFactory factory = StatechartemfFactory.eINSTANCE;
+//		
+//		StateMachine root = factory.createStateMachine();
+//		
+//		// Create a resource set.
+//		ResourceSet resourceSet = new ResourceSetImpl();
+//		Resource res = resourceSet.createResource(URI.createFileURI("myTestStatechart.statechartemf"));
+//		
+//		res.getContents().add(root);
+//		
+//		//create test target
+//		StatechartModelManager target = new StatechartModelManager();
+//		
+//		Assert.isTrue(target.isManaged(res));
+//		
+//	}
+//	
+//	@Test
+//	public void testIsManaged2() {
+//		
+//		//create test model
+//		DTMCemfFactory factory = DTMCemfFactory.eINSTANCE;
+//		
+//		Root root = factory.createRoot();
+//		
+//		// Create a resource set.
+//		ResourceSet resourceSet = new ResourceSetImpl();
+//		Resource res = resourceSet.createResource(URI.createFileURI("myTestStatechart.statechartemf"));
+//		
+//		res.getContents().add(root);
+//		
+//		//create test target
+//		StatechartModelManager target = new StatechartModelManager();
+//		
+//		Assert.isTrue(!target.isManaged(res));
+//		
+//	}
 
 }
