@@ -1,12 +1,11 @@
-package de.uni_stuttgart.iste.cowolf.ui.evolution;
+package de.uni_stuttgart.iste.cowolf.ui.evolution.wizard;
+
+import java.util.List;
+import java.util.Vector;
 
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.runtime.IPath;
-import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.ui.dialogs.WorkspaceResourceDialog;
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionEvent;
@@ -19,6 +18,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 
+import de.uni_stuttgart.iste.cowolf.ui.evolution.filter.ManagedModelsFilter;
 import de.uni_stuttgart.iste.cowolf.ui.evolution.properties.EvolutionTester;
 
 /**
@@ -54,10 +54,11 @@ public class ComponentSelectionWizardPage extends WizardPage {
      * @param wizard
      */
     protected ComponentSelectionWizardPage(ComponentSelectionWizard wizard) {
-        super("Model Selection");
+        super("Model Evolution");
         this.wizard = wizard;
+        this.setDescription("Compare two versions of a model with SiLift.");
+        this.setTitle("Compare models with each other.");
     }
-
     @Override
     public void createControl(final Composite parent) {
         Composite container = new Composite(parent, SWT.NONE);
@@ -97,7 +98,8 @@ public class ComponentSelectionWizardPage extends WizardPage {
 
         // complete wizard page
         this.setControl(container);
-        this.setPageComplete(new EvolutionTester().isEvolutionPossible(wizard.modelA, wizard.modelB));
+        this.setPageComplete(new EvolutionTester().isEvolutionPossible(
+                wizard.modelA, wizard.modelB));
     }
 
     /**
@@ -116,10 +118,11 @@ public class ComponentSelectionWizardPage extends WizardPage {
      *            model to get string of.
      * @return
      */
-    protected String modelToString(Resource model) {
+    protected String modelToString(IFile model) {
         if (model != null) {
-            IPath path = new Path(model.getURI().toString());
-            return path.toString();
+            String returnString = model.getProject().getName();
+            returnString += "/" + model.getProjectRelativePath().toString();
+            return returnString;
         }
         return "";
     }
@@ -132,19 +135,20 @@ public class ComponentSelectionWizardPage extends WizardPage {
      * @param shell
      * @return returns a Selection listener
      */
-    protected SelectionListener browseWorkspace(final Resource originalModel,
+    protected SelectionListener browseWorkspace(final IFile originalModel,
             final Label label, final Shell shell) {
         SelectionListener listener = new SelectionListener() {
 
             @Override
             public void widgetSelected(SelectionEvent e) {
+
+                List<ViewerFilter> filters = new Vector<>();
+                filters.add(new ManagedModelsFilter());
                 IFile[] files = WorkspaceResourceDialog.openFileSelection(
                         shell, "Choose model file", "Choose model file", true,
-                        null, null);
+                        null, filters);
                 if (files.length >= 1) {
-                    URI uri = URI.createPlatformResourceURI(files[0]
-                            .getFullPath().toString(), true);
-                    Resource model = new ResourceSetImpl().createResource(uri);
+                    IFile model = files[0];
                     if (originalModel != null
                             && originalModel.equals(wizard.modelA)) {
                         wizard.modelA = model;
@@ -153,8 +157,9 @@ public class ComponentSelectionWizardPage extends WizardPage {
                     }
                     label.setText(modelToString(model));
                     label.pack();
-       
-                    setPageComplete(new EvolutionTester().isEvolutionPossible(wizard.modelA, wizard.modelB));
+
+                    setPageComplete(new EvolutionTester().isEvolutionPossible(
+                            wizard.modelA, wizard.modelB));
                 }
 
             }
@@ -166,7 +171,6 @@ public class ComponentSelectionWizardPage extends WizardPage {
         };
         return listener;
     }
-
     /**
      * Provides SelectionListener if the selection of a radio button (group)
      * changed.

@@ -7,13 +7,7 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.window.Window;
@@ -25,19 +19,19 @@ import org.sidiff.difference.symmetric.SymmetricDifference;
 import de.uni_stuttgart.iste.cowolf.core.extensions.ExtensionHandler;
 import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
 import de.uni_stuttgart.iste.cowolf.evolution.EvolutionException;
-import de.uni_stuttgart.iste.cowolf.ui.evolution.ComponentSelectionWizard;
 import de.uni_stuttgart.iste.cowolf.ui.evolution.DifferencesView;
+import de.uni_stuttgart.iste.cowolf.ui.evolution.wizard.ComponentSelectionWizard;
 
 public class Evolve extends AbstractHandler {
 
-	@Override
-	public Object execute(ExecutionEvent event) throws ExecutionException {
+    @Override
+    public Object execute(ExecutionEvent event) throws ExecutionException {
 
-		 // initialize variables
+        // initialize variables
         Resource firstElementResource = null;
         Resource secondElementResource = null;
-        ResourceSet resourceSet = new ResourceSetImpl();
         IFile firstElement = null;
+        IFile secondElement = null;
         ExtensionHandler extensionHandler = new ExtensionHandler();
 
         IWorkbenchWindow window = PlatformUI.getWorkbench()
@@ -48,21 +42,12 @@ public class Evolve extends AbstractHandler {
         List list = selection.toList();
         if (list.size() >= 1) {
             firstElement = (IFile) list.get(0);
-            URI firstElementURI = URI.createPlatformResourceURI(firstElement
-                    .getFullPath().toString(), true);
-            firstElementResource = resourceSet.getResource(firstElementURI,
-                    true);
         }
         if (list.size() == 2) {
-            IFile secondElement = (IFile) list.get(1);
-            URI secondElementURI = URI.createPlatformResourceURI(secondElement
-                    .getFullPath().toString(), true);
-
-            secondElementResource = resourceSet.getResource(secondElementURI,
-                    true);
+            secondElement = (IFile) list.get(1);
         }
         ComponentSelectionWizard modelWizard = new ComponentSelectionWizard(
-                firstElementResource, secondElementResource);
+                firstElement, secondElement);
         WizardDialog wizard = new WizardDialog(window.getShell(), modelWizard);
         if (wizard.open() == Window.CANCEL) {
             return null;

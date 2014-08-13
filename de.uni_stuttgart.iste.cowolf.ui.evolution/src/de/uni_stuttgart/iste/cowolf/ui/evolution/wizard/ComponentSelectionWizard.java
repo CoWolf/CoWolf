@@ -1,9 +1,7 @@
-package de.uni_stuttgart.iste.cowolf.ui.evolution;
+package de.uni_stuttgart.iste.cowolf.ui.evolution.wizard;
 
-import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.core.resources.IFile;
 import org.eclipse.jface.wizard.Wizard;
-
-import de.uni_stuttgart.iste.cowolf.ui.evolution.properties.EvolutionTester;
 
 /**
  * This wizard allows the user to select the two models to use for evolution.
@@ -15,11 +13,11 @@ public class ComponentSelectionWizard extends Wizard {
     /**
      * First model to use for evolution.
      */
-    protected Resource modelA;
+    protected IFile modelA;
     /**
      * Second model to use for evolution.
      */
-    protected Resource modelB;
+    protected IFile modelB;
     /**
      * Wizard page displaying contents of wizard.
      */
@@ -29,18 +27,17 @@ public class ComponentSelectionWizard extends Wizard {
      */
     private boolean isFirstElementSelected = true;
 
-    
     /**
      * Constructor setting both models.
      *
      * @param modelA
      * @param modelB
      */
-    public ComponentSelectionWizard(Resource modelA, Resource modelB) {
-        this.setWindowTitle("Model Selection Wizard");
+    public ComponentSelectionWizard(IFile modelA, IFile modelB) {
+        this.setWindowTitle("Model Evolution Wizard");
         this.modelA = modelA;
         this.modelB = modelB;
-        
+
     }
     @Override
     public void addPages() {
@@ -53,12 +50,11 @@ public class ComponentSelectionWizard extends Wizard {
         this.isFirstElementSelected = this.page.isFirstModelSelected();
         return true;
     }
-    
+
     @Override
     public boolean canFinish() {
-    	return super.canFinish();
+        return super.canFinish();
     }
-    
 
     /**
      *
