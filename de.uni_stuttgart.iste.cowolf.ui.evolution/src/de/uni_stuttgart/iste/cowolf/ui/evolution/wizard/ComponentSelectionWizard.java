@@ -13,11 +13,11 @@ public class ComponentSelectionWizard extends Wizard {
     /**
      * First model to use for evolution.
      */
-    protected IFile modelA;
+    private IFile modelA;
     /**
      * Second model to use for evolution.
      */
-    protected IFile modelB;
+    private IFile modelB;
     /**
      * Wizard page displaying contents of wizard.
      */
@@ -62,6 +62,32 @@ public class ComponentSelectionWizard extends Wizard {
      */
     public boolean isFirstModelSelected() {
         return this.isFirstElementSelected;
+    }
+    /**
+     * @return the modelA
+     */
+    public IFile getModelA() {
+        return modelA;
+    }
+    /**
+     * @param modelA
+     *            the modelA to set
+     */
+    public void setModelA(IFile modelA) {
+        this.modelA = modelA;
+    }
+    /**
+     * @return the modelB
+     */
+    public IFile getModelB() {
+        return modelB;
+    }
+    /**
+     * @param modelB
+     *            the modelB to set
+     */
+    public void setModelB(IFile modelB) {
+        this.modelB = modelB;
     }
 
 }

@@ -58,11 +58,11 @@ public class Evolve extends AbstractHandler {
         final Resource secondModel;
         EvolutionTester tester = new EvolutionTester();
         if (modelWizard.isFirstModelSelected()) {
-            firstModel = tester.getResourceOfIFile(firstElement);
-            secondModel = tester.getResourceOfIFile(secondElement);
+            firstModel = tester.getResourceOfIFile(modelWizard.getModelA());
+            secondModel = tester.getResourceOfIFile(modelWizard.getModelB());
         } else {
-            firstModel = tester.getResourceOfIFile(secondElement);
-            secondModel = tester.getResourceOfIFile(firstElement);
+            firstModel = tester.getResourceOfIFile(modelWizard.getModelB());
+            secondModel = tester.getResourceOfIFile(modelWizard.getModelA());
         }
         final IFile element = firstElement;
         Job job = new Job("Model Evolution") {
