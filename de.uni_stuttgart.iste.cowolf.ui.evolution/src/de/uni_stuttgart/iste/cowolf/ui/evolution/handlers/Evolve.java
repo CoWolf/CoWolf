@@ -7,6 +7,10 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -20,6 +24,7 @@ import de.uni_stuttgart.iste.cowolf.core.extensions.ExtensionHandler;
 import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
 import de.uni_stuttgart.iste.cowolf.evolution.EvolutionException;
 import de.uni_stuttgart.iste.cowolf.ui.evolution.DifferencesView;
+import de.uni_stuttgart.iste.cowolf.ui.evolution.properties.EvolutionTester;
 import de.uni_stuttgart.iste.cowolf.ui.evolution.wizard.ComponentSelectionWizard;
 
 public class Evolve extends AbstractHandler {
@@ -28,13 +33,10 @@ public class Evolve extends AbstractHandler {
     public Object execute(ExecutionEvent event) throws ExecutionException {
 
         // initialize variables
-        Resource firstElementResource = null;
-        Resource secondElementResource = null;
         IFile firstElement = null;
         IFile secondElement = null;
-        ExtensionHandler extensionHandler = new ExtensionHandler();
 
-        IWorkbenchWindow window = PlatformUI.getWorkbench()
+        final IWorkbenchWindow window = PlatformUI.getWorkbench()
                 .getActiveWorkbenchWindow();
 
         IStructuredSelection selection = (IStructuredSelection) window
@@ -52,40 +54,47 @@ public class Evolve extends AbstractHandler {
         if (wizard.open() == Window.CANCEL) {
             return null;
         }
-        Resource firstModel;
-        Resource secondModel;
+        final Resource firstModel;
+        final Resource secondModel;
+        EvolutionTester tester = new EvolutionTester();
         if (modelWizard.isFirstModelSelected()) {
-            firstModel = firstElementResource;
-            secondModel = secondElementResource;
+            firstModel = tester.getResourceOfIFile(firstElement);
+            secondModel = tester.getResourceOfIFile(secondElement);
         } else {
-            firstModel = secondElementResource;
-            secondModel = firstElementResource;
+            firstModel = tester.getResourceOfIFile(secondElement);
+            secondModel = tester.getResourceOfIFile(firstElement);
         }
+        final IFile element = firstElement;
+        Job job = new Job("Model Evolution") {
 
-        AbstractEvolutionManager modelManager = extensionHandler
-                .getEvolutionManager(firstElementResource);
+            @Override
+            protected IStatus run(IProgressMonitor monitor) {
+                try {
+                    ExtensionHandler extensionHandler = new ExtensionHandler();
+                    AbstractEvolutionManager modelManager = extensionHandler
+                            .getEvolutionManager(firstModel);
+                    SymmetricDifference symmetricDifference = modelManager
+                            .evolve(firstModel, secondModel);
+                    String projectRoot = element.getProject().getLocation()
+                            .toFile().toString();
 
-        SymmetricDifference symmetricDifference;
+                    String evolveResultsFilePath = modelManager
+                            .saveEvolveResults(symmetricDifference, projectRoot
+                                    + File.separator + "differences");
 
-        try {
+                    new DifferencesView().open(evolveResultsFilePath);
+                    return Status.OK_STATUS;
+                } catch (EvolutionException e) {
+                    MessageDialog.openError(window.getShell(),
+                            "Evolution Exception occured",
+                            e.getLocalizedMessage());
+                    e.printStackTrace();
+                }
+                return Status.CANCEL_STATUS;
+            }
 
-            symmetricDifference = modelManager.evolve(firstModel, secondModel);
-
-            String projectRoot = firstElement.getProject().getLocation()
-                    .toFile().toString();
-
-            String evolveResultsFilePath = modelManager.saveEvolveResults(
-                    symmetricDifference, projectRoot + File.separator
-                            + "differences");
-
-            new DifferencesView().open(evolveResultsFilePath);
-
-        } catch (EvolutionException e) {
-            MessageDialog.openError(window.getShell(),
-                    "Evolution Exception occured", e.getLocalizedMessage());
-            e.printStackTrace();
-        }
-
+        };
+        job.schedule();
         return null;
     }
 }
