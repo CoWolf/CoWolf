@@ -16,6 +16,7 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.window.Window;
 import org.eclipse.jface.wizard.WizardDialog;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.sidiff.difference.symmetric.SymmetricDifference;
@@ -27,8 +28,13 @@ import de.uni_stuttgart.iste.cowolf.ui.evolution.DifferencesView;
 import de.uni_stuttgart.iste.cowolf.ui.evolution.properties.EvolutionTester;
 import de.uni_stuttgart.iste.cowolf.ui.evolution.wizard.ComponentSelectionWizard;
 
+/**
+ * This class handles the evolution call by eclipse
+ * 
+ * @author Michael Müller
+ *
+ */
 public class Evolve extends AbstractHandler {
-
     @Override
     public Object execute(ExecutionEvent event) throws ExecutionException {
 
@@ -66,7 +72,6 @@ public class Evolve extends AbstractHandler {
         }
         final IFile element = firstElement;
         Job job = new Job("Model Evolution") {
-
             @Override
             protected IStatus run(IProgressMonitor monitor) {
                 try {
@@ -78,11 +83,16 @@ public class Evolve extends AbstractHandler {
                     String projectRoot = element.getProject().getLocation()
                             .toFile().toString();
 
-                    String evolveResultsFilePath = modelManager
+                    final String evolveResultsFilePath = modelManager
                             .saveEvolveResults(symmetricDifference, projectRoot
                                     + File.separator + "differences");
+                    Display.getDefault().asyncExec(new Runnable() {
 
-                    new DifferencesView().open(evolveResultsFilePath);
+                        @Override
+                        public void run() {
+                            new DifferencesView().open(evolveResultsFilePath);
+                        }
+                    });
                     return Status.OK_STATUS;
                 } catch (EvolutionException e) {
                     MessageDialog.openError(window.getShell(),
