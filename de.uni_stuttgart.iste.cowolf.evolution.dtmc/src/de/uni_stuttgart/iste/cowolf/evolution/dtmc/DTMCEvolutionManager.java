@@ -15,8 +15,6 @@ public class DTMCEvolutionManager extends AbstractEvolutionManager {
 
     @Override
     public boolean isManaged(Resource model) {    	
-    	System.out.println("+++" + (model.getContents()));
-    	 System.out.println("+++" + (model.getContents().get(0) instanceof Root));
     	
     	if (model == null || model.getContents() == null || model.getContents().isEmpty()) {
             return false;
