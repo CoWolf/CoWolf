@@ -8,17 +8,11 @@ import de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine;
 
 public class StatechartEvolutionManager extends AbstractEvolutionManager {
     @Override
-    public boolean isManaged(Resource model) {
-        System.out.println(model);
-        if (model == null) {
+    public boolean isManaged(Resource model) {    	
+        if (model == null || model.getContents() == null || model.getContents().isEmpty()) {
             return false;
         }
-
-        System.out.println(model.getContents());
-        if (model.getContents() == null || model.getContents().isEmpty()) {
-            return false;
-        }
-        System.out.println(model.getContents().get(0));
+ 
         return model.getContents().get(0) instanceof StateMachine;
     }
 

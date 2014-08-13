@@ -49,9 +49,9 @@ public class ComponentSelectionWizardPage extends WizardPage {
 	 * Label for arrow icon.
 	 */
 	private Label arrowLabel;
-	
+
 	Image arrowDown;
-	
+
 	Image arrowUp;
 
 	/**
@@ -65,9 +65,11 @@ public class ComponentSelectionWizardPage extends WizardPage {
 		this.setDescription("Compare two versions of a model with SiLift.");
 		this.setTitle("Compare models with each other.");
 		arrowDown = new Image(Display.getCurrent(),
-				ComponentSelectionWizardPage.class.getResourceAsStream("../res/arrow_down.png"));
-		 arrowUp = new Image(Display.getCurrent(),
-				ComponentSelectionWizardPage.class.getResourceAsStream("../res/arrow_up.png"));
+				ComponentSelectionWizardPage.class
+						.getResourceAsStream("../res/arrow_down.png"));
+		arrowUp = new Image(Display.getCurrent(),
+				ComponentSelectionWizardPage.class
+						.getResourceAsStream("../res/arrow_up.png"));
 	}
 
 	@Override
@@ -169,8 +171,16 @@ public class ComponentSelectionWizardPage extends WizardPage {
 					label.setText(modelToString(model));
 					label.pack();
 
-					setPageComplete(new EvolutionTester().isEvolutionPossible(
-							wizard.modelA, wizard.modelB));
+					boolean isEvolutionPossible = new EvolutionTester()
+							.isEvolutionPossible(wizard.modelA, wizard.modelB);
+
+					if (isEvolutionPossible) {
+						setErrorMessage(null);
+					} else {
+						setErrorMessage("Selected models are not of the same type.");
+					}
+
+					setPageComplete(isEvolutionPossible);
 				}
 
 			}

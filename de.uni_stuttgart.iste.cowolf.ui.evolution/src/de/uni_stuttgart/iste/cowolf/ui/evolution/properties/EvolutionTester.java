@@ -26,88 +26,89 @@ import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
  */
 public class EvolutionTester extends PropertyTester {
 
-    public static final String PROPERTY_NAMESPACE = "de.uni_stuttgart.iste.cowolf.ui.evolution.properties.evolution";
-    public static final String PROPERTY_CAN_FOO = "canFoo";
+	public static final String PROPERTY_NAMESPACE = "de.uni_stuttgart.iste.cowolf.ui.evolution.properties.evolution";
+	public static final String PROPERTY_CAN_FOO = "canFoo";
 
-    private ExtensionHandler extensionHandler;
+	private ExtensionHandler extensionHandler;
 
-    @Override
-    public boolean test(Object receiver, String property, Object[] args,
-            Object expectedValue) {
+	@Override
+	public boolean test(Object receiver, String property, Object[] args,
+			Object expectedValue) {
 
-        // gets the currently selected files
-        IWorkbenchWindow window = PlatformUI.getWorkbench()
-                .getActiveWorkbenchWindow();
-        if (window == null || window.getSelectionService() == null) {
-            return false;
-        }
-        IStructuredSelection selection = (IStructuredSelection) window
-                .getSelectionService().getSelection();
+		// gets the currently selected files
+		IWorkbenchWindow window = PlatformUI.getWorkbench()
+				.getActiveWorkbenchWindow();
+		if (window == null || window.getSelectionService() == null) {
+			return false;
+		}
+		IStructuredSelection selection = (IStructuredSelection) window
+				.getSelectionService().getSelection();
 
-        if (selection == null) {
-            return false;
-        }
-        List list = selection.toList();
-        if (list.size() == 1) {
-            Object firstElement = list.get(0);
-            if (firstElement instanceof IFile) {
-                Resource firstElementResource = getResourceOfIFile((IFile) firstElement);
-                return extensionHandler
-                        .getEvolutionManager(firstElementResource) != null;
-            }
-        }
-        if (list.size() == 2) {
+		if (selection == null) {
+			return false;
+		}
+		List list = selection.toList();
+		if (list.size() == 1) {
+			Object firstElement = list.get(0);
+			if (firstElement instanceof IFile) {
+				Resource firstElementResource = getResourceOfIFile((IFile) firstElement);
+				return extensionHandler
+						.getEvolutionManager(firstElementResource) != null;
+			}
+		}
+		if (list.size() == 2) {
 
-            Object firstElement = list.get(0);
-            Object secondElement = list.get(1);
+			Object firstElement = list.get(0);
+			Object secondElement = list.get(1);
 
-            if (firstElement instanceof IFile && secondElement instanceof IFile) {
+			if (firstElement instanceof IFile && secondElement instanceof IFile) {
 
-                return isEvolutionPossible((IFile) firstElement,
-                        (IFile) secondElement);
+				return isEvolutionPossible((IFile) firstElement,
+						(IFile) secondElement);
 
-            }
+			}
 
-        }
-        return false;
-    }
+		}
+		return false;
+	}
 
-    /**
-     * Constructor
-     */
-    public EvolutionTester() {
-        this.extensionHandler = new ExtensionHandler();
-    }
+	/**
+	 * Constructor
+	 */
+	public EvolutionTester() {
+		this.extensionHandler = new ExtensionHandler();
+	}
 
-    public boolean isEvolutionPossible(IFile oldModel, IFile newModel) {
-        Resource oldModelResource = getResourceOfIFile(oldModel);
-        Resource newModelResource = getResourceOfIFile(newModel);
-        return isEvolutionPossible(oldModelResource, newModelResource);
-    }
+	public boolean isEvolutionPossible(IFile oldModel, IFile newModel) {
 
-    public boolean isEvolutionPossible(Resource oldModel, Resource newModel) {
+		if (oldModel == null || newModel == null) {
+			return false;
+		}
 
-        // both selected models are of the same type if the returned
-        // evolution managers are equal
-        AbstractEvolutionManager firstElementEvolutionManager = extensionHandler
-                .getEvolutionManager(oldModel);
-        AbstractEvolutionManager secondElementEvolutionManager = extensionHandler
-                .getEvolutionManager(newModel);
-        if (firstElementEvolutionManager != null
-                && secondElementEvolutionManager != null) {
-            return firstElementEvolutionManager
-                    .equals(secondElementEvolutionManager);
-        }
+		Resource oldModelResource = getResourceOfIFile(oldModel);
+		Resource newModelResource = getResourceOfIFile(newModel);
 
-        return false;
-    }
+		// both selected models are of the same type if the returned
+		// evolution managers are equal
+		AbstractEvolutionManager firstElementEvolutionManager = extensionHandler
+				.getEvolutionManager(oldModelResource);
+		AbstractEvolutionManager secondElementEvolutionManager = extensionHandler
+				.getEvolutionManager(newModelResource);
+		if (firstElementEvolutionManager != null
+				&& secondElementEvolutionManager != null) {
+			return firstElementEvolutionManager
+					.equals(secondElementEvolutionManager);
+		}
 
-    public Resource getResourceOfIFile(IFile model) {
-        URI uri = URI.createPlatformResourceURI(model.getFullPath().toString(),
-                true);
-        ResourceSet resourceSet = new ResourceSetImpl();
-        Resource modelResource = resourceSet.getResource(uri, true);
-        return modelResource;
-    }
+		return false;
+	}
+
+	public Resource getResourceOfIFile(IFile model) {
+		URI uri = URI.createPlatformResourceURI(model.getFullPath().toString(),
+				true);
+		ResourceSet resourceSet = new ResourceSetImpl();
+		Resource modelResource = resourceSet.getResource(uri, true);
+		return modelResource;
+	}
 
 }

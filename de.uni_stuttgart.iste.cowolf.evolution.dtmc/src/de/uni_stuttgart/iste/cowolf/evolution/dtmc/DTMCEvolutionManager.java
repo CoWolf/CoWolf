@@ -4,20 +4,33 @@ import org.eclipse.emf.ecore.resource.Resource;
 
 import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
 import de.uni_stuttgart.iste.cowolf.evolution.EvolutionTypeInfo;
+import de.uni_stuttgart.iste.cowolf.model.dtmc.Root;
 
-
+/**
+ * 
+ * @author Rene Trefft
+ *
+ */
 public class DTMCEvolutionManager extends AbstractEvolutionManager {
 
-	@Override
-	public boolean isManaged(Resource model) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+    @Override
+    public boolean isManaged(Resource model) {    	
+    	System.out.println("+++" + (model.getContents()));
+    	 System.out.println("+++" + (model.getContents().get(0) instanceof Root));
+    	
+    	if (model == null || model.getContents() == null || model.getContents().isEmpty()) {
+            return false;
+        }
+
+        return model.getContents().get(0) instanceof Root;
+    }
 
 	@Override
 	public EvolutionTypeInfo getEvolutionTypeInfo() {
-		// TODO Auto-generated method stub
-		return null;
+		EvolutionTypeInfo info = new EvolutionTypeInfo();
+        info.setMatcher(EvolutionTypeInfo.MATCHER_EMFCOMPARE);
+        return info;
 	}
+
 
 }
