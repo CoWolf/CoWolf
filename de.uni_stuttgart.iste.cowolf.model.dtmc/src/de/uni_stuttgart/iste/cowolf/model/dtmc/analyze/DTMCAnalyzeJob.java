@@ -21,7 +21,6 @@ import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
 
-import de.uni_stuttgart.iste.cowolf.core.utilities.CommandLineExecutor;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.State;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.impl.RootImpl;
 

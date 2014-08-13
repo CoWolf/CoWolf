@@ -3,6 +3,7 @@ package de.uni_stuttgart.iste.cowolf.core.ModelAssociationManager;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.ecore.resource.Resource;
 
+
 /**
  * This class holds an association between two models and the project where the
  * projects belong to

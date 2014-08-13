@@ -45,9 +45,12 @@ public class StatechartModelManager extends AbstractArchitectureModelManager {
 		return true;
 	}
 
+
 	@Override
 	public ModelTypeInfo getModelTypeInfo() {
-		List<Class<?>> propercontents = new ArrayList();
+
+		List<Class<?>> propercontents = new ArrayList<Class<?>>();
+
 		// create the allowed EClasses
 		propercontents.add(BooleanExpressionImpl.class);
 		propercontents.add(CompositeStateImpl.class);

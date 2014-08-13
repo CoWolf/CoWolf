@@ -13,8 +13,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
 
-import de.uni_stuttgart.iste.cowolf.core.extensions.ExtensionHandler;
-import de.uni_stuttgart.iste.cowolf.core.natures.ProjectNature;
+
 import de.uni_stuttgart.iste.cowolf.ui.externalizedStrings.Messages;
 import de.uni_stuttgart.iste.cowolf.ui.preference.FolderCreationPreferencePage;
 

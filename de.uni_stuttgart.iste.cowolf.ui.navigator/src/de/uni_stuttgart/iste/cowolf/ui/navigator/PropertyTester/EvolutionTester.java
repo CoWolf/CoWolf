@@ -12,32 +12,32 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 
-import de.uni_stuttgart.iste.cowolf.core.extensions.ExtensionHandler;
 import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
 
 public class EvolutionTester extends PropertyTester {
 
-	public static final String PROPERTY_CAN_FOO = "canFoo"; //$NON-NLS-1$
+	public static final String PROPERTY_NAMESPACE = "de.uni_stuttgart.iste.cowolf.ui.navigator.propertyTester.evolution"; //$NON-NLS-1$
 
 	public EvolutionTester() {
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	public boolean test(final Object receiver, final String property, final Object[] args,
-			final Object expectedValue) {
+	public boolean test(Object receiver, String property, Object[] args,
+			Object expectedValue) {
 		ExtensionHandler extensionHandler = ExtensionHandler.getInstance();
 
 		IWorkbenchWindow window = PlatformUI.getWorkbench()
 				.getActiveWorkbenchWindow();
-		IStructuredSelection selection = (IStructuredSelection) window.getSelectionService().getSelection();
+		IStructuredSelection selection = (IStructuredSelection) window
+				.getSelectionService().getSelection();
 
 		Object selectedElement = selection.getFirstElement();
 
 		// catch exceptions from wrong parsing as we can only recognize IFiles
 		try {
 			// file then try to parse
-			if (selectedElement != null && selectedElement instanceof IFile) {
+			if (selectedElement instanceof IFile) {
 				IFile iFile = (IFile) selectedElement;
 				File file = iFile.getLocation().toFile();
 
@@ -57,11 +57,7 @@ public class EvolutionTester extends PropertyTester {
 						.getEvolutionManager(resource);
 
 				// must find model manager
-				if (modelManager != null) {
-					return true;
-				} else {
-					return false;
-				}
+				return (modelManager != null);
 			} else {
 				// no file -> cannot open
 				return false;
@@ -73,3 +69,4 @@ public class EvolutionTester extends PropertyTester {
 	}
 
 }
+

@@ -148,6 +148,10 @@ public class AssociationProject {
 		for (Association associationToDelete : toDelete) {
 			associations.remove(associationToDelete);
 		}
+
+		for (Association associationToDelete : toDelete) {
+			associations.remove(associationToDelete);
+		}
 		return foundMatches;
 	}
 

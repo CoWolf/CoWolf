@@ -62,20 +62,23 @@ public class ExtensionHandler {
 	 */
 	private List<AbstractTransformationManager> transformationManagers;
 
+
 	private static ExtensionHandler instance = null;
 
-	public static ExtensionHandler getInstance() {
-		if (instance == null) {
-			instance = new ExtensionHandler();
-		}
-		return instance;
-	}
+
 
 	/**
 	 * Basic constructor. Initializes model managers.
 	 */
 	private ExtensionHandler() {
 		this.refreshManagers();
+	}
+
+	public static ExtensionHandler getInstance() {
+		if (instance == null) {
+			instance = new ExtensionHandler();
+		}
+		return instance;
 	}
 
 	/**
@@ -92,9 +95,11 @@ public class ExtensionHandler {
 	 * Create the QoS model manager extensions, which are registered.
 	 */
 	private void createQoSModelManagerExtensions() {
+
 		this.qosModelManagers = this.createExecuteableExtensions(
 				QOS_MODEL_MANAGER_EXTENSION_ID, "class",
 				AbstractQoSModelManager.class);
+
 	}
 
 	/**
@@ -104,6 +109,7 @@ public class ExtensionHandler {
 		this.architectureModelManagers = this.createExecuteableExtensions(
 				ARCHITECTURE_MODEL_MANAGER_EXTENSION_ID, "class",
 				AbstractArchitectureModelManager.class);
+
 	}
 
 	/**
@@ -111,8 +117,10 @@ public class ExtensionHandler {
 	 */
 	private void createEvolutionManagerExtensions() {
 		this.evolutionManagers = this.createExecuteableExtensions(
-				EVOLUTION_MANAGER_EXTENSION_ID, "class",
-				AbstractEvolutionManager.class);
+
+				EVOLUTION_MANAGER_EXTENSION_ID,
+				"class", AbstractEvolutionManager.class); //$NON-NLS-1$
+
 	}
 
 	/**
@@ -120,8 +128,10 @@ public class ExtensionHandler {
 	 */
 	private void createTransformationManagerExtensions() {
 		this.transformationManagers = this.createExecuteableExtensions(
-				TRANSFORMATION_MANAGER_EXTENSION_ID, "class",
-				AbstractTransformationManager.class);
+
+				TRANSFORMATION_MANAGER_EXTENSION_ID,
+				"class", AbstractTransformationManager.class); //$NON-NLS-1$
+
 	}
 
 	/**
@@ -221,20 +231,23 @@ public class ExtensionHandler {
 	}
 
 	public ArrayList<String> getAllModelNames() {
-		ArrayList<String> names = new ArrayList<String>();
+
+		ArrayList<String> allNames = new ArrayList<String>();
+
 		for (AbstractQoSModelManager manager : qosModelManagers) {
 			ModelTypeInfo info = manager.getModelTypeInfo();
 			if (info != null) {
-				names.add(info.METAMODEL_NAME);
+				allNames.add(manager.getModelTypeInfo().METAMODEL_NAME);
 			}
 		}
 		for (AbstractArchitectureModelManager manager : architectureModelManagers) {
 			ModelTypeInfo info = manager.getModelTypeInfo();
 			if (info != null) {
-				names.add(info.METAMODEL_NAME);
+				allNames.add(manager.getModelTypeInfo().METAMODEL_NAME);
 			}
 		}
-		return names;
+
+		return allNames;
 	}
 
 }

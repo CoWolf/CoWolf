@@ -1,9 +1,11 @@
 package de.uni_stuttgart.iste.cowolf.model.statechart.tests;
 
 
+
 import java.io.IOException;
 
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -19,6 +21,7 @@ import de.uni_stuttgart.iste.cowolf.model.statechart.Statechart.StatechartemfFac
 
 
 public class StatechartModelManagerTest {
+
 
 	Resource res;
 	StateMachine root;
