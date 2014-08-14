@@ -25,7 +25,6 @@ import de.uni_stuttgart.iste.cowolf.core.extensions.ExtensionHandler;
 import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
 import de.uni_stuttgart.iste.cowolf.evolution.EvolutionException;
 import de.uni_stuttgart.iste.cowolf.ui.evolution.DifferencesView;
-import de.uni_stuttgart.iste.cowolf.ui.evolution.properties.EvolutionTester;
 import de.uni_stuttgart.iste.cowolf.ui.evolution.util.ResourceUtil;
 import de.uni_stuttgart.iste.cowolf.ui.evolution.wizard.ComponentSelectionWizard;
 

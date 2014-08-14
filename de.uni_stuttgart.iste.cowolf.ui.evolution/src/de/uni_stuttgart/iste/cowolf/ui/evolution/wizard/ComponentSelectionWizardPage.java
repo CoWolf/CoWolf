@@ -2,7 +2,6 @@ package de.uni_stuttgart.iste.cowolf.ui.evolution.wizard;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.emf.common.ui.dialogs.WorkspaceResourceDialog;
