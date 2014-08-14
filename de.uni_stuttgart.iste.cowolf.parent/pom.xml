@@ -25,50 +25,15 @@
 			<layout>p2</layout>
 		</repository>
 		<repository>
-			<id>xtext</id>
-			<url>http://download.itemis.com/updates/releases</url>
-			<layout>p2</layout>
-		</repository>
-		<repository>
 			<id>silift</id>
 			<url>http://pi.informatik.uni-siegen.de/Projekte/SiLift/updatesite</url>
 			<layout>p2</layout>
 		</repository>
 	</repositories>
 
-	<profiles>
-		<profile>
-			<id>releases</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-		</profile>
-	</profiles>
-
 	<build>
-		<sourceDirectory>src</sourceDirectory>
-
+	
 		<plugins>
-
-<!-- 			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>build-helper-maven-plugin</artifactId>
-				<version>1.9</version>
-				<executions>
-					<execution>
-						<id>add-source</id>
-						<phase>generate-sources</phase>
-						<goals>
-							<goal>add-source</goal>
-						</goals>
-						<configuration>
-							<sources>
-								<source>xtend-gen</source>
-							</sources>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin> -->
 
 			<plugin>
 				<artifactId>maven-clean-plugin</artifactId>
@@ -93,7 +58,6 @@
 					<execution>
 						<goals>
 							<goal>compile</goal>
-							<goal>testCompile</goal>
 						</goals>
 						<configuration>
 							<outputDirectory>xtend-gen</outputDirectory>
@@ -166,9 +130,9 @@
 			</plugin>
 
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-compiler-plugin</artifactId>
+				<version>${tycho.version}</version>
 				<configuration>
 					<source>1.7</source>
 					<target>1.7</target>
@@ -213,6 +177,7 @@
 			<url>https://lismore.informatik.uni-stuttgart.de/nexus/content/repositories/snapshots</url>
 		</snapshotRepository>
 	</distributionManagement>
+	
 	<modules>
 		<module>../de.uni_stuttgart.iste.cowolf.core</module>
 		<module>../de.uni_stuttgart.iste.cowolf.core.feature</module>
@@ -392,4 +357,5 @@
 			../de.uni_stuttgart.iste.cowolf.skeleton.evolution.rulebase
 		</module>
 	</modules>
+	
 </project>
