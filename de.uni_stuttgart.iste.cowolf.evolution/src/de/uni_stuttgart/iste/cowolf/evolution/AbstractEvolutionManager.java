@@ -16,14 +16,13 @@ import org.sidiff.difference.symmetric.SymmetricDifference;
 import org.silift.common.util.access.EMFModelAccessEx;
 import org.silift.common.util.emf.Scope;
 import org.silift.common.util.exceptions.NoCorrespondencesException;
-import org.eclipse.emf.ecore.resource.Resource;
 
 /**
  * Abstract implementation of the manager that handles evolution of a single
  * model type. Has to be extended by the specific evolution plug-in for a model
  * type.
  *
- * @author Michael Müller
+ * @author Michael Mï¿½ller
  * @author Rene Trefft
  */
 public abstract class AbstractEvolutionManager {

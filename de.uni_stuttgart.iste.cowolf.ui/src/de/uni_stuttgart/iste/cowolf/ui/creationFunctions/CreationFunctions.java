@@ -2,6 +2,8 @@ package de.uni_stuttgart.iste.cowolf.ui.creationFunctions;
 
 import java.net.URI;
 
+import javax.swing.JOptionPane;
+
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
@@ -11,11 +13,19 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
 
+
+
+
+
+import de.uni_stuttgart.iste.cowolf.core.extensions.ExtensionHandler;
 import de.uni_stuttgart.iste.cowolf.core.natures.ProjectNature;
 import de.uni_stuttgart.iste.cowolf.ui.externalizedStrings.Messages;
+import de.uni_stuttgart.iste.cowolf.ui.model.preference.ModelPreferencePage;
 
 /**
  * This class holds the functions to create a new project and a folder
+ * 
+ * @author Verena Käfer
  *
  */
 public class CreationFunctions {
@@ -32,15 +42,23 @@ public class CreationFunctions {
 		IProject iProject = createBasicProject(projectName, location);
 		addNature(iProject);
 
+		// our basic folder structure
+
 		// models
 		IFolder modelFolder = createFolder(
 				Messages.CreationFunctions_folder_title_models, iProject);
 		// properties
 		createFolder(".properties", iProject);
 
-		// state charts
-		createFolder(Messages.CreationFunctions_folder_title_State_charts,
-				modelFolder);
+
+		if (ModelPreferencePage.getFolderPreference()) {
+
+			// one folder for every registered model
+			for (String folderName : ExtensionHandler.getInstance()
+					.getAllModelNames()) {
+				createFolder(folderName, modelFolder);
+			}
+		}
 
 	}
 
@@ -76,8 +94,8 @@ public class CreationFunctions {
 					newIProject.open(null);
 				}
 			} catch (CoreException e) {
-				// TODO
-				e.printStackTrace();
+				JOptionPane.showMessageDialog(null, "Could not create project"
+						+ e.getLocalizedMessage());
 			}
 		}
 
@@ -91,16 +109,18 @@ public class CreationFunctions {
 	 *            the parent container
 	 * @return the created folder
 	 */
+
 	public static IFolder createFolder(String name, IContainer parentContainer) {
 		Path path = new Path(name);
 
 		IFolder iFolder = parentContainer.getFolder(path);
 		if (!iFolder.exists()) {
+
 			try {
 				iFolder.create(false, true, null);
 			} catch (CoreException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				JOptionPane.showMessageDialog(null, "Could not create folder"
+						+ e.getLocalizedMessage());
 			}
 		}
 		return iFolder;
@@ -125,8 +145,8 @@ public class CreationFunctions {
 				iProject.setDescription(description, monitor);
 			}
 		} catch (CoreException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null,
+					"Could not add nature" + e.getLocalizedMessage());
 		}
 	}
 }

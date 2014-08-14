@@ -1,11 +1,8 @@
 package de.uni_stuttgart.iste.cowolf.model.dtmc;
 
 import java.util.Map;
-
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.Resource;
-
 import de.uni_stuttgart.iste.cowolf.model.AbstractQoSModelManager;
 import de.uni_stuttgart.iste.cowolf.model.IAnalysisListener;
 import de.uni_stuttgart.iste.cowolf.model.ModelTypeInfo;
@@ -43,6 +40,7 @@ public class DTMCModelManager extends AbstractQoSModelManager {
 			return false;
 		else
 			return (model.getContents().get(0) instanceof Root);
+
 	}
 
 }

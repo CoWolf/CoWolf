@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -24,6 +26,10 @@ import org.jdom.output.XMLOutputter;
 
 import de.uni_stuttgart.iste.cowolf.core.natures.ProjectNature;
 
+/**
+ * @author Verena Käfer
+ *
+ */
 public class ModelAssociationManager {
 
 	private static final String TARGET = "target";
@@ -68,6 +74,7 @@ public class ModelAssociationManager {
 		}
 
 		return associationProject.getReachableAssociations(source);
+
 	}
 
 	/**
@@ -100,8 +107,10 @@ public class ModelAssociationManager {
 		AssociationProject associationProject = getAssociationProject(iProject);
 
 		if (associationProject == null) {
+
 			associationProject = new AssociationProject(iProject);
 			associationProjects.add(associationProject);
+
 		}
 
 		return associationProject.addAssociation(source, target);
@@ -152,10 +161,10 @@ public class ModelAssociationManager {
 		Document document = new Document(rootElement);
 
 		for (Association association : project.getAssociations()) {
+
 			Element associationElement = new Element(ASSOCIATION); //$NON-NLS-1$
 
-			Attribute sourceAttribute = new Attribute(SOURCE, association //$NON-NLS-1$
-					.getSource().getURI().toPlatformString(true));
+			Attribute sourceAttribute = new Attribute(SOURCE, association.getSource().getURI().toPlatformString(true));
 
 			Attribute targetAttribute = new Attribute(TARGET, association //$NON-NLS-1$
 					.getTarget().getURI().toPlatformString(true));
@@ -169,10 +178,12 @@ public class ModelAssociationManager {
 		File propertyFile = getPropertyFile(project.getIProject(), true);
 
 		XMLOutputter outputter = new XMLOutputter(Format.getPrettyFormat());
+
 		try {
 			outputter.output(document, new FileOutputStream(propertyFile));
 		} catch (IOException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Could not load associations. "
+					+ e.getLocalizedMessage());
 		}
 
 	}
@@ -192,15 +203,18 @@ public class ModelAssociationManager {
 						&& iProject.getDescription().hasNature(
 								ProjectNature.NATURE_ID)) {
 					AssociationProject associationProject = load(iProject);
+
 					if (associationProject != null) {
 						associationProjects.add(associationProject);
 					}
+
 				}
 
 			}
 
 		} catch (CoreException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Could not load associations. "
+					+ e.getLocalizedMessage());
 		}
 
 	}
@@ -220,8 +234,8 @@ public class ModelAssociationManager {
 
 		if (propertyFile != null) {
 			try {
-				Document document = new Document();
-				Element rootElement = new Element(ROOT); //$NON-NLS-1$
+				Document document;
+				Element rootElement; //$NON-NLS-1$
 
 				SAXBuilder saxBuilder = new SAXBuilder();
 
@@ -287,10 +301,11 @@ public class ModelAssociationManager {
 					file.createNewFile();
 					return file;
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					JOptionPane.showMessageDialog(null,
+							"Could not load property file");
 				}
 			}
+
 		}
 
 		return null;
@@ -302,9 +317,11 @@ public class ModelAssociationManager {
 	 * @return the association project for the IProject
 	 */
 	private AssociationProject getAssociationProject(IProject iProject) {
+
 		for (AssociationProject associationProject : associationProjects) {
 			if (associationProject.getIProject().equals(iProject)) {
 				return associationProject;
+
 			}
 		}
 		return null;

@@ -6,6 +6,8 @@ import org.eclipse.ui.IPerspectiveFactory;
 /**
  * Used for our own perspective
  *
+ * @author Verena Käfer
+ *
  */
 public class Perspective implements IPerspectiveFactory {
 

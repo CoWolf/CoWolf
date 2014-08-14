@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.EReference;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- * @see de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfFactory
+ * @see de.uni_stuttgart.iste.cowolf.model.statechart.IStatechartemfFactory
  * @model kind="package"
  * @generated
  */
@@ -907,7 +907,7 @@ public interface statechartemfPackage extends EPackage {
 	 * @return the factory that creates the instances of the model.
 	 * @generated
 	 */
-	statechartemfFactory getstatechartemfFactory();
+	IStatechartemfFactory getstatechartemfFactory();
 
 	/**
 	 * <!-- begin-user-doc -->

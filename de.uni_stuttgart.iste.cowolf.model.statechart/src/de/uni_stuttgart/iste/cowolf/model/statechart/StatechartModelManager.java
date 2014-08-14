@@ -19,39 +19,37 @@ import de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateVertexImpl;
 import de.uni_stuttgart.iste.cowolf.model.statechart.impl.TransitionImpl;
 
 public class StatechartModelManager extends AbstractArchitectureModelManager {
-
 	@Override
 	public boolean isManaged(Resource model) {
-		
 		if (model == null) {
 			return false;
 		}
 		if (model.getContents() == null || model.getContents().isEmpty()) {
 			return false;
 		}
-		
-		for(EObject theEObject: model.getContents()) {
-			//check if the current eobject is part of the allowed classes list
+		for (EObject theEObject : model.getContents()) {
+			// check if the current eobject is part of the allowed classes list
 			boolean match = false;
-			for (Class theEClass: this.getModelTypeInfo().PROPER_CONTENTS) {
+			for (Class<?> theEClass : this.getModelTypeInfo().PROPER_CONTENTS) {
 				if (theEObject.getClass() == theEClass) {
 					match = true;
 				}
 			}
-			//return false if the current theEObject dosn`t match to the items in the theEClass list
+			// return false if the current theEObject dosn`t match to the items
+			// in the theEClass list
 			if (!match) {
 				return false;
 			}
 		}
-		
 		return true;
 	}
 
+
 	@Override
 	public ModelTypeInfo getModelTypeInfo() {
-		
-		List<Class> propercontents = new ArrayList();
-		
+
+		List<Class<?>> propercontents = new ArrayList<Class<?>>();
+
 		// create the allowed EClasses
 		propercontents.add(BooleanExpressionImpl.class);
 		propercontents.add(CompositeStateImpl.class);
@@ -61,10 +59,7 @@ public class StatechartModelManager extends AbstractArchitectureModelManager {
 		propercontents.add(StateMachineImpl.class);
 		propercontents.add(StateVertexImpl.class);
 		propercontents.add(TransitionImpl.class);
-		
 		ModelTypeInfo mti = new ModelTypeInfo("statechart", propercontents);
-		
 		return mti;
 	}
-
 }

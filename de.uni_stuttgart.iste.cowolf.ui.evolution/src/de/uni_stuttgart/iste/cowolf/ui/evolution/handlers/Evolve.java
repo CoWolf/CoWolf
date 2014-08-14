@@ -47,7 +47,7 @@ public class Evolve extends AbstractHandler {
 
         IStructuredSelection selection = (IStructuredSelection) window
                 .getSelectionService().getSelection();
-        List list = selection.toList();
+        List<?> list = selection.toList();
         if (list.size() >= 1) {
             firstElement = (IFile) list.get(0);
         }
@@ -75,7 +75,7 @@ public class Evolve extends AbstractHandler {
             @Override
             protected IStatus run(IProgressMonitor monitor) {
                 try {
-                    ExtensionHandler extensionHandler = new ExtensionHandler();
+                    ExtensionHandler extensionHandler = ExtensionHandler.getInstance();
                     AbstractEvolutionManager modelManager = extensionHandler
                             .getEvolutionManager(firstModel);
                     SymmetricDifference symmetricDifference = modelManager

@@ -3,7 +3,7 @@
 package de.uni_stuttgart.iste.cowolf.model.statechart.tests;
 
 import de.uni_stuttgart.iste.cowolf.model.statechart.CompositeState;
-import de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfFactory;
+import de.uni_stuttgart.iste.cowolf.model.statechart.IStatechartemfFactory;
 
 import junit.textui.TestRunner;
 
@@ -53,7 +53,7 @@ public class CompositeStateTest extends StateTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(statechartemfFactory.eINSTANCE.createCompositeState());
+		setFixture(IStatechartemfFactory.eINSTANCE.createCompositeState());
 	}
 
 	/**

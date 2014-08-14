@@ -1,8 +1,6 @@
 package de.uni_stuttgart.iste.cowolf.ui.navigator.PropertyTester;
 
 import java.io.File;
-import java.util.AbstractQueue;
-
 import org.eclipse.core.expressions.PropertyTester;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.emf.common.util.URI;
@@ -23,17 +21,18 @@ public class AnalyzeTester extends PropertyTester {
 	}
 
 	@Override
-	public boolean test(final Object receiver, final String property, final Object[] args,
-			final Object expectedValue) {
+	public boolean test(final Object receiver, final String property,
+			final Object[] args, final Object expectedValue) {
 
-		ExtensionHandler extensionHandler = new ExtensionHandler();
+		ExtensionHandler extensionHandler = ExtensionHandler.getInstance();
 
 		IWorkbenchWindow window = PlatformUI.getWorkbench()
 				.getActiveWorkbenchWindow();
 		if (window == null) {
 			return false;
 		}
-		IStructuredSelection selection = (IStructuredSelection) window.getSelectionService().getSelection();
+		IStructuredSelection selection = (IStructuredSelection) window
+				.getSelectionService().getSelection();
 		if (selection == null) {
 			return false;
 		}
@@ -77,5 +76,4 @@ public class AnalyzeTester extends PropertyTester {
 			return false;
 		}
 	}
-
 }

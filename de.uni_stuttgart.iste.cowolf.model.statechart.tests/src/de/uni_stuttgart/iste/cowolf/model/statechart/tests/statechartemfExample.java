@@ -3,7 +3,7 @@
 package de.uni_stuttgart.iste.cowolf.model.statechart.tests;
 
 import de.uni_stuttgart.iste.cowolf.model.statechart.BooleanExpression;
-import de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfFactory;
+import de.uni_stuttgart.iste.cowolf.model.statechart.IStatechartemfFactory;
 import de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage;
 
 import java.io.File;
@@ -60,7 +60,7 @@ public class statechartemfExample {
 			System.out.println("Enter a list of file paths or URIs that have content like this:");
 			try {
 				Resource resource = resourceSet.createResource(URI.createURI("http:///My.statechartemf"));
-				BooleanExpression root = statechartemfFactory.eINSTANCE.createBooleanExpression();
+				BooleanExpression root = IStatechartemfFactory.eINSTANCE.createBooleanExpression();
 				resource.getContents().add(root);
 				resource.save(System.out, null);
 			}

@@ -10,7 +10,7 @@ import de.uni_stuttgart.iste.cowolf.model.statechart.State;
 import de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine;
 import de.uni_stuttgart.iste.cowolf.model.statechart.StateVertex;
 import de.uni_stuttgart.iste.cowolf.model.statechart.Transition;
-import de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfFactory;
+import de.uni_stuttgart.iste.cowolf.model.statechart.IStatechartemfFactory;
 import de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -99,7 +99,7 @@ public class statechartemfPackageImpl extends EPackageImpl implements statechart
 	 * @generated
 	 */
 	private statechartemfPackageImpl() {
-		super(eNS_URI, statechartemfFactory.eINSTANCE);
+		super(eNS_URI, IStatechartemfFactory.eINSTANCE);
 	}
 
 	/**
@@ -419,8 +419,8 @@ public class statechartemfPackageImpl extends EPackageImpl implements statechart
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public statechartemfFactory getstatechartemfFactory() {
-		return (statechartemfFactory)getEFactoryInstance();
+	public IStatechartemfFactory getstatechartemfFactory() {
+		return (IStatechartemfFactory)getEFactoryInstance();
 	}
 
 	/**

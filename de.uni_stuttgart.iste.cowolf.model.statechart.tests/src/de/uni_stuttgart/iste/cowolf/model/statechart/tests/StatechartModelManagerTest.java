@@ -1,21 +1,35 @@
 package de.uni_stuttgart.iste.cowolf.model.statechart.tests;
 
 
+
+import java.io.IOException;
+
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+import de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine;
+import de.uni_stuttgart.iste.cowolf.model.statechart.StatechartModelManager;
+import de.uni_stuttgart.iste.cowolf.model.statechart.IStatechartemfFactory;
+
+
 public class StatechartModelManagerTest {
-/*
+
+
 	Resource res;
 	StateMachine root;
 
 	@Before
 	public void machDas() {
 		//create test model
-		StatechartemfFactory factory = StatechartemfFactory.eINSTANCE;
+		IStatechartemfFactory factory = IStatechartemfFactory.eINSTANCE;
 
 		this.root = factory.createStateMachine();
 
-		// Create a resource set.
-		ResourceSet resourceSet = new ResourceSetImpl();
-		this.res = resourceSet.createResource(URI.createFileURI("myTestStatechart.statechartemf"));
+
 	}
 
 	@Test
@@ -26,8 +40,10 @@ public class StatechartModelManagerTest {
 
 		//create test target
 		StatechartModelManager target = new StatechartModelManager();
-		Assert.assertTrue(target.isManaged(this.res));
+
+		
+		Assert.assertTrue((!target.isManaged(res)));
 
 	}
-*/
+
 }

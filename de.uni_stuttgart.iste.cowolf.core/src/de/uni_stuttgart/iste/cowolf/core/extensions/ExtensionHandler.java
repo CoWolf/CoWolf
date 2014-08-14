@@ -1,5 +1,6 @@
 package de.uni_stuttgart.iste.cowolf.core.extensions;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -8,12 +9,11 @@ import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.Resource;
-
 import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
 import de.uni_stuttgart.iste.cowolf.model.AbstractArchitectureModelManager;
 import de.uni_stuttgart.iste.cowolf.model.AbstractModelManager;
 import de.uni_stuttgart.iste.cowolf.model.AbstractQoSModelManager;
+import de.uni_stuttgart.iste.cowolf.model.ModelTypeInfo;
 import de.uni_stuttgart.iste.cowolf.transformation.AbstractTransformationManager;
 
 /**
@@ -61,11 +61,23 @@ public class ExtensionHandler {
 	 */
 	private List<AbstractTransformationManager> transformationManagers;
 
+
+	private static ExtensionHandler instance = null;
+
+
+
 	/**
 	 * Basic constructor. Initializes model managers.
 	 */
-	public ExtensionHandler() {
+	private ExtensionHandler() {
 		this.refreshManagers();
+	}
+
+	public static ExtensionHandler getInstance() {
+		if (instance == null) {
+			instance = new ExtensionHandler();
+		}
+		return instance;
 	}
 
 	/**
@@ -82,42 +94,63 @@ public class ExtensionHandler {
 	 * Create the QoS model manager extensions, which are registered.
 	 */
 	private void createQoSModelManagerExtensions() {
-		this.qosModelManagers = this.createExecuteableExtensions(QOS_MODEL_MANAGER_EXTENSION_ID, "class", AbstractQoSModelManager.class);
+
+		this.qosModelManagers = this.createExecuteableExtensions(
+				QOS_MODEL_MANAGER_EXTENSION_ID, "class",
+				AbstractQoSModelManager.class);
+
 	}
 
 	/**
 	 * Create the architecture model manager extensions, which are registered.
 	 */
 	private void createArchitectureModelManagerExtensions() {
-		this.architectureModelManagers = this.createExecuteableExtensions(ARCHITECTURE_MODEL_MANAGER_EXTENSION_ID, "class", AbstractArchitectureModelManager.class);
+		this.architectureModelManagers = this.createExecuteableExtensions(
+				ARCHITECTURE_MODEL_MANAGER_EXTENSION_ID, "class",
+				AbstractArchitectureModelManager.class);
+
 	}
 
 	/**
 	 * Create the evolution manager extensions, which are registered.
 	 */
 	private void createEvolutionManagerExtensions() {
-		this.evolutionManagers = this.createExecuteableExtensions(EVOLUTION_MANAGER_EXTENSION_ID, "class", AbstractEvolutionManager.class);
+		this.evolutionManagers = this.createExecuteableExtensions(
+
+				EVOLUTION_MANAGER_EXTENSION_ID,
+				"class", AbstractEvolutionManager.class); //$NON-NLS-1$
+
 	}
 
 	/**
 	 * Create the transformation manager extensions, which are registered.
 	 */
 	private void createTransformationManagerExtensions() {
-		this.transformationManagers = this.createExecuteableExtensions(TRANSFORMATION_MANAGER_EXTENSION_ID, "class", AbstractTransformationManager.class);
+		this.transformationManagers = this.createExecuteableExtensions(
+
+				TRANSFORMATION_MANAGER_EXTENSION_ID,
+				"class", AbstractTransformationManager.class); //$NON-NLS-1$
+
 	}
 
 	/**
-	 * Creates the given executable extensions specified by their extension id, propertyName and class type.
+	 * Creates the given executable extensions specified by their extension id,
+	 * propertyName and class type.
 	 *
-	 * @param extensionPointID the unique identifier of the extension point
-	 * @param propertyName the name of the property have to be a class
-	 * @param type class type of the interface
+	 * @param extensionPointID
+	 *            the unique identifier of the extension point
+	 * @param propertyName
+	 *            the name of the property have to be a class
+	 * @param type
+	 *            class type of the interface
 	 * @return All created extensions.
 	 */
 	@SuppressWarnings("unchecked")
-	private <T> List<T> createExecuteableExtensions(String extensionPointID, String propertyName, Class<T> type) {
+	private <T> List<T> createExecuteableExtensions(String extensionPointID,
+			String propertyName, Class<T> type) {
 		final IExtensionRegistry registry = Platform.getExtensionRegistry();
-		final IConfigurationElement[] config = registry.getConfigurationElementsFor(extensionPointID);
+		final IConfigurationElement[] config = registry
+				.getConfigurationElementsFor(extensionPointID);
 		final List<T> extensions = new LinkedList<T>();
 		for (final IConfigurationElement element : config) {
 			Object obj;
@@ -134,9 +167,13 @@ public class ExtensionHandler {
 	}
 
 	/**
-	 * Searches the model manager for a given model, which handles this type of model.
-	 * @param model model to search for a manager.
-	 * @return IModelManager, which can handle this model or null if none is defined or installed.
+	 * Searches the model manager for a given model, which handles this type of
+	 * model.
+	 * 
+	 * @param model
+	 *            model to search for a manager.
+	 * @return IModelManager, which can handle this model or null if none is
+	 *         defined or installed.
 	 */
 	public AbstractModelManager getModelManager(Resource model) {
 		for (final AbstractModelManager manager : this.architectureModelManagers) {
@@ -153,11 +190,14 @@ public class ExtensionHandler {
 		return null;
 	}
 
-
 	/**
-	 * Searches the evolution manager for a given model, which handles this type of model.
-	 * @param model model to search for a manager.
-	 * @return IModelManager, which can handle this model or null if none is defined or installed.
+	 * Searches the evolution manager for a given model, which handles this type
+	 * of model.
+	 * 
+	 * @param model
+	 *            model to search for a manager.
+	 * @return IModelManager, which can handle this model or null if none is
+	 *         defined or installed.
 	 */
 	public AbstractEvolutionManager getEvolutionManager(Resource model) {
 		for (final AbstractEvolutionManager manager : this.evolutionManagers) {
@@ -169,18 +209,44 @@ public class ExtensionHandler {
 	}
 
 	/**
-	 * Searches the right transformation manager for a given transformation from source to target.
-	 * @param source Source model of transformation
-	 * @param target Target model of transformation
-	 * @return TransformationManager, which is responsible for this transformation, null if none is registered or installed.
+	 * Searches the right transformation manager for a given transformation from
+	 * source to target.
+	 * 
+	 * @param source
+	 *            Source model of transformation
+	 * @param target
+	 *            Target model of transformation
+	 * @return TransformationManager, which is responsible for this
+	 *         transformation, null if none is registered or installed.
 	 */
-	public AbstractTransformationManager getTransformationManager(Resource source, Resource target) {
+	public AbstractTransformationManager getTransformationManager(
+			Resource source, Resource target) {
 		for (final AbstractTransformationManager manager : this.transformationManagers) {
 			if (manager.isManaged(source, target)) {
 				return manager;
 			}
 		}
 		return null;
+	}
+
+	public ArrayList<String> getAllModelNames() {
+
+		ArrayList<String> allNames = new ArrayList<String>();
+
+		for (AbstractQoSModelManager manager : qosModelManagers) {
+			ModelTypeInfo info = manager.getModelTypeInfo();
+			if (info != null) {
+				allNames.add(manager.getModelTypeInfo().METAMODEL_NAME);
+			}
+		}
+		for (AbstractArchitectureModelManager manager : architectureModelManagers) {
+			ModelTypeInfo info = manager.getModelTypeInfo();
+			if (info != null) {
+				allNames.add(manager.getModelTypeInfo().METAMODEL_NAME);
+			}
+		}
+
+		return allNames;
 	}
 
 }

@@ -1,5 +1,6 @@
 package de.uni_stuttgart.iste.cowolf.core.ModelAssociationManager;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +10,8 @@ import org.eclipse.emf.ecore.resource.Resource;
 /**
  * This class holds the connection between a project and the known associations
  * in this project
+ * 
+ * @author Verena Käfer
  *
  */
 public class AssociationProject {
@@ -22,6 +25,7 @@ public class AssociationProject {
 
 	public IProject getIProject() {
 		return iProject;
+
 	}
 
 	public void setIProject(IProject project) {
@@ -60,8 +64,8 @@ public class AssociationProject {
 	public boolean removeAssociation(Resource source, Resource target) {
 		boolean foundMatch = false;
 		for (Association association : associations) {
-			if (association.getSource().equals(source)
-					&& association.getTarget().equals(target)) {
+			if (association.getSource().getURI().equals(source.getURI())
+					&& association.getTarget().getURI().equals(target.getURI())) {
 				associations.remove(association);
 				foundMatch = true;
 				break;
@@ -77,22 +81,39 @@ public class AssociationProject {
 	 */
 	public List<Resource> getReachableAssociations(Resource source) {
 
+		ArrayList<Association> toDelete = new ArrayList<Association>();
+
 		List<Resource> foundMatches = new ArrayList<Resource>();
 
 		// all first level reachable resources
 		for (Association association : associations) {
-			if (association.getSource().equals(source)) {
-				foundMatches.add(association.getTarget());
-				List<Resource> newMatches = new ArrayList<Resource>();
+			if (association.getSource().getURI().equals(source.getURI())) {
+				// check if target still exists
+				String fileString = association.getTarget().getURI()
+						.toFileString();
+				File f = new File(fileString);
 
-				// find reachable resources for the found matches
-				newMatches = getReachableAssociations(association.getTarget());
+				if (f.exists()) {
 
-				// and add them to the return list
-				for (Resource ressource : newMatches) {
-					foundMatches.add(ressource);
+					foundMatches.add(association.getTarget());
+					List<Resource> newMatches;
+
+					// find reachable resources for the found matches
+					newMatches = getReachableAssociations(association
+							.getTarget());
+
+					// and add them to the return list
+					for (Resource ressource : newMatches) {
+						foundMatches.add(ressource);
+					}
+				} else {
+					toDelete.add(association);
 				}
 			}
+		}
+
+		for (Association associationToDelete : toDelete) {
+			associations.remove(associationToDelete);
 		}
 
 		return foundMatches;
@@ -104,17 +125,39 @@ public class AssociationProject {
 	 */
 	public List<Resource> getDirectModelAssociations(Resource source) {
 		List<Resource> foundMatches = new ArrayList<Resource>();
+		ArrayList<Association> toDelete = new ArrayList<Association>();
 
 		for (Association association : associations) {
-			if (association.getSource().equals(source)) {
-				foundMatches.add(association.getTarget());
+			if (association.getSource().getURI().equals(source.getURI())) {
+
+				// check if target still exists
+				String fileString = association.getTarget().getURI()
+						.toFileString();
+				System.out.println(fileString);
+				File f = new File(fileString);
+
+				if (f.exists()) {
+
+					foundMatches.add(association.getTarget());
+				}
+			} else {
+				toDelete.add(association);
 			}
+		}
+
+		for (Association associationToDelete : toDelete) {
+			associations.remove(associationToDelete);
+		}
+
+		for (Association associationToDelete : toDelete) {
+			associations.remove(associationToDelete);
 		}
 		return foundMatches;
 	}
 
 	public ArrayList<Association> getAssociations() {
 		return associations;
+
 	}
 
 }

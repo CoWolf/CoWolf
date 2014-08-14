@@ -47,7 +47,7 @@ public class EvolutionTester extends PropertyTester {
 		if (selection == null) {
 			return false;
 		}
-		List list = selection.toList();
+		List<?> list = selection.toList();
 		if (list.size() == 1) {
 			Object firstElement = list.get(0);
 			if (firstElement instanceof IFile) {
@@ -76,7 +76,7 @@ public class EvolutionTester extends PropertyTester {
 	 * Constructor
 	 */
 	public EvolutionTester() {
-		this.extensionHandler = new ExtensionHandler();
+		this.extensionHandler = ExtensionHandler.getInstance();
 	}
 
 	public boolean isEvolutionPossible(IFile oldModel, IFile newModel) {

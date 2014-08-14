@@ -9,7 +9,7 @@ import de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine;
 /**
  * This class handles evolution of a statechart model.
  * 
- * @author Michael Müller
+ * @author Michael Mï¿½ller
  *
  */
 public class StatechartEvolutionManager extends AbstractEvolutionManager {

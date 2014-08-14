@@ -7,9 +7,12 @@ import org.eclipse.ui.PlatformUI;
 
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociationManager.ModelAssociationManager;
 
+
 /**
  * This trigger is executed at the very start of eclipse. You can add necessary
  * listeners here.
+ * 
+ * @author Verena Käfer
  *
  */
 public class StartTrigger implements IStartup {
@@ -56,6 +59,7 @@ public class StartTrigger implements IStartup {
 				 */
 				@Override
 				public void postShutdown(IWorkbench workbench) {
+					// nothing to do
 				}
 
 			};

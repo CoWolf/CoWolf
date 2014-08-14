@@ -3,7 +3,7 @@
 package de.uni_stuttgart.iste.cowolf.model.statechart.tests;
 
 import de.uni_stuttgart.iste.cowolf.model.statechart.Guard;
-import de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfFactory;
+import de.uni_stuttgart.iste.cowolf.model.statechart.IStatechartemfFactory;
 
 import junit.framework.TestCase;
 
@@ -72,7 +72,7 @@ public class GuardTest extends TestCase {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(statechartemfFactory.eINSTANCE.createGuard());
+		setFixture(IStatechartemfFactory.eINSTANCE.createGuard());
 	}
 
 	/**

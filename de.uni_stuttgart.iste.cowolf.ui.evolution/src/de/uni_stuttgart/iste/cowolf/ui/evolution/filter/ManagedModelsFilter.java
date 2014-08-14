@@ -27,7 +27,7 @@ public class ManagedModelsFilter extends ViewerFilter {
     /**
      * Extension handler to get managers from.
      */
-    ExtensionHandler handler = new ExtensionHandler();
+    ExtensionHandler handler = ExtensionHandler.getInstance();
 
     @Override
     public boolean select(Viewer viewer, Object parentElement, Object element) {

@@ -18,16 +18,16 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  * <!-- end-user-doc -->
  * @generated
  */
-public class statechartemfFactoryImpl extends EFactoryImpl implements statechartemfFactory {
+public class statechartemfFactoryImpl extends EFactoryImpl implements IStatechartemfFactory {
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static statechartemfFactory init() {
+	public static IStatechartemfFactory init() {
 		try {
-			statechartemfFactory thestatechartemfFactory = (statechartemfFactory)EPackage.Registry.INSTANCE.getEFactory(statechartemfPackage.eNS_URI);
+			IStatechartemfFactory thestatechartemfFactory = (IStatechartemfFactory)EPackage.Registry.INSTANCE.getEFactory(statechartemfPackage.eNS_URI);
 			if (thestatechartemfFactory != null) {
 				return thestatechartemfFactory;
 			}
