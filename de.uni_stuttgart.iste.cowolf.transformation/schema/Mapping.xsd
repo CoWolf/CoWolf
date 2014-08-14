@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.uni-stuttgart.iste.co.wolf.org/TransformationMapping" xmlns:tns="http://www.uni-stuttgart.iste.co.wolf.org/TransformationMapping" elementFormDefault="qualified">
+  <element name="Differences">
+    <complexType>
+      <sequence>
+        <element name="Difference" maxOccurs="unbounded" minOccurs="0">
+          <complexType>
+            <sequence>
+              <element name="Rule">
+                <complexType>
+                  <sequence>
+                    <element name="Params">
+                      <complexType>
+                        <sequence>
+                          <element name="Param" maxOccurs="unbounded" minOccurs="0">
+                            <complexType>
+                              <sequence>
+                                <element type="string" name="Path"/>
+                              </sequence>
+                              <attribute type="string" name="name" use="required"/>
+                            </complexType>
+                          </element>
+                        </sequence>
+                      </complexType>
+                    </element>
+                  </sequence>
+                  <attribute type="string" name="name" use="required"/>
+                </complexType>
+              </element>
+            </sequence>
+            <attribute type="string" name="name" use="required"/>
+          </complexType>
+        </element>
+      </sequence>
+    </complexType>
+  </element>
+</schema>
