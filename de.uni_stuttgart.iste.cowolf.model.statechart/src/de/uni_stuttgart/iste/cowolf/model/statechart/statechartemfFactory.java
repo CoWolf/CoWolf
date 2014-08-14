@@ -12,14 +12,14 @@ import org.eclipse.emf.ecore.EFactory;
  * @see de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage
  * @generated
  */
-public interface IStatechartemfFactory extends EFactory {
+public interface statechartemfFactory extends EFactory {
 	/**
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	IStatechartemfFactory eINSTANCE = de.uni_stuttgart.iste.cowolf.model.statechart.impl.statechartemfFactoryImpl.init();
+	statechartemfFactory eINSTANCE = de.uni_stuttgart.iste.cowolf.model.statechart.impl.statechartemfFactoryImpl.init();
 
 	/**
 	 * Returns a new object of class '<em>Boolean Expression</em>'.
