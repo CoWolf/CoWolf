@@ -2,6 +2,8 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.dtmc.impl;
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.impl.IDBaseImpl;
+
 import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.Root;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.State;
@@ -15,8 +17,6 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -35,7 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class RootImpl extends MinimalEObjectImpl.Container implements Root {
+public class RootImpl extends IDBaseImpl implements Root {
 	/**
 	 * The cached value of the '{@link #getStates() <em>States</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

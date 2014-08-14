@@ -2,9 +2,9 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.dtmc;
 
-import org.eclipse.emf.common.util.EList;
+import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Parameter extends EObject {
+public interface Parameter extends IDBase {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute list.
 	 * The list contents are of type {@link java.lang.String}.

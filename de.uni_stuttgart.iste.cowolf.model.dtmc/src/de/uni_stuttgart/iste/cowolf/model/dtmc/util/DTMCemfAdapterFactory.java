@@ -2,6 +2,8 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.dtmc.util;
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
+
 import de.uni_stuttgart.iste.cowolf.model.dtmc.*;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -84,6 +86,10 @@ public class DTMCemfAdapterFactory extends AdapterFactoryImpl {
 				return createParameterAdapter();
 			}
 			@Override
+			public Adapter caseIDBase(IDBase object) {
+				return createIDBaseAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -156,6 +162,20 @@ public class DTMCemfAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createParameterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase <em>ID Base</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase
+	 * @generated
+	 */
+	public Adapter createIDBaseAdapter() {
 		return null;
 	}
 

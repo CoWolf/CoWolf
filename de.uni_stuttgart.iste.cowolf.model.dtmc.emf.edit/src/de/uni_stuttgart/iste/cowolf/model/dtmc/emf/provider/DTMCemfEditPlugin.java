@@ -2,6 +2,8 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.dtmc.emf.provider;
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.emf.provider.CommonBaseEditPlugin;
+
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -38,6 +40,7 @@ public final class DTMCemfEditPlugin extends EMFPlugin {
 	public DTMCemfEditPlugin() {
 		super
 		  (new ResourceLocator [] {
+		     CommonBaseEditPlugin.INSTANCE,
 		   });
 	}
 
