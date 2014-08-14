@@ -1,13 +1,20 @@
 package de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map.Entry;
 
+import javax.xml.bind.JAXBException;
+
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.henshin.interpreter.EGraph;
 import org.eclipse.emf.henshin.interpreter.UnitApplication;
 import org.eclipse.emf.henshin.interpreter.impl.EGraphImpl;
@@ -18,19 +25,26 @@ import org.eclipse.emf.henshin.model.resource.HenshinResourceSet;
 import org.eclipse.emf.henshin.trace.impl.TraceImpl;
 import org.sidiff.difference.symmetric.SymmetricDifference;
 
-import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.Root;
 import de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine;
-import de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage;
 import de.uni_stuttgart.iste.cowolf.transformation.AbstractTransformationManager;
 import de.uni_stuttgart.iste.cowolf.transformation.TransformationTypeInfo;
+import de.uni_stuttgart.iste.cowolf.transformation.mapping.XMLMappingLoader;
+import de.uni_stuttgart.iste.cowolf.transformation.mapping.xml.Mapping;
 
+/**
+ * 
+ * @author Michael Müller
+ *
+ */
 public class DTMCStatechartTransformationManager
         extends
             AbstractTransformationManager {
 
     private final String HENSHIN_FILE = "henshin";
     private HenshinResourceSet rulesResourceSet;
+    private Resource source;
+    private Resource target;
 
     @Override
     public boolean isManaged(Resource source, Resource target) {
@@ -57,26 +71,39 @@ public class DTMCStatechartTransformationManager
     @Override
     public boolean transform(Resource source, Resource target,
             SymmetricDifference difference) {
-        // TODO maybe not needed
-        // loadModels();
 
-        // fill list of graphs
-        List<EGraph> graphs = new ArrayList<EGraph>();
+        // TODO: load xml file
+        System.out.println("Loading mappings...");
+        Mapping mapping;
+        try {
+            mapping = XMLMappingLoader.loadMapping(this.getMapping());
+            System.out.println("Found " + mapping.getDifference().size()
+                    + " mappings.");
+        } catch (JAXBException e1) {
+            e1.printStackTrace();
+            return false;
+        }
+        System.out.println("Merging graphs");
+        List<EGraph> graphs = new ArrayList<>();
         graphs.add(new EGraphImpl(source));
         graphs.add(new EGraphImpl(target));
-
         EGraph graph = mergeInstanceModels(graphs);
-
+        System.out.println("Finished merging graphs.");
         // TODO get Mapping between rules and params
+
+        System.out.println("Load rules");
         HashMap<String, HashMap<String, Object>> ruleParamsMap = new HashMap<>();
-
+        System.out.println("Run Transformation");
         graph = runTransformation(graph, HENSHIN_FILE, ruleParamsMap);
-
-        save(graph, target, false);
-
-        return false;
+        System.out.println("Save result");
+        try {
+            save(graph, target, false);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
     }
-
     @Override
     public TransformationTypeInfo getTransformationTypeInfo() {
         // TODO Auto-generated method stub
@@ -136,34 +163,6 @@ public class DTMCStatechartTransformationManager
         return application.getEGraph();
     }
 
-    // /**
-    // * registers the provided file extensions at the resource factory registry
-    // * using standard XMIResourceFactoryImpl for each
-    // *
-    // * @param model
-    // * of which the filename extension should be registered
-    // */
-    // private void registerExtension(String model) {
-    //
-    // String extension = model.split(Pattern.quote("."))[1];
-    //
-    // Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(
-    // extension, new XMIResourceFactoryImpl());
-    //
-    // System.out.println("Registered extension: " + extension);
-    // }
-
-    /**
-     * 
-     * Loads the needed models once. This is necessary in order to be able to
-     * access them.
-     * 
-     */
-    private void loadModels() {
-        DTMCemfPackage.eINSTANCE.getName();
-        statechartemfPackage.eINSTANCE.getName();
-    }
-
     /**
      * Merges all provided EGraphs by adding all Root elements to the first
      * Graph.
@@ -194,20 +193,20 @@ public class DTMCStatechartTransformationManager
      *            graph to be saved
      * @param inPlace
      *            overwrite the transformed models or create a new file
+     * @throws IOException
      */
-    public void save(EGraph result, Resource target, boolean inPlace) {
+    public void save(EGraph result, Resource target, boolean inPlace)
+            throws IOException {
         // Save the models.
         System.out.println("Saving models...");
         System.out.println("Number of roots: " + result.getRoots().size());
         int traceCount = 0;
 
-        HenshinResourceSet henshinResourceSet = ((HenshinResourceSet) target
-                .getResourceSet());
+        ResourceSet henshinResourceSet = target.getResourceSet();
 
         // TODO: decide where traces should be stored (source or target model
         // file or separate trace file).
         // TODO: Transformation in place or not?
-        Resource traceModel = henshinResourceSet.createResource("traces.xmi");
         List<EObject> list = result.getRoots();
 
         for (EObject root : list) {
@@ -217,28 +216,25 @@ public class DTMCStatechartTransformationManager
                 traceCount++;
             } else {
                 if (inPlace) {
-                    henshinResourceSet.saveEObject(root, root.eResource()
-                            .getURI());
+                    Resource res = henshinResourceSet.createResource(root
+                            .eResource().getURI());
+                    res.load(null);
+                    res.getContents().clear();
+                    res.getContents().add(root);
+                    res.save(null);
                 } else {
                     // create new filename
                     String fileName = getFileName(root);
-                    henshinResourceSet.saveEObject(root, fileName);
+                    Resource res = henshinResourceSet.createResource(URI
+                            .createURI(fileName));
+                    System.out.println(res.getURI());
+                    res.getContents().add(root);
+                    res.save(null);
                 }
             }
         }
 
-        if (traceCount > 0) {
-            try {
-                traceModel.save(null);
-            } catch (IOException e) {
-                System.out.println("Traces could not be saved!");
-            }
-        }
-
-        System.out.println("Number of traces: " + traceCount);
-
     }
-
     /**
      * 
      * @param root
@@ -246,15 +242,30 @@ public class DTMCStatechartTransformationManager
      * @return FileName
      */
     private String getFileName(EObject root) {
-
-        String fileUri = root.eResource().getURI().toFileString();
+        String fileUri = root.eResource().getURI().toString();
         String extension = fileUri.substring(fileUri.lastIndexOf('.'),
                 fileUri.length());
-        String fileNameNoExtension = fileUri.substring(
-                fileUri.lastIndexOf('/') + 1, fileUri.lastIndexOf('.'));
+        String fileNameNoExtension = fileUri.substring(0,
+                fileUri.lastIndexOf('.'));
 
         return fileNameNoExtension + "_result" + extension;
 
     }
 
+    @Override
+    public InputStream getMapping() {
+        URL url;
+        try {
+            url = new URL(
+                    "platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart/res/dtmcmapping.xml");
+            return url.openStream();
+        } catch (MalformedURLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

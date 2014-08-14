@@ -1,5 +1,7 @@
 package de.uni_stuttgart.iste.cowolf.transformation;
 
+import java.io.InputStream;
+
 import org.eclipse.emf.ecore.resource.Resource;
 import org.sidiff.difference.symmetric.SymmetricDifference;
 
@@ -16,10 +18,17 @@ import org.sidiff.difference.symmetric.SymmetricDifference;
  */
 public abstract class AbstractTransformationManager {
 
-	public abstract boolean isManaged(Resource source, Resource target);
+    public abstract boolean isManaged(Resource source, Resource target);
 
-	public abstract boolean transform(Resource source, Resource target,
-			SymmetricDifference difference);
+    public abstract boolean transform(Resource source, Resource target,
+            SymmetricDifference difference);
 
-	public abstract TransformationTypeInfo getTransformationTypeInfo();
+    public abstract TransformationTypeInfo getTransformationTypeInfo();
+
+    /**
+     * Returns an input stream with the mapping.
+     * 
+     * @return stream containing mapping.
+     */
+    public abstract InputStream getMapping();
 }
