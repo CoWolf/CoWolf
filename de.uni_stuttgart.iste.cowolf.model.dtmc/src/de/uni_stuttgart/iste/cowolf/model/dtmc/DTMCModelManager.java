@@ -42,5 +42,5 @@ public class DTMCModelManager extends AbstractQoSModelManager {
 			return (model.getContents().get(0) instanceof Root);
 
 	}
-
+	
 }

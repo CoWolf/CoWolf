@@ -38,13 +38,15 @@ public class ComponentSelectionWizard extends Wizard {
         this.setWindowTitle("Model Evolution Wizard");
         this.modelA = modelA;
         this.modelB = modelB;
-
     }
+    
     @Override
     public void addPages() {
         this.page = new ComponentSelectionWizardPage(this);
         this.addPage(this.page);
+        //TODO add further pages if necessary
     }
+
 
     @Override
     public boolean performFinish() {

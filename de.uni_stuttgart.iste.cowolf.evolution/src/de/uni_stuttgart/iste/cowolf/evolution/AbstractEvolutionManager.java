@@ -71,6 +71,9 @@ public abstract class AbstractEvolutionManager {
         }
     }
 
+    /**
+     * @return Meta data for the evolution
+     */
     public abstract EvolutionTypeInfo getEvolutionTypeInfo();
 
     /**

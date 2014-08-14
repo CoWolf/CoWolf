@@ -23,7 +23,6 @@ import de.uni_stuttgart.iste.cowolf.model.AbstractQoSModelManager;
 import de.uni_stuttgart.iste.cowolf.ui.model.analyze.AbstractQoSAnalyzeWizard;
 import de.uni_stuttgart.iste.cowolf.ui.model.analyze.AnalyzeWizardHandler;
 import de.uni_stuttgart.iste.cowolf.ui.model.analyze.FileOpenAnalysisListener;
-import de.uni_stuttgart.iste.cowolf.ui.model.dtmc.preference.DTMCPreferencePage;
 
 public class Analyze implements IHandler {
 
@@ -64,7 +63,7 @@ public class Analyze implements IHandler {
 				if (!wizard.checkConditions()) {
 					return null;
 				}
-				properties.put("prismRootPath", DTMCPreferencePage.getPrismPath());
+				
 				if (wizard != null) {
 					//TODO call UI to define Properties
 					wizard.initialize(qosModelManager, resource, properties);
