@@ -6,7 +6,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
-import de.uni_stuttgart.iste.cowolf.transformation.mapping.xml.Mapping;
+import de.uni_stuttgart.iste.cowolf.transformation.mapping.xml.Mappings;
 
 public class XMLMappingLoader {
 
@@ -14,9 +14,9 @@ public class XMLMappingLoader {
 
     }
 
-    public static Mapping loadMapping(InputStream stream) throws JAXBException {
-        JAXBContext context = JAXBContext.newInstance(Mapping.class);
+    public static Mappings loadMapping(InputStream stream) throws JAXBException {
+        JAXBContext context = JAXBContext.newInstance(Mappings.class);
         Unmarshaller unmarshaller = context.createUnmarshaller();
-        return (Mapping) unmarshaller.unmarshal(stream);
+        return (Mappings) unmarshaller.unmarshal(stream);
     }
 }
