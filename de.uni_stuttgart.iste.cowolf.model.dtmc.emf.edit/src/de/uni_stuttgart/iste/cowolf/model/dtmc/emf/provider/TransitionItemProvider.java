@@ -3,6 +3,8 @@
 package de.uni_stuttgart.iste.cowolf.model.dtmc.emf.provider;
 
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.emf.provider.IDBaseItemProvider;
+
 import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.Transition;
 
@@ -17,14 +19,8 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -33,14 +29,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TransitionItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+public class TransitionItemProvider extends IDBaseItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -185,8 +174,10 @@ public class TransitionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Transition transition = (Transition)object;
-		return getString("_UI_Transition_type") + " " + transition.getTransProb();
+		String label = ((Transition)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Transition_type") :
+			getString("_UI_Transition_type") + " " + label;
 	}
 	
 

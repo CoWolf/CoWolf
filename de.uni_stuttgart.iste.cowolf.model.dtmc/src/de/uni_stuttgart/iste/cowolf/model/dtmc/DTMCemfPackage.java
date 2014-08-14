@@ -2,6 +2,8 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.dtmc;
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -68,13 +70,22 @@ public interface DTMCemfPackage extends EPackage {
 	int ROOT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOT__ID = CommonBasePackage.ID_BASE__ID;
+
+	/**
 	 * The feature id for the '<em><b>States</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT__STATES = 0;
+	int ROOT__STATES = CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Transitions</b></em>' containment reference list.
@@ -83,7 +94,7 @@ public interface DTMCemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT__TRANSITIONS = 1;
+	int ROOT__TRANSITIONS = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Root</em>' class.
@@ -92,7 +103,7 @@ public interface DTMCemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT_FEATURE_COUNT = 2;
+	int ROOT_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Root</em>' class.
@@ -101,7 +112,7 @@ public interface DTMCemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT_OPERATION_COUNT = 0;
+	int ROOT_OPERATION_COUNT = CommonBasePackage.ID_BASE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.impl.StateImpl <em>State</em>}' class.
@@ -114,13 +125,22 @@ public interface DTMCemfPackage extends EPackage {
 	int STATE = 1;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATE__ID = CommonBasePackage.ID_BASE__ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATE__NAME = 0;
+	int STATE__NAME = CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Is Start</b></em>' attribute.
@@ -129,7 +149,7 @@ public interface DTMCemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATE__IS_START = 1;
+	int STATE__IS_START = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Is End</b></em>' attribute.
@@ -138,7 +158,7 @@ public interface DTMCemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATE__IS_END = 2;
+	int STATE__IS_END = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Is Fail</b></em>' attribute.
@@ -147,7 +167,7 @@ public interface DTMCemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATE__IS_FAIL = 3;
+	int STATE__IS_FAIL = CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Incoming</b></em>' reference list.
@@ -156,7 +176,7 @@ public interface DTMCemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATE__INCOMING = 4;
+	int STATE__INCOMING = CommonBasePackage.ID_BASE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Out Going</b></em>' reference list.
@@ -165,7 +185,7 @@ public interface DTMCemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATE__OUT_GOING = 5;
+	int STATE__OUT_GOING = CommonBasePackage.ID_BASE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Formal Param</b></em>' reference list.
@@ -174,7 +194,7 @@ public interface DTMCemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATE__FORMAL_PARAM = 6;
+	int STATE__FORMAL_PARAM = CommonBasePackage.ID_BASE_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>State</em>' class.
@@ -183,7 +203,7 @@ public interface DTMCemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATE_FEATURE_COUNT = 7;
+	int STATE_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of operations of the '<em>State</em>' class.
@@ -192,7 +212,7 @@ public interface DTMCemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATE_OPERATION_COUNT = 0;
+	int STATE_OPERATION_COUNT = CommonBasePackage.ID_BASE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.impl.TransitionImpl <em>Transition</em>}' class.
@@ -205,13 +225,22 @@ public interface DTMCemfPackage extends EPackage {
 	int TRANSITION = 2;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION__ID = CommonBasePackage.ID_BASE__ID;
+
+	/**
 	 * The feature id for the '<em><b>Trans Prob</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION__TRANS_PROB = 0;
+	int TRANSITION__TRANS_PROB = CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>To</b></em>' reference.
@@ -220,7 +249,7 @@ public interface DTMCemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION__TO = 1;
+	int TRANSITION__TO = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>From</b></em>' reference.
@@ -229,7 +258,7 @@ public interface DTMCemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION__FROM = 2;
+	int TRANSITION__FROM = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Transition</em>' class.
@@ -238,7 +267,7 @@ public interface DTMCemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION_FEATURE_COUNT = 3;
+	int TRANSITION_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Transition</em>' class.
@@ -247,7 +276,7 @@ public interface DTMCemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION_OPERATION_COUNT = 0;
+	int TRANSITION_OPERATION_COUNT = CommonBasePackage.ID_BASE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.impl.ParameterImpl <em>Parameter</em>}' class.
@@ -260,13 +289,22 @@ public interface DTMCemfPackage extends EPackage {
 	int PARAMETER = 3;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__ID = CommonBasePackage.ID_BASE__ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__NAME = 0;
+	int PARAMETER__NAME = CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute list.
@@ -275,7 +313,7 @@ public interface DTMCemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__TYPE = 1;
+	int PARAMETER__TYPE = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>State</b></em>' reference.
@@ -284,7 +322,7 @@ public interface DTMCemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__STATE = 2;
+	int PARAMETER__STATE = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Parameter</em>' class.
@@ -293,7 +331,7 @@ public interface DTMCemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FEATURE_COUNT = 3;
+	int PARAMETER_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Parameter</em>' class.
@@ -302,7 +340,7 @@ public interface DTMCemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_OPERATION_COUNT = 0;
+	int PARAMETER_OPERATION_COUNT = CommonBasePackage.ID_BASE_OPERATION_COUNT + 0;
 
 
 	/**

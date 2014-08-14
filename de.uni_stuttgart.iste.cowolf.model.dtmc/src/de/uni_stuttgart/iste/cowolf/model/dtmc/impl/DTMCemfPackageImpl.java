@@ -2,16 +2,20 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.dtmc.impl;
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
+
 import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfFactory;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.Parameter;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.Root;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.State;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.Transition;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -94,6 +98,9 @@ public class DTMCemfPackageImpl extends EPackageImpl implements DTMCemfPackage {
 		DTMCemfPackageImpl theDTMCemfPackage = (DTMCemfPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof DTMCemfPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new DTMCemfPackageImpl());
 
 		isInited = true;
+
+		// Initialize simple dependencies
+		CommonBasePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theDTMCemfPackage.createPackageContents();
@@ -356,11 +363,18 @@ public class DTMCemfPackageImpl extends EPackageImpl implements DTMCemfPackage {
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		CommonBasePackage theCommonBasePackage = (CommonBasePackage)EPackage.Registry.INSTANCE.getEPackage(CommonBasePackage.eNS_URI);
+
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		rootEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
+		stateEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
+		transitionEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
+		parameterEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(rootEClass, Root.class, "Root", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

@@ -2,7 +2,7 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.dtmc;
 
-import org.eclipse.emf.ecore.EObject;
+import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Transition extends EObject {
+public interface Transition extends IDBase {
 	/**
 	 * Returns the value of the '<em><b>Trans Prob</b></em>' attribute.
 	 * <!-- begin-user-doc -->
