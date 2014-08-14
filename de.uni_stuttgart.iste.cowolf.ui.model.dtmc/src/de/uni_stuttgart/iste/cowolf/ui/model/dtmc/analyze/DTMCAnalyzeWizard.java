@@ -59,6 +59,7 @@ public class DTMCAnalyzeWizard extends AbstractQoSAnalyzeWizard {
 			JOptionPane.showMessageDialog(null, "Path to PRISM is missing, please add in the preferences!", "Missing Path", JOptionPane.ERROR_MESSAGE);
 			return false;
 		}
+		properties.put("prismRootPath", DTMCPreferencePage.getPrismPath());
 		return true;
 	}
 }
