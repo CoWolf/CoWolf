@@ -64,7 +64,7 @@ public class Analyze implements IHandler {
 				if (!wizard.checkConditions()) {
 					return null;
 				}
-				properties.put("prismRootPath", DTMCPreferencePage.getPrismPath());
+				
 				if (wizard != null) {
 					//TODO call UI to define Properties
 					wizard.initialize(qosModelManager, resource, properties);
