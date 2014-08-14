@@ -34,7 +34,7 @@ public class qosModelManager extends AbstractQoSModelManager {
 	@Override
 	public boolean isManaged(final Resource model) {
 		// TODO check if resource is managed by manager
-		return true;
+		return false;
 
 	}
 

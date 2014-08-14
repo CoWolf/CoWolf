@@ -13,7 +13,7 @@ public class architectureModelManager extends AbstractArchitectureModelManager {
 	@Override
 	public boolean isManaged(Resource model) {
 		// TODO check if model is managed by manager
-		return true;
+		return false;
 	}
 
 	@Override
