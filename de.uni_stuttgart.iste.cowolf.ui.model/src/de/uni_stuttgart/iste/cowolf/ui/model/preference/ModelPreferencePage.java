@@ -21,7 +21,6 @@ public class ModelPreferencePage extends FieldEditorPreferencePage implements
 		// TODO Auto-generated method stub
 		BooleanFieldEditor editor = new BooleanFieldEditor("FOLDER_CREATION",
 				"&Create model folders", BooleanFieldEditor.SEPARATE_LABEL, this.getFieldEditorParent());
-		Activator.getDefault().getPreferenceStore().setValue("FOLDER_CREATION", true);
 		Activator.getDefault().getPreferenceStore().setDefault("FOLDER_CREATION", true);
 		this.addField(editor);
 	}
