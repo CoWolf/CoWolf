@@ -4,10 +4,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 
+import org.eclipse.emf.henshin.model.Rule;
 import org.sidiff.difference.symmetric.SemanticChangeSet;
 import org.sidiff.difference.symmetric.SymmetricDifference;
-
-import de.uni_stuttgart.iste.cowolf.transformation.model.TransformationRule;
 
 public class RuleTransformator {
 
@@ -16,7 +15,7 @@ public class RuleTransformator {
      */
     private SymmetricDifference difference;
 
-    private Map<String, TransformationRule> diffToRule;
+    private Map<String, Rule> diffToRule;
 
     /**
      * 
@@ -26,16 +25,16 @@ public class RuleTransformator {
      *            map to
      */
     public RuleTransformator(SymmetricDifference difference,
-            Map<String, TransformationRule> diffToRule) {
+            Map<String, Rule> diffToRule) {
         this.difference = difference;
         this.diffToRule = diffToRule;
     }
 
-    public List<TransformationRule> doTransformation() {
+    public List<Rule> doTransformation() {
         List<SemanticChangeSet> changeSets = this.difference.getChangeSets();
-        List<TransformationRule> rules = new Vector<>();
+        List<Rule> rules = new Vector<>();
         for (SemanticChangeSet changeSet : changeSets) {
-            TransformationRule rule = this.diffToRule.get(changeSet.getName());
+            Rule rule = this.diffToRule.get(changeSet.getName());
             rules.add(rule);
         }
         return rules;

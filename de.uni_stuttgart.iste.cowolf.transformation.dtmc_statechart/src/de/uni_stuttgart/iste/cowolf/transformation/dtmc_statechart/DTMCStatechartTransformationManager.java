@@ -29,9 +29,9 @@ import de.uni_stuttgart.iste.cowolf.model.dtmc.Root;
 import de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine;
 import de.uni_stuttgart.iste.cowolf.transformation.AbstractTransformationManager;
 import de.uni_stuttgart.iste.cowolf.transformation.TransformationTypeInfo;
-import de.uni_stuttgart.iste.cowolf.transformation.mapping.XMLMappingLoader;
-import de.uni_stuttgart.iste.cowolf.transformation.mapping.xml.Mapping;
-import de.uni_stuttgart.iste.cowolf.transformation.mapping.xml.Mappings;
+import de.uni_stuttgart.iste.cowolf.transformation.model.Mapping;
+import de.uni_stuttgart.iste.cowolf.transformation.model.Mappings;
+import de.uni_stuttgart.iste.cowolf.transformation.model.util.XMLMappingLoader;
 
 /**
  * @author Michael Zimmermann

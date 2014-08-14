@@ -1,4 +1,4 @@
-package de.uni_stuttgart.iste.cowolf.transformation.mapping;
+package de.uni_stuttgart.iste.cowolf.transformation.model.util;
 
 import java.io.InputStream;
 
@@ -6,7 +6,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
-import de.uni_stuttgart.iste.cowolf.transformation.mapping.xml.Mappings;
+import de.uni_stuttgart.iste.cowolf.transformation.model.Mappings;
 
 public class XMLMappingLoader {
 
