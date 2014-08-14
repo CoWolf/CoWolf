@@ -23,7 +23,6 @@ import de.uni_stuttgart.iste.cowolf.model.AbstractQoSModelManager;
 import de.uni_stuttgart.iste.cowolf.ui.model.analyze.AbstractQoSAnalyzeWizard;
 import de.uni_stuttgart.iste.cowolf.ui.model.analyze.AnalyzeWizardHandler;
 import de.uni_stuttgart.iste.cowolf.ui.model.analyze.FileOpenAnalysisListener;
-import de.uni_stuttgart.iste.cowolf.ui.model.dtmc.preference.DTMCPreferencePage;
 
 public class Analyze implements IHandler {
 
