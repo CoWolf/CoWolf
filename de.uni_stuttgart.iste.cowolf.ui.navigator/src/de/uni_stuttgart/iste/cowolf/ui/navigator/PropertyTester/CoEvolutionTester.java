@@ -18,73 +18,73 @@ import de.uni_stuttgart.iste.cowolf.transformation.AbstractTransformationManager
 
 public class CoEvolutionTester extends PropertyTester {
 
-	public CoEvolutionTester() {
-		// TODO Auto-generated constructor stub
-	}
+    public CoEvolutionTester() {
+        // TODO Auto-generated constructor stub
+    }
 
-	@Override
-	public boolean test(Object receiver, String property, Object[] args,
-			Object expectedValue) {
-		ExtensionHandler extensionHandler = ExtensionHandler.getInstance();
-		IWorkbenchWindow window = PlatformUI.getWorkbench()
-				.getActiveWorkbenchWindow();
-		IStructuredSelection selection = (IStructuredSelection) window
-				.getSelectionService().getSelection();
+    @Override
+    public boolean test(Object receiver, String property, Object[] args,
+            Object expectedValue) {
+        ExtensionHandler extensionHandler = ExtensionHandler.getInstance();
 
-		@SuppressWarnings("rawtypes")
-		List list = selection.toList();
-		
-		if (list.size() != 2) {
-			return false;
-		}
-		Object firstElement = list.get(0);
-		Object secondElement = list.get(1);
+        IWorkbenchWindow window = PlatformUI.getWorkbench()
+                .getActiveWorkbenchWindow();
+        if (window == null || window.getSelectionService() == null) {
+            return false;
+        }
+        if (!(window.getSelectionService().getSelection() instanceof IStructuredSelection)) {
+            return false;
+        }
+        IStructuredSelection selection = (IStructuredSelection) window
+                .getSelectionService().getSelection();
 
-		// catch exceptions from wrong parsing as we can only recognize IFiles
-		try {
-			// file then try to parse
-			if (firstElement instanceof IFile && secondElement instanceof IFile) {
-				IFile firstIFile = (IFile) firstElement;
-				IFile secondIFile = (IFile) secondElement;
+        @SuppressWarnings("rawtypes")
+        List list = selection.toList();
 
-				File firstFile = firstIFile.getLocation().toFile();
-				File secondFile = secondIFile.getLocation().toFile();
+        // TODO: really 2?
+        if (list.size() != 2) {
+            return false;
+        }
+        Object firstElement = list.get(0);
+        Object secondElement = list.get(1);
 
-				ResourceSet resourceSet = new ResourceSetImpl();
-				Resource firstResource;
-				Resource secondResource;
+        // catch exceptions from wrong parsing as we can only recognize IFiles
+        try {
+            // file then try to parse
+            if (firstElement instanceof IFile && secondElement instanceof IFile) {
+                IFile firstIFile = (IFile) firstElement;
+                IFile secondIFile = (IFile) secondElement;
 
-				URI firstUri = URI.createPlatformResourceURI(firstIFile
-						.getFullPath().toString(), true);
-				URI secondUri = URI.createPlatformResourceURI(secondIFile
-						.getFullPath().toString(), true);
+                File firstFile = firstIFile.getLocation().toFile();
+                File secondFile = secondIFile.getLocation().toFile();
 
-				if (!firstFile.exists() || !secondFile.exists()) {
-					return false;
-				}
+                ResourceSet resourceSet = new ResourceSetImpl();
+                Resource firstResource;
+                Resource secondResource;
 
-				firstResource = resourceSet.getResource(firstUri, true);
-				secondResource = resourceSet.getResource(secondUri, true);
+                URI firstUri = URI.createPlatformResourceURI(firstIFile
+                        .getFullPath().toString(), true);
+                URI secondUri = URI.createPlatformResourceURI(secondIFile
+                        .getFullPath().toString(), true);
 
-				AbstractTransformationManager modelManager1 = extensionHandler
-						.getTransformationManager(firstResource, secondResource);
-				AbstractTransformationManager modelManager2 = extensionHandler
-						.getTransformationManager(secondResource, firstResource);
+                if (!firstFile.exists() || !secondFile.exists()) {
+                    return false;
+                }
 
-				// must find at least one model manager
-				if (modelManager1 != null || modelManager2 != null) {
-					return true;
-				} else {
-					return false;
-				}
-			} else {
-				// no file -> cannot open
-				return false;
-			}
+                firstResource = resourceSet.getResource(firstUri, true);
+                secondResource = resourceSet.getResource(secondUri, true);
 
-		} catch (Exception e) {
-			return false;
-		}
-	}
+                AbstractTransformationManager transformationManager = extensionHandler
+                        .getTransformationManager(firstResource, secondResource);
+                return transformationManager != null;
+            } else {
+                // no file -> cannot open
+                return false;
+            }
+
+        } catch (Exception e) {
+            return false;
+        }
+    }
 
 }
