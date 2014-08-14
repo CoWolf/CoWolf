@@ -31,7 +31,7 @@ public class StatechartModelManager extends AbstractArchitectureModelManager {
 		for (EObject theEObject : model.getContents()) {
 			// check if the current eobject is part of the allowed classes list
 			boolean match = false;
-			for (Class theEClass : this.getModelTypeInfo().PROPER_CONTENTS) {
+			for (Class<?> theEClass : this.getModelTypeInfo().PROPER_CONTENTS) {
 				if (theEObject.getClass() == theEClass) {
 					match = true;
 				}

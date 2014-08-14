@@ -5,6 +5,8 @@ import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchListener;
 import org.eclipse.ui.PlatformUI;
 
+import de.uni_stuttgart.iste.cowolf.core.ModelAssociationManager.ModelAssociationManager;
+
 
 /**
  * This trigger is executed at the very start of eclipse. You can add necessary
