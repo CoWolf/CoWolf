@@ -162,7 +162,6 @@ public class ComponentSelectionWizardPage extends WizardPage {
 			public void widgetSelected(SelectionEvent e) {
 
 				List<ViewerFilter> filters = new ArrayList<ViewerFilter>();
-				System.out.println("++++"+ wizard.getModelA().getProject().getName());
 				filters.add(new WorkspaceResourceDialogFilter(wizard.getModelA().getProject().getName()));
 				IFile[] files = WorkspaceResourceDialog.openFileSelection(
 						shell, "Choose model file", "Choose model file", true,

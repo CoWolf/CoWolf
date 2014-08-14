@@ -45,41 +45,37 @@ public class WorkspaceResourceDialogFilter extends ViewerFilter {
 
 	@Override
 	public boolean select(Viewer viewer, Object parentElement, Object element) {
-		//System.out.println(element instanceof IFile);
-System.out.println(element.getClass());
-	
-		if (element instanceof IFolder) {
 
-			IFolder folder = (IFolder) element;
-
-			System.out.println("----" + folder.getProject().getName());
-
-			if (folder.getProject().getName().equals(PROJECT_NAME)
-					&& !folder.isHidden()) {
+		if (element instanceof IProject) {
+			
+			IProject project = (IProject) element;
+			
+			if (project.getName().equals(PROJECT_NAME)) {
 				return true;
 			}
-
-		}
-
-		if (element instanceof IFile) {
-
+			
+		} else if (element instanceof IFolder) {
+			
+			IFolder folder = (IFolder) element;
+			
+			if (!folder.isHidden()) {	
+				return true;
+			}	
+			
+		} else if (element instanceof IFile) {
+			
 			IFile file = (IFile) element;
-
-			System.out.println("----+" + file.getProject().getName());
-
-			if (file.getProject().getName().equals(PROJECT_NAME)
-					&& !file.isHidden()) {
-
+			
+			if (!file.isHidden()) {
+				
 				Resource fileResource = ResourceUtil.getResourceOfIFile(file);
 				return extensionHandler.getEvolutionManager(fileResource) != null;
-
+				
 			}
-
+			
 		}
 		
-		
-
-		return true;
+		return false;
 
 	}
 }
