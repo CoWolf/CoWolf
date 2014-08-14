@@ -14,6 +14,7 @@ import org.eclipse.ui.PlatformUI;
 
 import de.uni_stuttgart.iste.cowolf.core.extensions.ExtensionHandler;
 import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
+import de.uni_stuttgart.iste.cowolf.ui.evolution.util.ResourceUtil;
 
 /**
  * 
@@ -44,14 +45,15 @@ public class EvolutionTester extends PropertyTester {
 		IStructuredSelection selection = (IStructuredSelection) window
 				.getSelectionService().getSelection();
 
-		if (selection == null) {
+		if (!(selection instanceof IStructuredSelection) || selection == null) {
 			return false;
 		}
+		
 		List<?> list = selection.toList();
 		if (list.size() == 1) {
 			Object firstElement = list.get(0);
 			if (firstElement instanceof IFile) {
-				Resource firstElementResource = getResourceOfIFile((IFile) firstElement);
+				Resource firstElementResource = ResourceUtil.getResourceOfIFile((IFile) firstElement);
 				return extensionHandler
 						.getEvolutionManager(firstElementResource) != null;
 			}
@@ -63,8 +65,17 @@ public class EvolutionTester extends PropertyTester {
 
 			if (firstElement instanceof IFile && secondElement instanceof IFile) {
 
-				return isEvolutionPossible((IFile) firstElement,
-						(IFile) secondElement);
+				IFile firstElementIFile = (IFile) firstElement;
+				IFile secondElementIFile = (IFile) secondElement;
+
+				// no evolution of models in different projects
+				if (firstElementIFile.getProject().getName()
+						.equals(secondElementIFile.getProject().getName())) {
+
+					return isEvolutionPossible(firstElementIFile,
+							secondElementIFile);
+
+				}
 
 			}
 
@@ -85,8 +96,8 @@ public class EvolutionTester extends PropertyTester {
 			return false;
 		}
 
-		Resource oldModelResource = getResourceOfIFile(oldModel);
-		Resource newModelResource = getResourceOfIFile(newModel);
+		Resource oldModelResource = ResourceUtil.getResourceOfIFile(oldModel);
+		Resource newModelResource = ResourceUtil.getResourceOfIFile(newModel);
 
 		// both selected models are of the same type if the returned
 		// evolution managers are equal
@@ -103,12 +114,5 @@ public class EvolutionTester extends PropertyTester {
 		return false;
 	}
 
-	public Resource getResourceOfIFile(IFile model) {
-		URI uri = URI.createPlatformResourceURI(model.getFullPath().toString(),
-				true);
-		ResourceSet resourceSet = new ResourceSetImpl();
-		Resource modelResource = resourceSet.getResource(uri, true);
-		return modelResource;
-	}
 
 }

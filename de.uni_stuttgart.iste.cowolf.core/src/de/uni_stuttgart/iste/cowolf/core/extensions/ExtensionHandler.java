@@ -62,8 +62,10 @@ public class ExtensionHandler {
 	private List<AbstractTransformationManager> transformationManagers;
 
 
-	private static ExtensionHandler instance = null;
-
+	/**
+	 * Singleton
+	 */
+	private static final ExtensionHandler INSTANCE = new ExtensionHandler();
 
 
 	/**
@@ -74,10 +76,7 @@ public class ExtensionHandler {
 	}
 
 	public static ExtensionHandler getInstance() {
-		if (instance == null) {
-			instance = new ExtensionHandler();
-		}
-		return instance;
+		 return INSTANCE;
 	}
 
 	/**

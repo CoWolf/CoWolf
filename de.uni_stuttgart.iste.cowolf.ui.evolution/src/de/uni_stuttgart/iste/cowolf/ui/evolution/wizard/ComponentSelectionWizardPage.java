@@ -1,5 +1,6 @@
 package de.uni_stuttgart.iste.cowolf.ui.evolution.wizard;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
@@ -20,7 +21,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 
-import de.uni_stuttgart.iste.cowolf.ui.evolution.filter.ManagedModelsFilter;
+import de.uni_stuttgart.iste.cowolf.ui.evolution.filter.WorkspaceResourceDialogFilter;
 import de.uni_stuttgart.iste.cowolf.ui.evolution.properties.EvolutionTester;
 
 /**
@@ -28,7 +29,7 @@ import de.uni_stuttgart.iste.cowolf.ui.evolution.properties.EvolutionTester;
  * direction.
  *
  * @author Michael Müller
- *
+ * @author Rene Trefft
  */
 public class ComponentSelectionWizardPage extends WizardPage {
 
@@ -160,8 +161,9 @@ public class ComponentSelectionWizardPage extends WizardPage {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 
-				List<ViewerFilter> filters = new Vector<>();
-				filters.add(new ManagedModelsFilter());
+				List<ViewerFilter> filters = new ArrayList<ViewerFilter>();
+				System.out.println("++++"+ wizard.getModelA().getProject().getName());
+				filters.add(new WorkspaceResourceDialogFilter(wizard.getModelA().getProject().getName()));
 				IFile[] files = WorkspaceResourceDialog.openFileSelection(
 						shell, "Choose model file", "Choose model file", true,
 						null, filters);

@@ -7,6 +7,7 @@ import org.eclipse.jface.wizard.Wizard;
  * This wizard allows the user to select the two models to use for evolution.
  * 
  * @author Michael Müller
+ * @author Rene Trefft
  */
 public class ComponentSelectionWizard extends Wizard {
 

@@ -26,6 +26,7 @@ import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
 import de.uni_stuttgart.iste.cowolf.evolution.EvolutionException;
 import de.uni_stuttgart.iste.cowolf.ui.evolution.DifferencesView;
 import de.uni_stuttgart.iste.cowolf.ui.evolution.properties.EvolutionTester;
+import de.uni_stuttgart.iste.cowolf.ui.evolution.util.ResourceUtil;
 import de.uni_stuttgart.iste.cowolf.ui.evolution.wizard.ComponentSelectionWizard;
 
 /**
@@ -62,13 +63,13 @@ public class Evolve extends AbstractHandler {
         }
         final Resource firstModel;
         final Resource secondModel;
-        EvolutionTester tester = new EvolutionTester();
+        
         if (modelWizard.isFirstModelSelected()) {
-            firstModel = tester.getResourceOfIFile(modelWizard.getModelA());
-            secondModel = tester.getResourceOfIFile(modelWizard.getModelB());
+            firstModel = ResourceUtil.getResourceOfIFile(modelWizard.getModelA());
+            secondModel = ResourceUtil.getResourceOfIFile(modelWizard.getModelB());
         } else {
-            firstModel = tester.getResourceOfIFile(modelWizard.getModelB());
-            secondModel = tester.getResourceOfIFile(modelWizard.getModelA());
+            firstModel = ResourceUtil.getResourceOfIFile(modelWizard.getModelB());
+            secondModel = ResourceUtil.getResourceOfIFile(modelWizard.getModelA());
         }
         final IFile element = firstElement;
         Job job = new Job("Model Evolution") {
