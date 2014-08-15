@@ -3,12 +3,9 @@
 package de.uni_stuttgart.iste.cowolf.model.statechart.util;
 
 import de.uni_stuttgart.iste.cowolf.model.statechart.*;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -98,6 +95,14 @@ public class statechartemfAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseEvent(Event object) {
 				return createEventAdapter();
+			}
+			@Override
+			public Adapter caseIDBase(de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase object) {
+				return createIDBaseAdapter();
+			}
+			@Override
+			public Adapter caseNameBase(de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase object) {
+				return createNameBaseAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -228,6 +233,34 @@ public class statechartemfAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEventAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase <em>ID Base</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase
+	 * @generated
+	 */
+	public Adapter createIDBaseAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase <em>Name Base</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase
+	 * @generated
+	 */
+	public Adapter createNameBaseAdapter() {
 		return null;
 	}
 

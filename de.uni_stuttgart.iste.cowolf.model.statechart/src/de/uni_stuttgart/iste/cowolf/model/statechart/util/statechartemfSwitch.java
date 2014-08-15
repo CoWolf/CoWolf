@@ -3,10 +3,8 @@
 package de.uni_stuttgart.iste.cowolf.model.statechart.util;
 
 import de.uni_stuttgart.iste.cowolf.model.statechart.*;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
 
 /**
@@ -69,12 +67,16 @@ public class statechartemfSwitch<T> extends Switch<T> {
 			case statechartemfPackage.BOOLEAN_EXPRESSION: {
 				BooleanExpression booleanExpression = (BooleanExpression)theEObject;
 				T result = caseBooleanExpression(booleanExpression);
+				if (result == null) result = caseIDBase(booleanExpression);
+				if (result == null) result = caseNameBase(booleanExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case statechartemfPackage.STATE_MACHINE: {
 				StateMachine stateMachine = (StateMachine)theEObject;
 				T result = caseStateMachine(stateMachine);
+				if (result == null) result = caseIDBase(stateMachine);
+				if (result == null) result = caseNameBase(stateMachine);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -82,6 +84,8 @@ public class statechartemfSwitch<T> extends Switch<T> {
 				State state = (State)theEObject;
 				T result = caseState(state);
 				if (result == null) result = caseStateVertex(state);
+				if (result == null) result = caseIDBase(state);
+				if (result == null) result = caseNameBase(state);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -90,30 +94,40 @@ public class statechartemfSwitch<T> extends Switch<T> {
 				T result = caseCompositeState(compositeState);
 				if (result == null) result = caseState(compositeState);
 				if (result == null) result = caseStateVertex(compositeState);
+				if (result == null) result = caseIDBase(compositeState);
+				if (result == null) result = caseNameBase(compositeState);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case statechartemfPackage.TRANSITION: {
 				Transition transition = (Transition)theEObject;
 				T result = caseTransition(transition);
+				if (result == null) result = caseIDBase(transition);
+				if (result == null) result = caseNameBase(transition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case statechartemfPackage.STATE_VERTEX: {
 				StateVertex stateVertex = (StateVertex)theEObject;
 				T result = caseStateVertex(stateVertex);
+				if (result == null) result = caseIDBase(stateVertex);
+				if (result == null) result = caseNameBase(stateVertex);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case statechartemfPackage.GUARD: {
 				Guard guard = (Guard)theEObject;
 				T result = caseGuard(guard);
+				if (result == null) result = caseIDBase(guard);
+				if (result == null) result = caseNameBase(guard);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case statechartemfPackage.EVENT: {
 				Event event = (Event)theEObject;
 				T result = caseEvent(event);
+				if (result == null) result = caseIDBase(event);
+				if (result == null) result = caseNameBase(event);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -238,6 +252,36 @@ public class statechartemfSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseEvent(Event object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>ID Base</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>ID Base</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIDBase(de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Name Base</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Name Base</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNameBase(de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase object) {
 		return null;
 	}
 

@@ -94,6 +94,44 @@ public interface CommonBasePackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.commonBase.impl.NameBaseImpl <em>Name Base</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uni_stuttgart.iste.cowolf.model.commonBase.impl.NameBaseImpl
+	 * @see de.uni_stuttgart.iste.cowolf.model.commonBase.impl.CommonBasePackageImpl#getNameBase()
+	 * @generated
+	 */
+	int NAME_BASE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAME_BASE__NAME = 0;
+
+	/**
+	 * The number of structural features of the '<em>Name Base</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAME_BASE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Name Base</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAME_BASE_OPERATION_COUNT = 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase <em>ID Base</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -113,6 +151,27 @@ public interface CommonBasePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getIDBase_Id();
+
+	/**
+	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase <em>Name Base</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Name Base</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase
+	 * @generated
+	 */
+	EClass getNameBase();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase#getName()
+	 * @see #getNameBase()
+	 * @generated
+	 */
+	EAttribute getNameBase_Name();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -154,6 +213,24 @@ public interface CommonBasePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ID_BASE__ID = eINSTANCE.getIDBase_Id();
+
+		/**
+		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.commonBase.impl.NameBaseImpl <em>Name Base</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uni_stuttgart.iste.cowolf.model.commonBase.impl.NameBaseImpl
+		 * @see de.uni_stuttgart.iste.cowolf.model.commonBase.impl.CommonBasePackageImpl#getNameBase()
+		 * @generated
+		 */
+		EClass NAME_BASE = eINSTANCE.getNameBase();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NAME_BASE__NAME = eINSTANCE.getNameBase_Name();
 
 	}
 

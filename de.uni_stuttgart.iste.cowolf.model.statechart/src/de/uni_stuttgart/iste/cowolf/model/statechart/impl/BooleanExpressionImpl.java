@@ -4,13 +4,9 @@ package de.uni_stuttgart.iste.cowolf.model.statechart.impl;
 
 import de.uni_stuttgart.iste.cowolf.model.statechart.BooleanExpression;
 import de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,13 +15,34 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.BooleanExpressionImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.BooleanExpressionImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class BooleanExpressionImpl extends MinimalEObjectImpl.Container implements BooleanExpression {
+public class BooleanExpressionImpl extends de.uni_stuttgart.iste.cowolf.model.commonBase.impl.IDBaseImpl implements BooleanExpression {
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -70,6 +87,27 @@ public class BooleanExpressionImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, statechartemfPackage.BOOLEAN_EXPRESSION__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getValue() {
 		return value;
 	}
@@ -94,6 +132,8 @@ public class BooleanExpressionImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case statechartemfPackage.BOOLEAN_EXPRESSION__NAME:
+				return getName();
 			case statechartemfPackage.BOOLEAN_EXPRESSION__VALUE:
 				return getValue();
 		}
@@ -108,6 +148,9 @@ public class BooleanExpressionImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case statechartemfPackage.BOOLEAN_EXPRESSION__NAME:
+				setName((String)newValue);
+				return;
 			case statechartemfPackage.BOOLEAN_EXPRESSION__VALUE:
 				setValue((String)newValue);
 				return;
@@ -123,6 +166,9 @@ public class BooleanExpressionImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case statechartemfPackage.BOOLEAN_EXPRESSION__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 			case statechartemfPackage.BOOLEAN_EXPRESSION__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
@@ -138,6 +184,8 @@ public class BooleanExpressionImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case statechartemfPackage.BOOLEAN_EXPRESSION__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case statechartemfPackage.BOOLEAN_EXPRESSION__VALUE:
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
@@ -150,11 +198,45 @@ public class BooleanExpressionImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase.class) {
+			switch (derivedFeatureID) {
+				case statechartemfPackage.BOOLEAN_EXPRESSION__NAME: return de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.NAME_BASE__NAME;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase.class) {
+			switch (baseFeatureID) {
+				case de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.NAME_BASE__NAME: return statechartemfPackage.BOOLEAN_EXPRESSION__NAME;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (value: ");
+		result.append(" (name: ");
+		result.append(name);
+		result.append(", value: ");
 		result.append(value);
 		result.append(')');
 		return result.toString();

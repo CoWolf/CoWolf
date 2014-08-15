@@ -2,6 +2,7 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.statechart.emf.presentation;
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.emf.provider.CommonBaseEditPlugin;
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
@@ -40,6 +41,7 @@ public final class StatechartEditorPlugin extends EMFPlugin {
 	public StatechartEditorPlugin() {
 		super
 			(new ResourceLocator [] {
+				CommonBaseEditPlugin.INSTANCE,
 			});
 	}
 

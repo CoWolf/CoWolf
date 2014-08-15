@@ -7,10 +7,10 @@ This can be disabled with -vmargs -Dorg.eclipse.emf.examples.generator.validator
 
 Package statechart <http://Statechart/1.0>
 
-  Class BooleanExpression
+  Class BooleanExpression -> IDBase, NameBase
     Attribute value : EString<<1..1>>
 
-  Class StateMachine
+  Class StateMachine -> IDBase, NameBase
     Reference transitions : Transition<<0..*>>
     Reference top : State<<0..*>>
 
@@ -23,7 +23,7 @@ Package statechart <http://Statechart/1.0>
     Reference subVertexes : StateVertex<<0..*>>
     Attribute isConcurrent : EBoolean<<1..1>>
 
-  Class Transition
+  Class Transition -> IDBase, NameBase
     Reference transSM_container : StateMachine
     Reference transS_container : State
     Reference trigger : Event
@@ -31,16 +31,15 @@ Package statechart <http://Statechart/1.0>
     Reference source : StateVertex<<1..1>>
     Reference target : StateVertex<<1..1>>
 
-  Class StateVertex
+  Class StateVertex -> IDBase, NameBase
     Reference sv_container : CompositeState
     Reference outgoing : Transition<<0..*>>
     Reference incoming : Transition<<0..*>>
-    Attribute id : EString<<1..1>>
 
-  Class Guard
+  Class Guard -> IDBase, NameBase
     Reference gua_container : Transition<<1..1>>
     Reference expression : BooleanExpression<<1..1>>
 
-  Class Event
+  Class Event -> IDBase, NameBase
     Reference evt_container : Transition<<0..*>>
     Reference targets : State<<0..*>>

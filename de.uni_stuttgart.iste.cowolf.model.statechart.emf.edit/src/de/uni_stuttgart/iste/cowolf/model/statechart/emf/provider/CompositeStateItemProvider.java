@@ -124,7 +124,7 @@ public class CompositeStateItemProvider extends StateItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((CompositeState)object).getId();
+		String label = ((CompositeState)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_CompositeState_type") :
 			getString("_UI_CompositeState_type") + " " + label;

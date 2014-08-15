@@ -12,12 +12,10 @@ import de.uni_stuttgart.iste.cowolf.model.statechart.StateVertex;
 import de.uni_stuttgart.iste.cowolf.model.statechart.Transition;
 import de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfFactory;
 import de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -128,6 +126,9 @@ public class statechartemfPackageImpl extends EPackageImpl implements statechart
 		statechartemfPackageImpl thestatechartemfPackage = (statechartemfPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof statechartemfPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new statechartemfPackageImpl());
 
 		isInited = true;
+
+		// Initialize simple dependencies
+		de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		thestatechartemfPackage.createPackageContents();
@@ -356,15 +357,6 @@ public class statechartemfPackageImpl extends EPackageImpl implements statechart
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getStateVertex_Id() {
-		return (EAttribute)stateVertexEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getGuard() {
 		return guardEClass;
 	}
@@ -470,7 +462,6 @@ public class statechartemfPackageImpl extends EPackageImpl implements statechart
 		createEReference(stateVertexEClass, STATE_VERTEX__SV_CONTAINER);
 		createEReference(stateVertexEClass, STATE_VERTEX__OUTGOING);
 		createEReference(stateVertexEClass, STATE_VERTEX__INCOMING);
-		createEAttribute(stateVertexEClass, STATE_VERTEX__ID);
 
 		guardEClass = createEClass(GUARD);
 		createEReference(guardEClass, GUARD__GUA_CONTAINER);
@@ -504,13 +495,28 @@ public class statechartemfPackageImpl extends EPackageImpl implements statechart
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage theCommonBasePackage = (de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage)EPackage.Registry.INSTANCE.getEPackage(de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.eNS_URI);
+
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		booleanExpressionEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
+		booleanExpressionEClass.getESuperTypes().add(theCommonBasePackage.getNameBase());
+		stateMachineEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
+		stateMachineEClass.getESuperTypes().add(theCommonBasePackage.getNameBase());
 		stateEClass.getESuperTypes().add(this.getStateVertex());
 		compositeStateEClass.getESuperTypes().add(this.getState());
+		transitionEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
+		transitionEClass.getESuperTypes().add(theCommonBasePackage.getNameBase());
+		stateVertexEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
+		stateVertexEClass.getESuperTypes().add(theCommonBasePackage.getNameBase());
+		guardEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
+		guardEClass.getESuperTypes().add(theCommonBasePackage.getNameBase());
+		eventEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
+		eventEClass.getESuperTypes().add(theCommonBasePackage.getNameBase());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(booleanExpressionEClass, BooleanExpression.class, "BooleanExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -541,7 +547,6 @@ public class statechartemfPackageImpl extends EPackageImpl implements statechart
 		initEReference(getStateVertex_Sv_container(), this.getCompositeState(), this.getCompositeState_SubVertexes(), "sv_container", null, 0, 1, StateVertex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getStateVertex_Outgoing(), this.getTransition(), this.getTransition_Source(), "outgoing", null, 0, -1, StateVertex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getStateVertex_Incoming(), this.getTransition(), this.getTransition_Target(), "incoming", null, 0, -1, StateVertex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getStateVertex_Id(), ecorePackage.getEString(), "id", null, 1, 1, StateVertex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(guardEClass, Guard.class, "Guard", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGuard_Gua_container(), this.getTransition(), this.getTransition_Guard(), "gua_container", null, 1, 1, Guard.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -553,27 +558,6 @@ public class statechartemfPackageImpl extends EPackageImpl implements statechart
 
 		// Create resource
 		createResource(eNS_URI);
-
-		// Create annotations
-		// ExtendedMetaData
-		createExtendedMetaDataAnnotations();
-	}
-
-	/**
-	 * Initializes the annotations for <b>ExtendedMetaData</b>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void createExtendedMetaDataAnnotations() {
-		String source = "ExtendedMetaData";	
-		addAnnotation
-		  (getStateVertex_Id(), 
-		   source, 
-		   new String[] {
-			 "name", "id",
-			 "namespace", "http://sdq.ipd.uka.de/Indentifier/1.0"
-		   });
 	}
 
 } //statechartemfPackageImpl
