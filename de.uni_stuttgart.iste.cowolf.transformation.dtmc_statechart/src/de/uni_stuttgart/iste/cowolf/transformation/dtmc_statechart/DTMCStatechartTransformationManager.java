@@ -104,6 +104,7 @@ public class DTMCStatechartTransformationManager
         // Load rules from files in folder
         System.out.println("Load henshin rules");
         this.units = this.getHenshinRules();
+        System.out.println("Number of henshin rules:" + this.units.size());
 
         System.out.println("Merging graphs");
         List<EGraph> graphs = new ArrayList<>();
@@ -115,14 +116,15 @@ public class DTMCStatechartTransformationManager
         if (difference != null) {
             System.out.println("Run Transformation");
             graph = runTransformation(graph, HENSHIN_FOLDER, difference);
+            System.out.println("Save result");
+            try {
+                save(graph, target, false);
+            } catch (IOException e) {
+                e.printStackTrace();
+                return false;
+            }
         } else {
             System.out.println("Difference is null");
-        }
-        System.out.println("Save result");
-        try {
-            save(graph, target, false);
-        } catch (IOException e) {
-            e.printStackTrace();
             return false;
         }
         return true;
