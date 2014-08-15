@@ -70,8 +70,8 @@ public class DTMCemfAdapterFactory extends AdapterFactoryImpl {
 	protected DTMCemfSwitch<Adapter> modelSwitch =
 		new DTMCemfSwitch<Adapter>() {
 			@Override
-			public Adapter caseRoot(Root object) {
-				return createRootAdapter();
+			public Adapter caseDTMC(DTMC object) {
+				return createDTMCAdapter();
 			}
 			@Override
 			public Adapter caseState(State object) {
@@ -82,8 +82,8 @@ public class DTMCemfAdapterFactory extends AdapterFactoryImpl {
 				return createTransitionAdapter();
 			}
 			@Override
-			public Adapter caseParameter(Parameter object) {
-				return createParameterAdapter();
+			public Adapter caseLabel(Label object) {
+				return createLabelAdapter();
 			}
 			@Override
 			public Adapter caseIDBase(IDBase object) {
@@ -110,16 +110,16 @@ public class DTMCemfAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.Root <em>Root</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC <em>DTMC</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.Root
+	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC
 	 * @generated
 	 */
-	public Adapter createRootAdapter() {
+	public Adapter createDTMCAdapter() {
 		return null;
 	}
 
@@ -152,16 +152,16 @@ public class DTMCemfAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.Parameter <em>Parameter</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.Label <em>Label</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.Parameter
+	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.Label
 	 * @generated
 	 */
-	public Adapter createParameterAdapter() {
+	public Adapter createLabelAdapter() {
 		return null;
 	}
 

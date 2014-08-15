@@ -5,9 +5,9 @@ package de.uni_stuttgart.iste.cowolf.model.dtmc.emf.provider;
 
 import de.uni_stuttgart.iste.cowolf.model.commonBase.emf.provider.IDBaseItemProvider;
 
+import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfFactory;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage;
-import de.uni_stuttgart.iste.cowolf.model.dtmc.Root;
 
 import java.util.Collection;
 import java.util.List;
@@ -19,23 +19,25 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.uni_stuttgart.iste.cowolf.model.dtmc.Root} object.
+ * This is the item provider adapter for a {@link de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class RootItemProvider extends IDBaseItemProvider {
+public class DTMCItemProvider extends IDBaseItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RootItemProvider(AdapterFactory adapterFactory) {
+	public DTMCItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -50,8 +52,54 @@ public class RootItemProvider extends IDBaseItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addNamePropertyDescriptor(object);
+			addInitialStatePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DTMC_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DTMC_name_feature", "_UI_DTMC_type"),
+				 DTMCemfPackage.Literals.DTMC__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Initial State feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addInitialStatePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DTMC_initialState_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DTMC_initialState_feature", "_UI_DTMC_type"),
+				 DTMCemfPackage.Literals.DTMC__INITIAL_STATE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -66,8 +114,8 @@ public class RootItemProvider extends IDBaseItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(DTMCemfPackage.Literals.ROOT__STATES);
-			childrenFeatures.add(DTMCemfPackage.Literals.ROOT__TRANSITIONS);
+			childrenFeatures.add(DTMCemfPackage.Literals.DTMC__STATES);
+			childrenFeatures.add(DTMCemfPackage.Literals.DTMC__TRANSITIONS);
 		}
 		return childrenFeatures;
 	}
@@ -86,14 +134,14 @@ public class RootItemProvider extends IDBaseItemProvider {
 	}
 
 	/**
-	 * This returns Root.gif.
+	 * This returns DTMC.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Root"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/DTMC"));
 	}
 
 	/**
@@ -104,10 +152,10 @@ public class RootItemProvider extends IDBaseItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Root)object).getId();
+		String label = ((DTMC)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Root_type") :
-			getString("_UI_Root_type") + " " + label;
+			getString("_UI_DTMC_type") :
+			getString("_UI_DTMC_type") + " " + label;
 	}
 	
 
@@ -122,9 +170,12 @@ public class RootItemProvider extends IDBaseItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Root.class)) {
-			case DTMCemfPackage.ROOT__STATES:
-			case DTMCemfPackage.ROOT__TRANSITIONS:
+		switch (notification.getFeatureID(DTMC.class)) {
+			case DTMCemfPackage.DTMC__NAME:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case DTMCemfPackage.DTMC__STATES:
+			case DTMCemfPackage.DTMC__TRANSITIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -144,12 +195,12 @@ public class RootItemProvider extends IDBaseItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DTMCemfPackage.Literals.ROOT__STATES,
+				(DTMCemfPackage.Literals.DTMC__STATES,
 				 DTMCemfFactory.eINSTANCE.createState()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DTMCemfPackage.Literals.ROOT__TRANSITIONS,
+				(DTMCemfPackage.Literals.DTMC__TRANSITIONS,
 				 DTMCemfFactory.eINSTANCE.createTransition()));
 	}
 

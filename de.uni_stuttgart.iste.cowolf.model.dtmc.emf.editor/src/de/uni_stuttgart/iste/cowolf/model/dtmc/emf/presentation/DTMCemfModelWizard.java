@@ -183,7 +183,7 @@ public class DTMCemfModelWizard extends Wizard implements INewWizard {
 	 * Returns the names of the types that can be created as the root object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected Collection<String> getInitialObjectNames() {
 		if (initialObjectNames == null) {
@@ -191,7 +191,7 @@ public class DTMCemfModelWizard extends Wizard implements INewWizard {
 			for (EClassifier eClassifier : dtmCemfPackage.getEClassifiers()) {
 				if (eClassifier instanceof EClass) {
 					EClass eClass = (EClass)eClassifier;
-					if (!eClass.isAbstract()) {
+					if (!eClass.isAbstract() && eClass.getName().equalsIgnoreCase("DTMC")) {
 						initialObjectNames.add(eClass.getName());
 					}
 				}
@@ -395,8 +395,7 @@ public class DTMCemfModelWizard extends Wizard implements INewWizard {
 		 * @generated
 		 */
 		public void createControl(Composite parent) {
-			Composite composite = new Composite(parent, SWT.NONE);
-			{
+			Composite composite = new Composite(parent, SWT.NONE); {
 				GridLayout layout = new GridLayout();
 				layout.numColumns = 1;
 				layout.verticalSpacing = 12;

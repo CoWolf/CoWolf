@@ -6,7 +6,7 @@ package de.uni_stuttgart.iste.cowolf.model.dtmc.emf.provider;
 import de.uni_stuttgart.iste.cowolf.model.commonBase.emf.provider.IDBaseItemProvider;
 
 import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage;
-import de.uni_stuttgart.iste.cowolf.model.dtmc.Parameter;
+import de.uni_stuttgart.iste.cowolf.model.dtmc.Label;
 
 import java.util.Collection;
 import java.util.List;
@@ -22,19 +22,19 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.uni_stuttgart.iste.cowolf.model.dtmc.Parameter} object.
+ * This is the item provider adapter for a {@link de.uni_stuttgart.iste.cowolf.model.dtmc.Label} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ParameterItemProvider extends IDBaseItemProvider {
+public class LabelItemProvider extends IDBaseItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ParameterItemProvider(AdapterFactory adapterFactory) {
+	public LabelItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -50,7 +50,6 @@ public class ParameterItemProvider extends IDBaseItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
-			addTypePropertyDescriptor(object);
 			addStatePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -67,31 +66,9 @@ public class ParameterItemProvider extends IDBaseItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Parameter_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_name_feature", "_UI_Parameter_type"),
-				 DTMCemfPackage.Literals.PARAMETER__NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Parameter_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_type_feature", "_UI_Parameter_type"),
-				 DTMCemfPackage.Literals.PARAMETER__TYPE,
+				 getString("_UI_Label_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Label_name_feature", "_UI_Label_type"),
+				 DTMCemfPackage.Literals.LABEL__NAME,
 				 true,
 				 false,
 				 false,
@@ -111,9 +88,9 @@ public class ParameterItemProvider extends IDBaseItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Parameter_state_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_state_feature", "_UI_Parameter_type"),
-				 DTMCemfPackage.Literals.PARAMETER__STATE,
+				 getString("_UI_Label_state_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Label_state_feature", "_UI_Label_type"),
+				 DTMCemfPackage.Literals.LABEL__STATE,
 				 true,
 				 false,
 				 true,
@@ -123,14 +100,14 @@ public class ParameterItemProvider extends IDBaseItemProvider {
 	}
 
 	/**
-	 * This returns Parameter.gif.
+	 * This returns Label.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Parameter"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Label"));
 	}
 
 	/**
@@ -141,10 +118,10 @@ public class ParameterItemProvider extends IDBaseItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Parameter)object).getId();
+		String label = ((Label)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Parameter_type") :
-			getString("_UI_Parameter_type") + " " + label;
+			getString("_UI_Label_type") :
+			getString("_UI_Label_type") + " " + label;
 	}
 	
 
@@ -159,9 +136,8 @@ public class ParameterItemProvider extends IDBaseItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Parameter.class)) {
-			case DTMCemfPackage.PARAMETER__NAME:
-			case DTMCemfPackage.PARAMETER__TYPE:
+		switch (notification.getFeatureID(Label.class)) {
+			case DTMCemfPackage.LABEL__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

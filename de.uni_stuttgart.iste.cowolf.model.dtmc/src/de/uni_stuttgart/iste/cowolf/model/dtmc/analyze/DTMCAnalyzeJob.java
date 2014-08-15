@@ -22,8 +22,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
 
 import de.uni_stuttgart.iste.cowolf.core.utilities.CommandLineExecutor;
+import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.State;
-import de.uni_stuttgart.iste.cowolf.model.dtmc.impl.RootImpl;
 
 public class DTMCAnalyzeJob extends Job {
 
@@ -91,12 +91,12 @@ public class DTMCAnalyzeJob extends Job {
 	protected IStatus run(final IProgressMonitor monitor) {
 		if (this.model == null || this.model.getContents() == null
 				|| this.model.getContents().size() == 0
-				|| !(this.model.getContents().get(0) instanceof RootImpl)) {
+				|| !(this.model.getContents().get(0) instanceof DTMC)) {
 			return Status.CANCEL_STATUS;
 		}
 	
 		try {
-			RootImpl root = (RootImpl) this.model.getContents().get(0);
+			DTMC root = (DTMC) this.model.getContents().get(0);
 			states = root.getStates();
 			
 			this.prismResult = new HashMap<State,String>();
@@ -193,7 +193,7 @@ public class DTMCAnalyzeJob extends Job {
 					} else {
 						// maybe only one result, save into first end state.
 						for (int i=0; i<this.states.size(); i++) {
-							if (this.states.get(i).isIsEnd()) {
+							if (this.states.get(i).getOutgoing().size() == 0) {
 								index = i;
 							}
 						}

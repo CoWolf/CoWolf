@@ -33,7 +33,7 @@ public abstract class IDBaseImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ID_EDEFAULT = null;
+	protected static final String ID_EDEFAULT = "";
 
 	/**
 	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
@@ -48,12 +48,15 @@ public abstract class IDBaseImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected IDBaseImpl() {
 		super();
+		
 		//set ID
-        this.id = EcoreUtil.generateUUID();
+		if (this.id == null) {
+			this.id = EcoreUtil.generateUUID();
+		}
 	}
 
 	/**
@@ -80,7 +83,12 @@ public abstract class IDBaseImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setId(String newId) {}
+	public void setId(String newId) {
+		String oldId = id;
+		id = newId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CommonBasePackage.ID_BASE__ID, oldId, id));
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

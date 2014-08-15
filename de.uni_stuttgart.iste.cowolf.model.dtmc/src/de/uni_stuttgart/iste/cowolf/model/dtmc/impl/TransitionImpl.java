@@ -23,9 +23,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.dtmc.impl.TransitionImpl#getTransProb <em>Trans Prob</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.dtmc.impl.TransitionImpl#getTo <em>To</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.dtmc.impl.TransitionImpl#getFrom <em>From</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.dtmc.impl.TransitionImpl#getTo <em>To</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.dtmc.impl.TransitionImpl#getProb <em>Prob</em>}</li>
  * </ul>
  * </p>
  *
@@ -33,24 +33,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class TransitionImpl extends IDBaseImpl implements Transition {
 	/**
-	 * The default value of the '{@link #getTransProb() <em>Trans Prob</em>}' attribute.
+	 * The cached value of the '{@link #getFrom() <em>From</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTransProb()
+	 * @see #getFrom()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float TRANS_PROB_EDEFAULT = 0.0F;
-
-	/**
-	 * The cached value of the '{@link #getTransProb() <em>Trans Prob</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTransProb()
-	 * @generated
-	 * @ordered
-	 */
-	protected float transProb = TRANS_PROB_EDEFAULT;
+	protected State from;
 
 	/**
 	 * The cached value of the '{@link #getTo() <em>To</em>}' reference.
@@ -63,14 +53,24 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	protected State to;
 
 	/**
-	 * The cached value of the '{@link #getFrom() <em>From</em>}' reference.
+	 * The default value of the '{@link #getProb() <em>Prob</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFrom()
+	 * @see #getProb()
 	 * @generated
 	 * @ordered
 	 */
-	protected State from;
+	protected static final float PROB_EDEFAULT = 0.0F;
+
+	/**
+	 * The cached value of the '{@link #getProb() <em>Prob</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProb()
+	 * @generated
+	 * @ordered
+	 */
+	protected float prob = PROB_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -96,8 +96,16 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getTransProb() {
-		return transProb;
+	public State getFrom() {
+		if (from != null && from.eIsProxy()) {
+			InternalEObject oldFrom = (InternalEObject)from;
+			from = (State)eResolveProxy(oldFrom);
+			if (from != oldFrom) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DTMCemfPackage.TRANSITION__FROM, oldFrom, from));
+			}
+		}
+		return from;
 	}
 
 	/**
@@ -105,11 +113,42 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTransProb(float newTransProb) {
-		float oldTransProb = transProb;
-		transProb = newTransProb;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DTMCemfPackage.TRANSITION__TRANS_PROB, oldTransProb, transProb));
+	public State basicGetFrom() {
+		return from;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetFrom(State newFrom, NotificationChain msgs) {
+		State oldFrom = from;
+		from = newFrom;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DTMCemfPackage.TRANSITION__FROM, oldFrom, newFrom);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFrom(State newFrom) {
+		if (newFrom != from) {
+			NotificationChain msgs = null;
+			if (from != null)
+				msgs = ((InternalEObject)from).eInverseRemove(this, DTMCemfPackage.STATE__OUTGOING, State.class, msgs);
+			if (newFrom != null)
+				msgs = ((InternalEObject)newFrom).eInverseAdd(this, DTMCemfPackage.STATE__OUTGOING, State.class, msgs);
+			msgs = basicSetFrom(newFrom, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DTMCemfPackage.TRANSITION__FROM, newFrom, newFrom));
 	}
 
 	/**
@@ -177,16 +216,8 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public State getFrom() {
-		if (from != null && from.eIsProxy()) {
-			InternalEObject oldFrom = (InternalEObject)from;
-			from = (State)eResolveProxy(oldFrom);
-			if (from != oldFrom) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DTMCemfPackage.TRANSITION__FROM, oldFrom, from));
-			}
-		}
-		return from;
+	public float getProb() {
+		return prob;
 	}
 
 	/**
@@ -194,42 +225,11 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public State basicGetFrom() {
-		return from;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetFrom(State newFrom, NotificationChain msgs) {
-		State oldFrom = from;
-		from = newFrom;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DTMCemfPackage.TRANSITION__FROM, oldFrom, newFrom);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setFrom(State newFrom) {
-		if (newFrom != from) {
-			NotificationChain msgs = null;
-			if (from != null)
-				msgs = ((InternalEObject)from).eInverseRemove(this, DTMCemfPackage.STATE__OUT_GOING, State.class, msgs);
-			if (newFrom != null)
-				msgs = ((InternalEObject)newFrom).eInverseAdd(this, DTMCemfPackage.STATE__OUT_GOING, State.class, msgs);
-			msgs = basicSetFrom(newFrom, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DTMCemfPackage.TRANSITION__FROM, newFrom, newFrom));
+	public void setProb(float newProb) {
+		float oldProb = prob;
+		prob = newProb;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DTMCemfPackage.TRANSITION__PROB, oldProb, prob));
 	}
 
 	/**
@@ -240,14 +240,14 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case DTMCemfPackage.TRANSITION__FROM:
+				if (from != null)
+					msgs = ((InternalEObject)from).eInverseRemove(this, DTMCemfPackage.STATE__OUTGOING, State.class, msgs);
+				return basicSetFrom((State)otherEnd, msgs);
 			case DTMCemfPackage.TRANSITION__TO:
 				if (to != null)
 					msgs = ((InternalEObject)to).eInverseRemove(this, DTMCemfPackage.STATE__INCOMING, State.class, msgs);
 				return basicSetTo((State)otherEnd, msgs);
-			case DTMCemfPackage.TRANSITION__FROM:
-				if (from != null)
-					msgs = ((InternalEObject)from).eInverseRemove(this, DTMCemfPackage.STATE__OUT_GOING, State.class, msgs);
-				return basicSetFrom((State)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -260,10 +260,10 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DTMCemfPackage.TRANSITION__TO:
-				return basicSetTo(null, msgs);
 			case DTMCemfPackage.TRANSITION__FROM:
 				return basicSetFrom(null, msgs);
+			case DTMCemfPackage.TRANSITION__TO:
+				return basicSetTo(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -276,14 +276,14 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DTMCemfPackage.TRANSITION__TRANS_PROB:
-				return getTransProb();
-			case DTMCemfPackage.TRANSITION__TO:
-				if (resolve) return getTo();
-				return basicGetTo();
 			case DTMCemfPackage.TRANSITION__FROM:
 				if (resolve) return getFrom();
 				return basicGetFrom();
+			case DTMCemfPackage.TRANSITION__TO:
+				if (resolve) return getTo();
+				return basicGetTo();
+			case DTMCemfPackage.TRANSITION__PROB:
+				return getProb();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -296,14 +296,14 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DTMCemfPackage.TRANSITION__TRANS_PROB:
-				setTransProb((Float)newValue);
+			case DTMCemfPackage.TRANSITION__FROM:
+				setFrom((State)newValue);
 				return;
 			case DTMCemfPackage.TRANSITION__TO:
 				setTo((State)newValue);
 				return;
-			case DTMCemfPackage.TRANSITION__FROM:
-				setFrom((State)newValue);
+			case DTMCemfPackage.TRANSITION__PROB:
+				setProb((Float)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -317,14 +317,14 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DTMCemfPackage.TRANSITION__TRANS_PROB:
-				setTransProb(TRANS_PROB_EDEFAULT);
+			case DTMCemfPackage.TRANSITION__FROM:
+				setFrom((State)null);
 				return;
 			case DTMCemfPackage.TRANSITION__TO:
 				setTo((State)null);
 				return;
-			case DTMCemfPackage.TRANSITION__FROM:
-				setFrom((State)null);
+			case DTMCemfPackage.TRANSITION__PROB:
+				setProb(PROB_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -338,12 +338,12 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DTMCemfPackage.TRANSITION__TRANS_PROB:
-				return transProb != TRANS_PROB_EDEFAULT;
-			case DTMCemfPackage.TRANSITION__TO:
-				return to != null;
 			case DTMCemfPackage.TRANSITION__FROM:
 				return from != null;
+			case DTMCemfPackage.TRANSITION__TO:
+				return to != null;
+			case DTMCemfPackage.TRANSITION__PROB:
+				return prob != PROB_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -358,8 +358,8 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (transProb: ");
-		result.append(transProb);
+		result.append(" (prob: ");
+		result.append(prob);
 		result.append(')');
 		return result.toString();
 	}

@@ -15,17 +15,15 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.dtmc.State#getName <em>Name</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.dtmc.State#isIsStart <em>Is Start</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.dtmc.State#isIsEnd <em>Is End</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.dtmc.State#isIsFail <em>Is Fail</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.dtmc.State#getIncoming <em>Incoming</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.dtmc.State#getOutGoing <em>Out Going</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.dtmc.State#getFormalParam <em>Formal Param</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.dtmc.State#getOutgoing <em>Outgoing</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.dtmc.State#getLabels <em>Labels</em>}</li>
  * </ul>
  * </p>
  *
  * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage#getState()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='OutgoingDontAddUpToOne NonDeterministic NoDuplicateLabels'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL OutgoingDontAddUpToOne='Tuple {\n\tmessage : String = \'Probability of all outgoing transitions must be 1.0.\',\n\tstatus : Boolean = \n\t\t\tself.outgoing->size() = 0 or (self.outgoing.prob->sum() - 1.0).abs()  < 0.000001\n}.status' NonDeterministic='Tuple {\n\tmessage : String = \'There must not be any nondeterminism. Please union transitions to the same target.\',\n\tstatus : Boolean = \n\t\t\tself.outgoing.to->asSet()->size() = self.outgoing->size()\n}.status' NoDuplicateLabels='Tuple {\n\tmessage : String = \'Labels must be unique per state.\',\n\tstatus : Boolean = \n\t\t\tself.labels.name->asSet()->size() = self.labels->size()\n}.status'"
  * @generated
  */
 public interface State extends IDBase {
@@ -56,87 +54,6 @@ public interface State extends IDBase {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Is Start</b></em>' attribute.
-	 * The default value is <code>"false"</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Is Start</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Start</em>' attribute.
-	 * @see #setIsStart(boolean)
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage#getState_IsStart()
-	 * @model default="false" required="true"
-	 * @generated
-	 */
-	boolean isIsStart();
-
-	/**
-	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.State#isIsStart <em>Is Start</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Start</em>' attribute.
-	 * @see #isIsStart()
-	 * @generated
-	 */
-	void setIsStart(boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Is End</b></em>' attribute.
-	 * The default value is <code>"false"</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Is End</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is End</em>' attribute.
-	 * @see #setIsEnd(boolean)
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage#getState_IsEnd()
-	 * @model default="false" required="true"
-	 * @generated
-	 */
-	boolean isIsEnd();
-
-	/**
-	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.State#isIsEnd <em>Is End</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is End</em>' attribute.
-	 * @see #isIsEnd()
-	 * @generated
-	 */
-	void setIsEnd(boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Is Fail</b></em>' attribute.
-	 * The default value is <code>"false"</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Is Fail</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Fail</em>' attribute.
-	 * @see #setIsFail(boolean)
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage#getState_IsFail()
-	 * @model default="false" required="true"
-	 * @generated
-	 */
-	boolean isIsFail();
-
-	/**
-	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.State#isIsFail <em>Is Fail</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Fail</em>' attribute.
-	 * @see #isIsFail()
-	 * @generated
-	 */
-	void setIsFail(boolean value);
-
-	/**
 	 * Returns the value of the '<em><b>Incoming</b></em>' reference list.
 	 * The list contents are of type {@link de.uni_stuttgart.iste.cowolf.model.dtmc.Transition}.
 	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.Transition#getTo <em>To</em>}'.
@@ -155,39 +72,39 @@ public interface State extends IDBase {
 	EList<Transition> getIncoming();
 
 	/**
-	 * Returns the value of the '<em><b>Out Going</b></em>' reference list.
+	 * Returns the value of the '<em><b>Outgoing</b></em>' reference list.
 	 * The list contents are of type {@link de.uni_stuttgart.iste.cowolf.model.dtmc.Transition}.
 	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.Transition#getFrom <em>From</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Out Going</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Outgoing</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Out Going</em>' reference list.
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage#getState_OutGoing()
+	 * @return the value of the '<em>Outgoing</em>' reference list.
+	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage#getState_Outgoing()
 	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.Transition#getFrom
 	 * @model opposite="from" ordered="false"
 	 * @generated
 	 */
-	EList<Transition> getOutGoing();
+	EList<Transition> getOutgoing();
 
 	/**
-	 * Returns the value of the '<em><b>Formal Param</b></em>' reference list.
-	 * The list contents are of type {@link de.uni_stuttgart.iste.cowolf.model.dtmc.Parameter}.
-	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.Parameter#getState <em>State</em>}'.
+	 * Returns the value of the '<em><b>Labels</b></em>' containment reference list.
+	 * The list contents are of type {@link de.uni_stuttgart.iste.cowolf.model.dtmc.Label}.
+	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.Label#getState <em>State</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Formal Param</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Labels</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Formal Param</em>' reference list.
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage#getState_FormalParam()
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.Parameter#getState
-	 * @model opposite="state"
+	 * @return the value of the '<em>Labels</em>' containment reference list.
+	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage#getState_Labels()
+	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.Label#getState
+	 * @model opposite="state" containment="true"
 	 * @generated
 	 */
-	EList<Parameter> getFormalParam();
+	EList<Label> getLabels();
 
 } // State

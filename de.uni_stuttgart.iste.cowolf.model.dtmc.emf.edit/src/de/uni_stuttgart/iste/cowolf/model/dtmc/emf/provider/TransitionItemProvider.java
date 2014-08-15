@@ -51,31 +51,31 @@ public class TransitionItemProvider extends IDBaseItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addTransProbPropertyDescriptor(object);
-			addToPropertyDescriptor(object);
 			addFromPropertyDescriptor(object);
+			addToPropertyDescriptor(object);
+			addProbPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Trans Prob feature.
+	 * This adds a property descriptor for the From feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTransProbPropertyDescriptor(Object object) {
+	protected void addFromPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Transition_transProb_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Transition_transProb_feature", "_UI_Transition_type"),
-				 DTMCemfPackage.Literals.TRANSITION__TRANS_PROB,
+				 getString("_UI_Transition_from_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Transition_from_feature", "_UI_Transition_type"),
+				 DTMCemfPackage.Literals.TRANSITION__FROM,
 				 true,
 				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
@@ -103,23 +103,23 @@ public class TransitionItemProvider extends IDBaseItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the From feature.
+	 * This adds a property descriptor for the Prob feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addFromPropertyDescriptor(Object object) {
+	protected void addProbPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Transition_from_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Transition_from_feature", "_UI_Transition_type"),
-				 DTMCemfPackage.Literals.TRANSITION__FROM,
+				 getString("_UI_Transition_prob_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Transition_prob_feature", "_UI_Transition_type"),
+				 DTMCemfPackage.Literals.TRANSITION__PROB,
 				 true,
 				 false,
-				 true,
-				 null,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -136,8 +136,8 @@ public class TransitionItemProvider extends IDBaseItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(DTMCemfPackage.Literals.TRANSITION__TO);
 			childrenFeatures.add(DTMCemfPackage.Literals.TRANSITION__FROM);
+			childrenFeatures.add(DTMCemfPackage.Literals.TRANSITION__TO);
 		}
 		return childrenFeatures;
 	}
@@ -170,11 +170,11 @@ public class TransitionItemProvider extends IDBaseItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * 
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Transition)object).getId();
+		String label = ((Transition)object).getFrom().getName() + " -- " + ((Transition)object).getProb() + " --> " + ((Transition)object).getTo().getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Transition_type") :
 			getString("_UI_Transition_type") + " " + label;
@@ -193,11 +193,11 @@ public class TransitionItemProvider extends IDBaseItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Transition.class)) {
-			case DTMCemfPackage.TRANSITION__TRANS_PROB:
+			case DTMCemfPackage.TRANSITION__PROB:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case DTMCemfPackage.TRANSITION__TO:
 			case DTMCemfPackage.TRANSITION__FROM:
+			case DTMCemfPackage.TRANSITION__TO:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}

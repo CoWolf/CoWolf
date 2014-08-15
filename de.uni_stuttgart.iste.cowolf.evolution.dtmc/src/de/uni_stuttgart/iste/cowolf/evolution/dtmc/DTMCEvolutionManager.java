@@ -4,7 +4,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 
 import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
 import de.uni_stuttgart.iste.cowolf.evolution.EvolutionTypeInfo;
-import de.uni_stuttgart.iste.cowolf.model.dtmc.Root;
+import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC;
 
 /**
  * 
@@ -21,7 +21,7 @@ public class DTMCEvolutionManager extends AbstractEvolutionManager {
 			return false;
 		}
 
-		return model.getContents().get(0) instanceof Root;
+		return model.getContents().get(0) instanceof DTMC;
 	}
 
 	@Override
