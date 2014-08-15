@@ -30,13 +30,17 @@ import org.eclipse.emf.henshin.model.Unit;
 import org.eclipse.emf.henshin.model.resource.HenshinResourceSet;
 import org.eclipse.emf.henshin.trace.impl.TraceImpl;
 import org.osgi.framework.Bundle;
+import org.sidiff.difference.symmetric.SemanticChangeSet;
 import org.sidiff.difference.symmetric.SymmetricDifference;
 
 import de.uni_stuttgart.iste.cowolf.model.dtmc.Root;
 import de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine;
 import de.uni_stuttgart.iste.cowolf.transformation.AbstractTransformationManager;
 import de.uni_stuttgart.iste.cowolf.transformation.TransformationTypeInfo;
+import de.uni_stuttgart.iste.cowolf.transformation.model.Mapping;
 import de.uni_stuttgart.iste.cowolf.transformation.model.Mappings;
+import de.uni_stuttgart.iste.cowolf.transformation.model.Param;
+import de.uni_stuttgart.iste.cowolf.transformation.model.Rule;
 import de.uni_stuttgart.iste.cowolf.transformation.model.util.XMLMappingLoader;
 
 /**
@@ -56,8 +60,9 @@ public class DTMCStatechartTransformationManager
             AbstractTransformationManager {
 
     private final String HENSHIN_FOLDER = "de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/";
-    private HenshinResourceSet rulesResourceSet;
-    private Map<String, Unit> units;
+    private HenshinResourceSet rulesResourceSet = new HenshinResourceSet();
+    private Map<String, Unit> units = new HashMap<>();
+    private Map<String, Mapping> mappings = new HashMap<>();
 
     @Override
     public boolean isManaged(Resource source, Resource target) {
@@ -85,23 +90,19 @@ public class DTMCStatechartTransformationManager
         System.out.println("Loading mappings...");
 
         // Load mappings
-        Mappings mappings;
+        Mappings mappingObject;
         try {
-            mappings = XMLMappingLoader.loadMapping(this.getMapping());
-            System.out.println(mappings);
-            System.out.println("Found " + mappings.getMapping().size()
+            mappingObject = XMLMappingLoader.loadMapping(this.getMapping());
+            this.mappings = mappingObject.getMapping();
+            System.out.println(mappingObject);
+            System.out.println("Found " + mappingObject.getMapping().size()
                     + " mappings.");
-            /*
-             * for (Entry<String, Mapping> mapping : mappings.getMapping()
-             * .entrySet()) { System.out.println("Rule key: " +
-             * mapping.getKey()); System.out.println("Rule value:" +
-             * mapping.getValue()); }
-             */
         } catch (JAXBException e1) {
             e1.printStackTrace();
             return false;
         }
         // Load rules from files in folder
+        System.out.println("Load henshin rules");
         this.units = this.getHenshinRules();
 
         System.out.println("Merging graphs");
@@ -110,12 +111,13 @@ public class DTMCStatechartTransformationManager
         graphs.add(new EGraphImpl(target));
         EGraph graph = mergeInstanceModels(graphs);
         System.out.println("Finished merging graphs.");
-        // TODO get Mapping between rules and params
 
-        System.out.println("Load rules");
-        HashMap<String, HashMap<String, Object>> ruleParamsMap = new HashMap<>();
-        System.out.println("Run Transformation");
-        graph = runTransformation(graph, HENSHIN_FOLDER, ruleParamsMap);
+        if (difference != null) {
+            System.out.println("Run Transformation");
+            graph = runTransformation(graph, HENSHIN_FOLDER, difference);
+        } else {
+            System.out.println("Difference is null");
+        }
         System.out.println("Save result");
         try {
             save(graph, target, false);
@@ -186,7 +188,7 @@ public class DTMCStatechartTransformationManager
      * @return
      */
     public EGraph runTransformation(EGraph graph, String henshinFile,
-            HashMap<String, HashMap<String, Object>> rules) {
+            SymmetricDifference difference) {
         // TODO: perform only rules needed
         boolean result;
 
@@ -194,34 +196,37 @@ public class DTMCStatechartTransformationManager
         // the provided graph
         UnitApplication application = new UnitApplicationImpl(new EngineImpl());
         application.setEGraph(graph);
-        // execute rules one by one
-        // for (Entry<String, HashMap<String, Object>> entry : rules.entrySet())
-        // {
-        this.rulesResourceSet = new HenshinResourceSet();
 
-        Unit unit = units.get("CreateState");
+        List<SemanticChangeSet> changeSets = difference.getChangeSets();
 
-        // if (currentGraph != null) {
-        // application = new UnitApplicationImpl(new EngineImpl());
-        // application.setEGraph(currentGraph);
-        // }
-        application.setUnit(unit);
-        application.setParameterValue("name", "_LvYfoCRrEeS7UbY-XnEkdA");
-        // // set parameters
-        // for (Entry<String, Object> parameter : entry.getValue().entrySet()) {
-        // application.setParameterValue(parameter.getKey(),
-        // parameter.getValue());
-        // }
+        // execute rules one by one, order from change sets.
+        for (SemanticChangeSet changeSet : changeSets) {
+            System.out.println(changeSet.getName());
+            Mapping mapping = this.mappings.get(changeSet.getName());
+            System.out.println(mapping);
+            Rule rule = mapping.getRule();
+            Unit unit = this.units.get(rule.getName());
+            System.out.println(unit);
+            for (Param param : rule.getParams().getParam()) {
+                // TODO: assign parameters
+                System.out.println(param.getName());
+            }
+            if (unit != null) {
+                application.setUnit(unit);
+                result = application.execute(null);
+                System.out.println(unit.getName() + " "
+                        + (result ? "successful" : "error"));
+            } else {
+                System.out.println("No rule found for changeset with name "
+                        + changeSet.getName());
+            }
 
-        // execute
-        result = application.execute(null);
-        System.out.println(unit.getName() + " "
-                + (result ? "successful" : "error"));
+            // execute
 
-        // }
+        }
+
         return application.getEGraph();
     }
-
     /**
      * Merges all provided EGraphs by adding all Root elements to the first
      * Graph.

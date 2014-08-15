@@ -6,4 +6,6 @@
 //
 
 @javax.xml.bind.annotation.XmlSchema(namespace = "http://www.uni-stuttgart.iste.co.wolf.org/TransformationMapping", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
+@XmlJavaTypeAdapter(value = StringTrimAdapter.class, type = String.class)
 package de.uni_stuttgart.iste.cowolf.transformation.model;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
