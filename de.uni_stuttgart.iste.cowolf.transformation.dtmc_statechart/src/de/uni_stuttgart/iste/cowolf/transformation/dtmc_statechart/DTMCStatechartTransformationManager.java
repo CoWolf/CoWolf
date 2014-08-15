@@ -81,12 +81,13 @@ public class DTMCStatechartTransformationManager
         Mappings mappings;
         try {
             mappings = XMLMappingLoader.loadMapping(this.getMapping());
+            System.out.println(mappings);
             System.out.println("Found " + mappings.getMapping().size()
                     + " mappings.");
             for (Entry<String, Mapping> mapping : mappings.getMapping()
                     .entrySet()) {
-                System.out.println(mapping.getKey());
-                System.out.println(mapping.getValue());
+                System.out.println("Rule key: " + mapping.getKey());
+                System.out.println("Rule value:" + mapping.getValue());
             }
         } catch (JAXBException e1) {
             e1.printStackTrace();
@@ -146,33 +147,38 @@ public class DTMCStatechartTransformationManager
         application.setEGraph(graph);
 
         // execute rules one by one
-        for (Entry<String, HashMap<String, Object>> entry : rules.entrySet()) {
-            Unit unit = rulesResourceSet.getModule(henshinFile).getUnit(
-                    entry.getKey());
+        // for (Entry<String, HashMap<String, Object>> entry : rules.entrySet())
+        // {
+        this.rulesResourceSet = new HenshinResourceSet();
+        URI uri = URI
+                .createPlatformPluginURI(
+                        "de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/CreateState.henshin",
+                        true);
+        Unit unit = rulesResourceSet.getModule(uri, true)
+                .getUnit("CreateState");
 
-            if (currentGraph != null) {
-                application = new UnitApplicationImpl(new EngineImpl());
-                application.setEGraph(currentGraph);
-            }
-            application.setUnit(unit);
+        // if (currentGraph != null) {
+        // application = new UnitApplicationImpl(new EngineImpl());
+        // application.setEGraph(currentGraph);
+        // }
+        application.setUnit(unit);
+        application.setParameterValue("name", "Test");
+        // // set parameters
+        // for (Entry<String, Object> parameter : entry.getValue().entrySet()) {
+        // application.setParameterValue(parameter.getKey(),
+        // parameter.getValue());
+        // }
 
-            // set parameters
-            for (Entry<String, Object> parameter : entry.getValue().entrySet()) {
-                application.setParameterValue(parameter.getKey(),
-                        parameter.getValue());
-            }
+        // execute
+        result = application.execute(null);
+        currentGraph = application.getEGraph();
 
-            // execute
-            result = application.execute(null);
-            currentGraph = application.getEGraph();
+        System.out.println(unit.getName() + " "
+                + (result ? "successful" : "error"));
 
-            System.out.println(unit.getName() + " "
-                    + (result ? "successful" : "error"));
-
-        }
+        // }
         return application.getEGraph();
     }
-
     /**
      * Merges all provided EGraphs by adding all Root elements to the first
      * Graph.
@@ -220,28 +226,20 @@ public class DTMCStatechartTransformationManager
         List<EObject> list = result.getRoots();
 
         for (EObject root : list) {
-            // save all roots
             if (root.getClass() == TraceImpl.class) {
                 target.getContents().add(root);
-                traceCount++;
-            } else {
-                if (inPlace) {
-                    Resource res = henshinResourceSet.createResource(root
-                            .eResource().getURI());
-                    res.load(null);
-                    res.getContents().clear();
-                    res.getContents().add(root);
-                    res.save(null);
-                } else {
-                    // create new filename
-                    String fileName = getFileName(root);
-                    Resource res = henshinResourceSet.createResource(URI
-                            .createURI(fileName));
-                    System.out.println(res.getURI());
-                    res.getContents().add(root);
-                    res.save(null);
-                }
             }
+        }
+        // save all roots
+        if (inPlace) {
+            target.save(null);
+        } else {
+            // create new filename
+            String fileName = getFileName(target.getContents().get(0));
+            Resource res = henshinResourceSet.createResource(URI
+                    .createURI(fileName));
+            res.getContents().addAll(target.getContents());
+            res.save(null);
         }
 
     }
@@ -266,7 +264,7 @@ public class DTMCStatechartTransformationManager
      * 
      * @return FileName
      */
-    private String getFileName(EObject root) {
+    private String getFileName(EObject root) throws NullPointerException {
         String fileUri = root.eResource().getURI().toString();
         String extension = fileUri.substring(fileUri.lastIndexOf('.'),
                 fileUri.length());

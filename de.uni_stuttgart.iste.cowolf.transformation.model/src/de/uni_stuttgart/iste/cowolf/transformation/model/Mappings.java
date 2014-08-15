@@ -6,8 +6,6 @@ package de.uni_stuttgart.iste.cowolf.transformation.model;
 // Generated on: 2014.08.14 at 05:00:12 PM CEST 
 //
 
-
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -86,13 +84,13 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "")
-@XmlRootElement(name = "Mappings")
+@XmlType(propOrder = {})
+@XmlRootElement(name = "Mappings", namespace = "http://www.uni-stuttgart.iste.co.wolf.org/TransformationMapping")
 public class Mappings {
     public Mappings() {
         this.mapping = new HashMap<>();
     }
-    protected Map<String, Mapping> mapping;
+    protected Map<String, Mapping> mapping = new HashMap<>();
 
     @XmlElement(name = "Mapping")
     public Mapping[] getMap() {
