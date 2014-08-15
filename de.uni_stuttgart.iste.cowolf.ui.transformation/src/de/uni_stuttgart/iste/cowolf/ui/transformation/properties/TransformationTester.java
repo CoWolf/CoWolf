@@ -1,6 +1,5 @@
 package de.uni_stuttgart.iste.cowolf.ui.transformation.properties;
 
-import java.io.File;
 import java.util.List;
 
 import org.eclipse.core.expressions.PropertyTester;
@@ -14,15 +13,17 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 
 import de.uni_stuttgart.iste.cowolf.core.extensions.ExtensionHandler;
-import de.uni_stuttgart.iste.cowolf.transformation.AbstractTransformationManager;
+import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
 
 public class TransformationTester extends PropertyTester {
 
 	public static final String PROPERTY_NAMESPACE = "de.uni_stuttgart.iste.cowolf.ui.transformation.properties.transformation";
 	public static final String PROPERTY_CAN_FOO = "canFoo";
 
+	private ExtensionHandler extensionHandler;
+
 	public TransformationTester() {
-		// TODO Auto-generated constructor stub
+		this.extensionHandler = ExtensionHandler.getInstance();
 	}
 
 	@Override
@@ -43,6 +44,8 @@ public class TransformationTester extends PropertyTester {
 				.getSelectionService().getSelection();
 
 		List<?> list = selection.toList();
+
+		// One model selected
 		if (list.size() == 1) {
 			Object firstElement = list.get(0);
 			if (firstElement instanceof IFile) {
@@ -52,55 +55,84 @@ public class TransformationTester extends PropertyTester {
 			}
 		}
 
-		// TODO: really 2?
-		if (list.size() != 2) {
-			return false;
-		}
-		Object firstElement = list.get(0);
-		Object secondElement = list.get(1);
+		// Two models selected
+		else if (list.size() == 2) {
 
-		// catch exceptions from wrong parsing as we can only recognize IFiles
-		try {
-			// file then try to parse
+			Object firstElement = list.get(0);
+			Object secondElement = list.get(1);
+
 			if (firstElement instanceof IFile && secondElement instanceof IFile) {
-				IFile firstIFile = (IFile) firstElement;
-				IFile secondIFile = (IFile) secondElement;
 
-				File firstFile = firstIFile.getLocation().toFile();
-				File secondFile = secondIFile.getLocation().toFile();
+				Resource firstElementResource = getResourceOfIFile((IFile) firstElement);
+				Resource secondElementResource = getResourceOfIFile((IFile) secondElement);
 
-				ResourceSet resourceSet = new ResourceSetImpl();
-				Resource firstResource;
-				Resource secondResource;
+				// both selected models are of the same type if the returned
+				// evolution managers are equal
+				AbstractEvolutionManager firstElementEvolutionManager = extensionHandler
+						.getEvolutionManager(firstElementResource);
+				AbstractEvolutionManager secondElementEvolutionManager = extensionHandler
+						.getEvolutionManager(secondElementResource);
 
-				URI firstUri = URI.createPlatformResourceURI(firstIFile
-						.getFullPath().toString(), true);
-				URI secondUri = URI.createPlatformResourceURI(secondIFile
-						.getFullPath().toString(), true);
+				return (firstElementEvolutionManager != null && secondElementEvolutionManager != null);
 
-				if (!firstFile.exists() || !secondFile.exists()) {
-					return false;
-				}
-
-				firstResource = resourceSet.getResource(firstUri, true);
-				secondResource = resourceSet.getResource(secondUri, true);
-
-				AbstractTransformationManager transformationManager = extensionHandler
-						.getTransformationManager(firstResource, secondResource);
-				return transformationManager != null;
-			} else {
-				// no file -> cannot open
-				return false;
 			}
-
-		} catch (Exception e) {
-			return false;
 		}
+
+		// Three models selected
+		else if (list.size() == 3) {
+
+			Object firstElement = list.get(0);
+			Object secondElement = list.get(1);
+			Object targetElement = list.get(2);
+
+			if (firstElement instanceof IFile && secondElement instanceof IFile
+					&& targetElement instanceof IFile) {
+
+				return isTransformationPossible((IFile) firstElement,
+						(IFile) secondElement, (IFile) targetElement);
+
+			}
+		}
+
+		return false;
+
 	}
 
-	public boolean isTransformationPossible(IFile oldModel, IFile newModel) {
-		// TODO
-		return true;
+	public boolean isTransformationPossible(IFile sourceModelA,
+			IFile sourceModelB, IFile targetModel) {
+
+		if (sourceModelA == null || sourceModelB == null || targetModel == null) {
+			return false;
+		}
+
+		Resource sourceModelAResource = getResourceOfIFile(sourceModelA);
+		Resource sourceModelBResource = getResourceOfIFile(sourceModelB);
+		Resource targetModelResource = getResourceOfIFile(targetModel);
+
+		// both selected source models are of the same type if the returned
+		// evolution managers are equal
+		AbstractEvolutionManager firstElementEvolutionManager = extensionHandler
+				.getEvolutionManager(sourceModelAResource);
+		AbstractEvolutionManager secondElementEvolutionManager = extensionHandler
+				.getEvolutionManager(sourceModelBResource);
+
+		AbstractEvolutionManager targetElementEvolutionManager = extensionHandler
+				.getEvolutionManager(targetModelResource);
+
+		if (firstElementEvolutionManager != null
+				&& secondElementEvolutionManager != null
+				&& targetElementEvolutionManager != null) {
+
+			// first check if both source models of type
+			if (firstElementEvolutionManager
+					.equals(secondElementEvolutionManager)) {
+
+				// second check if targetModel is different type
+				return firstElementEvolutionManager.equals(targetModelResource);
+			}
+		}
+
+		return false;
 
 	}
 

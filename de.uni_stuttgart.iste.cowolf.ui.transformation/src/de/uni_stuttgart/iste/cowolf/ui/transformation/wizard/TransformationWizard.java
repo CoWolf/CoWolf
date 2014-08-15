@@ -5,14 +5,14 @@ import org.eclipse.jface.wizard.Wizard;
 
 public class TransformationWizard extends Wizard {
 
-	/**
-	 * First model to use for evolution.
-	 */
-	private IFile modelA;
-	/**
-	 * Second model to use for evolution.
-	 */
-	private IFile modelB;
+	// First model for evolution.
+	private IFile sourceModelA;
+
+	// Second model for evolution.
+	private IFile sourceModelB;
+
+	// Target model of transformation.
+	private IFile targetModel;
 	/**
 	 * Wizard page displaying contents of wizard.
 	 */
@@ -25,13 +25,16 @@ public class TransformationWizard extends Wizard {
 	/**
 	 * Constructor setting both models.
 	 *
-	 * @param modelA
-	 * @param modelB
+	 * @param sourceModelA
+	 * @param sourceModelB
+	 * @param targetModel
 	 */
-	public TransformationWizard(IFile modelA, IFile modelB) {
-		this.setWindowTitle("Model Evolution Wizard");
-		this.modelA = modelA;
-		this.modelB = modelB;
+	public TransformationWizard(IFile sourceModelA, IFile sourceModelB,
+			IFile targetModel) {
+		this.setWindowTitle("Co-Evolution Wizard");
+		this.sourceModelA = sourceModelA;
+		this.sourceModelB = sourceModelB;
+		this.targetModel = targetModel;
 
 	}
 
@@ -63,31 +66,46 @@ public class TransformationWizard extends Wizard {
 	/**
 	 * @return the modelA
 	 */
-	public IFile getModelA() {
-		return modelA;
+	public IFile getSourceModelA() {
+		return sourceModelA;
 	}
 
 	/**
 	 * @param modelA
 	 *            the modelA to set
 	 */
-	public void setModelA(IFile modelA) {
-		this.modelA = modelA;
+	public void setSourceModelA(IFile sourceModelA) {
+		this.sourceModelA = sourceModelA;
 	}
 
 	/**
 	 * @return the modelB
 	 */
-	public IFile getModelB() {
-		return modelB;
+	public IFile getSourceModelB() {
+		return sourceModelB;
 	}
 
 	/**
 	 * @param modelB
 	 *            the modelB to set
 	 */
-	public void setModelB(IFile modelB) {
-		this.modelB = modelB;
+	public void setSourceModelB(IFile sourceModelB) {
+		this.sourceModelB = sourceModelB;
+	}
+
+	/**
+	 * @return the modelB
+	 */
+	public IFile getTargetModel() {
+		return targetModel;
+	}
+
+	/**
+	 * @param targetModel
+	 *            the targetModel to set
+	 */
+	public void setTargetModel(IFile targetModel) {
+		this.targetModel = targetModel;
 	}
 
 }

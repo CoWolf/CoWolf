@@ -34,8 +34,9 @@ public class Transform extends AbstractHandler {
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		// initialize variables
-		IFile firstElement = null;
-		IFile secondElement = null;
+		IFile firstSourceElement = null;
+		IFile secondSourceElement = null;
+		IFile targetElement = null;
 
 		final IWorkbenchWindow window = PlatformUI.getWorkbench()
 				.getActiveWorkbenchWindow();
@@ -44,37 +45,45 @@ public class Transform extends AbstractHandler {
 				.getSelectionService().getSelection();
 		List<?> list = selection.toList();
 		if (list.size() >= 1) {
-			firstElement = (IFile) list.get(0);
+			firstSourceElement = (IFile) list.get(0);
 		}
-		if (list.size() == 2) {
-			secondElement = (IFile) list.get(1);
+		if (list.size() >= 2) {
+			secondSourceElement = (IFile) list.get(1);
+		}
+		if (list.size() >= 3) {
+			targetElement = (IFile) list.get(2);
 		}
 
 		TransformationWizard modelWizard = new TransformationWizard(
-				firstElement, secondElement);
+				firstSourceElement, secondSourceElement, targetElement);
 		WizardDialog wizard = new WizardDialog(window.getShell(), modelWizard);
 		if (wizard.open() == Window.CANCEL) {
 			return null;
 		}
 
-		Resource firstModel = this.getResourceOfIFile(firstElement);
-		Resource secondModel = this.getResourceOfIFile(secondElement);
-		AbstractTransformationManager manager = this.extensionHandler
-				.getTransformationManager(firstModel, secondModel);
-
-		// TODO first evolve, second co-evolve
+		Resource firstSourceModel = this.getResourceOfIFile(firstSourceElement);
+		Resource secondSourceModel = this
+				.getResourceOfIFile(secondSourceElement);
+		Resource targetModel = this.getResourceOfIFile(targetElement);
 
 		AbstractEvolutionManager evoManager = this.extensionHandler
-				.getEvolutionManager(firstModel);
+				.getEvolutionManager(firstSourceModel);
 
-		SymmetricDifference difference;
-		try {
-			difference = evoManager.evolve(firstModel, secondModel);
+		AbstractTransformationManager transManager = this.extensionHandler
+				.getTransformationManager(firstSourceModel, secondSourceModel);
 
-			manager.transform(firstModel, secondModel, difference);
-		} catch (EvolutionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if (evoManager != null && transManager != null) {
+
+			try {
+				SymmetricDifference difference = evoManager.evolve(
+						firstSourceModel, secondSourceModel);
+
+				transManager.transform(secondSourceModel, targetModel,
+						difference);
+			} catch (EvolutionException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 
 		return null;
