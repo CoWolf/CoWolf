@@ -198,7 +198,6 @@ public class DTMCStatechartTransformationManager
         // the provided graph
         UnitApplication application = new UnitApplicationImpl(new EngineImpl());
         application.setEGraph(graph);
-
         List<SemanticChangeSet> changeSets = difference.getChangeSets();
 
         // execute rules one by one, order from change sets.
