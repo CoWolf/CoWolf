@@ -1,8 +1,6 @@
 
 package de.uni_stuttgart.iste.cowolf.ui.navigator;
 
-import org.eclipse.jface.resource.ImageDescriptor;
-import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
@@ -61,21 +59,6 @@ public class Activator extends AbstractUIPlugin {
 		return plugin;
 	}
 
-	/**
-	 * @param imagePath
-	 *            the path to the image
-	 * @return the image
-	 */
-	public static Image getImage(String imagePath) {
-		ImageDescriptor imageDescriptor = AbstractUIPlugin
-				.imageDescriptorFromPlugin(Activator.PLUGIN_ID, imagePath);
-		return imageDescriptor.createImage();
 
-	}
-
-	public static ImageDescriptor getIDEImageDescriptor(String imagePath) {
-		return AbstractUIPlugin.imageDescriptorFromPlugin(Activator.PLUGIN_ID,
-				imagePath);
-	}
 
 }
