@@ -20,12 +20,12 @@
         eOpposite="#//arrow/fromStart"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Action">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="incomingToAction" lowerBound="1"
-        upperBound="-1" eType="#//arrow" eOpposite="#//arrow/fromAction"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Action" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingFromAction" lowerBound="1"
         eType="#//arrow" eOpposite="#//arrow/toAction"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Action" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="incomingToAction" lowerBound="1"
+        upperBound="-1" eType="#//arrow" eOpposite="#//arrow/fromAction"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Decision">
     <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingFromDecision" lowerBound="2"
