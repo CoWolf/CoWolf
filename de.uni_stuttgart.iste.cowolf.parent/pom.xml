@@ -25,46 +25,29 @@
 			<layout>p2</layout>
 		</repository>
 		<repository>
+			<id>xtext</id>
+			<url>http://download.itemis.com/updates/releases</url>
+			<layout>p2</layout>
+		</repository>
+		<repository>
 			<id>silift</id>
 			<url>http://pi.informatik.uni-siegen.de/Projekte/SiLift/updatesite</url>
 			<layout>p2</layout>
 		</repository>
 	</repositories>
 
+	<profiles>
+		<profile>
+			<id>releases</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+	</profiles>
+
 	<build>
-	
+
 		<plugins>
-
-			<plugin>
-				<artifactId>maven-clean-plugin</artifactId>
-				<version>2.5</version>
-				<configuration>
-					<filesets>
-						<fileset>
-							<directory>xtend-gen</directory>
-							<includes>
-								<include>**</include>
-							</includes>
-						</fileset>
-					</filesets>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.eclipse.xtend</groupId>
-				<artifactId>xtend-maven-plugin</artifactId>
-				<version>2.6.2</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>compile</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>xtend-gen</outputDirectory>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
 
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
@@ -130,9 +113,9 @@
 			</plugin>
 
 			<plugin>
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>tycho-compiler-plugin</artifactId>
-				<version>${tycho.version}</version>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
 				<configuration>
 					<source>1.7</source>
 					<target>1.7</target>
@@ -183,77 +166,71 @@
 		<module>../de.uni_stuttgart.iste.cowolf.core.feature</module>
 		<module>../de.uni_stuttgart.iste.cowolf.core.tests</module>
 		<module>../de.uni_stuttgart.iste.cowolf.evolution</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.evolution.activity_diagram
-		</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.evolution.activity_diagram.feature
-		</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.evolution.activity_diagram.tests
-		</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.evolution.component_diagram
-		</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.evolution.component_diagram.feature
-		</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.evolution.component_diagram.tests
-		</module>
+		<module>../de.uni_stuttgart.iste.cowolf.evolution.activity_diagram</module>
+		<module>../de.uni_stuttgart.iste.cowolf.evolution.activity_diagram.feature</module>
+		<module>../de.uni_stuttgart.iste.cowolf.evolution.activity_diagram.tests</module>
+		<module>../de.uni_stuttgart.iste.cowolf.evolution.component_diagram</module>
+		<module>../de.uni_stuttgart.iste.cowolf.evolution.component_diagram.feature</module>
+		<module>../de.uni_stuttgart.iste.cowolf.evolution.component_diagram.tests</module>
 		<module>../de.uni_stuttgart.iste.cowolf.evolution.ctmc</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.evolution.ctmc.tests
-		</module>
+		<module>../de.uni_stuttgart.iste.cowolf.evolution.ctmc.feature</module>
+		<module>../de.uni_stuttgart.iste.cowolf.evolution.ctmc.tests</module>
 		<module>../de.uni_stuttgart.iste.cowolf.evolution.dtmc</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.evolution.dtmc.editrules
-		</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.evolution.dtmc.tests
-		</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.evolution.fault_tree
-		</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.evolution.feature
-		</module>
+		<module>../de.uni_stuttgart.iste.cowolf.evolution.dtmc.feature</module>
+		<module>../de.uni_stuttgart.iste.cowolf.evolution.dtmc.tests</module>
+		<module>../de.uni_stuttgart.iste.cowolf.evolution.fault_tree</module>
+		<module>../de.uni_stuttgart.iste.cowolf.evolution.fault_tree.feature</module>
+		<module>../de.uni_stuttgart.iste.cowolf.evolution.feature</module>
 		<module>../de.uni_stuttgart.iste.cowolf.evolution.lqn</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.evolution.statechart
-		</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.evolution.statechart.difference.technical
-		</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.evolution.statechart.editrules
-		</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.evolution.statechart.recognitionrules
-		</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.evolution.statechart.tests
-		</module>
-		<module>../de.uni_stuttgart.iste.cowolf.ui.feature</module>
+		<module>../de.uni_stuttgart.iste.cowolf.evolution.lqn.feature</module>
+		<module>../de.uni_stuttgart.iste.cowolf.evolution.statechart</module>
+		<module>../de.uni_stuttgart.iste.cowolf.evolution.statechart.feature</module>
+		<module>../de.uni_stuttgart.iste.cowolf.evolution.statechart.tests</module>
+		<module>../de.uni_stuttgart.iste.cowolf.feature</module>
 		<module>../de.uni_stuttgart.iste.cowolf.license.feature</module>
 		<module>../de.uni_stuttgart.iste.cowolf.model</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.model.activity_diagram
-		</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.model.activity_diagram.tests
-		</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.model.component_diagram
-		</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.model.component_diagram.tests
-		</module>
+		<module>../de.uni_stuttgart.iste.cowolf.model.activity_diagram</module>
+		<module>../de.uni_stuttgart.iste.cowolf.model.activity_diagram.feature</module>
+		<module>../de.uni_stuttgart.iste.cowolf.model.activity_diagram.tests</module>
+		<module>../de.uni_stuttgart.iste.cowolf.model.component_diagram</module>
+		<module>../de.uni_stuttgart.iste.cowolf.model.component_diagram.feature</module>
+		<module>../de.uni_stuttgart.iste.cowolf.model.component_diagram.tests</module>
 		<module>../de.uni_stuttgart.iste.cowolf.model.ctmc</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.model.ctmc.tests
-		</module>
+		<module>../de.uni_stuttgart.iste.cowolf.model.ctmc.feature</module>
+		<module>../de.uni_stuttgart.iste.cowolf.model.ctmc.tests</module>
 		<module>../de.uni_stuttgart.iste.cowolf.model.dtmc</module>
+		<module>../de.uni_stuttgart.iste.cowolf.model.dtmc.feature</module>
+		<module>../de.uni_stuttgart.iste.cowolf.model.dtmc.tests</module>
+		<module>../de.uni_stuttgart.iste.cowolf.model.fault_tree</module>
+		<module>../de.uni_stuttgart.iste.cowolf.model.fault_tree.feature</module>
+		<module>../de.uni_stuttgart.iste.cowolf.model.fault_tree.tests</module>
+		<module>../de.uni_stuttgart.iste.cowolf.model.feature</module>
+		<module>../de.uni_stuttgart.iste.cowolf.model.lqn</module>
+		<module>../de.uni_stuttgart.iste.cowolf.model.lqn.feature</module>
+		<module>../de.uni_stuttgart.iste.cowolf.model.lqn.tests</module>
+		<module>../de.uni_stuttgart.iste.cowolf.model.statechart</module>
+		<module>../de.uni_stuttgart.iste.cowolf.model.statechart.feature</module>
+		<module>../de.uni_stuttgart.iste.cowolf.model.statechart.tests</module>
+		<module>../de.uni_stuttgart.iste.cowolf.p2update</module>
+		<module>../de.uni_stuttgart.iste.cowolf.transformation</module>
+		<module>../de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart</module>
+		<module>../de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.feature</module>
+		<module>../de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.tests</module>
+		<module>../de.uni_stuttgart.iste.cowolf.transformation.feature</module>
+		<module>../de.uni_stuttgart.iste.cowolf.ui</module>
+		<module>../de.uni_stuttgart.iste.cowolf.ui.feature</module>
+		<module>../de.uni_stuttgart.iste.cowolf.ui.navigator</module>
+		<module>../de.uni_stuttgart.iste.cowolf.ui.navigator.feature</module>
+		<module>../de.uni_stuttgart.iste.cowolf.ui.tests</module>
+		<module>
+			../de.uni_stuttgart.iste.cowolf.model.statechartemf.edit
+		</module>
+		<module>
+			../de.uni_stuttgart.iste.cowolf.model.statechartemf.tests
+		</module>
+		<module>
+			../de.uni_stuttgart.iste.cowolf.model.statechartemf.editor
+		</module>
 		<module>
 			../de.uni_stuttgart.iste.cowolf.model.dtmc.emf.edit
 		</module>
@@ -261,102 +238,19 @@
 			../de.uni_stuttgart.iste.cowolf.model.dtmc.emf.editor
 		</module>
 		<module>
-			../de.uni_stuttgart.iste.cowolf.model.dtmc.feature
-		</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.model.dtmc.tests
-		</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.model.fault_tree
-		</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.model.fault_tree.tests
-		</module>
-		<module>../de.uni_stuttgart.iste.cowolf.model.lqn</module>
-		<module>../de.uni_stuttgart.iste.cowolf.model.lqn.tests</module>
-		<module>../de.uni_stuttgart.iste.cowolf.model.skeleton</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.model.statechart
-		</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.model.statechart.emf.edit
-		</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.model.statechart.emf.editor
-		</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.model.statechart.tests
-		</module>
-		<module>../de.uni_stuttgart.iste.cowolf.p2update</module>
-		<module>../de.uni_stuttgart.iste.cowolf.transformation</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart
-		</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.tests
-		</module>
-		<module>../de.uni_stuttgart.iste.cowolf.ui</module>
-		<module>../de.uni_stuttgart.iste.cowolf.ui.evolution</module>
-		<module>../de.uni_stuttgart.iste.cowolf.ui.model</module>
-		<module>../de.uni_stuttgart.iste.cowolf.ui.model.dtmc</module>
-		<module>../de.uni_stuttgart.iste.cowolf.ui.navigator</module>
-		<module>../de.uni_stuttgart.iste.cowolf.ui.tests</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.evolution.ctmc.feature
-		</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.evolution.dtmc.feature
-		</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.evolution.fault_tree.feature
-		</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.evolution.lqn.feature
-		</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.evolution.statechart.feature
-		</module>
-		<module>../de.uni_stuttgart.iste.cowolf.feature</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.model.statechart.feature
-		</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.model.activity_diagram.feature
-		</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.model.component_diagram.feature
-		</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.model.ctmc.feature
-		</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.model.fault_tree.feature
-		</module>
-		<module>../de.uni_stuttgart.iste.cowolf.model.feature</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.model.lqn.feature
-		</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.feature
-		</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.transformation.feature
-		</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.ui.navigator.feature
-		</module>
-		<module>../de.uni_stuttgart.iste.cowolf.skeleton.editor</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.skeleton.ui.analyze
-		</module>
-		<module>
 			../de.uni_stuttgart.iste.cowolf.evolution.dtmc.recognitionrules
 		</module>
-		<module>../de.uni_stuttgart.iste.cowolf.skeleton.evolve</module>
 		<module>
-			../de.uni_stuttgart.iste.cowolf.skeleton.evolution.rulebase
+			../de.uni_stuttgart.iste.cowolf.evolution.dtmc.editrules
 		</module>
-		<module>../de.uni_stuttgart.iste.cowolf.model.emf.edit</module>
+		<module>
+			../de.uni_stuttgart.iste.cowolf.model.fault_tree.emf.edit
+		</module>
+		<module>
+			../de.uni_stuttgart.iste.cowolf.model.fault_tree.emf.editor
+		</module>
+		<module>
+			../de.uni_stuttgart.iste.cowolf.ui.model.fault_tree
+		</module>
 	</modules>
-	
 </project>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+   <extension
+         id="faultTreeModelManager"
+         point="de.uni_stuttgart.iste.cowolf.model.qosModelManagerExtension">
+      <qosModelManager
+            class="de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreeModelManager">
+      </qosModelManager>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated FaultTree -->
+      <package
+            uri="http://FaultTree/1.0"
+            class="de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreePackage"/>
+   </extension>
+
+</plugin>

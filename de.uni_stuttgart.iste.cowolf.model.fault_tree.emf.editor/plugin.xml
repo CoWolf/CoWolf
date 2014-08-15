@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated FaultTree -->
+      <wizard
+            id="de.uni_stuttgart.iste.cowolf.model.fault_tree.emf.presentation.FaultTreeModelWizardID"
+            name="%_UI_FaultTreeModelWizard_label"
+            class="de.uni_stuttgart.iste.cowolf.model.fault_tree.emf.presentation.FaultTreeModelWizardExtension"
+            category="de.uni_stuttgart.iste.cowolf.ui.category.wizards.main/de.uni_stuttgart.iste.cowolf.ui.category.wizards.models"
+            icon="icons/full/obj16/FaultTreeModelFile.gif">
+         <description>%_UI_FaultTreeModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated FaultTree -->
+      <editor
+            id="de.uni_stuttgart.iste.cowolf.model.fault_tree.emf.presentation.FaultTreeEditorID"
+            name="%_UI_FaultTreeEditor_label"
+            icon="icons/full/obj16/FaultTreeModelFile.gif"
+            extensions="faulttree"
+            class="de.uni_stuttgart.iste.cowolf.model.fault_tree.emf.presentation.FaultTreeEditor"
+            contributorClass="de.uni_stuttgart.iste.cowolf.model.fault_tree.emf.presentation.FaultTreeActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

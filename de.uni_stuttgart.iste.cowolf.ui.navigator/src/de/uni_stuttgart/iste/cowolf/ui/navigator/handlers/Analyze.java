@@ -20,9 +20,13 @@ import org.eclipse.ui.PlatformUI;
 import de.uni_stuttgart.iste.cowolf.core.extensions.ExtensionHandler;
 import de.uni_stuttgart.iste.cowolf.model.AbstractModelManager;
 import de.uni_stuttgart.iste.cowolf.model.AbstractQoSModelManager;
+import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCModelManager;
+import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreeModelManager;
 import de.uni_stuttgart.iste.cowolf.ui.model.analyze.AbstractQoSAnalyzeWizard;
 import de.uni_stuttgart.iste.cowolf.ui.model.analyze.AnalyzeWizardHandler;
 import de.uni_stuttgart.iste.cowolf.ui.model.analyze.FileOpenAnalysisListener;
+import de.uni_stuttgart.iste.cowolf.ui.model.dtmc.preference.DTMCPreferencePage;
+import de.uni_stuttgart.iste.cowolf.ui.model.fault_tree.preferences.FaultTreePreferencePage;
 
 public class Analyze implements IHandler {
 
@@ -63,9 +67,9 @@ public class Analyze implements IHandler {
 				if (!wizard.checkConditions()) {
 					return null;
 				}
-				
+				addModelCustomProperties(modelManager, properties);
 				if (wizard != null) {
-					//TODO call UI to define Properties
+					// TODO call UI to define Properties
 					wizard.initialize(qosModelManager, resource, properties);
 					WizardDialog wizardDialog = new WizardDialog(window.getShell(), wizard);
 					wizardDialog.setBlockOnOpen(true);
@@ -101,4 +105,13 @@ public class Analyze implements IHandler {
 
 	}
 
+	private void addModelCustomProperties(AbstractModelManager modelManager,
+			HashMap<String, Object> properties) {
+		if (modelManager instanceof DTMCModelManager) {
+			properties.put("prismRootPath", DTMCPreferencePage.getPrismPath());
+		} else if (modelManager instanceof FaultTreeModelManager) {
+			properties.put(FaultTreeModelManager.PARAM_PATH_TO_XFTA,
+					FaultTreePreferencePage.getPathToXFTA());
+		}
+	}
 }
