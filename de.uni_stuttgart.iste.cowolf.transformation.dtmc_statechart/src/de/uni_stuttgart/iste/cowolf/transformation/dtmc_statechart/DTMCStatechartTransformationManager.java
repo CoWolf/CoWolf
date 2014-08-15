@@ -7,7 +7,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map.Entry;
 
 import javax.xml.bind.JAXBException;
 
@@ -29,7 +28,6 @@ import de.uni_stuttgart.iste.cowolf.model.dtmc.Root;
 import de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine;
 import de.uni_stuttgart.iste.cowolf.transformation.AbstractTransformationManager;
 import de.uni_stuttgart.iste.cowolf.transformation.TransformationTypeInfo;
-import de.uni_stuttgart.iste.cowolf.transformation.model.Mapping;
 import de.uni_stuttgart.iste.cowolf.transformation.model.Mappings;
 import de.uni_stuttgart.iste.cowolf.transformation.model.util.XMLMappingLoader;
 
@@ -84,11 +82,12 @@ public class DTMCStatechartTransformationManager
             System.out.println(mappings);
             System.out.println("Found " + mappings.getMapping().size()
                     + " mappings.");
-            for (Entry<String, Mapping> mapping : mappings.getMapping()
-                    .entrySet()) {
-                System.out.println("Rule key: " + mapping.getKey());
-                System.out.println("Rule value:" + mapping.getValue());
-            }
+            /*
+             * for (Entry<String, Mapping> mapping : mappings.getMapping()
+             * .entrySet()) { System.out.println("Rule key: " +
+             * mapping.getKey()); System.out.println("Rule value:" +
+             * mapping.getValue()); }
+             */
         } catch (JAXBException e1) {
             e1.printStackTrace();
             return false;
