@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -82,7 +83,7 @@ public class StateImpl extends IDBaseImpl implements State {
 	protected EList<Transition> outgoing;
 
 	/**
-	 * The cached value of the '{@link #getLabels() <em>Labels</em>}' reference list.
+	 * The cached value of the '{@link #getLabels() <em>Labels</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getLabels()
@@ -162,7 +163,7 @@ public class StateImpl extends IDBaseImpl implements State {
 	 */
 	public EList<Label> getLabels() {
 		if (labels == null) {
-			labels = new EObjectWithInverseResolvingEList<Label>(Label.class, this, DTMCemfPackage.STATE__LABELS, DTMCemfPackage.LABEL__STATE);
+			labels = new EObjectContainmentWithInverseEList<Label>(Label.class, this, DTMCemfPackage.STATE__LABELS, DTMCemfPackage.LABEL__STATE);
 		}
 		return labels;
 	}

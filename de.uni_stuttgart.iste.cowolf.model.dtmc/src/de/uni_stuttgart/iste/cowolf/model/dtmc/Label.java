@@ -33,7 +33,7 @@ public interface Label extends IDBase {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage#getLabel_Name()
-	 * @model unique="false" required="true" ordered="false"
+	 * @model required="true"
 	 * @generated
 	 */
 	String getName();
@@ -49,7 +49,7 @@ public interface Label extends IDBase {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>State</b></em>' reference.
+	 * Returns the value of the '<em><b>State</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.State#getLabels <em>Labels</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -57,20 +57,20 @@ public interface Label extends IDBase {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>State</em>' reference.
+	 * @return the value of the '<em>State</em>' container reference.
 	 * @see #setState(State)
 	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage#getLabel_State()
 	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.State#getLabels
-	 * @model opposite="labels" keys="id" required="true"
+	 * @model opposite="labels" required="true" transient="false"
 	 * @generated
 	 */
 	State getState();
 
 	/**
-	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.Label#getState <em>State</em>}' reference.
+	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.Label#getState <em>State</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>State</em>' reference.
+	 * @param value the new value of the '<em>State</em>' container reference.
 	 * @see #getState()
 	 * @generated
 	 */

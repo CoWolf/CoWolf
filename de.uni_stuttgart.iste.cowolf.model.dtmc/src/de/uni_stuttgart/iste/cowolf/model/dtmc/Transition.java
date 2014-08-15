@@ -19,7 +19,8 @@ import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
  * </p>
  *
  * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage#getTransition()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='ProbBetween0and1'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot ProbBetween0and1='Tuple {\n\tmessage : String = \'Probability must be between 0 and 1.\',\n\tstatus : Boolean = \n\t \t\tprob >= 0.0 and prob <= 1.0\n}.status'"
  * @generated
  */
 public interface Transition extends IDBase {
@@ -36,7 +37,7 @@ public interface Transition extends IDBase {
 	 * @see #setFrom(State)
 	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage#getTransition_From()
 	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.State#getOutgoing
-	 * @model opposite="outgoing" keys="id" required="true"
+	 * @model opposite="outgoing" required="true"
 	 * @generated
 	 */
 	State getFrom();
@@ -64,7 +65,7 @@ public interface Transition extends IDBase {
 	 * @see #setTo(State)
 	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage#getTransition_To()
 	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.State#getIncoming
-	 * @model opposite="incoming" keys="id" required="true"
+	 * @model opposite="incoming" required="true"
 	 * @generated
 	 */
 	State getTo();

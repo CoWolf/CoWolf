@@ -23,7 +23,8 @@ import org.eclipse.emf.ecore.EReference;
  * <!-- end-user-doc -->
  * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfFactory
  * @model kind="package"
- *        annotation="http://www.eclipse.org/OCL/Import ecore='http://www.eclipse.org/emf/2002/Ecore'"
+ *        annotation="http://www.eclipse.org/OCL/Import commonBase='../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#/' ecore='http://www.eclipse.org/emf/2002/Ecore'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'"
  * @generated
  */
 public interface DTMCemfPackage extends EPackage {
@@ -179,7 +180,7 @@ public interface DTMCemfPackage extends EPackage {
 	int STATE__OUTGOING = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Labels</b></em>' reference list.
+	 * The feature id for the '<em><b>Labels</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -298,7 +299,7 @@ public interface DTMCemfPackage extends EPackage {
 	int LABEL__NAME = CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>State</b></em>' reference.
+	 * The feature id for the '<em><b>State</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -423,10 +424,10 @@ public interface DTMCemfPackage extends EPackage {
 	EReference getState_Outgoing();
 
 	/**
-	 * Returns the meta object for the reference list '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.State#getLabels <em>Labels</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.State#getLabels <em>Labels</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Labels</em>'.
+	 * @return the meta object for the containment reference list '<em>Labels</em>'.
 	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.State#getLabels()
 	 * @see #getState()
 	 * @generated
@@ -498,10 +499,10 @@ public interface DTMCemfPackage extends EPackage {
 	EAttribute getLabel_Name();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.Label#getState <em>State</em>}'.
+	 * Returns the meta object for the container reference '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.Label#getState <em>State</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>State</em>'.
+	 * @return the meta object for the container reference '<em>State</em>'.
 	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.Label#getState()
 	 * @see #getLabel()
 	 * @generated
@@ -608,7 +609,7 @@ public interface DTMCemfPackage extends EPackage {
 		EReference STATE__OUTGOING = eINSTANCE.getState_Outgoing();
 
 		/**
-		 * The meta object literal for the '<em><b>Labels</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Labels</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -668,7 +669,7 @@ public interface DTMCemfPackage extends EPackage {
 		EAttribute LABEL__NAME = eINSTANCE.getLabel_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>State</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>State</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

@@ -2,38 +2,57 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="dtmc" nsURI="http://dtmc/1.0" nsPrefix="dtmc">
   <eAnnotations source="http://www.eclipse.org/OCL/Import">
+    <details key="commonBase" value="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#/"/>
     <details key="ecore" value="http://www.eclipse.org/emf/2002/Ecore"/>
+  </eAnnotations>
+  <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+    <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="DTMC" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral=""/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="States" upperBound="-1"
-        eType="#//State" containment="true" eKeys="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        eType="#//State" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="initialState" lowerBound="1"
-        eType="#//State" eKeys="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        eType="#//State"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Transitions" upperBound="-1"
-        eType="#//Transition" containment="true" eKeys="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        eType="#//Transition" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="State" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="OutgoingDontAddUpToOne NonDeterministic NoDuplicateLabels"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="OutgoingDontAddUpToOne" value="Tuple {&#xA;&#x9;message : String = 'Probability of all outgoing transitions must be 1.0.',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.outgoing->size() = 0 or (self.outgoing.prob->sum() - 1.0).abs()  &lt; 0.000001&#xA;}.status"/>
+      <details key="NonDeterministic" value="Tuple {&#xA;&#x9;message : String = 'There must not be any nondeterminism. Please union transitions to the same target.',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.outgoing.to->asSet()->size() = self.outgoing->size()&#xA;}.status"/>
+      <details key="NoDuplicateLabels" value="Tuple {&#xA;&#x9;message : String = 'Labels must be unique per state.',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.labels.name->asSet()->size() = self.labels->size()&#xA;}.status"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="incoming" ordered="false"
-        upperBound="-1" eType="#//Transition" eOpposite="#//Transition/to" eKeys="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        upperBound="-1" eType="#//Transition" eOpposite="#//Transition/to"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outgoing" ordered="false"
-        upperBound="-1" eType="#//Transition" eOpposite="#//Transition/from" eKeys="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        upperBound="-1" eType="#//Transition" eOpposite="#//Transition/from"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="labels" upperBound="-1"
-        eType="#//Label" eOpposite="#//Label/state" eKeys="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        eType="#//Label" containment="true" eOpposite="#//Label/state"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Transition" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="ProbBetween0and1"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="ProbBetween0and1" value="Tuple {&#xA;&#x9;message : String = 'Probability must be between 0 and 1.',&#xA;&#x9;status : Boolean = &#xA;&#x9; &#x9;&#x9;prob >= 0.0 and prob &lt;= 1.0&#xA;}.status"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="from" lowerBound="1" eType="#//State"
-        eOpposite="#//State/outgoing" eKeys="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        eOpposite="#//State/outgoing"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="to" lowerBound="1" eType="#//State"
-        eOpposite="#//State/incoming" eKeys="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        eOpposite="#//State/incoming"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="prob" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Label" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" unique="false"
-        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="state" lowerBound="1" eType="#//State"
-        eOpposite="#//State/labels" eKeys="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        eOpposite="#//State/labels"/>
   </eClassifiers>
 </ecore:EPackage>

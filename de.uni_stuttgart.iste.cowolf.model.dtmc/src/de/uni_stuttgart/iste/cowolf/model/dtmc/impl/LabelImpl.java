@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -50,16 +51,6 @@ public class LabelImpl extends IDBaseImpl implements Label {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getState() <em>State</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getState()
-	 * @generated
-	 * @ordered
-	 */
-	protected State state;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -107,24 +98,8 @@ public class LabelImpl extends IDBaseImpl implements Label {
 	 * @generated
 	 */
 	public State getState() {
-		if (state != null && state.eIsProxy()) {
-			InternalEObject oldState = (InternalEObject)state;
-			state = (State)eResolveProxy(oldState);
-			if (state != oldState) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DTMCemfPackage.LABEL__STATE, oldState, state));
-			}
-		}
-		return state;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public State basicGetState() {
-		return state;
+		if (eContainerFeatureID() != DTMCemfPackage.LABEL__STATE) return null;
+		return (State)eInternalContainer();
 	}
 
 	/**
@@ -133,12 +108,7 @@ public class LabelImpl extends IDBaseImpl implements Label {
 	 * @generated
 	 */
 	public NotificationChain basicSetState(State newState, NotificationChain msgs) {
-		State oldState = state;
-		state = newState;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DTMCemfPackage.LABEL__STATE, oldState, newState);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eBasicSetContainer((InternalEObject)newState, DTMCemfPackage.LABEL__STATE, msgs);
 		return msgs;
 	}
 
@@ -148,10 +118,12 @@ public class LabelImpl extends IDBaseImpl implements Label {
 	 * @generated
 	 */
 	public void setState(State newState) {
-		if (newState != state) {
+		if (newState != eInternalContainer() || (eContainerFeatureID() != DTMCemfPackage.LABEL__STATE && newState != null)) {
+			if (EcoreUtil.isAncestor(this, newState))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
-			if (state != null)
-				msgs = ((InternalEObject)state).eInverseRemove(this, DTMCemfPackage.STATE__LABELS, State.class, msgs);
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
 			if (newState != null)
 				msgs = ((InternalEObject)newState).eInverseAdd(this, DTMCemfPackage.STATE__LABELS, State.class, msgs);
 			msgs = basicSetState(newState, msgs);
@@ -170,8 +142,8 @@ public class LabelImpl extends IDBaseImpl implements Label {
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DTMCemfPackage.LABEL__STATE:
-				if (state != null)
-					msgs = ((InternalEObject)state).eInverseRemove(this, DTMCemfPackage.STATE__LABELS, State.class, msgs);
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetState((State)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -197,13 +169,26 @@ public class LabelImpl extends IDBaseImpl implements Label {
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case DTMCemfPackage.LABEL__STATE:
+				return eInternalContainer().eInverseRemove(this, DTMCemfPackage.STATE__LABELS, State.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DTMCemfPackage.LABEL__NAME:
 				return getName();
 			case DTMCemfPackage.LABEL__STATE:
-				if (resolve) return getState();
-				return basicGetState();
+				return getState();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -255,7 +240,7 @@ public class LabelImpl extends IDBaseImpl implements Label {
 			case DTMCemfPackage.LABEL__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case DTMCemfPackage.LABEL__STATE:
-				return state != null;
+				return getState() != null;
 		}
 		return super.eIsSet(featureID);
 	}

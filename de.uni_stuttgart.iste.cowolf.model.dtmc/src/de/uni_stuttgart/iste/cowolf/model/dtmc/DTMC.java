@@ -64,7 +64,7 @@ public interface DTMC extends IDBase {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>States</em>' containment reference list.
 	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage#getDTMC_States()
-	 * @model containment="true" keys="id"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<State> getStates();
@@ -80,7 +80,7 @@ public interface DTMC extends IDBase {
 	 * @return the value of the '<em>Initial State</em>' reference.
 	 * @see #setInitialState(State)
 	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage#getDTMC_InitialState()
-	 * @model keys="id" required="true"
+	 * @model required="true"
 	 * @generated
 	 */
 	State getInitialState();
@@ -106,7 +106,7 @@ public interface DTMC extends IDBase {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Transitions</em>' containment reference list.
 	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage#getDTMC_Transitions()
-	 * @model containment="true" keys="id"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Transition> getTransitions();
