@@ -110,23 +110,6 @@ activeByDefault="true"
 <extension
 point="org.eclipse.ui.handlers">
       <handler
-            class="de.uni_stuttgart.iste.cowolf.ui.navigator.handlers.CoEvolve"
-            commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.co-evolve">
-            <enabledWhen>
-           <and>
-            <with
-                  variable="selection">
-               <count
-                     value="2">
-               </count>
-            </with>
-            <test
-                  property="de.uni_stuttgart.iste.cowolf.ui.navigator.propertyTester.coevolution.canFoo">
-            </test>
-            </and>
-         </enabledWhen>
-</handler>
-      <handler
             class="de.uni_stuttgart.iste.cowolf.ui.navigator.handlers.Analyze"
             commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.analyze">
             <enabledWhen>
@@ -159,7 +142,7 @@ allPopups="false"
                   style="push">
             </command>
             <command
-                  commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.co-evolve"
+                  commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.transform"
                   icon="icons/logo_wulf_15x15.png"
                   label="%coevolve.label"
                   style="push">
@@ -182,23 +165,12 @@ allPopups="false"
          name="%extension.name"
          point="org.eclipse.ui.commands">
       <command
-            id="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.co-evolve"
-            name="%command.coevolve.name">
-      </command>
-      <command
             id="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.analyze"
             name="%command.analyze.name">
       </command>
 </extension>
 <extension
          point="org.eclipse.core.expressions.propertyTesters">
-      <propertyTester
-            class="de.uni_stuttgart.iste.cowolf.ui.navigator.PropertyTester.CoEvolutionTester"
-            id="de.uni_stuttgart.iste.cowolf.ui.navigator.propertyTester.coevolution"
-            namespace="de.uni_stuttgart.iste.cowolf.ui.navigator.propertyTester.coevolution"
-            properties="canFoo"
-            type="java.lang.Object">
-      </propertyTester>
       <propertyTester
             class="de.uni_stuttgart.iste.cowolf.ui.navigator.PropertyTester.AnalyzeTester"
             id="de.uni_stuttgart.iste.cowolf.ui.navigator.propertyTester.analyze"
