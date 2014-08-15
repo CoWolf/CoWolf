@@ -17,7 +17,7 @@ class XFTAMinimalCutsetsScriptGenerator implements XFTAGenerator {
 		    <model input="«parameters.get("pathToInputXFTAFile")»" />
 		  </load>
 		  <build>
-		    <minimal-cutsets top-event="«r.hazard.name»" handle="MCS" />
+		    <minimal-cutsets top-event="«r.hazard.id»" handle="MCS" />
 		  </build>
 		  <set>
 		    <option name="print-minimal-cutset-rank" value="on" />
@@ -26,7 +26,7 @@ class XFTAMinimalCutsetsScriptGenerator implements XFTAGenerator {
 		    <option name="print-minimal-cutset-contribution" value="on" />
 		  </set>
 		  <print>
-		    <minimal-cutsets top-event="«r.hazard.name»" handle="MCS" output="«parameters.get("pathToOutputXFTAFile")»" mode="write" />
+		    <minimal-cutsets top-event="«r.hazard.id»" handle="MCS" output="«parameters.get("pathToOutputXFTAFile")»" mode="write" />
 		  </print>
 		</xfta>
 	'''

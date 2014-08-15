@@ -17,10 +17,10 @@ class XFTAProbailityTopEventScriptGenerator implements XFTAGenerator {
 	    <model input="«parameters.get("pathToInputXFTAFile")»" />
 	  </load>
 	  <build>
-	    <minimal-cutsets top-event="«r.hazard.name»" handle="MCS" />
+	    <minimal-cutsets top-event="«r.hazard.id»" handle="MCS" />
 	  </build>
 	  <compute>
-	    <importance-factors top-event="«r.hazard.name»" handle="MCS" output="«parameters.get("pathToOutputXFTAFile")»" />
+	    <importance-factors top-event="«r.hazard.id»" handle="MCS" output="«parameters.get("pathToOutputXFTAFile")»" />
 	  </compute>
 	</xfta>
 	'''
