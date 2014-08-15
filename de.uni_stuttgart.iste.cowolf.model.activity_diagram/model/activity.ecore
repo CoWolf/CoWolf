@@ -11,13 +11,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="end" lowerBound="1" eType="#//End"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="transition" upperBound="-1"
-        eType="#//Transition" containment="true"/>
+        eType="#//arrow" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="end" lowerBound="1" eType="#//End"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Start">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="incoming" eType="#//Transition"
-        eOpposite="#//Transition/from"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingFromStart" eType="#//arrow"
+        eOpposite="#//arrow/fromStart"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Action" eSuperTypes="#//NodesWithoutJoin">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Action" lowerBound="1"
@@ -25,20 +25,29 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="outgoing" lowerBound="1"
         eType="#//AfterActionArrow"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Decision"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Decision">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingFromDecision" lowerBound="2"
+        upperBound="-1" eType="#//arrow" eOpposite="#//arrow/toDecision"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="incomingToDecision" lowerBound="1"
+        eType="#//arrow" eOpposite="#//arrow/fromDecision"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Bar"/>
   <eClassifiers xsi:type="ecore:EClass" name="Split" eSuperTypes="#//Bar"/>
   <eClassifiers xsi:type="ecore:EClass" name="Join" eSuperTypes="#//Bar"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Transition">
+  <eClassifiers xsi:type="ecore:EClass" name="arrow">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="condition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="EReference0" eType="#//Start"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="from" lowerBound="1" eType="#//Start"
-        eOpposite="#//Start/incoming"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="outgoing" lowerBound="1"
-        eType="#//End" eOpposite="#//End/to"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fromStart" lowerBound="1"
+        eType="#//Start" eOpposite="#//Start/outgoingFromStart"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="toEnd" lowerBound="1" eType="#//End"
+        eOpposite="#//End/incomingToEnd"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="toDecision" lowerBound="1"
+        eType="#//Decision" eOpposite="#//Decision/outgoingFromDecision"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fromDecision" lowerBound="1"
+        eType="#//Decision" eOpposite="#//Decision/incomingToDecision"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="End">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="to" eType="#//Transition"
-        eOpposite="#//Transition/outgoing"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="incomingToEnd" eType="#//arrow"
+        eOpposite="#//arrow/toEnd"/>
   </eClassifiers>
 </ecore:EPackage>
