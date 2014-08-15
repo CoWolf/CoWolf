@@ -10,7 +10,7 @@ import de.uni_stuttgart.iste.cowolf.ui.model.analyze.AbstractQoSAnalyzeWizard;
 
 public class FaultTreeAnalyzeWizard extends AbstractQoSAnalyzeWizard {
 
-	protected AnalyzeWizardPage1 pageOne;
+	protected FaultTreeAnalyzeWizardPage1 pageOne;
 
 	public FaultTreeAnalyzeWizard() {
 		super();
@@ -21,7 +21,7 @@ public class FaultTreeAnalyzeWizard extends AbstractQoSAnalyzeWizard {
 			final Resource resource, final HashMap<String, Object> properties) {
 		super.setWindowTitle("Analyze Fault Tree");
 		super.initialize(manager, resource, properties);
-		this.pageOne = new AnalyzeWizardPage1("Page 1");
+		this.pageOne = new FaultTreeAnalyzeWizardPage1("Page 1");
 	}
 
 	@Override

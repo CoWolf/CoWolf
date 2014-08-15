@@ -5,16 +5,11 @@
    <extension
          point="org.eclipse.ui.preferencePages">
       <page
-            name="Sample Preferences"
+      		category="de.uni_stuttgart.iste.cowolf.ui.model.modelPage"
+            name="Fault Tree"
             class="de.uni_stuttgart.iste.cowolf.ui.model.fault_tree.preferences.FaultTreePreferencePage"
-            id="de.uni_stuttgart.iste.cowolf.ui.model.fault_tree.preferences.SamplePreferencePage">
+            id="de.uni_stuttgart.iste.cowolf.ui.model.fault_tree.preferences.FaultTreePreferencePage">
       </page>
-   </extension>
-   <extension
-         point="org.eclipse.core.runtime.preferences">
-      <initializer
-            class="de.uni_stuttgart.iste.cowolf.ui.model.fault_tree.preferences.PreferenceInitializer">
-      </initializer>
    </extension>
    <extension
          point="de.uni_stuttgart.iste.cowolf.ui.model.qosAnalyzeWizardExtension">
@@ -22,4 +17,5 @@
             class="de.uni_stuttgart.iste.cowolf.ui.model.fault_tree.analyze.FaultTreeAnalyzeWizard">
       </qosAnalyzeWizard>
    </extension>
+
 </plugin>

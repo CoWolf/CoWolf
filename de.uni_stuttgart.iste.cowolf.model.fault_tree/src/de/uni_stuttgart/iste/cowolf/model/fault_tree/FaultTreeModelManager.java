@@ -11,10 +11,14 @@ import de.uni_stuttgart.iste.cowolf.model.AbstractQoSModelManager;
 import de.uni_stuttgart.iste.cowolf.model.IAnalysisListener;
 import de.uni_stuttgart.iste.cowolf.model.ModelTypeInfo;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.analyze.FaultTreeAnalyzeJob;
+import de.uni_stuttgart.iste.cowolf.model.fault_tree.analyze.FaultTreeAnalyzeJobListener;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.RootImpl;
 
 public class FaultTreeModelManager extends AbstractQoSModelManager {
+	
+	public static final String PARAM_PATH_TO_XFTA = "pathToXFTA";
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public ModelTypeInfo getModelTypeInfo() {
 		String metaModelName = "FaultTree";
@@ -33,7 +37,8 @@ public class FaultTreeModelManager extends AbstractQoSModelManager {
 	public String analyze(Resource model, Map<String, Object> parameters,
 			final IAnalysisListener listener) {
 		final FaultTreeAnalyzeJob job = new FaultTreeAnalyzeJob(model,
-				parameters);
+				parameters, listener);
+		job.addJobChangeListener(new FaultTreeAnalyzeJobListener());
 		job.setPriority(Job.LONG);
 		job.schedule();
 

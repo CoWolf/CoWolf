@@ -20,10 +20,13 @@ import org.eclipse.ui.PlatformUI;
 import de.uni_stuttgart.iste.cowolf.core.extensions.ExtensionHandler;
 import de.uni_stuttgart.iste.cowolf.model.AbstractModelManager;
 import de.uni_stuttgart.iste.cowolf.model.AbstractQoSModelManager;
+import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCModelManager;
+import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreeModelManager;
 import de.uni_stuttgart.iste.cowolf.ui.model.analyze.AbstractQoSAnalyzeWizard;
 import de.uni_stuttgart.iste.cowolf.ui.model.analyze.AnalyzeWizardHandler;
 import de.uni_stuttgart.iste.cowolf.ui.model.analyze.FileOpenAnalysisListener;
 import de.uni_stuttgart.iste.cowolf.ui.model.dtmc.preference.DTMCPreferencePage;
+import de.uni_stuttgart.iste.cowolf.ui.model.fault_tree.preferences.FaultTreePreferencePage;
 
 public class Analyze implements IHandler {
 
@@ -45,7 +48,8 @@ public class Analyze implements IHandler {
 		ExtensionHandler extensionHandler = new ExtensionHandler();
 		IWorkbenchWindow window = PlatformUI.getWorkbench()
 				.getActiveWorkbenchWindow();
-		IStructuredSelection selection = (IStructuredSelection) window.getSelectionService().getSelection();
+		IStructuredSelection selection = (IStructuredSelection) window
+				.getSelectionService().getSelection();
 
 		Object selectedElement = selection.getFirstElement();
 
@@ -53,27 +57,34 @@ public class Analyze implements IHandler {
 			IFile iFile = (IFile) selectedElement;
 			ResourceSet resSet = new ResourceSetImpl();
 			Resource resource;
-			URI uri = URI.createPlatformResourceURI(iFile.getFullPath().toString(), true);
+			URI uri = URI.createPlatformResourceURI(iFile.getFullPath()
+					.toString(), true);
 			resource = resSet.getResource(uri, true);
-			AbstractModelManager modelManager = extensionHandler.getModelManager(resource);
+			AbstractModelManager modelManager = extensionHandler
+					.getModelManager(resource);
 
-			if (modelManager != null && modelManager instanceof AbstractQoSModelManager) {
+			if (modelManager != null
+					&& modelManager instanceof AbstractQoSModelManager) {
 				AbstractQoSModelManager qosModelManager = (AbstractQoSModelManager) modelManager;
 				HashMap<String, Object> properties = new HashMap<String, Object>();
-				AbstractQoSAnalyzeWizard wizard = AnalyzeWizardHandler.getInstance().getQosAnalyzeWizard((AbstractQoSModelManager) modelManager);
+				AbstractQoSAnalyzeWizard wizard = AnalyzeWizardHandler
+						.getInstance().getQosAnalyzeWizard(
+								(AbstractQoSModelManager) modelManager);
 				if (!wizard.checkConditions()) {
 					return null;
 				}
-				properties.put("prismRootPath", DTMCPreferencePage.getPrismPath());
+				addModelCustomProperties(modelManager, properties);
 				if (wizard != null) {
-					//TODO call UI to define Properties
+					// TODO call UI to define Properties
 					wizard.initialize(qosModelManager, resource, properties);
-					WizardDialog wizardDialog = new WizardDialog(window.getShell(), wizard);
+					WizardDialog wizardDialog = new WizardDialog(
+							window.getShell(), wizard);
 					wizardDialog.setBlockOnOpen(true);
 					FileOpenAnalysisListener fileOpenListener = new FileOpenAnalysisListener();
 					if (wizardDialog.open() == Window.OK) {
 						System.out.println("Ok pressed");
-						qosModelManager.analyze(resource, properties, fileOpenListener);
+						qosModelManager.analyze(resource, properties,
+								fileOpenListener);
 					} else {
 						System.out.println("Cancel pressed");
 					}
@@ -102,4 +113,13 @@ public class Analyze implements IHandler {
 
 	}
 
+	private void addModelCustomProperties(AbstractModelManager modelManager,
+			HashMap<String, Object> properties) {
+		if (modelManager instanceof DTMCModelManager) {
+			properties.put("prismRootPath", DTMCPreferencePage.getPrismPath());
+		} else if (modelManager instanceof FaultTreeModelManager) {
+			properties.put(FaultTreeModelManager.PARAM_PATH_TO_XFTA,
+					FaultTreePreferencePage.getPathToXFTA());
+		}
+	}
 }

@@ -11,13 +11,13 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Group;
 
-public class AnalyzeWizardPage1 extends WizardPage {
+public class FaultTreeAnalyzeWizardPage1 extends WizardPage {
 
 	private Composite container;
 	private Button btnMinimalCutsets;
 	private Button btnProbabilityTopEvent;
 
-	protected AnalyzeWizardPage1(final String pageName) {
+	protected FaultTreeAnalyzeWizardPage1(final String pageName) {
 		super(pageName);
 		this.setTitle("Analyze a fault tree model");
 		this.setDescription("Analyze a fault tree model");
@@ -63,10 +63,10 @@ public class AnalyzeWizardPage1 extends WizardPage {
 
 	public void setProperties(final HashMap<String, Object> properties) {
 		if (this.btnProbabilityTopEvent.getSelection()) {
-			properties.put("probailityTopEvent", "true");
+			properties.put("typeOfAnalysis", "probabilityTopEvent");
 		}
 		if (this.btnMinimalCutsets.getSelection()) {
-			properties.put("minimalCutSets", "true");
+			properties.put("typeOfAnalysis", "minimalCutSets");
 		}
 	}
 }
