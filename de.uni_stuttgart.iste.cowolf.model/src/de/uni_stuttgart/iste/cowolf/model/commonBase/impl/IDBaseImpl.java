@@ -48,7 +48,7 @@ public abstract class IDBaseImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * @generated NOT
 	 */
 	protected IDBaseImpl() {
 		super();
