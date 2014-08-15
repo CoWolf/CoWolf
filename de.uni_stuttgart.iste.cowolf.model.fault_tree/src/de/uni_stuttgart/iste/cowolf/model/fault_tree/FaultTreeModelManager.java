@@ -18,11 +18,10 @@ public class FaultTreeModelManager extends AbstractQoSModelManager {
 	
 	public static final String PARAM_PATH_TO_XFTA = "pathToXFTA";
 
-	@SuppressWarnings("rawtypes")
 	@Override
 	public ModelTypeInfo getModelTypeInfo() {
 		String metaModelName = "FaultTree";
-		List<Class> properContents = new ArrayList<>();
+		List<Class<?>> properContents = new ArrayList<Class<?>>();
 		properContents.add(RootImpl.class);
 		ModelTypeInfo modelTypeInfo = new ModelTypeInfo(metaModelName, properContents);
 		return modelTypeInfo;
