@@ -5,10 +5,12 @@ import java.util.List;
 import org.eclipse.core.expressions.PropertyTester;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.ISelectionService;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
+
 import de.uni_stuttgart.iste.cowolf.core.extensions.ExtensionHandler;
 import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
 import de.uni_stuttgart.iste.cowolf.ui.evolution.util.ResourceUtil;
