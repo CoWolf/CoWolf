@@ -4,8 +4,6 @@ package de.uni_stuttgart.iste.cowolf.model.statechart;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Event</b></em>'.
@@ -23,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Event extends EObject {
+public interface Event extends de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase, de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase {
 	/**
 	 * Returns the value of the '<em><b>Evt container</b></em>' reference list.
 	 * The list contents are of type {@link de.uni_stuttgart.iste.cowolf.model.statechart.Transition}.

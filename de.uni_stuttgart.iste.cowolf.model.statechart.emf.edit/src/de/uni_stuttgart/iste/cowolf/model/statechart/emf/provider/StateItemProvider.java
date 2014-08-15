@@ -123,7 +123,7 @@ public class StateItemProvider extends StateVertexItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((State)object).getId();
+		String label = ((State)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_State_type") :
 			getString("_UI_State_type") + " " + label;

@@ -3,18 +3,15 @@
 package de.uni_stuttgart.iste.cowolf.model.statechart.impl;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import de.uni_stuttgart.iste.cowolf.model.statechart.CompositeState;
 import de.uni_stuttgart.iste.cowolf.model.statechart.StateVertex;
 import de.uni_stuttgart.iste.cowolf.model.statechart.Transition;
@@ -27,16 +24,36 @@ import de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateVertexImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateVertexImpl#getSv_container <em>Sv container</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateVertexImpl#getOutgoing <em>Outgoing</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateVertexImpl#getIncoming <em>Incoming</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateVertexImpl#getId <em>Id</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class StateVertexImpl extends MinimalEObjectImpl.Container implements StateVertex {
+public class StateVertexImpl extends de.uni_stuttgart.iste.cowolf.model.commonBase.impl.IDBaseImpl implements StateVertex {
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
+
 	/**
 	 * The cached value of the '{@link #getOutgoing() <em>Outgoing</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -58,33 +75,12 @@ public class StateVertexImpl extends MinimalEObjectImpl.Container implements Sta
 	protected EList<Transition> incoming;
 
 	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getId()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String ID_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getId()
-	 * @generated
-	 * @ordered
-	 */
-	protected String id = ID_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected StateVertexImpl() {
 		super();
-		this.id = EcoreUtil.generateUUID();
 	}
 
 	/**
@@ -95,6 +91,27 @@ public class StateVertexImpl extends MinimalEObjectImpl.Container implements Sta
 	@Override
 	protected EClass eStaticClass() {
 		return statechartemfPackage.Literals.STATE_VERTEX;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, statechartemfPackage.STATE_VERTEX__NAME, oldName, name));
 	}
 
 	/**
@@ -167,27 +184,6 @@ public class StateVertexImpl extends MinimalEObjectImpl.Container implements Sta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getId() {
-		return id;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setId(String newId) {
-		String oldId = id;
-		id = newId;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, statechartemfPackage.STATE_VERTEX__ID, oldId, id));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -244,14 +240,14 @@ public class StateVertexImpl extends MinimalEObjectImpl.Container implements Sta
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case statechartemfPackage.STATE_VERTEX__NAME:
+				return getName();
 			case statechartemfPackage.STATE_VERTEX__SV_CONTAINER:
 				return getSv_container();
 			case statechartemfPackage.STATE_VERTEX__OUTGOING:
 				return getOutgoing();
 			case statechartemfPackage.STATE_VERTEX__INCOMING:
 				return getIncoming();
-			case statechartemfPackage.STATE_VERTEX__ID:
-				return getId();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -265,6 +261,9 @@ public class StateVertexImpl extends MinimalEObjectImpl.Container implements Sta
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case statechartemfPackage.STATE_VERTEX__NAME:
+				setName((String)newValue);
+				return;
 			case statechartemfPackage.STATE_VERTEX__SV_CONTAINER:
 				setSv_container((CompositeState)newValue);
 				return;
@@ -275,9 +274,6 @@ public class StateVertexImpl extends MinimalEObjectImpl.Container implements Sta
 			case statechartemfPackage.STATE_VERTEX__INCOMING:
 				getIncoming().clear();
 				getIncoming().addAll((Collection<? extends Transition>)newValue);
-				return;
-			case statechartemfPackage.STATE_VERTEX__ID:
-				setId((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -291,6 +287,9 @@ public class StateVertexImpl extends MinimalEObjectImpl.Container implements Sta
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case statechartemfPackage.STATE_VERTEX__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 			case statechartemfPackage.STATE_VERTEX__SV_CONTAINER:
 				setSv_container((CompositeState)null);
 				return;
@@ -299,9 +298,6 @@ public class StateVertexImpl extends MinimalEObjectImpl.Container implements Sta
 				return;
 			case statechartemfPackage.STATE_VERTEX__INCOMING:
 				getIncoming().clear();
-				return;
-			case statechartemfPackage.STATE_VERTEX__ID:
-				setId(ID_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -315,16 +311,48 @@ public class StateVertexImpl extends MinimalEObjectImpl.Container implements Sta
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case statechartemfPackage.STATE_VERTEX__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case statechartemfPackage.STATE_VERTEX__SV_CONTAINER:
 				return getSv_container() != null;
 			case statechartemfPackage.STATE_VERTEX__OUTGOING:
 				return outgoing != null && !outgoing.isEmpty();
 			case statechartemfPackage.STATE_VERTEX__INCOMING:
 				return incoming != null && !incoming.isEmpty();
-			case statechartemfPackage.STATE_VERTEX__ID:
-				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase.class) {
+			switch (derivedFeatureID) {
+				case statechartemfPackage.STATE_VERTEX__NAME: return de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.NAME_BASE__NAME;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase.class) {
+			switch (baseFeatureID) {
+				case de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.NAME_BASE__NAME: return statechartemfPackage.STATE_VERTEX__NAME;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**
@@ -337,8 +365,8 @@ public class StateVertexImpl extends MinimalEObjectImpl.Container implements Sta
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (id: ");
-		result.append(id);
+		result.append(" (name: ");
+		result.append(name);
 		result.append(')');
 		return result.toString();
 	}

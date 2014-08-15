@@ -6,6 +6,7 @@ import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBaseFactory;
 import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
 import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -25,6 +26,13 @@ public class CommonBasePackageImpl extends EPackageImpl implements CommonBasePac
 	 * @generated
 	 */
 	private EClass idBaseEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass nameBaseEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -110,6 +118,24 @@ public class CommonBasePackageImpl extends EPackageImpl implements CommonBasePac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getNameBase() {
+		return nameBaseEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getNameBase_Name() {
+		return (EAttribute)nameBaseEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public CommonBaseFactory getCommonBaseFactory() {
 		return (CommonBaseFactory)getEFactoryInstance();
 	}
@@ -135,6 +161,9 @@ public class CommonBasePackageImpl extends EPackageImpl implements CommonBasePac
 		// Create classes and their features
 		idBaseEClass = createEClass(ID_BASE);
 		createEAttribute(idBaseEClass, ID_BASE__ID);
+
+		nameBaseEClass = createEClass(NAME_BASE);
+		createEAttribute(nameBaseEClass, NAME_BASE__NAME);
 	}
 
 	/**
@@ -169,6 +198,9 @@ public class CommonBasePackageImpl extends EPackageImpl implements CommonBasePac
 		// Initialize classes, features, and operations; add parameters
 		initEClass(idBaseEClass, IDBase.class, "IDBase", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIDBase_Id(), ecorePackage.getEString(), "id", null, 0, 1, IDBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(nameBaseEClass, NameBase.class, "NameBase", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNameBase_Name(), ecorePackage.getEString(), "name", null, 0, 1, NameBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

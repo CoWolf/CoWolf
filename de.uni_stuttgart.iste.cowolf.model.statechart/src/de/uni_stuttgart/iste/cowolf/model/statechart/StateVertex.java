@@ -4,8 +4,6 @@ package de.uni_stuttgart.iste.cowolf.model.statechart;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>State Vertex</b></em>'.
@@ -17,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.StateVertex#getSv_container <em>Sv container</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.StateVertex#getOutgoing <em>Outgoing</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.StateVertex#getIncoming <em>Incoming</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.StateVertex#getId <em>Id</em>}</li>
  * </ul>
  * </p>
  *
@@ -25,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface StateVertex extends EObject {
+public interface StateVertex extends de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase, de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase {
 	/**
 	 * Returns the value of the '<em><b>Sv container</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.model.statechart.CompositeState#getSubVertexes <em>Sub Vertexes</em>}'.
@@ -89,32 +86,5 @@ public interface StateVertex extends EObject {
 	 * @generated
 	 */
 	EList<Transition> getIncoming();
-
-	/**
-	 * Returns the value of the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Id</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Id</em>' attribute.
-	 * @see #setId(String)
-	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage#getStateVertex_Id()
-	 * @model id="true" required="true"
-	 *        annotation="ExtendedMetaData name='id' namespace='http://sdq.ipd.uka.de/Indentifier/1.0'"
-	 * @generated
-	 */
-	String getId();
-
-	/**
-	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.statechart.StateVertex#getId <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Id</em>' attribute.
-	 * @see #getId()
-	 * @generated
-	 */
-	void setId(String value);
 
 } // StateVertex

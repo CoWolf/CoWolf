@@ -6,18 +6,13 @@ import de.uni_stuttgart.iste.cowolf.model.statechart.Event;
 import de.uni_stuttgart.iste.cowolf.model.statechart.State;
 import de.uni_stuttgart.iste.cowolf.model.statechart.Transition;
 import de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage;
-
 import java.util.Collection;
-
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -28,6 +23,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.EventImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.EventImpl#getEvt_container <em>Evt container</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.EventImpl#getTargets <em>Targets</em>}</li>
  * </ul>
@@ -35,7 +31,27 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class EventImpl extends MinimalEObjectImpl.Container implements Event {
+public class EventImpl extends de.uni_stuttgart.iste.cowolf.model.commonBase.impl.IDBaseImpl implements Event {
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
+
 	/**
 	 * The cached value of the '{@link #getEvt_container() <em>Evt container</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -73,6 +89,27 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event {
 	@Override
 	protected EClass eStaticClass() {
 		return statechartemfPackage.Literals.EVENT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, statechartemfPackage.EVENT__NAME, oldName, name));
 	}
 
 	/**
@@ -140,6 +177,8 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case statechartemfPackage.EVENT__NAME:
+				return getName();
 			case statechartemfPackage.EVENT__EVT_CONTAINER:
 				return getEvt_container();
 			case statechartemfPackage.EVENT__TARGETS:
@@ -157,6 +196,9 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case statechartemfPackage.EVENT__NAME:
+				setName((String)newValue);
+				return;
 			case statechartemfPackage.EVENT__EVT_CONTAINER:
 				getEvt_container().clear();
 				getEvt_container().addAll((Collection<? extends Transition>)newValue);
@@ -177,6 +219,9 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case statechartemfPackage.EVENT__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 			case statechartemfPackage.EVENT__EVT_CONTAINER:
 				getEvt_container().clear();
 				return;
@@ -195,12 +240,62 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case statechartemfPackage.EVENT__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case statechartemfPackage.EVENT__EVT_CONTAINER:
 				return evt_container != null && !evt_container.isEmpty();
 			case statechartemfPackage.EVENT__TARGETS:
 				return targets != null && !targets.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase.class) {
+			switch (derivedFeatureID) {
+				case statechartemfPackage.EVENT__NAME: return de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.NAME_BASE__NAME;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase.class) {
+			switch (baseFeatureID) {
+				case de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.NAME_BASE__NAME: return statechartemfPackage.EVENT__NAME;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
 	}
 
 } //EventImpl

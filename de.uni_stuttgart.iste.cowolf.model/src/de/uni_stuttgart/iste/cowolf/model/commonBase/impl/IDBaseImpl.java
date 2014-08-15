@@ -6,11 +6,10 @@ import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
 import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -53,6 +52,8 @@ public abstract class IDBaseImpl extends MinimalEObjectImpl.Container implements
 	 */
 	protected IDBaseImpl() {
 		super();
+		//set ID
+        this.id = EcoreUtil.generateUUID();
 	}
 
 	/**
@@ -79,12 +80,7 @@ public abstract class IDBaseImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setId(String newId) {
-		String oldId = id;
-		id = newId;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CommonBasePackage.ID_BASE__ID, oldId, id));
-	}
+	public void setId(String newId) {}
 
 	/**
 	 * <!-- begin-user-doc -->
