@@ -248,31 +248,36 @@ public class DTMCemfValidator extends EObjectValidator {
 	}
 
 	/**
+	 * The cached validation expression for the ProbBetween0and1 constraint of '<em>Transition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String TRANSITION__PROB_BETWEEN0AND1__EEXPRESSION = "Tuple {\n" +
+		"\tmessage : String = 'Probability must be between 0 and 1.',\n" +
+		"\tstatus : Boolean = \n" +
+		"\t \t\tprob >= 0.0 and prob <= 1.0\n" +
+		"}.status";
+
+	/**
 	 * Validates the ProbBetween0and1 constraint of '<em>Transition</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validateTransition_ProbBetween0and1(Transition transition, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO implement the constraint
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(createDiagnostic
-						(Diagnostic.ERROR,
-						 DIAGNOSTIC_SOURCE,
-						 0,
-						 "_UI_GenericConstraint_diagnostic",
-						 new Object[] { "ProbBetween0and1", getObjectLabel(transition, context) },
-						 new Object[] { transition },
-						 context));
-			}
-			return false;
-		}
-		return true;
+		return
+			validate
+				(DTMCemfPackage.Literals.TRANSITION,
+				 transition,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
+				 "ProbBetween0and1",
+				 TRANSITION__PROB_BETWEEN0AND1__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
 
 	/**
