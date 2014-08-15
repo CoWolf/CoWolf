@@ -158,7 +158,7 @@ public class DTMCStatechartTransformationManager extends
 		// application.setEGraph(currentGraph);
 		// }
 		application.setUnit(unit);
-		application.setParameterValue("name", "Test");
+		application.setParameterValue("name", "_LvYfoCRrEeS7UbY-XnEkdA");
 		// // set parameters
 		// for (Entry<String, Object> parameter : entry.getValue().entrySet()) {
 		// application.setParameterValue(parameter.getKey(),
