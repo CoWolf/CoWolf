@@ -68,10 +68,10 @@ public class DTMCemfSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case DTMCemfPackage.ROOT: {
-				Root root = (Root)theEObject;
-				T result = caseRoot(root);
-				if (result == null) result = caseIDBase(root);
+			case DTMCemfPackage.DTMC: {
+				DTMC dtmc = (DTMC)theEObject;
+				T result = caseDTMC(dtmc);
+				if (result == null) result = caseIDBase(dtmc);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -89,10 +89,10 @@ public class DTMCemfSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DTMCemfPackage.PARAMETER: {
-				Parameter parameter = (Parameter)theEObject;
-				T result = caseParameter(parameter);
-				if (result == null) result = caseIDBase(parameter);
+			case DTMCemfPackage.LABEL: {
+				Label label = (Label)theEObject;
+				T result = caseLabel(label);
+				if (result == null) result = caseIDBase(label);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -101,17 +101,17 @@ public class DTMCemfSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Root</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>DTMC</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Root</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>DTMC</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRoot(Root object) {
+	public T caseDTMC(DTMC object) {
 		return null;
 	}
 
@@ -146,17 +146,17 @@ public class DTMCemfSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Parameter</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Label</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Parameter</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Label</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseParameter(Parameter object) {
+	public T caseLabel(Label object) {
 		return null;
 	}
 

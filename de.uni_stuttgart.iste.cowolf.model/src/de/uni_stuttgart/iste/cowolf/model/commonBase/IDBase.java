@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface IDBase extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Id</b></em>' attribute.
+	 * The default value is <code>""</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Id</em>' attribute isn't clear,
@@ -32,7 +33,7 @@ public interface IDBase extends EObject {
 	 * @return the value of the '<em>Id</em>' attribute.
 	 * @see #setId(String)
 	 * @see de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage#getIDBase_Id()
-	 * @model id="true"
+	 * @model default="" id="true" required="true"
 	 * @generated
 	 */
 	String getId();

@@ -12,9 +12,9 @@ import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.dtmc.Transition#getTransProb <em>Trans Prob</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.dtmc.Transition#getTo <em>To</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.dtmc.Transition#getFrom <em>From</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.dtmc.Transition#getTo <em>To</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.dtmc.Transition#getProb <em>Prob</em>}</li>
  * </ul>
  * </p>
  *
@@ -24,30 +24,32 @@ import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
  */
 public interface Transition extends IDBase {
 	/**
-	 * Returns the value of the '<em><b>Trans Prob</b></em>' attribute.
+	 * Returns the value of the '<em><b>From</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.State#getOutgoing <em>Outgoing</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Trans Prob</em>' attribute isn't clear,
+	 * If the meaning of the '<em>From</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Trans Prob</em>' attribute.
-	 * @see #setTransProb(float)
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage#getTransition_TransProb()
-	 * @model required="true"
+	 * @return the value of the '<em>From</em>' reference.
+	 * @see #setFrom(State)
+	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage#getTransition_From()
+	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.State#getOutgoing
+	 * @model opposite="outgoing" keys="id" required="true"
 	 * @generated
 	 */
-	float getTransProb();
+	State getFrom();
 
 	/**
-	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.Transition#getTransProb <em>Trans Prob</em>}' attribute.
+	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.Transition#getFrom <em>From</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Trans Prob</em>' attribute.
-	 * @see #getTransProb()
+	 * @param value the new value of the '<em>From</em>' reference.
+	 * @see #getFrom()
 	 * @generated
 	 */
-	void setTransProb(float value);
+	void setFrom(State value);
 
 	/**
 	 * Returns the value of the '<em><b>To</b></em>' reference.
@@ -62,7 +64,7 @@ public interface Transition extends IDBase {
 	 * @see #setTo(State)
 	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage#getTransition_To()
 	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.State#getIncoming
-	 * @model opposite="incoming" required="true"
+	 * @model opposite="incoming" keys="id" required="true"
 	 * @generated
 	 */
 	State getTo();
@@ -78,31 +80,29 @@ public interface Transition extends IDBase {
 	void setTo(State value);
 
 	/**
-	 * Returns the value of the '<em><b>From</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.State#getOutGoing <em>Out Going</em>}'.
+	 * Returns the value of the '<em><b>Prob</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>From</em>' reference isn't clear,
+	 * If the meaning of the '<em>Prob</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>From</em>' reference.
-	 * @see #setFrom(State)
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage#getTransition_From()
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.State#getOutGoing
-	 * @model opposite="outGoing" required="true"
+	 * @return the value of the '<em>Prob</em>' attribute.
+	 * @see #setProb(float)
+	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage#getTransition_Prob()
+	 * @model required="true"
 	 * @generated
 	 */
-	State getFrom();
+	float getProb();
 
 	/**
-	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.Transition#getFrom <em>From</em>}' reference.
+	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.Transition#getProb <em>Prob</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>From</em>' reference.
-	 * @see #getFrom()
+	 * @param value the new value of the '<em>Prob</em>' attribute.
+	 * @see #getProb()
 	 * @generated
 	 */
-	void setFrom(State value);
+	void setProb(float value);
 
 } // Transition

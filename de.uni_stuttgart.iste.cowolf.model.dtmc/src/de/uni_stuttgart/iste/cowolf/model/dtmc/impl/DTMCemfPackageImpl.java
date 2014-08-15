@@ -6,8 +6,7 @@ import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
 
 import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfFactory;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage;
-import de.uni_stuttgart.iste.cowolf.model.dtmc.Parameter;
-import de.uni_stuttgart.iste.cowolf.model.dtmc.Root;
+import de.uni_stuttgart.iste.cowolf.model.dtmc.Label;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.State;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.Transition;
 
@@ -30,7 +29,7 @@ public class DTMCemfPackageImpl extends EPackageImpl implements DTMCemfPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass rootEClass = null;
+	private EClass dtmcEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -51,7 +50,7 @@ public class DTMCemfPackageImpl extends EPackageImpl implements DTMCemfPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass parameterEClass = null;
+	private EClass labelEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -122,8 +121,8 @@ public class DTMCemfPackageImpl extends EPackageImpl implements DTMCemfPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getRoot() {
-		return rootEClass;
+	public EClass getDTMC() {
+		return dtmcEClass;
 	}
 
 	/**
@@ -131,8 +130,8 @@ public class DTMCemfPackageImpl extends EPackageImpl implements DTMCemfPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRoot_States() {
-		return (EReference)rootEClass.getEStructuralFeatures().get(0);
+	public EAttribute getDTMC_Name() {
+		return (EAttribute)dtmcEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -140,8 +139,26 @@ public class DTMCemfPackageImpl extends EPackageImpl implements DTMCemfPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRoot_Transitions() {
-		return (EReference)rootEClass.getEStructuralFeatures().get(1);
+	public EReference getDTMC_States() {
+		return (EReference)dtmcEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDTMC_InitialState() {
+		return (EReference)dtmcEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDTMC_Transitions() {
+		return (EReference)dtmcEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -167,35 +184,8 @@ public class DTMCemfPackageImpl extends EPackageImpl implements DTMCemfPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getState_IsStart() {
-		return (EAttribute)stateEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getState_IsEnd() {
-		return (EAttribute)stateEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getState_IsFail() {
-		return (EAttribute)stateEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getState_Incoming() {
-		return (EReference)stateEClass.getEStructuralFeatures().get(4);
+		return (EReference)stateEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -203,8 +193,8 @@ public class DTMCemfPackageImpl extends EPackageImpl implements DTMCemfPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getState_OutGoing() {
-		return (EReference)stateEClass.getEStructuralFeatures().get(5);
+	public EReference getState_Outgoing() {
+		return (EReference)stateEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -212,8 +202,8 @@ public class DTMCemfPackageImpl extends EPackageImpl implements DTMCemfPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getState_FormalParam() {
-		return (EReference)stateEClass.getEStructuralFeatures().get(6);
+	public EReference getState_Labels() {
+		return (EReference)stateEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -230,8 +220,8 @@ public class DTMCemfPackageImpl extends EPackageImpl implements DTMCemfPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTransition_TransProb() {
-		return (EAttribute)transitionEClass.getEStructuralFeatures().get(0);
+	public EReference getTransition_From() {
+		return (EReference)transitionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -248,8 +238,8 @@ public class DTMCemfPackageImpl extends EPackageImpl implements DTMCemfPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTransition_From() {
-		return (EReference)transitionEClass.getEStructuralFeatures().get(2);
+	public EAttribute getTransition_Prob() {
+		return (EAttribute)transitionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -257,8 +247,8 @@ public class DTMCemfPackageImpl extends EPackageImpl implements DTMCemfPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getParameter() {
-		return parameterEClass;
+	public EClass getLabel() {
+		return labelEClass;
 	}
 
 	/**
@@ -266,8 +256,8 @@ public class DTMCemfPackageImpl extends EPackageImpl implements DTMCemfPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getParameter_Name() {
-		return (EAttribute)parameterEClass.getEStructuralFeatures().get(0);
+	public EAttribute getLabel_Name() {
+		return (EAttribute)labelEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -275,17 +265,8 @@ public class DTMCemfPackageImpl extends EPackageImpl implements DTMCemfPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getParameter_Type() {
-		return (EAttribute)parameterEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getParameter_State() {
-		return (EReference)parameterEClass.getEStructuralFeatures().get(2);
+	public EReference getLabel_State() {
+		return (EReference)labelEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -316,28 +297,26 @@ public class DTMCemfPackageImpl extends EPackageImpl implements DTMCemfPackage {
 		isCreated = true;
 
 		// Create classes and their features
-		rootEClass = createEClass(ROOT);
-		createEReference(rootEClass, ROOT__STATES);
-		createEReference(rootEClass, ROOT__TRANSITIONS);
+		dtmcEClass = createEClass(DTMC);
+		createEAttribute(dtmcEClass, DTMC__NAME);
+		createEReference(dtmcEClass, DTMC__STATES);
+		createEReference(dtmcEClass, DTMC__INITIAL_STATE);
+		createEReference(dtmcEClass, DTMC__TRANSITIONS);
 
 		stateEClass = createEClass(STATE);
 		createEAttribute(stateEClass, STATE__NAME);
-		createEAttribute(stateEClass, STATE__IS_START);
-		createEAttribute(stateEClass, STATE__IS_END);
-		createEAttribute(stateEClass, STATE__IS_FAIL);
 		createEReference(stateEClass, STATE__INCOMING);
-		createEReference(stateEClass, STATE__OUT_GOING);
-		createEReference(stateEClass, STATE__FORMAL_PARAM);
+		createEReference(stateEClass, STATE__OUTGOING);
+		createEReference(stateEClass, STATE__LABELS);
 
 		transitionEClass = createEClass(TRANSITION);
-		createEAttribute(transitionEClass, TRANSITION__TRANS_PROB);
-		createEReference(transitionEClass, TRANSITION__TO);
 		createEReference(transitionEClass, TRANSITION__FROM);
+		createEReference(transitionEClass, TRANSITION__TO);
+		createEAttribute(transitionEClass, TRANSITION__PROB);
 
-		parameterEClass = createEClass(PARAMETER);
-		createEAttribute(parameterEClass, PARAMETER__NAME);
-		createEAttribute(parameterEClass, PARAMETER__TYPE);
-		createEReference(parameterEClass, PARAMETER__STATE);
+		labelEClass = createEClass(LABEL);
+		createEAttribute(labelEClass, LABEL__NAME);
+		createEReference(labelEClass, LABEL__STATE);
 	}
 
 	/**
@@ -371,34 +350,41 @@ public class DTMCemfPackageImpl extends EPackageImpl implements DTMCemfPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		rootEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
+		dtmcEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
 		stateEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
 		transitionEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
-		parameterEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
+		labelEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(rootEClass, Root.class, "Root", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRoot_States(), this.getState(), null, "States", null, 0, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRoot_Transitions(), this.getTransition(), null, "Transitions", null, 0, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(dtmcEClass, de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC.class, "DTMC", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDTMC_Name(), ecorePackage.getEString(), "name", "", 0, 1, de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDTMC_States(), this.getState(), null, "States", null, 0, -1, de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getDTMC_States().getEKeys().add(theCommonBasePackage.getIDBase_Id());
+		initEReference(getDTMC_InitialState(), this.getState(), null, "initialState", null, 1, 1, de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getDTMC_InitialState().getEKeys().add(theCommonBasePackage.getIDBase_Id());
+		initEReference(getDTMC_Transitions(), this.getTransition(), null, "Transitions", null, 0, -1, de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getDTMC_Transitions().getEKeys().add(theCommonBasePackage.getIDBase_Id());
 
 		initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getState_Name(), ecorePackage.getEString(), "name", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getState_IsStart(), ecorePackage.getEBoolean(), "isStart", "false", 1, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getState_IsEnd(), ecorePackage.getEBoolean(), "isEnd", "false", 1, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getState_IsFail(), ecorePackage.getEBoolean(), "isFail", "false", 1, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getState_Incoming(), this.getTransition(), this.getTransition_To(), "incoming", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getState_OutGoing(), this.getTransition(), this.getTransition_From(), "outGoing", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getState_FormalParam(), this.getParameter(), this.getParameter_State(), "formalParam", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getState_Incoming().getEKeys().add(theCommonBasePackage.getIDBase_Id());
+		initEReference(getState_Outgoing(), this.getTransition(), this.getTransition_From(), "outgoing", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		getState_Outgoing().getEKeys().add(theCommonBasePackage.getIDBase_Id());
+		initEReference(getState_Labels(), this.getLabel(), this.getLabel_State(), "labels", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getState_Labels().getEKeys().add(theCommonBasePackage.getIDBase_Id());
 
 		initEClass(transitionEClass, Transition.class, "Transition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTransition_TransProb(), ecorePackage.getEFloat(), "transProb", null, 1, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTransition_From(), this.getState(), this.getState_Outgoing(), "from", null, 1, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getTransition_From().getEKeys().add(theCommonBasePackage.getIDBase_Id());
 		initEReference(getTransition_To(), this.getState(), this.getState_Incoming(), "to", null, 1, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTransition_From(), this.getState(), this.getState_OutGoing(), "from", null, 1, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getTransition_To().getEKeys().add(theCommonBasePackage.getIDBase_Id());
+		initEAttribute(getTransition_Prob(), ecorePackage.getEFloat(), "prob", null, 1, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getParameter_Name(), ecorePackage.getEString(), "name", null, 0, -1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getParameter_Type(), ecorePackage.getEString(), "type", null, 0, -1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getParameter_State(), this.getState(), this.getState_FormalParam(), "state", null, 1, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(labelEClass, Label.class, "Label", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLabel_Name(), ecorePackage.getEString(), "name", null, 1, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getLabel_State(), this.getState(), this.getState_Labels(), "state", null, 1, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getLabel_State().getEKeys().add(theCommonBasePackage.getIDBase_Id());
 
 		// Create resource
 		createResource(eNS_URI);

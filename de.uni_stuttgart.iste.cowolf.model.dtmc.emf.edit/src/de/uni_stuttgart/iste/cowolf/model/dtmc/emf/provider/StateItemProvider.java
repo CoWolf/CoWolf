@@ -50,12 +50,9 @@ public class StateItemProvider extends IDBaseItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
-			addIsStartPropertyDescriptor(object);
-			addIsEndPropertyDescriptor(object);
-			addIsFailPropertyDescriptor(object);
 			addIncomingPropertyDescriptor(object);
-			addOutGoingPropertyDescriptor(object);
-			addFormalParamPropertyDescriptor(object);
+			addOutgoingPropertyDescriptor(object);
+			addLabelsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -83,72 +80,6 @@ public class StateItemProvider extends IDBaseItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Is Start feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIsStartPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_State_isStart_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_State_isStart_feature", "_UI_State_type"),
-				 DTMCemfPackage.Literals.STATE__IS_START,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Is End feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIsEndPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_State_isEnd_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_State_isEnd_feature", "_UI_State_type"),
-				 DTMCemfPackage.Literals.STATE__IS_END,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Is Fail feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIsFailPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_State_isFail_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_State_isFail_feature", "_UI_State_type"),
-				 DTMCemfPackage.Literals.STATE__IS_FAIL,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Incoming feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -171,19 +102,19 @@ public class StateItemProvider extends IDBaseItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Out Going feature.
+	 * This adds a property descriptor for the Outgoing feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addOutGoingPropertyDescriptor(Object object) {
+	protected void addOutgoingPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_State_outGoing_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_State_outGoing_feature", "_UI_State_type"),
-				 DTMCemfPackage.Literals.STATE__OUT_GOING,
+				 getString("_UI_State_outgoing_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_State_outgoing_feature", "_UI_State_type"),
+				 DTMCemfPackage.Literals.STATE__OUTGOING,
 				 true,
 				 false,
 				 true,
@@ -193,19 +124,19 @@ public class StateItemProvider extends IDBaseItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Formal Param feature.
+	 * This adds a property descriptor for the Labels feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addFormalParamPropertyDescriptor(Object object) {
+	protected void addLabelsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_State_formalParam_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_State_formalParam_feature", "_UI_State_type"),
-				 DTMCemfPackage.Literals.STATE__FORMAL_PARAM,
+				 getString("_UI_State_labels_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_State_labels_feature", "_UI_State_type"),
+				 DTMCemfPackage.Literals.STATE__LABELS,
 				 true,
 				 false,
 				 true,
@@ -253,9 +184,6 @@ public class StateItemProvider extends IDBaseItemProvider {
 
 		switch (notification.getFeatureID(State.class)) {
 			case DTMCemfPackage.STATE__NAME:
-			case DTMCemfPackage.STATE__IS_START:
-			case DTMCemfPackage.STATE__IS_END:
-			case DTMCemfPackage.STATE__IS_FAIL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

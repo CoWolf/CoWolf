@@ -56,10 +56,10 @@ public class DTMCemfFactoryImpl extends EFactoryImpl implements DTMCemfFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case DTMCemfPackage.ROOT: return createRoot();
+			case DTMCemfPackage.DTMC: return createDTMC();
 			case DTMCemfPackage.STATE: return createState();
 			case DTMCemfPackage.TRANSITION: return createTransition();
-			case DTMCemfPackage.PARAMETER: return createParameter();
+			case DTMCemfPackage.LABEL: return createLabel();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -70,9 +70,9 @@ public class DTMCemfFactoryImpl extends EFactoryImpl implements DTMCemfFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Root createRoot() {
-		RootImpl root = new RootImpl();
-		return root;
+	public DTMC createDTMC() {
+		DTMCImpl dtmc = new DTMCImpl();
+		return dtmc;
 	}
 
 	/**
@@ -100,9 +100,9 @@ public class DTMCemfFactoryImpl extends EFactoryImpl implements DTMCemfFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Parameter createParameter() {
-		ParameterImpl parameter = new ParameterImpl();
-		return parameter;
+	public Label createLabel() {
+		LabelImpl label = new LabelImpl();
+		return label;
 	}
 
 	/**

@@ -22,13 +22,13 @@ public interface DTMCemfFactory extends EFactory {
 	DTMCemfFactory eINSTANCE = de.uni_stuttgart.iste.cowolf.model.dtmc.impl.DTMCemfFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Root</em>'.
+	 * Returns a new object of class '<em>DTMC</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Root</em>'.
+	 * @return a new object of class '<em>DTMC</em>'.
 	 * @generated
 	 */
-	Root createRoot();
+	DTMC createDTMC();
 
 	/**
 	 * Returns a new object of class '<em>State</em>'.
@@ -49,13 +49,13 @@ public interface DTMCemfFactory extends EFactory {
 	Transition createTransition();
 
 	/**
-	 * Returns a new object of class '<em>Parameter</em>'.
+	 * Returns a new object of class '<em>Label</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Parameter</em>'.
+	 * @return a new object of class '<em>Label</em>'.
 	 * @generated
 	 */
-	Parameter createParameter();
+	Label createLabel();
 
 	/**
 	 * Returns the package supported by this factory.

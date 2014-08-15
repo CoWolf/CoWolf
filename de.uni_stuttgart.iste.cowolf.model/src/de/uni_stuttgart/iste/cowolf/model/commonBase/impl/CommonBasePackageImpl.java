@@ -197,7 +197,7 @@ public class CommonBasePackageImpl extends EPackageImpl implements CommonBasePac
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(idBaseEClass, IDBase.class, "IDBase", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getIDBase_Id(), ecorePackage.getEString(), "id", null, 0, 1, IDBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIDBase_Id(), ecorePackage.getEString(), "id", "", 1, 1, IDBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(nameBaseEClass, NameBase.class, "NameBase", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNameBase_Name(), ecorePackage.getEString(), "name", null, 0, 1, NameBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

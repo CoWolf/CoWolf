@@ -60,14 +60,14 @@ public interface DTMCemfPackage extends EPackage {
 	DTMCemfPackage eINSTANCE = de.uni_stuttgart.iste.cowolf.model.dtmc.impl.DTMCemfPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.impl.RootImpl <em>Root</em>}' class.
+	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.impl.DTMCImpl <em>DTMC</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.impl.RootImpl
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.impl.DTMCemfPackageImpl#getRoot()
+	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.impl.DTMCImpl
+	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.impl.DTMCemfPackageImpl#getDTMC()
 	 * @generated
 	 */
-	int ROOT = 0;
+	int DTMC = 0;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -76,7 +76,16 @@ public interface DTMCemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT__ID = CommonBasePackage.ID_BASE__ID;
+	int DTMC__ID = CommonBasePackage.ID_BASE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DTMC__NAME = CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>States</b></em>' containment reference list.
@@ -85,7 +94,16 @@ public interface DTMCemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT__STATES = CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
+	int DTMC__STATES = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Initial State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DTMC__INITIAL_STATE = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Transitions</b></em>' containment reference list.
@@ -94,25 +112,25 @@ public interface DTMCemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT__TRANSITIONS = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
+	int DTMC__TRANSITIONS = CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
 
 	/**
-	 * The number of structural features of the '<em>Root</em>' class.
+	 * The number of structural features of the '<em>DTMC</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
+	int DTMC_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 4;
 
 	/**
-	 * The number of operations of the '<em>Root</em>' class.
+	 * The number of operations of the '<em>DTMC</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT_OPERATION_COUNT = CommonBasePackage.ID_BASE_OPERATION_COUNT + 0;
+	int DTMC_OPERATION_COUNT = CommonBasePackage.ID_BASE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.impl.StateImpl <em>State</em>}' class.
@@ -143,58 +161,31 @@ public interface DTMCemfPackage extends EPackage {
 	int STATE__NAME = CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Is Start</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATE__IS_START = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Is End</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATE__IS_END = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Is Fail</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATE__IS_FAIL = CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
-
-	/**
 	 * The feature id for the '<em><b>Incoming</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATE__INCOMING = CommonBasePackage.ID_BASE_FEATURE_COUNT + 4;
+	int STATE__INCOMING = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Out Going</b></em>' reference list.
+	 * The feature id for the '<em><b>Outgoing</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATE__OUT_GOING = CommonBasePackage.ID_BASE_FEATURE_COUNT + 5;
+	int STATE__OUTGOING = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Formal Param</b></em>' reference list.
+	 * The feature id for the '<em><b>Labels</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATE__FORMAL_PARAM = CommonBasePackage.ID_BASE_FEATURE_COUNT + 6;
+	int STATE__LABELS = CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>State</em>' class.
@@ -203,7 +194,7 @@ public interface DTMCemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATE_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 7;
+	int STATE_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>State</em>' class.
@@ -234,13 +225,13 @@ public interface DTMCemfPackage extends EPackage {
 	int TRANSITION__ID = CommonBasePackage.ID_BASE__ID;
 
 	/**
-	 * The feature id for the '<em><b>Trans Prob</b></em>' attribute.
+	 * The feature id for the '<em><b>From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION__TRANS_PROB = CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
+	int TRANSITION__FROM = CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>To</b></em>' reference.
@@ -252,13 +243,13 @@ public interface DTMCemfPackage extends EPackage {
 	int TRANSITION__TO = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>From</b></em>' reference.
+	 * The feature id for the '<em><b>Prob</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION__FROM = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
+	int TRANSITION__PROB = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Transition</em>' class.
@@ -279,14 +270,14 @@ public interface DTMCemfPackage extends EPackage {
 	int TRANSITION_OPERATION_COUNT = CommonBasePackage.ID_BASE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.impl.ParameterImpl <em>Parameter</em>}' class.
+	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.impl.LabelImpl <em>Label</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.impl.ParameterImpl
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.impl.DTMCemfPackageImpl#getParameter()
+	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.impl.LabelImpl
+	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.impl.DTMCemfPackageImpl#getLabel()
 	 * @generated
 	 */
-	int PARAMETER = 3;
+	int LABEL = 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -295,25 +286,16 @@ public interface DTMCemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__ID = CommonBasePackage.ID_BASE__ID;
+	int LABEL__ID = CommonBasePackage.ID_BASE__ID;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute list.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__NAME = CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER__TYPE = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
+	int LABEL__NAME = CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>State</b></em>' reference.
@@ -322,58 +304,80 @@ public interface DTMCemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__STATE = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
+	int LABEL__STATE = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Parameter</em>' class.
+	 * The number of structural features of the '<em>Label</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
+	int LABEL_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of operations of the '<em>Parameter</em>' class.
+	 * The number of operations of the '<em>Label</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_OPERATION_COUNT = CommonBasePackage.ID_BASE_OPERATION_COUNT + 0;
+	int LABEL_OPERATION_COUNT = CommonBasePackage.ID_BASE_OPERATION_COUNT + 0;
 
 
 	/**
-	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.Root <em>Root</em>}'.
+	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC <em>DTMC</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Root</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.Root
+	 * @return the meta object for class '<em>DTMC</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC
 	 * @generated
 	 */
-	EClass getRoot();
+	EClass getDTMC();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.Root#getStates <em>States</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC#getName()
+	 * @see #getDTMC()
+	 * @generated
+	 */
+	EAttribute getDTMC_Name();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC#getStates <em>States</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>States</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.Root#getStates()
-	 * @see #getRoot()
+	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC#getStates()
+	 * @see #getDTMC()
 	 * @generated
 	 */
-	EReference getRoot_States();
+	EReference getDTMC_States();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.Root#getTransitions <em>Transitions</em>}'.
+	 * Returns the meta object for the reference '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC#getInitialState <em>Initial State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Initial State</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC#getInitialState()
+	 * @see #getDTMC()
+	 * @generated
+	 */
+	EReference getDTMC_InitialState();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC#getTransitions <em>Transitions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Transitions</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.Root#getTransitions()
-	 * @see #getRoot()
+	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC#getTransitions()
+	 * @see #getDTMC()
 	 * @generated
 	 */
-	EReference getRoot_Transitions();
+	EReference getDTMC_Transitions();
 
 	/**
 	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.State <em>State</em>}'.
@@ -397,39 +401,6 @@ public interface DTMCemfPackage extends EPackage {
 	EAttribute getState_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.State#isIsStart <em>Is Start</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Start</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.State#isIsStart()
-	 * @see #getState()
-	 * @generated
-	 */
-	EAttribute getState_IsStart();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.State#isIsEnd <em>Is End</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is End</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.State#isIsEnd()
-	 * @see #getState()
-	 * @generated
-	 */
-	EAttribute getState_IsEnd();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.State#isIsFail <em>Is Fail</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Fail</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.State#isIsFail()
-	 * @see #getState()
-	 * @generated
-	 */
-	EAttribute getState_IsFail();
-
-	/**
 	 * Returns the meta object for the reference list '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.State#getIncoming <em>Incoming</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -441,26 +412,26 @@ public interface DTMCemfPackage extends EPackage {
 	EReference getState_Incoming();
 
 	/**
-	 * Returns the meta object for the reference list '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.State#getOutGoing <em>Out Going</em>}'.
+	 * Returns the meta object for the reference list '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.State#getOutgoing <em>Outgoing</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Out Going</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.State#getOutGoing()
+	 * @return the meta object for the reference list '<em>Outgoing</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.State#getOutgoing()
 	 * @see #getState()
 	 * @generated
 	 */
-	EReference getState_OutGoing();
+	EReference getState_Outgoing();
 
 	/**
-	 * Returns the meta object for the reference list '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.State#getFormalParam <em>Formal Param</em>}'.
+	 * Returns the meta object for the reference list '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.State#getLabels <em>Labels</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Formal Param</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.State#getFormalParam()
+	 * @return the meta object for the reference list '<em>Labels</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.State#getLabels()
 	 * @see #getState()
 	 * @generated
 	 */
-	EReference getState_FormalParam();
+	EReference getState_Labels();
 
 	/**
 	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.Transition <em>Transition</em>}'.
@@ -471,28 +442,6 @@ public interface DTMCemfPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getTransition();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.Transition#getTransProb <em>Trans Prob</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Trans Prob</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.Transition#getTransProb()
-	 * @see #getTransition()
-	 * @generated
-	 */
-	EAttribute getTransition_TransProb();
-
-	/**
-	 * Returns the meta object for the reference '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.Transition#getTo <em>To</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>To</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.Transition#getTo()
-	 * @see #getTransition()
-	 * @generated
-	 */
-	EReference getTransition_To();
 
 	/**
 	 * Returns the meta object for the reference '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.Transition#getFrom <em>From</em>}'.
@@ -506,47 +455,58 @@ public interface DTMCemfPackage extends EPackage {
 	EReference getTransition_From();
 
 	/**
-	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.Parameter <em>Parameter</em>}'.
+	 * Returns the meta object for the reference '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.Transition#getTo <em>To</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Parameter</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.Parameter
+	 * @return the meta object for the reference '<em>To</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.Transition#getTo()
+	 * @see #getTransition()
 	 * @generated
 	 */
-	EClass getParameter();
+	EReference getTransition_To();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.Parameter#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.Transition#getProb <em>Prob</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Name</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.Parameter#getName()
-	 * @see #getParameter()
+	 * @return the meta object for the attribute '<em>Prob</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.Transition#getProb()
+	 * @see #getTransition()
 	 * @generated
 	 */
-	EAttribute getParameter_Name();
+	EAttribute getTransition_Prob();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.Parameter#getType <em>Type</em>}'.
+	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.Label <em>Label</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Type</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.Parameter#getType()
-	 * @see #getParameter()
+	 * @return the meta object for class '<em>Label</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.Label
 	 * @generated
 	 */
-	EAttribute getParameter_Type();
+	EClass getLabel();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.Parameter#getState <em>State</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.Label#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.Label#getName()
+	 * @see #getLabel()
+	 * @generated
+	 */
+	EAttribute getLabel_Name();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.Label#getState <em>State</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>State</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.Parameter#getState()
-	 * @see #getParameter()
+	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.Label#getState()
+	 * @see #getLabel()
 	 * @generated
 	 */
-	EReference getParameter_State();
+	EReference getLabel_State();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -572,14 +532,22 @@ public interface DTMCemfPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.impl.RootImpl <em>Root</em>}' class.
+		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.impl.DTMCImpl <em>DTMC</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.impl.RootImpl
-		 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.impl.DTMCemfPackageImpl#getRoot()
+		 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.impl.DTMCImpl
+		 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.impl.DTMCemfPackageImpl#getDTMC()
 		 * @generated
 		 */
-		EClass ROOT = eINSTANCE.getRoot();
+		EClass DTMC = eINSTANCE.getDTMC();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DTMC__NAME = eINSTANCE.getDTMC_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>States</b></em>' containment reference list feature.
@@ -587,7 +555,15 @@ public interface DTMCemfPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ROOT__STATES = eINSTANCE.getRoot_States();
+		EReference DTMC__STATES = eINSTANCE.getDTMC_States();
+
+		/**
+		 * The meta object literal for the '<em><b>Initial State</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DTMC__INITIAL_STATE = eINSTANCE.getDTMC_InitialState();
 
 		/**
 		 * The meta object literal for the '<em><b>Transitions</b></em>' containment reference list feature.
@@ -595,7 +571,7 @@ public interface DTMCemfPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ROOT__TRANSITIONS = eINSTANCE.getRoot_Transitions();
+		EReference DTMC__TRANSITIONS = eINSTANCE.getDTMC_Transitions();
 
 		/**
 		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.impl.StateImpl <em>State</em>}' class.
@@ -616,30 +592,6 @@ public interface DTMCemfPackage extends EPackage {
 		EAttribute STATE__NAME = eINSTANCE.getState_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Start</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute STATE__IS_START = eINSTANCE.getState_IsStart();
-
-		/**
-		 * The meta object literal for the '<em><b>Is End</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute STATE__IS_END = eINSTANCE.getState_IsEnd();
-
-		/**
-		 * The meta object literal for the '<em><b>Is Fail</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute STATE__IS_FAIL = eINSTANCE.getState_IsFail();
-
-		/**
 		 * The meta object literal for the '<em><b>Incoming</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -648,20 +600,20 @@ public interface DTMCemfPackage extends EPackage {
 		EReference STATE__INCOMING = eINSTANCE.getState_Incoming();
 
 		/**
-		 * The meta object literal for the '<em><b>Out Going</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Outgoing</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference STATE__OUT_GOING = eINSTANCE.getState_OutGoing();
+		EReference STATE__OUTGOING = eINSTANCE.getState_Outgoing();
 
 		/**
-		 * The meta object literal for the '<em><b>Formal Param</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Labels</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference STATE__FORMAL_PARAM = eINSTANCE.getState_FormalParam();
+		EReference STATE__LABELS = eINSTANCE.getState_Labels();
 
 		/**
 		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.impl.TransitionImpl <em>Transition</em>}' class.
@@ -674,12 +626,12 @@ public interface DTMCemfPackage extends EPackage {
 		EClass TRANSITION = eINSTANCE.getTransition();
 
 		/**
-		 * The meta object literal for the '<em><b>Trans Prob</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>From</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TRANSITION__TRANS_PROB = eINSTANCE.getTransition_TransProb();
+		EReference TRANSITION__FROM = eINSTANCE.getTransition_From();
 
 		/**
 		 * The meta object literal for the '<em><b>To</b></em>' reference feature.
@@ -690,38 +642,30 @@ public interface DTMCemfPackage extends EPackage {
 		EReference TRANSITION__TO = eINSTANCE.getTransition_To();
 
 		/**
-		 * The meta object literal for the '<em><b>From</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Prob</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TRANSITION__FROM = eINSTANCE.getTransition_From();
+		EAttribute TRANSITION__PROB = eINSTANCE.getTransition_Prob();
 
 		/**
-		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.impl.ParameterImpl <em>Parameter</em>}' class.
+		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.impl.LabelImpl <em>Label</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.impl.ParameterImpl
-		 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.impl.DTMCemfPackageImpl#getParameter()
+		 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.impl.LabelImpl
+		 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.impl.DTMCemfPackageImpl#getLabel()
 		 * @generated
 		 */
-		EClass PARAMETER = eINSTANCE.getParameter();
+		EClass LABEL = eINSTANCE.getLabel();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PARAMETER__NAME = eINSTANCE.getParameter_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PARAMETER__TYPE = eINSTANCE.getParameter_Type();
+		EAttribute LABEL__NAME = eINSTANCE.getLabel_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>State</b></em>' reference feature.
@@ -729,7 +673,7 @@ public interface DTMCemfPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PARAMETER__STATE = eINSTANCE.getParameter_State();
+		EReference LABEL__STATE = eINSTANCE.getLabel_State();
 
 	}
 

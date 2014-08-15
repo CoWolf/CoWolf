@@ -5,58 +5,51 @@ package de.uni_stuttgart.iste.cowolf.model.dtmc.impl;
 import de.uni_stuttgart.iste.cowolf.model.commonBase.impl.IDBaseImpl;
 
 import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage;
-import de.uni_stuttgart.iste.cowolf.model.dtmc.Parameter;
+import de.uni_stuttgart.iste.cowolf.model.dtmc.Label;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.State;
-
-import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
-
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Parameter</b></em>'.
+ * An implementation of the model object '<em><b>Label</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.dtmc.impl.ParameterImpl#getName <em>Name</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.dtmc.impl.ParameterImpl#getType <em>Type</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.dtmc.impl.ParameterImpl#getState <em>State</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.dtmc.impl.LabelImpl#getName <em>Name</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.dtmc.impl.LabelImpl#getState <em>State</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ParameterImpl extends IDBaseImpl implements Parameter {
+public class LabelImpl extends IDBaseImpl implements Label {
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute list.
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<String> name;
+	protected static final String NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute list.
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getType()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<String> type;
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getState() <em>State</em>}' reference.
@@ -73,7 +66,7 @@ public class ParameterImpl extends IDBaseImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ParameterImpl() {
+	protected LabelImpl() {
 		super();
 	}
 
@@ -84,7 +77,7 @@ public class ParameterImpl extends IDBaseImpl implements Parameter {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return DTMCemfPackage.Literals.PARAMETER;
+		return DTMCemfPackage.Literals.LABEL;
 	}
 
 	/**
@@ -92,10 +85,7 @@ public class ParameterImpl extends IDBaseImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<String> getName() {
-		if (name == null) {
-			name = new EDataTypeEList<String>(String.class, this, DTMCemfPackage.PARAMETER__NAME);
-		}
+	public String getName() {
 		return name;
 	}
 
@@ -104,11 +94,11 @@ public class ParameterImpl extends IDBaseImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<String> getType() {
-		if (type == null) {
-			type = new EDataTypeEList<String>(String.class, this, DTMCemfPackage.PARAMETER__TYPE);
-		}
-		return type;
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DTMCemfPackage.LABEL__NAME, oldName, name));
 	}
 
 	/**
@@ -122,7 +112,7 @@ public class ParameterImpl extends IDBaseImpl implements Parameter {
 			state = (State)eResolveProxy(oldState);
 			if (state != oldState) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DTMCemfPackage.PARAMETER__STATE, oldState, state));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DTMCemfPackage.LABEL__STATE, oldState, state));
 			}
 		}
 		return state;
@@ -146,7 +136,7 @@ public class ParameterImpl extends IDBaseImpl implements Parameter {
 		State oldState = state;
 		state = newState;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DTMCemfPackage.PARAMETER__STATE, oldState, newState);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DTMCemfPackage.LABEL__STATE, oldState, newState);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -161,14 +151,14 @@ public class ParameterImpl extends IDBaseImpl implements Parameter {
 		if (newState != state) {
 			NotificationChain msgs = null;
 			if (state != null)
-				msgs = ((InternalEObject)state).eInverseRemove(this, DTMCemfPackage.STATE__FORMAL_PARAM, State.class, msgs);
+				msgs = ((InternalEObject)state).eInverseRemove(this, DTMCemfPackage.STATE__LABELS, State.class, msgs);
 			if (newState != null)
-				msgs = ((InternalEObject)newState).eInverseAdd(this, DTMCemfPackage.STATE__FORMAL_PARAM, State.class, msgs);
+				msgs = ((InternalEObject)newState).eInverseAdd(this, DTMCemfPackage.STATE__LABELS, State.class, msgs);
 			msgs = basicSetState(newState, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DTMCemfPackage.PARAMETER__STATE, newState, newState));
+			eNotify(new ENotificationImpl(this, Notification.SET, DTMCemfPackage.LABEL__STATE, newState, newState));
 	}
 
 	/**
@@ -179,9 +169,9 @@ public class ParameterImpl extends IDBaseImpl implements Parameter {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DTMCemfPackage.PARAMETER__STATE:
+			case DTMCemfPackage.LABEL__STATE:
 				if (state != null)
-					msgs = ((InternalEObject)state).eInverseRemove(this, DTMCemfPackage.STATE__FORMAL_PARAM, State.class, msgs);
+					msgs = ((InternalEObject)state).eInverseRemove(this, DTMCemfPackage.STATE__LABELS, State.class, msgs);
 				return basicSetState((State)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -195,7 +185,7 @@ public class ParameterImpl extends IDBaseImpl implements Parameter {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DTMCemfPackage.PARAMETER__STATE:
+			case DTMCemfPackage.LABEL__STATE:
 				return basicSetState(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -209,11 +199,9 @@ public class ParameterImpl extends IDBaseImpl implements Parameter {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DTMCemfPackage.PARAMETER__NAME:
+			case DTMCemfPackage.LABEL__NAME:
 				return getName();
-			case DTMCemfPackage.PARAMETER__TYPE:
-				return getType();
-			case DTMCemfPackage.PARAMETER__STATE:
+			case DTMCemfPackage.LABEL__STATE:
 				if (resolve) return getState();
 				return basicGetState();
 		}
@@ -225,19 +213,13 @@ public class ParameterImpl extends IDBaseImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DTMCemfPackage.PARAMETER__NAME:
-				getName().clear();
-				getName().addAll((Collection<? extends String>)newValue);
+			case DTMCemfPackage.LABEL__NAME:
+				setName((String)newValue);
 				return;
-			case DTMCemfPackage.PARAMETER__TYPE:
-				getType().clear();
-				getType().addAll((Collection<? extends String>)newValue);
-				return;
-			case DTMCemfPackage.PARAMETER__STATE:
+			case DTMCemfPackage.LABEL__STATE:
 				setState((State)newValue);
 				return;
 		}
@@ -252,13 +234,10 @@ public class ParameterImpl extends IDBaseImpl implements Parameter {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DTMCemfPackage.PARAMETER__NAME:
-				getName().clear();
+			case DTMCemfPackage.LABEL__NAME:
+				setName(NAME_EDEFAULT);
 				return;
-			case DTMCemfPackage.PARAMETER__TYPE:
-				getType().clear();
-				return;
-			case DTMCemfPackage.PARAMETER__STATE:
+			case DTMCemfPackage.LABEL__STATE:
 				setState((State)null);
 				return;
 		}
@@ -273,11 +252,9 @@ public class ParameterImpl extends IDBaseImpl implements Parameter {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DTMCemfPackage.PARAMETER__NAME:
-				return name != null && !name.isEmpty();
-			case DTMCemfPackage.PARAMETER__TYPE:
-				return type != null && !type.isEmpty();
-			case DTMCemfPackage.PARAMETER__STATE:
+			case DTMCemfPackage.LABEL__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case DTMCemfPackage.LABEL__STATE:
 				return state != null;
 		}
 		return super.eIsSet(featureID);
@@ -295,10 +272,8 @@ public class ParameterImpl extends IDBaseImpl implements Parameter {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
-		result.append(", type: ");
-		result.append(type);
 		result.append(')');
 		return result.toString();
 	}
 
-} //ParameterImpl
+} //LabelImpl

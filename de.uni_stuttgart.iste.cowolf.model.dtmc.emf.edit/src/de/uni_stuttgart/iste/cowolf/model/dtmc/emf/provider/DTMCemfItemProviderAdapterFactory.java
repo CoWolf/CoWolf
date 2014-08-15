@@ -72,26 +72,26 @@ public class DTMCemfItemProviderAdapterFactory extends DTMCemfAdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uni_stuttgart.iste.cowolf.model.dtmc.Root} instances.
+	 * This keeps track of the one adapter used for all {@link de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected RootItemProvider rootItemProvider;
+	protected DTMCItemProvider dtmcItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uni_stuttgart.iste.cowolf.model.dtmc.Root}.
+	 * This creates an adapter for a {@link de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createRootAdapter() {
-		if (rootItemProvider == null) {
-			rootItemProvider = new RootItemProvider(this);
+	public Adapter createDTMCAdapter() {
+		if (dtmcItemProvider == null) {
+			dtmcItemProvider = new DTMCItemProvider(this);
 		}
 
-		return rootItemProvider;
+		return dtmcItemProvider;
 	}
 
 	/**
@@ -141,26 +141,26 @@ public class DTMCemfItemProviderAdapterFactory extends DTMCemfAdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uni_stuttgart.iste.cowolf.model.dtmc.Parameter} instances.
+	 * This keeps track of the one adapter used for all {@link de.uni_stuttgart.iste.cowolf.model.dtmc.Label} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ParameterItemProvider parameterItemProvider;
+	protected LabelItemProvider labelItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uni_stuttgart.iste.cowolf.model.dtmc.Parameter}.
+	 * This creates an adapter for a {@link de.uni_stuttgart.iste.cowolf.model.dtmc.Label}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createParameterAdapter() {
-		if (parameterItemProvider == null) {
-			parameterItemProvider = new ParameterItemProvider(this);
+	public Adapter createLabelAdapter() {
+		if (labelItemProvider == null) {
+			labelItemProvider = new LabelItemProvider(this);
 		}
 
-		return parameterItemProvider;
+		return labelItemProvider;
 	}
 
 	/**
@@ -262,10 +262,10 @@ public class DTMCemfItemProviderAdapterFactory extends DTMCemfAdapterFactory imp
 	 * @generated
 	 */
 	public void dispose() {
-		if (rootItemProvider != null) rootItemProvider.dispose();
+		if (dtmcItemProvider != null) dtmcItemProvider.dispose();
 		if (stateItemProvider != null) stateItemProvider.dispose();
 		if (transitionItemProvider != null) transitionItemProvider.dispose();
-		if (parameterItemProvider != null) parameterItemProvider.dispose();
+		if (labelItemProvider != null) labelItemProvider.dispose();
 	}
 
 }
