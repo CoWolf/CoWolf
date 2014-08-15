@@ -23,7 +23,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage#getState()
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='OutgoingDontAddUpToOne NonDeterministic NoDuplicateLabels'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot OutgoingDontAddUpToOne='Tuple {\n\tmessage : String = \'Probability of all outgoing transitions must be 1.0.\',\n\tstatus : Boolean = \n\t\t\tself.outgoing->size() = 0 or (self.outgoing.prob->sum() - 1.0).abs()  < 0.000001\n}.status' NonDeterministic='Tuple {\n\tmessage : String = \'There must not be any nondeterminism. Please union transitions to the same target.\',\n\tstatus : Boolean = \n\t\t\tself.outgoing.to->asSet()->size() = self.outgoing->size()\n}.status' NoDuplicateLabels='Tuple {\n\tmessage : String = \'Labels must be unique per state.\',\n\tstatus : Boolean = \n\t\t\tself.labels.name->asSet()->size() = self.labels->size()\n}.status'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL OutgoingDontAddUpToOne='Tuple {\n\tmessage : String = \'Probability of all outgoing transitions must be 1.0.\',\n\tstatus : Boolean = \n\t\t\tself.outgoing->size() = 0 or (self.outgoing.prob->sum() - 1.0).abs()  < 0.000001\n}.status' NonDeterministic='Tuple {\n\tmessage : String = \'There must not be any nondeterminism. Please union transitions to the same target.\',\n\tstatus : Boolean = \n\t\t\tself.outgoing.to->asSet()->size() = self.outgoing->size()\n}.status' NoDuplicateLabels='Tuple {\n\tmessage : String = \'Labels must be unique per state.\',\n\tstatus : Boolean = \n\t\t\tself.labels.name->asSet()->size() = self.labels->size()\n}.status'"
  * @generated
  */
 public interface State extends IDBase {
