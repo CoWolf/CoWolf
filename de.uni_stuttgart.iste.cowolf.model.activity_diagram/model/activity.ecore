@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="activity" nsURI="http://activity/1.0" nsPrefix="activity">
-  <eClassifiers xsi:type="ecore:EClass" name="Root">
+  <eClassifiers xsi:type="ecore:EClass" name="Root" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
     <eStructuralFeatures xsi:type="ecore:EReference" name="start" lowerBound="1" eType="#//Start"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="action" upperBound="-1"
@@ -17,11 +17,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="conditionArrow" upperBound="-1"
         eType="#//ConditionArrow" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Start">
+  <eClassifiers xsi:type="ecore:EClass" name="Start" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
     <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingFromStart" lowerBound="1"
         eType="#//Arrow" eOpposite="#//Arrow/fromStart"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Action">
+  <eClassifiers xsi:type="ecore:EClass" name="Action" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
     <eStructuralFeatures xsi:type="ecore:EReference" name="incomingToAction" lowerBound="1"
         upperBound="-1" eType="#//Arrow" eOpposite="#//Arrow/toAction"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Action" lowerBound="1"
@@ -31,13 +31,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="incomingToActionFromDecision"
         lowerBound="1" upperBound="-1" eType="#//ConditionArrow" eOpposite="#//ConditionArrow/toActionFromDecision"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Decision">
+  <eClassifiers xsi:type="ecore:EClass" name="Decision" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
     <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingFromDecision" lowerBound="2"
         upperBound="-1" eType="#//ConditionArrow" eOpposite="#//ConditionArrow/fromDecision"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="incomingToDecision" lowerBound="1"
         eType="#//Arrow" eOpposite="#//Arrow/toDecision"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Bar"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Bar" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase"/>
   <eClassifiers xsi:type="ecore:EClass" name="Split" eSuperTypes="#//Bar">
     <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingFromSplit" lowerBound="2"
         upperBound="-1" eType="#//Arrow" eOpposite="#//Arrow/fromSplit"/>
@@ -50,7 +50,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingFromJoin" lowerBound="1"
         eType="#//Arrow" eOpposite="#//Arrow/fromJoin"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Arrow">
+  <eClassifiers xsi:type="ecore:EClass" name="Arrow" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
     <eStructuralFeatures xsi:type="ecore:EReference" name="EReference0" eType="#//Start"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="fromStart" eType="#//Start"
         eOpposite="#//Start/outgoingFromStart"/>
@@ -70,11 +70,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="toDecision" eType="#//Decision"
         eOpposite="#//Decision/incomingToDecision"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="End">
+  <eClassifiers xsi:type="ecore:EClass" name="End" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
     <eStructuralFeatures xsi:type="ecore:EReference" name="incomingToEnd" lowerBound="1"
         eType="#//Arrow" eOpposite="#//Arrow/toEnd"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ConditionArrow">
+  <eClassifiers xsi:type="ecore:EClass" name="ConditionArrow" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
     <eStructuralFeatures xsi:type="ecore:EReference" name="fromDecision" lowerBound="1"
         eType="#//Decision" eOpposite="#//Decision/outgoingFromDecision"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="toActionFromDecision" lowerBound="1"

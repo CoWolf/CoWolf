@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated activity -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="activity.presentation.ActivityModelWizardID"
+            name="%_UI_ActivityModelWizard_label"
+            class="activity.presentation.ActivityModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ActivityModelFile.gif">
+         <description>%_UI_ActivityModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated activity -->
+      <editor
+            id="activity.presentation.ActivityEditorID"
+            name="%_UI_ActivityEditor_label"
+            icon="icons/full/obj16/ActivityModelFile.gif"
+            extensions="activity"
+            class="activity.presentation.ActivityEditor"
+            contributorClass="activity.presentation.ActivityActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
