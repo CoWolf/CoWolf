@@ -5,9 +5,12 @@ import java.util.List;
 import org.eclipse.core.expressions.PropertyTester;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.ui.ISelectionService;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
+
 import de.uni_stuttgart.iste.cowolf.core.extensions.ExtensionHandler;
 import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
 import de.uni_stuttgart.iste.cowolf.ui.evolution.util.ResourceUtil;
@@ -35,21 +38,29 @@ public class EvolutionTester extends PropertyTester {
 		// gets the currently selected files
 		IWorkbenchWindow window = PlatformUI.getWorkbench()
 				.getActiveWorkbenchWindow();
-		if (window == null || window.getSelectionService() == null) {
-			return false;
-		}
-		IStructuredSelection selection = (IStructuredSelection) window
-				.getSelectionService().getSelection();
 
-		if (!(selection instanceof IStructuredSelection) || selection == null) {
+		if (window == null) {
 			return false;
 		}
-		
-		List<?> list = selection.toList();
+
+		ISelectionService selectionService = window.getSelectionService();
+
+		if (selectionService == null) {
+			return false;
+		}
+
+		ISelection selection = selectionService.getSelection();
+
+		if (selection == null || !(selection instanceof IStructuredSelection)) {
+			return false;
+		}
+
+		List<?> list = ((IStructuredSelection) selection).toList();
 		if (list.size() == 1) {
 			Object firstElement = list.get(0);
 			if (firstElement instanceof IFile) {
-				Resource firstElementResource = ResourceUtil.getResourceOfIFile((IFile) firstElement);
+				Resource firstElementResource = ResourceUtil
+						.getResourceOfIFile((IFile) firstElement);
 				return extensionHandler
 						.getEvolutionManager(firstElementResource) != null;
 			}
@@ -109,6 +120,5 @@ public class EvolutionTester extends PropertyTester {
 
 		return false;
 	}
-
 
 }

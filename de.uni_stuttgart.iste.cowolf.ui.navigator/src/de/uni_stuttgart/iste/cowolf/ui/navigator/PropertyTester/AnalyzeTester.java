@@ -1,13 +1,16 @@
 package de.uni_stuttgart.iste.cowolf.ui.navigator.PropertyTester;
 
 import java.io.File;
+
 import org.eclipse.core.expressions.PropertyTester;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.ui.ISelectionService;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 
@@ -28,18 +31,30 @@ public class AnalyzeTester extends PropertyTester {
 
 		IWorkbenchWindow window = PlatformUI.getWorkbench()
 				.getActiveWorkbenchWindow();
+	
 		if (window == null) {
 			return false;
 		}
-		IStructuredSelection selection = (IStructuredSelection) window
-				.getSelectionService().getSelection();
-		if (selection == null) {
+		
+		ISelectionService selectionService = window.getSelectionService();
+
+		if (selectionService == null) {
 			return false;
 		}
-		Object selectedElement = selection.getFirstElement();
+
+		ISelection selection = selectionService.getSelection();
+
+		if (selection == null || !(selection instanceof IStructuredSelection)) {
+			return false;
+		}
+		
+		Object selectedElement = ((IStructuredSelection)selection).getFirstElement();
+		
 		if (selectedElement == null) {
 			return false;
 		}
+		
+		
 		// catch exceptions from wrong parsing as we can only recognize IFiles
 		try {
 			// file then try to parse
