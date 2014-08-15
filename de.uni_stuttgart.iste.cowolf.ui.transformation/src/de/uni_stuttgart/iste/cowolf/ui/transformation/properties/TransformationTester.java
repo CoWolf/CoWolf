@@ -14,6 +14,7 @@ import org.eclipse.ui.PlatformUI;
 
 import de.uni_stuttgart.iste.cowolf.core.extensions.ExtensionHandler;
 import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
+import de.uni_stuttgart.iste.cowolf.transformation.AbstractTransformationManager;
 
 public class TransformationTester extends PropertyTester {
 
@@ -83,13 +84,13 @@ public class TransformationTester extends PropertyTester {
 
 			Object firstElement = list.get(0);
 			Object secondElement = list.get(1);
-			Object targetElement = list.get(2);
+			Object thirdElement = list.get(2);
 
 			if (firstElement instanceof IFile && secondElement instanceof IFile
-					&& targetElement instanceof IFile) {
+					&& thirdElement instanceof IFile) {
 
 				return isTransformationPossible((IFile) firstElement,
-						(IFile) secondElement, (IFile) targetElement);
+						(IFile) secondElement, (IFile) thirdElement);
 
 			}
 		}
@@ -98,42 +99,81 @@ public class TransformationTester extends PropertyTester {
 
 	}
 
-	public boolean isTransformationPossible(IFile sourceModelA,
-			IFile sourceModelB, IFile targetModel) {
+	public boolean isTransformationPossible(IFile modelA, IFile modelB,
+			IFile modelC) {
 
-		if (sourceModelA == null || sourceModelB == null || targetModel == null) {
+		if (modelA == null || modelB == null || modelC == null) {
 			return false;
 		}
 
-		Resource sourceModelAResource = getResourceOfIFile(sourceModelA);
-		Resource sourceModelBResource = getResourceOfIFile(sourceModelB);
-		Resource targetModelResource = getResourceOfIFile(targetModel);
+		Resource modelAResource = getResourceOfIFile(modelA);
+		Resource modelBResource = getResourceOfIFile(modelB);
+		Resource modelCResource = getResourceOfIFile(modelC);
 
 		// both selected source models are of the same type if the returned
 		// evolution managers are equal
 		AbstractEvolutionManager firstElementEvolutionManager = extensionHandler
-				.getEvolutionManager(sourceModelAResource);
+				.getEvolutionManager(modelAResource);
 		AbstractEvolutionManager secondElementEvolutionManager = extensionHandler
-				.getEvolutionManager(sourceModelBResource);
+				.getEvolutionManager(modelBResource);
+		AbstractEvolutionManager thirdElementEvolutionManager = extensionHandler
+				.getEvolutionManager(modelCResource);
 
-		AbstractEvolutionManager targetElementEvolutionManager = extensionHandler
-				.getEvolutionManager(targetModelResource);
-
+		// First and second of same type
 		if (firstElementEvolutionManager != null
 				&& secondElementEvolutionManager != null
-				&& targetElementEvolutionManager != null) {
+				&& firstElementEvolutionManager
+						.equals(secondElementEvolutionManager)) {
 
-			// first check if both source models of type
-			if (firstElementEvolutionManager
-					.equals(secondElementEvolutionManager)) {
+			AbstractTransformationManager transManager = extensionHandler
+					.getTransformationManager(modelAResource, modelCResource);
 
-				// second check if targetModel is different type
-				return firstElementEvolutionManager.equals(targetModelResource);
+			// First and third of different type
+			if (transManager != null
+					&& !firstElementEvolutionManager
+							.equals(thirdElementEvolutionManager)) {
+				return true;
 			}
+
+		}
+
+		// First and third of same type
+		else if (firstElementEvolutionManager != null
+				&& thirdElementEvolutionManager != null
+				&& firstElementEvolutionManager
+						.equals(thirdElementEvolutionManager)) {
+
+			AbstractTransformationManager transManager = extensionHandler
+					.getTransformationManager(modelAResource, modelBResource);
+
+			// First and second of different type
+			if (transManager != null
+					&& !firstElementEvolutionManager
+							.equals(secondElementEvolutionManager)) {
+				return true;
+			}
+
+		}
+
+		// Second and third of same type
+		else if (secondElementEvolutionManager != null
+				&& thirdElementEvolutionManager != null
+				&& secondElementEvolutionManager
+						.equals(thirdElementEvolutionManager)) {
+
+			AbstractTransformationManager transManager = extensionHandler
+					.getTransformationManager(modelAResource, modelCResource);
+
+			// First and third of different type
+			if (transManager != null
+					&& !firstElementEvolutionManager
+							.equals(thirdElementEvolutionManager)) {
+				return true;
+			}
+
 		}
 
 		return false;
-
 	}
 
 	public Resource getResourceOfIFile(IFile model) {
