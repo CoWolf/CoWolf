@@ -10,28 +10,14 @@
         eType="#//Decision" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="end" lowerBound="1" eType="#//End"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="split" upperBound="-1"
-        eType="#//Split" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="join" upperBound="-1" eType="#//Join"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transition" upperBound="-1"
+        eType="#//Transition" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="end" lowerBound="1" eType="#//End"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="startArrow" lowerBound="1"
-        eType="#//ArrowAfterStart" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="nodesWithoutJoin" upperBound="-1"
-        eType="#//NodesWithoutJoin" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="afterActionArrow" upperBound="-1"
-        eType="#//AfterActionArrow" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="decisionArrow" upperBound="-1"
-        eType="#//DecisionArrow" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="splitArrow" upperBound="-1"
-        eType="#//SplitArrow" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="joinArrow" upperBound="-1"
-        eType="#//JoinArrow" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ArrowAfterJoin" upperBound="-1"
-        eType="#//ArrowAfterJoin" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Start">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingFromStart" lowerBound="1"
-        eType="#//ArrowAfterStart"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="incoming" eType="#//Transition"
+        eOpposite="#//Transition/from"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Action" eSuperTypes="#//NodesWithoutJoin">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Action" lowerBound="1"
@@ -39,49 +25,20 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="outgoing" lowerBound="1"
         eType="#//AfterActionArrow"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Decision" eSuperTypes="#//NodesWithoutJoin">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="outgoing" lowerBound="2"
-        upperBound="-1" eType="#//DecisionArrow"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Split" eSuperTypes="#//NodesWithoutJoin">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="outgoing" lowerBound="2"
-        upperBound="-1" eType="#//SplitArrow"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Join" eSuperTypes="#//Nodes">
+  <eClassifiers xsi:type="ecore:EClass" name="Decision"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Bar"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Split" eSuperTypes="#//Bar"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Join" eSuperTypes="#//Bar"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Transition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="condition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EReference0" eType="#//Start"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="from" lowerBound="1" eType="#//Start"
+        eOpposite="#//Start/incoming"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outgoing" lowerBound="1"
-        eType="#//ArrowAfterJoin"/>
+        eType="#//End" eOpposite="#//End/to"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="End" eSuperTypes="#//NodesWithoutJoin"/>
-  <eClassifiers xsi:type="ecore:EClass" name="NodesWithoutJoin" abstract="true" eSuperTypes="#//Nodes">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="join" upperBound="-1" eType="#//JoinArrow"
-        eOpposite="#//JoinArrow/source"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ArrowAfterStart">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
-        eType="#//NodesWithoutJoin"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DecisionArrow">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Condition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
-        eType="#//NodesWithoutJoin"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AfterActionArrow">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
-        eType="#//NodesWithoutJoin"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SplitArrow">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
-        eType="#//NodesWithoutJoin"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="JoinArrow">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="2"
-        upperBound="-1" eType="#//NodesWithoutJoin" eOpposite="#//NodesWithoutJoin/join"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
-        eType="#//Join"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Nodes" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ArrowAfterJoin">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
-        eType="#//Nodes"/>
+  <eClassifiers xsi:type="ecore:EClass" name="End">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="to" eType="#//Transition"
+        eOpposite="#//Transition/outgoing"/>
   </eClassifiers>
 </ecore:EPackage>
