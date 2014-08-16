@@ -3,6 +3,13 @@ package de.uni_stuttgart.iste.cowolf.ui.transformation.wizard;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.jface.wizard.Wizard;
 
+/**
+ * This wizard allows the user to select the two models needed for the evolution
+ * step as well as the model needed for the transformation.
+ * 
+ * @author Michael Müller
+ * @author Michael Zimmermann
+ */
 public class TransformationWizard extends Wizard {
 
 	// First model for evolution.

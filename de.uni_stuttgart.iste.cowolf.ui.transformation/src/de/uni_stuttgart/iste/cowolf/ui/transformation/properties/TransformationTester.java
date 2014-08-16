@@ -16,6 +16,12 @@ import de.uni_stuttgart.iste.cowolf.core.extensions.ExtensionHandler;
 import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
 import de.uni_stuttgart.iste.cowolf.transformation.AbstractTransformationManager;
 
+/**
+ * Checks on base of the current selected models, if the co-evolve button should
+ * be grayed out or not.
+ *
+ * @author Michael Zimmermann
+ */
 public class TransformationTester extends PropertyTester {
 
 	public static final String PROPERTY_NAMESPACE = "de.uni_stuttgart.iste.cowolf.ui.transformation.properties.transformation";
@@ -100,15 +106,15 @@ public class TransformationTester extends PropertyTester {
 	}
 
 	public boolean isTransformationPossible(IFile modelA, IFile modelB,
-			IFile modelC) {
+			IFile targetModel) {
 
-		if (modelA == null || modelB == null || modelC == null) {
+		if (modelA == null || modelB == null || targetModel == null) {
 			return false;
 		}
 
 		Resource modelAResource = getResourceOfIFile(modelA);
 		Resource modelBResource = getResourceOfIFile(modelB);
-		Resource modelCResource = getResourceOfIFile(modelC);
+		Resource modelCResource = getResourceOfIFile(targetModel);
 
 		// both selected source models are of the same type if the returned
 		// evolution managers are equal
@@ -132,6 +138,7 @@ public class TransformationTester extends PropertyTester {
 			if (transManager != null
 					&& !firstElementEvolutionManager
 							.equals(thirdElementEvolutionManager)) {
+
 				return true;
 			}
 
@@ -150,6 +157,7 @@ public class TransformationTester extends PropertyTester {
 			if (transManager != null
 					&& !firstElementEvolutionManager
 							.equals(secondElementEvolutionManager)) {
+
 				return true;
 			}
 
@@ -168,9 +176,9 @@ public class TransformationTester extends PropertyTester {
 			if (transManager != null
 					&& !firstElementEvolutionManager
 							.equals(thirdElementEvolutionManager)) {
+
 				return true;
 			}
-
 		}
 
 		return false;
