@@ -41,7 +41,7 @@ public class TransformationTester extends PropertyTester {
 
 		IWorkbenchWindow window = PlatformUI.getWorkbench()
 				.getActiveWorkbenchWindow();
-		if (window == null || window.getSelectionService() == null) {
+		if ((window == null) || (window.getSelectionService() == null)) {
 			return false;
 		}
 		if (!(window.getSelectionService().getSelection() instanceof IStructuredSelection)) {
@@ -56,7 +56,8 @@ public class TransformationTester extends PropertyTester {
 		if (list.size() == 1) {
 			Object firstElement = list.get(0);
 			if (firstElement instanceof IFile) {
-				Resource firstElementResource = getResourceOfIFile((IFile) firstElement);
+				Resource firstElementResource = this
+						.getResourceOfIFile((IFile) firstElement);
 				return extensionHandler
 						.getEvolutionManager(firstElementResource) != null;
 			}
@@ -68,10 +69,13 @@ public class TransformationTester extends PropertyTester {
 			Object firstElement = list.get(0);
 			Object secondElement = list.get(1);
 
-			if (firstElement instanceof IFile && secondElement instanceof IFile) {
+			if ((firstElement instanceof IFile)
+					&& (secondElement instanceof IFile)) {
 
-				Resource firstElementResource = getResourceOfIFile((IFile) firstElement);
-				Resource secondElementResource = getResourceOfIFile((IFile) secondElement);
+				Resource firstElementResource = this
+						.getResourceOfIFile((IFile) firstElement);
+				Resource secondElementResource = this
+						.getResourceOfIFile((IFile) secondElement);
 
 				// both selected models are of the same type if the returned
 				// evolution managers are equal
@@ -80,7 +84,7 @@ public class TransformationTester extends PropertyTester {
 				AbstractEvolutionManager secondElementEvolutionManager = extensionHandler
 						.getEvolutionManager(secondElementResource);
 
-				return (firstElementEvolutionManager != null && secondElementEvolutionManager != null);
+				return ((firstElementEvolutionManager != null) && (secondElementEvolutionManager != null));
 
 			}
 		}
@@ -92,10 +96,11 @@ public class TransformationTester extends PropertyTester {
 			Object secondElement = list.get(1);
 			Object thirdElement = list.get(2);
 
-			if (firstElement instanceof IFile && secondElement instanceof IFile
-					&& thirdElement instanceof IFile) {
+			if ((firstElement instanceof IFile)
+					&& (secondElement instanceof IFile)
+					&& (thirdElement instanceof IFile)) {
 
-				return isTransformationPossible((IFile) firstElement,
+				return this.isTransformationPossible((IFile) firstElement,
 						(IFile) secondElement, (IFile) thirdElement);
 
 			}
@@ -108,34 +113,34 @@ public class TransformationTester extends PropertyTester {
 	public boolean isTransformationPossible(IFile modelA, IFile modelB,
 			IFile targetModel) {
 
-		if (modelA == null || modelB == null || targetModel == null) {
+		if ((modelA == null) || (modelB == null) || (targetModel == null)) {
 			return false;
 		}
 
-		Resource modelAResource = getResourceOfIFile(modelA);
-		Resource modelBResource = getResourceOfIFile(modelB);
-		Resource modelCResource = getResourceOfIFile(targetModel);
+		Resource modelAResource = this.getResourceOfIFile(modelA);
+		Resource modelBResource = this.getResourceOfIFile(modelB);
+		Resource modelCResource = this.getResourceOfIFile(targetModel);
 
 		// both selected source models are of the same type if the returned
 		// evolution managers are equal
-		AbstractEvolutionManager firstElementEvolutionManager = extensionHandler
+		AbstractEvolutionManager firstElementEvolutionManager = this.extensionHandler
 				.getEvolutionManager(modelAResource);
-		AbstractEvolutionManager secondElementEvolutionManager = extensionHandler
+		AbstractEvolutionManager secondElementEvolutionManager = this.extensionHandler
 				.getEvolutionManager(modelBResource);
-		AbstractEvolutionManager thirdElementEvolutionManager = extensionHandler
+		AbstractEvolutionManager thirdElementEvolutionManager = this.extensionHandler
 				.getEvolutionManager(modelCResource);
 
 		// First and second of same type
-		if (firstElementEvolutionManager != null
-				&& secondElementEvolutionManager != null
+		if ((firstElementEvolutionManager != null)
+				&& (secondElementEvolutionManager != null)
 				&& firstElementEvolutionManager
 						.equals(secondElementEvolutionManager)) {
 
-			AbstractTransformationManager transManager = extensionHandler
+			AbstractTransformationManager transManager = this.extensionHandler
 					.getTransformationManager(modelAResource, modelCResource);
 
 			// First and third of different type
-			if (transManager != null
+			if ((transManager != null)
 					&& !firstElementEvolutionManager
 							.equals(thirdElementEvolutionManager)) {
 
@@ -145,16 +150,16 @@ public class TransformationTester extends PropertyTester {
 		}
 
 		// First and third of same type
-		else if (firstElementEvolutionManager != null
-				&& thirdElementEvolutionManager != null
+		else if ((firstElementEvolutionManager != null)
+				&& (thirdElementEvolutionManager != null)
 				&& firstElementEvolutionManager
 						.equals(thirdElementEvolutionManager)) {
 
-			AbstractTransformationManager transManager = extensionHandler
+			AbstractTransformationManager transManager = this.extensionHandler
 					.getTransformationManager(modelAResource, modelBResource);
 
 			// First and second of different type
-			if (transManager != null
+			if ((transManager != null)
 					&& !firstElementEvolutionManager
 							.equals(secondElementEvolutionManager)) {
 
@@ -164,16 +169,16 @@ public class TransformationTester extends PropertyTester {
 		}
 
 		// Second and third of same type
-		else if (secondElementEvolutionManager != null
-				&& thirdElementEvolutionManager != null
+		else if ((secondElementEvolutionManager != null)
+				&& (thirdElementEvolutionManager != null)
 				&& secondElementEvolutionManager
 						.equals(thirdElementEvolutionManager)) {
 
-			AbstractTransformationManager transManager = extensionHandler
+			AbstractTransformationManager transManager = this.extensionHandler
 					.getTransformationManager(modelAResource, modelCResource);
 
 			// First and third of different type
-			if (transManager != null
+			if ((transManager != null)
 					&& !firstElementEvolutionManager
 							.equals(thirdElementEvolutionManager)) {
 
@@ -188,8 +193,14 @@ public class TransformationTester extends PropertyTester {
 		URI uri = URI.createPlatformResourceURI(model.getFullPath().toString(),
 				true);
 		ResourceSet resourceSet = new ResourceSetImpl();
-		Resource modelResource = resourceSet.getResource(uri, true);
-		return modelResource;
+		try {
+			Resource modelResource = resourceSet.getResource(uri, true);
+			return modelResource;
+		} catch (Exception exc) {
+		}
+
+		return null;
+
 	}
 
 }

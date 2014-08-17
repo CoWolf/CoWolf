@@ -4,29 +4,17 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
-import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.resources.IFile;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IPersistableElement;
 
 public class TransformationMappingEditorInput implements IEditorInput {
 
-	IPath transformationMappingPath;
+	private IFile transformationMappingFile;
 
-	public TransformationMappingEditorInput(IPath transformationMappingPath) {
-		this.transformationMappingPath = transformationMappingPath;
-
-		// try {
-		// XMLMappingLoader.loadMapping(transformationMappingFile.getFullPath().toFile());
-		// } catch (JAXBException e) {
-		// e.printStackTrace();
-		// }
-
-	}
-
-	@Override
-	public Object getAdapter(Class adapter) {
-		return null;
+	public TransformationMappingEditorInput(IFile transformationMappingFile) {
+		this.transformationMappingFile = transformationMappingFile;
 	}
 
 	@Override
@@ -40,25 +28,19 @@ public class TransformationMappingEditorInput implements IEditorInput {
 		URL url;
 		try {
 			url = new URL(
-					"platform:/plugin/de.uni_stuttgart.iste.cowolf.ui/icons/logo_wulf_15x15.png");	
+					"platform:/plugin/de.uni_stuttgart.iste.cowolf.ui/icons/logo_wulf_15x15.png");
 			return ImageDescriptor.createFromURL(url);
 		} catch (IOException e1) {
 			e1.printStackTrace();
-			return null;
 		}
-		
 
-	}
-	
-	public void getFile() {
-		// TODO Auto-generated method stub
+		return null;
 
 	}
 
-//	@Override
-//	public String getName() {
-//		return new File(transformationMappingFile).getName();
-//	}
+	public File getFile() {
+		return this.transformationMappingFile.getFullPath().toFile();
+	}
 
 	@Override
 	public IPersistableElement getPersistable() {
@@ -67,11 +49,25 @@ public class TransformationMappingEditorInput implements IEditorInput {
 
 	@Override
 	public String getToolTipText() {
-		return "test";
+		return this.getFilePath();
+	}
+
+	private String iFileToString(IFile iFile) {
+		return iFile.getProject().getName() + "/"
+				+ iFile.getProjectRelativePath().toString();
 	}
 
 	@Override
 	public String getName() {
+		return this.transformationMappingFile.getName();
+	}
+
+	public String getFilePath() {
+		return this.iFileToString(this.transformationMappingFile);
+	}
+
+	@Override
+	public Object getAdapter(Class adapter) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -13,13 +13,13 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
-import org.eclipse.ui.handlers.HandlerUtil;
+
+import de.uni_stuttgart.iste.cowolf.transformation.generator.l10n.Messages;
 
 /**
  * Wizard for a new Transformation Mapping.
  *
  * @author Rene Trefft
- *
  */
 public class TransformationMappingWizard extends Wizard implements INewWizard,
 		IExecutableExtension {
@@ -32,7 +32,7 @@ public class TransformationMappingWizard extends Wizard implements INewWizard,
 	private IWorkbench workbench;
 
 	public TransformationMappingWizard() {
-		setWindowTitle(WIZARD_NAME);
+		this.setWindowTitle(WIZARD_NAME);
 	}
 
 	@Override
@@ -43,15 +43,16 @@ public class TransformationMappingWizard extends Wizard implements INewWizard,
 	@Override
 	public boolean performFinish() {
 
-		IFile transformationMappingFile = page.createNewFile();
+		IFile transformationMappingFile = this.page.createNewFile();
 
-		TransformationMappingEditorInput input = new TransformationMappingEditorInput(transformationMappingFile.getFullPath());
+		TransformationMappingEditorInput input = new TransformationMappingEditorInput(
+				transformationMappingFile);
 
-		IWorkbenchWindow window = workbench.getActiveWorkbenchWindow();
+		IWorkbenchWindow window = this.workbench.getActiveWorkbenchWindow();
 		IWorkbenchPage page = window.getActivePage();
 
 		try {
-			
+
 			page.openEditor(input, TransformationMappingEditor.ID);
 
 		} catch (PartInitException e) {
@@ -70,11 +71,13 @@ public class TransformationMappingWizard extends Wizard implements INewWizard,
 		IStructuredSelection selection = (IStructuredSelection) window
 				.getSelectionService().getSelection();
 
-		page = new WizardNewFileCreationPage(PAGE_NAME, selection);
-		page.setTitle("CoWolf Transformation Mapping");
-		page.setDescription("Creates a new Transformation Mapping file for Co-Evolution.");
-		page.setFileExtension("xml");
-		addPage(page);
+		this.page = new WizardNewFileCreationPage(PAGE_NAME, selection);
+		this.page.setTitle("CoWolf Transformation Mapping");
+		this.page
+		.setDescription("Creates a new Transformation Mapping file for Co-Evolution.");
+		this.page
+				.setFileExtension(Messages.Cowolf_Transformation_Mapping_Extension);
+		this.addPage(this.page);
 	}
 
 	@Override
