@@ -4,7 +4,7 @@ import org.eclipse.osgi.util.NLS;
 
 public class Messages extends NLS {
 
-	private static final String BUNDLE_NAME = "de.uni_stuttgart.iste.cowolf.transformation.generator.l10n.messages";
+	private static final String BUNDLE_NAME = "OSGI-INF/l10n/bundle";
 
 	public static String Cowolf_Category;
 	public static String Cowolf_Transformation_Mapping_Wizard_Name;

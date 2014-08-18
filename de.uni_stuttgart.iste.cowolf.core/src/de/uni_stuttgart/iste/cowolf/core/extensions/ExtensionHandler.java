@@ -227,25 +227,48 @@ public class ExtensionHandler {
 		}
 		return null;
 	}
-
-	public ArrayList<String> getAllModelNames() {
-
-		ArrayList<String> allNames = new ArrayList<String>();
-
+	
+	private List<ModelTypeInfo> getAllModelTypeInfos() {
+		
+		List<ModelTypeInfo> allModelTypeInfos = new ArrayList<ModelTypeInfo>();
+		
 		for (AbstractQoSModelManager manager : qosModelManagers) {
 			ModelTypeInfo info = manager.getModelTypeInfo();
 			if (info != null) {
-				allNames.add(manager.getModelTypeInfo().METAMODEL_NAME);
+				allModelTypeInfos.add(info);
 			}
 		}
 		for (AbstractArchitectureModelManager manager : architectureModelManagers) {
 			ModelTypeInfo info = manager.getModelTypeInfo();
 			if (info != null) {
-				allNames.add(manager.getModelTypeInfo().METAMODEL_NAME);
+				allModelTypeInfos.add(info);
 			}
 		}
+		
+		return allModelTypeInfos;
+		
+	}
 
-		return allNames;
+	public List<String> getAllModelNames() {
+
+		List<String> allModelNames = new ArrayList<String>();
+		
+		for (ModelTypeInfo modelTypeInfo : getAllModelTypeInfos()) {
+			allModelNames.add(modelTypeInfo.METAMODEL_NAME);
+		}
+
+		return allModelNames;
+	}
+	
+	public List<String> getAllModelDocumentTypes() {
+
+		List<String> allModelNames = new ArrayList<String>();
+		
+		for (ModelTypeInfo modelTypeInfo : getAllModelTypeInfos()) {
+			allModelNames.add(modelTypeInfo.DOCUMENT_TYPE);
+		}
+
+		return allModelNames;
 	}
 
 }

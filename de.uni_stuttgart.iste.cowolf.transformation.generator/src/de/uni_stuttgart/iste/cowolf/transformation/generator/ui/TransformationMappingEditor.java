@@ -1,6 +1,10 @@
 package de.uni_stuttgart.iste.cowolf.transformation.generator.ui;
 
 import java.awt.Toolkit;
+import java.io.File;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jface.viewers.TableViewer;
@@ -22,6 +26,12 @@ import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
 import org.eclipse.ui.part.EditorPart;
+import org.sidiff.difference.rulebase.RecognitionRule;
+import org.sidiff.difference.rulebase.RuleBaseItem;
+import org.sidiff.difference.rulebase.extension.IRuleBase;
+import org.sidiff.difference.rulebase.util.RuleBaseUtil;
+
+import de.uni_stuttgart.iste.cowolf.core.extensions.ExtensionHandler;
 
 public class TransformationMappingEditor extends EditorPart {
 
@@ -33,12 +43,6 @@ public class TransformationMappingEditor extends EditorPart {
 	private TransformationMappingEditorInput input;
 
 	private boolean inputFileChanged;
-
-	private Label contents;
-
-	private TableViewer viewer;
-
-	private ScrolledForm form;
 
 	private Composite parent;
 
@@ -159,11 +163,19 @@ public class TransformationMappingEditor extends EditorPart {
 		Composite composite = toolkit.createComposite(section1, SWT.WRAP);
 		composite.setLayout(new GridLayout(2, false));
 
-		Tree henshinRulesTree = toolkit.createTree(composite, SWT.H_SCROLL
+		Tree recognitionRulesTree = toolkit.createTree(composite, SWT.H_SCROLL
 				| SWT.V_SCROLL);
-		TreeViewer henshinRulesTreeViewer = new TreeViewer(henshinRulesTree);
-		GridData henshinRulesTreeGridData = new GridData(GridData.FILL_BOTH);
-		henshinRulesTree.setLayoutData(henshinRulesTreeGridData);
+		TreeViewer recognitionRulesTreeViewer = new TreeViewer(
+				recognitionRulesTree);
+
+		recognitionRulesTreeViewer
+				.setContentProvider(new SiLiftRecognitionRulesContentProvider());
+		recognitionRulesTreeViewer.setInput(getRecognitionRulesTreeViewerInitialInput());
+		recognitionRulesTreeViewer.setLabelProvider(new SiLiftRecognitionRulesLabelProvider());
+		//recognitionRulesTreeViewer.expandAll();
+
+		GridData recognitionRulesTreeGridData = new GridData(GridData.FILL_BOTH);
+		recognitionRulesTree.setLayoutData(recognitionRulesTreeGridData);
 
 		toolkit.paintBordersFor(composite);
 
@@ -175,6 +187,30 @@ public class TransformationMappingEditor extends EditorPart {
 		addRulebaseButton.setLayoutData(addRulebaseButtonGridData);
 
 		section1.setClient(composite);
+
+	}
+
+	private IRuleBase[] getRecognitionRulesTreeViewerInitialInput() {
+
+		List<String> modelDocumentTypes = ExtensionHandler.getInstance()
+				.getAllModelDocumentTypes();
+
+		Set<IRuleBase> allRuleBases = new HashSet<IRuleBase>();
+
+		// add only the SiLift rule bases for the evolution of the CoWolf models
+		for (String modelDocumentType : modelDocumentTypes) {
+
+			System.out.println(modelDocumentType);
+
+			for (IRuleBase ruleBase : RuleBaseUtil
+					.getAvailableRulebases(modelDocumentType)) {
+				System.out.println(ruleBase);
+				allRuleBases.add(ruleBase);
+
+			}
+		}
+
+		return allRuleBases.toArray(new IRuleBase[allRuleBases.size()]);
 
 	}
 

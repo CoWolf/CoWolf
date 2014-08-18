@@ -1,5 +1,7 @@
 package de.uni_stuttgart.iste.cowolf.model.dtmc;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -8,6 +10,9 @@ import de.uni_stuttgart.iste.cowolf.model.IAnalysisListener;
 import de.uni_stuttgart.iste.cowolf.model.ModelTypeInfo;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.analyze.DTMCAnalyzeJob;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.analyze.DTMCAnalyzeJobListener;
+import de.uni_stuttgart.iste.cowolf.model.dtmc.impl.DTMCImpl;
+import de.uni_stuttgart.iste.cowolf.model.dtmc.impl.LabelImpl;
+import de.uni_stuttgart.iste.cowolf.model.dtmc.impl.StateImpl;
 
 public class DTMCModelManager extends AbstractQoSModelManager {
 
@@ -17,8 +22,17 @@ public class DTMCModelManager extends AbstractQoSModelManager {
 
 	@Override
 	public ModelTypeInfo getModelTypeInfo() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		List<Class<?>> properContents = new ArrayList<Class<?>>();
+
+		// create the allowed EClasses
+		properContents.add(Transition.class);
+		properContents.add(StateImpl.class);
+		properContents.add(LabelImpl.class);
+		properContents.add(DTMCImpl.class);
+		ModelTypeInfo mti = new ModelTypeInfo("dtmc", properContents, DTMCemfPackage.eNS_URI);
+		
+		return mti;
 	}
 
 	@Override
