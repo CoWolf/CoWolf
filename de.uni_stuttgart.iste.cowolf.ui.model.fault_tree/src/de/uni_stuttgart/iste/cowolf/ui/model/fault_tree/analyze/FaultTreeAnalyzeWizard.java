@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import de.uni_stuttgart.iste.cowolf.model.AbstractQoSModelManager;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreeModelManager;
 import de.uni_stuttgart.iste.cowolf.ui.model.analyze.AbstractQoSAnalyzeWizard;
+import de.uni_stuttgart.iste.cowolf.ui.model.fault_tree.preferences.FaultTreePreferencePage;
 
 public class FaultTreeAnalyzeWizard extends AbstractQoSAnalyzeWizard {
 
@@ -27,6 +28,8 @@ public class FaultTreeAnalyzeWizard extends AbstractQoSAnalyzeWizard {
 	@Override
 	public boolean performFinish() {
 		this.pageOne.setProperties(this.properties);
+		properties.put(FaultTreeModelManager.PARAM_PATH_TO_XFTA,
+				FaultTreePreferencePage.getPathToXFTA());
 		return true;
 	}
 
