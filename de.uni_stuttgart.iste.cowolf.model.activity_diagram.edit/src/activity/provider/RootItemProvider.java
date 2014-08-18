@@ -84,7 +84,6 @@ public class RootItemProvider
 			childrenFeatures.add(ActivityPackage.Literals.ROOT__SPLIT);
 			childrenFeatures.add(ActivityPackage.Literals.ROOT__JOIN);
 			childrenFeatures.add(ActivityPackage.Literals.ROOT__START_ARROW);
-			childrenFeatures.add(ActivityPackage.Literals.ROOT__NODES_WITHOUT_JOIN);
 			childrenFeatures.add(ActivityPackage.Literals.ROOT__AFTER_ACTION_ARROW);
 			childrenFeatures.add(ActivityPackage.Literals.ROOT__DECISION_ARROW);
 			childrenFeatures.add(ActivityPackage.Literals.ROOT__SPLIT_ARROW);
@@ -149,7 +148,6 @@ public class RootItemProvider
 			case ActivityPackage.ROOT__SPLIT:
 			case ActivityPackage.ROOT__JOIN:
 			case ActivityPackage.ROOT__START_ARROW:
-			case ActivityPackage.ROOT__NODES_WITHOUT_JOIN:
 			case ActivityPackage.ROOT__AFTER_ACTION_ARROW:
 			case ActivityPackage.ROOT__DECISION_ARROW:
 			case ActivityPackage.ROOT__SPLIT_ARROW:
@@ -209,26 +207,6 @@ public class RootItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ActivityPackage.Literals.ROOT__NODES_WITHOUT_JOIN,
-				 ActivityFactory.eINSTANCE.createAction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ActivityPackage.Literals.ROOT__NODES_WITHOUT_JOIN,
-				 ActivityFactory.eINSTANCE.createDecision()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ActivityPackage.Literals.ROOT__NODES_WITHOUT_JOIN,
-				 ActivityFactory.eINSTANCE.createSplit()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ActivityPackage.Literals.ROOT__NODES_WITHOUT_JOIN,
-				 ActivityFactory.eINSTANCE.createEnd()));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(ActivityPackage.Literals.ROOT__AFTER_ACTION_ARROW,
 				 ActivityFactory.eINSTANCE.createAfterActionArrow()));
 
@@ -251,32 +229,6 @@ public class RootItemProvider
 			(createChildParameter
 				(ActivityPackage.Literals.ROOT__ARROW_AFTER_JOIN,
 				 ActivityFactory.eINSTANCE.createArrowAfterJoin()));
-	}
-
-	/**
-	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
-		Object childFeature = feature;
-		Object childObject = child;
-
-		boolean qualify =
-			childFeature == ActivityPackage.Literals.ROOT__ACTION ||
-			childFeature == ActivityPackage.Literals.ROOT__NODES_WITHOUT_JOIN ||
-			childFeature == ActivityPackage.Literals.ROOT__DECISION ||
-			childFeature == ActivityPackage.Literals.ROOT__END ||
-			childFeature == ActivityPackage.Literals.ROOT__SPLIT;
-
-		if (qualify) {
-			return getString
-				("_UI_CreateChild_text2",
-				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-		}
-		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**

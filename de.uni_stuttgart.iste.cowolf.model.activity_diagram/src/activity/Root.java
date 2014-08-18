@@ -21,7 +21,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link activity.Root#getSplit <em>Split</em>}</li>
  *   <li>{@link activity.Root#getJoin <em>Join</em>}</li>
  *   <li>{@link activity.Root#getStartArrow <em>Start Arrow</em>}</li>
- *   <li>{@link activity.Root#getNodesWithoutJoin <em>Nodes Without Join</em>}</li>
  *   <li>{@link activity.Root#getAfterActionArrow <em>After Action Arrow</em>}</li>
  *   <li>{@link activity.Root#getDecisionArrow <em>Decision Arrow</em>}</li>
  *   <li>{@link activity.Root#getSplitArrow <em>Split Arrow</em>}</li>
@@ -176,22 +175,6 @@ public interface Root extends EObject {
 	 * @generated
 	 */
 	void setStartArrow(ArrowAfterStart value);
-
-	/**
-	 * Returns the value of the '<em><b>Nodes Without Join</b></em>' containment reference list.
-	 * The list contents are of type {@link activity.NodesWithoutJoin}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Nodes Without Join</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Nodes Without Join</em>' containment reference list.
-	 * @see activity.ActivityPackage#getRoot_NodesWithoutJoin()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<NodesWithoutJoin> getNodesWithoutJoin();
 
 	/**
 	 * Returns the value of the '<em><b>After Action Arrow</b></em>' containment reference list.

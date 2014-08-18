@@ -27,7 +27,6 @@ public interface JoinArrow extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Source</b></em>' reference list.
 	 * The list contents are of type {@link activity.NodesWithoutJoin}.
-	 * It is bidirectional and its opposite is '{@link activity.NodesWithoutJoin#getJoin <em>Join</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Source</em>' reference list isn't clear,
@@ -36,8 +35,7 @@ public interface JoinArrow extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Source</em>' reference list.
 	 * @see activity.ActivityPackage#getJoinArrow_Source()
-	 * @see activity.NodesWithoutJoin#getJoin
-	 * @model opposite="join" lower="2"
+	 * @model lower="2"
 	 * @generated
 	 */
 	EList<NodesWithoutJoin> getSource();
