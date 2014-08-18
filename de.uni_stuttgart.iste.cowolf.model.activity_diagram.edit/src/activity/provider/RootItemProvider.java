@@ -85,6 +85,11 @@ public class RootItemProvider
 			childrenFeatures.add(ActivityPackage.Literals.ROOT__JOIN);
 			childrenFeatures.add(ActivityPackage.Literals.ROOT__START_ARROW);
 			childrenFeatures.add(ActivityPackage.Literals.ROOT__NODES_WITHOUT_JOIN);
+			childrenFeatures.add(ActivityPackage.Literals.ROOT__AFTER_ACTION_ARROW);
+			childrenFeatures.add(ActivityPackage.Literals.ROOT__DECISION_ARROW);
+			childrenFeatures.add(ActivityPackage.Literals.ROOT__SPLIT_ARROW);
+			childrenFeatures.add(ActivityPackage.Literals.ROOT__JOIN_ARROW);
+			childrenFeatures.add(ActivityPackage.Literals.ROOT__ARROW_AFTER_JOIN);
 		}
 		return childrenFeatures;
 	}
@@ -145,6 +150,11 @@ public class RootItemProvider
 			case ActivityPackage.ROOT__JOIN:
 			case ActivityPackage.ROOT__START_ARROW:
 			case ActivityPackage.ROOT__NODES_WITHOUT_JOIN:
+			case ActivityPackage.ROOT__AFTER_ACTION_ARROW:
+			case ActivityPackage.ROOT__DECISION_ARROW:
+			case ActivityPackage.ROOT__SPLIT_ARROW:
+			case ActivityPackage.ROOT__JOIN_ARROW:
+			case ActivityPackage.ROOT__ARROW_AFTER_JOIN:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -216,6 +226,31 @@ public class RootItemProvider
 			(createChildParameter
 				(ActivityPackage.Literals.ROOT__NODES_WITHOUT_JOIN,
 				 ActivityFactory.eINSTANCE.createEnd()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ActivityPackage.Literals.ROOT__AFTER_ACTION_ARROW,
+				 ActivityFactory.eINSTANCE.createAfterActionArrow()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ActivityPackage.Literals.ROOT__DECISION_ARROW,
+				 ActivityFactory.eINSTANCE.createDecisionArrow()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ActivityPackage.Literals.ROOT__SPLIT_ARROW,
+				 ActivityFactory.eINSTANCE.createSplitArrow()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ActivityPackage.Literals.ROOT__JOIN_ARROW,
+				 ActivityFactory.eINSTANCE.createJoinArrow()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ActivityPackage.Literals.ROOT__ARROW_AFTER_JOIN,
+				 ActivityFactory.eINSTANCE.createArrowAfterJoin()));
 	}
 
 	/**

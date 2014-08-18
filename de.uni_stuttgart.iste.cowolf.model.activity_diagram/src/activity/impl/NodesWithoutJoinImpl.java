@@ -3,17 +3,20 @@
 package activity.impl;
 
 import activity.ActivityPackage;
-import activity.ArrowAfterStart;
+import activity.JoinArrow;
 import activity.NodesWithoutJoin;
 
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,22 +25,22 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link activity.impl.NodesWithoutJoinImpl#getIncomingStart <em>Incoming Start</em>}</li>
+ *   <li>{@link activity.impl.NodesWithoutJoinImpl#getJoin <em>Join</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public abstract class NodesWithoutJoinImpl extends MinimalEObjectImpl.Container implements NodesWithoutJoin {
+public abstract class NodesWithoutJoinImpl extends NodesImpl implements NodesWithoutJoin {
 	/**
-	 * The cached value of the '{@link #getIncomingStart() <em>Incoming Start</em>}' reference.
+	 * The cached value of the '{@link #getJoin() <em>Join</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIncomingStart()
+	 * @see #getJoin()
 	 * @generated
 	 * @ordered
 	 */
-	protected ArrowAfterStart incomingStart;
+	protected EList<JoinArrow> join;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -63,16 +66,11 @@ public abstract class NodesWithoutJoinImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ArrowAfterStart getIncomingStart() {
-		if (incomingStart != null && incomingStart.eIsProxy()) {
-			InternalEObject oldIncomingStart = (InternalEObject)incomingStart;
-			incomingStart = (ArrowAfterStart)eResolveProxy(oldIncomingStart);
-			if (incomingStart != oldIncomingStart) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ActivityPackage.NODES_WITHOUT_JOIN__INCOMING_START, oldIncomingStart, incomingStart));
-			}
+	public EList<JoinArrow> getJoin() {
+		if (join == null) {
+			join = new EObjectWithInverseResolvingEList.ManyInverse<JoinArrow>(JoinArrow.class, this, ActivityPackage.NODES_WITHOUT_JOIN__JOIN, ActivityPackage.JOIN_ARROW__SOURCE);
 		}
-		return incomingStart;
+		return join;
 	}
 
 	/**
@@ -80,56 +78,12 @@ public abstract class NodesWithoutJoinImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ArrowAfterStart basicGetIncomingStart() {
-		return incomingStart;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetIncomingStart(ArrowAfterStart newIncomingStart, NotificationChain msgs) {
-		ArrowAfterStart oldIncomingStart = incomingStart;
-		incomingStart = newIncomingStart;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ActivityPackage.NODES_WITHOUT_JOIN__INCOMING_START, oldIncomingStart, newIncomingStart);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setIncomingStart(ArrowAfterStart newIncomingStart) {
-		if (newIncomingStart != incomingStart) {
-			NotificationChain msgs = null;
-			if (incomingStart != null)
-				msgs = ((InternalEObject)incomingStart).eInverseRemove(this, ActivityPackage.ARROW_AFTER_START__TARGET_AFTER_START, ArrowAfterStart.class, msgs);
-			if (newIncomingStart != null)
-				msgs = ((InternalEObject)newIncomingStart).eInverseAdd(this, ActivityPackage.ARROW_AFTER_START__TARGET_AFTER_START, ArrowAfterStart.class, msgs);
-			msgs = basicSetIncomingStart(newIncomingStart, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ActivityPackage.NODES_WITHOUT_JOIN__INCOMING_START, newIncomingStart, newIncomingStart));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ActivityPackage.NODES_WITHOUT_JOIN__INCOMING_START:
-				if (incomingStart != null)
-					msgs = ((InternalEObject)incomingStart).eInverseRemove(this, ActivityPackage.ARROW_AFTER_START__TARGET_AFTER_START, ArrowAfterStart.class, msgs);
-				return basicSetIncomingStart((ArrowAfterStart)otherEnd, msgs);
+			case ActivityPackage.NODES_WITHOUT_JOIN__JOIN:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getJoin()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -142,8 +96,8 @@ public abstract class NodesWithoutJoinImpl extends MinimalEObjectImpl.Container 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ActivityPackage.NODES_WITHOUT_JOIN__INCOMING_START:
-				return basicSetIncomingStart(null, msgs);
+			case ActivityPackage.NODES_WITHOUT_JOIN__JOIN:
+				return ((InternalEList<?>)getJoin()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -156,9 +110,8 @@ public abstract class NodesWithoutJoinImpl extends MinimalEObjectImpl.Container 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ActivityPackage.NODES_WITHOUT_JOIN__INCOMING_START:
-				if (resolve) return getIncomingStart();
-				return basicGetIncomingStart();
+			case ActivityPackage.NODES_WITHOUT_JOIN__JOIN:
+				return getJoin();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -168,11 +121,13 @@ public abstract class NodesWithoutJoinImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ActivityPackage.NODES_WITHOUT_JOIN__INCOMING_START:
-				setIncomingStart((ArrowAfterStart)newValue);
+			case ActivityPackage.NODES_WITHOUT_JOIN__JOIN:
+				getJoin().clear();
+				getJoin().addAll((Collection<? extends JoinArrow>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -186,8 +141,8 @@ public abstract class NodesWithoutJoinImpl extends MinimalEObjectImpl.Container 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ActivityPackage.NODES_WITHOUT_JOIN__INCOMING_START:
-				setIncomingStart((ArrowAfterStart)null);
+			case ActivityPackage.NODES_WITHOUT_JOIN__JOIN:
+				getJoin().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -201,8 +156,8 @@ public abstract class NodesWithoutJoinImpl extends MinimalEObjectImpl.Container 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ActivityPackage.NODES_WITHOUT_JOIN__INCOMING_START:
-				return incomingStart != null;
+			case ActivityPackage.NODES_WITHOUT_JOIN__JOIN:
+				return join != null && !join.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -325,6 +325,52 @@ public class ActivityItemProviderAdapterFactory extends ActivityAdapterFactory i
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link activity.JoinArrow} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected JoinArrowItemProvider joinArrowItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link activity.JoinArrow}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createJoinArrowAdapter() {
+		if (joinArrowItemProvider == null) {
+			joinArrowItemProvider = new JoinArrowItemProvider(this);
+		}
+
+		return joinArrowItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link activity.ArrowAfterJoin} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ArrowAfterJoinItemProvider arrowAfterJoinItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link activity.ArrowAfterJoin}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createArrowAfterJoinAdapter() {
+		if (arrowAfterJoinItemProvider == null) {
+			arrowAfterJoinItemProvider = new ArrowAfterJoinItemProvider(this);
+		}
+
+		return arrowAfterJoinItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -434,6 +480,8 @@ public class ActivityItemProviderAdapterFactory extends ActivityAdapterFactory i
 		if (decisionArrowItemProvider != null) decisionArrowItemProvider.dispose();
 		if (afterActionArrowItemProvider != null) afterActionArrowItemProvider.dispose();
 		if (splitArrowItemProvider != null) splitArrowItemProvider.dispose();
+		if (joinArrowItemProvider != null) joinArrowItemProvider.dispose();
+		if (arrowAfterJoinItemProvider != null) arrowAfterJoinItemProvider.dispose();
 	}
 
 }

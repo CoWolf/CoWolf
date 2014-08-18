@@ -121,6 +121,24 @@ public interface ActivityFactory extends EFactory {
 	SplitArrow createSplitArrow();
 
 	/**
+	 * Returns a new object of class '<em>Join Arrow</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Join Arrow</em>'.
+	 * @generated
+	 */
+	JoinArrow createJoinArrow();
+
+	/**
+	 * Returns a new object of class '<em>Arrow After Join</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Arrow After Join</em>'.
+	 * @generated
+	 */
+	ArrowAfterJoin createArrowAfterJoin();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

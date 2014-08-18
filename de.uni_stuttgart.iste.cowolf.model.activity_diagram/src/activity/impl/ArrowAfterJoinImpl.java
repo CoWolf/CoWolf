@@ -3,8 +3,8 @@
 package activity.impl;
 
 import activity.ActivityPackage;
-import activity.ArrowAfterStart;
-import activity.NodesWithoutJoin;
+import activity.ArrowAfterJoin;
+import activity.Nodes;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -16,18 +16,18 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Arrow After Start</b></em>'.
+ * An implementation of the model object '<em><b>Arrow After Join</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link activity.impl.ArrowAfterStartImpl#getTarget <em>Target</em>}</li>
+ *   <li>{@link activity.impl.ArrowAfterJoinImpl#getTarget <em>Target</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ArrowAfterStartImpl extends MinimalEObjectImpl.Container implements ArrowAfterStart {
+public class ArrowAfterJoinImpl extends MinimalEObjectImpl.Container implements ArrowAfterJoin {
 	/**
 	 * The cached value of the '{@link #getTarget() <em>Target</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -36,14 +36,14 @@ public class ArrowAfterStartImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 * @ordered
 	 */
-	protected NodesWithoutJoin target;
+	protected Nodes target;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ArrowAfterStartImpl() {
+	protected ArrowAfterJoinImpl() {
 		super();
 	}
 
@@ -54,7 +54,7 @@ public class ArrowAfterStartImpl extends MinimalEObjectImpl.Container implements
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ActivityPackage.Literals.ARROW_AFTER_START;
+		return ActivityPackage.Literals.ARROW_AFTER_JOIN;
 	}
 
 	/**
@@ -62,13 +62,13 @@ public class ArrowAfterStartImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NodesWithoutJoin getTarget() {
+	public Nodes getTarget() {
 		if (target != null && target.eIsProxy()) {
 			InternalEObject oldTarget = (InternalEObject)target;
-			target = (NodesWithoutJoin)eResolveProxy(oldTarget);
+			target = (Nodes)eResolveProxy(oldTarget);
 			if (target != oldTarget) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ActivityPackage.ARROW_AFTER_START__TARGET, oldTarget, target));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ActivityPackage.ARROW_AFTER_JOIN__TARGET, oldTarget, target));
 			}
 		}
 		return target;
@@ -79,7 +79,7 @@ public class ArrowAfterStartImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NodesWithoutJoin basicGetTarget() {
+	public Nodes basicGetTarget() {
 		return target;
 	}
 
@@ -88,11 +88,11 @@ public class ArrowAfterStartImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTarget(NodesWithoutJoin newTarget) {
-		NodesWithoutJoin oldTarget = target;
+	public void setTarget(Nodes newTarget) {
+		Nodes oldTarget = target;
 		target = newTarget;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ActivityPackage.ARROW_AFTER_START__TARGET, oldTarget, target));
+			eNotify(new ENotificationImpl(this, Notification.SET, ActivityPackage.ARROW_AFTER_JOIN__TARGET, oldTarget, target));
 	}
 
 	/**
@@ -103,7 +103,7 @@ public class ArrowAfterStartImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ActivityPackage.ARROW_AFTER_START__TARGET:
+			case ActivityPackage.ARROW_AFTER_JOIN__TARGET:
 				if (resolve) return getTarget();
 				return basicGetTarget();
 		}
@@ -118,8 +118,8 @@ public class ArrowAfterStartImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ActivityPackage.ARROW_AFTER_START__TARGET:
-				setTarget((NodesWithoutJoin)newValue);
+			case ActivityPackage.ARROW_AFTER_JOIN__TARGET:
+				setTarget((Nodes)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -133,8 +133,8 @@ public class ArrowAfterStartImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ActivityPackage.ARROW_AFTER_START__TARGET:
-				setTarget((NodesWithoutJoin)null);
+			case ActivityPackage.ARROW_AFTER_JOIN__TARGET:
+				setTarget((Nodes)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -148,10 +148,10 @@ public class ArrowAfterStartImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ActivityPackage.ARROW_AFTER_START__TARGET:
+			case ActivityPackage.ARROW_AFTER_JOIN__TARGET:
 				return target != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //ArrowAfterStartImpl
+} //ArrowAfterJoinImpl

@@ -52,10 +52,7 @@
         eType="#//ArrowAfterJoin"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="End" eSuperTypes="#//NodesWithoutJoin"/>
-  <eClassifiers xsi:type="ecore:EClass" name="NodesWithoutJoin" abstract="true" eSuperTypes="#//Nodes">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="join" upperBound="-1" eType="#//JoinArrow"
-        eOpposite="#//JoinArrow/source"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NodesWithoutJoin" abstract="true" eSuperTypes="#//Nodes"/>
   <eClassifiers xsi:type="ecore:EClass" name="ArrowAfterStart">
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
         eType="#//NodesWithoutJoin"/>
@@ -75,7 +72,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JoinArrow">
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="2"
-        upperBound="-1" eType="#//NodesWithoutJoin" eOpposite="#//NodesWithoutJoin/join"/>
+        upperBound="-1" eType="#//NodesWithoutJoin"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
         eType="#//Join"/>
   </eClassifiers>
