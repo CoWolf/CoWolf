@@ -4,31 +4,14 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.uni-stuttgart.iste.co.wolf.org/TransformationMapping Mapping.xsd ">
 	<Mapping>
-		<Difference>
-			CreateState123
-		</Difference>
-		<Rule name="CreateState">
+		
+		<Difference>CREATE_State_IN_StateMachine_(top)</Difference>
+		<Rule name="CreatedStateInSC">
 			<Params>
-				<Param name="blub">
-					<Path>path</Path>
-				</Param>
-				<Param name="bli">
-					<Path>path</Path>
-				</Param>
-			</Params>
-		</Rule>
-	</Mapping>
-	<Mapping>
-		<Difference>
-			StateCreatedInX
-		</Difference>
-		<Rule name="TransformStateCreationFromXToY">
-			<Params>
-				<Param name="blub">
-					<Path>path</Path>
-				</Param>
-				<Param name="bli">
-					<Path>path</Path>
+				<Param name="modelName">
+					<Path>AddObject</Path>
+					<Path>obj</Path>
+					<Path>name</Path>
 				</Param>
 			</Params>
 		</Rule>
