@@ -60,12 +60,13 @@ public class ActivityFactoryImpl extends EFactoryImpl implements ActivityFactory
 			case ActivityPackage.START: return createStart();
 			case ActivityPackage.ACTION: return createAction();
 			case ActivityPackage.DECISION: return createDecision();
-			case ActivityPackage.BAR: return createBar();
 			case ActivityPackage.SPLIT: return createSplit();
 			case ActivityPackage.JOIN: return createJoin();
-			case ActivityPackage.ARROW: return createArrow();
 			case ActivityPackage.END: return createEnd();
-			case ActivityPackage.CONDITION_ARROW: return createConditionArrow();
+			case ActivityPackage.ARROW_AFTER_START: return createArrowAfterStart();
+			case ActivityPackage.DECISION_ARROW: return createDecisionArrow();
+			case ActivityPackage.AFTER_ACTION_ARROW: return createAfterActionArrow();
+			case ActivityPackage.SPLIT_ARROW: return createSplitArrow();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -116,16 +117,6 @@ public class ActivityFactoryImpl extends EFactoryImpl implements ActivityFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Bar createBar() {
-		BarImpl bar = new BarImpl();
-		return bar;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Split createSplit() {
 		SplitImpl split = new SplitImpl();
 		return split;
@@ -146,16 +137,6 @@ public class ActivityFactoryImpl extends EFactoryImpl implements ActivityFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Arrow createArrow() {
-		ArrowImpl arrow = new ArrowImpl();
-		return arrow;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public End createEnd() {
 		EndImpl end = new EndImpl();
 		return end;
@@ -166,9 +147,39 @@ public class ActivityFactoryImpl extends EFactoryImpl implements ActivityFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConditionArrow createConditionArrow() {
-		ConditionArrowImpl conditionArrow = new ConditionArrowImpl();
-		return conditionArrow;
+	public ArrowAfterStart createArrowAfterStart() {
+		ArrowAfterStartImpl arrowAfterStart = new ArrowAfterStartImpl();
+		return arrowAfterStart;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DecisionArrow createDecisionArrow() {
+		DecisionArrowImpl decisionArrow = new DecisionArrowImpl();
+		return decisionArrow;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AfterActionArrow createAfterActionArrow() {
+		AfterActionArrowImpl afterActionArrow = new AfterActionArrowImpl();
+		return afterActionArrow;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SplitArrow createSplitArrow() {
+		SplitArrowImpl splitArrow = new SplitArrowImpl();
+		return splitArrow;
 	}
 
 	/**
