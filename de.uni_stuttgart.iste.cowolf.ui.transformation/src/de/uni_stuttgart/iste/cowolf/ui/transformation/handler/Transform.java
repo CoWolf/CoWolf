@@ -30,121 +30,133 @@ import de.uni_stuttgart.iste.cowolf.ui.transformation.wizard.TransformationWizar
  */
 public class Transform extends AbstractHandler {
 
-	private ExtensionHandler extensionHandler;
+    private ExtensionHandler extensionHandler;
 
-	public Transform() {
-		this.extensionHandler = ExtensionHandler.getInstance();
-	}
+    public Transform() {
+        this.extensionHandler = ExtensionHandler.getInstance();
+    }
 
-	@Override
-	public Object execute(ExecutionEvent event) throws ExecutionException {
-		// initialize variables
-		IFile firstSourceElement = null;
-		IFile secondSourceElement = null;
-		IFile targetElement = null;
-		IFile tempElement = null;
-		Resource firstSourceModel = null;
-		Resource secondSourceModel = null;
-		Resource targetModel = null;
-		Resource tempModel = null;
+    @Override
+    public Object execute(ExecutionEvent event) throws ExecutionException {
+        // initialize variables
+        IFile firstSourceElement = null;
+        IFile secondSourceElement = null;
+        IFile targetElement = null;
+        IFile tempElement = null;
+        Resource firstSourceModel = null;
+        Resource secondSourceModel = null;
+        Resource targetModel = null;
+        Resource tempModel = null;
 
-		final IWorkbenchWindow window = PlatformUI.getWorkbench()
-				.getActiveWorkbenchWindow();
+        final IWorkbenchWindow window = PlatformUI.getWorkbench()
+                .getActiveWorkbenchWindow();
 
-		IStructuredSelection selection = (IStructuredSelection) window
-				.getSelectionService().getSelection();
+        IStructuredSelection selection = (IStructuredSelection) window
+                .getSelectionService().getSelection();
 
-		List<?> list = selection.toList();
+        List<?> list = selection.toList();
 
-		if (list.size() >= 1) {
-			firstSourceElement = (IFile) list.get(0);
-			firstSourceModel = this.getResourceOfIFile(firstSourceElement);
-		}
-		if (list.size() >= 2) {
-			tempElement = (IFile) list.get(1);
-			tempModel = this.getResourceOfIFile(tempElement);
+        if (list.size() >= 1) {
+            firstSourceElement = (IFile) list.get(0);
+            firstSourceModel = this.getResourceOfIFile(firstSourceElement);
+        }
+        if (list.size() >= 2) {
+            tempElement = (IFile) list.get(1);
+            tempModel = this.getResourceOfIFile(tempElement);
 
-			// If first and second element of different type, make second
-			// element to third element
-			if (this.extensionHandler.getEvolutionManager(firstSourceModel)
-					.equals(this.extensionHandler
-							.getEvolutionManager(tempModel))) {
-				secondSourceModel = tempModel;
-				secondSourceElement = tempElement;
-			} else {
-				targetModel = tempModel;
-				targetElement = tempElement;
-			}
-		}
-		if (list.size() >= 3) {
-			tempElement = (IFile) list.get(2);
-			tempModel = this.getResourceOfIFile(tempElement);
+            // If first and second element of different type, make second
+            // element to third element
+            if (this.extensionHandler.getEvolutionManager(firstSourceModel)
+                    .equals(this.extensionHandler
+                            .getEvolutionManager(tempModel))) {
+                secondSourceModel = tempModel;
+                secondSourceElement = tempElement;
+            } else {
+                targetModel = tempModel;
+                targetElement = tempElement;
+            }
+        }
+        if (list.size() >= 3) {
+            tempElement = (IFile) list.get(2);
+            tempModel = this.getResourceOfIFile(tempElement);
 
-			// Element one and two of same type.
-			if (targetModel == null) {
-				targetModel = this.getResourceOfIFile(tempElement);
-				targetElement = tempElement;
+            // Element one and two of same type.
+            if (targetModel == null) {
+                targetModel = this.getResourceOfIFile(tempElement);
+                targetElement = tempElement;
 
-				// Element one and three of same type
-			} else if (this.extensionHandler.getEvolutionManager(
-					firstSourceModel).equals(
-					this.extensionHandler.getEvolutionManager(tempModel))) {
-				secondSourceModel = this.getResourceOfIFile(tempElement);
-				secondSourceElement = tempElement;
+                // Element one and three of same type
+            } else if (this.extensionHandler.getEvolutionManager(
+                    firstSourceModel).equals(
+                    this.extensionHandler.getEvolutionManager(tempModel))) {
+                secondSourceModel = this.getResourceOfIFile(tempElement);
+                secondSourceElement = tempElement;
 
-				// Element two and three of same type
-			} else {
-				secondSourceElement = tempElement;
-				secondSourceModel = tempModel;
-				tempElement = firstSourceElement;
-				tempModel = firstSourceModel;
-				firstSourceElement = targetElement;
-				firstSourceModel = targetModel;
-				targetElement = tempElement;
-				targetModel = tempModel;
-			}
-		}
+                // Element two and three of same type
+            } else {
+                secondSourceElement = tempElement;
+                secondSourceModel = tempModel;
+                tempElement = firstSourceElement;
+                tempModel = firstSourceModel;
+                firstSourceElement = targetElement;
+                firstSourceModel = targetModel;
+                targetElement = tempElement;
+                targetModel = tempModel;
+            }
+        }
 
-		TransformationWizard modelWizard = new TransformationWizard(
-				firstSourceElement, secondSourceElement, targetElement);
-		WizardDialog wizard = new WizardDialog(window.getShell(), modelWizard);
-		if (wizard.open() == Window.CANCEL) {
-			return null;
-		}
+        TransformationWizard modelWizard = new TransformationWizard(
+                firstSourceElement, secondSourceElement, targetElement);
+        WizardDialog wizard = new WizardDialog(window.getShell(), modelWizard);
+        if (wizard.open() == Window.CANCEL) {
+            return null;
+        }
 
-		AbstractEvolutionManager evoManager = this.extensionHandler
-				.getEvolutionManager(firstSourceModel);
+        if (modelWizard.isFirstModelSelected()) {
+            firstSourceModel = this.getResourceOfIFile(modelWizard
+                    .getSourceModelA());
+            secondSourceModel = this.getResourceOfIFile(modelWizard
+                    .getSourceModelB());
+        } else {
+            firstSourceModel = this.getResourceOfIFile(modelWizard
+                    .getSourceModelB());
+            secondSourceModel = this.getResourceOfIFile(modelWizard
+                    .getSourceModelA());
+        }
+        targetModel = this.getResourceOfIFile(modelWizard.getTargetModel());
 
-		AbstractTransformationManager transManager = this.extensionHandler
-				.getTransformationManager(firstSourceModel, targetModel);
+        AbstractEvolutionManager evoManager = this.extensionHandler
+                .getEvolutionManager(firstSourceModel);
 
-		if (evoManager != null && transManager != null) {
+        AbstractTransformationManager transManager = this.extensionHandler
+                .getTransformationManager(firstSourceModel, targetModel);
 
-			try {
-				SymmetricDifference difference = evoManager.evolve(
-						firstSourceModel, secondSourceModel);
+        if (evoManager != null && transManager != null) {
 
-				transManager.transform(secondSourceModel, targetModel,
-						difference);
-			} catch (EvolutionException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+            try {
+                SymmetricDifference difference = evoManager.evolve(
+                        firstSourceModel, secondSourceModel);
 
-		return null;
-	}
+                transManager.transform(secondSourceModel, targetModel,
+                        difference);
+            } catch (EvolutionException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
 
-	private Resource getResourceOfIFile(IFile model) {
-		URI uri = URI.createPlatformResourceURI(model.getFullPath().toString(),
-				true);
-		ResourceSet resourceSet = new ResourceSetImpl();
-		try {
-			Resource modelResource = resourceSet.getResource(uri, true);
-			return modelResource;
-		} catch (Exception exc) {
-		}
+        return null;
+    }
+    private Resource getResourceOfIFile(IFile model) {
+        URI uri = URI.createPlatformResourceURI(model.getFullPath().toString(),
+                true);
+        ResourceSet resourceSet = new ResourceSetImpl();
+        try {
+            Resource modelResource = resourceSet.getResource(uri, true);
+            return modelResource;
+        } catch (Exception exc) {
+        }
 
-		return null;
-	}
+        return null;
+    }
 }
