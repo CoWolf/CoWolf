@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_BR2_eyaxEeS0nKYGza5w2Q" name="MOVE_Transition_FROM_StateMachine_(transitions)_TO_StateMachine_(transitions)" description="MOVEs Transition from StateMachine(Reference:transitions) to StateMachine(Reference:transitions">
+  <imports href="http://Statechart/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_BR2_fCaxEeS0nKYGza5w2Q" name="moveTransition_FROM_StateMachine_transitions_TO_StateMachine_StateMachine" description="Moves Transition from StateMachine(Reference:transitions) toStateMachine(Reference:StateMachine)">
+    <parameters xmi:id="_BR2_fSaxEeS0nKYGza5w2Q" name="Selected"/>
+    <parameters xmi:id="_BR2_fiaxEeS0nKYGza5w2Q" name="OldSource"/>
+    <parameters xmi:id="_BR2_fyaxEeS0nKYGza5w2Q" name="NewSource"/>
+    <lhs xmi:id="_BR2_gCaxEeS0nKYGza5w2Q" name="Lhs">
+      <nodes xmi:id="_BR2_gSaxEeS0nKYGza5w2Q" name="Selected" incoming="_BR2_hCaxEeS0nKYGza5w2Q" outgoing="_BR2_hSaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//Transition"/>
+      </nodes>
+      <nodes xmi:id="_BR2_giaxEeS0nKYGza5w2Q" name="OldSource" incoming="_BR2_hSaxEeS0nKYGza5w2Q" outgoing="_BR2_hCaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//StateMachine"/>
+      </nodes>
+      <nodes xmi:id="_BR2_gyaxEeS0nKYGza5w2Q" name="NewSource">
+        <type href="http://Statechart/1.0#//StateMachine"/>
+      </nodes>
+      <edges xmi:id="_BR2_hCaxEeS0nKYGza5w2Q" source="_BR2_giaxEeS0nKYGza5w2Q" target="_BR2_gSaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//StateMachine/transitions"/>
+      </edges>
+      <edges xmi:id="_BR2_hSaxEeS0nKYGza5w2Q" source="_BR2_gSaxEeS0nKYGza5w2Q" target="_BR2_giaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//Transition/transSM_container"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_BR2_hiaxEeS0nKYGza5w2Q" name="Rhs">
+      <nodes xmi:id="_BR2_hyaxEeS0nKYGza5w2Q" name="Selected" incoming="_BR2_iiaxEeS0nKYGza5w2Q" outgoing="_BR2_iyaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//Transition"/>
+      </nodes>
+      <nodes xmi:id="_BR2_iCaxEeS0nKYGza5w2Q" name="OldSource">
+        <type href="http://Statechart/1.0#//StateMachine"/>
+      </nodes>
+      <nodes xmi:id="_BR2_iSaxEeS0nKYGza5w2Q" name="NewSource" incoming="_BR2_iyaxEeS0nKYGza5w2Q" outgoing="_BR2_iiaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//StateMachine"/>
+      </nodes>
+      <edges xmi:id="_BR2_iiaxEeS0nKYGza5w2Q" source="_BR2_iSaxEeS0nKYGza5w2Q" target="_BR2_hyaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//StateMachine/transitions"/>
+      </edges>
+      <edges xmi:id="_BR2_iyaxEeS0nKYGza5w2Q" source="_BR2_hyaxEeS0nKYGza5w2Q" target="_BR2_iSaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//Transition/transSM_container"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_BR2_jCaxEeS0nKYGza5w2Q" origin="_BR2_gSaxEeS0nKYGza5w2Q" image="_BR2_hyaxEeS0nKYGza5w2Q"/>
+    <mappings xmi:id="_BR2_jSaxEeS0nKYGza5w2Q" origin="_BR2_giaxEeS0nKYGza5w2Q" image="_BR2_iCaxEeS0nKYGza5w2Q"/>
+    <mappings xmi:id="_BR2_jiaxEeS0nKYGza5w2Q" origin="_BR2_gyaxEeS0nKYGza5w2Q" image="_BR2_iSaxEeS0nKYGza5w2Q"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_BR2_jyaxEeS0nKYGza5w2Q" name="mainUnit" subUnits="_BR2_fCaxEeS0nKYGza5w2Q">
+    <parameters xmi:id="_BR2_kCaxEeS0nKYGza5w2Q" name="selectedEObject"/>
+    <parameters xmi:id="_BR2_kSaxEeS0nKYGza5w2Q" name="OldSource"/>
+    <parameters xmi:id="_BR2_kiaxEeS0nKYGza5w2Q" name="NewSource"/>
+    <parameterMappings xmi:id="_BR2_kyaxEeS0nKYGza5w2Q" source="_BR2_kCaxEeS0nKYGza5w2Q" target="_BR2_fSaxEeS0nKYGza5w2Q"/>
+    <parameterMappings xmi:id="_BR2_lCaxEeS0nKYGza5w2Q" source="_BR2_kSaxEeS0nKYGza5w2Q" target="_BR2_fiaxEeS0nKYGza5w2Q"/>
+    <parameterMappings xmi:id="_BR2_lSaxEeS0nKYGza5w2Q" source="_BR2_kiaxEeS0nKYGza5w2Q" target="_BR2_fyaxEeS0nKYGza5w2Q"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_BTU_EyaxEeS0nKYGza5w2Q" name="ADD_Event_(evt_container)_TGT_Transition" description="Adds to Event's reference evt_container the target Transition">
+  <imports href="http://Statechart/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_BTU_FCaxEeS0nKYGza5w2Q" name="addToEvent_evt_container_Transition" description="Adds to Event's reference evt_container the target Transition">
+    <parameters xmi:id="_BTU_FSaxEeS0nKYGza5w2Q" name="Selected"/>
+    <parameters xmi:id="_BTU_FiaxEeS0nKYGza5w2Q" name="NewTarget"/>
+    <lhs xmi:id="_BTU_FyaxEeS0nKYGza5w2Q" name="Lhs">
+      <nodes xmi:id="_BTU_GCaxEeS0nKYGza5w2Q" name="Selected">
+        <type href="http://Statechart/1.0#//Event"/>
+      </nodes>
+      <nodes xmi:id="_BTU_GSaxEeS0nKYGza5w2Q" name="NewTarget">
+        <type href="http://Statechart/1.0#//Transition"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_BTU_GiaxEeS0nKYGza5w2Q">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_BTU_GyaxEeS0nKYGza5w2Q">
+          <conclusion xmi:id="_BTU_HCaxEeS0nKYGza5w2Q" name="doNotExceedUpperBound">
+            <nodes xmi:id="_BTU_HSaxEeS0nKYGza5w2Q" name="NewTarget" outgoing="_BTU_ICaxEeS0nKYGza5w2Q">
+              <type href="http://Statechart/1.0#//Transition"/>
+            </nodes>
+            <nodes xmi:id="_BTU_HiaxEeS0nKYGza5w2Q" name="Selected">
+              <type href="http://Statechart/1.0#//Event"/>
+            </nodes>
+            <nodes xmi:id="_BTU_HyaxEeS0nKYGza5w2Q" incoming="_BTU_ICaxEeS0nKYGza5w2Q">
+              <type href="http://Statechart/1.0#//Event"/>
+            </nodes>
+            <edges xmi:id="_BTU_ICaxEeS0nKYGza5w2Q" source="_BTU_HSaxEeS0nKYGza5w2Q" target="_BTU_HyaxEeS0nKYGza5w2Q">
+              <type href="http://Statechart/1.0#//Transition/trigger"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_BTU_ISaxEeS0nKYGza5w2Q" origin="_BTU_GSaxEeS0nKYGza5w2Q" image="_BTU_HSaxEeS0nKYGza5w2Q"/>
+          <mappings xmi:id="_BTU_IiaxEeS0nKYGza5w2Q" origin="_BTU_GCaxEeS0nKYGza5w2Q" image="_BTU_HiaxEeS0nKYGza5w2Q"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_BTU_IyaxEeS0nKYGza5w2Q" name="Rhs">
+      <nodes xmi:id="_BTU_JCaxEeS0nKYGza5w2Q" name="Selected" incoming="_BTU_JyaxEeS0nKYGza5w2Q" outgoing="_BTU_JiaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//Event"/>
+      </nodes>
+      <nodes xmi:id="_BTU_JSaxEeS0nKYGza5w2Q" name="NewTarget" incoming="_BTU_JiaxEeS0nKYGza5w2Q" outgoing="_BTU_JyaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//Transition"/>
+      </nodes>
+      <edges xmi:id="_BTU_JiaxEeS0nKYGza5w2Q" source="_BTU_JCaxEeS0nKYGza5w2Q" target="_BTU_JSaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//Event/evt_container"/>
+      </edges>
+      <edges xmi:id="_BTU_JyaxEeS0nKYGza5w2Q" source="_BTU_JSaxEeS0nKYGza5w2Q" target="_BTU_JCaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//Transition/trigger"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_BTU_KCaxEeS0nKYGza5w2Q" origin="_BTU_GCaxEeS0nKYGza5w2Q" image="_BTU_JCaxEeS0nKYGza5w2Q"/>
+    <mappings xmi:id="_BTU_KSaxEeS0nKYGza5w2Q" origin="_BTU_GSaxEeS0nKYGza5w2Q" image="_BTU_JSaxEeS0nKYGza5w2Q"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_BTU_KiaxEeS0nKYGza5w2Q" name="mainUnit" subUnits="_BTU_FCaxEeS0nKYGza5w2Q">
+    <parameters xmi:id="_BTU_KyaxEeS0nKYGza5w2Q" name="selectedEObject"/>
+    <parameters xmi:id="_BTU_LCaxEeS0nKYGza5w2Q" name="NewTarget"/>
+    <parameterMappings xmi:id="_BTU_LSaxEeS0nKYGza5w2Q" source="_BTU_KyaxEeS0nKYGza5w2Q" target="_BTU_FSaxEeS0nKYGza5w2Q"/>
+    <parameterMappings xmi:id="_BTU_LiaxEeS0nKYGza5w2Q" source="_BTU_LCaxEeS0nKYGza5w2Q" target="_BTU_FiaxEeS0nKYGza5w2Q"/>
+  </units>
+</henshin:Module>

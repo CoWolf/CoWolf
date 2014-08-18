@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_BOSuACaxEeS0nKYGza5w2Q" name="MOVE_State_FROM_StateMachine_(top)_TO_StateMachine_(top)" description="MOVEs State from StateMachine(Reference:top) to StateMachine(Reference:top">
+  <imports href="http://Statechart/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_BOSuASaxEeS0nKYGza5w2Q" name="moveState_FROM_StateMachine_top_TO_StateMachine_StateMachine" description="Moves State from StateMachine(Reference:top) toStateMachine(Reference:StateMachine)">
+    <parameters xmi:id="_BOSuAiaxEeS0nKYGza5w2Q" name="Selected"/>
+    <parameters xmi:id="_BOSuAyaxEeS0nKYGza5w2Q" name="OldSource"/>
+    <parameters xmi:id="_BOSuBCaxEeS0nKYGza5w2Q" name="NewSource"/>
+    <lhs xmi:id="_BOSuBSaxEeS0nKYGza5w2Q" name="Lhs">
+      <nodes xmi:id="_BOSuBiaxEeS0nKYGza5w2Q" name="Selected" incoming="_BOSuCSaxEeS0nKYGza5w2Q" outgoing="_BOSuCiaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_BOSuByaxEeS0nKYGza5w2Q" name="OldSource" incoming="_BOSuCiaxEeS0nKYGza5w2Q" outgoing="_BOSuCSaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//StateMachine"/>
+      </nodes>
+      <nodes xmi:id="_BOSuCCaxEeS0nKYGza5w2Q" name="NewSource">
+        <type href="http://Statechart/1.0#//StateMachine"/>
+      </nodes>
+      <edges xmi:id="_BOSuCSaxEeS0nKYGza5w2Q" source="_BOSuByaxEeS0nKYGza5w2Q" target="_BOSuBiaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//StateMachine/top"/>
+      </edges>
+      <edges xmi:id="_BOSuCiaxEeS0nKYGza5w2Q" source="_BOSuBiaxEeS0nKYGza5w2Q" target="_BOSuByaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//State/state_container"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_BOSuCyaxEeS0nKYGza5w2Q" name="Rhs">
+      <nodes xmi:id="_BOSuDCaxEeS0nKYGza5w2Q" name="Selected" incoming="_BOSuDyaxEeS0nKYGza5w2Q" outgoing="_BOSuECaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_BOSuDSaxEeS0nKYGza5w2Q" name="OldSource">
+        <type href="http://Statechart/1.0#//StateMachine"/>
+      </nodes>
+      <nodes xmi:id="_BOSuDiaxEeS0nKYGza5w2Q" name="NewSource" incoming="_BOSuECaxEeS0nKYGza5w2Q" outgoing="_BOSuDyaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//StateMachine"/>
+      </nodes>
+      <edges xmi:id="_BOSuDyaxEeS0nKYGza5w2Q" source="_BOSuDiaxEeS0nKYGza5w2Q" target="_BOSuDCaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//StateMachine/top"/>
+      </edges>
+      <edges xmi:id="_BOSuECaxEeS0nKYGza5w2Q" source="_BOSuDCaxEeS0nKYGza5w2Q" target="_BOSuDiaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//State/state_container"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_BOSuESaxEeS0nKYGza5w2Q" origin="_BOSuBiaxEeS0nKYGza5w2Q" image="_BOSuDCaxEeS0nKYGza5w2Q"/>
+    <mappings xmi:id="_BOSuEiaxEeS0nKYGza5w2Q" origin="_BOSuByaxEeS0nKYGza5w2Q" image="_BOSuDSaxEeS0nKYGza5w2Q"/>
+    <mappings xmi:id="_BOSuEyaxEeS0nKYGza5w2Q" origin="_BOSuCCaxEeS0nKYGza5w2Q" image="_BOSuDiaxEeS0nKYGza5w2Q"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_BOSuFCaxEeS0nKYGza5w2Q" name="mainUnit" subUnits="_BOSuASaxEeS0nKYGza5w2Q">
+    <parameters xmi:id="_BOSuFSaxEeS0nKYGza5w2Q" name="selectedEObject"/>
+    <parameters xmi:id="_BOSuFiaxEeS0nKYGza5w2Q" name="OldSource"/>
+    <parameters xmi:id="_BOTVECaxEeS0nKYGza5w2Q" name="NewSource"/>
+    <parameterMappings xmi:id="_BOTVESaxEeS0nKYGza5w2Q" source="_BOSuFSaxEeS0nKYGza5w2Q" target="_BOSuAiaxEeS0nKYGza5w2Q"/>
+    <parameterMappings xmi:id="_BOTVEiaxEeS0nKYGza5w2Q" source="_BOSuFiaxEeS0nKYGza5w2Q" target="_BOSuAyaxEeS0nKYGza5w2Q"/>
+    <parameterMappings xmi:id="_BOTVEyaxEeS0nKYGza5w2Q" source="_BOTVECaxEeS0nKYGza5w2Q" target="_BOSuBCaxEeS0nKYGza5w2Q"/>
+  </units>
+</henshin:Module>

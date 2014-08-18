@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_BQH6ACaxEeS0nKYGza5w2Q" name="SET_CompositeState_IsConcurrent" description="Sets CompositeState IsConcurrent">
+  <imports href="http://Statechart/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_BQH6ASaxEeS0nKYGza5w2Q" name="setCompositeStateIsConcurrent" description="Sets the EAttribute isConcurrent">
+    <parameters xmi:id="_BQH6AiaxEeS0nKYGza5w2Q" name="Selected"/>
+    <parameters xmi:id="_BQH6AyaxEeS0nKYGza5w2Q" name="IsConcurrent"/>
+    <lhs xmi:id="_BQH6BCaxEeS0nKYGza5w2Q" name="Lhs">
+      <nodes xmi:id="_BQH6BSaxEeS0nKYGza5w2Q" name="Selected">
+        <type href="http://Statechart/1.0#//CompositeState"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_BQH6BiaxEeS0nKYGza5w2Q" name="Rhs">
+      <nodes xmi:id="_BQH6ByaxEeS0nKYGza5w2Q" name="Selected">
+        <type href="http://Statechart/1.0#//CompositeState"/>
+        <attributes xmi:id="_BQH6CCaxEeS0nKYGza5w2Q" value="IsConcurrent">
+          <type href="http://Statechart/1.0#//CompositeState/isConcurrent"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_BQH6CSaxEeS0nKYGza5w2Q" origin="_BQH6BSaxEeS0nKYGza5w2Q" image="_BQH6ByaxEeS0nKYGza5w2Q"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_BQH6CiaxEeS0nKYGza5w2Q" name="mainUnit" subUnits="_BQH6ASaxEeS0nKYGza5w2Q">
+    <parameters xmi:id="_BQH6CyaxEeS0nKYGza5w2Q" name="selectedEObject"/>
+    <parameters xmi:id="_BQH6DCaxEeS0nKYGza5w2Q" name="IsConcurrent"/>
+    <parameterMappings xmi:id="_BQH6DSaxEeS0nKYGza5w2Q" source="_BQH6CyaxEeS0nKYGza5w2Q" target="_BQH6AiaxEeS0nKYGza5w2Q"/>
+    <parameterMappings xmi:id="_BQH6DiaxEeS0nKYGza5w2Q" source="_BQH6DCaxEeS0nKYGza5w2Q" target="_BQH6AyaxEeS0nKYGza5w2Q"/>
+  </units>
+</henshin:Module>

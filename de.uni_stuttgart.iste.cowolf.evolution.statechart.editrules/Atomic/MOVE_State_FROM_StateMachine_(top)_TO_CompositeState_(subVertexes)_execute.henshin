@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_BOgwcCaxEeS0nKYGza5w2Q" name="MOVE_State_FROM_StateMachine_(top)_TO_CompositeState_(subVertexes)" description="MOVEs State from StateMachine(Reference:top) to CompositeState(Reference:subVertexes">
+  <imports href="http://Statechart/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_BOhXgCaxEeS0nKYGza5w2Q" name="moveState_FROM_StateMachine_top_TO_CompositeState_CompositeState" description="Moves State from StateMachine(Reference:top) toCompositeState(Reference:CompositeState)">
+    <parameters xmi:id="_BOhXgSaxEeS0nKYGza5w2Q" name="Selected"/>
+    <parameters xmi:id="_BOhXgiaxEeS0nKYGza5w2Q" name="OldSource"/>
+    <parameters xmi:id="_BOhXgyaxEeS0nKYGza5w2Q" name="NewSource"/>
+    <lhs xmi:id="_BOhXhCaxEeS0nKYGza5w2Q" name="Lhs">
+      <nodes xmi:id="_BOhXhSaxEeS0nKYGza5w2Q" name="Selected" incoming="_BOhXiCaxEeS0nKYGza5w2Q" outgoing="_BOhXiSaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_BOhXhiaxEeS0nKYGza5w2Q" name="OldSource" incoming="_BOhXiSaxEeS0nKYGza5w2Q" outgoing="_BOhXiCaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//StateMachine"/>
+      </nodes>
+      <nodes xmi:id="_BOhXhyaxEeS0nKYGza5w2Q" name="NewSource">
+        <type href="http://Statechart/1.0#//CompositeState"/>
+      </nodes>
+      <edges xmi:id="_BOhXiCaxEeS0nKYGza5w2Q" source="_BOhXhiaxEeS0nKYGza5w2Q" target="_BOhXhSaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//StateMachine/top"/>
+      </edges>
+      <edges xmi:id="_BOhXiSaxEeS0nKYGza5w2Q" source="_BOhXhSaxEeS0nKYGza5w2Q" target="_BOhXhiaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//State/state_container"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_BOhXiiaxEeS0nKYGza5w2Q" name="Rhs">
+      <nodes xmi:id="_BOhXiyaxEeS0nKYGza5w2Q" name="Selected" incoming="_BOhXjiaxEeS0nKYGza5w2Q" outgoing="_BOhXjyaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_BOhXjCaxEeS0nKYGza5w2Q" name="OldSource">
+        <type href="http://Statechart/1.0#//StateMachine"/>
+      </nodes>
+      <nodes xmi:id="_BOhXjSaxEeS0nKYGza5w2Q" name="NewSource" incoming="_BOhXjyaxEeS0nKYGza5w2Q" outgoing="_BOhXjiaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//CompositeState"/>
+      </nodes>
+      <edges xmi:id="_BOhXjiaxEeS0nKYGza5w2Q" source="_BOhXjSaxEeS0nKYGza5w2Q" target="_BOhXiyaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//CompositeState/subVertexes"/>
+      </edges>
+      <edges xmi:id="_BOhXjyaxEeS0nKYGza5w2Q" source="_BOhXiyaxEeS0nKYGza5w2Q" target="_BOhXjSaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//StateVertex/sv_container"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_BOhXkCaxEeS0nKYGza5w2Q" origin="_BOhXhSaxEeS0nKYGza5w2Q" image="_BOhXiyaxEeS0nKYGza5w2Q"/>
+    <mappings xmi:id="_BOhXkSaxEeS0nKYGza5w2Q" origin="_BOhXhiaxEeS0nKYGza5w2Q" image="_BOhXjCaxEeS0nKYGza5w2Q"/>
+    <mappings xmi:id="_BOhXkiaxEeS0nKYGza5w2Q" origin="_BOhXhyaxEeS0nKYGza5w2Q" image="_BOhXjSaxEeS0nKYGza5w2Q"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_BOhXkyaxEeS0nKYGza5w2Q" name="mainUnit" subUnits="_BOhXgCaxEeS0nKYGza5w2Q">
+    <parameters xmi:id="_BOhXlCaxEeS0nKYGza5w2Q" name="selectedEObject"/>
+    <parameters xmi:id="_BOhXlSaxEeS0nKYGza5w2Q" name="OldSource"/>
+    <parameters xmi:id="_BOhXliaxEeS0nKYGza5w2Q" name="NewSource"/>
+    <parameterMappings xmi:id="_BOhXlyaxEeS0nKYGza5w2Q" source="_BOhXlCaxEeS0nKYGza5w2Q" target="_BOhXgSaxEeS0nKYGza5w2Q"/>
+    <parameterMappings xmi:id="_BOhXmCaxEeS0nKYGza5w2Q" source="_BOhXlSaxEeS0nKYGza5w2Q" target="_BOhXgiaxEeS0nKYGza5w2Q"/>
+    <parameterMappings xmi:id="_BOhXmSaxEeS0nKYGza5w2Q" source="_BOhXliaxEeS0nKYGza5w2Q" target="_BOhXgyaxEeS0nKYGza5w2Q"/>
+  </units>
+</henshin:Module>

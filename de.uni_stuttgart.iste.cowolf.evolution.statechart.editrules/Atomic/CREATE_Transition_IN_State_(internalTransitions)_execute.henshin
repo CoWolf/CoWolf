@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_BQ4vACaxEeS0nKYGza5w2Q" name="CREATE_Transition_IN_State_(internalTransitions)" description="Creates one Transition in State">
+  <imports href="http://Statechart/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_BQ4vASaxEeS0nKYGza5w2Q" name="createTransition_IN_State" description="creates one Transition in the context: State">
+    <parameters xmi:id="_BQ4vAiaxEeS0nKYGza5w2Q" name="Selected"/>
+    <parameters xmi:id="_BQ4vAyaxEeS0nKYGza5w2Q" name="New"/>
+    <parameters xmi:id="_BQ4vBCaxEeS0nKYGza5w2Q" name="Id"/>
+    <parameters xmi:id="_BQ4vBSaxEeS0nKYGza5w2Q" name="Name"/>
+    <parameters xmi:id="_BQ4vBiaxEeS0nKYGza5w2Q" name="Existing"/>
+    <parameters xmi:id="_BQ4vByaxEeS0nKYGza5w2Q" name="Existing1"/>
+    <lhs xmi:id="_BQ4vCCaxEeS0nKYGza5w2Q" name="Lhs">
+      <nodes xmi:id="_BQ4vCSaxEeS0nKYGza5w2Q" name="Selected">
+        <type href="http://Statechart/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_BQ4vCiaxEeS0nKYGza5w2Q" name="Existing">
+        <type href="http://Statechart/1.0#//StateVertex"/>
+      </nodes>
+      <nodes xmi:id="_BQ4vCyaxEeS0nKYGza5w2Q" name="Existing1">
+        <type href="http://Statechart/1.0#//StateVertex"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_BQ4vDCaxEeS0nKYGza5w2Q" name="Rhs">
+      <nodes xmi:id="_BQ4vDSaxEeS0nKYGza5w2Q" name="Selected" incoming="_BQ4vFCaxEeS0nKYGza5w2Q" outgoing="_BQ4vEyaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_BQ4vDiaxEeS0nKYGza5w2Q" name="New" incoming="_BQ4vEyaxEeS0nKYGza5w2Q _BQ4vFiaxEeS0nKYGza5w2Q _BQ4vGCaxEeS0nKYGza5w2Q" outgoing="_BQ4vFCaxEeS0nKYGza5w2Q _BQ4vFSaxEeS0nKYGza5w2Q _BQ4vFyaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//Transition"/>
+        <attributes xmi:id="_BQ4vDyaxEeS0nKYGza5w2Q" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_BQ4vECaxEeS0nKYGza5w2Q" value="Name">
+          <type href="http://CommonBase/1.0#//NameBase/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_BQ4vESaxEeS0nKYGza5w2Q" name="Existing" incoming="_BQ4vFSaxEeS0nKYGza5w2Q" outgoing="_BQ4vFiaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//StateVertex"/>
+      </nodes>
+      <nodes xmi:id="_BQ4vEiaxEeS0nKYGza5w2Q" name="Existing1" incoming="_BQ4vFyaxEeS0nKYGza5w2Q" outgoing="_BQ4vGCaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//StateVertex"/>
+      </nodes>
+      <edges xmi:id="_BQ4vEyaxEeS0nKYGza5w2Q" source="_BQ4vDSaxEeS0nKYGza5w2Q" target="_BQ4vDiaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//State/internalTransitions"/>
+      </edges>
+      <edges xmi:id="_BQ4vFCaxEeS0nKYGza5w2Q" source="_BQ4vDiaxEeS0nKYGza5w2Q" target="_BQ4vDSaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//Transition/transS_container"/>
+      </edges>
+      <edges xmi:id="_BQ4vFSaxEeS0nKYGza5w2Q" source="_BQ4vDiaxEeS0nKYGza5w2Q" target="_BQ4vESaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//Transition/target"/>
+      </edges>
+      <edges xmi:id="_BQ4vFiaxEeS0nKYGza5w2Q" source="_BQ4vESaxEeS0nKYGza5w2Q" target="_BQ4vDiaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//StateVertex/incoming"/>
+      </edges>
+      <edges xmi:id="_BQ4vFyaxEeS0nKYGza5w2Q" source="_BQ4vDiaxEeS0nKYGza5w2Q" target="_BQ4vEiaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//Transition/source"/>
+      </edges>
+      <edges xmi:id="_BQ4vGCaxEeS0nKYGza5w2Q" source="_BQ4vEiaxEeS0nKYGza5w2Q" target="_BQ4vDiaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//StateVertex/outgoing"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_BQ4vGSaxEeS0nKYGza5w2Q" origin="_BQ4vCSaxEeS0nKYGza5w2Q" image="_BQ4vDSaxEeS0nKYGza5w2Q"/>
+    <mappings xmi:id="_BQ4vGiaxEeS0nKYGza5w2Q" origin="_BQ4vCiaxEeS0nKYGza5w2Q" image="_BQ4vESaxEeS0nKYGza5w2Q"/>
+    <mappings xmi:id="_BQ4vGyaxEeS0nKYGza5w2Q" origin="_BQ4vCyaxEeS0nKYGza5w2Q" image="_BQ4vEiaxEeS0nKYGza5w2Q"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_BQ4vHCaxEeS0nKYGza5w2Q" name="mainUnit" description="Creates one Transition depending on available contexts in model instance" subUnits="_BQ4vASaxEeS0nKYGza5w2Q">
+    <parameters xmi:id="_BQ4vHSaxEeS0nKYGza5w2Q" name="New"/>
+    <parameters xmi:id="_BQ4vHiaxEeS0nKYGza5w2Q" name="selectedEObject"/>
+    <parameters xmi:id="_BQ4vHyaxEeS0nKYGza5w2Q" name="Id"/>
+    <parameters xmi:id="_BQ4vICaxEeS0nKYGza5w2Q" name="Name"/>
+    <parameters xmi:id="_BQ4vISaxEeS0nKYGza5w2Q" name="Existing"/>
+    <parameters xmi:id="_BQ4vIiaxEeS0nKYGza5w2Q" name="Existing1"/>
+    <parameterMappings xmi:id="_BQ4vIyaxEeS0nKYGza5w2Q" source="_BQ4vHiaxEeS0nKYGza5w2Q" target="_BQ4vAiaxEeS0nKYGza5w2Q"/>
+    <parameterMappings xmi:id="_BQ4vJCaxEeS0nKYGza5w2Q" source="_BQ4vAyaxEeS0nKYGza5w2Q" target="_BQ4vHSaxEeS0nKYGza5w2Q"/>
+    <parameterMappings xmi:id="_BQ4vJSaxEeS0nKYGza5w2Q" source="_BQ4vHyaxEeS0nKYGza5w2Q" target="_BQ4vBCaxEeS0nKYGza5w2Q"/>
+    <parameterMappings xmi:id="_BQ4vJiaxEeS0nKYGza5w2Q" source="_BQ4vICaxEeS0nKYGza5w2Q" target="_BQ4vBSaxEeS0nKYGza5w2Q"/>
+    <parameterMappings xmi:id="_BQ4vJyaxEeS0nKYGza5w2Q" source="_BQ4vISaxEeS0nKYGza5w2Q" target="_BQ4vBiaxEeS0nKYGza5w2Q"/>
+    <parameterMappings xmi:id="_BQ4vKCaxEeS0nKYGza5w2Q" source="_BQ4vIiaxEeS0nKYGza5w2Q" target="_BQ4vByaxEeS0nKYGza5w2Q"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_BRw4wCaxEeS0nKYGza5w2Q" name="MOVE_Transition_FROM_State_(internalTransitions)_TO_StateMachine_(transitions)" description="MOVEs Transition from State(Reference:internalTransitions) to StateMachine(Reference:transitions">
+  <imports href="http://Statechart/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_BRw4wSaxEeS0nKYGza5w2Q" name="moveTransition_FROM_State_internalTransitions_TO_StateMachine_StateMachine" description="Moves Transition from State(Reference:internalTransitions) toStateMachine(Reference:StateMachine)">
+    <parameters xmi:id="_BRw4wiaxEeS0nKYGza5w2Q" name="Selected"/>
+    <parameters xmi:id="_BRw4wyaxEeS0nKYGza5w2Q" name="OldSource"/>
+    <parameters xmi:id="_BRw4xCaxEeS0nKYGza5w2Q" name="NewSource"/>
+    <lhs xmi:id="_BRw4xSaxEeS0nKYGza5w2Q" name="Lhs">
+      <nodes xmi:id="_BRw4xiaxEeS0nKYGza5w2Q" name="Selected" incoming="_BRw4ySaxEeS0nKYGza5w2Q" outgoing="_BRw4yiaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//Transition"/>
+      </nodes>
+      <nodes xmi:id="_BRw4xyaxEeS0nKYGza5w2Q" name="OldSource" incoming="_BRw4yiaxEeS0nKYGza5w2Q" outgoing="_BRw4ySaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_BRw4yCaxEeS0nKYGza5w2Q" name="NewSource">
+        <type href="http://Statechart/1.0#//StateMachine"/>
+      </nodes>
+      <edges xmi:id="_BRw4ySaxEeS0nKYGza5w2Q" source="_BRw4xyaxEeS0nKYGza5w2Q" target="_BRw4xiaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//State/internalTransitions"/>
+      </edges>
+      <edges xmi:id="_BRw4yiaxEeS0nKYGza5w2Q" source="_BRw4xiaxEeS0nKYGza5w2Q" target="_BRw4xyaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//Transition/transS_container"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_BRw4yyaxEeS0nKYGza5w2Q" name="Rhs">
+      <nodes xmi:id="_BRw4zCaxEeS0nKYGza5w2Q" name="Selected" incoming="_BRw4zyaxEeS0nKYGza5w2Q" outgoing="_BRw40CaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//Transition"/>
+      </nodes>
+      <nodes xmi:id="_BRw4zSaxEeS0nKYGza5w2Q" name="OldSource">
+        <type href="http://Statechart/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_BRw4ziaxEeS0nKYGza5w2Q" name="NewSource" incoming="_BRw40CaxEeS0nKYGza5w2Q" outgoing="_BRw4zyaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//StateMachine"/>
+      </nodes>
+      <edges xmi:id="_BRw4zyaxEeS0nKYGza5w2Q" source="_BRw4ziaxEeS0nKYGza5w2Q" target="_BRw4zCaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//StateMachine/transitions"/>
+      </edges>
+      <edges xmi:id="_BRw40CaxEeS0nKYGza5w2Q" source="_BRw4zCaxEeS0nKYGza5w2Q" target="_BRw4ziaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//Transition/transSM_container"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_BRw40SaxEeS0nKYGza5w2Q" origin="_BRw4xiaxEeS0nKYGza5w2Q" image="_BRw4zCaxEeS0nKYGza5w2Q"/>
+    <mappings xmi:id="_BRw40iaxEeS0nKYGza5w2Q" origin="_BRw4xyaxEeS0nKYGza5w2Q" image="_BRw4zSaxEeS0nKYGza5w2Q"/>
+    <mappings xmi:id="_BRw40yaxEeS0nKYGza5w2Q" origin="_BRw4yCaxEeS0nKYGza5w2Q" image="_BRw4ziaxEeS0nKYGza5w2Q"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_BRw41CaxEeS0nKYGza5w2Q" name="mainUnit" subUnits="_BRw4wSaxEeS0nKYGza5w2Q">
+    <parameters xmi:id="_BRw41SaxEeS0nKYGza5w2Q" name="selectedEObject"/>
+    <parameters xmi:id="_BRw41iaxEeS0nKYGza5w2Q" name="OldSource"/>
+    <parameters xmi:id="_BRw41yaxEeS0nKYGza5w2Q" name="NewSource"/>
+    <parameterMappings xmi:id="_BRw42CaxEeS0nKYGza5w2Q" source="_BRw41SaxEeS0nKYGza5w2Q" target="_BRw4wiaxEeS0nKYGza5w2Q"/>
+    <parameterMappings xmi:id="_BRw42SaxEeS0nKYGza5w2Q" source="_BRw41iaxEeS0nKYGza5w2Q" target="_BRw4wyaxEeS0nKYGza5w2Q"/>
+    <parameterMappings xmi:id="_BRw42iaxEeS0nKYGza5w2Q" source="_BRw41yaxEeS0nKYGza5w2Q" target="_BRw4xCaxEeS0nKYGza5w2Q"/>
+  </units>
+</henshin:Module>

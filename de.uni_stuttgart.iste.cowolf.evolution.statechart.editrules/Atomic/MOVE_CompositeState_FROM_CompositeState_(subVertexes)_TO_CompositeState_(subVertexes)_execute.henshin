@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_BQdRMCaxEeS0nKYGza5w2Q" name="MOVE_CompositeState_FROM_CompositeState_(subVertexes)_TO_CompositeState_(subVertexes)" description="MOVEs CompositeState from CompositeState(Reference:subVertexes) to CompositeState(Reference:subVertexes">
+  <imports href="http://Statechart/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_BQdRMSaxEeS0nKYGza5w2Q" name="moveCompositeState_FROM_CompositeState_subVertexes_TO_CompositeState_CompositeState" description="Moves CompositeState from CompositeState(Reference:subVertexes) toCompositeState(Reference:CompositeState)">
+    <parameters xmi:id="_BQdRMiaxEeS0nKYGza5w2Q" name="Selected"/>
+    <parameters xmi:id="_BQdRMyaxEeS0nKYGza5w2Q" name="OldSource"/>
+    <parameters xmi:id="_BQdRNCaxEeS0nKYGza5w2Q" name="NewSource"/>
+    <lhs xmi:id="_BQdRNSaxEeS0nKYGza5w2Q" name="Lhs">
+      <nodes xmi:id="_BQdRNiaxEeS0nKYGza5w2Q" name="Selected" incoming="_BQdROSaxEeS0nKYGza5w2Q" outgoing="_BQdROiaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//CompositeState"/>
+      </nodes>
+      <nodes xmi:id="_BQdRNyaxEeS0nKYGza5w2Q" name="OldSource" incoming="_BQdROiaxEeS0nKYGza5w2Q" outgoing="_BQdROSaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//CompositeState"/>
+      </nodes>
+      <nodes xmi:id="_BQdROCaxEeS0nKYGza5w2Q" name="NewSource">
+        <type href="http://Statechart/1.0#//CompositeState"/>
+      </nodes>
+      <edges xmi:id="_BQdROSaxEeS0nKYGza5w2Q" source="_BQdRNyaxEeS0nKYGza5w2Q" target="_BQdRNiaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//CompositeState/subVertexes"/>
+      </edges>
+      <edges xmi:id="_BQdROiaxEeS0nKYGza5w2Q" source="_BQdRNiaxEeS0nKYGza5w2Q" target="_BQdRNyaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//StateVertex/sv_container"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_BQdROyaxEeS0nKYGza5w2Q" name="Rhs">
+      <nodes xmi:id="_BQdRPCaxEeS0nKYGza5w2Q" name="Selected" incoming="_BQdRPyaxEeS0nKYGza5w2Q" outgoing="_BQdRQCaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//CompositeState"/>
+      </nodes>
+      <nodes xmi:id="_BQdRPSaxEeS0nKYGza5w2Q" name="OldSource">
+        <type href="http://Statechart/1.0#//CompositeState"/>
+      </nodes>
+      <nodes xmi:id="_BQdRPiaxEeS0nKYGza5w2Q" name="NewSource" incoming="_BQdRQCaxEeS0nKYGza5w2Q" outgoing="_BQdRPyaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//CompositeState"/>
+      </nodes>
+      <edges xmi:id="_BQdRPyaxEeS0nKYGza5w2Q" source="_BQdRPiaxEeS0nKYGza5w2Q" target="_BQdRPCaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//CompositeState/subVertexes"/>
+      </edges>
+      <edges xmi:id="_BQdRQCaxEeS0nKYGza5w2Q" source="_BQdRPCaxEeS0nKYGza5w2Q" target="_BQdRPiaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//StateVertex/sv_container"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_BQdRQSaxEeS0nKYGza5w2Q" origin="_BQdRNiaxEeS0nKYGza5w2Q" image="_BQdRPCaxEeS0nKYGza5w2Q"/>
+    <mappings xmi:id="_BQdRQiaxEeS0nKYGza5w2Q" origin="_BQdRNyaxEeS0nKYGza5w2Q" image="_BQdRPSaxEeS0nKYGza5w2Q"/>
+    <mappings xmi:id="_BQdRQyaxEeS0nKYGza5w2Q" origin="_BQdROCaxEeS0nKYGza5w2Q" image="_BQdRPiaxEeS0nKYGza5w2Q"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_BQdRRCaxEeS0nKYGza5w2Q" name="mainUnit" subUnits="_BQdRMSaxEeS0nKYGza5w2Q">
+    <parameters xmi:id="_BQdRRSaxEeS0nKYGza5w2Q" name="selectedEObject"/>
+    <parameters xmi:id="_BQdRRiaxEeS0nKYGza5w2Q" name="OldSource"/>
+    <parameters xmi:id="_BQdRRyaxEeS0nKYGza5w2Q" name="NewSource"/>
+    <parameterMappings xmi:id="_BQdRSCaxEeS0nKYGza5w2Q" source="_BQdRRSaxEeS0nKYGza5w2Q" target="_BQdRMiaxEeS0nKYGza5w2Q"/>
+    <parameterMappings xmi:id="_BQdRSSaxEeS0nKYGza5w2Q" source="_BQdRRiaxEeS0nKYGza5w2Q" target="_BQdRMyaxEeS0nKYGza5w2Q"/>
+    <parameterMappings xmi:id="_BQdRSiaxEeS0nKYGza5w2Q" source="_BQdRRyaxEeS0nKYGza5w2Q" target="_BQdRNCaxEeS0nKYGza5w2Q"/>
+  </units>
+</henshin:Module>

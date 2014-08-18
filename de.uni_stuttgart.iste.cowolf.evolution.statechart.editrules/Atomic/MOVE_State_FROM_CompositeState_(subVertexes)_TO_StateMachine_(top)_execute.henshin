@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_BOmQACaxEeS0nKYGza5w2Q" name="MOVE_State_FROM_CompositeState_(subVertexes)_TO_StateMachine_(top)" description="MOVEs State from CompositeState(Reference:subVertexes) to StateMachine(Reference:top">
+  <imports href="http://Statechart/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_BOmQASaxEeS0nKYGza5w2Q" name="moveState_FROM_CompositeState_subVertexes_TO_StateMachine_StateMachine" description="Moves State from CompositeState(Reference:subVertexes) toStateMachine(Reference:StateMachine)">
+    <parameters xmi:id="_BOmQAiaxEeS0nKYGza5w2Q" name="Selected"/>
+    <parameters xmi:id="_BOmQAyaxEeS0nKYGza5w2Q" name="OldSource"/>
+    <parameters xmi:id="_BOmQBCaxEeS0nKYGza5w2Q" name="NewSource"/>
+    <lhs xmi:id="_BOmQBSaxEeS0nKYGza5w2Q" name="Lhs">
+      <nodes xmi:id="_BOmQBiaxEeS0nKYGza5w2Q" name="Selected" incoming="_BOmQCSaxEeS0nKYGza5w2Q" outgoing="_BOmQCiaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_BOmQByaxEeS0nKYGza5w2Q" name="OldSource" incoming="_BOmQCiaxEeS0nKYGza5w2Q" outgoing="_BOmQCSaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//CompositeState"/>
+      </nodes>
+      <nodes xmi:id="_BOmQCCaxEeS0nKYGza5w2Q" name="NewSource">
+        <type href="http://Statechart/1.0#//StateMachine"/>
+      </nodes>
+      <edges xmi:id="_BOmQCSaxEeS0nKYGza5w2Q" source="_BOmQByaxEeS0nKYGza5w2Q" target="_BOmQBiaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//CompositeState/subVertexes"/>
+      </edges>
+      <edges xmi:id="_BOmQCiaxEeS0nKYGza5w2Q" source="_BOmQBiaxEeS0nKYGza5w2Q" target="_BOmQByaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//StateVertex/sv_container"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_BOmQCyaxEeS0nKYGza5w2Q" name="Rhs">
+      <nodes xmi:id="_BOmQDCaxEeS0nKYGza5w2Q" name="Selected" incoming="_BOm3ESaxEeS0nKYGza5w2Q" outgoing="_BOm3EiaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_BOmQDSaxEeS0nKYGza5w2Q" name="OldSource">
+        <type href="http://Statechart/1.0#//CompositeState"/>
+      </nodes>
+      <nodes xmi:id="_BOm3ECaxEeS0nKYGza5w2Q" name="NewSource" incoming="_BOm3EiaxEeS0nKYGza5w2Q" outgoing="_BOm3ESaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//StateMachine"/>
+      </nodes>
+      <edges xmi:id="_BOm3ESaxEeS0nKYGza5w2Q" source="_BOm3ECaxEeS0nKYGza5w2Q" target="_BOmQDCaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//StateMachine/top"/>
+      </edges>
+      <edges xmi:id="_BOm3EiaxEeS0nKYGza5w2Q" source="_BOmQDCaxEeS0nKYGza5w2Q" target="_BOm3ECaxEeS0nKYGza5w2Q">
+        <type href="http://Statechart/1.0#//State/state_container"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_BOm3EyaxEeS0nKYGza5w2Q" origin="_BOmQBiaxEeS0nKYGza5w2Q" image="_BOmQDCaxEeS0nKYGza5w2Q"/>
+    <mappings xmi:id="_BOm3FCaxEeS0nKYGza5w2Q" origin="_BOmQByaxEeS0nKYGza5w2Q" image="_BOmQDSaxEeS0nKYGza5w2Q"/>
+    <mappings xmi:id="_BOm3FSaxEeS0nKYGza5w2Q" origin="_BOmQCCaxEeS0nKYGza5w2Q" image="_BOm3ECaxEeS0nKYGza5w2Q"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_BOm3FiaxEeS0nKYGza5w2Q" name="mainUnit" subUnits="_BOmQASaxEeS0nKYGza5w2Q">
+    <parameters xmi:id="_BOm3FyaxEeS0nKYGza5w2Q" name="selectedEObject"/>
+    <parameters xmi:id="_BOm3GCaxEeS0nKYGza5w2Q" name="OldSource"/>
+    <parameters xmi:id="_BOm3GSaxEeS0nKYGza5w2Q" name="NewSource"/>
+    <parameterMappings xmi:id="_BOm3GiaxEeS0nKYGza5w2Q" source="_BOm3FyaxEeS0nKYGza5w2Q" target="_BOmQAiaxEeS0nKYGza5w2Q"/>
+    <parameterMappings xmi:id="_BOm3GyaxEeS0nKYGza5w2Q" source="_BOm3GCaxEeS0nKYGza5w2Q" target="_BOmQAyaxEeS0nKYGza5w2Q"/>
+    <parameterMappings xmi:id="_BOm3HCaxEeS0nKYGza5w2Q" source="_BOm3GSaxEeS0nKYGza5w2Q" target="_BOmQBCaxEeS0nKYGza5w2Q"/>
+  </units>
+</henshin:Module>
