@@ -1,5 +1,7 @@
 package de.uni_stuttgart.iste.cowolf.transformation.generator.ui;
 
+import java.awt.Toolkit;
+
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TreeViewer;
@@ -15,6 +17,7 @@ import org.eclipse.swt.widgets.Tree;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.forms.widgets.Form;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
@@ -34,6 +37,10 @@ public class TransformationMappingEditor extends EditorPart {
 	private Label contents;
 
 	private TableViewer viewer;
+
+	private ScrolledForm form;
+
+	private Composite parent;
 
 	@Override
 	public void doSave(IProgressMonitor monitor) {
@@ -75,6 +82,8 @@ public class TransformationMappingEditor extends EditorPart {
 	@Override
 	public void createPartControl(Composite parent) {
 
+		this.parent = parent;
+
 		FormToolkit toolkit = new FormToolkit(parent.getDisplay());
 
 		ScrolledForm form = toolkit.createScrolledForm(parent);
@@ -96,45 +105,8 @@ public class TransformationMappingEditor extends EditorPart {
 		fillLayout_1.marginHeight = 10;
 		form.getBody().setLayout(fillLayout_1);
 
-		Section section1 = toolkit.createSection(form.getBody(),
-				Section.DESCRIPTION | Section.TITLE_BAR);
-		section1.setText("SiLift recognition rules");
-		section1.setDescription("Define a recognition rule as part of a SiLift rulebase that should be the source of the mapping.");
-		Composite composite = toolkit.createComposite(section1, SWT.WRAP);
-		toolkit.paintBordersFor(composite);
-		composite.setLayout(new GridLayout(1, false));
-
-		Tree henshinRulesTree = toolkit.createTree(parent, SWT.H_SCROLL
-				| SWT.V_SCROLL);
-		TreeViewer henshinRulesTreeViewer = new TreeViewer(henshinRulesTree);
-
-		Button b = toolkit.createButton(composite, "Add rulebase...", SWT.PUSH);
-
-		gd = new GridData(GridData.VERTICAL_ALIGN_BEGINNING);
-		b.setLayoutData(gd);
-
-		section1.setClient(composite);
-
-		Section section2 = toolkit.createSection(form.getBody(),
-				Section.DESCRIPTION | Section.TITLE_BAR);
-		section2.setDescription("Define a Henshin rule that should be the target of the mapping.");
-		section2.setText("Henshin Transformation Rules");
-
-		Composite composite2 = toolkit.createComposite(section2, SWT.WRAP);
-		composite2.setLayout(new GridLayout(2, false));
-
-		Table t2 = toolkit.createTable(composite2, SWT.NONE);
-		GridData gd_t2 = new GridData(GridData.FILL_BOTH);
-		// gd_t2.widthHint = 100;
-		t2.setLayoutData(gd_t2);
-		toolkit.paintBordersFor(composite2);
-
-		Button b2 = toolkit.createButton(composite2, "Add directory...",
-				SWT.PUSH);
-		gd_t2 = new GridData(GridData.VERTICAL_ALIGN_BEGINNING);
-		b2.setLayoutData(gd_t2);
-
-		section2.setClient(composite2);
+		createRecognitionRulesSection(toolkit, form);
+		createHenshinRulesSection(toolkit, form);
 
 		// GridLayout layout = new GridLayout();
 		// layout.numColumns = 2;
@@ -178,11 +150,65 @@ public class TransformationMappingEditor extends EditorPart {
 
 	}
 
+	private void createRecognitionRulesSection(FormToolkit toolkit,
+			ScrolledForm form) {
+		Section section1 = toolkit.createSection(form.getBody(),
+				Section.DESCRIPTION | Section.TITLE_BAR);
+		section1.setText("SiLift recognition rules");
+		section1.setDescription("Define a recognition rule as part of a SiLift rulebase that should be the source of the mapping.");
+		Composite composite = toolkit.createComposite(section1, SWT.WRAP);
+		composite.setLayout(new GridLayout(2, false));
+
+		Tree henshinRulesTree = toolkit.createTree(composite, SWT.H_SCROLL
+				| SWT.V_SCROLL);
+		TreeViewer henshinRulesTreeViewer = new TreeViewer(henshinRulesTree);
+		GridData henshinRulesTreeGridData = new GridData(GridData.FILL_BOTH);
+		henshinRulesTree.setLayoutData(henshinRulesTreeGridData);
+
+		toolkit.paintBordersFor(composite);
+
+		Button addRulebaseButton = toolkit.createButton(composite,
+				"Add rulebases...", SWT.PUSH);
+
+		GridData addRulebaseButtonGridData = new GridData(
+				GridData.VERTICAL_ALIGN_BEGINNING);
+		addRulebaseButton.setLayoutData(addRulebaseButtonGridData);
+
+		section1.setClient(composite);
+
+	}
+
+	private void createHenshinRulesSection(FormToolkit toolkit,
+			ScrolledForm form) {
+
+		Section section2 = toolkit.createSection(form.getBody(),
+				Section.DESCRIPTION | Section.TITLE_BAR);
+		section2.setDescription("Define a Henshin rule that should be the target of the mapping.");
+		section2.setText("Henshin Transformation Rules");
+
+		Composite composite2 = toolkit.createComposite(section2, SWT.WRAP);
+		composite2.setLayout(new GridLayout(2, false));
+
+		Table t2 = toolkit.createTable(composite2, SWT.NONE);
+		GridData gd_t2 = new GridData(GridData.FILL_BOTH);
+		t2.setLayoutData(gd_t2);
+
+		toolkit.paintBordersFor(composite2);
+
+		Button b2 = toolkit.createButton(composite2, "Add directories...",
+				SWT.PUSH);
+		gd_t2 = new GridData(GridData.VERTICAL_ALIGN_BEGINNING);
+		b2.setLayoutData(gd_t2);
+
+		section2.setClient(composite2);
+
+	}
+
 	@Override
 	public void setFocus() {
-
-		this.viewer.getControl().setFocus();
-
+		if (parent != null) {
+			parent.setFocus();
+		}
 	}
 
 	// @Override
