@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="component_diagram" nsURI="http://ComponentDiagram/1.0" nsPrefix="component_diagram">
+  <eAnnotations source="http://www.eclipse.org/OCL/Import">
+    <details key="commonBase" value="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#/"/>
+  </eAnnotations>
+  <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+    <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="ComponentDiagram" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase ../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//NameBase">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="componetContainer" upperBound="-1"
+        eType="#//Component" containment="true" eOpposite="#//Component/diagram"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interfaceContainer" upperBound="-1"
+        eType="#//Interface" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dependencyContainer" upperBound="-1"
+        eType="#//Dependency" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Component" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//NameBase ../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="ComponentCantRealizieItself DontRequireOwnInterfaces"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="ComponentCantRealizieItself" value="self &lt;> self.realization"/>
+      <details key="DontRequireOwnInterfaces" value="self.ports.requiredInterfaces.homePort.portHost -> forAll(&#xA;&#x9;&#x9;&#x9;component | component &lt;> self&#xA;&#x9;&#x9;) or self.ports.requiredInterfaces.homePort.portHost -> size() = 0"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stereotype" eType="#//ComponentStereotype"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isIndirectlyInstantiated"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="componentContainer" upperBound="-1"
+        eType="#//Component"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ports" upperBound="-1"
+        eType="#//Port" containment="true" eOpposite="#//Port/portHost"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="realization" eType="#//Component"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="diagram" lowerBound="1"
+        eType="#//ComponentDiagram" eOpposite="#//ComponentDiagram/componetContainer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="onDepend" upperBound="-1"
+        eType="#//Dependency" eOpposite="#//Dependency/supplier"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Port" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase ../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//NameBase">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="protocol" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isBehavior" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isService" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requiredInterfaces" upperBound="-1"
+        eType="#//Interface"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="providedInterfaces" upperBound="-1"
+        eType="#//Interface" eOpposite="#//Interface/homePort"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="portHost" eType="#//Component"
+        eOpposite="#//Component/ports"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Interface" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase ../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//NameBase">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="homePort" eType="#//Port"
+        eOpposite="#//Port/providedInterfaces"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ComponentStereotype">
+    <eLiterals name="Component"/>
+    <eLiterals name="Subsystem" value="1"/>
+    <eLiterals name="Process" value="2"/>
+    <eLiterals name="Service" value="3"/>
+    <eLiterals name="Specification" value="4"/>
+    <eLiterals name="Realization" value="5"/>
+    <eLiterals name="Implement" value="6"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Dependency" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase ../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//NameBase">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="SupplierShoudBeDifferentFromClient"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="SupplierShoudBeDifferentFromClient" value="Tuple {&#xA;&#x9;message : String = &#xA;&#x9;&#x9;&#x9;'The dependency supplier component should be not the same component like the client',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.supplier &lt;> self.client&#xA;}.status"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="supplier" eType="#//Component"
+        eOpposite="#//Component/onDepend"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="client" eType="#//Component"/>
+  </eClassifiers>
+</ecore:EPackage>
