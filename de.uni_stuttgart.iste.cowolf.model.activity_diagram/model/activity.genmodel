@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.uni_stuttgart.iste.cowolf.model.activity_diagram/src"
+    modelPluginID="de.uni_stuttgart.iste.cowolf.model.activity_diagram" modelName="Activity"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="7.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>activity.ecore</foreignModel>
+  <genPackages prefix="Activity" disposableProviderFactory="true" ecorePackage="activity.ecore#/">
+    <genClasses ecoreClass="activity.ecore#//Root">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference activity.ecore#//Root/start"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference activity.ecore#//Root/action"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference activity.ecore#//Root/decision"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference activity.ecore#//Root/end"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference activity.ecore#//Root/split"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference activity.ecore#//Root/join"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference activity.ecore#//Root/startArrow"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference activity.ecore#//Root/nodesWithoutJoin"/>
+    </genClasses>
+    <genClasses ecoreClass="activity.ecore#//Start">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference activity.ecore#//Start/outgoingFromStart"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference activity.ecore#//Start/successor"/>
+    </genClasses>
+    <genClasses ecoreClass="activity.ecore#//Action">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute activity.ecore#//Action/Action"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference activity.ecore#//Action/outgoing"/>
+    </genClasses>
+    <genClasses ecoreClass="activity.ecore#//Decision">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference activity.ecore#//Decision/outgoing"/>
+    </genClasses>
+    <genClasses ecoreClass="activity.ecore#//Split">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference activity.ecore#//Split/outgoing"/>
+    </genClasses>
+    <genClasses ecoreClass="activity.ecore#//Join"/>
+    <genClasses ecoreClass="activity.ecore#//End"/>
+    <genClasses image="false" ecoreClass="activity.ecore#//NodesWithoutJoin">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference activity.ecore#//NodesWithoutJoin/incomingStart"/>
+    </genClasses>
+    <genClasses ecoreClass="activity.ecore#//ArrowAfterStart">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference activity.ecore#//ArrowAfterStart/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference activity.ecore#//ArrowAfterStart/targetAfterStart"/>
+    </genClasses>
+    <genClasses ecoreClass="activity.ecore#//DecisionArrow">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute activity.ecore#//DecisionArrow/Condition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference activity.ecore#//DecisionArrow/target"/>
+    </genClasses>
+    <genClasses ecoreClass="activity.ecore#//AfterActionArrow">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference activity.ecore#//AfterActionArrow/target"/>
+    </genClasses>
+    <genClasses ecoreClass="activity.ecore#//SplitArrow">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference activity.ecore#//SplitArrow/target"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

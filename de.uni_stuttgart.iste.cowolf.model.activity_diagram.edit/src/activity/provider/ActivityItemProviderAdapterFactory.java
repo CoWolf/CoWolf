@@ -164,29 +164,6 @@ public class ActivityItemProviderAdapterFactory extends ActivityAdapterFactory i
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link activity.Bar} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BarItemProvider barItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link activity.Bar}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBarAdapter() {
-		if (barItemProvider == null) {
-			barItemProvider = new BarItemProvider(this);
-		}
-
-		return barItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link activity.Split} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -233,29 +210,6 @@ public class ActivityItemProviderAdapterFactory extends ActivityAdapterFactory i
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link activity.Arrow} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ArrowItemProvider arrowItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link activity.Arrow}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createArrowAdapter() {
-		if (arrowItemProvider == null) {
-			arrowItemProvider = new ArrowItemProvider(this);
-		}
-
-		return arrowItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link activity.End} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -279,26 +233,95 @@ public class ActivityItemProviderAdapterFactory extends ActivityAdapterFactory i
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link activity.ConditionArrow} instances.
+	 * This keeps track of the one adapter used for all {@link activity.ArrowAfterStart} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ConditionArrowItemProvider conditionArrowItemProvider;
+	protected ArrowAfterStartItemProvider arrowAfterStartItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link activity.ConditionArrow}.
+	 * This creates an adapter for a {@link activity.ArrowAfterStart}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createConditionArrowAdapter() {
-		if (conditionArrowItemProvider == null) {
-			conditionArrowItemProvider = new ConditionArrowItemProvider(this);
+	public Adapter createArrowAfterStartAdapter() {
+		if (arrowAfterStartItemProvider == null) {
+			arrowAfterStartItemProvider = new ArrowAfterStartItemProvider(this);
 		}
 
-		return conditionArrowItemProvider;
+		return arrowAfterStartItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link activity.DecisionArrow} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DecisionArrowItemProvider decisionArrowItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link activity.DecisionArrow}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDecisionArrowAdapter() {
+		if (decisionArrowItemProvider == null) {
+			decisionArrowItemProvider = new DecisionArrowItemProvider(this);
+		}
+
+		return decisionArrowItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link activity.AfterActionArrow} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AfterActionArrowItemProvider afterActionArrowItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link activity.AfterActionArrow}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAfterActionArrowAdapter() {
+		if (afterActionArrowItemProvider == null) {
+			afterActionArrowItemProvider = new AfterActionArrowItemProvider(this);
+		}
+
+		return afterActionArrowItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link activity.SplitArrow} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SplitArrowItemProvider splitArrowItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link activity.SplitArrow}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSplitArrowAdapter() {
+		if (splitArrowItemProvider == null) {
+			splitArrowItemProvider = new SplitArrowItemProvider(this);
+		}
+
+		return splitArrowItemProvider;
 	}
 
 	/**
@@ -404,12 +427,13 @@ public class ActivityItemProviderAdapterFactory extends ActivityAdapterFactory i
 		if (startItemProvider != null) startItemProvider.dispose();
 		if (actionItemProvider != null) actionItemProvider.dispose();
 		if (decisionItemProvider != null) decisionItemProvider.dispose();
-		if (barItemProvider != null) barItemProvider.dispose();
 		if (splitItemProvider != null) splitItemProvider.dispose();
 		if (joinItemProvider != null) joinItemProvider.dispose();
-		if (arrowItemProvider != null) arrowItemProvider.dispose();
 		if (endItemProvider != null) endItemProvider.dispose();
-		if (conditionArrowItemProvider != null) conditionArrowItemProvider.dispose();
+		if (arrowAfterStartItemProvider != null) arrowAfterStartItemProvider.dispose();
+		if (decisionArrowItemProvider != null) decisionArrowItemProvider.dispose();
+		if (afterActionArrowItemProvider != null) afterActionArrowItemProvider.dispose();
+		if (splitArrowItemProvider != null) splitArrowItemProvider.dispose();
 	}
 
 }

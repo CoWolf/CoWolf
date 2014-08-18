@@ -20,7 +20,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SplitItemProvider extends BarItemProvider {
+public class SplitItemProvider extends NodesWithoutJoinItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -42,48 +42,25 @@ public class SplitItemProvider extends BarItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addOutgoingFromSplitPropertyDescriptor(object);
-			addIncomingToSplitPropertyDescriptor(object);
+			addOutgoingPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Outgoing From Split feature.
+	 * This adds a property descriptor for the Outgoing feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addOutgoingFromSplitPropertyDescriptor(Object object) {
+	protected void addOutgoingPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Split_outgoingFromSplit_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Split_outgoingFromSplit_feature", "_UI_Split_type"),
-				 ActivityPackage.Literals.SPLIT__OUTGOING_FROM_SPLIT,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Incoming To Split feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIncomingToSplitPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Split_incomingToSplit_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Split_incomingToSplit_feature", "_UI_Split_type"),
-				 ActivityPackage.Literals.SPLIT__INCOMING_TO_SPLIT,
+				 getString("_UI_Split_outgoing_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Split_outgoing_feature", "_UI_Split_type"),
+				 ActivityPackage.Literals.SPLIT__OUTGOING,
 				 true,
 				 false,
 				 true,

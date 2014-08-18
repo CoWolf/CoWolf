@@ -4,7 +4,6 @@ package activity.provider;
 
 
 import activity.ActivityPackage;
-import activity.ConditionArrow;
 
 import java.util.Collection;
 import java.util.List;
@@ -21,17 +20,15 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link activity.ConditionArrow} object.
+ * This is the item provider adapter for a {@link activity.AfterActionArrow} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ConditionArrowItemProvider 
+public class AfterActionArrowItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -45,7 +42,7 @@ public class ConditionArrowItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConditionArrowItemProvider(AdapterFactory adapterFactory) {
+	public AfterActionArrowItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -60,27 +57,25 @@ public class ConditionArrowItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addFromDecisionPropertyDescriptor(object);
-			addToActionFromDecisionPropertyDescriptor(object);
-			addConditionPropertyDescriptor(object);
+			addTargetPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the From Decision feature.
+	 * This adds a property descriptor for the Target feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addFromDecisionPropertyDescriptor(Object object) {
+	protected void addTargetPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ConditionArrow_fromDecision_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ConditionArrow_fromDecision_feature", "_UI_ConditionArrow_type"),
-				 ActivityPackage.Literals.CONDITION_ARROW__FROM_DECISION,
+				 getString("_UI_AfterActionArrow_target_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AfterActionArrow_target_feature", "_UI_AfterActionArrow_type"),
+				 ActivityPackage.Literals.AFTER_ACTION_ARROW__TARGET,
 				 true,
 				 false,
 				 true,
@@ -90,58 +85,14 @@ public class ConditionArrowItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the To Action From Decision feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addToActionFromDecisionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ConditionArrow_toActionFromDecision_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ConditionArrow_toActionFromDecision_feature", "_UI_ConditionArrow_type"),
-				 ActivityPackage.Literals.CONDITION_ARROW__TO_ACTION_FROM_DECISION,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Condition feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addConditionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ConditionArrow_condition_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ConditionArrow_condition_feature", "_UI_ConditionArrow_type"),
-				 ActivityPackage.Literals.CONDITION_ARROW__CONDITION,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns ConditionArrow.gif.
+	 * This returns AfterActionArrow.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ConditionArrow"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/AfterActionArrow"));
 	}
 
 	/**
@@ -152,10 +103,7 @@ public class ConditionArrowItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ConditionArrow)object).getCondition();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ConditionArrow_type") :
-			getString("_UI_ConditionArrow_type") + " " + label;
+		return getString("_UI_AfterActionArrow_type");
 	}
 	
 
@@ -169,12 +117,6 @@ public class ConditionArrowItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(ConditionArrow.class)) {
-			case ActivityPackage.CONDITION_ARROW__CONDITION:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 

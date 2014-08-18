@@ -3,15 +3,13 @@
 package activity.impl;
 
 import activity.ActivityPackage;
-import activity.Arrow;
+import activity.ArrowAfterStart;
+import activity.NodesWithoutJoin;
 import activity.Start;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -23,6 +21,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link activity.impl.StartImpl#getOutgoingFromStart <em>Outgoing From Start</em>}</li>
+ *   <li>{@link activity.impl.StartImpl#getSuccessor <em>Successor</em>}</li>
  * </ul>
  * </p>
  *
@@ -37,7 +36,17 @@ public class StartImpl extends MinimalEObjectImpl.Container implements Start {
 	 * @generated
 	 * @ordered
 	 */
-	protected Arrow outgoingFromStart;
+	protected ArrowAfterStart outgoingFromStart;
+
+	/**
+	 * The cached value of the '{@link #getSuccessor() <em>Successor</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSuccessor()
+	 * @generated
+	 * @ordered
+	 */
+	protected NodesWithoutJoin successor;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -63,10 +72,10 @@ public class StartImpl extends MinimalEObjectImpl.Container implements Start {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Arrow getOutgoingFromStart() {
+	public ArrowAfterStart getOutgoingFromStart() {
 		if (outgoingFromStart != null && outgoingFromStart.eIsProxy()) {
 			InternalEObject oldOutgoingFromStart = (InternalEObject)outgoingFromStart;
-			outgoingFromStart = (Arrow)eResolveProxy(oldOutgoingFromStart);
+			outgoingFromStart = (ArrowAfterStart)eResolveProxy(oldOutgoingFromStart);
 			if (outgoingFromStart != oldOutgoingFromStart) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ActivityPackage.START__OUTGOING_FROM_START, oldOutgoingFromStart, outgoingFromStart));
@@ -80,7 +89,7 @@ public class StartImpl extends MinimalEObjectImpl.Container implements Start {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Arrow basicGetOutgoingFromStart() {
+	public ArrowAfterStart basicGetOutgoingFromStart() {
 		return outgoingFromStart;
 	}
 
@@ -89,8 +98,8 @@ public class StartImpl extends MinimalEObjectImpl.Container implements Start {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOutgoingFromStart(Arrow newOutgoingFromStart, NotificationChain msgs) {
-		Arrow oldOutgoingFromStart = outgoingFromStart;
+	public NotificationChain basicSetOutgoingFromStart(ArrowAfterStart newOutgoingFromStart, NotificationChain msgs) {
+		ArrowAfterStart oldOutgoingFromStart = outgoingFromStart;
 		outgoingFromStart = newOutgoingFromStart;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ActivityPackage.START__OUTGOING_FROM_START, oldOutgoingFromStart, newOutgoingFromStart);
@@ -104,13 +113,13 @@ public class StartImpl extends MinimalEObjectImpl.Container implements Start {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOutgoingFromStart(Arrow newOutgoingFromStart) {
+	public void setOutgoingFromStart(ArrowAfterStart newOutgoingFromStart) {
 		if (newOutgoingFromStart != outgoingFromStart) {
 			NotificationChain msgs = null;
 			if (outgoingFromStart != null)
-				msgs = ((InternalEObject)outgoingFromStart).eInverseRemove(this, ActivityPackage.ARROW__FROM_START, Arrow.class, msgs);
+				msgs = ((InternalEObject)outgoingFromStart).eInverseRemove(this, ActivityPackage.ARROW_AFTER_START__SOURCE, ArrowAfterStart.class, msgs);
 			if (newOutgoingFromStart != null)
-				msgs = ((InternalEObject)newOutgoingFromStart).eInverseAdd(this, ActivityPackage.ARROW__FROM_START, Arrow.class, msgs);
+				msgs = ((InternalEObject)newOutgoingFromStart).eInverseAdd(this, ActivityPackage.ARROW_AFTER_START__SOURCE, ArrowAfterStart.class, msgs);
 			msgs = basicSetOutgoingFromStart(newOutgoingFromStart, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -123,13 +132,51 @@ public class StartImpl extends MinimalEObjectImpl.Container implements Start {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public NodesWithoutJoin getSuccessor() {
+		if (successor != null && successor.eIsProxy()) {
+			InternalEObject oldSuccessor = (InternalEObject)successor;
+			successor = (NodesWithoutJoin)eResolveProxy(oldSuccessor);
+			if (successor != oldSuccessor) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ActivityPackage.START__SUCCESSOR, oldSuccessor, successor));
+			}
+		}
+		return successor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NodesWithoutJoin basicGetSuccessor() {
+		return successor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSuccessor(NodesWithoutJoin newSuccessor) {
+		NodesWithoutJoin oldSuccessor = successor;
+		successor = newSuccessor;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ActivityPackage.START__SUCCESSOR, oldSuccessor, successor));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ActivityPackage.START__OUTGOING_FROM_START:
 				if (outgoingFromStart != null)
-					msgs = ((InternalEObject)outgoingFromStart).eInverseRemove(this, ActivityPackage.ARROW__FROM_START, Arrow.class, msgs);
-				return basicSetOutgoingFromStart((Arrow)otherEnd, msgs);
+					msgs = ((InternalEObject)outgoingFromStart).eInverseRemove(this, ActivityPackage.ARROW_AFTER_START__SOURCE, ArrowAfterStart.class, msgs);
+				return basicSetOutgoingFromStart((ArrowAfterStart)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -159,6 +206,9 @@ public class StartImpl extends MinimalEObjectImpl.Container implements Start {
 			case ActivityPackage.START__OUTGOING_FROM_START:
 				if (resolve) return getOutgoingFromStart();
 				return basicGetOutgoingFromStart();
+			case ActivityPackage.START__SUCCESSOR:
+				if (resolve) return getSuccessor();
+				return basicGetSuccessor();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -172,7 +222,10 @@ public class StartImpl extends MinimalEObjectImpl.Container implements Start {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ActivityPackage.START__OUTGOING_FROM_START:
-				setOutgoingFromStart((Arrow)newValue);
+				setOutgoingFromStart((ArrowAfterStart)newValue);
+				return;
+			case ActivityPackage.START__SUCCESSOR:
+				setSuccessor((NodesWithoutJoin)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -187,7 +240,10 @@ public class StartImpl extends MinimalEObjectImpl.Container implements Start {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case ActivityPackage.START__OUTGOING_FROM_START:
-				setOutgoingFromStart((Arrow)null);
+				setOutgoingFromStart((ArrowAfterStart)null);
+				return;
+			case ActivityPackage.START__SUCCESSOR:
+				setSuccessor((NodesWithoutJoin)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -203,6 +259,8 @@ public class StartImpl extends MinimalEObjectImpl.Container implements Start {
 		switch (featureID) {
 			case ActivityPackage.START__OUTGOING_FROM_START:
 				return outgoingFromStart != null;
+			case ActivityPackage.START__SUCCESSOR:
+				return successor != null;
 		}
 		return super.eIsSet(featureID);
 	}
