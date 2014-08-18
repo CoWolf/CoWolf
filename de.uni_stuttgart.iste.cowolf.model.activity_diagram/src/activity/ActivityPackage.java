@@ -94,40 +94,49 @@ public interface ActivityPackage extends EPackage {
 	int ROOT__DECISION = 2;
 
 	/**
-	 * The feature id for the '<em><b>Bar</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROOT__BAR = 3;
-
-	/**
-	 * The feature id for the '<em><b>Transition</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROOT__TRANSITION = 4;
-
-	/**
 	 * The feature id for the '<em><b>End</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT__END = 5;
+	int ROOT__END = 3;
 
 	/**
-	 * The feature id for the '<em><b>Condition Arrow</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Split</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT__CONDITION_ARROW = 6;
+	int ROOT__SPLIT = 4;
+
+	/**
+	 * The feature id for the '<em><b>Join</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOT__JOIN = 5;
+
+	/**
+	 * The feature id for the '<em><b>Start Arrow</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOT__START_ARROW = 6;
+
+	/**
+	 * The feature id for the '<em><b>Nodes Without Join</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOT__NODES_WITHOUT_JOIN = 7;
 
 	/**
 	 * The number of structural features of the '<em>Root</em>' class.
@@ -136,7 +145,7 @@ public interface ActivityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT_FEATURE_COUNT = 7;
+	int ROOT_FEATURE_COUNT = 8;
 
 	/**
 	 * The number of operations of the '<em>Root</em>' class.
@@ -167,13 +176,22 @@ public interface ActivityPackage extends EPackage {
 	int START__OUTGOING_FROM_START = 0;
 
 	/**
+	 * The feature id for the '<em><b>Successor</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int START__SUCCESSOR = 1;
+
+	/**
 	 * The number of structural features of the '<em>Start</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int START_FEATURE_COUNT = 1;
+	int START_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Start</em>' class.
@@ -183,6 +201,43 @@ public interface ActivityPackage extends EPackage {
 	 * @ordered
 	 */
 	int START_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link activity.impl.NodesWithoutJoinImpl <em>Nodes Without Join</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see activity.impl.NodesWithoutJoinImpl
+	 * @see activity.impl.ActivityPackageImpl#getNodesWithoutJoin()
+	 * @generated
+	 */
+	int NODES_WITHOUT_JOIN = 7;
+
+	/**
+	 * The feature id for the '<em><b>Incoming Start</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODES_WITHOUT_JOIN__INCOMING_START = 0;
+
+	/**
+	 * The number of structural features of the '<em>Nodes Without Join</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODES_WITHOUT_JOIN_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Nodes Without Join</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODES_WITHOUT_JOIN_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link activity.impl.ActionImpl <em>Action</em>}' class.
@@ -195,13 +250,13 @@ public interface ActivityPackage extends EPackage {
 	int ACTION = 2;
 
 	/**
-	 * The feature id for the '<em><b>Incoming To Action</b></em>' reference list.
+	 * The feature id for the '<em><b>Incoming Start</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__INCOMING_TO_ACTION = 0;
+	int ACTION__INCOMING_START = NODES_WITHOUT_JOIN__INCOMING_START;
 
 	/**
 	 * The feature id for the '<em><b>Action</b></em>' attribute.
@@ -210,25 +265,16 @@ public interface ActivityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__ACTION = 1;
+	int ACTION__ACTION = NODES_WITHOUT_JOIN_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Outgoing From Action Action</b></em>' reference.
+	 * The feature id for the '<em><b>Outgoing</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__OUTGOING_FROM_ACTION_ACTION = 2;
-
-	/**
-	 * The feature id for the '<em><b>Incoming To Action From Decision</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__INCOMING_TO_ACTION_FROM_DECISION = 3;
+	int ACTION__OUTGOING = NODES_WITHOUT_JOIN_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Action</em>' class.
@@ -237,7 +283,7 @@ public interface ActivityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_FEATURE_COUNT = 4;
+	int ACTION_FEATURE_COUNT = NODES_WITHOUT_JOIN_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Action</em>' class.
@@ -246,7 +292,7 @@ public interface ActivityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_OPERATION_COUNT = 0;
+	int ACTION_OPERATION_COUNT = NODES_WITHOUT_JOIN_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link activity.impl.DecisionImpl <em>Decision</em>}' class.
@@ -259,22 +305,22 @@ public interface ActivityPackage extends EPackage {
 	int DECISION = 3;
 
 	/**
-	 * The feature id for the '<em><b>Outgoing From Decision</b></em>' reference list.
+	 * The feature id for the '<em><b>Incoming Start</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DECISION__OUTGOING_FROM_DECISION = 0;
+	int DECISION__INCOMING_START = NODES_WITHOUT_JOIN__INCOMING_START;
 
 	/**
-	 * The feature id for the '<em><b>Incoming To Decision</b></em>' reference.
+	 * The feature id for the '<em><b>Outgoing</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DECISION__INCOMING_TO_DECISION = 1;
+	int DECISION__OUTGOING = NODES_WITHOUT_JOIN_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Decision</em>' class.
@@ -283,7 +329,7 @@ public interface ActivityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DECISION_FEATURE_COUNT = 2;
+	int DECISION_FEATURE_COUNT = NODES_WITHOUT_JOIN_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Decision</em>' class.
@@ -292,35 +338,7 @@ public interface ActivityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DECISION_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link activity.impl.BarImpl <em>Bar</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see activity.impl.BarImpl
-	 * @see activity.impl.ActivityPackageImpl#getBar()
-	 * @generated
-	 */
-	int BAR = 4;
-
-	/**
-	 * The number of structural features of the '<em>Bar</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BAR_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>Bar</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BAR_OPERATION_COUNT = 0;
+	int DECISION_OPERATION_COUNT = NODES_WITHOUT_JOIN_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link activity.impl.SplitImpl <em>Split</em>}' class.
@@ -330,25 +348,25 @@ public interface ActivityPackage extends EPackage {
 	 * @see activity.impl.ActivityPackageImpl#getSplit()
 	 * @generated
 	 */
-	int SPLIT = 5;
+	int SPLIT = 4;
 
 	/**
-	 * The feature id for the '<em><b>Outgoing From Split</b></em>' reference list.
+	 * The feature id for the '<em><b>Incoming Start</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPLIT__OUTGOING_FROM_SPLIT = BAR_FEATURE_COUNT + 0;
+	int SPLIT__INCOMING_START = NODES_WITHOUT_JOIN__INCOMING_START;
 
 	/**
-	 * The feature id for the '<em><b>Incoming To Split</b></em>' reference.
+	 * The feature id for the '<em><b>Outgoing</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPLIT__INCOMING_TO_SPLIT = BAR_FEATURE_COUNT + 1;
+	int SPLIT__OUTGOING = NODES_WITHOUT_JOIN_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Split</em>' class.
@@ -357,7 +375,7 @@ public interface ActivityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPLIT_FEATURE_COUNT = BAR_FEATURE_COUNT + 2;
+	int SPLIT_FEATURE_COUNT = NODES_WITHOUT_JOIN_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Split</em>' class.
@@ -366,7 +384,7 @@ public interface ActivityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPLIT_OPERATION_COUNT = BAR_OPERATION_COUNT + 0;
+	int SPLIT_OPERATION_COUNT = NODES_WITHOUT_JOIN_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link activity.impl.JoinImpl <em>Join</em>}' class.
@@ -376,25 +394,7 @@ public interface ActivityPackage extends EPackage {
 	 * @see activity.impl.ActivityPackageImpl#getJoin()
 	 * @generated
 	 */
-	int JOIN = 6;
-
-	/**
-	 * The feature id for the '<em><b>Incoming To Join</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOIN__INCOMING_TO_JOIN = BAR_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Outgoing From Join</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOIN__OUTGOING_FROM_JOIN = BAR_FEATURE_COUNT + 1;
+	int JOIN = 5;
 
 	/**
 	 * The number of structural features of the '<em>Join</em>' class.
@@ -403,7 +403,7 @@ public interface ActivityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOIN_FEATURE_COUNT = BAR_FEATURE_COUNT + 2;
+	int JOIN_FEATURE_COUNT = 0;
 
 	/**
 	 * The number of operations of the '<em>Join</em>' class.
@@ -412,125 +412,7 @@ public interface ActivityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOIN_OPERATION_COUNT = BAR_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link activity.impl.ArrowImpl <em>Arrow</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see activity.impl.ArrowImpl
-	 * @see activity.impl.ActivityPackageImpl#getArrow()
-	 * @generated
-	 */
-	int ARROW = 7;
-
-	/**
-	 * The feature id for the '<em><b>EReference0</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ARROW__EREFERENCE0 = 0;
-
-	/**
-	 * The feature id for the '<em><b>From Start</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ARROW__FROM_START = 1;
-
-	/**
-	 * The feature id for the '<em><b>To End</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ARROW__TO_END = 2;
-
-	/**
-	 * The feature id for the '<em><b>From Action</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ARROW__FROM_ACTION = 3;
-
-	/**
-	 * The feature id for the '<em><b>To Action</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ARROW__TO_ACTION = 4;
-
-	/**
-	 * The feature id for the '<em><b>From Split</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ARROW__FROM_SPLIT = 5;
-
-	/**
-	 * The feature id for the '<em><b>To Split</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ARROW__TO_SPLIT = 6;
-
-	/**
-	 * The feature id for the '<em><b>To Join</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ARROW__TO_JOIN = 7;
-
-	/**
-	 * The feature id for the '<em><b>From Join</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ARROW__FROM_JOIN = 8;
-
-	/**
-	 * The feature id for the '<em><b>To Decision</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ARROW__TO_DECISION = 9;
-
-	/**
-	 * The number of structural features of the '<em>Arrow</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ARROW_FEATURE_COUNT = 10;
-
-	/**
-	 * The number of operations of the '<em>Arrow</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ARROW_OPERATION_COUNT = 0;
+	int JOIN_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link activity.impl.EndImpl <em>End</em>}' class.
@@ -540,16 +422,16 @@ public interface ActivityPackage extends EPackage {
 	 * @see activity.impl.ActivityPackageImpl#getEnd()
 	 * @generated
 	 */
-	int END = 8;
+	int END = 6;
 
 	/**
-	 * The feature id for the '<em><b>Incoming To End</b></em>' reference.
+	 * The feature id for the '<em><b>Incoming Start</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int END__INCOMING_TO_END = 0;
+	int END__INCOMING_START = NODES_WITHOUT_JOIN__INCOMING_START;
 
 	/**
 	 * The number of structural features of the '<em>End</em>' class.
@@ -558,7 +440,7 @@ public interface ActivityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int END_FEATURE_COUNT = 1;
+	int END_FEATURE_COUNT = NODES_WITHOUT_JOIN_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>End</em>' class.
@@ -567,35 +449,63 @@ public interface ActivityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int END_OPERATION_COUNT = 0;
+	int END_OPERATION_COUNT = NODES_WITHOUT_JOIN_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link activity.impl.ConditionArrowImpl <em>Condition Arrow</em>}' class.
+	 * The meta object id for the '{@link activity.impl.ArrowAfterStartImpl <em>Arrow After Start</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see activity.impl.ConditionArrowImpl
-	 * @see activity.impl.ActivityPackageImpl#getConditionArrow()
+	 * @see activity.impl.ArrowAfterStartImpl
+	 * @see activity.impl.ActivityPackageImpl#getArrowAfterStart()
 	 * @generated
 	 */
-	int CONDITION_ARROW = 9;
+	int ARROW_AFTER_START = 8;
 
 	/**
-	 * The feature id for the '<em><b>From Decision</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONDITION_ARROW__FROM_DECISION = 0;
-
-	/**
-	 * The feature id for the '<em><b>To Action From Decision</b></em>' reference.
+	 * The feature id for the '<em><b>Source</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION_ARROW__TO_ACTION_FROM_DECISION = 1;
+	int ARROW_AFTER_START__SOURCE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Target After Start</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARROW_AFTER_START__TARGET_AFTER_START = 1;
+
+	/**
+	 * The number of structural features of the '<em>Arrow After Start</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARROW_AFTER_START_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Arrow After Start</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARROW_AFTER_START_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link activity.impl.DecisionArrowImpl <em>Decision Arrow</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see activity.impl.DecisionArrowImpl
+	 * @see activity.impl.ActivityPackageImpl#getDecisionArrow()
+	 * @generated
+	 */
+	int DECISION_ARROW = 9;
 
 	/**
 	 * The feature id for the '<em><b>Condition</b></em>' attribute.
@@ -604,26 +514,108 @@ public interface ActivityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION_ARROW__CONDITION = 2;
+	int DECISION_ARROW__CONDITION = 0;
 
 	/**
-	 * The number of structural features of the '<em>Condition Arrow</em>' class.
+	 * The feature id for the '<em><b>Target</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION_ARROW_FEATURE_COUNT = 3;
+	int DECISION_ARROW__TARGET = 1;
 
 	/**
-	 * The number of operations of the '<em>Condition Arrow</em>' class.
+	 * The number of structural features of the '<em>Decision Arrow</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION_ARROW_OPERATION_COUNT = 0;
+	int DECISION_ARROW_FEATURE_COUNT = 2;
 
+	/**
+	 * The number of operations of the '<em>Decision Arrow</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DECISION_ARROW_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link activity.impl.AfterActionArrowImpl <em>After Action Arrow</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see activity.impl.AfterActionArrowImpl
+	 * @see activity.impl.ActivityPackageImpl#getAfterActionArrow()
+	 * @generated
+	 */
+	int AFTER_ACTION_ARROW = 10;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AFTER_ACTION_ARROW__TARGET = 0;
+
+	/**
+	 * The number of structural features of the '<em>After Action Arrow</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AFTER_ACTION_ARROW_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>After Action Arrow</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AFTER_ACTION_ARROW_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link activity.impl.SplitArrowImpl <em>Split Arrow</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see activity.impl.SplitArrowImpl
+	 * @see activity.impl.ActivityPackageImpl#getSplitArrow()
+	 * @generated
+	 */
+	int SPLIT_ARROW = 11;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPLIT_ARROW__TARGET = 0;
+
+	/**
+	 * The number of structural features of the '<em>Split Arrow</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPLIT_ARROW_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Split Arrow</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPLIT_ARROW_OPERATION_COUNT = 0;
 
 	/**
 	 * Returns the meta object for class '{@link activity.Root <em>Root</em>}'.
@@ -669,28 +661,6 @@ public interface ActivityPackage extends EPackage {
 	EReference getRoot_Decision();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link activity.Root#getBar <em>Bar</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Bar</em>'.
-	 * @see activity.Root#getBar()
-	 * @see #getRoot()
-	 * @generated
-	 */
-	EReference getRoot_Bar();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link activity.Root#getTransition <em>Transition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Transition</em>'.
-	 * @see activity.Root#getTransition()
-	 * @see #getRoot()
-	 * @generated
-	 */
-	EReference getRoot_Transition();
-
-	/**
 	 * Returns the meta object for the containment reference '{@link activity.Root#getEnd <em>End</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -702,15 +672,48 @@ public interface ActivityPackage extends EPackage {
 	EReference getRoot_End();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link activity.Root#getConditionArrow <em>Condition Arrow</em>}'.
+	 * Returns the meta object for the containment reference list '{@link activity.Root#getSplit <em>Split</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Condition Arrow</em>'.
-	 * @see activity.Root#getConditionArrow()
+	 * @return the meta object for the containment reference list '<em>Split</em>'.
+	 * @see activity.Root#getSplit()
 	 * @see #getRoot()
 	 * @generated
 	 */
-	EReference getRoot_ConditionArrow();
+	EReference getRoot_Split();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link activity.Root#getJoin <em>Join</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Join</em>'.
+	 * @see activity.Root#getJoin()
+	 * @see #getRoot()
+	 * @generated
+	 */
+	EReference getRoot_Join();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link activity.Root#getStartArrow <em>Start Arrow</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Start Arrow</em>'.
+	 * @see activity.Root#getStartArrow()
+	 * @see #getRoot()
+	 * @generated
+	 */
+	EReference getRoot_StartArrow();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link activity.Root#getNodesWithoutJoin <em>Nodes Without Join</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Nodes Without Join</em>'.
+	 * @see activity.Root#getNodesWithoutJoin()
+	 * @see #getRoot()
+	 * @generated
+	 */
+	EReference getRoot_NodesWithoutJoin();
 
 	/**
 	 * Returns the meta object for class '{@link activity.Start <em>Start</em>}'.
@@ -734,6 +737,17 @@ public interface ActivityPackage extends EPackage {
 	EReference getStart_OutgoingFromStart();
 
 	/**
+	 * Returns the meta object for the reference '{@link activity.Start#getSuccessor <em>Successor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Successor</em>'.
+	 * @see activity.Start#getSuccessor()
+	 * @see #getStart()
+	 * @generated
+	 */
+	EReference getStart_Successor();
+
+	/**
 	 * Returns the meta object for class '{@link activity.Action <em>Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -742,17 +756,6 @@ public interface ActivityPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getAction();
-
-	/**
-	 * Returns the meta object for the reference list '{@link activity.Action#getIncomingToAction <em>Incoming To Action</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Incoming To Action</em>'.
-	 * @see activity.Action#getIncomingToAction()
-	 * @see #getAction()
-	 * @generated
-	 */
-	EReference getAction_IncomingToAction();
 
 	/**
 	 * Returns the meta object for the attribute '{@link activity.Action#getAction <em>Action</em>}'.
@@ -766,26 +769,15 @@ public interface ActivityPackage extends EPackage {
 	EAttribute getAction_Action();
 
 	/**
-	 * Returns the meta object for the reference '{@link activity.Action#getOutgoingFromActionAction <em>Outgoing From Action Action</em>}'.
+	 * Returns the meta object for the reference '{@link activity.Action#getOutgoing <em>Outgoing</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Outgoing From Action Action</em>'.
-	 * @see activity.Action#getOutgoingFromActionAction()
+	 * @return the meta object for the reference '<em>Outgoing</em>'.
+	 * @see activity.Action#getOutgoing()
 	 * @see #getAction()
 	 * @generated
 	 */
-	EReference getAction_OutgoingFromActionAction();
-
-	/**
-	 * Returns the meta object for the reference list '{@link activity.Action#getIncomingToActionFromDecision <em>Incoming To Action From Decision</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Incoming To Action From Decision</em>'.
-	 * @see activity.Action#getIncomingToActionFromDecision()
-	 * @see #getAction()
-	 * @generated
-	 */
-	EReference getAction_IncomingToActionFromDecision();
+	EReference getAction_Outgoing();
 
 	/**
 	 * Returns the meta object for class '{@link activity.Decision <em>Decision</em>}'.
@@ -798,36 +790,15 @@ public interface ActivityPackage extends EPackage {
 	EClass getDecision();
 
 	/**
-	 * Returns the meta object for the reference list '{@link activity.Decision#getOutgoingFromDecision <em>Outgoing From Decision</em>}'.
+	 * Returns the meta object for the reference list '{@link activity.Decision#getOutgoing <em>Outgoing</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Outgoing From Decision</em>'.
-	 * @see activity.Decision#getOutgoingFromDecision()
+	 * @return the meta object for the reference list '<em>Outgoing</em>'.
+	 * @see activity.Decision#getOutgoing()
 	 * @see #getDecision()
 	 * @generated
 	 */
-	EReference getDecision_OutgoingFromDecision();
-
-	/**
-	 * Returns the meta object for the reference '{@link activity.Decision#getIncomingToDecision <em>Incoming To Decision</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Incoming To Decision</em>'.
-	 * @see activity.Decision#getIncomingToDecision()
-	 * @see #getDecision()
-	 * @generated
-	 */
-	EReference getDecision_IncomingToDecision();
-
-	/**
-	 * Returns the meta object for class '{@link activity.Bar <em>Bar</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Bar</em>'.
-	 * @see activity.Bar
-	 * @generated
-	 */
-	EClass getBar();
+	EReference getDecision_Outgoing();
 
 	/**
 	 * Returns the meta object for class '{@link activity.Split <em>Split</em>}'.
@@ -840,26 +811,15 @@ public interface ActivityPackage extends EPackage {
 	EClass getSplit();
 
 	/**
-	 * Returns the meta object for the reference list '{@link activity.Split#getOutgoingFromSplit <em>Outgoing From Split</em>}'.
+	 * Returns the meta object for the reference list '{@link activity.Split#getOutgoing <em>Outgoing</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Outgoing From Split</em>'.
-	 * @see activity.Split#getOutgoingFromSplit()
+	 * @return the meta object for the reference list '<em>Outgoing</em>'.
+	 * @see activity.Split#getOutgoing()
 	 * @see #getSplit()
 	 * @generated
 	 */
-	EReference getSplit_OutgoingFromSplit();
-
-	/**
-	 * Returns the meta object for the reference '{@link activity.Split#getIncomingToSplit <em>Incoming To Split</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Incoming To Split</em>'.
-	 * @see activity.Split#getIncomingToSplit()
-	 * @see #getSplit()
-	 * @generated
-	 */
-	EReference getSplit_IncomingToSplit();
+	EReference getSplit_Outgoing();
 
 	/**
 	 * Returns the meta object for class '{@link activity.Join <em>Join</em>}'.
@@ -872,148 +832,6 @@ public interface ActivityPackage extends EPackage {
 	EClass getJoin();
 
 	/**
-	 * Returns the meta object for the reference list '{@link activity.Join#getIncomingToJoin <em>Incoming To Join</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Incoming To Join</em>'.
-	 * @see activity.Join#getIncomingToJoin()
-	 * @see #getJoin()
-	 * @generated
-	 */
-	EReference getJoin_IncomingToJoin();
-
-	/**
-	 * Returns the meta object for the reference '{@link activity.Join#getOutgoingFromJoin <em>Outgoing From Join</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Outgoing From Join</em>'.
-	 * @see activity.Join#getOutgoingFromJoin()
-	 * @see #getJoin()
-	 * @generated
-	 */
-	EReference getJoin_OutgoingFromJoin();
-
-	/**
-	 * Returns the meta object for class '{@link activity.Arrow <em>Arrow</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Arrow</em>'.
-	 * @see activity.Arrow
-	 * @generated
-	 */
-	EClass getArrow();
-
-	/**
-	 * Returns the meta object for the reference '{@link activity.Arrow#getEReference0 <em>EReference0</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>EReference0</em>'.
-	 * @see activity.Arrow#getEReference0()
-	 * @see #getArrow()
-	 * @generated
-	 */
-	EReference getArrow_EReference0();
-
-	/**
-	 * Returns the meta object for the reference '{@link activity.Arrow#getFromStart <em>From Start</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>From Start</em>'.
-	 * @see activity.Arrow#getFromStart()
-	 * @see #getArrow()
-	 * @generated
-	 */
-	EReference getArrow_FromStart();
-
-	/**
-	 * Returns the meta object for the reference '{@link activity.Arrow#getToEnd <em>To End</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>To End</em>'.
-	 * @see activity.Arrow#getToEnd()
-	 * @see #getArrow()
-	 * @generated
-	 */
-	EReference getArrow_ToEnd();
-
-	/**
-	 * Returns the meta object for the reference '{@link activity.Arrow#getFromAction <em>From Action</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>From Action</em>'.
-	 * @see activity.Arrow#getFromAction()
-	 * @see #getArrow()
-	 * @generated
-	 */
-	EReference getArrow_FromAction();
-
-	/**
-	 * Returns the meta object for the reference '{@link activity.Arrow#getToAction <em>To Action</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>To Action</em>'.
-	 * @see activity.Arrow#getToAction()
-	 * @see #getArrow()
-	 * @generated
-	 */
-	EReference getArrow_ToAction();
-
-	/**
-	 * Returns the meta object for the reference '{@link activity.Arrow#getFromSplit <em>From Split</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>From Split</em>'.
-	 * @see activity.Arrow#getFromSplit()
-	 * @see #getArrow()
-	 * @generated
-	 */
-	EReference getArrow_FromSplit();
-
-	/**
-	 * Returns the meta object for the reference '{@link activity.Arrow#getToSplit <em>To Split</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>To Split</em>'.
-	 * @see activity.Arrow#getToSplit()
-	 * @see #getArrow()
-	 * @generated
-	 */
-	EReference getArrow_ToSplit();
-
-	/**
-	 * Returns the meta object for the reference '{@link activity.Arrow#getToJoin <em>To Join</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>To Join</em>'.
-	 * @see activity.Arrow#getToJoin()
-	 * @see #getArrow()
-	 * @generated
-	 */
-	EReference getArrow_ToJoin();
-
-	/**
-	 * Returns the meta object for the reference '{@link activity.Arrow#getFromJoin <em>From Join</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>From Join</em>'.
-	 * @see activity.Arrow#getFromJoin()
-	 * @see #getArrow()
-	 * @generated
-	 */
-	EReference getArrow_FromJoin();
-
-	/**
-	 * Returns the meta object for the reference '{@link activity.Arrow#getToDecision <em>To Decision</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>To Decision</em>'.
-	 * @see activity.Arrow#getToDecision()
-	 * @see #getArrow()
-	 * @generated
-	 */
-	EReference getArrow_ToDecision();
-
-	/**
 	 * Returns the meta object for class '{@link activity.End <em>End</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1024,58 +842,131 @@ public interface ActivityPackage extends EPackage {
 	EClass getEnd();
 
 	/**
-	 * Returns the meta object for the reference '{@link activity.End#getIncomingToEnd <em>Incoming To End</em>}'.
+	 * Returns the meta object for class '{@link activity.NodesWithoutJoin <em>Nodes Without Join</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Incoming To End</em>'.
-	 * @see activity.End#getIncomingToEnd()
-	 * @see #getEnd()
+	 * @return the meta object for class '<em>Nodes Without Join</em>'.
+	 * @see activity.NodesWithoutJoin
 	 * @generated
 	 */
-	EReference getEnd_IncomingToEnd();
+	EClass getNodesWithoutJoin();
 
 	/**
-	 * Returns the meta object for class '{@link activity.ConditionArrow <em>Condition Arrow</em>}'.
+	 * Returns the meta object for the reference '{@link activity.NodesWithoutJoin#getIncomingStart <em>Incoming Start</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Condition Arrow</em>'.
-	 * @see activity.ConditionArrow
+	 * @return the meta object for the reference '<em>Incoming Start</em>'.
+	 * @see activity.NodesWithoutJoin#getIncomingStart()
+	 * @see #getNodesWithoutJoin()
 	 * @generated
 	 */
-	EClass getConditionArrow();
+	EReference getNodesWithoutJoin_IncomingStart();
 
 	/**
-	 * Returns the meta object for the reference '{@link activity.ConditionArrow#getFromDecision <em>From Decision</em>}'.
+	 * Returns the meta object for class '{@link activity.ArrowAfterStart <em>Arrow After Start</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>From Decision</em>'.
-	 * @see activity.ConditionArrow#getFromDecision()
-	 * @see #getConditionArrow()
+	 * @return the meta object for class '<em>Arrow After Start</em>'.
+	 * @see activity.ArrowAfterStart
 	 * @generated
 	 */
-	EReference getConditionArrow_FromDecision();
+	EClass getArrowAfterStart();
 
 	/**
-	 * Returns the meta object for the reference '{@link activity.ConditionArrow#getToActionFromDecision <em>To Action From Decision</em>}'.
+	 * Returns the meta object for the reference '{@link activity.ArrowAfterStart#getSource <em>Source</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>To Action From Decision</em>'.
-	 * @see activity.ConditionArrow#getToActionFromDecision()
-	 * @see #getConditionArrow()
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see activity.ArrowAfterStart#getSource()
+	 * @see #getArrowAfterStart()
 	 * @generated
 	 */
-	EReference getConditionArrow_ToActionFromDecision();
+	EReference getArrowAfterStart_Source();
 
 	/**
-	 * Returns the meta object for the attribute '{@link activity.ConditionArrow#getCondition <em>Condition</em>}'.
+	 * Returns the meta object for the reference '{@link activity.ArrowAfterStart#getTargetAfterStart <em>Target After Start</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target After Start</em>'.
+	 * @see activity.ArrowAfterStart#getTargetAfterStart()
+	 * @see #getArrowAfterStart()
+	 * @generated
+	 */
+	EReference getArrowAfterStart_TargetAfterStart();
+
+	/**
+	 * Returns the meta object for class '{@link activity.DecisionArrow <em>Decision Arrow</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Decision Arrow</em>'.
+	 * @see activity.DecisionArrow
+	 * @generated
+	 */
+	EClass getDecisionArrow();
+
+	/**
+	 * Returns the meta object for the attribute '{@link activity.DecisionArrow#getCondition <em>Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Condition</em>'.
-	 * @see activity.ConditionArrow#getCondition()
-	 * @see #getConditionArrow()
+	 * @see activity.DecisionArrow#getCondition()
+	 * @see #getDecisionArrow()
 	 * @generated
 	 */
-	EAttribute getConditionArrow_Condition();
+	EAttribute getDecisionArrow_Condition();
+
+	/**
+	 * Returns the meta object for the reference '{@link activity.DecisionArrow#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see activity.DecisionArrow#getTarget()
+	 * @see #getDecisionArrow()
+	 * @generated
+	 */
+	EReference getDecisionArrow_Target();
+
+	/**
+	 * Returns the meta object for class '{@link activity.AfterActionArrow <em>After Action Arrow</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>After Action Arrow</em>'.
+	 * @see activity.AfterActionArrow
+	 * @generated
+	 */
+	EClass getAfterActionArrow();
+
+	/**
+	 * Returns the meta object for the reference '{@link activity.AfterActionArrow#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see activity.AfterActionArrow#getTarget()
+	 * @see #getAfterActionArrow()
+	 * @generated
+	 */
+	EReference getAfterActionArrow_Target();
+
+	/**
+	 * Returns the meta object for class '{@link activity.SplitArrow <em>Split Arrow</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Split Arrow</em>'.
+	 * @see activity.SplitArrow
+	 * @generated
+	 */
+	EClass getSplitArrow();
+
+	/**
+	 * Returns the meta object for the reference '{@link activity.SplitArrow#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see activity.SplitArrow#getTarget()
+	 * @see #getSplitArrow()
+	 * @generated
+	 */
+	EReference getSplitArrow_Target();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1135,22 +1026,6 @@ public interface ActivityPackage extends EPackage {
 		EReference ROOT__DECISION = eINSTANCE.getRoot_Decision();
 
 		/**
-		 * The meta object literal for the '<em><b>Bar</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ROOT__BAR = eINSTANCE.getRoot_Bar();
-
-		/**
-		 * The meta object literal for the '<em><b>Transition</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ROOT__TRANSITION = eINSTANCE.getRoot_Transition();
-
-		/**
 		 * The meta object literal for the '<em><b>End</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1159,12 +1034,36 @@ public interface ActivityPackage extends EPackage {
 		EReference ROOT__END = eINSTANCE.getRoot_End();
 
 		/**
-		 * The meta object literal for the '<em><b>Condition Arrow</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Split</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ROOT__CONDITION_ARROW = eINSTANCE.getRoot_ConditionArrow();
+		EReference ROOT__SPLIT = eINSTANCE.getRoot_Split();
+
+		/**
+		 * The meta object literal for the '<em><b>Join</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROOT__JOIN = eINSTANCE.getRoot_Join();
+
+		/**
+		 * The meta object literal for the '<em><b>Start Arrow</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROOT__START_ARROW = eINSTANCE.getRoot_StartArrow();
+
+		/**
+		 * The meta object literal for the '<em><b>Nodes Without Join</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROOT__NODES_WITHOUT_JOIN = eINSTANCE.getRoot_NodesWithoutJoin();
 
 		/**
 		 * The meta object literal for the '{@link activity.impl.StartImpl <em>Start</em>}' class.
@@ -1185,6 +1084,14 @@ public interface ActivityPackage extends EPackage {
 		EReference START__OUTGOING_FROM_START = eINSTANCE.getStart_OutgoingFromStart();
 
 		/**
+		 * The meta object literal for the '<em><b>Successor</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference START__SUCCESSOR = eINSTANCE.getStart_Successor();
+
+		/**
 		 * The meta object literal for the '{@link activity.impl.ActionImpl <em>Action</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1195,14 +1102,6 @@ public interface ActivityPackage extends EPackage {
 		EClass ACTION = eINSTANCE.getAction();
 
 		/**
-		 * The meta object literal for the '<em><b>Incoming To Action</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ACTION__INCOMING_TO_ACTION = eINSTANCE.getAction_IncomingToAction();
-
-		/**
 		 * The meta object literal for the '<em><b>Action</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1211,20 +1110,12 @@ public interface ActivityPackage extends EPackage {
 		EAttribute ACTION__ACTION = eINSTANCE.getAction_Action();
 
 		/**
-		 * The meta object literal for the '<em><b>Outgoing From Action Action</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Outgoing</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ACTION__OUTGOING_FROM_ACTION_ACTION = eINSTANCE.getAction_OutgoingFromActionAction();
-
-		/**
-		 * The meta object literal for the '<em><b>Incoming To Action From Decision</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ACTION__INCOMING_TO_ACTION_FROM_DECISION = eINSTANCE.getAction_IncomingToActionFromDecision();
+		EReference ACTION__OUTGOING = eINSTANCE.getAction_Outgoing();
 
 		/**
 		 * The meta object literal for the '{@link activity.impl.DecisionImpl <em>Decision</em>}' class.
@@ -1237,30 +1128,12 @@ public interface ActivityPackage extends EPackage {
 		EClass DECISION = eINSTANCE.getDecision();
 
 		/**
-		 * The meta object literal for the '<em><b>Outgoing From Decision</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Outgoing</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DECISION__OUTGOING_FROM_DECISION = eINSTANCE.getDecision_OutgoingFromDecision();
-
-		/**
-		 * The meta object literal for the '<em><b>Incoming To Decision</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DECISION__INCOMING_TO_DECISION = eINSTANCE.getDecision_IncomingToDecision();
-
-		/**
-		 * The meta object literal for the '{@link activity.impl.BarImpl <em>Bar</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see activity.impl.BarImpl
-		 * @see activity.impl.ActivityPackageImpl#getBar()
-		 * @generated
-		 */
-		EClass BAR = eINSTANCE.getBar();
+		EReference DECISION__OUTGOING = eINSTANCE.getDecision_Outgoing();
 
 		/**
 		 * The meta object literal for the '{@link activity.impl.SplitImpl <em>Split</em>}' class.
@@ -1273,20 +1146,12 @@ public interface ActivityPackage extends EPackage {
 		EClass SPLIT = eINSTANCE.getSplit();
 
 		/**
-		 * The meta object literal for the '<em><b>Outgoing From Split</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Outgoing</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SPLIT__OUTGOING_FROM_SPLIT = eINSTANCE.getSplit_OutgoingFromSplit();
-
-		/**
-		 * The meta object literal for the '<em><b>Incoming To Split</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SPLIT__INCOMING_TO_SPLIT = eINSTANCE.getSplit_IncomingToSplit();
+		EReference SPLIT__OUTGOING = eINSTANCE.getSplit_Outgoing();
 
 		/**
 		 * The meta object literal for the '{@link activity.impl.JoinImpl <em>Join</em>}' class.
@@ -1299,112 +1164,6 @@ public interface ActivityPackage extends EPackage {
 		EClass JOIN = eINSTANCE.getJoin();
 
 		/**
-		 * The meta object literal for the '<em><b>Incoming To Join</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference JOIN__INCOMING_TO_JOIN = eINSTANCE.getJoin_IncomingToJoin();
-
-		/**
-		 * The meta object literal for the '<em><b>Outgoing From Join</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference JOIN__OUTGOING_FROM_JOIN = eINSTANCE.getJoin_OutgoingFromJoin();
-
-		/**
-		 * The meta object literal for the '{@link activity.impl.ArrowImpl <em>Arrow</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see activity.impl.ArrowImpl
-		 * @see activity.impl.ActivityPackageImpl#getArrow()
-		 * @generated
-		 */
-		EClass ARROW = eINSTANCE.getArrow();
-
-		/**
-		 * The meta object literal for the '<em><b>EReference0</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ARROW__EREFERENCE0 = eINSTANCE.getArrow_EReference0();
-
-		/**
-		 * The meta object literal for the '<em><b>From Start</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ARROW__FROM_START = eINSTANCE.getArrow_FromStart();
-
-		/**
-		 * The meta object literal for the '<em><b>To End</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ARROW__TO_END = eINSTANCE.getArrow_ToEnd();
-
-		/**
-		 * The meta object literal for the '<em><b>From Action</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ARROW__FROM_ACTION = eINSTANCE.getArrow_FromAction();
-
-		/**
-		 * The meta object literal for the '<em><b>To Action</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ARROW__TO_ACTION = eINSTANCE.getArrow_ToAction();
-
-		/**
-		 * The meta object literal for the '<em><b>From Split</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ARROW__FROM_SPLIT = eINSTANCE.getArrow_FromSplit();
-
-		/**
-		 * The meta object literal for the '<em><b>To Split</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ARROW__TO_SPLIT = eINSTANCE.getArrow_ToSplit();
-
-		/**
-		 * The meta object literal for the '<em><b>To Join</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ARROW__TO_JOIN = eINSTANCE.getArrow_ToJoin();
-
-		/**
-		 * The meta object literal for the '<em><b>From Join</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ARROW__FROM_JOIN = eINSTANCE.getArrow_FromJoin();
-
-		/**
-		 * The meta object literal for the '<em><b>To Decision</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ARROW__TO_DECISION = eINSTANCE.getArrow_ToDecision();
-
-		/**
 		 * The meta object literal for the '{@link activity.impl.EndImpl <em>End</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1415,38 +1174,58 @@ public interface ActivityPackage extends EPackage {
 		EClass END = eINSTANCE.getEnd();
 
 		/**
-		 * The meta object literal for the '<em><b>Incoming To End</b></em>' reference feature.
+		 * The meta object literal for the '{@link activity.impl.NodesWithoutJoinImpl <em>Nodes Without Join</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see activity.impl.NodesWithoutJoinImpl
+		 * @see activity.impl.ActivityPackageImpl#getNodesWithoutJoin()
 		 * @generated
 		 */
-		EReference END__INCOMING_TO_END = eINSTANCE.getEnd_IncomingToEnd();
+		EClass NODES_WITHOUT_JOIN = eINSTANCE.getNodesWithoutJoin();
 
 		/**
-		 * The meta object literal for the '{@link activity.impl.ConditionArrowImpl <em>Condition Arrow</em>}' class.
+		 * The meta object literal for the '<em><b>Incoming Start</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see activity.impl.ConditionArrowImpl
-		 * @see activity.impl.ActivityPackageImpl#getConditionArrow()
 		 * @generated
 		 */
-		EClass CONDITION_ARROW = eINSTANCE.getConditionArrow();
+		EReference NODES_WITHOUT_JOIN__INCOMING_START = eINSTANCE.getNodesWithoutJoin_IncomingStart();
 
 		/**
-		 * The meta object literal for the '<em><b>From Decision</b></em>' reference feature.
+		 * The meta object literal for the '{@link activity.impl.ArrowAfterStartImpl <em>Arrow After Start</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see activity.impl.ArrowAfterStartImpl
+		 * @see activity.impl.ActivityPackageImpl#getArrowAfterStart()
 		 * @generated
 		 */
-		EReference CONDITION_ARROW__FROM_DECISION = eINSTANCE.getConditionArrow_FromDecision();
+		EClass ARROW_AFTER_START = eINSTANCE.getArrowAfterStart();
 
 		/**
-		 * The meta object literal for the '<em><b>To Action From Decision</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CONDITION_ARROW__TO_ACTION_FROM_DECISION = eINSTANCE.getConditionArrow_ToActionFromDecision();
+		EReference ARROW_AFTER_START__SOURCE = eINSTANCE.getArrowAfterStart_Source();
+
+		/**
+		 * The meta object literal for the '<em><b>Target After Start</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ARROW_AFTER_START__TARGET_AFTER_START = eINSTANCE.getArrowAfterStart_TargetAfterStart();
+
+		/**
+		 * The meta object literal for the '{@link activity.impl.DecisionArrowImpl <em>Decision Arrow</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see activity.impl.DecisionArrowImpl
+		 * @see activity.impl.ActivityPackageImpl#getDecisionArrow()
+		 * @generated
+		 */
+		EClass DECISION_ARROW = eINSTANCE.getDecisionArrow();
 
 		/**
 		 * The meta object literal for the '<em><b>Condition</b></em>' attribute feature.
@@ -1454,7 +1233,51 @@ public interface ActivityPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CONDITION_ARROW__CONDITION = eINSTANCE.getConditionArrow_Condition();
+		EAttribute DECISION_ARROW__CONDITION = eINSTANCE.getDecisionArrow_Condition();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DECISION_ARROW__TARGET = eINSTANCE.getDecisionArrow_Target();
+
+		/**
+		 * The meta object literal for the '{@link activity.impl.AfterActionArrowImpl <em>After Action Arrow</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see activity.impl.AfterActionArrowImpl
+		 * @see activity.impl.ActivityPackageImpl#getAfterActionArrow()
+		 * @generated
+		 */
+		EClass AFTER_ACTION_ARROW = eINSTANCE.getAfterActionArrow();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference AFTER_ACTION_ARROW__TARGET = eINSTANCE.getAfterActionArrow_Target();
+
+		/**
+		 * The meta object literal for the '{@link activity.impl.SplitArrowImpl <em>Split Arrow</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see activity.impl.SplitArrowImpl
+		 * @see activity.impl.ActivityPackageImpl#getSplitArrow()
+		 * @generated
+		 */
+		EClass SPLIT_ARROW = eINSTANCE.getSplitArrow();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SPLIT_ARROW__TARGET = eINSTANCE.getSplitArrow_Target();
 
 	}
 
