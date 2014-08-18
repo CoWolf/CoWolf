@@ -2,9 +2,6 @@
  */
 package activity;
 
-import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,10 +11,8 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link activity.Action#getIncomingToAction <em>Incoming To Action</em>}</li>
  *   <li>{@link activity.Action#getAction <em>Action</em>}</li>
- *   <li>{@link activity.Action#getOutgoingFromActionAction <em>Outgoing From Action Action</em>}</li>
- *   <li>{@link activity.Action#getIncomingToActionFromDecision <em>Incoming To Action From Decision</em>}</li>
+ *   <li>{@link activity.Action#getOutgoing <em>Outgoing</em>}</li>
  * </ul>
  * </p>
  *
@@ -25,25 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Action extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Incoming To Action</b></em>' reference list.
-	 * The list contents are of type {@link activity.Arrow}.
-	 * It is bidirectional and its opposite is '{@link activity.Arrow#getToAction <em>To Action</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Incoming To Action</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Incoming To Action</em>' reference list.
-	 * @see activity.ActivityPackage#getAction_IncomingToAction()
-	 * @see activity.Arrow#getToAction
-	 * @model opposite="toAction" required="true"
-	 * @generated
-	 */
-	EList<Arrow> getIncomingToAction();
-
+public interface Action extends NodesWithoutJoin {
 	/**
 	 * Returns the value of the '<em><b>Action</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -71,49 +48,29 @@ public interface Action extends EObject {
 	void setAction(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Outgoing From Action Action</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link activity.Arrow#getFromAction <em>From Action</em>}'.
+	 * Returns the value of the '<em><b>Outgoing</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Outgoing From Action Action</em>' reference isn't clear,
+	 * If the meaning of the '<em>Outgoing</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Outgoing From Action Action</em>' reference.
-	 * @see #setOutgoingFromActionAction(Arrow)
-	 * @see activity.ActivityPackage#getAction_OutgoingFromActionAction()
-	 * @see activity.Arrow#getFromAction
-	 * @model opposite="fromAction" required="true"
+	 * @return the value of the '<em>Outgoing</em>' reference.
+	 * @see #setOutgoing(AfterActionArrow)
+	 * @see activity.ActivityPackage#getAction_Outgoing()
+	 * @model required="true"
 	 * @generated
 	 */
-	Arrow getOutgoingFromActionAction();
+	AfterActionArrow getOutgoing();
 
 	/**
-	 * Sets the value of the '{@link activity.Action#getOutgoingFromActionAction <em>Outgoing From Action Action</em>}' reference.
+	 * Sets the value of the '{@link activity.Action#getOutgoing <em>Outgoing</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Outgoing From Action Action</em>' reference.
-	 * @see #getOutgoingFromActionAction()
+	 * @param value the new value of the '<em>Outgoing</em>' reference.
+	 * @see #getOutgoing()
 	 * @generated
 	 */
-	void setOutgoingFromActionAction(Arrow value);
-
-	/**
-	 * Returns the value of the '<em><b>Incoming To Action From Decision</b></em>' reference list.
-	 * The list contents are of type {@link activity.ConditionArrow}.
-	 * It is bidirectional and its opposite is '{@link activity.ConditionArrow#getToActionFromDecision <em>To Action From Decision</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Incoming To Action From Decision</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Incoming To Action From Decision</em>' reference list.
-	 * @see activity.ActivityPackage#getAction_IncomingToActionFromDecision()
-	 * @see activity.ConditionArrow#getToActionFromDecision
-	 * @model opposite="toActionFromDecision" required="true"
-	 * @generated
-	 */
-	EList<ConditionArrow> getIncomingToActionFromDecision();
+	void setOutgoing(AfterActionArrow value);
 
 } // Action

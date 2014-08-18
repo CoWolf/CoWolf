@@ -4,23 +4,12 @@ package activity.provider;
 
 
 import activity.ActivityPackage;
-
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
 /**
  * This is the item provider adapter for a {@link activity.Decision} object.
@@ -29,13 +18,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
  * @generated
  */
 public class DecisionItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends NodesWithoutJoinItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -57,48 +40,25 @@ public class DecisionItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addOutgoingFromDecisionPropertyDescriptor(object);
-			addIncomingToDecisionPropertyDescriptor(object);
+			addOutgoingPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Outgoing From Decision feature.
+	 * This adds a property descriptor for the Outgoing feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addOutgoingFromDecisionPropertyDescriptor(Object object) {
+	protected void addOutgoingPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Decision_outgoingFromDecision_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Decision_outgoingFromDecision_feature", "_UI_Decision_type"),
-				 ActivityPackage.Literals.DECISION__OUTGOING_FROM_DECISION,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Incoming To Decision feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIncomingToDecisionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Decision_incomingToDecision_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Decision_incomingToDecision_feature", "_UI_Decision_type"),
-				 ActivityPackage.Literals.DECISION__INCOMING_TO_DECISION,
+				 getString("_UI_Decision_outgoing_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Decision_outgoing_feature", "_UI_Decision_type"),
+				 ActivityPackage.Literals.DECISION__OUTGOING,
 				 true,
 				 false,
 				 true,
@@ -153,17 +113,6 @@ public class DecisionItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return ActivityEditPlugin.INSTANCE;
 	}
 
 }

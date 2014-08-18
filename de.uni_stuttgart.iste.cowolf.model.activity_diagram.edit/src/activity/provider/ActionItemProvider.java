@@ -5,24 +5,13 @@ package activity.provider;
 
 import activity.Action;
 import activity.ActivityPackage;
-
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -32,13 +21,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class ActionItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends NodesWithoutJoinItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -60,34 +43,10 @@ public class ActionItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addIncomingToActionPropertyDescriptor(object);
 			addActionPropertyDescriptor(object);
-			addOutgoingFromActionActionPropertyDescriptor(object);
-			addIncomingToActionFromDecisionPropertyDescriptor(object);
+			addOutgoingPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Incoming To Action feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIncomingToActionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Action_incomingToAction_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Action_incomingToAction_feature", "_UI_Action_type"),
-				 ActivityPackage.Literals.ACTION__INCOMING_TO_ACTION,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -113,41 +72,19 @@ public class ActionItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Outgoing From Action Action feature.
+	 * This adds a property descriptor for the Outgoing feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addOutgoingFromActionActionPropertyDescriptor(Object object) {
+	protected void addOutgoingPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Action_outgoingFromActionAction_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Action_outgoingFromActionAction_feature", "_UI_Action_type"),
-				 ActivityPackage.Literals.ACTION__OUTGOING_FROM_ACTION_ACTION,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Incoming To Action From Decision feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIncomingToActionFromDecisionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Action_incomingToActionFromDecision_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Action_incomingToActionFromDecision_feature", "_UI_Action_type"),
-				 ActivityPackage.Literals.ACTION__INCOMING_TO_ACTION_FROM_DECISION,
+				 getString("_UI_Action_outgoing_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Action_outgoing_feature", "_UI_Action_type"),
+				 ActivityPackage.Literals.ACTION__OUTGOING,
 				 true,
 				 false,
 				 true,
@@ -211,17 +148,6 @@ public class ActionItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return ActivityEditPlugin.INSTANCE;
 	}
 
 }

@@ -84,10 +84,6 @@ public class ActivityAdapterFactory extends AdapterFactoryImpl {
 				return createDecisionAdapter();
 			}
 			@Override
-			public Adapter caseBar(Bar object) {
-				return createBarAdapter();
-			}
-			@Override
 			public Adapter caseSplit(Split object) {
 				return createSplitAdapter();
 			}
@@ -96,16 +92,28 @@ public class ActivityAdapterFactory extends AdapterFactoryImpl {
 				return createJoinAdapter();
 			}
 			@Override
-			public Adapter caseArrow(Arrow object) {
-				return createArrowAdapter();
-			}
-			@Override
 			public Adapter caseEnd(End object) {
 				return createEndAdapter();
 			}
 			@Override
-			public Adapter caseConditionArrow(ConditionArrow object) {
-				return createConditionArrowAdapter();
+			public Adapter caseNodesWithoutJoin(NodesWithoutJoin object) {
+				return createNodesWithoutJoinAdapter();
+			}
+			@Override
+			public Adapter caseArrowAfterStart(ArrowAfterStart object) {
+				return createArrowAfterStartAdapter();
+			}
+			@Override
+			public Adapter caseDecisionArrow(DecisionArrow object) {
+				return createDecisionArrowAdapter();
+			}
+			@Override
+			public Adapter caseAfterActionArrow(AfterActionArrow object) {
+				return createAfterActionArrowAdapter();
+			}
+			@Override
+			public Adapter caseSplitArrow(SplitArrow object) {
+				return createSplitArrowAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -184,20 +192,6 @@ public class ActivityAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link activity.Bar <em>Bar</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see activity.Bar
-	 * @generated
-	 */
-	public Adapter createBarAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link activity.Split <em>Split</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -226,20 +220,6 @@ public class ActivityAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link activity.Arrow <em>Arrow</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see activity.Arrow
-	 * @generated
-	 */
-	public Adapter createArrowAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link activity.End <em>End</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -254,16 +234,72 @@ public class ActivityAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link activity.ConditionArrow <em>Condition Arrow</em>}'.
+	 * Creates a new adapter for an object of class '{@link activity.NodesWithoutJoin <em>Nodes Without Join</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see activity.ConditionArrow
+	 * @see activity.NodesWithoutJoin
 	 * @generated
 	 */
-	public Adapter createConditionArrowAdapter() {
+	public Adapter createNodesWithoutJoinAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link activity.ArrowAfterStart <em>Arrow After Start</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see activity.ArrowAfterStart
+	 * @generated
+	 */
+	public Adapter createArrowAfterStartAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link activity.DecisionArrow <em>Decision Arrow</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see activity.DecisionArrow
+	 * @generated
+	 */
+	public Adapter createDecisionArrowAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link activity.AfterActionArrow <em>After Action Arrow</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see activity.AfterActionArrow
+	 * @generated
+	 */
+	public Adapter createAfterActionArrowAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link activity.SplitArrow <em>Split Arrow</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see activity.SplitArrow
+	 * @generated
+	 */
+	public Adapter createSplitArrowAdapter() {
 		return null;
 	}
 
