@@ -12,7 +12,6 @@ import activity.DecisionArrow;
 import activity.End;
 import activity.Join;
 import activity.JoinArrow;
-import activity.NodesWithoutJoin;
 import activity.Root;
 import activity.Split;
 import activity.SplitArrow;
@@ -48,7 +47,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link activity.impl.RootImpl#getSplit <em>Split</em>}</li>
  *   <li>{@link activity.impl.RootImpl#getJoin <em>Join</em>}</li>
  *   <li>{@link activity.impl.RootImpl#getStartArrow <em>Start Arrow</em>}</li>
- *   <li>{@link activity.impl.RootImpl#getNodesWithoutJoin <em>Nodes Without Join</em>}</li>
  *   <li>{@link activity.impl.RootImpl#getAfterActionArrow <em>After Action Arrow</em>}</li>
  *   <li>{@link activity.impl.RootImpl#getDecisionArrow <em>Decision Arrow</em>}</li>
  *   <li>{@link activity.impl.RootImpl#getSplitArrow <em>Split Arrow</em>}</li>
@@ -129,16 +127,6 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	 * @ordered
 	 */
 	protected ArrowAfterStart startArrow;
-
-	/**
-	 * The cached value of the '{@link #getNodesWithoutJoin() <em>Nodes Without Join</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNodesWithoutJoin()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<NodesWithoutJoin> nodesWithoutJoin;
 
 	/**
 	 * The cached value of the '{@link #getAfterActionArrow() <em>After Action Arrow</em>}' containment reference list.
@@ -391,18 +379,6 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<NodesWithoutJoin> getNodesWithoutJoin() {
-		if (nodesWithoutJoin == null) {
-			nodesWithoutJoin = new EObjectContainmentEList<NodesWithoutJoin>(NodesWithoutJoin.class, this, ActivityPackage.ROOT__NODES_WITHOUT_JOIN);
-		}
-		return nodesWithoutJoin;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<AfterActionArrow> getAfterActionArrow() {
 		if (afterActionArrow == null) {
 			afterActionArrow = new EObjectContainmentEList<AfterActionArrow>(AfterActionArrow.class, this, ActivityPackage.ROOT__AFTER_ACTION_ARROW);
@@ -480,8 +456,6 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 				return ((InternalEList<?>)getJoin()).basicRemove(otherEnd, msgs);
 			case ActivityPackage.ROOT__START_ARROW:
 				return basicSetStartArrow(null, msgs);
-			case ActivityPackage.ROOT__NODES_WITHOUT_JOIN:
-				return ((InternalEList<?>)getNodesWithoutJoin()).basicRemove(otherEnd, msgs);
 			case ActivityPackage.ROOT__AFTER_ACTION_ARROW:
 				return ((InternalEList<?>)getAfterActionArrow()).basicRemove(otherEnd, msgs);
 			case ActivityPackage.ROOT__DECISION_ARROW:
@@ -518,8 +492,6 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 				return getJoin();
 			case ActivityPackage.ROOT__START_ARROW:
 				return getStartArrow();
-			case ActivityPackage.ROOT__NODES_WITHOUT_JOIN:
-				return getNodesWithoutJoin();
 			case ActivityPackage.ROOT__AFTER_ACTION_ARROW:
 				return getAfterActionArrow();
 			case ActivityPackage.ROOT__DECISION_ARROW:
@@ -567,10 +539,6 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 				return;
 			case ActivityPackage.ROOT__START_ARROW:
 				setStartArrow((ArrowAfterStart)newValue);
-				return;
-			case ActivityPackage.ROOT__NODES_WITHOUT_JOIN:
-				getNodesWithoutJoin().clear();
-				getNodesWithoutJoin().addAll((Collection<? extends NodesWithoutJoin>)newValue);
 				return;
 			case ActivityPackage.ROOT__AFTER_ACTION_ARROW:
 				getAfterActionArrow().clear();
@@ -625,9 +593,6 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 			case ActivityPackage.ROOT__START_ARROW:
 				setStartArrow((ArrowAfterStart)null);
 				return;
-			case ActivityPackage.ROOT__NODES_WITHOUT_JOIN:
-				getNodesWithoutJoin().clear();
-				return;
 			case ActivityPackage.ROOT__AFTER_ACTION_ARROW:
 				getAfterActionArrow().clear();
 				return;
@@ -669,8 +634,6 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 				return join != null && !join.isEmpty();
 			case ActivityPackage.ROOT__START_ARROW:
 				return startArrow != null;
-			case ActivityPackage.ROOT__NODES_WITHOUT_JOIN:
-				return nodesWithoutJoin != null && !nodesWithoutJoin.isEmpty();
 			case ActivityPackage.ROOT__AFTER_ACTION_ARROW:
 				return afterActionArrow != null && !afterActionArrow.isEmpty();
 			case ActivityPackage.ROOT__DECISION_ARROW:

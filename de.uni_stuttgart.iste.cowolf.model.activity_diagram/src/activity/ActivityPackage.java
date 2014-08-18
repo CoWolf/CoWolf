@@ -130,22 +130,13 @@ public interface ActivityPackage extends EPackage {
 	int ROOT__START_ARROW = 6;
 
 	/**
-	 * The feature id for the '<em><b>Nodes Without Join</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROOT__NODES_WITHOUT_JOIN = 7;
-
-	/**
 	 * The feature id for the '<em><b>After Action Arrow</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT__AFTER_ACTION_ARROW = 8;
+	int ROOT__AFTER_ACTION_ARROW = 7;
 
 	/**
 	 * The feature id for the '<em><b>Decision Arrow</b></em>' containment reference list.
@@ -154,7 +145,7 @@ public interface ActivityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT__DECISION_ARROW = 9;
+	int ROOT__DECISION_ARROW = 8;
 
 	/**
 	 * The feature id for the '<em><b>Split Arrow</b></em>' containment reference list.
@@ -163,7 +154,7 @@ public interface ActivityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT__SPLIT_ARROW = 10;
+	int ROOT__SPLIT_ARROW = 9;
 
 	/**
 	 * The feature id for the '<em><b>Join Arrow</b></em>' containment reference list.
@@ -172,7 +163,7 @@ public interface ActivityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT__JOIN_ARROW = 11;
+	int ROOT__JOIN_ARROW = 10;
 
 	/**
 	 * The feature id for the '<em><b>Arrow After Join</b></em>' containment reference list.
@@ -181,7 +172,7 @@ public interface ActivityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT__ARROW_AFTER_JOIN = 12;
+	int ROOT__ARROW_AFTER_JOIN = 11;
 
 	/**
 	 * The number of structural features of the '<em>Root</em>' class.
@@ -190,7 +181,7 @@ public interface ActivityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT_FEATURE_COUNT = 13;
+	int ROOT_FEATURE_COUNT = 12;
 
 	/**
 	 * The number of operations of the '<em>Root</em>' class.
@@ -277,22 +268,13 @@ public interface ActivityPackage extends EPackage {
 	int NODES_WITHOUT_JOIN = 7;
 
 	/**
-	 * The feature id for the '<em><b>Join</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODES_WITHOUT_JOIN__JOIN = NODES_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>Nodes Without Join</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODES_WITHOUT_JOIN_FEATURE_COUNT = NODES_FEATURE_COUNT + 1;
+	int NODES_WITHOUT_JOIN_FEATURE_COUNT = NODES_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Nodes Without Join</em>' class.
@@ -312,15 +294,6 @@ public interface ActivityPackage extends EPackage {
 	 * @generated
 	 */
 	int ACTION = 2;
-
-	/**
-	 * The feature id for the '<em><b>Join</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__JOIN = NODES_WITHOUT_JOIN__JOIN;
 
 	/**
 	 * The feature id for the '<em><b>Action</b></em>' attribute.
@@ -369,15 +342,6 @@ public interface ActivityPackage extends EPackage {
 	int DECISION = 3;
 
 	/**
-	 * The feature id for the '<em><b>Join</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DECISION__JOIN = NODES_WITHOUT_JOIN__JOIN;
-
-	/**
 	 * The feature id for the '<em><b>Outgoing</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -413,15 +377,6 @@ public interface ActivityPackage extends EPackage {
 	 * @generated
 	 */
 	int SPLIT = 4;
-
-	/**
-	 * The feature id for the '<em><b>Join</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPLIT__JOIN = NODES_WITHOUT_JOIN__JOIN;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing</b></em>' reference list.
@@ -496,15 +451,6 @@ public interface ActivityPackage extends EPackage {
 	 * @generated
 	 */
 	int END = 6;
-
-	/**
-	 * The feature id for the '<em><b>Join</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int END__JOIN = NODES_WITHOUT_JOIN__JOIN;
 
 	/**
 	 * The number of structural features of the '<em>End</em>' class.
@@ -853,17 +799,6 @@ public interface ActivityPackage extends EPackage {
 	EReference getRoot_StartArrow();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link activity.Root#getNodesWithoutJoin <em>Nodes Without Join</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Nodes Without Join</em>'.
-	 * @see activity.Root#getNodesWithoutJoin()
-	 * @see #getRoot()
-	 * @generated
-	 */
-	EReference getRoot_NodesWithoutJoin();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link activity.Root#getAfterActionArrow <em>After Action Arrow</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1053,17 +988,6 @@ public interface ActivityPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getNodesWithoutJoin();
-
-	/**
-	 * Returns the meta object for the reference list '{@link activity.NodesWithoutJoin#getJoin <em>Join</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Join</em>'.
-	 * @see activity.NodesWithoutJoin#getJoin()
-	 * @see #getNodesWithoutJoin()
-	 * @generated
-	 */
-	EReference getNodesWithoutJoin_Join();
 
 	/**
 	 * Returns the meta object for class '{@link activity.ArrowAfterStart <em>Arrow After Start</em>}'.
@@ -1313,14 +1237,6 @@ public interface ActivityPackage extends EPackage {
 		EReference ROOT__START_ARROW = eINSTANCE.getRoot_StartArrow();
 
 		/**
-		 * The meta object literal for the '<em><b>Nodes Without Join</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ROOT__NODES_WITHOUT_JOIN = eINSTANCE.getRoot_NodesWithoutJoin();
-
-		/**
 		 * The meta object literal for the '<em><b>After Action Arrow</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1477,14 +1393,6 @@ public interface ActivityPackage extends EPackage {
 		 * @generated
 		 */
 		EClass NODES_WITHOUT_JOIN = eINSTANCE.getNodesWithoutJoin();
-
-		/**
-		 * The meta object literal for the '<em><b>Join</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference NODES_WITHOUT_JOIN__JOIN = eINSTANCE.getNodesWithoutJoin_Join();
 
 		/**
 		 * The meta object literal for the '{@link activity.impl.ArrowAfterStartImpl <em>Arrow After Start</em>}' class.
