@@ -58,6 +58,7 @@ public class StartItemProvider
 			super.getPropertyDescriptors(object);
 
 			addOutgoingFromStartPropertyDescriptor(object);
+			addSuccessorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -76,6 +77,28 @@ public class StartItemProvider
 				 getString("_UI_Start_outgoingFromStart_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Start_outgoingFromStart_feature", "_UI_Start_type"),
 				 ActivityPackage.Literals.START__OUTGOING_FROM_START,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Successor feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSuccessorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Start_successor_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Start_successor_feature", "_UI_Start_type"),
+				 ActivityPackage.Literals.START__SUCCESSOR,
 				 true,
 				 false,
 				 true,

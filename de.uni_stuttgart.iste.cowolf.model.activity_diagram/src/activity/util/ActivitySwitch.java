@@ -81,50 +81,64 @@ public class ActivitySwitch<T> extends Switch<T> {
 			case ActivityPackage.ACTION: {
 				Action action = (Action)theEObject;
 				T result = caseAction(action);
+				if (result == null) result = caseNodesWithoutJoin(action);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ActivityPackage.DECISION: {
 				Decision decision = (Decision)theEObject;
 				T result = caseDecision(decision);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ActivityPackage.BAR: {
-				Bar bar = (Bar)theEObject;
-				T result = caseBar(bar);
+				if (result == null) result = caseNodesWithoutJoin(decision);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ActivityPackage.SPLIT: {
 				Split split = (Split)theEObject;
 				T result = caseSplit(split);
-				if (result == null) result = caseBar(split);
+				if (result == null) result = caseNodesWithoutJoin(split);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ActivityPackage.JOIN: {
 				Join join = (Join)theEObject;
 				T result = caseJoin(join);
-				if (result == null) result = caseBar(join);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ActivityPackage.ARROW: {
-				Arrow arrow = (Arrow)theEObject;
-				T result = caseArrow(arrow);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ActivityPackage.END: {
 				End end = (End)theEObject;
 				T result = caseEnd(end);
+				if (result == null) result = caseNodesWithoutJoin(end);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ActivityPackage.CONDITION_ARROW: {
-				ConditionArrow conditionArrow = (ConditionArrow)theEObject;
-				T result = caseConditionArrow(conditionArrow);
+			case ActivityPackage.NODES_WITHOUT_JOIN: {
+				NodesWithoutJoin nodesWithoutJoin = (NodesWithoutJoin)theEObject;
+				T result = caseNodesWithoutJoin(nodesWithoutJoin);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ActivityPackage.ARROW_AFTER_START: {
+				ArrowAfterStart arrowAfterStart = (ArrowAfterStart)theEObject;
+				T result = caseArrowAfterStart(arrowAfterStart);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ActivityPackage.DECISION_ARROW: {
+				DecisionArrow decisionArrow = (DecisionArrow)theEObject;
+				T result = caseDecisionArrow(decisionArrow);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ActivityPackage.AFTER_ACTION_ARROW: {
+				AfterActionArrow afterActionArrow = (AfterActionArrow)theEObject;
+				T result = caseAfterActionArrow(afterActionArrow);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ActivityPackage.SPLIT_ARROW: {
+				SplitArrow splitArrow = (SplitArrow)theEObject;
+				T result = caseSplitArrow(splitArrow);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -193,21 +207,6 @@ public class ActivitySwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Bar</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Bar</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseBar(Bar object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Split</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -238,21 +237,6 @@ public class ActivitySwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Arrow</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Arrow</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseArrow(Arrow object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>End</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -268,17 +252,77 @@ public class ActivitySwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Condition Arrow</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Nodes Without Join</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Condition Arrow</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Nodes Without Join</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseConditionArrow(ConditionArrow object) {
+	public T caseNodesWithoutJoin(NodesWithoutJoin object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Arrow After Start</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Arrow After Start</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseArrowAfterStart(ArrowAfterStart object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Decision Arrow</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Decision Arrow</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDecisionArrow(DecisionArrow object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>After Action Arrow</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>After Action Arrow</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAfterActionArrow(AfterActionArrow object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Split Arrow</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Split Arrow</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSplitArrow(SplitArrow object) {
 		return null;
 	}
 
