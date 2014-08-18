@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated NOT componet_diagram -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="de.uni_stuttgart.iste.cowolf.model.component_diagram.emf.presentation.Component_diagramemfModelWizardID"
+            name="%_UI_Component_diagramemfModelWizard_label"
+            class="de.uni_stuttgart.iste.cowolf.model.component_diagram.emf.presentation.Component_diagramemfModelWizard"
+            category="de.uni_stuttgart.iste.cowolf.ui.category.wizards.main/de.uni_stuttgart.iste.cowolf.ui.category.wizards.models"
+            icon="icons/full/obj16/Component_diagramemfModelFile.gif">
+         <description>%_UI_Component_diagramemfModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated componet_diagram -->
+      <editor
+            id="de.uni_stuttgart.iste.cowolf.model.component_diagram.emf.presentation.Component_diagramemfEditorID"
+            name="%_UI_Component_diagramemfEditor_label"
+            icon="icons/full/obj16/Component_diagramemfModelFile.gif"
+            extensions="component_diagramemf"
+            class="de.uni_stuttgart.iste.cowolf.model.component_diagram.emf.presentation.Component_diagramemfEditor"
+            contributorClass="de.uni_stuttgart.iste.cowolf.model.component_diagram.emf.presentation.Component_diagramemfActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
