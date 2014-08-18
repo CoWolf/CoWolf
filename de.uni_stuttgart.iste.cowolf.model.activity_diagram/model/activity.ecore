@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="activity" nsURI="http://activity/1.0" nsPrefix="activity">
-  <eClassifiers xsi:type="ecore:EClass" name="Root">
+  <eClassifiers xsi:type="ecore:EClass" name="Root" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
     <eStructuralFeatures xsi:type="ecore:EReference" name="start" lowerBound="1" eType="#//Start"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="action" upperBound="-1"
@@ -27,55 +27,55 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="ArrowAfterJoin" upperBound="-1"
         eType="#//ArrowAfterJoin" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Start">
+  <eClassifiers xsi:type="ecore:EClass" name="Start" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
     <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingFromStart" lowerBound="1"
         eType="#//ArrowAfterStart"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Action" eSuperTypes="#//NodesWithoutJoin">
+  <eClassifiers xsi:type="ecore:EClass" name="Action" eSuperTypes="#//NodesWithoutJoin ../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Action" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outgoing" lowerBound="1"
         eType="#//AfterActionArrow"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Decision" eSuperTypes="#//NodesWithoutJoin">
+  <eClassifiers xsi:type="ecore:EClass" name="Decision" eSuperTypes="#//NodesWithoutJoin ../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
     <eStructuralFeatures xsi:type="ecore:EReference" name="outgoing" lowerBound="2"
         upperBound="-1" eType="#//DecisionArrow"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Split" eSuperTypes="#//NodesWithoutJoin">
+  <eClassifiers xsi:type="ecore:EClass" name="Split" eSuperTypes="#//NodesWithoutJoin ../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
     <eStructuralFeatures xsi:type="ecore:EReference" name="outgoing" lowerBound="2"
         upperBound="-1" eType="#//SplitArrow"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Join" eSuperTypes="#//Nodes">
+  <eClassifiers xsi:type="ecore:EClass" name="Join" eSuperTypes="#//Nodes ../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
     <eStructuralFeatures xsi:type="ecore:EReference" name="outgoing" lowerBound="1"
         eType="#//ArrowAfterJoin"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="End" eSuperTypes="#//NodesWithoutJoin"/>
-  <eClassifiers xsi:type="ecore:EClass" name="NodesWithoutJoin" abstract="true" eSuperTypes="#//Nodes"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ArrowAfterStart">
+  <eClassifiers xsi:type="ecore:EClass" name="End" eSuperTypes="#//NodesWithoutJoin ../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NodesWithoutJoin" abstract="true" eSuperTypes="#//Nodes ../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ArrowAfterStart" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
         eType="#//NodesWithoutJoin"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DecisionArrow">
+  <eClassifiers xsi:type="ecore:EClass" name="DecisionArrow" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Condition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
         eType="#//NodesWithoutJoin"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AfterActionArrow">
+  <eClassifiers xsi:type="ecore:EClass" name="AfterActionArrow" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
         eType="#//NodesWithoutJoin"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SplitArrow">
+  <eClassifiers xsi:type="ecore:EClass" name="SplitArrow" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
         eType="#//NodesWithoutJoin"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="JoinArrow">
+  <eClassifiers xsi:type="ecore:EClass" name="JoinArrow" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="2"
         upperBound="-1" eType="#//NodesWithoutJoin"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
         eType="#//Join"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Nodes" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ArrowAfterJoin">
+  <eClassifiers xsi:type="ecore:EClass" name="Nodes" abstract="true" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ArrowAfterJoin" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
         eType="#//Nodes"/>
   </eClassifiers>
