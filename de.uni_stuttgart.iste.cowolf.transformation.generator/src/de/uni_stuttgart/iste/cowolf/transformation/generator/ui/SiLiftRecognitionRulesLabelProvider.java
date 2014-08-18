@@ -1,13 +1,13 @@
 package de.uni_stuttgart.iste.cowolf.transformation.generator.ui;
 
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.henshin.model.Module;
+import org.eclipse.emf.henshin.model.resource.HenshinResourceSet;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.swt.graphics.Image;
 import org.sidiff.difference.rulebase.RecognitionRule;
 import org.sidiff.difference.rulebase.extension.IRuleBase;
-import org.sidiff.difference.rulebase.impl.RecognitionRuleImpl;
-import org.silift.common.util.emf.EMFStorage;
 
 public class SiLiftRecognitionRulesLabelProvider implements ILabelProvider {
 
@@ -48,24 +48,41 @@ public class SiLiftRecognitionRulesLabelProvider implements ILabelProvider {
 			return ruleBase.getName();
 		} else if (element instanceof RecognitionRule) {
 			RecognitionRule recognitionRule = (RecognitionRule) element;
-			
+
 			Module recognitionModule = recognitionRule.getRecognitionModule();
 
 			if (recognitionModule != null) {
 
-				String recognitionRulePlatformPath = recognitionModule
-						.eResource().getURI().toString();
-				String recognitionRuleName = recognitionRulePlatformPath
-						.substring(
-								recognitionRulePlatformPath.lastIndexOf('/') + 1,
-								recognitionRulePlatformPath
-										.lastIndexOf("_execute"));
-				return recognitionRuleName;
+				URI recognitionRulePlatformURI = recognitionModule.eResource()
+						.getURI();
+
+				System.out.println("+++" + recognitionRulePlatformURI);
+
+				HenshinResourceSet rulesResourceSet = new HenshinResourceSet();
+
+				// System.out.println("test1");
+				//
+				// Module module = (Module) EMFStorage
+				// .eLoad(recognitionRulePlatformURI);
+
+				Module module = rulesResourceSet.getModule(
+						recognitionRulePlatformURI, true);
+
+				System.out.println("test2");
+
+				System.out.println("++++" + module.eAllContents().next());
+				System.out.println("----" + module.eAllContents().next());
+				// String recognitionRuleName = recognitionRulePlatformPath
+				// .substring(
+				// recognitionRulePlatformPath.lastIndexOf('/') + 1,
+				// recognitionRulePlatformPath
+				// .lastIndexOf("_execute"));
+				return "sfdf";
 
 			}
 		}
-		
+
 		return null;
-		
+
 	}
 }
