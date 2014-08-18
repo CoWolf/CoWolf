@@ -139,7 +139,12 @@ public class Transform extends AbstractHandler {
 		URI uri = URI.createPlatformResourceURI(model.getFullPath().toString(),
 				true);
 		ResourceSet resourceSet = new ResourceSetImpl();
-		Resource modelResource = resourceSet.getResource(uri, true);
-		return modelResource;
+		try {
+			Resource modelResource = resourceSet.getResource(uri, true);
+			return modelResource;
+		} catch (Exception exc) {
+		}
+
+		return null;
 	}
 }
