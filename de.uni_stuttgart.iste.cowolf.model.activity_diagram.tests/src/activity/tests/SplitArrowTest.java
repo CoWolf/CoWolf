@@ -3,7 +3,7 @@
 package activity.tests;
 
 import activity.ActivityFactory;
-import activity.Arrow;
+import activity.SplitArrow;
 
 import junit.framework.TestCase;
 
@@ -11,19 +11,19 @@ import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Arrow</b></em>'.
+ * A test case for the model object '<em><b>Split Arrow</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class ArrowTest extends TestCase {
+public class SplitArrowTest extends TestCase {
 
 	/**
-	 * The fixture for this Arrow test case.
+	 * The fixture for this Split Arrow test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Arrow fixture = null;
+	protected SplitArrow fixture = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -31,36 +31,36 @@ public class ArrowTest extends TestCase {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(ArrowTest.class);
+		TestRunner.run(SplitArrowTest.class);
 	}
 
 	/**
-	 * Constructs a new Arrow test case with the given name.
+	 * Constructs a new Split Arrow test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ArrowTest(String name) {
+	public SplitArrowTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Sets the fixture for this Arrow test case.
+	 * Sets the fixture for this Split Arrow test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void setFixture(Arrow fixture) {
+	protected void setFixture(SplitArrow fixture) {
 		this.fixture = fixture;
 	}
 
 	/**
-	 * Returns the fixture for this Arrow test case.
+	 * Returns the fixture for this Split Arrow test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Arrow getFixture() {
+	protected SplitArrow getFixture() {
 		return fixture;
 	}
 
@@ -72,7 +72,7 @@ public class ArrowTest extends TestCase {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(ActivityFactory.eINSTANCE.createArrow());
+		setFixture(ActivityFactory.eINSTANCE.createSplitArrow());
 	}
 
 	/**
@@ -86,4 +86,4 @@ public class ArrowTest extends TestCase {
 		setFixture(null);
 	}
 
-} //ArrowTest
+} //SplitArrowTest
