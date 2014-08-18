@@ -4,22 +4,33 @@ package activity.impl;
 
 import activity.Action;
 import activity.ActivityPackage;
+import activity.AfterActionArrow;
+import activity.ArrowAfterJoin;
 import activity.ArrowAfterStart;
 import activity.Decision;
+import activity.DecisionArrow;
 import activity.End;
 import activity.Join;
+import activity.JoinArrow;
 import activity.NodesWithoutJoin;
 import activity.Root;
 import activity.Split;
+import activity.SplitArrow;
 import activity.Start;
+
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -38,6 +49,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link activity.impl.RootImpl#getJoin <em>Join</em>}</li>
  *   <li>{@link activity.impl.RootImpl#getStartArrow <em>Start Arrow</em>}</li>
  *   <li>{@link activity.impl.RootImpl#getNodesWithoutJoin <em>Nodes Without Join</em>}</li>
+ *   <li>{@link activity.impl.RootImpl#getAfterActionArrow <em>After Action Arrow</em>}</li>
+ *   <li>{@link activity.impl.RootImpl#getDecisionArrow <em>Decision Arrow</em>}</li>
+ *   <li>{@link activity.impl.RootImpl#getSplitArrow <em>Split Arrow</em>}</li>
+ *   <li>{@link activity.impl.RootImpl#getJoinArrow <em>Join Arrow</em>}</li>
+ *   <li>{@link activity.impl.RootImpl#getArrowAfterJoin <em>Arrow After Join</em>}</li>
  * </ul>
  * </p>
  *
@@ -123,6 +139,56 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	 * @ordered
 	 */
 	protected EList<NodesWithoutJoin> nodesWithoutJoin;
+
+	/**
+	 * The cached value of the '{@link #getAfterActionArrow() <em>After Action Arrow</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAfterActionArrow()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<AfterActionArrow> afterActionArrow;
+
+	/**
+	 * The cached value of the '{@link #getDecisionArrow() <em>Decision Arrow</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDecisionArrow()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DecisionArrow> decisionArrow;
+
+	/**
+	 * The cached value of the '{@link #getSplitArrow() <em>Split Arrow</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSplitArrow()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<SplitArrow> splitArrow;
+
+	/**
+	 * The cached value of the '{@link #getJoinArrow() <em>Join Arrow</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getJoinArrow()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<JoinArrow> joinArrow;
+
+	/**
+	 * The cached value of the '{@link #getArrowAfterJoin() <em>Arrow After Join</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getArrowAfterJoin()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ArrowAfterJoin> arrowAfterJoin;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -337,6 +403,66 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<AfterActionArrow> getAfterActionArrow() {
+		if (afterActionArrow == null) {
+			afterActionArrow = new EObjectContainmentEList<AfterActionArrow>(AfterActionArrow.class, this, ActivityPackage.ROOT__AFTER_ACTION_ARROW);
+		}
+		return afterActionArrow;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<DecisionArrow> getDecisionArrow() {
+		if (decisionArrow == null) {
+			decisionArrow = new EObjectContainmentEList<DecisionArrow>(DecisionArrow.class, this, ActivityPackage.ROOT__DECISION_ARROW);
+		}
+		return decisionArrow;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<SplitArrow> getSplitArrow() {
+		if (splitArrow == null) {
+			splitArrow = new EObjectContainmentEList<SplitArrow>(SplitArrow.class, this, ActivityPackage.ROOT__SPLIT_ARROW);
+		}
+		return splitArrow;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<JoinArrow> getJoinArrow() {
+		if (joinArrow == null) {
+			joinArrow = new EObjectContainmentEList<JoinArrow>(JoinArrow.class, this, ActivityPackage.ROOT__JOIN_ARROW);
+		}
+		return joinArrow;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ArrowAfterJoin> getArrowAfterJoin() {
+		if (arrowAfterJoin == null) {
+			arrowAfterJoin = new EObjectContainmentEList<ArrowAfterJoin>(ArrowAfterJoin.class, this, ActivityPackage.ROOT__ARROW_AFTER_JOIN);
+		}
+		return arrowAfterJoin;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -356,6 +482,16 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 				return basicSetStartArrow(null, msgs);
 			case ActivityPackage.ROOT__NODES_WITHOUT_JOIN:
 				return ((InternalEList<?>)getNodesWithoutJoin()).basicRemove(otherEnd, msgs);
+			case ActivityPackage.ROOT__AFTER_ACTION_ARROW:
+				return ((InternalEList<?>)getAfterActionArrow()).basicRemove(otherEnd, msgs);
+			case ActivityPackage.ROOT__DECISION_ARROW:
+				return ((InternalEList<?>)getDecisionArrow()).basicRemove(otherEnd, msgs);
+			case ActivityPackage.ROOT__SPLIT_ARROW:
+				return ((InternalEList<?>)getSplitArrow()).basicRemove(otherEnd, msgs);
+			case ActivityPackage.ROOT__JOIN_ARROW:
+				return ((InternalEList<?>)getJoinArrow()).basicRemove(otherEnd, msgs);
+			case ActivityPackage.ROOT__ARROW_AFTER_JOIN:
+				return ((InternalEList<?>)getArrowAfterJoin()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -384,6 +520,16 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 				return getStartArrow();
 			case ActivityPackage.ROOT__NODES_WITHOUT_JOIN:
 				return getNodesWithoutJoin();
+			case ActivityPackage.ROOT__AFTER_ACTION_ARROW:
+				return getAfterActionArrow();
+			case ActivityPackage.ROOT__DECISION_ARROW:
+				return getDecisionArrow();
+			case ActivityPackage.ROOT__SPLIT_ARROW:
+				return getSplitArrow();
+			case ActivityPackage.ROOT__JOIN_ARROW:
+				return getJoinArrow();
+			case ActivityPackage.ROOT__ARROW_AFTER_JOIN:
+				return getArrowAfterJoin();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -426,6 +572,26 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 				getNodesWithoutJoin().clear();
 				getNodesWithoutJoin().addAll((Collection<? extends NodesWithoutJoin>)newValue);
 				return;
+			case ActivityPackage.ROOT__AFTER_ACTION_ARROW:
+				getAfterActionArrow().clear();
+				getAfterActionArrow().addAll((Collection<? extends AfterActionArrow>)newValue);
+				return;
+			case ActivityPackage.ROOT__DECISION_ARROW:
+				getDecisionArrow().clear();
+				getDecisionArrow().addAll((Collection<? extends DecisionArrow>)newValue);
+				return;
+			case ActivityPackage.ROOT__SPLIT_ARROW:
+				getSplitArrow().clear();
+				getSplitArrow().addAll((Collection<? extends SplitArrow>)newValue);
+				return;
+			case ActivityPackage.ROOT__JOIN_ARROW:
+				getJoinArrow().clear();
+				getJoinArrow().addAll((Collection<? extends JoinArrow>)newValue);
+				return;
+			case ActivityPackage.ROOT__ARROW_AFTER_JOIN:
+				getArrowAfterJoin().clear();
+				getArrowAfterJoin().addAll((Collection<? extends ArrowAfterJoin>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -462,6 +628,21 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 			case ActivityPackage.ROOT__NODES_WITHOUT_JOIN:
 				getNodesWithoutJoin().clear();
 				return;
+			case ActivityPackage.ROOT__AFTER_ACTION_ARROW:
+				getAfterActionArrow().clear();
+				return;
+			case ActivityPackage.ROOT__DECISION_ARROW:
+				getDecisionArrow().clear();
+				return;
+			case ActivityPackage.ROOT__SPLIT_ARROW:
+				getSplitArrow().clear();
+				return;
+			case ActivityPackage.ROOT__JOIN_ARROW:
+				getJoinArrow().clear();
+				return;
+			case ActivityPackage.ROOT__ARROW_AFTER_JOIN:
+				getArrowAfterJoin().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -490,6 +671,16 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 				return startArrow != null;
 			case ActivityPackage.ROOT__NODES_WITHOUT_JOIN:
 				return nodesWithoutJoin != null && !nodesWithoutJoin.isEmpty();
+			case ActivityPackage.ROOT__AFTER_ACTION_ARROW:
+				return afterActionArrow != null && !afterActionArrow.isEmpty();
+			case ActivityPackage.ROOT__DECISION_ARROW:
+				return decisionArrow != null && !decisionArrow.isEmpty();
+			case ActivityPackage.ROOT__SPLIT_ARROW:
+				return splitArrow != null && !splitArrow.isEmpty();
+			case ActivityPackage.ROOT__JOIN_ARROW:
+				return joinArrow != null && !joinArrow.isEmpty();
+			case ActivityPackage.ROOT__ARROW_AFTER_JOIN:
+				return arrowAfterJoin != null && !arrowAfterJoin.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

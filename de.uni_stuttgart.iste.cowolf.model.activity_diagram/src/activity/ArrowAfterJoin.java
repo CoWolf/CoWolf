@@ -6,21 +6,21 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Arrow After Start</b></em>'.
+ * A representation of the model object '<em><b>Arrow After Join</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link activity.ArrowAfterStart#getTarget <em>Target</em>}</li>
+ *   <li>{@link activity.ArrowAfterJoin#getTarget <em>Target</em>}</li>
  * </ul>
  * </p>
  *
- * @see activity.ActivityPackage#getArrowAfterStart()
+ * @see activity.ActivityPackage#getArrowAfterJoin()
  * @model
  * @generated
  */
-public interface ArrowAfterStart extends EObject {
+public interface ArrowAfterJoin extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Target</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -30,21 +30,21 @@ public interface ArrowAfterStart extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Target</em>' reference.
-	 * @see #setTarget(NodesWithoutJoin)
-	 * @see activity.ActivityPackage#getArrowAfterStart_Target()
+	 * @see #setTarget(Nodes)
+	 * @see activity.ActivityPackage#getArrowAfterJoin_Target()
 	 * @model required="true"
 	 * @generated
 	 */
-	NodesWithoutJoin getTarget();
+	Nodes getTarget();
 
 	/**
-	 * Sets the value of the '{@link activity.ArrowAfterStart#getTarget <em>Target</em>}' reference.
+	 * Sets the value of the '{@link activity.ArrowAfterJoin#getTarget <em>Target</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Target</em>' reference.
 	 * @see #getTarget()
 	 * @generated
 	 */
-	void setTarget(NodesWithoutJoin value);
+	void setTarget(Nodes value);
 
-} // ArrowAfterStart
+} // ArrowAfterJoin

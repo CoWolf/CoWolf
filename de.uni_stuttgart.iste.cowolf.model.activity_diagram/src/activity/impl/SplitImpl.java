@@ -5,9 +5,13 @@ package activity.impl;
 import activity.ActivityPackage;
 import activity.Split;
 import activity.SplitArrow;
+
 import java.util.Collection;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**

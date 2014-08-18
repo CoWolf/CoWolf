@@ -14,5 +14,4 @@ package activity;
  * @generated
  */
 public interface End extends NodesWithoutJoin {
-
 } // End

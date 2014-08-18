@@ -5,9 +5,13 @@ package activity.impl;
 import activity.ActivityPackage;
 import activity.Decision;
 import activity.DecisionArrow;
+
 import java.util.Collection;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**

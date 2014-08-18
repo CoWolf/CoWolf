@@ -3,8 +3,6 @@
 package activity.provider;
 
 
-import activity.ActivityPackage;
-
 import java.util.Collection;
 import java.util.List;
 
@@ -13,7 +11,6 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -23,12 +20,12 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
 /**
- * This is the item provider adapter for a {@link activity.Start} object.
+ * This is the item provider adapter for a {@link activity.Nodes} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class StartItemProvider 
+public class NodesItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -42,7 +39,7 @@ public class StartItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public StartItemProvider(AdapterFactory adapterFactory) {
+	public NodesItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -57,42 +54,8 @@ public class StartItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addOutgoingFromStartPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Outgoing From Start feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addOutgoingFromStartPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Start_outgoingFromStart_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Start_outgoingFromStart_feature", "_UI_Start_type"),
-				 ActivityPackage.Literals.START__OUTGOING_FROM_START,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns Start.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Start"));
 	}
 
 	/**
@@ -103,7 +66,7 @@ public class StartItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Start_type");
+		return getString("_UI_Nodes_type");
 	}
 	
 

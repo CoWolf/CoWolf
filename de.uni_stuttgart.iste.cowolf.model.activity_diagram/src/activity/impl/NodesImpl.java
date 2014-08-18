@@ -3,26 +3,28 @@
 package activity.impl;
 
 import activity.ActivityPackage;
-import activity.End;
+import activity.Nodes;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>End</b></em>'.
+ * An implementation of the model object '<em><b>Nodes</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public class EndImpl extends NodesWithoutJoinImpl implements End {
+public abstract class NodesImpl extends MinimalEObjectImpl.Container implements Nodes {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EndImpl() {
+	protected NodesImpl() {
 		super();
 	}
 
@@ -33,7 +35,7 @@ public class EndImpl extends NodesWithoutJoinImpl implements End {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ActivityPackage.Literals.END;
+		return ActivityPackage.Literals.NODES;
 	}
 
-} //EndImpl
+} //NodesImpl
