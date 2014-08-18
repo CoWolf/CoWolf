@@ -4,27 +4,22 @@ package activity.impl;
 
 import activity.Action;
 import activity.ActivityPackage;
-import activity.Arrow;
-import activity.Bar;
-import activity.ConditionArrow;
+import activity.ArrowAfterStart;
 import activity.Decision;
 import activity.End;
+import activity.Join;
+import activity.NodesWithoutJoin;
 import activity.Root;
+import activity.Split;
 import activity.Start;
-
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -38,10 +33,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link activity.impl.RootImpl#getStart <em>Start</em>}</li>
  *   <li>{@link activity.impl.RootImpl#getAction <em>Action</em>}</li>
  *   <li>{@link activity.impl.RootImpl#getDecision <em>Decision</em>}</li>
- *   <li>{@link activity.impl.RootImpl#getBar <em>Bar</em>}</li>
- *   <li>{@link activity.impl.RootImpl#getTransition <em>Transition</em>}</li>
  *   <li>{@link activity.impl.RootImpl#getEnd <em>End</em>}</li>
- *   <li>{@link activity.impl.RootImpl#getConditionArrow <em>Condition Arrow</em>}</li>
+ *   <li>{@link activity.impl.RootImpl#getSplit <em>Split</em>}</li>
+ *   <li>{@link activity.impl.RootImpl#getJoin <em>Join</em>}</li>
+ *   <li>{@link activity.impl.RootImpl#getStartArrow <em>Start Arrow</em>}</li>
+ *   <li>{@link activity.impl.RootImpl#getNodesWithoutJoin <em>Nodes Without Join</em>}</li>
  * </ul>
  * </p>
  *
@@ -79,26 +75,6 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	protected EList<Decision> decision;
 
 	/**
-	 * The cached value of the '{@link #getBar() <em>Bar</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getBar()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Bar> bar;
-
-	/**
-	 * The cached value of the '{@link #getTransition() <em>Transition</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTransition()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Arrow> transition;
-
-	/**
 	 * The cached value of the '{@link #getEnd() <em>End</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -109,14 +85,44 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	protected End end;
 
 	/**
-	 * The cached value of the '{@link #getConditionArrow() <em>Condition Arrow</em>}' containment reference list.
+	 * The cached value of the '{@link #getSplit() <em>Split</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getConditionArrow()
+	 * @see #getSplit()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ConditionArrow> conditionArrow;
+	protected EList<Split> split;
+
+	/**
+	 * The cached value of the '{@link #getJoin() <em>Join</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getJoin()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Join> join;
+
+	/**
+	 * The cached value of the '{@link #getStartArrow() <em>Start Arrow</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStartArrow()
+	 * @generated
+	 * @ordered
+	 */
+	protected ArrowAfterStart startArrow;
+
+	/**
+	 * The cached value of the '{@link #getNodesWithoutJoin() <em>Nodes Without Join</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNodesWithoutJoin()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<NodesWithoutJoin> nodesWithoutJoin;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -209,30 +215,6 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Bar> getBar() {
-		if (bar == null) {
-			bar = new EObjectContainmentEList<Bar>(Bar.class, this, ActivityPackage.ROOT__BAR);
-		}
-		return bar;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Arrow> getTransition() {
-		if (transition == null) {
-			transition = new EObjectContainmentEList<Arrow>(Arrow.class, this, ActivityPackage.ROOT__TRANSITION);
-		}
-		return transition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public End getEnd() {
 		return end;
 	}
@@ -276,11 +258,78 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ConditionArrow> getConditionArrow() {
-		if (conditionArrow == null) {
-			conditionArrow = new EObjectContainmentEList<ConditionArrow>(ConditionArrow.class, this, ActivityPackage.ROOT__CONDITION_ARROW);
+	public EList<Split> getSplit() {
+		if (split == null) {
+			split = new EObjectContainmentEList<Split>(Split.class, this, ActivityPackage.ROOT__SPLIT);
 		}
-		return conditionArrow;
+		return split;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Join> getJoin() {
+		if (join == null) {
+			join = new EObjectContainmentEList<Join>(Join.class, this, ActivityPackage.ROOT__JOIN);
+		}
+		return join;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ArrowAfterStart getStartArrow() {
+		return startArrow;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetStartArrow(ArrowAfterStart newStartArrow, NotificationChain msgs) {
+		ArrowAfterStart oldStartArrow = startArrow;
+		startArrow = newStartArrow;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ActivityPackage.ROOT__START_ARROW, oldStartArrow, newStartArrow);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStartArrow(ArrowAfterStart newStartArrow) {
+		if (newStartArrow != startArrow) {
+			NotificationChain msgs = null;
+			if (startArrow != null)
+				msgs = ((InternalEObject)startArrow).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ActivityPackage.ROOT__START_ARROW, null, msgs);
+			if (newStartArrow != null)
+				msgs = ((InternalEObject)newStartArrow).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ActivityPackage.ROOT__START_ARROW, null, msgs);
+			msgs = basicSetStartArrow(newStartArrow, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ActivityPackage.ROOT__START_ARROW, newStartArrow, newStartArrow));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<NodesWithoutJoin> getNodesWithoutJoin() {
+		if (nodesWithoutJoin == null) {
+			nodesWithoutJoin = new EObjectContainmentEList<NodesWithoutJoin>(NodesWithoutJoin.class, this, ActivityPackage.ROOT__NODES_WITHOUT_JOIN);
+		}
+		return nodesWithoutJoin;
 	}
 
 	/**
@@ -297,14 +346,16 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 				return ((InternalEList<?>)getAction()).basicRemove(otherEnd, msgs);
 			case ActivityPackage.ROOT__DECISION:
 				return ((InternalEList<?>)getDecision()).basicRemove(otherEnd, msgs);
-			case ActivityPackage.ROOT__BAR:
-				return ((InternalEList<?>)getBar()).basicRemove(otherEnd, msgs);
-			case ActivityPackage.ROOT__TRANSITION:
-				return ((InternalEList<?>)getTransition()).basicRemove(otherEnd, msgs);
 			case ActivityPackage.ROOT__END:
 				return basicSetEnd(null, msgs);
-			case ActivityPackage.ROOT__CONDITION_ARROW:
-				return ((InternalEList<?>)getConditionArrow()).basicRemove(otherEnd, msgs);
+			case ActivityPackage.ROOT__SPLIT:
+				return ((InternalEList<?>)getSplit()).basicRemove(otherEnd, msgs);
+			case ActivityPackage.ROOT__JOIN:
+				return ((InternalEList<?>)getJoin()).basicRemove(otherEnd, msgs);
+			case ActivityPackage.ROOT__START_ARROW:
+				return basicSetStartArrow(null, msgs);
+			case ActivityPackage.ROOT__NODES_WITHOUT_JOIN:
+				return ((InternalEList<?>)getNodesWithoutJoin()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -323,14 +374,16 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 				return getAction();
 			case ActivityPackage.ROOT__DECISION:
 				return getDecision();
-			case ActivityPackage.ROOT__BAR:
-				return getBar();
-			case ActivityPackage.ROOT__TRANSITION:
-				return getTransition();
 			case ActivityPackage.ROOT__END:
 				return getEnd();
-			case ActivityPackage.ROOT__CONDITION_ARROW:
-				return getConditionArrow();
+			case ActivityPackage.ROOT__SPLIT:
+				return getSplit();
+			case ActivityPackage.ROOT__JOIN:
+				return getJoin();
+			case ActivityPackage.ROOT__START_ARROW:
+				return getStartArrow();
+			case ActivityPackage.ROOT__NODES_WITHOUT_JOIN:
+				return getNodesWithoutJoin();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -355,20 +408,23 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 				getDecision().clear();
 				getDecision().addAll((Collection<? extends Decision>)newValue);
 				return;
-			case ActivityPackage.ROOT__BAR:
-				getBar().clear();
-				getBar().addAll((Collection<? extends Bar>)newValue);
-				return;
-			case ActivityPackage.ROOT__TRANSITION:
-				getTransition().clear();
-				getTransition().addAll((Collection<? extends Arrow>)newValue);
-				return;
 			case ActivityPackage.ROOT__END:
 				setEnd((End)newValue);
 				return;
-			case ActivityPackage.ROOT__CONDITION_ARROW:
-				getConditionArrow().clear();
-				getConditionArrow().addAll((Collection<? extends ConditionArrow>)newValue);
+			case ActivityPackage.ROOT__SPLIT:
+				getSplit().clear();
+				getSplit().addAll((Collection<? extends Split>)newValue);
+				return;
+			case ActivityPackage.ROOT__JOIN:
+				getJoin().clear();
+				getJoin().addAll((Collection<? extends Join>)newValue);
+				return;
+			case ActivityPackage.ROOT__START_ARROW:
+				setStartArrow((ArrowAfterStart)newValue);
+				return;
+			case ActivityPackage.ROOT__NODES_WITHOUT_JOIN:
+				getNodesWithoutJoin().clear();
+				getNodesWithoutJoin().addAll((Collection<? extends NodesWithoutJoin>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -391,17 +447,20 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 			case ActivityPackage.ROOT__DECISION:
 				getDecision().clear();
 				return;
-			case ActivityPackage.ROOT__BAR:
-				getBar().clear();
-				return;
-			case ActivityPackage.ROOT__TRANSITION:
-				getTransition().clear();
-				return;
 			case ActivityPackage.ROOT__END:
 				setEnd((End)null);
 				return;
-			case ActivityPackage.ROOT__CONDITION_ARROW:
-				getConditionArrow().clear();
+			case ActivityPackage.ROOT__SPLIT:
+				getSplit().clear();
+				return;
+			case ActivityPackage.ROOT__JOIN:
+				getJoin().clear();
+				return;
+			case ActivityPackage.ROOT__START_ARROW:
+				setStartArrow((ArrowAfterStart)null);
+				return;
+			case ActivityPackage.ROOT__NODES_WITHOUT_JOIN:
+				getNodesWithoutJoin().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -421,14 +480,16 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 				return action != null && !action.isEmpty();
 			case ActivityPackage.ROOT__DECISION:
 				return decision != null && !decision.isEmpty();
-			case ActivityPackage.ROOT__BAR:
-				return bar != null && !bar.isEmpty();
-			case ActivityPackage.ROOT__TRANSITION:
-				return transition != null && !transition.isEmpty();
 			case ActivityPackage.ROOT__END:
 				return end != null;
-			case ActivityPackage.ROOT__CONDITION_ARROW:
-				return conditionArrow != null && !conditionArrow.isEmpty();
+			case ActivityPackage.ROOT__SPLIT:
+				return split != null && !split.isEmpty();
+			case ActivityPackage.ROOT__JOIN:
+				return join != null && !join.isEmpty();
+			case ActivityPackage.ROOT__START_ARROW:
+				return startArrow != null;
+			case ActivityPackage.ROOT__NODES_WITHOUT_JOIN:
+				return nodesWithoutJoin != null && !nodesWithoutJoin.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

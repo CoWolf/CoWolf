@@ -3,7 +3,7 @@
 package activity.tests;
 
 import activity.ActivityFactory;
-import activity.ConditionArrow;
+import activity.AfterActionArrow;
 
 import junit.framework.TestCase;
 
@@ -11,19 +11,19 @@ import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Condition Arrow</b></em>'.
+ * A test case for the model object '<em><b>After Action Arrow</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class ConditionArrowTest extends TestCase {
+public class AfterActionArrowTest extends TestCase {
 
 	/**
-	 * The fixture for this Condition Arrow test case.
+	 * The fixture for this After Action Arrow test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ConditionArrow fixture = null;
+	protected AfterActionArrow fixture = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -31,36 +31,36 @@ public class ConditionArrowTest extends TestCase {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(ConditionArrowTest.class);
+		TestRunner.run(AfterActionArrowTest.class);
 	}
 
 	/**
-	 * Constructs a new Condition Arrow test case with the given name.
+	 * Constructs a new After Action Arrow test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConditionArrowTest(String name) {
+	public AfterActionArrowTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Sets the fixture for this Condition Arrow test case.
+	 * Sets the fixture for this After Action Arrow test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void setFixture(ConditionArrow fixture) {
+	protected void setFixture(AfterActionArrow fixture) {
 		this.fixture = fixture;
 	}
 
 	/**
-	 * Returns the fixture for this Condition Arrow test case.
+	 * Returns the fixture for this After Action Arrow test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ConditionArrow getFixture() {
+	protected AfterActionArrow getFixture() {
 		return fixture;
 	}
 
@@ -72,7 +72,7 @@ public class ConditionArrowTest extends TestCase {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(ActivityFactory.eINSTANCE.createConditionArrow());
+		setFixture(ActivityFactory.eINSTANCE.createAfterActionArrow());
 	}
 
 	/**
@@ -86,4 +86,4 @@ public class ConditionArrowTest extends TestCase {
 		setFixture(null);
 	}
 
-} //ConditionArrowTest
+} //AfterActionArrowTest

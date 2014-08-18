@@ -4,9 +4,6 @@ package activity.tests;
 
 import activity.ActivityFactory;
 import activity.End;
-
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 /**
@@ -15,15 +12,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EndTest extends TestCase {
-
-	/**
-	 * The fixture for this End test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected End fixture = null;
+public class EndTest extends NodesWithoutJoinTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -45,23 +34,14 @@ public class EndTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this End test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(End fixture) {
-		this.fixture = fixture;
-	}
-
-	/**
 	 * Returns the fixture for this End test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected End getFixture() {
-		return fixture;
+		return (End)fixture;
 	}
 
 	/**

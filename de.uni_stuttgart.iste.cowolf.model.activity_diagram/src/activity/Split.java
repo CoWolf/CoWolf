@@ -12,8 +12,7 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link activity.Split#getOutgoingFromSplit <em>Outgoing From Split</em>}</li>
- *   <li>{@link activity.Split#getIncomingToSplit <em>Incoming To Split</em>}</li>
+ *   <li>{@link activity.Split#getOutgoing <em>Outgoing</em>}</li>
  * </ul>
  * </p>
  *
@@ -21,51 +20,21 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Split extends Bar {
+public interface Split extends NodesWithoutJoin {
 	/**
-	 * Returns the value of the '<em><b>Outgoing From Split</b></em>' reference list.
-	 * The list contents are of type {@link activity.Arrow}.
-	 * It is bidirectional and its opposite is '{@link activity.Arrow#getFromSplit <em>From Split</em>}'.
+	 * Returns the value of the '<em><b>Outgoing</b></em>' reference list.
+	 * The list contents are of type {@link activity.SplitArrow}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Outgoing From Split</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Outgoing</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Outgoing From Split</em>' reference list.
-	 * @see activity.ActivityPackage#getSplit_OutgoingFromSplit()
-	 * @see activity.Arrow#getFromSplit
-	 * @model opposite="fromSplit" lower="2"
+	 * @return the value of the '<em>Outgoing</em>' reference list.
+	 * @see activity.ActivityPackage#getSplit_Outgoing()
+	 * @model lower="2"
 	 * @generated
 	 */
-	EList<Arrow> getOutgoingFromSplit();
-
-	/**
-	 * Returns the value of the '<em><b>Incoming To Split</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link activity.Arrow#getToSplit <em>To Split</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Incoming To Split</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Incoming To Split</em>' reference.
-	 * @see #setIncomingToSplit(Arrow)
-	 * @see activity.ActivityPackage#getSplit_IncomingToSplit()
-	 * @see activity.Arrow#getToSplit
-	 * @model opposite="toSplit" required="true"
-	 * @generated
-	 */
-	Arrow getIncomingToSplit();
-
-	/**
-	 * Sets the value of the '{@link activity.Split#getIncomingToSplit <em>Incoming To Split</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Incoming To Split</em>' reference.
-	 * @see #getIncomingToSplit()
-	 * @generated
-	 */
-	void setIncomingToSplit(Arrow value);
+	EList<SplitArrow> getOutgoing();
 
 } // Split

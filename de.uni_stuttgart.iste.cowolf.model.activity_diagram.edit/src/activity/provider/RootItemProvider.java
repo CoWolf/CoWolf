@@ -80,10 +80,11 @@ public class RootItemProvider
 			childrenFeatures.add(ActivityPackage.Literals.ROOT__START);
 			childrenFeatures.add(ActivityPackage.Literals.ROOT__ACTION);
 			childrenFeatures.add(ActivityPackage.Literals.ROOT__DECISION);
-			childrenFeatures.add(ActivityPackage.Literals.ROOT__BAR);
-			childrenFeatures.add(ActivityPackage.Literals.ROOT__TRANSITION);
 			childrenFeatures.add(ActivityPackage.Literals.ROOT__END);
-			childrenFeatures.add(ActivityPackage.Literals.ROOT__CONDITION_ARROW);
+			childrenFeatures.add(ActivityPackage.Literals.ROOT__SPLIT);
+			childrenFeatures.add(ActivityPackage.Literals.ROOT__JOIN);
+			childrenFeatures.add(ActivityPackage.Literals.ROOT__START_ARROW);
+			childrenFeatures.add(ActivityPackage.Literals.ROOT__NODES_WITHOUT_JOIN);
 		}
 		return childrenFeatures;
 	}
@@ -139,10 +140,11 @@ public class RootItemProvider
 			case ActivityPackage.ROOT__START:
 			case ActivityPackage.ROOT__ACTION:
 			case ActivityPackage.ROOT__DECISION:
-			case ActivityPackage.ROOT__BAR:
-			case ActivityPackage.ROOT__TRANSITION:
 			case ActivityPackage.ROOT__END:
-			case ActivityPackage.ROOT__CONDITION_ARROW:
+			case ActivityPackage.ROOT__SPLIT:
+			case ActivityPackage.ROOT__JOIN:
+			case ActivityPackage.ROOT__START_ARROW:
+			case ActivityPackage.ROOT__NODES_WITHOUT_JOIN:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -177,33 +179,69 @@ public class RootItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ActivityPackage.Literals.ROOT__BAR,
-				 ActivityFactory.eINSTANCE.createBar()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ActivityPackage.Literals.ROOT__BAR,
-				 ActivityFactory.eINSTANCE.createSplit()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ActivityPackage.Literals.ROOT__BAR,
-				 ActivityFactory.eINSTANCE.createJoin()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ActivityPackage.Literals.ROOT__TRANSITION,
-				 ActivityFactory.eINSTANCE.createArrow()));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(ActivityPackage.Literals.ROOT__END,
 				 ActivityFactory.eINSTANCE.createEnd()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ActivityPackage.Literals.ROOT__CONDITION_ARROW,
-				 ActivityFactory.eINSTANCE.createConditionArrow()));
+				(ActivityPackage.Literals.ROOT__SPLIT,
+				 ActivityFactory.eINSTANCE.createSplit()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ActivityPackage.Literals.ROOT__JOIN,
+				 ActivityFactory.eINSTANCE.createJoin()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ActivityPackage.Literals.ROOT__START_ARROW,
+				 ActivityFactory.eINSTANCE.createArrowAfterStart()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ActivityPackage.Literals.ROOT__NODES_WITHOUT_JOIN,
+				 ActivityFactory.eINSTANCE.createAction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ActivityPackage.Literals.ROOT__NODES_WITHOUT_JOIN,
+				 ActivityFactory.eINSTANCE.createDecision()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ActivityPackage.Literals.ROOT__NODES_WITHOUT_JOIN,
+				 ActivityFactory.eINSTANCE.createSplit()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ActivityPackage.Literals.ROOT__NODES_WITHOUT_JOIN,
+				 ActivityFactory.eINSTANCE.createEnd()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == ActivityPackage.Literals.ROOT__ACTION ||
+			childFeature == ActivityPackage.Literals.ROOT__NODES_WITHOUT_JOIN ||
+			childFeature == ActivityPackage.Literals.ROOT__DECISION ||
+			childFeature == ActivityPackage.Literals.ROOT__END ||
+			childFeature == ActivityPackage.Literals.ROOT__SPLIT;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**

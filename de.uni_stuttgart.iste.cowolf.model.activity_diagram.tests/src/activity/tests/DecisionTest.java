@@ -4,9 +4,6 @@ package activity.tests;
 
 import activity.ActivityFactory;
 import activity.Decision;
-
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 /**
@@ -15,15 +12,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DecisionTest extends TestCase {
-
-	/**
-	 * The fixture for this Decision test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Decision fixture = null;
+public class DecisionTest extends NodesWithoutJoinTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -45,23 +34,14 @@ public class DecisionTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this Decision test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(Decision fixture) {
-		this.fixture = fixture;
-	}
-
-	/**
 	 * Returns the fixture for this Decision test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected Decision getFixture() {
-		return fixture;
+		return (Decision)fixture;
 	}
 
 	/**

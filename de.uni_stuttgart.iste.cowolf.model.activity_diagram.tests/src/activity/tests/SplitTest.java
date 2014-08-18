@@ -13,7 +13,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SplitTest extends BarTest {
+public class SplitTest extends NodesWithoutJoinTest {
 
 	/**
 	 * <!-- begin-user-doc -->
