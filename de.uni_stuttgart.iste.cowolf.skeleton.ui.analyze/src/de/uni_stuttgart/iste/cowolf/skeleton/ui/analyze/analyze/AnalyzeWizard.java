@@ -3,7 +3,9 @@ package de.uni_stuttgart.iste.cowolf.skeleton.ui.analyze.analyze;
 import java.util.HashMap;
 
 import org.eclipse.emf.ecore.resource.Resource;
+
 import de.uni_stuttgart.iste.cowolf.model.AbstractQoSModelManager;
+import de.uni_stuttgart.iste.cowolf.skeleton.model.qosModelManager;
 import de.uni_stuttgart.iste.cowolf.ui.model.analyze.AbstractQoSAnalyzeWizard;
 
 public class AnalyzeWizard extends AbstractQoSAnalyzeWizard {
@@ -41,7 +43,7 @@ public class AnalyzeWizard extends AbstractQoSAnalyzeWizard {
 	@Override
 	public boolean isManaged(final AbstractQoSModelManager manager) {
 		//TODO return if manager is matching
-		return true;
+		return manager instanceof qosModelManager;
 	}
 
 	@Override
