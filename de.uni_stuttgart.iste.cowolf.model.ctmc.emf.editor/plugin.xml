@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated CTMCemf -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="ctmc.emf.presentation.CtmcModelWizardID"
+            name="%_UI_CtmcModelWizard_label"
+            class="ctmc.emf.presentation.CtmcModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/CtmcModelFile.gif">
+         <description>%_UI_CtmcModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated CTMCemf -->
+      <editor
+            id="ctmc.emf.presentation.CtmcEditorID"
+            name="%_UI_CtmcEditor_label"
+            icon="icons/full/obj16/CtmcModelFile.gif"
+            extensions="ctmc"
+            class="ctmc.emf.presentation.CtmcEditor"
+            contributorClass="ctmc.emf.presentation.CtmcActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
