@@ -39,14 +39,8 @@ public class DTMCModelManager extends AbstractQoSModelManager {
 				|| model.getContents().size() == 0)
 			return false;
 		else
-<<<<<<< HEAD
 			return (model.getContents().get(0) instanceof DTMC);
 
 	}
 	
 }
-=======
-			return (model.getContents().get(0) instanceof Root);
-	}
-}
->>>>>>> 13-safety-certification
