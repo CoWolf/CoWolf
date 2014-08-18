@@ -6,20 +6,25 @@ import activity.Action;
 import activity.ActivityFactory;
 import activity.ActivityPackage;
 import activity.AfterActionArrow;
+import activity.ArrowAfterJoin;
 import activity.ArrowAfterStart;
 import activity.Decision;
 import activity.DecisionArrow;
 import activity.End;
 import activity.Join;
+import activity.JoinArrow;
+import activity.Nodes;
 import activity.NodesWithoutJoin;
 import activity.Root;
 import activity.Split;
 import activity.SplitArrow;
 import activity.Start;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -112,6 +117,27 @@ public class ActivityPackageImpl extends EPackageImpl implements ActivityPackage
 	 * @generated
 	 */
 	private EClass splitArrowEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass joinArrowEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass nodesEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass arrowAfterJoinEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -260,6 +286,51 @@ public class ActivityPackageImpl extends EPackageImpl implements ActivityPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getRoot_AfterActionArrow() {
+		return (EReference)rootEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRoot_DecisionArrow() {
+		return (EReference)rootEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRoot_SplitArrow() {
+		return (EReference)rootEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRoot_JoinArrow() {
+		return (EReference)rootEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRoot_ArrowAfterJoin() {
+		return (EReference)rootEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getStart() {
 		return startEClass;
 	}
@@ -271,15 +342,6 @@ public class ActivityPackageImpl extends EPackageImpl implements ActivityPackage
 	 */
 	public EReference getStart_OutgoingFromStart() {
 		return (EReference)startEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getStart_Successor() {
-		return (EReference)startEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -359,6 +421,15 @@ public class ActivityPackageImpl extends EPackageImpl implements ActivityPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getJoin_Outgoing() {
+		return (EReference)joinEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getEnd() {
 		return endEClass;
 	}
@@ -377,7 +448,7 @@ public class ActivityPackageImpl extends EPackageImpl implements ActivityPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNodesWithoutJoin_IncomingStart() {
+	public EReference getNodesWithoutJoin_Join() {
 		return (EReference)nodesWithoutJoinEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -395,17 +466,8 @@ public class ActivityPackageImpl extends EPackageImpl implements ActivityPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getArrowAfterStart_Source() {
+	public EReference getArrowAfterStart_Target() {
 		return (EReference)arrowAfterStartEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getArrowAfterStart_TargetAfterStart() {
-		return (EReference)arrowAfterStartEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -476,6 +538,60 @@ public class ActivityPackageImpl extends EPackageImpl implements ActivityPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getJoinArrow() {
+		return joinArrowEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getJoinArrow_Source() {
+		return (EReference)joinArrowEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getJoinArrow_Target() {
+		return (EReference)joinArrowEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getNodes() {
+		return nodesEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getArrowAfterJoin() {
+		return arrowAfterJoinEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getArrowAfterJoin_Target() {
+		return (EReference)arrowAfterJoinEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ActivityFactory getActivityFactory() {
 		return (ActivityFactory)getEFactoryInstance();
 	}
@@ -508,10 +624,14 @@ public class ActivityPackageImpl extends EPackageImpl implements ActivityPackage
 		createEReference(rootEClass, ROOT__JOIN);
 		createEReference(rootEClass, ROOT__START_ARROW);
 		createEReference(rootEClass, ROOT__NODES_WITHOUT_JOIN);
+		createEReference(rootEClass, ROOT__AFTER_ACTION_ARROW);
+		createEReference(rootEClass, ROOT__DECISION_ARROW);
+		createEReference(rootEClass, ROOT__SPLIT_ARROW);
+		createEReference(rootEClass, ROOT__JOIN_ARROW);
+		createEReference(rootEClass, ROOT__ARROW_AFTER_JOIN);
 
 		startEClass = createEClass(START);
 		createEReference(startEClass, START__OUTGOING_FROM_START);
-		createEReference(startEClass, START__SUCCESSOR);
 
 		actionEClass = createEClass(ACTION);
 		createEAttribute(actionEClass, ACTION__ACTION);
@@ -524,15 +644,15 @@ public class ActivityPackageImpl extends EPackageImpl implements ActivityPackage
 		createEReference(splitEClass, SPLIT__OUTGOING);
 
 		joinEClass = createEClass(JOIN);
+		createEReference(joinEClass, JOIN__OUTGOING);
 
 		endEClass = createEClass(END);
 
 		nodesWithoutJoinEClass = createEClass(NODES_WITHOUT_JOIN);
-		createEReference(nodesWithoutJoinEClass, NODES_WITHOUT_JOIN__INCOMING_START);
+		createEReference(nodesWithoutJoinEClass, NODES_WITHOUT_JOIN__JOIN);
 
 		arrowAfterStartEClass = createEClass(ARROW_AFTER_START);
-		createEReference(arrowAfterStartEClass, ARROW_AFTER_START__SOURCE);
-		createEReference(arrowAfterStartEClass, ARROW_AFTER_START__TARGET_AFTER_START);
+		createEReference(arrowAfterStartEClass, ARROW_AFTER_START__TARGET);
 
 		decisionArrowEClass = createEClass(DECISION_ARROW);
 		createEAttribute(decisionArrowEClass, DECISION_ARROW__CONDITION);
@@ -543,6 +663,15 @@ public class ActivityPackageImpl extends EPackageImpl implements ActivityPackage
 
 		splitArrowEClass = createEClass(SPLIT_ARROW);
 		createEReference(splitArrowEClass, SPLIT_ARROW__TARGET);
+
+		joinArrowEClass = createEClass(JOIN_ARROW);
+		createEReference(joinArrowEClass, JOIN_ARROW__SOURCE);
+		createEReference(joinArrowEClass, JOIN_ARROW__TARGET);
+
+		nodesEClass = createEClass(NODES);
+
+		arrowAfterJoinEClass = createEClass(ARROW_AFTER_JOIN);
+		createEReference(arrowAfterJoinEClass, ARROW_AFTER_JOIN__TARGET);
 	}
 
 	/**
@@ -576,7 +705,9 @@ public class ActivityPackageImpl extends EPackageImpl implements ActivityPackage
 		actionEClass.getESuperTypes().add(this.getNodesWithoutJoin());
 		decisionEClass.getESuperTypes().add(this.getNodesWithoutJoin());
 		splitEClass.getESuperTypes().add(this.getNodesWithoutJoin());
+		joinEClass.getESuperTypes().add(this.getNodes());
 		endEClass.getESuperTypes().add(this.getNodesWithoutJoin());
+		nodesWithoutJoinEClass.getESuperTypes().add(this.getNodes());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(rootEClass, Root.class, "Root", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -588,10 +719,14 @@ public class ActivityPackageImpl extends EPackageImpl implements ActivityPackage
 		initEReference(getRoot_Join(), this.getJoin(), null, "join", null, 0, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRoot_StartArrow(), this.getArrowAfterStart(), null, "startArrow", null, 1, 1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRoot_NodesWithoutJoin(), this.getNodesWithoutJoin(), null, "nodesWithoutJoin", null, 0, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRoot_AfterActionArrow(), this.getAfterActionArrow(), null, "afterActionArrow", null, 0, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRoot_DecisionArrow(), this.getDecisionArrow(), null, "decisionArrow", null, 0, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRoot_SplitArrow(), this.getSplitArrow(), null, "splitArrow", null, 0, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRoot_JoinArrow(), this.getJoinArrow(), null, "joinArrow", null, 0, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRoot_ArrowAfterJoin(), this.getArrowAfterJoin(), null, "ArrowAfterJoin", null, 0, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(startEClass, Start.class, "Start", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getStart_OutgoingFromStart(), this.getArrowAfterStart(), this.getArrowAfterStart_Source(), "outgoingFromStart", null, 1, 1, Start.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getStart_Successor(), this.getNodesWithoutJoin(), null, "successor", null, 0, 1, Start.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStart_OutgoingFromStart(), this.getArrowAfterStart(), null, "outgoingFromStart", null, 1, 1, Start.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAction_Action(), ecorePackage.getEString(), "Action", null, 1, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -604,15 +739,15 @@ public class ActivityPackageImpl extends EPackageImpl implements ActivityPackage
 		initEReference(getSplit_Outgoing(), this.getSplitArrow(), null, "outgoing", null, 2, -1, Split.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(joinEClass, Join.class, "Join", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getJoin_Outgoing(), this.getArrowAfterJoin(), null, "outgoing", null, 1, 1, Join.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(endEClass, End.class, "End", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(nodesWithoutJoinEClass, NodesWithoutJoin.class, "NodesWithoutJoin", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getNodesWithoutJoin_IncomingStart(), this.getArrowAfterStart(), this.getArrowAfterStart_TargetAfterStart(), "incomingStart", null, 1, 1, NodesWithoutJoin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNodesWithoutJoin_Join(), this.getJoinArrow(), this.getJoinArrow_Source(), "join", null, 0, -1, NodesWithoutJoin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(arrowAfterStartEClass, ArrowAfterStart.class, "ArrowAfterStart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getArrowAfterStart_Source(), this.getStart(), this.getStart_OutgoingFromStart(), "source", null, 1, 1, ArrowAfterStart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getArrowAfterStart_TargetAfterStart(), this.getNodesWithoutJoin(), this.getNodesWithoutJoin_IncomingStart(), "targetAfterStart", null, 1, 1, ArrowAfterStart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getArrowAfterStart_Target(), this.getNodesWithoutJoin(), null, "target", null, 1, 1, ArrowAfterStart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(decisionArrowEClass, DecisionArrow.class, "DecisionArrow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDecisionArrow_Condition(), ecorePackage.getEString(), "Condition", null, 0, 1, DecisionArrow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -623,6 +758,15 @@ public class ActivityPackageImpl extends EPackageImpl implements ActivityPackage
 
 		initEClass(splitArrowEClass, SplitArrow.class, "SplitArrow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSplitArrow_Target(), this.getNodesWithoutJoin(), null, "target", null, 1, 1, SplitArrow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(joinArrowEClass, JoinArrow.class, "JoinArrow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getJoinArrow_Source(), this.getNodesWithoutJoin(), this.getNodesWithoutJoin_Join(), "source", null, 2, -1, JoinArrow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJoinArrow_Target(), this.getJoin(), null, "target", null, 1, 1, JoinArrow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(nodesEClass, Nodes.class, "Nodes", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(arrowAfterJoinEClass, ArrowAfterJoin.class, "ArrowAfterJoin", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getArrowAfterJoin_Target(), this.getNodes(), null, "target", null, 1, 1, ArrowAfterJoin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

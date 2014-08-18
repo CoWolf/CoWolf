@@ -116,6 +116,18 @@ public class ActivityAdapterFactory extends AdapterFactoryImpl {
 				return createSplitArrowAdapter();
 			}
 			@Override
+			public Adapter caseJoinArrow(JoinArrow object) {
+				return createJoinArrowAdapter();
+			}
+			@Override
+			public Adapter caseNodes(Nodes object) {
+				return createNodesAdapter();
+			}
+			@Override
+			public Adapter caseArrowAfterJoin(ArrowAfterJoin object) {
+				return createArrowAfterJoinAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -300,6 +312,48 @@ public class ActivityAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSplitArrowAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link activity.JoinArrow <em>Join Arrow</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see activity.JoinArrow
+	 * @generated
+	 */
+	public Adapter createJoinArrowAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link activity.Nodes <em>Nodes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see activity.Nodes
+	 * @generated
+	 */
+	public Adapter createNodesAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link activity.ArrowAfterJoin <em>Arrow After Join</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see activity.ArrowAfterJoin
+	 * @generated
+	 */
+	public Adapter createArrowAfterJoinAdapter() {
 		return null;
 	}
 

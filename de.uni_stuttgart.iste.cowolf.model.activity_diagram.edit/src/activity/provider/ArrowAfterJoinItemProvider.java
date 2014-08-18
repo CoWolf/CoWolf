@@ -23,12 +23,12 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
 /**
- * This is the item provider adapter for a {@link activity.Start} object.
+ * This is the item provider adapter for a {@link activity.ArrowAfterJoin} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class StartItemProvider 
+public class ArrowAfterJoinItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -42,7 +42,7 @@ public class StartItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public StartItemProvider(AdapterFactory adapterFactory) {
+	public ArrowAfterJoinItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -57,25 +57,25 @@ public class StartItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addOutgoingFromStartPropertyDescriptor(object);
+			addTargetPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Outgoing From Start feature.
+	 * This adds a property descriptor for the Target feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addOutgoingFromStartPropertyDescriptor(Object object) {
+	protected void addTargetPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Start_outgoingFromStart_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Start_outgoingFromStart_feature", "_UI_Start_type"),
-				 ActivityPackage.Literals.START__OUTGOING_FROM_START,
+				 getString("_UI_ArrowAfterJoin_target_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ArrowAfterJoin_target_feature", "_UI_ArrowAfterJoin_type"),
+				 ActivityPackage.Literals.ARROW_AFTER_JOIN__TARGET,
 				 true,
 				 false,
 				 true,
@@ -85,14 +85,14 @@ public class StartItemProvider
 	}
 
 	/**
-	 * This returns Start.gif.
+	 * This returns ArrowAfterJoin.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Start"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ArrowAfterJoin"));
 	}
 
 	/**
@@ -103,7 +103,7 @@ public class StartItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Start_type");
+		return getString("_UI_ArrowAfterJoin_type");
 	}
 	
 

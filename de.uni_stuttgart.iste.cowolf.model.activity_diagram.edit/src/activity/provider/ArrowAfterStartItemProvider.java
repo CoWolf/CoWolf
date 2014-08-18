@@ -57,48 +57,25 @@ public class ArrowAfterStartItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addSourcePropertyDescriptor(object);
-			addTargetAfterStartPropertyDescriptor(object);
+			addTargetPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Source feature.
+	 * This adds a property descriptor for the Target feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addSourcePropertyDescriptor(Object object) {
+	protected void addTargetPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ArrowAfterStart_source_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ArrowAfterStart_source_feature", "_UI_ArrowAfterStart_type"),
-				 ActivityPackage.Literals.ARROW_AFTER_START__SOURCE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Target After Start feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTargetAfterStartPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ArrowAfterStart_targetAfterStart_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ArrowAfterStart_targetAfterStart_feature", "_UI_ArrowAfterStart_type"),
-				 ActivityPackage.Literals.ARROW_AFTER_START__TARGET_AFTER_START,
+				 getString("_UI_ArrowAfterStart_target_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ArrowAfterStart_target_feature", "_UI_ArrowAfterStart_type"),
+				 ActivityPackage.Literals.ARROW_AFTER_START__TARGET,
 				 true,
 				 false,
 				 true,

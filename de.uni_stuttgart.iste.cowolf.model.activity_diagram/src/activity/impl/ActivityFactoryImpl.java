@@ -67,6 +67,8 @@ public class ActivityFactoryImpl extends EFactoryImpl implements ActivityFactory
 			case ActivityPackage.DECISION_ARROW: return createDecisionArrow();
 			case ActivityPackage.AFTER_ACTION_ARROW: return createAfterActionArrow();
 			case ActivityPackage.SPLIT_ARROW: return createSplitArrow();
+			case ActivityPackage.JOIN_ARROW: return createJoinArrow();
+			case ActivityPackage.ARROW_AFTER_JOIN: return createArrowAfterJoin();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -180,6 +182,26 @@ public class ActivityFactoryImpl extends EFactoryImpl implements ActivityFactory
 	public SplitArrow createSplitArrow() {
 		SplitArrowImpl splitArrow = new SplitArrowImpl();
 		return splitArrow;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JoinArrow createJoinArrow() {
+		JoinArrowImpl joinArrow = new JoinArrowImpl();
+		return joinArrow;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ArrowAfterJoin createArrowAfterJoin() {
+		ArrowAfterJoinImpl arrowAfterJoin = new ArrowAfterJoinImpl();
+		return arrowAfterJoin;
 	}
 
 	/**

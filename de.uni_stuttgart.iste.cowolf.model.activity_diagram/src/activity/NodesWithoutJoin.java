@@ -2,7 +2,7 @@
  */
 package activity;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link activity.NodesWithoutJoin#getIncomingStart <em>Incoming Start</em>}</li>
+ *   <li>{@link activity.NodesWithoutJoin#getJoin <em>Join</em>}</li>
  * </ul>
  * </p>
  *
@@ -20,33 +20,23 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface NodesWithoutJoin extends EObject {
+public interface NodesWithoutJoin extends Nodes {
 	/**
-	 * Returns the value of the '<em><b>Incoming Start</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link activity.ArrowAfterStart#getTargetAfterStart <em>Target After Start</em>}'.
+	 * Returns the value of the '<em><b>Join</b></em>' reference list.
+	 * The list contents are of type {@link activity.JoinArrow}.
+	 * It is bidirectional and its opposite is '{@link activity.JoinArrow#getSource <em>Source</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Incoming Start</em>' reference isn't clear,
+	 * If the meaning of the '<em>Join</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Incoming Start</em>' reference.
-	 * @see #setIncomingStart(ArrowAfterStart)
-	 * @see activity.ActivityPackage#getNodesWithoutJoin_IncomingStart()
-	 * @see activity.ArrowAfterStart#getTargetAfterStart
-	 * @model opposite="targetAfterStart" required="true"
+	 * @return the value of the '<em>Join</em>' reference list.
+	 * @see activity.ActivityPackage#getNodesWithoutJoin_Join()
+	 * @see activity.JoinArrow#getSource
+	 * @model opposite="source"
 	 * @generated
 	 */
-	ArrowAfterStart getIncomingStart();
-
-	/**
-	 * Sets the value of the '{@link activity.NodesWithoutJoin#getIncomingStart <em>Incoming Start</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Incoming Start</em>' reference.
-	 * @see #getIncomingStart()
-	 * @generated
-	 */
-	void setIncomingStart(ArrowAfterStart value);
+	EList<JoinArrow> getJoin();
 
 } // NodesWithoutJoin
