@@ -15,10 +15,14 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference activity.ecore#//Root/join"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference activity.ecore#//Root/startArrow"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference activity.ecore#//Root/nodesWithoutJoin"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference activity.ecore#//Root/afterActionArrow"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference activity.ecore#//Root/decisionArrow"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference activity.ecore#//Root/splitArrow"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference activity.ecore#//Root/joinArrow"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference activity.ecore#//Root/ArrowAfterJoin"/>
     </genClasses>
     <genClasses ecoreClass="activity.ecore#//Start">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference activity.ecore#//Start/outgoingFromStart"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference activity.ecore#//Start/successor"/>
     </genClasses>
     <genClasses ecoreClass="activity.ecore#//Action">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute activity.ecore#//Action/Action"/>
@@ -30,14 +34,15 @@
     <genClasses ecoreClass="activity.ecore#//Split">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference activity.ecore#//Split/outgoing"/>
     </genClasses>
-    <genClasses ecoreClass="activity.ecore#//Join"/>
+    <genClasses ecoreClass="activity.ecore#//Join">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference activity.ecore#//Join/outgoing"/>
+    </genClasses>
     <genClasses ecoreClass="activity.ecore#//End"/>
     <genClasses image="false" ecoreClass="activity.ecore#//NodesWithoutJoin">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference activity.ecore#//NodesWithoutJoin/incomingStart"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference activity.ecore#//NodesWithoutJoin/join"/>
     </genClasses>
     <genClasses ecoreClass="activity.ecore#//ArrowAfterStart">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference activity.ecore#//ArrowAfterStart/source"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference activity.ecore#//ArrowAfterStart/targetAfterStart"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference activity.ecore#//ArrowAfterStart/target"/>
     </genClasses>
     <genClasses ecoreClass="activity.ecore#//DecisionArrow">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute activity.ecore#//DecisionArrow/Condition"/>
@@ -48,6 +53,14 @@
     </genClasses>
     <genClasses ecoreClass="activity.ecore#//SplitArrow">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference activity.ecore#//SplitArrow/target"/>
+    </genClasses>
+    <genClasses ecoreClass="activity.ecore#//JoinArrow">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference activity.ecore#//JoinArrow/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference activity.ecore#//JoinArrow/target"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="activity.ecore#//Nodes"/>
+    <genClasses ecoreClass="activity.ecore#//ArrowAfterJoin">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference activity.ecore#//ArrowAfterJoin/target"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
