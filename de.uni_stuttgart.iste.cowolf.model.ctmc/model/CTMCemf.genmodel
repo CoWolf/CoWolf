@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.uni_stuttgart.iste.cowolf.model.ctmc/src" editDirectory="/de.uni_stuttgart.iste.cowolf.model.ctmc.emf.edit/src"
+    editorDirectory="/de.uni_stuttgart.iste.cowolf.model.ctmc.emf.editor/src" modelPluginID="de.uni_stuttgart.iste.cowolf.model.ctmc"
+    modelName="CTMCemf" editPluginClass="de.uni_stuttgart.iste.cowolf.model.ctmc.emf.provider.CTMCemfEditPlugin"
+    editorPluginClass="de.uni_stuttgart.iste.cowolf.model.ctmc.emf.presentation.CTMCemfEditorPlugin"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="7.0" copyrightFields="false" editPluginID="de.uni_stuttgart.iste.cowolf.model.ctmc.emf.edit"
+    editorPluginID="de.uni_stuttgart.iste.cowolf.model.ctmc.emf.editor" usedGenPackages="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.genmodel#//commonBase"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>CTMC.ecore</foreignModel>
+  <genPackages prefix="Ctmc" disposableProviderFactory="true" providerPackageSuffix="emf.provider"
+      presentationPackageSuffix="emf.presentation" testsPackageSuffix="emf.tests"
+      ecorePackage="CTMC.ecore#/">
+    <genClasses ecoreClass="CTMC.ecore#//CTMC">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CTMC.ecore#//CTMC/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CTMC.ecore#//CTMC/States"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CTMC.ecore#//CTMC/initialState"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CTMC.ecore#//CTMC/Transitions"/>
+    </genClasses>
+    <genClasses ecoreClass="CTMC.ecore#//State">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CTMC.ecore#//State/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CTMC.ecore#//State/incoming"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CTMC.ecore#//State/outgoing"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CTMC.ecore#//State/labels"/>
+    </genClasses>
+    <genClasses ecoreClass="CTMC.ecore#//Transition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CTMC.ecore#//Transition/from"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CTMC.ecore#//Transition/to"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CTMC.ecore#//Transition/rate"/>
+    </genClasses>
+    <genClasses ecoreClass="CTMC.ecore#//Label">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CTMC.ecore#//Label/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference CTMC.ecore#//Label/state"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
