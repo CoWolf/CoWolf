@@ -6,12 +6,20 @@
 
 <plugin>
 
+    <extension
+         id="activityModelManager"
+         point="de.uni_stuttgart.iste.cowolf.model.qosModelManagerExtension">
+      <qosModelManager
+            class="de.uni_stuttgart.iste.cowolf.model.activity.ActivityModelManager">
+      </qosModelManager>
+   </extension>
+
    <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated activity -->
+      <!-- @generated DTMCemf -->
       <package
-            uri="http://activity/1.0"
-            class="de.uni_stuttgart.iste.cowolf.model.activity.ActivityPackage"
-            genModel="model/activity.genmodel"/>
+            uri="http://dtmc/1.0"
+            class="de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage"
+            genModel="model/DTMCemf.genmodel"/>
    </extension>
 
 </plugin>
