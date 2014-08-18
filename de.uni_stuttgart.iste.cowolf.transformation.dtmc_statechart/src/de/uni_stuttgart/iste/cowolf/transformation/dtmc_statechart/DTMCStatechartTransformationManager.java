@@ -14,8 +14,13 @@ import java.util.Map;
 import javax.xml.bind.JAXBException;
 
 import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.core.runtime.IConfigurationElement;
+import org.eclipse.core.runtime.IExtension;
+import org.eclipse.core.runtime.IExtensionPoint;
+import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.core.runtime.RegistryFactory;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -61,15 +66,13 @@ public class DTMCStatechartTransformationManager
     private HenshinResourceSet rulesResourceSet = new HenshinResourceSet();
     private Map<String, Unit> units = new HashMap<>();
     private Map<String, Mapping> mappings = new HashMap<>();
+    private final String KEY = "dtmc_statechart";
 
     @Override
     public boolean isManaged(Resource source, Resource target) {
-        System.out.println(source + " " + target);
         if ((source == null) || (target == null)) {
             return false;
         }
-
-        System.out.println(source.getContents() + " " + target.getContents());
         if ((source.getContents() == null) || source.getContents().isEmpty()
                 || (target.getContents() == null)
                 || target.getContents().isEmpty()) {
@@ -93,7 +96,6 @@ public class DTMCStatechartTransformationManager
         try {
             mappingObject = XMLMappingLoader.loadMapping(this.getMapping());
             this.mappings = mappingObject.getMapping();
-            System.out.println(mappingObject);
             System.out.println("Found " + mappingObject.getMapping().size()
                     + " mappings.");
         } catch (JAXBException e1) {
@@ -167,6 +169,7 @@ public class DTMCStatechartTransformationManager
             }
         }
         for (File henshinFil : henshinFiles) {
+            System.out.println(henshinFil.toPath().toString());
             Module module = this.rulesResourceSet.getModule(henshinFil.toPath()
                     .toString(), true);
             for (Unit unit : module.getUnits()) {
@@ -227,22 +230,6 @@ public class DTMCStatechartTransformationManager
                             counter++;
                             System.out.println(obj);
                         }
-                        // for (Change change : changes) {
-                        // System.out.println(change.eClass().getName()
-                        // .equals(param.getPath()));
-                        // if (change.eClass().getName()
-                        // .equals(param.getPath())) {
-                        // if (change instanceof AddObject) {
-                        // System.out.println(change.eGet(change
-                        // .eClass().getEStructuralFeature(
-                        // "obj")));
-                        // EObject object = ((AddObject) change)
-                        // .getObj();
-                        // value = object.eGet(object.eClass()
-                        // .getEStructuralFeature("name"));
-                        // }
-                        // }
-                        // }
                         application.setParameterValue(name, value);
                     }
                     result = application.execute(null);
@@ -327,19 +314,31 @@ public class DTMCStatechartTransformationManager
 
     @Override
     public InputStream getMapping() {
-        URL url;
-        try {
-            url = new URL(
-                    "platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart/res/dtmcmapping.xml");
-            return url.openStream();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        IExtensionRegistry er = RegistryFactory.getRegistry();
+        IExtensionPoint exPoint = er
+                .getExtensionPoint("de.uni_stuttgart.iste.cowolf.transformationMappingExtension");
+        for (IExtension extension : exPoint.getExtensions()) {
+            for (IConfigurationElement element : extension
+                    .getConfigurationElements()) {
+                if (element.getAttribute("key").equals(KEY)) {
+                    String platformString = extension.getNamespaceIdentifier()
+                            + File.separator + element.getAttribute("file");
+                    try {
+                        URL url = new URL(URI.createPlatformPluginURI(
+                                platformString, true).toString());
+                        return url.openStream();
+                    } catch (MalformedURLException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                }
+            }
         }
         return null;
     }
-
     /**
      * @param root
      * @return FileName
@@ -353,4 +352,9 @@ public class DTMCStatechartTransformationManager
 
         return fileNameNoExtension + "_result" + extension;
     }
+
+    private String getKey() {
+        return KEY;
+    }
+
 }

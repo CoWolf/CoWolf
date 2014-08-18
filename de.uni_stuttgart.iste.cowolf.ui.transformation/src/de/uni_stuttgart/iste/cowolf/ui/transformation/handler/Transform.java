@@ -130,19 +130,18 @@ public class Transform extends AbstractHandler {
 
         AbstractTransformationManager transManager = this.extensionHandler
                 .getTransformationManager(firstSourceModel, targetModel);
-
         if (evoManager != null && transManager != null) {
-
+            SymmetricDifference difference = null;
             try {
-                SymmetricDifference difference = evoManager.evolve(
-                        firstSourceModel, secondSourceModel);
-
+                difference = evoManager.evolve(firstSourceModel,
+                        secondSourceModel);
                 transManager.transform(secondSourceModel, targetModel,
                         difference);
             } catch (EvolutionException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+            } catch (Exception e) {
+
             }
+
         }
 
         return null;
