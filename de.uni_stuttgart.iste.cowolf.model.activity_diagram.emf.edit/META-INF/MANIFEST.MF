@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: de.uni_stuttgart.iste.cowolf.model.activity_diagram.edit;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: .
+Bundle-Activator: de.uni_stuttgart.iste.cowolf.model.activity.emf.provider.ActivityEditPlugin$Implementation
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: de.uni_stuttgart.iste.cowolf.model.activity.emf.provider
+Require-Bundle: org.eclipse.core.runtime,
+ de.uni_stuttgart.iste.cowolf.model.activity_diagram;visibility:=reexport,
+ org.eclipse.emf.edit;visibility:=reexport,
+ de.uni_stuttgart.iste.cowolf.model;visibility:=reexport,
+ de.uni_stuttgart.iste.cowolf.model.emf.edit;visibility:=reexport
+Bundle-ActivationPolicy: lazy
