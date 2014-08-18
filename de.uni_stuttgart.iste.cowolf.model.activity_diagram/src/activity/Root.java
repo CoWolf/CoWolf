@@ -17,10 +17,11 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link activity.Root#getStart <em>Start</em>}</li>
  *   <li>{@link activity.Root#getAction <em>Action</em>}</li>
  *   <li>{@link activity.Root#getDecision <em>Decision</em>}</li>
- *   <li>{@link activity.Root#getBar <em>Bar</em>}</li>
- *   <li>{@link activity.Root#getTransition <em>Transition</em>}</li>
  *   <li>{@link activity.Root#getEnd <em>End</em>}</li>
- *   <li>{@link activity.Root#getConditionArrow <em>Condition Arrow</em>}</li>
+ *   <li>{@link activity.Root#getSplit <em>Split</em>}</li>
+ *   <li>{@link activity.Root#getJoin <em>Join</em>}</li>
+ *   <li>{@link activity.Root#getStartArrow <em>Start Arrow</em>}</li>
+ *   <li>{@link activity.Root#getNodesWithoutJoin <em>Nodes Without Join</em>}</li>
  * </ul>
  * </p>
  *
@@ -88,38 +89,6 @@ public interface Root extends EObject {
 	EList<Decision> getDecision();
 
 	/**
-	 * Returns the value of the '<em><b>Bar</b></em>' containment reference list.
-	 * The list contents are of type {@link activity.Bar}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Bar</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Bar</em>' containment reference list.
-	 * @see activity.ActivityPackage#getRoot_Bar()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Bar> getBar();
-
-	/**
-	 * Returns the value of the '<em><b>Transition</b></em>' containment reference list.
-	 * The list contents are of type {@link activity.Arrow}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Transition</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transition</em>' containment reference list.
-	 * @see activity.ActivityPackage#getRoot_Transition()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Arrow> getTransition();
-
-	/**
 	 * Returns the value of the '<em><b>End</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -146,19 +115,77 @@ public interface Root extends EObject {
 	void setEnd(End value);
 
 	/**
-	 * Returns the value of the '<em><b>Condition Arrow</b></em>' containment reference list.
-	 * The list contents are of type {@link activity.ConditionArrow}.
+	 * Returns the value of the '<em><b>Split</b></em>' containment reference list.
+	 * The list contents are of type {@link activity.Split}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Condition Arrow</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Split</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Condition Arrow</em>' containment reference list.
-	 * @see activity.ActivityPackage#getRoot_ConditionArrow()
+	 * @return the value of the '<em>Split</em>' containment reference list.
+	 * @see activity.ActivityPackage#getRoot_Split()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ConditionArrow> getConditionArrow();
+	EList<Split> getSplit();
+
+	/**
+	 * Returns the value of the '<em><b>Join</b></em>' containment reference list.
+	 * The list contents are of type {@link activity.Join}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Join</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Join</em>' containment reference list.
+	 * @see activity.ActivityPackage#getRoot_Join()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Join> getJoin();
+
+	/**
+	 * Returns the value of the '<em><b>Start Arrow</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Start Arrow</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Start Arrow</em>' containment reference.
+	 * @see #setStartArrow(ArrowAfterStart)
+	 * @see activity.ActivityPackage#getRoot_StartArrow()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	ArrowAfterStart getStartArrow();
+
+	/**
+	 * Sets the value of the '{@link activity.Root#getStartArrow <em>Start Arrow</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Start Arrow</em>' containment reference.
+	 * @see #getStartArrow()
+	 * @generated
+	 */
+	void setStartArrow(ArrowAfterStart value);
+
+	/**
+	 * Returns the value of the '<em><b>Nodes Without Join</b></em>' containment reference list.
+	 * The list contents are of type {@link activity.NodesWithoutJoin}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Nodes Without Join</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Nodes Without Join</em>' containment reference list.
+	 * @see activity.ActivityPackage#getRoot_NodesWithoutJoin()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<NodesWithoutJoin> getNodesWithoutJoin();
 
 } // Root

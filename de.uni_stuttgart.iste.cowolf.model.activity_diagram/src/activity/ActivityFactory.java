@@ -58,15 +58,6 @@ public interface ActivityFactory extends EFactory {
 	Decision createDecision();
 
 	/**
-	 * Returns a new object of class '<em>Bar</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Bar</em>'.
-	 * @generated
-	 */
-	Bar createBar();
-
-	/**
 	 * Returns a new object of class '<em>Split</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -85,15 +76,6 @@ public interface ActivityFactory extends EFactory {
 	Join createJoin();
 
 	/**
-	 * Returns a new object of class '<em>Arrow</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Arrow</em>'.
-	 * @generated
-	 */
-	Arrow createArrow();
-
-	/**
 	 * Returns a new object of class '<em>End</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -103,13 +85,40 @@ public interface ActivityFactory extends EFactory {
 	End createEnd();
 
 	/**
-	 * Returns a new object of class '<em>Condition Arrow</em>'.
+	 * Returns a new object of class '<em>Arrow After Start</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Condition Arrow</em>'.
+	 * @return a new object of class '<em>Arrow After Start</em>'.
 	 * @generated
 	 */
-	ConditionArrow createConditionArrow();
+	ArrowAfterStart createArrowAfterStart();
+
+	/**
+	 * Returns a new object of class '<em>Decision Arrow</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Decision Arrow</em>'.
+	 * @generated
+	 */
+	DecisionArrow createDecisionArrow();
+
+	/**
+	 * Returns a new object of class '<em>After Action Arrow</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>After Action Arrow</em>'.
+	 * @generated
+	 */
+	AfterActionArrow createAfterActionArrow();
+
+	/**
+	 * Returns a new object of class '<em>Split Arrow</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Split Arrow</em>'.
+	 * @generated
+	 */
+	SplitArrow createSplitArrow();
 
 	/**
 	 * Returns the package supported by this factory.
