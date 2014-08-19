@@ -52,7 +52,7 @@ public class TransformationMappingEditorInput implements IEditorInput {
 		return this.getFilePath();
 	}
 
-	private String iFileToString(IFile iFile) {
+	private String getIFilePath(IFile iFile) {
 		return iFile.getProject().getName() + "/"
 				+ iFile.getProjectRelativePath().toString();
 	}
@@ -63,7 +63,7 @@ public class TransformationMappingEditorInput implements IEditorInput {
 	}
 
 	public String getFilePath() {
-		return this.iFileToString(this.transformationMappingFile);
+		return this.getIFilePath(this.transformationMappingFile);
 	}
 
 	@Override

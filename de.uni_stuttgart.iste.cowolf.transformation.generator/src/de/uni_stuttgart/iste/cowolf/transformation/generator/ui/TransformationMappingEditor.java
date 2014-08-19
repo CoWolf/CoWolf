@@ -1,17 +1,28 @@
 package de.uni_stuttgart.iste.cowolf.transformation.generator.ui;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.emf.common.ui.dialogs.WorkspaceResourceDialog;
 import org.eclipse.jface.viewers.TreeViewer;
+import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.ui.IEditorInput;
@@ -38,6 +49,10 @@ public class TransformationMappingEditor extends EditorPart {
 	private boolean inputFileChanged;
 
 	private Composite parent;
+
+	private TreeViewer henshinRulesTreeViewer;
+
+	private List<IFile> henshinTransformationRules;
 
 	@Override
 	public void doSave(IProgressMonitor monitor) {
@@ -79,7 +94,7 @@ public class TransformationMappingEditor extends EditorPart {
 	@Override
 	public void createPartControl(Composite parent) {
 
-		//this.parent = parent;
+		this.parent = parent;
 
 		FormToolkit toolkit = new FormToolkit(parent.getDisplay());
 
@@ -105,6 +120,8 @@ public class TransformationMappingEditor extends EditorPart {
 		createRecognitionRulesSection(toolkit, editorScrolledForm);
 		createHenshinRulesSection(toolkit, editorScrolledForm);
 
+		henshinTransformationRules = new ArrayList<IFile>();
+
 	}
 
 	private void createRecognitionRulesSection(FormToolkit toolkit,
@@ -116,9 +133,9 @@ public class TransformationMappingEditor extends EditorPart {
 
 		Composite section1Composite = toolkit.createComposite(section1);
 		section1Composite.setLayout(new GridLayout(2, false));
-		
-		Tree recognitionRulesTree = toolkit.createTree(section1Composite, SWT.H_SCROLL
-				| SWT.V_SCROLL);
+
+		Tree recognitionRulesTree = toolkit.createTree(section1Composite,
+				SWT.H_SCROLL | SWT.V_SCROLL);
 		TreeViewer recognitionRulesTreeViewer = new TreeViewer(
 				recognitionRulesTree);
 
@@ -156,13 +173,9 @@ public class TransformationMappingEditor extends EditorPart {
 		// add only the SiLift rule bases for the evolution of the CoWolf models
 		for (String modelDocumentType : modelDocumentTypes) {
 
-			System.out.println(modelDocumentType);
-
 			for (IRuleBase ruleBase : RuleBaseUtil
 					.getAvailableRulebases(modelDocumentType)) {
-				System.out.println(ruleBase);
 				allRuleBases.add(ruleBase);
-
 			}
 		}
 
@@ -180,17 +193,20 @@ public class TransformationMappingEditor extends EditorPart {
 
 		Composite section2Composite = toolkit.createComposite(section2);
 		section2Composite.setLayout(new GridLayout(2, false));
-		
-		Tree henshinRulesTree = toolkit.createTree(section2Composite, SWT.H_SCROLL
-				| SWT.V_SCROLL);
-		TreeViewer henshinRulesTreeViewer = new TreeViewer(henshinRulesTree);
+
+		Tree henshinRulesTree = toolkit.createTree(section2Composite,
+				SWT.H_SCROLL | SWT.V_SCROLL);
+		henshinRulesTreeViewer = new TreeViewer(henshinRulesTree);
 
 		henshinRulesTreeViewer
-				.setContentProvider(new SiLiftRecognitionRulesContentProvider());
+				.setContentProvider(new TransformationRulesContentProvider());
+
+		// TODO
+		// henshinRulesTreeViewer
+		// .setInput(getRecognitionRulesTreeViewerInitialInput());
+
 		henshinRulesTreeViewer
-				.setInput(getRecognitionRulesTreeViewerInitialInput());
-		henshinRulesTreeViewer
-				.setLabelProvider(new SiLiftRecognitionRulesLabelProvider());
+				.setLabelProvider(new TransformationRulesLabelProvider());
 		henshinRulesTreeViewer.expandAll();
 
 		GridData henshinRulesTreeGridData = new GridData(GridData.FILL_BOTH);
@@ -204,7 +220,49 @@ public class TransformationMappingEditor extends EditorPart {
 				GridData.VERTICAL_ALIGN_BEGINNING);
 		addDirButton.setLayoutData(addDirButtonGridData);
 
+		addDirButton.addSelectionListener(this.browseWorkspace(parent
+				.getShell()));
+
 		section2.setClient(section2Composite);
+
+	}
+
+	protected SelectionListener browseWorkspace(final Shell shell) {
+
+		SelectionListener listener = new SelectionListener() {
+
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+
+				List<ViewerFilter> filters = new ArrayList<ViewerFilter>();
+				filters.add(new WorkspaceResourceDialogFilter());
+				IFile[] files = WorkspaceResourceDialog
+						.openFileSelection(
+								shell,
+								"Choose transformation rules",
+								"Choose directories with Henshin transformation rules.",
+								true, null, filters);
+
+				// directories[0].
+
+				
+				
+				henshinTransformationRules.addAll(Arrays.asList(files));
+
+				henshinRulesTreeViewer.add(henshinRulesTreeViewer.getInput(),
+						files);
+
+			}
+
+			@Override
+			public void widgetDefaultSelected(SelectionEvent e) {
+				// nothing to do
+			}
+		};
+		return listener;
+	}
+
+	private void addDirsToTransformationRulesTreeViewer(File[] dirs) {
 
 	}
 

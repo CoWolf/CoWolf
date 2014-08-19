@@ -1,13 +1,15 @@
 package de.uni_stuttgart.iste.cowolf.transformation.generator.ui;
 
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.henshin.model.Module;
+import org.eclipse.emf.henshin.model.Attribute;
+import org.eclipse.emf.henshin.model.Node;
+import org.eclipse.emf.henshin.model.Rule;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.swt.graphics.Image;
 import org.sidiff.difference.rulebase.RecognitionRule;
 import org.sidiff.difference.rulebase.extension.IRuleBase;
-import org.silift.common.util.emf.EMFStorage;
+import org.sidiff.difference.symmetric.SymmetricPackage;
 
 public class SiLiftRecognitionRulesLabelProvider implements ILabelProvider {
 
@@ -52,28 +54,48 @@ public class SiLiftRecognitionRulesLabelProvider implements ILabelProvider {
 
 	}
 
+	private String removeDoubleQuotes(String str) {
+
+		return str.replaceAll("^\"|\"$", "");
+
+	}
+
+	/**
+	 * TODO error handling if recognition rule reference in rule base file is
+	 * invalid
+	 */
 	@Override
 	public String getText(Object element) {
+
 		if (element instanceof IRuleBase) {
+
 			IRuleBase ruleBase = (IRuleBase) element;
 			return ruleBase.getName();
+
 		} else if (element instanceof RecognitionRule) {
+
 			RecognitionRule recognitionRule = (RecognitionRule) element;
 
-			Module recognitionModule = recognitionRule.getRecognitionModule();
+			Rule recognitionModule = recognitionRule.getRecognitionMainUnit();
 
-			if (recognitionModule != null) {
+			for (Node node : recognitionModule.getRhs().getNodes()) {
 
-				URI recognitionRulePlatformResourceURI = recognitionModule
-						.eResource().getURI();
+				for (Attribute attribute : node.getAttributes()) {
 
-				Module module = (Module) EMFStorage
-						.eLoad(this
-								.transformPlatformResourceToPlatformPluginURI(recognitionRulePlatformResourceURI));
+					if (attribute.getType() == SymmetricPackage.eINSTANCE
+							.getSemanticChangeSet_Name()) {
+						return (removeDoubleQuotes(attribute.getValue()));
+					}
 
-				return "sfdf";
+				}
 
 			}
+
+			// TODO
+			return "ERROR: Rule "
+					+ recognitionRule.getRecognitionMainUnit().getName()
+					+ " is invalid or was not found.";
+
 		}
 
 		return null;
