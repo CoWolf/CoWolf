@@ -64,8 +64,10 @@ public class InhibitItemProvider extends GateItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		Inhibit inhibit = (Inhibit)object;
-		return getString("_UI_Inhibit_type") + " " + inhibit.getId();
+		String label = ((Inhibit)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Inhibit_type") :
+			getString("_UI_Inhibit_type") + " " + label;
 	}
 	
 

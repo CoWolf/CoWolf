@@ -3,6 +3,7 @@
 package de.uni_stuttgart.iste.cowolf.model.fault_tree.emf.provider;
 
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.emf.provider.IDBaseItemProvider;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.Event;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreePackage;
 
@@ -32,13 +33,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class EventItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends IDBaseItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -64,7 +59,6 @@ public class EventItemProvider
 			addInputGatePropertyDescriptor(object);
 			addOutputGatePropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
-			addIdPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -158,28 +152,6 @@ public class EventItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Id feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIdPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Event_id_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Event_id_feature", "_UI_Event_type"),
-				 FaultTreePackage.Literals.EVENT__ID,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -208,7 +180,6 @@ public class EventItemProvider
 		switch (notification.getFeatureID(Event.class)) {
 			case FaultTreePackage.EVENT__DESCRIPTION:
 			case FaultTreePackage.EVENT__NAME:
-			case FaultTreePackage.EVENT__ID:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

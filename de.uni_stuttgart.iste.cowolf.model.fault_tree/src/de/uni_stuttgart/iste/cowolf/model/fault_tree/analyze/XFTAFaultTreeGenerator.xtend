@@ -6,16 +6,16 @@ import de.uni_stuttgart.iste.cowolf.model.fault_tree.Gate
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.Hazard
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.IntermediateEvent
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.UndevelopedEvent
-import de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.RootImpl
 import java.util.Map
+import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree
 
 class XFTAFaultTreeGenerator implements XFTAGenerator {
 
-	override CharSequence doGenerateXFTAFile(RootImpl root, Map<String, Object> parameters) {
+	override CharSequence doGenerateXFTAFile(FaultTree root, Map<String, Object> parameters) {
 		return '''«root.xFTAFaultTreeTemplate»'''
 	}
 
-	def xFTAFaultTreeTemplate(RootImpl r) '''
+	def xFTAFaultTreeTemplate(FaultTree r) '''
 		<?xml version="1.0"?>
 		<!DOCTYPE open-psa>
 		<open-psa>

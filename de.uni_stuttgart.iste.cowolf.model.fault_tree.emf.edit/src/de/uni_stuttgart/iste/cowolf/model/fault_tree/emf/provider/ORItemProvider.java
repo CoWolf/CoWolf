@@ -64,8 +64,10 @@ public class ORItemProvider extends GateItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		OR or = (OR)object;
-		return getString("_UI_OR_type") + " " + or.getId();
+		String label = ((OR)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_OR_type") :
+			getString("_UI_OR_type") + " " + label;
 	}
 	
 

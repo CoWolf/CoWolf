@@ -3,6 +3,7 @@
 package de.uni_stuttgart.iste.cowolf.model.fault_tree.emf.provider;
 
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.emf.provider.IDBaseItemProvider;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.FailureType;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreePackage;
 
@@ -32,13 +33,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class FailureTypeItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends IDBaseItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

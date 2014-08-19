@@ -64,8 +64,10 @@ public class PriorANDItemProvider extends GateItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		PriorAND priorAND = (PriorAND)object;
-		return getString("_UI_PriorAND_type") + " " + priorAND.getId();
+		String label = ((PriorAND)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_PriorAND_type") :
+			getString("_UI_PriorAND_type") + " " + label;
 	}
 	
 

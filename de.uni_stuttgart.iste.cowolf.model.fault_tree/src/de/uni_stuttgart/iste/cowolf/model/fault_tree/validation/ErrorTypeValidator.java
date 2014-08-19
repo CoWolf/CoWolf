@@ -5,7 +5,7 @@
 package de.uni_stuttgart.iste.cowolf.model.fault_tree.validation;
 
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.ErrorInstance;
-import de.uni_stuttgart.iste.cowolf.model.fault_tree.Root;
+import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -19,6 +19,6 @@ public interface ErrorTypeValidator {
 	boolean validate();
 
 	boolean validateError(EList<ErrorInstance> value);
-	boolean validateRoot(Root value);
+	boolean validateRoot(FaultTree value);
 	boolean validateName(String value);
 }

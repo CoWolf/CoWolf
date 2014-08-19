@@ -2,6 +2,7 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.fault_tree;
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -20,7 +21,8 @@ import org.eclipse.emf.ecore.EReference;
  * <!-- end-user-doc -->
  * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreeFactory
  * @model kind="package"
- *        annotation="http://www.eclipse.org/OCL/Import ecore='http://www.eclipse.org/emf/2002/Ecore'"
+ *        annotation="http://www.eclipse.org/OCL/Import commonBase='../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#/' ecore='http://www.eclipse.org/emf/2002/Ecore'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'"
  * @generated
  */
 public interface FaultTreePackage extends EPackage {
@@ -67,13 +69,22 @@ public interface FaultTreePackage extends EPackage {
 	int EVENT = 2;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT__ID = CommonBasePackage.ID_BASE__ID;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT__DESCRIPTION = 0;
+	int EVENT__DESCRIPTION = CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Input Gate</b></em>' reference.
@@ -82,7 +93,7 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT__INPUT_GATE = 1;
+	int EVENT__INPUT_GATE = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Output Gate</b></em>' reference.
@@ -91,7 +102,7 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT__OUTPUT_GATE = 2;
+	int EVENT__OUTPUT_GATE = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Root</b></em>' container reference.
@@ -100,7 +111,7 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT__ROOT = 3;
+	int EVENT__ROOT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -109,16 +120,7 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT__NAME = 4;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT__ID = 5;
+	int EVENT__NAME = CommonBasePackage.ID_BASE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Event</em>' class.
@@ -127,7 +129,7 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_FEATURE_COUNT = 6;
+	int EVENT_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.HazardImpl <em>Hazard</em>}' class.
@@ -138,6 +140,15 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 */
 	int HAZARD = 0;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HAZARD__ID = EVENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -185,15 +196,6 @@ public interface FaultTreePackage extends EPackage {
 	int HAZARD__NAME = EVENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HAZARD__ID = EVENT__ID;
-
-	/**
 	 * The feature id for the '<em><b>In Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -228,7 +230,7 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GATE__ID = 0;
+	int GATE__ID = CommonBasePackage.ID_BASE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Input Gates</b></em>' reference list.
@@ -237,7 +239,7 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GATE__INPUT_GATES = 1;
+	int GATE__INPUT_GATES = CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Input Events</b></em>' reference list.
@@ -246,7 +248,7 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GATE__INPUT_EVENTS = 2;
+	int GATE__INPUT_EVENTS = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Output Gate</b></em>' reference.
@@ -255,7 +257,7 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GATE__OUTPUT_GATE = 3;
+	int GATE__OUTPUT_GATE = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Output Event</b></em>' reference.
@@ -264,7 +266,7 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GATE__OUTPUT_EVENT = 4;
+	int GATE__OUTPUT_EVENT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Root</b></em>' container reference.
@@ -273,7 +275,7 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GATE__ROOT = 5;
+	int GATE__ROOT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Gate</em>' class.
@@ -282,7 +284,7 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GATE_FEATURE_COUNT = 6;
+	int GATE_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.IntermediateEventImpl <em>Intermediate Event</em>}' class.
@@ -293,6 +295,15 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 */
 	int INTERMEDIATE_EVENT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERMEDIATE_EVENT__ID = EVENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -338,15 +349,6 @@ public interface FaultTreePackage extends EPackage {
 	 * @ordered
 	 */
 	int INTERMEDIATE_EVENT__NAME = EVENT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERMEDIATE_EVENT__ID = EVENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Instance</b></em>' reference list.
@@ -395,13 +397,22 @@ public interface FaultTreePackage extends EPackage {
 	int FAILURE_TYPE = 4;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FAILURE_TYPE__ID = CommonBasePackage.ID_BASE__ID;
+
+	/**
 	 * The feature id for the '<em><b>Instance</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FAILURE_TYPE__INSTANCE = 0;
+	int FAILURE_TYPE__INSTANCE = CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Root</b></em>' container reference.
@@ -410,7 +421,7 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FAILURE_TYPE__ROOT = 1;
+	int FAILURE_TYPE__ROOT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -419,7 +430,7 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FAILURE_TYPE__NAME = 2;
+	int FAILURE_TYPE__NAME = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Failure Type</em>' class.
@@ -428,7 +439,7 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FAILURE_TYPE_FEATURE_COUNT = 3;
+	int FAILURE_TYPE_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.FailureInstanceImpl <em>Failure Instance</em>}' class.
@@ -441,13 +452,22 @@ public interface FaultTreePackage extends EPackage {
 	int FAILURE_INSTANCE = 5;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FAILURE_INSTANCE__ID = CommonBasePackage.ID_BASE__ID;
+
+	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FAILURE_INSTANCE__TYPE = 0;
+	int FAILURE_INSTANCE__TYPE = CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Root</b></em>' container reference.
@@ -456,7 +476,7 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FAILURE_INSTANCE__ROOT = 1;
+	int FAILURE_INSTANCE__ROOT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Previous Failure</b></em>' reference.
@@ -465,7 +485,7 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FAILURE_INSTANCE__PREVIOUS_FAILURE = 2;
+	int FAILURE_INSTANCE__PREVIOUS_FAILURE = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Previous Error</b></em>' reference.
@@ -474,7 +494,7 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FAILURE_INSTANCE__PREVIOUS_ERROR = 3;
+	int FAILURE_INSTANCE__PREVIOUS_ERROR = CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Event</b></em>' reference.
@@ -483,7 +503,7 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FAILURE_INSTANCE__EVENT = 4;
+	int FAILURE_INSTANCE__EVENT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -492,7 +512,7 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FAILURE_INSTANCE__NAME = 5;
+	int FAILURE_INSTANCE__NAME = CommonBasePackage.ID_BASE_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Failure Instance</em>' class.
@@ -501,7 +521,7 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FAILURE_INSTANCE_FEATURE_COUNT = 6;
+	int FAILURE_INSTANCE_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.BasicEventImpl <em>Basic Event</em>}' class.
@@ -512,6 +532,15 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 */
 	int BASIC_EVENT = 6;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BASIC_EVENT__ID = EVENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -557,15 +586,6 @@ public interface FaultTreePackage extends EPackage {
 	 * @ordered
 	 */
 	int BASIC_EVENT__NAME = EVENT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BASIC_EVENT__ID = EVENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Instance</b></em>' reference list.
@@ -614,6 +634,15 @@ public interface FaultTreePackage extends EPackage {
 	int UNDEVELOPED_EVENT = 7;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNDEVELOPED_EVENT__ID = EVENT__ID;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -659,15 +688,6 @@ public interface FaultTreePackage extends EPackage {
 	int UNDEVELOPED_EVENT__NAME = EVENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNDEVELOPED_EVENT__ID = EVENT__ID;
-
-	/**
 	 * The number of structural features of the '<em>Undeveloped Event</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -687,13 +707,22 @@ public interface FaultTreePackage extends EPackage {
 	int ERROR_TYPE = 8;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ERROR_TYPE__ID = CommonBasePackage.ID_BASE__ID;
+
+	/**
 	 * The feature id for the '<em><b>Error</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ERROR_TYPE__ERROR = 0;
+	int ERROR_TYPE__ERROR = CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Root</b></em>' container reference.
@@ -702,7 +731,7 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ERROR_TYPE__ROOT = 1;
+	int ERROR_TYPE__ROOT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -711,7 +740,7 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ERROR_TYPE__NAME = 2;
+	int ERROR_TYPE__NAME = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Error Type</em>' class.
@@ -720,7 +749,7 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ERROR_TYPE_FEATURE_COUNT = 3;
+	int ERROR_TYPE_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.ErrorInstanceImpl <em>Error Instance</em>}' class.
@@ -733,13 +762,22 @@ public interface FaultTreePackage extends EPackage {
 	int ERROR_INSTANCE = 9;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ERROR_INSTANCE__ID = CommonBasePackage.ID_BASE__ID;
+
+	/**
 	 * The feature id for the '<em><b>Error</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ERROR_INSTANCE__ERROR = 0;
+	int ERROR_INSTANCE__ERROR = CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -748,7 +786,7 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ERROR_INSTANCE__TYPE = 1;
+	int ERROR_INSTANCE__TYPE = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Root</b></em>' container reference.
@@ -757,7 +795,7 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ERROR_INSTANCE__ROOT = 2;
+	int ERROR_INSTANCE__ROOT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -766,7 +804,7 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ERROR_INSTANCE__NAME = 3;
+	int ERROR_INSTANCE__NAME = CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Error Instance</em>' class.
@@ -775,7 +813,7 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ERROR_INSTANCE_FEATURE_COUNT = 4;
+	int ERROR_INSTANCE_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.ORImpl <em>OR</em>}' class.
@@ -1143,14 +1181,14 @@ public interface FaultTreePackage extends EPackage {
 	int INHIBIT_FEATURE_COUNT = GATE_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.RootImpl <em>Root</em>}' class.
+	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.FaultTreeImpl <em>Fault Tree</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.RootImpl
-	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.FaultTreePackageImpl#getRoot()
+	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.FaultTreeImpl
+	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.FaultTreePackageImpl#getFaultTree()
 	 * @generated
 	 */
-	int ROOT = 15;
+	int FAULT_TREE = 15;
 
 	/**
 	 * The feature id for the '<em><b>Hazard</b></em>' containment reference.
@@ -1159,7 +1197,7 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT__HAZARD = 0;
+	int FAULT_TREE__HAZARD = 0;
 
 	/**
 	 * The feature id for the '<em><b>Gate</b></em>' containment reference list.
@@ -1168,7 +1206,7 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT__GATE = 1;
+	int FAULT_TREE__GATE = 1;
 
 	/**
 	 * The feature id for the '<em><b>Event</b></em>' containment reference list.
@@ -1177,7 +1215,7 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT__EVENT = 2;
+	int FAULT_TREE__EVENT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Failure instance</b></em>' containment reference list.
@@ -1186,7 +1224,7 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT__FAILURE_INSTANCE = 3;
+	int FAULT_TREE__FAILURE_INSTANCE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Failure type</b></em>' containment reference list.
@@ -1195,7 +1233,7 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT__FAILURE_TYPE = 4;
+	int FAULT_TREE__FAILURE_TYPE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Error instance</b></em>' containment reference list.
@@ -1204,7 +1242,7 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT__ERROR_INSTANCE = 5;
+	int FAULT_TREE__ERROR_INSTANCE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Error type</b></em>' containment reference list.
@@ -1213,17 +1251,16 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT__ERROR_TYPE = 6;
+	int FAULT_TREE__ERROR_TYPE = 6;
 
 	/**
-	 * The number of structural features of the '<em>Root</em>' class.
+	 * The number of structural features of the '<em>Fault Tree</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT_FEATURE_COUNT = 7;
-
+	int FAULT_TREE_FEATURE_COUNT = 7;
 
 	/**
 	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.Hazard <em>Hazard</em>}'.
@@ -1255,17 +1292,6 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getGate();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.Gate#getId <em>Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.Gate#getId()
-	 * @see #getGate()
-	 * @generated
-	 */
-	EAttribute getGate_Id();
 
 	/**
 	 * Returns the meta object for the reference list '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.Gate#getInputGates <em>Input Gates</em>}'.
@@ -1386,17 +1412,6 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getEvent_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.Event#getId <em>Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.Event#getId()
-	 * @see #getEvent()
-	 * @generated
-	 */
-	EAttribute getEvent_Id();
 
 	/**
 	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.IntermediateEvent <em>Intermediate Event</em>}'.
@@ -1761,91 +1776,91 @@ public interface FaultTreePackage extends EPackage {
 	EClass getInhibit();
 
 	/**
-	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.Root <em>Root</em>}'.
+	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree <em>Fault Tree</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Root</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.Root
+	 * @return the meta object for class '<em>Fault Tree</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree
 	 * @generated
 	 */
-	EClass getRoot();
+	EClass getFaultTree();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.Root#getHazard <em>Hazard</em>}'.
+	 * Returns the meta object for the containment reference '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree#getHazard <em>Hazard</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Hazard</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.Root#getHazard()
-	 * @see #getRoot()
+	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree#getHazard()
+	 * @see #getFaultTree()
 	 * @generated
 	 */
-	EReference getRoot_Hazard();
+	EReference getFaultTree_Hazard();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.Root#getGate <em>Gate</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree#getGate <em>Gate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Gate</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.Root#getGate()
-	 * @see #getRoot()
+	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree#getGate()
+	 * @see #getFaultTree()
 	 * @generated
 	 */
-	EReference getRoot_Gate();
+	EReference getFaultTree_Gate();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.Root#getEvent <em>Event</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree#getEvent <em>Event</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Event</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.Root#getEvent()
-	 * @see #getRoot()
+	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree#getEvent()
+	 * @see #getFaultTree()
 	 * @generated
 	 */
-	EReference getRoot_Event();
+	EReference getFaultTree_Event();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.Root#getFailure_instance <em>Failure instance</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree#getFailure_instance <em>Failure instance</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Failure instance</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.Root#getFailure_instance()
-	 * @see #getRoot()
+	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree#getFailure_instance()
+	 * @see #getFaultTree()
 	 * @generated
 	 */
-	EReference getRoot_Failure_instance();
+	EReference getFaultTree_Failure_instance();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.Root#getFailure_type <em>Failure type</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree#getFailure_type <em>Failure type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Failure type</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.Root#getFailure_type()
-	 * @see #getRoot()
+	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree#getFailure_type()
+	 * @see #getFaultTree()
 	 * @generated
 	 */
-	EReference getRoot_Failure_type();
+	EReference getFaultTree_Failure_type();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.Root#getError_instance <em>Error instance</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree#getError_instance <em>Error instance</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Error instance</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.Root#getError_instance()
-	 * @see #getRoot()
+	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree#getError_instance()
+	 * @see #getFaultTree()
 	 * @generated
 	 */
-	EReference getRoot_Error_instance();
+	EReference getFaultTree_Error_instance();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.Root#getError_type <em>Error type</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree#getError_type <em>Error type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Error type</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.Root#getError_type()
-	 * @see #getRoot()
+	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree#getError_type()
+	 * @see #getFaultTree()
 	 * @generated
 	 */
-	EReference getRoot_Error_type();
+	EReference getFaultTree_Error_type();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1896,14 +1911,6 @@ public interface FaultTreePackage extends EPackage {
 		 * @generated
 		 */
 		EClass GATE = eINSTANCE.getGate();
-
-		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GATE__ID = eINSTANCE.getGate_Id();
 
 		/**
 		 * The meta object literal for the '<em><b>Input Gates</b></em>' reference list feature.
@@ -1994,14 +2001,6 @@ public interface FaultTreePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute EVENT__NAME = eINSTANCE.getEvent_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute EVENT__ID = eINSTANCE.getEvent_Id();
 
 		/**
 		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.IntermediateEventImpl <em>Intermediate Event</em>}' class.
@@ -2300,14 +2299,14 @@ public interface FaultTreePackage extends EPackage {
 		EClass INHIBIT = eINSTANCE.getInhibit();
 
 		/**
-		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.RootImpl <em>Root</em>}' class.
+		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.FaultTreeImpl <em>Fault Tree</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.RootImpl
-		 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.FaultTreePackageImpl#getRoot()
+		 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.FaultTreeImpl
+		 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.FaultTreePackageImpl#getFaultTree()
 		 * @generated
 		 */
-		EClass ROOT = eINSTANCE.getRoot();
+		EClass FAULT_TREE = eINSTANCE.getFaultTree();
 
 		/**
 		 * The meta object literal for the '<em><b>Hazard</b></em>' containment reference feature.
@@ -2315,7 +2314,7 @@ public interface FaultTreePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ROOT__HAZARD = eINSTANCE.getRoot_Hazard();
+		EReference FAULT_TREE__HAZARD = eINSTANCE.getFaultTree_Hazard();
 
 		/**
 		 * The meta object literal for the '<em><b>Gate</b></em>' containment reference list feature.
@@ -2323,7 +2322,7 @@ public interface FaultTreePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ROOT__GATE = eINSTANCE.getRoot_Gate();
+		EReference FAULT_TREE__GATE = eINSTANCE.getFaultTree_Gate();
 
 		/**
 		 * The meta object literal for the '<em><b>Event</b></em>' containment reference list feature.
@@ -2331,7 +2330,7 @@ public interface FaultTreePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ROOT__EVENT = eINSTANCE.getRoot_Event();
+		EReference FAULT_TREE__EVENT = eINSTANCE.getFaultTree_Event();
 
 		/**
 		 * The meta object literal for the '<em><b>Failure instance</b></em>' containment reference list feature.
@@ -2339,7 +2338,7 @@ public interface FaultTreePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ROOT__FAILURE_INSTANCE = eINSTANCE.getRoot_Failure_instance();
+		EReference FAULT_TREE__FAILURE_INSTANCE = eINSTANCE.getFaultTree_Failure_instance();
 
 		/**
 		 * The meta object literal for the '<em><b>Failure type</b></em>' containment reference list feature.
@@ -2347,7 +2346,7 @@ public interface FaultTreePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ROOT__FAILURE_TYPE = eINSTANCE.getRoot_Failure_type();
+		EReference FAULT_TREE__FAILURE_TYPE = eINSTANCE.getFaultTree_Failure_type();
 
 		/**
 		 * The meta object literal for the '<em><b>Error instance</b></em>' containment reference list feature.
@@ -2355,7 +2354,7 @@ public interface FaultTreePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ROOT__ERROR_INSTANCE = eINSTANCE.getRoot_Error_instance();
+		EReference FAULT_TREE__ERROR_INSTANCE = eINSTANCE.getFaultTree_Error_instance();
 
 		/**
 		 * The meta object literal for the '<em><b>Error type</b></em>' containment reference list feature.
@@ -2363,7 +2362,7 @@ public interface FaultTreePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ROOT__ERROR_TYPE = eINSTANCE.getRoot_Error_type();
+		EReference FAULT_TREE__ERROR_TYPE = eINSTANCE.getFaultTree_Error_type();
 
 	}
 

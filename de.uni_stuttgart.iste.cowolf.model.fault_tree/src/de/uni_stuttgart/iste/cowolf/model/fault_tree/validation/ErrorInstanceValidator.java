@@ -6,7 +6,7 @@ package de.uni_stuttgart.iste.cowolf.model.fault_tree.validation;
 
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.BasicEvent;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.ErrorType;
-import de.uni_stuttgart.iste.cowolf.model.fault_tree.Root;
+import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree;
 
 /**
  * A sample validator interface for {@link de.uni_stuttgart.iste.cowolf.model.fault_tree.ErrorInstance}.
@@ -19,6 +19,6 @@ public interface ErrorInstanceValidator {
 
 	boolean validateError(BasicEvent value);
 	boolean validateType(ErrorType value);
-	boolean validateRoot(Root value);
+	boolean validateRoot(FaultTree value);
 	boolean validateName(String value);
 }

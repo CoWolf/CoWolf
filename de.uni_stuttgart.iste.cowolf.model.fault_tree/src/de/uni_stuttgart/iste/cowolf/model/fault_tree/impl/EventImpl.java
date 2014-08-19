@@ -2,10 +2,11 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.fault_tree.impl;
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.impl.IDBaseImpl;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.Event;
+import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreePackage;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.Gate;
-import de.uni_stuttgart.iste.cowolf.model.fault_tree.Root;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -14,7 +15,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
@@ -30,13 +30,12 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.EventImpl#getOutputGate <em>Output Gate</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.EventImpl#getRoot <em>Root</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.EventImpl#getName <em>Name</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.EventImpl#getId <em>Id</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public abstract class EventImpl extends EObjectImpl implements Event {
+public abstract class EventImpl extends IDBaseImpl implements Event {
 	/**
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -96,26 +95,6 @@ public abstract class EventImpl extends EObjectImpl implements Event {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getId()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int ID_EDEFAULT = 0;
-
-	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getId()
-	 * @generated
-	 * @ordered
-	 */
-	protected int id = ID_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -282,9 +261,9 @@ public abstract class EventImpl extends EObjectImpl implements Event {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Root getRoot() {
+	public FaultTree getRoot() {
 		if (eContainerFeatureID() != FaultTreePackage.EVENT__ROOT) return null;
-		return (Root)eInternalContainer();
+		return (FaultTree)eInternalContainer();
 	}
 
 	/**
@@ -292,7 +271,7 @@ public abstract class EventImpl extends EObjectImpl implements Event {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRoot(Root newRoot, NotificationChain msgs) {
+	public NotificationChain basicSetRoot(FaultTree newRoot, NotificationChain msgs) {
 		msgs = eBasicSetContainer((InternalEObject)newRoot, FaultTreePackage.EVENT__ROOT, msgs);
 		return msgs;
 	}
@@ -302,7 +281,7 @@ public abstract class EventImpl extends EObjectImpl implements Event {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRoot(Root newRoot) {
+	public void setRoot(FaultTree newRoot) {
 		if (newRoot != eInternalContainer() || (eContainerFeatureID() != FaultTreePackage.EVENT__ROOT && newRoot != null)) {
 			if (EcoreUtil.isAncestor(this, newRoot))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
@@ -310,7 +289,7 @@ public abstract class EventImpl extends EObjectImpl implements Event {
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newRoot != null)
-				msgs = ((InternalEObject)newRoot).eInverseAdd(this, FaultTreePackage.ROOT__EVENT, Root.class, msgs);
+				msgs = ((InternalEObject)newRoot).eInverseAdd(this, FaultTreePackage.FAULT_TREE__EVENT, FaultTree.class, msgs);
 			msgs = basicSetRoot(newRoot, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -344,27 +323,6 @@ public abstract class EventImpl extends EObjectImpl implements Event {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getId() {
-		return id;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setId(int newId) {
-		int oldId = id;
-		id = newId;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FaultTreePackage.EVENT__ID, oldId, id));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -379,7 +337,7 @@ public abstract class EventImpl extends EObjectImpl implements Event {
 			case FaultTreePackage.EVENT__ROOT:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetRoot((Root)otherEnd, msgs);
+				return basicSetRoot((FaultTree)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -411,7 +369,7 @@ public abstract class EventImpl extends EObjectImpl implements Event {
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case FaultTreePackage.EVENT__ROOT:
-				return eInternalContainer().eInverseRemove(this, FaultTreePackage.ROOT__EVENT, Root.class, msgs);
+				return eInternalContainer().eInverseRemove(this, FaultTreePackage.FAULT_TREE__EVENT, FaultTree.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -436,8 +394,6 @@ public abstract class EventImpl extends EObjectImpl implements Event {
 				return getRoot();
 			case FaultTreePackage.EVENT__NAME:
 				return getName();
-			case FaultTreePackage.EVENT__ID:
-				return getId();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -460,13 +416,10 @@ public abstract class EventImpl extends EObjectImpl implements Event {
 				setOutputGate((Gate)newValue);
 				return;
 			case FaultTreePackage.EVENT__ROOT:
-				setRoot((Root)newValue);
+				setRoot((FaultTree)newValue);
 				return;
 			case FaultTreePackage.EVENT__NAME:
 				setName((String)newValue);
-				return;
-			case FaultTreePackage.EVENT__ID:
-				setId((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -490,13 +443,10 @@ public abstract class EventImpl extends EObjectImpl implements Event {
 				setOutputGate((Gate)null);
 				return;
 			case FaultTreePackage.EVENT__ROOT:
-				setRoot((Root)null);
+				setRoot((FaultTree)null);
 				return;
 			case FaultTreePackage.EVENT__NAME:
 				setName(NAME_EDEFAULT);
-				return;
-			case FaultTreePackage.EVENT__ID:
-				setId(ID_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -520,8 +470,6 @@ public abstract class EventImpl extends EObjectImpl implements Event {
 				return getRoot() != null;
 			case FaultTreePackage.EVENT__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case FaultTreePackage.EVENT__ID:
-				return id != ID_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -540,8 +488,6 @@ public abstract class EventImpl extends EObjectImpl implements Event {
 		result.append(description);
 		result.append(", name: ");
 		result.append(name);
-		result.append(", id: ");
-		result.append(id);
 		result.append(')');
 		return result.toString();
 	}

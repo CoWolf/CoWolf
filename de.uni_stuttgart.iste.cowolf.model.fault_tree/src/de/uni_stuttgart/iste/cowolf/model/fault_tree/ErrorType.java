@@ -2,6 +2,7 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.fault_tree;
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -24,7 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface ErrorType extends EObject {
+public interface ErrorType extends IDBase {
 	/**
 	 * Returns the value of the '<em><b>Error</b></em>' reference list.
 	 * The list contents are of type {@link de.uni_stuttgart.iste.cowolf.model.fault_tree.ErrorInstance}.
@@ -45,7 +46,7 @@ public interface ErrorType extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Root</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.Root#getError_type <em>Error type</em>}'.
+	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree#getError_type <em>Error type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Root</em>' container reference isn't clear,
@@ -53,13 +54,13 @@ public interface ErrorType extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Root</em>' container reference.
-	 * @see #setRoot(Root)
+	 * @see #setRoot(FaultTree)
 	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreePackage#getErrorType_Root()
-	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.Root#getError_type
+	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree#getError_type
 	 * @model opposite="error_type" transient="false"
 	 * @generated
 	 */
-	Root getRoot();
+	FaultTree getRoot();
 
 	/**
 	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.ErrorType#getRoot <em>Root</em>}' container reference.
@@ -69,7 +70,7 @@ public interface ErrorType extends EObject {
 	 * @see #getRoot()
 	 * @generated
 	 */
-	void setRoot(Root value);
+	void setRoot(FaultTree value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

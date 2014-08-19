@@ -3,6 +3,7 @@
 package de.uni_stuttgart.iste.cowolf.model.fault_tree.emf.provider;
 
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.emf.provider.IDBaseItemProvider;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreePackage;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.Gate;
 
@@ -32,13 +33,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class GateItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends IDBaseItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -60,35 +55,12 @@ public class GateItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addIdPropertyDescriptor(object);
 			addInputGatesPropertyDescriptor(object);
 			addInputEventsPropertyDescriptor(object);
 			addOutputGatePropertyDescriptor(object);
 			addOutputEventPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Id feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIdPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Gate_id_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Gate_id_feature", "_UI_Gate_type"),
-				 FaultTreePackage.Literals.GATE__ID,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -187,8 +159,10 @@ public class GateItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Gate gate = (Gate)object;
-		return getString("_UI_Gate_type") + " " + gate.getId();
+		String label = ((Gate)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Gate_type") :
+			getString("_UI_Gate_type") + " " + label;
 	}
 	
 
@@ -202,12 +176,6 @@ public class GateItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(Gate.class)) {
-			case FaultTreePackage.GATE__ID:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 

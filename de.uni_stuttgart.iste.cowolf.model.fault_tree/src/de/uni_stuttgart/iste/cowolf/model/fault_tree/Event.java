@@ -2,6 +2,7 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.fault_tree;
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -17,7 +18,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.Event#getOutputGate <em>Output Gate</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.Event#getRoot <em>Root</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.Event#getName <em>Name</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.Event#getId <em>Id</em>}</li>
  * </ul>
  * </p>
  *
@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface Event extends EObject {
+public interface Event extends IDBase {
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -110,7 +110,7 @@ public interface Event extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Root</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.Root#getEvent <em>Event</em>}'.
+	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree#getEvent <em>Event</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Root</em>' container reference isn't clear,
@@ -118,13 +118,13 @@ public interface Event extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Root</em>' container reference.
-	 * @see #setRoot(Root)
+	 * @see #setRoot(FaultTree)
 	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreePackage#getEvent_Root()
-	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.Root#getEvent
+	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree#getEvent
 	 * @model opposite="event" transient="false"
 	 * @generated
 	 */
-	Root getRoot();
+	FaultTree getRoot();
 
 	/**
 	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.Event#getRoot <em>Root</em>}' container reference.
@@ -134,7 +134,7 @@ public interface Event extends EObject {
 	 * @see #getRoot()
 	 * @generated
 	 */
-	void setRoot(Root value);
+	void setRoot(FaultTree value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -161,31 +161,5 @@ public interface Event extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Id</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Id</em>' attribute.
-	 * @see #setId(int)
-	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreePackage#getEvent_Id()
-	 * @model id="true" required="true"
-	 * @generated
-	 */
-	int getId();
-
-	/**
-	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.Event#getId <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Id</em>' attribute.
-	 * @see #getId()
-	 * @generated
-	 */
-	void setId(int value);
 
 } // Event

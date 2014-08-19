@@ -2,11 +2,12 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.fault_tree.impl;
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.impl.IDBaseImpl;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.BasicEvent;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.ErrorInstance;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.ErrorType;
+import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreePackage;
-import de.uni_stuttgart.iste.cowolf.model.fault_tree.Root;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -15,7 +16,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
@@ -35,7 +35,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *
  * @generated
  */
-public class ErrorInstanceImpl extends EObjectImpl implements ErrorInstance {
+public class ErrorInstanceImpl extends IDBaseImpl implements ErrorInstance {
 	/**
 	 * The cached value of the '{@link #getError() <em>Error</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -220,9 +220,9 @@ public class ErrorInstanceImpl extends EObjectImpl implements ErrorInstance {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Root getRoot() {
+	public FaultTree getRoot() {
 		if (eContainerFeatureID() != FaultTreePackage.ERROR_INSTANCE__ROOT) return null;
-		return (Root)eInternalContainer();
+		return (FaultTree)eInternalContainer();
 	}
 
 	/**
@@ -230,7 +230,7 @@ public class ErrorInstanceImpl extends EObjectImpl implements ErrorInstance {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRoot(Root newRoot, NotificationChain msgs) {
+	public NotificationChain basicSetRoot(FaultTree newRoot, NotificationChain msgs) {
 		msgs = eBasicSetContainer((InternalEObject)newRoot, FaultTreePackage.ERROR_INSTANCE__ROOT, msgs);
 		return msgs;
 	}
@@ -240,7 +240,7 @@ public class ErrorInstanceImpl extends EObjectImpl implements ErrorInstance {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRoot(Root newRoot) {
+	public void setRoot(FaultTree newRoot) {
 		if (newRoot != eInternalContainer() || (eContainerFeatureID() != FaultTreePackage.ERROR_INSTANCE__ROOT && newRoot != null)) {
 			if (EcoreUtil.isAncestor(this, newRoot))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
@@ -248,7 +248,7 @@ public class ErrorInstanceImpl extends EObjectImpl implements ErrorInstance {
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newRoot != null)
-				msgs = ((InternalEObject)newRoot).eInverseAdd(this, FaultTreePackage.ROOT__ERROR_INSTANCE, Root.class, msgs);
+				msgs = ((InternalEObject)newRoot).eInverseAdd(this, FaultTreePackage.FAULT_TREE__ERROR_INSTANCE, FaultTree.class, msgs);
 			msgs = basicSetRoot(newRoot, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -296,7 +296,7 @@ public class ErrorInstanceImpl extends EObjectImpl implements ErrorInstance {
 			case FaultTreePackage.ERROR_INSTANCE__ROOT:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetRoot((Root)otherEnd, msgs);
+				return basicSetRoot((FaultTree)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -328,7 +328,7 @@ public class ErrorInstanceImpl extends EObjectImpl implements ErrorInstance {
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case FaultTreePackage.ERROR_INSTANCE__ROOT:
-				return eInternalContainer().eInverseRemove(this, FaultTreePackage.ROOT__ERROR_INSTANCE, Root.class, msgs);
+				return eInternalContainer().eInverseRemove(this, FaultTreePackage.FAULT_TREE__ERROR_INSTANCE, FaultTree.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -370,7 +370,7 @@ public class ErrorInstanceImpl extends EObjectImpl implements ErrorInstance {
 				setType((ErrorType)newValue);
 				return;
 			case FaultTreePackage.ERROR_INSTANCE__ROOT:
-				setRoot((Root)newValue);
+				setRoot((FaultTree)newValue);
 				return;
 			case FaultTreePackage.ERROR_INSTANCE__NAME:
 				setName((String)newValue);
@@ -394,7 +394,7 @@ public class ErrorInstanceImpl extends EObjectImpl implements ErrorInstance {
 				setType((ErrorType)null);
 				return;
 			case FaultTreePackage.ERROR_INSTANCE__ROOT:
-				setRoot((Root)null);
+				setRoot((FaultTree)null);
 				return;
 			case FaultTreePackage.ERROR_INSTANCE__NAME:
 				setName(NAME_EDEFAULT);

@@ -2,10 +2,11 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.fault_tree.impl;
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.impl.IDBaseImpl;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.FailureInstance;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.FailureType;
+import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreePackage;
-import de.uni_stuttgart.iste.cowolf.model.fault_tree.Root;
 
 import java.util.Collection;
 
@@ -18,7 +19,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -39,7 +39,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class FailureTypeImpl extends EObjectImpl implements FailureType {
+public class FailureTypeImpl extends IDBaseImpl implements FailureType {
 	/**
 	 * The cached value of the '{@link #getInstance() <em>Instance</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -106,9 +106,9 @@ public class FailureTypeImpl extends EObjectImpl implements FailureType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Root getRoot() {
+	public FaultTree getRoot() {
 		if (eContainerFeatureID() != FaultTreePackage.FAILURE_TYPE__ROOT) return null;
-		return (Root)eInternalContainer();
+		return (FaultTree)eInternalContainer();
 	}
 
 	/**
@@ -116,7 +116,7 @@ public class FailureTypeImpl extends EObjectImpl implements FailureType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRoot(Root newRoot, NotificationChain msgs) {
+	public NotificationChain basicSetRoot(FaultTree newRoot, NotificationChain msgs) {
 		msgs = eBasicSetContainer((InternalEObject)newRoot, FaultTreePackage.FAILURE_TYPE__ROOT, msgs);
 		return msgs;
 	}
@@ -126,7 +126,7 @@ public class FailureTypeImpl extends EObjectImpl implements FailureType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRoot(Root newRoot) {
+	public void setRoot(FaultTree newRoot) {
 		if (newRoot != eInternalContainer() || (eContainerFeatureID() != FaultTreePackage.FAILURE_TYPE__ROOT && newRoot != null)) {
 			if (EcoreUtil.isAncestor(this, newRoot))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
@@ -134,7 +134,7 @@ public class FailureTypeImpl extends EObjectImpl implements FailureType {
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newRoot != null)
-				msgs = ((InternalEObject)newRoot).eInverseAdd(this, FaultTreePackage.ROOT__FAILURE_TYPE, Root.class, msgs);
+				msgs = ((InternalEObject)newRoot).eInverseAdd(this, FaultTreePackage.FAULT_TREE__FAILURE_TYPE, FaultTree.class, msgs);
 			msgs = basicSetRoot(newRoot, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -177,7 +177,7 @@ public class FailureTypeImpl extends EObjectImpl implements FailureType {
 			case FaultTreePackage.FAILURE_TYPE__ROOT:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetRoot((Root)otherEnd, msgs);
+				return basicSetRoot((FaultTree)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -207,7 +207,7 @@ public class FailureTypeImpl extends EObjectImpl implements FailureType {
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case FaultTreePackage.FAILURE_TYPE__ROOT:
-				return eInternalContainer().eInverseRemove(this, FaultTreePackage.ROOT__FAILURE_TYPE, Root.class, msgs);
+				return eInternalContainer().eInverseRemove(this, FaultTreePackage.FAULT_TREE__FAILURE_TYPE, FaultTree.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -244,7 +244,7 @@ public class FailureTypeImpl extends EObjectImpl implements FailureType {
 				getInstance().addAll((Collection<? extends FailureInstance>)newValue);
 				return;
 			case FaultTreePackage.FAILURE_TYPE__ROOT:
-				setRoot((Root)newValue);
+				setRoot((FaultTree)newValue);
 				return;
 			case FaultTreePackage.FAILURE_TYPE__NAME:
 				setName((String)newValue);
@@ -265,7 +265,7 @@ public class FailureTypeImpl extends EObjectImpl implements FailureType {
 				getInstance().clear();
 				return;
 			case FaultTreePackage.FAILURE_TYPE__ROOT:
-				setRoot((Root)null);
+				setRoot((FaultTree)null);
 				return;
 			case FaultTreePackage.FAILURE_TYPE__NAME:
 				setName(NAME_EDEFAULT);

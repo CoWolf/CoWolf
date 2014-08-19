@@ -2,12 +2,14 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.fault_tree.impl;
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.BasicEvent;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.ErrorInstance;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.ErrorType;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.Event;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.FailureInstance;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.FailureType;
+import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreeFactory;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreePackage;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.Gate;
@@ -15,7 +17,6 @@ import de.uni_stuttgart.iste.cowolf.model.fault_tree.Hazard;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.Inhibit;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.IntermediateEvent;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.PriorAND;
-import de.uni_stuttgart.iste.cowolf.model.fault_tree.Root;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.UndevelopedEvent;
 
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.util.FaultTreeValidator;
@@ -145,7 +146,7 @@ public class FaultTreePackageImpl extends EPackageImpl implements FaultTreePacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass rootEClass = null;
+	private EClass faultTreeEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -192,6 +193,9 @@ public class FaultTreePackageImpl extends EPackageImpl implements FaultTreePacka
 		FaultTreePackageImpl theFaultTreePackage = (FaultTreePackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof FaultTreePackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new FaultTreePackageImpl());
 
 		isInited = true;
+
+		// Initialize simple dependencies
+		CommonBasePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theFaultTreePackage.createPackageContents();
@@ -249,17 +253,8 @@ public class FaultTreePackageImpl extends EPackageImpl implements FaultTreePacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getGate_Id() {
-		return (EAttribute)gateEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getGate_InputGates() {
-		return (EReference)gateEClass.getEStructuralFeatures().get(1);
+		return (EReference)gateEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -268,7 +263,7 @@ public class FaultTreePackageImpl extends EPackageImpl implements FaultTreePacka
 	 * @generated
 	 */
 	public EReference getGate_InputEvents() {
-		return (EReference)gateEClass.getEStructuralFeatures().get(2);
+		return (EReference)gateEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -277,7 +272,7 @@ public class FaultTreePackageImpl extends EPackageImpl implements FaultTreePacka
 	 * @generated
 	 */
 	public EReference getGate_OutputGate() {
-		return (EReference)gateEClass.getEStructuralFeatures().get(3);
+		return (EReference)gateEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -286,7 +281,7 @@ public class FaultTreePackageImpl extends EPackageImpl implements FaultTreePacka
 	 * @generated
 	 */
 	public EReference getGate_OutputEvent() {
-		return (EReference)gateEClass.getEStructuralFeatures().get(4);
+		return (EReference)gateEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -295,7 +290,7 @@ public class FaultTreePackageImpl extends EPackageImpl implements FaultTreePacka
 	 * @generated
 	 */
 	public EReference getGate_Root() {
-		return (EReference)gateEClass.getEStructuralFeatures().get(5);
+		return (EReference)gateEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -350,15 +345,6 @@ public class FaultTreePackageImpl extends EPackageImpl implements FaultTreePacka
 	 */
 	public EAttribute getEvent_Name() {
 		return (EAttribute)eventEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getEvent_Id() {
-		return (EAttribute)eventEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -672,8 +658,8 @@ public class FaultTreePackageImpl extends EPackageImpl implements FaultTreePacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getRoot() {
-		return rootEClass;
+	public EClass getFaultTree() {
+		return faultTreeEClass;
 	}
 
 	/**
@@ -681,8 +667,8 @@ public class FaultTreePackageImpl extends EPackageImpl implements FaultTreePacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRoot_Hazard() {
-		return (EReference)rootEClass.getEStructuralFeatures().get(0);
+	public EReference getFaultTree_Hazard() {
+		return (EReference)faultTreeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -690,8 +676,8 @@ public class FaultTreePackageImpl extends EPackageImpl implements FaultTreePacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRoot_Gate() {
-		return (EReference)rootEClass.getEStructuralFeatures().get(1);
+	public EReference getFaultTree_Gate() {
+		return (EReference)faultTreeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -699,8 +685,8 @@ public class FaultTreePackageImpl extends EPackageImpl implements FaultTreePacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRoot_Event() {
-		return (EReference)rootEClass.getEStructuralFeatures().get(2);
+	public EReference getFaultTree_Event() {
+		return (EReference)faultTreeEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -708,8 +694,8 @@ public class FaultTreePackageImpl extends EPackageImpl implements FaultTreePacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRoot_Failure_instance() {
-		return (EReference)rootEClass.getEStructuralFeatures().get(3);
+	public EReference getFaultTree_Failure_instance() {
+		return (EReference)faultTreeEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -717,8 +703,8 @@ public class FaultTreePackageImpl extends EPackageImpl implements FaultTreePacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRoot_Failure_type() {
-		return (EReference)rootEClass.getEStructuralFeatures().get(4);
+	public EReference getFaultTree_Failure_type() {
+		return (EReference)faultTreeEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -726,8 +712,8 @@ public class FaultTreePackageImpl extends EPackageImpl implements FaultTreePacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRoot_Error_instance() {
-		return (EReference)rootEClass.getEStructuralFeatures().get(5);
+	public EReference getFaultTree_Error_instance() {
+		return (EReference)faultTreeEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -735,8 +721,8 @@ public class FaultTreePackageImpl extends EPackageImpl implements FaultTreePacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRoot_Error_type() {
-		return (EReference)rootEClass.getEStructuralFeatures().get(6);
+	public EReference getFaultTree_Error_type() {
+		return (EReference)faultTreeEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -771,7 +757,6 @@ public class FaultTreePackageImpl extends EPackageImpl implements FaultTreePacka
 		createEReference(hazardEClass, HAZARD__IN_EVENT);
 
 		gateEClass = createEClass(GATE);
-		createEAttribute(gateEClass, GATE__ID);
 		createEReference(gateEClass, GATE__INPUT_GATES);
 		createEReference(gateEClass, GATE__INPUT_EVENTS);
 		createEReference(gateEClass, GATE__OUTPUT_GATE);
@@ -784,7 +769,6 @@ public class FaultTreePackageImpl extends EPackageImpl implements FaultTreePacka
 		createEReference(eventEClass, EVENT__OUTPUT_GATE);
 		createEReference(eventEClass, EVENT__ROOT);
 		createEAttribute(eventEClass, EVENT__NAME);
-		createEAttribute(eventEClass, EVENT__ID);
 
 		intermediateEventEClass = createEClass(INTERMEDIATE_EVENT);
 		createEReference(intermediateEventEClass, INTERMEDIATE_EVENT__INSTANCE);
@@ -832,14 +816,14 @@ public class FaultTreePackageImpl extends EPackageImpl implements FaultTreePacka
 
 		inhibitEClass = createEClass(INHIBIT);
 
-		rootEClass = createEClass(ROOT);
-		createEReference(rootEClass, ROOT__HAZARD);
-		createEReference(rootEClass, ROOT__GATE);
-		createEReference(rootEClass, ROOT__EVENT);
-		createEReference(rootEClass, ROOT__FAILURE_INSTANCE);
-		createEReference(rootEClass, ROOT__FAILURE_TYPE);
-		createEReference(rootEClass, ROOT__ERROR_INSTANCE);
-		createEReference(rootEClass, ROOT__ERROR_TYPE);
+		faultTreeEClass = createEClass(FAULT_TREE);
+		createEReference(faultTreeEClass, FAULT_TREE__HAZARD);
+		createEReference(faultTreeEClass, FAULT_TREE__GATE);
+		createEReference(faultTreeEClass, FAULT_TREE__EVENT);
+		createEReference(faultTreeEClass, FAULT_TREE__FAILURE_INSTANCE);
+		createEReference(faultTreeEClass, FAULT_TREE__FAILURE_TYPE);
+		createEReference(faultTreeEClass, FAULT_TREE__ERROR_INSTANCE);
+		createEReference(faultTreeEClass, FAULT_TREE__ERROR_TYPE);
 	}
 
 	/**
@@ -865,15 +849,24 @@ public class FaultTreePackageImpl extends EPackageImpl implements FaultTreePacka
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		CommonBasePackage theCommonBasePackage = (CommonBasePackage)EPackage.Registry.INSTANCE.getEPackage(CommonBasePackage.eNS_URI);
+
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
 		hazardEClass.getESuperTypes().add(this.getEvent());
+		gateEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
+		eventEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
 		intermediateEventEClass.getESuperTypes().add(this.getEvent());
+		failureTypeEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
+		failureInstanceEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
 		basicEventEClass.getESuperTypes().add(this.getEvent());
 		undevelopedEventEClass.getESuperTypes().add(this.getEvent());
+		errorTypeEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
+		errorInstanceEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
 		orEClass.getESuperTypes().add(this.getGate());
 		andEClass.getESuperTypes().add(this.getGate());
 		xorEClass.getESuperTypes().add(this.getGate());
@@ -885,20 +878,18 @@ public class FaultTreePackageImpl extends EPackageImpl implements FaultTreePacka
 		initEReference(getHazard_InEvent(), this.getIntermediateEvent(), null, "inEvent", null, 0, 1, Hazard.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(gateEClass, Gate.class, "Gate", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getGate_Id(), ecorePackage.getEInt(), "id", null, 1, 1, Gate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGate_InputGates(), this.getGate(), null, "inputGates", null, 0, -1, Gate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGate_InputEvents(), this.getEvent(), this.getEvent_OutputGate(), "inputEvents", null, 0, -1, Gate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGate_OutputGate(), this.getGate(), null, "outputGate", null, 0, 1, Gate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGate_OutputEvent(), this.getEvent(), this.getEvent_InputGate(), "outputEvent", null, 0, 1, Gate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGate_Root(), this.getRoot(), this.getRoot_Gate(), "root", null, 0, 1, Gate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGate_Root(), this.getFaultTree(), this.getFaultTree_Gate(), "root", null, 0, 1, Gate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eventEClass, Event.class, "Event", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEvent_Description(), ecorePackage.getEString(), "description", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEvent_InputGate(), this.getGate(), this.getGate_OutputEvent(), "inputGate", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEvent_OutputGate(), this.getGate(), this.getGate_InputEvents(), "outputGate", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEvent_Root(), this.getRoot(), this.getRoot_Event(), "root", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEvent_Root(), this.getFaultTree(), this.getFaultTree_Event(), "root", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEvent_Name(), ecorePackage.getEString(), "name", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEvent_Id(), ecorePackage.getEInt(), "id", null, 1, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(intermediateEventEClass, IntermediateEvent.class, "IntermediateEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIntermediateEvent_Instance(), this.getFailureInstance(), this.getFailureInstance_Event(), "instance", null, 0, -1, IntermediateEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -907,12 +898,12 @@ public class FaultTreePackageImpl extends EPackageImpl implements FaultTreePacka
 
 		initEClass(failureTypeEClass, FailureType.class, "FailureType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFailureType_Instance(), this.getFailureInstance(), this.getFailureInstance_Type(), "instance", null, 1, -1, FailureType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFailureType_Root(), this.getRoot(), this.getRoot_Failure_type(), "root", null, 0, 1, FailureType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFailureType_Root(), this.getFaultTree(), this.getFaultTree_Failure_type(), "root", null, 0, 1, FailureType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFailureType_Name(), ecorePackage.getEString(), "name", null, 0, 1, FailureType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(failureInstanceEClass, FailureInstance.class, "FailureInstance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFailureInstance_Type(), this.getFailureType(), this.getFailureType_Instance(), "type", null, 1, 1, FailureInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFailureInstance_Root(), this.getRoot(), this.getRoot_Failure_instance(), "root", null, 0, 1, FailureInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFailureInstance_Root(), this.getFaultTree(), this.getFaultTree_Failure_instance(), "root", null, 0, 1, FailureInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFailureInstance_PreviousFailure(), this.getFailureInstance(), null, "previousFailure", null, 0, 1, FailureInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFailureInstance_PreviousError(), this.getErrorInstance(), null, "previousError", null, 0, 1, FailureInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFailureInstance_Event(), this.getIntermediateEvent(), this.getIntermediateEvent_Instance(), "event", null, 0, 1, FailureInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -927,13 +918,13 @@ public class FaultTreePackageImpl extends EPackageImpl implements FaultTreePacka
 
 		initEClass(errorTypeEClass, ErrorType.class, "ErrorType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getErrorType_Error(), this.getErrorInstance(), this.getErrorInstance_Type(), "error", null, 1, -1, ErrorType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getErrorType_Root(), this.getRoot(), this.getRoot_Error_type(), "root", null, 0, 1, ErrorType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getErrorType_Root(), this.getFaultTree(), this.getFaultTree_Error_type(), "root", null, 0, 1, ErrorType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getErrorType_Name(), ecorePackage.getEString(), "name", null, 0, 1, ErrorType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(errorInstanceEClass, ErrorInstance.class, "ErrorInstance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getErrorInstance_Error(), this.getBasicEvent(), this.getBasicEvent_Instance(), "error", null, 0, 1, ErrorInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getErrorInstance_Type(), this.getErrorType(), this.getErrorType_Error(), "type", null, 1, 1, ErrorInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getErrorInstance_Root(), this.getRoot(), this.getRoot_Error_instance(), "root", null, 0, 1, ErrorInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getErrorInstance_Root(), this.getFaultTree(), this.getFaultTree_Error_instance(), "root", null, 0, 1, ErrorInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getErrorInstance_Name(), ecorePackage.getEString(), "name", null, 0, 1, ErrorInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(orEClass, de.uni_stuttgart.iste.cowolf.model.fault_tree.OR.class, "OR", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -946,14 +937,14 @@ public class FaultTreePackageImpl extends EPackageImpl implements FaultTreePacka
 
 		initEClass(inhibitEClass, Inhibit.class, "Inhibit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(rootEClass, Root.class, "Root", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRoot_Hazard(), this.getHazard(), null, "hazard", null, 1, 1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRoot_Gate(), this.getGate(), this.getGate_Root(), "gate", null, 0, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRoot_Event(), this.getEvent(), this.getEvent_Root(), "event", null, 0, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRoot_Failure_instance(), this.getFailureInstance(), this.getFailureInstance_Root(), "failure_instance", null, 0, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRoot_Failure_type(), this.getFailureType(), this.getFailureType_Root(), "failure_type", null, 0, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRoot_Error_instance(), this.getErrorInstance(), this.getErrorInstance_Root(), "error_instance", null, 0, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRoot_Error_type(), this.getErrorType(), this.getErrorType_Root(), "error_type", null, 0, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(faultTreeEClass, FaultTree.class, "FaultTree", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getFaultTree_Hazard(), this.getHazard(), null, "hazard", null, 1, 1, FaultTree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFaultTree_Gate(), this.getGate(), this.getGate_Root(), "gate", null, 0, -1, FaultTree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFaultTree_Event(), this.getEvent(), this.getEvent_Root(), "event", null, 0, -1, FaultTree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFaultTree_Failure_instance(), this.getFailureInstance(), this.getFailureInstance_Root(), "failure_instance", null, 0, -1, FaultTree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFaultTree_Failure_type(), this.getFailureType(), this.getFailureType_Root(), "failure_type", null, 0, -1, FaultTree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFaultTree_Error_instance(), this.getErrorInstance(), this.getErrorInstance_Root(), "error_instance", null, 0, -1, FaultTree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFaultTree_Error_type(), this.getErrorType(), this.getErrorType_Root(), "error_type", null, 0, -1, FaultTree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -979,6 +970,7 @@ public class FaultTreePackageImpl extends EPackageImpl implements FaultTreePacka
 		  (this, 
 		   source, 
 		   new String[] {
+			 "commonBase", "../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#/",
 			 "ecore", "http://www.eclipse.org/emf/2002/Ecore"
 		   });
 	}
@@ -991,6 +983,14 @@ public class FaultTreePackageImpl extends EPackageImpl implements FaultTreePacka
 	 */
 	protected void createEcoreAnnotations() {
 		String source = "http://www.eclipse.org/emf/2002/Ecore";	
+		addAnnotation
+		  (this, 
+		   source, 
+		   new String[] {
+			 "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+			 "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"
+		   });	
 		addAnnotation
 		  (hazardEClass, 
 		   source, 

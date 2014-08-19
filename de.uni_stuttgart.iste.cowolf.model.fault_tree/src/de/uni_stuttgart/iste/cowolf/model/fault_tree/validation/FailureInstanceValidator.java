@@ -7,8 +7,8 @@ package de.uni_stuttgart.iste.cowolf.model.fault_tree.validation;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.ErrorInstance;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.FailureInstance;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.FailureType;
+import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.IntermediateEvent;
-import de.uni_stuttgart.iste.cowolf.model.fault_tree.Root;
 
 /**
  * A sample validator interface for {@link de.uni_stuttgart.iste.cowolf.model.fault_tree.FailureInstance}.
@@ -20,7 +20,7 @@ public interface FailureInstanceValidator {
 	boolean validate();
 
 	boolean validateType(FailureType value);
-	boolean validateRoot(Root value);
+	boolean validateRoot(FaultTree value);
 	boolean validatePreviousFailure(FailureInstance value);
 	boolean validatePreviousError(ErrorInstance value);
 	boolean validateEvent(IntermediateEvent value);

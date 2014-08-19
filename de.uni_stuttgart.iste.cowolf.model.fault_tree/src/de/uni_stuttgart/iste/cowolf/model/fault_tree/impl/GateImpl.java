@@ -2,10 +2,11 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.fault_tree.impl;
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.impl.IDBaseImpl;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.Event;
+import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreePackage;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.Gate;
-import de.uni_stuttgart.iste.cowolf.model.fault_tree.Root;
 
 import java.util.Collection;
 
@@ -18,7 +19,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
@@ -32,7 +32,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.GateImpl#getId <em>Id</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.GateImpl#getInputGates <em>Input Gates</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.GateImpl#getInputEvents <em>Input Events</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.GateImpl#getOutputGate <em>Output Gate</em>}</li>
@@ -43,27 +42,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public abstract class GateImpl extends EObjectImpl implements Gate {
-	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getId()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int ID_EDEFAULT = 0;
-
-	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getId()
-	 * @generated
-	 * @ordered
-	 */
-	protected int id = ID_EDEFAULT;
-
+public abstract class GateImpl extends IDBaseImpl implements Gate {
 	/**
 	 * The cached value of the '{@link #getInputGates() <em>Input Gates</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -121,27 +100,6 @@ public abstract class GateImpl extends EObjectImpl implements Gate {
 	@Override
 	protected EClass eStaticClass() {
 		return FaultTreePackage.Literals.GATE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public int getId() {
-		return id;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setId(int newId) {
-		int oldId = id;
-		id = newId;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FaultTreePackage.GATE__ID, oldId, id));
 	}
 
 	/**
@@ -271,9 +229,9 @@ public abstract class GateImpl extends EObjectImpl implements Gate {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Root getRoot() {
+	public FaultTree getRoot() {
 		if (eContainerFeatureID() != FaultTreePackage.GATE__ROOT) return null;
-		return (Root)eInternalContainer();
+		return (FaultTree)eInternalContainer();
 	}
 
 	/**
@@ -281,7 +239,7 @@ public abstract class GateImpl extends EObjectImpl implements Gate {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRoot(Root newRoot, NotificationChain msgs) {
+	public NotificationChain basicSetRoot(FaultTree newRoot, NotificationChain msgs) {
 		msgs = eBasicSetContainer((InternalEObject)newRoot, FaultTreePackage.GATE__ROOT, msgs);
 		return msgs;
 	}
@@ -291,7 +249,7 @@ public abstract class GateImpl extends EObjectImpl implements Gate {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRoot(Root newRoot) {
+	public void setRoot(FaultTree newRoot) {
 		if (newRoot != eInternalContainer() || (eContainerFeatureID() != FaultTreePackage.GATE__ROOT && newRoot != null)) {
 			if (EcoreUtil.isAncestor(this, newRoot))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
@@ -299,7 +257,7 @@ public abstract class GateImpl extends EObjectImpl implements Gate {
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newRoot != null)
-				msgs = ((InternalEObject)newRoot).eInverseAdd(this, FaultTreePackage.ROOT__GATE, Root.class, msgs);
+				msgs = ((InternalEObject)newRoot).eInverseAdd(this, FaultTreePackage.FAULT_TREE__GATE, FaultTree.class, msgs);
 			msgs = basicSetRoot(newRoot, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -325,7 +283,7 @@ public abstract class GateImpl extends EObjectImpl implements Gate {
 			case FaultTreePackage.GATE__ROOT:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetRoot((Root)otherEnd, msgs);
+				return basicSetRoot((FaultTree)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -357,7 +315,7 @@ public abstract class GateImpl extends EObjectImpl implements Gate {
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case FaultTreePackage.GATE__ROOT:
-				return eInternalContainer().eInverseRemove(this, FaultTreePackage.ROOT__GATE, Root.class, msgs);
+				return eInternalContainer().eInverseRemove(this, FaultTreePackage.FAULT_TREE__GATE, FaultTree.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -370,8 +328,6 @@ public abstract class GateImpl extends EObjectImpl implements Gate {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FaultTreePackage.GATE__ID:
-				return getId();
 			case FaultTreePackage.GATE__INPUT_GATES:
 				return getInputGates();
 			case FaultTreePackage.GATE__INPUT_EVENTS:
@@ -397,9 +353,6 @@ public abstract class GateImpl extends EObjectImpl implements Gate {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FaultTreePackage.GATE__ID:
-				setId((Integer)newValue);
-				return;
 			case FaultTreePackage.GATE__INPUT_GATES:
 				getInputGates().clear();
 				getInputGates().addAll((Collection<? extends Gate>)newValue);
@@ -415,7 +368,7 @@ public abstract class GateImpl extends EObjectImpl implements Gate {
 				setOutputEvent((Event)newValue);
 				return;
 			case FaultTreePackage.GATE__ROOT:
-				setRoot((Root)newValue);
+				setRoot((FaultTree)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -429,9 +382,6 @@ public abstract class GateImpl extends EObjectImpl implements Gate {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FaultTreePackage.GATE__ID:
-				setId(ID_EDEFAULT);
-				return;
 			case FaultTreePackage.GATE__INPUT_GATES:
 				getInputGates().clear();
 				return;
@@ -445,7 +395,7 @@ public abstract class GateImpl extends EObjectImpl implements Gate {
 				setOutputEvent((Event)null);
 				return;
 			case FaultTreePackage.GATE__ROOT:
-				setRoot((Root)null);
+				setRoot((FaultTree)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -459,8 +409,6 @@ public abstract class GateImpl extends EObjectImpl implements Gate {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FaultTreePackage.GATE__ID:
-				return id != ID_EDEFAULT;
 			case FaultTreePackage.GATE__INPUT_GATES:
 				return inputGates != null && !inputGates.isEmpty();
 			case FaultTreePackage.GATE__INPUT_EVENTS:
@@ -473,22 +421,6 @@ public abstract class GateImpl extends EObjectImpl implements Gate {
 				return getRoot() != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (id: ");
-		result.append(id);
-		result.append(')');
-		return result.toString();
 	}
 
 } //GateImpl

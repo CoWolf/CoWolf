@@ -5,8 +5,8 @@
 package de.uni_stuttgart.iste.cowolf.model.fault_tree.validation;
 
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.Event;
+import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.Gate;
-import de.uni_stuttgart.iste.cowolf.model.fault_tree.Root;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -24,5 +24,5 @@ public interface GateValidator {
 	boolean validateInputEvents(EList<Event> value);
 	boolean validateOutputGate(Gate value);
 	boolean validateOutputEvent(Event value);
-	boolean validateRoot(Root value);
+	boolean validateRoot(FaultTree value);
 }

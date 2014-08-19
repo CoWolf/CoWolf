@@ -2,6 +2,7 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.fault_tree;
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -14,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.Gate#getId <em>Id</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.Gate#getInputGates <em>Input Gates</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.Gate#getInputEvents <em>Input Events</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.Gate#getOutputGate <em>Output Gate</em>}</li>
@@ -29,33 +29,7 @@ import org.eclipse.emf.ecore.EObject;
  *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot NoHazardAsInput='self.inputEvents->forAll(e : Event | (e.oclIsTypeOf(BasicEvent) or e.oclIsTypeOf(IntermediateEvent)) and not e.oclIsTypeOf(Hazard))' NoBasicEventAsOutput='self.outputEvent->forAll(e : Event | (e.oclIsTypeOf(IntermediateEvent) or e.oclIsTypeOf(Hazard)) and not e.oclIsTypeOf(BasicEvent))' AtLeastTwoInputs='self.inputGates->size() + self.inputEvents->size() >= 2' ExactlyOneOutput='self.outputGate->size() + self.outputEvent->size() = 1'"
  * @generated
  */
-public interface Gate extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Id</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Id</em>' attribute.
-	 * @see #setId(int)
-	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreePackage#getGate_Id()
-	 * @model required="true"
-	 * @generated
-	 */
-	int getId();
-
-	/**
-	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.Gate#getId <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Id</em>' attribute.
-	 * @see #getId()
-	 * @generated
-	 */
-	void setId(int value);
-
+public interface Gate extends IDBase {
 	/**
 	 * Returns the value of the '<em><b>Input Gates</b></em>' reference list.
 	 * The list contents are of type {@link de.uni_stuttgart.iste.cowolf.model.fault_tree.Gate}.
@@ -146,7 +120,7 @@ public interface Gate extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Root</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.Root#getGate <em>Gate</em>}'.
+	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree#getGate <em>Gate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Root</em>' container reference isn't clear,
@@ -154,13 +128,13 @@ public interface Gate extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Root</em>' container reference.
-	 * @see #setRoot(Root)
+	 * @see #setRoot(FaultTree)
 	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreePackage#getGate_Root()
-	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.Root#getGate
+	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree#getGate
 	 * @model opposite="gate" transient="false"
 	 * @generated
 	 */
-	Root getRoot();
+	FaultTree getRoot();
 
 	/**
 	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.Gate#getRoot <em>Root</em>}' container reference.
@@ -170,6 +144,6 @@ public interface Gate extends EObject {
 	 * @see #getRoot()
 	 * @generated
 	 */
-	void setRoot(Root value);
+	void setRoot(FaultTree value);
 
 } // Gate

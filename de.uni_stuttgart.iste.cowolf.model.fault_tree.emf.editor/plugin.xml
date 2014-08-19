@@ -7,11 +7,14 @@
 <plugin>
 
    <extension point="org.eclipse.ui.newWizards">
-      <!-- @generated FaultTree -->
+      <!-- @generated NOT FaultTree -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
       <wizard
             id="de.uni_stuttgart.iste.cowolf.model.fault_tree.emf.presentation.FaultTreeModelWizardID"
             name="%_UI_FaultTreeModelWizard_label"
-            class="de.uni_stuttgart.iste.cowolf.model.fault_tree.emf.presentation.FaultTreeModelWizardExtension"
+            class="de.uni_stuttgart.iste.cowolf.model.fault_tree.emf.presentation.FaultTreeModelWizard"
             category="de.uni_stuttgart.iste.cowolf.ui.category.wizards.main/de.uni_stuttgart.iste.cowolf.ui.category.wizards.models"
             icon="icons/full/obj16/FaultTreeModelFile.gif">
          <description>%_UI_FaultTreeModelWizard_description</description>

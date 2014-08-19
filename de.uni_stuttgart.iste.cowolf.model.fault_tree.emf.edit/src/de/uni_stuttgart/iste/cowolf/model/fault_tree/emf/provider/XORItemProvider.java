@@ -64,8 +64,10 @@ public class XORItemProvider extends GateItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		XOR xor = (XOR)object;
-		return getString("_UI_XOR_type") + " " + xor.getId();
+		String label = ((XOR)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_XOR_type") :
+			getString("_UI_XOR_type") + " " + label;
 	}
 	
 

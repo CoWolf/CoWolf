@@ -12,7 +12,6 @@ import de.uni_stuttgart.iste.cowolf.model.IAnalysisListener;
 import de.uni_stuttgart.iste.cowolf.model.ModelTypeInfo;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.analyze.FaultTreeAnalyzeJob;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.analyze.FaultTreeAnalyzeJobListener;
-import de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.RootImpl;
 
 public class FaultTreeModelManager extends AbstractQoSModelManager {
 	
@@ -22,7 +21,7 @@ public class FaultTreeModelManager extends AbstractQoSModelManager {
 	public ModelTypeInfo getModelTypeInfo() {
 		String metaModelName = "FaultTree";
 		List<Class<?>> properContents = new ArrayList<Class<?>>();
-		properContents.add(RootImpl.class);
+		properContents.add(FaultTree.class);
 		ModelTypeInfo modelTypeInfo = new ModelTypeInfo(metaModelName, properContents);
 		return modelTypeInfo;
 	}
