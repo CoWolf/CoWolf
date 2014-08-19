@@ -1,8 +1,19 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-SymbolicName: de.uni_stuttgart.iste.cowolf.model.activity_diagram.tests
+Bundle-Name: %pluginName
+Bundle-SymbolicName: de.uni_stuttgart.iste.cowolf.model.activity_diagram.tests;singleton:=true
 Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
 Fragment-Host: de.uni_stuttgart.iste.cowolf.model.activity_diagram;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Import-Package: org.junit;version="4.11.0",
+Require-Bundle: org.eclipse.core.runtime,
+ de.uni_stuttgart.iste.cowolf.model;visibility:=reexport,
+ org.eclipse.emf.ecore.xmi;visibility:=reexport,
+ org.junit;visibility:=reexport
+Bundle-ActivationPolicy: lazy
+Import-Package: de.uni_stuttgart.iste.cowolf.model.fault_tree,
+ de.uni_stuttgart.iste.cowolf.model.fault_tree.impl,
+ org.junit;version="4.11.0",
  org.junit.runner;version="4.11.0"
