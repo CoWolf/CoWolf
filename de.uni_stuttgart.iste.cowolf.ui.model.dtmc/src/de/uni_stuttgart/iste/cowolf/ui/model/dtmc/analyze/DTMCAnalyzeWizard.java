@@ -4,8 +4,9 @@ import java.util.HashMap;
 
 import javax.swing.JOptionPane;
 
+import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.ecore.resource.Resource;
-
+import org.eclipse.emf.ecore.util.Diagnostician;
 
 import de.uni_stuttgart.iste.cowolf.model.AbstractQoSModelManager;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCModelManager;
@@ -61,6 +62,18 @@ public class DTMCAnalyzeWizard extends AbstractQoSAnalyzeWizard {
 			JOptionPane.showMessageDialog(null, "Path to PRISM is missing, please add in the preferences!", "Missing Path", JOptionPane.ERROR_MESSAGE);
 			return false;
 		}
+		if (super.resource != null && super.resource.getContents() != null && this.resource.getContents().get(0) != null) {
+			Diagnostic diag = Diagnostician.INSTANCE.validate(this.resource.getContents().get(0));
+			if (diag.getChildren().size() > 0) {
+				JOptionPane.showMessageDialog(null,
+						"Errors in DTMC were found, please run Validation or enable Live Validation to display them.",
+						"Errors in DTMC", JOptionPane.ERROR_MESSAGE);	
+				return false;
+			}
+		} else {
+			return false;
+		}
+	
 		return true;
 	}
 }

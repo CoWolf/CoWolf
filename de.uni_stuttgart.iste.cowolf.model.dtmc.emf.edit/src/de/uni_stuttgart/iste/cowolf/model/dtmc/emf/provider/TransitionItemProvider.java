@@ -174,7 +174,7 @@ public class TransitionItemProvider extends IDBaseItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Transition)object).getFrom().getName() + " -- " + ((Transition)object).getProb() + " --> " + ((Transition)object).getTo().getName();
+		String label ="" + ((Transition)object).getProb();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Transition_type") :
 			getString("_UI_Transition_type") + " " + label;
