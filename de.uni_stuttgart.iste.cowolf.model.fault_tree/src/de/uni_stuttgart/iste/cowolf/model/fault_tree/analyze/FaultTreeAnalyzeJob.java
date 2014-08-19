@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -19,12 +20,14 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 
 import de.uni_stuttgart.iste.cowolf.core.utilities.CommandLineExecutor;
 import de.uni_stuttgart.iste.cowolf.model.IAnalysisListener;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreeModelManager;
+import de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.EventImpl;
 
 public class FaultTreeAnalyzeJob extends Job {
 
@@ -37,6 +40,7 @@ public class FaultTreeAnalyzeJob extends Job {
 	private final Map<String, Object> parameters;
 	private List<String> results;
 	private final IAnalysisListener listener;
+	private Map<String,String> mapIdName;
 
 	public FaultTreeAnalyzeJob(final Resource model,
 			final Map<String, Object> parameters, IAnalysisListener listener) {
@@ -44,6 +48,7 @@ public class FaultTreeAnalyzeJob extends Job {
 		this.model = model;
 		this.parameters = parameters;
 		this.listener = listener;
+		generateModelIdNameMap();
 	}
 
 	static {
@@ -134,7 +139,7 @@ public class FaultTreeAnalyzeJob extends Job {
 			sb.append(resultFileTitles.get(parameters.get("typeOfAnalysis")));
 			sb.append(CRLF);
 			for (String line : this.getResults()) {
-				sb.append(line).append(CRLF);
+				sb.append(transformIdToNames(line)).append(CRLF);
 			}
 
 			out.write(sb.toString());
@@ -178,6 +183,27 @@ public class FaultTreeAnalyzeJob extends Job {
 		out.close();
 
 		return xftaFile;
+	}
+	
+	private void generateModelIdNameMap(){
+		mapIdName = new HashMap<String,String>();
+		
+		for ( Iterator<EObject> iter = model.getAllContents();iter.hasNext();) {
+			EObject o = iter.next();
+			if (o instanceof EventImpl) {
+				EventImpl e = (EventImpl) o;
+				mapIdName.put(e.getId(), e.getName());
+			}
+		}
+	}
+	
+	private String transformIdToNames(String source){
+		String target = source;
+		for (String key : mapIdName.keySet()) {
+			String value = mapIdName.get(key);
+			target = target.replaceAll(key, value);
+		}
+		return target;
 	}
 
 	public Resource getModel() {
