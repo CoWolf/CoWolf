@@ -60,12 +60,13 @@ public class Analyze implements IHandler {
 				AbstractQoSModelManager qosModelManager = (AbstractQoSModelManager) modelManager;
 				HashMap<String, Object> properties = new HashMap<String, Object>();
 				AbstractQoSAnalyzeWizard wizard = AnalyzeWizardHandler.getInstance().getQosAnalyzeWizard((AbstractQoSModelManager) modelManager);
-				if (!wizard.checkConditions()) {
-					return null;
-				}
+	
 				if (wizard != null) {
 					// Call UI to define Properties
 					wizard.initialize(qosModelManager, resource, properties);
+					if (!wizard.checkConditions()) {
+						return null;
+					}
 					WizardDialog wizardDialog = new WizardDialog(window.getShell(), wizard);
 					wizardDialog.setBlockOnOpen(true);
 					FileOpenAnalysisListener fileOpenListener = new FileOpenAnalysisListener();
