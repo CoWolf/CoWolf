@@ -7,31 +7,30 @@
 <plugin>
 
    <extension point="org.eclipse.ui.newWizards">
-      <!-- @generated activity -->
+      <!-- @generated NOT activity -->
       <category
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="de.uni_stuttgart.iste.cowolf.model.activity.emf.presentation.ActivityModelWizardID"
+            id="de.uni_stuttgart.iste.cowolf.model.activity_diagram.emf.presentation.Activity_diagramModelWizardID"
             name="%_UI_ActivityModelWizard_label"
-            class="de.uni_stuttgart.iste.cowolf.model.activity.emf.presentation.ActivityModelWizardExtension"
+            class="de.uni_stuttgart.iste.cowolf.model.activity_diagram.emf.presentation.Activity_diagramModelWizardExtension"
             category="de.uni_stuttgart.iste.cowolf.ui.category.wizards.main/de.uni_stuttgart.iste.cowolf.ui.category.wizards.models"
-            icon="icons/full/obj16/ActivityModelFile.gif">
+            icon="icons/full/obj16/Activity_diagramModelFile.gif">
          <description>%_UI_ActivityModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>
       </wizard>
    </extension>
 
    <extension point="org.eclipse.ui.editors">
-      <!-- @generated activity -->
+      <!-- @generated activity_diagram -->
       <editor
-            id="de.uni_stuttgart.iste.cowolf.model.activity.emf.presentation.ActivityEditorID"
-            name="%_UI_ActivityEditor_label"
-            icon="icons/full/obj16/ActivityModelFile.gif"
-            extensions="activity"
-            class="de.uni_stuttgart.iste.cowolf.model.activity.emf.presentation.ActivityEditor"
-            contributorClass="de.uni_stuttgart.iste.cowolf.model.activity.emf.presentation.ActivityActionBarContributor">
+            id="de.uni_stuttgart.iste.cowolf.model.activity_diagram.emf.presentation.Activity_diagramEditorID"
+            name="%_UI_Activity_diagramEditor_label"
+            icon="icons/full/obj16/Activity_diagramModelFile.gif"
+            extensions="activity_diagram"
+            class="de.uni_stuttgart.iste.cowolf.model.activity_diagram.emf.presentation.Activity_diagramEditor"
+            contributorClass="de.uni_stuttgart.iste.cowolf.model.activity_diagram.emf.presentation.Activity_diagramActionBarContributor">
       </editor>
    </extension>
-
 </plugin>
