@@ -2,12 +2,12 @@ package de.uni_stuttgart.iste.cowolf.transformation.generator.ui;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.henshin.model.Module;
-import org.eclipse.emf.henshin.model.resource.HenshinResourceSet;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.swt.graphics.Image;
 import org.sidiff.difference.rulebase.RecognitionRule;
 import org.sidiff.difference.rulebase.extension.IRuleBase;
+import org.silift.common.util.emf.EMFStorage;
 
 public class SiLiftRecognitionRulesLabelProvider implements ILabelProvider {
 
@@ -41,6 +41,17 @@ public class SiLiftRecognitionRulesLabelProvider implements ILabelProvider {
 		return null;
 	}
 
+	private URI transformPlatformResourceToPlatformPluginURI(URI uri) {
+
+		if (uri.isPlatformResource()) {
+			return URI.createURI(uri.toString().replaceFirst(
+					"platform:/resource", "platform:/plugin"));
+		}
+
+		return uri;
+
+	}
+
 	@Override
 	public String getText(Object element) {
 		if (element instanceof IRuleBase) {
@@ -53,30 +64,13 @@ public class SiLiftRecognitionRulesLabelProvider implements ILabelProvider {
 
 			if (recognitionModule != null) {
 
-				URI recognitionRulePlatformURI = recognitionModule.eResource()
-						.getURI();
+				URI recognitionRulePlatformResourceURI = recognitionModule
+						.eResource().getURI();
 
-				System.out.println("+++" + recognitionRulePlatformURI);
+				Module module = (Module) EMFStorage
+						.eLoad(this
+								.transformPlatformResourceToPlatformPluginURI(recognitionRulePlatformResourceURI));
 
-				HenshinResourceSet rulesResourceSet = new HenshinResourceSet();
-
-				// System.out.println("test1");
-				//
-				// Module module = (Module) EMFStorage
-				// .eLoad(recognitionRulePlatformURI);
-
-				Module module = rulesResourceSet.getModule(
-						recognitionRulePlatformURI, true);
-
-				System.out.println("test2");
-
-				System.out.println("++++" + module.eAllContents().next());
-				System.out.println("----" + module.eAllContents().next());
-				// String recognitionRuleName = recognitionRulePlatformPath
-				// .substring(
-				// recognitionRulePlatformPath.lastIndexOf('/') + 1,
-				// recognitionRulePlatformPath
-				// .lastIndexOf("_execute"));
 				return "sfdf";
 
 			}
