@@ -3,9 +3,9 @@
 package de.uni_stuttgart.iste.cowolf.model.fault_tree.emf.provider;
 
 
+import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreeFactory;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreePackage;
-import de.uni_stuttgart.iste.cowolf.model.fault_tree.Root;
 
 import java.util.Collection;
 import java.util.List;
@@ -27,12 +27,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.uni_stuttgart.iste.cowolf.model.fault_tree.Root} object.
+ * This is the item provider adapter for a {@link de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class RootItemProvider 
+public class FaultTreeItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -46,7 +46,7 @@ public class RootItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RootItemProvider(AdapterFactory adapterFactory) {
+	public FaultTreeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -77,13 +77,13 @@ public class RootItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(FaultTreePackage.Literals.ROOT__HAZARD);
-			childrenFeatures.add(FaultTreePackage.Literals.ROOT__GATE);
-			childrenFeatures.add(FaultTreePackage.Literals.ROOT__EVENT);
-			childrenFeatures.add(FaultTreePackage.Literals.ROOT__FAILURE_INSTANCE);
-			childrenFeatures.add(FaultTreePackage.Literals.ROOT__FAILURE_TYPE);
-			childrenFeatures.add(FaultTreePackage.Literals.ROOT__ERROR_INSTANCE);
-			childrenFeatures.add(FaultTreePackage.Literals.ROOT__ERROR_TYPE);
+			childrenFeatures.add(FaultTreePackage.Literals.FAULT_TREE__HAZARD);
+			childrenFeatures.add(FaultTreePackage.Literals.FAULT_TREE__GATE);
+			childrenFeatures.add(FaultTreePackage.Literals.FAULT_TREE__EVENT);
+			childrenFeatures.add(FaultTreePackage.Literals.FAULT_TREE__FAILURE_INSTANCE);
+			childrenFeatures.add(FaultTreePackage.Literals.FAULT_TREE__FAILURE_TYPE);
+			childrenFeatures.add(FaultTreePackage.Literals.FAULT_TREE__ERROR_INSTANCE);
+			childrenFeatures.add(FaultTreePackage.Literals.FAULT_TREE__ERROR_TYPE);
 		}
 		return childrenFeatures;
 	}
@@ -102,14 +102,14 @@ public class RootItemProvider
 	}
 
 	/**
-	 * This returns Root.gif.
+	 * This returns FaultTree.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Root"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/FaultTree"));
 	}
 
 	/**
@@ -120,7 +120,7 @@ public class RootItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Root_type");
+		return getString("_UI_FaultTree_type");
 	}
 	
 
@@ -135,14 +135,14 @@ public class RootItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Root.class)) {
-			case FaultTreePackage.ROOT__HAZARD:
-			case FaultTreePackage.ROOT__GATE:
-			case FaultTreePackage.ROOT__EVENT:
-			case FaultTreePackage.ROOT__FAILURE_INSTANCE:
-			case FaultTreePackage.ROOT__FAILURE_TYPE:
-			case FaultTreePackage.ROOT__ERROR_INSTANCE:
-			case FaultTreePackage.ROOT__ERROR_TYPE:
+		switch (notification.getFeatureID(FaultTree.class)) {
+			case FaultTreePackage.FAULT_TREE__HAZARD:
+			case FaultTreePackage.FAULT_TREE__GATE:
+			case FaultTreePackage.FAULT_TREE__EVENT:
+			case FaultTreePackage.FAULT_TREE__FAILURE_INSTANCE:
+			case FaultTreePackage.FAULT_TREE__FAILURE_TYPE:
+			case FaultTreePackage.FAULT_TREE__ERROR_INSTANCE:
+			case FaultTreePackage.FAULT_TREE__ERROR_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -162,72 +162,72 @@ public class RootItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(FaultTreePackage.Literals.ROOT__HAZARD,
+				(FaultTreePackage.Literals.FAULT_TREE__HAZARD,
 				 FaultTreeFactory.eINSTANCE.createHazard()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(FaultTreePackage.Literals.ROOT__GATE,
+				(FaultTreePackage.Literals.FAULT_TREE__GATE,
 				 FaultTreeFactory.eINSTANCE.createOR()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(FaultTreePackage.Literals.ROOT__GATE,
+				(FaultTreePackage.Literals.FAULT_TREE__GATE,
 				 FaultTreeFactory.eINSTANCE.createAND()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(FaultTreePackage.Literals.ROOT__GATE,
+				(FaultTreePackage.Literals.FAULT_TREE__GATE,
 				 FaultTreeFactory.eINSTANCE.createXOR()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(FaultTreePackage.Literals.ROOT__GATE,
+				(FaultTreePackage.Literals.FAULT_TREE__GATE,
 				 FaultTreeFactory.eINSTANCE.createPriorAND()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(FaultTreePackage.Literals.ROOT__GATE,
+				(FaultTreePackage.Literals.FAULT_TREE__GATE,
 				 FaultTreeFactory.eINSTANCE.createInhibit()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(FaultTreePackage.Literals.ROOT__EVENT,
+				(FaultTreePackage.Literals.FAULT_TREE__EVENT,
 				 FaultTreeFactory.eINSTANCE.createHazard()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(FaultTreePackage.Literals.ROOT__EVENT,
+				(FaultTreePackage.Literals.FAULT_TREE__EVENT,
 				 FaultTreeFactory.eINSTANCE.createIntermediateEvent()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(FaultTreePackage.Literals.ROOT__EVENT,
+				(FaultTreePackage.Literals.FAULT_TREE__EVENT,
 				 FaultTreeFactory.eINSTANCE.createBasicEvent()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(FaultTreePackage.Literals.ROOT__EVENT,
+				(FaultTreePackage.Literals.FAULT_TREE__EVENT,
 				 FaultTreeFactory.eINSTANCE.createUndevelopedEvent()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(FaultTreePackage.Literals.ROOT__FAILURE_INSTANCE,
+				(FaultTreePackage.Literals.FAULT_TREE__FAILURE_INSTANCE,
 				 FaultTreeFactory.eINSTANCE.createFailureInstance()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(FaultTreePackage.Literals.ROOT__FAILURE_TYPE,
+				(FaultTreePackage.Literals.FAULT_TREE__FAILURE_TYPE,
 				 FaultTreeFactory.eINSTANCE.createFailureType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(FaultTreePackage.Literals.ROOT__ERROR_INSTANCE,
+				(FaultTreePackage.Literals.FAULT_TREE__ERROR_INSTANCE,
 				 FaultTreeFactory.eINSTANCE.createErrorInstance()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(FaultTreePackage.Literals.ROOT__ERROR_TYPE,
+				(FaultTreePackage.Literals.FAULT_TREE__ERROR_TYPE,
 				 FaultTreeFactory.eINSTANCE.createErrorType()));
 	}
 
@@ -243,8 +243,8 @@ public class RootItemProvider
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == FaultTreePackage.Literals.ROOT__HAZARD ||
-			childFeature == FaultTreePackage.Literals.ROOT__EVENT;
+			childFeature == FaultTreePackage.Literals.FAULT_TREE__HAZARD ||
+			childFeature == FaultTreePackage.Literals.FAULT_TREE__EVENT;
 
 		if (qualify) {
 			return getString

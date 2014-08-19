@@ -2,6 +2,7 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.fault_tree.util;
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.*;
 
 import org.eclipse.emf.ecore.EObject;
@@ -70,18 +71,21 @@ public class FaultTreeSwitch<T> extends Switch<T> {
 				Hazard hazard = (Hazard)theEObject;
 				T result = caseHazard(hazard);
 				if (result == null) result = caseEvent(hazard);
+				if (result == null) result = caseIDBase(hazard);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case FaultTreePackage.GATE: {
 				Gate gate = (Gate)theEObject;
 				T result = caseGate(gate);
+				if (result == null) result = caseIDBase(gate);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case FaultTreePackage.EVENT: {
 				Event event = (Event)theEObject;
 				T result = caseEvent(event);
+				if (result == null) result = caseIDBase(event);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -89,18 +93,21 @@ public class FaultTreeSwitch<T> extends Switch<T> {
 				IntermediateEvent intermediateEvent = (IntermediateEvent)theEObject;
 				T result = caseIntermediateEvent(intermediateEvent);
 				if (result == null) result = caseEvent(intermediateEvent);
+				if (result == null) result = caseIDBase(intermediateEvent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case FaultTreePackage.FAILURE_TYPE: {
 				FailureType failureType = (FailureType)theEObject;
 				T result = caseFailureType(failureType);
+				if (result == null) result = caseIDBase(failureType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case FaultTreePackage.FAILURE_INSTANCE: {
 				FailureInstance failureInstance = (FailureInstance)theEObject;
 				T result = caseFailureInstance(failureInstance);
+				if (result == null) result = caseIDBase(failureInstance);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -108,6 +115,7 @@ public class FaultTreeSwitch<T> extends Switch<T> {
 				BasicEvent basicEvent = (BasicEvent)theEObject;
 				T result = caseBasicEvent(basicEvent);
 				if (result == null) result = caseEvent(basicEvent);
+				if (result == null) result = caseIDBase(basicEvent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -115,18 +123,21 @@ public class FaultTreeSwitch<T> extends Switch<T> {
 				UndevelopedEvent undevelopedEvent = (UndevelopedEvent)theEObject;
 				T result = caseUndevelopedEvent(undevelopedEvent);
 				if (result == null) result = caseEvent(undevelopedEvent);
+				if (result == null) result = caseIDBase(undevelopedEvent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case FaultTreePackage.ERROR_TYPE: {
 				ErrorType errorType = (ErrorType)theEObject;
 				T result = caseErrorType(errorType);
+				if (result == null) result = caseIDBase(errorType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case FaultTreePackage.ERROR_INSTANCE: {
 				ErrorInstance errorInstance = (ErrorInstance)theEObject;
 				T result = caseErrorInstance(errorInstance);
+				if (result == null) result = caseIDBase(errorInstance);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -134,6 +145,7 @@ public class FaultTreeSwitch<T> extends Switch<T> {
 				OR or = (OR)theEObject;
 				T result = caseOR(or);
 				if (result == null) result = caseGate(or);
+				if (result == null) result = caseIDBase(or);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -141,6 +153,7 @@ public class FaultTreeSwitch<T> extends Switch<T> {
 				AND and = (AND)theEObject;
 				T result = caseAND(and);
 				if (result == null) result = caseGate(and);
+				if (result == null) result = caseIDBase(and);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -148,6 +161,7 @@ public class FaultTreeSwitch<T> extends Switch<T> {
 				XOR xor = (XOR)theEObject;
 				T result = caseXOR(xor);
 				if (result == null) result = caseGate(xor);
+				if (result == null) result = caseIDBase(xor);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -155,6 +169,7 @@ public class FaultTreeSwitch<T> extends Switch<T> {
 				PriorAND priorAND = (PriorAND)theEObject;
 				T result = casePriorAND(priorAND);
 				if (result == null) result = caseGate(priorAND);
+				if (result == null) result = caseIDBase(priorAND);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -162,12 +177,13 @@ public class FaultTreeSwitch<T> extends Switch<T> {
 				Inhibit inhibit = (Inhibit)theEObject;
 				T result = caseInhibit(inhibit);
 				if (result == null) result = caseGate(inhibit);
+				if (result == null) result = caseIDBase(inhibit);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case FaultTreePackage.ROOT: {
-				Root root = (Root)theEObject;
-				T result = caseRoot(root);
+			case FaultTreePackage.FAULT_TREE: {
+				FaultTree faultTree = (FaultTree)theEObject;
+				T result = caseFaultTree(faultTree);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -401,17 +417,32 @@ public class FaultTreeSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Root</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Fault Tree</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Root</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Fault Tree</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRoot(Root object) {
+	public T caseFaultTree(FaultTree object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>ID Base</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>ID Base</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIDBase(IDBase object) {
 		return null;
 	}
 

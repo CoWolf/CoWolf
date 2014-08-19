@@ -116,8 +116,8 @@ public class FaultTreeValidator extends EObjectValidator {
 				return validatePriorAND((PriorAND)value, diagnostics, context);
 			case FaultTreePackage.INHIBIT:
 				return validateInhibit((Inhibit)value, diagnostics, context);
-			case FaultTreePackage.ROOT:
-				return validateRoot((Root)value, diagnostics, context);
+			case FaultTreePackage.FAULT_TREE:
+				return validateFaultTree((FaultTree)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -143,31 +143,32 @@ public class FaultTreeValidator extends EObjectValidator {
 	}
 
 	/**
+	 * The cached validation expression for the NoStandaloneUndevelopedEvent constraint of '<em>Hazard</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String HAZARD__NO_STANDALONE_UNDEVELOPED_EVENT__EEXPRESSION = "self.inputGate->size() + self.outputGate->size() + self.inEvent->size() > 0";
+
+	/**
 	 * Validates the NoStandaloneUndevelopedEvent constraint of '<em>Hazard</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validateHazard_NoStandaloneUndevelopedEvent(Hazard hazard, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO implement the constraint
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(createDiagnostic
-						(Diagnostic.ERROR,
-						 DIAGNOSTIC_SOURCE,
-						 0,
-						 "_UI_GenericConstraint_diagnostic",
-						 new Object[] { "NoStandaloneUndevelopedEvent", getObjectLabel(hazard, context) },
-						 new Object[] { hazard },
-						 context));
-			}
-			return false;
-		}
-		return true;
+		return
+			validate
+				(FaultTreePackage.Literals.HAZARD,
+				 hazard,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "NoStandaloneUndevelopedEvent",
+				 HAZARD__NO_STANDALONE_UNDEVELOPED_EVENT__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
 
 	/**
@@ -193,32 +194,41 @@ public class FaultTreeValidator extends EObjectValidator {
 	}
 
 	/**
+	 * The cached validation expression for the NoHazardAsInput constraint of '<em>Gate</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String GATE__NO_HAZARD_AS_INPUT__EEXPRESSION = "self.inputEvents->forAll(e : Event | (e.oclIsTypeOf(BasicEvent) or e.oclIsTypeOf(IntermediateEvent)) and not e.oclIsTypeOf(Hazard))";
+
+	/**
 	 * Validates the NoHazardAsInput constraint of '<em>Gate</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validateGate_NoHazardAsInput(Gate gate, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO implement the constraint
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(createDiagnostic
-						(Diagnostic.ERROR,
-						 DIAGNOSTIC_SOURCE,
-						 0,
-						 "_UI_GenericConstraint_diagnostic",
-						 new Object[] { "NoHazardAsInput", getObjectLabel(gate, context) },
-						 new Object[] { gate },
-						 context));
-			}
-			return false;
-		}
-		return true;
+		return
+			validate
+				(FaultTreePackage.Literals.GATE,
+				 gate,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "NoHazardAsInput",
+				 GATE__NO_HAZARD_AS_INPUT__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
+
+	/**
+	 * The cached validation expression for the NoBasicEventAsOutput constraint of '<em>Gate</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String GATE__NO_BASIC_EVENT_AS_OUTPUT__EEXPRESSION = "self.outputEvent->forAll(e : Event | (e.oclIsTypeOf(IntermediateEvent) or e.oclIsTypeOf(Hazard)) and not e.oclIsTypeOf(BasicEvent))";
 
 	/**
 	 * Validates the NoBasicEventAsOutput constraint of '<em>Gate</em>'.
@@ -227,26 +237,27 @@ public class FaultTreeValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateGate_NoBasicEventAsOutput(Gate gate, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO implement the constraint
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(createDiagnostic
-						(Diagnostic.ERROR,
-						 DIAGNOSTIC_SOURCE,
-						 0,
-						 "_UI_GenericConstraint_diagnostic",
-						 new Object[] { "NoBasicEventAsOutput", getObjectLabel(gate, context) },
-						 new Object[] { gate },
-						 context));
-			}
-			return false;
-		}
-		return true;
+		return
+			validate
+				(FaultTreePackage.Literals.GATE,
+				 gate,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "NoBasicEventAsOutput",
+				 GATE__NO_BASIC_EVENT_AS_OUTPUT__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
+
+	/**
+	 * The cached validation expression for the AtLeastTwoInputs constraint of '<em>Gate</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String GATE__AT_LEAST_TWO_INPUTS__EEXPRESSION = "self.inputGates->size() + self.inputEvents->size() >= 2";
 
 	/**
 	 * Validates the AtLeastTwoInputs constraint of '<em>Gate</em>'.
@@ -255,26 +266,27 @@ public class FaultTreeValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateGate_AtLeastTwoInputs(Gate gate, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO implement the constraint
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(createDiagnostic
-						(Diagnostic.ERROR,
-						 DIAGNOSTIC_SOURCE,
-						 0,
-						 "_UI_GenericConstraint_diagnostic",
-						 new Object[] { "AtLeastTwoInputs", getObjectLabel(gate, context) },
-						 new Object[] { gate },
-						 context));
-			}
-			return false;
-		}
-		return true;
+		return
+			validate
+				(FaultTreePackage.Literals.GATE,
+				 gate,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "AtLeastTwoInputs",
+				 GATE__AT_LEAST_TWO_INPUTS__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
+
+	/**
+	 * The cached validation expression for the ExactlyOneOutput constraint of '<em>Gate</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String GATE__EXACTLY_ONE_OUTPUT__EEXPRESSION = "self.outputGate->size() + self.outputEvent->size() = 1";
 
 	/**
 	 * Validates the ExactlyOneOutput constraint of '<em>Gate</em>'.
@@ -283,25 +295,18 @@ public class FaultTreeValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateGate_ExactlyOneOutput(Gate gate, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO implement the constraint
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(createDiagnostic
-						(Diagnostic.ERROR,
-						 DIAGNOSTIC_SOURCE,
-						 0,
-						 "_UI_GenericConstraint_diagnostic",
-						 new Object[] { "ExactlyOneOutput", getObjectLabel(gate, context) },
-						 new Object[] { gate },
-						 context));
-			}
-			return false;
-		}
-		return true;
+		return
+			validate
+				(FaultTreePackage.Literals.GATE,
+				 gate,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "ExactlyOneOutput",
+				 GATE__EXACTLY_ONE_OUTPUT__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
 
 	/**
@@ -335,32 +340,41 @@ public class FaultTreeValidator extends EObjectValidator {
 	}
 
 	/**
+	 * The cached validation expression for the OnlyIntermediateOrBasicEventAsInput constraint of '<em>Intermediate Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String INTERMEDIATE_EVENT__ONLY_INTERMEDIATE_OR_BASIC_EVENT_AS_INPUT__EEXPRESSION = "self.inEvent->forAll(e : Event | (e.oclIsTypeOf(IntermediateEvent) or e.oclIsTypeOf(BasicEvent)))";
+
+	/**
 	 * Validates the OnlyIntermediateOrBasicEventAsInput constraint of '<em>Intermediate Event</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validateIntermediateEvent_OnlyIntermediateOrBasicEventAsInput(IntermediateEvent intermediateEvent, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO implement the constraint
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(createDiagnostic
-						(Diagnostic.ERROR,
-						 DIAGNOSTIC_SOURCE,
-						 0,
-						 "_UI_GenericConstraint_diagnostic",
-						 new Object[] { "OnlyIntermediateOrBasicEventAsInput", getObjectLabel(intermediateEvent, context) },
-						 new Object[] { intermediateEvent },
-						 context));
-			}
-			return false;
-		}
-		return true;
+		return
+			validate
+				(FaultTreePackage.Literals.INTERMEDIATE_EVENT,
+				 intermediateEvent,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "OnlyIntermediateOrBasicEventAsInput",
+				 INTERMEDIATE_EVENT__ONLY_INTERMEDIATE_OR_BASIC_EVENT_AS_INPUT__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
+
+	/**
+	 * The cached validation expression for the NoStandaloneIntermediateEvent constraint of '<em>Intermediate Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String INTERMEDIATE_EVENT__NO_STANDALONE_INTERMEDIATE_EVENT__EEXPRESSION = "self.inputGate->size() + self.outputGate->size() + self.inEvent->size() + self.outEvent->size()> 0";
 
 	/**
 	 * Validates the NoStandaloneIntermediateEvent constraint of '<em>Intermediate Event</em>'.
@@ -369,26 +383,27 @@ public class FaultTreeValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateIntermediateEvent_NoStandaloneIntermediateEvent(IntermediateEvent intermediateEvent, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO implement the constraint
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(createDiagnostic
-						(Diagnostic.ERROR,
-						 DIAGNOSTIC_SOURCE,
-						 0,
-						 "_UI_GenericConstraint_diagnostic",
-						 new Object[] { "NoStandaloneIntermediateEvent", getObjectLabel(intermediateEvent, context) },
-						 new Object[] { intermediateEvent },
-						 context));
-			}
-			return false;
-		}
-		return true;
+		return
+			validate
+				(FaultTreePackage.Literals.INTERMEDIATE_EVENT,
+				 intermediateEvent,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "NoStandaloneIntermediateEvent",
+				 INTERMEDIATE_EVENT__NO_STANDALONE_INTERMEDIATE_EVENT__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
+
+	/**
+	 * The cached validation expression for the OnlyIntermediateOrHazardtAsOutput constraint of '<em>Intermediate Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String INTERMEDIATE_EVENT__ONLY_INTERMEDIATE_OR_HAZARDT_AS_OUTPUT__EEXPRESSION = "self.outEvent->forAll(e : Event | (e.oclIsTypeOf(IntermediateEvent) or e.oclIsTypeOf(Hazard)))";
 
 	/**
 	 * Validates the OnlyIntermediateOrHazardtAsOutput constraint of '<em>Intermediate Event</em>'.
@@ -397,25 +412,18 @@ public class FaultTreeValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateIntermediateEvent_OnlyIntermediateOrHazardtAsOutput(IntermediateEvent intermediateEvent, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO implement the constraint
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(createDiagnostic
-						(Diagnostic.ERROR,
-						 DIAGNOSTIC_SOURCE,
-						 0,
-						 "_UI_GenericConstraint_diagnostic",
-						 new Object[] { "OnlyIntermediateOrHazardtAsOutput", getObjectLabel(intermediateEvent, context) },
-						 new Object[] { intermediateEvent },
-						 context));
-			}
-			return false;
-		}
-		return true;
+		return
+			validate
+				(FaultTreePackage.Literals.INTERMEDIATE_EVENT,
+				 intermediateEvent,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "OnlyIntermediateOrHazardtAsOutput",
+				 INTERMEDIATE_EVENT__ONLY_INTERMEDIATE_OR_HAZARDT_AS_OUTPUT__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
 
 	/**
@@ -456,31 +464,32 @@ public class FaultTreeValidator extends EObjectValidator {
 	}
 
 	/**
+	 * The cached validation expression for the NoStandaloneBasicEvent constraint of '<em>Basic Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String BASIC_EVENT__NO_STANDALONE_BASIC_EVENT__EEXPRESSION = "self.inputGate->size() + self.outputGate->size() + self.outEvent->size()> 0";
+
+	/**
 	 * Validates the NoStandaloneBasicEvent constraint of '<em>Basic Event</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validateBasicEvent_NoStandaloneBasicEvent(BasicEvent basicEvent, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO implement the constraint
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(createDiagnostic
-						(Diagnostic.ERROR,
-						 DIAGNOSTIC_SOURCE,
-						 0,
-						 "_UI_GenericConstraint_diagnostic",
-						 new Object[] { "NoStandaloneBasicEvent", getObjectLabel(basicEvent, context) },
-						 new Object[] { basicEvent },
-						 context));
-			}
-			return false;
-		}
-		return true;
+		return
+			validate
+				(FaultTreePackage.Literals.BASIC_EVENT,
+				 basicEvent,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "NoStandaloneBasicEvent",
+				 BASIC_EVENT__NO_STANDALONE_BASIC_EVENT__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
 
 	/**
@@ -503,31 +512,32 @@ public class FaultTreeValidator extends EObjectValidator {
 	}
 
 	/**
+	 * The cached validation expression for the NoStandaloneUndevelopedEvent constraint of '<em>Undeveloped Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String UNDEVELOPED_EVENT__NO_STANDALONE_UNDEVELOPED_EVENT__EEXPRESSION = "self.inputGate->size() + self.outputGate->size() > 0";
+
+	/**
 	 * Validates the NoStandaloneUndevelopedEvent constraint of '<em>Undeveloped Event</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validateUndevelopedEvent_NoStandaloneUndevelopedEvent(UndevelopedEvent undevelopedEvent, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO implement the constraint
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(createDiagnostic
-						(Diagnostic.ERROR,
-						 DIAGNOSTIC_SOURCE,
-						 0,
-						 "_UI_GenericConstraint_diagnostic",
-						 new Object[] { "NoStandaloneUndevelopedEvent", getObjectLabel(undevelopedEvent, context) },
-						 new Object[] { undevelopedEvent },
-						 context));
-			}
-			return false;
-		}
-		return true;
+		return
+			validate
+				(FaultTreePackage.Literals.UNDEVELOPED_EVENT,
+				 undevelopedEvent,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "NoStandaloneUndevelopedEvent",
+				 UNDEVELOPED_EVENT__NO_STANDALONE_UNDEVELOPED_EVENT__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
 
 	/**
@@ -663,8 +673,8 @@ public class FaultTreeValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateRoot(Root root, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(root, diagnostics, context);
+	public boolean validateFaultTree(FaultTree faultTree, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(faultTree, diagnostics, context);
 	}
 
 	/**

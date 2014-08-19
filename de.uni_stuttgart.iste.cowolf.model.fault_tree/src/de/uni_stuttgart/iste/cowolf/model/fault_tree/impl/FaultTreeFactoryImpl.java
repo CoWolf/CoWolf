@@ -69,7 +69,7 @@ public class FaultTreeFactoryImpl extends EFactoryImpl implements FaultTreeFacto
 			case FaultTreePackage.XOR: return createXOR();
 			case FaultTreePackage.PRIOR_AND: return createPriorAND();
 			case FaultTreePackage.INHIBIT: return createInhibit();
-			case FaultTreePackage.ROOT: return createRoot();
+			case FaultTreePackage.FAULT_TREE: return createFaultTree();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -210,9 +210,9 @@ public class FaultTreeFactoryImpl extends EFactoryImpl implements FaultTreeFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Root createRoot() {
-		RootImpl root = new RootImpl();
-		return root;
+	public FaultTree createFaultTree() {
+		FaultTreeImpl faultTree = new FaultTreeImpl();
+		return faultTree;
 	}
 
 	/**

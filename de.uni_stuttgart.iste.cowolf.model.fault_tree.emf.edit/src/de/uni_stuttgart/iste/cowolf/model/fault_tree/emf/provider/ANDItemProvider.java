@@ -64,8 +64,10 @@ public class ANDItemProvider extends GateItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		AND and = (AND)object;
-		return getString("_UI_AND_type") + " " + and.getId();
+		String label = ((AND)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_AND_type") :
+			getString("_UI_AND_type") + " " + label;
 	}
 	
 

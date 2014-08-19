@@ -17,9 +17,7 @@ public class FaultTreeModelWizardExtension extends FaultTreeModelWizard {
 			for (EClassifier eClassifier : faultTreePackage.getEClassifiers()) {
 				if (eClassifier instanceof EClass) {
 					EClass eClass = (EClass) eClassifier;
-					if (!eClass.isAbstract()
-							&& eClass.getName().equalsIgnoreCase(
-									"Root")) {
+					if (!eClass.isAbstract() && eClass.getName().equalsIgnoreCase("FaultTree")) {
 						initialObjectNames.add(eClass.getName());
 					}
 				}

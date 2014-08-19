@@ -1,15 +1,15 @@
 package de.uni_stuttgart.iste.cowolf.model.fault_tree.analyze
 
-import de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.RootImpl
 import java.util.Map
+import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree
 
 class XFTAMinimalCutsetsScriptGenerator implements XFTAGenerator {
 
-	override CharSequence doGenerateXFTAFile(RootImpl root, Map<String, Object> parameters) {
+	override CharSequence doGenerateXFTAFile(FaultTree root, Map<String, Object> parameters) {
 		return '''«xFTAMinimalCutsetsScriptTemplate(root, parameters)»'''
 	}
 
-	def xFTAMinimalCutsetsScriptTemplate(RootImpl r, Map<String, Object> parameters) '''
+	def xFTAMinimalCutsetsScriptTemplate(FaultTree r, Map<String, Object> parameters) '''
 		<?xml version="1.0"?>
 		<!DOCTYPE xfta>
 		<xfta>

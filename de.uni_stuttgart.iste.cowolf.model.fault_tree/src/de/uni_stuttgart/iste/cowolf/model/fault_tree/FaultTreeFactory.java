@@ -139,13 +139,13 @@ public interface FaultTreeFactory extends EFactory {
 	Inhibit createInhibit();
 
 	/**
-	 * Returns a new object of class '<em>Root</em>'.
+	 * Returns a new object of class '<em>Fault Tree</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Root</em>'.
+	 * @return a new object of class '<em>Fault Tree</em>'.
 	 * @generated
 	 */
-	Root createRoot();
+	FaultTree createFaultTree();
 
 	/**
 	 * Returns the package supported by this factory.

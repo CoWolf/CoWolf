@@ -8,27 +8,27 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Root</b></em>'.
+ * A representation of the model object '<em><b>Fault Tree</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.Root#getHazard <em>Hazard</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.Root#getGate <em>Gate</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.Root#getEvent <em>Event</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.Root#getFailure_instance <em>Failure instance</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.Root#getFailure_type <em>Failure type</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.Root#getError_instance <em>Error instance</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.Root#getError_type <em>Error type</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree#getHazard <em>Hazard</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree#getGate <em>Gate</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree#getEvent <em>Event</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree#getFailure_instance <em>Failure instance</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree#getFailure_type <em>Failure type</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree#getError_instance <em>Error instance</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree#getError_type <em>Error type</em>}</li>
  * </ul>
  * </p>
  *
- * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreePackage#getRoot()
+ * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreePackage#getFaultTree()
  * @model
  * @generated
  */
-public interface Root extends EObject {
+public interface FaultTree extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Hazard</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -39,14 +39,14 @@ public interface Root extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Hazard</em>' containment reference.
 	 * @see #setHazard(Hazard)
-	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreePackage#getRoot_Hazard()
+	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreePackage#getFaultTree_Hazard()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	Hazard getHazard();
 
 	/**
-	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.Root#getHazard <em>Hazard</em>}' containment reference.
+	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree#getHazard <em>Hazard</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Hazard</em>' containment reference.
@@ -66,7 +66,7 @@ public interface Root extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Gate</em>' containment reference list.
-	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreePackage#getRoot_Gate()
+	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreePackage#getFaultTree_Gate()
 	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.Gate#getRoot
 	 * @model opposite="root" containment="true"
 	 * @generated
@@ -84,7 +84,7 @@ public interface Root extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Event</em>' containment reference list.
-	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreePackage#getRoot_Event()
+	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreePackage#getFaultTree_Event()
 	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.Event#getRoot
 	 * @model opposite="root" containment="true"
 	 * @generated
@@ -102,7 +102,7 @@ public interface Root extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Failure instance</em>' containment reference list.
-	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreePackage#getRoot_Failure_instance()
+	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreePackage#getFaultTree_Failure_instance()
 	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FailureInstance#getRoot
 	 * @model opposite="root" containment="true"
 	 * @generated
@@ -120,7 +120,7 @@ public interface Root extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Failure type</em>' containment reference list.
-	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreePackage#getRoot_Failure_type()
+	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreePackage#getFaultTree_Failure_type()
 	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FailureType#getRoot
 	 * @model opposite="root" containment="true"
 	 * @generated
@@ -138,7 +138,7 @@ public interface Root extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Error instance</em>' containment reference list.
-	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreePackage#getRoot_Error_instance()
+	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreePackage#getFaultTree_Error_instance()
 	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.ErrorInstance#getRoot
 	 * @model opposite="root" containment="true"
 	 * @generated
@@ -156,11 +156,11 @@ public interface Root extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Error type</em>' containment reference list.
-	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreePackage#getRoot_Error_type()
+	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreePackage#getFaultTree_Error_type()
 	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.ErrorType#getRoot
 	 * @model opposite="root" containment="true"
 	 * @generated
 	 */
 	EList<ErrorType> getError_type();
 
-} // Root
+} // FaultTree

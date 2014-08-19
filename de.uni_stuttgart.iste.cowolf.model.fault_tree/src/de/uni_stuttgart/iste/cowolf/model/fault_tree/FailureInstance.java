@@ -2,6 +2,7 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.fault_tree;
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -25,7 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface FailureInstance extends EObject {
+public interface FailureInstance extends IDBase {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.FailureType#getInstance <em>Instance</em>}'.
@@ -56,7 +57,7 @@ public interface FailureInstance extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Root</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.Root#getFailure_instance <em>Failure instance</em>}'.
+	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree#getFailure_instance <em>Failure instance</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Root</em>' container reference isn't clear,
@@ -64,13 +65,13 @@ public interface FailureInstance extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Root</em>' container reference.
-	 * @see #setRoot(Root)
+	 * @see #setRoot(FaultTree)
 	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreePackage#getFailureInstance_Root()
-	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.Root#getFailure_instance
+	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree#getFailure_instance
 	 * @model opposite="failure_instance" transient="false"
 	 * @generated
 	 */
-	Root getRoot();
+	FaultTree getRoot();
 
 	/**
 	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.FailureInstance#getRoot <em>Root</em>}' container reference.
@@ -80,7 +81,7 @@ public interface FailureInstance extends EObject {
 	 * @see #getRoot()
 	 * @generated
 	 */
-	void setRoot(Root value);
+	void setRoot(FaultTree value);
 
 	/**
 	 * Returns the value of the '<em><b>Previous Failure</b></em>' reference.

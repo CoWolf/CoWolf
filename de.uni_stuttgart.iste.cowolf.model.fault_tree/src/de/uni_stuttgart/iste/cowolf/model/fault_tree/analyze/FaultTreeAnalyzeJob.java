@@ -23,8 +23,8 @@ import org.eclipse.emf.ecore.resource.Resource;
 
 import de.uni_stuttgart.iste.cowolf.core.utilities.CommandLineExecutor;
 import de.uni_stuttgart.iste.cowolf.model.IAnalysisListener;
+import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreeModelManager;
-import de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.RootImpl;
 
 public class FaultTreeAnalyzeJob extends Job {
 
@@ -174,7 +174,7 @@ public class FaultTreeAnalyzeJob extends Job {
 
 		OutputStreamWriter out = new FileWriter(xftaFile.getAbsolutePath());
 		out.write(generator.doGenerateXFTAFile(
-				(RootImpl) model.getContents().get(0), parameters).toString());
+				(FaultTree) model.getContents().get(0), parameters).toString());
 		out.close();
 
 		return xftaFile;

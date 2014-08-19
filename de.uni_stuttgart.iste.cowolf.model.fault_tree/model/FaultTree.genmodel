@@ -4,7 +4,8 @@
     editDirectory="/de.uni_stuttgart.iste.cowolf.model.fault_tree.emf.edit/src" editorDirectory="/de.uni_stuttgart.iste.cowolf.model.fault_tree.emf.editor/src"
     modelPluginID="de.uni_stuttgart.iste.cowolf.model.fault_tree" modelName="FaultTree"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
-    editPluginID="de.uni_stuttgart.iste.cowolf.model.fault_tree.emf.edit" editorPluginID="de.uni_stuttgart.iste.cowolf.model.fault_tree.emf.editor">
+    editPluginID="de.uni_stuttgart.iste.cowolf.model.fault_tree.emf.edit" editorPluginID="de.uni_stuttgart.iste.cowolf.model.fault_tree.emf.editor"
+    usedGenPackages="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.genmodel#//commonBase">
   <foreignModel>FaultTree.ecore</foreignModel>
   <genPackages prefix="FaultTree" basePackage="de.uni_stuttgart.iste.cowolf.model"
       disposableProviderFactory="true" providerPackageSuffix="emf.provider" presentationPackageSuffix="emf.presentation"
@@ -13,7 +14,6 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FaultTree.ecore#//Hazard/inEvent"/>
     </genClasses>
     <genClasses image="false" ecoreClass="FaultTree.ecore#//Gate">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FaultTree.ecore#//Gate/id"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FaultTree.ecore#//Gate/inputGates"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FaultTree.ecore#//Gate/inputEvents"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FaultTree.ecore#//Gate/outputGate"/>
@@ -26,7 +26,6 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FaultTree.ecore#//Event/outputGate"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference FaultTree.ecore#//Event/root"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FaultTree.ecore#//Event/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FaultTree.ecore#//Event/id"/>
     </genClasses>
     <genClasses ecoreClass="FaultTree.ecore#//IntermediateEvent">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FaultTree.ecore#//IntermediateEvent/instance"/>
@@ -68,14 +67,14 @@
     <genClasses ecoreClass="FaultTree.ecore#//XOR"/>
     <genClasses ecoreClass="FaultTree.ecore#//PriorAND"/>
     <genClasses ecoreClass="FaultTree.ecore#//Inhibit"/>
-    <genClasses ecoreClass="FaultTree.ecore#//Root">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FaultTree.ecore#//Root/hazard"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FaultTree.ecore#//Root/gate"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FaultTree.ecore#//Root/event"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FaultTree.ecore#//Root/failure_instance"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FaultTree.ecore#//Root/failure_type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FaultTree.ecore#//Root/error_instance"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FaultTree.ecore#//Root/error_type"/>
+    <genClasses ecoreClass="FaultTree.ecore#//FaultTree">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FaultTree.ecore#//FaultTree/hazard"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FaultTree.ecore#//FaultTree/gate"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FaultTree.ecore#//FaultTree/event"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FaultTree.ecore#//FaultTree/failure_instance"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FaultTree.ecore#//FaultTree/failure_type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FaultTree.ecore#//FaultTree/error_instance"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FaultTree.ecore#//FaultTree/error_type"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

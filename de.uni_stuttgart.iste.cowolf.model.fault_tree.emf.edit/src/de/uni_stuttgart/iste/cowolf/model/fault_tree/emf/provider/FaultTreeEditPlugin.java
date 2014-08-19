@@ -2,6 +2,8 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.fault_tree.emf.provider;
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.emf.provider.CommonBaseEditPlugin;
+
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -38,6 +40,7 @@ public final class FaultTreeEditPlugin extends EMFPlugin {
 	public FaultTreeEditPlugin() {
 		super
 		  (new ResourceLocator [] {
+		     CommonBaseEditPlugin.INSTANCE,
 		   });
 	}
 

@@ -371,26 +371,26 @@ public class FaultTreeItemProviderAdapterFactory extends FaultTreeAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uni_stuttgart.iste.cowolf.model.fault_tree.Root} instances.
+	 * This keeps track of the one adapter used for all {@link de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected RootItemProvider rootItemProvider;
+	protected FaultTreeItemProvider faultTreeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uni_stuttgart.iste.cowolf.model.fault_tree.Root}.
+	 * This creates an adapter for a {@link de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createRootAdapter() {
-		if (rootItemProvider == null) {
-			rootItemProvider = new RootItemProvider(this);
+	public Adapter createFaultTreeAdapter() {
+		if (faultTreeItemProvider == null) {
+			faultTreeItemProvider = new FaultTreeItemProvider(this);
 		}
 
-		return rootItemProvider;
+		return faultTreeItemProvider;
 	}
 
 	/**
@@ -505,7 +505,7 @@ public class FaultTreeItemProviderAdapterFactory extends FaultTreeAdapterFactory
 		if (xorItemProvider != null) xorItemProvider.dispose();
 		if (priorANDItemProvider != null) priorANDItemProvider.dispose();
 		if (inhibitItemProvider != null) inhibitItemProvider.dispose();
-		if (rootItemProvider != null) rootItemProvider.dispose();
+		if (faultTreeItemProvider != null) faultTreeItemProvider.dispose();
 	}
 
 }

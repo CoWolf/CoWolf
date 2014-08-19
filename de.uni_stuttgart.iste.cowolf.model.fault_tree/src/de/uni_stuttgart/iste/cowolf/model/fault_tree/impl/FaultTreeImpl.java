@@ -7,10 +7,10 @@ import de.uni_stuttgart.iste.cowolf.model.fault_tree.ErrorType;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.Event;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.FailureInstance;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.FailureType;
+import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreePackage;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.Gate;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.Hazard;
-import de.uni_stuttgart.iste.cowolf.model.fault_tree.Root;
 
 import java.util.Collection;
 
@@ -30,24 +30,24 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Root</b></em>'.
+ * An implementation of the model object '<em><b>Fault Tree</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.RootImpl#getHazard <em>Hazard</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.RootImpl#getGate <em>Gate</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.RootImpl#getEvent <em>Event</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.RootImpl#getFailure_instance <em>Failure instance</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.RootImpl#getFailure_type <em>Failure type</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.RootImpl#getError_instance <em>Error instance</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.RootImpl#getError_type <em>Error type</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.FaultTreeImpl#getHazard <em>Hazard</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.FaultTreeImpl#getGate <em>Gate</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.FaultTreeImpl#getEvent <em>Event</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.FaultTreeImpl#getFailure_instance <em>Failure instance</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.FaultTreeImpl#getFailure_type <em>Failure type</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.FaultTreeImpl#getError_instance <em>Error instance</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.FaultTreeImpl#getError_type <em>Error type</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class RootImpl extends EObjectImpl implements Root {
+public class FaultTreeImpl extends EObjectImpl implements FaultTree {
 	/**
 	 * The cached value of the '{@link #getHazard() <em>Hazard</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -123,7 +123,7 @@ public class RootImpl extends EObjectImpl implements Root {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected RootImpl() {
+	protected FaultTreeImpl() {
 		super();
 	}
 
@@ -134,7 +134,7 @@ public class RootImpl extends EObjectImpl implements Root {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return FaultTreePackage.Literals.ROOT;
+		return FaultTreePackage.Literals.FAULT_TREE;
 	}
 
 	/**
@@ -155,7 +155,7 @@ public class RootImpl extends EObjectImpl implements Root {
 		Hazard oldHazard = hazard;
 		hazard = newHazard;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FaultTreePackage.ROOT__HAZARD, oldHazard, newHazard);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FaultTreePackage.FAULT_TREE__HAZARD, oldHazard, newHazard);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -170,14 +170,14 @@ public class RootImpl extends EObjectImpl implements Root {
 		if (newHazard != hazard) {
 			NotificationChain msgs = null;
 			if (hazard != null)
-				msgs = ((InternalEObject)hazard).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FaultTreePackage.ROOT__HAZARD, null, msgs);
+				msgs = ((InternalEObject)hazard).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FaultTreePackage.FAULT_TREE__HAZARD, null, msgs);
 			if (newHazard != null)
-				msgs = ((InternalEObject)newHazard).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FaultTreePackage.ROOT__HAZARD, null, msgs);
+				msgs = ((InternalEObject)newHazard).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FaultTreePackage.FAULT_TREE__HAZARD, null, msgs);
 			msgs = basicSetHazard(newHazard, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FaultTreePackage.ROOT__HAZARD, newHazard, newHazard));
+			eNotify(new ENotificationImpl(this, Notification.SET, FaultTreePackage.FAULT_TREE__HAZARD, newHazard, newHazard));
 	}
 
 	/**
@@ -187,7 +187,7 @@ public class RootImpl extends EObjectImpl implements Root {
 	 */
 	public EList<Gate> getGate() {
 		if (gate == null) {
-			gate = new EObjectContainmentWithInverseEList<Gate>(Gate.class, this, FaultTreePackage.ROOT__GATE, FaultTreePackage.GATE__ROOT);
+			gate = new EObjectContainmentWithInverseEList<Gate>(Gate.class, this, FaultTreePackage.FAULT_TREE__GATE, FaultTreePackage.GATE__ROOT);
 		}
 		return gate;
 	}
@@ -199,7 +199,7 @@ public class RootImpl extends EObjectImpl implements Root {
 	 */
 	public EList<Event> getEvent() {
 		if (event == null) {
-			event = new EObjectContainmentWithInverseEList<Event>(Event.class, this, FaultTreePackage.ROOT__EVENT, FaultTreePackage.EVENT__ROOT);
+			event = new EObjectContainmentWithInverseEList<Event>(Event.class, this, FaultTreePackage.FAULT_TREE__EVENT, FaultTreePackage.EVENT__ROOT);
 		}
 		return event;
 	}
@@ -211,7 +211,7 @@ public class RootImpl extends EObjectImpl implements Root {
 	 */
 	public EList<FailureInstance> getFailure_instance() {
 		if (failure_instance == null) {
-			failure_instance = new EObjectContainmentWithInverseEList<FailureInstance>(FailureInstance.class, this, FaultTreePackage.ROOT__FAILURE_INSTANCE, FaultTreePackage.FAILURE_INSTANCE__ROOT);
+			failure_instance = new EObjectContainmentWithInverseEList<FailureInstance>(FailureInstance.class, this, FaultTreePackage.FAULT_TREE__FAILURE_INSTANCE, FaultTreePackage.FAILURE_INSTANCE__ROOT);
 		}
 		return failure_instance;
 	}
@@ -223,7 +223,7 @@ public class RootImpl extends EObjectImpl implements Root {
 	 */
 	public EList<FailureType> getFailure_type() {
 		if (failure_type == null) {
-			failure_type = new EObjectContainmentWithInverseEList<FailureType>(FailureType.class, this, FaultTreePackage.ROOT__FAILURE_TYPE, FaultTreePackage.FAILURE_TYPE__ROOT);
+			failure_type = new EObjectContainmentWithInverseEList<FailureType>(FailureType.class, this, FaultTreePackage.FAULT_TREE__FAILURE_TYPE, FaultTreePackage.FAILURE_TYPE__ROOT);
 		}
 		return failure_type;
 	}
@@ -235,7 +235,7 @@ public class RootImpl extends EObjectImpl implements Root {
 	 */
 	public EList<ErrorInstance> getError_instance() {
 		if (error_instance == null) {
-			error_instance = new EObjectContainmentWithInverseEList<ErrorInstance>(ErrorInstance.class, this, FaultTreePackage.ROOT__ERROR_INSTANCE, FaultTreePackage.ERROR_INSTANCE__ROOT);
+			error_instance = new EObjectContainmentWithInverseEList<ErrorInstance>(ErrorInstance.class, this, FaultTreePackage.FAULT_TREE__ERROR_INSTANCE, FaultTreePackage.ERROR_INSTANCE__ROOT);
 		}
 		return error_instance;
 	}
@@ -247,7 +247,7 @@ public class RootImpl extends EObjectImpl implements Root {
 	 */
 	public EList<ErrorType> getError_type() {
 		if (error_type == null) {
-			error_type = new EObjectContainmentWithInverseEList<ErrorType>(ErrorType.class, this, FaultTreePackage.ROOT__ERROR_TYPE, FaultTreePackage.ERROR_TYPE__ROOT);
+			error_type = new EObjectContainmentWithInverseEList<ErrorType>(ErrorType.class, this, FaultTreePackage.FAULT_TREE__ERROR_TYPE, FaultTreePackage.ERROR_TYPE__ROOT);
 		}
 		return error_type;
 	}
@@ -261,17 +261,17 @@ public class RootImpl extends EObjectImpl implements Root {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FaultTreePackage.ROOT__GATE:
+			case FaultTreePackage.FAULT_TREE__GATE:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getGate()).basicAdd(otherEnd, msgs);
-			case FaultTreePackage.ROOT__EVENT:
+			case FaultTreePackage.FAULT_TREE__EVENT:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getEvent()).basicAdd(otherEnd, msgs);
-			case FaultTreePackage.ROOT__FAILURE_INSTANCE:
+			case FaultTreePackage.FAULT_TREE__FAILURE_INSTANCE:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getFailure_instance()).basicAdd(otherEnd, msgs);
-			case FaultTreePackage.ROOT__FAILURE_TYPE:
+			case FaultTreePackage.FAULT_TREE__FAILURE_TYPE:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getFailure_type()).basicAdd(otherEnd, msgs);
-			case FaultTreePackage.ROOT__ERROR_INSTANCE:
+			case FaultTreePackage.FAULT_TREE__ERROR_INSTANCE:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getError_instance()).basicAdd(otherEnd, msgs);
-			case FaultTreePackage.ROOT__ERROR_TYPE:
+			case FaultTreePackage.FAULT_TREE__ERROR_TYPE:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getError_type()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -285,19 +285,19 @@ public class RootImpl extends EObjectImpl implements Root {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FaultTreePackage.ROOT__HAZARD:
+			case FaultTreePackage.FAULT_TREE__HAZARD:
 				return basicSetHazard(null, msgs);
-			case FaultTreePackage.ROOT__GATE:
+			case FaultTreePackage.FAULT_TREE__GATE:
 				return ((InternalEList<?>)getGate()).basicRemove(otherEnd, msgs);
-			case FaultTreePackage.ROOT__EVENT:
+			case FaultTreePackage.FAULT_TREE__EVENT:
 				return ((InternalEList<?>)getEvent()).basicRemove(otherEnd, msgs);
-			case FaultTreePackage.ROOT__FAILURE_INSTANCE:
+			case FaultTreePackage.FAULT_TREE__FAILURE_INSTANCE:
 				return ((InternalEList<?>)getFailure_instance()).basicRemove(otherEnd, msgs);
-			case FaultTreePackage.ROOT__FAILURE_TYPE:
+			case FaultTreePackage.FAULT_TREE__FAILURE_TYPE:
 				return ((InternalEList<?>)getFailure_type()).basicRemove(otherEnd, msgs);
-			case FaultTreePackage.ROOT__ERROR_INSTANCE:
+			case FaultTreePackage.FAULT_TREE__ERROR_INSTANCE:
 				return ((InternalEList<?>)getError_instance()).basicRemove(otherEnd, msgs);
-			case FaultTreePackage.ROOT__ERROR_TYPE:
+			case FaultTreePackage.FAULT_TREE__ERROR_TYPE:
 				return ((InternalEList<?>)getError_type()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -311,19 +311,19 @@ public class RootImpl extends EObjectImpl implements Root {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FaultTreePackage.ROOT__HAZARD:
+			case FaultTreePackage.FAULT_TREE__HAZARD:
 				return getHazard();
-			case FaultTreePackage.ROOT__GATE:
+			case FaultTreePackage.FAULT_TREE__GATE:
 				return getGate();
-			case FaultTreePackage.ROOT__EVENT:
+			case FaultTreePackage.FAULT_TREE__EVENT:
 				return getEvent();
-			case FaultTreePackage.ROOT__FAILURE_INSTANCE:
+			case FaultTreePackage.FAULT_TREE__FAILURE_INSTANCE:
 				return getFailure_instance();
-			case FaultTreePackage.ROOT__FAILURE_TYPE:
+			case FaultTreePackage.FAULT_TREE__FAILURE_TYPE:
 				return getFailure_type();
-			case FaultTreePackage.ROOT__ERROR_INSTANCE:
+			case FaultTreePackage.FAULT_TREE__ERROR_INSTANCE:
 				return getError_instance();
-			case FaultTreePackage.ROOT__ERROR_TYPE:
+			case FaultTreePackage.FAULT_TREE__ERROR_TYPE:
 				return getError_type();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -338,30 +338,30 @@ public class RootImpl extends EObjectImpl implements Root {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FaultTreePackage.ROOT__HAZARD:
+			case FaultTreePackage.FAULT_TREE__HAZARD:
 				setHazard((Hazard)newValue);
 				return;
-			case FaultTreePackage.ROOT__GATE:
+			case FaultTreePackage.FAULT_TREE__GATE:
 				getGate().clear();
 				getGate().addAll((Collection<? extends Gate>)newValue);
 				return;
-			case FaultTreePackage.ROOT__EVENT:
+			case FaultTreePackage.FAULT_TREE__EVENT:
 				getEvent().clear();
 				getEvent().addAll((Collection<? extends Event>)newValue);
 				return;
-			case FaultTreePackage.ROOT__FAILURE_INSTANCE:
+			case FaultTreePackage.FAULT_TREE__FAILURE_INSTANCE:
 				getFailure_instance().clear();
 				getFailure_instance().addAll((Collection<? extends FailureInstance>)newValue);
 				return;
-			case FaultTreePackage.ROOT__FAILURE_TYPE:
+			case FaultTreePackage.FAULT_TREE__FAILURE_TYPE:
 				getFailure_type().clear();
 				getFailure_type().addAll((Collection<? extends FailureType>)newValue);
 				return;
-			case FaultTreePackage.ROOT__ERROR_INSTANCE:
+			case FaultTreePackage.FAULT_TREE__ERROR_INSTANCE:
 				getError_instance().clear();
 				getError_instance().addAll((Collection<? extends ErrorInstance>)newValue);
 				return;
-			case FaultTreePackage.ROOT__ERROR_TYPE:
+			case FaultTreePackage.FAULT_TREE__ERROR_TYPE:
 				getError_type().clear();
 				getError_type().addAll((Collection<? extends ErrorType>)newValue);
 				return;
@@ -377,25 +377,25 @@ public class RootImpl extends EObjectImpl implements Root {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FaultTreePackage.ROOT__HAZARD:
+			case FaultTreePackage.FAULT_TREE__HAZARD:
 				setHazard((Hazard)null);
 				return;
-			case FaultTreePackage.ROOT__GATE:
+			case FaultTreePackage.FAULT_TREE__GATE:
 				getGate().clear();
 				return;
-			case FaultTreePackage.ROOT__EVENT:
+			case FaultTreePackage.FAULT_TREE__EVENT:
 				getEvent().clear();
 				return;
-			case FaultTreePackage.ROOT__FAILURE_INSTANCE:
+			case FaultTreePackage.FAULT_TREE__FAILURE_INSTANCE:
 				getFailure_instance().clear();
 				return;
-			case FaultTreePackage.ROOT__FAILURE_TYPE:
+			case FaultTreePackage.FAULT_TREE__FAILURE_TYPE:
 				getFailure_type().clear();
 				return;
-			case FaultTreePackage.ROOT__ERROR_INSTANCE:
+			case FaultTreePackage.FAULT_TREE__ERROR_INSTANCE:
 				getError_instance().clear();
 				return;
-			case FaultTreePackage.ROOT__ERROR_TYPE:
+			case FaultTreePackage.FAULT_TREE__ERROR_TYPE:
 				getError_type().clear();
 				return;
 		}
@@ -410,22 +410,22 @@ public class RootImpl extends EObjectImpl implements Root {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FaultTreePackage.ROOT__HAZARD:
+			case FaultTreePackage.FAULT_TREE__HAZARD:
 				return hazard != null;
-			case FaultTreePackage.ROOT__GATE:
+			case FaultTreePackage.FAULT_TREE__GATE:
 				return gate != null && !gate.isEmpty();
-			case FaultTreePackage.ROOT__EVENT:
+			case FaultTreePackage.FAULT_TREE__EVENT:
 				return event != null && !event.isEmpty();
-			case FaultTreePackage.ROOT__FAILURE_INSTANCE:
+			case FaultTreePackage.FAULT_TREE__FAILURE_INSTANCE:
 				return failure_instance != null && !failure_instance.isEmpty();
-			case FaultTreePackage.ROOT__FAILURE_TYPE:
+			case FaultTreePackage.FAULT_TREE__FAILURE_TYPE:
 				return failure_type != null && !failure_type.isEmpty();
-			case FaultTreePackage.ROOT__ERROR_INSTANCE:
+			case FaultTreePackage.FAULT_TREE__ERROR_INSTANCE:
 				return error_instance != null && !error_instance.isEmpty();
-			case FaultTreePackage.ROOT__ERROR_TYPE:
+			case FaultTreePackage.FAULT_TREE__ERROR_TYPE:
 				return error_type != null && !error_type.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //RootImpl
+} //FaultTreeImpl
