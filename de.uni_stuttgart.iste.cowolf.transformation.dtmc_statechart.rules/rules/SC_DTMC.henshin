@@ -21,6 +21,39 @@
       <edges xmi:id="_qgKPwCbdEeS27djEs9IasA" source="_nKvMECbdEeS27djEs9IasA" target="_pJYqECbdEeS27djEs9IasA">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateMachine/top"/>
       </edges>
+      <formula xsi:type="henshin:Not" xmi:id="_QeWMECd_EeSHtuLwGUUreA">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_QeWMESd_EeSHtuLwGUUreA">
+          <conclusion xmi:id="_QeWMEid_EeSHtuLwGUUreA">
+            <nodes xmi:id="_QeWMEyd_EeSHtuLwGUUreA" outgoing="_QeWMGCd_EeSHtuLwGUUreA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateMachine"/>
+            </nodes>
+            <nodes xmi:id="_QeWMFSd_EeSHtuLwGUUreA" incoming="_QeWMGCd_EeSHtuLwGUUreA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//State"/>
+              <attributes xmi:id="_QeWMFid_EeSHtuLwGUUreA" value="name">
+                <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//NameBase/name"/>
+              </attributes>
+            </nodes>
+            <nodes xmi:id="_QeWMGSd_EeSHtuLwGUUreA" outgoing="_P2xOsCd_EeSHtuLwGUUreA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//DTMC"/>
+            </nodes>
+            <nodes xmi:id="_OKUT8Cd_EeSHtuLwGUUreA" incoming="_P2xOsCd_EeSHtuLwGUUreA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//State"/>
+              <attributes xmi:id="_S4CAQCd_EeSHtuLwGUUreA" value="name">
+                <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//State/name"/>
+              </attributes>
+            </nodes>
+            <edges xmi:id="_QeWMGCd_EeSHtuLwGUUreA" source="_QeWMEyd_EeSHtuLwGUUreA" target="_QeWMFSd_EeSHtuLwGUUreA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateMachine/top"/>
+            </edges>
+            <edges xmi:id="_P2xOsCd_EeSHtuLwGUUreA" source="_QeWMGSd_EeSHtuLwGUUreA" target="_OKUT8Cd_EeSHtuLwGUUreA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//DTMC/States"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_QeWMFCd_EeSHtuLwGUUreA" origin="_nKvMECbdEeS27djEs9IasA" image="_QeWMEyd_EeSHtuLwGUUreA"/>
+          <mappings xmi:id="_QeWMFyd_EeSHtuLwGUUreA" origin="_pJYqECbdEeS27djEs9IasA" image="_QeWMFSd_EeSHtuLwGUUreA"/>
+          <mappings xmi:id="_QeWMGid_EeSHtuLwGUUreA" origin="_oTxQsCbdEeS27djEs9IasA" image="_QeWMGSd_EeSHtuLwGUUreA"/>
+        </child>
+      </formula>
     </lhs>
     <rhs xmi:id="_fBHZkSbdEeS27djEs9IasA" name="Rhs">
       <nodes xmi:id="_nK1SsCbdEeS27djEs9IasA" outgoing="_qgKPwSbdEeS27djEs9IasA">
