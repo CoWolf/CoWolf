@@ -316,9 +316,28 @@ public abstract class AbstractTransformationManager {
         String fileNameNoExtension = fileUri.substring(0,
                 fileUri.lastIndexOf('.'));
 
-        return fileNameNoExtension + "_result" + extension;
-    }
+        // start with parsing of file number
+        int fileNumber = 0;
+        boolean isNumber = true;
+        int counter = 0;
+        int nameLength = 0;
+        while (isNumber) {
+            try {
+                // parse number at end of file.
+                nameLength = fileNameNoExtension.length() - (counter + 1);
+                fileNumber = Integer.parseInt(fileNameNoExtension
+                        .substring(nameLength));
+                counter++;
+            } catch (NumberFormatException e) {
+                isNumber = false;
+                // add 1 as last character is no number anymore.
+                nameLength++;
+            }
+        }
 
+        return fileNameNoExtension.substring(0, nameLength) + fileNumber
+                + extension;
+    }
     /**
      * Returns the key for which a mapping at the extension point can be stored.
      * 
