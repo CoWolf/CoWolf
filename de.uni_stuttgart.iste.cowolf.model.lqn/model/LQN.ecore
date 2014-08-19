@@ -1,196 +1,266 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="LQN" nsURI="http://LQN/1.0" nsPrefix="lqn">
-  <eClassifiers xsi:type="ecore:EClass" name="LQN" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" unique="false"
-        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="comment" ordered="false"
-        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="author" ordered="false"
-        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="created_On" ordered="false"
-        lowerBound="1" eType="#//Date" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="modified_On" ordered="false"
-        lowerBound="1" eType="#//Date" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="task" ordered="false" lowerBound="1"
-        upperBound="-1" eType="#//Task" containment="true" eOpposite="#//Task/lqn"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="processor" ordered="false"
-        lowerBound="1" upperBound="-1" eType="#//Processor" containment="true" eOpposite="#//Processor/lqn"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" unique="false"
-        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" ordered="false" unique="false"
-        lowerBound="1" eType="#//TaskType"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="priority" ordered="false"
-        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mutliplicity" ordered="false"
-        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="replicas" ordered="false"
-        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="entry" ordered="false"
-        lowerBound="1" upperBound="-1" eType="#//Entry" containment="true" eOpposite="#//Entry/task"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="processor" ordered="false"
-        lowerBound="1" eType="#//Processor" eOpposite="#//Processor/task"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="lqn" ordered="false" lowerBound="1"
-        eType="#//LQN" eOpposite="#//LQN/task"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="activity" ordered="false"
-        lowerBound="1" upperBound="-1" eType="#//Activity" eOpposite="#//Activity/task"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LQNModel" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="processor" lowerBound="1"
+        upperBound="-1" eType="#//Processor" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Processor" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" unique="false"
-        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scheduling" ordered="false"
-        unique="false" lowerBound="1" eType="#//SchedulingType"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mutliplicity" ordered="false"
-        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="replicas" ordered="false"
-        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="spped" ordered="false"
-        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="task" ordered="false" lowerBound="1"
-        eType="#//Task" eOpposite="#//Task/processor"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="lqn" ordered="false" lowerBound="1"
-        eType="#//LQN" eOpposite="#//LQN/processor"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Entry" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" unique="false"
-        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="num_Phase" ordered="false"
-        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="arrival_Rate" ordered="false"
-        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contained_In" ordered="false"
-        lowerBound="1" eType="#//Task" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="replay_To" ordered="false"
-        lowerBound="1" eType="#//Entry" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="callreceives" ordered="false"
-        lowerBound="1" eType="#//Call" eOpposite="#//Call/entryreceives"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="callsends" ordered="false"
-        lowerBound="1" eType="#//Call" eOpposite="#//Call/entrysends"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="phase" ordered="false"
-        lowerBound="1" upperBound="-1" eType="#//Phase" eOpposite="#//Phase/entry"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="activity" ordered="false"
-        eType="#//Activity" containment="true" eOpposite="#//Activity/entry"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="task" ordered="false" lowerBound="1"
-        eType="#//Task" eOpposite="#//Task/entry"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Phase" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" ordered="false"
-        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" ordered="false" unique="false"
-        lowerBound="1" eType="#//PhaseType"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="think_Time" ordered="false"
-        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="execution_Demand" ordered="false"
-        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="COV" ordered="false" unique="false"
-        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="entry" ordered="false"
-        lowerBound="1" eType="#//Entry" eOpposite="#//Entry/phase"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="activity" ordered="false"
-        lowerBound="1" eType="#//Activity" eOpposite="#//Activity/phase"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Activity" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" unique="false"
-        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="arrival_Rate" ordered="false"
-        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contained_In" ordered="false"
-        lowerBound="1" eType="#//Task" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="replay_To" ordered="false"
-        lowerBound="1" eType="#//Entry" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="linkPrecedes" ordered="false"
-        lowerBound="1" upperBound="-1" eType="#//Link" eOpposite="#//Link/activityPrecedes"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="linkfollows" ordered="false"
-        lowerBound="1" upperBound="-1" eType="#//Link" eOpposite="#//Link/activityfollows"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="call" ordered="false" upperBound="-1"
-        eType="#//Call" eOpposite="#//Call/activity"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="phase" ordered="false"
-        lowerBound="1" eType="#//Phase" eOpposite="#//Phase/activity"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="entry" ordered="false"
-        lowerBound="1" eType="#//Entry" eOpposite="#//Entry/activity"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="task" ordered="false" lowerBound="1"
-        eType="#//Task" eOpposite="#//Task/activity"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Link" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" ordered="false" unique="false"
-        lowerBound="1" eType="#//LinkType"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mean_Links" ordered="false"
-        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="fromActivity" ordered="false"
-        lowerBound="1" eType="#//Activity" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="toActivity" ordered="false"
-        lowerBound="1" eType="#//Activity" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="activityPrecedes" ordered="false"
-        lowerBound="1" eType="#//Activity" eOpposite="#//Activity/linkPrecedes"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="activityfollows" ordered="false"
-        lowerBound="1" eType="#//Activity" eOpposite="#//Activity/linkfollows"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CallPhase" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mean_Calls" ordered="false"
-        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="refers_To" ordered="false"
-        lowerBound="1" eType="#//Phase" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="call" ordered="false" lowerBound="1"
-        upperBound="-1" eType="#//Call" eOpposite="#//Call/callPhase"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Call" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="toEntry" ordered="false"
-        lowerBound="1" eType="#//Entry" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="num_Phases" ordered="false"
-        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" ordered="false" unique="false"
-        lowerBound="1" eType="#//CallType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="callPhase" ordered="false"
-        lowerBound="1" upperBound="-1" eType="#//CallPhase" eOpposite="#//CallPhase/call"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="activity" ordered="false"
-        lowerBound="1" eType="#//Activity" eOpposite="#//Activity/call"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="entryreceives" ordered="false"
-        eType="#//Entry" eOpposite="#//Entry/callreceives"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="entrysends" ordered="false"
-        eType="#//Entry" eOpposite="#//Entry/callsends"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EntryCall" eSuperTypes="#//Call">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="from_Entry" ordered="false"
-        lowerBound="1" eType="#//Entry" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ActivityCall" eSuperTypes="#//Call">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="fromActivity" ordered="false"
-        lowerBound="1" eType="#//Activity" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Date" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="day" ordered="false" unique="false"
-        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="month" ordered="false"
-        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="year" ordered="false" unique="false"
-        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="multiplicity" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="speedFactor" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scheduling" unique="false"
+        eType="#//SchedulingType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="replication" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantum" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="task" lowerBound="1" upperBound="-1"
+        eType="#//Task" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="SchedulingType">
-    <eLiterals name="FCFS" value="1"/>
-    <eLiterals name="preemptive_Priority" value="2"/>
-    <eLiterals name="head_of_line" value="3"/>
-    <eLiterals name="random" value="4"/>
+    <eLiterals name="NULL"/>
+    <eLiterals name="fcfs" value="1"/>
+    <eLiterals name="ps" value="2"/>
+    <eLiterals name="pp" value="3"/>
+    <eLiterals name="rand" value="4"/>
+    <eLiterals name="hol" value="5"/>
+    <eLiterals name="psHol" value="6"/>
+    <eLiterals name="psPp" value="7"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="PhaseType">
-    <eLiterals name="stochastic" value="1"/>
-    <eLiterals name="deterministic" value="2"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="multiplicity" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="queueLength" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="replication" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scheduling" unique="false"
+        eType="#//TaskSchedulingType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="activityGraph" unique="false"
+        eType="#//TaskOptionType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="thinkTime" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="priority" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entry" lowerBound="1" upperBound="-1"
+        eType="#//Entry" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="taskActivity" eType="#//TaskActivityGraph"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="CallType">
-    <eLiterals name="synchronous" value="1"/>
-    <eLiterals name="asynchronous" value="2"/>
-    <eLiterals name="forwording" value="3"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="TaskSchedulingType">
+    <eLiterals name="NULL"/>
+    <eLiterals name="ref" value="1"/>
+    <eLiterals name="fcfs" value="2"/>
+    <eLiterals name="pri" value="3"/>
+    <eLiterals name="hol" value="4"/>
+    <eLiterals name="burst" value="5"/>
+    <eLiterals name="poll" value="6"/>
+    <eLiterals name="inf" value="7"/>
+    <eLiterals name="semaphore" value="8"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="LinkType">
-    <eLiterals name="and_Fork" value="1"/>
-    <eLiterals name="and_join" value="2"/>
-    <eLiterals name="basic" value="3"/>
-    <eLiterals name="or_Fork" value="4"/>
-    <eLiterals name="or_join" value="5"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="TaskOptionType">
+    <eLiterals name="NULL"/>
+    <eLiterals name="YES" value="1"/>
+    <eLiterals name="NO" value="2"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="TaskType">
-    <eLiterals name="a_reference" value="1"/>
-    <eLiterals name="non_reference" value="2"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Entry" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="openArrivalRate" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="priority" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="semaphore" unique="false"
+        eType="#//Semaphore"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" unique="false" lowerBound="1"
+        eType="#//EntryType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entryActivityGraph" eType="#//EntryActivityGraph"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entryPhaseActivities" eType="#//PhaseActivities"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="forwarding" upperBound="-1"
+        eType="#//EntryMakingCall" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TaskActivityGraph" eSuperTypes="#//ActivityGraph">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="replyEntry" upperBound="-1"
+        eType="#//ReplyEntry" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Semaphore">
+    <eLiterals name="NULL"/>
+    <eLiterals name="signal" value="1"/>
+    <eLiterals name="wait" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EntryType">
+    <eLiterals name="NULL"/>
+    <eLiterals name="PH1PH2" value="1"/>
+    <eLiterals name="GRAPH" value="2"/>
+    <eLiterals name="NONE" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EntryActivityGraph" eSuperTypes="#//ActivityGraph">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="replyActivity" lowerBound="1"
+        upperBound="-1" eType="#//ReplyActivity" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PhaseActivities" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="activity" lowerBound="1"
+        upperBound="3" eType="#//ActivityPhase" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EntryMakingCall" eSuperTypes="#//MakingCall">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prob" unique="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MakingCall" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dest" unique="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fanin" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fanout" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActivityMakingCall" eSuperTypes="#//MakingCall">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="callsMean" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActivityPhase" eSuperTypes="#//ActivityDefBase">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="phase" unique="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="synchCall" upperBound="-1"
+        eType="#//ActivityMakingCall" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="asynchCall" upperBound="-1"
+        eType="#//ActivityMakingCall" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="callList" upperBound="-1"
+        eType="#//CallList" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActivityDefBase" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hostDemandMean" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hostDemandCvsq" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="thinkTime" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxServiceTime" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="callOrder" unique="false"
+        eType="#//CallOrder"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CallOrder">
+    <eLiterals name="NULL"/>
+    <eLiterals name="STOCHASTIC" value="1"/>
+    <eLiterals name="DETERMINISTIC" value="2"/>
+    <eLiterals name="LIST" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActivityDef" eSuperTypes="#//ActivityDefBase">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="boundToEntry" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="synchCall" upperBound="-1"
+        eType="#//ActivityMakingCall" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="asynchCall" upperBound="-1"
+        eType="#//ActivityMakingCall" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="callList" upperBound="-1"
+        eType="#//CallList" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CallList" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="synchCall" upperBound="-1"
+        eType="#//SynchCall" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="asynchCall" upperBound="-1"
+        eType="#//AsynchCall" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EntryActivityDef" eSuperTypes="#//ActivityDefBase">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="firstActivity" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="synchCall" upperBound="-1"
+        eType="#//ActivityMakingCall" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="asynchCall" upperBound="-1"
+        eType="#//ActivityMakingCall" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="callList" upperBound="-1"
+        eType="#//CallList" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SynchCall" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dest" unique="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fanin" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fanout" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AsynchCall" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dest" unique="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fanin" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fanout" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActivityGraph" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="precedence" upperBound="-1"
+        eType="#//Precedence" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="activity" lowerBound="1"
+        upperBound="-1" eType="#//ActivityDef" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Precedence" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pre" eType="#//SingleActivityList"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="post" eType="#//SingleActivityList"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="preAND" eType="#//AndJoinList"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="postAND" eType="#//ActivityList"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="preOR" eType="#//ActivityList"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="postOR" eType="#//OrList"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="postLOOP" eType="#//ActivityLoopList"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ReplyActivity" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ReplyEntry" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="replyActivity" lowerBound="1"
+        upperBound="-1" eType="#//ReplyActivity" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SingleActivityList" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="activity" unique="false"
+        lowerBound="1" eType="#//Activity" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActivityLoopList" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="end" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="activity" lowerBound="1"
+        upperBound="-1" eType="#//ActivityLoop" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AndJoinList" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="quorum" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="activity" lowerBound="1"
+        upperBound="-1" eType="#//Activity" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActivityList" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="activity" lowerBound="1"
+        upperBound="-1" eType="#//Activity" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OrList" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="activity" lowerBound="1"
+        upperBound="-1" eType="#//ActivityOr" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Activity" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActivityOr" eSuperTypes="#//Activity">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prob" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActivityLoop" eSuperTypes="#//Activity">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="count" unique="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
 </ecore:EPackage>
