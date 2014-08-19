@@ -16,7 +16,7 @@
                           <element maxOccurs="unbounded" name="Param">
                             <complexType>
                               <sequence>
-                                <element name="Path" type="string" />
+                                <element name="Path" type="string" maxOccurs="unbounded" />
                               </sequence>
                               <attribute name="name" type="string" />
                             </complexType>
@@ -26,6 +26,7 @@
                     </element>
                   </sequence>
                   <attribute name="name" type="string" />
+                  <attribute name="path" type="string" />
                 </complexType>
               </element>
             </sequence>

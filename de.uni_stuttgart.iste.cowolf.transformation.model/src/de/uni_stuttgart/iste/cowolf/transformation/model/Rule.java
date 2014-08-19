@@ -5,7 +5,6 @@
 // Generated on: 2014.08.15 at 11:35:54 AM CEST 
 //
 
-
 package de.uni_stuttgart.iste.cowolf.transformation.model;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -14,11 +13,13 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for anonymous complex type.
+ * <p>
+ * Java class for anonymous complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -57,23 +58,21 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "params"
-})
+@XmlType(name = "", propOrder = {"params"})
 public class Rule {
 
     @XmlElement(name = "Params", required = true)
     protected Params params;
     @XmlAttribute(name = "name")
     protected String name;
+    @XmlAttribute(name = "path")
+    protected String path;
 
     /**
      * Gets the value of the params property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Params }
-     *     
+     * @return possible object is {@link Params }
+     * 
      */
     public Params getParams() {
         return params;
@@ -83,9 +82,8 @@ public class Rule {
      * Sets the value of the params property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link Params }
-     *     
+     *            allowed object is {@link Params }
+     * 
      */
     public void setParams(Params value) {
         this.params = value;
@@ -94,10 +92,8 @@ public class Rule {
     /**
      * Gets the value of the name property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getName() {
         return name;
@@ -107,12 +103,29 @@ public class Rule {
      * Sets the value of the name property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setName(String value) {
         this.name = value;
+    }
+
+    /**
+     * Gets the value of the path property.
+     * 
+     * @return possible object is {@link String }
+     */
+    public String getPath() {
+        return path;
+    }
+
+    /**
+     * 
+     * @param path
+     *            allowed object is {@link String }
+     */
+    public void setPath(String path) {
+        this.path = path;
     }
 
 }
