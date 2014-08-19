@@ -334,6 +334,7 @@ public abstract class AbstractTransformationManager {
                 nameLength++;
             }
         }
+        fileNumber++;
 
         return fileNameNoExtension.substring(0, nameLength) + fileNumber
                 + extension;
