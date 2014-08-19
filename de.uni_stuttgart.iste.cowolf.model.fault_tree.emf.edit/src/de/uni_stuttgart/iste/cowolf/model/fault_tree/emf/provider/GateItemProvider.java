@@ -4,6 +4,7 @@ package de.uni_stuttgart.iste.cowolf.model.fault_tree.emf.provider;
 
 
 import de.uni_stuttgart.iste.cowolf.model.commonBase.emf.provider.IDBaseItemProvider;
+
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreePackage;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.Gate;
 
@@ -16,15 +17,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link de.uni_stuttgart.iste.cowolf.model.fault_tree.Gate} object.
@@ -32,8 +25,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class GateItemProvider 
-	extends IDBaseItemProvider {
+public class GateItemProvider extends IDBaseItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
