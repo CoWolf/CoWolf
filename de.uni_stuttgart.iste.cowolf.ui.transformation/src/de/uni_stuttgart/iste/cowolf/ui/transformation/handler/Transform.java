@@ -1,11 +1,16 @@
 package de.uni_stuttgart.iste.cowolf.ui.transformation.handler;
 
+import java.io.File;
 import java.util.List;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -13,6 +18,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.window.Window;
 import org.eclipse.jface.wizard.WizardDialog;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.sidiff.difference.symmetric.SymmetricDifference;
@@ -21,6 +27,7 @@ import de.uni_stuttgart.iste.cowolf.core.extensions.ExtensionHandler;
 import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
 import de.uni_stuttgart.iste.cowolf.evolution.EvolutionException;
 import de.uni_stuttgart.iste.cowolf.transformation.AbstractTransformationManager;
+import de.uni_stuttgart.iste.cowolf.ui.evolution.DifferencesView;
 import de.uni_stuttgart.iste.cowolf.ui.transformation.wizard.TransformationWizard;
 
 /**
@@ -123,24 +130,60 @@ public class Transform extends AbstractHandler {
             secondSourceModel = this.getResourceOfIFile(modelWizard
                     .getSourceModelA());
         }
-        targetModel = this.getResourceOfIFile(modelWizard.getTargetModel());
-
-        AbstractEvolutionManager evoManager = this.extensionHandler
+        final Resource firstSource = firstSourceModel;
+        final Resource secondSource = secondSourceModel;
+        final Resource target = this.getResourceOfIFile(modelWizard
+                .getTargetModel());
+        final IFile firstElement = firstSourceElement;
+        final AbstractEvolutionManager evoManager = this.extensionHandler
                 .getEvolutionManager(firstSourceModel);
 
-        AbstractTransformationManager transManager = this.extensionHandler
-                .getTransformationManager(firstSourceModel, targetModel);
+        final AbstractTransformationManager transManager = this.extensionHandler
+                .getTransformationManager(firstSourceModel, target);
         if (evoManager != null && transManager != null) {
-            SymmetricDifference difference = null;
-            try {
-                difference = evoManager.evolve(firstSourceModel,
-                        secondSourceModel);
-                transManager.transform(secondSourceModel, targetModel,
-                        difference);
-            } catch (EvolutionException e) {
-            } catch (Exception e) {
 
-            }
+            Job job = new Job("Model Co-Evolution") {
+
+                @Override
+                protected IStatus run(IProgressMonitor monitor) {
+                    SymmetricDifference difference = null;
+                    try {
+                        difference = evoManager.evolve(firstSource,
+                                secondSource);
+                        Resource transformedModel = transManager.transform(
+                                secondSource, target, difference);
+                        target.unload();
+                        target.load(null);
+                        final AbstractEvolutionManager evoManager = extensionHandler
+                                .getEvolutionManager(target);
+                        if (evoManager != null) {
+                            difference = evoManager.evolve(target,
+                                    transformedModel);
+                            String projectRoot = firstElement.getProject()
+                                    .getLocation().toFile().toString();
+                            final String evolveResultsFilePath = evoManager
+                                    .saveEvolveResults(difference, projectRoot
+                                            + File.separator + "differences");
+                            Display.getDefault().asyncExec(new Runnable() {
+
+                                @Override
+                                public void run() {
+                                    new DifferencesView()
+                                            .open(evolveResultsFilePath);
+                                }
+                            });
+                        }
+                    } catch (EvolutionException e) {
+                        e.printStackTrace();
+                        return Status.CANCEL_STATUS;
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        return Status.CANCEL_STATUS;
+                    }
+                    return Status.OK_STATUS;
+                }
+            };
+            job.schedule();
 
         }
 

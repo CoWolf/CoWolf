@@ -82,7 +82,7 @@ public abstract class AbstractTransformationManager {
      *            contains evolution steps of the source model.
      * @return
      */
-    public boolean transform(Resource source, Resource target,
+    public Resource transform(Resource source, Resource target,
             SymmetricDifference difference) {
         System.out.println("Loading mappings...");
 
@@ -95,7 +95,7 @@ public abstract class AbstractTransformationManager {
                     + " mappings.");
         } catch (JAXBException e1) {
             e1.printStackTrace();
-            return false;
+            return null;
         }
         // Load rules from files in folder
         System.out.println("Load henshin rules");
@@ -114,16 +114,16 @@ public abstract class AbstractTransformationManager {
             graph = this.runTransformation(graph, difference);
             System.out.println("Save result");
             try {
-                this.save(graph, target, false);
+                return this.save(graph, target, false);
             } catch (IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         } else {
             System.out.println("Difference is null");
-            return false;
+            return null;
         }
-        return true;
+        return null;
     }
 
     /**
@@ -137,7 +137,7 @@ public abstract class AbstractTransformationManager {
      *            overwrite the transformed models or create a new file
      * @throws IOException
      */
-    protected void save(EGraph result, Resource target, boolean inPlace)
+    protected Resource save(EGraph result, Resource target, boolean inPlace)
             throws IOException {
         // Save the models.
         System.out.println("Saving models...");
@@ -182,6 +182,7 @@ public abstract class AbstractTransformationManager {
         if (inPlace) {
 
             target.save(null);
+            return target;
 
         } else {
             // create new filename
@@ -191,6 +192,7 @@ public abstract class AbstractTransformationManager {
                     .createURI(fileName));
             res.getContents().addAll(temp.getContents());
             res.save(null);
+            return res;
         }
 
     }

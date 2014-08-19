@@ -5,19 +5,21 @@
 // Generated on: 2014.08.15 at 11:35:54 AM CEST 
 //
 
-
 package de.uni_stuttgart.iste.cowolf.transformation.model;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for anonymous complex type.
+ * <p>
+ * Java class for anonymous complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -67,24 +69,21 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "difference",
-    "rule"
-})
+@XmlType(name = "", propOrder = {"difference", "rule"})
 public class Mapping {
 
     @XmlElement(name = "Difference", required = true)
     protected String difference;
     @XmlElement(name = "Rule", required = true)
     protected Rule rule;
+    @XmlAttribute(name = "priority", required = false)
+    protected int priority = 1;
 
     /**
      * Gets the value of the difference property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getDifference() {
         return difference;
@@ -94,9 +93,8 @@ public class Mapping {
      * Sets the value of the difference property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setDifference(String value) {
         this.difference = value;
@@ -105,10 +103,8 @@ public class Mapping {
     /**
      * Gets the value of the rule property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Rule }
-     *     
+     * @return possible object is {@link Rule }
+     * 
      */
     public Rule getRule() {
         return rule;
@@ -118,12 +114,26 @@ public class Mapping {
      * Sets the value of the rule property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link Rule }
-     *     
+     *            allowed object is {@link Rule }
+     * 
      */
     public void setRule(Rule value) {
         this.rule = value;
+    }
+
+    /**
+     * @return the priority
+     */
+    public int getPriority() {
+        return priority;
+    }
+
+    /**
+     * @param priority
+     *            the priority to set
+     */
+    public void setPriority(int priority) {
+        this.priority = priority;
     }
 
 }
