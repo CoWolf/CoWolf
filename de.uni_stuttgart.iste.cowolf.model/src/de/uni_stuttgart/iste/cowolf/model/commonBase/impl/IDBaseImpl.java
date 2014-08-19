@@ -54,9 +54,7 @@ public abstract class IDBaseImpl extends MinimalEObjectImpl.Container implements
 		super();
 		
 		//set ID
-		if (this.id == null) {
-			this.id = EcoreUtil.generateUUID();
-		}
+		this.id = EcoreUtil.generateUUID();
 	}
 
 	/**
