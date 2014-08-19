@@ -2,13 +2,10 @@ package de.uni_stuttgart.iste.cowolf.model.activity_diagram;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 
-import de.uni_stuttgart.iste.cowolf.model.AbstractQoSModelManager;
-import de.uni_stuttgart.iste.cowolf.model.IAnalysisListener;
+import de.uni_stuttgart.iste.cowolf.model.AbstractArchitectureModelManager;
 import de.uni_stuttgart.iste.cowolf.model.ModelTypeInfo;
 import de.uni_stuttgart.iste.cowolf.model.activity_diagram.impl.ActionImpl;
 import de.uni_stuttgart.iste.cowolf.model.activity_diagram.impl.Activity_diagramPackageImpl;
@@ -26,14 +23,9 @@ import de.uni_stuttgart.iste.cowolf.model.activity_diagram.impl.SplitArrowImpl;
 import de.uni_stuttgart.iste.cowolf.model.activity_diagram.impl.SplitImpl;
 import de.uni_stuttgart.iste.cowolf.model.activity_diagram.impl.StartImpl;
 
-public class ActivityModelManager extends AbstractQoSModelManager {
+public class ActivityModelManager extends AbstractArchitectureModelManager {
 
-	@Override
-	public String analyze(Resource model, Map<String, Object> parameters,
-			IAnalysisListener listener) {
-		// TODO write analyse method
-		return null;
-	}
+
 
 	@Override
 	public ModelTypeInfo getModelTypeInfo() {
