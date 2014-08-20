@@ -1,23 +1,40 @@
 package de.uni_stuttgart.iste.cowolf.transformation.generator.ui;
 
+import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.xml.bind.JAXBException;
+
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.emf.henshin.model.Parameter;
 import org.eclipse.emf.henshin.model.Unit;
+import org.eclipse.jface.viewers.ColumnLabelProvider;
+import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.ISelectionChangedListener;
+import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.SelectionChangedEvent;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
+import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.ui.IEditorInput;
@@ -28,10 +45,17 @@ import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
 import org.eclipse.ui.part.EditorPart;
 import org.sidiff.difference.rulebase.RecognitionRule;
+import org.sidiff.difference.rulebase.RuleBase;
 import org.sidiff.difference.rulebase.extension.IRuleBase;
 import org.sidiff.difference.rulebase.util.RuleBaseUtil;
 
 import de.uni_stuttgart.iste.cowolf.core.extensions.ExtensionHandler;
+import de.uni_stuttgart.iste.cowolf.transformation.model.Mapping;
+import de.uni_stuttgart.iste.cowolf.transformation.model.Mappings;
+import de.uni_stuttgart.iste.cowolf.transformation.model.Param;
+import de.uni_stuttgart.iste.cowolf.transformation.model.Params;
+import de.uni_stuttgart.iste.cowolf.transformation.model.Rule;
+import de.uni_stuttgart.iste.cowolf.transformation.model.util.XMLMappingLoader;
 
 public class TransformationMappingEditor extends EditorPart {
 
@@ -44,31 +68,90 @@ public class TransformationMappingEditor extends EditorPart {
 
 	private boolean inputFileChanged;
 
+	private IFile inputIFile;
+
 	private Composite parent;
 
-	private TreeViewer henshinRulesTreeViewer;
+	private TreeViewer recognitionRulesTreeViewer;
+	private TreeViewer transformationRulesTreeViewer;
 
 	private TableViewer mappingsTableViewer;
 	// private List<IFile> henshinTransformationRules;
 
 	private IRuleBase[] registeredRulebases;
 
-	private Map<RecognitionRule, Unit> mappings = new HashMap<RecognitionRule, Unit>();
+	// private List<TransformationMapping> transformationMappings = new
+	// ArrayList<TransformationMapping>();
 
 	private Composite topComposite;
 	private Composite bottomComposite;
+
+	private Mappings mappings;
+
+	private RecognitionRule selectedRecognitionRule = null;
+	private Unit selectedUnit = null;
 
 	// private List<String> additionalRulebases = new ArrayList<String>();
 
 	@Override
 	public void doSave(IProgressMonitor monitor) {
-		// TODO Auto-generated method stub
-
+		store(inputIFile.getLocation().toFile());
 	}
 
 	@Override
 	public void doSaveAs() {
-		// TODO Auto-generated method stub
+
+		FileDialog fileDialog = new FileDialog(parent.getShell());
+		fileDialog
+				.setText("Select where to store the Transformation Mapping file.");
+		fileDialog.setFilterExtensions(new String[] { "*.transmap" });
+		fileDialog
+				.setFilterNames(new String[] { "Transformation Mapping File (*.transmap)" });
+		String targetFile = fileDialog.open();
+		store(new File(targetFile));
+
+	}
+
+	private void store(File targetFile) {
+
+		Mappings mappings = new Mappings();
+
+		for (TransformationMapping transformationMapping : transformationMappings) {
+
+			Mapping mapping = new Mapping();
+			// TODO via UI
+			mapping.setPriority(1);
+			String changeSetName = RecognitionRuleUtil
+					.getChangeSetName(transformationMapping
+							.getRecognitionRule());
+			mapping.setDifference(changeSetName);
+			Rule rule = new Rule();
+
+			Unit unit = transformationMapping.getUnit();
+
+			rule.setName(unit.getName());
+
+			Params params = new Params();
+
+			for (Parameter unitParameter : unit.getParameters()) {
+
+				Param param = new Param();
+				param.setName(unitParameter.getName());
+				param.setPath(null);
+
+				params.getParam().add(param);
+
+			}
+
+			mappings.getMapping().put(changeSetName, mapping);
+
+		}
+
+		try {
+			XMLMappingLoader.storeMappings(mappings, targetFile);
+		} catch (JAXBException e) {
+			e.printStackTrace();
+		}
 
 	}
 
@@ -80,7 +163,21 @@ public class TransformationMappingEditor extends EditorPart {
 			throw new RuntimeException("Wrong input");
 		}
 
-		// this.input = (TransformationMappingEditorInput) input;
+		TransformationMappingEditorInput transformationMappingEditorInput = (TransformationMappingEditorInput) input;
+
+		inputIFile = transformationMappingEditorInput.getFile();
+
+		try {
+			mappings = XMLMappingLoader.loadMapping(inputIFile.getLocation()
+					.toFile());
+		} catch (JAXBException e) {
+			throw new RuntimeException(
+					"File "
+							+ transformationMappingEditorInput
+									.getFormattedFilePath()
+							+ " is not a valid Transformation Mapping file or does not exist.",
+					e);
+		}
 
 		this.setSite(site);
 		this.setInput(input);
@@ -151,8 +248,7 @@ public class TransformationMappingEditor extends EditorPart {
 
 		Tree recognitionRulesTree = toolkit.createTree(section1Composite,
 				SWT.H_SCROLL | SWT.V_SCROLL);
-		TreeViewer recognitionRulesTreeViewer = new TreeViewer(
-				recognitionRulesTree);
+		recognitionRulesTreeViewer = new TreeViewer(recognitionRulesTree);
 
 		recognitionRulesTreeViewer
 				.setContentProvider(new SiLiftRecognitionRulesContentProvider());
@@ -214,15 +310,15 @@ public class TransformationMappingEditor extends EditorPart {
 
 		Tree henshinRulesTree = toolkit.createTree(section2Composite,
 				SWT.H_SCROLL | SWT.V_SCROLL);
-		this.henshinRulesTreeViewer = new TreeViewer(henshinRulesTree);
+		this.transformationRulesTreeViewer = new TreeViewer(henshinRulesTree);
 
-		this.henshinRulesTreeViewer
+		this.transformationRulesTreeViewer
 				.setContentProvider(new TransformationRulesContentProvider());
 
-		this.henshinRulesTreeViewer
+		this.transformationRulesTreeViewer
 				.setLabelProvider(new TransformationRulesLabelProvider());
 
-		this.henshinRulesTreeViewer.setInput(this
+		this.transformationRulesTreeViewer.setInput(this
 				.getTransformationRulesTreeViewerInitialInput());
 
 		GridData henshinRulesTreeGridData = new GridData(GridData.FILL_BOTH);
@@ -260,8 +356,15 @@ public class TransformationMappingEditor extends EditorPart {
 		Table mappingsTable = toolkit.createTable(section3Composite,
 				SWT.H_SCROLL | SWT.V_SCROLL | SWT.MULTI);
 		this.mappingsTableViewer = new TableViewer(mappingsTable);
+
 		mappingsTable.setHeaderVisible(true);
 		mappingsTable.setLinesVisible(true);
+		createTableViewerColumns(mappingsTableViewer);
+
+		mappingsTableViewer
+				.setContentProvider(new MappingTableContentProvider());
+		mappingsTableViewer.setLabelProvider(new MappingTableLabelProvider());
+		mappingsTableViewer.setInput(mappings.getMapping().values());
 
 		GridData mappingsTableGridData = new GridData(GridData.FILL_BOTH);
 		mappingsTable.setLayoutData(mappingsTableGridData);
@@ -273,7 +376,7 @@ public class TransformationMappingEditor extends EditorPart {
 				GridData.FILL_VERTICAL);
 
 		section3ButtonsComposite
-		.setLayoutData(section3ButtonsCompositeGridData);
+				.setLayoutData(section3ButtonsCompositeGridData);
 
 		section3ButtonsComposite.setLayout(new GridLayout(1, false));
 
@@ -287,6 +390,8 @@ public class TransformationMappingEditor extends EditorPart {
 
 		addMappingButton.setLayoutData(addMappingButtonGridData);
 
+		addMappingButton.addSelectionListener(addMappingSelection());
+
 		Button deleteMappingButton = toolkit.createButton(
 				section3ButtonsComposite, "Delete", SWT.PUSH);
 		GridData deleteMappingButtonGridData = new GridData();
@@ -294,6 +399,7 @@ public class TransformationMappingEditor extends EditorPart {
 		// deleteMappingButtonGridData.grabExcessHorizontalSpace = true;
 		deleteMappingButtonGridData.horizontalAlignment = GridData.FILL;
 		deleteMappingButton.setLayoutData(deleteMappingButtonGridData);
+		deleteMappingButton.addSelectionListener(deleteMappingSelection());
 
 		toolkit.paintBordersFor(section3Composite);
 		section3.setClient(section3Composite);
@@ -301,6 +407,234 @@ public class TransformationMappingEditor extends EditorPart {
 		// toolkit.paintBordersFor(this.bottomComposite);
 		// section3.setClient(this.bottomComposite);
 
+	}
+
+	private void createMappingsTableViewerColumns(TableViewer viewer) {
+		TableViewerColumn colRecognitionRuleName = new TableViewerColumn(
+				viewer, SWT.NONE);
+		colRecognitionRuleName.getColumn().setText("Recognition Rule");
+		colRecognitionRuleName.setLabelProvider(new ColumnLabelProvider() {
+			@Override
+			public String getText(Object element) {
+
+				if (element instanceof Mapping) {
+
+					return ((Mapping) element).getDifference();
+
+				}
+
+				return null;
+
+			}
+		});
+
+		TableViewerColumn colTransformationRuleName = new TableViewerColumn(
+				viewer, SWT.NONE);
+		colTransformationRuleName.getColumn().setText("Transformation Rule");
+		colTransformationRuleName.setLabelProvider(new ColumnLabelProvider() {
+			@Override
+			public String getText(Object element) {
+
+				if (element instanceof Mapping) {
+
+					return ((Mapping) element).getRule().getName();
+
+				}
+
+				return null;
+
+			}
+		});
+
+	}
+
+	private ISelectionChangedListener getRecognitionRulesTreeViewerSelectionChangedListener() {
+
+		ISelectionChangedListener listener = new ISelectionChangedListener() {
+
+			@Override
+			public void selectionChanged(SelectionChangedEvent event) {
+
+				IStructuredSelection selection = (IStructuredSelection) event
+						.getSelection();
+
+				boolean elementsSelected = false;
+
+				Object nextObj;
+
+				for (Iterator iterator = selection.iterator(); iterator
+						.hasNext();) {
+
+					nextObj = iterator.next();
+
+					if (nextObj instanceof RecognitionRule) {
+						selectedRecognitionRule = (RecognitionRule) nextObj;
+					}
+
+					elementsSelected = true;
+				}
+
+				if (!elementsSelected) {
+					selectedRecognitionRule = null;
+				}
+
+			}
+
+		};
+
+		return listener;
+
+	}
+
+	private ISelectionChangedListener getTransformationRulesTreeViewerSelectionChangedListener() {
+
+		ISelectionChangedListener listener = new ISelectionChangedListener() {
+
+			@Override
+			public void selectionChanged(SelectionChangedEvent event) {
+
+				IStructuredSelection selection = (IStructuredSelection) event
+						.getSelection();
+
+				boolean elementsSelected = false;
+
+				Object nextObj;
+
+				for (Iterator iterator = selection.iterator(); iterator
+						.hasNext();) {
+
+					nextObj = iterator.next();
+
+					if (nextObj instanceof Unit) {
+						selectedUnit = (Unit) nextObj;
+					}
+
+					elementsSelected = true;
+				}
+
+				if (!elementsSelected) {
+					selectedUnit = null;
+				}
+
+			}
+
+		};
+
+		return listener;
+
+	}
+
+	private SelectionListener getAddMappingSelectionListener() {
+
+		SelectionListener listener = new SelectionListener() {
+
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+
+				if (recognitionRulesTreeViewer.getSelection() instanceof IStructuredSelection
+						&& transformationRulesTreeViewer.getSelection() instanceof IStructuredSelection) {
+
+					IStructuredSelection recognitionRulesSelection = (IStructuredSelection) recognitionRulesTreeViewer
+							.getSelection();
+					IStructuredSelection transformationRulesSelection = (IStructuredSelection) transformationRulesTreeViewer
+							.getSelection();
+
+					if (recognitionRulesSelection.size() == 1
+							&& transformationRulesSelection.size() == 1) {
+
+						Object selectedObj;
+						Object selectedObj2;
+
+						if ((selectedObj = recognitionRulesSelection.iterator()
+								.next()) instanceof RecognitionRule
+								&& (selectedObj2 = transformationRulesSelection
+										.iterator().next()) instanceof Unit) {
+							
+							RecognitionRule selectedRecognitionRule = (RecognitionRule) selectedObj;
+							Unit selectedTransformationRule = (Unit) selectedObj2;
+
+							Mapping newMapping = new Mapping();
+							// TODO via UI
+							newMapping.setPriority(1);
+							String changeSetName = RecognitionRuleUtil
+									.getChangeSetName(selectedRecognitionRule);
+							newMapping.setDifference(changeSetName);
+
+							Rule rule = new Rule();
+							rule.setName(selectedTransformationRule.getName());
+							rule.setPath(selectedTransformationRule.eResource().getURI()
+									.toString());
+							Params params = new Params();
+							for (Parameter unitParameter : selectedTransformationRule
+									.getParameters()) {
+								Param param = new Param();
+								param.setName(unitParameter.getName());
+								params.getParam().add(param);
+							}
+
+							mappings.getMapping()
+									.put(changeSetName, newMapping);
+
+							recognitionRulesTreeViewer
+									.setSelection(StructuredSelection.EMPTY);
+							transformationRulesTreeViewer
+									.setSelection(StructuredSelection.EMPTY);
+
+						}
+
+					}
+
+				}
+
+			}
+
+			@Override
+			public void widgetDefaultSelected(SelectionEvent e) {
+
+			}
+
+		};
+		return listener;
+	}
+
+	private SelectionListener getDeleteMappingSelectionListener() {
+
+		SelectionListener listener = new SelectionListener() {
+
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+
+				//mappingsTableViewer.getSelection()
+				
+			}
+
+			@Override
+			public void widgetDefaultSelected(SelectionEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+		};
+		return listener;
+	}
+
+	private SelectionListener getDeleteMappingSelection() {
+
+		SelectionListener listener = new SelectionListener() {
+
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+
+			}
+
+			@Override
+			public void widgetDefaultSelected(SelectionEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+		};
+		return listener;
 	}
 
 	// protected SelectionListener chooseRulebases(final Shell shell) {

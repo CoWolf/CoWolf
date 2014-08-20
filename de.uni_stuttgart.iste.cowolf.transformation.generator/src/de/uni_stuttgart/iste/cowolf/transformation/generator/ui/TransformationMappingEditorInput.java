@@ -1,6 +1,5 @@
 package de.uni_stuttgart.iste.cowolf.transformation.generator.ui;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
@@ -38,8 +37,8 @@ public class TransformationMappingEditorInput implements IEditorInput {
 
 	}
 
-	public File getFile() {
-		return this.transformationMappingFile.getFullPath().toFile();
+	public IFile getFile() {
+		return transformationMappingFile;
 	}
 
 	@Override
@@ -49,12 +48,7 @@ public class TransformationMappingEditorInput implements IEditorInput {
 
 	@Override
 	public String getToolTipText() {
-		return this.getFilePath();
-	}
-
-	private String getIFilePath(IFile iFile) {
-		return iFile.getProject().getName() + "/"
-				+ iFile.getProjectRelativePath().toString();
+		return this.getFormattedFilePath();
 	}
 
 	@Override
@@ -62,8 +56,9 @@ public class TransformationMappingEditorInput implements IEditorInput {
 		return this.transformationMappingFile.getName();
 	}
 
-	public String getFilePath() {
-		return this.getIFilePath(this.transformationMappingFile);
+	public String getFormattedFilePath() {
+		return transformationMappingFile.getProject().getName() + "/"
+				+ transformationMappingFile.getProjectRelativePath().toString();
 	}
 
 	@Override

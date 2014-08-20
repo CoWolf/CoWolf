@@ -53,12 +53,6 @@ public class SiLiftRecognitionRulesLabelProvider implements ILabelProvider {
 	//
 	// }
 
-	private String removeDoubleQuotes(String str) {
-
-		return str.replaceAll("^\"|\"$", "");
-
-	}
-
 	/**
 	 * TODO error handling if recognition rule reference in rule base file is
 	 * invalid
@@ -75,25 +69,12 @@ public class SiLiftRecognitionRulesLabelProvider implements ILabelProvider {
 
 			RecognitionRule recognitionRule = (RecognitionRule) element;
 
-			Rule recognitionModule = recognitionRule.getRecognitionMainUnit();
-
-			for (Node node : recognitionModule.getRhs().getNodes()) {
-
-				for (Attribute attribute : node.getAttributes()) {
-
-					if (attribute.getType() == SymmetricPackage.eINSTANCE
-							.getSemanticChangeSet_Name()) {
-						return (this.removeDoubleQuotes(attribute.getValue()));
-					}
-
-				}
-
-			}
+			return RecognitionRuleUtil.getChangeSetName(recognitionRule);
 
 			// TODO
-			return "ERROR: Rule "
-			+ recognitionRule.getRecognitionMainUnit().getName()
-			+ " is invalid or was not found.";
+			// return "ERROR: Rule "
+			// + recognitionRule.getRecognitionMainUnit().getName()
+			// + " is invalid or was not found.";
 
 		}
 
