@@ -4,20 +4,19 @@ package de.uni_stuttgart.iste.cowolf.model.ctmc.emf.provider;
 
 
 import de.uni_stuttgart.iste.cowolf.model.commonBase.emf.provider.IDBaseItemProvider;
-
 import de.uni_stuttgart.iste.cowolf.model.ctmc.CtmcPackage;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.Transition;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.State;
 
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -28,6 +27,9 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class TransitionItemProvider extends IDBaseItemProvider {
+	
+	INotifyChangedListener fromListener;
+	
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -137,11 +139,14 @@ public class TransitionItemProvider extends IDBaseItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Transition)object).getId();
+		String label ="" + ((Transition)object).getRate();
+		if (((Transition)object).getTo() instanceof State && !((Transition)object).getTo().getName().isEmpty()) {
+			label += " -> " + ((Transition)object).getTo().getName();
+		}
 		return label == null || label.length() == 0 ?
 			getString("_UI_Transition_type") :
 			getString("_UI_Transition_type") + " " + label;
@@ -160,6 +165,8 @@ public class TransitionItemProvider extends IDBaseItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Transition.class)) {
+			case CtmcPackage.TRANSITION__FROM:	
+			case CtmcPackage.TRANSITION__TO:
 			case CtmcPackage.TRANSITION__RATE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

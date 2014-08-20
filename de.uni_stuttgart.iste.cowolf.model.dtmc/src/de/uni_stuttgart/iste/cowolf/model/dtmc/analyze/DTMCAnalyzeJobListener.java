@@ -74,11 +74,11 @@ public class DTMCAnalyzeJobListener implements IJobChangeListener {
 
 			out = new FileOutputStream(resultfile.getLocation().toOSString());
 
-			out.write("sep=\t\nState\tProbability\n".getBytes());
+			out.write("State,Probability\n".getBytes());
 
 			for(Entry<State, String> entry : job.getAnalysis().entrySet()) {
 				out.write(entry.getKey().getName().getBytes());
-				out.write('\t');
+				out.write(',');
 				out.write(entry.getValue().toString().getBytes());
 				out.write('\n');
 			}

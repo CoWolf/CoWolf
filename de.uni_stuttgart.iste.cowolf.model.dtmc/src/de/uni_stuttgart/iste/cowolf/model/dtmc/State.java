@@ -72,7 +72,7 @@ public interface State extends IDBase {
 	EList<Transition> getIncoming();
 
 	/**
-	 * Returns the value of the '<em><b>Outgoing</b></em>' reference list.
+	 * Returns the value of the '<em><b>Outgoing</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uni_stuttgart.iste.cowolf.model.dtmc.Transition}.
 	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.Transition#getFrom <em>From</em>}'.
 	 * <!-- begin-user-doc -->
@@ -81,10 +81,10 @@ public interface State extends IDBase {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Outgoing</em>' reference list.
+	 * @return the value of the '<em>Outgoing</em>' containment reference list.
 	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage#getState_Outgoing()
 	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.Transition#getFrom
-	 * @model opposite="from" ordered="false"
+	 * @model opposite="from" containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<Transition> getOutgoing();

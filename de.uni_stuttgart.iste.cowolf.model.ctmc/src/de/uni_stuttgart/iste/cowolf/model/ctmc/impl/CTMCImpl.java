@@ -3,24 +3,16 @@
 package de.uni_stuttgart.iste.cowolf.model.ctmc.impl;
 
 import de.uni_stuttgart.iste.cowolf.model.commonBase.impl.IDBaseImpl;
-
 import de.uni_stuttgart.iste.cowolf.model.ctmc.CTMC;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.CtmcPackage;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.State;
-import de.uni_stuttgart.iste.cowolf.model.ctmc.Transition;
-
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -34,7 +26,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.impl.CTMCImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.impl.CTMCImpl#getStates <em>States</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.impl.CTMCImpl#getInitialState <em>Initial State</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.impl.CTMCImpl#getTransitions <em>Transitions</em>}</li>
  * </ul>
  * </p>
  *
@@ -80,16 +71,6 @@ public class CTMCImpl extends IDBaseImpl implements CTMC {
 	 * @ordered
 	 */
 	protected State initialState;
-
-	/**
-	 * The cached value of the '{@link #getTransitions() <em>Transitions</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTransitions()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Transition> transitions;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -186,25 +167,11 @@ public class CTMCImpl extends IDBaseImpl implements CTMC {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Transition> getTransitions() {
-		if (transitions == null) {
-			transitions = new EObjectContainmentEList<Transition>(Transition.class, this, CtmcPackage.CTMC__TRANSITIONS);
-		}
-		return transitions;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case CtmcPackage.CTMC__STATES:
 				return ((InternalEList<?>)getStates()).basicRemove(otherEnd, msgs);
-			case CtmcPackage.CTMC__TRANSITIONS:
-				return ((InternalEList<?>)getTransitions()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -224,8 +191,6 @@ public class CTMCImpl extends IDBaseImpl implements CTMC {
 			case CtmcPackage.CTMC__INITIAL_STATE:
 				if (resolve) return getInitialState();
 				return basicGetInitialState();
-			case CtmcPackage.CTMC__TRANSITIONS:
-				return getTransitions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -249,10 +214,6 @@ public class CTMCImpl extends IDBaseImpl implements CTMC {
 			case CtmcPackage.CTMC__INITIAL_STATE:
 				setInitialState((State)newValue);
 				return;
-			case CtmcPackage.CTMC__TRANSITIONS:
-				getTransitions().clear();
-				getTransitions().addAll((Collection<? extends Transition>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -274,9 +235,6 @@ public class CTMCImpl extends IDBaseImpl implements CTMC {
 			case CtmcPackage.CTMC__INITIAL_STATE:
 				setInitialState((State)null);
 				return;
-			case CtmcPackage.CTMC__TRANSITIONS:
-				getTransitions().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -295,8 +253,6 @@ public class CTMCImpl extends IDBaseImpl implements CTMC {
 				return states != null && !states.isEmpty();
 			case CtmcPackage.CTMC__INITIAL_STATE:
 				return initialState != null;
-			case CtmcPackage.CTMC__TRANSITIONS:
-				return transitions != null && !transitions.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

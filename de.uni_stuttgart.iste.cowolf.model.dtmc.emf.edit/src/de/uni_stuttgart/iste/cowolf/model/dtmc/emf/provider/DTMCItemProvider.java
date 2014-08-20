@@ -115,7 +115,6 @@ public class DTMCItemProvider extends IDBaseItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(DTMCemfPackage.Literals.DTMC__STATES);
-			childrenFeatures.add(DTMCemfPackage.Literals.DTMC__TRANSITIONS);
 		}
 		return childrenFeatures;
 	}
@@ -175,7 +174,6 @@ public class DTMCItemProvider extends IDBaseItemProvider {
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case DTMCemfPackage.DTMC__STATES:
-			case DTMCemfPackage.DTMC__TRANSITIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -197,11 +195,6 @@ public class DTMCItemProvider extends IDBaseItemProvider {
 			(createChildParameter
 				(DTMCemfPackage.Literals.DTMC__STATES,
 				 DTMCemfFactory.eINSTANCE.createState()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DTMCemfPackage.Literals.DTMC__TRANSITIONS,
-				 DTMCemfFactory.eINSTANCE.createTransition()));
 	}
 
 	/**

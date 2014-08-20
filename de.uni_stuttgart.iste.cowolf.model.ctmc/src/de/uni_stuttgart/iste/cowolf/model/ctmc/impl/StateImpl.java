@@ -36,6 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.impl.StateImpl#getIncoming <em>Incoming</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.impl.StateImpl#getOutgoing <em>Outgoing</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.impl.StateImpl#getLabels <em>Labels</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.impl.StateImpl#getExitRate <em>Exit Rate</em>}</li>
  * </ul>
  * </p>
  *
@@ -73,7 +74,7 @@ public class StateImpl extends IDBaseImpl implements State {
 	protected EList<Transition> incoming;
 
 	/**
-	 * The cached value of the '{@link #getOutgoing() <em>Outgoing</em>}' reference list.
+	 * The cached value of the '{@link #getOutgoing() <em>Outgoing</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getOutgoing()
@@ -91,6 +92,16 @@ public class StateImpl extends IDBaseImpl implements State {
 	 * @ordered
 	 */
 	protected EList<Label> labels;
+
+	/**
+	 * The default value of the '{@link #getExitRate() <em>Exit Rate</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExitRate()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final float EXIT_RATE_EDEFAULT = 0.0F;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -151,7 +162,7 @@ public class StateImpl extends IDBaseImpl implements State {
 	 */
 	public EList<Transition> getOutgoing() {
 		if (outgoing == null) {
-			outgoing = new EObjectWithInverseResolvingEList<Transition>(Transition.class, this, CtmcPackage.STATE__OUTGOING, CtmcPackage.TRANSITION__FROM);
+			outgoing = new EObjectContainmentWithInverseEList<Transition>(Transition.class, this, CtmcPackage.STATE__OUTGOING, CtmcPackage.TRANSITION__FROM);
 		}
 		return outgoing;
 	}
@@ -166,6 +177,22 @@ public class StateImpl extends IDBaseImpl implements State {
 			labels = new EObjectContainmentWithInverseEList<Label>(Label.class, this, CtmcPackage.STATE__LABELS, CtmcPackage.LABEL__STATE);
 		}
 		return labels;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public float getExitRate() {
+		// TODO: implement this method to return the 'Exit Rate' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		float exit = 0;
+		for (Transition t : this.getOutgoing()) {
+			exit += t.getRate();
+		}
+		
+		return exit;
 	}
 
 	/**
@@ -221,6 +248,8 @@ public class StateImpl extends IDBaseImpl implements State {
 				return getOutgoing();
 			case CtmcPackage.STATE__LABELS:
 				return getLabels();
+			case CtmcPackage.STATE__EXIT_RATE:
+				return getExitRate();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -293,6 +322,8 @@ public class StateImpl extends IDBaseImpl implements State {
 				return outgoing != null && !outgoing.isEmpty();
 			case CtmcPackage.STATE__LABELS:
 				return labels != null && !labels.isEmpty();
+			case CtmcPackage.STATE__EXIT_RATE:
+				return getExitRate() != EXIT_RATE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

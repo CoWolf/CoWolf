@@ -25,7 +25,7 @@ import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
  */
 public interface Transition extends IDBase {
 	/**
-	 * Returns the value of the '<em><b>From</b></em>' reference.
+	 * Returns the value of the '<em><b>From</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.State#getOutgoing <em>Outgoing</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -33,20 +33,20 @@ public interface Transition extends IDBase {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>From</em>' reference.
+	 * @return the value of the '<em>From</em>' container reference.
 	 * @see #setFrom(State)
 	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage#getTransition_From()
 	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.State#getOutgoing
-	 * @model opposite="outgoing" required="true"
+	 * @model opposite="outgoing" required="true" transient="false"
 	 * @generated
 	 */
 	State getFrom();
 
 	/**
-	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.Transition#getFrom <em>From</em>}' reference.
+	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.Transition#getFrom <em>From</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>From</em>' reference.
+	 * @param value the new value of the '<em>From</em>' container reference.
 	 * @see #getFrom()
 	 * @generated
 	 */

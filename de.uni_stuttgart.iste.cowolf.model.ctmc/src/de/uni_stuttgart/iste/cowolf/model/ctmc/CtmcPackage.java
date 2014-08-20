@@ -107,22 +107,13 @@ public interface CtmcPackage extends EPackage {
 	int CTMC__INITIAL_STATE = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Transitions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CTMC__TRANSITIONS = CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
-
-	/**
 	 * The number of structural features of the '<em>CTMC</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CTMC_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 4;
+	int CTMC_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>CTMC</em>' class.
@@ -171,7 +162,7 @@ public interface CtmcPackage extends EPackage {
 	int STATE__INCOMING = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Outgoing</b></em>' reference list.
+	 * The feature id for the '<em><b>Outgoing</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -189,13 +180,22 @@ public interface CtmcPackage extends EPackage {
 	int STATE__LABELS = CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Exit Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATE__EXIT_RATE = CommonBasePackage.ID_BASE_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>State</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATE_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 4;
+	int STATE_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>State</em>' class.
@@ -226,7 +226,7 @@ public interface CtmcPackage extends EPackage {
 	int TRANSITION__ID = CommonBasePackage.ID_BASE__ID;
 
 	/**
-	 * The feature id for the '<em><b>From</b></em>' reference.
+	 * The feature id for the '<em><b>From</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -370,17 +370,6 @@ public interface CtmcPackage extends EPackage {
 	EReference getCTMC_InitialState();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.CTMC#getTransitions <em>Transitions</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Transitions</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.ctmc.CTMC#getTransitions()
-	 * @see #getCTMC()
-	 * @generated
-	 */
-	EReference getCTMC_Transitions();
-
-	/**
 	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.State <em>State</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -413,10 +402,10 @@ public interface CtmcPackage extends EPackage {
 	EReference getState_Incoming();
 
 	/**
-	 * Returns the meta object for the reference list '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.State#getOutgoing <em>Outgoing</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.State#getOutgoing <em>Outgoing</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Outgoing</em>'.
+	 * @return the meta object for the containment reference list '<em>Outgoing</em>'.
 	 * @see de.uni_stuttgart.iste.cowolf.model.ctmc.State#getOutgoing()
 	 * @see #getState()
 	 * @generated
@@ -435,6 +424,17 @@ public interface CtmcPackage extends EPackage {
 	EReference getState_Labels();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.State#getExitRate <em>Exit Rate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Exit Rate</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.ctmc.State#getExitRate()
+	 * @see #getState()
+	 * @generated
+	 */
+	EAttribute getState_ExitRate();
+
+	/**
 	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.Transition <em>Transition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -445,10 +445,10 @@ public interface CtmcPackage extends EPackage {
 	EClass getTransition();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.Transition#getFrom <em>From</em>}'.
+	 * Returns the meta object for the container reference '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.Transition#getFrom <em>From</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>From</em>'.
+	 * @return the meta object for the container reference '<em>From</em>'.
 	 * @see de.uni_stuttgart.iste.cowolf.model.ctmc.Transition#getFrom()
 	 * @see #getTransition()
 	 * @generated
@@ -567,14 +567,6 @@ public interface CtmcPackage extends EPackage {
 		EReference CTMC__INITIAL_STATE = eINSTANCE.getCTMC_InitialState();
 
 		/**
-		 * The meta object literal for the '<em><b>Transitions</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CTMC__TRANSITIONS = eINSTANCE.getCTMC_Transitions();
-
-		/**
 		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.impl.StateImpl <em>State</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -601,7 +593,7 @@ public interface CtmcPackage extends EPackage {
 		EReference STATE__INCOMING = eINSTANCE.getState_Incoming();
 
 		/**
-		 * The meta object literal for the '<em><b>Outgoing</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Outgoing</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -617,6 +609,14 @@ public interface CtmcPackage extends EPackage {
 		EReference STATE__LABELS = eINSTANCE.getState_Labels();
 
 		/**
+		 * The meta object literal for the '<em><b>Exit Rate</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STATE__EXIT_RATE = eINSTANCE.getState_ExitRate();
+
+		/**
 		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.impl.TransitionImpl <em>Transition</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -627,7 +627,7 @@ public interface CtmcPackage extends EPackage {
 		EClass TRANSITION = eINSTANCE.getTransition();
 
 		/**
-		 * The meta object literal for the '<em><b>From</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>From</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

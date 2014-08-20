@@ -17,7 +17,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.CTMC#getName <em>Name</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.CTMC#getStates <em>States</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.CTMC#getInitialState <em>Initial State</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.CTMC#getTransitions <em>Transitions</em>}</li>
  * </ul>
  * </p>
  *
@@ -94,21 +93,5 @@ public interface CTMC extends IDBase {
 	 * @generated
 	 */
 	void setInitialState(State value);
-
-	/**
-	 * Returns the value of the '<em><b>Transitions</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uni_stuttgart.iste.cowolf.model.ctmc.Transition}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Transitions</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transitions</em>' containment reference list.
-	 * @see de.uni_stuttgart.iste.cowolf.model.ctmc.CtmcPackage#getCTMC_Transitions()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Transition> getTransitions();
 
 } // CTMC

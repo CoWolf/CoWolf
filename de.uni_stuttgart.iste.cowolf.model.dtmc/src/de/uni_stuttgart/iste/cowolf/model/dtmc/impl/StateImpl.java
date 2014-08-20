@@ -73,7 +73,7 @@ public class StateImpl extends IDBaseImpl implements State {
 	protected EList<Transition> incoming;
 
 	/**
-	 * The cached value of the '{@link #getOutgoing() <em>Outgoing</em>}' reference list.
+	 * The cached value of the '{@link #getOutgoing() <em>Outgoing</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getOutgoing()
@@ -151,7 +151,7 @@ public class StateImpl extends IDBaseImpl implements State {
 	 */
 	public EList<Transition> getOutgoing() {
 		if (outgoing == null) {
-			outgoing = new EObjectWithInverseResolvingEList<Transition>(Transition.class, this, DTMCemfPackage.STATE__OUTGOING, DTMCemfPackage.TRANSITION__FROM);
+			outgoing = new EObjectContainmentWithInverseEList<Transition>(Transition.class, this, DTMCemfPackage.STATE__OUTGOING, DTMCemfPackage.TRANSITION__FROM);
 		}
 		return outgoing;
 	}

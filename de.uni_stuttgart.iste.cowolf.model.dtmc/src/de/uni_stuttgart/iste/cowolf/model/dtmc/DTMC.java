@@ -17,7 +17,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC#getName <em>Name</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC#getStates <em>States</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC#getInitialState <em>Initial State</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC#getTransitions <em>Transitions</em>}</li>
  * </ul>
  * </p>
  *
@@ -94,21 +93,5 @@ public interface DTMC extends IDBase {
 	 * @generated
 	 */
 	void setInitialState(State value);
-
-	/**
-	 * Returns the value of the '<em><b>Transitions</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uni_stuttgart.iste.cowolf.model.dtmc.Transition}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Transitions</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transitions</em>' containment reference list.
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage#getDTMC_Transitions()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Transition> getTransitions();
 
 } // DTMC

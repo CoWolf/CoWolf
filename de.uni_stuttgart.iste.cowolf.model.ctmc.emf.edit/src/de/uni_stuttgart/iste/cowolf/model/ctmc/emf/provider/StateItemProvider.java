@@ -55,6 +55,7 @@ public class StateItemProvider extends IDBaseItemProvider {
 			addNamePropertyDescriptor(object);
 			addIncomingPropertyDescriptor(object);
 			addOutgoingPropertyDescriptor(object);
+			addExitRatePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -126,6 +127,28 @@ public class StateItemProvider extends IDBaseItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Exit Rate feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addExitRatePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_State_exitRate_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_State_exitRate_feature", "_UI_State_type"),
+				 CtmcPackage.Literals.STATE__EXIT_RATE,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -137,6 +160,7 @@ public class StateItemProvider extends IDBaseItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(CtmcPackage.Literals.STATE__OUTGOING);
 			childrenFeatures.add(CtmcPackage.Literals.STATE__LABELS);
 		}
 		return childrenFeatures;
@@ -194,8 +218,10 @@ public class StateItemProvider extends IDBaseItemProvider {
 
 		switch (notification.getFeatureID(State.class)) {
 			case CtmcPackage.STATE__NAME:
+			case CtmcPackage.STATE__EXIT_RATE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case CtmcPackage.STATE__OUTGOING:
 			case CtmcPackage.STATE__LABELS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -213,6 +239,11 @@ public class StateItemProvider extends IDBaseItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CtmcPackage.Literals.STATE__OUTGOING,
+				 CtmcFactory.eINSTANCE.createTransition()));
 
 		newChildDescriptors.add
 			(createChildParameter

@@ -4,8 +4,8 @@ package de.uni_stuttgart.iste.cowolf.model.dtmc.emf.provider;
 
 
 import de.uni_stuttgart.iste.cowolf.model.commonBase.emf.provider.IDBaseItemProvider;
-
 import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage;
+import de.uni_stuttgart.iste.cowolf.model.dtmc.State;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.Transition;
 
 import java.util.Collection;
@@ -13,11 +13,8 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -175,6 +172,9 @@ public class TransitionItemProvider extends IDBaseItemProvider {
 	@Override
 	public String getText(Object object) {
 		String label ="" + ((Transition)object).getProb();
+		if (((Transition)object).getTo() instanceof State && !((Transition)object).getTo().getName().isEmpty()) {
+			label += " -> " + ((Transition)object).getTo().getName();
+		}
 		return label == null || label.length() == 0 ?
 			getString("_UI_Transition_type") :
 			getString("_UI_Transition_type") + " " + label;

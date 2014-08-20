@@ -18,6 +18,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.State#getIncoming <em>Incoming</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.State#getOutgoing <em>Outgoing</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.State#getLabels <em>Labels</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.State#getExitRate <em>Exit Rate</em>}</li>
  * </ul>
  * </p>
  *
@@ -72,7 +73,7 @@ public interface State extends IDBase {
 	EList<Transition> getIncoming();
 
 	/**
-	 * Returns the value of the '<em><b>Outgoing</b></em>' reference list.
+	 * Returns the value of the '<em><b>Outgoing</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uni_stuttgart.iste.cowolf.model.ctmc.Transition}.
 	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.Transition#getFrom <em>From</em>}'.
 	 * <!-- begin-user-doc -->
@@ -81,10 +82,10 @@ public interface State extends IDBase {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Outgoing</em>' reference list.
+	 * @return the value of the '<em>Outgoing</em>' containment reference list.
 	 * @see de.uni_stuttgart.iste.cowolf.model.ctmc.CtmcPackage#getState_Outgoing()
 	 * @see de.uni_stuttgart.iste.cowolf.model.ctmc.Transition#getFrom
-	 * @model opposite="from" ordered="false"
+	 * @model opposite="from" containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<Transition> getOutgoing();
@@ -106,5 +107,21 @@ public interface State extends IDBase {
 	 * @generated
 	 */
 	EList<Label> getLabels();
+
+	/**
+	 * Returns the value of the '<em><b>Exit Rate</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Exit Rate</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Exit Rate</em>' attribute.
+	 * @see de.uni_stuttgart.iste.cowolf.model.ctmc.CtmcPackage#getState_ExitRate()
+	 * @model default="0" required="true" transient="true" changeable="false" volatile="true"
+	 * @generated
+	 */
+	float getExitRate();
 
 } // State

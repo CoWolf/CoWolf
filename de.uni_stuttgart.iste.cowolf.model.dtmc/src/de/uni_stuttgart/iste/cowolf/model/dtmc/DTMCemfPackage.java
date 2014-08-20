@@ -107,22 +107,13 @@ public interface DTMCemfPackage extends EPackage {
 	int DTMC__INITIAL_STATE = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Transitions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DTMC__TRANSITIONS = CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
-
-	/**
 	 * The number of structural features of the '<em>DTMC</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DTMC_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 4;
+	int DTMC_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>DTMC</em>' class.
@@ -171,7 +162,7 @@ public interface DTMCemfPackage extends EPackage {
 	int STATE__INCOMING = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Outgoing</b></em>' reference list.
+	 * The feature id for the '<em><b>Outgoing</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -226,7 +217,7 @@ public interface DTMCemfPackage extends EPackage {
 	int TRANSITION__ID = CommonBasePackage.ID_BASE__ID;
 
 	/**
-	 * The feature id for the '<em><b>From</b></em>' reference.
+	 * The feature id for the '<em><b>From</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -370,17 +361,6 @@ public interface DTMCemfPackage extends EPackage {
 	EReference getDTMC_InitialState();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC#getTransitions <em>Transitions</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Transitions</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC#getTransitions()
-	 * @see #getDTMC()
-	 * @generated
-	 */
-	EReference getDTMC_Transitions();
-
-	/**
 	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.State <em>State</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -413,10 +393,10 @@ public interface DTMCemfPackage extends EPackage {
 	EReference getState_Incoming();
 
 	/**
-	 * Returns the meta object for the reference list '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.State#getOutgoing <em>Outgoing</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.State#getOutgoing <em>Outgoing</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Outgoing</em>'.
+	 * @return the meta object for the containment reference list '<em>Outgoing</em>'.
 	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.State#getOutgoing()
 	 * @see #getState()
 	 * @generated
@@ -445,10 +425,10 @@ public interface DTMCemfPackage extends EPackage {
 	EClass getTransition();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.Transition#getFrom <em>From</em>}'.
+	 * Returns the meta object for the container reference '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.Transition#getFrom <em>From</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>From</em>'.
+	 * @return the meta object for the container reference '<em>From</em>'.
 	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.Transition#getFrom()
 	 * @see #getTransition()
 	 * @generated
@@ -567,14 +547,6 @@ public interface DTMCemfPackage extends EPackage {
 		EReference DTMC__INITIAL_STATE = eINSTANCE.getDTMC_InitialState();
 
 		/**
-		 * The meta object literal for the '<em><b>Transitions</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DTMC__TRANSITIONS = eINSTANCE.getDTMC_Transitions();
-
-		/**
 		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.impl.StateImpl <em>State</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -601,7 +573,7 @@ public interface DTMCemfPackage extends EPackage {
 		EReference STATE__INCOMING = eINSTANCE.getState_Incoming();
 
 		/**
-		 * The meta object literal for the '<em><b>Outgoing</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Outgoing</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -627,7 +599,7 @@ public interface DTMCemfPackage extends EPackage {
 		EClass TRANSITION = eINSTANCE.getTransition();
 
 		/**
-		 * The meta object literal for the '<em><b>From</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>From</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,16 +33,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class TransitionImpl extends IDBaseImpl implements Transition {
-	/**
-	 * The cached value of the '{@link #getFrom() <em>From</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFrom()
-	 * @generated
-	 * @ordered
-	 */
-	protected State from;
-
 	/**
 	 * The cached value of the '{@link #getTo() <em>To</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -97,24 +88,8 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	 * @generated
 	 */
 	public State getFrom() {
-		if (from != null && from.eIsProxy()) {
-			InternalEObject oldFrom = (InternalEObject)from;
-			from = (State)eResolveProxy(oldFrom);
-			if (from != oldFrom) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DTMCemfPackage.TRANSITION__FROM, oldFrom, from));
-			}
-		}
-		return from;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public State basicGetFrom() {
-		return from;
+		if (eContainerFeatureID() != DTMCemfPackage.TRANSITION__FROM) return null;
+		return (State)eInternalContainer();
 	}
 
 	/**
@@ -123,12 +98,7 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	 * @generated
 	 */
 	public NotificationChain basicSetFrom(State newFrom, NotificationChain msgs) {
-		State oldFrom = from;
-		from = newFrom;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DTMCemfPackage.TRANSITION__FROM, oldFrom, newFrom);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eBasicSetContainer((InternalEObject)newFrom, DTMCemfPackage.TRANSITION__FROM, msgs);
 		return msgs;
 	}
 
@@ -138,10 +108,12 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	 * @generated
 	 */
 	public void setFrom(State newFrom) {
-		if (newFrom != from) {
+		if (newFrom != eInternalContainer() || (eContainerFeatureID() != DTMCemfPackage.TRANSITION__FROM && newFrom != null)) {
+			if (EcoreUtil.isAncestor(this, newFrom))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
-			if (from != null)
-				msgs = ((InternalEObject)from).eInverseRemove(this, DTMCemfPackage.STATE__OUTGOING, State.class, msgs);
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
 			if (newFrom != null)
 				msgs = ((InternalEObject)newFrom).eInverseAdd(this, DTMCemfPackage.STATE__OUTGOING, State.class, msgs);
 			msgs = basicSetFrom(newFrom, msgs);
@@ -241,8 +213,8 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DTMCemfPackage.TRANSITION__FROM:
-				if (from != null)
-					msgs = ((InternalEObject)from).eInverseRemove(this, DTMCemfPackage.STATE__OUTGOING, State.class, msgs);
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetFrom((State)otherEnd, msgs);
 			case DTMCemfPackage.TRANSITION__TO:
 				if (to != null)
@@ -274,11 +246,24 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case DTMCemfPackage.TRANSITION__FROM:
+				return eInternalContainer().eInverseRemove(this, DTMCemfPackage.STATE__OUTGOING, State.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DTMCemfPackage.TRANSITION__FROM:
-				if (resolve) return getFrom();
-				return basicGetFrom();
+				return getFrom();
 			case DTMCemfPackage.TRANSITION__TO:
 				if (resolve) return getTo();
 				return basicGetTo();
@@ -339,7 +324,7 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DTMCemfPackage.TRANSITION__FROM:
-				return from != null;
+				return getFrom() != null;
 			case DTMCemfPackage.TRANSITION__TO:
 				return to != null;
 			case DTMCemfPackage.TRANSITION__PROB:
