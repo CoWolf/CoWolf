@@ -1,6 +1,5 @@
 package de.uni_stuttgart.iste.cowolf.transformation.generator.ui;
 
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.henshin.model.Attribute;
 import org.eclipse.emf.henshin.model.Node;
 import org.eclipse.emf.henshin.model.Rule;
@@ -43,16 +42,16 @@ public class SiLiftRecognitionRulesLabelProvider implements ILabelProvider {
 		return null;
 	}
 
-	private URI transformPlatformResourceToPlatformPluginURI(URI uri) {
-
-		if (uri.isPlatformResource()) {
-			return URI.createURI(uri.toString().replaceFirst(
-					"platform:/resource", "platform:/plugin"));
-		}
-
-		return uri;
-
-	}
+	// private URI transformPlatformResourceToPlatformPluginURI(URI uri) {
+	//
+	// if (uri.isPlatformResource()) {
+	// return URI.createURI(uri.toString().replaceFirst(
+	// "platform:/resource", "platform:/plugin"));
+	// }
+	//
+	// return uri;
+	//
+	// }
 
 	private String removeDoubleQuotes(String str) {
 
@@ -84,7 +83,7 @@ public class SiLiftRecognitionRulesLabelProvider implements ILabelProvider {
 
 					if (attribute.getType() == SymmetricPackage.eINSTANCE
 							.getSemanticChangeSet_Name()) {
-						return (removeDoubleQuotes(attribute.getValue()));
+						return (this.removeDoubleQuotes(attribute.getValue()));
 					}
 
 				}
@@ -93,8 +92,8 @@ public class SiLiftRecognitionRulesLabelProvider implements ILabelProvider {
 
 			// TODO
 			return "ERROR: Rule "
-					+ recognitionRule.getRecognitionMainUnit().getName()
-					+ " is invalid or was not found.";
+			+ recognitionRule.getRecognitionMainUnit().getName()
+			+ " is invalid or was not found.";
 
 		}
 

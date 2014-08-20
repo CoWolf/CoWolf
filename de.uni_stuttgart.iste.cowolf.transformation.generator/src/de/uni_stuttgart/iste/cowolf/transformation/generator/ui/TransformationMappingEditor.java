@@ -1,28 +1,23 @@
 package de.uni_stuttgart.iste.cowolf.transformation.generator.ui;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
-import org.eclipse.core.resources.IContainer;
-import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.emf.common.ui.dialogs.WorkspaceResourceDialog;
+import org.eclipse.emf.henshin.model.Unit;
+import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TreeViewer;
-import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.ui.IEditorInput;
@@ -32,6 +27,7 @@ import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
 import org.eclipse.ui.part.EditorPart;
+import org.sidiff.difference.rulebase.RecognitionRule;
 import org.sidiff.difference.rulebase.extension.IRuleBase;
 import org.sidiff.difference.rulebase.util.RuleBaseUtil;
 
@@ -44,7 +40,7 @@ public class TransformationMappingEditor extends EditorPart {
 
 	public static final String ID = "de.uni_stuttgart.iste.cowolf.transformation.generator.ui.TransformationMappingEditor";
 
-	private TransformationMappingEditorInput input;
+	// private TransformationMappingEditorInput input;
 
 	private boolean inputFileChanged;
 
@@ -52,7 +48,17 @@ public class TransformationMappingEditor extends EditorPart {
 
 	private TreeViewer henshinRulesTreeViewer;
 
-	private List<IFile> henshinTransformationRules;
+	private TableViewer mappingsTableViewer;
+	// private List<IFile> henshinTransformationRules;
+
+	private IRuleBase[] registeredRulebases;
+
+	private Map<RecognitionRule, Unit> mappings = new HashMap<RecognitionRule, Unit>();
+
+	private Composite topComposite;
+	private Composite bottomComposite;
+
+	// private List<String> additionalRulebases = new ArrayList<String>();
 
 	@Override
 	public void doSave(IProgressMonitor monitor) {
@@ -74,7 +80,7 @@ public class TransformationMappingEditor extends EditorPart {
 			throw new RuntimeException("Wrong input");
 		}
 
-		this.input = (TransformationMappingEditorInput) input;
+		// this.input = (TransformationMappingEditorInput) input;
 
 		this.setSite(site);
 		this.setInput(input);
@@ -111,28 +117,37 @@ public class TransformationMappingEditor extends EditorPart {
 
 		editorScrolledForm.setText("CoWolf Transformation Mapping Editor");
 
-		FillLayout editorLayout = new FillLayout(SWT.HORIZONTAL);
+		FillLayout editorLayout = new FillLayout(SWT.VERTICAL);
 		editorLayout.spacing = 20;
 		editorLayout.marginWidth = 10;
 		editorLayout.marginHeight = 10;
 		editorScrolledForm.getBody().setLayout(editorLayout);
 
-		createRecognitionRulesSection(toolkit, editorScrolledForm);
-		createHenshinRulesSection(toolkit, editorScrolledForm);
+		this.topComposite = toolkit.createComposite(editorScrolledForm
+				.getBody());
+		this.topComposite.setLayout(new FillLayout(SWT.HORIZONTAL));
 
-		henshinTransformationRules = new ArrayList<IFile>();
+		this.bottomComposite = toolkit.createComposite(editorScrolledForm
+				.getBody());
+		this.bottomComposite.setLayout(new FillLayout(SWT.HORIZONTAL));
+
+		this.createRecognitionRulesSection(toolkit, editorScrolledForm);
+		this.createTransformationRulesSection(toolkit, editorScrolledForm);
+		this.createMappingsSection(toolkit, editorScrolledForm);
+
+		// this.henshinTransformationRules = new ArrayList<IFile>();
 
 	}
 
 	private void createRecognitionRulesSection(FormToolkit toolkit,
 			ScrolledForm form) {
-		Section section1 = toolkit.createSection(form.getBody(),
+		Section section1 = toolkit.createSection(this.topComposite,
 				Section.DESCRIPTION | Section.TITLE_BAR);
 		section1.setText("SiLift recognition rules");
-		section1.setDescription("Define a recognition rule as part of a SiLift rulebase that should be the source of the mapping.");
+		section1.setDescription("Define a recognition rule of a SiLift rulebase as source of the mapping.");
 
 		Composite section1Composite = toolkit.createComposite(section1);
-		section1Composite.setLayout(new GridLayout(2, false));
+		section1Composite.setLayout(new GridLayout(1, false));
 
 		Tree recognitionRulesTree = toolkit.createTree(section1Composite,
 				SWT.H_SCROLL | SWT.V_SCROLL);
@@ -141,23 +156,26 @@ public class TransformationMappingEditor extends EditorPart {
 
 		recognitionRulesTreeViewer
 				.setContentProvider(new SiLiftRecognitionRulesContentProvider());
-		recognitionRulesTreeViewer
-				.setInput(getRecognitionRulesTreeViewerInitialInput());
+
+		this.registeredRulebases = this
+				.getRecognitionRulesTreeViewerInitialInput();
+
+		recognitionRulesTreeViewer.setInput(this.registeredRulebases);
 		recognitionRulesTreeViewer
 				.setLabelProvider(new SiLiftRecognitionRulesLabelProvider());
-		recognitionRulesTreeViewer.expandAll();
+		// recognitionRulesTreeViewer.expandAll();
 
 		GridData recognitionRulesTreeGridData = new GridData(GridData.FILL_BOTH);
 		recognitionRulesTree.setLayoutData(recognitionRulesTreeGridData);
 
 		toolkit.paintBordersFor(section1Composite);
 
-		Button addRulebaseButton = toolkit.createButton(section1Composite,
-				"Add rulebases...", SWT.PUSH);
-
-		GridData addRulebaseButtonGridData = new GridData(
-				GridData.VERTICAL_ALIGN_BEGINNING);
-		addRulebaseButton.setLayoutData(addRulebaseButtonGridData);
+		// Button addRulebaseButton = toolkit.createButton(section1Composite,
+		// "Add rulebases...", SWT.PUSH);
+		//
+		// GridData addRulebaseButtonGridData = new GridData(
+		// GridData.VERTICAL_ALIGN_BEGINNING);
+		// addRulebaseButton.setLayoutData(addRulebaseButtonGridData);
 
 		section1.setClient(section1Composite);
 
@@ -183,93 +201,194 @@ public class TransformationMappingEditor extends EditorPart {
 
 	}
 
-	private void createHenshinRulesSection(FormToolkit toolkit,
+	private void createTransformationRulesSection(FormToolkit toolkit,
 			ScrolledForm form) {
 
-		Section section2 = toolkit.createSection(form.getBody(),
+		Section section2 = toolkit.createSection(this.topComposite,
 				Section.DESCRIPTION | Section.TITLE_BAR);
-		section2.setDescription("Define a Henshin rule that should be the target of the mapping.");
+		section2.setDescription("Define a Henshin rule (unit) as target of the mapping.");
 		section2.setText("Henshin Transformation Rules");
 
 		Composite section2Composite = toolkit.createComposite(section2);
-		section2Composite.setLayout(new GridLayout(2, false));
+		section2Composite.setLayout(new GridLayout(1, false));
 
 		Tree henshinRulesTree = toolkit.createTree(section2Composite,
 				SWT.H_SCROLL | SWT.V_SCROLL);
-		henshinRulesTreeViewer = new TreeViewer(henshinRulesTree);
+		this.henshinRulesTreeViewer = new TreeViewer(henshinRulesTree);
 
-		henshinRulesTreeViewer
+		this.henshinRulesTreeViewer
 				.setContentProvider(new TransformationRulesContentProvider());
 
-		// TODO
-		// henshinRulesTreeViewer
-		// .setInput(getRecognitionRulesTreeViewerInitialInput());
-
-		henshinRulesTreeViewer
+		this.henshinRulesTreeViewer
 				.setLabelProvider(new TransformationRulesLabelProvider());
-		henshinRulesTreeViewer.expandAll();
+
+		this.henshinRulesTreeViewer.setInput(this
+				.getTransformationRulesTreeViewerInitialInput());
 
 		GridData henshinRulesTreeGridData = new GridData(GridData.FILL_BOTH);
 		henshinRulesTree.setLayoutData(henshinRulesTreeGridData);
 
 		toolkit.paintBordersFor(section2Composite);
 
-		Button addDirButton = toolkit.createButton(section2Composite,
-				"Add directories...", SWT.PUSH);
-		GridData addDirButtonGridData = new GridData(
-				GridData.VERTICAL_ALIGN_BEGINNING);
-		addDirButton.setLayoutData(addDirButtonGridData);
+		// Button addDirButton = toolkit.createButton(section2Composite,
+		// "Add directories...", SWT.PUSH);
+		// GridData addDirButtonGridData = new GridData(
+		// GridData.VERTICAL_ALIGN_BEGINNING);
+		// addDirButton.setLayoutData(addDirButtonGridData);
 
-		addDirButton.addSelectionListener(this.browseWorkspace(parent
-				.getShell()));
+		// addDirButton.addSelectionListener(this.browseWorkspace(this.parent
+		// .getShell()));
 
 		section2.setClient(section2Composite);
 
 	}
 
-	protected SelectionListener browseWorkspace(final Shell shell) {
-
-		SelectionListener listener = new SelectionListener() {
-
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-
-				List<ViewerFilter> filters = new ArrayList<ViewerFilter>();
-				filters.add(new WorkspaceResourceDialogFilter());
-				IFile[] files = WorkspaceResourceDialog
-						.openFileSelection(
-								shell,
-								"Choose transformation rules",
-								"Choose directories with Henshin transformation rules.",
-								true, null, filters);
-
-				// directories[0].
-
-				
-				
-				henshinTransformationRules.addAll(Arrays.asList(files));
-
-				henshinRulesTreeViewer.add(henshinRulesTreeViewer.getInput(),
-						files);
-
-			}
-
-			@Override
-			public void widgetDefaultSelected(SelectionEvent e) {
-				// nothing to do
-			}
-		};
-		return listener;
+	private IProject[] getTransformationRulesTreeViewerInitialInput() {
+		return ResourcesPlugin.getWorkspace().getRoot().getProjects();
 	}
 
-	private void addDirsToTransformationRulesTreeViewer(File[] dirs) {
+	private void createMappingsSection(FormToolkit toolkit, ScrolledForm form) {
+
+		Section section3 = toolkit.createSection(this.bottomComposite,
+				Section.DESCRIPTION | Section.TITLE_BAR);
+		section3.setDescription("This table contains the mappings you are defined.");
+		section3.setText("Transformation Mappings");
+
+		Composite section3Composite = toolkit.createComposite(section3);
+		section3Composite.setLayout(new GridLayout(2, false));
+
+		Table mappingsTable = toolkit.createTable(section3Composite,
+				SWT.H_SCROLL | SWT.V_SCROLL | SWT.MULTI);
+		this.mappingsTableViewer = new TableViewer(mappingsTable);
+		mappingsTable.setHeaderVisible(true);
+		mappingsTable.setLinesVisible(true);
+
+		GridData mappingsTableGridData = new GridData(GridData.FILL_BOTH);
+		mappingsTable.setLayoutData(mappingsTableGridData);
+
+		Composite section3ButtonsComposite = toolkit
+				.createComposite(section3Composite);
+
+		GridData section3ButtonsCompositeGridData = new GridData(
+				GridData.FILL_VERTICAL);
+
+		section3ButtonsComposite
+		.setLayoutData(section3ButtonsCompositeGridData);
+
+		section3ButtonsComposite.setLayout(new GridLayout(1, false));
+
+		Button addMappingButton = toolkit.createButton(
+				section3ButtonsComposite, "Add", SWT.PUSH);
+		GridData addMappingButtonGridData = new GridData();
+		// addMappingButtonGridData.verticalAlignment = GridData.BEGINNING;
+		// addMappingButtonGridData.horizontalAlignment = GridData.END;
+		// addMappingButtonGridData.grabExcessHorizontalSpace = true;
+		addMappingButtonGridData.horizontalAlignment = GridData.FILL;
+
+		addMappingButton.setLayoutData(addMappingButtonGridData);
+
+		Button deleteMappingButton = toolkit.createButton(
+				section3ButtonsComposite, "Delete", SWT.PUSH);
+		GridData deleteMappingButtonGridData = new GridData();
+		// deleteMappingButtonGridData.horizontalAlignment = GridData.END;
+		// deleteMappingButtonGridData.grabExcessHorizontalSpace = true;
+		deleteMappingButtonGridData.horizontalAlignment = GridData.FILL;
+		deleteMappingButton.setLayoutData(deleteMappingButtonGridData);
+
+		toolkit.paintBordersFor(section3Composite);
+		section3.setClient(section3Composite);
+
+		// toolkit.paintBordersFor(this.bottomComposite);
+		// section3.setClient(this.bottomComposite);
 
 	}
+
+	// protected SelectionListener chooseRulebases(final Shell shell) {
+	//
+	// SelectionListener listener = new SelectionListener() {
+	//
+	// @Override
+	// public void widgetSelected(SelectionEvent e) {
+	//
+	// List<ViewerFilter> filters = new ArrayList<ViewerFilter>();
+	// filters.add(new WorkspaceResourceDialogFilter());
+	// IFile[] rulebases = WorkspaceResourceDialog.openFileSelection(
+	// shell, "Choose SiLift rulebases", null, true, null,
+	// filters);
+	//
+	// StringBuilder invalidRulebasesTxt = new StringBuilder("");
+	// StringBuilder alreadyAddedRulebasesTxt = new StringBuilder("");
+	//
+	// for (IFile rulebase : rulebases) {
+	//
+	// URI rulebasePluginURI = URI.createPlatformPluginURI(
+	// rulebase.getFullPath().toString(), true);
+	//
+	// Resource rulebaseResource = null;
+	//
+	// try {
+	// rulebaseResource = new ResourceSetImpl().getResource(
+	// rulebasePluginURI, true);
+	// } catch (Exception exc) {
+	// exc.printStackTrace();
+	// }
+	//
+	// if (rulebaseResource != null) {
+	//
+	// EList<EObject> contents = rulebaseResource
+	// .getContents();
+	//
+	// if (contents != null) {
+	//
+	// EObject obj = contents.get(0);
+	//
+	// if ((obj != null) && (obj instanceof RuleBase)) {
+	//
+	// String ruleBaseName = ((RuleBase) obj)
+	// .getName();
+	//
+	// if (!TransformationMappingEditor.this.registeredRulebases
+	// .contains(ruleBaseName)
+	// && !TransformationMappingEditor.this.additionalRulebases
+	// .contains(ruleBaseName)) {
+	// TransformationMappingEditor.this.additionalRulebases
+	// .add(ruleBaseName);
+	// hen
+	//
+	// }
+	//
+	// continue;
+	// }
+	//
+	// }
+	//
+	// }
+	//
+	// invalidRulebasesTxt.append("<br />" + rulebasePluginURI);
+	//
+	// }
+	//
+	// if (invalidRulebasesTxt.length() > 0) {
+	//
+	// MessageDialog.openError(shell, "Adding Rulebases failed",
+	// "The following rulebases are not existent or invalid:"
+	// + invalidRulebasesTxt);
+	// }
+	//
+	// }
+	//
+	// @Override
+	// public void widgetDefaultSelected(SelectionEvent e) {
+	// // nothing to do
+	// }
+	// };
+	// return listener;
+	// }
 
 	@Override
 	public void setFocus() {
-		if (parent != null) {
-			parent.setFocus();
+		if (this.parent != null) {
+			this.parent.setFocus();
 		}
 	}
 

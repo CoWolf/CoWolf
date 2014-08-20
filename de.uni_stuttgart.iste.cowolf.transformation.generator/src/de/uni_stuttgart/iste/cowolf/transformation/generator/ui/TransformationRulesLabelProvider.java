@@ -1,9 +1,13 @@
 package de.uni_stuttgart.iste.cowolf.transformation.generator.ui;
 
-import java.io.File;
-import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.emf.henshin.model.Unit;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ILabelProviderListener;
@@ -12,9 +16,7 @@ import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.PlatformUI;
 
 /**
- * 
- * @author NB Rene
- *
+ * @author Rene Trefft
  */
 public class TransformationRulesLabelProvider implements ILabelProvider {
 
@@ -42,28 +44,27 @@ public class TransformationRulesLabelProvider implements ILabelProvider {
 	@Override
 	public Image getImage(Object element) {
 
-		if (element instanceof File) {
+		if (element instanceof IProject) {
 
-			File file = (File) element;
+			return PlatformUI.getWorkbench().getSharedImages()
+					.getImageDescriptor(ISharedImages.IMG_OBJ_PROJECT)
+					.createImage(true);
 
-			if (file.isDirectory()) {
+		}
+		if (element instanceof IFolder) {
 
-				return PlatformUI.getWorkbench().getSharedImages()
-						.getImageDescriptor(ISharedImages.IMG_OBJ_FOLDER)
-						.createImage(true);
+			return PlatformUI.getWorkbench().getSharedImages()
+					.getImageDescriptor(ISharedImages.IMG_OBJ_FOLDER)
+					.createImage(true);
 
-			} else if (file.isFile()) {
+		} else if (element instanceof IFile) {
 
-				try {
-					URL url = new URL(
-							"platform:/plugin/org.eclipse.emf.henshin.editor/icons/full/obj16/HenshinModelFile.gif");
-					return ImageDescriptor.createFromURL(url).createImage(true);
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
-
-				return null;
-
+			try {
+				URL url = new URL(
+						"platform:/plugin/org.eclipse.emf.henshin.editor/icons/full/obj16/HenshinModelFile.gif");
+				return ImageDescriptor.createFromURL(url).createImage();
+			} catch (MalformedURLException e) {
+				e.printStackTrace();
 			}
 
 		}
@@ -74,11 +75,13 @@ public class TransformationRulesLabelProvider implements ILabelProvider {
 
 	@Override
 	public String getText(Object element) {
-		if (element instanceof File) {
-			File file = (File) element;
-			return file.getName();
+		if (element instanceof IResource) {
+			IResource res = (IResource) element;
+			return res.getName();
+		} else if (element instanceof Unit) {
+			Unit unit = (Unit) element;
+			return unit.getName();
 		}
 		return null;
 	}
-
 }

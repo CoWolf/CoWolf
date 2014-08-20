@@ -1,12 +1,18 @@
 package de.uni_stuttgart.iste.cowolf.transformation.generator.ui;
 
-import java.io.File;
-import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.henshin.model.Module;
+import org.eclipse.emf.henshin.model.Unit;
+import org.eclipse.emf.henshin.model.resource.HenshinResourceSet;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 
@@ -27,8 +33,8 @@ public class TransformationRulesContentProvider implements ITreeContentProvider 
 
 	@Override
 	public Object[] getElements(Object inputElement) {
-		if (inputElement instanceof IFile[]) {
-			return (IFile[]) inputElement;
+		if (inputElement instanceof IProject[]) {
+			return (IProject[]) inputElement;
 		}
 		return null;
 	}
@@ -36,38 +42,55 @@ public class TransformationRulesContentProvider implements ITreeContentProvider 
 	@Override
 	public Object[] getChildren(Object parentElement) {
 
-		if (parentElement instanceof IFile) {
+		if ((parentElement instanceof IProject)
+				|| (parentElement instanceof IFolder)) {
 
-			IFile parentFile = (IFile) parentElement;
+			IContainer parentContainer = (IContainer) parentElement;
 
-			//IWorkspaceRoot.
-			
-			File[] files = parentFile.getLocation().toFile()
-					.listFiles(new FilenameFilter() {
-						@Override
-						public boolean accept(File dir, String name) {
-							return name.toLowerCase().endsWith(".henshin");
-						}
-					});
+			List<IResource> children = new ArrayList<IResource>();
 
-			List<IFile> iFiles = new ArrayList<IFile>();
+			try {
 
-//			for (File file : files) {
-//				iFiles.add(parentFile.getLocation().append(file.getName()).);
-//			}
+				for (IResource res : parentContainer.members()) {
 
-			return files;
+					if (!(res instanceof IFile)
+							|| "henshin".equals(res.getFileExtension())) {
+						children.add(res);
+					}
+
+				}
+
+				return children.toArray(new IResource[children.size()]);
+
+			} catch (CoreException e) {
+				e.printStackTrace();
+			}
+
+		} else if (parentElement instanceof IFile) {
+
+			IFile file = (IFile) parentElement;
+
+			HenshinResourceSet henshinResourceSet = new HenshinResourceSet();
+
+			// TODO check for null or exception
+			Module module = henshinResourceSet.getModule(file.getLocation()
+					.toFile().toString(), true);
+
+			EList<Unit> units = module.getUnits();
+
+			return units.toArray(new Unit[units.size()]);
 
 		}
 
 		return null;
+
 	}
 
 	@Override
 	public Object getParent(Object element) {
 
-		if (element instanceof File) {
-			return ((File) element).getParentFile();
+		if ((element instanceof IFile) || (element instanceof IFolder)) {
+			return ((IResource) element).getParent();
 		}
 
 		return null;
@@ -76,9 +99,10 @@ public class TransformationRulesContentProvider implements ITreeContentProvider 
 
 	@Override
 	public boolean hasChildren(Object element) {
-		Object[] children = getChildren(element);
 
-		return children != null && children.length > 0;
+		Object[] children = this.getChildren(element);
+
+		return (children != null) && (children.length > 0);
 
 	}
 

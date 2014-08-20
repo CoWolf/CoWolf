@@ -1,25 +1,17 @@
 package de.uni_stuttgart.iste.cowolf.transformation.generator.ui;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
-import org.eclipse.emf.henshin.model.Module;
-import org.eclipse.emf.henshin.model.Node;
-import org.eclipse.emf.henshin.model.Rule;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
-import org.sidiff.common.henshin.HenshinModuleAnalysis;
 import org.sidiff.difference.rulebase.RecognitionRule;
 import org.sidiff.difference.rulebase.RuleBase;
 import org.sidiff.difference.rulebase.RuleBaseItem;
 import org.sidiff.difference.rulebase.extension.IRuleBase;
-import org.sidiff.difference.rulebase.wrapper.RuleBaseItemWrapper;
-import org.sidiff.difference.symmetric.SymmetricPackage;
 
 public class SiLiftRecognitionRulesContentProvider implements
-		ITreeContentProvider {
+ITreeContentProvider {
 
 	@Override
 	public void dispose() {
@@ -33,22 +25,30 @@ public class SiLiftRecognitionRulesContentProvider implements
 
 	@Override
 	public Object[] getElements(Object ruleBases) {
-		if (ruleBases instanceof IRuleBase[]) {
-			return (IRuleBase[]) ruleBases;
+		if ((ruleBases instanceof IRuleBase[])
+				|| (ruleBases instanceof RuleBase[])) {
+			return (Object[]) ruleBases;
 		}
+
 		return null;
 	}
 
 	@Override
 	public Object[] getChildren(Object parentElement) {
 
-		List<RecognitionRule> recognitionRules = new ArrayList<RecognitionRule>();
+		Iterable<RuleBaseItem> ruleBaseItems = null;
 
 		if (parentElement instanceof IRuleBase) {
-			for (RuleBaseItem ruleBaseItem : ((IRuleBase) parentElement)
-					.getAllRuleBaseItems()) {
+			ruleBaseItems = ((IRuleBase) parentElement).getAllRuleBaseItems();
+		} else if (parentElement instanceof RuleBase) {
+			ruleBaseItems = ((RuleBase) parentElement).getItems();
+		}
 
-				System.out.println(ruleBaseItem);
+		if (ruleBaseItems != null) {
+
+			List<RecognitionRule> recognitionRules = new ArrayList<RecognitionRule>();
+
+			for (RuleBaseItem ruleBaseItem : ruleBaseItems) {
 
 				RecognitionRule recognitionRule = ruleBaseItem
 						.getRecognitionRule();
@@ -63,6 +63,7 @@ public class SiLiftRecognitionRulesContentProvider implements
 
 			return recognitionRules
 					.toArray(new RecognitionRule[recognitionRules.size()]);
+
 		}
 
 		return new Object[0];
@@ -86,36 +87,10 @@ public class SiLiftRecognitionRulesContentProvider implements
 	@Override
 	public boolean hasChildren(Object element) {
 
-		if (element instanceof IRuleBase) {
+		Object[] children = this.getChildren(element);
 
-			for (RuleBaseItem ruleBaseItem : ((IRuleBase) element)
-					.getAllRuleBaseItems()) {
+		return children.length > 0;
 
-				RecognitionRule recognitionRule = ruleBaseItem
-						.getRecognitionRule();
-
-				// Module recognitionModule =
-				// recognitionRule.getRecognitionModule();
-				//
-				// for (Rule rule :
-				// HenshinModuleAnalysis.getAllRules(recognitionModule)) {
-				// for (Node node : rule.getRhs().getNodes()) {
-				// if (node.getType() ==
-				// SymmetricPackage.eINSTANCE.getSemanticChangeSet()) {
-				// System.out.println(node.eContainer().eResource().getURI());
-				// }
-				// }
-				// }
-
-				if (recognitionRule != null) {
-					return true;
-				}
-
-			}
-
-		}
-
-		return false;
 	}
 
 	// @Override

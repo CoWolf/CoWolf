@@ -3,14 +3,12 @@ package de.uni_stuttgart.iste.cowolf.transformation.generator.ui;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
 
 /**
- * 
- * 
  * @author Rene Trefft
- *
  */
 public class WorkspaceResourceDialogFilter extends ViewerFilter {
 
@@ -21,31 +19,19 @@ public class WorkspaceResourceDialogFilter extends ViewerFilter {
 	@Override
 	public boolean select(Viewer viewer, Object parentElement, Object element) {
 
-		if (element instanceof IProject) {
+		if ((element instanceof IProject) || (element instanceof IFolder)) {
 
-			IProject project = (IProject) element;
+			IResource projectOrDir = (IResource) element;
 
-			if (!project.isHidden()) {
+			if (!projectOrDir.isHidden()) {
 				return true;
 			}
 
-		}
-
-		if (element instanceof IFolder) {
-
-			IFolder folder = (IFolder) element;
-
-			if (!folder.isHidden()) {
-				return true;
-			}
-
-		}
-		
-		if (element instanceof IFile) {
+		} else if (element instanceof IFile) {
 
 			IFile file = (IFile) element;
 
-			if (!file.isHidden() && file.getFileExtension().equals("henshin")) {
+			if (!file.isHidden() && "rulebase".equals(file.getFileExtension())) {
 				return true;
 			}
 
