@@ -10,7 +10,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 
 import javax.xml.bind.JAXBException;
 
@@ -110,9 +109,6 @@ public abstract class AbstractTransformationManager {
         System.out.println("Merging graphs");
         List<EGraph> graphs = new ArrayList<>();
 
-        Map<URI, URI> map = target.getResourceSet().getURIConverter()
-                .getURIMap();
-
         // find broken proxy references and remove them from resource set
         List<Resource> toRemove = new ArrayList<>();
         for (int index = 0; index < target.getResourceSet().getResources()
@@ -125,40 +121,8 @@ public abstract class AbstractTransformationManager {
         target.getResourceSet().getResources().removeAll(toRemove);
 
         // initialize URI converter
-        Map<EObject, Collection<Setting>> unresolvedProxies = EcoreUtil.UnresolvedProxyCrossReferencer
-                .find(target.getResourceSet());
-        for (Entry<EObject, Collection<Setting>> entry : unresolvedProxies
-                .entrySet()) {
-            target.getResourceSet()
-                    .getURIConverter()
-                    .getURIMap()
-                    .put(EcoreUtil.getURI(entry.getKey()).trimFragment(),
-                            source.getURI());
-        }
+        this.updateTraces(source, target);
 
-        for (EObject obj : target.getContents()) {
-            if (obj instanceof TraceImpl) {
-                for (EObject src : ((TraceImpl) obj).getSource()) {
-                    if (!src.eIsProxy()
-                            && !map.containsKey(src.eResource().getURI())) {
-                        target.getResourceSet().getURIConverter().getURIMap()
-                                .put(src.eResource().getURI(), source.getURI());
-                        src.eResource().unload();
-                    }
-
-                }
-            }
-        }
-        for (Entry<URI, URI> entry : map.entrySet()) {
-            System.out.println(entry.getKey());
-            System.out.println(entry.getValue());
-        }
-        EcoreUtil.resolveAll(target.getResourceSet());
-        for (Resource res : target.getResourceSet().getResources()) {
-            if (map.containsKey(res.getURI())) {
-                res.setURI(map.get(res.getURI()));
-            }
-        }
         graphs.add(new EGraphImpl(source));
         graphs.add(new EGraphImpl(target));
         EGraph graph = this.mergeInstanceModels(graphs);
@@ -179,6 +143,55 @@ public abstract class AbstractTransformationManager {
             return null;
         }
         return null;
+    }
+    /**
+     * Builds an URI converter used to update traces to current model resources.
+     * 
+     * @param source
+     *            source model
+     * @param target
+     *            target model
+     */
+    private void updateTraces(Resource source, Resource target) {
+        Map<URI, URI> map = target.getResourceSet().getURIConverter()
+                .getURIMap();
+
+        // find unresolvable proxies
+        Map<EObject, Collection<Setting>> unresolvedProxies = EcoreUtil.UnresolvedProxyCrossReferencer
+                .find(target.getResourceSet());
+        for (EObject entry : unresolvedProxies.keySet()) {
+            target.getResourceSet()
+                    .getURIConverter()
+                    .getURIMap()
+                    .put(EcoreUtil.getURI(entry).trimFragment(),
+                            source.getURI());
+        }
+
+        // find resources which are older than current element, put them in
+        // converter mapping and unload them.
+        for (EObject obj : target.getContents()) {
+            if (obj instanceof TraceImpl) {
+                for (EObject src : ((TraceImpl) obj).getSource()) {
+                    if (!src.eIsProxy()
+                            && !map.containsKey(src.eResource().getURI())) {
+                        target.getResourceSet().getURIConverter().getURIMap()
+                                .put(src.eResource().getURI(), source.getURI());
+                        src.eResource().unload();
+                    }
+
+                }
+            }
+        }
+
+        // resolve resources
+        EcoreUtil.resolveAll(target.getResourceSet());
+
+        // update uri of outdated resources
+        for (Resource res : target.getResourceSet().getResources()) {
+            if (map.containsKey(res.getURI())) {
+                res.setURI(map.get(res.getURI()));
+            }
+        }
     }
     /**
      * Saves root of the resulting model to an output file.
