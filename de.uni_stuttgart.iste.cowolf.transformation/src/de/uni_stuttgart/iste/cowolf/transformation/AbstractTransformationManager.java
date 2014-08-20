@@ -298,6 +298,9 @@ public abstract class AbstractTransformationManager {
         }
         Collections.sort(mappings);
         for (MappingSet mappingSet : mappings) {
+            graph = application.getEGraph();
+            application = new UnitApplicationImpl(new EngineImpl());
+            application.setEGraph(graph);
             Mapping mapping = mappingSet.getMapping();
             SemanticChangeSet changeSet = mappingSet.getChangeSet();
             // fetch rule/unit from mapping
@@ -307,7 +310,6 @@ public abstract class AbstractTransformationManager {
                 application.setUnit(unit);
                 // traverse parameters from config object.
                 for (Param param : rule.getParams().getParam()) {
-                    System.out.println(param.getName());
                     String name = param.getName();
                     Object value = null;
                     List<String> path = param.getPath();
@@ -331,7 +333,7 @@ public abstract class AbstractTransformationManager {
                     application.setParameterValue(name, value);
                 }
                 result = application.execute(new LoggingApplicationMonitor());
-
+                application.getAssignment().clear();
                 System.out.println(unit.getName() + " "
                         + (result ? "successful" : "error"));
             } else {
