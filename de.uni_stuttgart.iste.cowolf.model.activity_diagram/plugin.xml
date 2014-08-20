@@ -6,13 +6,6 @@
 
 <plugin>
 
-    <extension
-         id="activityModelManager"
-         point="de.uni_stuttgart.iste.cowolf.model.qosModelManagerExtension">
-      <qosModelManager
-            class="de.uni_stuttgart.iste.cowolf.model.activity_diagram.ActivityModelManager">
-      </qosModelManager>
-   </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated activity_diagram -->
@@ -20,6 +13,13 @@
             uri="http://ActivityDiagram/1.0"
             class="de.uni_stuttgart.iste.cowolf.model.activity_diagram.Activity_diagramPackage"
             genModel="model/activity_diagram.genmodel"/>
+   </extension>
+   <extension
+         id="activityModelManager"
+         point="de.uni_stuttgart.iste.cowolf.model.architectureModelManagerExtension">
+      <architectureModelManager
+            class="de.uni_stuttgart.iste.cowolf.model.activity_diagram.ActivityModelManager">
+      </architectureModelManager>
    </extension>
 
 </plugin>
