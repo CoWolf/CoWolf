@@ -10,29 +10,33 @@ import de.uni_stuttgart.iste.cowolf.ui.model.Activator;
 public class ModelPreferencePage extends FieldEditorPreferencePage implements
 		IWorkbenchPreferencePage {
 
+	private static final String FOLDER_CREATION = "FOLDER_CREATION";
+
 	public ModelPreferencePage() {
 		super(GRID);
 		this.setPreferenceStore(Activator.getDefault().getPreferenceStore());
-	    this.setDescription("General Settings for Models");
+		this.setDescription("General Settings for Models");
 	}
 
 	@Override
 	protected void createFieldEditors() {
 		// TODO Auto-generated method stub
-		BooleanFieldEditor editor = new BooleanFieldEditor("FOLDER_CREATION",
-				"&Create model folders", BooleanFieldEditor.SEPARATE_LABEL, this.getFieldEditorParent());
-		Activator.getDefault().getPreferenceStore().setDefault("FOLDER_CREATION", true);
+		BooleanFieldEditor editor = new BooleanFieldEditor(FOLDER_CREATION,
+				"&Create model folders", BooleanFieldEditor.SEPARATE_LABEL,
+				this.getFieldEditorParent());
+		Activator.getDefault().getPreferenceStore()
+				.setDefault(FOLDER_CREATION, true);
 		this.addField(editor);
 	}
 
 	@Override
 	public void init(IWorkbench workbench) {
-		// TODO Auto-generated method stub
-
+		setPreferenceStore(Activator.getDefault().getPreferenceStore());
 	}
-	
+
 	public static boolean getFolderPreference() {
 		return Activator.getDefault().getPreferenceStore()
-				.getBoolean("FOLDER_CREATION");
+				.getBoolean(FOLDER_CREATION);
 	}
+
 }
