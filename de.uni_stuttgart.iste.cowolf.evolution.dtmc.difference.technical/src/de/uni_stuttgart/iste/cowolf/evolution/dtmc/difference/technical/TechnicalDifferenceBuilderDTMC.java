@@ -1,4 +1,4 @@
-package de.uni_stuttgart.iste.cowolf.evolution.statechart.difference.technical;
+package de.uni_stuttgart.iste.cowolf.evolution.dtmc.difference.technical;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -12,7 +12,7 @@ import org.eclipse.emf.henshin.trace.impl.TracePackageImpl;
 import org.sidiff.difference.technical.TechnicalDifferenceBuilder;
 import org.silift.common.util.access.EMFModelAccessEx;
 
-import de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage;
+import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage;
 
 /**
  * 
@@ -21,13 +21,12 @@ import de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage;
  * 
  * @author: Michael Zimmermann
  */
-public class TechnicalDifferenceBuilderStatechart extends
-		TechnicalDifferenceBuilder {
-
+public class TechnicalDifferenceBuilderDTMC extends TechnicalDifferenceBuilder {
 	@Override
 	protected Set<EClass> getUnconsideredNodeTypes() {
 		Set<EClass> unconsideredNodeTypes = new HashSet<EClass>();
 		unconsideredNodeTypes.add(TracePackageImpl.eINSTANCE.getTrace());
+
 		return unconsideredNodeTypes;
 	}
 
@@ -48,8 +47,8 @@ public class TechnicalDifferenceBuilderStatechart extends
 	@Override
 	protected void checkDocumentType(Resource model) {
 		String docType = EMFModelAccessEx.getCharacteristicDocumentType(model);
-		assert (docType == statechartemfPackage.eNS_URI) : "Wrong document type: Expected "
-				+ statechartemfPackage.eNS_URI + " but got " + docType;
+		assert (docType == DTMCemfPackage.eNS_URI) : "Wrong document type: Expected "
+				+ DTMCemfPackage.eNS_URI + " but got " + docType;
 	}
 
 	@Override
@@ -59,12 +58,11 @@ public class TechnicalDifferenceBuilderStatechart extends
 
 	@Override
 	public String getDocumentType() {
-		return statechartemfPackage.eNS_URI;
+		return DTMCemfPackage.eNS_URI;
 	}
 
 	@Override
 	public String getName() {
-		return "Statechart Technical Difference Builder";
+		return "DTMC Technical Difference Builder";
 	}
-
 }
