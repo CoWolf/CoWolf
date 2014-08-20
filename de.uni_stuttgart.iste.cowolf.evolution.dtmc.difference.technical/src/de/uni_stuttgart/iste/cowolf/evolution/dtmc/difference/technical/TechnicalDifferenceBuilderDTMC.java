@@ -22,6 +22,7 @@ import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage;
  * @author: Michael Zimmermann
  */
 public class TechnicalDifferenceBuilderDTMC extends TechnicalDifferenceBuilder {
+
 	@Override
 	protected Set<EClass> getUnconsideredNodeTypes() {
 		Set<EClass> unconsideredNodeTypes = new HashSet<EClass>();
@@ -33,14 +34,20 @@ public class TechnicalDifferenceBuilderDTMC extends TechnicalDifferenceBuilder {
 	@Override
 	protected Set<EReference> getUnconsideredEdgeTypes() {
 		Set<EReference> unconsideredEdgeTypes = new HashSet<EReference>();
-		// No filtering
+		unconsideredEdgeTypes.add(TracePackageImpl.eINSTANCE.getTrace_Source());
+		unconsideredEdgeTypes.add(TracePackageImpl.eINSTANCE
+				.getTrace_SubTraces());
+		unconsideredEdgeTypes.add(TracePackageImpl.eINSTANCE.getTrace_Target());
+
 		return unconsideredEdgeTypes;
 	}
 
 	@Override
 	protected Set<EAttribute> getUnconsideredAttributeTypes() {
 		Set<EAttribute> unconsideredAttributeTypes = new HashSet<EAttribute>();
-		// No filtering
+		unconsideredAttributeTypes.add(TracePackageImpl.eINSTANCE
+				.getTrace_Name());
+
 		return unconsideredAttributeTypes;
 	}
 
