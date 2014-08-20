@@ -5,9 +5,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import javax.xml.bind.JAXBException;
 
@@ -18,9 +21,11 @@ import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.RegistryFactory;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.henshin.interpreter.EGraph;
 import org.eclipse.emf.henshin.interpreter.UnitApplication;
 import org.eclipse.emf.henshin.interpreter.impl.EGraphImpl;
@@ -104,6 +109,56 @@ public abstract class AbstractTransformationManager {
 
         System.out.println("Merging graphs");
         List<EGraph> graphs = new ArrayList<>();
+
+        Map<URI, URI> map = target.getResourceSet().getURIConverter()
+                .getURIMap();
+
+        // find broken proxy references and remove them from resource set
+        List<Resource> toRemove = new ArrayList<>();
+        for (int index = 0; index < target.getResourceSet().getResources()
+                .size(); index++) {
+            Resource res = target.getResourceSet().getResources().get(index);
+            if (!res.isLoaded() || res.getErrors().size() > 0) {
+                toRemove.add(res);
+            }
+        }
+        target.getResourceSet().getResources().removeAll(toRemove);
+
+        // initialize URI converter
+        Map<EObject, Collection<Setting>> unresolvedProxies = EcoreUtil.UnresolvedProxyCrossReferencer
+                .find(target.getResourceSet());
+        for (Entry<EObject, Collection<Setting>> entry : unresolvedProxies
+                .entrySet()) {
+            target.getResourceSet()
+                    .getURIConverter()
+                    .getURIMap()
+                    .put(EcoreUtil.getURI(entry.getKey()).trimFragment(),
+                            source.getURI());
+        }
+
+        for (EObject obj : target.getContents()) {
+            if (obj instanceof TraceImpl) {
+                for (EObject src : ((TraceImpl) obj).getSource()) {
+                    if (!src.eIsProxy()
+                            && !map.containsKey(src.eResource().getURI())) {
+                        target.getResourceSet().getURIConverter().getURIMap()
+                                .put(src.eResource().getURI(), source.getURI());
+                        src.eResource().unload();
+                    }
+
+                }
+            }
+        }
+        for (Entry<URI, URI> entry : map.entrySet()) {
+            System.out.println(entry.getKey());
+            System.out.println(entry.getValue());
+        }
+        EcoreUtil.resolveAll(target.getResourceSet());
+        for (Resource res : target.getResourceSet().getResources()) {
+            if (map.containsKey(res.getURI())) {
+                res.setURI(map.get(res.getURI()));
+            }
+        }
         graphs.add(new EGraphImpl(source));
         graphs.add(new EGraphImpl(target));
         EGraph graph = this.mergeInstanceModels(graphs);
@@ -125,7 +180,6 @@ public abstract class AbstractTransformationManager {
         }
         return null;
     }
-
     /**
      * Saves root of the resulting model to an output file.
      *
@@ -144,7 +198,6 @@ public abstract class AbstractTransformationManager {
         System.out.println("Number of roots: " + result.getRoots().size());
 
         ResourceSet henshinResourceSet = target.getResourceSet();
-
         // TODO: decide where traces should be stored (source or target model
         // file or separate trace file).
         // TODO: Transformation in place or not?
@@ -156,7 +209,6 @@ public abstract class AbstractTransformationManager {
                 .getClass();
 
         for (EObject root : list) {
-
             // root is element of target model
             if (root.getClass() == targetClass) {
 
@@ -166,7 +218,6 @@ public abstract class AbstractTransformationManager {
 
             // root is a Trace and has source and target
             if (root.getClass() == TraceImpl.class) {
-
                 int hasSource = ((TraceImpl) root).getSource().size();
                 int hasTarget = ((TraceImpl) root).getTarget().size();
 
@@ -220,58 +271,65 @@ public abstract class AbstractTransformationManager {
         UnitApplication application = new UnitApplicationImpl(new EngineImpl());
         application.setEGraph(graph);
         List<SemanticChangeSet> changeSets = difference.getChangeSets();
-
         // execute rules one by one, order from change sets.
+        List<MappingSet> mappings = new ArrayList<>();
         for (SemanticChangeSet changeSet : changeSets) {
             System.out.println("Changeset: " + changeSet.getName());
             Mapping mapping = this.mappings.get(changeSet.getName());
-
             if (mapping != null) {
-                // fetch rule/unit from mapping
-                Rule rule = mapping.getRule();
-                Unit unit = this.units.get(rule.getName());
-                if (unit != null) {
-                    application.setUnit(unit);
+                MappingSet set = new MappingSet();
+                set.setChangeSet(changeSet);
+                set.setMapping(mapping);
+                mappings.add(set);
+            }
+        }
+        Collections.sort(mappings);
+        for (MappingSet mappingSet : mappings) {
+            Mapping mapping = mappingSet.getMapping();
+            SemanticChangeSet changeSet = mappingSet.getChangeSet();
+            // fetch rule/unit from mapping
+            Rule rule = mapping.getRule();
+            Unit unit = this.units.get(rule.getName());
+            if (unit != null) {
+                application.setUnit(unit);
+                // traverse parameters from config object.
+                for (Param param : rule.getParams().getParam()) {
+                    System.out.println(param.getName());
+                    String name = param.getName();
+                    Object value = null;
+                    List<String> path = param.getPath();
+                    // check for corresponding change
 
-                    // traverse parameters from config object.
-                    for (Param param : rule.getParams().getParam()) {
-                        String name = param.getName();
-                        Object value = null;
-                        List<String> path = param.getPath();
-                        // check for corresponding change
-                        for (Change change : changeSet.getChanges()) {
-                            if (change.eClass().getName().equals(path.get(0))) {
-                                value = change;
-                            }
+                    for (Change change : changeSet.getChanges()) {
+                        if (change.eClass().getName().equals(path.get(0))) {
+                            value = change;
                         }
-                        // traverse xml and object tree
-                        int counter = 1;
-                        while (value != null && counter < path.size()) {
-                            EObject eObject = (EObject) value;
-                            value = eObject.eGet(eObject.eClass()
-                                    .getEStructuralFeature(path.get(counter)));
-                            counter++;
-                            System.out.println(value);
-                        }
-                        application.setParameterValue(name, value);
                     }
-
-                    result = application
-                            .execute(new LoggingApplicationMonitor());
-
-                    System.out.println(unit.getName() + " "
-                            + (result ? "successful" : "error"));
-                } else {
-                    System.out.println("No rule found for changeset with name "
-                            + changeSet.getName());
+                    // traverse xml and object tree
+                    int counter = 1;
+                    while (value != null && counter < path.size()) {
+                        EObject eObject = (EObject) value;
+                        value = eObject.eGet(eObject.eClass()
+                                .getEStructuralFeature(path.get(counter)));
+                        counter++;
+                        System.out.println(value);
+                    }
+                    System.out.println(value);
+                    application.setParameterValue(name, value);
                 }
+                result = application.execute(new LoggingApplicationMonitor());
+
+                System.out.println(unit.getName() + " "
+                        + (result ? "successful" : "error"));
+            } else {
+                System.out.println("No rule found for changeset with name "
+                        + changeSet.getName());
             }
 
         }
 
         return application.getEGraph();
     }
-
     public abstract TransformationTypeInfo getTransformationTypeInfo();
 
     /**
