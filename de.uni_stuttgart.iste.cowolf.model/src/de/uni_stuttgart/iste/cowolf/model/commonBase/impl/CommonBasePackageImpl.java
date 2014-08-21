@@ -202,6 +202,9 @@ public class CommonBasePackageImpl extends EPackageImpl implements CommonBasePac
 		initEClass(nameBaseEClass, NameBase.class, "NameBase", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNameBase_Name(), ecorePackage.getEString(), "name", null, 0, 1, NameBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(nameBaseEClass, NameBase.class, "NameBase", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNameBase_Name(), ecorePackage.getEString(), "name", null, 0, 1, NameBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Create resource
 		createResource(eNS_URI);
 	}

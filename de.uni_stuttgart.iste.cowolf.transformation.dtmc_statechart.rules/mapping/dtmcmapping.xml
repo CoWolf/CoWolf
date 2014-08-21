@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mappings
+	xmlns="http://www.uni-stuttgart.iste.co.wolf.org/TransformationMapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.uni-stuttgart.iste.co.wolf.org/TransformationMapping Mapping.xsd ">
+	<Mapping>
+		
+		<Difference>CREATE_State_IN_StateMachine_(top)</Difference>
+		<Rule name="CreatedStateInSC">
+			<Params>
+				<Param name="name">
+					<Path>AddObject</Path>
+					<Path>obj</Path>
+					<Path>name</Path>
+				</Param>
+			</Params>
+		</Rule>
+	</Mapping>
+ 	<Mapping>
+ 		<Difference>DELETE_State_IN_StateMachine_(top)</Difference>
+ 		<Rule name="DeletedStateInSC">
+			<Params>
+			</Params>
+		</Rule>
+ 	</Mapping>
+	<Mapping>
+		<Difference>CREATE_Transition_IN_StateMachine_(transitions)</Difference>
+		<Rule name="CreatedTransitionInSC">
+			<Params>
+				<Param name="name">
+					<Path>AddObject</Path>
+					<Path>obj</Path>
+					<Path>name</Path>
+				</Param>
+			</Params>
+		</Rule>
+	</Mapping>
+	<Mapping>
+		<Difference>DELETE_Transition_IN_StateMachine_(transitions)</Difference>
+		<Rule name="DeletedTransitionInSC">
+			<Params>
+			</Params>
+		</Rule>
+	</Mapping>
+</Mappings>

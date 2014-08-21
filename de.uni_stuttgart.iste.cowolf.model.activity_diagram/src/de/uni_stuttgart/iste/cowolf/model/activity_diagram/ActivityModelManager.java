@@ -2,6 +2,7 @@ package de.uni_stuttgart.iste.cowolf.model.activity_diagram;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 
@@ -49,7 +50,7 @@ public class ActivityModelManager extends AbstractArchitectureModelManager {
 		propercontents.add(SplitImpl.class);
 		propercontents.add(StartImpl.class);
 
-		ModelTypeInfo mti = new ModelTypeInfo("activity", propercontents);
+		ModelTypeInfo mti = new ModelTypeInfo("activity", propercontents, Activity_diagramPackage.eNS_URI);
 		return mti;
 	}
 

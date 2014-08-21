@@ -48,18 +48,18 @@ public class StatechartModelManager extends AbstractArchitectureModelManager {
 	@Override
 	public ModelTypeInfo getModelTypeInfo() {
 
-		List<Class<?>> propercontents = new ArrayList<Class<?>>();
+		List<Class<?>> properContents = new ArrayList<Class<?>>();
 
 		// create the allowed EClasses
-		propercontents.add(BooleanExpressionImpl.class);
-		propercontents.add(CompositeStateImpl.class);
-		propercontents.add(EventImpl.class);
-		propercontents.add(GuardImpl.class);
-		propercontents.add(StateImpl.class);
-		propercontents.add(StateMachineImpl.class);
-		propercontents.add(StateVertexImpl.class);
-		propercontents.add(TransitionImpl.class);
-		ModelTypeInfo mti = new ModelTypeInfo("statechart", propercontents);
+		properContents.add(BooleanExpressionImpl.class);
+		properContents.add(CompositeStateImpl.class);
+		properContents.add(EventImpl.class);
+		properContents.add(GuardImpl.class);
+		properContents.add(StateImpl.class);
+		properContents.add(StateMachineImpl.class);
+		properContents.add(StateVertexImpl.class);
+		properContents.add(TransitionImpl.class);
+		ModelTypeInfo mti = new ModelTypeInfo("statechart", properContents, statechartemfPackage.eNS_URI);
 		return mti;
 	}
 }

@@ -19,7 +19,7 @@ public class qosModelManager extends AbstractQoSModelManager {
 
 		// TODO the name will also be the name of the automatically created
 		// folder
-		ModelTypeInfo mti = new ModelTypeInfo("name", propercontents);
+		ModelTypeInfo mti = new ModelTypeInfo("name", propercontents , "documentType");
 		return null; // mti;
 	}
 

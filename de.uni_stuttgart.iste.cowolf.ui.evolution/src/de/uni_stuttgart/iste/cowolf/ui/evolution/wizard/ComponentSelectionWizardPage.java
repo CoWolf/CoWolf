@@ -10,7 +10,6 @@ import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
-import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -66,12 +65,12 @@ public class ComponentSelectionWizardPage extends WizardPage {
 		this.wizard = wizard;
 		this.setDescription("Compare two versions of a model with SiLift.");
 		this.setTitle("Compare models with each other.");
-		arrowDown = new Image(Display.getCurrent(),
+		this.arrowDown = new Image(Display.getCurrent(),
 				ComponentSelectionWizardPage.class
-						.getResourceAsStream("../res/arrow_down.png"));
-		arrowUp = new Image(Display.getCurrent(),
+				.getResourceAsStream("../res/arrow_down.png"));
+		this.arrowUp = new Image(Display.getCurrent(),
 				ComponentSelectionWizardPage.class
-						.getResourceAsStream("../res/arrow_up.png"));
+				.getResourceAsStream("../res/arrow_up.png"));
 	}
 
 	@Override
@@ -95,9 +94,8 @@ public class ComponentSelectionWizardPage extends WizardPage {
 		this.arrowLabel = new Label(container, SWT.NONE);
 		this.arrowLabel.setLayoutData(new GridData(SWT.FILL, SWT.BEGINNING,
 				true, false));
-		this.arrowLabel.setFont(new Font(null, "Arial", 35, SWT.BOLD));
 		this.arrowLabel.setAlignment(SWT.CENTER);
-		this.arrowLabel.setImage(arrowDown);
+		this.arrowLabel.setImage(this.arrowDown);
 		new Label(container, SWT.NONE);
 
 		// row for second model
@@ -113,16 +111,16 @@ public class ComponentSelectionWizardPage extends WizardPage {
 
 		// complete wizard page
 		this.setControl(container);
-		isEvolutionPossible = new EvolutionTester().isEvolutionPossible(
-				wizard.getModelA(), wizard.getModelB());
-		setErrorMessage(wizard.getModelA(), wizard.getModelB(),
-				isEvolutionPossible);
-		this.setPageComplete(isEvolutionPossible);
+		this.isEvolutionPossible = new EvolutionTester().isEvolutionPossible(
+				this.wizard.getModelA(), this.wizard.getModelB());
+		this.setErrorMessage(this.wizard.getModelA(), this.wizard.getModelB(),
+				this.isEvolutionPossible);
+		this.setPageComplete(this.isEvolutionPossible);
 	}
 
 	/**
 	 * Returns which of the two models is selected.
-	 * 
+	 *
 	 * @return true if first model is selected.
 	 */
 	public boolean isFirstModelSelected() {
@@ -131,7 +129,7 @@ public class ComponentSelectionWizardPage extends WizardPage {
 
 	/**
 	 * Returns the string representation of a model file.
-	 * 
+	 *
 	 * @param model
 	 *            model to get string of.
 	 * @return
@@ -147,7 +145,7 @@ public class ComponentSelectionWizardPage extends WizardPage {
 
 	/**
 	 * Returns a Selection listener for browsing the workspace.
-	 * 
+	 *
 	 * @param originalModel
 	 * @param label
 	 * @param shell
@@ -161,27 +159,43 @@ public class ComponentSelectionWizardPage extends WizardPage {
 			public void widgetSelected(SelectionEvent e) {
 
 				List<ViewerFilter> filters = new ArrayList<ViewerFilter>();
-				filters.add(new WorkspaceResourceDialogFilter(wizard.getModelA().getProject().getName()));
+				filters.add(new WorkspaceResourceDialogFilter(
+						ComponentSelectionWizardPage.this.wizard.getModelA()
+								.getProject().getName()));
 				IFile[] files = WorkspaceResourceDialog.openFileSelection(
 						shell, "Choose model file", "Choose model file", true,
 						null, filters);
 				if (files.length >= 1) {
 					IFile model = files[0];
-					if (originalModel != null
-							&& originalModel.equals(wizard.getModelA())) {
-						wizard.setModelA(model);
+					if ((originalModel != null)
+							&& originalModel
+									.equals(ComponentSelectionWizardPage.this.wizard
+											.getModelA())) {
+						ComponentSelectionWizardPage.this.wizard
+								.setModelA(model);
 					} else {
-						wizard.setModelB(model);
+						ComponentSelectionWizardPage.this.wizard
+								.setModelB(model);
 					}
-					label.setText(modelToString(model));
+					label.setText(ComponentSelectionWizardPage.this
+							.modelToString(model));
 					label.pack();
 
-					isEvolutionPossible = new EvolutionTester()
-							.isEvolutionPossible(wizard.getModelA(),
-									wizard.getModelB());
-					setErrorMessage(wizard.getModelA(), wizard.getModelB(),
-							isEvolutionPossible);
-					setPageComplete(isEvolutionPossible);
+					ComponentSelectionWizardPage.this.isEvolutionPossible = new EvolutionTester()
+					.isEvolutionPossible(
+									ComponentSelectionWizardPage.this.wizard
+											.getModelA(),
+							ComponentSelectionWizardPage.this.wizard
+											.getModelB());
+					ComponentSelectionWizardPage.this
+							.setErrorMessage(
+									ComponentSelectionWizardPage.this.wizard
+											.getModelA(),
+									ComponentSelectionWizardPage.this.wizard
+											.getModelB(),
+									ComponentSelectionWizardPage.this.isEvolutionPossible);
+					ComponentSelectionWizardPage.this
+							.setPageComplete(ComponentSelectionWizardPage.this.isEvolutionPossible);
 				}
 
 			}
@@ -205,14 +219,28 @@ public class ComponentSelectionWizardPage extends WizardPage {
 
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				if (modelAButton.getSelection()) {
-					setErrorMessage(wizard.getModelA(), wizard.getModelB(),
-							isEvolutionPossible);
-					arrowLabel.setImage(arrowDown);
-				} else if (modelBButton.getSelection()) {
-					arrowLabel.setImage(arrowUp);
-					setErrorMessage(wizard.getModelB(), wizard.getModelA(),
-							isEvolutionPossible);
+				if (ComponentSelectionWizardPage.this.modelAButton
+						.getSelection()) {
+					ComponentSelectionWizardPage.this
+							.setErrorMessage(
+									ComponentSelectionWizardPage.this.wizard
+											.getModelA(),
+									ComponentSelectionWizardPage.this.wizard
+											.getModelB(),
+									ComponentSelectionWizardPage.this.isEvolutionPossible);
+					ComponentSelectionWizardPage.this.arrowLabel
+							.setImage(ComponentSelectionWizardPage.this.arrowDown);
+				} else if (ComponentSelectionWizardPage.this.modelBButton
+						.getSelection()) {
+					ComponentSelectionWizardPage.this.arrowLabel
+							.setImage(ComponentSelectionWizardPage.this.arrowUp);
+					ComponentSelectionWizardPage.this
+							.setErrorMessage(
+									ComponentSelectionWizardPage.this.wizard
+											.getModelB(),
+									ComponentSelectionWizardPage.this.wizard
+											.getModelA(),
+									ComponentSelectionWizardPage.this.isEvolutionPossible);
 				}
 
 			}
@@ -226,14 +254,14 @@ public class ComponentSelectionWizardPage extends WizardPage {
 
 	private void setErrorMessage(IFile oldModel, IFile newModel,
 			boolean isEvolutionPossible) {
-		if (oldModel == null && newModel != null) {
-			setErrorMessage("Source model for comparison is not selected.");
-		} else if (oldModel != null && newModel == null) {
-			setErrorMessage("Target model for comparison is not selected.");
+		if ((oldModel == null) && (newModel != null)) {
+			this.setErrorMessage("Source model for comparison is not selected.");
+		} else if ((oldModel != null) && (newModel == null)) {
+			this.setErrorMessage("Target model for comparison is not selected.");
 		} else if (isEvolutionPossible) {
-			setErrorMessage(null);
+			this.setErrorMessage(null);
 		} else {
-			setErrorMessage("Selected models are not of the same type.");
+			this.setErrorMessage("Selected models are not of the same type.");
 		}
 	}
 

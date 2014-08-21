@@ -22,7 +22,7 @@ public class FaultTreeModelManager extends AbstractQoSModelManager {
 		String metaModelName = "FaultTree";
 		List<Class<?>> properContents = new ArrayList<Class<?>>();
 		properContents.add(FaultTree.class);
-		ModelTypeInfo modelTypeInfo = new ModelTypeInfo(metaModelName, properContents);
+		ModelTypeInfo modelTypeInfo = new ModelTypeInfo(metaModelName, properContents, FaultTreePackage.eNS_URI);
 		return modelTypeInfo;
 	}
 

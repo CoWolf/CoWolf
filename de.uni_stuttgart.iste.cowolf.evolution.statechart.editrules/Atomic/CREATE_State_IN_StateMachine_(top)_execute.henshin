@@ -1,40 +1,46 @@
 <?xml version="1.0" encoding="ASCII"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_qblJYCIJEeSqwIxN9LIEjA" name="CREATE_State_IN_StateMachine_(top)" description="Creates one State in StateMachine">
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_BNh5ACaxEeS0nKYGza5w2Q" name="CREATE_State_IN_StateMachine_(top)" description="Creates one State in StateMachine">
   <imports href="http://Statechart/1.0#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="_qblJYSIJEeSqwIxN9LIEjA" name="createState_IN_StateMachine" description="creates one State in the context: StateMachine">
-    <parameters xmi:id="_qblJYiIJEeSqwIxN9LIEjA" name="Selected"/>
-    <parameters xmi:id="_qblJYyIJEeSqwIxN9LIEjA" name="New"/>
-    <parameters xmi:id="_qblJZCIJEeSqwIxN9LIEjA" name="Id"/>
-    <lhs xmi:id="_qblJZSIJEeSqwIxN9LIEjA" name="Lhs">
-      <nodes xmi:id="_qblJZiIJEeSqwIxN9LIEjA" name="Selected">
+  <units xsi:type="henshin:Rule" xmi:id="_BNh5ASaxEeS0nKYGza5w2Q" name="createState_IN_StateMachine" description="creates one State in the context: StateMachine">
+    <parameters xmi:id="_BNh5AiaxEeS0nKYGza5w2Q" name="Selected"/>
+    <parameters xmi:id="_BNh5AyaxEeS0nKYGza5w2Q" name="New"/>
+    <parameters xmi:id="_BNh5BCaxEeS0nKYGza5w2Q" name="Id"/>
+    <parameters xmi:id="_BNh5BSaxEeS0nKYGza5w2Q" name="Name"/>
+    <lhs xmi:id="_BNh5BiaxEeS0nKYGza5w2Q" name="Lhs">
+      <nodes xmi:id="_BNh5ByaxEeS0nKYGza5w2Q" name="Selected">
         <type href="http://Statechart/1.0#//StateMachine"/>
       </nodes>
     </lhs>
-    <rhs xmi:id="_qblJZyIJEeSqwIxN9LIEjA" name="Rhs">
-      <nodes xmi:id="_qblJaCIJEeSqwIxN9LIEjA" name="Selected" incoming="_qblJbCIJEeSqwIxN9LIEjA" outgoing="_qblJayIJEeSqwIxN9LIEjA">
+    <rhs xmi:id="_BNh5CCaxEeS0nKYGza5w2Q" name="Rhs">
+      <nodes xmi:id="_BNh5CSaxEeS0nKYGza5w2Q" name="Selected" incoming="_BNh5DiaxEeS0nKYGza5w2Q" outgoing="_BNh5DSaxEeS0nKYGza5w2Q">
         <type href="http://Statechart/1.0#//StateMachine"/>
       </nodes>
-      <nodes xmi:id="_qblJaSIJEeSqwIxN9LIEjA" name="New" incoming="_qblJayIJEeSqwIxN9LIEjA" outgoing="_qblJbCIJEeSqwIxN9LIEjA">
+      <nodes xmi:id="_BNh5CiaxEeS0nKYGza5w2Q" name="New" incoming="_BNh5DSaxEeS0nKYGza5w2Q" outgoing="_BNh5DiaxEeS0nKYGza5w2Q">
         <type href="http://Statechart/1.0#//State"/>
-        <attributes xmi:id="_qblJaiIJEeSqwIxN9LIEjA" value="Id">
-          <type href="http://Statechart/1.0#//StateVertex/id"/>
+        <attributes xmi:id="_BNh5CyaxEeS0nKYGza5w2Q" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_BNh5DCaxEeS0nKYGza5w2Q" value="Name">
+          <type href="http://CommonBase/1.0#//NameBase/name"/>
         </attributes>
       </nodes>
-      <edges xmi:id="_qblJayIJEeSqwIxN9LIEjA" source="_qblJaCIJEeSqwIxN9LIEjA" target="_qblJaSIJEeSqwIxN9LIEjA">
+      <edges xmi:id="_BNh5DSaxEeS0nKYGza5w2Q" source="_BNh5CSaxEeS0nKYGza5w2Q" target="_BNh5CiaxEeS0nKYGza5w2Q">
         <type href="http://Statechart/1.0#//StateMachine/top"/>
       </edges>
-      <edges xmi:id="_qblJbCIJEeSqwIxN9LIEjA" source="_qblJaSIJEeSqwIxN9LIEjA" target="_qblJaCIJEeSqwIxN9LIEjA">
+      <edges xmi:id="_BNh5DiaxEeS0nKYGza5w2Q" source="_BNh5CiaxEeS0nKYGza5w2Q" target="_BNh5CSaxEeS0nKYGza5w2Q">
         <type href="http://Statechart/1.0#//State/state_container"/>
       </edges>
     </rhs>
-    <mappings xmi:id="_qblJbSIJEeSqwIxN9LIEjA" origin="_qblJZiIJEeSqwIxN9LIEjA" image="_qblJaCIJEeSqwIxN9LIEjA"/>
+    <mappings xmi:id="_BNh5DyaxEeS0nKYGza5w2Q" origin="_BNh5ByaxEeS0nKYGza5w2Q" image="_BNh5CSaxEeS0nKYGza5w2Q"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="_qblJbiIJEeSqwIxN9LIEjA" name="mainUnit" description="Creates one State depending on available contexts in model instance" subUnits="_qblJYSIJEeSqwIxN9LIEjA">
-    <parameters xmi:id="_qblJbyIJEeSqwIxN9LIEjA" name="New"/>
-    <parameters xmi:id="_qblJcCIJEeSqwIxN9LIEjA" name="selectedEObject"/>
-    <parameters xmi:id="_qblJcSIJEeSqwIxN9LIEjA" name="Id"/>
-    <parameterMappings xmi:id="_qblJciIJEeSqwIxN9LIEjA" source="_qblJcCIJEeSqwIxN9LIEjA" target="_qblJYiIJEeSqwIxN9LIEjA"/>
-    <parameterMappings xmi:id="_qblJcyIJEeSqwIxN9LIEjA" source="_qblJYyIJEeSqwIxN9LIEjA" target="_qblJbyIJEeSqwIxN9LIEjA"/>
-    <parameterMappings xmi:id="_qblJdCIJEeSqwIxN9LIEjA" source="_qblJcSIJEeSqwIxN9LIEjA" target="_qblJZCIJEeSqwIxN9LIEjA"/>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_BNh5ECaxEeS0nKYGza5w2Q" name="mainUnit" description="Creates one State depending on available contexts in model instance" subUnits="_BNh5ASaxEeS0nKYGza5w2Q">
+    <parameters xmi:id="_BNh5ESaxEeS0nKYGza5w2Q" name="New"/>
+    <parameters xmi:id="_BNh5EiaxEeS0nKYGza5w2Q" name="selectedEObject"/>
+    <parameters xmi:id="_BNh5EyaxEeS0nKYGza5w2Q" name="Id"/>
+    <parameters xmi:id="_BNh5FCaxEeS0nKYGza5w2Q" name="Name"/>
+    <parameterMappings xmi:id="_BNh5FSaxEeS0nKYGza5w2Q" source="_BNh5EiaxEeS0nKYGza5w2Q" target="_BNh5AiaxEeS0nKYGza5w2Q"/>
+    <parameterMappings xmi:id="_BNh5FiaxEeS0nKYGza5w2Q" source="_BNh5AyaxEeS0nKYGza5w2Q" target="_BNh5ESaxEeS0nKYGza5w2Q"/>
+    <parameterMappings xmi:id="_BNh5FyaxEeS0nKYGza5w2Q" source="_BNh5EyaxEeS0nKYGza5w2Q" target="_BNh5BCaxEeS0nKYGza5w2Q"/>
+    <parameterMappings xmi:id="_BNh5GCaxEeS0nKYGza5w2Q" source="_BNh5FCaxEeS0nKYGza5w2Q" target="_BNh5BSaxEeS0nKYGza5w2Q"/>
   </units>
 </henshin:Module>

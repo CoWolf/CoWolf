@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="de.uni_stuttgart.iste.cowolf.ui.transformation.handler.Transform"
+            commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.transform">
+ <enabledWhen>
+            <and>
+               <with
+                     variable="selection">
+               </with>
+               <test
+                     property="de.uni_stuttgart.iste.cowolf.ui.transformation.properties.transformation.canFoo">
+               </test>
+            </and>
+         </enabledWhen>
+      </handler>
+   </extension>
+   <extension
+         id="de.uni_stuttgart.iste.cowolf.ui.navigator.commands"
+         name="%extension.name"
+         point="org.eclipse.ui.commands">
+      <command
+            id="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.transform"
+            name="Transform">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.core.expressions.propertyTesters">
+      <propertyTester
+            class="de.uni_stuttgart.iste.cowolf.ui.transformation.properties.TransformationTester"
+            id="de.uni_stuttgart.iste.cowolf.ui.transformation.properties.transformation"
+            namespace="de.uni_stuttgart.iste.cowolf.ui.transformation.properties.transformation"
+            properties="canFoo"
+            type="java.lang.Object">
+      </propertyTester>
+   </extension>
+   <extension
+         point="org.eclipse.ui.startup">
+      <startup
+            class="de.uni_stuttgart.iste.cowolf.ui.transformation.trigger.Trigger">
+      </startup>
+   </extension>
+
+</plugin>
