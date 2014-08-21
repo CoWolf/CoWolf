@@ -497,9 +497,9 @@ public abstract class AbstractTransformationManager {
             }
         }
         for (File henshinFile : henshinFiles) {
-            System.out.println(henshinFile.toPath().toString());
+            System.out.println(henshinFile.getPath());
             Module module = this.rulesResourceSet.getModule(henshinFile
-                    .toPath().toString(), true);
+                    .getPath(), true);
             for (Unit unit : module.getUnits()) {
                 units.put(unit.getName(), unit);
             }
