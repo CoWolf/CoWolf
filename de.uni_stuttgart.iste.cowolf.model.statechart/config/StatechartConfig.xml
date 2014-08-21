@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Config SYSTEM "http://pi.informatik.uni-siegen.de/SiDiff/Editrulesgeneratorconfig.dtd" >
+<Config>
+	<GeneralSettings>
+		<preventInconsistency value="true" />
+		<multiplicityPreconditions integrated="true" separately="true" />
+		<reduceToSuperType  CREATE_DELETE="true" MOVE="true" SET_UNSET="true" ADD_REMOVE="true" CHANGE="true" />
+		<disableVariants value="false"/>
+		<createAllAttributes value="true" />		
+   		<modelUsesProfileMechanism value="false"/>
+	</GeneralSettings>
+	
+	<MetaModelSettings>
+		<MainModel nsUri="http://Statechart/1.0" />		
+
+		<MaskedClassifiers>	
+		</MaskedClassifiers>
+	</MetaModelSettings>
+	
+	<Transformations>
+		<Creates allow="true" />
+		<Deletes allow="true" />
+		<Moves allow="true" allowReferenceSwitching="true" />
+		<Sets allow="true" />
+		<Unsets allow="true" />
+		<Adds allow="true" />
+		<Removes allow="true" />
+		<Changes allow="true" allowLiteralSwitching="true"/>
+	</Transformations>
+
+	<!-- nested=true: means the root element can also appear
+	somewhere in its lower containments (eg. (Sub-)StateMachine)-->
+	<Root name="StateMachine" nested="false"/>
+	
+	<WhiteList>			
+		<EClassifier name="StateMachine" />		
+		<EClassifier name="State" />		
+		<EClassifier name="Transition" />
+		<EClassifier name="Event" />	
+		<EClassifier name="StateVertex" />		
+		<EClassifier name="BooleanExpression" />
+		<EClassifier name="CompositeState" />		
+		<EClassifier name="Guard" />
+    		
+    </WhiteList>
+	
+	<BlackList>
+		<!--  Using "Constraint" is not adviced when MOVEs, which include switching of references, are enabled -->
+		<!--  <EClassifier name="Constraint" /> -->
+	</BlackList>
+	
+</Config>
