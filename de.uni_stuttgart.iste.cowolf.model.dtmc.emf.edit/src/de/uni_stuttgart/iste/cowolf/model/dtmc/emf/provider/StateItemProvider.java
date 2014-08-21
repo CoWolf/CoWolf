@@ -159,6 +159,7 @@ public class StateItemProvider extends IDBaseItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(DTMCemfPackage.Literals.STATE__OUTGOING);
 			childrenFeatures.add(DTMCemfPackage.Literals.STATE__LABELS);
 		}
 		return childrenFeatures;
@@ -218,6 +219,7 @@ public class StateItemProvider extends IDBaseItemProvider {
 			case DTMCemfPackage.STATE__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case DTMCemfPackage.STATE__OUTGOING:
 			case DTMCemfPackage.STATE__LABELS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -235,6 +237,11 @@ public class StateItemProvider extends IDBaseItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DTMCemfPackage.Literals.STATE__OUTGOING,
+				 DTMCemfFactory.eINSTANCE.createTransition()));
 
 		newChildDescriptors.add
 			(createChildParameter

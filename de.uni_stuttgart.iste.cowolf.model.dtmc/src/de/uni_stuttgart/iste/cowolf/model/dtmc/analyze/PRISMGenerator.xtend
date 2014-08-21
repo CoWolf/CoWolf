@@ -3,6 +3,8 @@ package de.uni_stuttgart.iste.cowolf.model.dtmc.analyze
 import de.uni_stuttgart.iste.cowolf.model.dtmc.State
 import org.eclipse.emf.ecore.resource.Resource
 import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC
+import de.uni_stuttgart.iste.cowolf.model.dtmc.Label
+import java.util.List
 
 class PRISMGenerator {
 
@@ -12,7 +14,9 @@ class PRISMGenerator {
 		if (resource.contents.size > 0 && resource.contents.get(0) instanceof DTMC) {
 			var e = resource.contents.get(0) as DTMC
 			addStatesToMap(e)
-			'''«e.compilePM»'''
+			'''«e.compilePM»
+
+«resource.generateLabels»'''
 		} else {
 			''''''
 		}
@@ -32,6 +36,20 @@ class PRISMGenerator {
 		}
 		
 		return result;
+	}
+	
+	def CharSequence generateLabels(Resource resource) {
+		
+		var e = resource.getContents().get(0) as DTMC;
+		var labelMap = e.states.map(s | s.labels).flatten
+		
+		var labels = labelMap.fold(<String,List<State>>newHashMap())[m, l | if (!m.containsKey(l.name)) {
+				m.put(l.name, newLinkedList())
+			}
+			m.get(l.name).add(l.state);
+			m]
+		return labels.entrySet.map[l | 'label "' + l.key + '" = ' + l.value.join('|')["s="+getID] + ";"].join('\n');
+	
 	}
 
 	def addStatesToMap(DTMC e) '''
