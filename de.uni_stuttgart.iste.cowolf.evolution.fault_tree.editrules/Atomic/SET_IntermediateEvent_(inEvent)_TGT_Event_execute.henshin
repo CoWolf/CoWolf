@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_k6p1ECkoEeSR5d0JIP8zig" name="SET_IntermediateEvent_(inEvent)_TGT_Event" description="Sets IntermediateEvent's reference inEvent the target Event">
+  <imports href="http://FaultTree/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_k6p1ESkoEeSR5d0JIP8zig" name="setIntermediateEvent_inEvent_TO_Event" description="SetIntermediateEventRefinEventToEvent">
+    <parameters xmi:id="_k6qcICkoEeSR5d0JIP8zig" name="Selected"/>
+    <parameters xmi:id="_k6qcISkoEeSR5d0JIP8zig" name="NewTarget"/>
+    <lhs xmi:id="_k6qcIikoEeSR5d0JIP8zig" name="Lhs">
+      <nodes xmi:id="_k6qcIykoEeSR5d0JIP8zig" name="Selected">
+        <type href="http://FaultTree/1.0#//IntermediateEvent"/>
+      </nodes>
+      <nodes xmi:id="_k6qcJCkoEeSR5d0JIP8zig" name="NewTarget">
+        <type href="http://FaultTree/1.0#//Event"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_k6qcJSkoEeSR5d0JIP8zig" name="Rhs">
+      <nodes xmi:id="_k6qcJikoEeSR5d0JIP8zig" name="Selected" outgoing="_k6qcKCkoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//IntermediateEvent"/>
+      </nodes>
+      <nodes xmi:id="_k6qcJykoEeSR5d0JIP8zig" name="NewTarget" incoming="_k6qcKCkoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//Event"/>
+      </nodes>
+      <edges xmi:id="_k6qcKCkoEeSR5d0JIP8zig" source="_k6qcJikoEeSR5d0JIP8zig" target="_k6qcJykoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//IntermediateEvent/inEvent"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_k6qcKSkoEeSR5d0JIP8zig" origin="_k6qcIykoEeSR5d0JIP8zig" image="_k6qcJikoEeSR5d0JIP8zig"/>
+    <mappings xmi:id="_k6qcKikoEeSR5d0JIP8zig" origin="_k6qcJCkoEeSR5d0JIP8zig" image="_k6qcJykoEeSR5d0JIP8zig"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_k6qcKykoEeSR5d0JIP8zig" name="mainUnit" subUnits="_k6p1ESkoEeSR5d0JIP8zig">
+    <parameters xmi:id="_k6qcLCkoEeSR5d0JIP8zig" name="selectedEObject"/>
+    <parameters xmi:id="_k6qcLSkoEeSR5d0JIP8zig" name="NewTarget"/>
+    <parameterMappings xmi:id="_k6qcLikoEeSR5d0JIP8zig" source="_k6qcLCkoEeSR5d0JIP8zig" target="_k6qcICkoEeSR5d0JIP8zig"/>
+    <parameterMappings xmi:id="_k6qcLykoEeSR5d0JIP8zig" source="_k6qcLSkoEeSR5d0JIP8zig" target="_k6qcISkoEeSR5d0JIP8zig"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_k9iJ8CkoEeSR5d0JIP8zig" name="MOVE_FailureInstance_FROM_FaultTree_(failure_instance)_TO_FaultTree_(failure_instance)" description="MOVEs FailureInstance from FaultTree(Reference:failure_instance) to FaultTree(Reference:failure_instance">
+  <imports href="http://FaultTree/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_k9iJ8SkoEeSR5d0JIP8zig" name="moveFailureInstance_FROM_FaultTree_failure_instance_TO_FaultTree_FaultTree" description="Moves FailureInstance from FaultTree(Reference:failure_instance) toFaultTree(Reference:FaultTree)">
+    <parameters xmi:id="_k9ixACkoEeSR5d0JIP8zig" name="Selected"/>
+    <parameters xmi:id="_k9ixASkoEeSR5d0JIP8zig" name="OldSource"/>
+    <parameters xmi:id="_k9ixAikoEeSR5d0JIP8zig" name="NewSource"/>
+    <lhs xmi:id="_k9ixAykoEeSR5d0JIP8zig" name="Lhs">
+      <nodes xmi:id="_k9ixBCkoEeSR5d0JIP8zig" name="Selected" incoming="_k9ixBykoEeSR5d0JIP8zig" outgoing="_k9ixCCkoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//FailureInstance"/>
+      </nodes>
+      <nodes xmi:id="_k9ixBSkoEeSR5d0JIP8zig" name="OldSource" incoming="_k9ixCCkoEeSR5d0JIP8zig" outgoing="_k9ixBykoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//FaultTree"/>
+      </nodes>
+      <nodes xmi:id="_k9ixBikoEeSR5d0JIP8zig" name="NewSource">
+        <type href="http://FaultTree/1.0#//FaultTree"/>
+      </nodes>
+      <edges xmi:id="_k9ixBykoEeSR5d0JIP8zig" source="_k9ixBSkoEeSR5d0JIP8zig" target="_k9ixBCkoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//FaultTree/failure_instance"/>
+      </edges>
+      <edges xmi:id="_k9ixCCkoEeSR5d0JIP8zig" source="_k9ixBCkoEeSR5d0JIP8zig" target="_k9ixBSkoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//FailureInstance/root"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_k9ixCSkoEeSR5d0JIP8zig" name="Rhs">
+      <nodes xmi:id="_k9ixCikoEeSR5d0JIP8zig" name="Selected" incoming="_k9ixDSkoEeSR5d0JIP8zig" outgoing="_k9ixDikoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//FailureInstance"/>
+      </nodes>
+      <nodes xmi:id="_k9ixCykoEeSR5d0JIP8zig" name="OldSource">
+        <type href="http://FaultTree/1.0#//FaultTree"/>
+      </nodes>
+      <nodes xmi:id="_k9ixDCkoEeSR5d0JIP8zig" name="NewSource" incoming="_k9ixDikoEeSR5d0JIP8zig" outgoing="_k9ixDSkoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//FaultTree"/>
+      </nodes>
+      <edges xmi:id="_k9ixDSkoEeSR5d0JIP8zig" source="_k9ixDCkoEeSR5d0JIP8zig" target="_k9ixCikoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//FaultTree/failure_instance"/>
+      </edges>
+      <edges xmi:id="_k9ixDikoEeSR5d0JIP8zig" source="_k9ixCikoEeSR5d0JIP8zig" target="_k9ixDCkoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//FailureInstance/root"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_k9ixDykoEeSR5d0JIP8zig" origin="_k9ixBCkoEeSR5d0JIP8zig" image="_k9ixCikoEeSR5d0JIP8zig"/>
+    <mappings xmi:id="_k9ixECkoEeSR5d0JIP8zig" origin="_k9ixBSkoEeSR5d0JIP8zig" image="_k9ixCykoEeSR5d0JIP8zig"/>
+    <mappings xmi:id="_k9ixESkoEeSR5d0JIP8zig" origin="_k9ixBikoEeSR5d0JIP8zig" image="_k9ixDCkoEeSR5d0JIP8zig"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_k9ixEikoEeSR5d0JIP8zig" name="mainUnit" subUnits="_k9iJ8SkoEeSR5d0JIP8zig">
+    <parameters xmi:id="_k9ixEykoEeSR5d0JIP8zig" name="selectedEObject"/>
+    <parameters xmi:id="_k9ixFCkoEeSR5d0JIP8zig" name="OldSource"/>
+    <parameters xmi:id="_k9ixFSkoEeSR5d0JIP8zig" name="NewSource"/>
+    <parameterMappings xmi:id="_k9ixFikoEeSR5d0JIP8zig" source="_k9ixEykoEeSR5d0JIP8zig" target="_k9ixACkoEeSR5d0JIP8zig"/>
+    <parameterMappings xmi:id="_k9ixFykoEeSR5d0JIP8zig" source="_k9ixFCkoEeSR5d0JIP8zig" target="_k9ixASkoEeSR5d0JIP8zig"/>
+    <parameterMappings xmi:id="_k9ixGCkoEeSR5d0JIP8zig" source="_k9ixFSkoEeSR5d0JIP8zig" target="_k9ixAikoEeSR5d0JIP8zig"/>
+  </units>
+</henshin:Module>

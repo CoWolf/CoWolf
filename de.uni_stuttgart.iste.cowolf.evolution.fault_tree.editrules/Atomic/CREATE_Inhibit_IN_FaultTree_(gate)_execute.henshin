@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_lBSokCkoEeSR5d0JIP8zig" name="CREATE_Inhibit_IN_FaultTree_(gate)" description="Creates one Inhibit in FaultTree">
+  <imports href="http://FaultTree/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_lBSokSkoEeSR5d0JIP8zig" name="createInhibit_IN_FaultTree" description="creates one Inhibit in the context: FaultTree">
+    <parameters xmi:id="_lBSokikoEeSR5d0JIP8zig" name="Selected"/>
+    <parameters xmi:id="_lBSokykoEeSR5d0JIP8zig" name="New"/>
+    <parameters xmi:id="_lBSolCkoEeSR5d0JIP8zig" name="Id"/>
+    <lhs xmi:id="_lBSolSkoEeSR5d0JIP8zig" name="Lhs">
+      <nodes xmi:id="_lBSolikoEeSR5d0JIP8zig" name="Selected">
+        <type href="http://FaultTree/1.0#//FaultTree"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_lBSolykoEeSR5d0JIP8zig" name="Rhs">
+      <nodes xmi:id="_lBSomCkoEeSR5d0JIP8zig" name="Selected" incoming="_lBSonCkoEeSR5d0JIP8zig" outgoing="_lBSomykoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//FaultTree"/>
+      </nodes>
+      <nodes xmi:id="_lBSomSkoEeSR5d0JIP8zig" name="New" incoming="_lBSomykoEeSR5d0JIP8zig" outgoing="_lBSonCkoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//Inhibit"/>
+        <attributes xmi:id="_lBSomikoEeSR5d0JIP8zig" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_lBSomykoEeSR5d0JIP8zig" source="_lBSomCkoEeSR5d0JIP8zig" target="_lBSomSkoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//FaultTree/gate"/>
+      </edges>
+      <edges xmi:id="_lBSonCkoEeSR5d0JIP8zig" source="_lBSomSkoEeSR5d0JIP8zig" target="_lBSomCkoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//Gate/root"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_lBSonSkoEeSR5d0JIP8zig" origin="_lBSolikoEeSR5d0JIP8zig" image="_lBSomCkoEeSR5d0JIP8zig"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_lBSonikoEeSR5d0JIP8zig" name="mainUnit" description="Creates one Inhibit depending on available contexts in model instance" subUnits="_lBSokSkoEeSR5d0JIP8zig">
+    <parameters xmi:id="_lBSonykoEeSR5d0JIP8zig" name="New"/>
+    <parameters xmi:id="_lBSooCkoEeSR5d0JIP8zig" name="selectedEObject"/>
+    <parameters xmi:id="_lBSooSkoEeSR5d0JIP8zig" name="Id"/>
+    <parameterMappings xmi:id="_lBSooikoEeSR5d0JIP8zig" source="_lBSooCkoEeSR5d0JIP8zig" target="_lBSokikoEeSR5d0JIP8zig"/>
+    <parameterMappings xmi:id="_lBSooykoEeSR5d0JIP8zig" source="_lBSokykoEeSR5d0JIP8zig" target="_lBSonykoEeSR5d0JIP8zig"/>
+    <parameterMappings xmi:id="_lBSopCkoEeSR5d0JIP8zig" source="_lBSooSkoEeSR5d0JIP8zig" target="_lBSolCkoEeSR5d0JIP8zig"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_lAUYMCkoEeSR5d0JIP8zig" name="DELETE_OR_IN_FaultTree_(gate)" description="Deletes one OR in FaultTree">
+  <imports href="http://FaultTree/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_lAUYMSkoEeSR5d0JIP8zig" name="deleteOR_IN_FaultTree" description="deletes one OR in the context: FaultTree">
+    <parameters xmi:id="_lAUYMikoEeSR5d0JIP8zig" name="Selected"/>
+    <parameters xmi:id="_lAUYMykoEeSR5d0JIP8zig" name="ToBeDeleted"/>
+    <lhs xmi:id="_lAUYNCkoEeSR5d0JIP8zig" name="LHS">
+      <nodes xmi:id="_lAUYNSkoEeSR5d0JIP8zig" name="Selected" incoming="_lAUYOCkoEeSR5d0JIP8zig" outgoing="_lAUYNykoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//FaultTree"/>
+      </nodes>
+      <nodes xmi:id="_lAUYNikoEeSR5d0JIP8zig" name="ToBeDeleted" incoming="_lAUYNykoEeSR5d0JIP8zig" outgoing="_lAUYOCkoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//OR"/>
+      </nodes>
+      <edges xmi:id="_lAUYNykoEeSR5d0JIP8zig" source="_lAUYNSkoEeSR5d0JIP8zig" target="_lAUYNikoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//FaultTree/gate"/>
+      </edges>
+      <edges xmi:id="_lAUYOCkoEeSR5d0JIP8zig" source="_lAUYNikoEeSR5d0JIP8zig" target="_lAUYNSkoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//Gate/root"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_lAUYOSkoEeSR5d0JIP8zig" name="RHS">
+      <nodes xmi:id="_lAUYOikoEeSR5d0JIP8zig" name="Selected">
+        <type href="http://FaultTree/1.0#//FaultTree"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_lAUYOykoEeSR5d0JIP8zig" origin="_lAUYNSkoEeSR5d0JIP8zig" image="_lAUYOikoEeSR5d0JIP8zig"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_lAUYPCkoEeSR5d0JIP8zig" name="mainUnit" description="Deletes one OR depending on available contexts in model instance" subUnits="_lAUYMSkoEeSR5d0JIP8zig">
+    <parameters xmi:id="_lAUYPSkoEeSR5d0JIP8zig" name="ToBeDeleted"/>
+    <parameters xmi:id="_lAUYPikoEeSR5d0JIP8zig" name="selectedEObject"/>
+    <parameterMappings xmi:id="_lAUYPykoEeSR5d0JIP8zig" source="_lAUYPikoEeSR5d0JIP8zig" target="_lAUYMikoEeSR5d0JIP8zig"/>
+    <parameterMappings xmi:id="_lAUYQCkoEeSR5d0JIP8zig" source="_lAUYPSkoEeSR5d0JIP8zig" target="_lAUYMykoEeSR5d0JIP8zig"/>
+  </units>
+</henshin:Module>

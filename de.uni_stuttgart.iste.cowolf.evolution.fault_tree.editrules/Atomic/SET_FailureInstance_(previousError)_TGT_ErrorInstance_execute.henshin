@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_k9K9kCkoEeSR5d0JIP8zig" name="SET_FailureInstance_(previousError)_TGT_ErrorInstance" description="Sets FailureInstance's reference previousError the target ErrorInstance">
+  <imports href="http://FaultTree/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_k9K9kSkoEeSR5d0JIP8zig" name="setFailureInstance_previousError_TO_ErrorInstance" description="SetFailureInstanceRefpreviousErrorToErrorInstance">
+    <parameters xmi:id="_k9K9kikoEeSR5d0JIP8zig" name="Selected"/>
+    <parameters xmi:id="_k9K9kykoEeSR5d0JIP8zig" name="NewTarget"/>
+    <lhs xmi:id="_k9K9lCkoEeSR5d0JIP8zig" name="Lhs">
+      <nodes xmi:id="_k9K9lSkoEeSR5d0JIP8zig" name="Selected">
+        <type href="http://FaultTree/1.0#//FailureInstance"/>
+      </nodes>
+      <nodes xmi:id="_k9K9likoEeSR5d0JIP8zig" name="NewTarget">
+        <type href="http://FaultTree/1.0#//ErrorInstance"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_k9K9lykoEeSR5d0JIP8zig" name="Rhs">
+      <nodes xmi:id="_k9K9mCkoEeSR5d0JIP8zig" name="Selected" outgoing="_k9K9mikoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//FailureInstance"/>
+      </nodes>
+      <nodes xmi:id="_k9K9mSkoEeSR5d0JIP8zig" name="NewTarget" incoming="_k9K9mikoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//ErrorInstance"/>
+      </nodes>
+      <edges xmi:id="_k9K9mikoEeSR5d0JIP8zig" source="_k9K9mCkoEeSR5d0JIP8zig" target="_k9K9mSkoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//FailureInstance/previousError"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_k9K9mykoEeSR5d0JIP8zig" origin="_k9K9lSkoEeSR5d0JIP8zig" image="_k9K9mCkoEeSR5d0JIP8zig"/>
+    <mappings xmi:id="_k9K9nCkoEeSR5d0JIP8zig" origin="_k9K9likoEeSR5d0JIP8zig" image="_k9K9mSkoEeSR5d0JIP8zig"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_k9K9nSkoEeSR5d0JIP8zig" name="mainUnit" subUnits="_k9K9kSkoEeSR5d0JIP8zig">
+    <parameters xmi:id="_k9K9nikoEeSR5d0JIP8zig" name="selectedEObject"/>
+    <parameters xmi:id="_k9K9nykoEeSR5d0JIP8zig" name="NewTarget"/>
+    <parameterMappings xmi:id="_k9K9oCkoEeSR5d0JIP8zig" source="_k9K9nikoEeSR5d0JIP8zig" target="_k9K9kikoEeSR5d0JIP8zig"/>
+    <parameterMappings xmi:id="_k9K9oSkoEeSR5d0JIP8zig" source="_k9K9nykoEeSR5d0JIP8zig" target="_k9K9kykoEeSR5d0JIP8zig"/>
+  </units>
+</henshin:Module>

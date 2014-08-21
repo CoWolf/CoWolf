@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_k_t7QCkoEeSR5d0JIP8zig" name="MOVE_ErrorType_FROM_FaultTree_(error_type)_TO_FaultTree_(error_type)" description="MOVEs ErrorType from FaultTree(Reference:error_type) to FaultTree(Reference:error_type">
+  <imports href="http://FaultTree/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_k_t7QSkoEeSR5d0JIP8zig" name="moveErrorType_FROM_FaultTree_error_type_TO_FaultTree_FaultTree" description="Moves ErrorType from FaultTree(Reference:error_type) toFaultTree(Reference:FaultTree)">
+    <parameters xmi:id="_k_t7QikoEeSR5d0JIP8zig" name="Selected"/>
+    <parameters xmi:id="_k_t7QykoEeSR5d0JIP8zig" name="OldSource"/>
+    <parameters xmi:id="_k_t7RCkoEeSR5d0JIP8zig" name="NewSource"/>
+    <lhs xmi:id="_k_t7RSkoEeSR5d0JIP8zig" name="Lhs">
+      <nodes xmi:id="_k_t7RikoEeSR5d0JIP8zig" name="Selected" incoming="_k_t7SSkoEeSR5d0JIP8zig" outgoing="_k_t7SikoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//ErrorType"/>
+      </nodes>
+      <nodes xmi:id="_k_t7RykoEeSR5d0JIP8zig" name="OldSource" incoming="_k_t7SikoEeSR5d0JIP8zig" outgoing="_k_t7SSkoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//FaultTree"/>
+      </nodes>
+      <nodes xmi:id="_k_t7SCkoEeSR5d0JIP8zig" name="NewSource">
+        <type href="http://FaultTree/1.0#//FaultTree"/>
+      </nodes>
+      <edges xmi:id="_k_t7SSkoEeSR5d0JIP8zig" source="_k_t7RykoEeSR5d0JIP8zig" target="_k_t7RikoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//FaultTree/error_type"/>
+      </edges>
+      <edges xmi:id="_k_t7SikoEeSR5d0JIP8zig" source="_k_t7RikoEeSR5d0JIP8zig" target="_k_t7RykoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//ErrorType/root"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_k_t7SykoEeSR5d0JIP8zig" name="Rhs">
+      <nodes xmi:id="_k_t7TCkoEeSR5d0JIP8zig" name="Selected" incoming="_k_uiUCkoEeSR5d0JIP8zig" outgoing="_k_uiUSkoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//ErrorType"/>
+      </nodes>
+      <nodes xmi:id="_k_t7TSkoEeSR5d0JIP8zig" name="OldSource">
+        <type href="http://FaultTree/1.0#//FaultTree"/>
+      </nodes>
+      <nodes xmi:id="_k_t7TikoEeSR5d0JIP8zig" name="NewSource" incoming="_k_uiUSkoEeSR5d0JIP8zig" outgoing="_k_uiUCkoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//FaultTree"/>
+      </nodes>
+      <edges xmi:id="_k_uiUCkoEeSR5d0JIP8zig" source="_k_t7TikoEeSR5d0JIP8zig" target="_k_t7TCkoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//FaultTree/error_type"/>
+      </edges>
+      <edges xmi:id="_k_uiUSkoEeSR5d0JIP8zig" source="_k_t7TCkoEeSR5d0JIP8zig" target="_k_t7TikoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//ErrorType/root"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_k_uiUikoEeSR5d0JIP8zig" origin="_k_t7RikoEeSR5d0JIP8zig" image="_k_t7TCkoEeSR5d0JIP8zig"/>
+    <mappings xmi:id="_k_uiUykoEeSR5d0JIP8zig" origin="_k_t7RykoEeSR5d0JIP8zig" image="_k_t7TSkoEeSR5d0JIP8zig"/>
+    <mappings xmi:id="_k_uiVCkoEeSR5d0JIP8zig" origin="_k_t7SCkoEeSR5d0JIP8zig" image="_k_t7TikoEeSR5d0JIP8zig"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_k_uiVSkoEeSR5d0JIP8zig" name="mainUnit" subUnits="_k_t7QSkoEeSR5d0JIP8zig">
+    <parameters xmi:id="_k_uiVikoEeSR5d0JIP8zig" name="selectedEObject"/>
+    <parameters xmi:id="_k_uiVykoEeSR5d0JIP8zig" name="OldSource"/>
+    <parameters xmi:id="_k_uiWCkoEeSR5d0JIP8zig" name="NewSource"/>
+    <parameterMappings xmi:id="_k_uiWSkoEeSR5d0JIP8zig" source="_k_uiVikoEeSR5d0JIP8zig" target="_k_t7QikoEeSR5d0JIP8zig"/>
+    <parameterMappings xmi:id="_k_uiWikoEeSR5d0JIP8zig" source="_k_uiVykoEeSR5d0JIP8zig" target="_k_t7QykoEeSR5d0JIP8zig"/>
+    <parameterMappings xmi:id="_k_uiWykoEeSR5d0JIP8zig" source="_k_uiWCkoEeSR5d0JIP8zig" target="_k_t7RCkoEeSR5d0JIP8zig"/>
+  </units>
+</henshin:Module>
