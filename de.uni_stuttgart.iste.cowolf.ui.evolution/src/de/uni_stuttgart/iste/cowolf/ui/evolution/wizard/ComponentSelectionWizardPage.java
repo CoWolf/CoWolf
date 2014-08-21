@@ -10,6 +10,7 @@ import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
+import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -55,214 +56,197 @@ public class ComponentSelectionWizardPage extends WizardPage {
 
 	private boolean isEvolutionPossible;
 
-	/**
-	 * Page providing main content for wizard.
-	 *
-	 * @param wizard
-	 */
-	protected ComponentSelectionWizardPage(ComponentSelectionWizard wizard) {
-		super("Model Evolution");
-		this.wizard = wizard;
-		this.setDescription("Compare two versions of a model with SiLift.");
-		this.setTitle("Compare models with each other.");
-		this.arrowDown = new Image(Display.getCurrent(),
-				ComponentSelectionWizardPage.class
-				.getResourceAsStream("../res/arrow_down.png"));
-		this.arrowUp = new Image(Display.getCurrent(),
-				ComponentSelectionWizardPage.class
-				.getResourceAsStream("../res/arrow_up.png"));
-	}
+    private Button checkbox;
 
-	@Override
-	public void createControl(final Composite parent) {
-		Composite container = new Composite(parent, SWT.NONE);
-		GridLayout layout = new GridLayout(3, false);
-		container.setLayout(layout);
+    /**
+     * Page providing main content for wizard.
+     *
+     * @param wizard
+     */
+    protected ComponentSelectionWizardPage(ComponentSelectionWizard wizard) {
+        super("Model Evolution");
+        this.wizard = wizard;
+        this.setDescription("Compare two versions of a model with SiLift.");
+        this.setTitle("Compare models with each other.");
+        arrowDown = new Image(Display.getCurrent(),
+                ComponentSelectionWizardPage.class
+                        .getResourceAsStream("../res/arrow_down.png"));
+        arrowUp = new Image(Display.getCurrent(),
+                ComponentSelectionWizardPage.class
+                        .getResourceAsStream("../res/arrow_up.png"));
+    }
 
-		// row for first model
-		this.modelAButton = new Button(container, SWT.RADIO);
-		this.modelAButton.setSelection(true);
-		Label labelA = new Label(container, SWT.NONE);
-		labelA.setText(this.modelToString(this.wizard.getModelA()));
-		Button modelAChooser = new Button(container, 0);
-		modelAChooser.setText("Browse ...");
-		modelAChooser.addSelectionListener(this.browseWorkspace(
-				this.wizard.getModelA(), labelA, parent.getShell()));
+    @Override
+    public void createControl(final Composite parent) {
+        Composite container = new Composite(parent, SWT.NONE);
+        GridLayout layout = new GridLayout(3, false);
+        container.setLayout(layout);
 
-		// "arrow" row
-		new Label(container, SWT.NONE);
-		this.arrowLabel = new Label(container, SWT.NONE);
-		this.arrowLabel.setLayoutData(new GridData(SWT.FILL, SWT.BEGINNING,
-				true, false));
-		this.arrowLabel.setAlignment(SWT.CENTER);
-		this.arrowLabel.setImage(this.arrowDown);
-		new Label(container, SWT.NONE);
+        // row for first model
+        this.modelAButton = new Button(container, SWT.RADIO);
+        this.modelAButton.setSelection(true);
+        Label labelA = new Label(container, SWT.NONE);
+        labelA.setText(this.modelToString(this.wizard.getModelA()));
+        Button modelAChooser = new Button(container, 0);
+        modelAChooser.setText("Browse ...");
+        modelAChooser.addSelectionListener(this.browseWorkspace(
+                this.wizard.getModelA(), labelA, parent.getShell()));
 
-		// row for second model
-		this.modelBButton = new Button(container, SWT.RADIO);
-		this.modelAButton.addSelectionListener(this.radioButtonChanged());
-		this.modelBButton.addSelectionListener(this.radioButtonChanged());
-		final Label labelB = new Label(container, SWT.NONE);
-		labelB.setText(this.modelToString(this.wizard.getModelB()));
-		Button modelBChooser = new Button(container, 0);
-		modelBChooser.setText("Browse ...");
-		modelBChooser.addSelectionListener(this.browseWorkspace(
-				this.wizard.getModelB(), labelB, parent.getShell()));
+        // "arrow" row
+        new Label(container, SWT.NONE);
+        this.arrowLabel = new Label(container, SWT.NONE);
+        this.arrowLabel.setLayoutData(new GridData(SWT.FILL, SWT.BEGINNING,
+                true, false));
+        this.arrowLabel.setFont(new Font(null, "Arial", 35, SWT.BOLD));
+        this.arrowLabel.setAlignment(SWT.CENTER);
+        this.arrowLabel.setImage(arrowDown);
+        new Label(container, SWT.NONE);
 
-		// complete wizard page
-		this.setControl(container);
-		this.isEvolutionPossible = new EvolutionTester().isEvolutionPossible(
-				this.wizard.getModelA(), this.wizard.getModelB());
-		this.setErrorMessage(this.wizard.getModelA(), this.wizard.getModelB(),
-				this.isEvolutionPossible);
-		this.setPageComplete(this.isEvolutionPossible);
-	}
+        // row for second model
+        this.modelBButton = new Button(container, SWT.RADIO);
+        this.modelAButton.addSelectionListener(this.radioButtonChanged());
+        this.modelBButton.addSelectionListener(this.radioButtonChanged());
+        final Label labelB = new Label(container, SWT.NONE);
+        labelB.setText(this.modelToString(this.wizard.getModelB()));
+        Button modelBChooser = new Button(container, 0);
+        modelBChooser.setText("Browse ...");
+        modelBChooser.addSelectionListener(this.browseWorkspace(
+                this.wizard.getModelB(), labelB, parent.getShell()));
 
-	/**
-	 * Returns which of the two models is selected.
-	 *
-	 * @return true if first model is selected.
-	 */
-	public boolean isFirstModelSelected() {
-		return this.modelAButton.getSelection();
-	}
+        // row for checkbox
+        this.checkbox = new Button(container, SWT.CHECK);
+        Label labelCheckbox = new Label(container, SWT.NONE);
+        labelCheckbox.setText("Add models to Association manager.");
 
-	/**
-	 * Returns the string representation of a model file.
-	 *
-	 * @param model
-	 *            model to get string of.
-	 * @return
-	 */
-	protected String modelToString(IFile model) {
-		if (model != null) {
-			String returnString = model.getProject().getName();
-			returnString += "/" + model.getProjectRelativePath().toString();
-			return returnString;
-		}
-		return "";
-	}
+        // complete wizard page
+        this.setControl(container);
 
-	/**
-	 * Returns a Selection listener for browsing the workspace.
-	 *
-	 * @param originalModel
-	 * @param label
-	 * @param shell
-	 * @return returns a Selection listener
-	 */
-	protected SelectionListener browseWorkspace(final IFile originalModel,
-			final Label label, final Shell shell) {
-		SelectionListener listener = new SelectionListener() {
+        isEvolutionPossible = new EvolutionTester().isEvolutionPossible(
+                wizard.getModelA(), wizard.getModelB());
+        setErrorMessage(wizard.getModelA(), wizard.getModelB(),
+                isEvolutionPossible);
+        this.setPageComplete(isEvolutionPossible);
+    }
+    /**
+     * Returns which of the two models is selected.
+     * 
+     * @return true if first model is selected.
+     */
+    public boolean isFirstModelSelected() {
+        return this.modelAButton.getSelection();
+    }
 
-			@Override
-			public void widgetSelected(SelectionEvent e) {
+    /**
+     * Returns the string representation of a model file.
+     * 
+     * @param model
+     *            model to get string of.
+     * @return
+     */
+    protected String modelToString(IFile model) {
+        if (model != null) {
+            String returnString = model.getProject().getName();
+            returnString += "/" + model.getProjectRelativePath().toString();
+            return returnString;
+        }
+        return "";
+    }
 
-				List<ViewerFilter> filters = new ArrayList<ViewerFilter>();
-				filters.add(new WorkspaceResourceDialogFilter(
-						ComponentSelectionWizardPage.this.wizard.getModelA()
-								.getProject().getName()));
-				IFile[] files = WorkspaceResourceDialog.openFileSelection(
-						shell, "Choose model file", "Choose model file", true,
-						null, filters);
-				if (files.length >= 1) {
-					IFile model = files[0];
-					if ((originalModel != null)
-							&& originalModel
-									.equals(ComponentSelectionWizardPage.this.wizard
-											.getModelA())) {
-						ComponentSelectionWizardPage.this.wizard
-								.setModelA(model);
-					} else {
-						ComponentSelectionWizardPage.this.wizard
-								.setModelB(model);
-					}
-					label.setText(ComponentSelectionWizardPage.this
-							.modelToString(model));
-					label.pack();
+    /**
+     * Returns a Selection listener for browsing the workspace.
+     * 
+     * @param originalModel
+     * @param label
+     * @param shell
+     * @return returns a Selection listener
+     */
+    protected SelectionListener browseWorkspace(final IFile originalModel,
+            final Label label, final Shell shell) {
+        SelectionListener listener = new SelectionListener() {
 
-					ComponentSelectionWizardPage.this.isEvolutionPossible = new EvolutionTester()
-					.isEvolutionPossible(
-									ComponentSelectionWizardPage.this.wizard
-											.getModelA(),
-							ComponentSelectionWizardPage.this.wizard
-											.getModelB());
-					ComponentSelectionWizardPage.this
-							.setErrorMessage(
-									ComponentSelectionWizardPage.this.wizard
-											.getModelA(),
-									ComponentSelectionWizardPage.this.wizard
-											.getModelB(),
-									ComponentSelectionWizardPage.this.isEvolutionPossible);
-					ComponentSelectionWizardPage.this
-							.setPageComplete(ComponentSelectionWizardPage.this.isEvolutionPossible);
-				}
+            @Override
+            public void widgetSelected(SelectionEvent e) {
 
-			}
+                List<ViewerFilter> filters = new ArrayList<ViewerFilter>();
+                filters.add(new WorkspaceResourceDialogFilter(wizard
+                        .getModelA().getProject().getName()));
+                IFile[] files = WorkspaceResourceDialog.openFileSelection(
+                        shell, "Choose model file", "Choose model file", true,
+                        null, filters);
+                if (files.length >= 1) {
+                    IFile model = files[0];
+                    if (originalModel != null
+                            && originalModel.equals(wizard.getModelA())) {
+                        wizard.setModelA(model);
+                    } else {
+                        wizard.setModelB(model);
+                    }
+                    label.setText(modelToString(model));
+                    label.pack();
 
-			@Override
-			public void widgetDefaultSelected(SelectionEvent e) {
-				// nothing to do
-			}
-		};
-		return listener;
-	}
+                    isEvolutionPossible = new EvolutionTester()
+                            .isEvolutionPossible(wizard.getModelA(),
+                                    wizard.getModelB());
+                    setErrorMessage(wizard.getModelA(), wizard.getModelB(),
+                            isEvolutionPossible);
+                    setPageComplete(isEvolutionPossible);
+                }
 
-	/**
-	 * Provides SelectionListener if the selection of a radio button (group)
-	 * changed.
-	 *
-	 * @return
-	 */
-	protected SelectionListener radioButtonChanged() {
-		SelectionListener listener = new SelectionListener() {
+            }
 
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				if (ComponentSelectionWizardPage.this.modelAButton
-						.getSelection()) {
-					ComponentSelectionWizardPage.this
-							.setErrorMessage(
-									ComponentSelectionWizardPage.this.wizard
-											.getModelA(),
-									ComponentSelectionWizardPage.this.wizard
-											.getModelB(),
-									ComponentSelectionWizardPage.this.isEvolutionPossible);
-					ComponentSelectionWizardPage.this.arrowLabel
-							.setImage(ComponentSelectionWizardPage.this.arrowDown);
-				} else if (ComponentSelectionWizardPage.this.modelBButton
-						.getSelection()) {
-					ComponentSelectionWizardPage.this.arrowLabel
-							.setImage(ComponentSelectionWizardPage.this.arrowUp);
-					ComponentSelectionWizardPage.this
-							.setErrorMessage(
-									ComponentSelectionWizardPage.this.wizard
-											.getModelB(),
-									ComponentSelectionWizardPage.this.wizard
-											.getModelA(),
-									ComponentSelectionWizardPage.this.isEvolutionPossible);
-				}
+            @Override
+            public void widgetDefaultSelected(SelectionEvent e) {
+                // nothing to do
+            }
+        };
+        return listener;
+    }
 
-			}
+    /**
+     * Provides SelectionListener if the selection of a radio button (group)
+     * changed.
+     *
+     * @return
+     */
+    protected SelectionListener radioButtonChanged() {
+        SelectionListener listener = new SelectionListener() {
 
-			@Override
-			public void widgetDefaultSelected(SelectionEvent e) {
-			}
-		};
-		return listener;
-	}
+            @Override
+            public void widgetSelected(SelectionEvent e) {
+                if (modelAButton.getSelection()) {
+                    setErrorMessage(wizard.getModelA(), wizard.getModelB(),
+                            isEvolutionPossible);
+                    arrowLabel.setImage(arrowDown);
+                } else if (modelBButton.getSelection()) {
+                    arrowLabel.setImage(arrowUp);
+                    setErrorMessage(wizard.getModelB(), wizard.getModelA(),
+                            isEvolutionPossible);
+                }
 
-	private void setErrorMessage(IFile oldModel, IFile newModel,
-			boolean isEvolutionPossible) {
-		if ((oldModel == null) && (newModel != null)) {
-			this.setErrorMessage("Source model for comparison is not selected.");
-		} else if ((oldModel != null) && (newModel == null)) {
-			this.setErrorMessage("Target model for comparison is not selected.");
-		} else if (isEvolutionPossible) {
-			this.setErrorMessage(null);
-		} else {
-			this.setErrorMessage("Selected models are not of the same type.");
-		}
-	}
+            }
+
+            @Override
+            public void widgetDefaultSelected(SelectionEvent e) {
+            }
+        };
+        return listener;
+    }
+
+    private void setErrorMessage(IFile oldModel, IFile newModel,
+            boolean isEvolutionPossible) {
+        if (oldModel == null && newModel != null) {
+            setErrorMessage("Source model for comparison is not selected.");
+        } else if (oldModel != null && newModel == null) {
+            setErrorMessage("Target model for comparison is not selected.");
+        } else if (isEvolutionPossible) {
+            setErrorMessage(null);
+        } else {
+            setErrorMessage("Selected models are not of the same type.");
+        }
+    }
+
+    public boolean isAssociatonSelected() {
+        return this.checkbox.getSelection();
+    }
 
 }

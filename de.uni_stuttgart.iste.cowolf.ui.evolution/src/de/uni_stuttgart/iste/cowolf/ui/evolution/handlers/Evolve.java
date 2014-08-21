@@ -21,6 +21,7 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.sidiff.difference.symmetric.SymmetricDifference;
 
+import de.uni_stuttgart.iste.cowolf.core.ModelAssociationManager.ModelAssociationManager;
 import de.uni_stuttgart.iste.cowolf.core.extensions.ExtensionHandler;
 import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
 import de.uni_stuttgart.iste.cowolf.evolution.EvolutionException;
@@ -62,20 +63,29 @@ public class Evolve extends AbstractHandler {
         }
         final Resource firstModel;
         final Resource secondModel;
-        
+
         if (modelWizard.isFirstModelSelected()) {
-            firstModel = ResourceUtil.getResourceOfIFile(modelWizard.getModelA());
-            secondModel = ResourceUtil.getResourceOfIFile(modelWizard.getModelB());
+            firstModel = ResourceUtil.getResourceOfIFile(modelWizard
+                    .getModelA());
+            secondModel = ResourceUtil.getResourceOfIFile(modelWizard
+                    .getModelB());
         } else {
-            firstModel = ResourceUtil.getResourceOfIFile(modelWizard.getModelB());
-            secondModel = ResourceUtil.getResourceOfIFile(modelWizard.getModelA());
+            firstModel = ResourceUtil.getResourceOfIFile(modelWizard
+                    .getModelB());
+            secondModel = ResourceUtil.getResourceOfIFile(modelWizard
+                    .getModelA());
+        }
+        if (modelWizard.isAssociationSelected()) {
+            ModelAssociationManager.getInstance().addAssociation(firstModel,
+                    secondModel, firstElement.getProject());
         }
         final IFile element = firstElement;
         Job job = new Job("Model Evolution") {
             @Override
             protected IStatus run(IProgressMonitor monitor) {
                 try {
-                    ExtensionHandler extensionHandler = ExtensionHandler.getInstance();
+                    ExtensionHandler extensionHandler = ExtensionHandler
+                            .getInstance();
                     AbstractEvolutionManager modelManager = extensionHandler
                             .getEvolutionManager(firstModel);
                     SymmetricDifference symmetricDifference = modelManager
@@ -94,11 +104,19 @@ public class Evolve extends AbstractHandler {
                         }
                     });
                     return Status.OK_STATUS;
-                } catch (EvolutionException e) {
-                    MessageDialog.openError(window.getShell(),
-                            "Evolution Exception occured",
-                            e.getLocalizedMessage());
-                    e.printStackTrace();
+                } catch (final EvolutionException e) {
+                    Display.getDefault().syncExec(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            MessageDialog.openError(window.getShell(),
+                                    "Evolution Exception occured",
+                                    e.getLocalizedMessage());
+                            e.printStackTrace();
+
+                        }
+                    });
+
                 }
                 return Status.CANCEL_STATUS;
             }
