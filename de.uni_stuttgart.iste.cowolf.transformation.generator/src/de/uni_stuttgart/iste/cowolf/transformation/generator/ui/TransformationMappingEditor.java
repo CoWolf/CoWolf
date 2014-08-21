@@ -1,6 +1,7 @@
 package de.uni_stuttgart.iste.cowolf.transformation.generator.ui;
 
 import java.io.File;
+import java.net.URI;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -13,7 +14,6 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.henshin.model.Parameter;
 import org.eclipse.emf.henshin.model.Unit;
-import org.eclipse.jface.layout.TableColumnLayout;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -37,6 +37,7 @@ import org.eclipse.swt.widgets.Tree;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorSite;
+import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
@@ -54,6 +55,11 @@ import de.uni_stuttgart.iste.cowolf.transformation.model.Params;
 import de.uni_stuttgart.iste.cowolf.transformation.model.Rule;
 import de.uni_stuttgart.iste.cowolf.transformation.model.util.XMLMappingLoader;
 
+/**
+ * 
+ * @author Rene Trefft
+ *
+ */
 public class TransformationMappingEditor extends EditorPart {
 
 	public TransformationMappingEditor() {
@@ -63,7 +69,7 @@ public class TransformationMappingEditor extends EditorPart {
 
 	private boolean inputFileChanged;
 
-	private TransformationMappingEditorInput transformationMappingEditorInput;
+	private IFileEditorInput transformationMappingEditorInput;
 
 	private Composite parent;
 
@@ -93,48 +99,20 @@ public class TransformationMappingEditor extends EditorPart {
 
 		FileDialog fileDialog = new FileDialog(this.parent.getShell());
 		fileDialog
-		.setText("Select where to store the Transformation Mapping file.");
+				.setText("Select where to store the Transformation Mapping file.");
 		fileDialog.setFilterExtensions(new String[] { "*.transmap" });
 		fileDialog
-		.setFilterNames(new String[] { "Transformation Mapping File (*.transmap)" });
+				.setFilterNames(new String[] { "Transformation Mapping File (*.transmap)" });
 		String targetFile = fileDialog.open();
 		this.save(new File(targetFile));
 
 	}
 
+	/**
+	 * 
+	 * @param targetFile
+	 */
 	private void save(File targetFile) {
-
-		// Mappings mappings = new Mappings();
-		//
-		// for (TransformationMapping transformationMapping :
-		// transformationMappings) {
-		//
-		// Mapping mapping = new Mapping();
-		// // TODO via UI
-		// mapping.setPriority(1);
-		// String changeSetName = RecognitionRuleUtil
-		// .getChangeSetName(transformationMapping
-		// .getRecognitionRule());
-		// mapping.setDifference(changeSetName);
-		// Rule rule = new Rule();
-		//
-		// Unit unit = transformationMapping.getUnit();
-		//
-		// rule.setName(unit.getName());
-		//
-		// Params params = new Params();
-		//
-		// for (Parameter unitParameter : unit.getParameters()) {
-		//
-		// Param param = new Param();
-		// param.setName(unitParameter.getName());
-		// param.setPath(null);
-		//
-		// params.getParam().add(param);
-		//
-		// }
-		//
-		// mappings.getMapping().put(changeSetName, mapping);
 
 		try {
 			XMLMappingLoader.storeMappings(this.mappings, targetFile);
@@ -150,12 +128,12 @@ public class TransformationMappingEditor extends EditorPart {
 	public void init(IEditorSite site, IEditorInput input)
 			throws PartInitException {
 
-		if (!(input instanceof TransformationMappingEditorInput)) {
+		if (!(input instanceof IFileEditorInput)) {
 			throw new RuntimeException(
 					"Invalid input for Transformation Mapping Editor.");
 		}
 
-		this.transformationMappingEditorInput = (TransformationMappingEditorInput) input;
+		this.transformationMappingEditorInput = (IFileEditorInput) input;
 
 		// this.inputFile = transformationMappingEditorInput.getFile().getL;
 
@@ -165,9 +143,7 @@ public class TransformationMappingEditor extends EditorPart {
 							.getFile().getLocation().toFile());
 		} catch (JAXBException e) {
 			throw new RuntimeException(
-					this.transformationMappingEditorInput
-					.getFormattedFilePath()
-					+ " is not a valid Transformation Mapping file or does not exist.",
+					"Given file is not a valid Transformation Mapping file or does not exist.",
 					e);
 		}
 
@@ -185,6 +161,7 @@ public class TransformationMappingEditor extends EditorPart {
 	public boolean isSaveAsAllowed() {
 		return true;
 	}
+
 
 	@Override
 	public void createPartControl(Composite parent) {
@@ -226,6 +203,11 @@ public class TransformationMappingEditor extends EditorPart {
 
 	}
 
+	/**
+	 * 
+	 * @param toolkit
+	 * @param form
+	 */
 	private void createRecognitionRulesSection(FormToolkit toolkit,
 			ScrolledForm form) {
 		Section section1 = toolkit.createSection(this.topComposite,
@@ -241,9 +223,9 @@ public class TransformationMappingEditor extends EditorPart {
 		this.recognitionRulesTreeViewer = new TreeViewer(recognitionRulesTree);
 
 		this.recognitionRulesTreeViewer
-		.setContentProvider(new SiLiftRecognitionRulesContentProvider());
+				.setContentProvider(new SiLiftRecognitionRulesContentProvider());
 		this.recognitionRulesTreeViewer
-		.setLabelProvider(new SiLiftRecognitionRulesLabelProvider());
+				.setLabelProvider(new SiLiftRecognitionRulesLabelProvider());
 
 		this.registeredRulebases = this
 				.getRecognitionRulesTreeViewerInitialInput();
@@ -270,6 +252,10 @@ public class TransformationMappingEditor extends EditorPart {
 
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	private IRuleBase[] getRecognitionRulesTreeViewerInitialInput() {
 
 		List<String> modelDocumentTypes = ExtensionHandler.getInstance()
@@ -290,6 +276,11 @@ public class TransformationMappingEditor extends EditorPart {
 
 	}
 
+	/**
+	 * 
+	 * @param toolkit
+	 * @param form
+	 */
 	private void createTransformationRulesSection(FormToolkit toolkit,
 			ScrolledForm form) {
 
@@ -308,10 +299,10 @@ public class TransformationMappingEditor extends EditorPart {
 				.getRecognitionOrTransformationRulesSelectionChangedListener());
 
 		this.transformationRulesTreeViewer
-		.setContentProvider(new TransformationRulesContentProvider());
+				.setContentProvider(new TransformationRulesContentProvider());
 
 		this.transformationRulesTreeViewer
-		.setLabelProvider(new TransformationRulesLabelProvider());
+				.setLabelProvider(new TransformationRulesLabelProvider());
 
 		this.transformationRulesTreeViewer.setInput(this
 				.getTransformationRulesTreeViewerInitialInput());
@@ -334,10 +325,19 @@ public class TransformationMappingEditor extends EditorPart {
 
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	private IProject[] getTransformationRulesTreeViewerInitialInput() {
 		return ResourcesPlugin.getWorkspace().getRoot().getProjects();
 	}
 
+	/**
+	 * 
+	 * @param toolkit
+	 * @param form
+	 */
 	private void createMappingsSection(FormToolkit toolkit, ScrolledForm form) {
 
 		Section section3 = toolkit.createSection(this.bottomComposite,
@@ -348,19 +348,18 @@ public class TransformationMappingEditor extends EditorPart {
 		Composite section3Composite = toolkit.createComposite(section3);
 		section3Composite.setLayout(new GridLayout(2, false));
 
-		
 		Table mappingsTable = toolkit.createTable(section3Composite,
-				SWT.H_SCROLL | SWT.V_SCROLL | SWT.MULTI |SWT.FULL_SELECTION);
+				SWT.H_SCROLL | SWT.V_SCROLL | SWT.MULTI | SWT.FULL_SELECTION);
 		this.mappingsTableViewer = new TableViewer(mappingsTable);
-		
+
 		mappingsTable.setHeaderVisible(true);
 		mappingsTable.setLinesVisible(true);
 		this.createMappingsTableViewerColumns(this.mappingsTableViewer);
 
 		this.mappingsTableViewer
-		.setContentProvider(new MappingTableContentProvider());
-//		this.mappingsTableViewer
-//		.setLabelProvider(new MappingTableLabelProvider());
+				.setContentProvider(new MappingTableContentProvider());
+		// this.mappingsTableViewer
+		// .setLabelProvider(new MappingTableLabelProvider());
 		this.mappingsTableViewer.addSelectionChangedListener(this
 				.getMappingSelectionChangedListener());
 		this.mappingsTableViewer.setInput(this.mappings.getMapping().values());
@@ -376,7 +375,7 @@ public class TransformationMappingEditor extends EditorPart {
 				GridData.FILL_VERTICAL);
 
 		section3ButtonsComposite
-		.setLayoutData(section3ButtonsCompositeGridData);
+				.setLayoutData(section3ButtonsCompositeGridData);
 
 		section3ButtonsComposite.setLayout(new GridLayout(1, false));
 
@@ -412,16 +411,24 @@ public class TransformationMappingEditor extends EditorPart {
 
 	}
 
-//	private static void resizeTableColumn(TableColumn tableColumn) {
-//		tableColumn.pack();
-//	}
+	// private static void resizeTableColumn(TableColumn tableColumn) {
+	// tableColumn.pack();
+	// }
 
+	/**
+	 * 
+	 * @param table
+	 */
 	private static void resizeTable(Table table) {
 		for (TableColumn tc : table.getColumns()) {
 			tc.pack();
 		}
 	}
 
+	/**
+	 * 
+	 * @param viewer
+	 */
 	private void createMappingsTableViewerColumns(TableViewer viewer) {
 
 		System.out.println("test");
@@ -469,6 +476,10 @@ public class TransformationMappingEditor extends EditorPart {
 
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	private ISelectionChangedListener getMappingSelectionChangedListener() {
 
 		ISelectionChangedListener listener = new ISelectionChangedListener() {
@@ -483,10 +494,10 @@ public class TransformationMappingEditor extends EditorPart {
 
 					if (!mappingSelection.isEmpty()) {
 						TransformationMappingEditor.this.deleteMappingButton
-						.setEnabled(true);
+								.setEnabled(true);
 					} else {
 						TransformationMappingEditor.this.deleteMappingButton
-						.setEnabled(false);
+								.setEnabled(false);
 					}
 
 				}
@@ -499,6 +510,10 @@ public class TransformationMappingEditor extends EditorPart {
 
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	private ISelectionChangedListener getRecognitionOrTransformationRulesSelectionChangedListener() {
 
 		ISelectionChangedListener listener = new ISelectionChangedListener() {
@@ -530,10 +545,10 @@ public class TransformationMappingEditor extends EditorPart {
 									.getMapping()
 									.containsKey(
 											RecognitionRuleUtil
-											.getChangeSetName((RecognitionRule) selectedObj))) {
+													.getRecognitionRuleName((RecognitionRule) selectedObj))) {
 
 								TransformationMappingEditor.this.addMappingButton
-								.setEnabled(true);
+										.setEnabled(true);
 								return;
 
 							}
@@ -545,7 +560,7 @@ public class TransformationMappingEditor extends EditorPart {
 				}
 
 				TransformationMappingEditor.this.addMappingButton
-				.setEnabled(false);
+						.setEnabled(false);
 
 			}
 
@@ -555,6 +570,10 @@ public class TransformationMappingEditor extends EditorPart {
 
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	private SelectionListener getAddMappingSelectionListener() {
 
 		SelectionListener listener = new SelectionListener() {
@@ -581,54 +600,61 @@ public class TransformationMappingEditor extends EditorPart {
 						if (((selectedObj = recognitionRulesSelection
 								.iterator().next()) instanceof RecognitionRule)
 								&& ((selectedObj2 = transformationRulesSelection
-								.iterator().next()) instanceof Unit)) {
+										.iterator().next()) instanceof Unit)) {
 
 							RecognitionRule selectedRecognitionRule = (RecognitionRule) selectedObj;
 							Unit selectedTransformationRule = (Unit) selectedObj2;
-							System.out.println("--"
-									+ selectedTransformationRule.getName());
 							Mapping newMapping = new Mapping();
 							// TODO via UI
 							newMapping.setPriority(1);
 							String changeSetName = RecognitionRuleUtil
-									.getChangeSetName(selectedRecognitionRule);
+									.getRecognitionRuleName(selectedRecognitionRule);
 							newMapping.setDifference(changeSetName);
 
 							Rule rule = new Rule();
 							rule.setName(selectedTransformationRule.getName());
-							rule.setPath(selectedTransformationRule.eResource()
-									.getURI().toString());
+							org.eclipse.emf.common.util.URI recognitionRulePathURI = selectedTransformationRule
+									.eResource().getURI();
+							URI workspaceRootURI = ResourcesPlugin
+									.getWorkspace().getRoot().getLocationURI();
+							String recognitionRuleRelPathURI = workspaceRootURI
+									.relativize(
+											URI.create(recognitionRulePathURI
+													.toString())).toString();
+							rule.setPath(org.eclipse.emf.common.util.URI
+									.createPlatformPluginURI(
+											recognitionRuleRelPathURI, true)
+									.toString());
+
 							Params params = new Params();
 							for (Parameter unitParameter : selectedTransformationRule
 									.getParameters()) {
 								Param param = new Param();
-								System.out.println("++++"
-										+ unitParameter.getName());
 								param.setName(unitParameter.getName());
 								params.getParam().add(param);
 							}
 							newMapping.setRule(rule);
 
 							TransformationMappingEditor.this.mappings
-							.getMapping()
-							.put(changeSetName, newMapping);
+									.getMapping()
+									.put(changeSetName, newMapping);
 							TransformationMappingEditor.this.mappingsTableViewer
-							.refresh();
+									.refresh();
 							TransformationMappingEditor.this.inputFileChanged = true;
 							TransformationMappingEditor.this
-							.firePropertyChange(IEditorPart.PROP_DIRTY);
+									.firePropertyChange(IEditorPart.PROP_DIRTY);
 
 							// TransformationMappingEditor.this.mappingsTableViewer
 							// .add(newMapping);
 
 							TransformationMappingEditor.this.recognitionRulesTreeViewer
-							.setSelection(StructuredSelection.EMPTY);
+									.setSelection(StructuredSelection.EMPTY);
 							TransformationMappingEditor.this.transformationRulesTreeViewer
-							.setSelection(StructuredSelection.EMPTY);
+									.setSelection(StructuredSelection.EMPTY);
 
 							TransformationMappingEditor.this.addMappingButton
-							.setEnabled(false);
-							
+									.setEnabled(false);
+
 							resizeTable(mappingsTableViewer.getTable());
 
 						}
@@ -648,6 +674,10 @@ public class TransformationMappingEditor extends EditorPart {
 		return listener;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	private SelectionListener getDeleteMappingSelectionListener() {
 
 		SelectionListener listener = new SelectionListener() {
@@ -662,21 +692,24 @@ public class TransformationMappingEditor extends EditorPart {
 							.getSelection();
 
 					// delete all selected mappings in the model
-					for (Iterator iterator = mappingSelection.iterator(); iterator
+					for (Iterator<?> iterator = mappingSelection.iterator(); iterator
 							.hasNext();) {
 
 						Object selectedObj = iterator.next();
 
 						if (selectedObj instanceof Mapping) {
 							System.out.println("dffg");
-							TransformationMappingEditor.this.mappings.getMapping().remove(((Mapping) selectedObj).getDifference());
-		
+							TransformationMappingEditor.this.mappings
+									.getMapping().remove(
+											((Mapping) selectedObj)
+													.getDifference());
+
 							TransformationMappingEditor.this.mappingsTableViewer
-							.refresh();
+									.refresh();
 							TransformationMappingEditor.this.inputFileChanged = true;
 							TransformationMappingEditor.this
-							.firePropertyChange(IEditorPart.PROP_DIRTY);
-							
+									.firePropertyChange(IEditorPart.PROP_DIRTY);
+
 							resizeTable(mappingsTableViewer.getTable());
 						}
 

@@ -10,6 +10,11 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.IPersistableElement;
 
+/**
+ * 
+ * @author Rene Trefft
+ *
+ */
 public class TransformationMappingEditorInput implements IFileEditorInput {
 
 	IFile transformationMappingFile;
@@ -17,11 +22,6 @@ public class TransformationMappingEditorInput implements IFileEditorInput {
 	public TransformationMappingEditorInput(IFile transformationMappingFile) {
 		this.transformationMappingFile = transformationMappingFile;
 	}
-
-	// public TransformationMappingEditorInput(IFile transformationMappingFile)
-	// {
-	// this.transformationMappingFile = transformationMappingFile;
-	// }
 
 	@Override
 	public boolean exists() {

@@ -1,33 +1,22 @@
 package de.uni_stuttgart.iste.cowolf.transformation.generator.ui;
 
+import java.util.Collection;
+
 import org.eclipse.jface.viewers.ArrayContentProvider;
 
+/**
+ * 
+ * @author Rene Trefft
+ *
+ */
 public class MappingTableContentProvider extends ArrayContentProvider {
 
 	@Override
 	public Object[] getElements(Object inputElement) {
-		System.out.println("---" + inputElement.getClass());
-		return super.getElements(inputElement);
-
+		if (inputElement instanceof Collection<?>) {
+			return super.getElements(inputElement);
+		}
+		return new Object[0];
 	}
-
-	// @Override
-	// public void dispose() {
-	// // TODO Auto-generated method stub
-	//
-	// }
-	//
-	// @Override
-	// public void inputChanged(Viewer viewer, Object oldInput, Object newInput)
-	// {
-	// // TODO Auto-generated method stub
-	//
-	// }
-	//
-	// @Override
-	// public Object[] getElements(Object inputElement) {
-	// // TODO Auto-generated method stub
-	// return Map<RecognitionRule, Unit>;
-	// }
 
 }

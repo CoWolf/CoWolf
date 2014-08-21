@@ -21,7 +21,7 @@ import de.uni_stuttgart.iste.cowolf.transformation.model.Mappings;
 import de.uni_stuttgart.iste.cowolf.transformation.model.util.XMLMappingLoader;
 
 /**
- * Wizard for a new Transformation Mapping.
+ * Wizard for a new Transformation Mapping file.
  *
  * @author Rene Trefft
  */

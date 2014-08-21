@@ -12,10 +12,6 @@ import org.eclipse.jface.viewers.ViewerFilter;
  */
 public class WorkspaceResourceDialogFilter extends ViewerFilter {
 
-	public WorkspaceResourceDialogFilter() {
-
-	}
-
 	@Override
 	public boolean select(Viewer viewer, Object parentElement, Object element) {
 

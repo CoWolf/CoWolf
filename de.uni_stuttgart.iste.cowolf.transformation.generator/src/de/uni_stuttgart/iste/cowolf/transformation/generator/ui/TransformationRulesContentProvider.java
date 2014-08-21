@@ -16,10 +16,12 @@ import org.eclipse.emf.henshin.model.resource.HenshinResourceSet;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 
+/**
+ * 
+ * @author Rene Trefft
+ *
+ */
 public class TransformationRulesContentProvider implements ITreeContentProvider {
-
-	public TransformationRulesContentProvider() {
-	}
 
 	@Override
 	public void dispose() {
@@ -75,10 +77,7 @@ public class TransformationRulesContentProvider implements ITreeContentProvider 
 			// TODO check for null or exception
 			Module module = henshinResourceSet.getModule(file.getLocation()
 					.toFile().toString(), false);
-
-			// Module module = henshinResourceSet.getModule(file.getLocation()
-			// .toFile().toString(), true);
-
+			
 			EList<Unit> units = module.getUnits();
 
 			return units.toArray(new Unit[units.size()]);

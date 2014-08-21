@@ -1,15 +1,16 @@
 package de.uni_stuttgart.iste.cowolf.transformation.generator.ui;
 
-import org.eclipse.emf.henshin.model.Attribute;
-import org.eclipse.emf.henshin.model.Node;
-import org.eclipse.emf.henshin.model.Rule;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.swt.graphics.Image;
 import org.sidiff.difference.rulebase.RecognitionRule;
 import org.sidiff.difference.rulebase.extension.IRuleBase;
-import org.sidiff.difference.symmetric.SymmetricPackage;
 
+/**
+ * 
+ * @author Rene Trefft
+ *
+ */
 public class SiLiftRecognitionRulesLabelProvider implements ILabelProvider {
 
 	@Override
@@ -69,7 +70,7 @@ public class SiLiftRecognitionRulesLabelProvider implements ILabelProvider {
 
 			RecognitionRule recognitionRule = (RecognitionRule) element;
 
-			return RecognitionRuleUtil.getChangeSetName(recognitionRule);
+			return RecognitionRuleUtil.getRecognitionRuleName(recognitionRule);
 
 			// TODO
 			// return "ERROR: Rule "

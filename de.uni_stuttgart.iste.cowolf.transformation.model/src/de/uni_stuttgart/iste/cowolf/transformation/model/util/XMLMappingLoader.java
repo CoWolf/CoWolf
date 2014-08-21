@@ -32,6 +32,7 @@ public class XMLMappingLoader {
 			File fileToStore) throws JAXBException {
 		JAXBContext context = JAXBContext.newInstance(Mappings.class);
 		Marshaller marshaller = context.createMarshaller();
+		marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 		marshaller.marshal(mappings, fileToStore);
 	}
 
