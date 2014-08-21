@@ -13,6 +13,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.henshin.model.Parameter;
 import org.eclipse.emf.henshin.model.Unit;
+import org.eclipse.jface.layout.TableColumnLayout;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -347,18 +348,19 @@ public class TransformationMappingEditor extends EditorPart {
 		Composite section3Composite = toolkit.createComposite(section3);
 		section3Composite.setLayout(new GridLayout(2, false));
 
+		
 		Table mappingsTable = toolkit.createTable(section3Composite,
-				SWT.H_SCROLL | SWT.V_SCROLL | SWT.MULTI);
+				SWT.H_SCROLL | SWT.V_SCROLL | SWT.MULTI |SWT.FULL_SELECTION);
 		this.mappingsTableViewer = new TableViewer(mappingsTable);
-
+		
 		mappingsTable.setHeaderVisible(true);
 		mappingsTable.setLinesVisible(true);
 		this.createMappingsTableViewerColumns(this.mappingsTableViewer);
 
 		this.mappingsTableViewer
 		.setContentProvider(new MappingTableContentProvider());
-		this.mappingsTableViewer
-		.setLabelProvider(new MappingTableLabelProvider());
+//		this.mappingsTableViewer
+//		.setLabelProvider(new MappingTableLabelProvider());
 		this.mappingsTableViewer.addSelectionChangedListener(this
 				.getMappingSelectionChangedListener());
 		this.mappingsTableViewer.setInput(this.mappings.getMapping().values());
@@ -410,13 +412,13 @@ public class TransformationMappingEditor extends EditorPart {
 
 	}
 
-	private static void resizeTableColumn(TableColumn tableColumn) {
-		tableColumn.pack();
-	}
+//	private static void resizeTableColumn(TableColumn tableColumn) {
+//		tableColumn.pack();
+//	}
 
 	private static void resizeTable(Table table) {
 		for (TableColumn tc : table.getColumns()) {
-			resizeTableColumn(tc);
+			tc.pack();
 		}
 	}
 
@@ -626,6 +628,8 @@ public class TransformationMappingEditor extends EditorPart {
 
 							TransformationMappingEditor.this.addMappingButton
 							.setEnabled(false);
+							
+							resizeTable(mappingsTableViewer.getTable());
 
 						}
 
@@ -664,13 +668,16 @@ public class TransformationMappingEditor extends EditorPart {
 						Object selectedObj = iterator.next();
 
 						if (selectedObj instanceof Mapping) {
-							TransformationMappingEditor.this.mappings
-							.getMapping().remove(selectedObj);
+							System.out.println("dffg");
+							TransformationMappingEditor.this.mappings.getMapping().remove(((Mapping) selectedObj).getDifference());
+		
 							TransformationMappingEditor.this.mappingsTableViewer
 							.refresh();
 							TransformationMappingEditor.this.inputFileChanged = true;
 							TransformationMappingEditor.this
 							.firePropertyChange(IEditorPart.PROP_DIRTY);
+							
+							resizeTable(mappingsTableViewer.getTable());
 						}
 
 					}

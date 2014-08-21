@@ -10,6 +10,7 @@ package de.uni_stuttgart.iste.cowolf.transformation.model;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -83,5 +84,36 @@ public class Params {
         }
         return this.param;
     }
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((param == null) ? 0 : param.hashCode());
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Params other = (Params) obj;
+		if (param == null) {
+			if (other.param != null)
+				return false;
+		} else if (!param.equals(other.param))
+			return false;
+		return true;
+	}
 
 }
