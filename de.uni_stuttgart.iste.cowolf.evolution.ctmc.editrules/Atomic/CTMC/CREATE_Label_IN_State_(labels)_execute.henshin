@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_Ni0t0Ck6EeSIUoaQEHooMA" name="CREATE_Label_IN_State_(labels)" description="Creates one Label in State">
+  <imports href="http://ctmc/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_Ni0t0Sk6EeSIUoaQEHooMA" name="createLabel_IN_State" description="creates one Label in the context: State">
+    <parameters xmi:id="_Ni0t0ik6EeSIUoaQEHooMA" name="Selected"/>
+    <parameters xmi:id="_Ni0t0yk6EeSIUoaQEHooMA" name="New"/>
+    <parameters xmi:id="_Ni0t1Ck6EeSIUoaQEHooMA" name="Id"/>
+    <parameters xmi:id="_Ni0t1Sk6EeSIUoaQEHooMA" name="Name"/>
+    <lhs xmi:id="_Ni0t1ik6EeSIUoaQEHooMA" name="Lhs">
+      <nodes xmi:id="_Ni0t1yk6EeSIUoaQEHooMA" name="Selected">
+        <type href="http://ctmc/1.0#//State"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_Ni0t2Ck6EeSIUoaQEHooMA" name="Rhs">
+      <nodes xmi:id="_Ni0t2Sk6EeSIUoaQEHooMA" name="Selected" incoming="_Ni0t3ik6EeSIUoaQEHooMA" outgoing="_Ni0t3Sk6EeSIUoaQEHooMA">
+        <type href="http://ctmc/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_Ni0t2ik6EeSIUoaQEHooMA" name="New" incoming="_Ni0t3Sk6EeSIUoaQEHooMA" outgoing="_Ni0t3ik6EeSIUoaQEHooMA">
+        <type href="http://ctmc/1.0#//Label"/>
+        <attributes xmi:id="_Ni0t2yk6EeSIUoaQEHooMA" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_Ni0t3Ck6EeSIUoaQEHooMA" value="Name">
+          <type href="http://ctmc/1.0#//Label/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_Ni0t3Sk6EeSIUoaQEHooMA" source="_Ni0t2Sk6EeSIUoaQEHooMA" target="_Ni0t2ik6EeSIUoaQEHooMA">
+        <type href="http://ctmc/1.0#//State/labels"/>
+      </edges>
+      <edges xmi:id="_Ni0t3ik6EeSIUoaQEHooMA" source="_Ni0t2ik6EeSIUoaQEHooMA" target="_Ni0t2Sk6EeSIUoaQEHooMA">
+        <type href="http://ctmc/1.0#//Label/state"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_Ni0t3yk6EeSIUoaQEHooMA" origin="_Ni0t1yk6EeSIUoaQEHooMA" image="_Ni0t2Sk6EeSIUoaQEHooMA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_Ni0t4Ck6EeSIUoaQEHooMA" name="mainUnit" description="Creates one Label depending on available contexts in model instance" subUnits="_Ni0t0Sk6EeSIUoaQEHooMA">
+    <parameters xmi:id="_Ni0t4Sk6EeSIUoaQEHooMA" name="New"/>
+    <parameters xmi:id="_Ni0t4ik6EeSIUoaQEHooMA" name="selectedEObject"/>
+    <parameters xmi:id="_Ni0t4yk6EeSIUoaQEHooMA" name="Id"/>
+    <parameters xmi:id="_Ni0t5Ck6EeSIUoaQEHooMA" name="Name"/>
+    <parameterMappings xmi:id="_Ni0t5Sk6EeSIUoaQEHooMA" source="_Ni0t4ik6EeSIUoaQEHooMA" target="_Ni0t0ik6EeSIUoaQEHooMA"/>
+    <parameterMappings xmi:id="_Ni0t5ik6EeSIUoaQEHooMA" source="_Ni0t0yk6EeSIUoaQEHooMA" target="_Ni0t4Sk6EeSIUoaQEHooMA"/>
+    <parameterMappings xmi:id="_Ni0t5yk6EeSIUoaQEHooMA" source="_Ni0t4yk6EeSIUoaQEHooMA" target="_Ni0t1Ck6EeSIUoaQEHooMA"/>
+    <parameterMappings xmi:id="_Ni0t6Ck6EeSIUoaQEHooMA" source="_Ni0t5Ck6EeSIUoaQEHooMA" target="_Ni0t1Sk6EeSIUoaQEHooMA"/>
+  </units>
+</henshin:Module>

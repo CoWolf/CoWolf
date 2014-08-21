@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_Nhc00Ck6EeSIUoaQEHooMA" name="DELETE_State_IN_CTMC_(States)" description="Deletes one State in CTMC">
+  <imports href="http://ctmc/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_Nhc00Sk6EeSIUoaQEHooMA" name="deleteState_IN_CTMC" description="deletes one State in the context: CTMC">
+    <parameters xmi:id="_Nhc00ik6EeSIUoaQEHooMA" name="Selected"/>
+    <parameters xmi:id="_Nhc00yk6EeSIUoaQEHooMA" name="ToBeDeleted"/>
+    <lhs xmi:id="_Nhc01Ck6EeSIUoaQEHooMA" name="LHS">
+      <nodes xmi:id="_Nhc01Sk6EeSIUoaQEHooMA" name="Selected" outgoing="_Nhc01yk6EeSIUoaQEHooMA">
+        <type href="http://ctmc/1.0#//CTMC"/>
+      </nodes>
+      <nodes xmi:id="_Nhc01ik6EeSIUoaQEHooMA" name="ToBeDeleted" incoming="_Nhc01yk6EeSIUoaQEHooMA">
+        <type href="http://ctmc/1.0#//State"/>
+      </nodes>
+      <edges xmi:id="_Nhc01yk6EeSIUoaQEHooMA" source="_Nhc01Sk6EeSIUoaQEHooMA" target="_Nhc01ik6EeSIUoaQEHooMA">
+        <type href="http://ctmc/1.0#//CTMC/States"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_Nhc02Ck6EeSIUoaQEHooMA" name="RHS">
+      <nodes xmi:id="_Nhc02Sk6EeSIUoaQEHooMA" name="Selected">
+        <type href="http://ctmc/1.0#//CTMC"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_Nhc02ik6EeSIUoaQEHooMA" origin="_Nhc01Sk6EeSIUoaQEHooMA" image="_Nhc02Sk6EeSIUoaQEHooMA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_Nhc02yk6EeSIUoaQEHooMA" name="mainUnit" description="Deletes one State depending on available contexts in model instance" subUnits="_Nhc00Sk6EeSIUoaQEHooMA">
+    <parameters xmi:id="_Nhc03Ck6EeSIUoaQEHooMA" name="ToBeDeleted"/>
+    <parameters xmi:id="_Nhc03Sk6EeSIUoaQEHooMA" name="selectedEObject"/>
+    <parameterMappings xmi:id="_Nhc03ik6EeSIUoaQEHooMA" source="_Nhc03Sk6EeSIUoaQEHooMA" target="_Nhc00ik6EeSIUoaQEHooMA"/>
+    <parameterMappings xmi:id="_Nhc03yk6EeSIUoaQEHooMA" source="_Nhc03Ck6EeSIUoaQEHooMA" target="_Nhc00yk6EeSIUoaQEHooMA"/>
+  </units>
+</henshin:Module>

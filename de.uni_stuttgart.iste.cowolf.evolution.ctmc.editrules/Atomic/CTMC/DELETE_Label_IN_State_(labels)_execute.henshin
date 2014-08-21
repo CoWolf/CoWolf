@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_NjL6MCk6EeSIUoaQEHooMA" name="DELETE_Label_IN_State_(labels)" description="Deletes one Label in State">
+  <imports href="http://ctmc/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_NjL6MSk6EeSIUoaQEHooMA" name="deleteLabel_IN_State" description="deletes one Label in the context: State">
+    <parameters xmi:id="_NjL6Mik6EeSIUoaQEHooMA" name="Selected"/>
+    <parameters xmi:id="_NjL6Myk6EeSIUoaQEHooMA" name="ToBeDeleted"/>
+    <lhs xmi:id="_NjL6NCk6EeSIUoaQEHooMA" name="LHS">
+      <nodes xmi:id="_NjL6NSk6EeSIUoaQEHooMA" name="Selected" incoming="_NjL6OCk6EeSIUoaQEHooMA" outgoing="_NjL6Nyk6EeSIUoaQEHooMA">
+        <type href="http://ctmc/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_NjL6Nik6EeSIUoaQEHooMA" name="ToBeDeleted" incoming="_NjL6Nyk6EeSIUoaQEHooMA" outgoing="_NjL6OCk6EeSIUoaQEHooMA">
+        <type href="http://ctmc/1.0#//Label"/>
+      </nodes>
+      <edges xmi:id="_NjL6Nyk6EeSIUoaQEHooMA" source="_NjL6NSk6EeSIUoaQEHooMA" target="_NjL6Nik6EeSIUoaQEHooMA">
+        <type href="http://ctmc/1.0#//State/labels"/>
+      </edges>
+      <edges xmi:id="_NjL6OCk6EeSIUoaQEHooMA" source="_NjL6Nik6EeSIUoaQEHooMA" target="_NjL6NSk6EeSIUoaQEHooMA">
+        <type href="http://ctmc/1.0#//Label/state"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_NjL6OSk6EeSIUoaQEHooMA" name="RHS">
+      <nodes xmi:id="_NjL6Oik6EeSIUoaQEHooMA" name="Selected">
+        <type href="http://ctmc/1.0#//State"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_NjL6Oyk6EeSIUoaQEHooMA" origin="_NjL6NSk6EeSIUoaQEHooMA" image="_NjL6Oik6EeSIUoaQEHooMA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_NjL6PCk6EeSIUoaQEHooMA" name="mainUnit" description="Deletes one Label depending on available contexts in model instance" subUnits="_NjL6MSk6EeSIUoaQEHooMA">
+    <parameters xmi:id="_NjL6PSk6EeSIUoaQEHooMA" name="ToBeDeleted"/>
+    <parameters xmi:id="_NjL6Pik6EeSIUoaQEHooMA" name="selectedEObject"/>
+    <parameterMappings xmi:id="_NjL6Pyk6EeSIUoaQEHooMA" source="_NjL6Pik6EeSIUoaQEHooMA" target="_NjL6Mik6EeSIUoaQEHooMA"/>
+    <parameterMappings xmi:id="_NjL6QCk6EeSIUoaQEHooMA" source="_NjL6PSk6EeSIUoaQEHooMA" target="_NjL6Myk6EeSIUoaQEHooMA"/>
+  </units>
+</henshin:Module>
