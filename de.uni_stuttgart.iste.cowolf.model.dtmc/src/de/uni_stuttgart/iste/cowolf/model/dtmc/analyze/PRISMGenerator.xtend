@@ -3,7 +3,6 @@ package de.uni_stuttgart.iste.cowolf.model.dtmc.analyze
 import de.uni_stuttgart.iste.cowolf.model.dtmc.State
 import org.eclipse.emf.ecore.resource.Resource
 import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC
-import de.uni_stuttgart.iste.cowolf.model.dtmc.Label
 import java.util.List
 
 class PRISMGenerator {
@@ -14,7 +13,10 @@ class PRISMGenerator {
 		if (resource.contents.size > 0 && resource.contents.get(0) instanceof DTMC) {
 			var e = resource.contents.get(0) as DTMC
 			addStatesToMap(e)
-			'''«e.compilePM»
+			'''
+// This model is automatically generated from a CoWolf DTMC model.
+// Please use CoWolf to make any changes to the model.
+«e.compilePM»
 
 «resource.generateLabels»'''
 		} else {
@@ -70,12 +72,19 @@ class PRISMGenerator {
 
 	def compilePM(DTMC e) '''
 dtmc 
-module test
+module «IF e.name.empty»Model«ELSE»«e.name»«ENDIF»
 
+	// As PRISM does not support names for states, they are translated to numbers.
+	// The mapping is as follows.
+	«FOR f : nameToIDMap.keySet»
+	// State "«f»" => «nameToIDMap.get(f)»
+	«ENDFOR»
+	
 	s : [0..«e.states.size() - 1»] init «getStart(e)»;
 		 
-	«FOR f : e.states»
+	«FOR f : e.states»		
 		«IF f.outgoing.size > 0»
+		// Transitions from state "«f.name»":
 		[] s=«getID(f)» -> «f.compilePM»
 		«ENDIF»
 	«ENDFOR»
