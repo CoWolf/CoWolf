@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_NhvIsCk6EeSIUoaQEHooMA" name="SET_State_Name" description="Sets State Name">
+  <imports href="http://ctmc/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_NhvIsSk6EeSIUoaQEHooMA" name="setStateName" description="Sets the EAttribute name">
+    <parameters xmi:id="_NhvIsik6EeSIUoaQEHooMA" name="Selected"/>
+    <parameters xmi:id="_NhvIsyk6EeSIUoaQEHooMA" name="Name"/>
+    <lhs xmi:id="_NhvItCk6EeSIUoaQEHooMA" name="Lhs">
+      <nodes xmi:id="_NhvItSk6EeSIUoaQEHooMA" name="Selected">
+        <type href="http://ctmc/1.0#//State"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_NhvItik6EeSIUoaQEHooMA" name="Rhs">
+      <nodes xmi:id="_NhvItyk6EeSIUoaQEHooMA" name="Selected">
+        <type href="http://ctmc/1.0#//State"/>
+        <attributes xmi:id="_NhvIuCk6EeSIUoaQEHooMA" value="Name">
+          <type href="http://ctmc/1.0#//State/name"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_NhvIuSk6EeSIUoaQEHooMA" origin="_NhvItSk6EeSIUoaQEHooMA" image="_NhvItyk6EeSIUoaQEHooMA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_NhvIuik6EeSIUoaQEHooMA" name="mainUnit" subUnits="_NhvIsSk6EeSIUoaQEHooMA">
+    <parameters xmi:id="_NhvIuyk6EeSIUoaQEHooMA" name="selectedEObject"/>
+    <parameters xmi:id="_NhvIvCk6EeSIUoaQEHooMA" name="Name"/>
+    <parameterMappings xmi:id="_NhvIvSk6EeSIUoaQEHooMA" source="_NhvIuyk6EeSIUoaQEHooMA" target="_NhvIsik6EeSIUoaQEHooMA"/>
+    <parameterMappings xmi:id="_NhvIvik6EeSIUoaQEHooMA" source="_NhvIvCk6EeSIUoaQEHooMA" target="_NhvIsyk6EeSIUoaQEHooMA"/>
+  </units>
+</henshin:Module>

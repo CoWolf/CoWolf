@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_NiunMCk6EeSIUoaQEHooMA" name="MOVE_Transition_FROM_State_(outgoing)_TO_State_(outgoing)" description="MOVEs Transition from State(Reference:outgoing) to State(Reference:outgoing">
+  <imports href="http://ctmc/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_NiunMSk6EeSIUoaQEHooMA" name="moveTransition_FROM_State_outgoing_TO_State_State" description="Moves Transition from State(Reference:outgoing) toState(Reference:State)">
+    <parameters xmi:id="_NiunMik6EeSIUoaQEHooMA" name="Selected"/>
+    <parameters xmi:id="_NiunMyk6EeSIUoaQEHooMA" name="OldSource"/>
+    <parameters xmi:id="_NiunNCk6EeSIUoaQEHooMA" name="NewSource"/>
+    <lhs xmi:id="_NiunNSk6EeSIUoaQEHooMA" name="Lhs">
+      <nodes xmi:id="_NiunNik6EeSIUoaQEHooMA" name="Selected" incoming="_NiunOSk6EeSIUoaQEHooMA" outgoing="_NiunOik6EeSIUoaQEHooMA">
+        <type href="http://ctmc/1.0#//Transition"/>
+      </nodes>
+      <nodes xmi:id="_NiunNyk6EeSIUoaQEHooMA" name="OldSource" incoming="_NiunOik6EeSIUoaQEHooMA" outgoing="_NiunOSk6EeSIUoaQEHooMA">
+        <type href="http://ctmc/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_NiunOCk6EeSIUoaQEHooMA" name="NewSource">
+        <type href="http://ctmc/1.0#//State"/>
+      </nodes>
+      <edges xmi:id="_NiunOSk6EeSIUoaQEHooMA" source="_NiunNyk6EeSIUoaQEHooMA" target="_NiunNik6EeSIUoaQEHooMA">
+        <type href="http://ctmc/1.0#//State/outgoing"/>
+      </edges>
+      <edges xmi:id="_NiunOik6EeSIUoaQEHooMA" source="_NiunNik6EeSIUoaQEHooMA" target="_NiunNyk6EeSIUoaQEHooMA">
+        <type href="http://ctmc/1.0#//Transition/from"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_NiunOyk6EeSIUoaQEHooMA" name="Rhs">
+      <nodes xmi:id="_NiunPCk6EeSIUoaQEHooMA" name="Selected" incoming="_NiunPyk6EeSIUoaQEHooMA" outgoing="_NiunQCk6EeSIUoaQEHooMA">
+        <type href="http://ctmc/1.0#//Transition"/>
+      </nodes>
+      <nodes xmi:id="_NiunPSk6EeSIUoaQEHooMA" name="OldSource">
+        <type href="http://ctmc/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_NiunPik6EeSIUoaQEHooMA" name="NewSource" incoming="_NiunQCk6EeSIUoaQEHooMA" outgoing="_NiunPyk6EeSIUoaQEHooMA">
+        <type href="http://ctmc/1.0#//State"/>
+      </nodes>
+      <edges xmi:id="_NiunPyk6EeSIUoaQEHooMA" source="_NiunPik6EeSIUoaQEHooMA" target="_NiunPCk6EeSIUoaQEHooMA">
+        <type href="http://ctmc/1.0#//State/outgoing"/>
+      </edges>
+      <edges xmi:id="_NiunQCk6EeSIUoaQEHooMA" source="_NiunPCk6EeSIUoaQEHooMA" target="_NiunPik6EeSIUoaQEHooMA">
+        <type href="http://ctmc/1.0#//Transition/from"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_NiunQSk6EeSIUoaQEHooMA" origin="_NiunNik6EeSIUoaQEHooMA" image="_NiunPCk6EeSIUoaQEHooMA"/>
+    <mappings xmi:id="_NiunQik6EeSIUoaQEHooMA" origin="_NiunNyk6EeSIUoaQEHooMA" image="_NiunPSk6EeSIUoaQEHooMA"/>
+    <mappings xmi:id="_NiunQyk6EeSIUoaQEHooMA" origin="_NiunOCk6EeSIUoaQEHooMA" image="_NiunPik6EeSIUoaQEHooMA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_NiunRCk6EeSIUoaQEHooMA" name="mainUnit" subUnits="_NiunMSk6EeSIUoaQEHooMA">
+    <parameters xmi:id="_NiunRSk6EeSIUoaQEHooMA" name="selectedEObject"/>
+    <parameters xmi:id="_NiunRik6EeSIUoaQEHooMA" name="OldSource"/>
+    <parameters xmi:id="_NiunRyk6EeSIUoaQEHooMA" name="NewSource"/>
+    <parameterMappings xmi:id="_NiunSCk6EeSIUoaQEHooMA" source="_NiunRSk6EeSIUoaQEHooMA" target="_NiunMik6EeSIUoaQEHooMA"/>
+    <parameterMappings xmi:id="_NiunSSk6EeSIUoaQEHooMA" source="_NiunRik6EeSIUoaQEHooMA" target="_NiunMyk6EeSIUoaQEHooMA"/>
+    <parameterMappings xmi:id="_NiunSik6EeSIUoaQEHooMA" source="_NiunRyk6EeSIUoaQEHooMA" target="_NiunNCk6EeSIUoaQEHooMA"/>
+  </units>
+</henshin:Module>
