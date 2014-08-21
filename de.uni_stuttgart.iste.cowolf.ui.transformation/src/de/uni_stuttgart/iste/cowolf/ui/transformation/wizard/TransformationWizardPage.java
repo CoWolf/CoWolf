@@ -62,12 +62,15 @@ public class TransformationWizardPage extends WizardPage {
 
     private Button checkbox;
 
+    private Button checkboxResultFile;
+
     private boolean isEvolutionPossible;
     private boolean isTransformationPossible;
 
     private final static int SOURCE_MODEL_A = 0;
     private final static int SOURCE_MODEL_B = 1;
     private final static int TARGET_MODEL = 2;
+    private final static int TARGET_MODEL2 = 3;
 
     /**
      * Page providing main content for wizard.
@@ -125,7 +128,7 @@ public class TransformationWizardPage extends WizardPage {
         Button modelAChooser = new Button(evoGroup, 0);
         modelAChooser.setText("Browse ...");
         modelAChooser.addSelectionListener(this.browseWorkspace(SOURCE_MODEL_A,
-                this.modelAButton, parent.getShell()));
+                this.modelAButton, parent.getShell(), false));
 
         // "arrow" row
         this.arrowLabel = new Label(evoGroup, SWT.NONE);
@@ -143,7 +146,7 @@ public class TransformationWizardPage extends WizardPage {
         Button modelBChooser = new Button(evoGroup, 0);
         modelBChooser.setText("Browse ...");
         modelBChooser.addSelectionListener(this.browseWorkspace(SOURCE_MODEL_B,
-                this.modelBButton, parent.getShell()));
+                this.modelBButton, parent.getShell(), false));
 
         // Group for transformation model selection
         GridLayout layout2 = new GridLayout(2, false);
@@ -166,10 +169,26 @@ public class TransformationWizardPage extends WizardPage {
                 true, false));
         modelCChooser.setText("Browse ...");
         modelCChooser.addSelectionListener(this.browseWorkspace(TARGET_MODEL,
-                modelCChooser, parent.getShell()));
+                modelCChooser, parent.getShell(), false));
 
+        Group resultGroup = new Group(container, SWT.SHADOW_ETCHED_IN);
+        resultGroup.setText("Specify result file.");
+        resultGroup.setLayout(layout2);
+        resultGroup.setLayoutData(new GridData(SWT.FILL, SWT.BEGINNING, true,
+                false));
+        this.checkboxResultFile = new Button(resultGroup, SWT.CHECK);
+        this.checkboxResultFile
+                .setText(modelToString(wizard.getTarget2Model()));
+        this.checkboxResultFile
+                .setToolTipText("Check this, if you want to specify the name of the result file.");
+        Button modelDChooser = new Button(resultGroup, SWT.NONE);
+        modelDChooser.setLayoutData(new GridData(GridData.END, GridData.CENTER,
+                true, false));
+        modelDChooser.setText("Browse ...");
+        modelDChooser.addSelectionListener(this.browseWorkspace(TARGET_MODEL2,
+                this.checkboxResultFile, parent.getShell(), true));
         this.checkbox = new Button(container, SWT.CHECK);
-        this.checkbox.setText("Save associations.");
+        this.checkbox.setText("Save associations");
         // complete wizard page
         this.setControl(container);
         isEvolutionPossible = new EvolutionTester().isEvolutionPossible(
@@ -218,7 +237,7 @@ public class TransformationWizardPage extends WizardPage {
      * @return returns a Selection listener
      */
     protected SelectionListener browseWorkspace(final int modelCode,
-            final Button button, final Shell shell) {
+            final Button button, final Shell shell, final boolean createNew) {
         SelectionListener listener = new SelectionListener() {
 
             @Override
@@ -226,33 +245,47 @@ public class TransformationWizardPage extends WizardPage {
 
                 List<ViewerFilter> filters = new Vector<>();
                 filters.add(new TransformationModelsFilter());
-                IFile[] files = WorkspaceResourceDialog.openFileSelection(
-                        shell, "Choose model file", "Choose model file", true,
-                        null, filters);
-                if (files.length >= 1) {
-                    IFile model = files[0];
-                    if (modelCode == SOURCE_MODEL_A) {
-                        wizard.setSourceModelA(model);
-                    } else if (modelCode == SOURCE_MODEL_B) {
-                        wizard.setSourceModelB(model);
-                    } else if (modelCode == TARGET_MODEL) {
-                        wizard.setTargetModel(model);
+                if (createNew) {
+                    IFile file = WorkspaceResourceDialog.openNewFile(shell,
+                            "Choose new model file.", "Choose new model file",
+                            null, filters);
+                    if (modelCode == TARGET_MODEL2) {
+                        wizard.setTarget2Model(file);
+                        button.setText(modelToString(file));
+                        button.pack();
                     }
-                    button.setText(modelToString(model));
-                    button.pack();
+                } else {
 
-                    isEvolutionPossible = new EvolutionTester()
-                            .isEvolutionPossible(wizard.getSourceModelA(),
-                                    wizard.getSourceModelB());
-                    isTransformationPossible = new TransformationTester()
-                            .isTransformationPossible(wizard.getSourceModelA(),
-                                    wizard.getSourceModelB(),
-                                    wizard.getTargetModel());
+                    IFile[] files = WorkspaceResourceDialog.openFileSelection(
+                            shell, "Choose model file", "Choose model file",
+                            true, null, filters);
+                    if (files.length >= 1) {
+                        IFile model = files[0];
+                        if (modelCode == SOURCE_MODEL_A) {
+                            wizard.setSourceModelA(model);
+                        } else if (modelCode == SOURCE_MODEL_B) {
+                            wizard.setSourceModelB(model);
+                        } else if (modelCode == TARGET_MODEL) {
+                            wizard.setTargetModel(model);
+                        }
+                        button.setText(modelToString(model));
+                        button.pack();
 
-                    setErrorMessage(wizard.getSourceModelA(),
-                            wizard.getSourceModelB(), wizard.getTargetModel(),
-                            isEvolutionPossible, isTransformationPossible);
+                        isEvolutionPossible = new EvolutionTester()
+                                .isEvolutionPossible(wizard.getSourceModelA(),
+                                        wizard.getSourceModelB());
+                        isTransformationPossible = new TransformationTester()
+                                .isTransformationPossible(
+                                        wizard.getSourceModelA(),
+                                        wizard.getSourceModelB(),
+                                        wizard.getTargetModel());
 
+                        setErrorMessage(wizard.getSourceModelA(),
+                                wizard.getSourceModelB(),
+                                wizard.getTargetModel(), isEvolutionPossible,
+                                isTransformationPossible);
+
+                    }
                     setPageComplete(isEvolutionPossible
                             && isTransformationPossible);
                 }
@@ -317,6 +350,10 @@ public class TransformationWizardPage extends WizardPage {
 
     public boolean isAssociationSelected() {
         return this.checkbox.getSelection();
+    }
+
+    public boolean isResultFileChecked() {
+        return this.checkboxResultFile.getSelection();
     }
 
 }

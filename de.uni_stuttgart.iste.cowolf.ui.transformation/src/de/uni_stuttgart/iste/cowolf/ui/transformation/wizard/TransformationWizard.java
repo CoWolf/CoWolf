@@ -31,6 +31,10 @@ public class TransformationWizard extends Wizard {
 
     private boolean isAssociationSelected = false;
 
+    private IFile targetModel2;
+
+    private boolean resultFileSpecified;
+
     /**
      * Constructor setting both models.
      *
@@ -57,6 +61,7 @@ public class TransformationWizard extends Wizard {
     public boolean performFinish() {
         this.isFirstElementSelected = this.page.isFirstModelSelected();
         this.isAssociationSelected = this.page.isAssociationSelected();
+        this.resultFileSpecified = this.page.isResultFileChecked();
         return true;
     }
 
@@ -120,6 +125,17 @@ public class TransformationWizard extends Wizard {
 
     public boolean isAssociationSelected() {
         return this.isAssociationSelected;
+    }
+
+    public void setTarget2Model(IFile file) {
+        this.targetModel2 = file;
+    }
+    public IFile getTarget2Model() {
+        return this.targetModel2;
+    }
+
+    public boolean isResultFileSpecified() {
+        return this.resultFileSpecified;
     }
 
 }

@@ -150,7 +150,10 @@ public class Transform extends AbstractHandler {
         final AbstractTransformationManager transManager = this.extensionHandler
                 .getTransformationManager(firstSourceModel, target);
         if (evoManager != null && transManager != null) {
-
+            if (modelWizard.isResultFileSpecified()
+                    && modelWizard.getTarget2Model() != null) {
+                transManager.setFile(modelWizard.getTarget2Model());
+            }
             Job job = new Job("Model Co-Evolution") {
 
                 @Override

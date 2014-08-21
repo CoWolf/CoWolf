@@ -13,6 +13,7 @@ import java.util.Map;
 
 import javax.xml.bind.JAXBException;
 
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtension;
 import org.eclipse.core.runtime.IExtensionPoint;
@@ -60,6 +61,23 @@ public abstract class AbstractTransformationManager {
     protected Map<String, Mapping> mappings;
     protected Map<String, Unit> units;
     protected HenshinResourceSet rulesResourceSet = new HenshinResourceSet();
+
+    protected IFile file;
+
+    /**
+     * @return the file
+     */
+    public IFile getFile() {
+        return file;
+    }
+
+    /**
+     * @param file
+     *            the file to set
+     */
+    public void setFile(IFile file) {
+        this.file = file;
+    }
 
     /**
      * 
@@ -249,11 +267,20 @@ public abstract class AbstractTransformationManager {
             return target;
 
         } else {
+            URI uri = null;
             // create new filename
-            String fileName = this.getFileName(temp.getContents().get(0));
-            System.out.println("FileName: " + fileName);
-            Resource res = henshinResourceSet.createResource(URI
-                    .createURI(fileName));
+            if (file == null) {
+                String fileName = this.getFileName(temp.getContents().get(0));
+                System.out.println("FileName: " + fileName);
+                uri = URI.createURI(fileName);
+            } else {
+                String path = File.separator + file.getProject().getName()
+                        + File.separator
+                        + file.getProjectRelativePath().toString();
+                uri = URI.createPlatformResourceURI(path, true);
+                System.out.println(uri);
+            }
+            Resource res = henshinResourceSet.createResource(uri);
             res.getContents().addAll(temp.getContents());
             res.save(null);
             return res;
