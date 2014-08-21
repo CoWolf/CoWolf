@@ -47,4 +47,5 @@ public class FaultTreeModelManager extends AbstractQoSModelManager {
 
 		return null;
 	}
+
 }

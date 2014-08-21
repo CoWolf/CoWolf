@@ -118,6 +118,9 @@ import org.eclipse.emf.edit.ui.util.EditUIUtil;
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
 import de.uni_stuttgart.iste.cowolf.model.commonBase.emf.provider.CommonBaseItemProviderAdapterFactory;
+import org.eclipse.emf.common.ui.viewer.ColumnViewerInformationControlToolTipSupport;
+import org.eclipse.emf.edit.ui.provider.DecoratingColumLabelProvider;
+import org.eclipse.emf.edit.ui.provider.DiagnosticDecorator;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.emf.provider.CtmcItemProviderAdapterFactory;
 
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
@@ -437,17 +440,24 @@ public class CtmcEditor
 						protected Collection<Resource> changedResources = new ArrayList<Resource>();
 						protected Collection<Resource> removedResources = new ArrayList<Resource>();
 
-						public boolean visit(IResourceDelta delta) {
+						public boolean visit(final IResourceDelta delta) {
 							if (delta.getResource().getType() == IResource.FILE) {
 								if (delta.getKind() == IResourceDelta.REMOVED ||
-								    delta.getKind() == IResourceDelta.CHANGED && delta.getFlags() != IResourceDelta.MARKERS) {
-									Resource resource = resourceSet.getResource(URI.createPlatformResourceURI(delta.getFullPath().toString(), true), false);
+								    delta.getKind() == IResourceDelta.CHANGED) {
+									final Resource resource = resourceSet.getResource(URI.createPlatformResourceURI(delta.getFullPath().toString(), true), false);
 									if (resource != null) {
 										if (delta.getKind() == IResourceDelta.REMOVED) {
 											removedResources.add(resource);
 										}
-										else if (!savedResources.remove(resource)) {
-											changedResources.add(resource);
+										else {
+											if ((delta.getFlags() & IResourceDelta.MARKERS) != 0) {
+												DiagnosticDecorator.DiagnosticAdapter.update(resource, markerHelper.getMarkerDiagnostics(resource, (IFile)delta.getResource()));
+											}
+											if ((delta.getFlags() & IResourceDelta.CONTENT) != 0) {
+												if (!savedResources.remove(resource)) {
+													changedResources.add(resource);
+												}
+											}
 										}
 									}
 								}
@@ -1004,12 +1014,13 @@ public class CtmcEditor
 				selectionViewer = (TreeViewer)viewerPane.getViewer();
 				selectionViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
 
-				selectionViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
+				selectionViewer.setLabelProvider(new DecoratingColumLabelProvider(new AdapterFactoryLabelProvider(adapterFactory), new DiagnosticDecorator(editingDomain, selectionViewer, CTMCemfEditorPlugin.getPlugin().getDialogSettings())));
 				selectionViewer.setInput(editingDomain.getResourceSet());
 				selectionViewer.setSelection(new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
 				viewerPane.setTitle(editingDomain.getResourceSet());
 
 				new AdapterFactoryTreeEditor(selectionViewer.getTree(), adapterFactory);
+				new ColumnViewerInformationControlToolTipSupport(selectionViewer, new DiagnosticDecorator.EditingDomainLocationListener(editingDomain, selectionViewer));
 
 				createContextMenuFor(selectionViewer);
 				int pageIndex = addPage(viewerPane.getControl());
@@ -1088,9 +1099,10 @@ public class CtmcEditor
 				viewerPane.createControl(getContainer());
 				treeViewer = (TreeViewer)viewerPane.getViewer();
 				treeViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
-				treeViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
+				treeViewer.setLabelProvider(new DecoratingColumLabelProvider(new AdapterFactoryLabelProvider(adapterFactory), new DiagnosticDecorator(editingDomain, treeViewer)));
 
 				new AdapterFactoryTreeEditor(treeViewer.getTree(), adapterFactory);
+				new ColumnViewerInformationControlToolTipSupport(treeViewer, new DiagnosticDecorator.EditingDomainLocationListener(editingDomain, treeViewer));
 
 				createContextMenuFor(treeViewer);
 				int pageIndex = addPage(viewerPane.getControl());
@@ -1133,7 +1145,9 @@ public class CtmcEditor
 
 				tableViewer.setColumnProperties(new String [] {"a", "b"});
 				tableViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
-				tableViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
+				tableViewer.setLabelProvider(new DecoratingColumLabelProvider(new AdapterFactoryLabelProvider(adapterFactory), new DiagnosticDecorator(editingDomain, tableViewer, CTMCemfEditorPlugin.getPlugin().getDialogSettings())));
+
+				new ColumnViewerInformationControlToolTipSupport(tableViewer, new DiagnosticDecorator.EditingDomainLocationListener(editingDomain, tableViewer));
 
 				createContextMenuFor(tableViewer);
 				int pageIndex = addPage(viewerPane.getControl());
@@ -1176,7 +1190,9 @@ public class CtmcEditor
 
 				treeViewerWithColumns.setColumnProperties(new String [] {"a", "b"});
 				treeViewerWithColumns.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
-				treeViewerWithColumns.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
+				treeViewerWithColumns.setLabelProvider(new DecoratingColumLabelProvider(new AdapterFactoryLabelProvider(adapterFactory), new DiagnosticDecorator(editingDomain, treeViewerWithColumns, CTMCemfEditorPlugin.getPlugin().getDialogSettings())));
+
+				new ColumnViewerInformationControlToolTipSupport(treeViewerWithColumns, new DiagnosticDecorator.EditingDomainLocationListener(editingDomain, treeViewerWithColumns));
 
 				createContextMenuFor(treeViewerWithColumns);
 				int pageIndex = addPage(viewerPane.getControl());
@@ -1309,8 +1325,10 @@ public class CtmcEditor
 					// Set up the tree viewer.
 					//
 					contentOutlineViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
-					contentOutlineViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
+					contentOutlineViewer.setLabelProvider(new DecoratingColumLabelProvider(new AdapterFactoryLabelProvider(adapterFactory), new DiagnosticDecorator(editingDomain, contentOutlineViewer, CTMCemfEditorPlugin.getPlugin().getDialogSettings())));
 					contentOutlineViewer.setInput(editingDomain.getResourceSet());
+
+					new ColumnViewerInformationControlToolTipSupport(contentOutlineViewer, new DiagnosticDecorator.EditingDomainLocationListener(editingDomain, contentOutlineViewer));
 
 					// Make sure our popups work.
 					//
@@ -1361,7 +1379,7 @@ public class CtmcEditor
 	 */
 	public IPropertySheetPage getPropertySheetPage() {
 		PropertySheetPage propertySheetPage =
-			new ExtendedPropertySheetPage(editingDomain) {
+			new ExtendedPropertySheetPage(editingDomain, ExtendedPropertySheetPage.Decoration.LIVE, CTMCemfEditorPlugin.getPlugin().getDialogSettings()) {
 				@Override
 				public void setSelectionToViewer(List<?> selection) {
 					CtmcEditor.this.setSelectionToViewer(selection);

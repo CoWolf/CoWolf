@@ -159,7 +159,7 @@ public class CtmcModelWizard extends Wizard implements INewWizard {
 	 * Returns the names of the types that can be created as the root object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * 
 	 */
 	protected Collection<String> getInitialObjectNames() {
 		if (initialObjectNames == null) {
@@ -167,7 +167,7 @@ public class CtmcModelWizard extends Wizard implements INewWizard {
 			for (EClassifier eClassifier : ctmcPackage.getEClassifiers()) {
 				if (eClassifier instanceof EClass) {
 					EClass eClass = (EClass)eClassifier;
-					if (!eClass.isAbstract()) {
+					if (!eClass.isAbstract() && eClass.getName().equalsIgnoreCase("CTMC")) {
 						initialObjectNames.add(eClass.getName());
 					}
 				}
