@@ -67,6 +67,16 @@ public class TransformationRulesLabelProvider implements ILabelProvider {
 				e.printStackTrace();
 			}
 
+		} else if (element instanceof Unit) {
+			
+			try {
+				URL url = new URL(
+						"platform:/plugin/org.eclipse.emf.henshin.diagram/icons/obj16/Unit.png");
+				return ImageDescriptor.createFromURL(url).createImage();
+			} catch (MalformedURLException e) {
+				e.printStackTrace();
+			}
+			
 		}
 
 		return null;

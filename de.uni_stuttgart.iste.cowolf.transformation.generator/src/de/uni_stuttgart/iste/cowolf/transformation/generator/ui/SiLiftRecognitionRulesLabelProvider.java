@@ -1,9 +1,17 @@
 package de.uni_stuttgart.iste.cowolf.transformation.generator.ui;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import org.eclipse.core.resources.IProject;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.ui.ISharedImages;
+import org.eclipse.ui.PlatformUI;
 import org.sidiff.difference.rulebase.RecognitionRule;
+import org.sidiff.difference.rulebase.RuleBase;
 import org.sidiff.difference.rulebase.extension.IRuleBase;
 
 /**
@@ -39,7 +47,29 @@ public class SiLiftRecognitionRulesLabelProvider implements ILabelProvider {
 
 	@Override
 	public Image getImage(Object element) {
-		// TODO Auto-generated method stub
+		if (element instanceof IRuleBase || element instanceof RuleBase) {
+
+			try {
+				URL url = new URL(
+						"platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.generator/de/uni_stuttgart/iste/cowolf/transformation/generator/ui/icons/rulebase.gif");
+				return ImageDescriptor.createFromURL(url).createImage();
+			} catch (MalformedURLException e) {
+				e.printStackTrace();
+			}
+
+		} else if (element instanceof RecognitionRule) {
+			
+			
+			try {
+				URL url = new URL(
+						"platform:/plugin/org.eclipse.emf.henshin.editor/icons/full/obj16/HenshinModelFile.gif");
+				return ImageDescriptor.createFromURL(url).createImage();
+			} catch (MalformedURLException e) {
+				e.printStackTrace();
+			}
+			
+		}
+		
 		return null;
 	}
 

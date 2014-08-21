@@ -1,7 +1,9 @@
 package de.uni_stuttgart.iste.cowolf.transformation.generator.ui;
 
 import java.io.File;
+import java.net.MalformedURLException;
 import java.net.URI;
+import java.net.URL;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -14,6 +16,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.henshin.model.Parameter;
 import org.eclipse.emf.henshin.model.Unit;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -25,6 +28,7 @@ import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -97,7 +101,7 @@ public class TransformationMappingEditor extends EditorPart {
 	@Override
 	public void doSaveAs() {
 
-		FileDialog fileDialog = new FileDialog(this.parent.getShell());
+		FileDialog fileDialog = new FileDialog(this.parent.getShell(), SWT.SAVE);
 		fileDialog
 				.setText("Select where to store the Transformation Mapping file.");
 		fileDialog.setFilterExtensions(new String[] { "*.transmap" });
@@ -116,8 +120,7 @@ public class TransformationMappingEditor extends EditorPart {
 
 		try {
 			XMLMappingLoader.storeMappings(this.mappings, targetFile);
-			TransformationMappingEditor.this.inputFileChanged = false;
-			this.firePropertyChange(IEditorPart.PROP_DIRTY);
+			noUnsavedChanges();
 		} catch (JAXBException e) {
 			e.printStackTrace();
 		}
@@ -162,6 +165,25 @@ public class TransformationMappingEditor extends EditorPart {
 		return true;
 	}
 
+	/**
+	 * 
+	 */
+	public void newUnsavedChanges() {
+		inputFileChanged = true;
+		TransformationMappingEditor.this
+				.firePropertyChange(IEditorPart.PROP_DIRTY);
+
+	}
+
+	/**
+	 * 
+	 */
+	public void noUnsavedChanges() {
+		inputFileChanged = false;
+		TransformationMappingEditor.this
+				.firePropertyChange(IEditorPart.PROP_DIRTY);
+
+	}
 
 	@Override
 	public void createPartControl(Composite parent) {
@@ -342,7 +364,7 @@ public class TransformationMappingEditor extends EditorPart {
 
 		Section section3 = toolkit.createSection(this.bottomComposite,
 				Section.DESCRIPTION | Section.TITLE_BAR);
-		section3.setDescription("This table contains the mappings you are defined.");
+		section3.setDescription("This table contains the defined mappings. The \"Priority\" of a mapping defines the order of the transformation rules execution. A mapping with the priority \"0\" has the highest priority.");
 		section3.setText("Transformation Mappings");
 
 		Composite section3Composite = toolkit.createComposite(section3);
@@ -431,12 +453,15 @@ public class TransformationMappingEditor extends EditorPart {
 	 */
 	private void createMappingsTableViewerColumns(TableViewer viewer) {
 
-		System.out.println("test");
-
 		TableViewerColumn colRecognitionRuleName = new TableViewerColumn(
 				viewer, SWT.NONE);
 		colRecognitionRuleName.getColumn().setText("Recognition Rule");
-		// colRecognitionRuleName.getColumn().setWidth(300);
+		try {
+			colRecognitionRuleName.getColumn().setImage(ImageDescriptor.createFromURL(new URL(
+					"platform:/plugin/org.eclipse.emf.henshin.editor/icons/full/obj16/HenshinModelFile.gif")).createImage());
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
 		colRecognitionRuleName.setLabelProvider(new ColumnLabelProvider() {
 
 			@Override
@@ -451,13 +476,32 @@ public class TransformationMappingEditor extends EditorPart {
 				return null;
 
 			}
+
+//			@Override
+//			public Image getImage(Object element) {
+//				try {
+//					URL url = new URL(
+//							"platform:/plugin/org.eclipse.emf.henshin.editor/icons/full/obj16/HenshinModelFile.gif");
+//					return ImageDescriptor.createFromURL(url).createImage();
+//				} catch (MalformedURLException e) {
+//					e.printStackTrace();
+//				}
+//
+//				return null;
+//			}
+
 		});
 
 		TableViewerColumn colTransformationRuleName = new TableViewerColumn(
 				viewer, SWT.NONE);
 		colTransformationRuleName.getColumn().setText(
 				"Transformation Rule (Unit)");
-		// colTransformationRuleName.getColumn().setWidth(300);
+		try {
+			colTransformationRuleName.getColumn().setImage(ImageDescriptor.createFromURL(new URL(
+					"platform:/plugin/org.eclipse.emf.henshin.diagram/icons/obj16/Unit.png")).createImage());
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
 		colTransformationRuleName.setLabelProvider(new ColumnLabelProvider() {
 
 			@Override
@@ -466,6 +510,40 @@ public class TransformationMappingEditor extends EditorPart {
 				if (element instanceof Mapping) {
 
 					return ((Mapping) element).getRule().getName();
+
+				}
+
+				return null;
+
+			}
+
+//			@Override
+//			public Image getImage(Object element) {
+//				try {
+//					URL url = new URL(
+//							"platform:/plugin/org.eclipse.emf.henshin.diagram/icons/obj16/Unit.png");
+//					return ImageDescriptor.createFromURL(url).createImage();
+//				} catch (MalformedURLException e) {
+//					e.printStackTrace();
+//				}
+//
+//				return null;
+//			}
+		});
+
+		TableViewerColumn colMappingPriority = new TableViewerColumn(viewer,
+				SWT.NONE);
+		colMappingPriority.getColumn().setText("Priority");
+		colMappingPriority.setEditingSupport(new MappingPriorityEditingSupport(
+				viewer, this));
+		colMappingPriority.setLabelProvider(new ColumnLabelProvider() {
+
+			@Override
+			public String getText(Object element) {
+
+				if (element instanceof Mapping) {
+
+					return Integer.toString(((Mapping) element).getPriority());
 
 				}
 
@@ -633,6 +711,7 @@ public class TransformationMappingEditor extends EditorPart {
 								param.setName(unitParameter.getName());
 								params.getParam().add(param);
 							}
+							rule.setParams(params);
 							newMapping.setRule(rule);
 
 							TransformationMappingEditor.this.mappings
@@ -640,9 +719,7 @@ public class TransformationMappingEditor extends EditorPart {
 									.put(changeSetName, newMapping);
 							TransformationMappingEditor.this.mappingsTableViewer
 									.refresh();
-							TransformationMappingEditor.this.inputFileChanged = true;
-							TransformationMappingEditor.this
-									.firePropertyChange(IEditorPart.PROP_DIRTY);
+							newUnsavedChanges();
 
 							// TransformationMappingEditor.this.mappingsTableViewer
 							// .add(newMapping);
@@ -706,9 +783,7 @@ public class TransformationMappingEditor extends EditorPart {
 
 							TransformationMappingEditor.this.mappingsTableViewer
 									.refresh();
-							TransformationMappingEditor.this.inputFileChanged = true;
-							TransformationMappingEditor.this
-									.firePropertyChange(IEditorPart.PROP_DIRTY);
+							newUnsavedChanges();
 
 							resizeTable(mappingsTableViewer.getTable());
 						}
