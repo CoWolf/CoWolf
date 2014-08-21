@@ -23,6 +23,7 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.sidiff.difference.symmetric.SymmetricDifference;
 
+import de.uni_stuttgart.iste.cowolf.core.ModelAssociationManager.ModelAssociationManager;
 import de.uni_stuttgart.iste.cowolf.core.extensions.ExtensionHandler;
 import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
 import de.uni_stuttgart.iste.cowolf.evolution.EvolutionException;
@@ -129,6 +130,14 @@ public class Transform extends AbstractHandler {
                     .getSourceModelB());
             secondSourceModel = this.getResourceOfIFile(modelWizard
                     .getSourceModelA());
+        }
+        if (modelWizard.isAssociationSelected()) {
+            ModelAssociationManager manager = ModelAssociationManager
+                    .getInstance();
+            manager.addAssociation(firstSourceModel, secondSourceModel,
+                    firstSourceElement.getProject());
+            manager.addAssociation(secondSourceModel, targetModel,
+                    firstSourceElement.getProject());
         }
         final Resource firstSource = firstSourceModel;
         final Resource secondSource = secondSourceModel;
