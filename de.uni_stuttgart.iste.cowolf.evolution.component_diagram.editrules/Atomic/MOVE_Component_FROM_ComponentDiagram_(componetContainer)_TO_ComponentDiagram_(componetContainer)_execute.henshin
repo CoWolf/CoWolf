@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_bjXpgCkQEeS2k7PSdfiVLA" name="MOVE_Component_FROM_ComponentDiagram_(componetContainer)_TO_ComponentDiagram_(componetContainer)" description="MOVEs Component from ComponentDiagram(Reference:componetContainer) to ComponentDiagram(Reference:componetContainer">
+  <imports href="http://ComponentDiagram/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_bjXpgSkQEeS2k7PSdfiVLA" name="moveComponent_FROM_ComponentDiagram_componetContainer_TO_ComponentDiagram_ComponentDiagram" description="Moves Component from ComponentDiagram(Reference:componetContainer) toComponentDiagram(Reference:ComponentDiagram)">
+    <parameters xmi:id="_bjXpgikQEeS2k7PSdfiVLA" name="Selected"/>
+    <parameters xmi:id="_bjXpgykQEeS2k7PSdfiVLA" name="OldSource"/>
+    <parameters xmi:id="_bjXphCkQEeS2k7PSdfiVLA" name="NewSource"/>
+    <lhs xmi:id="_bjXphSkQEeS2k7PSdfiVLA" name="Lhs">
+      <nodes xmi:id="_bjXphikQEeS2k7PSdfiVLA" name="Selected" incoming="_bjXpiSkQEeS2k7PSdfiVLA" outgoing="_bjXpiikQEeS2k7PSdfiVLA">
+        <type href="http://ComponentDiagram/1.0#//Component"/>
+      </nodes>
+      <nodes xmi:id="_bjXphykQEeS2k7PSdfiVLA" name="OldSource" incoming="_bjXpiikQEeS2k7PSdfiVLA" outgoing="_bjXpiSkQEeS2k7PSdfiVLA">
+        <type href="http://ComponentDiagram/1.0#//ComponentDiagram"/>
+      </nodes>
+      <nodes xmi:id="_bjXpiCkQEeS2k7PSdfiVLA" name="NewSource">
+        <type href="http://ComponentDiagram/1.0#//ComponentDiagram"/>
+      </nodes>
+      <edges xmi:id="_bjXpiSkQEeS2k7PSdfiVLA" source="_bjXphykQEeS2k7PSdfiVLA" target="_bjXphikQEeS2k7PSdfiVLA">
+        <type href="http://ComponentDiagram/1.0#//ComponentDiagram/componetContainer"/>
+      </edges>
+      <edges xmi:id="_bjXpiikQEeS2k7PSdfiVLA" source="_bjXphikQEeS2k7PSdfiVLA" target="_bjXphykQEeS2k7PSdfiVLA">
+        <type href="http://ComponentDiagram/1.0#//Component/diagram"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_bjXpiykQEeS2k7PSdfiVLA" name="Rhs">
+      <nodes xmi:id="_bjXpjCkQEeS2k7PSdfiVLA" name="Selected" incoming="_bjXpjykQEeS2k7PSdfiVLA" outgoing="_bjXpkCkQEeS2k7PSdfiVLA">
+        <type href="http://ComponentDiagram/1.0#//Component"/>
+      </nodes>
+      <nodes xmi:id="_bjXpjSkQEeS2k7PSdfiVLA" name="OldSource">
+        <type href="http://ComponentDiagram/1.0#//ComponentDiagram"/>
+      </nodes>
+      <nodes xmi:id="_bjXpjikQEeS2k7PSdfiVLA" name="NewSource" incoming="_bjXpkCkQEeS2k7PSdfiVLA" outgoing="_bjXpjykQEeS2k7PSdfiVLA">
+        <type href="http://ComponentDiagram/1.0#//ComponentDiagram"/>
+      </nodes>
+      <edges xmi:id="_bjXpjykQEeS2k7PSdfiVLA" source="_bjXpjikQEeS2k7PSdfiVLA" target="_bjXpjCkQEeS2k7PSdfiVLA">
+        <type href="http://ComponentDiagram/1.0#//ComponentDiagram/componetContainer"/>
+      </edges>
+      <edges xmi:id="_bjXpkCkQEeS2k7PSdfiVLA" source="_bjXpjCkQEeS2k7PSdfiVLA" target="_bjXpjikQEeS2k7PSdfiVLA">
+        <type href="http://ComponentDiagram/1.0#//Component/diagram"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_bjXpkSkQEeS2k7PSdfiVLA" origin="_bjXphikQEeS2k7PSdfiVLA" image="_bjXpjCkQEeS2k7PSdfiVLA"/>
+    <mappings xmi:id="_bjXpkikQEeS2k7PSdfiVLA" origin="_bjXphykQEeS2k7PSdfiVLA" image="_bjXpjSkQEeS2k7PSdfiVLA"/>
+    <mappings xmi:id="_bjXpkykQEeS2k7PSdfiVLA" origin="_bjXpiCkQEeS2k7PSdfiVLA" image="_bjXpjikQEeS2k7PSdfiVLA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_bjXplCkQEeS2k7PSdfiVLA" name="mainUnit" subUnits="_bjXpgSkQEeS2k7PSdfiVLA">
+    <parameters xmi:id="_bjXplSkQEeS2k7PSdfiVLA" name="selectedEObject"/>
+    <parameters xmi:id="_bjXplikQEeS2k7PSdfiVLA" name="OldSource"/>
+    <parameters xmi:id="_bjXplykQEeS2k7PSdfiVLA" name="NewSource"/>
+    <parameterMappings xmi:id="_bjXpmCkQEeS2k7PSdfiVLA" source="_bjXplSkQEeS2k7PSdfiVLA" target="_bjXpgikQEeS2k7PSdfiVLA"/>
+    <parameterMappings xmi:id="_bjXpmSkQEeS2k7PSdfiVLA" source="_bjXplikQEeS2k7PSdfiVLA" target="_bjXpgykQEeS2k7PSdfiVLA"/>
+    <parameterMappings xmi:id="_bjXpmikQEeS2k7PSdfiVLA" source="_bjXplykQEeS2k7PSdfiVLA" target="_bjXphCkQEeS2k7PSdfiVLA"/>
+  </units>
+</henshin:Module>

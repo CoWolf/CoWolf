@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_blKZQCkQEeS2k7PSdfiVLA" name="CREATE_Interface_IN_ComponentDiagram_(interfaceContainer)" description="Creates one Interface in ComponentDiagram">
+  <imports href="http://ComponentDiagram/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_blKZQSkQEeS2k7PSdfiVLA" name="createInterface_IN_ComponentDiagram" description="creates one Interface in the context: ComponentDiagram">
+    <parameters xmi:id="_blKZQikQEeS2k7PSdfiVLA" name="Selected"/>
+    <parameters xmi:id="_blKZQykQEeS2k7PSdfiVLA" name="New"/>
+    <parameters xmi:id="_blKZRCkQEeS2k7PSdfiVLA" name="Id"/>
+    <parameters xmi:id="_blKZRSkQEeS2k7PSdfiVLA" name="Name"/>
+    <parameters xmi:id="_blKZRikQEeS2k7PSdfiVLA" name="Description"/>
+    <lhs xmi:id="_blKZRykQEeS2k7PSdfiVLA" name="Lhs">
+      <nodes xmi:id="_blKZSCkQEeS2k7PSdfiVLA" name="Selected">
+        <type href="http://ComponentDiagram/1.0#//ComponentDiagram"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_blKZSSkQEeS2k7PSdfiVLA" name="Rhs">
+      <nodes xmi:id="_blKZSikQEeS2k7PSdfiVLA" name="Selected" outgoing="_blKZTykQEeS2k7PSdfiVLA">
+        <type href="http://ComponentDiagram/1.0#//ComponentDiagram"/>
+      </nodes>
+      <nodes xmi:id="_blKZSykQEeS2k7PSdfiVLA" name="New" incoming="_blKZTykQEeS2k7PSdfiVLA">
+        <type href="http://ComponentDiagram/1.0#//Interface"/>
+        <attributes xmi:id="_blKZTCkQEeS2k7PSdfiVLA" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_blKZTSkQEeS2k7PSdfiVLA" value="Name">
+          <type href="http://CommonBase/1.0#//NameBase/name"/>
+        </attributes>
+        <attributes xmi:id="_blKZTikQEeS2k7PSdfiVLA" value="Description">
+          <type href="http://ComponentDiagram/1.0#//Interface/description"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_blKZTykQEeS2k7PSdfiVLA" source="_blKZSikQEeS2k7PSdfiVLA" target="_blKZSykQEeS2k7PSdfiVLA">
+        <type href="http://ComponentDiagram/1.0#//ComponentDiagram/interfaceContainer"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_blKZUCkQEeS2k7PSdfiVLA" origin="_blKZSCkQEeS2k7PSdfiVLA" image="_blKZSikQEeS2k7PSdfiVLA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_blKZUSkQEeS2k7PSdfiVLA" name="mainUnit" description="Creates one Interface depending on available contexts in model instance" subUnits="_blKZQSkQEeS2k7PSdfiVLA">
+    <parameters xmi:id="_blKZUikQEeS2k7PSdfiVLA" name="New"/>
+    <parameters xmi:id="_blKZUykQEeS2k7PSdfiVLA" name="selectedEObject"/>
+    <parameters xmi:id="_blKZVCkQEeS2k7PSdfiVLA" name="Id"/>
+    <parameters xmi:id="_blKZVSkQEeS2k7PSdfiVLA" name="Name"/>
+    <parameters xmi:id="_blKZVikQEeS2k7PSdfiVLA" name="Description"/>
+    <parameterMappings xmi:id="_blKZVykQEeS2k7PSdfiVLA" source="_blKZUykQEeS2k7PSdfiVLA" target="_blKZQikQEeS2k7PSdfiVLA"/>
+    <parameterMappings xmi:id="_blKZWCkQEeS2k7PSdfiVLA" source="_blKZQykQEeS2k7PSdfiVLA" target="_blKZUikQEeS2k7PSdfiVLA"/>
+    <parameterMappings xmi:id="_blKZWSkQEeS2k7PSdfiVLA" source="_blKZVCkQEeS2k7PSdfiVLA" target="_blKZRCkQEeS2k7PSdfiVLA"/>
+    <parameterMappings xmi:id="_blKZWikQEeS2k7PSdfiVLA" source="_blKZVSkQEeS2k7PSdfiVLA" target="_blKZRSkQEeS2k7PSdfiVLA"/>
+    <parameterMappings xmi:id="_blKZWykQEeS2k7PSdfiVLA" source="_blKZVikQEeS2k7PSdfiVLA" target="_blKZRikQEeS2k7PSdfiVLA"/>
+  </units>
+</henshin:Module>

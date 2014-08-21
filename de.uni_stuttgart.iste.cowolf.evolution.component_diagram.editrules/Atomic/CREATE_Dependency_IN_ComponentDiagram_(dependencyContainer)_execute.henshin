@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_bma9gCkQEeS2k7PSdfiVLA" name="CREATE_Dependency_IN_ComponentDiagram_(dependencyContainer)" description="Creates one Dependency in ComponentDiagram">
+  <imports href="http://ComponentDiagram/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_bma9gSkQEeS2k7PSdfiVLA" name="createDependency_IN_ComponentDiagram" description="creates one Dependency in the context: ComponentDiagram">
+    <parameters xmi:id="_bma9gikQEeS2k7PSdfiVLA" name="Selected"/>
+    <parameters xmi:id="_bma9gykQEeS2k7PSdfiVLA" name="New"/>
+    <parameters xmi:id="_bma9hCkQEeS2k7PSdfiVLA" name="Id"/>
+    <parameters xmi:id="_bma9hSkQEeS2k7PSdfiVLA" name="Name"/>
+    <lhs xmi:id="_bma9hikQEeS2k7PSdfiVLA" name="Lhs">
+      <nodes xmi:id="_bma9hykQEeS2k7PSdfiVLA" name="Selected">
+        <type href="http://ComponentDiagram/1.0#//ComponentDiagram"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_bma9iCkQEeS2k7PSdfiVLA" name="Rhs">
+      <nodes xmi:id="_bma9iSkQEeS2k7PSdfiVLA" name="Selected" outgoing="_bma9jSkQEeS2k7PSdfiVLA">
+        <type href="http://ComponentDiagram/1.0#//ComponentDiagram"/>
+      </nodes>
+      <nodes xmi:id="_bma9iikQEeS2k7PSdfiVLA" name="New" incoming="_bma9jSkQEeS2k7PSdfiVLA">
+        <type href="http://ComponentDiagram/1.0#//Dependency"/>
+        <attributes xmi:id="_bma9iykQEeS2k7PSdfiVLA" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_bma9jCkQEeS2k7PSdfiVLA" value="Name">
+          <type href="http://CommonBase/1.0#//NameBase/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_bma9jSkQEeS2k7PSdfiVLA" source="_bma9iSkQEeS2k7PSdfiVLA" target="_bma9iikQEeS2k7PSdfiVLA">
+        <type href="http://ComponentDiagram/1.0#//ComponentDiagram/dependencyContainer"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_bma9jikQEeS2k7PSdfiVLA" origin="_bma9hykQEeS2k7PSdfiVLA" image="_bma9iSkQEeS2k7PSdfiVLA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_bma9jykQEeS2k7PSdfiVLA" name="mainUnit" description="Creates one Dependency depending on available contexts in model instance" subUnits="_bma9gSkQEeS2k7PSdfiVLA">
+    <parameters xmi:id="_bma9kCkQEeS2k7PSdfiVLA" name="New"/>
+    <parameters xmi:id="_bma9kSkQEeS2k7PSdfiVLA" name="selectedEObject"/>
+    <parameters xmi:id="_bma9kikQEeS2k7PSdfiVLA" name="Id"/>
+    <parameters xmi:id="_bma9kykQEeS2k7PSdfiVLA" name="Name"/>
+    <parameterMappings xmi:id="_bma9lCkQEeS2k7PSdfiVLA" source="_bma9kSkQEeS2k7PSdfiVLA" target="_bma9gikQEeS2k7PSdfiVLA"/>
+    <parameterMappings xmi:id="_bma9lSkQEeS2k7PSdfiVLA" source="_bma9gykQEeS2k7PSdfiVLA" target="_bma9kCkQEeS2k7PSdfiVLA"/>
+    <parameterMappings xmi:id="_bma9likQEeS2k7PSdfiVLA" source="_bma9kikQEeS2k7PSdfiVLA" target="_bma9hCkQEeS2k7PSdfiVLA"/>
+    <parameterMappings xmi:id="_bma9lykQEeS2k7PSdfiVLA" source="_bma9kykQEeS2k7PSdfiVLA" target="_bma9hSkQEeS2k7PSdfiVLA"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_bjkd0CkQEeS2k7PSdfiVLA" name="DELETE_Port_IN_Component_(ports)" description="Deletes one Port in Component">
+  <imports href="http://ComponentDiagram/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_bjkd0SkQEeS2k7PSdfiVLA" name="deletePort_IN_Component" description="deletes one Port in the context: Component">
+    <parameters xmi:id="_bjkd0ikQEeS2k7PSdfiVLA" name="Selected"/>
+    <parameters xmi:id="_bjkd0ykQEeS2k7PSdfiVLA" name="ToBeDeleted"/>
+    <lhs xmi:id="_bjkd1CkQEeS2k7PSdfiVLA" name="LHS">
+      <nodes xmi:id="_bjkd1SkQEeS2k7PSdfiVLA" name="Selected" incoming="_bjkd2CkQEeS2k7PSdfiVLA" outgoing="_bjkd1ykQEeS2k7PSdfiVLA">
+        <type href="http://ComponentDiagram/1.0#//Component"/>
+      </nodes>
+      <nodes xmi:id="_bjkd1ikQEeS2k7PSdfiVLA" name="ToBeDeleted" incoming="_bjkd1ykQEeS2k7PSdfiVLA" outgoing="_bjkd2CkQEeS2k7PSdfiVLA">
+        <type href="http://ComponentDiagram/1.0#//Port"/>
+      </nodes>
+      <edges xmi:id="_bjkd1ykQEeS2k7PSdfiVLA" source="_bjkd1SkQEeS2k7PSdfiVLA" target="_bjkd1ikQEeS2k7PSdfiVLA">
+        <type href="http://ComponentDiagram/1.0#//Component/ports"/>
+      </edges>
+      <edges xmi:id="_bjkd2CkQEeS2k7PSdfiVLA" source="_bjkd1ikQEeS2k7PSdfiVLA" target="_bjkd1SkQEeS2k7PSdfiVLA">
+        <type href="http://ComponentDiagram/1.0#//Port/portHost"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_bjkd2SkQEeS2k7PSdfiVLA" name="RHS">
+      <nodes xmi:id="_bjkd2ikQEeS2k7PSdfiVLA" name="Selected">
+        <type href="http://ComponentDiagram/1.0#//Component"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_bjkd2ykQEeS2k7PSdfiVLA" origin="_bjkd1SkQEeS2k7PSdfiVLA" image="_bjkd2ikQEeS2k7PSdfiVLA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_bjkd3CkQEeS2k7PSdfiVLA" name="mainUnit" description="Deletes one Port depending on available contexts in model instance" subUnits="_bjkd0SkQEeS2k7PSdfiVLA">
+    <parameters xmi:id="_bjkd3SkQEeS2k7PSdfiVLA" name="ToBeDeleted"/>
+    <parameters xmi:id="_bjkd3ikQEeS2k7PSdfiVLA" name="selectedEObject"/>
+    <parameterMappings xmi:id="_bjkd3ykQEeS2k7PSdfiVLA" source="_bjkd3ikQEeS2k7PSdfiVLA" target="_bjkd0ikQEeS2k7PSdfiVLA"/>
+    <parameterMappings xmi:id="_bjkd4CkQEeS2k7PSdfiVLA" source="_bjkd3SkQEeS2k7PSdfiVLA" target="_bjkd0ykQEeS2k7PSdfiVLA"/>
+  </units>
+</henshin:Module>

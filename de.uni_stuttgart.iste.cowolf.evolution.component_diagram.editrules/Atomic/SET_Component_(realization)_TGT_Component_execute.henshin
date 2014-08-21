@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_bjFVoCkQEeS2k7PSdfiVLA" name="SET_Component_(realization)_TGT_Component" description="Sets Component's reference realization the target Component">
+  <imports href="http://ComponentDiagram/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_bjFVoSkQEeS2k7PSdfiVLA" name="setComponent_realization_TO_Component" description="SetComponentRefrealizationToComponent">
+    <parameters xmi:id="_bjFVoikQEeS2k7PSdfiVLA" name="Selected"/>
+    <parameters xmi:id="_bjFVoykQEeS2k7PSdfiVLA" name="NewTarget"/>
+    <lhs xmi:id="_bjFVpCkQEeS2k7PSdfiVLA" name="Lhs">
+      <nodes xmi:id="_bjFVpSkQEeS2k7PSdfiVLA" name="Selected">
+        <type href="http://ComponentDiagram/1.0#//Component"/>
+      </nodes>
+      <nodes xmi:id="_bjFVpikQEeS2k7PSdfiVLA" name="NewTarget">
+        <type href="http://ComponentDiagram/1.0#//Component"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_bjFVpykQEeS2k7PSdfiVLA" name="Rhs">
+      <nodes xmi:id="_bjFVqCkQEeS2k7PSdfiVLA" name="Selected" outgoing="_bjFVqikQEeS2k7PSdfiVLA">
+        <type href="http://ComponentDiagram/1.0#//Component"/>
+      </nodes>
+      <nodes xmi:id="_bjFVqSkQEeS2k7PSdfiVLA" name="NewTarget" incoming="_bjFVqikQEeS2k7PSdfiVLA">
+        <type href="http://ComponentDiagram/1.0#//Component"/>
+      </nodes>
+      <edges xmi:id="_bjFVqikQEeS2k7PSdfiVLA" source="_bjFVqCkQEeS2k7PSdfiVLA" target="_bjFVqSkQEeS2k7PSdfiVLA">
+        <type href="http://ComponentDiagram/1.0#//Component/realization"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_bjF8sCkQEeS2k7PSdfiVLA" origin="_bjFVpSkQEeS2k7PSdfiVLA" image="_bjFVqCkQEeS2k7PSdfiVLA"/>
+    <mappings xmi:id="_bjF8sSkQEeS2k7PSdfiVLA" origin="_bjFVpikQEeS2k7PSdfiVLA" image="_bjFVqSkQEeS2k7PSdfiVLA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_bjF8sikQEeS2k7PSdfiVLA" name="mainUnit" subUnits="_bjFVoSkQEeS2k7PSdfiVLA">
+    <parameters xmi:id="_bjF8sykQEeS2k7PSdfiVLA" name="selectedEObject"/>
+    <parameters xmi:id="_bjF8tCkQEeS2k7PSdfiVLA" name="NewTarget"/>
+    <parameterMappings xmi:id="_bjF8tSkQEeS2k7PSdfiVLA" source="_bjF8sykQEeS2k7PSdfiVLA" target="_bjFVoikQEeS2k7PSdfiVLA"/>
+    <parameterMappings xmi:id="_bjF8tikQEeS2k7PSdfiVLA" source="_bjF8tCkQEeS2k7PSdfiVLA" target="_bjFVoykQEeS2k7PSdfiVLA"/>
+  </units>
+</henshin:Module>
