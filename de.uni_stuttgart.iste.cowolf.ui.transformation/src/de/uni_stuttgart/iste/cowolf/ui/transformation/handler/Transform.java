@@ -113,7 +113,7 @@ public class Transform extends AbstractHandler {
             }
         }
 
-        TransformationWizard modelWizard = new TransformationWizard(
+        final TransformationWizard modelWizard = new TransformationWizard(
                 firstSourceElement, secondSourceElement, targetElement);
         WizardDialog wizard = new WizardDialog(window.getShell(), modelWizard);
         if (wizard.open() == Window.CANCEL) {
@@ -150,10 +150,7 @@ public class Transform extends AbstractHandler {
         final AbstractTransformationManager transManager = this.extensionHandler
                 .getTransformationManager(firstSourceModel, target);
         if (evoManager != null && transManager != null) {
-            if (modelWizard.isResultFileSpecified()
-                    && modelWizard.getTarget2Model() != null) {
-                transManager.setFile(modelWizard.getTarget2Model());
-            }
+
             Job job = new Job("Model Co-Evolution") {
 
                 @Override
@@ -162,6 +159,10 @@ public class Transform extends AbstractHandler {
                     try {
                         difference = evoManager.evolve(firstSource,
                                 secondSource);
+                        if (modelWizard.isResultFileSpecified()
+                                && modelWizard.getTarget2Model() != null) {
+                            transManager.setFile(modelWizard.getTarget2Model());
+                        }
                         Resource transformedModel = transManager.transform(
                                 secondSource, target, difference);
                         target.unload();
@@ -191,6 +192,8 @@ public class Transform extends AbstractHandler {
                     } catch (Exception e) {
                         e.printStackTrace();
                         return Status.CANCEL_STATUS;
+                    } finally {
+                        transManager.setFile(null);
                     }
                     return Status.OK_STATUS;
                 }
