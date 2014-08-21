@@ -36,7 +36,7 @@ public class TransformationRulesContentProvider implements ITreeContentProvider 
 		if (inputElement instanceof IProject[]) {
 			return (IProject[]) inputElement;
 		}
-		return null;
+		return new Object[0];
 	}
 
 	@Override
@@ -74,7 +74,10 @@ public class TransformationRulesContentProvider implements ITreeContentProvider 
 
 			// TODO check for null or exception
 			Module module = henshinResourceSet.getModule(file.getLocation()
-					.toFile().toString(), true);
+					.toFile().toString(), false);
+
+			// Module module = henshinResourceSet.getModule(file.getLocation()
+			// .toFile().toString(), true);
 
 			EList<Unit> units = module.getUnits();
 
@@ -82,7 +85,7 @@ public class TransformationRulesContentProvider implements ITreeContentProvider 
 
 		}
 
-		return null;
+		return new Object[0];
 
 	}
 
@@ -92,7 +95,7 @@ public class TransformationRulesContentProvider implements ITreeContentProvider 
 		if ((element instanceof IFile) || (element instanceof IFolder)) {
 			return ((IResource) element).getParent();
 		}
-
+		// TODO parent of unit
 		return null;
 
 	}

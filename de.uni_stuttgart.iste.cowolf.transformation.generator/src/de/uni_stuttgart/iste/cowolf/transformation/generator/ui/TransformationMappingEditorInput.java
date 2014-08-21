@@ -4,17 +4,24 @@ import java.io.IOException;
 import java.net.URL;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IStorage;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.jface.resource.ImageDescriptor;
-import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.IPersistableElement;
 
-public class TransformationMappingEditorInput implements IEditorInput {
+public class TransformationMappingEditorInput implements IFileEditorInput {
 
-	private IFile transformationMappingFile;
+	IFile transformationMappingFile;
 
 	public TransformationMappingEditorInput(IFile transformationMappingFile) {
 		this.transformationMappingFile = transformationMappingFile;
 	}
+
+	// public TransformationMappingEditorInput(IFile transformationMappingFile)
+	// {
+	// this.transformationMappingFile = transformationMappingFile;
+	// }
 
 	@Override
 	public boolean exists() {
@@ -37,8 +44,9 @@ public class TransformationMappingEditorInput implements IEditorInput {
 
 	}
 
+	@Override
 	public IFile getFile() {
-		return transformationMappingFile;
+		return this.transformationMappingFile;
 	}
 
 	@Override
@@ -53,17 +61,62 @@ public class TransformationMappingEditorInput implements IEditorInput {
 
 	@Override
 	public String getName() {
-		return this.transformationMappingFile.getName();
+		return this.getFile().getName();
 	}
 
 	public String getFormattedFilePath() {
-		return transformationMappingFile.getProject().getName() + "/"
-				+ transformationMappingFile.getProjectRelativePath().toString();
+		return this.getFile().getProject().getName() + "/"
+				+ this.getFile().getProjectRelativePath().toString();
 	}
 
 	@Override
 	public Object getAdapter(Class adapter) {
-		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = (prime * result)
+				+ ((this.transformationMappingFile == null) ? 0
+						: this.transformationMappingFile.hashCode());
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (this.getClass() != obj.getClass()) {
+			return false;
+		}
+		TransformationMappingEditorInput other = (TransformationMappingEditorInput) obj;
+		if (this.transformationMappingFile == null) {
+			if (other.transformationMappingFile != null) {
+				return false;
+			}
+		} else if (!this.transformationMappingFile
+				.equals(other.transformationMappingFile)) {
+			return false;
+		}
+		return true;
+	}
+
+	@Override
+	public IStorage getStorage() throws CoreException {
 		return null;
 	}
 

@@ -1,5 +1,7 @@
 package de.uni_stuttgart.iste.cowolf.transformation.generator.ui;
 
+import javax.xml.bind.JAXBException;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
@@ -15,6 +17,8 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 
 import de.uni_stuttgart.iste.cowolf.transformation.generator.l10n.Messages;
+import de.uni_stuttgart.iste.cowolf.transformation.model.Mappings;
+import de.uni_stuttgart.iste.cowolf.transformation.model.util.XMLMappingLoader;
 
 /**
  * Wizard for a new Transformation Mapping.
@@ -43,7 +47,17 @@ public class TransformationMappingWizard extends Wizard implements INewWizard,
 	@Override
 	public boolean performFinish() {
 
+		Mappings transformationMappings = new Mappings();
+
 		IFile transformationMappingFile = this.page.createNewFile();
+
+		try {
+			XMLMappingLoader.storeMappings(transformationMappings,
+					transformationMappingFile.getLocation().toFile());
+		} catch (JAXBException e1) {
+			e1.printStackTrace();
+			return false;
+		}
 
 		TransformationMappingEditorInput input = new TransformationMappingEditorInput(
 				transformationMappingFile);

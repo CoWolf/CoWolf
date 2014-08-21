@@ -11,7 +11,7 @@ import org.sidiff.difference.rulebase.RuleBaseItem;
 import org.sidiff.difference.rulebase.extension.IRuleBase;
 
 public class SiLiftRecognitionRulesContentProvider implements
-ITreeContentProvider {
+		ITreeContentProvider {
 
 	@Override
 	public void dispose() {
@@ -30,7 +30,7 @@ ITreeContentProvider {
 			return (Object[]) ruleBases;
 		}
 
-		return null;
+		return new Object[0];
 	}
 
 	@Override
