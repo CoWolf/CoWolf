@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_lACrYCkoEeSR5d0JIP8zig" name="SET_ErrorInstance_(error)_TGT_BasicEvent" description="Sets ErrorInstance's reference error the target BasicEvent">
+  <imports href="http://FaultTree/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_lACrYSkoEeSR5d0JIP8zig" name="setErrorInstance_error_TO_BasicEvent" description="SetErrorInstanceReferrorToBasicEvent">
+    <parameters xmi:id="_lACrYikoEeSR5d0JIP8zig" name="Selected"/>
+    <parameters xmi:id="_lACrYykoEeSR5d0JIP8zig" name="NewTarget"/>
+    <lhs xmi:id="_lACrZCkoEeSR5d0JIP8zig" name="Lhs">
+      <nodes xmi:id="_lACrZSkoEeSR5d0JIP8zig" name="Selected">
+        <type href="http://FaultTree/1.0#//ErrorInstance"/>
+      </nodes>
+      <nodes xmi:id="_lACrZikoEeSR5d0JIP8zig" name="NewTarget">
+        <type href="http://FaultTree/1.0#//BasicEvent"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_lACrZykoEeSR5d0JIP8zig" name="Rhs">
+      <nodes xmi:id="_lACraCkoEeSR5d0JIP8zig" name="Selected" incoming="_lACraykoEeSR5d0JIP8zig" outgoing="_lACraikoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//ErrorInstance"/>
+      </nodes>
+      <nodes xmi:id="_lACraSkoEeSR5d0JIP8zig" name="NewTarget" incoming="_lACraikoEeSR5d0JIP8zig" outgoing="_lACraykoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//BasicEvent"/>
+      </nodes>
+      <edges xmi:id="_lACraikoEeSR5d0JIP8zig" source="_lACraCkoEeSR5d0JIP8zig" target="_lACraSkoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//ErrorInstance/error"/>
+      </edges>
+      <edges xmi:id="_lACraykoEeSR5d0JIP8zig" source="_lACraSkoEeSR5d0JIP8zig" target="_lACraCkoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//BasicEvent/instance"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_lACrbCkoEeSR5d0JIP8zig" origin="_lACrZSkoEeSR5d0JIP8zig" image="_lACraCkoEeSR5d0JIP8zig"/>
+    <mappings xmi:id="_lACrbSkoEeSR5d0JIP8zig" origin="_lACrZikoEeSR5d0JIP8zig" image="_lACraSkoEeSR5d0JIP8zig"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_lACrbikoEeSR5d0JIP8zig" name="mainUnit" subUnits="_lACrYSkoEeSR5d0JIP8zig">
+    <parameters xmi:id="_lACrbykoEeSR5d0JIP8zig" name="selectedEObject"/>
+    <parameters xmi:id="_lACrcCkoEeSR5d0JIP8zig" name="NewTarget"/>
+    <parameterMappings xmi:id="_lACrcSkoEeSR5d0JIP8zig" source="_lACrbykoEeSR5d0JIP8zig" target="_lACrYikoEeSR5d0JIP8zig"/>
+    <parameterMappings xmi:id="_lACrcikoEeSR5d0JIP8zig" source="_lACrcCkoEeSR5d0JIP8zig" target="_lACrYykoEeSR5d0JIP8zig"/>
+  </units>
+</henshin:Module>

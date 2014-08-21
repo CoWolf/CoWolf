@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_k-rZcCkoEeSR5d0JIP8zig" name="CREATE_UndevelopedEvent_IN_FaultTree_(event)" description="Creates one UndevelopedEvent in FaultTree">
+  <imports href="http://FaultTree/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_k-rZcSkoEeSR5d0JIP8zig" name="createUndevelopedEvent_IN_FaultTree" description="creates one UndevelopedEvent in the context: FaultTree">
+    <parameters xmi:id="_k-rZcikoEeSR5d0JIP8zig" name="Selected"/>
+    <parameters xmi:id="_k-rZcykoEeSR5d0JIP8zig" name="New"/>
+    <parameters xmi:id="_k-rZdCkoEeSR5d0JIP8zig" name="Id"/>
+    <parameters xmi:id="_k-rZdSkoEeSR5d0JIP8zig" name="Description"/>
+    <parameters xmi:id="_k-rZdikoEeSR5d0JIP8zig" name="Name"/>
+    <lhs xmi:id="_k-rZdykoEeSR5d0JIP8zig" name="Lhs">
+      <nodes xmi:id="_k-rZeCkoEeSR5d0JIP8zig" name="Selected">
+        <type href="http://FaultTree/1.0#//FaultTree"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_k-rZeSkoEeSR5d0JIP8zig" name="Rhs">
+      <nodes xmi:id="_k-rZeikoEeSR5d0JIP8zig" name="Selected" incoming="_k-rZgCkoEeSR5d0JIP8zig" outgoing="_k-rZfykoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//FaultTree"/>
+      </nodes>
+      <nodes xmi:id="_k-rZeykoEeSR5d0JIP8zig" name="New" incoming="_k-rZfykoEeSR5d0JIP8zig" outgoing="_k-rZgCkoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//UndevelopedEvent"/>
+        <attributes xmi:id="_k-rZfCkoEeSR5d0JIP8zig" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_k-rZfSkoEeSR5d0JIP8zig" value="Description">
+          <type href="http://FaultTree/1.0#//Event/description"/>
+        </attributes>
+        <attributes xmi:id="_k-rZfikoEeSR5d0JIP8zig" value="Name">
+          <type href="http://FaultTree/1.0#//Event/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_k-rZfykoEeSR5d0JIP8zig" source="_k-rZeikoEeSR5d0JIP8zig" target="_k-rZeykoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//FaultTree/event"/>
+      </edges>
+      <edges xmi:id="_k-rZgCkoEeSR5d0JIP8zig" source="_k-rZeykoEeSR5d0JIP8zig" target="_k-rZeikoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//Event/root"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_k-rZgSkoEeSR5d0JIP8zig" origin="_k-rZeCkoEeSR5d0JIP8zig" image="_k-rZeikoEeSR5d0JIP8zig"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_k-rZgikoEeSR5d0JIP8zig" name="mainUnit" description="Creates one UndevelopedEvent depending on available contexts in model instance" subUnits="_k-rZcSkoEeSR5d0JIP8zig">
+    <parameters xmi:id="_k-rZgykoEeSR5d0JIP8zig" name="New"/>
+    <parameters xmi:id="_k-rZhCkoEeSR5d0JIP8zig" name="selectedEObject"/>
+    <parameters xmi:id="_k-rZhSkoEeSR5d0JIP8zig" name="Id"/>
+    <parameters xmi:id="_k-rZhikoEeSR5d0JIP8zig" name="Description"/>
+    <parameters xmi:id="_k-rZhykoEeSR5d0JIP8zig" name="Name"/>
+    <parameterMappings xmi:id="_k-rZiCkoEeSR5d0JIP8zig" source="_k-rZhCkoEeSR5d0JIP8zig" target="_k-rZcikoEeSR5d0JIP8zig"/>
+    <parameterMappings xmi:id="_k-rZiSkoEeSR5d0JIP8zig" source="_k-rZcykoEeSR5d0JIP8zig" target="_k-rZgykoEeSR5d0JIP8zig"/>
+    <parameterMappings xmi:id="_k-rZiikoEeSR5d0JIP8zig" source="_k-rZhSkoEeSR5d0JIP8zig" target="_k-rZdCkoEeSR5d0JIP8zig"/>
+    <parameterMappings xmi:id="_k-rZiykoEeSR5d0JIP8zig" source="_k-rZhikoEeSR5d0JIP8zig" target="_k-rZdSkoEeSR5d0JIP8zig"/>
+    <parameterMappings xmi:id="_k-rZjCkoEeSR5d0JIP8zig" source="_k-rZhykoEeSR5d0JIP8zig" target="_k-rZdikoEeSR5d0JIP8zig"/>
+  </units>
+</henshin:Module>

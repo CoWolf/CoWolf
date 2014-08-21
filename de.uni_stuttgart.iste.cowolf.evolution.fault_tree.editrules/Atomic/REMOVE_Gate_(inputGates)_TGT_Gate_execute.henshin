@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_k4ZyUCkoEeSR5d0JIP8zig" name="REMOVE_Gate_(inputGates)_TGT_Gate" description="Removes Gate's reference inputGates the target Gate">
+  <imports href="http://FaultTree/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_k4ZyUSkoEeSR5d0JIP8zig" name="removeFromGate_inputGates_Gate" description="Removes from Gate's reference inputGates the target Gate">
+    <parameters xmi:id="_k4ZyUikoEeSR5d0JIP8zig" name="Selected"/>
+    <parameters xmi:id="_k4ZyUykoEeSR5d0JIP8zig" name="OldTarget"/>
+    <lhs xmi:id="_k4ZyVCkoEeSR5d0JIP8zig" name="LHS">
+      <nodes xmi:id="_k4ZyVSkoEeSR5d0JIP8zig" name="Selected" outgoing="_k4ZyVykoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//Gate"/>
+      </nodes>
+      <nodes xmi:id="_k4ZyVikoEeSR5d0JIP8zig" name="OldTarget" incoming="_k4ZyVykoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//Gate"/>
+      </nodes>
+      <edges xmi:id="_k4ZyVykoEeSR5d0JIP8zig" source="_k4ZyVSkoEeSR5d0JIP8zig" target="_k4ZyVikoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//Gate/inputGates"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_k4ZyWCkoEeSR5d0JIP8zig" name="RHS">
+      <nodes xmi:id="_k4ZyWSkoEeSR5d0JIP8zig" name="Selected">
+        <type href="http://FaultTree/1.0#//Gate"/>
+      </nodes>
+      <nodes xmi:id="_k4ZyWikoEeSR5d0JIP8zig" name="OldTarget">
+        <type href="http://FaultTree/1.0#//Gate"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_k4ZyWykoEeSR5d0JIP8zig" origin="_k4ZyVSkoEeSR5d0JIP8zig" image="_k4ZyWSkoEeSR5d0JIP8zig"/>
+    <mappings xmi:id="_k4ZyXCkoEeSR5d0JIP8zig" origin="_k4ZyVikoEeSR5d0JIP8zig" image="_k4ZyWikoEeSR5d0JIP8zig"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_k4ZyXSkoEeSR5d0JIP8zig" name="mainUnit" subUnits="_k4ZyUSkoEeSR5d0JIP8zig">
+    <parameters xmi:id="_k4ZyXikoEeSR5d0JIP8zig" name="selectedEObject"/>
+    <parameters xmi:id="_k4ZyXykoEeSR5d0JIP8zig" name="OldTarget"/>
+    <parameterMappings xmi:id="_k4ZyYCkoEeSR5d0JIP8zig" source="_k4ZyXikoEeSR5d0JIP8zig" target="_k4ZyUikoEeSR5d0JIP8zig"/>
+    <parameterMappings xmi:id="_k4ZyYSkoEeSR5d0JIP8zig" source="_k4ZyXykoEeSR5d0JIP8zig" target="_k4ZyUykoEeSR5d0JIP8zig"/>
+  </units>
+</henshin:Module>

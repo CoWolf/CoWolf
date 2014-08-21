@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_k8QXkCkoEeSR5d0JIP8zig" name="SET_FailureType_Name" description="Sets FailureType Name">
+  <imports href="http://FaultTree/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_k8QXkSkoEeSR5d0JIP8zig" name="setFailureTypeName" description="Sets the EAttribute name">
+    <parameters xmi:id="_k8QXkikoEeSR5d0JIP8zig" name="Selected"/>
+    <parameters xmi:id="_k8QXkykoEeSR5d0JIP8zig" name="Name"/>
+    <lhs xmi:id="_k8QXlCkoEeSR5d0JIP8zig" name="Lhs">
+      <nodes xmi:id="_k8QXlSkoEeSR5d0JIP8zig" name="Selected">
+        <type href="http://FaultTree/1.0#//FailureType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_k8QXlikoEeSR5d0JIP8zig" name="Rhs">
+      <nodes xmi:id="_k8QXlykoEeSR5d0JIP8zig" name="Selected">
+        <type href="http://FaultTree/1.0#//FailureType"/>
+        <attributes xmi:id="_k8QXmCkoEeSR5d0JIP8zig" value="Name">
+          <type href="http://FaultTree/1.0#//FailureType/name"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_k8QXmSkoEeSR5d0JIP8zig" origin="_k8QXlSkoEeSR5d0JIP8zig" image="_k8QXlykoEeSR5d0JIP8zig"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_k8QXmikoEeSR5d0JIP8zig" name="mainUnit" subUnits="_k8QXkSkoEeSR5d0JIP8zig">
+    <parameters xmi:id="_k8QXmykoEeSR5d0JIP8zig" name="selectedEObject"/>
+    <parameters xmi:id="_k8QXnCkoEeSR5d0JIP8zig" name="Name"/>
+    <parameterMappings xmi:id="_k8QXnSkoEeSR5d0JIP8zig" source="_k8QXmykoEeSR5d0JIP8zig" target="_k8QXkikoEeSR5d0JIP8zig"/>
+    <parameterMappings xmi:id="_k8QXnikoEeSR5d0JIP8zig" source="_k8QXnCkoEeSR5d0JIP8zig" target="_k8QXkykoEeSR5d0JIP8zig"/>
+  </units>
+</henshin:Module>

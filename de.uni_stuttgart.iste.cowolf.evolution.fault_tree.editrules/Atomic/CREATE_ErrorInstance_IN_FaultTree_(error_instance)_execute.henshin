@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_k_yMsCkoEeSR5d0JIP8zig" name="CREATE_ErrorInstance_IN_FaultTree_(error_instance)" description="Creates one ErrorInstance in FaultTree">
+  <imports href="http://FaultTree/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_k_yzwCkoEeSR5d0JIP8zig" name="createErrorInstance_IN_FaultTree" description="creates one ErrorInstance in the context: FaultTree">
+    <parameters xmi:id="_k_yzwSkoEeSR5d0JIP8zig" name="Selected"/>
+    <parameters xmi:id="_k_yzwikoEeSR5d0JIP8zig" name="New"/>
+    <parameters xmi:id="_k_yzwykoEeSR5d0JIP8zig" name="Id"/>
+    <parameters xmi:id="_k_yzxCkoEeSR5d0JIP8zig" name="Name"/>
+    <parameters xmi:id="_k_yzxSkoEeSR5d0JIP8zig" name="Existing"/>
+    <lhs xmi:id="_k_yzxikoEeSR5d0JIP8zig" name="Lhs">
+      <nodes xmi:id="_k_yzxykoEeSR5d0JIP8zig" name="Selected">
+        <type href="http://FaultTree/1.0#//FaultTree"/>
+      </nodes>
+      <nodes xmi:id="_k_yzyCkoEeSR5d0JIP8zig" name="Existing">
+        <type href="http://FaultTree/1.0#//ErrorType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_k_yzySkoEeSR5d0JIP8zig" name="Rhs">
+      <nodes xmi:id="_k_yzyikoEeSR5d0JIP8zig" name="Selected" incoming="_k_yz0CkoEeSR5d0JIP8zig" outgoing="_k_yzzykoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//FaultTree"/>
+      </nodes>
+      <nodes xmi:id="_k_yzyykoEeSR5d0JIP8zig" name="New" incoming="_k_yzzykoEeSR5d0JIP8zig _k_yz0ikoEeSR5d0JIP8zig" outgoing="_k_yz0CkoEeSR5d0JIP8zig _k_yz0SkoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//ErrorInstance"/>
+        <attributes xmi:id="_k_yzzCkoEeSR5d0JIP8zig" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_k_yzzSkoEeSR5d0JIP8zig" value="Name">
+          <type href="http://FaultTree/1.0#//ErrorInstance/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_k_yzzikoEeSR5d0JIP8zig" name="Existing" incoming="_k_yz0SkoEeSR5d0JIP8zig" outgoing="_k_yz0ikoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//ErrorType"/>
+      </nodes>
+      <edges xmi:id="_k_yzzykoEeSR5d0JIP8zig" source="_k_yzyikoEeSR5d0JIP8zig" target="_k_yzyykoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//FaultTree/error_instance"/>
+      </edges>
+      <edges xmi:id="_k_yz0CkoEeSR5d0JIP8zig" source="_k_yzyykoEeSR5d0JIP8zig" target="_k_yzyikoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//ErrorInstance/root"/>
+      </edges>
+      <edges xmi:id="_k_yz0SkoEeSR5d0JIP8zig" source="_k_yzyykoEeSR5d0JIP8zig" target="_k_yzzikoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//ErrorInstance/type"/>
+      </edges>
+      <edges xmi:id="_k_yz0ikoEeSR5d0JIP8zig" source="_k_yzzikoEeSR5d0JIP8zig" target="_k_yzyykoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//ErrorType/error"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_k_yz0ykoEeSR5d0JIP8zig" origin="_k_yzxykoEeSR5d0JIP8zig" image="_k_yzyikoEeSR5d0JIP8zig"/>
+    <mappings xmi:id="_k_yz1CkoEeSR5d0JIP8zig" origin="_k_yzyCkoEeSR5d0JIP8zig" image="_k_yzzikoEeSR5d0JIP8zig"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_k_yz1SkoEeSR5d0JIP8zig" name="mainUnit" description="Creates one ErrorInstance depending on available contexts in model instance" subUnits="_k_yzwCkoEeSR5d0JIP8zig">
+    <parameters xmi:id="_k_yz1ikoEeSR5d0JIP8zig" name="New"/>
+    <parameters xmi:id="_k_yz1ykoEeSR5d0JIP8zig" name="selectedEObject"/>
+    <parameters xmi:id="_k_yz2CkoEeSR5d0JIP8zig" name="Id"/>
+    <parameters xmi:id="_k_yz2SkoEeSR5d0JIP8zig" name="Name"/>
+    <parameters xmi:id="_k_yz2ikoEeSR5d0JIP8zig" name="Existing"/>
+    <parameterMappings xmi:id="_k_yz2ykoEeSR5d0JIP8zig" source="_k_yz1ykoEeSR5d0JIP8zig" target="_k_yzwSkoEeSR5d0JIP8zig"/>
+    <parameterMappings xmi:id="_k_yz3CkoEeSR5d0JIP8zig" source="_k_yzwikoEeSR5d0JIP8zig" target="_k_yz1ikoEeSR5d0JIP8zig"/>
+    <parameterMappings xmi:id="_k_yz3SkoEeSR5d0JIP8zig" source="_k_yz2CkoEeSR5d0JIP8zig" target="_k_yzwykoEeSR5d0JIP8zig"/>
+    <parameterMappings xmi:id="_k_yz3ikoEeSR5d0JIP8zig" source="_k_yz2SkoEeSR5d0JIP8zig" target="_k_yzxCkoEeSR5d0JIP8zig"/>
+    <parameterMappings xmi:id="_k_yz3ykoEeSR5d0JIP8zig" source="_k_yz2ikoEeSR5d0JIP8zig" target="_k_yzxSkoEeSR5d0JIP8zig"/>
+  </units>
+</henshin:Module>

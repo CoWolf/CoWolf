@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_lBGbUCkoEeSR5d0JIP8zig" name="CREATE_PriorAND_IN_FaultTree_(gate)" description="Creates one PriorAND in FaultTree">
+  <imports href="http://FaultTree/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_lBGbUSkoEeSR5d0JIP8zig" name="createPriorAND_IN_FaultTree" description="creates one PriorAND in the context: FaultTree">
+    <parameters xmi:id="_lBGbUikoEeSR5d0JIP8zig" name="Selected"/>
+    <parameters xmi:id="_lBGbUykoEeSR5d0JIP8zig" name="New"/>
+    <parameters xmi:id="_lBGbVCkoEeSR5d0JIP8zig" name="Id"/>
+    <lhs xmi:id="_lBGbVSkoEeSR5d0JIP8zig" name="Lhs">
+      <nodes xmi:id="_lBGbVikoEeSR5d0JIP8zig" name="Selected">
+        <type href="http://FaultTree/1.0#//FaultTree"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_lBGbVykoEeSR5d0JIP8zig" name="Rhs">
+      <nodes xmi:id="_lBGbWCkoEeSR5d0JIP8zig" name="Selected" incoming="_lBGbXCkoEeSR5d0JIP8zig" outgoing="_lBGbWykoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//FaultTree"/>
+      </nodes>
+      <nodes xmi:id="_lBGbWSkoEeSR5d0JIP8zig" name="New" incoming="_lBGbWykoEeSR5d0JIP8zig" outgoing="_lBGbXCkoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//PriorAND"/>
+        <attributes xmi:id="_lBGbWikoEeSR5d0JIP8zig" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_lBGbWykoEeSR5d0JIP8zig" source="_lBGbWCkoEeSR5d0JIP8zig" target="_lBGbWSkoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//FaultTree/gate"/>
+      </edges>
+      <edges xmi:id="_lBGbXCkoEeSR5d0JIP8zig" source="_lBGbWSkoEeSR5d0JIP8zig" target="_lBGbWCkoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//Gate/root"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_lBGbXSkoEeSR5d0JIP8zig" origin="_lBGbVikoEeSR5d0JIP8zig" image="_lBGbWCkoEeSR5d0JIP8zig"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_lBGbXikoEeSR5d0JIP8zig" name="mainUnit" description="Creates one PriorAND depending on available contexts in model instance" subUnits="_lBGbUSkoEeSR5d0JIP8zig">
+    <parameters xmi:id="_lBGbXykoEeSR5d0JIP8zig" name="New"/>
+    <parameters xmi:id="_lBGbYCkoEeSR5d0JIP8zig" name="selectedEObject"/>
+    <parameters xmi:id="_lBGbYSkoEeSR5d0JIP8zig" name="Id"/>
+    <parameterMappings xmi:id="_lBGbYikoEeSR5d0JIP8zig" source="_lBGbYCkoEeSR5d0JIP8zig" target="_lBGbUikoEeSR5d0JIP8zig"/>
+    <parameterMappings xmi:id="_lBGbYykoEeSR5d0JIP8zig" source="_lBGbUykoEeSR5d0JIP8zig" target="_lBGbXykoEeSR5d0JIP8zig"/>
+    <parameterMappings xmi:id="_lBGbZCkoEeSR5d0JIP8zig" source="_lBGbYSkoEeSR5d0JIP8zig" target="_lBGbVCkoEeSR5d0JIP8zig"/>
+  </units>
+</henshin:Module>

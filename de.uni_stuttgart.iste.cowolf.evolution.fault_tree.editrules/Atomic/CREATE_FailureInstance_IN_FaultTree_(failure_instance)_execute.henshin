@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_k8oyECkoEeSR5d0JIP8zig" name="CREATE_FailureInstance_IN_FaultTree_(failure_instance)" description="Creates one FailureInstance in FaultTree">
+  <imports href="http://FaultTree/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_k8oyESkoEeSR5d0JIP8zig" name="createFailureInstance_IN_FaultTree" description="creates one FailureInstance in the context: FaultTree">
+    <parameters xmi:id="_k8oyEikoEeSR5d0JIP8zig" name="Selected"/>
+    <parameters xmi:id="_k8oyEykoEeSR5d0JIP8zig" name="New"/>
+    <parameters xmi:id="_k8oyFCkoEeSR5d0JIP8zig" name="Id"/>
+    <parameters xmi:id="_k8oyFSkoEeSR5d0JIP8zig" name="Name"/>
+    <parameters xmi:id="_k8oyFikoEeSR5d0JIP8zig" name="Existing"/>
+    <lhs xmi:id="_k8oyFykoEeSR5d0JIP8zig" name="Lhs">
+      <nodes xmi:id="_k8oyGCkoEeSR5d0JIP8zig" name="Selected">
+        <type href="http://FaultTree/1.0#//FaultTree"/>
+      </nodes>
+      <nodes xmi:id="_k8oyGSkoEeSR5d0JIP8zig" name="Existing">
+        <type href="http://FaultTree/1.0#//FailureType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_k8oyGikoEeSR5d0JIP8zig" name="Rhs">
+      <nodes xmi:id="_k8oyGykoEeSR5d0JIP8zig" name="Selected" incoming="_k8oyISkoEeSR5d0JIP8zig" outgoing="_k8oyICkoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//FaultTree"/>
+      </nodes>
+      <nodes xmi:id="_k8oyHCkoEeSR5d0JIP8zig" name="New" incoming="_k8oyICkoEeSR5d0JIP8zig _k8oyIykoEeSR5d0JIP8zig" outgoing="_k8oyISkoEeSR5d0JIP8zig _k8oyIikoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//FailureInstance"/>
+        <attributes xmi:id="_k8oyHSkoEeSR5d0JIP8zig" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_k8oyHikoEeSR5d0JIP8zig" value="Name">
+          <type href="http://FaultTree/1.0#//FailureInstance/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_k8oyHykoEeSR5d0JIP8zig" name="Existing" incoming="_k8oyIikoEeSR5d0JIP8zig" outgoing="_k8oyIykoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//FailureType"/>
+      </nodes>
+      <edges xmi:id="_k8oyICkoEeSR5d0JIP8zig" source="_k8oyGykoEeSR5d0JIP8zig" target="_k8oyHCkoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//FaultTree/failure_instance"/>
+      </edges>
+      <edges xmi:id="_k8oyISkoEeSR5d0JIP8zig" source="_k8oyHCkoEeSR5d0JIP8zig" target="_k8oyGykoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//FailureInstance/root"/>
+      </edges>
+      <edges xmi:id="_k8oyIikoEeSR5d0JIP8zig" source="_k8oyHCkoEeSR5d0JIP8zig" target="_k8oyHykoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//FailureInstance/type"/>
+      </edges>
+      <edges xmi:id="_k8oyIykoEeSR5d0JIP8zig" source="_k8oyHykoEeSR5d0JIP8zig" target="_k8oyHCkoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//FailureType/instance"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_k8oyJCkoEeSR5d0JIP8zig" origin="_k8oyGCkoEeSR5d0JIP8zig" image="_k8oyGykoEeSR5d0JIP8zig"/>
+    <mappings xmi:id="_k8oyJSkoEeSR5d0JIP8zig" origin="_k8oyGSkoEeSR5d0JIP8zig" image="_k8oyHykoEeSR5d0JIP8zig"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_k8oyJikoEeSR5d0JIP8zig" name="mainUnit" description="Creates one FailureInstance depending on available contexts in model instance" subUnits="_k8oyESkoEeSR5d0JIP8zig">
+    <parameters xmi:id="_k8oyJykoEeSR5d0JIP8zig" name="New"/>
+    <parameters xmi:id="_k8oyKCkoEeSR5d0JIP8zig" name="selectedEObject"/>
+    <parameters xmi:id="_k8oyKSkoEeSR5d0JIP8zig" name="Id"/>
+    <parameters xmi:id="_k8oyKikoEeSR5d0JIP8zig" name="Name"/>
+    <parameters xmi:id="_k8oyKykoEeSR5d0JIP8zig" name="Existing"/>
+    <parameterMappings xmi:id="_k8oyLCkoEeSR5d0JIP8zig" source="_k8oyKCkoEeSR5d0JIP8zig" target="_k8oyEikoEeSR5d0JIP8zig"/>
+    <parameterMappings xmi:id="_k8oyLSkoEeSR5d0JIP8zig" source="_k8oyEykoEeSR5d0JIP8zig" target="_k8oyJykoEeSR5d0JIP8zig"/>
+    <parameterMappings xmi:id="_k8oyLikoEeSR5d0JIP8zig" source="_k8oyKSkoEeSR5d0JIP8zig" target="_k8oyFCkoEeSR5d0JIP8zig"/>
+    <parameterMappings xmi:id="_k8oyLykoEeSR5d0JIP8zig" source="_k8oyKikoEeSR5d0JIP8zig" target="_k8oyFSkoEeSR5d0JIP8zig"/>
+    <parameterMappings xmi:id="_k8oyMCkoEeSR5d0JIP8zig" source="_k8oyKykoEeSR5d0JIP8zig" target="_k8oyFikoEeSR5d0JIP8zig"/>
+  </units>
+</henshin:Module>

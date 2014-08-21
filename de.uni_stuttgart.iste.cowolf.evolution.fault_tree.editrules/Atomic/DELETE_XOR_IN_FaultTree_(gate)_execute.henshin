@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_lA_GkCkoEeSR5d0JIP8zig" name="DELETE_XOR_IN_FaultTree_(gate)" description="Deletes one XOR in FaultTree">
+  <imports href="http://FaultTree/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_lA_GkSkoEeSR5d0JIP8zig" name="deleteXOR_IN_FaultTree" description="deletes one XOR in the context: FaultTree">
+    <parameters xmi:id="_lA_GkikoEeSR5d0JIP8zig" name="Selected"/>
+    <parameters xmi:id="_lA_GkykoEeSR5d0JIP8zig" name="ToBeDeleted"/>
+    <lhs xmi:id="_lA_GlCkoEeSR5d0JIP8zig" name="LHS">
+      <nodes xmi:id="_lA_GlSkoEeSR5d0JIP8zig" name="Selected" incoming="_lA_GmCkoEeSR5d0JIP8zig" outgoing="_lA_GlykoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//FaultTree"/>
+      </nodes>
+      <nodes xmi:id="_lA_GlikoEeSR5d0JIP8zig" name="ToBeDeleted" incoming="_lA_GlykoEeSR5d0JIP8zig" outgoing="_lA_GmCkoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//XOR"/>
+      </nodes>
+      <edges xmi:id="_lA_GlykoEeSR5d0JIP8zig" source="_lA_GlSkoEeSR5d0JIP8zig" target="_lA_GlikoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//FaultTree/gate"/>
+      </edges>
+      <edges xmi:id="_lA_GmCkoEeSR5d0JIP8zig" source="_lA_GlikoEeSR5d0JIP8zig" target="_lA_GlSkoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//Gate/root"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_lA_GmSkoEeSR5d0JIP8zig" name="RHS">
+      <nodes xmi:id="_lA_GmikoEeSR5d0JIP8zig" name="Selected">
+        <type href="http://FaultTree/1.0#//FaultTree"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_lA_GmykoEeSR5d0JIP8zig" origin="_lA_GlSkoEeSR5d0JIP8zig" image="_lA_GmikoEeSR5d0JIP8zig"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_lA_GnCkoEeSR5d0JIP8zig" name="mainUnit" description="Deletes one XOR depending on available contexts in model instance" subUnits="_lA_GkSkoEeSR5d0JIP8zig">
+    <parameters xmi:id="_lA_GnSkoEeSR5d0JIP8zig" name="ToBeDeleted"/>
+    <parameters xmi:id="_lA_GnikoEeSR5d0JIP8zig" name="selectedEObject"/>
+    <parameterMappings xmi:id="_lA_GnykoEeSR5d0JIP8zig" source="_lA_GnikoEeSR5d0JIP8zig" target="_lA_GkikoEeSR5d0JIP8zig"/>
+    <parameterMappings xmi:id="_lA_GoCkoEeSR5d0JIP8zig" source="_lA_GnSkoEeSR5d0JIP8zig" target="_lA_GkykoEeSR5d0JIP8zig"/>
+  </units>
+</henshin:Module>

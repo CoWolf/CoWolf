@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_k3snsCkoEeSR5d0JIP8zig" name="UNSET_Hazard_(inEvent)_TGT_IntermediateEvent" description="Unsets Hazard's reference inEvent the target IntermediateEvent">
+  <imports href="http://FaultTree/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_k3snsSkoEeSR5d0JIP8zig" name="unsetHazard_inEvent_TO_IntermediateEvent" description="UnsetHazardRefinEventToIntermediateEvent">
+    <parameters xmi:id="_k3snsikoEeSR5d0JIP8zig" name="Selected"/>
+    <parameters xmi:id="_k3snsykoEeSR5d0JIP8zig" name="OldTarget"/>
+    <lhs xmi:id="_k3sntCkoEeSR5d0JIP8zig" name="LHS">
+      <nodes xmi:id="_k3sntSkoEeSR5d0JIP8zig" name="Selected" outgoing="_k3sntykoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//Hazard"/>
+      </nodes>
+      <nodes xmi:id="_k3sntikoEeSR5d0JIP8zig" name="OldTarget" incoming="_k3sntykoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//IntermediateEvent"/>
+      </nodes>
+      <edges xmi:id="_k3sntykoEeSR5d0JIP8zig" source="_k3sntSkoEeSR5d0JIP8zig" target="_k3sntikoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//Hazard/inEvent"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_k3snuCkoEeSR5d0JIP8zig" name="RHS">
+      <nodes xmi:id="_k3snuSkoEeSR5d0JIP8zig" name="Selected">
+        <type href="http://FaultTree/1.0#//Hazard"/>
+      </nodes>
+      <nodes xmi:id="_k3snuikoEeSR5d0JIP8zig" name="OldTarget">
+        <type href="http://FaultTree/1.0#//IntermediateEvent"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_k3snuykoEeSR5d0JIP8zig" origin="_k3sntSkoEeSR5d0JIP8zig" image="_k3snuSkoEeSR5d0JIP8zig"/>
+    <mappings xmi:id="_k3snvCkoEeSR5d0JIP8zig" origin="_k3sntikoEeSR5d0JIP8zig" image="_k3snuikoEeSR5d0JIP8zig"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_k3snvSkoEeSR5d0JIP8zig" name="mainUnit" subUnits="_k3snsSkoEeSR5d0JIP8zig">
+    <parameters xmi:id="_k3snvikoEeSR5d0JIP8zig" name="selectedEObject"/>
+    <parameters xmi:id="_k3snvykoEeSR5d0JIP8zig" name="OldTarget"/>
+    <parameterMappings xmi:id="_k3snwCkoEeSR5d0JIP8zig" source="_k3snvikoEeSR5d0JIP8zig" target="_k3snsikoEeSR5d0JIP8zig"/>
+    <parameterMappings xmi:id="_k3snwSkoEeSR5d0JIP8zig" source="_k3snvykoEeSR5d0JIP8zig" target="_k3snsykoEeSR5d0JIP8zig"/>
+  </units>
+</henshin:Module>
