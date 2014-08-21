@@ -165,8 +165,6 @@ public class TransitionItemProvider extends IDBaseItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Transition.class)) {
-			case CtmcPackage.TRANSITION__FROM:	
-			case CtmcPackage.TRANSITION__TO:
 			case CtmcPackage.TRANSITION__RATE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
