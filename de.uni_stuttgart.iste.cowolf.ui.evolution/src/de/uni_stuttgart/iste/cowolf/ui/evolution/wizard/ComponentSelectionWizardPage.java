@@ -79,21 +79,19 @@ public class ComponentSelectionWizardPage extends WizardPage {
     @Override
     public void createControl(final Composite parent) {
         Composite container = new Composite(parent, SWT.NONE);
-        GridLayout layout = new GridLayout(3, false);
+        GridLayout layout = new GridLayout(2, false);
         container.setLayout(layout);
 
         // row for first model
         this.modelAButton = new Button(container, SWT.RADIO);
         this.modelAButton.setSelection(true);
-        Label labelA = new Label(container, SWT.NONE);
-        labelA.setText(this.modelToString(this.wizard.getModelA()));
+        this.modelAButton.setText(this.modelToString(this.wizard.getModelA()));
         Button modelAChooser = new Button(container, 0);
         modelAChooser.setText("Browse ...");
         modelAChooser.addSelectionListener(this.browseWorkspace(
-                this.wizard.getModelA(), labelA, parent.getShell()));
+                this.wizard.getModelA(), this.modelAButton, parent.getShell()));
 
         // "arrow" row
-        new Label(container, SWT.NONE);
         this.arrowLabel = new Label(container, SWT.NONE);
         this.arrowLabel.setLayoutData(new GridData(SWT.FILL, SWT.BEGINNING,
                 true, false));
@@ -106,18 +104,16 @@ public class ComponentSelectionWizardPage extends WizardPage {
         this.modelBButton = new Button(container, SWT.RADIO);
         this.modelAButton.addSelectionListener(this.radioButtonChanged());
         this.modelBButton.addSelectionListener(this.radioButtonChanged());
-        final Label labelB = new Label(container, SWT.NONE);
-        labelB.setText(this.modelToString(this.wizard.getModelB()));
+        this.modelBButton.setText(this.modelToString(this.wizard.getModelB()));
         Button modelBChooser = new Button(container, 0);
         modelBChooser.setText("Browse ...");
         modelBChooser.addSelectionListener(this.browseWorkspace(
-                this.wizard.getModelB(), labelB, parent.getShell()));
+                this.wizard.getModelB(), this.modelBButton, parent.getShell()));
 
         // row for checkbox
         this.checkbox = new Button(container, SWT.CHECK);
+        this.checkbox.setText("Add models to Association manager.");
         Label labelCheckbox = new Label(container, SWT.NONE);
-        labelCheckbox.setText("Add models to Association manager.");
-
         // complete wizard page
         this.setControl(container);
 
@@ -156,12 +152,12 @@ public class ComponentSelectionWizardPage extends WizardPage {
      * Returns a Selection listener for browsing the workspace.
      * 
      * @param originalModel
-     * @param label
+     * @param button
      * @param shell
      * @return returns a Selection listener
      */
     protected SelectionListener browseWorkspace(final IFile originalModel,
-            final Label label, final Shell shell) {
+            final Button button, final Shell shell) {
         SelectionListener listener = new SelectionListener() {
 
             @Override
@@ -181,8 +177,8 @@ public class ComponentSelectionWizardPage extends WizardPage {
                     } else {
                         wizard.setModelB(model);
                     }
-                    label.setText(modelToString(model));
-                    label.pack();
+                    button.setText(modelToString(model));
+                    button.pack();
 
                     isEvolutionPossible = new EvolutionTester()
                             .isEvolutionPossible(wizard.getModelA(),
