@@ -11,9 +11,7 @@ import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.IPersistableElement;
 
 /**
- * 
  * @author Rene Trefft
- *
  */
 public class TransformationMappingEditorInput implements IFileEditorInput {
 
@@ -69,6 +67,7 @@ public class TransformationMappingEditorInput implements IFileEditorInput {
 				+ this.getFile().getProjectRelativePath().toString();
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Object getAdapter(Class adapter) {
 		return null;
