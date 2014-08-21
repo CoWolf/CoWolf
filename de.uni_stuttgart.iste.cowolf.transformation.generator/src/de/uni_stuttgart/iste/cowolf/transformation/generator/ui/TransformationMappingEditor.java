@@ -31,6 +31,7 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Table;
+import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
@@ -165,7 +166,7 @@ public class TransformationMappingEditor extends EditorPart {
 			throw new RuntimeException(
 					this.transformationMappingEditorInput
 					.getFormattedFilePath()
-							+ " is not a valid Transformation Mapping file or does not exist.",
+					+ " is not a valid Transformation Mapping file or does not exist.",
 					e);
 		}
 
@@ -364,6 +365,7 @@ public class TransformationMappingEditor extends EditorPart {
 
 		GridData mappingsTableGridData = new GridData(GridData.FILL_BOTH);
 		mappingsTable.setLayoutData(mappingsTableGridData);
+		resizeTable(mappingsTable);
 
 		Composite section3ButtonsComposite = toolkit
 				.createComposite(section3Composite);
@@ -408,6 +410,16 @@ public class TransformationMappingEditor extends EditorPart {
 
 	}
 
+	private static void resizeTableColumn(TableColumn tableColumn) {
+		tableColumn.pack();
+	}
+
+	private static void resizeTable(Table table) {
+		for (TableColumn tc : table.getColumns()) {
+			resizeTableColumn(tc);
+		}
+	}
+
 	private void createMappingsTableViewerColumns(TableViewer viewer) {
 
 		System.out.println("test");
@@ -415,7 +427,7 @@ public class TransformationMappingEditor extends EditorPart {
 		TableViewerColumn colRecognitionRuleName = new TableViewerColumn(
 				viewer, SWT.NONE);
 		colRecognitionRuleName.getColumn().setText("Recognition Rule");
-		colRecognitionRuleName.getColumn().setWidth(300);
+		// colRecognitionRuleName.getColumn().setWidth(300);
 		colRecognitionRuleName.setLabelProvider(new ColumnLabelProvider() {
 
 			@Override
@@ -436,7 +448,7 @@ public class TransformationMappingEditor extends EditorPart {
 				viewer, SWT.NONE);
 		colTransformationRuleName.getColumn().setText(
 				"Transformation Rule (Unit)");
-		colTransformationRuleName.getColumn().setWidth(300);
+		// colTransformationRuleName.getColumn().setWidth(300);
 		colTransformationRuleName.setLabelProvider(new ColumnLabelProvider() {
 
 			@Override
