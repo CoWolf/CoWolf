@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_bi-n8CkQEeS2k7PSdfiVLA" name="SET_Component_Stereotype" description="Sets Component Stereotype">
+  <imports href="http://ComponentDiagram/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_bi-n8SkQEeS2k7PSdfiVLA" name="setComponentStereotype" description="Sets the EAttribute stereotype">
+    <parameters xmi:id="_bi-n8ikQEeS2k7PSdfiVLA" name="Selected"/>
+    <parameters xmi:id="_bi-n8ykQEeS2k7PSdfiVLA" name="Stereotype"/>
+    <lhs xmi:id="_bi-n9CkQEeS2k7PSdfiVLA" name="Lhs">
+      <nodes xmi:id="_bi-n9SkQEeS2k7PSdfiVLA" name="Selected">
+        <type href="http://ComponentDiagram/1.0#//Component"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_bi-n9ikQEeS2k7PSdfiVLA" name="Rhs">
+      <nodes xmi:id="_bi-n9ykQEeS2k7PSdfiVLA" name="Selected">
+        <type href="http://ComponentDiagram/1.0#//Component"/>
+        <attributes xmi:id="_bi-n-CkQEeS2k7PSdfiVLA" value="Stereotype">
+          <type href="http://ComponentDiagram/1.0#//Component/stereotype"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_bi-n-SkQEeS2k7PSdfiVLA" origin="_bi-n9SkQEeS2k7PSdfiVLA" image="_bi-n9ykQEeS2k7PSdfiVLA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_bi-n-ikQEeS2k7PSdfiVLA" name="mainUnit" subUnits="_bi-n8SkQEeS2k7PSdfiVLA">
+    <parameters xmi:id="_bi-n-ykQEeS2k7PSdfiVLA" name="selectedEObject"/>
+    <parameters xmi:id="_bi-n_CkQEeS2k7PSdfiVLA" name="Stereotype"/>
+    <parameterMappings xmi:id="_bi-n_SkQEeS2k7PSdfiVLA" source="_bi-n-ykQEeS2k7PSdfiVLA" target="_bi-n8ikQEeS2k7PSdfiVLA"/>
+    <parameterMappings xmi:id="_bi-n_ikQEeS2k7PSdfiVLA" source="_bi-n_CkQEeS2k7PSdfiVLA" target="_bi-n8ykQEeS2k7PSdfiVLA"/>
+  </units>
+</henshin:Module>

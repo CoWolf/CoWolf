@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_bmhEMCkQEeS2k7PSdfiVLA" name="UNSET_Dependency_(supplier)_TGT_Component" description="Unsets Dependency's reference supplier the target Component">
+  <imports href="http://ComponentDiagram/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_bmhEMSkQEeS2k7PSdfiVLA" name="unsetDependency_supplier_TO_Component" description="UnsetDependencyRefsupplierToComponent">
+    <parameters xmi:id="_bmhEMikQEeS2k7PSdfiVLA" name="Selected"/>
+    <parameters xmi:id="_bmhEMykQEeS2k7PSdfiVLA" name="OldTarget"/>
+    <lhs xmi:id="_bmhENCkQEeS2k7PSdfiVLA" name="LHS">
+      <nodes xmi:id="_bmhENSkQEeS2k7PSdfiVLA" name="Selected" incoming="_bmhEOCkQEeS2k7PSdfiVLA" outgoing="_bmhENykQEeS2k7PSdfiVLA">
+        <type href="http://ComponentDiagram/1.0#//Dependency"/>
+      </nodes>
+      <nodes xmi:id="_bmhENikQEeS2k7PSdfiVLA" name="OldTarget" incoming="_bmhENykQEeS2k7PSdfiVLA" outgoing="_bmhEOCkQEeS2k7PSdfiVLA">
+        <type href="http://ComponentDiagram/1.0#//Component"/>
+      </nodes>
+      <edges xmi:id="_bmhENykQEeS2k7PSdfiVLA" source="_bmhENSkQEeS2k7PSdfiVLA" target="_bmhENikQEeS2k7PSdfiVLA">
+        <type href="http://ComponentDiagram/1.0#//Dependency/supplier"/>
+      </edges>
+      <edges xmi:id="_bmhEOCkQEeS2k7PSdfiVLA" source="_bmhENikQEeS2k7PSdfiVLA" target="_bmhENSkQEeS2k7PSdfiVLA">
+        <type href="http://ComponentDiagram/1.0#//Component/onDepend"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_bmhEOSkQEeS2k7PSdfiVLA" name="RHS">
+      <nodes xmi:id="_bmhEOikQEeS2k7PSdfiVLA" name="Selected">
+        <type href="http://ComponentDiagram/1.0#//Dependency"/>
+      </nodes>
+      <nodes xmi:id="_bmhEOykQEeS2k7PSdfiVLA" name="OldTarget">
+        <type href="http://ComponentDiagram/1.0#//Component"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_bmhEPCkQEeS2k7PSdfiVLA" origin="_bmhENSkQEeS2k7PSdfiVLA" image="_bmhEOikQEeS2k7PSdfiVLA"/>
+    <mappings xmi:id="_bmhEPSkQEeS2k7PSdfiVLA" origin="_bmhENikQEeS2k7PSdfiVLA" image="_bmhEOykQEeS2k7PSdfiVLA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_bmhEPikQEeS2k7PSdfiVLA" name="mainUnit" subUnits="_bmhEMSkQEeS2k7PSdfiVLA">
+    <parameters xmi:id="_bmhEPykQEeS2k7PSdfiVLA" name="selectedEObject"/>
+    <parameters xmi:id="_bmhEQCkQEeS2k7PSdfiVLA" name="OldTarget"/>
+    <parameterMappings xmi:id="_bmhEQSkQEeS2k7PSdfiVLA" source="_bmhEPykQEeS2k7PSdfiVLA" target="_bmhEMikQEeS2k7PSdfiVLA"/>
+    <parameterMappings xmi:id="_bmhEQikQEeS2k7PSdfiVLA" source="_bmhEQCkQEeS2k7PSdfiVLA" target="_bmhEMykQEeS2k7PSdfiVLA"/>
+  </units>
+</henshin:Module>

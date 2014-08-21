@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_bjdJECkQEeS2k7PSdfiVLA" name="CREATE_Port_IN_Component_(ports)" description="Creates one Port in Component">
+  <imports href="http://ComponentDiagram/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_bjdJESkQEeS2k7PSdfiVLA" name="createPort_IN_Component" description="creates one Port in the context: Component">
+    <parameters xmi:id="_bjdJEikQEeS2k7PSdfiVLA" name="Selected"/>
+    <parameters xmi:id="_bjdJEykQEeS2k7PSdfiVLA" name="New"/>
+    <parameters xmi:id="_bjdJFCkQEeS2k7PSdfiVLA" name="Id"/>
+    <parameters xmi:id="_bjdJFSkQEeS2k7PSdfiVLA" name="Name"/>
+    <parameters xmi:id="_bjdJFikQEeS2k7PSdfiVLA" name="Protocol"/>
+    <parameters xmi:id="_bjdJFykQEeS2k7PSdfiVLA" name="IsBehavior"/>
+    <parameters xmi:id="_bjdJGCkQEeS2k7PSdfiVLA" name="IsService"/>
+    <lhs xmi:id="_bjdJGSkQEeS2k7PSdfiVLA" name="Lhs">
+      <nodes xmi:id="_bjdwICkQEeS2k7PSdfiVLA" name="Selected">
+        <type href="http://ComponentDiagram/1.0#//Component"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_bjdwISkQEeS2k7PSdfiVLA" name="Rhs">
+      <nodes xmi:id="_bjdwIikQEeS2k7PSdfiVLA" name="Selected" incoming="_bjdwKikQEeS2k7PSdfiVLA" outgoing="_bjdwKSkQEeS2k7PSdfiVLA">
+        <type href="http://ComponentDiagram/1.0#//Component"/>
+      </nodes>
+      <nodes xmi:id="_bjdwIykQEeS2k7PSdfiVLA" name="New" incoming="_bjdwKSkQEeS2k7PSdfiVLA" outgoing="_bjdwKikQEeS2k7PSdfiVLA">
+        <type href="http://ComponentDiagram/1.0#//Port"/>
+        <attributes xmi:id="_bjdwJCkQEeS2k7PSdfiVLA" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_bjdwJSkQEeS2k7PSdfiVLA" value="Name">
+          <type href="http://CommonBase/1.0#//NameBase/name"/>
+        </attributes>
+        <attributes xmi:id="_bjdwJikQEeS2k7PSdfiVLA" value="Protocol">
+          <type href="http://ComponentDiagram/1.0#//Port/protocol"/>
+        </attributes>
+        <attributes xmi:id="_bjdwJykQEeS2k7PSdfiVLA" value="IsBehavior">
+          <type href="http://ComponentDiagram/1.0#//Port/isBehavior"/>
+        </attributes>
+        <attributes xmi:id="_bjdwKCkQEeS2k7PSdfiVLA" value="IsService">
+          <type href="http://ComponentDiagram/1.0#//Port/isService"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_bjdwKSkQEeS2k7PSdfiVLA" source="_bjdwIikQEeS2k7PSdfiVLA" target="_bjdwIykQEeS2k7PSdfiVLA">
+        <type href="http://ComponentDiagram/1.0#//Component/ports"/>
+      </edges>
+      <edges xmi:id="_bjdwKikQEeS2k7PSdfiVLA" source="_bjdwIykQEeS2k7PSdfiVLA" target="_bjdwIikQEeS2k7PSdfiVLA">
+        <type href="http://ComponentDiagram/1.0#//Port/portHost"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_bjdwKykQEeS2k7PSdfiVLA" origin="_bjdwICkQEeS2k7PSdfiVLA" image="_bjdwIikQEeS2k7PSdfiVLA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_bjdwLCkQEeS2k7PSdfiVLA" name="mainUnit" description="Creates one Port depending on available contexts in model instance" subUnits="_bjdJESkQEeS2k7PSdfiVLA">
+    <parameters xmi:id="_bjdwLSkQEeS2k7PSdfiVLA" name="New"/>
+    <parameters xmi:id="_bjdwLikQEeS2k7PSdfiVLA" name="selectedEObject"/>
+    <parameters xmi:id="_bjdwLykQEeS2k7PSdfiVLA" name="Id"/>
+    <parameters xmi:id="_bjdwMCkQEeS2k7PSdfiVLA" name="Name"/>
+    <parameters xmi:id="_bjdwMSkQEeS2k7PSdfiVLA" name="Protocol"/>
+    <parameters xmi:id="_bjdwMikQEeS2k7PSdfiVLA" name="IsBehavior"/>
+    <parameters xmi:id="_bjdwMykQEeS2k7PSdfiVLA" name="IsService"/>
+    <parameterMappings xmi:id="_bjdwNCkQEeS2k7PSdfiVLA" source="_bjdwLikQEeS2k7PSdfiVLA" target="_bjdJEikQEeS2k7PSdfiVLA"/>
+    <parameterMappings xmi:id="_bjdwNSkQEeS2k7PSdfiVLA" source="_bjdJEykQEeS2k7PSdfiVLA" target="_bjdwLSkQEeS2k7PSdfiVLA"/>
+    <parameterMappings xmi:id="_bjdwNikQEeS2k7PSdfiVLA" source="_bjdwLykQEeS2k7PSdfiVLA" target="_bjdJFCkQEeS2k7PSdfiVLA"/>
+    <parameterMappings xmi:id="_bjdwNykQEeS2k7PSdfiVLA" source="_bjdwMCkQEeS2k7PSdfiVLA" target="_bjdJFSkQEeS2k7PSdfiVLA"/>
+    <parameterMappings xmi:id="_bjdwOCkQEeS2k7PSdfiVLA" source="_bjdwMSkQEeS2k7PSdfiVLA" target="_bjdJFikQEeS2k7PSdfiVLA"/>
+    <parameterMappings xmi:id="_bjdwOSkQEeS2k7PSdfiVLA" source="_bjdwMikQEeS2k7PSdfiVLA" target="_bjdJFykQEeS2k7PSdfiVLA"/>
+    <parameterMappings xmi:id="_bjdwOikQEeS2k7PSdfiVLA" source="_bjdwMykQEeS2k7PSdfiVLA" target="_bjdJGCkQEeS2k7PSdfiVLA"/>
+  </units>
+</henshin:Module>

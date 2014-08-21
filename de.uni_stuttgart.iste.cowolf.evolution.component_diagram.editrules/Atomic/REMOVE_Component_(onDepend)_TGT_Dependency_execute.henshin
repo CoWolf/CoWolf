@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_bizBwCkQEeS2k7PSdfiVLA" name="REMOVE_Component_(onDepend)_TGT_Dependency" description="Removes Component's reference onDepend the target Dependency">
+  <imports href="http://ComponentDiagram/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_bizo0CkQEeS2k7PSdfiVLA" name="removeFromComponent_onDepend_Dependency" description="Removes from Component's reference onDepend the target Dependency">
+    <parameters xmi:id="_bizo0SkQEeS2k7PSdfiVLA" name="Selected"/>
+    <parameters xmi:id="_bizo0ikQEeS2k7PSdfiVLA" name="OldTarget"/>
+    <lhs xmi:id="_bizo0ykQEeS2k7PSdfiVLA" name="LHS">
+      <nodes xmi:id="_bizo1CkQEeS2k7PSdfiVLA" name="Selected" incoming="_bizo1ykQEeS2k7PSdfiVLA" outgoing="_bizo1ikQEeS2k7PSdfiVLA">
+        <type href="http://ComponentDiagram/1.0#//Component"/>
+      </nodes>
+      <nodes xmi:id="_bizo1SkQEeS2k7PSdfiVLA" name="OldTarget" incoming="_bizo1ikQEeS2k7PSdfiVLA" outgoing="_bizo1ykQEeS2k7PSdfiVLA">
+        <type href="http://ComponentDiagram/1.0#//Dependency"/>
+      </nodes>
+      <edges xmi:id="_bizo1ikQEeS2k7PSdfiVLA" source="_bizo1CkQEeS2k7PSdfiVLA" target="_bizo1SkQEeS2k7PSdfiVLA">
+        <type href="http://ComponentDiagram/1.0#//Component/onDepend"/>
+      </edges>
+      <edges xmi:id="_bizo1ykQEeS2k7PSdfiVLA" source="_bizo1SkQEeS2k7PSdfiVLA" target="_bizo1CkQEeS2k7PSdfiVLA">
+        <type href="http://ComponentDiagram/1.0#//Dependency/supplier"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_bizo2CkQEeS2k7PSdfiVLA" name="RHS">
+      <nodes xmi:id="_bizo2SkQEeS2k7PSdfiVLA" name="Selected">
+        <type href="http://ComponentDiagram/1.0#//Component"/>
+      </nodes>
+      <nodes xmi:id="_bizo2ikQEeS2k7PSdfiVLA" name="OldTarget">
+        <type href="http://ComponentDiagram/1.0#//Dependency"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_bizo2ykQEeS2k7PSdfiVLA" origin="_bizo1CkQEeS2k7PSdfiVLA" image="_bizo2SkQEeS2k7PSdfiVLA"/>
+    <mappings xmi:id="_bizo3CkQEeS2k7PSdfiVLA" origin="_bizo1SkQEeS2k7PSdfiVLA" image="_bizo2ikQEeS2k7PSdfiVLA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_bizo3SkQEeS2k7PSdfiVLA" name="mainUnit" subUnits="_bizo0CkQEeS2k7PSdfiVLA">
+    <parameters xmi:id="_bizo3ikQEeS2k7PSdfiVLA" name="selectedEObject"/>
+    <parameters xmi:id="_bizo3ykQEeS2k7PSdfiVLA" name="OldTarget"/>
+    <parameterMappings xmi:id="_bizo4CkQEeS2k7PSdfiVLA" source="_bizo3ikQEeS2k7PSdfiVLA" target="_bizo0SkQEeS2k7PSdfiVLA"/>
+    <parameterMappings xmi:id="_bizo4SkQEeS2k7PSdfiVLA" source="_bizo3ykQEeS2k7PSdfiVLA" target="_bizo0ikQEeS2k7PSdfiVLA"/>
+  </units>
+</henshin:Module>

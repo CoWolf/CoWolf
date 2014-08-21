@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_bf-XQCkQEeS2k7PSdfiVLA" name="CREATE_Component_IN_ComponentDiagram_(componetContainer)" description="Creates one Component in ComponentDiagram">
+  <imports href="http://ComponentDiagram/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_bhI04CkQEeS2k7PSdfiVLA" name="createComponent_IN_ComponentDiagram" description="creates one Component in the context: ComponentDiagram">
+    <parameters xmi:id="_bhI04SkQEeS2k7PSdfiVLA" name="Selected"/>
+    <parameters xmi:id="_bhI04ikQEeS2k7PSdfiVLA" name="New"/>
+    <parameters xmi:id="_bhI04ykQEeS2k7PSdfiVLA" name="Name"/>
+    <parameters xmi:id="_bhI05CkQEeS2k7PSdfiVLA" name="Id"/>
+    <parameters xmi:id="_bhI05SkQEeS2k7PSdfiVLA" name="Stereotype"/>
+    <parameters xmi:id="_bhI05ikQEeS2k7PSdfiVLA" name="IsIndirectlyInstantiated"/>
+    <lhs xmi:id="_bhI05ykQEeS2k7PSdfiVLA" name="Lhs">
+      <nodes xmi:id="_bhI06CkQEeS2k7PSdfiVLA" name="Selected">
+        <type href="http://ComponentDiagram/1.0#//ComponentDiagram"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_bhI06SkQEeS2k7PSdfiVLA" name="Rhs">
+      <nodes xmi:id="_bhI06ikQEeS2k7PSdfiVLA" name="Selected" incoming="_bhI08SkQEeS2k7PSdfiVLA" outgoing="_bhI08CkQEeS2k7PSdfiVLA">
+        <type href="http://ComponentDiagram/1.0#//ComponentDiagram"/>
+      </nodes>
+      <nodes xmi:id="_bhI06ykQEeS2k7PSdfiVLA" name="New" incoming="_bhI08CkQEeS2k7PSdfiVLA" outgoing="_bhI08SkQEeS2k7PSdfiVLA">
+        <type href="http://ComponentDiagram/1.0#//Component"/>
+        <attributes xmi:id="_bhI07CkQEeS2k7PSdfiVLA" value="Name">
+          <type href="http://CommonBase/1.0#//NameBase/name"/>
+        </attributes>
+        <attributes xmi:id="_bhI07SkQEeS2k7PSdfiVLA" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_bhI07ikQEeS2k7PSdfiVLA" value="Stereotype">
+          <type href="http://ComponentDiagram/1.0#//Component/stereotype"/>
+        </attributes>
+        <attributes xmi:id="_bhI07ykQEeS2k7PSdfiVLA" value="IsIndirectlyInstantiated">
+          <type href="http://ComponentDiagram/1.0#//Component/isIndirectlyInstantiated"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_bhI08CkQEeS2k7PSdfiVLA" source="_bhI06ikQEeS2k7PSdfiVLA" target="_bhI06ykQEeS2k7PSdfiVLA">
+        <type href="http://ComponentDiagram/1.0#//ComponentDiagram/componetContainer"/>
+      </edges>
+      <edges xmi:id="_bhI08SkQEeS2k7PSdfiVLA" source="_bhI06ykQEeS2k7PSdfiVLA" target="_bhI06ikQEeS2k7PSdfiVLA">
+        <type href="http://ComponentDiagram/1.0#//Component/diagram"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_bhI08ikQEeS2k7PSdfiVLA" origin="_bhI06CkQEeS2k7PSdfiVLA" image="_bhI06ikQEeS2k7PSdfiVLA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_bhI08ykQEeS2k7PSdfiVLA" name="mainUnit" description="Creates one Component depending on available contexts in model instance" subUnits="_bhI04CkQEeS2k7PSdfiVLA">
+    <parameters xmi:id="_bhI09CkQEeS2k7PSdfiVLA" name="New"/>
+    <parameters xmi:id="_bhI09SkQEeS2k7PSdfiVLA" name="selectedEObject"/>
+    <parameters xmi:id="_bhI09ikQEeS2k7PSdfiVLA" name="Name"/>
+    <parameters xmi:id="_bhI09ykQEeS2k7PSdfiVLA" name="Id"/>
+    <parameters xmi:id="_bhI0-CkQEeS2k7PSdfiVLA" name="Stereotype"/>
+    <parameters xmi:id="_bhI0-SkQEeS2k7PSdfiVLA" name="IsIndirectlyInstantiated"/>
+    <parameterMappings xmi:id="_bhI0-ikQEeS2k7PSdfiVLA" source="_bhI09SkQEeS2k7PSdfiVLA" target="_bhI04SkQEeS2k7PSdfiVLA"/>
+    <parameterMappings xmi:id="_bhI0-ykQEeS2k7PSdfiVLA" source="_bhI04ikQEeS2k7PSdfiVLA" target="_bhI09CkQEeS2k7PSdfiVLA"/>
+    <parameterMappings xmi:id="_bhI0_CkQEeS2k7PSdfiVLA" source="_bhI09ikQEeS2k7PSdfiVLA" target="_bhI04ykQEeS2k7PSdfiVLA"/>
+    <parameterMappings xmi:id="_bhI0_SkQEeS2k7PSdfiVLA" source="_bhI09ykQEeS2k7PSdfiVLA" target="_bhI05CkQEeS2k7PSdfiVLA"/>
+    <parameterMappings xmi:id="_bhI0_ikQEeS2k7PSdfiVLA" source="_bhI0-CkQEeS2k7PSdfiVLA" target="_bhI05SkQEeS2k7PSdfiVLA"/>
+    <parameterMappings xmi:id="_bhI0_ykQEeS2k7PSdfiVLA" source="_bhI0-SkQEeS2k7PSdfiVLA" target="_bhI05ikQEeS2k7PSdfiVLA"/>
+  </units>
+</henshin:Module>

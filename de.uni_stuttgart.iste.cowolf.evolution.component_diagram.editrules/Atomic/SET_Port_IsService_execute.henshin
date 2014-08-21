@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_bkSPgCkQEeS2k7PSdfiVLA" name="SET_Port_IsService" description="Sets Port IsService">
+  <imports href="http://ComponentDiagram/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_bkSPgSkQEeS2k7PSdfiVLA" name="setPortIsService" description="Sets the EAttribute isService">
+    <parameters xmi:id="_bkSPgikQEeS2k7PSdfiVLA" name="Selected"/>
+    <parameters xmi:id="_bkSPgykQEeS2k7PSdfiVLA" name="IsService"/>
+    <lhs xmi:id="_bkSPhCkQEeS2k7PSdfiVLA" name="Lhs">
+      <nodes xmi:id="_bkSPhSkQEeS2k7PSdfiVLA" name="Selected">
+        <type href="http://ComponentDiagram/1.0#//Port"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_bkSPhikQEeS2k7PSdfiVLA" name="Rhs">
+      <nodes xmi:id="_bkSPhykQEeS2k7PSdfiVLA" name="Selected">
+        <type href="http://ComponentDiagram/1.0#//Port"/>
+        <attributes xmi:id="_bkS2kCkQEeS2k7PSdfiVLA" value="IsService">
+          <type href="http://ComponentDiagram/1.0#//Port/isService"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_bkS2kSkQEeS2k7PSdfiVLA" origin="_bkSPhSkQEeS2k7PSdfiVLA" image="_bkSPhykQEeS2k7PSdfiVLA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_bkS2kikQEeS2k7PSdfiVLA" name="mainUnit" subUnits="_bkSPgSkQEeS2k7PSdfiVLA">
+    <parameters xmi:id="_bkS2kykQEeS2k7PSdfiVLA" name="selectedEObject"/>
+    <parameters xmi:id="_bkS2lCkQEeS2k7PSdfiVLA" name="IsService"/>
+    <parameterMappings xmi:id="_bkS2lSkQEeS2k7PSdfiVLA" source="_bkS2kykQEeS2k7PSdfiVLA" target="_bkSPgikQEeS2k7PSdfiVLA"/>
+    <parameterMappings xmi:id="_bkS2likQEeS2k7PSdfiVLA" source="_bkS2lCkQEeS2k7PSdfiVLA" target="_bkSPgykQEeS2k7PSdfiVLA"/>
+  </units>
+</henshin:Module>
