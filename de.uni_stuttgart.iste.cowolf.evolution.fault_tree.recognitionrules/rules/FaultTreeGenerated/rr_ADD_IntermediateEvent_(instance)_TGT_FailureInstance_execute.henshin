@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_hSeikCkqEeSXEPJmUhVMVg" name="RR: ADD_IntermediateEvent_(instance)_TGT_FailureInstance" description="Recognize: Adds to IntermediateEvent's reference instance the target FailureInstance">
+  <imports href="http://www.sidiff.org/difference/symmetric/1.0#/"/>
+  <imports href="http://FaultTree/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_hSeikSkqEeSXEPJmUhVMVg" name="rr:addToIntermediateEvent_instance_FailureInstance" description="Recognize: Adds to IntermediateEvent's reference instance the target FailureInstance">
+    <parameters xmi:id="_hSeikikqEeSXEPJmUhVMVg" name="Selected"/>
+    <parameters xmi:id="_hSeikykqEeSXEPJmUhVMVg" name="NewTarget"/>
+    <lhs xmi:id="_hSeilCkqEeSXEPJmUhVMVg" name="Lhs">
+      <nodes xmi:id="_hSeilSkqEeSXEPJmUhVMVg" name="B.Selected" incoming="_hSeinikqEeSXEPJmUhVMVg _hSeioykqEeSXEPJmUhVMVg _hSeipSkqEeSXEPJmUhVMVg" outgoing="_hSeioSkqEeSXEPJmUhVMVg">
+        <type href="http://FaultTree/1.0#//IntermediateEvent"/>
+      </nodes>
+      <nodes xmi:id="_hSeilikqEeSXEPJmUhVMVg" name="B.NewTarget" incoming="_hSeinykqEeSXEPJmUhVMVg _hSeioSkqEeSXEPJmUhVMVg _hSeioikqEeSXEPJmUhVMVg" outgoing="_hSeipSkqEeSXEPJmUhVMVg">
+        <type href="http://FaultTree/1.0#//FailureInstance"/>
+      </nodes>
+      <nodes xmi:id="_hSeilykqEeSXEPJmUhVMVg" name="" outgoing="_hSeinikqEeSXEPJmUhVMVg _hSeinykqEeSXEPJmUhVMVg _hSeioCkqEeSXEPJmUhVMVg">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference"/>
+      </nodes>
+      <nodes xmi:id="_hSeimCkqEeSXEPJmUhVMVg" name="" incoming="_hSeioCkqEeSXEPJmUhVMVg">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+        <attributes xmi:id="_hSeimSkqEeSXEPJmUhVMVg" value="&quot;instance&quot;">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_hSeimikqEeSXEPJmUhVMVg" name="" outgoing="_hSeioikqEeSXEPJmUhVMVg _hSeioykqEeSXEPJmUhVMVg _hSeipCkqEeSXEPJmUhVMVg">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference"/>
+      </nodes>
+      <nodes xmi:id="_hSeimykqEeSXEPJmUhVMVg" name="" incoming="_hSeipCkqEeSXEPJmUhVMVg">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+        <attributes xmi:id="_hSeinCkqEeSXEPJmUhVMVg" value="&quot;event&quot;">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_hSeinSkqEeSXEPJmUhVMVg" name="">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_hSeinikqEeSXEPJmUhVMVg" source="_hSeilykqEeSXEPJmUhVMVg" target="_hSeilSkqEeSXEPJmUhVMVg">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/src"/>
+      </edges>
+      <edges xmi:id="_hSeinykqEeSXEPJmUhVMVg" source="_hSeilykqEeSXEPJmUhVMVg" target="_hSeilikqEeSXEPJmUhVMVg">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/tgt"/>
+      </edges>
+      <edges xmi:id="_hSeioCkqEeSXEPJmUhVMVg" source="_hSeilykqEeSXEPJmUhVMVg" target="_hSeimCkqEeSXEPJmUhVMVg">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/type"/>
+      </edges>
+      <edges xmi:id="_hSeioSkqEeSXEPJmUhVMVg" source="_hSeilSkqEeSXEPJmUhVMVg" target="_hSeilikqEeSXEPJmUhVMVg">
+        <type href="http://FaultTree/1.0#//IntermediateEvent/instance"/>
+      </edges>
+      <edges xmi:id="_hSeioikqEeSXEPJmUhVMVg" source="_hSeimikqEeSXEPJmUhVMVg" target="_hSeilikqEeSXEPJmUhVMVg">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/src"/>
+      </edges>
+      <edges xmi:id="_hSeioykqEeSXEPJmUhVMVg" source="_hSeimikqEeSXEPJmUhVMVg" target="_hSeilSkqEeSXEPJmUhVMVg">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/tgt"/>
+      </edges>
+      <edges xmi:id="_hSeipCkqEeSXEPJmUhVMVg" source="_hSeimikqEeSXEPJmUhVMVg" target="_hSeimykqEeSXEPJmUhVMVg">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/type"/>
+      </edges>
+      <edges xmi:id="_hSeipSkqEeSXEPJmUhVMVg" source="_hSeilikqEeSXEPJmUhVMVg" target="_hSeilSkqEeSXEPJmUhVMVg">
+        <type href="http://FaultTree/1.0#//FailureInstance/event"/>
+      </edges>
+      <formula xsi:type="henshin:Not" xmi:id="_hSeipikqEeSXEPJmUhVMVg">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_hSeipykqEeSXEPJmUhVMVg">
+          <conclusion xmi:id="_hSeiqCkqEeSXEPJmUhVMVg" name="doNotExceedUpperBound">
+            <nodes xmi:id="_hSeiqSkqEeSXEPJmUhVMVg" incoming="_hSeiqykqEeSXEPJmUhVMVg">
+              <type href="http://FaultTree/1.0#//IntermediateEvent"/>
+            </nodes>
+            <nodes xmi:id="_hSeiqikqEeSXEPJmUhVMVg" name="B.NewTarget" outgoing="_hSeiqykqEeSXEPJmUhVMVg">
+              <type href="http://FaultTree/1.0#//FailureInstance"/>
+            </nodes>
+            <edges xmi:id="_hSeiqykqEeSXEPJmUhVMVg" source="_hSeiqikqEeSXEPJmUhVMVg" target="_hSeiqSkqEeSXEPJmUhVMVg">
+              <type href="http://FaultTree/1.0#//FailureInstance/event"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_hSeirCkqEeSXEPJmUhVMVg" origin="_hSeilikqEeSXEPJmUhVMVg" image="_hSeiqikqEeSXEPJmUhVMVg"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_hSeirSkqEeSXEPJmUhVMVg" name="Rhs">
+      <nodes xmi:id="_hSeirikqEeSXEPJmUhVMVg" name="B.Selected" incoming="_hSeivikqEeSXEPJmUhVMVg _hSeiwykqEeSXEPJmUhVMVg _hSeixSkqEeSXEPJmUhVMVg" outgoing="_hSeiwSkqEeSXEPJmUhVMVg">
+        <type href="http://FaultTree/1.0#//IntermediateEvent"/>
+      </nodes>
+      <nodes xmi:id="_hSeirykqEeSXEPJmUhVMVg" name="B.NewTarget" incoming="_hSeivykqEeSXEPJmUhVMVg _hSeiwSkqEeSXEPJmUhVMVg _hSeiwikqEeSXEPJmUhVMVg" outgoing="_hSeixSkqEeSXEPJmUhVMVg">
+        <type href="http://FaultTree/1.0#//FailureInstance"/>
+      </nodes>
+      <nodes xmi:id="_hSeisCkqEeSXEPJmUhVMVg" name="" incoming="_hSeixikqEeSXEPJmUhVMVg" outgoing="_hSeivikqEeSXEPJmUhVMVg _hSeivykqEeSXEPJmUhVMVg _hSeiwCkqEeSXEPJmUhVMVg">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference"/>
+      </nodes>
+      <nodes xmi:id="_hSeisSkqEeSXEPJmUhVMVg" name="" incoming="_hSeiwCkqEeSXEPJmUhVMVg">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+      </nodes>
+      <nodes xmi:id="_hSeisikqEeSXEPJmUhVMVg" name="" incoming="_hSeixykqEeSXEPJmUhVMVg" outgoing="_hSeiwikqEeSXEPJmUhVMVg _hSeiwykqEeSXEPJmUhVMVg _hSeixCkqEeSXEPJmUhVMVg">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference"/>
+      </nodes>
+      <nodes xmi:id="_hSeisykqEeSXEPJmUhVMVg" name="" incoming="_hSeixCkqEeSXEPJmUhVMVg">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+      </nodes>
+      <nodes xmi:id="_hSeitCkqEeSXEPJmUhVMVg" incoming="_hSeiyCkqEeSXEPJmUhVMVg" outgoing="_hSeixikqEeSXEPJmUhVMVg _hSeixykqEeSXEPJmUhVMVg">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet"/>
+        <attributes xmi:id="_hSeitSkqEeSXEPJmUhVMVg" value="&quot;ADD_IntermediateEvent_(instance)_TGT_FailureInstance&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/name"/>
+        </attributes>
+        <attributes xmi:id="_hSeitikqEeSXEPJmUhVMVg" value="&quot;Adds to IntermediateEvent's reference instance the target FailureInstance&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/description"/>
+        </attributes>
+        <attributes xmi:id="_hSeitykqEeSXEPJmUhVMVg" value="&quot;ADD_IntermediateEvent_(instance)_TGT_FailureInstance&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/editRName"/>
+        </attributes>
+        <attributes xmi:id="_hSeiuCkqEeSXEPJmUhVMVg" value="&quot;RR: ADD_IntermediateEvent_(instance)_TGT_FailureInstance&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/recognitionRName"/>
+        </attributes>
+        <attributes xmi:id="_hSeiuSkqEeSXEPJmUhVMVg" value="1">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/priority"/>
+        </attributes>
+        <attributes xmi:id="_hSeiuikqEeSXEPJmUhVMVg" value="1">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfACs"/>
+        </attributes>
+        <attributes xmi:id="_hSeiuykqEeSXEPJmUhVMVg" value="2">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfParams"/>
+        </attributes>
+        <attributes xmi:id="_hSeivCkqEeSXEPJmUhVMVg" value="5">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/refinementLevel"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_hSeivSkqEeSXEPJmUhVMVg" name="" outgoing="_hSeiyCkqEeSXEPJmUhVMVg">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_hSeivikqEeSXEPJmUhVMVg" source="_hSeisCkqEeSXEPJmUhVMVg" target="_hSeirikqEeSXEPJmUhVMVg">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/src"/>
+      </edges>
+      <edges xmi:id="_hSeivykqEeSXEPJmUhVMVg" source="_hSeisCkqEeSXEPJmUhVMVg" target="_hSeirykqEeSXEPJmUhVMVg">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/tgt"/>
+      </edges>
+      <edges xmi:id="_hSeiwCkqEeSXEPJmUhVMVg" source="_hSeisCkqEeSXEPJmUhVMVg" target="_hSeisSkqEeSXEPJmUhVMVg">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/type"/>
+      </edges>
+      <edges xmi:id="_hSeiwSkqEeSXEPJmUhVMVg" source="_hSeirikqEeSXEPJmUhVMVg" target="_hSeirykqEeSXEPJmUhVMVg">
+        <type href="http://FaultTree/1.0#//IntermediateEvent/instance"/>
+      </edges>
+      <edges xmi:id="_hSeiwikqEeSXEPJmUhVMVg" source="_hSeisikqEeSXEPJmUhVMVg" target="_hSeirykqEeSXEPJmUhVMVg">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/src"/>
+      </edges>
+      <edges xmi:id="_hSeiwykqEeSXEPJmUhVMVg" source="_hSeisikqEeSXEPJmUhVMVg" target="_hSeirikqEeSXEPJmUhVMVg">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/tgt"/>
+      </edges>
+      <edges xmi:id="_hSeixCkqEeSXEPJmUhVMVg" source="_hSeisikqEeSXEPJmUhVMVg" target="_hSeisykqEeSXEPJmUhVMVg">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/type"/>
+      </edges>
+      <edges xmi:id="_hSeixSkqEeSXEPJmUhVMVg" source="_hSeirykqEeSXEPJmUhVMVg" target="_hSeirikqEeSXEPJmUhVMVg">
+        <type href="http://FaultTree/1.0#//FailureInstance/event"/>
+      </edges>
+      <edges xmi:id="_hSeixikqEeSXEPJmUhVMVg" source="_hSeitCkqEeSXEPJmUhVMVg" target="_hSeisCkqEeSXEPJmUhVMVg">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_hSeixykqEeSXEPJmUhVMVg" source="_hSeitCkqEeSXEPJmUhVMVg" target="_hSeisikqEeSXEPJmUhVMVg">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_hSeiyCkqEeSXEPJmUhVMVg" source="_hSeivSkqEeSXEPJmUhVMVg" target="_hSeitCkqEeSXEPJmUhVMVg">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference/changeSets"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_hSeiySkqEeSXEPJmUhVMVg" origin="_hSeilSkqEeSXEPJmUhVMVg" image="_hSeirikqEeSXEPJmUhVMVg"/>
+    <mappings xmi:id="_hSeiyikqEeSXEPJmUhVMVg" origin="_hSeilikqEeSXEPJmUhVMVg" image="_hSeirykqEeSXEPJmUhVMVg"/>
+    <mappings xmi:id="_hSeiyykqEeSXEPJmUhVMVg" origin="_hSeilykqEeSXEPJmUhVMVg" image="_hSeisCkqEeSXEPJmUhVMVg"/>
+    <mappings xmi:id="_hSeizCkqEeSXEPJmUhVMVg" origin="_hSeimCkqEeSXEPJmUhVMVg" image="_hSeisSkqEeSXEPJmUhVMVg"/>
+    <mappings xmi:id="_hSeizSkqEeSXEPJmUhVMVg" origin="_hSeimikqEeSXEPJmUhVMVg" image="_hSeisikqEeSXEPJmUhVMVg"/>
+    <mappings xmi:id="_hSeizikqEeSXEPJmUhVMVg" origin="_hSeimykqEeSXEPJmUhVMVg" image="_hSeisykqEeSXEPJmUhVMVg"/>
+    <mappings xmi:id="_hSeizykqEeSXEPJmUhVMVg" origin="_hSeinSkqEeSXEPJmUhVMVg" image="_hSeivSkqEeSXEPJmUhVMVg"/>
+  </units>
+</henshin:Module>
