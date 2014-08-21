@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_QAh7oCkUEeSY184Ahj4ZUQ" name="RR: DELETE_Port_IN_Component_(ports)" description="Recognize: Deletes one Port in Component">
+  <imports href="http://www.sidiff.org/difference/symmetric/1.0#/"/>
+  <imports href="http://ComponentDiagram/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_QAh7oSkUEeSY184Ahj4ZUQ" name="rr:deletePort_IN_Component" description="Recognize: deletes one Port in the context: Component">
+    <parameters xmi:id="_QAh7oikUEeSY184Ahj4ZUQ" name="Selected"/>
+    <parameters xmi:id="_QAh7oykUEeSY184Ahj4ZUQ" name="ToBeDeleted"/>
+    <lhs xmi:id="_QAh7pCkUEeSY184Ahj4ZUQ" name="Lhs">
+      <nodes xmi:id="_QAh7pSkUEeSY184Ahj4ZUQ" name="A.Selected" incoming="_QAh7sCkUEeSY184Ahj4ZUQ _QAh7tSkUEeSY184Ahj4ZUQ _QAh7tykUEeSY184Ahj4ZUQ" outgoing="_QAh7sykUEeSY184Ahj4ZUQ">
+        <type href="http://ComponentDiagram/1.0#//Component"/>
+      </nodes>
+      <nodes xmi:id="_QAh7pikUEeSY184Ahj4ZUQ" name="" outgoing="_QAh7rykUEeSY184Ahj4ZUQ">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveObject"/>
+      </nodes>
+      <nodes xmi:id="_QAh7pykUEeSY184Ahj4ZUQ" name="A.ToBeDeleted" incoming="_QAh7rykUEeSY184Ahj4ZUQ _QAh7sSkUEeSY184Ahj4ZUQ _QAh7sykUEeSY184Ahj4ZUQ _QAh7tCkUEeSY184Ahj4ZUQ" outgoing="_QAh7tykUEeSY184Ahj4ZUQ">
+        <type href="http://ComponentDiagram/1.0#//Port"/>
+      </nodes>
+      <nodes xmi:id="_QAh7qCkUEeSY184Ahj4ZUQ" name="" outgoing="_QAh7sCkUEeSY184Ahj4ZUQ _QAh7sSkUEeSY184Ahj4ZUQ _QAh7sikUEeSY184Ahj4ZUQ">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference"/>
+      </nodes>
+      <nodes xmi:id="_QAh7qSkUEeSY184Ahj4ZUQ" name="" incoming="_QAh7sikUEeSY184Ahj4ZUQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+        <attributes xmi:id="_QAh7qikUEeSY184Ahj4ZUQ" value="&quot;ports&quot;">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_QAh7qykUEeSY184Ahj4ZUQ" name="" outgoing="_QAh7tCkUEeSY184Ahj4ZUQ _QAh7tSkUEeSY184Ahj4ZUQ _QAh7tikUEeSY184Ahj4ZUQ">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference"/>
+      </nodes>
+      <nodes xmi:id="_QAh7rCkUEeSY184Ahj4ZUQ" name="" incoming="_QAh7tikUEeSY184Ahj4ZUQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+        <attributes xmi:id="_QAh7rSkUEeSY184Ahj4ZUQ" value="&quot;portHost&quot;">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_QAh7rikUEeSY184Ahj4ZUQ" name="">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_QAh7rykUEeSY184Ahj4ZUQ" source="_QAh7pikUEeSY184Ahj4ZUQ" target="_QAh7pykUEeSY184Ahj4ZUQ">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveObject/obj"/>
+      </edges>
+      <edges xmi:id="_QAh7sCkUEeSY184Ahj4ZUQ" source="_QAh7qCkUEeSY184Ahj4ZUQ" target="_QAh7pSkUEeSY184Ahj4ZUQ">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/src"/>
+      </edges>
+      <edges xmi:id="_QAh7sSkUEeSY184Ahj4ZUQ" source="_QAh7qCkUEeSY184Ahj4ZUQ" target="_QAh7pykUEeSY184Ahj4ZUQ">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/tgt"/>
+      </edges>
+      <edges xmi:id="_QAh7sikUEeSY184Ahj4ZUQ" source="_QAh7qCkUEeSY184Ahj4ZUQ" target="_QAh7qSkUEeSY184Ahj4ZUQ">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/type"/>
+      </edges>
+      <edges xmi:id="_QAh7sykUEeSY184Ahj4ZUQ" source="_QAh7pSkUEeSY184Ahj4ZUQ" target="_QAh7pykUEeSY184Ahj4ZUQ">
+        <type href="http://ComponentDiagram/1.0#//Component/ports"/>
+      </edges>
+      <edges xmi:id="_QAh7tCkUEeSY184Ahj4ZUQ" source="_QAh7qykUEeSY184Ahj4ZUQ" target="_QAh7pykUEeSY184Ahj4ZUQ">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/src"/>
+      </edges>
+      <edges xmi:id="_QAh7tSkUEeSY184Ahj4ZUQ" source="_QAh7qykUEeSY184Ahj4ZUQ" target="_QAh7pSkUEeSY184Ahj4ZUQ">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/tgt"/>
+      </edges>
+      <edges xmi:id="_QAh7tikUEeSY184Ahj4ZUQ" source="_QAh7qykUEeSY184Ahj4ZUQ" target="_QAh7rCkUEeSY184Ahj4ZUQ">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/type"/>
+      </edges>
+      <edges xmi:id="_QAh7tykUEeSY184Ahj4ZUQ" source="_QAh7pykUEeSY184Ahj4ZUQ" target="_QAh7pSkUEeSY184Ahj4ZUQ">
+        <type href="http://ComponentDiagram/1.0#//Port/portHost"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_QAh7uCkUEeSY184Ahj4ZUQ" name="Rhs">
+      <nodes xmi:id="_QAh7uSkUEeSY184Ahj4ZUQ" name="A.Selected" incoming="_QAh7yykUEeSY184Ahj4ZUQ _QAh70CkUEeSY184Ahj4ZUQ _QAh70ikUEeSY184Ahj4ZUQ" outgoing="_QAh7zikUEeSY184Ahj4ZUQ">
+        <type href="http://ComponentDiagram/1.0#//Component"/>
+      </nodes>
+      <nodes xmi:id="_QAh7uikUEeSY184Ahj4ZUQ" name="" incoming="_QAh70ykUEeSY184Ahj4ZUQ" outgoing="_QAh7yikUEeSY184Ahj4ZUQ">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveObject"/>
+      </nodes>
+      <nodes xmi:id="_QAh7uykUEeSY184Ahj4ZUQ" name="A.ToBeDeleted" incoming="_QAh7yikUEeSY184Ahj4ZUQ _QAh7zCkUEeSY184Ahj4ZUQ _QAh7zikUEeSY184Ahj4ZUQ _QAh7zykUEeSY184Ahj4ZUQ" outgoing="_QAh70ikUEeSY184Ahj4ZUQ">
+        <type href="http://ComponentDiagram/1.0#//Port"/>
+      </nodes>
+      <nodes xmi:id="_QAh7vCkUEeSY184Ahj4ZUQ" name="" incoming="_QAh71CkUEeSY184Ahj4ZUQ" outgoing="_QAh7yykUEeSY184Ahj4ZUQ _QAh7zCkUEeSY184Ahj4ZUQ _QAh7zSkUEeSY184Ahj4ZUQ">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference"/>
+      </nodes>
+      <nodes xmi:id="_QAh7vSkUEeSY184Ahj4ZUQ" name="" incoming="_QAh7zSkUEeSY184Ahj4ZUQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+      </nodes>
+      <nodes xmi:id="_QAh7vikUEeSY184Ahj4ZUQ" name="" incoming="_QAh71SkUEeSY184Ahj4ZUQ" outgoing="_QAh7zykUEeSY184Ahj4ZUQ _QAh70CkUEeSY184Ahj4ZUQ _QAh70SkUEeSY184Ahj4ZUQ">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference"/>
+      </nodes>
+      <nodes xmi:id="_QAh7vykUEeSY184Ahj4ZUQ" name="" incoming="_QAh70SkUEeSY184Ahj4ZUQ">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+      </nodes>
+      <nodes xmi:id="_QAh7wCkUEeSY184Ahj4ZUQ" incoming="_QAh71ikUEeSY184Ahj4ZUQ" outgoing="_QAh70ykUEeSY184Ahj4ZUQ _QAh71CkUEeSY184Ahj4ZUQ _QAh71SkUEeSY184Ahj4ZUQ">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet"/>
+        <attributes xmi:id="_QAh7wSkUEeSY184Ahj4ZUQ" value="&quot;DELETE_Port_IN_Component_(ports)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/name"/>
+        </attributes>
+        <attributes xmi:id="_QAh7wikUEeSY184Ahj4ZUQ" value="&quot;Deletes one Port in Component&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/description"/>
+        </attributes>
+        <attributes xmi:id="_QAh7wykUEeSY184Ahj4ZUQ" value="&quot;DELETE_Port_IN_Component_(ports)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/editRName"/>
+        </attributes>
+        <attributes xmi:id="_QAh7xCkUEeSY184Ahj4ZUQ" value="&quot;RR: DELETE_Port_IN_Component_(ports)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/recognitionRName"/>
+        </attributes>
+        <attributes xmi:id="_QAh7xSkUEeSY184Ahj4ZUQ" value="1">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/priority"/>
+        </attributes>
+        <attributes xmi:id="_QAh7xikUEeSY184Ahj4ZUQ" value="0">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfACs"/>
+        </attributes>
+        <attributes xmi:id="_QAh7xykUEeSY184Ahj4ZUQ" value="2">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfParams"/>
+        </attributes>
+        <attributes xmi:id="_QAh7yCkUEeSY184Ahj4ZUQ" value="6">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/refinementLevel"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_QAh7ySkUEeSY184Ahj4ZUQ" name="" outgoing="_QAh71ikUEeSY184Ahj4ZUQ">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_QAh7yikUEeSY184Ahj4ZUQ" source="_QAh7uikUEeSY184Ahj4ZUQ" target="_QAh7uykUEeSY184Ahj4ZUQ">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveObject/obj"/>
+      </edges>
+      <edges xmi:id="_QAh7yykUEeSY184Ahj4ZUQ" source="_QAh7vCkUEeSY184Ahj4ZUQ" target="_QAh7uSkUEeSY184Ahj4ZUQ">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/src"/>
+      </edges>
+      <edges xmi:id="_QAh7zCkUEeSY184Ahj4ZUQ" source="_QAh7vCkUEeSY184Ahj4ZUQ" target="_QAh7uykUEeSY184Ahj4ZUQ">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/tgt"/>
+      </edges>
+      <edges xmi:id="_QAh7zSkUEeSY184Ahj4ZUQ" source="_QAh7vCkUEeSY184Ahj4ZUQ" target="_QAh7vSkUEeSY184Ahj4ZUQ">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/type"/>
+      </edges>
+      <edges xmi:id="_QAh7zikUEeSY184Ahj4ZUQ" source="_QAh7uSkUEeSY184Ahj4ZUQ" target="_QAh7uykUEeSY184Ahj4ZUQ">
+        <type href="http://ComponentDiagram/1.0#//Component/ports"/>
+      </edges>
+      <edges xmi:id="_QAh7zykUEeSY184Ahj4ZUQ" source="_QAh7vikUEeSY184Ahj4ZUQ" target="_QAh7uykUEeSY184Ahj4ZUQ">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/src"/>
+      </edges>
+      <edges xmi:id="_QAh70CkUEeSY184Ahj4ZUQ" source="_QAh7vikUEeSY184Ahj4ZUQ" target="_QAh7uSkUEeSY184Ahj4ZUQ">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/tgt"/>
+      </edges>
+      <edges xmi:id="_QAh70SkUEeSY184Ahj4ZUQ" source="_QAh7vikUEeSY184Ahj4ZUQ" target="_QAh7vykUEeSY184Ahj4ZUQ">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/type"/>
+      </edges>
+      <edges xmi:id="_QAh70ikUEeSY184Ahj4ZUQ" source="_QAh7uykUEeSY184Ahj4ZUQ" target="_QAh7uSkUEeSY184Ahj4ZUQ">
+        <type href="http://ComponentDiagram/1.0#//Port/portHost"/>
+      </edges>
+      <edges xmi:id="_QAh70ykUEeSY184Ahj4ZUQ" source="_QAh7wCkUEeSY184Ahj4ZUQ" target="_QAh7uikUEeSY184Ahj4ZUQ">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_QAh71CkUEeSY184Ahj4ZUQ" source="_QAh7wCkUEeSY184Ahj4ZUQ" target="_QAh7vCkUEeSY184Ahj4ZUQ">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_QAh71SkUEeSY184Ahj4ZUQ" source="_QAh7wCkUEeSY184Ahj4ZUQ" target="_QAh7vikUEeSY184Ahj4ZUQ">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_QAh71ikUEeSY184Ahj4ZUQ" source="_QAh7ySkUEeSY184Ahj4ZUQ" target="_QAh7wCkUEeSY184Ahj4ZUQ">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference/changeSets"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_QAh71ykUEeSY184Ahj4ZUQ" origin="_QAh7pSkUEeSY184Ahj4ZUQ" image="_QAh7uSkUEeSY184Ahj4ZUQ"/>
+    <mappings xmi:id="_QAh72CkUEeSY184Ahj4ZUQ" origin="_QAh7pikUEeSY184Ahj4ZUQ" image="_QAh7uikUEeSY184Ahj4ZUQ"/>
+    <mappings xmi:id="_QAh72SkUEeSY184Ahj4ZUQ" origin="_QAh7pykUEeSY184Ahj4ZUQ" image="_QAh7uykUEeSY184Ahj4ZUQ"/>
+    <mappings xmi:id="_QAh72ikUEeSY184Ahj4ZUQ" origin="_QAh7qCkUEeSY184Ahj4ZUQ" image="_QAh7vCkUEeSY184Ahj4ZUQ"/>
+    <mappings xmi:id="_QAh72ykUEeSY184Ahj4ZUQ" origin="_QAh7qSkUEeSY184Ahj4ZUQ" image="_QAh7vSkUEeSY184Ahj4ZUQ"/>
+    <mappings xmi:id="_QAh73CkUEeSY184Ahj4ZUQ" origin="_QAh7qykUEeSY184Ahj4ZUQ" image="_QAh7vikUEeSY184Ahj4ZUQ"/>
+    <mappings xmi:id="_QAh73SkUEeSY184Ahj4ZUQ" origin="_QAh7rCkUEeSY184Ahj4ZUQ" image="_QAh7vykUEeSY184Ahj4ZUQ"/>
+    <mappings xmi:id="_QAh73ikUEeSY184Ahj4ZUQ" origin="_QAh7rikUEeSY184Ahj4ZUQ" image="_QAh7ySkUEeSY184Ahj4ZUQ"/>
+  </units>
+</henshin:Module>
