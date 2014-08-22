@@ -42,4 +42,17 @@
 			</Params>
 		</Rule>
 	</Mapping>
+	<Mapping priority="10">
+		<Difference>CHANGE_Transition_(target)_TGT_StateVertex</Difference>
+		<Rule name="ChangedTransitionTargetInSC">
+			<Params>
+				<Param name="transName">
+					<Path>RemoveReference</Path>
+					<Path>target</Path>
+					<Path>src</Path>
+					<Path>name</Path>
+				</Param>
+			</Params>
+		</Rule>
+	</Mapping>
 </Mappings>

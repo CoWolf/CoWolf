@@ -45,9 +45,9 @@ public class MappingSet implements Comparable<MappingSet> {
     @Override
     public int compareTo(MappingSet o) {
         if (this.mapping.getPriority() > o.mapping.getPriority()) {
-            return -1;
-        } else if (this.mapping.getPriority() < o.mapping.getPriority()) {
             return 1;
+        } else if (this.mapping.getPriority() < o.mapping.getPriority()) {
+            return -1;
         }
         return 0;
     }
