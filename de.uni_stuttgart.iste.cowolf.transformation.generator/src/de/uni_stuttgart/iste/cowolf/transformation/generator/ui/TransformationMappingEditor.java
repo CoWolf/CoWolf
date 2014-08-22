@@ -452,7 +452,7 @@ public class TransformationMappingEditor extends EditorPart {
 							ImageDescriptor
 									.createFromURL(
 											new URL(
-													"platform:/plugin/org.eclipse.emf.henshin.editor/icons/full/obj16/HenshinModelFile.gif"))
+													"platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.generator/de/uni_stuttgart/iste/cowolf/transformation/generator/ui/icons/HenshinModelFile.gif"))
 									.createImage());
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
@@ -498,7 +498,7 @@ public class TransformationMappingEditor extends EditorPart {
 							ImageDescriptor
 									.createFromURL(
 											new URL(
-													"platform:/plugin/org.eclipse.emf.henshin.diagram/icons/obj16/Unit.png"))
+													"platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.generator/de/uni_stuttgart/iste/cowolf/transformation/generator/ui/icons/Unit.png"))
 									.createImage());
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
@@ -682,7 +682,7 @@ public class TransformationMappingEditor extends EditorPart {
 							Unit selectedTransformationRule = (Unit) selectedObj2;
 							Mapping newMapping = new Mapping();
 							// TODO via UI
-							newMapping.setPriority(1);
+							newMapping.setPriority(0);
 							String changeSetName = RecognitionRuleUtil
 									.getRecognitionRuleName(selectedRecognitionRule);
 							newMapping.setDifference(changeSetName);

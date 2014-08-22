@@ -61,7 +61,7 @@ public class TransformationRulesLabelProvider implements ILabelProvider {
 
 			try {
 				URL url = new URL(
-						"platform:/plugin/org.eclipse.emf.henshin.editor/icons/full/obj16/HenshinModelFile.gif");
+						"platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.generator/de/uni_stuttgart/iste/cowolf/transformation/generator/ui/icons/HenshinModelFile.gif");
 				return ImageDescriptor.createFromURL(url).createImage();
 			} catch (MalformedURLException e) {
 				e.printStackTrace();
@@ -71,7 +71,7 @@ public class TransformationRulesLabelProvider implements ILabelProvider {
 
 			try {
 				URL url = new URL(
-						"platform:/plugin/org.eclipse.emf.henshin.diagram/icons/obj16/Unit.png");
+						"platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.generator/de/uni_stuttgart/iste/cowolf/transformation/generator/ui/icons/Unit.png");
 				return ImageDescriptor.createFromURL(url).createImage();
 			} catch (MalformedURLException e) {
 				e.printStackTrace();

@@ -16,6 +16,7 @@ public class SpinnerCellEditor extends CellEditor {
 	@Override
 	protected Control createControl(Composite parent) {
 		spinner = new Spinner(parent, SWT.NONE);
+		//spinner.setSelection(0);
 		spinner.setIncrement(1);
 		return spinner;
 	}

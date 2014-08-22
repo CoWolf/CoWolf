@@ -28,7 +28,12 @@ public class FaultTreeModelManager extends AbstractQoSModelManager {
 
 	@Override
 	public boolean isManaged(Resource model) {
-		return true;
+		if (model == null || model.getContents() == null
+				|| model.getContents().size() == 0)
+			return false;
+		else
+			return (model.getContents().get(0) instanceof FaultTree);
+
 	}
 
 	@Override
