@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_NaOksCn5EeSLIZGeh65hEw" name="SET_DTMC_Name" description="Sets DTMC Name">
+  <imports href="http://dtmc/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_NaOksSn5EeSLIZGeh65hEw" name="setDTMCName" description="Sets the EAttribute name">
+    <parameters xmi:id="_NaOksin5EeSLIZGeh65hEw" name="Selected"/>
+    <parameters xmi:id="_NaOksyn5EeSLIZGeh65hEw" name="Name"/>
+    <lhs xmi:id="_NaOktCn5EeSLIZGeh65hEw" name="Lhs">
+      <nodes xmi:id="_NaOktSn5EeSLIZGeh65hEw" name="Selected">
+        <type href="http://dtmc/1.0#//DTMC"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_NaOktin5EeSLIZGeh65hEw" name="Rhs">
+      <nodes xmi:id="_NaOktyn5EeSLIZGeh65hEw" name="Selected">
+        <type href="http://dtmc/1.0#//DTMC"/>
+        <attributes xmi:id="_NaOkuCn5EeSLIZGeh65hEw" value="Name">
+          <type href="http://dtmc/1.0#//DTMC/name"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_NaOkuSn5EeSLIZGeh65hEw" origin="_NaOktSn5EeSLIZGeh65hEw" image="_NaOktyn5EeSLIZGeh65hEw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_NaOkuin5EeSLIZGeh65hEw" name="mainUnit" subUnits="_NaOksSn5EeSLIZGeh65hEw">
+    <parameters xmi:id="_NaOkuyn5EeSLIZGeh65hEw" name="selectedEObject"/>
+    <parameters xmi:id="_NaOkvCn5EeSLIZGeh65hEw" name="Name"/>
+    <parameterMappings xmi:id="_NaOkvSn5EeSLIZGeh65hEw" source="_NaOkuyn5EeSLIZGeh65hEw" target="_NaOksin5EeSLIZGeh65hEw"/>
+    <parameterMappings xmi:id="_NaOkvin5EeSLIZGeh65hEw" source="_NaOkvCn5EeSLIZGeh65hEw" target="_NaOksyn5EeSLIZGeh65hEw"/>
+  </units>
+</henshin:Module>

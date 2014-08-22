@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_NcyJcCn5EeSLIZGeh65hEw" name="SET_Label_Name" description="Sets Label Name">
+  <imports href="http://dtmc/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_NcyJcSn5EeSLIZGeh65hEw" name="setLabelName" description="Sets the EAttribute name">
+    <parameters xmi:id="_NcyJcin5EeSLIZGeh65hEw" name="Selected"/>
+    <parameters xmi:id="_NcyJcyn5EeSLIZGeh65hEw" name="Name"/>
+    <lhs xmi:id="_NcyJdCn5EeSLIZGeh65hEw" name="Lhs">
+      <nodes xmi:id="_NcyJdSn5EeSLIZGeh65hEw" name="Selected">
+        <type href="http://dtmc/1.0#//Label"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_NcyJdin5EeSLIZGeh65hEw" name="Rhs">
+      <nodes xmi:id="_NcyJdyn5EeSLIZGeh65hEw" name="Selected">
+        <type href="http://dtmc/1.0#//Label"/>
+        <attributes xmi:id="_NcywgCn5EeSLIZGeh65hEw" value="Name">
+          <type href="http://dtmc/1.0#//Label/name"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_NcywgSn5EeSLIZGeh65hEw" origin="_NcyJdSn5EeSLIZGeh65hEw" image="_NcyJdyn5EeSLIZGeh65hEw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_Ncywgin5EeSLIZGeh65hEw" name="mainUnit" subUnits="_NcyJcSn5EeSLIZGeh65hEw">
+    <parameters xmi:id="_Ncywgyn5EeSLIZGeh65hEw" name="selectedEObject"/>
+    <parameters xmi:id="_NcywhCn5EeSLIZGeh65hEw" name="Name"/>
+    <parameterMappings xmi:id="_NcywhSn5EeSLIZGeh65hEw" source="_Ncywgyn5EeSLIZGeh65hEw" target="_NcyJcin5EeSLIZGeh65hEw"/>
+    <parameterMappings xmi:id="_Ncywhin5EeSLIZGeh65hEw" source="_NcywhCn5EeSLIZGeh65hEw" target="_NcyJcyn5EeSLIZGeh65hEw"/>
+  </units>
+</henshin:Module>

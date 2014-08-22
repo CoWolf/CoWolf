@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_NcB7gCn5EeSLIZGeh65hEw" name="DELETE_Transition_IN_State_(outgoing)" description="Deletes one Transition in State">
+  <imports href="http://dtmc/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_NcB7gSn5EeSLIZGeh65hEw" name="deleteTransition_IN_State" description="deletes one Transition in the context: State">
+    <parameters xmi:id="_NcB7gin5EeSLIZGeh65hEw" name="Existing"/>
+    <parameters xmi:id="_NcB7gyn5EeSLIZGeh65hEw" name="Selected"/>
+    <parameters xmi:id="_NcB7hCn5EeSLIZGeh65hEw" name="ToBeDeleted"/>
+    <lhs xmi:id="_NcB7hSn5EeSLIZGeh65hEw" name="LHS">
+      <nodes xmi:id="_NcB7hin5EeSLIZGeh65hEw" name="Selected" incoming="_NcB7iin5EeSLIZGeh65hEw" outgoing="_NcB7iSn5EeSLIZGeh65hEw">
+        <type href="http://dtmc/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_NcB7hyn5EeSLIZGeh65hEw" name="ToBeDeleted" incoming="_NcB7iSn5EeSLIZGeh65hEw _NcB7jCn5EeSLIZGeh65hEw" outgoing="_NcB7iin5EeSLIZGeh65hEw _NcB7iyn5EeSLIZGeh65hEw">
+        <type href="http://dtmc/1.0#//Transition"/>
+      </nodes>
+      <nodes xmi:id="_NcB7iCn5EeSLIZGeh65hEw" name="Existing" incoming="_NcB7iyn5EeSLIZGeh65hEw" outgoing="_NcB7jCn5EeSLIZGeh65hEw">
+        <type href="http://dtmc/1.0#//State"/>
+      </nodes>
+      <edges xmi:id="_NcB7iSn5EeSLIZGeh65hEw" source="_NcB7hin5EeSLIZGeh65hEw" target="_NcB7hyn5EeSLIZGeh65hEw">
+        <type href="http://dtmc/1.0#//State/outgoing"/>
+      </edges>
+      <edges xmi:id="_NcB7iin5EeSLIZGeh65hEw" source="_NcB7hyn5EeSLIZGeh65hEw" target="_NcB7hin5EeSLIZGeh65hEw">
+        <type href="http://dtmc/1.0#//Transition/from"/>
+      </edges>
+      <edges xmi:id="_NcB7iyn5EeSLIZGeh65hEw" source="_NcB7hyn5EeSLIZGeh65hEw" target="_NcB7iCn5EeSLIZGeh65hEw">
+        <type href="http://dtmc/1.0#//Transition/to"/>
+      </edges>
+      <edges xmi:id="_NcB7jCn5EeSLIZGeh65hEw" source="_NcB7iCn5EeSLIZGeh65hEw" target="_NcB7hyn5EeSLIZGeh65hEw">
+        <type href="http://dtmc/1.0#//State/incoming"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_NcB7jSn5EeSLIZGeh65hEw" name="RHS">
+      <nodes xmi:id="_NcB7jin5EeSLIZGeh65hEw" name="Selected">
+        <type href="http://dtmc/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_NcB7jyn5EeSLIZGeh65hEw" name="Existing">
+        <type href="http://dtmc/1.0#//State"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_NcB7kCn5EeSLIZGeh65hEw" origin="_NcB7hin5EeSLIZGeh65hEw" image="_NcB7jin5EeSLIZGeh65hEw"/>
+    <mappings xmi:id="_NcB7kSn5EeSLIZGeh65hEw" origin="_NcB7iCn5EeSLIZGeh65hEw" image="_NcB7jyn5EeSLIZGeh65hEw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_NcB7kin5EeSLIZGeh65hEw" name="mainUnit" description="Deletes one Transition depending on available contexts in model instance" subUnits="_NcB7gSn5EeSLIZGeh65hEw">
+    <parameters xmi:id="_NcB7kyn5EeSLIZGeh65hEw" name="Existing"/>
+    <parameters xmi:id="_NcB7lCn5EeSLIZGeh65hEw" name="ToBeDeleted"/>
+    <parameters xmi:id="_NcB7lSn5EeSLIZGeh65hEw" name="selectedEObject"/>
+    <parameterMappings xmi:id="_NcB7lin5EeSLIZGeh65hEw" source="_NcB7kyn5EeSLIZGeh65hEw" target="_NcB7gin5EeSLIZGeh65hEw"/>
+    <parameterMappings xmi:id="_NcB7lyn5EeSLIZGeh65hEw" source="_NcB7lSn5EeSLIZGeh65hEw" target="_NcB7gyn5EeSLIZGeh65hEw"/>
+    <parameterMappings xmi:id="_NcB7mCn5EeSLIZGeh65hEw" source="_NcB7lCn5EeSLIZGeh65hEw" target="_NcB7hCn5EeSLIZGeh65hEw"/>
+  </units>
+</henshin:Module>
