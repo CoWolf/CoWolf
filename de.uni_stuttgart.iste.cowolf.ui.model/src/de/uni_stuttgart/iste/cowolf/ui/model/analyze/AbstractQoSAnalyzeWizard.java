@@ -18,7 +18,6 @@ public abstract class AbstractQoSAnalyzeWizard extends Wizard {
 	}
 
 	public void initialize(final AbstractQoSModelManager manager, final Resource resource, final HashMap<String, Object> properties) {
-		super.setWindowTitle("Analyse DTMC");
 		this.setNeedsProgressMonitor(true);
 		this.manager = manager;
 		this.resource = resource;

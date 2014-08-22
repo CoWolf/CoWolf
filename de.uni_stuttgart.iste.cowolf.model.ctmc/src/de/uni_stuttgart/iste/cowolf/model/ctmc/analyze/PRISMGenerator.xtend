@@ -1,16 +1,15 @@
 package de.uni_stuttgart.iste.cowolf.model.ctmc.analyze
 
-import de.uni_stuttgart.iste.cowolf.model.ctmc.State
-import org.eclipse.emf.ecore.resource.Resource
 import de.uni_stuttgart.iste.cowolf.model.ctmc.CTMC
-import de.uni_stuttgart.iste.cowolf.model.ctmc.Label
+import de.uni_stuttgart.iste.cowolf.model.ctmc.State
 import java.util.List
+import org.eclipse.emf.ecore.resource.Resource
 
 class PRISMGenerator {
 
 	var nameToIDMap = newHashMap()
 
-	def CharSequence generatePM(Resource resource) {
+	def CharSequence generateSM(Resource resource) {
 		if (resource.contents.size > 0 && resource.contents.get(0) instanceof CTMC) {
 			var e = resource.contents.get(0) as CTMC
 			addStatesToMap(e)
@@ -22,7 +21,7 @@ class PRISMGenerator {
 		}
 	}
 
-	def CharSequence generatePCTL(Resource resource) {
+	def CharSequence generateCSL(Resource resource) {
 		var result = "";
 		if (resource.getContents().size() > 0
 				&& resource.getContents().get(0) instanceof CTMC) {
