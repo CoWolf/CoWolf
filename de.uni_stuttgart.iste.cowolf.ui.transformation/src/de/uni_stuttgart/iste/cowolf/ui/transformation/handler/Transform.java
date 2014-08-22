@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.window.Window;
 import org.eclipse.jface.wizard.WizardDialog;
@@ -189,8 +190,19 @@ public class Transform extends AbstractHandler {
                                 }
                             });
                         }
-                    } catch (EvolutionException e) {
+                    } catch (final EvolutionException e) {
                         e.printStackTrace();
+                        Display.getDefault().syncExec(new Runnable() {
+
+                            @Override
+                            public void run() {
+                                MessageDialog.openError(window.getShell(),
+                                        "Evolution Exception occured",
+                                        e.getLocalizedMessage());
+                                e.printStackTrace();
+
+                            }
+                        });
                         return Status.CANCEL_STATUS;
                     } catch (Exception e) {
                         e.printStackTrace();
