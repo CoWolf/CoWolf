@@ -1,7 +1,5 @@
 package de.uni_stuttgart.iste.cowolf.skeleton.model;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.ecore.resource.Resource;
@@ -15,11 +13,11 @@ public class qosModelManager extends AbstractQoSModelManager {
 	@Override
 	public ModelTypeInfo getModelTypeInfo() {
 		// TODO add all supperted .class files
-		List<Class<?>> propercontents = new ArrayList<Class<?>>();
+		//List<Class<?>> propercontents = new ArrayList<Class<?>>();
 
 		// TODO the name will also be the name of the automatically created
 		// folder
-		ModelTypeInfo mti = new ModelTypeInfo("name", propercontents , "documentType");
+		//ModelTypeInfo mti = new ModelTypeInfo("name", propercontents);
 		return null; // mti;
 	}
 
