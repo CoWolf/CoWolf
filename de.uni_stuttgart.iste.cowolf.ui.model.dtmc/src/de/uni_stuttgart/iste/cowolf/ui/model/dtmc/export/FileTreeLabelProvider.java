@@ -26,7 +26,6 @@ class FileTreeLabelProvider implements ILabelProvider {
 		}
 
 		public Image getImage(Object element) {
-
 			return null;
 		}
 
