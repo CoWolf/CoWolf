@@ -1,6 +1,7 @@
 package de.uni_stuttgart.iste.cowolf.ui.transformation.wizard;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.jface.wizard.Wizard;
 
 /**
@@ -29,11 +30,14 @@ public class TransformationWizard extends Wizard {
      */
     private boolean isFirstElementSelected = true;
 
+    /**
+     * True if association between models should be saved.
+     */
     private boolean isAssociationSelected = false;
-
-    private IFile targetModel2;
-
-    private boolean resultFileSpecified;
+    /**
+     * URI of the result file to save.
+     */
+    private URI resultFile;
 
     /**
      * Constructor setting both models.
@@ -43,11 +47,14 @@ public class TransformationWizard extends Wizard {
      * @param targetModel
      */
     public TransformationWizard(IFile sourceModelA, IFile sourceModelB,
-            IFile targetModel) {
+            IFile targetModel, String resultFile) {
         this.setWindowTitle("Co-Evolution Wizard");
         this.sourceModelA = sourceModelA;
         this.sourceModelB = sourceModelB;
         this.targetModel = targetModel;
+        if (resultFile != null) {
+            this.resultFile = URI.createURI(resultFile);
+        }
 
     }
 
@@ -61,7 +68,6 @@ public class TransformationWizard extends Wizard {
     public boolean performFinish() {
         this.isFirstElementSelected = this.page.isFirstModelSelected();
         this.isAssociationSelected = this.page.isAssociationSelected();
-        this.resultFileSpecified = this.page.isResultFileChecked();
         return true;
     }
 
@@ -127,15 +133,23 @@ public class TransformationWizard extends Wizard {
         return this.isAssociationSelected;
     }
 
-    public void setTarget2Model(IFile file) {
-        this.targetModel2 = file;
-    }
-    public IFile getTarget2Model() {
-        return this.targetModel2;
+    public boolean isResultFileSpecified() {
+        return this.resultFile != null;
     }
 
-    public boolean isResultFileSpecified() {
-        return this.resultFileSpecified;
+    /**
+     * @return the resultFile
+     */
+    public URI getResultFile() {
+        return resultFile;
+    }
+
+    /**
+     * @param resultFile
+     *            the resultFile to set
+     */
+    public void setResultFile(URI resultFile) {
+        this.resultFile = resultFile;
     }
 
 }

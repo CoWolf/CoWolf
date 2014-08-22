@@ -28,6 +28,8 @@ public class ComponentSelectionWizard extends Wizard {
      */
     private boolean isFirstElementSelected = true;
 
+    private boolean isAssociationSelected = false;
+
     /**
      * Constructor setting both models.
      *
@@ -39,18 +41,18 @@ public class ComponentSelectionWizard extends Wizard {
         this.modelA = modelA;
         this.modelB = modelB;
     }
-    
+
     @Override
     public void addPages() {
         this.page = new ComponentSelectionWizardPage(this);
         this.addPage(this.page);
-        //TODO add further pages if necessary
+        // TODO add further pages if necessary
     }
-
 
     @Override
     public boolean performFinish() {
         this.isFirstElementSelected = this.page.isFirstModelSelected();
+        this.isAssociationSelected = this.page.isAssociatonSelected();
         return true;
     }
 
@@ -91,6 +93,21 @@ public class ComponentSelectionWizard extends Wizard {
      */
     public void setModelB(IFile modelB) {
         this.modelB = modelB;
+    }
+
+    /**
+     * @return the isAssociationSelected
+     */
+    public boolean isAssociationSelected() {
+        return isAssociationSelected;
+    }
+
+    /**
+     * @param isAssociationSelected
+     *            the isAssociationSelected to set
+     */
+    public void setAssociationSelected(boolean isAssociationSelected) {
+        this.isAssociationSelected = isAssociationSelected;
     }
 
 }
