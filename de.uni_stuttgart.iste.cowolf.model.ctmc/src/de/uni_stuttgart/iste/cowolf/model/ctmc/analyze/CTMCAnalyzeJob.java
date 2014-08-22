@@ -107,24 +107,26 @@ public class CTMCAnalyzeJob extends Job {
 			PRISMGenerator generator = new PRISMGenerator();
 
 			// 1. Generate pm-file from model and save it to a temporary file.
-			File pmFile = File.createTempFile("dtmc_prism_pm", ".pm");
 
-			System.out.println(generator.generatePM(this.model));
+			File pmFile = File.createTempFile("ctmc_prism_pm", ".sm");
+
+			System.out.println(generator.generateSM(this.model));
 
 			FileOutputStream out = new FileOutputStream(
 					pmFile.getAbsolutePath());
-			out.write(generator.generatePM(this.model).toString().getBytes());
+			out.write(generator.generateSM(this.model).toString().getBytes());
 			out.close();
 
 			monitor.worked(1);
 
 			// 2. Generate pctl-file from model and save it to a temporary file.
-			File pctlFile = File.createTempFile("dtmc_prism_pctl", ".pctl");
 
-			System.out.println(generator.generatePCTL(this.model));
+			File pctlFile = File.createTempFile("ctmc_prism_pctl", ".csl");
+
+			System.out.println(generator.generateCSL(this.model));
 
 			out = new FileOutputStream(pctlFile.getAbsolutePath());
-			out.write(generator.generatePCTL(this.model).toString().getBytes());
+			out.write(generator.generateCSL(this.model).toString().getBytes());
 			out.close();
 			monitor.worked(1);
 
