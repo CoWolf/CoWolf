@@ -11,50 +11,50 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE.SharedImages;
 
 class FileTreeLabelProvider implements ILabelProvider {
-		public void addListener(ILabelProviderListener listener) {
+	public void addListener(ILabelProviderListener listener) {
 
-		}
-
-		public void dispose() {
-
-		}
-
-		public boolean isLabelProperty(Object element, String property) {
-
-			return false;
-		}
-
-		public void removeListener(ILabelProviderListener listener) {
-
-		}
-
-		public Image getImage(Object element) {
-			if (element instanceof IProject) {
-				return PlatformUI.getWorkbench().getSharedImages().getImage(SharedImages.IMG_OBJ_PROJECT); 
-			}
-			if (element instanceof IFolder) {
-				return PlatformUI.getWorkbench().getSharedImages().getImage(ISharedImages.IMG_OBJ_FOLDER); 
-			}
-			if (element instanceof IFile) {
-				return PlatformUI.getWorkbench().getSharedImages().getImage(ISharedImages.IMG_OBJ_FILE); 
-			}
-			return null;
-		}
-
-		public String getText(Object element) {
-			if (element instanceof IProject) {
-				String text = ((IProject) element).getName();
-				return text;
-			}
-			if (element instanceof IFolder) {
-				String text = ((IFolder) element).getName();
-				return text;
-			}
-			if (element instanceof IFile) {
-				String text = ((IFile) element).getName();
-				return text;
-			}
-
-			return null;
-		}
 	}
+
+	public void dispose() {
+
+	}
+
+	public boolean isLabelProperty(Object element, String property) {
+
+		return false;
+	}
+
+	public void removeListener(ILabelProviderListener listener) {
+
+	}
+
+	public Image getImage(Object element) {
+		if (element instanceof IProject) {
+			return PlatformUI.getWorkbench().getSharedImages().getImage(SharedImages.IMG_OBJ_PROJECT); 
+		}
+		if (element instanceof IFolder) {
+			return PlatformUI.getWorkbench().getSharedImages().getImage(ISharedImages.IMG_OBJ_FOLDER); 
+		}
+		if (element instanceof IFile) {
+			return PlatformUI.getWorkbench().getSharedImages().getImage(ISharedImages.IMG_OBJ_FILE); 
+		}
+		return null;
+	}
+
+	public String getText(Object element) {
+		if (element instanceof IProject) {
+			String text = ((IProject) element).getName();
+			return text;
+		}
+		if (element instanceof IFolder) {
+			String text = ((IFolder) element).getName();
+			return text;
+		}
+		if (element instanceof IFile) {
+			String text = ((IFile) element).getName();
+			return text;
+		}
+
+		return null;
+	}
+}

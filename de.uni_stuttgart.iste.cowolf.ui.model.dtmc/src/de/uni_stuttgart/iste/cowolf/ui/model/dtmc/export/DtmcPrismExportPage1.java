@@ -6,9 +6,15 @@ import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import org.eclipse.jface.viewers.CheckStateChangedEvent;
+import org.eclipse.jface.viewers.ICheckStateListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.ModifyEvent;
+import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IWorkbench;
@@ -35,6 +41,7 @@ public class DtmcPrismExportPage1 extends WizardPage {
 
 	@Override
 	public void createControl(Composite parent) {
+		
 		this.container = new Composite(parent, SWT.NONE);
 		this.setControl(this.container);
 		this.container.setLayout(new GridLayout(1, false));
@@ -94,19 +101,63 @@ public class DtmcPrismExportPage1 extends WizardPage {
 		btnExportPctlFile.setText("Export pctl file");
 		
 		tree.setCheckedElements(selection.toArray());
+		
+		
+		tree.addCheckStateListener(new ICheckStateListener() {
+			@Override
+			public void checkStateChanged(CheckStateChangedEvent event) {
+				setPageComplete();
+			}
+		});
+		
+		txtPath.addModifyListener(new ModifyListener() {
+			@Override
+			public void modifyText(ModifyEvent e) {
+				setPageComplete();
+			}
+		});
+		SelectionListener listener = new SelectionListener() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				setPageComplete();
+			}
+			@Override
+			public void widgetDefaultSelected(SelectionEvent e) {
+				setPageComplete();
+			}
+		};
+		btnCleardirectory.addSelectionListener(listener);
+		btnExportPctlFile.addSelectionListener(listener);
+		btnOverwriteExistingFiles.addSelectionListener(listener);
+		btnProjectstructure.addSelectionListener(listener);
 	}
 	
-	@Override
-	public boolean isPageComplete() {
-		try {
-			Path p = Paths.get(this.txtPath.getText());
-		} catch (InvalidPathException e) {
-			this.setErrorMessage("Destination path is invalid");
-			return false;
-		}
+	public void setPageComplete() {
+		String path = this.txtPath.getText();
+		File file = new File(path);
 		if (txtPath.getText().isEmpty()) {
-			return false;
+			this.setErrorMessage("Please specify a output path!");
+			this.setPageComplete(false);
+			return;
 		}
-		return true;
+		
+		if (!file.exists()) {
+			this.setErrorMessage("Destination path doesn't exists!");
+			this.setPageComplete(false);
+			return;
+		}
+		if (!file.isDirectory()) {
+			this.setErrorMessage("Destination path is no directory!");
+			this.setPageComplete(false);
+			return;
+		}
+		if (!file.canWrite()) {
+			this.setErrorMessage("You don't have rights to write to this path!");
+			this.setPageComplete(false);
+			return;
+		}
+
+		this.setErrorMessage(null);
+		this.setPageComplete(true);
 	}
 }
