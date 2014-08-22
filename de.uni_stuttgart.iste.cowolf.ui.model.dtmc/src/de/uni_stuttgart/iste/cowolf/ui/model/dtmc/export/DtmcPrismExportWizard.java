@@ -7,6 +7,8 @@ import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.IExportWizard;
 import org.eclipse.ui.IWorkbench;
 
+import de.uni_stuttgart.iste.cowolf.model.dtmc.export.DTMCExportPRISMJob;
+
 public class DtmcPrismExportWizard extends Wizard implements IExportWizard {
 
 	public DtmcPrismExportWizard() {
@@ -27,7 +29,8 @@ public class DtmcPrismExportWizard extends Wizard implements IExportWizard {
 	public boolean performFinish() {
 		page1.setProperties(properties);
 		// Start export of prism models
-		
+		DTMCExportPRISMJob job = new DTMCExportPRISMJob(properties);
+		job.schedule();
 		return true;
 	}
 	
