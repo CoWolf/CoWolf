@@ -1,5 +1,7 @@
 package de.uni_stuttgart.iste.cowolf.ui.model.dtmc.export;
 
+import java.util.HashMap;
+
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.IExportWizard;
@@ -12,18 +14,22 @@ public class DtmcPrismExportWizard extends Wizard implements IExportWizard {
 		super();
 	}
 
+	private DtmcPrismExportPage1 page1;
+	private HashMap<String,Object> properties;
+	
 	@Override
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
+		properties = new HashMap<String,Object> ();
 		page1 = new DtmcPrismExportPage1("DTMC export PRISM model", workbench, selection);
 	}
 
 	@Override
 	public boolean performFinish() {
-		// TODO Auto-generated method stub
+		page1.setProperties(properties);
+		// Start export of prism models
+		
 		return true;
 	}
-	
-	DtmcPrismExportPage1 page1;
 	
 	@Override
 	public void addPages() {
