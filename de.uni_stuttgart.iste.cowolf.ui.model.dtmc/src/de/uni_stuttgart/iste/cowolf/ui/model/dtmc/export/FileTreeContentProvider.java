@@ -1,7 +1,6 @@
 package de.uni_stuttgart.iste.cowolf.ui.model.dtmc.export;
 
 import java.util.LinkedList;
-
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -9,6 +8,7 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 
@@ -16,7 +16,7 @@ class FileTreeContentProvider implements ITreeContentProvider {
 		
 		private String fileExtension;
 
-		public FileTreeContentProvider(String fileExtension) {
+		public FileTreeContentProvider(String fileExtension, IStructuredSelection selection) {
 			this.fileExtension = fileExtension;
 		}
 
@@ -26,7 +26,6 @@ class FileTreeContentProvider implements ITreeContentProvider {
 				try {
 					return this.filterExtension(projects.members());
 				} catch (CoreException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
@@ -35,7 +34,6 @@ class FileTreeContentProvider implements ITreeContentProvider {
 				try {
 					return this.filterExtension(ifolder.members());
 				} catch (CoreException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
@@ -50,9 +48,12 @@ class FileTreeContentProvider implements ITreeContentProvider {
 					if (!hasUsedObjectsRecursive(res)) {
 						continue;
 					}
+					
+					
 					filteredResources.add(res);
 					continue;
 				}
+				
 				if (res.getFileExtension().equals(this.fileExtension)) {
 					filteredResources.add(res);
 				}
@@ -105,7 +106,6 @@ class FileTreeContentProvider implements ITreeContentProvider {
 				try {
 					return projects.members().length > 0;
 				} catch (CoreException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
@@ -114,7 +114,6 @@ class FileTreeContentProvider implements ITreeContentProvider {
 				try {
 					return this.filterExtension(folder.members()).length > 0;
 				} catch (CoreException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
