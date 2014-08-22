@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_NcMTkCn5EeSLIZGeh65hEw" name="SET_Transition_Prob" description="Sets Transition Prob">
+  <imports href="http://dtmc/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_NcMTkSn5EeSLIZGeh65hEw" name="setTransitionProb" description="Sets the EAttribute prob">
+    <parameters xmi:id="_NcMTkin5EeSLIZGeh65hEw" name="Selected"/>
+    <parameters xmi:id="_NcMTkyn5EeSLIZGeh65hEw" name="Prob"/>
+    <lhs xmi:id="_NcMTlCn5EeSLIZGeh65hEw" name="Lhs">
+      <nodes xmi:id="_NcMTlSn5EeSLIZGeh65hEw" name="Selected">
+        <type href="http://dtmc/1.0#//Transition"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_NcMTlin5EeSLIZGeh65hEw" name="Rhs">
+      <nodes xmi:id="_NcMTlyn5EeSLIZGeh65hEw" name="Selected">
+        <type href="http://dtmc/1.0#//Transition"/>
+        <attributes xmi:id="_NcMTmCn5EeSLIZGeh65hEw" value="Prob">
+          <type href="http://dtmc/1.0#//Transition/prob"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_NcMTmSn5EeSLIZGeh65hEw" origin="_NcMTlSn5EeSLIZGeh65hEw" image="_NcMTlyn5EeSLIZGeh65hEw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_NcMTmin5EeSLIZGeh65hEw" name="mainUnit" subUnits="_NcMTkSn5EeSLIZGeh65hEw">
+    <parameters xmi:id="_NcMTmyn5EeSLIZGeh65hEw" name="selectedEObject"/>
+    <parameters xmi:id="_NcMTnCn5EeSLIZGeh65hEw" name="Prob"/>
+    <parameterMappings xmi:id="_NcMTnSn5EeSLIZGeh65hEw" source="_NcMTmyn5EeSLIZGeh65hEw" target="_NcMTkin5EeSLIZGeh65hEw"/>
+    <parameterMappings xmi:id="_NcMTnin5EeSLIZGeh65hEw" source="_NcMTnCn5EeSLIZGeh65hEw" target="_NcMTkyn5EeSLIZGeh65hEw"/>
+  </units>
+</henshin:Module>
