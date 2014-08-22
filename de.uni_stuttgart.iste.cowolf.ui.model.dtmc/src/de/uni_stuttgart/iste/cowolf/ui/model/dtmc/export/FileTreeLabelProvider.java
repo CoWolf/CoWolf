@@ -6,6 +6,9 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.ui.ISharedImages;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.ide.IDE.SharedImages;
 
 class FileTreeLabelProvider implements ILabelProvider {
 		public void addListener(ILabelProviderListener listener) {
@@ -26,6 +29,15 @@ class FileTreeLabelProvider implements ILabelProvider {
 		}
 
 		public Image getImage(Object element) {
+			if (element instanceof IProject) {
+				return PlatformUI.getWorkbench().getSharedImages().getImage(SharedImages.IMG_OBJ_PROJECT); 
+			}
+			if (element instanceof IFolder) {
+				return PlatformUI.getWorkbench().getSharedImages().getImage(ISharedImages.IMG_OBJ_FOLDER); 
+			}
+			if (element instanceof IFile) {
+				return PlatformUI.getWorkbench().getSharedImages().getImage(ISharedImages.IMG_OBJ_FILE); 
+			}
 			return null;
 		}
 
