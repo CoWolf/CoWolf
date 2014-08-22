@@ -112,9 +112,14 @@ public class Transform extends AbstractHandler {
                 targetModel = tempModel;
             }
         }
+        String resultFile = null;
+        if (targetModel != null) {
+            resultFile = this.getResultFileName(targetModel);
+        }
 
         final TransformationWizard modelWizard = new TransformationWizard(
-                firstSourceElement, secondSourceElement, targetElement);
+                firstSourceElement, secondSourceElement, targetElement,
+                resultFile);
         WizardDialog wizard = new WizardDialog(window.getShell(), modelWizard);
         if (wizard.open() == Window.CANCEL) {
             return null;
@@ -131,6 +136,8 @@ public class Transform extends AbstractHandler {
             secondSourceModel = this.getResourceOfIFile(modelWizard
                     .getSourceModelA());
         }
+        final URI result = modelWizard.getResultFile();
+        System.out.println(result);
         if (modelWizard.isAssociationSelected()) {
             ModelAssociationManager manager = ModelAssociationManager
                     .getInstance();
@@ -159,12 +166,8 @@ public class Transform extends AbstractHandler {
                     try {
                         difference = evoManager.evolve(firstSource,
                                 secondSource);
-                        if (modelWizard.isResultFileSpecified()
-                                && modelWizard.getTarget2Model() != null) {
-                            transManager.setFile(modelWizard.getTarget2Model());
-                        }
                         Resource transformedModel = transManager.transform(
-                                secondSource, target, difference);
+                                secondSource, target, difference, result);
                         target.unload();
                         target.load(null);
                         final AbstractEvolutionManager evoManager = extensionHandler
@@ -192,8 +195,6 @@ public class Transform extends AbstractHandler {
                     } catch (Exception e) {
                         e.printStackTrace();
                         return Status.CANCEL_STATUS;
-                    } finally {
-                        transManager.setFile(null);
                     }
                     return Status.OK_STATUS;
                 }
@@ -215,5 +216,44 @@ public class Transform extends AbstractHandler {
         }
 
         return null;
+    }
+
+    /**
+     * Returns the filename, where the result of the transformation should be
+     * stored.
+     * 
+     * @param res
+     *            Resource to save.
+     * @return FileName
+     */
+    private String getResultFileName(Resource res) throws NullPointerException {
+        String fileUri = res.getURI().toString();
+        String extension = fileUri.substring(fileUri.lastIndexOf('.'),
+                fileUri.length());
+        String fileNameNoExtension = fileUri.substring(0,
+                fileUri.lastIndexOf('.'));
+
+        // start with parsing of file number
+        int fileNumber = 0;
+        boolean isNumber = true;
+        int counter = 0;
+        int nameLength = 0;
+        while (isNumber) {
+            try {
+                // parse number at end of file.
+                nameLength = fileNameNoExtension.length() - (counter + 1);
+                fileNumber = Integer.parseInt(fileNameNoExtension
+                        .substring(nameLength));
+                counter++;
+            } catch (NumberFormatException e) {
+                isNumber = false;
+                // add 1 as last character is no number anymore.
+                nameLength++;
+            }
+        }
+        fileNumber++;
+
+        return fileNameNoExtension.substring(0, nameLength) + fileNumber
+                + extension;
     }
 }

@@ -13,7 +13,6 @@ import java.util.Map;
 
 import javax.xml.bind.JAXBException;
 
-import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtension;
 import org.eclipse.core.runtime.IExtensionPoint;
@@ -62,22 +61,7 @@ public abstract class AbstractTransformationManager {
     protected Map<String, Unit> units;
     protected HenshinResourceSet rulesResourceSet = new HenshinResourceSet();
 
-    protected IFile file;
-
-    /**
-     * @return the file
-     */
-    public IFile getFile() {
-        return file;
-    }
-
-    /**
-     * @param file
-     *            the file to set
-     */
-    public void setFile(IFile file) {
-        this.file = file;
-    }
+    protected URI fileURI;
 
     /**
      * 
@@ -105,7 +89,8 @@ public abstract class AbstractTransformationManager {
      * @return
      */
     public Resource transform(Resource source, Resource target,
-            SymmetricDifference difference) {
+            SymmetricDifference difference, URI fileURI) {
+        this.fileURI = fileURI;
         System.out.println("Loading mappings...");
 
         // Load mappings
@@ -267,20 +252,11 @@ public abstract class AbstractTransformationManager {
             return target;
 
         } else {
-            URI uri = null;
-            // create new filename
-            if (file == null) {
-                String fileName = this.getFileName(temp.getContents().get(0));
-                System.out.println("FileName: " + fileName);
-                uri = URI.createURI(fileName);
-            } else {
-                String path = File.separator + file.getProject().getName()
-                        + File.separator
-                        + file.getProjectRelativePath().toString();
-                uri = URI.createPlatformResourceURI(path, true);
-                System.out.println(uri);
+            if (!this.fileURI.isPlatformResource()) {
+                this.fileURI = URI.createPlatformResourceURI(this.fileURI
+                        .toString().substring(1), true);
             }
-            Resource res = henshinResourceSet.createResource(uri);
+            Resource res = henshinResourceSet.createResource(this.fileURI);
             res.getContents().addAll(temp.getContents());
             res.save(null);
             return res;
@@ -402,45 +378,6 @@ public abstract class AbstractTransformationManager {
         }
         return null;
     }
-
-    /**
-     * Returns the filename, where the result of the transformation should be
-     * stored.
-     * 
-     * @param root
-     *            Root object of resource.
-     * @return FileName
-     */
-    private String getFileName(EObject root) throws NullPointerException {
-        String fileUri = root.eResource().getURI().toString();
-        String extension = fileUri.substring(fileUri.lastIndexOf('.'),
-                fileUri.length());
-        String fileNameNoExtension = fileUri.substring(0,
-                fileUri.lastIndexOf('.'));
-
-        // start with parsing of file number
-        int fileNumber = 0;
-        boolean isNumber = true;
-        int counter = 0;
-        int nameLength = 0;
-        while (isNumber) {
-            try {
-                // parse number at end of file.
-                nameLength = fileNameNoExtension.length() - (counter + 1);
-                fileNumber = Integer.parseInt(fileNameNoExtension
-                        .substring(nameLength));
-                counter++;
-            } catch (NumberFormatException e) {
-                isNumber = false;
-                // add 1 as last character is no number anymore.
-                nameLength++;
-            }
-        }
-        fileNumber++;
-
-        return fileNameNoExtension.substring(0, nameLength) + fileNumber
-                + extension;
-    }
     /**
      * Returns the key for which a mapping at the extension point can be stored.
      * 
@@ -498,8 +435,8 @@ public abstract class AbstractTransformationManager {
         }
         for (File henshinFile : henshinFiles) {
             System.out.println(henshinFile.getPath());
-            Module module = this.rulesResourceSet.getModule(henshinFile
-                    .getPath(), true);
+            Module module = this.rulesResourceSet.getModule(
+                    henshinFile.getPath(), true);
             for (Unit unit : module.getUnits()) {
                 units.put(unit.getName(), unit);
             }
