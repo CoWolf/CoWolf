@@ -5,7 +5,6 @@ package de.uni_stuttgart.iste.cowolf.model.fault_tree;
 import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
