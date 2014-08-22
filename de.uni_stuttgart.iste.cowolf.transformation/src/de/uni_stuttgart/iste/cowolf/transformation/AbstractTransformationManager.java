@@ -86,7 +86,10 @@ public abstract class AbstractTransformationManager {
      *            model which should be evolved by changes in the source model.
      * @param difference
      *            contains evolution steps of the source model.
+     * @param fileURI
+     *            uri of the file to save.
      * @return
+     * 
      */
     public Resource transform(Resource source, Resource target,
             SymmetricDifference difference, URI fileURI) {

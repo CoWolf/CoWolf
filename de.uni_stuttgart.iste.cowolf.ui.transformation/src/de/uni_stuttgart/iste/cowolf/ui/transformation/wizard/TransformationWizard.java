@@ -30,7 +30,13 @@ public class TransformationWizard extends Wizard {
      */
     private boolean isFirstElementSelected = true;
 
+    /**
+     * True if association between models should be saved.
+     */
     private boolean isAssociationSelected = false;
+    /**
+     * URI of the result file to save.
+     */
     private URI resultFile;
 
     /**

@@ -62,11 +62,23 @@ public class TransformationWizardPage extends WizardPage {
 
     private Image arrowUp;
 
+    /**
+     * Checkbox used for association handling.
+     */
     private Button checkbox;
 
+    /**
+     * True if evolution is possible.
+     */
     private boolean isEvolutionPossible;
+    /**
+     * True if transformation is possible.
+     */
     private boolean isTransformationPossible;
 
+    /**
+     * Constants for models.
+     */
     private final static int SOURCE_MODEL_A = 0;
     private final static int SOURCE_MODEL_B = 1;
     private final static int TARGET_MODEL = 2;
@@ -346,6 +358,15 @@ public class TransformationWizardPage extends WizardPage {
         return listener;
     }
 
+    /**
+     * Sets error message depending on status of wizard page.
+     * 
+     * @param modelA
+     * @param modelB
+     * @param modelC
+     * @param isEvolutionPossible
+     * @param isTransformationPossible
+     */
     private void setErrorMessage(IFile modelA, IFile modelB, IFile modelC,
             boolean isEvolutionPossible, boolean isTransformationPossible) {
         if (modelA == null && modelB != null) {
@@ -365,6 +386,11 @@ public class TransformationWizardPage extends WizardPage {
         }
     }
 
+    /**
+     * 
+     * @return Returns whether checkbox for association handling is selected or
+     *         not.
+     */
     public boolean isAssociationSelected() {
         return this.checkbox.getSelection();
     }
