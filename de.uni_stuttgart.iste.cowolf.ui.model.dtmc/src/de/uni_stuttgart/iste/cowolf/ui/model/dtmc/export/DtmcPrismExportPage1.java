@@ -2,12 +2,16 @@ package de.uni_stuttgart.iste.cowolf.ui.model.dtmc.export;
 
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Map;
 
+import org.eclipse.core.resources.IFile;
 import org.eclipse.jface.viewers.CheckStateChangedEvent;
 import org.eclipse.jface.viewers.ICheckStateListener;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.ITreeSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
@@ -156,6 +160,12 @@ public class DtmcPrismExportPage1 extends WizardPage {
 		String path = this.txtPath.getText();
 		File file = new File(path);
 		
+		if (this.tree.getCheckedElements().length == 0) {
+			this.setErrorMessage("Please specify a model for export!");
+			this.setPageComplete(false);
+			return;
+		}
+		
 		if (txtPath.getText().isEmpty()) {
 			this.setErrorMessage("Please specify an output path!");
 			this.setPageComplete(false);
@@ -184,8 +194,19 @@ public class DtmcPrismExportPage1 extends WizardPage {
 
 	public void setProperties(Map<String, Object> properties) {
 		properties.put("output_path", txtPath.getText());
-		properties.put("selected_files", tree.getSelection());
+		//TODO list of selected items as workspace paths
+		ArrayList<IFile> files = new ArrayList<IFile> ();
+		Object[] selected = this.tree.getCheckedElements();
+		for (Object obj : selected) {
+			if (obj instanceof IFile) {
+				files.add((IFile) obj);
+			}
+		}
+		
+		
+		properties.put("selected_files", files);
 		properties.put("overwrite_permission", this.btnOverwriteExistingFiles.getSelection());
-		properties.put("use_project_structure", this.btnProjectstructure);
+		properties.put("use_project_structure", this.btnProjectstructure.getSelection());
+		properties.put("export_pctl", btnExportPctlFile.getSelection());
 	}
 }
