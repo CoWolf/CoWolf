@@ -3,15 +3,14 @@ package de.uni_stuttgart.iste.cowolf.ui.model.dtmc.export;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Map;
+import java.util.List;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.jface.dialogs.IDialogSettings;
 import org.eclipse.jface.viewers.CheckStateChangedEvent;
 import org.eclipse.jface.viewers.ICheckStateListener;
-import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.jface.viewers.ITreeSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
@@ -31,6 +30,8 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Tree;
 
+import de.uni_stuttgart.iste.cowolf.ui.model.dtmc.Activator;
+
 public class DtmcPrismExportPage1 extends WizardPage {
 
 	private Composite container;
@@ -40,12 +41,19 @@ public class DtmcPrismExportPage1 extends WizardPage {
 	private Button btnProjectstructure;
 	private ContainerCheckedTreeViewer tree;
 	private Button btnOverwriteExistingFiles;
-
-	protected DtmcPrismExportPage1(String pageName, IWorkbench workbench, IStructuredSelection selection) {
+	private IDialogSettings settings;
+	
+	protected DtmcPrismExportPage1(String pageName, IWorkbench workbench, IStructuredSelection selection, IDialogSettings settings) {
 		super(pageName);
 		this.setDescription("Description");
 		this.setTitle("Export DTMC model as PRISM model");
 		this.selection = selection;
+		IDialogSettings pluginSettings = settings;
+		if (pluginSettings.getSection(this.getClass().getName()) == null) {
+			this.settings = pluginSettings.addNewSection(this.getClass().getName());
+		} else {
+			this.settings = pluginSettings.getSection(this.getClass().getName());
+		}
 	}
 
 	
@@ -103,7 +111,6 @@ public class DtmcPrismExportPage1 extends WizardPage {
 		btnOverwriteExistingFiles.setText("Overwrite existing file(s) without warning");
 		
 		btnExportPctlFile = new Button(grpOutputPath, SWT.CHECK);
-		btnExportPctlFile.setEnabled(false);
 		btnExportPctlFile.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 3, 1));
 		btnExportPctlFile.setText("Export pctl file");
 		
@@ -153,6 +160,7 @@ public class DtmcPrismExportPage1 extends WizardPage {
 		btnExportPctlFile.addSelectionListener(listener);
 		btnOverwriteExistingFiles.addSelectionListener(listener);
 		btnProjectstructure.addSelectionListener(listener);
+		this.loadSettings();
 		this.setPageComplete();
 	}
 
@@ -192,9 +200,7 @@ public class DtmcPrismExportPage1 extends WizardPage {
 		this.setPageComplete(true);
 	}
 
-	public void setProperties(Map<String, Object> properties) {
-		properties.put("output_path", txtPath.getText());
-		//TODO list of selected items as workspace paths
+	public List<IFile> getSelectedFiles() {
 		ArrayList<IFile> files = new ArrayList<IFile> ();
 		Object[] selected = this.tree.getCheckedElements();
 		for (Object obj : selected) {
@@ -202,11 +208,46 @@ public class DtmcPrismExportPage1 extends WizardPage {
 				files.add((IFile) obj);
 			}
 		}
-		
-		
-		properties.put("selected_files", files);
-		properties.put("overwrite_permission", this.btnOverwriteExistingFiles.getSelection());
-		properties.put("use_project_structure", this.btnProjectstructure.getSelection());
-		properties.put("export_pctl", btnExportPctlFile.getSelection());
+		return files;
+	}
+	
+	public String getOutputPath() {
+		return txtPath.getText();
+	}
+	
+	public boolean getOverwritePermission() {
+		return this.btnOverwriteExistingFiles.getSelection();
+	}
+	
+	public boolean getUseProjectStructure() {
+		return this.btnProjectstructure.getSelection();
+	}
+	
+	public boolean isExportPctlEnabled() {
+		return btnExportPctlFile.getSelection();
+	}
+
+	public void saveSettings() {
+		if (this.settings == null) {
+			return;
+		}
+		settings.put("output_path", this.txtPath.getText());
+		settings.put("export_pctl", this.btnExportPctlFile.getSelection());
+		settings.put("use_project_structure", this.btnProjectstructure.getSelection());
+	}
+	
+	public void loadSettings() {
+		if (settings == null) {
+			return;
+		}
+		if (settings.get("output_path") != null) {
+			this.txtPath.setText(settings.get("output_path"));		
+		}
+		if (settings.get("export_pctl") != null) {
+			this.btnExportPctlFile.setSelection(settings.getBoolean("export_pctl"));
+		}
+		if (settings.get("use_project_structure") != null) {
+			this.btnProjectstructure.setSelection(settings.getBoolean("user_project_structure"));
+		}
 	}
 }
