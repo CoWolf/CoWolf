@@ -9,19 +9,17 @@ import de.uni_stuttgart.iste.cowolf.transformation.model.Mapping;
 
 public class MappingPriorityEditingSupport extends EditingSupport {
 
-	private final ColumnViewer viewer;
-	private final SpinnerCellEditor cellEditor;
-	private final TransformationMappingEditor editor;
+	private final SpinnerCellEditor CELL_EDITOR;
+	private final TransformationMappingEditor EDITOR;
 	public MappingPriorityEditingSupport(ColumnViewer viewer, TransformationMappingEditor editor) {
 		super(viewer);
-		this.viewer = viewer;
-		this.editor = editor;
-		cellEditor = new SpinnerCellEditor(((TableViewer) viewer).getTable());
+		this.EDITOR = editor;
+		CELL_EDITOR = new SpinnerCellEditor(((TableViewer) viewer).getTable());
 	}
 
 	@Override
 	protected CellEditor getCellEditor(Object viewer) {
-		return cellEditor;
+		return CELL_EDITOR;
 	}
 
 	@Override
@@ -40,9 +38,16 @@ public class MappingPriorityEditingSupport extends EditingSupport {
 	@Override
 	protected void setValue(Object element, Object value) {
 		if (element instanceof Mapping) {
-			((Mapping) element).setPriority((Integer) value);
-			viewer.update(element, null);
-			editor.newUnsavedChanges();
+			
+			Mapping mapping = (Mapping) element;
+			Integer intValue= (Integer) value;
+			
+			if (!intValue.equals(mapping.getPriority())) {
+				mapping.setPriority(intValue);
+				getViewer().update(mapping, null);
+				EDITOR.newUnsavedChanges();
+			}	
+			
 		}
 	}
 
