@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_hL2aQCxYEeScNeGIOS9flg" name="SET_StateMachine_(initialStates)_TGT_State" description="Sets StateMachine's reference initialStates the target State">
+  <imports href="http://Statechart/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_hL2aQSxYEeScNeGIOS9flg" name="setStateMachine_initialStates_TO_State" description="SetStateMachineRefinitialStatesToState">
+    <parameters xmi:id="_hL2aQixYEeScNeGIOS9flg" name="Selected"/>
+    <parameters xmi:id="_hL2aQyxYEeScNeGIOS9flg" name="NewTarget"/>
+    <lhs xmi:id="_hL2aRCxYEeScNeGIOS9flg" name="Lhs">
+      <nodes xmi:id="_hL2aRSxYEeScNeGIOS9flg" name="Selected">
+        <type href="http://Statechart/1.0#//StateMachine"/>
+      </nodes>
+      <nodes xmi:id="_hL2aRixYEeScNeGIOS9flg" name="NewTarget">
+        <type href="http://Statechart/1.0#//State"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_hL2aRyxYEeScNeGIOS9flg" name="Rhs">
+      <nodes xmi:id="_hL2aSCxYEeScNeGIOS9flg" name="Selected" incoming="_hL2aSyxYEeScNeGIOS9flg" outgoing="_hL2aSixYEeScNeGIOS9flg">
+        <type href="http://Statechart/1.0#//StateMachine"/>
+      </nodes>
+      <nodes xmi:id="_hL2aSSxYEeScNeGIOS9flg" name="NewTarget" incoming="_hL2aSixYEeScNeGIOS9flg" outgoing="_hL2aSyxYEeScNeGIOS9flg">
+        <type href="http://Statechart/1.0#//State"/>
+      </nodes>
+      <edges xmi:id="_hL2aSixYEeScNeGIOS9flg" source="_hL2aSCxYEeScNeGIOS9flg" target="_hL2aSSxYEeScNeGIOS9flg">
+        <type href="http://Statechart/1.0#//StateMachine/initialStates"/>
+      </edges>
+      <edges xmi:id="_hL2aSyxYEeScNeGIOS9flg" source="_hL2aSSxYEeScNeGIOS9flg" target="_hL2aSCxYEeScNeGIOS9flg">
+        <type href="http://Statechart/1.0#//State/state_container"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_hL2aTCxYEeScNeGIOS9flg" origin="_hL2aRSxYEeScNeGIOS9flg" image="_hL2aSCxYEeScNeGIOS9flg"/>
+    <mappings xmi:id="_hL2aTSxYEeScNeGIOS9flg" origin="_hL2aRixYEeScNeGIOS9flg" image="_hL2aSSxYEeScNeGIOS9flg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_hL2aTixYEeScNeGIOS9flg" name="mainUnit" subUnits="_hL2aQSxYEeScNeGIOS9flg">
+    <parameters xmi:id="_hL2aTyxYEeScNeGIOS9flg" name="selectedEObject"/>
+    <parameters xmi:id="_hL2aUCxYEeScNeGIOS9flg" name="NewTarget"/>
+    <parameterMappings xmi:id="_hL2aUSxYEeScNeGIOS9flg" source="_hL2aTyxYEeScNeGIOS9flg" target="_hL2aQixYEeScNeGIOS9flg"/>
+    <parameterMappings xmi:id="_hL2aUixYEeScNeGIOS9flg" source="_hL2aUCxYEeScNeGIOS9flg" target="_hL2aQyxYEeScNeGIOS9flg"/>
+  </units>
+</henshin:Module>

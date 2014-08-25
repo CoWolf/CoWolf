@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_hNIzsCxYEeScNeGIOS9flg" name="MOVE_State_FROM_CompositeState_(subVertexes)_TO_StateMachine_(states)" description="MOVEs State from CompositeState(Reference:subVertexes) to StateMachine(Reference:states">
+  <imports href="http://Statechart/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_hNIzsSxYEeScNeGIOS9flg" name="moveState_FROM_CompositeState_subVertexes_TO_StateMachine_StateMachine" description="Moves State from CompositeState(Reference:subVertexes) toStateMachine(Reference:StateMachine)">
+    <parameters xmi:id="_hNIzsixYEeScNeGIOS9flg" name="Selected"/>
+    <parameters xmi:id="_hNIzsyxYEeScNeGIOS9flg" name="OldSource"/>
+    <parameters xmi:id="_hNIztCxYEeScNeGIOS9flg" name="NewSource"/>
+    <lhs xmi:id="_hNIztSxYEeScNeGIOS9flg" name="Lhs">
+      <nodes xmi:id="_hNIztixYEeScNeGIOS9flg" name="Selected" incoming="_hNIzuSxYEeScNeGIOS9flg" outgoing="_hNIzuixYEeScNeGIOS9flg">
+        <type href="http://Statechart/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_hNIztyxYEeScNeGIOS9flg" name="OldSource" incoming="_hNIzuixYEeScNeGIOS9flg" outgoing="_hNIzuSxYEeScNeGIOS9flg">
+        <type href="http://Statechart/1.0#//CompositeState"/>
+      </nodes>
+      <nodes xmi:id="_hNIzuCxYEeScNeGIOS9flg" name="NewSource">
+        <type href="http://Statechart/1.0#//StateMachine"/>
+      </nodes>
+      <edges xmi:id="_hNIzuSxYEeScNeGIOS9flg" source="_hNIztyxYEeScNeGIOS9flg" target="_hNIztixYEeScNeGIOS9flg">
+        <type href="http://Statechart/1.0#//CompositeState/subVertexes"/>
+      </edges>
+      <edges xmi:id="_hNIzuixYEeScNeGIOS9flg" source="_hNIztixYEeScNeGIOS9flg" target="_hNIztyxYEeScNeGIOS9flg">
+        <type href="http://Statechart/1.0#//StateVertex/sv_container"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_hNIzuyxYEeScNeGIOS9flg" name="Rhs">
+      <nodes xmi:id="_hNIzvCxYEeScNeGIOS9flg" name="Selected" incoming="_hNIzvyxYEeScNeGIOS9flg">
+        <type href="http://Statechart/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_hNIzvSxYEeScNeGIOS9flg" name="OldSource">
+        <type href="http://Statechart/1.0#//CompositeState"/>
+      </nodes>
+      <nodes xmi:id="_hNIzvixYEeScNeGIOS9flg" name="NewSource" outgoing="_hNIzvyxYEeScNeGIOS9flg">
+        <type href="http://Statechart/1.0#//StateMachine"/>
+      </nodes>
+      <edges xmi:id="_hNIzvyxYEeScNeGIOS9flg" source="_hNIzvixYEeScNeGIOS9flg" target="_hNIzvCxYEeScNeGIOS9flg">
+        <type href="http://Statechart/1.0#//StateMachine/states"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_hNIzwCxYEeScNeGIOS9flg" origin="_hNIztixYEeScNeGIOS9flg" image="_hNIzvCxYEeScNeGIOS9flg"/>
+    <mappings xmi:id="_hNIzwSxYEeScNeGIOS9flg" origin="_hNIztyxYEeScNeGIOS9flg" image="_hNIzvSxYEeScNeGIOS9flg"/>
+    <mappings xmi:id="_hNIzwixYEeScNeGIOS9flg" origin="_hNIzuCxYEeScNeGIOS9flg" image="_hNIzvixYEeScNeGIOS9flg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_hNIzwyxYEeScNeGIOS9flg" name="mainUnit" subUnits="_hNIzsSxYEeScNeGIOS9flg">
+    <parameters xmi:id="_hNIzxCxYEeScNeGIOS9flg" name="selectedEObject"/>
+    <parameters xmi:id="_hNIzxSxYEeScNeGIOS9flg" name="OldSource"/>
+    <parameters xmi:id="_hNIzxixYEeScNeGIOS9flg" name="NewSource"/>
+    <parameterMappings xmi:id="_hNIzxyxYEeScNeGIOS9flg" source="_hNIzxCxYEeScNeGIOS9flg" target="_hNIzsixYEeScNeGIOS9flg"/>
+    <parameterMappings xmi:id="_hNIzyCxYEeScNeGIOS9flg" source="_hNIzxSxYEeScNeGIOS9flg" target="_hNIzsyxYEeScNeGIOS9flg"/>
+    <parameterMappings xmi:id="_hNIzySxYEeScNeGIOS9flg" source="_hNIzxixYEeScNeGIOS9flg" target="_hNIztCxYEeScNeGIOS9flg"/>
+  </units>
+</henshin:Module>

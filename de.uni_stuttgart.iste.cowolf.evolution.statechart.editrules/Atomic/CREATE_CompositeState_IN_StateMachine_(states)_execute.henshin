@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_hNk4kCxYEeScNeGIOS9flg" name="CREATE_CompositeState_IN_StateMachine_(states)" description="Creates one CompositeState in StateMachine">
+  <imports href="http://Statechart/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_hNk4kSxYEeScNeGIOS9flg" name="createCompositeState_IN_StateMachine" description="creates one CompositeState in the context: StateMachine">
+    <parameters xmi:id="_hNk4kixYEeScNeGIOS9flg" name="Selected"/>
+    <parameters xmi:id="_hNk4kyxYEeScNeGIOS9flg" name="New"/>
+    <parameters xmi:id="_hNk4lCxYEeScNeGIOS9flg" name="Id"/>
+    <parameters xmi:id="_hNk4lSxYEeScNeGIOS9flg" name="Name"/>
+    <parameters xmi:id="_hNk4lixYEeScNeGIOS9flg" name="IsConcurrent"/>
+    <parameters xmi:id="_hNk4lyxYEeScNeGIOS9flg" name="Existing"/>
+    <lhs xmi:id="_hNk4mCxYEeScNeGIOS9flg" name="Lhs">
+      <nodes xmi:id="_hNk4mSxYEeScNeGIOS9flg" name="Selected">
+        <type href="http://Statechart/1.0#//StateMachine"/>
+      </nodes>
+      <nodes xmi:id="_hNk4mixYEeScNeGIOS9flg" name="Existing">
+        <type href="http://Statechart/1.0#//StateMachine"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_hNk4myxYEeScNeGIOS9flg" name="Rhs">
+      <nodes xmi:id="_hNk4nCxYEeScNeGIOS9flg" name="Selected" outgoing="_hNk4oixYEeScNeGIOS9flg">
+        <type href="http://Statechart/1.0#//StateMachine"/>
+      </nodes>
+      <nodes xmi:id="_hNk4nSxYEeScNeGIOS9flg" name="New" incoming="_hNk4oixYEeScNeGIOS9flg _hNk4pCxYEeScNeGIOS9flg" outgoing="_hNk4oyxYEeScNeGIOS9flg">
+        <type href="http://Statechart/1.0#//CompositeState"/>
+        <attributes xmi:id="_hNk4nixYEeScNeGIOS9flg" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_hNk4nyxYEeScNeGIOS9flg" value="Name">
+          <type href="http://CommonBase/1.0#//NameBase/name"/>
+        </attributes>
+        <attributes xmi:id="_hNk4oCxYEeScNeGIOS9flg" value="IsConcurrent">
+          <type href="http://Statechart/1.0#//CompositeState/isConcurrent"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_hNk4oSxYEeScNeGIOS9flg" name="Existing" incoming="_hNk4oyxYEeScNeGIOS9flg" outgoing="_hNk4pCxYEeScNeGIOS9flg">
+        <type href="http://Statechart/1.0#//StateMachine"/>
+      </nodes>
+      <edges xmi:id="_hNk4oixYEeScNeGIOS9flg" source="_hNk4nCxYEeScNeGIOS9flg" target="_hNk4nSxYEeScNeGIOS9flg">
+        <type href="http://Statechart/1.0#//StateMachine/states"/>
+      </edges>
+      <edges xmi:id="_hNk4oyxYEeScNeGIOS9flg" source="_hNk4nSxYEeScNeGIOS9flg" target="_hNk4oSxYEeScNeGIOS9flg">
+        <type href="http://Statechart/1.0#//State/state_container"/>
+      </edges>
+      <edges xmi:id="_hNk4pCxYEeScNeGIOS9flg" source="_hNk4oSxYEeScNeGIOS9flg" target="_hNk4nSxYEeScNeGIOS9flg">
+        <type href="http://Statechart/1.0#//StateMachine/initialStates"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_hNk4pSxYEeScNeGIOS9flg" origin="_hNk4mSxYEeScNeGIOS9flg" image="_hNk4nCxYEeScNeGIOS9flg"/>
+    <mappings xmi:id="_hNk4pixYEeScNeGIOS9flg" origin="_hNk4mixYEeScNeGIOS9flg" image="_hNk4oSxYEeScNeGIOS9flg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_hNk4pyxYEeScNeGIOS9flg" name="mainUnit" description="Creates one CompositeState depending on available contexts in model instance" subUnits="_hNk4kSxYEeScNeGIOS9flg">
+    <parameters xmi:id="_hNk4qCxYEeScNeGIOS9flg" name="New"/>
+    <parameters xmi:id="_hNk4qSxYEeScNeGIOS9flg" name="selectedEObject"/>
+    <parameters xmi:id="_hNk4qixYEeScNeGIOS9flg" name="Id"/>
+    <parameters xmi:id="_hNk4qyxYEeScNeGIOS9flg" name="Name"/>
+    <parameters xmi:id="_hNk4rCxYEeScNeGIOS9flg" name="IsConcurrent"/>
+    <parameters xmi:id="_hNk4rSxYEeScNeGIOS9flg" name="Existing"/>
+    <parameterMappings xmi:id="_hNk4rixYEeScNeGIOS9flg" source="_hNk4qSxYEeScNeGIOS9flg" target="_hNk4kixYEeScNeGIOS9flg"/>
+    <parameterMappings xmi:id="_hNk4ryxYEeScNeGIOS9flg" source="_hNk4kyxYEeScNeGIOS9flg" target="_hNk4qCxYEeScNeGIOS9flg"/>
+    <parameterMappings xmi:id="_hNk4sCxYEeScNeGIOS9flg" source="_hNk4qixYEeScNeGIOS9flg" target="_hNk4lCxYEeScNeGIOS9flg"/>
+    <parameterMappings xmi:id="_hNlfoCxYEeScNeGIOS9flg" source="_hNk4qyxYEeScNeGIOS9flg" target="_hNk4lSxYEeScNeGIOS9flg"/>
+    <parameterMappings xmi:id="_hNlfoSxYEeScNeGIOS9flg" source="_hNk4rCxYEeScNeGIOS9flg" target="_hNk4lixYEeScNeGIOS9flg"/>
+    <parameterMappings xmi:id="_hNlfoixYEeScNeGIOS9flg" source="_hNk4rSxYEeScNeGIOS9flg" target="_hNk4lyxYEeScNeGIOS9flg"/>
+  </units>
+</henshin:Module>

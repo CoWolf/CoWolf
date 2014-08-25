@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_hS8gwCxYEeScNeGIOS9flg" name="MOVE_Guard_FROM_Transition_(guard)_TO_Transition_(guard)">
+  <imports href="http://Statechart/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_hS8gwSxYEeScNeGIOS9flg" name="doNotExceedUpperBound" description="doNotExceedUpperBound">
+    <parameters xmi:id="_hS8gwixYEeScNeGIOS9flg" name="NewSource"/>
+    <lhs xmi:id="_hS8gwyxYEeScNeGIOS9flg" name="Lhs">
+      <nodes xmi:id="_hS8gxCxYEeScNeGIOS9flg" name="NewSource" outgoing="_hS8gxixYEeScNeGIOS9flg">
+        <type href="http://Statechart/1.0#//Transition"/>
+      </nodes>
+      <nodes xmi:id="_hS8gxSxYEeScNeGIOS9flg" name="" incoming="_hS8gxixYEeScNeGIOS9flg">
+        <type href="http://Statechart/1.0#//Guard"/>
+      </nodes>
+      <edges xmi:id="_hS8gxixYEeScNeGIOS9flg" source="_hS8gxCxYEeScNeGIOS9flg" target="_hS8gxSxYEeScNeGIOS9flg">
+        <type href="http://Statechart/1.0#//Transition/guard"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_hS8gxyxYEeScNeGIOS9flg" name="Rhs">
+      <nodes xmi:id="_hS8gyCxYEeScNeGIOS9flg" name="NewSource" outgoing="_hS8gyixYEeScNeGIOS9flg">
+        <type href="http://Statechart/1.0#//Transition"/>
+      </nodes>
+      <nodes xmi:id="_hS8gySxYEeScNeGIOS9flg" name="" incoming="_hS8gyixYEeScNeGIOS9flg">
+        <type href="http://Statechart/1.0#//Guard"/>
+      </nodes>
+      <edges xmi:id="_hS8gyixYEeScNeGIOS9flg" source="_hS8gyCxYEeScNeGIOS9flg" target="_hS8gySxYEeScNeGIOS9flg">
+        <type href="http://Statechart/1.0#//Transition/guard"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_hS8gyyxYEeScNeGIOS9flg" origin="_hS8gxCxYEeScNeGIOS9flg" image="_hS8gyCxYEeScNeGIOS9flg"/>
+    <mappings xmi:id="_hS8gzCxYEeScNeGIOS9flg" origin="_hS8gxSxYEeScNeGIOS9flg" image="_hS8gySxYEeScNeGIOS9flg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_hS8gzSxYEeScNeGIOS9flg" name="mainUnit" subUnits="_hS8gwSxYEeScNeGIOS9flg">
+    <parameters xmi:id="_hS8gzixYEeScNeGIOS9flg" name="selectedEObject"/>
+    <parameters xmi:id="_hS8gzyxYEeScNeGIOS9flg" name="NewSource"/>
+    <parameterMappings xmi:id="_hS8g0CxYEeScNeGIOS9flg" source="_hS8gzyxYEeScNeGIOS9flg" target="_hS8gwixYEeScNeGIOS9flg"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_hMSfICxYEeScNeGIOS9flg" name="DELETE_State_IN_StateMachine_(states)" description="Deletes one State in StateMachine">
+  <imports href="http://Statechart/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_hMSfISxYEeScNeGIOS9flg" name="deleteState_IN_StateMachine" description="deletes one State in the context: StateMachine">
+    <parameters xmi:id="_hMSfIixYEeScNeGIOS9flg" name="Existing"/>
+    <parameters xmi:id="_hMSfIyxYEeScNeGIOS9flg" name="Selected"/>
+    <parameters xmi:id="_hMSfJCxYEeScNeGIOS9flg" name="ToBeDeleted"/>
+    <lhs xmi:id="_hMSfJSxYEeScNeGIOS9flg" name="LHS">
+      <nodes xmi:id="_hMSfJixYEeScNeGIOS9flg" name="Selected" outgoing="_hMTGMixYEeScNeGIOS9flg">
+        <type href="http://Statechart/1.0#//StateMachine"/>
+      </nodes>
+      <nodes xmi:id="_hMTGMCxYEeScNeGIOS9flg" name="ToBeDeleted" incoming="_hMTGMixYEeScNeGIOS9flg _hMTGNCxYEeScNeGIOS9flg" outgoing="_hMTGMyxYEeScNeGIOS9flg">
+        <type href="http://Statechart/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_hMTGMSxYEeScNeGIOS9flg" name="Existing" incoming="_hMTGMyxYEeScNeGIOS9flg" outgoing="_hMTGNCxYEeScNeGIOS9flg">
+        <type href="http://Statechart/1.0#//StateMachine"/>
+      </nodes>
+      <edges xmi:id="_hMTGMixYEeScNeGIOS9flg" source="_hMSfJixYEeScNeGIOS9flg" target="_hMTGMCxYEeScNeGIOS9flg">
+        <type href="http://Statechart/1.0#//StateMachine/states"/>
+      </edges>
+      <edges xmi:id="_hMTGMyxYEeScNeGIOS9flg" source="_hMTGMCxYEeScNeGIOS9flg" target="_hMTGMSxYEeScNeGIOS9flg">
+        <type href="http://Statechart/1.0#//State/state_container"/>
+      </edges>
+      <edges xmi:id="_hMTGNCxYEeScNeGIOS9flg" source="_hMTGMSxYEeScNeGIOS9flg" target="_hMTGMCxYEeScNeGIOS9flg">
+        <type href="http://Statechart/1.0#//StateMachine/initialStates"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_hMTGNSxYEeScNeGIOS9flg" name="RHS">
+      <nodes xmi:id="_hMTGNixYEeScNeGIOS9flg" name="Selected">
+        <type href="http://Statechart/1.0#//StateMachine"/>
+      </nodes>
+      <nodes xmi:id="_hMTGNyxYEeScNeGIOS9flg" name="Existing">
+        <type href="http://Statechart/1.0#//StateMachine"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_hMTGOCxYEeScNeGIOS9flg" origin="_hMSfJixYEeScNeGIOS9flg" image="_hMTGNixYEeScNeGIOS9flg"/>
+    <mappings xmi:id="_hMTGOSxYEeScNeGIOS9flg" origin="_hMTGMSxYEeScNeGIOS9flg" image="_hMTGNyxYEeScNeGIOS9flg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_hMTGOixYEeScNeGIOS9flg" name="mainUnit" description="Deletes one State depending on available contexts in model instance" subUnits="_hMSfISxYEeScNeGIOS9flg">
+    <parameters xmi:id="_hMTGOyxYEeScNeGIOS9flg" name="Existing"/>
+    <parameters xmi:id="_hMTGPCxYEeScNeGIOS9flg" name="ToBeDeleted"/>
+    <parameters xmi:id="_hMTGPSxYEeScNeGIOS9flg" name="selectedEObject"/>
+    <parameterMappings xmi:id="_hMTGPixYEeScNeGIOS9flg" source="_hMTGOyxYEeScNeGIOS9flg" target="_hMSfIixYEeScNeGIOS9flg"/>
+    <parameterMappings xmi:id="_hMTGPyxYEeScNeGIOS9flg" source="_hMTGPSxYEeScNeGIOS9flg" target="_hMSfIyxYEeScNeGIOS9flg"/>
+    <parameterMappings xmi:id="_hMTGQCxYEeScNeGIOS9flg" source="_hMTGPCxYEeScNeGIOS9flg" target="_hMSfJCxYEeScNeGIOS9flg"/>
+  </units>
+</henshin:Module>

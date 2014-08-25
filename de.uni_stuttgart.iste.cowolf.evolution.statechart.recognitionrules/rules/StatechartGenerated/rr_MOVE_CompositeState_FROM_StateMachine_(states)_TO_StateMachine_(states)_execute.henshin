@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_XccDwCxaEeSheLzImRsqjA" name="RR: MOVE_CompositeState_FROM_StateMachine_(states)_TO_StateMachine_(states)" description="Recognize: MOVEs CompositeState from StateMachine(Reference:states) to StateMachine(Reference:states">
+  <imports href="http://www.sidiff.org/difference/symmetric/1.0#/"/>
+  <imports href="http://Statechart/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_XccDwSxaEeSheLzImRsqjA" name="rr:moveCompositeState_FROM_StateMachine_states_TO_StateMachine_StateMachine" description="Recognize: Moves CompositeState from StateMachine(Reference:states) toStateMachine(Reference:StateMachine)">
+    <parameters xmi:id="_XccDwixaEeSheLzImRsqjA" name="Selected"/>
+    <parameters xmi:id="_XccDwyxaEeSheLzImRsqjA" name="OldSource"/>
+    <parameters xmi:id="_XccDxCxaEeSheLzImRsqjA" name="NewSource"/>
+    <lhs xmi:id="_XccDxSxaEeSheLzImRsqjA" name="Lhs">
+      <nodes xmi:id="_XccDxixaEeSheLzImRsqjA" name="B.Selected" incoming="_XccD0SxaEeSheLzImRsqjA _XccD1yxaEeSheLzImRsqjA _XccD2SxaEeSheLzImRsqjA">
+        <type href="http://Statechart/1.0#//CompositeState"/>
+      </nodes>
+      <nodes xmi:id="_XccDxyxaEeSheLzImRsqjA" name="A.Selected" incoming="_XccD0CxaEeSheLzImRsqjA _XccD0yxaEeSheLzImRsqjA _XccD1SxaEeSheLzImRsqjA">
+        <type href="http://Statechart/1.0#//CompositeState"/>
+      </nodes>
+      <nodes xmi:id="_XccDyCxaEeSheLzImRsqjA" name="" outgoing="_XccD0CxaEeSheLzImRsqjA _XccD0SxaEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence"/>
+      </nodes>
+      <nodes xmi:id="_XccDySxaEeSheLzImRsqjA" name="A.OldSource" incoming="_XccD0ixaEeSheLzImRsqjA" outgoing="_XccD1SxaEeSheLzImRsqjA">
+        <type href="http://Statechart/1.0#//StateMachine"/>
+      </nodes>
+      <nodes xmi:id="_XccDyixaEeSheLzImRsqjA" name="B.NewSource" incoming="_XccD1ixaEeSheLzImRsqjA" outgoing="_XccD2SxaEeSheLzImRsqjA">
+        <type href="http://Statechart/1.0#//StateMachine"/>
+      </nodes>
+      <nodes xmi:id="_XccDyyxaEeSheLzImRsqjA" name="" outgoing="_XccD0ixaEeSheLzImRsqjA _XccD0yxaEeSheLzImRsqjA _XccD1CxaEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference"/>
+      </nodes>
+      <nodes xmi:id="_XccDzCxaEeSheLzImRsqjA" name="" incoming="_XccD1CxaEeSheLzImRsqjA _XccD2CxaEeSheLzImRsqjA">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+        <attributes xmi:id="_XccDzSxaEeSheLzImRsqjA" value="&quot;states&quot;">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_XccDzixaEeSheLzImRsqjA" name="" outgoing="_XccD1ixaEeSheLzImRsqjA _XccD1yxaEeSheLzImRsqjA _XccD2CxaEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference"/>
+      </nodes>
+      <nodes xmi:id="_XccDzyxaEeSheLzImRsqjA" name="">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_XccD0CxaEeSheLzImRsqjA" source="_XccDyCxaEeSheLzImRsqjA" target="_XccDxyxaEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objA"/>
+      </edges>
+      <edges xmi:id="_XccD0SxaEeSheLzImRsqjA" source="_XccDyCxaEeSheLzImRsqjA" target="_XccDxixaEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objB"/>
+      </edges>
+      <edges xmi:id="_XccD0ixaEeSheLzImRsqjA" source="_XccDyyxaEeSheLzImRsqjA" target="_XccDySxaEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/src"/>
+      </edges>
+      <edges xmi:id="_XccD0yxaEeSheLzImRsqjA" source="_XccDyyxaEeSheLzImRsqjA" target="_XccDxyxaEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/tgt"/>
+      </edges>
+      <edges xmi:id="_XccD1CxaEeSheLzImRsqjA" source="_XccDyyxaEeSheLzImRsqjA" target="_XccDzCxaEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/type"/>
+      </edges>
+      <edges xmi:id="_XccD1SxaEeSheLzImRsqjA" source="_XccDySxaEeSheLzImRsqjA" target="_XccDxyxaEeSheLzImRsqjA">
+        <type href="http://Statechart/1.0#//StateMachine/states"/>
+      </edges>
+      <edges xmi:id="_XccD1ixaEeSheLzImRsqjA" source="_XccDzixaEeSheLzImRsqjA" target="_XccDyixaEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/src"/>
+      </edges>
+      <edges xmi:id="_XccD1yxaEeSheLzImRsqjA" source="_XccDzixaEeSheLzImRsqjA" target="_XccDxixaEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/tgt"/>
+      </edges>
+      <edges xmi:id="_XccD2CxaEeSheLzImRsqjA" source="_XccDzixaEeSheLzImRsqjA" target="_XccDzCxaEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/type"/>
+      </edges>
+      <edges xmi:id="_XccD2SxaEeSheLzImRsqjA" source="_XccDyixaEeSheLzImRsqjA" target="_XccDxixaEeSheLzImRsqjA">
+        <type href="http://Statechart/1.0#//StateMachine/states"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_XccD2ixaEeSheLzImRsqjA" name="Rhs">
+      <nodes xmi:id="_XccD2yxaEeSheLzImRsqjA" name="B.Selected" incoming="_XccD7ixaEeSheLzImRsqjA _XccD9CxaEeSheLzImRsqjA _XccD9ixaEeSheLzImRsqjA">
+        <type href="http://Statechart/1.0#//CompositeState"/>
+      </nodes>
+      <nodes xmi:id="_XccD3CxaEeSheLzImRsqjA" name="A.Selected" incoming="_XccD7SxaEeSheLzImRsqjA _XccD8CxaEeSheLzImRsqjA _XccD8ixaEeSheLzImRsqjA">
+        <type href="http://Statechart/1.0#//CompositeState"/>
+      </nodes>
+      <nodes xmi:id="_XccD3SxaEeSheLzImRsqjA" name="" outgoing="_XccD7SxaEeSheLzImRsqjA _XccD7ixaEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence"/>
+      </nodes>
+      <nodes xmi:id="_XccD3ixaEeSheLzImRsqjA" name="A.OldSource" incoming="_XccD7yxaEeSheLzImRsqjA" outgoing="_XccD8ixaEeSheLzImRsqjA">
+        <type href="http://Statechart/1.0#//StateMachine"/>
+      </nodes>
+      <nodes xmi:id="_XccD3yxaEeSheLzImRsqjA" name="B.NewSource" incoming="_XccD8yxaEeSheLzImRsqjA" outgoing="_XccD9ixaEeSheLzImRsqjA">
+        <type href="http://Statechart/1.0#//StateMachine"/>
+      </nodes>
+      <nodes xmi:id="_XccD4CxaEeSheLzImRsqjA" name="" incoming="_XccD9yxaEeSheLzImRsqjA" outgoing="_XccD7yxaEeSheLzImRsqjA _XccD8CxaEeSheLzImRsqjA _XccD8SxaEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference"/>
+      </nodes>
+      <nodes xmi:id="_XccD4SxaEeSheLzImRsqjA" name="" incoming="_XccD8SxaEeSheLzImRsqjA _XccD9SxaEeSheLzImRsqjA">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+      </nodes>
+      <nodes xmi:id="_XccD4ixaEeSheLzImRsqjA" name="" incoming="_XccD-CxaEeSheLzImRsqjA" outgoing="_XccD8yxaEeSheLzImRsqjA _XccD9CxaEeSheLzImRsqjA _XccD9SxaEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference"/>
+      </nodes>
+      <nodes xmi:id="_XccD4yxaEeSheLzImRsqjA" incoming="_XccD-SxaEeSheLzImRsqjA" outgoing="_XccD9yxaEeSheLzImRsqjA _XccD-CxaEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet"/>
+        <attributes xmi:id="_XccD5CxaEeSheLzImRsqjA" value="&quot;MOVE_CompositeState_FROM_StateMachine_(states)_TO_StateMachine_(states)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/name"/>
+        </attributes>
+        <attributes xmi:id="_XccD5SxaEeSheLzImRsqjA" value="&quot;MOVEs CompositeState from StateMachine(Reference:states) to StateMachine(Reference:states&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/description"/>
+        </attributes>
+        <attributes xmi:id="_XccD5ixaEeSheLzImRsqjA" value="&quot;MOVE_CompositeState_FROM_StateMachine_(states)_TO_StateMachine_(states)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/editRName"/>
+        </attributes>
+        <attributes xmi:id="_XccD5yxaEeSheLzImRsqjA" value="&quot;RR: MOVE_CompositeState_FROM_StateMachine_(states)_TO_StateMachine_(states)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/recognitionRName"/>
+        </attributes>
+        <attributes xmi:id="_XccD6CxaEeSheLzImRsqjA" value="1">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/priority"/>
+        </attributes>
+        <attributes xmi:id="_XccD6SxaEeSheLzImRsqjA" value="0">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfACs"/>
+        </attributes>
+        <attributes xmi:id="_XccD6ixaEeSheLzImRsqjA" value="3">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfParams"/>
+        </attributes>
+        <attributes xmi:id="_XccD6yxaEeSheLzImRsqjA" value="11">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/refinementLevel"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_XccD7CxaEeSheLzImRsqjA" name="" outgoing="_XccD-SxaEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_XccD7SxaEeSheLzImRsqjA" source="_XccD3SxaEeSheLzImRsqjA" target="_XccD3CxaEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objA"/>
+      </edges>
+      <edges xmi:id="_XccD7ixaEeSheLzImRsqjA" source="_XccD3SxaEeSheLzImRsqjA" target="_XccD2yxaEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objB"/>
+      </edges>
+      <edges xmi:id="_XccD7yxaEeSheLzImRsqjA" source="_XccD4CxaEeSheLzImRsqjA" target="_XccD3ixaEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/src"/>
+      </edges>
+      <edges xmi:id="_XccD8CxaEeSheLzImRsqjA" source="_XccD4CxaEeSheLzImRsqjA" target="_XccD3CxaEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/tgt"/>
+      </edges>
+      <edges xmi:id="_XccD8SxaEeSheLzImRsqjA" source="_XccD4CxaEeSheLzImRsqjA" target="_XccD4SxaEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/type"/>
+      </edges>
+      <edges xmi:id="_XccD8ixaEeSheLzImRsqjA" source="_XccD3ixaEeSheLzImRsqjA" target="_XccD3CxaEeSheLzImRsqjA">
+        <type href="http://Statechart/1.0#//StateMachine/states"/>
+      </edges>
+      <edges xmi:id="_XccD8yxaEeSheLzImRsqjA" source="_XccD4ixaEeSheLzImRsqjA" target="_XccD3yxaEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/src"/>
+      </edges>
+      <edges xmi:id="_XccD9CxaEeSheLzImRsqjA" source="_XccD4ixaEeSheLzImRsqjA" target="_XccD2yxaEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/tgt"/>
+      </edges>
+      <edges xmi:id="_XccD9SxaEeSheLzImRsqjA" source="_XccD4ixaEeSheLzImRsqjA" target="_XccD4SxaEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/type"/>
+      </edges>
+      <edges xmi:id="_XccD9ixaEeSheLzImRsqjA" source="_XccD3yxaEeSheLzImRsqjA" target="_XccD2yxaEeSheLzImRsqjA">
+        <type href="http://Statechart/1.0#//StateMachine/states"/>
+      </edges>
+      <edges xmi:id="_XccD9yxaEeSheLzImRsqjA" source="_XccD4yxaEeSheLzImRsqjA" target="_XccD4CxaEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_XccD-CxaEeSheLzImRsqjA" source="_XccD4yxaEeSheLzImRsqjA" target="_XccD4ixaEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_XccD-SxaEeSheLzImRsqjA" source="_XccD7CxaEeSheLzImRsqjA" target="_XccD4yxaEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference/changeSets"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_XccD-ixaEeSheLzImRsqjA" origin="_XccDxixaEeSheLzImRsqjA" image="_XccD2yxaEeSheLzImRsqjA"/>
+    <mappings xmi:id="_XccD-yxaEeSheLzImRsqjA" origin="_XccDxyxaEeSheLzImRsqjA" image="_XccD3CxaEeSheLzImRsqjA"/>
+    <mappings xmi:id="_XccD_CxaEeSheLzImRsqjA" origin="_XccDyCxaEeSheLzImRsqjA" image="_XccD3SxaEeSheLzImRsqjA"/>
+    <mappings xmi:id="_XccD_SxaEeSheLzImRsqjA" origin="_XccDySxaEeSheLzImRsqjA" image="_XccD3ixaEeSheLzImRsqjA"/>
+    <mappings xmi:id="_XccD_ixaEeSheLzImRsqjA" origin="_XccDyixaEeSheLzImRsqjA" image="_XccD3yxaEeSheLzImRsqjA"/>
+    <mappings xmi:id="_XccD_yxaEeSheLzImRsqjA" origin="_XccDyyxaEeSheLzImRsqjA" image="_XccD4CxaEeSheLzImRsqjA"/>
+    <mappings xmi:id="_XccEACxaEeSheLzImRsqjA" origin="_XccDzCxaEeSheLzImRsqjA" image="_XccD4SxaEeSheLzImRsqjA"/>
+    <mappings xmi:id="_XccEASxaEeSheLzImRsqjA" origin="_XccDzixaEeSheLzImRsqjA" image="_XccD4ixaEeSheLzImRsqjA"/>
+    <mappings xmi:id="_XccEAixaEeSheLzImRsqjA" origin="_XccDzyxaEeSheLzImRsqjA" image="_XccD7CxaEeSheLzImRsqjA"/>
+  </units>
+</henshin:Module>

@@ -1,58 +1,58 @@
 <?xml version="1.0" encoding="ASCII"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_BTU_EyaxEeS0nKYGza5w2Q" name="ADD_Event_(evt_container)_TGT_Transition" description="Adds to Event's reference evt_container the target Transition">
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_hTIuACxYEeScNeGIOS9flg" name="ADD_Event_(evt_container)_TGT_Transition" description="Adds to Event's reference evt_container the target Transition">
   <imports href="http://Statechart/1.0#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="_BTU_FCaxEeS0nKYGza5w2Q" name="addToEvent_evt_container_Transition" description="Adds to Event's reference evt_container the target Transition">
-    <parameters xmi:id="_BTU_FSaxEeS0nKYGza5w2Q" name="Selected"/>
-    <parameters xmi:id="_BTU_FiaxEeS0nKYGza5w2Q" name="NewTarget"/>
-    <lhs xmi:id="_BTU_FyaxEeS0nKYGza5w2Q" name="Lhs">
-      <nodes xmi:id="_BTU_GCaxEeS0nKYGza5w2Q" name="Selected">
+  <units xsi:type="henshin:Rule" xmi:id="_hTIuASxYEeScNeGIOS9flg" name="addToEvent_evt_container_Transition" description="Adds to Event's reference evt_container the target Transition">
+    <parameters xmi:id="_hTIuAixYEeScNeGIOS9flg" name="Selected"/>
+    <parameters xmi:id="_hTIuAyxYEeScNeGIOS9flg" name="NewTarget"/>
+    <lhs xmi:id="_hTIuBCxYEeScNeGIOS9flg" name="Lhs">
+      <nodes xmi:id="_hTIuBSxYEeScNeGIOS9flg" name="Selected">
         <type href="http://Statechart/1.0#//Event"/>
       </nodes>
-      <nodes xmi:id="_BTU_GSaxEeS0nKYGza5w2Q" name="NewTarget">
+      <nodes xmi:id="_hTIuBixYEeScNeGIOS9flg" name="NewTarget">
         <type href="http://Statechart/1.0#//Transition"/>
       </nodes>
-      <formula xsi:type="henshin:Not" xmi:id="_BTU_GiaxEeS0nKYGza5w2Q">
-        <child xsi:type="henshin:NestedCondition" xmi:id="_BTU_GyaxEeS0nKYGza5w2Q">
-          <conclusion xmi:id="_BTU_HCaxEeS0nKYGza5w2Q" name="doNotExceedUpperBound">
-            <nodes xmi:id="_BTU_HSaxEeS0nKYGza5w2Q" name="NewTarget" outgoing="_BTU_ICaxEeS0nKYGza5w2Q">
+      <formula xsi:type="henshin:Not" xmi:id="_hTIuByxYEeScNeGIOS9flg">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_hTIuCCxYEeScNeGIOS9flg">
+          <conclusion xmi:id="_hTIuCSxYEeScNeGIOS9flg" name="doNotExceedUpperBound">
+            <nodes xmi:id="_hTIuCixYEeScNeGIOS9flg" name="NewTarget" outgoing="_hTIuDSxYEeScNeGIOS9flg">
               <type href="http://Statechart/1.0#//Transition"/>
             </nodes>
-            <nodes xmi:id="_BTU_HiaxEeS0nKYGza5w2Q" name="Selected">
+            <nodes xmi:id="_hTIuCyxYEeScNeGIOS9flg" name="Selected">
               <type href="http://Statechart/1.0#//Event"/>
             </nodes>
-            <nodes xmi:id="_BTU_HyaxEeS0nKYGza5w2Q" incoming="_BTU_ICaxEeS0nKYGza5w2Q">
+            <nodes xmi:id="_hTIuDCxYEeScNeGIOS9flg" incoming="_hTIuDSxYEeScNeGIOS9flg">
               <type href="http://Statechart/1.0#//Event"/>
             </nodes>
-            <edges xmi:id="_BTU_ICaxEeS0nKYGza5w2Q" source="_BTU_HSaxEeS0nKYGza5w2Q" target="_BTU_HyaxEeS0nKYGza5w2Q">
+            <edges xmi:id="_hTIuDSxYEeScNeGIOS9flg" source="_hTIuCixYEeScNeGIOS9flg" target="_hTIuDCxYEeScNeGIOS9flg">
               <type href="http://Statechart/1.0#//Transition/trigger"/>
             </edges>
           </conclusion>
-          <mappings xmi:id="_BTU_ISaxEeS0nKYGza5w2Q" origin="_BTU_GSaxEeS0nKYGza5w2Q" image="_BTU_HSaxEeS0nKYGza5w2Q"/>
-          <mappings xmi:id="_BTU_IiaxEeS0nKYGza5w2Q" origin="_BTU_GCaxEeS0nKYGza5w2Q" image="_BTU_HiaxEeS0nKYGza5w2Q"/>
+          <mappings xmi:id="_hTIuDixYEeScNeGIOS9flg" origin="_hTIuBixYEeScNeGIOS9flg" image="_hTIuCixYEeScNeGIOS9flg"/>
+          <mappings xmi:id="_hTIuDyxYEeScNeGIOS9flg" origin="_hTIuBSxYEeScNeGIOS9flg" image="_hTIuCyxYEeScNeGIOS9flg"/>
         </child>
       </formula>
     </lhs>
-    <rhs xmi:id="_BTU_IyaxEeS0nKYGza5w2Q" name="Rhs">
-      <nodes xmi:id="_BTU_JCaxEeS0nKYGza5w2Q" name="Selected" incoming="_BTU_JyaxEeS0nKYGza5w2Q" outgoing="_BTU_JiaxEeS0nKYGza5w2Q">
+    <rhs xmi:id="_hTIuECxYEeScNeGIOS9flg" name="Rhs">
+      <nodes xmi:id="_hTIuESxYEeScNeGIOS9flg" name="Selected" incoming="_hTIuFCxYEeScNeGIOS9flg" outgoing="_hTIuEyxYEeScNeGIOS9flg">
         <type href="http://Statechart/1.0#//Event"/>
       </nodes>
-      <nodes xmi:id="_BTU_JSaxEeS0nKYGza5w2Q" name="NewTarget" incoming="_BTU_JiaxEeS0nKYGza5w2Q" outgoing="_BTU_JyaxEeS0nKYGza5w2Q">
+      <nodes xmi:id="_hTIuEixYEeScNeGIOS9flg" name="NewTarget" incoming="_hTIuEyxYEeScNeGIOS9flg" outgoing="_hTIuFCxYEeScNeGIOS9flg">
         <type href="http://Statechart/1.0#//Transition"/>
       </nodes>
-      <edges xmi:id="_BTU_JiaxEeS0nKYGza5w2Q" source="_BTU_JCaxEeS0nKYGza5w2Q" target="_BTU_JSaxEeS0nKYGza5w2Q">
+      <edges xmi:id="_hTIuEyxYEeScNeGIOS9flg" source="_hTIuESxYEeScNeGIOS9flg" target="_hTIuEixYEeScNeGIOS9flg">
         <type href="http://Statechart/1.0#//Event/evt_container"/>
       </edges>
-      <edges xmi:id="_BTU_JyaxEeS0nKYGza5w2Q" source="_BTU_JSaxEeS0nKYGza5w2Q" target="_BTU_JCaxEeS0nKYGza5w2Q">
+      <edges xmi:id="_hTIuFCxYEeScNeGIOS9flg" source="_hTIuEixYEeScNeGIOS9flg" target="_hTIuESxYEeScNeGIOS9flg">
         <type href="http://Statechart/1.0#//Transition/trigger"/>
       </edges>
     </rhs>
-    <mappings xmi:id="_BTU_KCaxEeS0nKYGza5w2Q" origin="_BTU_GCaxEeS0nKYGza5w2Q" image="_BTU_JCaxEeS0nKYGza5w2Q"/>
-    <mappings xmi:id="_BTU_KSaxEeS0nKYGza5w2Q" origin="_BTU_GSaxEeS0nKYGza5w2Q" image="_BTU_JSaxEeS0nKYGza5w2Q"/>
+    <mappings xmi:id="_hTIuFSxYEeScNeGIOS9flg" origin="_hTIuBSxYEeScNeGIOS9flg" image="_hTIuESxYEeScNeGIOS9flg"/>
+    <mappings xmi:id="_hTIuFixYEeScNeGIOS9flg" origin="_hTIuBixYEeScNeGIOS9flg" image="_hTIuEixYEeScNeGIOS9flg"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="_BTU_KiaxEeS0nKYGza5w2Q" name="mainUnit" subUnits="_BTU_FCaxEeS0nKYGza5w2Q">
-    <parameters xmi:id="_BTU_KyaxEeS0nKYGza5w2Q" name="selectedEObject"/>
-    <parameters xmi:id="_BTU_LCaxEeS0nKYGza5w2Q" name="NewTarget"/>
-    <parameterMappings xmi:id="_BTU_LSaxEeS0nKYGza5w2Q" source="_BTU_KyaxEeS0nKYGza5w2Q" target="_BTU_FSaxEeS0nKYGza5w2Q"/>
-    <parameterMappings xmi:id="_BTU_LiaxEeS0nKYGza5w2Q" source="_BTU_LCaxEeS0nKYGza5w2Q" target="_BTU_FiaxEeS0nKYGza5w2Q"/>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_hTIuFyxYEeScNeGIOS9flg" name="mainUnit" subUnits="_hTIuASxYEeScNeGIOS9flg">
+    <parameters xmi:id="_hTIuGCxYEeScNeGIOS9flg" name="selectedEObject"/>
+    <parameters xmi:id="_hTIuGSxYEeScNeGIOS9flg" name="NewTarget"/>
+    <parameterMappings xmi:id="_hTIuGixYEeScNeGIOS9flg" source="_hTIuGCxYEeScNeGIOS9flg" target="_hTIuAixYEeScNeGIOS9flg"/>
+    <parameterMappings xmi:id="_hTIuGyxYEeScNeGIOS9flg" source="_hTIuGSxYEeScNeGIOS9flg" target="_hTIuAyxYEeScNeGIOS9flg"/>
   </units>
 </henshin:Module>

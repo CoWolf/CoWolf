@@ -1,74 +1,74 @@
 <?xml version="1.0" encoding="ASCII"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_BTJY0CaxEeS0nKYGza5w2Q" name="MOVE_Guard_FROM_Transition_(guard)_TO_Transition_(guard)" description="MOVEs Guard from Transition(Reference:guard) to Transition(Reference:guard">
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_hTCnYCxYEeScNeGIOS9flg" name="MOVE_Guard_FROM_Transition_(guard)_TO_Transition_(guard)" description="MOVEs Guard from Transition(Reference:guard) to Transition(Reference:guard">
   <imports href="http://Statechart/1.0#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="_BTJY0SaxEeS0nKYGza5w2Q" name="moveGuard_FROM_Transition_guard_TO_Transition_Transition" description="Moves Guard from Transition(Reference:guard) toTransition(Reference:Transition)">
-    <parameters xmi:id="_BTJY0iaxEeS0nKYGza5w2Q" name="Selected"/>
-    <parameters xmi:id="_BTJY0yaxEeS0nKYGza5w2Q" name="OldSource"/>
-    <parameters xmi:id="_BTJY1CaxEeS0nKYGza5w2Q" name="NewSource"/>
-    <lhs xmi:id="_BTJY1SaxEeS0nKYGza5w2Q" name="Lhs">
-      <nodes xmi:id="_BTJY1iaxEeS0nKYGza5w2Q" name="Selected" incoming="_BTJY2SaxEeS0nKYGza5w2Q" outgoing="_BTJY2iaxEeS0nKYGza5w2Q">
+  <units xsi:type="henshin:Rule" xmi:id="_hTCnYSxYEeScNeGIOS9flg" name="moveGuard_FROM_Transition_guard_TO_Transition_Transition" description="Moves Guard from Transition(Reference:guard) toTransition(Reference:Transition)">
+    <parameters xmi:id="_hTCnYixYEeScNeGIOS9flg" name="Selected"/>
+    <parameters xmi:id="_hTCnYyxYEeScNeGIOS9flg" name="OldSource"/>
+    <parameters xmi:id="_hTCnZCxYEeScNeGIOS9flg" name="NewSource"/>
+    <lhs xmi:id="_hTCnZSxYEeScNeGIOS9flg" name="Lhs">
+      <nodes xmi:id="_hTCnZixYEeScNeGIOS9flg" name="Selected" incoming="_hTCnaSxYEeScNeGIOS9flg" outgoing="_hTCnaixYEeScNeGIOS9flg">
         <type href="http://Statechart/1.0#//Guard"/>
       </nodes>
-      <nodes xmi:id="_BTJY1yaxEeS0nKYGza5w2Q" name="OldSource" incoming="_BTJY2iaxEeS0nKYGza5w2Q" outgoing="_BTJY2SaxEeS0nKYGza5w2Q">
+      <nodes xmi:id="_hTCnZyxYEeScNeGIOS9flg" name="OldSource" incoming="_hTCnaixYEeScNeGIOS9flg" outgoing="_hTCnaSxYEeScNeGIOS9flg">
         <type href="http://Statechart/1.0#//Transition"/>
       </nodes>
-      <nodes xmi:id="_BTJY2CaxEeS0nKYGza5w2Q" name="NewSource">
+      <nodes xmi:id="_hTCnaCxYEeScNeGIOS9flg" name="NewSource">
         <type href="http://Statechart/1.0#//Transition"/>
       </nodes>
-      <edges xmi:id="_BTJY2SaxEeS0nKYGza5w2Q" source="_BTJY1yaxEeS0nKYGza5w2Q" target="_BTJY1iaxEeS0nKYGza5w2Q">
+      <edges xmi:id="_hTCnaSxYEeScNeGIOS9flg" source="_hTCnZyxYEeScNeGIOS9flg" target="_hTCnZixYEeScNeGIOS9flg">
         <type href="http://Statechart/1.0#//Transition/guard"/>
       </edges>
-      <edges xmi:id="_BTJY2iaxEeS0nKYGza5w2Q" source="_BTJY1iaxEeS0nKYGza5w2Q" target="_BTJY1yaxEeS0nKYGza5w2Q">
+      <edges xmi:id="_hTCnaixYEeScNeGIOS9flg" source="_hTCnZixYEeScNeGIOS9flg" target="_hTCnZyxYEeScNeGIOS9flg">
         <type href="http://Statechart/1.0#//Guard/gua_container"/>
       </edges>
-      <formula xsi:type="henshin:Not" xmi:id="_BTJY2yaxEeS0nKYGza5w2Q">
-        <child xsi:type="henshin:NestedCondition" xmi:id="_BTJY3CaxEeS0nKYGza5w2Q">
-          <conclusion xmi:id="_BTJY3SaxEeS0nKYGza5w2Q" name="doNotExceedUpperBound">
-            <nodes xmi:id="_BTJY3iaxEeS0nKYGza5w2Q" name="NewSource" outgoing="_BTJY4SaxEeS0nKYGza5w2Q">
+      <formula xsi:type="henshin:Not" xmi:id="_hTCnayxYEeScNeGIOS9flg">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_hTCnbCxYEeScNeGIOS9flg">
+          <conclusion xmi:id="_hTCnbSxYEeScNeGIOS9flg" name="doNotExceedUpperBound">
+            <nodes xmi:id="_hTCnbixYEeScNeGIOS9flg" name="NewSource" outgoing="_hTCncSxYEeScNeGIOS9flg">
               <type href="http://Statechart/1.0#//Transition"/>
             </nodes>
-            <nodes xmi:id="_BTJY3yaxEeS0nKYGza5w2Q" name="Selected">
+            <nodes xmi:id="_hTCnbyxYEeScNeGIOS9flg" name="Selected">
               <type href="http://Statechart/1.0#//Guard"/>
             </nodes>
-            <nodes xmi:id="_BTJY4CaxEeS0nKYGza5w2Q" incoming="_BTJY4SaxEeS0nKYGza5w2Q">
+            <nodes xmi:id="_hTCncCxYEeScNeGIOS9flg" incoming="_hTCncSxYEeScNeGIOS9flg">
               <type href="http://Statechart/1.0#//Guard"/>
             </nodes>
-            <edges xmi:id="_BTJY4SaxEeS0nKYGza5w2Q" source="_BTJY3iaxEeS0nKYGza5w2Q" target="_BTJY4CaxEeS0nKYGza5w2Q">
+            <edges xmi:id="_hTCncSxYEeScNeGIOS9flg" source="_hTCnbixYEeScNeGIOS9flg" target="_hTCncCxYEeScNeGIOS9flg">
               <type href="http://Statechart/1.0#//Transition/guard"/>
             </edges>
           </conclusion>
-          <mappings xmi:id="_BTJY4iaxEeS0nKYGza5w2Q" origin="_BTJY2CaxEeS0nKYGza5w2Q" image="_BTJY3iaxEeS0nKYGza5w2Q"/>
-          <mappings xmi:id="_BTJY4yaxEeS0nKYGza5w2Q" origin="_BTJY1iaxEeS0nKYGza5w2Q" image="_BTJY3yaxEeS0nKYGza5w2Q"/>
+          <mappings xmi:id="_hTCncixYEeScNeGIOS9flg" origin="_hTCnaCxYEeScNeGIOS9flg" image="_hTCnbixYEeScNeGIOS9flg"/>
+          <mappings xmi:id="_hTCncyxYEeScNeGIOS9flg" origin="_hTCnZixYEeScNeGIOS9flg" image="_hTCnbyxYEeScNeGIOS9flg"/>
         </child>
       </formula>
     </lhs>
-    <rhs xmi:id="_BTJY5CaxEeS0nKYGza5w2Q" name="Rhs">
-      <nodes xmi:id="_BTJY5SaxEeS0nKYGza5w2Q" name="Selected" incoming="_BTJY6CaxEeS0nKYGza5w2Q" outgoing="_BTJY6SaxEeS0nKYGza5w2Q">
+    <rhs xmi:id="_hTCndCxYEeScNeGIOS9flg" name="Rhs">
+      <nodes xmi:id="_hTCndSxYEeScNeGIOS9flg" name="Selected" incoming="_hTCneCxYEeScNeGIOS9flg" outgoing="_hTCneSxYEeScNeGIOS9flg">
         <type href="http://Statechart/1.0#//Guard"/>
       </nodes>
-      <nodes xmi:id="_BTJY5iaxEeS0nKYGza5w2Q" name="OldSource">
+      <nodes xmi:id="_hTCndixYEeScNeGIOS9flg" name="OldSource">
         <type href="http://Statechart/1.0#//Transition"/>
       </nodes>
-      <nodes xmi:id="_BTJY5yaxEeS0nKYGza5w2Q" name="NewSource" incoming="_BTJY6SaxEeS0nKYGza5w2Q" outgoing="_BTJY6CaxEeS0nKYGza5w2Q">
+      <nodes xmi:id="_hTCndyxYEeScNeGIOS9flg" name="NewSource" incoming="_hTCneSxYEeScNeGIOS9flg" outgoing="_hTCneCxYEeScNeGIOS9flg">
         <type href="http://Statechart/1.0#//Transition"/>
       </nodes>
-      <edges xmi:id="_BTJY6CaxEeS0nKYGza5w2Q" source="_BTJY5yaxEeS0nKYGza5w2Q" target="_BTJY5SaxEeS0nKYGza5w2Q">
+      <edges xmi:id="_hTCneCxYEeScNeGIOS9flg" source="_hTCndyxYEeScNeGIOS9flg" target="_hTCndSxYEeScNeGIOS9flg">
         <type href="http://Statechart/1.0#//Transition/guard"/>
       </edges>
-      <edges xmi:id="_BTJY6SaxEeS0nKYGza5w2Q" source="_BTJY5SaxEeS0nKYGza5w2Q" target="_BTJY5yaxEeS0nKYGza5w2Q">
+      <edges xmi:id="_hTCneSxYEeScNeGIOS9flg" source="_hTCndSxYEeScNeGIOS9flg" target="_hTCndyxYEeScNeGIOS9flg">
         <type href="http://Statechart/1.0#//Guard/gua_container"/>
       </edges>
     </rhs>
-    <mappings xmi:id="_BTJY6iaxEeS0nKYGza5w2Q" origin="_BTJY1iaxEeS0nKYGza5w2Q" image="_BTJY5SaxEeS0nKYGza5w2Q"/>
-    <mappings xmi:id="_BTJY6yaxEeS0nKYGza5w2Q" origin="_BTJY1yaxEeS0nKYGza5w2Q" image="_BTJY5iaxEeS0nKYGza5w2Q"/>
-    <mappings xmi:id="_BTJY7CaxEeS0nKYGza5w2Q" origin="_BTJY2CaxEeS0nKYGza5w2Q" image="_BTJY5yaxEeS0nKYGza5w2Q"/>
+    <mappings xmi:id="_hTCneixYEeScNeGIOS9flg" origin="_hTCnZixYEeScNeGIOS9flg" image="_hTCndSxYEeScNeGIOS9flg"/>
+    <mappings xmi:id="_hTCneyxYEeScNeGIOS9flg" origin="_hTCnZyxYEeScNeGIOS9flg" image="_hTCndixYEeScNeGIOS9flg"/>
+    <mappings xmi:id="_hTCnfCxYEeScNeGIOS9flg" origin="_hTCnaCxYEeScNeGIOS9flg" image="_hTCndyxYEeScNeGIOS9flg"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="_BTJY7SaxEeS0nKYGza5w2Q" name="mainUnit" subUnits="_BTJY0SaxEeS0nKYGza5w2Q">
-    <parameters xmi:id="_BTJY7iaxEeS0nKYGza5w2Q" name="selectedEObject"/>
-    <parameters xmi:id="_BTJY7yaxEeS0nKYGza5w2Q" name="OldSource"/>
-    <parameters xmi:id="_BTJY8CaxEeS0nKYGza5w2Q" name="NewSource"/>
-    <parameterMappings xmi:id="_BTJY8SaxEeS0nKYGza5w2Q" source="_BTJY7iaxEeS0nKYGza5w2Q" target="_BTJY0iaxEeS0nKYGza5w2Q"/>
-    <parameterMappings xmi:id="_BTJY8iaxEeS0nKYGza5w2Q" source="_BTJY7yaxEeS0nKYGza5w2Q" target="_BTJY0yaxEeS0nKYGza5w2Q"/>
-    <parameterMappings xmi:id="_BTJY8yaxEeS0nKYGza5w2Q" source="_BTJY8CaxEeS0nKYGza5w2Q" target="_BTJY1CaxEeS0nKYGza5w2Q"/>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_hTCnfSxYEeScNeGIOS9flg" name="mainUnit" subUnits="_hTCnYSxYEeScNeGIOS9flg">
+    <parameters xmi:id="_hTCnfixYEeScNeGIOS9flg" name="selectedEObject"/>
+    <parameters xmi:id="_hTCnfyxYEeScNeGIOS9flg" name="OldSource"/>
+    <parameters xmi:id="_hTCngCxYEeScNeGIOS9flg" name="NewSource"/>
+    <parameterMappings xmi:id="_hTCngSxYEeScNeGIOS9flg" source="_hTCnfixYEeScNeGIOS9flg" target="_hTCnYixYEeScNeGIOS9flg"/>
+    <parameterMappings xmi:id="_hTCngixYEeScNeGIOS9flg" source="_hTCnfyxYEeScNeGIOS9flg" target="_hTCnYyxYEeScNeGIOS9flg"/>
+    <parameterMappings xmi:id="_hTCngyxYEeScNeGIOS9flg" source="_hTCngCxYEeScNeGIOS9flg" target="_hTCnZCxYEeScNeGIOS9flg"/>
   </units>
 </henshin:Module>

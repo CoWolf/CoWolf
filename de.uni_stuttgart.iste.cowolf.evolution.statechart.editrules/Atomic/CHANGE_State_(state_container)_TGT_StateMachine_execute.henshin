@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_hMq5oCxYEeScNeGIOS9flg" name="CHANGE_State_(state_container)_TGT_StateMachine" description="CHANGEs State's reference state_container the target StateMachine">
+  <imports href="http://Statechart/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_hMq5oSxYEeScNeGIOS9flg" name="changeState_state_container_TO_StateMachine" description="Change the EReference state_container">
+    <parameters xmi:id="_hMq5oixYEeScNeGIOS9flg" name="Selected"/>
+    <parameters xmi:id="_hMq5oyxYEeScNeGIOS9flg" name="OldTarget"/>
+    <parameters xmi:id="_hMq5pCxYEeScNeGIOS9flg" name="NewTarget"/>
+    <lhs xmi:id="_hMq5pSxYEeScNeGIOS9flg" name="Lhs">
+      <nodes xmi:id="_hMq5pixYEeScNeGIOS9flg" name="Selected" incoming="_hMq5qixYEeScNeGIOS9flg" outgoing="_hMq5qSxYEeScNeGIOS9flg">
+        <type href="http://Statechart/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_hMq5pyxYEeScNeGIOS9flg" name="OldTarget" incoming="_hMq5qSxYEeScNeGIOS9flg" outgoing="_hMq5qixYEeScNeGIOS9flg">
+        <type href="http://Statechart/1.0#//StateMachine"/>
+      </nodes>
+      <nodes xmi:id="_hMq5qCxYEeScNeGIOS9flg" name="NewTarget">
+        <type href="http://Statechart/1.0#//StateMachine"/>
+      </nodes>
+      <edges xmi:id="_hMq5qSxYEeScNeGIOS9flg" source="_hMq5pixYEeScNeGIOS9flg" target="_hMq5pyxYEeScNeGIOS9flg">
+        <type href="http://Statechart/1.0#//State/state_container"/>
+      </edges>
+      <edges xmi:id="_hMq5qixYEeScNeGIOS9flg" source="_hMq5pyxYEeScNeGIOS9flg" target="_hMq5pixYEeScNeGIOS9flg">
+        <type href="http://Statechart/1.0#//StateMachine/initialStates"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_hMq5qyxYEeScNeGIOS9flg" name="Rhs">
+      <nodes xmi:id="_hMq5rCxYEeScNeGIOS9flg" name="Selected" incoming="_hMq5sCxYEeScNeGIOS9flg" outgoing="_hMq5ryxYEeScNeGIOS9flg">
+        <type href="http://Statechart/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_hMq5rSxYEeScNeGIOS9flg" name="OldTarget">
+        <type href="http://Statechart/1.0#//StateMachine"/>
+      </nodes>
+      <nodes xmi:id="_hMq5rixYEeScNeGIOS9flg" name="NewTarget" incoming="_hMq5ryxYEeScNeGIOS9flg" outgoing="_hMq5sCxYEeScNeGIOS9flg">
+        <type href="http://Statechart/1.0#//StateMachine"/>
+      </nodes>
+      <edges xmi:id="_hMq5ryxYEeScNeGIOS9flg" source="_hMq5rCxYEeScNeGIOS9flg" target="_hMq5rixYEeScNeGIOS9flg">
+        <type href="http://Statechart/1.0#//State/state_container"/>
+      </edges>
+      <edges xmi:id="_hMq5sCxYEeScNeGIOS9flg" source="_hMq5rixYEeScNeGIOS9flg" target="_hMq5rCxYEeScNeGIOS9flg">
+        <type href="http://Statechart/1.0#//StateMachine/initialStates"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_hMq5sSxYEeScNeGIOS9flg" origin="_hMq5pixYEeScNeGIOS9flg" image="_hMq5rCxYEeScNeGIOS9flg"/>
+    <mappings xmi:id="_hMq5sixYEeScNeGIOS9flg" origin="_hMq5pyxYEeScNeGIOS9flg" image="_hMq5rSxYEeScNeGIOS9flg"/>
+    <mappings xmi:id="_hMq5syxYEeScNeGIOS9flg" origin="_hMq5qCxYEeScNeGIOS9flg" image="_hMq5rixYEeScNeGIOS9flg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_hMq5tCxYEeScNeGIOS9flg" name="mainUnit" subUnits="_hMq5oSxYEeScNeGIOS9flg">
+    <parameters xmi:id="_hMq5tSxYEeScNeGIOS9flg" name="selectedEObject"/>
+    <parameters xmi:id="_hMq5tixYEeScNeGIOS9flg" name="OldTarget"/>
+    <parameters xmi:id="_hMq5tyxYEeScNeGIOS9flg" name="NewTarget"/>
+    <parameterMappings xmi:id="_hMq5uCxYEeScNeGIOS9flg" source="_hMq5tSxYEeScNeGIOS9flg" target="_hMq5oixYEeScNeGIOS9flg"/>
+    <parameterMappings xmi:id="_hMq5uSxYEeScNeGIOS9flg" source="_hMq5tixYEeScNeGIOS9flg" target="_hMq5oyxYEeScNeGIOS9flg"/>
+    <parameterMappings xmi:id="_hMrgsCxYEeScNeGIOS9flg" source="_hMq5tyxYEeScNeGIOS9flg" target="_hMq5pCxYEeScNeGIOS9flg"/>
+  </units>
+</henshin:Module>
