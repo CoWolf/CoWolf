@@ -25,28 +25,28 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface State extends StateVertex {
 	/**
-	 * Returns the value of the '<em><b>State container</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine#getInitialStates <em>Initial States</em>}'.
+	 * Returns the value of the '<em><b>State container</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine#getStates <em>States</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>State container</em>' container reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>State container</em>' reference.
+	 * @return the value of the '<em>State container</em>' container reference.
 	 * @see #setState_container(StateMachine)
 	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage#getState_State_container()
-	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine#getInitialStates
-	 * @model opposite="initialStates" required="true" ordered="false"
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine#getStates
+	 * @model opposite="states" required="true" transient="false" ordered="false"
 	 * @generated
 	 */
 	StateMachine getState_container();
 
 	/**
-	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.statechart.State#getState_container <em>State container</em>}' reference.
+	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.statechart.State#getState_container <em>State container</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>State container</em>' reference.
+	 * @param value the new value of the '<em>State container</em>' container reference.
 	 * @see #getState_container()
 	 * @generated
 	 */

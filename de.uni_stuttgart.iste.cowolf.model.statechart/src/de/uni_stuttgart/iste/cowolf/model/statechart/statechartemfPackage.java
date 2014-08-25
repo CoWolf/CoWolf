@@ -314,7 +314,7 @@ public interface statechartemfPackage extends EPackage {
 	int STATE__INCOMING = STATE_VERTEX__INCOMING;
 
 	/**
-	 * The feature id for the '<em><b>State container</b></em>' reference.
+	 * The feature id for the '<em><b>State container</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -423,7 +423,7 @@ public interface statechartemfPackage extends EPackage {
 	int COMPOSITE_STATE__INCOMING = STATE__INCOMING;
 
 	/**
-	 * The feature id for the '<em><b>State container</b></em>' reference.
+	 * The feature id for the '<em><b>State container</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -798,10 +798,10 @@ public interface statechartemfPackage extends EPackage {
 	EClass getState();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uni_stuttgart.iste.cowolf.model.statechart.State#getState_container <em>State container</em>}'.
+	 * Returns the meta object for the container reference '{@link de.uni_stuttgart.iste.cowolf.model.statechart.State#getState_container <em>State container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>State container</em>'.
+	 * @return the meta object for the container reference '<em>State container</em>'.
 	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.State#getState_container()
 	 * @see #getState()
 	 * @generated
@@ -1142,7 +1142,7 @@ public interface statechartemfPackage extends EPackage {
 		EClass STATE = eINSTANCE.getState();
 
 		/**
-		 * The meta object literal for the '<em><b>State container</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>State container</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

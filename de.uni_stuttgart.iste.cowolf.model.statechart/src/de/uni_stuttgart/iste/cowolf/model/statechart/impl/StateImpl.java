@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -37,16 +38,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class StateImpl extends StateVertexImpl implements State {
-	/**
-	 * The cached value of the '{@link #getState_container() <em>State container</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getState_container()
-	 * @generated
-	 * @ordered
-	 */
-	protected StateMachine state_container;
-
 	/**
 	 * The cached value of the '{@link #getInternalTransitions() <em>Internal Transitions</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -102,24 +93,8 @@ public class StateImpl extends StateVertexImpl implements State {
 	 * @generated
 	 */
 	public StateMachine getState_container() {
-		if (state_container != null && state_container.eIsProxy()) {
-			InternalEObject oldState_container = (InternalEObject)state_container;
-			state_container = (StateMachine)eResolveProxy(oldState_container);
-			if (state_container != oldState_container) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, statechartemfPackage.STATE__STATE_CONTAINER, oldState_container, state_container));
-			}
-		}
-		return state_container;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public StateMachine basicGetState_container() {
-		return state_container;
+		if (eContainerFeatureID() != statechartemfPackage.STATE__STATE_CONTAINER) return null;
+		return (StateMachine)eInternalContainer();
 	}
 
 	/**
@@ -128,12 +103,7 @@ public class StateImpl extends StateVertexImpl implements State {
 	 * @generated
 	 */
 	public NotificationChain basicSetState_container(StateMachine newState_container, NotificationChain msgs) {
-		StateMachine oldState_container = state_container;
-		state_container = newState_container;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, statechartemfPackage.STATE__STATE_CONTAINER, oldState_container, newState_container);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eBasicSetContainer((InternalEObject)newState_container, statechartemfPackage.STATE__STATE_CONTAINER, msgs);
 		return msgs;
 	}
 
@@ -143,12 +113,14 @@ public class StateImpl extends StateVertexImpl implements State {
 	 * @generated
 	 */
 	public void setState_container(StateMachine newState_container) {
-		if (newState_container != state_container) {
+		if (newState_container != eInternalContainer() || (eContainerFeatureID() != statechartemfPackage.STATE__STATE_CONTAINER && newState_container != null)) {
+			if (EcoreUtil.isAncestor(this, newState_container))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
-			if (state_container != null)
-				msgs = ((InternalEObject)state_container).eInverseRemove(this, statechartemfPackage.STATE_MACHINE__INITIAL_STATES, StateMachine.class, msgs);
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
 			if (newState_container != null)
-				msgs = ((InternalEObject)newState_container).eInverseAdd(this, statechartemfPackage.STATE_MACHINE__INITIAL_STATES, StateMachine.class, msgs);
+				msgs = ((InternalEObject)newState_container).eInverseAdd(this, statechartemfPackage.STATE_MACHINE__STATES, StateMachine.class, msgs);
 			msgs = basicSetState_container(newState_container, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -202,8 +174,8 @@ public class StateImpl extends StateVertexImpl implements State {
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case statechartemfPackage.STATE__STATE_CONTAINER:
-				if (state_container != null)
-					msgs = ((InternalEObject)state_container).eInverseRemove(this, statechartemfPackage.STATE_MACHINE__INITIAL_STATES, StateMachine.class, msgs);
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetState_container((StateMachine)otherEnd, msgs);
 			case statechartemfPackage.STATE__INTERNAL_TRANSITIONS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getInternalTransitions()).basicAdd(otherEnd, msgs);
@@ -239,11 +211,24 @@ public class StateImpl extends StateVertexImpl implements State {
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case statechartemfPackage.STATE__STATE_CONTAINER:
+				return eInternalContainer().eInverseRemove(this, statechartemfPackage.STATE_MACHINE__STATES, StateMachine.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case statechartemfPackage.STATE__STATE_CONTAINER:
-				if (resolve) return getState_container();
-				return basicGetState_container();
+				return getState_container();
 			case statechartemfPackage.STATE__INTERNAL_TRANSITIONS:
 				return getInternalTransitions();
 			case statechartemfPackage.STATE__DEFERRABLE_EVENTS:
@@ -315,7 +300,7 @@ public class StateImpl extends StateVertexImpl implements State {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case statechartemfPackage.STATE__STATE_CONTAINER:
-				return state_container != null;
+				return getState_container() != null;
 			case statechartemfPackage.STATE__INTERNAL_TRANSITIONS:
 				return internalTransitions != null && !internalTransitions.isEmpty();
 			case statechartemfPackage.STATE__DEFERRABLE_EVENTS:

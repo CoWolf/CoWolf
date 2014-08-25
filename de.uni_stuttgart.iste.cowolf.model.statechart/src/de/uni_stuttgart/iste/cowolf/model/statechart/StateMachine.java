@@ -46,6 +46,7 @@ public interface StateMachine extends IDBase, NameBase {
 	/**
 	 * Returns the value of the '<em><b>States</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uni_stuttgart.iste.cowolf.model.statechart.State}.
+	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.model.statechart.State#getState_container <em>State container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>States</em>' containment reference list isn't clear,
@@ -54,14 +55,14 @@ public interface StateMachine extends IDBase, NameBase {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>States</em>' containment reference list.
 	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage#getStateMachine_States()
-	 * @model containment="true" ordered="false"
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.State#getState_container
+	 * @model opposite="state_container" containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<State> getStates();
 
 	/**
 	 * Returns the value of the '<em><b>Initial States</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.model.statechart.State#getState_container <em>State container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Initial States</em>' reference isn't clear,
@@ -71,8 +72,7 @@ public interface StateMachine extends IDBase, NameBase {
 	 * @return the value of the '<em>Initial States</em>' reference.
 	 * @see #setInitialStates(State)
 	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage#getStateMachine_InitialStates()
-	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.State#getState_container
-	 * @model opposite="state_container"
+	 * @model
 	 * @generated
 	 */
 	State getInitialStates();

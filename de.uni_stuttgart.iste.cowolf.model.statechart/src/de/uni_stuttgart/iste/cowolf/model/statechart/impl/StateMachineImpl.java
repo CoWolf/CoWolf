@@ -16,7 +16,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -146,7 +145,7 @@ public class StateMachineImpl extends IDBaseImpl implements StateMachine {
 	 */
 	public EList<State> getStates() {
 		if (states == null) {
-			states = new EObjectContainmentEList<State>(State.class, this, statechartemfPackage.STATE_MACHINE__STATES);
+			states = new EObjectContainmentWithInverseEList<State>(State.class, this, statechartemfPackage.STATE_MACHINE__STATES, statechartemfPackage.STATE__STATE_CONTAINER);
 		}
 		return states;
 	}
@@ -182,33 +181,11 @@ public class StateMachineImpl extends IDBaseImpl implements StateMachine {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetInitialStates(State newInitialStates, NotificationChain msgs) {
+	public void setInitialStates(State newInitialStates) {
 		State oldInitialStates = initialStates;
 		initialStates = newInitialStates;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, statechartemfPackage.STATE_MACHINE__INITIAL_STATES, oldInitialStates, newInitialStates);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setInitialStates(State newInitialStates) {
-		if (newInitialStates != initialStates) {
-			NotificationChain msgs = null;
-			if (initialStates != null)
-				msgs = ((InternalEObject)initialStates).eInverseRemove(this, statechartemfPackage.STATE__STATE_CONTAINER, State.class, msgs);
-			if (newInitialStates != null)
-				msgs = ((InternalEObject)newInitialStates).eInverseAdd(this, statechartemfPackage.STATE__STATE_CONTAINER, State.class, msgs);
-			msgs = basicSetInitialStates(newInitialStates, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, statechartemfPackage.STATE_MACHINE__INITIAL_STATES, newInitialStates, newInitialStates));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, statechartemfPackage.STATE_MACHINE__INITIAL_STATES, oldInitialStates, initialStates));
 	}
 
 	/**
@@ -222,10 +199,8 @@ public class StateMachineImpl extends IDBaseImpl implements StateMachine {
 		switch (featureID) {
 			case statechartemfPackage.STATE_MACHINE__TRANSITIONS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getTransitions()).basicAdd(otherEnd, msgs);
-			case statechartemfPackage.STATE_MACHINE__INITIAL_STATES:
-				if (initialStates != null)
-					msgs = ((InternalEObject)initialStates).eInverseRemove(this, statechartemfPackage.STATE__STATE_CONTAINER, State.class, msgs);
-				return basicSetInitialStates((State)otherEnd, msgs);
+			case statechartemfPackage.STATE_MACHINE__STATES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getStates()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -242,8 +217,6 @@ public class StateMachineImpl extends IDBaseImpl implements StateMachine {
 				return ((InternalEList<?>)getTransitions()).basicRemove(otherEnd, msgs);
 			case statechartemfPackage.STATE_MACHINE__STATES:
 				return ((InternalEList<?>)getStates()).basicRemove(otherEnd, msgs);
-			case statechartemfPackage.STATE_MACHINE__INITIAL_STATES:
-				return basicSetInitialStates(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
