@@ -6,11 +6,17 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
+
+import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC;
+import de.uni_stuttgart.iste.cowolf.model.dtmc.Label;
+import de.uni_stuttgart.iste.cowolf.model.dtmc.State;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.analyze.PRISMGenerator;
 
 public class DTMCExportPRISMJob extends Job {
@@ -76,7 +82,7 @@ public class DTMCExportPRISMJob extends Job {
 					output = this.mappingPCTL.get(res);
 					monitor.subTask("Exporting: " + output.getAbsolutePath());
 					FileOutputStream out = new FileOutputStream(output);
-					out.write(generator.generatePCTL(res).toString().getBytes());
+					out.write(generator.generatePCTL(res, this.getStates(res), this.getLabels(res)).toString().getBytes());
 					out.close();
 					monitor.worked(1);
 				} catch(SecurityException | IOException e) {
@@ -87,5 +93,29 @@ public class DTMCExportPRISMJob extends Job {
 		monitor.done();
 
 		return Status.OK_STATUS;
+	}
+	
+	private Set<State> getStates(Resource res) {
+		HashSet<State> states = new HashSet<State>();
+		EList<State> list = ((DTMC) res.getContents().get(0)).getStates();
+		for (State state : list) {
+			states.add(state);
+		}
+		return states;
+	}
+
+	/**
+	 * Returns all labelnames for the given model.
+	 * @param resource Resource to get labels for.
+	 * @return Names of labels, empty if none can found.
+	 */
+	private Set<String> getLabels(Resource resource) {
+		HashSet<String> labelNames = new HashSet<String>();
+		for (State s : ((DTMC) resource.getContents().get(0)).getStates()) {
+			for (Label l : s.getLabels()) {
+				labelNames.add(l.getName());
+			}
+		}
+		return labelNames;
 	}
 }
