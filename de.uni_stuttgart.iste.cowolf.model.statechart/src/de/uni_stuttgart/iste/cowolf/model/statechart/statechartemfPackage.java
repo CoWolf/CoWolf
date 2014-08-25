@@ -341,13 +341,22 @@ public interface statechartemfPackage extends EPackage {
 	int STATE__DEFERRABLE_EVENTS = STATE_VERTEX_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Atomic Proposition</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATE__ATOMIC_PROPOSITION = STATE_VERTEX_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>State</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATE_FEATURE_COUNT = STATE_VERTEX_FEATURE_COUNT + 3;
+	int STATE_FEATURE_COUNT = STATE_VERTEX_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>State</em>' class.
@@ -439,6 +448,15 @@ public interface statechartemfPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPOSITE_STATE__DEFERRABLE_EVENTS = STATE__DEFERRABLE_EVENTS;
+
+	/**
+	 * The feature id for the '<em><b>Atomic Proposition</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_STATE__ATOMIC_PROPOSITION = STATE__ATOMIC_PROPOSITION;
 
 	/**
 	 * The feature id for the '<em><b>Sub Vertexes</b></em>' containment reference list.
@@ -813,6 +831,17 @@ public interface statechartemfPackage extends EPackage {
 	EReference getState_DeferrableEvents();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.model.statechart.State#getAtomicProposition <em>Atomic Proposition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Atomic Proposition</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.State#getAtomicProposition()
+	 * @see #getState()
+	 * @generated
+	 */
+	EReference getState_AtomicProposition();
+
+	/**
 	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.statechart.CompositeState <em>Composite State</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1135,6 +1164,14 @@ public interface statechartemfPackage extends EPackage {
 		 * @generated
 		 */
 		EReference STATE__DEFERRABLE_EVENTS = eINSTANCE.getState_DeferrableEvents();
+
+		/**
+		 * The meta object literal for the '<em><b>Atomic Proposition</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STATE__ATOMIC_PROPOSITION = eINSTANCE.getState_AtomicProposition();
 
 		/**
 		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.CompositeStateImpl <em>Composite State</em>}' class.

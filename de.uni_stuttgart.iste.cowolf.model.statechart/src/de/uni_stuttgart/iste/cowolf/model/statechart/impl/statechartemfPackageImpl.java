@@ -241,6 +241,15 @@ public class statechartemfPackageImpl extends EPackageImpl implements statechart
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getState_AtomicProposition() {
+		return (EReference)stateEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getCompositeState() {
 		return compositeStateEClass;
 	}
@@ -456,6 +465,7 @@ public class statechartemfPackageImpl extends EPackageImpl implements statechart
 		createEReference(stateEClass, STATE__STATE_CONTAINER);
 		createEReference(stateEClass, STATE__INTERNAL_TRANSITIONS);
 		createEReference(stateEClass, STATE__DEFERRABLE_EVENTS);
+		createEReference(stateEClass, STATE__ATOMIC_PROPOSITION);
 
 		compositeStateEClass = createEClass(COMPOSITE_STATE);
 		createEReference(compositeStateEClass, COMPOSITE_STATE__SUB_VERTEXES);
@@ -542,6 +552,7 @@ public class statechartemfPackageImpl extends EPackageImpl implements statechart
 		initEReference(getState_State_container(), this.getStateMachine(), this.getStateMachine_InitialStates(), "state_container", null, 1, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getState_InternalTransitions(), this.getTransition(), this.getTransition_TransS_container(), "internalTransitions", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getState_DeferrableEvents(), this.getEvent(), this.getEvent_Targets(), "deferrableEvents", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getState_AtomicProposition(), this.getBooleanExpression(), null, "atomicProposition", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(compositeStateEClass, CompositeState.class, "CompositeState", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCompositeState_SubVertexes(), this.getStateVertex(), this.getStateVertex_Sv_container(), "subVertexes", null, 0, -1, CompositeState.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

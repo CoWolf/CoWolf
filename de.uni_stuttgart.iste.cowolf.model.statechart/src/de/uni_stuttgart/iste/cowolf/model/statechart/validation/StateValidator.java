@@ -4,6 +4,7 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.statechart.validation;
 
+import de.uni_stuttgart.iste.cowolf.model.statechart.BooleanExpression;
 import de.uni_stuttgart.iste.cowolf.model.statechart.Event;
 import de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine;
 import de.uni_stuttgart.iste.cowolf.model.statechart.Transition;
@@ -22,4 +23,6 @@ public interface StateValidator {
 	boolean validateState_container(StateMachine value);
 	boolean validateInternalTransitions(EList<Transition> value);
 	boolean validateDeferrableEvents(EList<Event> value);
+
+	boolean validateAtomicProposition(EList<BooleanExpression> value);
 }

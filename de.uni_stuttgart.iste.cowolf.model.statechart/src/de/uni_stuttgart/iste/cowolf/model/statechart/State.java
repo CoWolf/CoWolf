@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.State#getState_container <em>State container</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.State#getInternalTransitions <em>Internal Transitions</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.State#getDeferrableEvents <em>Deferrable Events</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.State#getAtomicProposition <em>Atomic Proposition</em>}</li>
  * </ul>
  * </p>
  *
@@ -86,5 +87,21 @@ public interface State extends StateVertex {
 	 * @generated
 	 */
 	EList<Event> getDeferrableEvents();
+
+	/**
+	 * Returns the value of the '<em><b>Atomic Proposition</b></em>' containment reference list.
+	 * The list contents are of type {@link de.uni_stuttgart.iste.cowolf.model.statechart.BooleanExpression}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Atomic Proposition</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Atomic Proposition</em>' containment reference list.
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage#getState_AtomicProposition()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<BooleanExpression> getAtomicProposition();
 
 } // State

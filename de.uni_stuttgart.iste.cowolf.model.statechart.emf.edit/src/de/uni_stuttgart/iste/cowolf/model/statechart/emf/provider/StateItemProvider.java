@@ -87,6 +87,7 @@ public class StateItemProvider extends StateVertexItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(statechartemfPackage.Literals.STATE__INTERNAL_TRANSITIONS);
+			childrenFeatures.add(statechartemfPackage.Literals.STATE__ATOMIC_PROPOSITION);
 		}
 		return childrenFeatures;
 	}
@@ -143,6 +144,7 @@ public class StateItemProvider extends StateVertexItemProvider {
 
 		switch (notification.getFeatureID(State.class)) {
 			case statechartemfPackage.STATE__INTERNAL_TRANSITIONS:
+			case statechartemfPackage.STATE__ATOMIC_PROPOSITION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -164,6 +166,11 @@ public class StateItemProvider extends StateVertexItemProvider {
 			(createChildParameter
 				(statechartemfPackage.Literals.STATE__INTERNAL_TRANSITIONS,
 				 statechartemfFactory.eINSTANCE.createTransition()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(statechartemfPackage.Literals.STATE__ATOMIC_PROPOSITION,
+				 statechartemfFactory.eINSTANCE.createBooleanExpression()));
 	}
 
 }
