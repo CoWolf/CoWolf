@@ -10,12 +10,10 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.jface.dialogs.DialogSettings;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.IDialogSettings;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.IExportWizard;
 import org.eclipse.ui.IWorkbench;
@@ -25,6 +23,9 @@ import de.uni_stuttgart.iste.cowolf.ui.model.dtmc.Activator;
 
 public class DtmcPrismExportWizard extends Wizard implements IExportWizard {
 
+	/**
+	 * Creates a Wizarz, which executes the export of dtmc models to PRISM models.
+	 */
 	public DtmcPrismExportWizard() {
 		super();
 		IDialogSettings pluginSettings =  Activator.getDefault().getDialogSettings();
@@ -42,7 +43,7 @@ public class DtmcPrismExportWizard extends Wizard implements IExportWizard {
 	@Override
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		new HashMap<String,Object> ();
-		page1 = new DtmcPrismExportPage1("DTMC export PRISM model", workbench, selection, this.settings);
+		page1 = new DtmcPrismExportPage1("DTMC export PRISM model", selection, this.settings);
 	}
 
 	@Override
@@ -72,7 +73,7 @@ public class DtmcPrismExportWizard extends Wizard implements IExportWizard {
 				File pctlFile = new File(pathPCTL);
 				if (pmFile.exists() && !this.page1.getOverwritePermission()) {
 
-					int result = this.requestOverride(pathPM);
+					int result = this.requestOverwrite(pathPM);
 					switch(result) {
 					case 0: 
 						//yes
@@ -93,7 +94,7 @@ public class DtmcPrismExportWizard extends Wizard implements IExportWizard {
 					}
 				}
 				if (pctlFile.exists() && !this.page1.getOverwritePermission()) {
-					int result = this.requestOverride(pathPCTL);
+					int result = this.requestOverwrite(pathPCTL);
 					switch(result) {
 					case 0: 
 						//yes
@@ -149,7 +150,14 @@ public class DtmcPrismExportWizard extends Wizard implements IExportWizard {
 		return true;
 	}
 
-	private int requestOverride(String path) {
+	/**
+	 * Asks the user, if the specified path can be overwritten.
+	 * @param path path to the file to overwrite.
+	 * @return 0 if the overwrite is granted,
+	 * 		   1 if overwrite for this file is not granted
+	 * 		   2 if the process should cancel.
+	 */
+	private int requestOverwrite(String path) {
 		MessageDialog dg = new MessageDialog(
 				null,
 				"Confirm File Replace",

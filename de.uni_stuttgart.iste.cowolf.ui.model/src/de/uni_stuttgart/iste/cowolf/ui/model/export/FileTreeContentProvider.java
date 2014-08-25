@@ -1,6 +1,7 @@
-package de.uni_stuttgart.iste.cowolf.ui.model.dtmc.export;
+package de.uni_stuttgart.iste.cowolf.ui.model.export;
 
 import java.util.LinkedList;
+
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -8,18 +9,22 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 
-class FileTreeContentProvider implements ITreeContentProvider {
+public class FileTreeContentProvider implements ITreeContentProvider {
 
 	private String fileExtension;
 
-	public FileTreeContentProvider(String fileExtension, IStructuredSelection selection) {
+	/**
+	 * Constructor.
+	 * @param fileExtension Extension, which should be shown at this tree.
+	 */
+	public FileTreeContentProvider(String fileExtension) {
 		this.fileExtension = fileExtension;
 	}
 
+	@Override
 	public Object[] getChildren(Object parentElement) {
 		if (parentElement instanceof IProject) {
 			IProject projects = (IProject) parentElement;
@@ -41,6 +46,12 @@ class FileTreeContentProvider implements ITreeContentProvider {
 		return null;
 	}
 
+	/**
+	 * Filters an array of resources in fact of the specified fileextension.
+	 * @param members Members to filter.
+	 * @return List of resources, contains Containers which have children 
+	 *			with this extension and the files with the extension.
+	 */
 	private Object[] filterExtension(IResource[] members) {
 		LinkedList<IResource> filteredResources = new LinkedList<IResource>();
 		for (IResource res : members) {
@@ -60,6 +71,12 @@ class FileTreeContentProvider implements ITreeContentProvider {
 		return filteredResources.toArray();
 	}
 
+	/**
+	 * Return if the resource should be shown, because it has the specified 
+	 * file extension or have children with this attribute.
+	 * @param element Resource to check.
+	 * @return true if this resource should be shown, false otherwise.
+	 */
 	private boolean hasUsedObjectsRecursive(IResource element) {
 		if (element instanceof IContainer) {
 			try {
@@ -80,6 +97,7 @@ class FileTreeContentProvider implements ITreeContentProvider {
 		return false;
 	}
 
+	@Override
 	public Object getParent(Object element) {
 		if (element instanceof IProject) {
 			IProject projects = (IProject) element;
@@ -96,6 +114,7 @@ class FileTreeContentProvider implements ITreeContentProvider {
 		return null;
 	}
 
+	@Override
 	public boolean hasChildren(Object element) {
 		if (element instanceof IResource && !hasUsedObjectsRecursive((IResource)element)) {
 			return false;
@@ -119,13 +138,16 @@ class FileTreeContentProvider implements ITreeContentProvider {
 		return false;
 	}
 
+	@Override
 	public Object[] getElements(Object arg0) {
 		return this.filterExtension(ResourcesPlugin.getWorkspace().getRoot().getProjects());
 	}
 
+	@Override
 	public void dispose() {
 	}
 
+	@Override
 	public void inputChanged(Viewer arg0, Object arg1, Object arg2) {
 	}
 }
