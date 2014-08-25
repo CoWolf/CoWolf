@@ -166,7 +166,7 @@ public class DTMCAnalyzeJob extends Job {
 			
 			pmFile.delete();
 			pctlFile.delete();
-			//resultFile.delete();
+			resultFile.delete();
 			
 			System.out.println("Results:");
 			for(Entry<Object, String> entry : this.prismResult.entrySet()) {

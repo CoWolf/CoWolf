@@ -16,6 +16,7 @@ import de.uni_stuttgart.iste.cowolf.ui.model.ctmc.preference.CTMCPreferencePage;
 public class CTMCAnalyzeWizard extends AbstractQoSAnalyzeWizard {
 
 	protected AnalyzeWizardPage1 pageOne;
+	protected AnalyzeWizardPage2 pageTwo;
 
 	public CTMCAnalyzeWizard() {
 		super();
@@ -26,11 +27,13 @@ public class CTMCAnalyzeWizard extends AbstractQoSAnalyzeWizard {
 		super.setWindowTitle("Analyze CTMC");
 		super.initialize(manager, resource, properties);
 		this.pageOne = new AnalyzeWizardPage1("Page 1");
+		this.pageTwo = new AnalyzeWizardPage2("Page 2", resource);
 	}
 
 	@Override
 	public boolean performFinish() {
 		this.pageOne.setProperties(this.properties);
+		this.pageTwo.setProperties(this.properties);
 		this.properties.put("prismRootPath", CTMCPreferencePage.getPrismPath());
 		return true;
 	}
@@ -43,6 +46,7 @@ public class CTMCAnalyzeWizard extends AbstractQoSAnalyzeWizard {
 	@Override
 	public void addPages() {
 		this.addPage(this.pageOne);
+		this.addPage(this.pageTwo);
 	}
 
 	@Override
@@ -62,7 +66,7 @@ public class CTMCAnalyzeWizard extends AbstractQoSAnalyzeWizard {
 			JOptionPane.showMessageDialog(null, "Path to PRISM is missing, please add in the preferences!", "Missing Path", JOptionPane.ERROR_MESSAGE);
 			return false;
 		}
-		if (super.resource != null && super.resource.getContents() != null && this.resource.getContents().get(0) != null) {
+		if (resource != null && resource.getContents() != null && resource.getContents().get(0) != null) {
 			Diagnostic diag = Diagnostician.INSTANCE.validate(this.resource.getContents().get(0));
 			if (diag.getChildren().size() > 0) {
 				JOptionPane.showMessageDialog(null,
