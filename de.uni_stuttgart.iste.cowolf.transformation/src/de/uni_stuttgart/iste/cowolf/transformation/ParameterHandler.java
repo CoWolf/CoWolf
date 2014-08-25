@@ -41,7 +41,6 @@ public class ParameterHandler {
             return this.handleRemoveReference((RemoveReference) change);
         } else if (change instanceof AddObject) {
             return this.handleAddObject((AddObject) change);
-
         } else if (change instanceof RemoveObject) {
             return this.handleRemoveObject((RemoveObject) change);
         }
@@ -91,7 +90,7 @@ public class ParameterHandler {
     }
 
     private Object getStructuralFeature(int pathIndex, EObject object) {
-        String feature = this.parameter.getPath().get(2);
+        String feature = this.parameter.getPath().get(pathIndex);
         return object.eGet(object.eClass().getEStructuralFeature(feature));
     }
 }
