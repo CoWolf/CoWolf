@@ -35,9 +35,6 @@ import org.eclipse.emf.henshin.model.Module;
 import org.eclipse.emf.henshin.model.Unit;
 import org.eclipse.emf.henshin.model.resource.HenshinResourceSet;
 import org.eclipse.emf.henshin.trace.impl.TraceImpl;
-import org.sidiff.difference.symmetric.AddReference;
-import org.sidiff.difference.symmetric.Change;
-import org.sidiff.difference.symmetric.RemoveReference;
 import org.sidiff.difference.symmetric.SemanticChangeSet;
 import org.sidiff.difference.symmetric.SymmetricDifference;
 
@@ -318,6 +315,7 @@ public abstract class AbstractTransformationManager {
             SymmetricDifference difference) {
         // TODO: perform only rules needed
         boolean result;
+        ParameterHandler paramHandler = new ParameterHandler();
 
         // load each rule which has to be executed, set parameters and transform
         // the provided graph
@@ -349,39 +347,9 @@ public abstract class AbstractTransformationManager {
                 application.setUnit(unit);
                 // traverse parameters from config object.
                 for (Param param : rule.getParams().getParam()) {
+                    Object value = paramHandler.getParameterValue(param,
+                            changeSet);
                     String name = param.getName();
-                    Object value = null;
-                    List<String> path = param.getPath();
-                    // check for corresponding change
-                    int counter = 1;
-                    for (Change change : changeSet.getChanges()) {
-                        if (change.eClass().getName().equals(path.get(0))) {
-                            if (change instanceof AddReference
-                                    && ((AddReference) change).getType()
-                                            .getName().equals(path.get(1))) {
-                            value = change;
-                                counter++;
-                            } else if (change instanceof RemoveReference
-                                    && ((RemoveReference) change).getType()
-                                            .getName().equals(path.get(1))) {
-                                value = change;
-                                counter++;
-                            }
-
-                        }
-                    }
-                    // traverse xml and object tree
-
-                    while (value != null && counter < path.size()) {
-
-                        EObject eObject = (EObject) value;
-                        System.out.println(eObject);
-                        System.out.println(path.get(counter));
-                        value = eObject.eGet(eObject.eClass()
-                                .getEStructuralFeature(path.get(counter)));
-                        counter++;
-                        System.out.println(value);
-                    }
                     application.setParameterValue(name, value);
                 }
                 result = application.execute(new LoggingApplicationMonitor());
