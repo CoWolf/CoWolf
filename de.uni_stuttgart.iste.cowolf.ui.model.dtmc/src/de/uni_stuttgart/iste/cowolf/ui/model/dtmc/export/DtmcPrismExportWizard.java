@@ -85,10 +85,10 @@ public class DtmcPrismExportWizard extends Wizard implements IExportWizard {
 				final String pathPCTL;
 				if (this.page1.getUseProjectStructure()) {
 					String projectStructure = iFile.getFullPath().removeLastSegments(1).toOSString();
-					pathPM = outputPath + projectStructure + File.separator + iFile.getName().substring(0, iFile.getName().length() - iFile.getFileExtension().length()) + "pm";
+					pathPM = outputPath + projectStructure + File.separator + iFile.getName().substring(0, iFile.getName().length() - iFile.getFileExtension().length()) + "prism";
 					pathPCTL = outputPath + projectStructure + File.separator + iFile.getName().substring(0, iFile.getName().length() - iFile.getFileExtension().length()) + "pctl";
 				} else {
-					pathPM = outputPath + File.separator + iFile.getName().substring(0, iFile.getName().length() - iFile.getFileExtension().length()) + "pm";
+					pathPM = outputPath + File.separator + iFile.getName().substring(0, iFile.getName().length() - iFile.getFileExtension().length()) + "prism";
 					pathPCTL = outputPath + File.separator + iFile.getName().substring(0, iFile.getName().length() - iFile.getFileExtension().length()) + "pctl";
 				}
 				System.out.println("Path for pm: " + pathPM);
