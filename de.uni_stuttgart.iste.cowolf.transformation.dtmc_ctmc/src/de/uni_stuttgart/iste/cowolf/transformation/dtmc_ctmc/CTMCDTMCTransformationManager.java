@@ -35,25 +35,6 @@ public class CTMCDTMCTransformationManager extends
 	}
 
 	@Override
-	protected File getRuleDirectory() {
-		Bundle root = Platform.getBundle(RULE_DIRECTORY);
-		URL url = FileLocator.find(root, new Path(File.separator + "rules"
-				+ File.separator), null);
-		File ruleDirectory = null;
-		try {
-			url = FileLocator.toFileURL(url);
-			ruleDirectory = new File(new java.net.URI(url.getProtocol(),
-					url.getPath(), null));
-
-		} catch (IOException | URISyntaxException e1) {
-			System.out.println(e1);
-			return null;
-		}
-
-		return ruleDirectory;
-	}
-
-	@Override
 	public Class<?> getManagedClass1() {
 		return DTMC.class;
 	}
