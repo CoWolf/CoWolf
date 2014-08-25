@@ -50,7 +50,7 @@ public class DTMCExportPRISMJob extends Job {
 		PRISMGenerator generator = new PRISMGenerator();
 
 		//Export PM
-		monitor.setTaskName("Exporting PM files");
+		monitor.setTaskName("Exporting PRISM model files");
 		if (this.mappingPM != null) {
 			for (Resource res : resArray) {
 				try {
