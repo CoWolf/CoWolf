@@ -76,8 +76,14 @@ public class DTMCAnalyzeJobListener implements IJobChangeListener {
 
 			out.write("State,Probability\n".getBytes());
 
-			for(Entry<State, String> entry : job.getAnalysis().entrySet()) {
-				out.write(entry.getKey().getName().getBytes());
+			for(Entry<Object, String> entry : job.getAnalysis().entrySet()) {
+				String key = "";
+				if (entry.getKey() instanceof State) {
+					key = ((State) entry.getKey()).getName();
+				} else if (entry.getKey() instanceof String) {
+					key = "Label: " + (String) entry.getKey();
+				}
+				out.write(key.getBytes());
 				out.write(',');
 				out.write(entry.getValue().toString().getBytes());
 				out.write('\n');
