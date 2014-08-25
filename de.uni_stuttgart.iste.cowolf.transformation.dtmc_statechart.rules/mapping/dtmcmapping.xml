@@ -9,9 +9,9 @@
 		<Rule name="CreatedStateInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
 			<Params>
 				<Param name="name">
-					<Path>AddObject</Path>
-					<Path>obj</Path>
-					<Path>name</Path>
+					<Change name="AddObject">
+						<Reference name="obj" attribute="name" />
+					</Change>
 				</Param>
 			</Params>
 		</Rule>
@@ -28,9 +28,9 @@
 		<Rule name="CreatedTransitionInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
 			<Params>
 				<Param name="name">
-					<Path>AddObject</Path>
-					<Path>obj</Path>
-					<Path>name</Path>
+					<Change name="AddObject">
+						<Reference name="obj" attribute="name" />
+					</Change>
 				</Param>
 			</Params>
 		</Rule>
@@ -59,10 +59,9 @@
 		<Rule name="ChangedTransitionSourceInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
 			<Params>
 				<Param name="transId">
-					<Path>RemoveReference</Path>
-					<Path>target</Path>
-					<Path>src</Path>
-					<Path>id</Path>
+					<Change name="RemoveReference" type="target">
+						<Reference name="src" attribute="id" />
+					</Change>
 				</Param>
 			</Params>
 		</Rule>

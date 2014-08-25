@@ -7,8 +7,6 @@
 
 package de.uni_stuttgart.iste.cowolf.transformation.model;
 
-import java.util.List;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -39,34 +37,13 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"path"})
+@XmlType(name = "")
 public class Param {
 
-    @XmlElement(name = "Path", required = true)
-    protected List<String> path;
+    @XmlElement(name = "Change", required = true)
+    protected Change change;
     @XmlAttribute(name = "name")
     protected String name;
-
-    /**
-     * Gets the value of the path property.
-     * 
-     * @return possible object is {@link String }
-     * 
-     */
-    public List<String> getPath() {
-        return path;
-    }
-
-    /**
-     * Sets the value of the path property.
-     * 
-     * @param value
-     *            allowed object is {@link String }
-     * 
-     */
-    public void setPath(List<String> value) {
-        this.path = value;
-    }
 
     /**
      * Gets the value of the name property.
@@ -87,6 +64,21 @@ public class Param {
      */
     public void setName(String value) {
         this.name = value;
+    }
+
+    /**
+     * @return the change
+     */
+    public Change getChange() {
+        return change;
+    }
+
+    /**
+     * @param change
+     *            the change to set
+     */
+    public void setChange(Change change) {
+        this.change = change;
     }
 
 }

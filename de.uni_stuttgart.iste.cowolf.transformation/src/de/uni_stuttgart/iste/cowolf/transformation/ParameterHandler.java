@@ -1,7 +1,5 @@
 package de.uni_stuttgart.iste.cowolf.transformation;
 
-import java.util.List;
-
 import org.eclipse.emf.ecore.EObject;
 import org.sidiff.difference.symmetric.AddObject;
 import org.sidiff.difference.symmetric.AddReference;
@@ -11,6 +9,7 @@ import org.sidiff.difference.symmetric.RemoveReference;
 import org.sidiff.difference.symmetric.SemanticChangeSet;
 
 import de.uni_stuttgart.iste.cowolf.transformation.model.Param;
+import de.uni_stuttgart.iste.cowolf.transformation.model.Reference;
 
 public class ParameterHandler {
 
@@ -18,12 +17,12 @@ public class ParameterHandler {
 
     public Object getParameterValue(Param parameter, SemanticChangeSet changeSet) {
         this.parameter = parameter;
-        List<String> path = parameter.getPath();
         // check for corresponding change
+        String paramChangeName = parameter.getChange().getName();
         Object result = null;
         for (Change change : changeSet.getChanges()) {
             String changeName = change.eClass().getName();
-            if (changeName.equals(path.get(0))) {
+            if (changeName.equals(paramChangeName)) {
                 Object changeResult = this.handleChange(change);
                 if (changeResult != null) {
                     result = changeResult;
@@ -47,50 +46,51 @@ public class ParameterHandler {
         return result;
     }
     private Object handleRemoveObject(RemoveObject change) {
-        return this.getStructuralFeature(1, change.getObj());
+        return this.getStructuralFeature(change.getObj());
     }
 
     private Object handleAddObject(AddObject change) {
-        return this.getStructuralFeature(1, change.getObj());
+        return this.getStructuralFeature(change.getObj());
     }
 
     private Object handleRemoveReference(RemoveReference change) {
-        String type = this.parameter.getPath().get(1);
+        Reference reference = this.parameter.getChange().getReference();
+        String type = this.parameter.getChange().getType();
         if (change.getType().getName().equals(type)) {
-            String reference = this.parameter.getPath().get(2);
+            String referenceName = reference.getName();
             EObject obj = null;
-            if (reference.equals("src")) {
+            if (referenceName.equals("src")) {
                 obj = change.getSrc();
-            } else if (reference.equals("tgt")) {
+            } else if (referenceName.equals("tgt")) {
                 obj = change.getTgt();
             }
             if (obj != null) {
-                String feature = this.parameter.getPath().get(3);
-                System.out.println(feature);
+                String feature = reference.getAttribute();
                 return obj.eGet(obj.eClass().getEStructuralFeature(feature));
             }
         }
         return null;
     }
     private Object handleAddReference(AddReference change) {
-        String type = this.parameter.getPath().get(1);
+        String type = this.parameter.getChange().getType();
         if (change.getType().getName().equals(type)) {
-            String reference = this.parameter.getPath().get(2);
+            Reference reference = this.parameter.getChange().getReference();
             EObject obj = null;
-            if (reference.equals("src")) {
+            if (reference.getName().equals("src")) {
                 obj = change.getSrc();
-            } else if (reference.equals("tgt")) {
+            } else if (reference.getName().equals("tgt")) {
                 obj = change.getTgt();
             }
             if (obj != null) {
-                return this.getStructuralFeature(3, obj);
+                return this.getStructuralFeature(obj);
             }
         }
         return null;
     }
 
-    private Object getStructuralFeature(int pathIndex, EObject object) {
-        String feature = this.parameter.getPath().get(pathIndex);
+    private Object getStructuralFeature(EObject object) {
+        String feature = this.parameter.getChange().getReference()
+                .getAttribute();
         return object.eGet(object.eClass().getEStructuralFeature(feature));
     }
 }
