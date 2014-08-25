@@ -8,9 +8,12 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -31,13 +34,15 @@ public class DTMCAnalyzeJob extends Job {
 	private final Map<String, Object> parameters;
 	
 	private EList<State> states;
-	private HashMap<State, String> prismResult;
+	private HashMap<Object, String> prismResult;
 
 	private String prismRootPath = "";
 	private String prismPMPath = "";
 	private String prismPCTLPath = "";
 	private String prismResultPath = "";
 	private String prismParameters = "";
+	private HashSet<State> analyzeStates;
+	private TreeSet<String> analyzeLabels;
 
 	/**
 	 * Used to analyze a DTMC using PRISM. As this might take some time for
@@ -83,7 +88,7 @@ public class DTMCAnalyzeJob extends Job {
 		return this.model;
 	}
 
-	public HashMap<State, String> getAnalysis() {
+	public HashMap<Object, String> getAnalysis() {
 		return this.prismResult;
 	}
 
@@ -99,7 +104,10 @@ public class DTMCAnalyzeJob extends Job {
 			DTMC root = (DTMC) this.model.getContents().get(0);
 			states = root.getStates();
 			
-			this.prismResult = new HashMap<State,String>();
+			
+			getAnalyzeProperties();
+			
+			this.prismResult = new HashMap<Object,String>();
 
 			monitor.beginTask("Analyse DTMC", prismResult.size() + 4);
 
@@ -120,10 +128,12 @@ public class DTMCAnalyzeJob extends Job {
 			// 2. Generate pctl-file from model and save it to a temporary file.
 			File pctlFile = File.createTempFile("dtmc_prism_pctl", ".pctl");
 
-			System.out.println(generator.generatePCTL(this.model));
+			String pctl = generator.generatePCTL(this.model, this.analyzeStates, this.analyzeLabels).toString();
+			
+			System.out.println(pctl);
 
 			out = new FileOutputStream(pctlFile.getAbsolutePath());
-			out.write(generator.generatePCTL(this.model).toString().getBytes());
+			out.write(pctl.getBytes());
 			out.close();
 			monitor.worked(1);
 
@@ -156,14 +166,19 @@ public class DTMCAnalyzeJob extends Job {
 			
 			pmFile.delete();
 			pctlFile.delete();
-			resultFile.delete();
+			//resultFile.delete();
 			
 			System.out.println("Results:");
-			for(Entry<State, String> entry : this.prismResult.entrySet()) {
-				  State key = entry.getKey();
-				  String value = entry.getValue();
-
-				  System.out.println(key.getName() + " => " + value);
+			for(Entry<Object, String> entry : this.prismResult.entrySet()) {
+				String key = "";
+				if (entry.getKey() instanceof State) {
+					key = ((State) entry.getKey()).getName();
+				} else if (entry.getKey() instanceof String) {
+					key = "Label: " + (String) entry.getKey();
+				}
+				String value = entry.getValue();
+				
+				System.out.println(key + " => " + value);
 			}
 			
 		} catch (IOException e) {
@@ -175,31 +190,65 @@ public class DTMCAnalyzeJob extends Job {
 		return Status.OK_STATUS;
 	}
 
+	private void getAnalyzeProperties() {
+		boolean absorbing = !this.parameters.containsKey("analyzeAbsorbing") ||
+				(boolean) this.parameters.get("analyzeAbsorbing");
+		
+		this.analyzeStates = new HashSet<State>();
+		if (this.parameters.containsKey("analyzeStates") && this.parameters.get("analyzeStates") instanceof Collection) {
+			@SuppressWarnings("unchecked")
+			Collection<String> as = (Collection<String>) this.parameters.get("analyzeStates");
+			
+			for (State s : states) {
+				if (absorbing && s.getOutgoing().size() == 0) {
+					this.analyzeStates.add(s);
+				} else if (as.contains(s.getId())) {
+					this.analyzeStates.add(s);
+				}
+			}
+		}
+		
+		this.analyzeLabels = new TreeSet<String>();
+		if (this.parameters.containsKey("analyzeLabels") && this.parameters.get("analyzeLabels") instanceof Collection) {
+			@SuppressWarnings("unchecked")
+			Collection<String> al = (Collection<String>) this.parameters.get("analyzeLabels");
+			this.analyzeLabels.addAll(al);
+		}
+	}
+
 	protected void parseResultFile(final String file) {
 		BufferedReader br;
 		try {
 			br = new BufferedReader(new FileReader(file));
 			String line;
-			Pattern propPattern = Pattern.compile("^P=\\?\\s*\\[\\s*F\\s*s=(\\d+)\\s*\\]:\\s*$");
+			Pattern propPattern = Pattern.compile("^P=\\?\\s*\\[\\s*F\\s*(?:s=(\\d+)|\"(\\w+)\")\\s*\\]:\\s*$");
 			Pattern resultPattern = Pattern.compile("^([0|1]?\\.\\d+)$");
 			boolean first = true;
 			while ((line = br.readLine()) != null) {
 				Matcher m = propPattern.matcher(line);
 				int index = -1;
+				String label = "";
 				if (!m.find()) {
 					if (!first) {
 						// no useful line, try next one.
 						continue;
 					} else {
 						// maybe only one result, save into first end state.
-						for (int i=0; i<this.states.size(); i++) {
-							if (this.states.get(i).getOutgoing().size() == 0) {
-								index = i;
-							}
+						if (this.analyzeStates.size() > 0) {
+							index = this.states.indexOf(this.analyzeStates.iterator().next());
+						} else if (this.analyzeLabels.size() > 0) {
+							index = -1;
+							label = this.analyzeLabels.first();
 						}
 					}
 				} else {
-					index = Integer.parseInt(m.group(1));
+					if (m.group(1) != null) {
+						index = Integer.parseInt(m.group(1));
+					} else if (m.group(2) != null) {
+						label = m.group(2);
+					} else {
+						continue;
+					}
 					line = br.readLine();
 				}
 
@@ -213,7 +262,11 @@ public class DTMCAnalyzeJob extends Job {
 					continue;
 				}
 				String result = m.group(1);
-				this.prismResult.put(states.get(index), result);
+				if (index >= 0) {
+					this.prismResult.put(states.get(index), result);
+				} else if (!label.isEmpty()) {
+					this.prismResult.put(label, result);
+				}
 				
 			}
 			br.close();

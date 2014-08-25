@@ -16,6 +16,7 @@ import de.uni_stuttgart.iste.cowolf.ui.model.dtmc.preference.DTMCPreferencePage;
 public class DTMCAnalyzeWizard extends AbstractQoSAnalyzeWizard {
 
 	protected AnalyzeWizardPage1 pageOne;
+	private AnalyzeWizardPage2 pageTwo;
 
 	public DTMCAnalyzeWizard() {
 		super();
@@ -26,11 +27,13 @@ public class DTMCAnalyzeWizard extends AbstractQoSAnalyzeWizard {
 		super.setWindowTitle("Analyze DTMC");
 		super.initialize(manager, resource, properties);
 		this.pageOne = new AnalyzeWizardPage1("Page 1");
+		this.pageTwo = new AnalyzeWizardPage2("Page 2", this.resource);
 	}
 
 	@Override
 	public boolean performFinish() {
 		this.pageOne.setProperties(this.properties);
+		this.pageTwo.setProperties(this.properties);
 		this.properties.put("prismRootPath", DTMCPreferencePage.getPrismPath());
 		return true;
 	}
@@ -43,6 +46,7 @@ public class DTMCAnalyzeWizard extends AbstractQoSAnalyzeWizard {
 	@Override
 	public void addPages() {
 		this.addPage(this.pageOne);
+		this.addPage(this.pageTwo);
 	}
 
 	@Override
