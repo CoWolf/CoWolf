@@ -20,7 +20,6 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.dialogs.ContainerCheckedTreeViewer;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.DirectoryDialog;
@@ -30,7 +29,8 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Tree;
 
-import de.uni_stuttgart.iste.cowolf.ui.model.dtmc.Activator;
+import de.uni_stuttgart.iste.cowolf.ui.model.export.FileTreeContentProvider;
+import de.uni_stuttgart.iste.cowolf.ui.model.export.FileTreeLabelProvider;
 
 public class DtmcPrismExportPage1 extends WizardPage {
 
@@ -43,7 +43,13 @@ public class DtmcPrismExportPage1 extends WizardPage {
 	private Button btnOverwriteExistingFiles;
 	private IDialogSettings settings;
 	
-	protected DtmcPrismExportPage1(String pageName, IWorkbench workbench, IStructuredSelection selection, IDialogSettings settings) {
+	/**
+	 * 
+	 * @param pageName Titlename of the page.
+	 * @param selection Workbench selection, which should be selected on startup.
+	 * @param settings Settings which should be used to load and store the default values.
+	 */
+	protected DtmcPrismExportPage1(String pageName, IStructuredSelection selection, IDialogSettings settings) {
 		super(pageName);
 		this.setDescription("Description");
 		this.setTitle("Export DTMC model as PRISM model");
@@ -76,7 +82,7 @@ public class DtmcPrismExportPage1 extends WizardPage {
 		tree = new ContainerCheckedTreeViewer(grpModelChooser);
 		Tree tree_1 = tree.getTree();
 		tree_1.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
-		tree.setContentProvider(new FileTreeContentProvider("dtmcemf", this.selection));
+		tree.setContentProvider(new FileTreeContentProvider("dtmcemf"));
 		tree.setLabelProvider(new FileTreeLabelProvider());
 		tree.setInput("root"); // pass a non-null that will be ignored
 		
@@ -164,6 +170,9 @@ public class DtmcPrismExportPage1 extends WizardPage {
 		this.setPageComplete();
 	}
 
+	/**
+	 * Checks if this page is completed, also sets error messages.
+	 */
 	public void setPageComplete() {
 		String path = this.txtPath.getText();
 		File file = new File(path);
@@ -200,6 +209,10 @@ public class DtmcPrismExportPage1 extends WizardPage {
 		this.setPageComplete(true);
 	}
 
+	/**
+	 * Returns the selected files for export.
+	 * @return List of DTMC models which should be exported.
+	 */
 	public List<IFile> getSelectedFiles() {
 		ArrayList<IFile> files = new ArrayList<IFile> ();
 		Object[] selected = this.tree.getCheckedElements();
@@ -211,22 +224,41 @@ public class DtmcPrismExportPage1 extends WizardPage {
 		return files;
 	}
 	
+	/**
+	 * Returns whether the specified path for the output files.
+	 * @return String which represents the path to directory, null if none is specified.
+	 */
 	public String getOutputPath() {
 		return txtPath.getText();
 	}
 	
+	/**
+	 * Returns whether the exported files should automatically overwrite existing files.
+	 * @return true if overwriting is granted, false otherwise.
+	 */
 	public boolean getOverwritePermission() {
 		return this.btnOverwriteExistingFiles.getSelection();
 	}
 	
+	/**
+	 * Returns whether the exported files should be generated with the same structure as in workspace.
+	 * @return True if the workspace structure should be exported, false otherwise.
+	 */
 	public boolean getUseProjectStructure() {
 		return this.btnProjectstructure.getSelection();
 	}
 	
+	/**
+	 * Return whether the pctl should be exported besides the PM file.
+	 * @return true if pctl should be exported, false otherwise.
+	 */
 	public boolean isExportPctlEnabled() {
 		return btnExportPctlFile.getSelection();
 	}
 
+	/**
+	 * Saves output path, if pctl should be exported and if the project structure should be used.
+	 */
 	public void saveSettings() {
 		if (this.settings == null) {
 			return;
@@ -236,17 +268,20 @@ public class DtmcPrismExportPage1 extends WizardPage {
 		settings.put("use_project_structure", this.btnProjectstructure.getSelection());
 	}
 	
+	/**
+	 * Loads all settings.
+	 */
 	public void loadSettings() {
 		if (settings == null) {
 			return;
 		}
-		if (settings.get("output_path") != null) {
+		if (settings.get("output_path") != null && this.txtPath != null) {
 			this.txtPath.setText(settings.get("output_path"));		
 		}
-		if (settings.get("export_pctl") != null) {
+		if (settings.get("export_pctl") != null && this.btnExportPctlFile != null) {
 			this.btnExportPctlFile.setSelection(settings.getBoolean("export_pctl"));
 		}
-		if (settings.get("use_project_structure") != null) {
+		if (settings.get("use_project_structure") != null && this.btnProjectstructure != null) {
 			this.btnProjectstructure.setSelection(settings.getBoolean("user_project_structure"));
 		}
 	}

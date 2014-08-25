@@ -1,4 +1,4 @@
-package de.uni_stuttgart.iste.cowolf.ui.model.dtmc.export;
+package de.uni_stuttgart.iste.cowolf.ui.model.export;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -10,24 +10,34 @@ import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE.SharedImages;
 
-class FileTreeLabelProvider implements ILabelProvider {
+public class FileTreeLabelProvider implements ILabelProvider {
+	
+	public FileTreeLabelProvider() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	@Override
 	public void addListener(ILabelProviderListener listener) {
 
 	}
 
+	@Override
 	public void dispose() {
 
 	}
 
+	@Override
 	public boolean isLabelProperty(Object element, String property) {
 
 		return false;
 	}
 
+	@Override
 	public void removeListener(ILabelProviderListener listener) {
 
 	}
 
+	@Override
 	public Image getImage(Object element) {
 		if (element instanceof IProject) {
 			return PlatformUI.getWorkbench().getSharedImages().getImage(SharedImages.IMG_OBJ_PROJECT); 
@@ -41,6 +51,7 @@ class FileTreeLabelProvider implements ILabelProvider {
 		return null;
 	}
 
+	@Override
 	public String getText(Object element) {
 		if (element instanceof IProject) {
 			String text = ((IProject) element).getName();
