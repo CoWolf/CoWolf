@@ -2,6 +2,8 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.statechart;
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
+import de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -22,7 +24,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface StateVertex extends de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase, de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase {
+public interface StateVertex extends IDBase, NameBase {
 	/**
 	 * Returns the value of the '<em><b>Sv container</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.model.statechart.CompositeState#getSubVertexes <em>Sub Vertexes</em>}'.

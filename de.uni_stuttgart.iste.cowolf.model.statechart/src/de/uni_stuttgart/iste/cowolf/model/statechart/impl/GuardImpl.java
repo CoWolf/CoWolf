@@ -2,6 +2,9 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.statechart.impl;
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
+import de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase;
+import de.uni_stuttgart.iste.cowolf.model.commonBase.impl.IDBaseImpl;
 import de.uni_stuttgart.iste.cowolf.model.statechart.BooleanExpression;
 import de.uni_stuttgart.iste.cowolf.model.statechart.Guard;
 import de.uni_stuttgart.iste.cowolf.model.statechart.Transition;
@@ -28,7 +31,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *
  * @generated
  */
-public class GuardImpl extends de.uni_stuttgart.iste.cowolf.model.commonBase.impl.IDBaseImpl implements Guard {
+public class GuardImpl extends IDBaseImpl implements Guard {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -306,9 +309,9 @@ public class GuardImpl extends de.uni_stuttgart.iste.cowolf.model.commonBase.imp
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase.class) {
+		if (baseClass == NameBase.class) {
 			switch (derivedFeatureID) {
-				case statechartemfPackage.GUARD__NAME: return de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.NAME_BASE__NAME;
+				case statechartemfPackage.GUARD__NAME: return CommonBasePackage.NAME_BASE__NAME;
 				default: return -1;
 			}
 		}
@@ -322,9 +325,9 @@ public class GuardImpl extends de.uni_stuttgart.iste.cowolf.model.commonBase.imp
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase.class) {
+		if (baseClass == NameBase.class) {
 			switch (baseFeatureID) {
-				case de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.NAME_BASE__NAME: return statechartemfPackage.GUARD__NAME;
+				case CommonBasePackage.NAME_BASE__NAME: return statechartemfPackage.GUARD__NAME;
 				default: return -1;
 			}
 		}

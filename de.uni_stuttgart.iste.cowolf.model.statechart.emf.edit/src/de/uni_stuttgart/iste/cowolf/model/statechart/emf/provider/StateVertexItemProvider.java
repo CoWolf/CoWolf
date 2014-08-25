@@ -3,6 +3,8 @@
 package de.uni_stuttgart.iste.cowolf.model.statechart.emf.provider;
 
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
+import de.uni_stuttgart.iste.cowolf.model.commonBase.emf.provider.IDBaseItemProvider;
 import de.uni_stuttgart.iste.cowolf.model.statechart.StateVertex;
 import de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage;
 import java.util.Collection;
@@ -22,7 +24,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class StateVertexItemProvider 
-	extends de.uni_stuttgart.iste.cowolf.model.commonBase.emf.provider.IDBaseItemProvider {
+	extends IDBaseItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -64,7 +66,7 @@ public class StateVertexItemProvider
 				 getResourceLocator(),
 				 getString("_UI_NameBase_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_NameBase_name_feature", "_UI_NameBase_type"),
-				 de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.Literals.NAME_BASE__NAME,
+				 CommonBasePackage.Literals.NAME_BASE__NAME,
 				 true,
 				 false,
 				 false,

@@ -2,6 +2,9 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.statechart;
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
+import de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -19,7 +22,7 @@ package de.uni_stuttgart.iste.cowolf.model.statechart;
  * @model
  * @generated
  */
-public interface BooleanExpression extends de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase, de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase {
+public interface BooleanExpression extends IDBase, NameBase {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->

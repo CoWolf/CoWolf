@@ -12,7 +12,8 @@ Package statechart <http://Statechart/1.0>
 
   Class StateMachine -> IDBase, NameBase
     Reference transitions : Transition<<0..*>>
-    Reference top : State<<0..*>>
+    Reference states : State<<0..*>>
+    Reference initialStates : State
 
   Class State -> StateVertex
     Reference state_container : StateMachine<<1..1>>

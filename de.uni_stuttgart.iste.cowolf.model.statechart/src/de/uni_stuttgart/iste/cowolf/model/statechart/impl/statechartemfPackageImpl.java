@@ -2,6 +2,7 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.statechart.impl;
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
 import de.uni_stuttgart.iste.cowolf.model.statechart.BooleanExpression;
 import de.uni_stuttgart.iste.cowolf.model.statechart.CompositeState;
 import de.uni_stuttgart.iste.cowolf.model.statechart.Event;
@@ -128,7 +129,7 @@ public class statechartemfPackageImpl extends EPackageImpl implements statechart
 		isInited = true;
 
 		// Initialize simple dependencies
-		de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.eINSTANCE.eClass();
+		CommonBasePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		thestatechartemfPackage.createPackageContents();
@@ -186,8 +187,17 @@ public class statechartemfPackageImpl extends EPackageImpl implements statechart
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getStateMachine_Top() {
+	public EReference getStateMachine_States() {
 		return (EReference)stateMachineEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStateMachine_InitialStates() {
+		return (EReference)stateMachineEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -439,7 +449,8 @@ public class statechartemfPackageImpl extends EPackageImpl implements statechart
 
 		stateMachineEClass = createEClass(STATE_MACHINE);
 		createEReference(stateMachineEClass, STATE_MACHINE__TRANSITIONS);
-		createEReference(stateMachineEClass, STATE_MACHINE__TOP);
+		createEReference(stateMachineEClass, STATE_MACHINE__STATES);
+		createEReference(stateMachineEClass, STATE_MACHINE__INITIAL_STATES);
 
 		stateEClass = createEClass(STATE);
 		createEReference(stateEClass, STATE__STATE_CONTAINER);
@@ -496,7 +507,7 @@ public class statechartemfPackageImpl extends EPackageImpl implements statechart
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage theCommonBasePackage = (de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage)EPackage.Registry.INSTANCE.getEPackage(de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.eNS_URI);
+		CommonBasePackage theCommonBasePackage = (CommonBasePackage)EPackage.Registry.INSTANCE.getEPackage(CommonBasePackage.eNS_URI);
 
 		// Create type parameters
 
@@ -524,10 +535,11 @@ public class statechartemfPackageImpl extends EPackageImpl implements statechart
 
 		initEClass(stateMachineEClass, StateMachine.class, "StateMachine", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getStateMachine_Transitions(), this.getTransition(), this.getTransition_TransSM_container(), "transitions", null, 0, -1, StateMachine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getStateMachine_Top(), this.getState(), this.getState_State_container(), "top", null, 0, -1, StateMachine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getStateMachine_States(), this.getState(), null, "states", null, 0, -1, StateMachine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getStateMachine_InitialStates(), this.getState(), this.getState_State_container(), "initialStates", null, 0, 1, StateMachine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getState_State_container(), this.getStateMachine(), this.getStateMachine_Top(), "state_container", null, 1, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getState_State_container(), this.getStateMachine(), this.getStateMachine_InitialStates(), "state_container", null, 1, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getState_InternalTransitions(), this.getTransition(), this.getTransition_TransS_container(), "internalTransitions", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getState_DeferrableEvents(), this.getEvent(), this.getEvent_Targets(), "deferrableEvents", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 

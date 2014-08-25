@@ -2,6 +2,8 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.statechart.util;
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
+import de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase;
 import de.uni_stuttgart.iste.cowolf.model.statechart.*;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -97,11 +99,11 @@ public class statechartemfAdapterFactory extends AdapterFactoryImpl {
 				return createEventAdapter();
 			}
 			@Override
-			public Adapter caseIDBase(de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase object) {
+			public Adapter caseIDBase(IDBase object) {
 				return createIDBaseAdapter();
 			}
 			@Override
-			public Adapter caseNameBase(de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase object) {
+			public Adapter caseNameBase(NameBase object) {
 				return createNameBaseAdapter();
 			}
 			@Override

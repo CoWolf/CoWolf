@@ -19,5 +19,9 @@ public interface StateMachineValidator {
 	boolean validate();
 
 	boolean validateTransitions(EList<Transition> value);
+	boolean validateStates(EList<State> value);
+
+	boolean validateInitialStates(State value);
+
 	boolean validateTop(EList<State> value);
 }
