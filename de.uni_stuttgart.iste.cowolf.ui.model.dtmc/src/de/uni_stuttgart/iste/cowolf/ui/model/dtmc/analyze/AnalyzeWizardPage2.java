@@ -89,11 +89,16 @@ public class AnalyzeWizardPage2 extends WizardPage {
 		
 		this.stateNode = new TreeNode("States");
 		
+		if (resource == null || resource.getContents().get(0) == null
+				|| !(resource.getContents().get(0) instanceof DTMC)) {
+			return new TreeNode[]{labelNode, stateNode};
+		}
+		
 		ArrayList<TreeNode> states = new ArrayList<TreeNode>(((DTMC) resource.getContents().get(0)).getStates().size());
 		
 		ArrayList<String> labelNames = new ArrayList<String>();
 		for (State s : ((DTMC) resource.getContents().get(0)).getStates()) {
-			if (!s.getName().isEmpty()) {
+			if (s.getName() != null && !s.getName().isEmpty()) {
 				TreeNode node = new TreeNode(s);
 				node.setParent(stateNode);
 				states.add(node);

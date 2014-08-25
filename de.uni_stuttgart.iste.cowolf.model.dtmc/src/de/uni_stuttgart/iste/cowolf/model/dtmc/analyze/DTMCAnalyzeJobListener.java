@@ -7,10 +7,13 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.PipedInputStream;
+import java.io.PipedOutputStream;
 import java.util.Map.Entry;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.jobs.IJobChangeEvent;
 import org.eclipse.core.runtime.jobs.IJobChangeListener;
@@ -67,13 +70,11 @@ public class DTMCAnalyzeJobListener implements IJobChangeListener {
 		IFile modelfile = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(resource.getURI().toPlatformString(true)));
 
 		IFile resultfile = ResourcesPlugin.getWorkspace().getRoot().getFile(modelfile.getFullPath().addFileExtension("analysis.csv"));
-
-
-		OutputStream out;
+		
 		try {
-
-			out = new FileOutputStream(resultfile.getLocation().toOSString());
-
+			PipedInputStream in = new PipedInputStream();
+			PipedOutputStream out = new PipedOutputStream(in);
+			
 			out.write("State,Probability\n".getBytes());
 
 			for(Entry<Object, String> entry : job.getAnalysis().entrySet()) {
@@ -90,16 +91,26 @@ public class DTMCAnalyzeJobListener implements IJobChangeListener {
 			}
 
 			out.close();
-
-			if (this.listener != null) {
-				this.listener.finished(resource, resultfile);
+			
+			if (resultfile.exists()) {
+				resultfile.setContents(in, true, false, null);
+			} else {
+				resultfile.create(in, true, null);
 			}
+			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (CoreException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		if (this.listener != null) {
+			this.listener.finished(resource, resultfile);
 		}
 	}
 
