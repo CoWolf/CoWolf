@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_zH8P7yxcEeSheLzImRsqjA" name="RR: CREATE_BooleanExpression_IN_State_(atomicProposition)" description="Recognize: Creates one BooleanExpression in State">
+  <imports href="http://www.sidiff.org/difference/symmetric/1.0#/"/>
+  <imports href="http://Statechart/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_zH8P8CxcEeSheLzImRsqjA" name="rr:createBooleanExpression_IN_State" description="Recognize: creates one BooleanExpression in the context: State">
+    <parameters xmi:id="_zH8P8SxcEeSheLzImRsqjA" name="Selected"/>
+    <parameters xmi:id="_zH8P8ixcEeSheLzImRsqjA" name="New"/>
+    <parameters xmi:id="_zH8P8yxcEeSheLzImRsqjA" name="Id"/>
+    <parameters xmi:id="_zH8P9CxcEeSheLzImRsqjA" name="Name"/>
+    <parameters xmi:id="_zH8P9SxcEeSheLzImRsqjA" name="Value"/>
+    <lhs xmi:id="_zH8P9ixcEeSheLzImRsqjA" name="Lhs">
+      <nodes xmi:id="_zH8P9yxcEeSheLzImRsqjA" name="B.Selected" incoming="_zH8QAixcEeSheLzImRsqjA" outgoing="_zH8QBSxcEeSheLzImRsqjA">
+        <type href="http://Statechart/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_zH8P-CxcEeSheLzImRsqjA" name="" outgoing="_zH8QASxcEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddObject"/>
+      </nodes>
+      <nodes xmi:id="_zH8P-SxcEeSheLzImRsqjA" name="B.New" incoming="_zH8QASxcEeSheLzImRsqjA _zH8QAyxcEeSheLzImRsqjA _zH8QBSxcEeSheLzImRsqjA">
+        <type href="http://Statechart/1.0#//BooleanExpression"/>
+        <attributes xmi:id="_zH8P-ixcEeSheLzImRsqjA" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_zH8P-yxcEeSheLzImRsqjA" value="Name">
+          <type href="http://CommonBase/1.0#//NameBase/name"/>
+        </attributes>
+        <attributes xmi:id="_zH8P_CxcEeSheLzImRsqjA" value="Value">
+          <type href="http://Statechart/1.0#//BooleanExpression/value"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_zH8P_SxcEeSheLzImRsqjA" name="" outgoing="_zH8QAixcEeSheLzImRsqjA _zH8QAyxcEeSheLzImRsqjA _zH8QBCxcEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference"/>
+      </nodes>
+      <nodes xmi:id="_zH8P_ixcEeSheLzImRsqjA" name="" incoming="_zH8QBCxcEeSheLzImRsqjA">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+        <attributes xmi:id="_zH8P_yxcEeSheLzImRsqjA" value="&quot;null&quot;">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_zH8QACxcEeSheLzImRsqjA" name="">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_zH8QASxcEeSheLzImRsqjA" source="_zH8P-CxcEeSheLzImRsqjA" target="_zH8P-SxcEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddObject/obj"/>
+      </edges>
+      <edges xmi:id="_zH8QAixcEeSheLzImRsqjA" source="_zH8P_SxcEeSheLzImRsqjA" target="_zH8P9yxcEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/src"/>
+      </edges>
+      <edges xmi:id="_zH8QAyxcEeSheLzImRsqjA" source="_zH8P_SxcEeSheLzImRsqjA" target="_zH8P-SxcEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/tgt"/>
+      </edges>
+      <edges xmi:id="_zH8QBCxcEeSheLzImRsqjA" source="_zH8P_SxcEeSheLzImRsqjA" target="_zH8P_ixcEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/type"/>
+      </edges>
+      <edges xmi:id="_zH8QBSxcEeSheLzImRsqjA" source="_zH8P9yxcEeSheLzImRsqjA" target="_zH8P-SxcEeSheLzImRsqjA">
+        <type href="http://Statechart/1.0#//State/atomicProposition"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_zH8QBixcEeSheLzImRsqjA" name="Rhs">
+      <nodes xmi:id="_zH8QByxcEeSheLzImRsqjA" name="B.Selected" incoming="_zH8QFyxcEeSheLzImRsqjA" outgoing="_zH8QGixcEeSheLzImRsqjA">
+        <type href="http://Statechart/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_zH8QCCxcEeSheLzImRsqjA" name="" incoming="_zH8QGyxcEeSheLzImRsqjA" outgoing="_zH8QFixcEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddObject"/>
+      </nodes>
+      <nodes xmi:id="_zH8QCSxcEeSheLzImRsqjA" name="B.New" incoming="_zH8QFixcEeSheLzImRsqjA _zH8QGCxcEeSheLzImRsqjA _zH8QGixcEeSheLzImRsqjA">
+        <type href="http://Statechart/1.0#//BooleanExpression"/>
+      </nodes>
+      <nodes xmi:id="_zH8QCixcEeSheLzImRsqjA" name="" incoming="_zH8QHCxcEeSheLzImRsqjA" outgoing="_zH8QFyxcEeSheLzImRsqjA _zH8QGCxcEeSheLzImRsqjA _zH8QGSxcEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference"/>
+      </nodes>
+      <nodes xmi:id="_zH8QCyxcEeSheLzImRsqjA" name="" incoming="_zH8QGSxcEeSheLzImRsqjA">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+      </nodes>
+      <nodes xmi:id="_zH8QDCxcEeSheLzImRsqjA" incoming="_zH8QHSxcEeSheLzImRsqjA" outgoing="_zH8QGyxcEeSheLzImRsqjA _zH8QHCxcEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet"/>
+        <attributes xmi:id="_zH8QDSxcEeSheLzImRsqjA" value="&quot;CREATE_BooleanExpression_IN_State_(atomicProposition)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/name"/>
+        </attributes>
+        <attributes xmi:id="_zH8QDixcEeSheLzImRsqjA" value="&quot;Creates one BooleanExpression in State&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/description"/>
+        </attributes>
+        <attributes xmi:id="_zH8QDyxcEeSheLzImRsqjA" value="&quot;CREATE_BooleanExpression_IN_State_(atomicProposition)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/editRName"/>
+        </attributes>
+        <attributes xmi:id="_zH8QECxcEeSheLzImRsqjA" value="&quot;RR: CREATE_BooleanExpression_IN_State_(atomicProposition)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/recognitionRName"/>
+        </attributes>
+        <attributes xmi:id="_zH8QESxcEeSheLzImRsqjA" value="1">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/priority"/>
+        </attributes>
+        <attributes xmi:id="_zH8QEixcEeSheLzImRsqjA" value="0">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfACs"/>
+        </attributes>
+        <attributes xmi:id="_zH8QEyxcEeSheLzImRsqjA" value="5">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfParams"/>
+        </attributes>
+        <attributes xmi:id="_zH8QFCxcEeSheLzImRsqjA" value="7">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/refinementLevel"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_zH8QFSxcEeSheLzImRsqjA" name="" outgoing="_zH8QHSxcEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_zH8QFixcEeSheLzImRsqjA" source="_zH8QCCxcEeSheLzImRsqjA" target="_zH8QCSxcEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddObject/obj"/>
+      </edges>
+      <edges xmi:id="_zH8QFyxcEeSheLzImRsqjA" source="_zH8QCixcEeSheLzImRsqjA" target="_zH8QByxcEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/src"/>
+      </edges>
+      <edges xmi:id="_zH8QGCxcEeSheLzImRsqjA" source="_zH8QCixcEeSheLzImRsqjA" target="_zH8QCSxcEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/tgt"/>
+      </edges>
+      <edges xmi:id="_zH8QGSxcEeSheLzImRsqjA" source="_zH8QCixcEeSheLzImRsqjA" target="_zH8QCyxcEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/type"/>
+      </edges>
+      <edges xmi:id="_zH8QGixcEeSheLzImRsqjA" source="_zH8QByxcEeSheLzImRsqjA" target="_zH8QCSxcEeSheLzImRsqjA">
+        <type href="http://Statechart/1.0#//State/atomicProposition"/>
+      </edges>
+      <edges xmi:id="_zH8QGyxcEeSheLzImRsqjA" source="_zH8QDCxcEeSheLzImRsqjA" target="_zH8QCCxcEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_zH8QHCxcEeSheLzImRsqjA" source="_zH8QDCxcEeSheLzImRsqjA" target="_zH8QCixcEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_zH8QHSxcEeSheLzImRsqjA" source="_zH8QFSxcEeSheLzImRsqjA" target="_zH8QDCxcEeSheLzImRsqjA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference/changeSets"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_zH8QHixcEeSheLzImRsqjA" origin="_zH8P9yxcEeSheLzImRsqjA" image="_zH8QByxcEeSheLzImRsqjA"/>
+    <mappings xmi:id="_zH8QHyxcEeSheLzImRsqjA" origin="_zH8P-CxcEeSheLzImRsqjA" image="_zH8QCCxcEeSheLzImRsqjA"/>
+    <mappings xmi:id="_zH8QICxcEeSheLzImRsqjA" origin="_zH8P-SxcEeSheLzImRsqjA" image="_zH8QCSxcEeSheLzImRsqjA"/>
+    <mappings xmi:id="_zH8QISxcEeSheLzImRsqjA" origin="_zH8P_SxcEeSheLzImRsqjA" image="_zH8QCixcEeSheLzImRsqjA"/>
+    <mappings xmi:id="_zH8QIixcEeSheLzImRsqjA" origin="_zH8P_ixcEeSheLzImRsqjA" image="_zH8QCyxcEeSheLzImRsqjA"/>
+    <mappings xmi:id="_zH8QIyxcEeSheLzImRsqjA" origin="_zH8QACxcEeSheLzImRsqjA" image="_zH8QFSxcEeSheLzImRsqjA"/>
+  </units>
+</henshin:Module>
