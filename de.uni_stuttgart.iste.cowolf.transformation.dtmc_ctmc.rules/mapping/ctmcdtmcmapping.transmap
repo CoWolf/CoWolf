@@ -1,33 +1,42 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Mappings xmlns="http://www.uni-stuttgart.iste.co.wolf.org/TransformationMapping">
     <Mapping priority="0">
+        <Difference>SET_Label_Name</Difference>
+        <Rule name="changedLabelNameInCTMC" path="platform:/plugin/Mappingfiles/CTMCDTMC/HenshinRules/CTMC_DTMC.henshin">
+            <Params>
+                <Param name="labelID">
+                	<Path>AttributeValueChange</Path>
+					<Path>objA</Path>
+					<Path>id</Path>
+                </Param>
+            </Params>
+        </Rule>
+    </Mapping>
+    <Mapping priority="0">
         <Difference>DELETE_Label_IN_State_(labels)</Difference>
         <Rule name="deletedLabelInCTMC" path="platform:/plugin/Mappingfiles/CTMCDTMC/HenshinRules/CTMC_DTMC.henshin">
             <Params/>
         </Rule>
     </Mapping>
     <Mapping priority="0">
-        <Difference>SET_Label_Name</Difference>
-        <Rule name="changedLabelNameInCTMC" path="platform:/plugin/Mappingfiles/CTMCDTMC/HenshinRules/CTMC_DTMC.henshin">
-            <Params>
-                <Param name="labelID"/>
-                <Param name="newName"/>
-            </Params>
-        </Rule>
-    </Mapping>
-    <Mapping priority="0">
         <Difference>ADD_State_(incoming)_TGT_Transition</Difference>
-        <Rule name="CreatedStateInCTMC" path="platform:/plugin/Mappingfiles/CTMCDTMC/HenshinRules/CTMC_DTMC.henshin">
+        <Rule name="addedIncomingTransitionToStateInCTMC" path="platform:/plugin/Mappingfiles/CTMCDTMC/HenshinRules/CTMC_DTMC.henshin">
             <Params>
+                <Param name="transitionID"/>
                 <Param name="stateID"/>
-                <Param name="name"/>
             </Params>
         </Rule>
     </Mapping>
     <Mapping priority="0">
         <Difference>CREATE_Label_IN_State_(labels)</Difference>
-        <Rule name="deletedLabelInCTMC" path="platform:/plugin/Mappingfiles/CTMCDTMC/HenshinRules/CTMC_DTMC.henshin">
-            <Params/>
+        <Rule name="CreatedLabelInCTMC" path="platform:/plugin/Mappingfiles/CTMCDTMC/HenshinRules/CTMC_DTMC.henshin">
+            <Params>
+                <Param name="newLabelID">
+                	<Path>AddObject</Path>
+					<Path>obj</Path>
+					<Path>id</Path>
+                </Param>
+            </Params>
         </Rule>
     </Mapping>
     <Mapping priority="0">
@@ -43,8 +52,11 @@
         <Difference>CREATE_State_IN_CTMC_(States)</Difference>
         <Rule name="CreatedStateInCTMC" path="platform:/plugin/Mappingfiles/CTMCDTMC/HenshinRules/CTMC_DTMC.henshin">
             <Params>
-                <Param name="stateID"/>
-                <Param name="name"/>
+                <Param name="stateID">
+                	<Path>AddObject</Path>
+					<Path>obj</Path>
+					<Path>id</Path>
+                </Param>
             </Params>
         </Rule>
     </Mapping>
@@ -72,20 +84,20 @@
         </Rule>
     </Mapping>
     <Mapping priority="0">
-        <Difference>SET_Transition_Rate</Difference>
-        <Rule name="changedTransitionRateUnit" path="platform:/plugin/Mappingfiles/CTMCDTMC/HenshinRules/CTMC_DTMC.henshin">
-            <Params>
-                <Param name="transitionID"/>
-                <Param name="sourceStateID"/>
-            </Params>
-        </Rule>
-    </Mapping>
-    <Mapping priority="0">
         <Difference>SET_State_Name</Difference>
         <Rule name="changedStateNameInCTMC" path="platform:/plugin/Mappingfiles/CTMCDTMC/HenshinRules/CTMC_DTMC.henshin">
             <Params>
                 <Param name="stateID"/>
                 <Param name="newName"/>
+            </Params>
+        </Rule>
+    </Mapping>
+    <Mapping priority="0">
+        <Difference>SET_Transition_Rate</Difference>
+        <Rule name="changedTransitionRateUnit" path="platform:/plugin/Mappingfiles/CTMCDTMC/HenshinRules/CTMC_DTMC.henshin">
+            <Params>
+                <Param name="transitionID"/>
+                <Param name="sourceStateID"/>
             </Params>
         </Rule>
     </Mapping>
@@ -105,3 +117,9 @@
         </Rule>
     </Mapping>
 </Mappings>
+
+
+
+
+
+
