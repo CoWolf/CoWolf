@@ -62,6 +62,10 @@ public abstract class AbstractTransformationManager {
 
     protected URI fileURI;
 
+    public abstract Class<?> getFirstClassType();
+    
+    public abstract Class<?> getSecondClassType();
+
     /**
      * 
      * @param source
@@ -71,7 +75,7 @@ public abstract class AbstractTransformationManager {
      * @return Returns whether given source and target models are managed by
      *         this manager.
      */
-	public boolean isManaged(Resource source, Resource target) {
+    public boolean isManaged(Resource source, Resource target) {
 		if ((source == null) || (target == null)) {
 			return false;
 		}
@@ -80,7 +84,7 @@ public abstract class AbstractTransformationManager {
 				|| target.getContents().isEmpty()) {
 			return false;
 		}
-		
+
 		if (getManagedClass1().isAssignableFrom(source.getContents().get(0).getClass()) 
 				&& getManagedClass2().isAssignableFrom(target.getContents().get(0).getClass())) {
 			return true;
@@ -94,7 +98,7 @@ public abstract class AbstractTransformationManager {
 		return false;
 	}
 
-	/**
+    /**
 	 * Return one of the root classes for the supported model.
 	 * @return root class of model, which can be managed with this transformation manager.
 	 */
@@ -130,7 +134,7 @@ public abstract class AbstractTransformationManager {
         // Load mappings
         Mappings mappingObject;
         try {
-            mappingObject = XMLMappingLoader.loadMapping(this.getMapping());
+            mappingObject = XMLMappingLoader.loadMapping(this.getMapping(source));
             this.mappings = mappingObject.getMapping();
             System.out.println("Found " + mappingObject.getMapping().size()
                     + " mappings.");
@@ -138,6 +142,7 @@ public abstract class AbstractTransformationManager {
             e1.printStackTrace();
             return null;
         }
+        System.out.println("Mapping loaded for " + this.getKey(source));
         // Load rules from files in folder
         System.out.println("Load henshin rules");
         this.units = this.getHenshinRules();
@@ -370,7 +375,7 @@ public abstract class AbstractTransformationManager {
      * 
      * @return stream containing mapping.
      */
-    private InputStream getMapping() {
+    private InputStream getMapping(Resource source) {
         IExtensionRegistry er = RegistryFactory.getRegistry();
         IExtensionPoint exPoint = er
                 .getExtensionPoint("de.uni_stuttgart.iste.cowolf.transformationMappingExtension");
@@ -378,7 +383,7 @@ public abstract class AbstractTransformationManager {
             for (IConfigurationElement element : extension
                     .getConfigurationElements()) {
                 // select config file via extension point
-                if (element.getAttribute("key").equals(this.getKey())) {
+                if (element.getAttribute("key").equals(this.getKey(source))) {
                     String platformString = extension.getNamespaceIdentifier()
                             + File.separator + element.getAttribute("file");
                     try {
@@ -393,12 +398,28 @@ public abstract class AbstractTransformationManager {
         }
         return null;
     }
+    
+    protected abstract String getKey();
+    
+    protected abstract String getReverseKey();
+    
     /**
      * Returns the key for which a mapping at the extension point can be stored.
      * 
      * @return string identifier
      */
-    protected abstract String getKey();
+    protected String getKey(Resource source) {
+		
+		if (source == null || source.getContents() == null) {
+			throw new IllegalArgumentException("Source should not be null.");
+		} else {
+			if (this.getFirstClassType().isAssignableFrom(source.getContents().get(0).getClass())) {
+				return this.getKey();
+			} else {
+				return this.getReverseKey();
+			}
+		}
+	}
 
     /**
      * Merges all provided EGraphs by adding all Root elements to the first

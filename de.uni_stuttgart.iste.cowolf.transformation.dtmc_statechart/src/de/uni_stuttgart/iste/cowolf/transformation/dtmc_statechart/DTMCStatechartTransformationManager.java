@@ -1,6 +1,5 @@
 package de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart;
 
-
 import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC;
 import de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine;
 import de.uni_stuttgart.iste.cowolf.transformation.AbstractTransformationManager;
@@ -25,17 +24,17 @@ public class DTMCStatechartTransformationManager
     @Override
     protected String getKey() {
         return KEY;
-    }
+        }
 
 	@Override
 	public Class<?> getManagedClass1() {
 		return DTMC.class;
-	}
+    }
 
-	@Override
+    @Override
 	public Class<?> getManagedClass2() {
 		// TODO Auto-generated method stub
 		return StateMachine.class;
-	}
+    }
 
 }

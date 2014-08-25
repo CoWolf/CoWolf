@@ -23,7 +23,6 @@ import de.uni_stuttgart.iste.cowolf.transformation.AbstractTransformationManager
 public class CTMCDTMCTransformationManager extends
 		AbstractTransformationManager {
 
-	private static final String RULE_DIRECTORY = "de.uni_stuttgart.iste.cowolf.transformation.dtmc_ctmc.rules";
 	/**
 	 * Key for extension point identification.
 	 */
