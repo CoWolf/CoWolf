@@ -6,7 +6,7 @@
 	<Mapping>
 		
 		<Difference>CREATE_State_IN_StateMachine_(top)</Difference>
-		<Rule name="CreatedStateInSC">
+		<Rule name="CreatedStateInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
 			<Params>
 				<Param name="name">
 					<Path>AddObject</Path>
@@ -18,14 +18,14 @@
 	</Mapping>
  	<Mapping>
  		<Difference>DELETE_State_IN_StateMachine_(top)</Difference>
- 		<Rule name="DeletedStateInSC">
+ 		<Rule name="DeletedStateInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
 			<Params>
 			</Params>
 		</Rule>
  	</Mapping>
 	<Mapping>
 		<Difference>CREATE_Transition_IN_StateMachine_(transitions)</Difference>
-		<Rule name="CreatedTransitionInSC">
+		<Rule name="CreatedTransitionInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
 			<Params>
 				<Param name="name">
 					<Path>AddObject</Path>
@@ -37,14 +37,14 @@
 	</Mapping>
 	<Mapping>
 		<Difference>DELETE_Transition_IN_StateMachine_(transitions)</Difference>
-		<Rule name="DeletedTransitionInSC">
+		<Rule name="DeletedTransitionInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
 			<Params>
 			</Params>
 		</Rule>
 	</Mapping>
 	<Mapping priority="10">
 		<Difference>CHANGE_Transition_(target)_TGT_StateVertex</Difference>
-		<Rule name="ChangedTransitionTargetInSC">
+		<Rule name="ChangedTransitionTargetInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
 			<Params>
 				<Param name="transName">
 					<Path>RemoveReference</Path>

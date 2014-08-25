@@ -146,18 +146,7 @@ public abstract class AbstractTransformationManager {
         System.out.println("Merging graphs");
         List<EGraph> graphs = new ArrayList<>();
 
-        // find broken proxy references and remove them from resource set
-        List<Resource> toRemove = new ArrayList<>();
-        for (int index = 0; index < target.getResourceSet().getResources()
-                .size(); index++) {
-            Resource res = target.getResourceSet().getResources().get(index);
-            if (!res.isLoaded() || res.getErrors().size() > 0) {
-                toRemove.add(res);
-            }
-        }
-        target.getResourceSet().getResources().removeAll(toRemove);
-
-        // initialize URI converter
+        // initialize URI converter and update broken traces
         this.updateTraces(source, target);
 
         graphs.add(new EGraphImpl(source));
@@ -229,6 +218,17 @@ public abstract class AbstractTransformationManager {
                 res.setURI(map.get(res.getURI()));
             }
         }
+
+        // find broken proxy references and remove them from resource set
+        List<Resource> toRemove = new ArrayList<>();
+        for (int index = 0; index < target.getResourceSet().getResources()
+                .size(); index++) {
+            Resource res = target.getResourceSet().getResources().get(index);
+            if (!res.isLoaded() || res.getErrors().size() > 0) {
+                toRemove.add(res);
+            }
+        }
+        target.getResourceSet().getResources().removeAll(toRemove);
     }
     /**
      * Saves root of the resulting model to an output file.
@@ -430,40 +430,13 @@ public abstract class AbstractTransformationManager {
      */
     private Map<String, Unit> getHenshinRules() {
         Map<String, Unit> units = new HashMap<>();
-        File ruleDirectory = this.getRuleDirectory();
-        List<File> henshinFiles = new ArrayList<>();
-        if (!ruleDirectory.isDirectory()) {
-            System.out.println("No directory selected.");
-            return null;
-        }
-        for (File henshinFile : ruleDirectory.listFiles()) {
-            //
-            String extension = "";
-            String fileName = henshinFile.toString();
-            int i = fileName.lastIndexOf('.');
-            if (i > 0) {
-                extension = fileName.substring(i + 1);
-            }
-            if (!henshinFile.isDirectory() && extension.equals("henshin")) {
-                henshinFiles.add(henshinFile);
-            }
-        }
-        for (File henshinFile : henshinFiles) {
-            System.out.println(henshinFile.getPath());
-            Module module = this.rulesResourceSet.getModule(
-                    henshinFile.getPath(), true);
+        for (Mapping mapping : this.mappings.values()) {
+            URI uri = URI.createURI(mapping.getRule().getPath());
+            Module module = this.rulesResourceSet.getModule(uri, true);
             for (Unit unit : module.getUnits()) {
                 units.put(unit.getName(), unit);
             }
         }
         return units;
     }
-    /**
-     * Returns the directory containing the rule files.
-     * 
-     * TODO: will be later replaced by path in transformation mapping file.
-     * 
-     * @return directory as file
-     */
-    protected abstract File getRuleDirectory();
 }
