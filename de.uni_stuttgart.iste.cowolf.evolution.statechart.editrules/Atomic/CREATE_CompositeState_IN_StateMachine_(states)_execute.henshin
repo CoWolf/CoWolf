@@ -1,65 +1,52 @@
 <?xml version="1.0" encoding="ASCII"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_WezE4CxcEeSd_q2vbwAWXg" name="CREATE_CompositeState_IN_StateMachine_(states)" description="Creates one CompositeState in StateMachine">
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_iG9hMCxkEeSKHvuYIUm5Ng" name="CREATE_CompositeState_IN_StateMachine_(states)" description="Creates one CompositeState in StateMachine">
   <imports href="http://Statechart/1.0#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="_WezE4SxcEeSd_q2vbwAWXg" name="createCompositeState_IN_StateMachine" description="creates one CompositeState in the context: StateMachine">
-    <parameters xmi:id="_WezE4ixcEeSd_q2vbwAWXg" name="Selected"/>
-    <parameters xmi:id="_WezE4yxcEeSd_q2vbwAWXg" name="New"/>
-    <parameters xmi:id="_WezE5CxcEeSd_q2vbwAWXg" name="Id"/>
-    <parameters xmi:id="_WezE5SxcEeSd_q2vbwAWXg" name="Name"/>
-    <parameters xmi:id="_WezE5ixcEeSd_q2vbwAWXg" name="IsConcurrent"/>
-    <parameters xmi:id="_WezE5yxcEeSd_q2vbwAWXg" name="Existing"/>
-    <lhs xmi:id="_WezE6CxcEeSd_q2vbwAWXg" name="Lhs">
-      <nodes xmi:id="_WezE6SxcEeSd_q2vbwAWXg" name="Selected">
-        <type href="http://Statechart/1.0#//StateMachine"/>
-      </nodes>
-      <nodes xmi:id="_WezE6ixcEeSd_q2vbwAWXg" name="Existing">
+  <units xsi:type="henshin:Rule" xmi:id="_iG-IQCxkEeSKHvuYIUm5Ng" name="createCompositeState_IN_StateMachine" description="creates one CompositeState in the context: StateMachine">
+    <parameters xmi:id="_iG-IQSxkEeSKHvuYIUm5Ng" name="Selected"/>
+    <parameters xmi:id="_iG-IQixkEeSKHvuYIUm5Ng" name="New"/>
+    <parameters xmi:id="_iG-IQyxkEeSKHvuYIUm5Ng" name="Id"/>
+    <parameters xmi:id="_iG-IRCxkEeSKHvuYIUm5Ng" name="Name"/>
+    <parameters xmi:id="_iG-IRSxkEeSKHvuYIUm5Ng" name="IsConcurrent"/>
+    <lhs xmi:id="_iG-IRixkEeSKHvuYIUm5Ng" name="Lhs">
+      <nodes xmi:id="_iG-IRyxkEeSKHvuYIUm5Ng" name="Selected">
         <type href="http://Statechart/1.0#//StateMachine"/>
       </nodes>
     </lhs>
-    <rhs xmi:id="_WezE6yxcEeSd_q2vbwAWXg" name="Rhs">
-      <nodes xmi:id="_WezE7CxcEeSd_q2vbwAWXg" name="Selected" outgoing="_Wezr9SxcEeSd_q2vbwAWXg">
+    <rhs xmi:id="_iG-ISCxkEeSKHvuYIUm5Ng" name="Rhs">
+      <nodes xmi:id="_iG-ISSxkEeSKHvuYIUm5Ng" name="Selected" incoming="_iG-ITyxkEeSKHvuYIUm5Ng" outgoing="_iG-ITixkEeSKHvuYIUm5Ng">
         <type href="http://Statechart/1.0#//StateMachine"/>
       </nodes>
-      <nodes xmi:id="_Wezr8CxcEeSd_q2vbwAWXg" name="New" incoming="_Wezr9SxcEeSd_q2vbwAWXg _Wezr9yxcEeSd_q2vbwAWXg" outgoing="_Wezr9ixcEeSd_q2vbwAWXg">
+      <nodes xmi:id="_iG-ISixkEeSKHvuYIUm5Ng" name="New" incoming="_iG-ITixkEeSKHvuYIUm5Ng" outgoing="_iG-ITyxkEeSKHvuYIUm5Ng">
         <type href="http://Statechart/1.0#//CompositeState"/>
-        <attributes xmi:id="_Wezr8SxcEeSd_q2vbwAWXg" value="Id">
+        <attributes xmi:id="_iG-ISyxkEeSKHvuYIUm5Ng" value="Id">
           <type href="http://CommonBase/1.0#//IDBase/id"/>
         </attributes>
-        <attributes xmi:id="_Wezr8ixcEeSd_q2vbwAWXg" value="Name">
+        <attributes xmi:id="_iG-ITCxkEeSKHvuYIUm5Ng" value="Name">
           <type href="http://CommonBase/1.0#//NameBase/name"/>
         </attributes>
-        <attributes xmi:id="_Wezr8yxcEeSd_q2vbwAWXg" value="IsConcurrent">
+        <attributes xmi:id="_iG-ITSxkEeSKHvuYIUm5Ng" value="IsConcurrent">
           <type href="http://Statechart/1.0#//CompositeState/isConcurrent"/>
         </attributes>
       </nodes>
-      <nodes xmi:id="_Wezr9CxcEeSd_q2vbwAWXg" name="Existing" incoming="_Wezr9ixcEeSd_q2vbwAWXg" outgoing="_Wezr9yxcEeSd_q2vbwAWXg">
-        <type href="http://Statechart/1.0#//StateMachine"/>
-      </nodes>
-      <edges xmi:id="_Wezr9SxcEeSd_q2vbwAWXg" source="_WezE7CxcEeSd_q2vbwAWXg" target="_Wezr8CxcEeSd_q2vbwAWXg">
+      <edges xmi:id="_iG-ITixkEeSKHvuYIUm5Ng" source="_iG-ISSxkEeSKHvuYIUm5Ng" target="_iG-ISixkEeSKHvuYIUm5Ng">
         <type href="http://Statechart/1.0#//StateMachine/states"/>
       </edges>
-      <edges xmi:id="_Wezr9ixcEeSd_q2vbwAWXg" source="_Wezr8CxcEeSd_q2vbwAWXg" target="_Wezr9CxcEeSd_q2vbwAWXg">
+      <edges xmi:id="_iG-ITyxkEeSKHvuYIUm5Ng" source="_iG-ISixkEeSKHvuYIUm5Ng" target="_iG-ISSxkEeSKHvuYIUm5Ng">
         <type href="http://Statechart/1.0#//State/state_container"/>
       </edges>
-      <edges xmi:id="_Wezr9yxcEeSd_q2vbwAWXg" source="_Wezr9CxcEeSd_q2vbwAWXg" target="_Wezr8CxcEeSd_q2vbwAWXg">
-        <type href="http://Statechart/1.0#//StateMachine/initialStates"/>
-      </edges>
     </rhs>
-    <mappings xmi:id="_Wezr-CxcEeSd_q2vbwAWXg" origin="_WezE6SxcEeSd_q2vbwAWXg" image="_WezE7CxcEeSd_q2vbwAWXg"/>
-    <mappings xmi:id="_Wezr-SxcEeSd_q2vbwAWXg" origin="_WezE6ixcEeSd_q2vbwAWXg" image="_Wezr9CxcEeSd_q2vbwAWXg"/>
+    <mappings xmi:id="_iG-IUCxkEeSKHvuYIUm5Ng" origin="_iG-IRyxkEeSKHvuYIUm5Ng" image="_iG-ISSxkEeSKHvuYIUm5Ng"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="_Wezr-ixcEeSd_q2vbwAWXg" name="mainUnit" description="Creates one CompositeState depending on available contexts in model instance" subUnits="_WezE4SxcEeSd_q2vbwAWXg">
-    <parameters xmi:id="_Wezr-yxcEeSd_q2vbwAWXg" name="New"/>
-    <parameters xmi:id="_Wezr_CxcEeSd_q2vbwAWXg" name="selectedEObject"/>
-    <parameters xmi:id="_Wezr_SxcEeSd_q2vbwAWXg" name="Id"/>
-    <parameters xmi:id="_Wezr_ixcEeSd_q2vbwAWXg" name="Name"/>
-    <parameters xmi:id="_Wezr_yxcEeSd_q2vbwAWXg" name="IsConcurrent"/>
-    <parameters xmi:id="_WezsACxcEeSd_q2vbwAWXg" name="Existing"/>
-    <parameterMappings xmi:id="_WezsASxcEeSd_q2vbwAWXg" source="_Wezr_CxcEeSd_q2vbwAWXg" target="_WezE4ixcEeSd_q2vbwAWXg"/>
-    <parameterMappings xmi:id="_WezsAixcEeSd_q2vbwAWXg" source="_WezE4yxcEeSd_q2vbwAWXg" target="_Wezr-yxcEeSd_q2vbwAWXg"/>
-    <parameterMappings xmi:id="_WezsAyxcEeSd_q2vbwAWXg" source="_Wezr_SxcEeSd_q2vbwAWXg" target="_WezE5CxcEeSd_q2vbwAWXg"/>
-    <parameterMappings xmi:id="_WezsBCxcEeSd_q2vbwAWXg" source="_Wezr_ixcEeSd_q2vbwAWXg" target="_WezE5SxcEeSd_q2vbwAWXg"/>
-    <parameterMappings xmi:id="_WezsBSxcEeSd_q2vbwAWXg" source="_Wezr_yxcEeSd_q2vbwAWXg" target="_WezE5ixcEeSd_q2vbwAWXg"/>
-    <parameterMappings xmi:id="_WezsBixcEeSd_q2vbwAWXg" source="_WezsACxcEeSd_q2vbwAWXg" target="_WezE5yxcEeSd_q2vbwAWXg"/>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_iG-IUSxkEeSKHvuYIUm5Ng" name="mainUnit" description="Creates one CompositeState depending on available contexts in model instance" subUnits="_iG-IQCxkEeSKHvuYIUm5Ng">
+    <parameters xmi:id="_iG-IUixkEeSKHvuYIUm5Ng" name="New"/>
+    <parameters xmi:id="_iG-IUyxkEeSKHvuYIUm5Ng" name="selectedEObject"/>
+    <parameters xmi:id="_iG-IVCxkEeSKHvuYIUm5Ng" name="Id"/>
+    <parameters xmi:id="_iG-IVSxkEeSKHvuYIUm5Ng" name="Name"/>
+    <parameters xmi:id="_iG-IVixkEeSKHvuYIUm5Ng" name="IsConcurrent"/>
+    <parameterMappings xmi:id="_iG-IVyxkEeSKHvuYIUm5Ng" source="_iG-IUyxkEeSKHvuYIUm5Ng" target="_iG-IQSxkEeSKHvuYIUm5Ng"/>
+    <parameterMappings xmi:id="_iG-IWCxkEeSKHvuYIUm5Ng" source="_iG-IQixkEeSKHvuYIUm5Ng" target="_iG-IUixkEeSKHvuYIUm5Ng"/>
+    <parameterMappings xmi:id="_iG-IWSxkEeSKHvuYIUm5Ng" source="_iG-IVCxkEeSKHvuYIUm5Ng" target="_iG-IQyxkEeSKHvuYIUm5Ng"/>
+    <parameterMappings xmi:id="_iG-IWixkEeSKHvuYIUm5Ng" source="_iG-IVSxkEeSKHvuYIUm5Ng" target="_iG-IRCxkEeSKHvuYIUm5Ng"/>
+    <parameterMappings xmi:id="_iG-IWyxkEeSKHvuYIUm5Ng" source="_iG-IVixkEeSKHvuYIUm5Ng" target="_iG-IRSxkEeSKHvuYIUm5Ng"/>
   </units>
 </henshin:Module>

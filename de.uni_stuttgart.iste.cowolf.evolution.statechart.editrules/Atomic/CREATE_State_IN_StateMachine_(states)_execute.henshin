@@ -1,59 +1,46 @@
 <?xml version="1.0" encoding="ASCII"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_WdSB8CxcEeSd_q2vbwAWXg" name="CREATE_State_IN_StateMachine_(states)" description="Creates one State in StateMachine">
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_iFxOYCxkEeSKHvuYIUm5Ng" name="CREATE_State_IN_StateMachine_(states)" description="Creates one State in StateMachine">
   <imports href="http://Statechart/1.0#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="_WdSB8SxcEeSd_q2vbwAWXg" name="createState_IN_StateMachine" description="creates one State in the context: StateMachine">
-    <parameters xmi:id="_WdSB8ixcEeSd_q2vbwAWXg" name="Selected"/>
-    <parameters xmi:id="_WdSB8yxcEeSd_q2vbwAWXg" name="New"/>
-    <parameters xmi:id="_WdSB9CxcEeSd_q2vbwAWXg" name="Id"/>
-    <parameters xmi:id="_WdSB9SxcEeSd_q2vbwAWXg" name="Name"/>
-    <parameters xmi:id="_WdSB9ixcEeSd_q2vbwAWXg" name="Existing"/>
-    <lhs xmi:id="_WdSB9yxcEeSd_q2vbwAWXg" name="Lhs">
-      <nodes xmi:id="_WdSB-CxcEeSd_q2vbwAWXg" name="Selected">
-        <type href="http://Statechart/1.0#//StateMachine"/>
-      </nodes>
-      <nodes xmi:id="_WdSB-SxcEeSd_q2vbwAWXg" name="Existing">
+  <units xsi:type="henshin:Rule" xmi:id="_iFxOYSxkEeSKHvuYIUm5Ng" name="createState_IN_StateMachine" description="creates one State in the context: StateMachine">
+    <parameters xmi:id="_iFxOYixkEeSKHvuYIUm5Ng" name="Selected"/>
+    <parameters xmi:id="_iFxOYyxkEeSKHvuYIUm5Ng" name="New"/>
+    <parameters xmi:id="_iFxOZCxkEeSKHvuYIUm5Ng" name="Id"/>
+    <parameters xmi:id="_iFxOZSxkEeSKHvuYIUm5Ng" name="Name"/>
+    <lhs xmi:id="_iFxOZixkEeSKHvuYIUm5Ng" name="Lhs">
+      <nodes xmi:id="_iFxOZyxkEeSKHvuYIUm5Ng" name="Selected">
         <type href="http://Statechart/1.0#//StateMachine"/>
       </nodes>
     </lhs>
-    <rhs xmi:id="_WdSB-ixcEeSd_q2vbwAWXg" name="Rhs">
-      <nodes xmi:id="_WdSpACxcEeSd_q2vbwAWXg" name="Selected" outgoing="_WdSpBSxcEeSd_q2vbwAWXg">
+    <rhs xmi:id="_iFxOaCxkEeSKHvuYIUm5Ng" name="Rhs">
+      <nodes xmi:id="_iFxOaSxkEeSKHvuYIUm5Ng" name="Selected" incoming="_iFxObixkEeSKHvuYIUm5Ng" outgoing="_iFxObSxkEeSKHvuYIUm5Ng">
         <type href="http://Statechart/1.0#//StateMachine"/>
       </nodes>
-      <nodes xmi:id="_WdSpASxcEeSd_q2vbwAWXg" name="New" incoming="_WdSpBSxcEeSd_q2vbwAWXg _WdSpByxcEeSd_q2vbwAWXg" outgoing="_WdSpBixcEeSd_q2vbwAWXg">
+      <nodes xmi:id="_iFxOaixkEeSKHvuYIUm5Ng" name="New" incoming="_iFxObSxkEeSKHvuYIUm5Ng" outgoing="_iFxObixkEeSKHvuYIUm5Ng">
         <type href="http://Statechart/1.0#//State"/>
-        <attributes xmi:id="_WdSpAixcEeSd_q2vbwAWXg" value="Id">
+        <attributes xmi:id="_iFxOayxkEeSKHvuYIUm5Ng" value="Id">
           <type href="http://CommonBase/1.0#//IDBase/id"/>
         </attributes>
-        <attributes xmi:id="_WdSpAyxcEeSd_q2vbwAWXg" value="Name">
+        <attributes xmi:id="_iFxObCxkEeSKHvuYIUm5Ng" value="Name">
           <type href="http://CommonBase/1.0#//NameBase/name"/>
         </attributes>
       </nodes>
-      <nodes xmi:id="_WdSpBCxcEeSd_q2vbwAWXg" name="Existing" incoming="_WdSpBixcEeSd_q2vbwAWXg" outgoing="_WdSpByxcEeSd_q2vbwAWXg">
-        <type href="http://Statechart/1.0#//StateMachine"/>
-      </nodes>
-      <edges xmi:id="_WdSpBSxcEeSd_q2vbwAWXg" source="_WdSpACxcEeSd_q2vbwAWXg" target="_WdSpASxcEeSd_q2vbwAWXg">
+      <edges xmi:id="_iFxObSxkEeSKHvuYIUm5Ng" source="_iFxOaSxkEeSKHvuYIUm5Ng" target="_iFxOaixkEeSKHvuYIUm5Ng">
         <type href="http://Statechart/1.0#//StateMachine/states"/>
       </edges>
-      <edges xmi:id="_WdSpBixcEeSd_q2vbwAWXg" source="_WdSpASxcEeSd_q2vbwAWXg" target="_WdSpBCxcEeSd_q2vbwAWXg">
+      <edges xmi:id="_iFxObixkEeSKHvuYIUm5Ng" source="_iFxOaixkEeSKHvuYIUm5Ng" target="_iFxOaSxkEeSKHvuYIUm5Ng">
         <type href="http://Statechart/1.0#//State/state_container"/>
       </edges>
-      <edges xmi:id="_WdSpByxcEeSd_q2vbwAWXg" source="_WdSpBCxcEeSd_q2vbwAWXg" target="_WdSpASxcEeSd_q2vbwAWXg">
-        <type href="http://Statechart/1.0#//StateMachine/initialStates"/>
-      </edges>
     </rhs>
-    <mappings xmi:id="_WdSpCCxcEeSd_q2vbwAWXg" origin="_WdSB-CxcEeSd_q2vbwAWXg" image="_WdSpACxcEeSd_q2vbwAWXg"/>
-    <mappings xmi:id="_WdTQECxcEeSd_q2vbwAWXg" origin="_WdSB-SxcEeSd_q2vbwAWXg" image="_WdSpBCxcEeSd_q2vbwAWXg"/>
+    <mappings xmi:id="_iFxObyxkEeSKHvuYIUm5Ng" origin="_iFxOZyxkEeSKHvuYIUm5Ng" image="_iFxOaSxkEeSKHvuYIUm5Ng"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="_WdTQESxcEeSd_q2vbwAWXg" name="mainUnit" description="Creates one State depending on available contexts in model instance" subUnits="_WdSB8SxcEeSd_q2vbwAWXg">
-    <parameters xmi:id="_WdTQEixcEeSd_q2vbwAWXg" name="New"/>
-    <parameters xmi:id="_WdTQEyxcEeSd_q2vbwAWXg" name="selectedEObject"/>
-    <parameters xmi:id="_WdTQFCxcEeSd_q2vbwAWXg" name="Id"/>
-    <parameters xmi:id="_WdTQFSxcEeSd_q2vbwAWXg" name="Name"/>
-    <parameters xmi:id="_WdTQFixcEeSd_q2vbwAWXg" name="Existing"/>
-    <parameterMappings xmi:id="_WdTQFyxcEeSd_q2vbwAWXg" source="_WdTQEyxcEeSd_q2vbwAWXg" target="_WdSB8ixcEeSd_q2vbwAWXg"/>
-    <parameterMappings xmi:id="_WdTQGCxcEeSd_q2vbwAWXg" source="_WdSB8yxcEeSd_q2vbwAWXg" target="_WdTQEixcEeSd_q2vbwAWXg"/>
-    <parameterMappings xmi:id="_WdT3ICxcEeSd_q2vbwAWXg" source="_WdTQFCxcEeSd_q2vbwAWXg" target="_WdSB9CxcEeSd_q2vbwAWXg"/>
-    <parameterMappings xmi:id="_WdT3ISxcEeSd_q2vbwAWXg" source="_WdTQFSxcEeSd_q2vbwAWXg" target="_WdSB9SxcEeSd_q2vbwAWXg"/>
-    <parameterMappings xmi:id="_WdT3IixcEeSd_q2vbwAWXg" source="_WdTQFixcEeSd_q2vbwAWXg" target="_WdSB9ixcEeSd_q2vbwAWXg"/>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_iFxOcCxkEeSKHvuYIUm5Ng" name="mainUnit" description="Creates one State depending on available contexts in model instance" subUnits="_iFxOYSxkEeSKHvuYIUm5Ng">
+    <parameters xmi:id="_iFxOcSxkEeSKHvuYIUm5Ng" name="New"/>
+    <parameters xmi:id="_iFxOcixkEeSKHvuYIUm5Ng" name="selectedEObject"/>
+    <parameters xmi:id="_iFxOcyxkEeSKHvuYIUm5Ng" name="Id"/>
+    <parameters xmi:id="_iFxOdCxkEeSKHvuYIUm5Ng" name="Name"/>
+    <parameterMappings xmi:id="_iFxOdSxkEeSKHvuYIUm5Ng" source="_iFxOcixkEeSKHvuYIUm5Ng" target="_iFxOYixkEeSKHvuYIUm5Ng"/>
+    <parameterMappings xmi:id="_iFxOdixkEeSKHvuYIUm5Ng" source="_iFxOYyxkEeSKHvuYIUm5Ng" target="_iFxOcSxkEeSKHvuYIUm5Ng"/>
+    <parameterMappings xmi:id="_iFxOdyxkEeSKHvuYIUm5Ng" source="_iFxOcyxkEeSKHvuYIUm5Ng" target="_iFxOZCxkEeSKHvuYIUm5Ng"/>
+    <parameterMappings xmi:id="_iFxOeCxkEeSKHvuYIUm5Ng" source="_iFxOdCxkEeSKHvuYIUm5Ng" target="_iFxOZSxkEeSKHvuYIUm5Ng"/>
   </units>
 </henshin:Module>
