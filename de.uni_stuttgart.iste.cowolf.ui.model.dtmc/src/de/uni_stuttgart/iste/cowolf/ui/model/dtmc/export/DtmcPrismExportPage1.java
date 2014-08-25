@@ -27,10 +27,9 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.widgets.Tree;
-
 import de.uni_stuttgart.iste.cowolf.ui.model.export.FileTreeContentProvider;
-import de.uni_stuttgart.iste.cowolf.ui.model.export.FileTreeLabelProvider;
+import de.uni_stuttgart.iste.cowolf.ui.model.export.ModelTreeLabelProvider;
+import org.eclipse.swt.widgets.Tree;
 
 public class DtmcPrismExportPage1 extends WizardPage {
 
@@ -82,8 +81,9 @@ public class DtmcPrismExportPage1 extends WizardPage {
 		tree = new ContainerCheckedTreeViewer(grpModelChooser);
 		Tree tree_1 = tree.getTree();
 		tree_1.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
-		tree.setContentProvider(new FileTreeContentProvider("dtmcemf"));
-		tree.setLabelProvider(new FileTreeLabelProvider());
+		FileTreeContentProvider provider = new FileTreeContentProvider("dtmcemf");
+		tree.setContentProvider(provider);
+		tree.setLabelProvider(new ModelTreeLabelProvider());
 		tree.setInput("root"); // pass a non-null that will be ignored
 		
 		Group grpOutputPath = new Group(container, SWT.NONE);
@@ -170,6 +170,7 @@ public class DtmcPrismExportPage1 extends WizardPage {
 		this.setPageComplete();
 	}
 
+
 	/**
 	 * Checks if this page is completed, also sets error messages.
 	 */
@@ -182,7 +183,7 @@ public class DtmcPrismExportPage1 extends WizardPage {
 			this.setPageComplete(false);
 			return;
 		}
-		
+
 		if (txtPath.getText().isEmpty()) {
 			this.setErrorMessage("Please specify an output path!");
 			this.setPageComplete(false);

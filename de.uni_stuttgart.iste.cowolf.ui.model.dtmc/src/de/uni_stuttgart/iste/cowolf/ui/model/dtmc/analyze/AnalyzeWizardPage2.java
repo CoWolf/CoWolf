@@ -2,7 +2,6 @@ package de.uni_stuttgart.iste.cowolf.ui.model.dtmc.analyze;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.TreeSet;
 
 import org.eclipse.emf.ecore.resource.Resource;

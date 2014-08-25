@@ -6,10 +6,12 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.IDialogSettings;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -45,7 +47,26 @@ public class DtmcPrismExportWizard extends Wizard implements IExportWizard {
 		new HashMap<String,Object> ();
 		page1 = new DtmcPrismExportPage1("DTMC export PRISM model", selection, this.settings);
 	}
-
+	
+	private boolean isValidModel(IFile iFile) {
+		try {
+			URI uri = URI.createPlatformResourceURI(iFile.getFullPath().toString(), true);
+			ResourceSet resSet = new ResourceSetImpl();
+			Resource res = resSet.getResource(uri, true);
+			if (res != null && res.getContents() != null && res.getContents().get(0) != null) {
+				Diagnostic diag = Diagnostician.INSTANCE.validate(res.getContents().get(0));
+				if (diag.getChildren().size() > 0) {
+					return false;
+				}
+			} else {
+				return false;
+			}
+		} catch(RuntimeException e) {
+			return false;
+		}
+		return true;
+	}
+	
 	@Override
 	public boolean performFinish() {
 		String outputPath = this.page1.getOutputPath();
@@ -56,6 +77,10 @@ public class DtmcPrismExportWizard extends Wizard implements IExportWizard {
 
 		fileloop: for(final IFile iFile : files) {
 			try {
+				if (!isValidModel(iFile)) {
+					MessageDialog.openInformation(null, "Skipped Export", "Skipped Export of invalid model: " + iFile.getFullPath().toOSString());
+					continue fileloop;
+				}
 				final String pathPM;
 				final String pathPCTL;
 				if (this.page1.getUseProjectStructure()) {
