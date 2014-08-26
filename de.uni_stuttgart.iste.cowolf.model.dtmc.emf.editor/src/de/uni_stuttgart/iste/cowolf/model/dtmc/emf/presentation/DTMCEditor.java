@@ -121,7 +121,7 @@ import org.eclipse.emf.edit.ui.util.EditUIUtil;
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
 import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC;
-import de.uni_stuttgart.iste.cowolf.model.dtmc.emf.provider.DTMCemfItemProviderAdapterFactory;
+import de.uni_stuttgart.iste.cowolf.model.dtmc.emf.provider.DTMCItemProviderAdapterFactory;
 import de.uni_stuttgart.iste.cowolf.model.commonBase.emf.provider.CommonBaseItemProviderAdapterFactory;
 
 import org.eclipse.emf.common.ui.viewer.ColumnViewerInformationControlToolTipSupport;
@@ -131,12 +131,12 @@ import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 
 /**
- * This is an example of a DTMCemf model editor.
+ * This is an example of a DTMC model editor.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class DTMCemfEditor
+public class DTMCEditor
 	extends MultiPageEditorPart
 	implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker {
 	/**
@@ -298,18 +298,18 @@ public class DTMCemfEditor
 			public void partActivated(IWorkbenchPart p) {
 				if (p instanceof ContentOutline) {
 					if (((ContentOutline)p).getCurrentPage() == contentOutlinePage) {
-						getActionBarContributor().setActiveEditor(DTMCemfEditor.this);
+						getActionBarContributor().setActiveEditor(DTMCEditor.this);
 
 						setCurrentViewer(contentOutlineViewer);
 					}
 				}
 				else if (p instanceof PropertySheet) {
 					if (propertySheetPages.contains(((PropertySheet)p).getCurrentPage())) {
-						getActionBarContributor().setActiveEditor(DTMCemfEditor.this);
+						getActionBarContributor().setActiveEditor(DTMCEditor.this);
 						handleActivate();
 					}
 				}
-				else if (p == DTMCemfEditor.this) {
+				else if (p == DTMCEditor.this) {
 					handleActivate();
 				}
 			}
@@ -489,7 +489,7 @@ public class DTMCemfEditor
 								 public void run() {
 									 removedResources.addAll(visitor.getRemovedResources());
 									 if (!isDirty()) {
-										 getSite().getPage().closeEditor(DTMCemfEditor.this, false);
+										 getSite().getPage().closeEditor(DTMCEditor.this, false);
 									 }
 								 }
 							 });
@@ -500,7 +500,7 @@ public class DTMCemfEditor
 							(new Runnable() {
 								 public void run() {
 									 changedResources.addAll(visitor.getChangedResources());
-									 if (getSite().getPage().getActiveEditor() == DTMCemfEditor.this) {
+									 if (getSite().getPage().getActiveEditor() == DTMCEditor.this) {
 										 handleActivate();
 									 }
 								 }
@@ -508,7 +508,7 @@ public class DTMCemfEditor
 					}
 				}
 				catch (CoreException exception) {
-					DTMCemfEditorPlugin.INSTANCE.log(exception);
+					DTMCEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 		};
@@ -532,7 +532,7 @@ public class DTMCemfEditor
 
 		if (!removedResources.isEmpty()) {
 			if (handleDirtyConflict()) {
-				getSite().getPage().closeEditor(DTMCemfEditor.this, false);
+				getSite().getPage().closeEditor(DTMCEditor.this, false);
 			}
 			else {
 				removedResources.clear();
@@ -624,7 +624,7 @@ public class DTMCemfEditor
 					showTabs();
 				}
 				catch (PartInitException exception) {
-					DTMCemfEditorPlugin.INSTANCE.log(exception);
+					DTMCEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 
@@ -635,7 +635,7 @@ public class DTMCemfEditor
 						markerHelper.createMarkers(diagnostic);
 					}
 					catch (CoreException exception) {
-						DTMCemfEditorPlugin.INSTANCE.log(exception);
+						DTMCEditorPlugin.INSTANCE.log(exception);
 					}
 				}
 			}
@@ -662,7 +662,7 @@ public class DTMCemfEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DTMCemfEditor() {
+	public DTMCEditor() {
 		super();
 		initializeEditingDomain();
 	}
@@ -679,7 +679,7 @@ public class DTMCemfEditor
 		adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new DTMCemfItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new DTMCItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new CommonBaseItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
@@ -1000,7 +1000,7 @@ public class DTMCemfEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), DTMCemfEditor.this) {
+					new ViewerPane(getSite().getPage(), DTMCEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							Tree tree = new Tree(composite, SWT.MULTI);
@@ -1018,7 +1018,7 @@ public class DTMCemfEditor
 				selectionViewer = (TreeViewer)viewerPane.getViewer();
 				selectionViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
 
-				selectionViewer.setLabelProvider(new DecoratingColumLabelProvider(new AdapterFactoryLabelProvider(adapterFactory), new DiagnosticDecorator(editingDomain, selectionViewer, DTMCemfEditorPlugin.getPlugin().getDialogSettings())));
+				selectionViewer.setLabelProvider(new DecoratingColumLabelProvider(new AdapterFactoryLabelProvider(adapterFactory), new DiagnosticDecorator(editingDomain, selectionViewer, DTMCEditorPlugin.getPlugin().getDialogSettings())));
 				selectionViewer.setInput(editingDomain.getResourceSet());
 				selectionViewer.setSelection(new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
 				viewerPane.setTitle(editingDomain.getResourceSet());
@@ -1035,7 +1035,7 @@ public class DTMCemfEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), DTMCemfEditor.this) {
+					new ViewerPane(getSite().getPage(), DTMCEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							Tree tree = new Tree(composite, SWT.MULTI);
@@ -1064,7 +1064,7 @@ public class DTMCemfEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), DTMCemfEditor.this) {
+					new ViewerPane(getSite().getPage(), DTMCEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							return new ListViewer(composite);
@@ -1089,7 +1089,7 @@ public class DTMCemfEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), DTMCemfEditor.this) {
+					new ViewerPane(getSite().getPage(), DTMCEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							return new TreeViewer(composite);
@@ -1117,7 +1117,7 @@ public class DTMCemfEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), DTMCemfEditor.this) {
+					new ViewerPane(getSite().getPage(), DTMCEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							return new TableViewer(composite);
@@ -1149,7 +1149,7 @@ public class DTMCemfEditor
 
 				tableViewer.setColumnProperties(new String [] {"a", "b"});
 				tableViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
-				tableViewer.setLabelProvider(new DecoratingColumLabelProvider(new AdapterFactoryLabelProvider(adapterFactory), new DiagnosticDecorator(editingDomain, tableViewer, DTMCemfEditorPlugin.getPlugin().getDialogSettings())));
+				tableViewer.setLabelProvider(new DecoratingColumLabelProvider(new AdapterFactoryLabelProvider(adapterFactory), new DiagnosticDecorator(editingDomain, tableViewer, DTMCEditorPlugin.getPlugin().getDialogSettings())));
 
 				new ColumnViewerInformationControlToolTipSupport(tableViewer, new DiagnosticDecorator.EditingDomainLocationListener(editingDomain, tableViewer));
 
@@ -1162,7 +1162,7 @@ public class DTMCemfEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), DTMCemfEditor.this) {
+					new ViewerPane(getSite().getPage(), DTMCEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							return new TreeViewer(composite);
@@ -1194,7 +1194,7 @@ public class DTMCemfEditor
 
 				treeViewerWithColumns.setColumnProperties(new String [] {"a", "b"});
 				treeViewerWithColumns.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
-				treeViewerWithColumns.setLabelProvider(new DecoratingColumLabelProvider(new AdapterFactoryLabelProvider(adapterFactory), new DiagnosticDecorator(editingDomain, treeViewerWithColumns, DTMCemfEditorPlugin.getPlugin().getDialogSettings())));
+				treeViewerWithColumns.setLabelProvider(new DecoratingColumLabelProvider(new AdapterFactoryLabelProvider(adapterFactory), new DiagnosticDecorator(editingDomain, treeViewerWithColumns, DTMCEditorPlugin.getPlugin().getDialogSettings())));
 
 				new ColumnViewerInformationControlToolTipSupport(treeViewerWithColumns, new DiagnosticDecorator.EditingDomainLocationListener(editingDomain, treeViewerWithColumns));
 
@@ -1329,7 +1329,7 @@ public class DTMCemfEditor
 					// Set up the tree viewer.
 					//
 					contentOutlineViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
-					contentOutlineViewer.setLabelProvider(new DecoratingColumLabelProvider(new AdapterFactoryLabelProvider(adapterFactory), new DiagnosticDecorator(editingDomain, contentOutlineViewer, DTMCemfEditorPlugin.getPlugin().getDialogSettings())));
+					contentOutlineViewer.setLabelProvider(new DecoratingColumLabelProvider(new AdapterFactoryLabelProvider(adapterFactory), new DiagnosticDecorator(editingDomain, contentOutlineViewer, DTMCEditorPlugin.getPlugin().getDialogSettings())));
 					contentOutlineViewer.setInput(editingDomain.getResourceSet());
 
 					new ColumnViewerInformationControlToolTipSupport(contentOutlineViewer, new DiagnosticDecorator.EditingDomainLocationListener(editingDomain, contentOutlineViewer));
@@ -1383,11 +1383,11 @@ public class DTMCemfEditor
 	 */
 	public IPropertySheetPage getPropertySheetPage() {
 		PropertySheetPage propertySheetPage =
-			new ExtendedPropertySheetPage(editingDomain, ExtendedPropertySheetPage.Decoration.LIVE, DTMCemfEditorPlugin.getPlugin().getDialogSettings()) {
+			new ExtendedPropertySheetPage(editingDomain, ExtendedPropertySheetPage.Decoration.LIVE, DTMCEditorPlugin.getPlugin().getDialogSettings()) {
 				@Override
 				public void setSelectionToViewer(List<?> selection) {
-					DTMCemfEditor.this.setSelectionToViewer(selection);
-					DTMCemfEditor.this.setFocus();
+					DTMCEditor.this.setSelectionToViewer(selection);
+					DTMCEditor.this.setFocus();
 				}
 
 				@Override
@@ -1495,7 +1495,6 @@ public class DTMCemfEditor
 					
 					EclipseResourcesUtil resUtil = new ValidateAction.EclipseResourcesUtil();
 					for (Resource resource : savedResources) {
-						System.out.println("Saved resource: " + resource.getURI());
 						if (resource.getContents().get(0) != null && resource.getContents().get(0) instanceof DTMC)  {
 							Diagnostic diagnostic = Diagnostician.INSTANCE.validate(resource.getContents().get(0));
 							
@@ -1524,9 +1523,8 @@ public class DTMCemfEditor
 		catch (Exception exception) {
 			// Something went wrong that shouldn't.
 			//
-			DTMCemfEditorPlugin.INSTANCE.log(exception);
+			DTMCEditorPlugin.INSTANCE.log(exception);
 		}
-		
 		updateProblemIndication = true;
 		updateProblemIndication();
 	}
@@ -1729,7 +1727,7 @@ public class DTMCemfEditor
 	 * @generated
 	 */
 	private static String getString(String key) {
-		return DTMCemfEditorPlugin.INSTANCE.getString(key);
+		return DTMCEditorPlugin.INSTANCE.getString(key);
 	}
 
 	/**
@@ -1739,7 +1737,7 @@ public class DTMCemfEditor
 	 * @generated
 	 */
 	private static String getString(String key, Object s1) {
-		return DTMCemfEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
+		return DTMCEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
 	}
 
 	/**

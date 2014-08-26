@@ -18,17 +18,17 @@ import org.eclipse.emf.ecore.EObject;
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage
+ * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCPackage
  * @generated
  */
-public class DTMCemfAdapterFactory extends AdapterFactoryImpl {
+public class DTMCAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static DTMCemfPackage modelPackage;
+	protected static DTMCPackage modelPackage;
 
 	/**
 	 * Creates an instance of the adapter factory.
@@ -36,9 +36,9 @@ public class DTMCemfAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DTMCemfAdapterFactory() {
+	public DTMCAdapterFactory() {
 		if (modelPackage == null) {
-			modelPackage = DTMCemfPackage.eINSTANCE;
+			modelPackage = DTMCPackage.eINSTANCE;
 		}
 	}
 
@@ -67,8 +67,8 @@ public class DTMCemfAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DTMCemfSwitch<Adapter> modelSwitch =
-		new DTMCemfSwitch<Adapter>() {
+	protected DTMCSwitch<Adapter> modelSwitch =
+		new DTMCSwitch<Adapter>() {
 			@Override
 			public Adapter caseDTMC(DTMC object) {
 				return createDTMCAdapter();
@@ -191,4 +191,4 @@ public class DTMCemfAdapterFactory extends AdapterFactoryImpl {
 		return null;
 	}
 
-} //DTMCemfAdapterFactory
+} //DTMCAdapterFactory

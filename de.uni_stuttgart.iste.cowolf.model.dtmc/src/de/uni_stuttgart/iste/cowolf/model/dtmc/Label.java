@@ -17,7 +17,7 @@ import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
  * </ul>
  * </p>
  *
- * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage#getLabel()
+ * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCPackage#getLabel()
  * @model
  * @generated
  */
@@ -32,7 +32,7 @@ public interface Label extends IDBase {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage#getLabel_Name()
+	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCPackage#getLabel_Name()
 	 * @model required="true"
 	 * @generated
 	 */
@@ -59,7 +59,7 @@ public interface Label extends IDBase {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>State</em>' container reference.
 	 * @see #setState(State)
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage#getLabel_State()
+	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCPackage#getLabel_State()
 	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.State#getLabels
 	 * @model opposite="labels" required="true" transient="false"
 	 * @generated

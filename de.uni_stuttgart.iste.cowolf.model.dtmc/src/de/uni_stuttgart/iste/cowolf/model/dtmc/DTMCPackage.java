@@ -21,13 +21,13 @@ import org.eclipse.emf.ecore.EReference;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfFactory
+ * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCFactory
  * @model kind="package"
  *        annotation="http://www.eclipse.org/OCL/Import commonBase='../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#/' ecore='http://www.eclipse.org/emf/2002/Ecore'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL' settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL' validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL'"
  * @generated
  */
-public interface DTMCemfPackage extends EPackage {
+public interface DTMCPackage extends EPackage {
 	/**
 	 * The package name.
 	 * <!-- begin-user-doc -->
@@ -58,14 +58,14 @@ public interface DTMCemfPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	DTMCemfPackage eINSTANCE = de.uni_stuttgart.iste.cowolf.model.dtmc.impl.DTMCemfPackageImpl.init();
+	DTMCPackage eINSTANCE = de.uni_stuttgart.iste.cowolf.model.dtmc.impl.DTMCPackageImpl.init();
 
 	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.dtmc.impl.DTMCImpl <em>DTMC</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.impl.DTMCImpl
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.impl.DTMCemfPackageImpl#getDTMC()
+	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.impl.DTMCPackageImpl#getDTMC()
 	 * @generated
 	 */
 	int DTMC = 0;
@@ -129,7 +129,7 @@ public interface DTMCemfPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.impl.StateImpl
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.impl.DTMCemfPackageImpl#getState()
+	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.impl.DTMCPackageImpl#getState()
 	 * @generated
 	 */
 	int STATE = 1;
@@ -202,7 +202,7 @@ public interface DTMCemfPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.impl.TransitionImpl
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.impl.DTMCemfPackageImpl#getTransition()
+	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.impl.DTMCPackageImpl#getTransition()
 	 * @generated
 	 */
 	int TRANSITION = 2;
@@ -266,7 +266,7 @@ public interface DTMCemfPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.impl.LabelImpl
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.impl.DTMCemfPackageImpl#getLabel()
+	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.impl.DTMCPackageImpl#getLabel()
 	 * @generated
 	 */
 	int LABEL = 3;
@@ -496,7 +496,7 @@ public interface DTMCemfPackage extends EPackage {
 	 * @return the factory that creates the instances of the model.
 	 * @generated
 	 */
-	DTMCemfFactory getDTMCemfFactory();
+	DTMCFactory getDTMCFactory();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -517,7 +517,7 @@ public interface DTMCemfPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.impl.DTMCImpl
-		 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.impl.DTMCemfPackageImpl#getDTMC()
+		 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.impl.DTMCPackageImpl#getDTMC()
 		 * @generated
 		 */
 		EClass DTMC = eINSTANCE.getDTMC();
@@ -551,7 +551,7 @@ public interface DTMCemfPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.impl.StateImpl
-		 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.impl.DTMCemfPackageImpl#getState()
+		 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.impl.DTMCPackageImpl#getState()
 		 * @generated
 		 */
 		EClass STATE = eINSTANCE.getState();
@@ -593,7 +593,7 @@ public interface DTMCemfPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.impl.TransitionImpl
-		 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.impl.DTMCemfPackageImpl#getTransition()
+		 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.impl.DTMCPackageImpl#getTransition()
 		 * @generated
 		 */
 		EClass TRANSITION = eINSTANCE.getTransition();
@@ -627,7 +627,7 @@ public interface DTMCemfPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.impl.LabelImpl
-		 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.impl.DTMCemfPackageImpl#getLabel()
+		 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.impl.DTMCPackageImpl#getLabel()
 		 * @generated
 		 */
 		EClass LABEL = eINSTANCE.getLabel();
@@ -650,4 +650,4 @@ public interface DTMCemfPackage extends EPackage {
 
 	}
 
-} //DTMCemfPackage
+} //DTMCPackage

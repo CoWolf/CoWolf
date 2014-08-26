@@ -4,18 +4,13 @@ package de.uni_stuttgart.iste.cowolf.model.dtmc.emf.provider;
 
 
 import de.uni_stuttgart.iste.cowolf.model.commonBase.emf.provider.IDBaseItemProvider;
-
-import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage;
+import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCPackage;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.Label;
-
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -68,7 +63,7 @@ public class LabelItemProvider extends IDBaseItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Label_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Label_name_feature", "_UI_Label_type"),
-				 DTMCemfPackage.Literals.LABEL__NAME,
+				 DTMCPackage.Literals.LABEL__NAME,
 				 true,
 				 false,
 				 false,
@@ -90,7 +85,7 @@ public class LabelItemProvider extends IDBaseItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Label_state_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Label_state_feature", "_UI_Label_type"),
-				 DTMCemfPackage.Literals.LABEL__STATE,
+				 DTMCPackage.Literals.LABEL__STATE,
 				 true,
 				 false,
 				 true,
@@ -137,7 +132,7 @@ public class LabelItemProvider extends IDBaseItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Label.class)) {
-			case DTMCemfPackage.LABEL__NAME:
+			case DTMCPackage.LABEL__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -164,7 +159,7 @@ public class LabelItemProvider extends IDBaseItemProvider {
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return DTMCemfEditPlugin.INSTANCE;
+		return DTMCEditPlugin.INSTANCE;
 	}
 
 }

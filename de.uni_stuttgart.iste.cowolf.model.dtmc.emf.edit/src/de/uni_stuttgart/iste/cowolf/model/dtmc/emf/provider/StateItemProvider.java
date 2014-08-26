@@ -4,19 +4,14 @@ package de.uni_stuttgart.iste.cowolf.model.dtmc.emf.provider;
 
 
 import de.uni_stuttgart.iste.cowolf.model.commonBase.emf.provider.IDBaseItemProvider;
-
-import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfFactory;
-import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage;
+import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCFactory;
+import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCPackage;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.State;
-
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -72,7 +67,7 @@ public class StateItemProvider extends IDBaseItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_State_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_State_name_feature", "_UI_State_type"),
-				 DTMCemfPackage.Literals.STATE__NAME,
+				 DTMCPackage.Literals.STATE__NAME,
 				 true,
 				 false,
 				 false,
@@ -94,7 +89,7 @@ public class StateItemProvider extends IDBaseItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_State_incoming_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_State_incoming_feature", "_UI_State_type"),
-				 DTMCemfPackage.Literals.STATE__INCOMING,
+				 DTMCPackage.Literals.STATE__INCOMING,
 				 true,
 				 false,
 				 true,
@@ -116,7 +111,7 @@ public class StateItemProvider extends IDBaseItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_State_outgoing_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_State_outgoing_feature", "_UI_State_type"),
-				 DTMCemfPackage.Literals.STATE__OUTGOING,
+				 DTMCPackage.Literals.STATE__OUTGOING,
 				 true,
 				 false,
 				 true,
@@ -138,7 +133,7 @@ public class StateItemProvider extends IDBaseItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_State_labels_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_State_labels_feature", "_UI_State_type"),
-				 DTMCemfPackage.Literals.STATE__LABELS,
+				 DTMCPackage.Literals.STATE__LABELS,
 				 true,
 				 false,
 				 true,
@@ -159,8 +154,8 @@ public class StateItemProvider extends IDBaseItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(DTMCemfPackage.Literals.STATE__OUTGOING);
-			childrenFeatures.add(DTMCemfPackage.Literals.STATE__LABELS);
+			childrenFeatures.add(DTMCPackage.Literals.STATE__OUTGOING);
+			childrenFeatures.add(DTMCPackage.Literals.STATE__LABELS);
 		}
 		return childrenFeatures;
 	}
@@ -216,11 +211,11 @@ public class StateItemProvider extends IDBaseItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(State.class)) {
-			case DTMCemfPackage.STATE__NAME:
+			case DTMCPackage.STATE__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case DTMCemfPackage.STATE__OUTGOING:
-			case DTMCemfPackage.STATE__LABELS:
+			case DTMCPackage.STATE__OUTGOING:
+			case DTMCPackage.STATE__LABELS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -240,13 +235,13 @@ public class StateItemProvider extends IDBaseItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DTMCemfPackage.Literals.STATE__OUTGOING,
-				 DTMCemfFactory.eINSTANCE.createTransition()));
+				(DTMCPackage.Literals.STATE__OUTGOING,
+				 DTMCFactory.eINSTANCE.createTransition()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DTMCemfPackage.Literals.STATE__LABELS,
-				 DTMCemfFactory.eINSTANCE.createLabel()));
+				(DTMCPackage.Literals.STATE__LABELS,
+				 DTMCFactory.eINSTANCE.createLabel()));
 	}
 
 	/**
@@ -257,7 +252,7 @@ public class StateItemProvider extends IDBaseItemProvider {
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return DTMCemfEditPlugin.INSTANCE;
+		return DTMCEditPlugin.INSTANCE;
 	}
 
 }

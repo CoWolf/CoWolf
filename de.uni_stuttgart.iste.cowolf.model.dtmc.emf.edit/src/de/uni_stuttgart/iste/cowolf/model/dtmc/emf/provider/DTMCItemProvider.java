@@ -4,21 +4,15 @@ package de.uni_stuttgart.iste.cowolf.model.dtmc.emf.provider;
 
 
 import de.uni_stuttgart.iste.cowolf.model.commonBase.emf.provider.IDBaseItemProvider;
-
 import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC;
-import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfFactory;
-import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage;
-
+import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCFactory;
+import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCPackage;
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -71,7 +65,7 @@ public class DTMCItemProvider extends IDBaseItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_DTMC_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_DTMC_name_feature", "_UI_DTMC_type"),
-				 DTMCemfPackage.Literals.DTMC__NAME,
+				 DTMCPackage.Literals.DTMC__NAME,
 				 true,
 				 false,
 				 false,
@@ -93,7 +87,7 @@ public class DTMCItemProvider extends IDBaseItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_DTMC_initialState_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_DTMC_initialState_feature", "_UI_DTMC_type"),
-				 DTMCemfPackage.Literals.DTMC__INITIAL_STATE,
+				 DTMCPackage.Literals.DTMC__INITIAL_STATE,
 				 true,
 				 false,
 				 true,
@@ -114,7 +108,7 @@ public class DTMCItemProvider extends IDBaseItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(DTMCemfPackage.Literals.DTMC__STATES);
+			childrenFeatures.add(DTMCPackage.Literals.DTMC__STATES);
 		}
 		return childrenFeatures;
 	}
@@ -170,10 +164,10 @@ public class DTMCItemProvider extends IDBaseItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(DTMC.class)) {
-			case DTMCemfPackage.DTMC__NAME:
+			case DTMCPackage.DTMC__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case DTMCemfPackage.DTMC__STATES:
+			case DTMCPackage.DTMC__STATES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -193,8 +187,8 @@ public class DTMCItemProvider extends IDBaseItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DTMCemfPackage.Literals.DTMC__STATES,
-				 DTMCemfFactory.eINSTANCE.createState()));
+				(DTMCPackage.Literals.DTMC__STATES,
+				 DTMCFactory.eINSTANCE.createState()));
 	}
 
 	/**
@@ -205,7 +199,7 @@ public class DTMCItemProvider extends IDBaseItemProvider {
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return DTMCemfEditPlugin.INSTANCE;
+		return DTMCEditPlugin.INSTANCE;
 	}
 
 }

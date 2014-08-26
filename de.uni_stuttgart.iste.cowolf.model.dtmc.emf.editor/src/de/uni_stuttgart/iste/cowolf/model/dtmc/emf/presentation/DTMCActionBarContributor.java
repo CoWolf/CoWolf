@@ -18,6 +18,7 @@ import org.eclipse.emf.edit.ui.action.LoadResourceAction;
 import org.eclipse.emf.edit.ui.action.ValidateAction;
 
 import org.eclipse.emf.edit.ui.provider.DiagnosticDecorator;
+
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.ActionContributionItem;
 import org.eclipse.jface.action.IAction;
@@ -41,12 +42,12 @@ import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PartInitException;
 
 /**
- * This is the action bar contributor for the DTMCemf model editor.
+ * This is the action bar contributor for the DTMC model editor.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class DTMCemfActionBarContributor
+public class DTMCActionBarContributor
 	extends EditingDomainActionBarContributor
 	implements ISelectionChangedListener {
 	/**
@@ -72,14 +73,14 @@ public class DTMCemfActionBarContributor
 	 * @generated
 	 */
 	protected IAction showPropertiesViewAction =
-		new Action(DTMCemfEditorPlugin.INSTANCE.getString("_UI_ShowPropertiesView_menu_item")) {
+		new Action(DTMCEditorPlugin.INSTANCE.getString("_UI_ShowPropertiesView_menu_item")) {
 			@Override
 			public void run() {
 				try {
 					getPage().showView("org.eclipse.ui.views.PropertySheet");
 				}
 				catch (PartInitException exception) {
-					DTMCemfEditorPlugin.INSTANCE.log(exception);
+					DTMCEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 		};
@@ -92,7 +93,7 @@ public class DTMCemfActionBarContributor
 	 * @generated
 	 */
 	protected IAction refreshViewerAction =
-		new Action(DTMCemfEditorPlugin.INSTANCE.getString("_UI_RefreshViewer_menu_item")) {
+		new Action(DTMCEditorPlugin.INSTANCE.getString("_UI_RefreshViewer_menu_item")) {
 			@Override
 			public boolean isEnabled() {
 				return activeEditorPart instanceof IViewerProvider;
@@ -149,11 +150,11 @@ public class DTMCemfActionBarContributor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DTMCemfActionBarContributor() {
+	public DTMCActionBarContributor() {
 		super(ADDITIONS_LAST_STYLE);
 		loadResourceAction = new LoadResourceAction();
 		validateAction = new ValidateAction();
-		liveValidationAction = new DiagnosticDecorator.LiveValidator.LiveValidationAction(DTMCemfEditorPlugin.getPlugin().getDialogSettings());
+		liveValidationAction = new DiagnosticDecorator.LiveValidator.LiveValidationAction(DTMCEditorPlugin.getPlugin().getDialogSettings());
 		controlAction = new ControlAction();
 	}
 
@@ -165,8 +166,8 @@ public class DTMCemfActionBarContributor
 	 */
 	@Override
 	public void contributeToToolBar(IToolBarManager toolBarManager) {
-		toolBarManager.add(new Separator("dtmcemf-settings"));
-		toolBarManager.add(new Separator("dtmcemf-additions"));
+		toolBarManager.add(new Separator("dtmc-settings"));
+		toolBarManager.add(new Separator("dtmc-additions"));
 	}
 
 	/**
@@ -180,7 +181,7 @@ public class DTMCemfActionBarContributor
 	public void contributeToMenu(IMenuManager menuManager) {
 		super.contributeToMenu(menuManager);
 
-		IMenuManager submenuManager = new MenuManager(DTMCemfEditorPlugin.INSTANCE.getString("_UI_DTMCemfEditor_menu"), "de.uni_stuttgart.iste.cowolf.model.dtmcMenuID");
+		IMenuManager submenuManager = new MenuManager(DTMCEditorPlugin.INSTANCE.getString("_UI_DTMCEditor_menu"), "de.uni_stuttgart.iste.cowolf.model.dtmcMenuID");
 		menuManager.insertAfter("additions", submenuManager);
 		submenuManager.add(new Separator("settings"));
 		submenuManager.add(new Separator("actions"));
@@ -189,12 +190,12 @@ public class DTMCemfActionBarContributor
 
 		// Prepare for CreateChild item addition or removal.
 		//
-		createChildMenuManager = new MenuManager(DTMCemfEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
+		createChildMenuManager = new MenuManager(DTMCEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
 		submenuManager.insertBefore("additions", createChildMenuManager);
 
 		// Prepare for CreateSibling item addition or removal.
 		//
-		createSiblingMenuManager = new MenuManager(DTMCemfEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
+		createSiblingMenuManager = new MenuManager(DTMCEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
 		submenuManager.insertBefore("additions", createSiblingMenuManager);
 
 		// Force an update because Eclipse hides empty menus now.
@@ -385,11 +386,11 @@ public class DTMCemfActionBarContributor
 		super.menuAboutToShow(menuManager);
 		MenuManager submenuManager = null;
 
-		submenuManager = new MenuManager(DTMCemfEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
+		submenuManager = new MenuManager(DTMCEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
 		populateManager(submenuManager, createChildActions, null);
 		menuManager.insertBefore("edit", submenuManager);
 
-		submenuManager = new MenuManager(DTMCemfEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
+		submenuManager = new MenuManager(DTMCEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
 		populateManager(submenuManager, createSiblingActions, null);
 		menuManager.insertBefore("edit", submenuManager);
 	}

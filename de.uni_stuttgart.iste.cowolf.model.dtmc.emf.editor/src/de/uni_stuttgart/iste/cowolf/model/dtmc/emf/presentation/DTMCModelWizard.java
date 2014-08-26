@@ -14,71 +14,48 @@ import java.util.MissingResourceException;
 import java.util.StringTokenizer;
 
 import org.eclipse.emf.common.CommonPlugin;
-
 import org.eclipse.emf.common.util.URI;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
-
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.ecore.xmi.XMLResource;
-
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
-
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
-
 import org.eclipse.core.runtime.IProgressMonitor;
-
 import org.eclipse.jface.dialogs.MessageDialog;
-
 import org.eclipse.jface.viewers.IStructuredSelection;
-
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardPage;
-
 import org.eclipse.swt.SWT;
-
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.ModifyEvent;
-
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
-
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
-
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
-
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
-
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
 
-import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfFactory;
-import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage;
-import de.uni_stuttgart.iste.cowolf.model.dtmc.emf.provider.DTMCemfEditPlugin;
-
+import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCFactory;
+import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCPackage;
+import de.uni_stuttgart.iste.cowolf.model.dtmc.emf.provider.DTMCEditPlugin;
 
 import org.eclipse.core.runtime.Path;
-
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
-
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchWindow;
@@ -91,7 +68,7 @@ import org.eclipse.ui.PartInitException;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DTMCemfModelWizard extends Wizard implements INewWizard {
+public class DTMCModelWizard extends Wizard implements INewWizard {
 	/**
 	 * The supported extensions for created files.
 	 * <!-- begin-user-doc -->
@@ -99,7 +76,7 @@ public class DTMCemfModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	public static final List<String> FILE_EXTENSIONS =
-		Collections.unmodifiableList(Arrays.asList(DTMCemfEditorPlugin.INSTANCE.getString("_UI_DTMCemfEditorFilenameExtensions").split("\\s*,\\s*")));
+		Collections.unmodifiableList(Arrays.asList(DTMCEditorPlugin.INSTANCE.getString("_UI_DTMCEditorFilenameExtensions").split("\\s*,\\s*")));
 
 	/**
 	 * A formatted list of supported file extensions, suitable for display.
@@ -108,7 +85,7 @@ public class DTMCemfModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	public static final String FORMATTED_FILE_EXTENSIONS =
-		DTMCemfEditorPlugin.INSTANCE.getString("_UI_DTMCemfEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
+		DTMCEditorPlugin.INSTANCE.getString("_UI_DTMCEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
 
 	/**
 	 * This caches an instance of the model package.
@@ -116,7 +93,7 @@ public class DTMCemfModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DTMCemfPackage dtmCemfPackage = DTMCemfPackage.eINSTANCE;
+	protected DTMCPackage dtmcPackage = DTMCPackage.eINSTANCE;
 
 	/**
 	 * This caches an instance of the model factory.
@@ -124,7 +101,7 @@ public class DTMCemfModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DTMCemfFactory dtmCemfFactory = dtmCemfPackage.getDTMCemfFactory();
+	protected DTMCFactory dtmcFactory = dtmcPackage.getDTMCFactory();
 
 	/**
 	 * This is the file creation page.
@@ -132,7 +109,7 @@ public class DTMCemfModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DTMCemfModelWizardNewFileCreationPage newFileCreationPage;
+	protected DTMCModelWizardNewFileCreationPage newFileCreationPage;
 
 	/**
 	 * This is the initial object creation page.
@@ -140,7 +117,7 @@ public class DTMCemfModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DTMCemfModelWizardInitialObjectCreationPage initialObjectCreationPage;
+	protected DTMCModelWizardInitialObjectCreationPage initialObjectCreationPage;
 
 	/**
 	 * Remember the selection during initialization for populating the default container.
@@ -175,8 +152,8 @@ public class DTMCemfModelWizard extends Wizard implements INewWizard {
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
 		this.selection = selection;
-		setWindowTitle(DTMCemfEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
-		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(DTMCemfEditorPlugin.INSTANCE.getImage("full/wizban/NewDTMCemf")));
+		setWindowTitle(DTMCEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
+		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(DTMCEditorPlugin.INSTANCE.getImage("full/wizban/NewDTMC")));
 	}
 
 	/**
@@ -188,7 +165,7 @@ public class DTMCemfModelWizard extends Wizard implements INewWizard {
 	protected Collection<String> getInitialObjectNames() {
 		if (initialObjectNames == null) {
 			initialObjectNames = new ArrayList<String>();
-			for (EClassifier eClassifier : dtmCemfPackage.getEClassifiers()) {
+			for (EClassifier eClassifier : dtmcPackage.getEClassifiers()) {
 				if (eClassifier instanceof EClass) {
 					EClass eClass = (EClass)eClassifier;
 					if (!eClass.isAbstract() && eClass.getName().equalsIgnoreCase("DTMC")) {
@@ -208,8 +185,8 @@ public class DTMCemfModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	protected EObject createInitialModel() {
-		EClass eClass = (EClass)dtmCemfPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
-		EObject rootObject = dtmCemfFactory.create(eClass);
+		EClass eClass = (EClass)dtmcPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
+		EObject rootObject = dtmcFactory.create(eClass);
 		return rootObject;
 	}
 
@@ -259,7 +236,7 @@ public class DTMCemfModelWizard extends Wizard implements INewWizard {
 							resource.save(options);
 						}
 						catch (Exception exception) {
-							DTMCemfEditorPlugin.INSTANCE.log(exception);
+							DTMCEditorPlugin.INSTANCE.log(exception);
 						}
 						finally {
 							progressMonitor.done();
@@ -292,14 +269,14 @@ public class DTMCemfModelWizard extends Wizard implements INewWizard {
 					 workbench.getEditorRegistry().getDefaultEditor(modelFile.getFullPath().toString()).getId());					 	 
 			}
 			catch (PartInitException exception) {
-				MessageDialog.openError(workbenchWindow.getShell(), DTMCemfEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
+				MessageDialog.openError(workbenchWindow.getShell(), DTMCEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
 				return false;
 			}
 
 			return true;
 		}
 		catch (Exception exception) {
-			DTMCemfEditorPlugin.INSTANCE.log(exception);
+			DTMCEditorPlugin.INSTANCE.log(exception);
 			return false;
 		}
 	}
@@ -310,14 +287,14 @@ public class DTMCemfModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public class DTMCemfModelWizardNewFileCreationPage extends WizardNewFileCreationPage {
+	public class DTMCModelWizardNewFileCreationPage extends WizardNewFileCreationPage {
 		/**
 		 * Pass in the selection.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		public DTMCemfModelWizardNewFileCreationPage(String pageId, IStructuredSelection selection) {
+		public DTMCModelWizardNewFileCreationPage(String pageId, IStructuredSelection selection) {
 			super(pageId, selection);
 		}
 
@@ -333,7 +310,7 @@ public class DTMCemfModelWizard extends Wizard implements INewWizard {
 				String extension = new Path(getFileName()).getFileExtension();
 				if (extension == null || !FILE_EXTENSIONS.contains(extension)) {
 					String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions" : "_WARN_FilenameExtension";
-					setErrorMessage(DTMCemfEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
+					setErrorMessage(DTMCEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
 					return false;
 				}
 				return true;
@@ -357,7 +334,7 @@ public class DTMCemfModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public class DTMCemfModelWizardInitialObjectCreationPage extends WizardPage {
+	public class DTMCModelWizardInitialObjectCreationPage extends WizardPage {
 		/**
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -385,7 +362,7 @@ public class DTMCemfModelWizard extends Wizard implements INewWizard {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		public DTMCemfModelWizardInitialObjectCreationPage(String pageId) {
+		public DTMCModelWizardInitialObjectCreationPage(String pageId) {
 			super(pageId);
 		}
 
@@ -395,7 +372,8 @@ public class DTMCemfModelWizard extends Wizard implements INewWizard {
 		 * @generated
 		 */
 		public void createControl(Composite parent) {
-			Composite composite = new Composite(parent, SWT.NONE); {
+			Composite composite = new Composite(parent, SWT.NONE);
+			{
 				GridLayout layout = new GridLayout();
 				layout.numColumns = 1;
 				layout.verticalSpacing = 12;
@@ -410,7 +388,7 @@ public class DTMCemfModelWizard extends Wizard implements INewWizard {
 
 			Label containerLabel = new Label(composite, SWT.LEFT);
 			{
-				containerLabel.setText(DTMCemfEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
+				containerLabel.setText(DTMCEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
 
 				GridData data = new GridData();
 				data.horizontalAlignment = GridData.FILL;
@@ -436,7 +414,7 @@ public class DTMCemfModelWizard extends Wizard implements INewWizard {
 
 			Label encodingLabel = new Label(composite, SWT.LEFT);
 			{
-				encodingLabel.setText(DTMCemfEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
+				encodingLabel.setText(DTMCEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
 
 				GridData data = new GridData();
 				data.horizontalAlignment = GridData.FILL;
@@ -535,10 +513,10 @@ public class DTMCemfModelWizard extends Wizard implements INewWizard {
 		 */
 		protected String getLabel(String typeName) {
 			try {
-				return DTMCemfEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
+				return DTMCEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
 			}
 			catch(MissingResourceException mre) {
-				DTMCemfEditorPlugin.INSTANCE.log(mre);
+				DTMCEditorPlugin.INSTANCE.log(mre);
 			}
 			return typeName;
 		}
@@ -551,7 +529,7 @@ public class DTMCemfModelWizard extends Wizard implements INewWizard {
 		protected Collection<String> getEncodings() {
 			if (encodings == null) {
 				encodings = new ArrayList<String>();
-				for (StringTokenizer stringTokenizer = new StringTokenizer(DTMCemfEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); ) {
+				for (StringTokenizer stringTokenizer = new StringTokenizer(DTMCEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); ) {
 					encodings.add(stringTokenizer.nextToken());
 				}
 			}
@@ -569,10 +547,10 @@ public class DTMCemfModelWizard extends Wizard implements INewWizard {
 	public void addPages() {
 		// Create a page, set the title, and the initial model file name.
 		//
-		newFileCreationPage = new DTMCemfModelWizardNewFileCreationPage("Whatever", selection);
-		newFileCreationPage.setTitle(DTMCemfEditorPlugin.INSTANCE.getString("_UI_DTMCemfModelWizard_label"));
-		newFileCreationPage.setDescription(DTMCemfEditorPlugin.INSTANCE.getString("_UI_DTMCemfModelWizard_description"));
-		newFileCreationPage.setFileName(DTMCemfEditorPlugin.INSTANCE.getString("_UI_DTMCemfEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
+		newFileCreationPage = new DTMCModelWizardNewFileCreationPage("Whatever", selection);
+		newFileCreationPage.setTitle(DTMCEditorPlugin.INSTANCE.getString("_UI_DTMCModelWizard_label"));
+		newFileCreationPage.setDescription(DTMCEditorPlugin.INSTANCE.getString("_UI_DTMCModelWizard_description"));
+		newFileCreationPage.setFileName(DTMCEditorPlugin.INSTANCE.getString("_UI_DTMCEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
 		addPage(newFileCreationPage);
 
 		// Try and get the resource selection to determine a current directory for the file dialog.
@@ -598,7 +576,7 @@ public class DTMCemfModelWizard extends Wizard implements INewWizard {
 
 					// Make up a unique new name here.
 					//
-					String defaultModelBaseFilename = DTMCemfEditorPlugin.INSTANCE.getString("_UI_DTMCemfEditorFilenameDefaultBase");
+					String defaultModelBaseFilename = DTMCEditorPlugin.INSTANCE.getString("_UI_DTMCEditorFilenameDefaultBase");
 					String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
 					String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
 					for (int i = 1; ((IContainer)selectedResource).findMember(modelFilename) != null; ++i) {
@@ -608,9 +586,9 @@ public class DTMCemfModelWizard extends Wizard implements INewWizard {
 				}
 			}
 		}
-		initialObjectCreationPage = new DTMCemfModelWizardInitialObjectCreationPage("Whatever2");
-		initialObjectCreationPage.setTitle(DTMCemfEditorPlugin.INSTANCE.getString("_UI_DTMCemfModelWizard_label"));
-		initialObjectCreationPage.setDescription(DTMCemfEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
+		initialObjectCreationPage = new DTMCModelWizardInitialObjectCreationPage("Whatever2");
+		initialObjectCreationPage.setTitle(DTMCEditorPlugin.INSTANCE.getString("_UI_DTMCModelWizard_label"));
+		initialObjectCreationPage.setDescription(DTMCEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
 		addPage(initialObjectCreationPage);
 	}
 

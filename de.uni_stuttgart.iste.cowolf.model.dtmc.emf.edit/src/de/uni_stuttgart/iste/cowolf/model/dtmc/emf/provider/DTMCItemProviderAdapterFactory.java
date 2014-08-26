@@ -2,7 +2,7 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.dtmc.emf.provider;
 
-import de.uni_stuttgart.iste.cowolf.model.dtmc.util.DTMCemfAdapterFactory;
+import de.uni_stuttgart.iste.cowolf.model.dtmc.util.DTMCAdapterFactory;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -32,7 +32,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DTMCemfItemProviderAdapterFactory extends DTMCemfAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
+public class DTMCItemProviderAdapterFactory extends DTMCAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc -->
@@ -63,7 +63,7 @@ public class DTMCemfItemProviderAdapterFactory extends DTMCemfAdapterFactory imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DTMCemfItemProviderAdapterFactory() {
+	public DTMCItemProviderAdapterFactory() {
 		supportedTypes.add(IEditingDomainItemProvider.class);
 		supportedTypes.add(IStructuredItemContentProvider.class);
 		supportedTypes.add(ITreeItemContentProvider.class);

@@ -30,7 +30,7 @@ public class DTMCModelManager extends AbstractQoSModelManager {
 		properContents.add(StateImpl.class);
 		properContents.add(LabelImpl.class);
 		properContents.add(DTMCImpl.class);
-		ModelTypeInfo mti = new ModelTypeInfo("dtmc", properContents, DTMCemfPackage.eNS_URI);
+		ModelTypeInfo mti = new ModelTypeInfo("dtmc", properContents, DTMCPackage.eNS_URI);
 		
 		return mti;
 	}

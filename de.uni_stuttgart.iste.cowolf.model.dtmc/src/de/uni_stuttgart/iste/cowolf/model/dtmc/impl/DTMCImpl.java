@@ -4,7 +4,7 @@ package de.uni_stuttgart.iste.cowolf.model.dtmc.impl;
 
 import de.uni_stuttgart.iste.cowolf.model.commonBase.impl.IDBaseImpl;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC;
-import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage;
+import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCPackage;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.State;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
@@ -88,7 +88,7 @@ public class DTMCImpl extends IDBaseImpl implements DTMC {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return DTMCemfPackage.Literals.DTMC;
+		return DTMCPackage.Literals.DTMC;
 	}
 
 	/**
@@ -109,7 +109,7 @@ public class DTMCImpl extends IDBaseImpl implements DTMC {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DTMCemfPackage.DTMC__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, DTMCPackage.DTMC__NAME, oldName, name));
 	}
 
 	/**
@@ -119,7 +119,7 @@ public class DTMCImpl extends IDBaseImpl implements DTMC {
 	 */
 	public EList<State> getStates() {
 		if (states == null) {
-			states = new EObjectContainmentEList<State>(State.class, this, DTMCemfPackage.DTMC__STATES);
+			states = new EObjectContainmentEList<State>(State.class, this, DTMCPackage.DTMC__STATES);
 		}
 		return states;
 	}
@@ -135,7 +135,7 @@ public class DTMCImpl extends IDBaseImpl implements DTMC {
 			initialState = (State)eResolveProxy(oldInitialState);
 			if (initialState != oldInitialState) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DTMCemfPackage.DTMC__INITIAL_STATE, oldInitialState, initialState));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DTMCPackage.DTMC__INITIAL_STATE, oldInitialState, initialState));
 			}
 		}
 		return initialState;
@@ -159,7 +159,7 @@ public class DTMCImpl extends IDBaseImpl implements DTMC {
 		State oldInitialState = initialState;
 		initialState = newInitialState;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DTMCemfPackage.DTMC__INITIAL_STATE, oldInitialState, initialState));
+			eNotify(new ENotificationImpl(this, Notification.SET, DTMCPackage.DTMC__INITIAL_STATE, oldInitialState, initialState));
 	}
 
 	/**
@@ -170,7 +170,7 @@ public class DTMCImpl extends IDBaseImpl implements DTMC {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DTMCemfPackage.DTMC__STATES:
+			case DTMCPackage.DTMC__STATES:
 				return ((InternalEList<?>)getStates()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -184,11 +184,11 @@ public class DTMCImpl extends IDBaseImpl implements DTMC {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DTMCemfPackage.DTMC__NAME:
+			case DTMCPackage.DTMC__NAME:
 				return getName();
-			case DTMCemfPackage.DTMC__STATES:
+			case DTMCPackage.DTMC__STATES:
 				return getStates();
-			case DTMCemfPackage.DTMC__INITIAL_STATE:
+			case DTMCPackage.DTMC__INITIAL_STATE:
 				if (resolve) return getInitialState();
 				return basicGetInitialState();
 		}
@@ -204,14 +204,14 @@ public class DTMCImpl extends IDBaseImpl implements DTMC {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DTMCemfPackage.DTMC__NAME:
+			case DTMCPackage.DTMC__NAME:
 				setName((String)newValue);
 				return;
-			case DTMCemfPackage.DTMC__STATES:
+			case DTMCPackage.DTMC__STATES:
 				getStates().clear();
 				getStates().addAll((Collection<? extends State>)newValue);
 				return;
-			case DTMCemfPackage.DTMC__INITIAL_STATE:
+			case DTMCPackage.DTMC__INITIAL_STATE:
 				setInitialState((State)newValue);
 				return;
 		}
@@ -226,13 +226,13 @@ public class DTMCImpl extends IDBaseImpl implements DTMC {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DTMCemfPackage.DTMC__NAME:
+			case DTMCPackage.DTMC__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case DTMCemfPackage.DTMC__STATES:
+			case DTMCPackage.DTMC__STATES:
 				getStates().clear();
 				return;
-			case DTMCemfPackage.DTMC__INITIAL_STATE:
+			case DTMCPackage.DTMC__INITIAL_STATE:
 				setInitialState((State)null);
 				return;
 		}
@@ -247,11 +247,11 @@ public class DTMCImpl extends IDBaseImpl implements DTMC {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DTMCemfPackage.DTMC__NAME:
+			case DTMCPackage.DTMC__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case DTMCemfPackage.DTMC__STATES:
+			case DTMCPackage.DTMC__STATES:
 				return states != null && !states.isEmpty();
-			case DTMCemfPackage.DTMC__INITIAL_STATE:
+			case DTMCPackage.DTMC__INITIAL_STATE:
 				return initialState != null;
 		}
 		return super.eIsSet(featureID);

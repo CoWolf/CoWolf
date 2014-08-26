@@ -9,17 +9,17 @@ import org.eclipse.emf.ecore.EFactory;
  * The <b>Factory</b> for the model.
  * It provides a create method for each non-abstract class of the model.
  * <!-- end-user-doc -->
- * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage
+ * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCPackage
  * @generated
  */
-public interface DTMCemfFactory extends EFactory {
+public interface DTMCFactory extends EFactory {
 	/**
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	DTMCemfFactory eINSTANCE = de.uni_stuttgart.iste.cowolf.model.dtmc.impl.DTMCemfFactoryImpl.init();
+	DTMCFactory eINSTANCE = de.uni_stuttgart.iste.cowolf.model.dtmc.impl.DTMCFactoryImpl.init();
 
 	/**
 	 * Returns a new object of class '<em>DTMC</em>'.
@@ -64,6 +64,6 @@ public interface DTMCemfFactory extends EFactory {
 	 * @return the package supported by this factory.
 	 * @generated
 	 */
-	DTMCemfPackage getDTMCemfPackage();
+	DTMCPackage getDTMCPackage();
 
-} //DTMCemfFactory
+} //DTMCFactory

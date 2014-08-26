@@ -21,17 +21,17 @@ import org.eclipse.emf.ecore.util.Switch;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage
+ * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCPackage
  * @generated
  */
-public class DTMCemfSwitch<T> extends Switch<T> {
+public class DTMCSwitch<T> extends Switch<T> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static DTMCemfPackage modelPackage;
+	protected static DTMCPackage modelPackage;
 
 	/**
 	 * Creates an instance of the switch.
@@ -39,9 +39,9 @@ public class DTMCemfSwitch<T> extends Switch<T> {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DTMCemfSwitch() {
+	public DTMCSwitch() {
 		if (modelPackage == null) {
-			modelPackage = DTMCemfPackage.eINSTANCE;
+			modelPackage = DTMCPackage.eINSTANCE;
 		}
 	}
 
@@ -68,28 +68,28 @@ public class DTMCemfSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case DTMCemfPackage.DTMC: {
+			case DTMCPackage.DTMC: {
 				DTMC dtmc = (DTMC)theEObject;
 				T result = caseDTMC(dtmc);
 				if (result == null) result = caseIDBase(dtmc);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DTMCemfPackage.STATE: {
+			case DTMCPackage.STATE: {
 				State state = (State)theEObject;
 				T result = caseState(state);
 				if (result == null) result = caseIDBase(state);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DTMCemfPackage.TRANSITION: {
+			case DTMCPackage.TRANSITION: {
 				Transition transition = (Transition)theEObject;
 				T result = caseTransition(transition);
 				if (result == null) result = caseIDBase(transition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DTMCemfPackage.LABEL: {
+			case DTMCPackage.LABEL: {
 				Label label = (Label)theEObject;
 				T result = caseLabel(label);
 				if (result == null) result = caseIDBase(label);
@@ -191,4 +191,4 @@ public class DTMCemfSwitch<T> extends Switch<T> {
 		return null;
 	}
 
-} //DTMCemfSwitch
+} //DTMCSwitch

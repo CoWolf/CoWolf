@@ -18,24 +18,24 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DTMCemfFactoryImpl extends EFactoryImpl implements DTMCemfFactory {
+public class DTMCFactoryImpl extends EFactoryImpl implements DTMCFactory {
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static DTMCemfFactory init() {
+	public static DTMCFactory init() {
 		try {
-			DTMCemfFactory theDTMCemfFactory = (DTMCemfFactory)EPackage.Registry.INSTANCE.getEFactory(DTMCemfPackage.eNS_URI);
-			if (theDTMCemfFactory != null) {
-				return theDTMCemfFactory;
+			DTMCFactory theDTMCFactory = (DTMCFactory)EPackage.Registry.INSTANCE.getEFactory(DTMCPackage.eNS_URI);
+			if (theDTMCFactory != null) {
+				return theDTMCFactory;
 			}
 		}
 		catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
-		return new DTMCemfFactoryImpl();
+		return new DTMCFactoryImpl();
 	}
 
 	/**
@@ -44,7 +44,7 @@ public class DTMCemfFactoryImpl extends EFactoryImpl implements DTMCemfFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DTMCemfFactoryImpl() {
+	public DTMCFactoryImpl() {
 		super();
 	}
 
@@ -56,10 +56,10 @@ public class DTMCemfFactoryImpl extends EFactoryImpl implements DTMCemfFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case DTMCemfPackage.DTMC: return createDTMC();
-			case DTMCemfPackage.STATE: return createState();
-			case DTMCemfPackage.TRANSITION: return createTransition();
-			case DTMCemfPackage.LABEL: return createLabel();
+			case DTMCPackage.DTMC: return createDTMC();
+			case DTMCPackage.STATE: return createState();
+			case DTMCPackage.TRANSITION: return createTransition();
+			case DTMCPackage.LABEL: return createLabel();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -110,8 +110,8 @@ public class DTMCemfFactoryImpl extends EFactoryImpl implements DTMCemfFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DTMCemfPackage getDTMCemfPackage() {
-		return (DTMCemfPackage)getEPackage();
+	public DTMCPackage getDTMCPackage() {
+		return (DTMCPackage)getEPackage();
 	}
 
 	/**
@@ -121,8 +121,8 @@ public class DTMCemfFactoryImpl extends EFactoryImpl implements DTMCemfFactory {
 	 * @generated
 	 */
 	@Deprecated
-	public static DTMCemfPackage getPackage() {
-		return DTMCemfPackage.eINSTANCE;
+	public static DTMCPackage getPackage() {
+		return DTMCPackage.eINSTANCE;
 	}
 
-} //DTMCemfFactoryImpl
+} //DTMCFactoryImpl

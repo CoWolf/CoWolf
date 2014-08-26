@@ -4,19 +4,20 @@ package de.uni_stuttgart.iste.cowolf.model.dtmc.impl;
 
 import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
 
-import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfFactory;
-import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage;
+import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCFactory;
+import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCPackage;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.Label;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.State;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.Transition;
 
-import de.uni_stuttgart.iste.cowolf.model.dtmc.util.DTMCemfValidator;
+import de.uni_stuttgart.iste.cowolf.model.dtmc.util.DTMCValidator;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.EValidator;
+
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -25,7 +26,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DTMCemfPackageImpl extends EPackageImpl implements DTMCemfPackage {
+public class DTMCPackageImpl extends EPackageImpl implements DTMCPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -65,12 +66,12 @@ public class DTMCemfPackageImpl extends EPackageImpl implements DTMCemfPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage#eNS_URI
+	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCPackage#eNS_URI
 	 * @see #init()
 	 * @generated
 	 */
-	private DTMCemfPackageImpl() {
-		super(eNS_URI, DTMCemfFactory.eINSTANCE);
+	private DTMCPackageImpl() {
+		super(eNS_URI, DTMCFactory.eINSTANCE);
 	}
 
 	/**
@@ -83,7 +84,7 @@ public class DTMCemfPackageImpl extends EPackageImpl implements DTMCemfPackage {
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
 	 * 
-	 * <p>This method is used to initialize {@link DTMCemfPackage#eINSTANCE} when that field is accessed.
+	 * <p>This method is used to initialize {@link DTMCPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -92,11 +93,11 @@ public class DTMCemfPackageImpl extends EPackageImpl implements DTMCemfPackage {
 	 * @see #initializePackageContents()
 	 * @generated
 	 */
-	public static DTMCemfPackage init() {
-		if (isInited) return (DTMCemfPackage)EPackage.Registry.INSTANCE.getEPackage(DTMCemfPackage.eNS_URI);
+	public static DTMCPackage init() {
+		if (isInited) return (DTMCPackage)EPackage.Registry.INSTANCE.getEPackage(DTMCPackage.eNS_URI);
 
 		// Obtain or create and register package
-		DTMCemfPackageImpl theDTMCemfPackage = (DTMCemfPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof DTMCemfPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new DTMCemfPackageImpl());
+		DTMCPackageImpl theDTMCPackage = (DTMCPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof DTMCPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new DTMCPackageImpl());
 
 		isInited = true;
 
@@ -104,27 +105,27 @@ public class DTMCemfPackageImpl extends EPackageImpl implements DTMCemfPackage {
 		CommonBasePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
-		theDTMCemfPackage.createPackageContents();
+		theDTMCPackage.createPackageContents();
 
 		// Initialize created meta-data
-		theDTMCemfPackage.initializePackageContents();
+		theDTMCPackage.initializePackageContents();
 
 		// Register package validator
 		EValidator.Registry.INSTANCE.put
-			(theDTMCemfPackage, 
+			(theDTMCPackage, 
 			 new EValidator.Descriptor() {
 				 public EValidator getEValidator() {
-					 return DTMCemfValidator.INSTANCE;
+					 return DTMCValidator.INSTANCE;
 				 }
 			 });
 
 		// Mark meta-data to indicate it can't be changed
-		theDTMCemfPackage.freeze();
+		theDTMCPackage.freeze();
 
   
 		// Update the registry and return the package
-		EPackage.Registry.INSTANCE.put(DTMCemfPackage.eNS_URI, theDTMCemfPackage);
-		return theDTMCemfPackage;
+		EPackage.Registry.INSTANCE.put(DTMCPackage.eNS_URI, theDTMCPackage);
+		return theDTMCPackage;
 	}
 
 	/**
@@ -276,8 +277,8 @@ public class DTMCemfPackageImpl extends EPackageImpl implements DTMCemfPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DTMCemfFactory getDTMCemfFactory() {
-		return (DTMCemfFactory)getEFactoryInstance();
+	public DTMCFactory getDTMCFactory() {
+		return (DTMCFactory)getEFactoryInstance();
 	}
 
 	/**
@@ -460,4 +461,4 @@ public class DTMCemfPackageImpl extends EPackageImpl implements DTMCemfPackage {
 		   });
 	}
 
-} //DTMCemfPackageImpl
+} //DTMCPackageImpl

@@ -20,7 +20,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  * </p>
  *
- * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage#getDTMC()
+ * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCPackage#getDTMC()
  * @model
  * @generated
  */
@@ -36,7 +36,7 @@ public interface DTMC extends IDBase {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage#getDTMC_Name()
+	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCPackage#getDTMC_Name()
 	 * @model default=""
 	 * @generated
 	 */
@@ -62,7 +62,7 @@ public interface DTMC extends IDBase {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>States</em>' containment reference list.
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage#getDTMC_States()
+	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCPackage#getDTMC_States()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -78,7 +78,7 @@ public interface DTMC extends IDBase {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Initial State</em>' reference.
 	 * @see #setInitialState(State)
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage#getDTMC_InitialState()
+	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCPackage#getDTMC_InitialState()
 	 * @model required="true"
 	 * @generated
 	 */

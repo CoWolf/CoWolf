@@ -18,17 +18,17 @@ import org.eclipse.emf.ecore.util.EObjectValidator;
  * <!-- begin-user-doc -->
  * The <b>Validator</b> for the model.
  * <!-- end-user-doc -->
- * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage
+ * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCPackage
  * @generated
  */
-public class DTMCemfValidator extends EObjectValidator {
+public class DTMCValidator extends EObjectValidator {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final DTMCemfValidator INSTANCE = new DTMCemfValidator();
+	public static final DTMCValidator INSTANCE = new DTMCValidator();
 
 	/**
 	 * A constant for the {@link org.eclipse.emf.common.util.Diagnostic#getSource() source} of diagnostic {@link org.eclipse.emf.common.util.Diagnostic#getCode() codes} from this package.
@@ -62,7 +62,7 @@ public class DTMCemfValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DTMCemfValidator() {
+	public DTMCValidator() {
 		super();
 	}
 
@@ -74,7 +74,7 @@ public class DTMCemfValidator extends EObjectValidator {
 	 */
 	@Override
 	protected EPackage getEPackage() {
-	  return DTMCemfPackage.eINSTANCE;
+	  return DTMCPackage.eINSTANCE;
 	}
 
 	/**
@@ -86,13 +86,13 @@ public class DTMCemfValidator extends EObjectValidator {
 	@Override
 	protected boolean validate(int classifierID, Object value, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		switch (classifierID) {
-			case DTMCemfPackage.DTMC:
+			case DTMCPackage.DTMC:
 				return validateDTMC((DTMC)value, diagnostics, context);
-			case DTMCemfPackage.STATE:
+			case DTMCPackage.STATE:
 				return validateState((State)value, diagnostics, context);
-			case DTMCemfPackage.TRANSITION:
+			case DTMCPackage.TRANSITION:
 				return validateTransition((Transition)value, diagnostics, context);
-			case DTMCemfPackage.LABEL:
+			case DTMCPackage.LABEL:
 				return validateLabel((Label)value, diagnostics, context);
 			default:
 				return true;
@@ -150,7 +150,7 @@ public class DTMCemfValidator extends EObjectValidator {
 	public boolean validateState_OutgoingDontAddUpToOne(State state, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return
 			validate
-				(DTMCemfPackage.Literals.STATE,
+				(DTMCPackage.Literals.STATE,
 				 state,
 				 diagnostics,
 				 context,
@@ -183,7 +183,7 @@ public class DTMCemfValidator extends EObjectValidator {
 	public boolean validateState_NonDeterministic(State state, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return
 			validate
-				(DTMCemfPackage.Literals.STATE,
+				(DTMCPackage.Literals.STATE,
 				 state,
 				 diagnostics,
 				 context,
@@ -216,7 +216,7 @@ public class DTMCemfValidator extends EObjectValidator {
 	public boolean validateState_NoDuplicateLabels(State state, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return
 			validate
-				(DTMCemfPackage.Literals.STATE,
+				(DTMCPackage.Literals.STATE,
 				 state,
 				 diagnostics,
 				 context,
@@ -268,7 +268,7 @@ public class DTMCemfValidator extends EObjectValidator {
 	public boolean validateTransition_ProbBetween0and1(Transition transition, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return
 			validate
-				(DTMCemfPackage.Literals.TRANSITION,
+				(DTMCPackage.Literals.TRANSITION,
 				 transition,
 				 diagnostics,
 				 context,
@@ -303,4 +303,4 @@ public class DTMCemfValidator extends EObjectValidator {
 		return super.getResourceLocator();
 	}
 
-} //DTMCemfValidator
+} //DTMCValidator
