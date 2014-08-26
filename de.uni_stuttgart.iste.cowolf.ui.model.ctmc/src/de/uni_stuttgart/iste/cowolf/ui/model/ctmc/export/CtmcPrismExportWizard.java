@@ -1,4 +1,4 @@
-package de.uni_stuttgart.iste.cowolf.ui.model.dtmc.export;
+package de.uni_stuttgart.iste.cowolf.ui.model.ctmc.export;
 
 import java.io.File;
 import java.io.IOException;
@@ -20,32 +20,32 @@ import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.IExportWizard;
 import org.eclipse.ui.IWorkbench;
 
-import de.uni_stuttgart.iste.cowolf.model.dtmc.export.DTMCExportPRISMJob;
-import de.uni_stuttgart.iste.cowolf.ui.model.dtmc.Activator;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.export.CTMCExportPRISMJob;
+import de.uni_stuttgart.iste.cowolf.ui.model.ctmc.Activator;
 
-public class DtmcPrismExportWizard extends Wizard implements IExportWizard {
+public class CtmcPrismExportWizard extends Wizard implements IExportWizard {
 
 	/**
-	 * Creates a Wizarz, which executes the export of dtmc models to PRISM models.
+	 * Creates a Wizarz, which executes the export of ctmc models to PRISM models.
 	 */
-	public DtmcPrismExportWizard() {
+	public CtmcPrismExportWizard() {
 		super();
 		IDialogSettings pluginSettings =  Activator.getDefault().getDialogSettings();
-		if (pluginSettings.getSection("DtmcToPrismExportDialog") == null) {
-			this.settings = pluginSettings.addNewSection("DtmcToPrismExportDialog");
+		if (pluginSettings.getSection("CtmcToPrismExportDialog") == null) {
+			this.settings = pluginSettings.addNewSection("DCtmcToPrismExportDialog");
 		} else {
-			this.settings = pluginSettings.getSection("DtmcToPrismExportDialog");
+			this.settings = pluginSettings.getSection("CtmcToPrismExportDialog");
 		}
 	}
 
-	private DtmcPrismExportPage1 page1;
+	private CtmcPrismExportPage1 page1;
 
 	private final IDialogSettings settings;
 	
 	@Override
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		new HashMap<String,Object> ();
-		page1 = new DtmcPrismExportPage1("DTMC export PRISM model", selection, this.settings);
+		page1 = new CtmcPrismExportPage1("CTMC export PRISM model", selection, this.settings);
 	}
 	
 	private boolean isValidModel(IFile iFile) {
@@ -72,8 +72,8 @@ public class DtmcPrismExportWizard extends Wizard implements IExportWizard {
 		String outputPath = this.page1.getOutputPath();
 		List<IFile> files = this.page1.getSelectedFiles();
 
-		HashMap<Resource, File> mappingPM = new HashMap<Resource, File>();
-		HashMap<Resource, File> mappingPCTL = new HashMap<Resource, File>();
+		HashMap<Resource, File> mappingSM = new HashMap<Resource, File>();
+		HashMap<Resource, File> mappingCSL = new HashMap<Resource, File>();
 
 		fileloop: for(final IFile iFile : files) {
 			try {
@@ -81,75 +81,75 @@ public class DtmcPrismExportWizard extends Wizard implements IExportWizard {
 					MessageDialog.openInformation(null, "Skipped Export", "Skipped Export of invalid model: " + iFile.getFullPath().toOSString());
 					continue fileloop;
 				}
-				final String pathPM;
-				final String pathPCTL;
+				final String pathSM;
+				final String pathCSL;
 				if (this.page1.getUseProjectStructure()) {
 					String projectStructure = iFile.getFullPath().removeLastSegments(1).toOSString();
-					pathPM = outputPath + projectStructure + File.separator + iFile.getName().substring(0, iFile.getName().length() - iFile.getFileExtension().length()) + "prism";
-					pathPCTL = outputPath + projectStructure + File.separator + iFile.getName().substring(0, iFile.getName().length() - iFile.getFileExtension().length()) + "props";
+					pathSM = outputPath + projectStructure + File.separator + iFile.getName().substring(0, iFile.getName().length() - iFile.getFileExtension().length()) + "prism";
+					pathCSL = outputPath + projectStructure + File.separator + iFile.getName().substring(0, iFile.getName().length() - iFile.getFileExtension().length()) + "props";
 				} else {
-					pathPM = outputPath + File.separator + iFile.getName().substring(0, iFile.getName().length() - iFile.getFileExtension().length()) + "prism";
-					pathPCTL = outputPath + File.separator + iFile.getName().substring(0, iFile.getName().length() - iFile.getFileExtension().length()) + "props";
+					pathSM = outputPath + File.separator + iFile.getName().substring(0, iFile.getName().length() - iFile.getFileExtension().length()) + "prism";
+					pathCSL = outputPath + File.separator + iFile.getName().substring(0, iFile.getName().length() - iFile.getFileExtension().length()) + "props";
 				}
-				System.out.println("Path for pm: " + pathPM);
-				System.out.println("Path for pctl: " + pathPCTL);
+				System.out.println("Path for sm: " + pathSM);
+				System.out.println("Path for csl: " + pathCSL);
 				// Generate new file and folders
-				File pmFile = new File(pathPM);
-				File pctlFile = new File(pathPCTL);
-				if (pmFile.exists() && !this.page1.getOverwritePermission()) {
+				File smFile = new File(pathSM);
+				File cslFile = new File(pathCSL);
+				if (smFile.exists() && !this.page1.getOverwritePermission()) {
 
-					int result = this.requestOverwrite(pathPM);
+					int result = this.requestOverwrite(pathSM);
 					switch(result) {
 					case 0: 
 						//yes
-						System.out.println("User allowed to delete the file: " + pathPM);
+						System.out.println("User allowed to delete the file: " + pathSM);
 						break;
 					case 1:
 						//no
-						System.out.println("User didn't allowed to delete the file: " + pathPM);
+						System.out.println("User didn't allowed to delete the file: " + pathSM);
 						continue fileloop;
 					case 2:
 						//cancel
 						System.out.println("User canceled the export");
 						return true;
 					}
-					if (!pmFile.delete()) {
-						System.out.println("Can't delete file: " + pathPCTL);
+					if (!smFile.delete()) {
+						System.out.println("Can't delete file: " + pathCSL);
 						continue fileloop;
 					}
 				}
-				if (pctlFile.exists() && !this.page1.getOverwritePermission()) {
-					int result = this.requestOverwrite(pathPCTL);
+				if (cslFile.exists() && !this.page1.getOverwritePermission()) {
+					int result = this.requestOverwrite(pathCSL);
 					switch(result) {
 					case 0: 
 						//yes
-						System.out.println("User allowed to delete the file: " + pathPCTL);
+						System.out.println("User allowed to delete the file: " + pathCSL);
 						break;
 					case 1:
 						//no
-						System.out.println("User didn't allowed to delete the file: " + pathPCTL);
+						System.out.println("User didn't allowed to delete the file: " + pathCSL);
 						continue fileloop;
 					case 2:
 						//cancel
 						System.out.println("User canceled the export");
 						return true;
 					}
-					if (!pctlFile.delete()) {
-						System.out.println("Can't delete file: " + pathPCTL);
+					if (!cslFile.delete()) {
+						System.out.println("Can't delete file: " + pathCSL);
 						continue fileloop;
 					}
 				}
 				
 
-				if (pmFile.getParent() != null) {
-					pmFile.getParentFile().mkdirs();
+				if (smFile.getParent() != null) {
+					smFile.getParentFile().mkdirs();
 				}
-				if (pctlFile.getParent() != null) {
-					pctlFile.getParentFile().mkdirs();
+				if (cslFile.getParent() != null) {
+					cslFile.getParentFile().mkdirs();
 				}
-				pmFile.createNewFile();
-				if (this.page1.isExportPctlEnabled()) {
-					pctlFile.createNewFile();					
+				smFile.createNewFile();
+				if (this.page1.isExportCslEnabled()) {
+					cslFile.createNewFile();					
 				}
 
 
@@ -157,8 +157,8 @@ public class DtmcPrismExportWizard extends Wizard implements IExportWizard {
 				ResourceSet resSet = new ResourceSetImpl();
 				Resource resource = resSet.getResource(uri, true);
 
-				mappingPM.put(resource, pmFile);
-				mappingPCTL.put(resource, pctlFile);
+				mappingSM.put(resource, smFile);
+				mappingCSL.put(resource, cslFile);
 			} catch (SecurityException e) {
 				e.printStackTrace();
 			} catch (NullPointerException e) {
@@ -169,7 +169,7 @@ public class DtmcPrismExportWizard extends Wizard implements IExportWizard {
 		}
 
 		// Start export of prism models
-		DTMCExportPRISMJob job = new DTMCExportPRISMJob(mappingPM, mappingPCTL);
+		CTMCExportPRISMJob job = new CTMCExportPRISMJob(mappingSM, mappingCSL);
 		job.schedule();
 		this.page1.saveSettings();
 		return true;
