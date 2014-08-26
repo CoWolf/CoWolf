@@ -13,7 +13,6 @@ import de.uni_stuttgart.iste.cowolf.model.dtmc.analyze.DTMCAnalyzeJobListener;
 public class DTMCModelManager extends AbstractQoSModelManager {
 
 	@Override
-	@Override
 	public String analyze(final Resource model,
 			final Map<String, Object> parameters, final IAnalysisListener listener) {
 
@@ -37,7 +36,6 @@ public class DTMCModelManager extends AbstractQoSModelManager {
 	
 	@Override
 	public String getModelNamespace() {
-		return DTMCemfPackage.eNS_URI;
-}
-	
+		return DTMCPackage.eNS_URI;
+	}
 }
