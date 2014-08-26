@@ -4,19 +4,14 @@ package de.uni_stuttgart.iste.cowolf.model.component_diagram.impl;
 
 import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
 import de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase;
-
 import de.uni_stuttgart.iste.cowolf.model.commonBase.impl.IDBaseImpl;
-
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component;
-import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfPackage;
+import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.Dependency;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -91,7 +86,7 @@ public class DependencyImpl extends IDBaseImpl implements Dependency {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return Component_diagramemfPackage.Literals.DEPENDENCY;
+		return Component_diagramPackage.Literals.DEPENDENCY;
 	}
 
 	/**
@@ -112,7 +107,7 @@ public class DependencyImpl extends IDBaseImpl implements Dependency {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Component_diagramemfPackage.DEPENDENCY__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, Component_diagramPackage.DEPENDENCY__NAME, oldName, name));
 	}
 
 	/**
@@ -126,7 +121,7 @@ public class DependencyImpl extends IDBaseImpl implements Dependency {
 			supplier = (Component)eResolveProxy(oldSupplier);
 			if (supplier != oldSupplier) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, Component_diagramemfPackage.DEPENDENCY__SUPPLIER, oldSupplier, supplier));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, Component_diagramPackage.DEPENDENCY__SUPPLIER, oldSupplier, supplier));
 			}
 		}
 		return supplier;
@@ -150,7 +145,7 @@ public class DependencyImpl extends IDBaseImpl implements Dependency {
 		Component oldSupplier = supplier;
 		supplier = newSupplier;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, Component_diagramemfPackage.DEPENDENCY__SUPPLIER, oldSupplier, newSupplier);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, Component_diagramPackage.DEPENDENCY__SUPPLIER, oldSupplier, newSupplier);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -165,14 +160,14 @@ public class DependencyImpl extends IDBaseImpl implements Dependency {
 		if (newSupplier != supplier) {
 			NotificationChain msgs = null;
 			if (supplier != null)
-				msgs = ((InternalEObject)supplier).eInverseRemove(this, Component_diagramemfPackage.COMPONENT__ON_DEPEND, Component.class, msgs);
+				msgs = ((InternalEObject)supplier).eInverseRemove(this, Component_diagramPackage.COMPONENT__ON_DEPEND, Component.class, msgs);
 			if (newSupplier != null)
-				msgs = ((InternalEObject)newSupplier).eInverseAdd(this, Component_diagramemfPackage.COMPONENT__ON_DEPEND, Component.class, msgs);
+				msgs = ((InternalEObject)newSupplier).eInverseAdd(this, Component_diagramPackage.COMPONENT__ON_DEPEND, Component.class, msgs);
 			msgs = basicSetSupplier(newSupplier, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Component_diagramemfPackage.DEPENDENCY__SUPPLIER, newSupplier, newSupplier));
+			eNotify(new ENotificationImpl(this, Notification.SET, Component_diagramPackage.DEPENDENCY__SUPPLIER, newSupplier, newSupplier));
 	}
 
 	/**
@@ -186,7 +181,7 @@ public class DependencyImpl extends IDBaseImpl implements Dependency {
 			client = (Component)eResolveProxy(oldClient);
 			if (client != oldClient) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, Component_diagramemfPackage.DEPENDENCY__CLIENT, oldClient, client));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, Component_diagramPackage.DEPENDENCY__CLIENT, oldClient, client));
 			}
 		}
 		return client;
@@ -210,7 +205,7 @@ public class DependencyImpl extends IDBaseImpl implements Dependency {
 		Component oldClient = client;
 		client = newClient;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Component_diagramemfPackage.DEPENDENCY__CLIENT, oldClient, client));
+			eNotify(new ENotificationImpl(this, Notification.SET, Component_diagramPackage.DEPENDENCY__CLIENT, oldClient, client));
 	}
 
 	/**
@@ -221,9 +216,9 @@ public class DependencyImpl extends IDBaseImpl implements Dependency {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case Component_diagramemfPackage.DEPENDENCY__SUPPLIER:
+			case Component_diagramPackage.DEPENDENCY__SUPPLIER:
 				if (supplier != null)
-					msgs = ((InternalEObject)supplier).eInverseRemove(this, Component_diagramemfPackage.COMPONENT__ON_DEPEND, Component.class, msgs);
+					msgs = ((InternalEObject)supplier).eInverseRemove(this, Component_diagramPackage.COMPONENT__ON_DEPEND, Component.class, msgs);
 				return basicSetSupplier((Component)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -237,7 +232,7 @@ public class DependencyImpl extends IDBaseImpl implements Dependency {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case Component_diagramemfPackage.DEPENDENCY__SUPPLIER:
+			case Component_diagramPackage.DEPENDENCY__SUPPLIER:
 				return basicSetSupplier(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -251,12 +246,12 @@ public class DependencyImpl extends IDBaseImpl implements Dependency {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case Component_diagramemfPackage.DEPENDENCY__NAME:
+			case Component_diagramPackage.DEPENDENCY__NAME:
 				return getName();
-			case Component_diagramemfPackage.DEPENDENCY__SUPPLIER:
+			case Component_diagramPackage.DEPENDENCY__SUPPLIER:
 				if (resolve) return getSupplier();
 				return basicGetSupplier();
-			case Component_diagramemfPackage.DEPENDENCY__CLIENT:
+			case Component_diagramPackage.DEPENDENCY__CLIENT:
 				if (resolve) return getClient();
 				return basicGetClient();
 		}
@@ -271,13 +266,13 @@ public class DependencyImpl extends IDBaseImpl implements Dependency {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case Component_diagramemfPackage.DEPENDENCY__NAME:
+			case Component_diagramPackage.DEPENDENCY__NAME:
 				setName((String)newValue);
 				return;
-			case Component_diagramemfPackage.DEPENDENCY__SUPPLIER:
+			case Component_diagramPackage.DEPENDENCY__SUPPLIER:
 				setSupplier((Component)newValue);
 				return;
-			case Component_diagramemfPackage.DEPENDENCY__CLIENT:
+			case Component_diagramPackage.DEPENDENCY__CLIENT:
 				setClient((Component)newValue);
 				return;
 		}
@@ -292,13 +287,13 @@ public class DependencyImpl extends IDBaseImpl implements Dependency {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case Component_diagramemfPackage.DEPENDENCY__NAME:
+			case Component_diagramPackage.DEPENDENCY__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case Component_diagramemfPackage.DEPENDENCY__SUPPLIER:
+			case Component_diagramPackage.DEPENDENCY__SUPPLIER:
 				setSupplier((Component)null);
 				return;
-			case Component_diagramemfPackage.DEPENDENCY__CLIENT:
+			case Component_diagramPackage.DEPENDENCY__CLIENT:
 				setClient((Component)null);
 				return;
 		}
@@ -313,11 +308,11 @@ public class DependencyImpl extends IDBaseImpl implements Dependency {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case Component_diagramemfPackage.DEPENDENCY__NAME:
+			case Component_diagramPackage.DEPENDENCY__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case Component_diagramemfPackage.DEPENDENCY__SUPPLIER:
+			case Component_diagramPackage.DEPENDENCY__SUPPLIER:
 				return supplier != null;
-			case Component_diagramemfPackage.DEPENDENCY__CLIENT:
+			case Component_diagramPackage.DEPENDENCY__CLIENT:
 				return client != null;
 		}
 		return super.eIsSet(featureID);
@@ -332,7 +327,7 @@ public class DependencyImpl extends IDBaseImpl implements Dependency {
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == NameBase.class) {
 			switch (derivedFeatureID) {
-				case Component_diagramemfPackage.DEPENDENCY__NAME: return CommonBasePackage.NAME_BASE__NAME;
+				case Component_diagramPackage.DEPENDENCY__NAME: return CommonBasePackage.NAME_BASE__NAME;
 				default: return -1;
 			}
 		}
@@ -348,7 +343,7 @@ public class DependencyImpl extends IDBaseImpl implements Dependency {
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == NameBase.class) {
 			switch (baseFeatureID) {
-				case CommonBasePackage.NAME_BASE__NAME: return Component_diagramemfPackage.DEPENDENCY__NAME;
+				case CommonBasePackage.NAME_BASE__NAME: return Component_diagramPackage.DEPENDENCY__NAME;
 				default: return -1;
 			}
 		}

@@ -3,17 +3,13 @@
 package de.uni_stuttgart.iste.cowolf.model.dtmc.impl;
 
 import de.uni_stuttgart.iste.cowolf.model.commonBase.impl.IDBaseImpl;
-
-import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage;
+import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCPackage;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.State;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.Transition;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
@@ -79,7 +75,7 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return DTMCemfPackage.Literals.TRANSITION;
+		return DTMCPackage.Literals.TRANSITION;
 	}
 
 	/**
@@ -88,7 +84,7 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	 * @generated
 	 */
 	public State getFrom() {
-		if (eContainerFeatureID() != DTMCemfPackage.TRANSITION__FROM) return null;
+		if (eContainerFeatureID() != DTMCPackage.TRANSITION__FROM) return null;
 		return (State)eInternalContainer();
 	}
 
@@ -98,7 +94,7 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	 * @generated
 	 */
 	public NotificationChain basicSetFrom(State newFrom, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newFrom, DTMCemfPackage.TRANSITION__FROM, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newFrom, DTMCPackage.TRANSITION__FROM, msgs);
 		return msgs;
 	}
 
@@ -108,19 +104,19 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	 * @generated
 	 */
 	public void setFrom(State newFrom) {
-		if (newFrom != eInternalContainer() || (eContainerFeatureID() != DTMCemfPackage.TRANSITION__FROM && newFrom != null)) {
+		if (newFrom != eInternalContainer() || (eContainerFeatureID() != DTMCPackage.TRANSITION__FROM && newFrom != null)) {
 			if (EcoreUtil.isAncestor(this, newFrom))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newFrom != null)
-				msgs = ((InternalEObject)newFrom).eInverseAdd(this, DTMCemfPackage.STATE__OUTGOING, State.class, msgs);
+				msgs = ((InternalEObject)newFrom).eInverseAdd(this, DTMCPackage.STATE__OUTGOING, State.class, msgs);
 			msgs = basicSetFrom(newFrom, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DTMCemfPackage.TRANSITION__FROM, newFrom, newFrom));
+			eNotify(new ENotificationImpl(this, Notification.SET, DTMCPackage.TRANSITION__FROM, newFrom, newFrom));
 	}
 
 	/**
@@ -134,7 +130,7 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 			to = (State)eResolveProxy(oldTo);
 			if (to != oldTo) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DTMCemfPackage.TRANSITION__TO, oldTo, to));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DTMCPackage.TRANSITION__TO, oldTo, to));
 			}
 		}
 		return to;
@@ -158,7 +154,7 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 		State oldTo = to;
 		to = newTo;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DTMCemfPackage.TRANSITION__TO, oldTo, newTo);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DTMCPackage.TRANSITION__TO, oldTo, newTo);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -173,14 +169,14 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 		if (newTo != to) {
 			NotificationChain msgs = null;
 			if (to != null)
-				msgs = ((InternalEObject)to).eInverseRemove(this, DTMCemfPackage.STATE__INCOMING, State.class, msgs);
+				msgs = ((InternalEObject)to).eInverseRemove(this, DTMCPackage.STATE__INCOMING, State.class, msgs);
 			if (newTo != null)
-				msgs = ((InternalEObject)newTo).eInverseAdd(this, DTMCemfPackage.STATE__INCOMING, State.class, msgs);
+				msgs = ((InternalEObject)newTo).eInverseAdd(this, DTMCPackage.STATE__INCOMING, State.class, msgs);
 			msgs = basicSetTo(newTo, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DTMCemfPackage.TRANSITION__TO, newTo, newTo));
+			eNotify(new ENotificationImpl(this, Notification.SET, DTMCPackage.TRANSITION__TO, newTo, newTo));
 	}
 
 	/**
@@ -201,7 +197,7 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 		float oldProb = prob;
 		prob = newProb;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DTMCemfPackage.TRANSITION__PROB, oldProb, prob));
+			eNotify(new ENotificationImpl(this, Notification.SET, DTMCPackage.TRANSITION__PROB, oldProb, prob));
 	}
 
 	/**
@@ -212,13 +208,13 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DTMCemfPackage.TRANSITION__FROM:
+			case DTMCPackage.TRANSITION__FROM:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetFrom((State)otherEnd, msgs);
-			case DTMCemfPackage.TRANSITION__TO:
+			case DTMCPackage.TRANSITION__TO:
 				if (to != null)
-					msgs = ((InternalEObject)to).eInverseRemove(this, DTMCemfPackage.STATE__INCOMING, State.class, msgs);
+					msgs = ((InternalEObject)to).eInverseRemove(this, DTMCPackage.STATE__INCOMING, State.class, msgs);
 				return basicSetTo((State)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -232,9 +228,9 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DTMCemfPackage.TRANSITION__FROM:
+			case DTMCPackage.TRANSITION__FROM:
 				return basicSetFrom(null, msgs);
-			case DTMCemfPackage.TRANSITION__TO:
+			case DTMCPackage.TRANSITION__TO:
 				return basicSetTo(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -248,8 +244,8 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case DTMCemfPackage.TRANSITION__FROM:
-				return eInternalContainer().eInverseRemove(this, DTMCemfPackage.STATE__OUTGOING, State.class, msgs);
+			case DTMCPackage.TRANSITION__FROM:
+				return eInternalContainer().eInverseRemove(this, DTMCPackage.STATE__OUTGOING, State.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -262,12 +258,12 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DTMCemfPackage.TRANSITION__FROM:
+			case DTMCPackage.TRANSITION__FROM:
 				return getFrom();
-			case DTMCemfPackage.TRANSITION__TO:
+			case DTMCPackage.TRANSITION__TO:
 				if (resolve) return getTo();
 				return basicGetTo();
-			case DTMCemfPackage.TRANSITION__PROB:
+			case DTMCPackage.TRANSITION__PROB:
 				return getProb();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -281,13 +277,13 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DTMCemfPackage.TRANSITION__FROM:
+			case DTMCPackage.TRANSITION__FROM:
 				setFrom((State)newValue);
 				return;
-			case DTMCemfPackage.TRANSITION__TO:
+			case DTMCPackage.TRANSITION__TO:
 				setTo((State)newValue);
 				return;
-			case DTMCemfPackage.TRANSITION__PROB:
+			case DTMCPackage.TRANSITION__PROB:
 				setProb((Float)newValue);
 				return;
 		}
@@ -302,13 +298,13 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DTMCemfPackage.TRANSITION__FROM:
+			case DTMCPackage.TRANSITION__FROM:
 				setFrom((State)null);
 				return;
-			case DTMCemfPackage.TRANSITION__TO:
+			case DTMCPackage.TRANSITION__TO:
 				setTo((State)null);
 				return;
-			case DTMCemfPackage.TRANSITION__PROB:
+			case DTMCPackage.TRANSITION__PROB:
 				setProb(PROB_EDEFAULT);
 				return;
 		}
@@ -323,11 +319,11 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DTMCemfPackage.TRANSITION__FROM:
+			case DTMCPackage.TRANSITION__FROM:
 				return getFrom() != null;
-			case DTMCemfPackage.TRANSITION__TO:
+			case DTMCPackage.TRANSITION__TO:
 				return to != null;
-			case DTMCemfPackage.TRANSITION__PROB:
+			case DTMCPackage.TRANSITION__PROB:
 				return prob != PROB_EDEFAULT;
 		}
 		return super.eIsSet(featureID);

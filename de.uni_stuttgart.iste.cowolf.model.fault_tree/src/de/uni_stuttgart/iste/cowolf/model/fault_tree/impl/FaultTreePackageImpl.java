@@ -872,6 +872,7 @@ public class FaultTreePackageImpl extends EPackageImpl implements FaultTreePacka
 		xorEClass.getESuperTypes().add(this.getGate());
 		priorANDEClass.getESuperTypes().add(this.getGate());
 		inhibitEClass.getESuperTypes().add(this.getGate());
+		faultTreeEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(hazardEClass, Hazard.class, "Hazard", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

@@ -72,14 +72,14 @@ public class CtmcActionBarContributor
 	 * @generated
 	 */
 	protected IAction showPropertiesViewAction =
-		new Action(CTMCemfEditorPlugin.INSTANCE.getString("_UI_ShowPropertiesView_menu_item")) {
+		new Action(CTMCEditorPlugin.INSTANCE.getString("_UI_ShowPropertiesView_menu_item")) {
 			@Override
 			public void run() {
 				try {
 					getPage().showView("org.eclipse.ui.views.PropertySheet");
 				}
 				catch (PartInitException exception) {
-					CTMCemfEditorPlugin.INSTANCE.log(exception);
+					CTMCEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 		};
@@ -92,7 +92,7 @@ public class CtmcActionBarContributor
 	 * @generated
 	 */
 	protected IAction refreshViewerAction =
-		new Action(CTMCemfEditorPlugin.INSTANCE.getString("_UI_RefreshViewer_menu_item")) {
+		new Action(CTMCEditorPlugin.INSTANCE.getString("_UI_RefreshViewer_menu_item")) {
 			@Override
 			public boolean isEnabled() {
 				return activeEditorPart instanceof IViewerProvider;
@@ -153,7 +153,7 @@ public class CtmcActionBarContributor
 		super(ADDITIONS_LAST_STYLE);
 		loadResourceAction = new LoadResourceAction();
 		validateAction = new ValidateAction();
-		liveValidationAction = new DiagnosticDecorator.LiveValidator.LiveValidationAction(CTMCemfEditorPlugin.getPlugin().getDialogSettings());
+		liveValidationAction = new DiagnosticDecorator.LiveValidator.LiveValidationAction(CTMCEditorPlugin.getPlugin().getDialogSettings());
 		controlAction = new ControlAction();
 	}
 
@@ -180,7 +180,7 @@ public class CtmcActionBarContributor
 	public void contributeToMenu(IMenuManager menuManager) {
 		super.contributeToMenu(menuManager);
 
-		IMenuManager submenuManager = new MenuManager(CTMCemfEditorPlugin.INSTANCE.getString("_UI_CtmcEditor_menu"), "de.uni_stuttgart.iste.cowolf.model.ctmcMenuID");
+		IMenuManager submenuManager = new MenuManager(CTMCEditorPlugin.INSTANCE.getString("_UI_CtmcEditor_menu"), "de.uni_stuttgart.iste.cowolf.model.ctmcMenuID");
 		menuManager.insertAfter("additions", submenuManager);
 		submenuManager.add(new Separator("settings"));
 		submenuManager.add(new Separator("actions"));
@@ -189,12 +189,12 @@ public class CtmcActionBarContributor
 
 		// Prepare for CreateChild item addition or removal.
 		//
-		createChildMenuManager = new MenuManager(CTMCemfEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
+		createChildMenuManager = new MenuManager(CTMCEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
 		submenuManager.insertBefore("additions", createChildMenuManager);
 
 		// Prepare for CreateSibling item addition or removal.
 		//
-		createSiblingMenuManager = new MenuManager(CTMCemfEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
+		createSiblingMenuManager = new MenuManager(CTMCEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
 		submenuManager.insertBefore("additions", createSiblingMenuManager);
 
 		// Force an update because Eclipse hides empty menus now.
@@ -385,11 +385,11 @@ public class CtmcActionBarContributor
 		super.menuAboutToShow(menuManager);
 		MenuManager submenuManager = null;
 
-		submenuManager = new MenuManager(CTMCemfEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
+		submenuManager = new MenuManager(CTMCEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
 		populateManager(submenuManager, createChildActions, null);
 		menuManager.insertBefore("edit", submenuManager);
 
-		submenuManager = new MenuManager(CTMCemfEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
+		submenuManager = new MenuManager(CTMCEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
 		populateManager(submenuManager, createSiblingActions, null);
 		menuManager.insertBefore("edit", submenuManager);
 	}

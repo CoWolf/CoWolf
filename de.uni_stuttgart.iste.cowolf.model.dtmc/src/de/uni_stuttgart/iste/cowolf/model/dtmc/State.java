@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  * </p>
  *
- * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage#getState()
+ * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCPackage#getState()
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='OutgoingDontAddUpToOne NonDeterministic NoDuplicateLabels'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL OutgoingDontAddUpToOne='Tuple {\n\tmessage : String = \'Probability of all outgoing transitions must be 1.0.\',\n\tstatus : Boolean = \n\t\t\tself.outgoing->size() = 0 or (self.outgoing.prob->sum() - 1.0).abs()  < 0.000001\n}.status' NonDeterministic='Tuple {\n\tmessage : String = \'There must not be any nondeterminism. Please union transitions to the same target.\',\n\tstatus : Boolean = \n\t\t\tself.outgoing.to->asSet()->size() = self.outgoing->size()\n}.status' NoDuplicateLabels='Tuple {\n\tmessage : String = \'Labels must be unique per state.\',\n\tstatus : Boolean = \n\t\t\tself.labels.name->asSet()->size() = self.labels->size()\n}.status'"
  * @generated
@@ -37,7 +37,7 @@ public interface State extends IDBase {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage#getState_Name()
+	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCPackage#getState_Name()
 	 * @model
 	 * @generated
 	 */
@@ -64,7 +64,7 @@ public interface State extends IDBase {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Incoming</em>' reference list.
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage#getState_Incoming()
+	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCPackage#getState_Incoming()
 	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.Transition#getTo
 	 * @model opposite="to" ordered="false"
 	 * @generated
@@ -82,7 +82,7 @@ public interface State extends IDBase {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Outgoing</em>' containment reference list.
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage#getState_Outgoing()
+	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCPackage#getState_Outgoing()
 	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.Transition#getFrom
 	 * @model opposite="from" containment="true" ordered="false"
 	 * @generated
@@ -100,7 +100,7 @@ public interface State extends IDBase {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Labels</em>' containment reference list.
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage#getState_Labels()
+	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCPackage#getState_Labels()
 	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.Label#getState
 	 * @model opposite="state" containment="true"
 	 * @generated

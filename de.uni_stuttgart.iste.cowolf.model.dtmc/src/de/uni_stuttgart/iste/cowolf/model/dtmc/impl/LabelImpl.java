@@ -3,17 +3,13 @@
 package de.uni_stuttgart.iste.cowolf.model.dtmc.impl;
 
 import de.uni_stuttgart.iste.cowolf.model.commonBase.impl.IDBaseImpl;
-
-import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage;
+import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCPackage;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.Label;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.State;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
@@ -68,7 +64,7 @@ public class LabelImpl extends IDBaseImpl implements Label {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return DTMCemfPackage.Literals.LABEL;
+		return DTMCPackage.Literals.LABEL;
 	}
 
 	/**
@@ -89,7 +85,7 @@ public class LabelImpl extends IDBaseImpl implements Label {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DTMCemfPackage.LABEL__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, DTMCPackage.LABEL__NAME, oldName, name));
 	}
 
 	/**
@@ -98,7 +94,7 @@ public class LabelImpl extends IDBaseImpl implements Label {
 	 * @generated
 	 */
 	public State getState() {
-		if (eContainerFeatureID() != DTMCemfPackage.LABEL__STATE) return null;
+		if (eContainerFeatureID() != DTMCPackage.LABEL__STATE) return null;
 		return (State)eInternalContainer();
 	}
 
@@ -108,7 +104,7 @@ public class LabelImpl extends IDBaseImpl implements Label {
 	 * @generated
 	 */
 	public NotificationChain basicSetState(State newState, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newState, DTMCemfPackage.LABEL__STATE, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newState, DTMCPackage.LABEL__STATE, msgs);
 		return msgs;
 	}
 
@@ -118,19 +114,19 @@ public class LabelImpl extends IDBaseImpl implements Label {
 	 * @generated
 	 */
 	public void setState(State newState) {
-		if (newState != eInternalContainer() || (eContainerFeatureID() != DTMCemfPackage.LABEL__STATE && newState != null)) {
+		if (newState != eInternalContainer() || (eContainerFeatureID() != DTMCPackage.LABEL__STATE && newState != null)) {
 			if (EcoreUtil.isAncestor(this, newState))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newState != null)
-				msgs = ((InternalEObject)newState).eInverseAdd(this, DTMCemfPackage.STATE__LABELS, State.class, msgs);
+				msgs = ((InternalEObject)newState).eInverseAdd(this, DTMCPackage.STATE__LABELS, State.class, msgs);
 			msgs = basicSetState(newState, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DTMCemfPackage.LABEL__STATE, newState, newState));
+			eNotify(new ENotificationImpl(this, Notification.SET, DTMCPackage.LABEL__STATE, newState, newState));
 	}
 
 	/**
@@ -141,7 +137,7 @@ public class LabelImpl extends IDBaseImpl implements Label {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DTMCemfPackage.LABEL__STATE:
+			case DTMCPackage.LABEL__STATE:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetState((State)otherEnd, msgs);
@@ -157,7 +153,7 @@ public class LabelImpl extends IDBaseImpl implements Label {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DTMCemfPackage.LABEL__STATE:
+			case DTMCPackage.LABEL__STATE:
 				return basicSetState(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -171,8 +167,8 @@ public class LabelImpl extends IDBaseImpl implements Label {
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case DTMCemfPackage.LABEL__STATE:
-				return eInternalContainer().eInverseRemove(this, DTMCemfPackage.STATE__LABELS, State.class, msgs);
+			case DTMCPackage.LABEL__STATE:
+				return eInternalContainer().eInverseRemove(this, DTMCPackage.STATE__LABELS, State.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -185,9 +181,9 @@ public class LabelImpl extends IDBaseImpl implements Label {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DTMCemfPackage.LABEL__NAME:
+			case DTMCPackage.LABEL__NAME:
 				return getName();
-			case DTMCemfPackage.LABEL__STATE:
+			case DTMCPackage.LABEL__STATE:
 				return getState();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -201,10 +197,10 @@ public class LabelImpl extends IDBaseImpl implements Label {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DTMCemfPackage.LABEL__NAME:
+			case DTMCPackage.LABEL__NAME:
 				setName((String)newValue);
 				return;
-			case DTMCemfPackage.LABEL__STATE:
+			case DTMCPackage.LABEL__STATE:
 				setState((State)newValue);
 				return;
 		}
@@ -219,10 +215,10 @@ public class LabelImpl extends IDBaseImpl implements Label {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DTMCemfPackage.LABEL__NAME:
+			case DTMCPackage.LABEL__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case DTMCemfPackage.LABEL__STATE:
+			case DTMCPackage.LABEL__STATE:
 				setState((State)null);
 				return;
 		}
@@ -237,9 +233,9 @@ public class LabelImpl extends IDBaseImpl implements Label {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DTMCemfPackage.LABEL__NAME:
+			case DTMCPackage.LABEL__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case DTMCemfPackage.LABEL__STATE:
+			case DTMCPackage.LABEL__STATE:
 				return getState() != null;
 		}
 		return super.eIsSet(featureID);

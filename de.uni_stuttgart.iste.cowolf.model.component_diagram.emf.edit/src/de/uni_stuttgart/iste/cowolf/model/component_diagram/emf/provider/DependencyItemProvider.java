@@ -4,20 +4,14 @@ package de.uni_stuttgart.iste.cowolf.model.component_diagram.emf.provider;
 
 
 import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
-
 import de.uni_stuttgart.iste.cowolf.model.commonBase.emf.provider.IDBaseItemProvider;
-
-import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfPackage;
+import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.Dependency;
-
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -93,7 +87,7 @@ public class DependencyItemProvider extends IDBaseItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Dependency_supplier_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Dependency_supplier_feature", "_UI_Dependency_type"),
-				 Component_diagramemfPackage.Literals.DEPENDENCY__SUPPLIER,
+				 Component_diagramPackage.Literals.DEPENDENCY__SUPPLIER,
 				 true,
 				 false,
 				 true,
@@ -115,7 +109,7 @@ public class DependencyItemProvider extends IDBaseItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Dependency_client_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Dependency_client_feature", "_UI_Dependency_type"),
-				 Component_diagramemfPackage.Literals.DEPENDENCY__CLIENT,
+				 Component_diagramPackage.Literals.DEPENDENCY__CLIENT,
 				 true,
 				 false,
 				 true,
@@ -162,7 +156,7 @@ public class DependencyItemProvider extends IDBaseItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Dependency.class)) {
-			case Component_diagramemfPackage.DEPENDENCY__NAME:
+			case Component_diagramPackage.DEPENDENCY__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -189,7 +183,7 @@ public class DependencyItemProvider extends IDBaseItemProvider {
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return Componet_diagramEditPlugin.INSTANCE;
+		return Component_diagramEditPlugin.INSTANCE;
 	}
 
 }

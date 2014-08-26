@@ -25,7 +25,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  * </p>
  *
- * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfPackage#getComponent()
+ * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage#getComponent()
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='ComponentCantRealizieItself DontRequireOwnInterfaces'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot ComponentCantRealizieItself='self <> self.realization' DontRequireOwnInterfaces='self.ports.requiredInterfaces.homePort.portHost -> forAll(\n\t\t\tcomponent | component <> self\n\t\t) or self.ports.requiredInterfaces.homePort.portHost -> size() = 0'"
  * @generated
@@ -43,7 +43,7 @@ public interface Component extends NameBase, IDBase {
 	 * @return the value of the '<em>Stereotype</em>' attribute.
 	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentStereotype
 	 * @see #setStereotype(ComponentStereotype)
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfPackage#getComponent_Stereotype()
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage#getComponent_Stereotype()
 	 * @model
 	 * @generated
 	 */
@@ -70,7 +70,7 @@ public interface Component extends NameBase, IDBase {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Is Indirectly Instantiated</em>' attribute.
 	 * @see #setIsIndirectlyInstantiated(boolean)
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfPackage#getComponent_IsIndirectlyInstantiated()
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage#getComponent_IsIndirectlyInstantiated()
 	 * @model
 	 * @generated
 	 */
@@ -96,7 +96,7 @@ public interface Component extends NameBase, IDBase {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Component Container</em>' reference list.
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfPackage#getComponent_ComponentContainer()
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage#getComponent_ComponentContainer()
 	 * @model
 	 * @generated
 	 */
@@ -113,7 +113,7 @@ public interface Component extends NameBase, IDBase {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Ports</em>' containment reference list.
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfPackage#getComponent_Ports()
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage#getComponent_Ports()
 	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Port#getPortHost
 	 * @model opposite="portHost" containment="true"
 	 * @generated
@@ -130,7 +130,7 @@ public interface Component extends NameBase, IDBase {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Realization</em>' reference.
 	 * @see #setRealization(Component)
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfPackage#getComponent_Realization()
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage#getComponent_Realization()
 	 * @model
 	 * @generated
 	 */
@@ -157,7 +157,7 @@ public interface Component extends NameBase, IDBase {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Diagram</em>' container reference.
 	 * @see #setDiagram(ComponentDiagram)
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfPackage#getComponent_Diagram()
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage#getComponent_Diagram()
 	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentDiagram#getComponetContainer
 	 * @model opposite="componetContainer" required="true" transient="false"
 	 * @generated
@@ -185,7 +185,7 @@ public interface Component extends NameBase, IDBase {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>On Depend</em>' reference list.
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfPackage#getComponent_OnDepend()
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage#getComponent_OnDepend()
 	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Dependency#getSupplier
 	 * @model opposite="supplier"
 	 * @generated

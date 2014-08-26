@@ -4,23 +4,16 @@ package de.uni_stuttgart.iste.cowolf.model.component_diagram.emf.provider;
 
 
 import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
-
 import de.uni_stuttgart.iste.cowolf.model.commonBase.emf.provider.IDBaseItemProvider;
-
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentDiagram;
-import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfFactory;
-import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfPackage;
-
+import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramFactory;
+import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage;
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -93,9 +86,9 @@ public class ComponentDiagramItemProvider extends IDBaseItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Component_diagramemfPackage.Literals.COMPONENT_DIAGRAM__COMPONET_CONTAINER);
-			childrenFeatures.add(Component_diagramemfPackage.Literals.COMPONENT_DIAGRAM__INTERFACE_CONTAINER);
-			childrenFeatures.add(Component_diagramemfPackage.Literals.COMPONENT_DIAGRAM__DEPENDENCY_CONTAINER);
+			childrenFeatures.add(Component_diagramPackage.Literals.COMPONENT_DIAGRAM__COMPONET_CONTAINER);
+			childrenFeatures.add(Component_diagramPackage.Literals.COMPONENT_DIAGRAM__INTERFACE_CONTAINER);
+			childrenFeatures.add(Component_diagramPackage.Literals.COMPONENT_DIAGRAM__DEPENDENCY_CONTAINER);
 		}
 		return childrenFeatures;
 	}
@@ -151,12 +144,12 @@ public class ComponentDiagramItemProvider extends IDBaseItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ComponentDiagram.class)) {
-			case Component_diagramemfPackage.COMPONENT_DIAGRAM__NAME:
+			case Component_diagramPackage.COMPONENT_DIAGRAM__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case Component_diagramemfPackage.COMPONENT_DIAGRAM__COMPONET_CONTAINER:
-			case Component_diagramemfPackage.COMPONENT_DIAGRAM__INTERFACE_CONTAINER:
-			case Component_diagramemfPackage.COMPONENT_DIAGRAM__DEPENDENCY_CONTAINER:
+			case Component_diagramPackage.COMPONENT_DIAGRAM__COMPONET_CONTAINER:
+			case Component_diagramPackage.COMPONENT_DIAGRAM__INTERFACE_CONTAINER:
+			case Component_diagramPackage.COMPONENT_DIAGRAM__DEPENDENCY_CONTAINER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -176,18 +169,18 @@ public class ComponentDiagramItemProvider extends IDBaseItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Component_diagramemfPackage.Literals.COMPONENT_DIAGRAM__COMPONET_CONTAINER,
-				 Component_diagramemfFactory.eINSTANCE.createComponent()));
+				(Component_diagramPackage.Literals.COMPONENT_DIAGRAM__COMPONET_CONTAINER,
+				 Component_diagramFactory.eINSTANCE.createComponent()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Component_diagramemfPackage.Literals.COMPONENT_DIAGRAM__INTERFACE_CONTAINER,
-				 Component_diagramemfFactory.eINSTANCE.createInterface()));
+				(Component_diagramPackage.Literals.COMPONENT_DIAGRAM__INTERFACE_CONTAINER,
+				 Component_diagramFactory.eINSTANCE.createInterface()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Component_diagramemfPackage.Literals.COMPONENT_DIAGRAM__DEPENDENCY_CONTAINER,
-				 Component_diagramemfFactory.eINSTANCE.createDependency()));
+				(Component_diagramPackage.Literals.COMPONENT_DIAGRAM__DEPENDENCY_CONTAINER,
+				 Component_diagramFactory.eINSTANCE.createDependency()));
 	}
 
 	/**
@@ -198,7 +191,7 @@ public class ComponentDiagramItemProvider extends IDBaseItemProvider {
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return Componet_diagramEditPlugin.INSTANCE;
+		return Component_diagramEditPlugin.INSTANCE;
 	}
 
 }

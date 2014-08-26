@@ -13,7 +13,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * A representation of the literals of the enumeration '<em><b>Component Stereotype</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfPackage#getComponentStereotype()
+ * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage#getComponentStereotype()
  * @model
  * @generated
  */

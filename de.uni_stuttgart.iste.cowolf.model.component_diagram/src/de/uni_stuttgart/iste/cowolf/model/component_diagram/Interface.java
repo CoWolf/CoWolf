@@ -18,7 +18,7 @@ import de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase;
  * </ul>
  * </p>
  *
- * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfPackage#getInterface()
+ * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage#getInterface()
  * @model
  * @generated
  */
@@ -33,7 +33,7 @@ public interface Interface extends IDBase, NameBase {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Description</em>' attribute.
 	 * @see #setDescription(String)
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfPackage#getInterface_Description()
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage#getInterface_Description()
 	 * @model
 	 * @generated
 	 */
@@ -60,7 +60,7 @@ public interface Interface extends IDBase, NameBase {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Home Port</em>' reference.
 	 * @see #setHomePort(Port)
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfPackage#getInterface_HomePort()
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage#getInterface_HomePort()
 	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Port#getProvidedInterfaces
 	 * @model opposite="providedInterfaces"
 	 * @generated

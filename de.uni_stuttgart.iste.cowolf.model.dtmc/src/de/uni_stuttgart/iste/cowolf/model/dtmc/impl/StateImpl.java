@@ -3,24 +3,17 @@
 package de.uni_stuttgart.iste.cowolf.model.dtmc.impl;
 
 import de.uni_stuttgart.iste.cowolf.model.commonBase.impl.IDBaseImpl;
-
-import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage;
+import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCPackage;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.Label;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.State;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.Transition;
-
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -108,7 +101,7 @@ public class StateImpl extends IDBaseImpl implements State {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return DTMCemfPackage.Literals.STATE;
+		return DTMCPackage.Literals.STATE;
 	}
 
 	/**
@@ -129,7 +122,7 @@ public class StateImpl extends IDBaseImpl implements State {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DTMCemfPackage.STATE__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, DTMCPackage.STATE__NAME, oldName, name));
 	}
 
 	/**
@@ -139,7 +132,7 @@ public class StateImpl extends IDBaseImpl implements State {
 	 */
 	public EList<Transition> getIncoming() {
 		if (incoming == null) {
-			incoming = new EObjectWithInverseResolvingEList<Transition>(Transition.class, this, DTMCemfPackage.STATE__INCOMING, DTMCemfPackage.TRANSITION__TO);
+			incoming = new EObjectWithInverseResolvingEList<Transition>(Transition.class, this, DTMCPackage.STATE__INCOMING, DTMCPackage.TRANSITION__TO);
 		}
 		return incoming;
 	}
@@ -151,7 +144,7 @@ public class StateImpl extends IDBaseImpl implements State {
 	 */
 	public EList<Transition> getOutgoing() {
 		if (outgoing == null) {
-			outgoing = new EObjectContainmentWithInverseEList<Transition>(Transition.class, this, DTMCemfPackage.STATE__OUTGOING, DTMCemfPackage.TRANSITION__FROM);
+			outgoing = new EObjectContainmentWithInverseEList<Transition>(Transition.class, this, DTMCPackage.STATE__OUTGOING, DTMCPackage.TRANSITION__FROM);
 		}
 		return outgoing;
 	}
@@ -163,7 +156,7 @@ public class StateImpl extends IDBaseImpl implements State {
 	 */
 	public EList<Label> getLabels() {
 		if (labels == null) {
-			labels = new EObjectContainmentWithInverseEList<Label>(Label.class, this, DTMCemfPackage.STATE__LABELS, DTMCemfPackage.LABEL__STATE);
+			labels = new EObjectContainmentWithInverseEList<Label>(Label.class, this, DTMCPackage.STATE__LABELS, DTMCPackage.LABEL__STATE);
 		}
 		return labels;
 	}
@@ -177,11 +170,11 @@ public class StateImpl extends IDBaseImpl implements State {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DTMCemfPackage.STATE__INCOMING:
+			case DTMCPackage.STATE__INCOMING:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIncoming()).basicAdd(otherEnd, msgs);
-			case DTMCemfPackage.STATE__OUTGOING:
+			case DTMCPackage.STATE__OUTGOING:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOutgoing()).basicAdd(otherEnd, msgs);
-			case DTMCemfPackage.STATE__LABELS:
+			case DTMCPackage.STATE__LABELS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getLabels()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -195,11 +188,11 @@ public class StateImpl extends IDBaseImpl implements State {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DTMCemfPackage.STATE__INCOMING:
+			case DTMCPackage.STATE__INCOMING:
 				return ((InternalEList<?>)getIncoming()).basicRemove(otherEnd, msgs);
-			case DTMCemfPackage.STATE__OUTGOING:
+			case DTMCPackage.STATE__OUTGOING:
 				return ((InternalEList<?>)getOutgoing()).basicRemove(otherEnd, msgs);
-			case DTMCemfPackage.STATE__LABELS:
+			case DTMCPackage.STATE__LABELS:
 				return ((InternalEList<?>)getLabels()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -213,13 +206,13 @@ public class StateImpl extends IDBaseImpl implements State {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DTMCemfPackage.STATE__NAME:
+			case DTMCPackage.STATE__NAME:
 				return getName();
-			case DTMCemfPackage.STATE__INCOMING:
+			case DTMCPackage.STATE__INCOMING:
 				return getIncoming();
-			case DTMCemfPackage.STATE__OUTGOING:
+			case DTMCPackage.STATE__OUTGOING:
 				return getOutgoing();
-			case DTMCemfPackage.STATE__LABELS:
+			case DTMCPackage.STATE__LABELS:
 				return getLabels();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -234,18 +227,18 @@ public class StateImpl extends IDBaseImpl implements State {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DTMCemfPackage.STATE__NAME:
+			case DTMCPackage.STATE__NAME:
 				setName((String)newValue);
 				return;
-			case DTMCemfPackage.STATE__INCOMING:
+			case DTMCPackage.STATE__INCOMING:
 				getIncoming().clear();
 				getIncoming().addAll((Collection<? extends Transition>)newValue);
 				return;
-			case DTMCemfPackage.STATE__OUTGOING:
+			case DTMCPackage.STATE__OUTGOING:
 				getOutgoing().clear();
 				getOutgoing().addAll((Collection<? extends Transition>)newValue);
 				return;
-			case DTMCemfPackage.STATE__LABELS:
+			case DTMCPackage.STATE__LABELS:
 				getLabels().clear();
 				getLabels().addAll((Collection<? extends Label>)newValue);
 				return;
@@ -261,16 +254,16 @@ public class StateImpl extends IDBaseImpl implements State {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DTMCemfPackage.STATE__NAME:
+			case DTMCPackage.STATE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case DTMCemfPackage.STATE__INCOMING:
+			case DTMCPackage.STATE__INCOMING:
 				getIncoming().clear();
 				return;
-			case DTMCemfPackage.STATE__OUTGOING:
+			case DTMCPackage.STATE__OUTGOING:
 				getOutgoing().clear();
 				return;
-			case DTMCemfPackage.STATE__LABELS:
+			case DTMCPackage.STATE__LABELS:
 				getLabels().clear();
 				return;
 		}
@@ -285,13 +278,13 @@ public class StateImpl extends IDBaseImpl implements State {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DTMCemfPackage.STATE__NAME:
+			case DTMCPackage.STATE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case DTMCemfPackage.STATE__INCOMING:
+			case DTMCPackage.STATE__INCOMING:
 				return incoming != null && !incoming.isEmpty();
-			case DTMCemfPackage.STATE__OUTGOING:
+			case DTMCPackage.STATE__OUTGOING:
 				return outgoing != null && !outgoing.isEmpty();
-			case DTMCemfPackage.STATE__LABELS:
+			case DTMCPackage.STATE__LABELS:
 				return labels != null && !labels.isEmpty();
 		}
 		return super.eIsSet(featureID);

@@ -4,20 +4,14 @@ package de.uni_stuttgart.iste.cowolf.model.component_diagram.emf.provider;
 
 
 import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
-
 import de.uni_stuttgart.iste.cowolf.model.commonBase.emf.provider.IDBaseItemProvider;
-
-import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfPackage;
+import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.Interface;
-
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -93,7 +87,7 @@ public class InterfaceItemProvider extends IDBaseItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Interface_description_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Interface_description_feature", "_UI_Interface_type"),
-				 Component_diagramemfPackage.Literals.INTERFACE__DESCRIPTION,
+				 Component_diagramPackage.Literals.INTERFACE__DESCRIPTION,
 				 true,
 				 false,
 				 false,
@@ -115,7 +109,7 @@ public class InterfaceItemProvider extends IDBaseItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Interface_homePort_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Interface_homePort_feature", "_UI_Interface_type"),
-				 Component_diagramemfPackage.Literals.INTERFACE__HOME_PORT,
+				 Component_diagramPackage.Literals.INTERFACE__HOME_PORT,
 				 true,
 				 false,
 				 true,
@@ -162,8 +156,8 @@ public class InterfaceItemProvider extends IDBaseItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Interface.class)) {
-			case Component_diagramemfPackage.INTERFACE__NAME:
-			case Component_diagramemfPackage.INTERFACE__DESCRIPTION:
+			case Component_diagramPackage.INTERFACE__NAME:
+			case Component_diagramPackage.INTERFACE__DESCRIPTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -190,7 +184,7 @@ public class InterfaceItemProvider extends IDBaseItemProvider {
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return Componet_diagramEditPlugin.INSTANCE;
+		return Component_diagramEditPlugin.INSTANCE;
 	}
 
 }

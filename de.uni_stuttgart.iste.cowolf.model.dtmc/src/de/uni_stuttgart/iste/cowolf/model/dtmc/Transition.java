@@ -18,7 +18,7 @@ import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
  * </ul>
  * </p>
  *
- * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage#getTransition()
+ * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCPackage#getTransition()
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='ProbBetween0and1'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL ProbBetween0and1='Tuple {\n\tmessage : String = \'Probability must be between 0 and 1.\',\n\tstatus : Boolean = \n\t \t\tprob >= 0.0 and prob <= 1.0\n}.status'"
  * @generated
@@ -35,7 +35,7 @@ public interface Transition extends IDBase {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>From</em>' container reference.
 	 * @see #setFrom(State)
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage#getTransition_From()
+	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCPackage#getTransition_From()
 	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.State#getOutgoing
 	 * @model opposite="outgoing" required="true" transient="false"
 	 * @generated
@@ -63,7 +63,7 @@ public interface Transition extends IDBase {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>To</em>' reference.
 	 * @see #setTo(State)
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage#getTransition_To()
+	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCPackage#getTransition_To()
 	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.State#getIncoming
 	 * @model opposite="incoming" required="true"
 	 * @generated
@@ -90,7 +90,7 @@ public interface Transition extends IDBase {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Prob</em>' attribute.
 	 * @see #setProb(float)
-	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage#getTransition_Prob()
+	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCPackage#getTransition_Prob()
 	 * @model required="true"
 	 * @generated
 	 */

@@ -4,23 +4,16 @@ package de.uni_stuttgart.iste.cowolf.model.component_diagram.emf.provider;
 
 
 import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
-
 import de.uni_stuttgart.iste.cowolf.model.commonBase.emf.provider.NameBaseItemProvider;
-
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component;
-import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfFactory;
-import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfPackage;
-
+import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramFactory;
+import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage;
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -99,7 +92,7 @@ public class ComponentItemProvider extends NameBaseItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Component_stereotype_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Component_stereotype_feature", "_UI_Component_type"),
-				 Component_diagramemfPackage.Literals.COMPONENT__STEREOTYPE,
+				 Component_diagramPackage.Literals.COMPONENT__STEREOTYPE,
 				 true,
 				 false,
 				 false,
@@ -121,7 +114,7 @@ public class ComponentItemProvider extends NameBaseItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Component_isIndirectlyInstantiated_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Component_isIndirectlyInstantiated_feature", "_UI_Component_type"),
-				 Component_diagramemfPackage.Literals.COMPONENT__IS_INDIRECTLY_INSTANTIATED,
+				 Component_diagramPackage.Literals.COMPONENT__IS_INDIRECTLY_INSTANTIATED,
 				 true,
 				 false,
 				 false,
@@ -143,7 +136,7 @@ public class ComponentItemProvider extends NameBaseItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Component_componentContainer_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Component_componentContainer_feature", "_UI_Component_type"),
-				 Component_diagramemfPackage.Literals.COMPONENT__COMPONENT_CONTAINER,
+				 Component_diagramPackage.Literals.COMPONENT__COMPONENT_CONTAINER,
 				 true,
 				 false,
 				 true,
@@ -165,7 +158,7 @@ public class ComponentItemProvider extends NameBaseItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Component_realization_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Component_realization_feature", "_UI_Component_type"),
-				 Component_diagramemfPackage.Literals.COMPONENT__REALIZATION,
+				 Component_diagramPackage.Literals.COMPONENT__REALIZATION,
 				 true,
 				 false,
 				 true,
@@ -187,7 +180,7 @@ public class ComponentItemProvider extends NameBaseItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Component_onDepend_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Component_onDepend_feature", "_UI_Component_type"),
-				 Component_diagramemfPackage.Literals.COMPONENT__ON_DEPEND,
+				 Component_diagramPackage.Literals.COMPONENT__ON_DEPEND,
 				 true,
 				 false,
 				 true,
@@ -208,7 +201,7 @@ public class ComponentItemProvider extends NameBaseItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Component_diagramemfPackage.Literals.COMPONENT__PORTS);
+			childrenFeatures.add(Component_diagramPackage.Literals.COMPONENT__PORTS);
 		}
 		return childrenFeatures;
 	}
@@ -264,12 +257,12 @@ public class ComponentItemProvider extends NameBaseItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Component.class)) {
-			case Component_diagramemfPackage.COMPONENT__ID:
-			case Component_diagramemfPackage.COMPONENT__STEREOTYPE:
-			case Component_diagramemfPackage.COMPONENT__IS_INDIRECTLY_INSTANTIATED:
+			case Component_diagramPackage.COMPONENT__ID:
+			case Component_diagramPackage.COMPONENT__STEREOTYPE:
+			case Component_diagramPackage.COMPONENT__IS_INDIRECTLY_INSTANTIATED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case Component_diagramemfPackage.COMPONENT__PORTS:
+			case Component_diagramPackage.COMPONENT__PORTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -289,8 +282,8 @@ public class ComponentItemProvider extends NameBaseItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Component_diagramemfPackage.Literals.COMPONENT__PORTS,
-				 Component_diagramemfFactory.eINSTANCE.createPort()));
+				(Component_diagramPackage.Literals.COMPONENT__PORTS,
+				 Component_diagramFactory.eINSTANCE.createPort()));
 	}
 
 	/**
@@ -301,7 +294,7 @@ public class ComponentItemProvider extends NameBaseItemProvider {
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return Componet_diagramEditPlugin.INSTANCE;
+		return Component_diagramEditPlugin.INSTANCE;
 	}
 
 }

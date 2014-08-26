@@ -24,7 +24,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  * </p>
  *
- * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfPackage#getPort()
+ * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage#getPort()
  * @model
  * @generated
  */
@@ -39,7 +39,7 @@ public interface Port extends IDBase, NameBase {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Protocol</em>' attribute.
 	 * @see #setProtocol(String)
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfPackage#getPort_Protocol()
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage#getPort_Protocol()
 	 * @model
 	 * @generated
 	 */
@@ -65,7 +65,7 @@ public interface Port extends IDBase, NameBase {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Is Behavior</em>' attribute.
 	 * @see #setIsBehavior(boolean)
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfPackage#getPort_IsBehavior()
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage#getPort_IsBehavior()
 	 * @model
 	 * @generated
 	 */
@@ -91,7 +91,7 @@ public interface Port extends IDBase, NameBase {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Is Service</em>' attribute.
 	 * @see #setIsService(boolean)
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfPackage#getPort_IsService()
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage#getPort_IsService()
 	 * @model
 	 * @generated
 	 */
@@ -117,7 +117,7 @@ public interface Port extends IDBase, NameBase {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Required Interfaces</em>' reference list.
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfPackage#getPort_RequiredInterfaces()
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage#getPort_RequiredInterfaces()
 	 * @model
 	 * @generated
 	 */
@@ -134,7 +134,7 @@ public interface Port extends IDBase, NameBase {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Provided Interfaces</em>' reference list.
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfPackage#getPort_ProvidedInterfaces()
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage#getPort_ProvidedInterfaces()
 	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Interface#getHomePort
 	 * @model opposite="homePort"
 	 * @generated
@@ -152,7 +152,7 @@ public interface Port extends IDBase, NameBase {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Port Host</em>' container reference.
 	 * @see #setPortHost(Component)
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfPackage#getPort_PortHost()
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage#getPort_PortHost()
 	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component#getPorts
 	 * @model opposite="ports" transient="false"
 	 * @generated

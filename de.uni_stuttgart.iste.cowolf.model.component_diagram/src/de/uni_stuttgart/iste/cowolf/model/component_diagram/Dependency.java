@@ -18,7 +18,7 @@ import de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase;
  * </ul>
  * </p>
  *
- * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfPackage#getDependency()
+ * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage#getDependency()
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='SupplierShoudBeDifferentFromClient'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot SupplierShoudBeDifferentFromClient='Tuple {\n\tmessage : String = \n\t\t\t\'The dependency supplier component should be not the same component like the client\',\n\tstatus : Boolean = \n\t\t\tself.supplier <> self.client\n}.status'"
  * @generated
@@ -35,7 +35,7 @@ public interface Dependency extends IDBase, NameBase {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Supplier</em>' reference.
 	 * @see #setSupplier(Component)
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfPackage#getDependency_Supplier()
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage#getDependency_Supplier()
 	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component#getOnDepend
 	 * @model opposite="onDepend"
 	 * @generated
@@ -62,7 +62,7 @@ public interface Dependency extends IDBase, NameBase {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Client</em>' reference.
 	 * @see #setClient(Component)
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfPackage#getDependency_Client()
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage#getDependency_Client()
 	 * @model
 	 * @generated
 	 */

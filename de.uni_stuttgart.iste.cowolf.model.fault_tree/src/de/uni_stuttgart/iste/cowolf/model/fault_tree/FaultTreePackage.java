@@ -1191,13 +1191,22 @@ public interface FaultTreePackage extends EPackage {
 	int FAULT_TREE = 15;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FAULT_TREE__ID = CommonBasePackage.ID_BASE__ID;
+
+	/**
 	 * The feature id for the '<em><b>Hazard</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FAULT_TREE__HAZARD = 0;
+	int FAULT_TREE__HAZARD = CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Gate</b></em>' containment reference list.
@@ -1206,7 +1215,7 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FAULT_TREE__GATE = 1;
+	int FAULT_TREE__GATE = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Event</b></em>' containment reference list.
@@ -1215,7 +1224,7 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FAULT_TREE__EVENT = 2;
+	int FAULT_TREE__EVENT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Failure instance</b></em>' containment reference list.
@@ -1224,7 +1233,7 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FAULT_TREE__FAILURE_INSTANCE = 3;
+	int FAULT_TREE__FAILURE_INSTANCE = CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Failure type</b></em>' containment reference list.
@@ -1233,7 +1242,7 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FAULT_TREE__FAILURE_TYPE = 4;
+	int FAULT_TREE__FAILURE_TYPE = CommonBasePackage.ID_BASE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Error instance</b></em>' containment reference list.
@@ -1242,7 +1251,7 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FAULT_TREE__ERROR_INSTANCE = 5;
+	int FAULT_TREE__ERROR_INSTANCE = CommonBasePackage.ID_BASE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Error type</b></em>' containment reference list.
@@ -1251,7 +1260,7 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FAULT_TREE__ERROR_TYPE = 6;
+	int FAULT_TREE__ERROR_TYPE = CommonBasePackage.ID_BASE_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Fault Tree</em>' class.
@@ -1260,7 +1269,7 @@ public interface FaultTreePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FAULT_TREE_FEATURE_COUNT = 7;
+	int FAULT_TREE_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 7;
 
 	/**
 	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.fault_tree.Hazard <em>Hazard</em>}'.

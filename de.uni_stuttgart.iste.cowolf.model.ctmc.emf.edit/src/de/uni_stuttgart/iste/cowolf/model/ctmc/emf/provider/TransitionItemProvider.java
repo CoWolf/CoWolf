@@ -192,7 +192,7 @@ public class TransitionItemProvider extends IDBaseItemProvider {
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return CTMCemfEditPlugin.INSTANCE;
+		return CTMCEditPlugin.INSTANCE;
 	}
 
 }
