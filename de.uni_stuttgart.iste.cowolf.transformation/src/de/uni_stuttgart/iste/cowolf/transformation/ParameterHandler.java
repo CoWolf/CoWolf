@@ -15,22 +15,29 @@ public class ParameterHandler {
 
     private Param parameter;
 
+    public Object getParameterValue(Param parameter, Change change) {
+        return null;
+    }
     public Object getParameterValue(Param parameter, SemanticChangeSet changeSet) {
         this.parameter = parameter;
-        // check for corresponding change
-        String paramChangeName = parameter.getChange().getName();
         Object result = null;
-        for (Change change : changeSet.getChanges()) {
-            String changeName = change.eClass().getName();
-            if (changeName.equals(paramChangeName)) {
-                Object changeResult = this.handleChange(change);
-                if (changeResult != null) {
-                    result = changeResult;
+        // check for corresponding change
+        if (changeSet != null) {
+
+            String paramChangeName = parameter.getChange().getName();
+
+            for (Change change : changeSet.getChanges()) {
+                String changeName = change.eClass().getName();
+                if (changeName.equals(paramChangeName)) {
+                    Object changeResult = this.handleChange(change);
+                    if (changeResult != null) {
+                        result = changeResult;
+                    }
                 }
             }
+
         }
         return result;
-
     }
     private Object handleChange(Change change) {
         Object result = null;

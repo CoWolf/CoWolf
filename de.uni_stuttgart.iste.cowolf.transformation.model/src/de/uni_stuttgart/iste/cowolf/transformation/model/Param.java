@@ -44,6 +44,8 @@ public class Param {
     protected Change change;
     @XmlAttribute(name = "name")
     protected String name;
+    @XmlElement(name = "Reference")
+    protected Reference reference;
 
     /**
      * Gets the value of the name property.
@@ -79,6 +81,21 @@ public class Param {
      */
     public void setChange(Change change) {
         this.change = change;
+    }
+
+    /**
+     * @return the reference
+     */
+    public Reference getReference() {
+        return reference;
+    }
+
+    /**
+     * @param reference
+     *            the reference to set
+     */
+    public void setReference(Reference reference) {
+        this.reference = reference;
     }
 
 }

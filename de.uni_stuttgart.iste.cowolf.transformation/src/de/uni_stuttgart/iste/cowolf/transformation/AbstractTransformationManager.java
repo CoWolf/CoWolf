@@ -35,6 +35,7 @@ import org.eclipse.emf.henshin.model.Module;
 import org.eclipse.emf.henshin.model.Unit;
 import org.eclipse.emf.henshin.model.resource.HenshinResourceSet;
 import org.eclipse.emf.henshin.trace.impl.TraceImpl;
+import org.sidiff.difference.symmetric.AttributeValueChange;
 import org.sidiff.difference.symmetric.SemanticChangeSet;
 import org.sidiff.difference.symmetric.SymmetricDifference;
 
@@ -57,11 +58,12 @@ public abstract class AbstractTransformationManager {
      * 
      */
     protected Map<String, Mapping> mappings;
+    protected Map<String, Mapping> changeMapping;
     protected Map<String, Unit> units;
     protected HenshinResourceSet rulesResourceSet = new HenshinResourceSet();
 
     protected URI fileURI;
-
+    
     public abstract Class<?> getFirstClassType();
     
     public abstract Class<?> getSecondClassType();
@@ -134,8 +136,10 @@ public abstract class AbstractTransformationManager {
         // Load mappings
         Mappings mappingObject;
         try {
-            mappingObject = XMLMappingLoader.loadMapping(this.getMapping(source));
+            mappingObject = XMLMappingLoader.loadMapping(this
+                    .getMapping(source));
             this.mappings = mappingObject.getMapping();
+            this.changeMapping = mappingObject.getChangeMapping();
             System.out.println("Found " + mappingObject.getMapping().size()
                     + " mappings.");
         } catch (JAXBException e1) {
@@ -253,9 +257,6 @@ public abstract class AbstractTransformationManager {
         System.out.println("Number of roots: " + result.getRoots().size());
 
         ResourceSet henshinResourceSet = target.getResourceSet();
-        // TODO: decide where traces should be stored (source or target model
-        // file or separate trace file).
-        // TODO: Transformation in place or not?
         Resource temp = new ResourceImpl(target.getURI());
 
         List<EObject> list = result.getRoots();
@@ -329,7 +330,9 @@ public abstract class AbstractTransformationManager {
         List<SemanticChangeSet> changeSets = difference.getChangeSets();
         // execute rules one by one, order from change sets.
         List<MappingSet> mappings = new ArrayList<>();
+
         for (SemanticChangeSet changeSet : changeSets) {
+            System.out.println(changeSet.getName());
             Mapping mapping = this.mappings.get(changeSet.getName());
             if (mapping != null) {
                 MappingSet set = new MappingSet();
@@ -339,6 +342,27 @@ public abstract class AbstractTransformationManager {
             }
         }
         Collections.sort(mappings);
+        for (org.sidiff.difference.symmetric.Change change : difference
+                .getChanges()) {
+            if (change instanceof AttributeValueChange) {
+                AttributeValueChange avChange = (AttributeValueChange) change;
+                String key = avChange.getObjA().eClass().getEPackage()
+                        .getNsPrefix();
+                key += "/" + avChange.getObjA().eClass().getName();
+                key += "/" + avChange.getType().getName();
+                Mapping mapping = this.changeMapping.get(key);
+                if (mapping != null) {
+                    System.out.println(mapping);
+                    MappingSet set = new MappingSet();
+                    set.setChange(change);
+                    set.setMapping(mapping);
+                    mappings.add(set);
+                }
+                System.out.println(key);
+            }
+
+        }
+
         for (MappingSet mappingSet : mappings) {
             graph = application.getEGraph();
             application = new UnitApplicationImpl(new EngineImpl());
@@ -352,8 +376,15 @@ public abstract class AbstractTransformationManager {
                 application.setUnit(unit);
                 // traverse parameters from config object.
                 for (Param param : rule.getParams().getParam()) {
-                    Object value = paramHandler.getParameterValue(param,
-                            changeSet);
+                    Object value = null;
+                    if (mappingSet.getChangeSet() != null) {
+                        value = paramHandler
+                                .getParameterValue(param, changeSet);
+                    } else {
+                        value = paramHandler.getParameterValue(param,
+                                mappingSet.getChange());
+                    }
+
                     String name = param.getName();
                     application.setParameterValue(name, value);
                 }
@@ -413,7 +444,8 @@ public abstract class AbstractTransformationManager {
 		if (source == null || source.getContents() == null) {
 			throw new IllegalArgumentException("Source should not be null.");
 		} else {
-			if (this.getFirstClassType().isAssignableFrom(source.getContents().get(0).getClass())) {
+            if (this.getFirstClassType().isAssignableFrom(
+                    source.getContents().get(0).getClass())) {
 				return this.getKey();
 			} else {
 				return this.getReverseKey();

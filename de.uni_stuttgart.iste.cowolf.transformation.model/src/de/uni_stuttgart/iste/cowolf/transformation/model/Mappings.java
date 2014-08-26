@@ -89,8 +89,10 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "Mappings")
 public class Mappings {
 
-	@XmlTransient
+    @XmlTransient
     protected Map<String, Mapping> mapping = new HashMap<>();
+
+    protected Map<String, Mapping> changeMapping = new HashMap<>();
 
     @XmlElement(name = "Mapping", required = true)
     private List<Mapping> getMap() {
@@ -100,7 +102,12 @@ public class Mappings {
     private void setMap(final List<Mapping> items) {
         this.mapping.clear();
         for (Mapping item : items) {
-            this.mapping.put(item.difference, item);
+            if (item.getDifference() != null) {
+                this.mapping.put(item.difference, item);
+            } else {
+                this.changeMapping.put(item.change, item);
+            }
+
         }
     }
 
@@ -130,37 +137,43 @@ public class Mappings {
      * 
      */
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((mapping == null) ? 0 : mapping.hashCode());
-		return result;
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Object#hashCode()
+     */
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((mapping == null) ? 0 : mapping.hashCode());
+        return result;
+    }
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Mappings other = (Mappings) obj;
-		if (mapping == null) {
-			if (other.mapping != null)
-				return false;
-		} else if (!mapping.equals(other.mapping))
-			return false;
-		return true;
-	}
-    
-    
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Object#equals(java.lang.Object)
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Mappings other = (Mappings) obj;
+        if (mapping == null) {
+            if (other.mapping != null)
+                return false;
+        } else if (!mapping.equals(other.mapping))
+            return false;
+        return true;
+    }
+
+    public Map<String, Mapping> getChangeMapping() {
+        return this.changeMapping;
+    }
 
 }
