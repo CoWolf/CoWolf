@@ -109,7 +109,7 @@ public class DTMCAnalyzeJob extends Job {
 			
 			this.prismResult = new HashMap<Object,String>();
 
-			monitor.beginTask("Analyse DTMC", prismResult.size() + 4);
+			monitor.beginTask("Analyse CTMC", analyzeLabels.size() + analyzeStates.size() + 3);
 
 			PRISMGenerator generator = new PRISMGenerator();
 
