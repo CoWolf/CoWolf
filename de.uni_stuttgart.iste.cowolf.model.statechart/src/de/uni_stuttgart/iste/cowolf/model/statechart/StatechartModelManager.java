@@ -1,65 +1,21 @@
 package de.uni_stuttgart.iste.cowolf.model.statechart;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import de.uni_stuttgart.iste.cowolf.model.AbstractArchitectureModelManager;
 
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource;
-
-import de.uni_stuttgart.iste.cowolf.model.ModelTypeInfo;
-import de.uni_stuttgart.iste.cowolf.model.statechart.impl.BooleanExpressionImpl;
-import de.uni_stuttgart.iste.cowolf.model.statechart.impl.CompositeStateImpl;
-import de.uni_stuttgart.iste.cowolf.model.statechart.impl.EventImpl;
-import de.uni_stuttgart.iste.cowolf.model.statechart.impl.GuardImpl;
-import de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateImpl;
-import de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateMachineImpl;
-import de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateVertexImpl;
-import de.uni_stuttgart.iste.cowolf.model.statechart.impl.TransitionImpl;
-
 public class StatechartModelManager extends AbstractArchitectureModelManager {
+
 	@Override
-	public boolean isManaged(Resource model) {
-		if (model == null) {
-			return false;
-		}
-		if (model.getContents() == null || model.getContents().isEmpty()) {
-			return false;
-		}
-		for (EObject theEObject : model.getContents()) {
-			// check if the current eobject is part of the allowed classes list
-			boolean match = false;
-			for (Class<?> theEClass : this.getModelTypeInfo().PROPER_CONTENTS) {
-				if (theEObject.getClass() == theEClass) {
-					match = true;
-				}
-			}
-			// return false if the current theEObject dosn`t match to the items
-			// in the theEClass list
-			if (!match) {
-				return false;
-			}
-		}
-		return true;
+	public Class<?> getManagedClass() {
+		return StateMachine.class;
 	}
 
+	@Override
+	public String getModelName() {
+		return "statechart";
+	}
 
 	@Override
-	public ModelTypeInfo getModelTypeInfo() {
-
-		List<Class<?>> properContents = new ArrayList<Class<?>>();
-
-		// create the allowed EClasses
-		properContents.add(BooleanExpressionImpl.class);
-		properContents.add(CompositeStateImpl.class);
-		properContents.add(EventImpl.class);
-		properContents.add(GuardImpl.class);
-		properContents.add(StateImpl.class);
-		properContents.add(StateMachineImpl.class);
-		properContents.add(StateVertexImpl.class);
-		properContents.add(TransitionImpl.class);
-		ModelTypeInfo mti = new ModelTypeInfo("statechart", properContents, statechartemfPackage.eNS_URI);
-		return mti;
+	public String getModelNamespace() {
+		return statechartemfPackage.eNS_URI;
 	}
 }
