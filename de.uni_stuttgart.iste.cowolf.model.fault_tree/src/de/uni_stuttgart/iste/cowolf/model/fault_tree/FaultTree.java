@@ -2,9 +2,8 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.fault_tree;
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
 import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface FaultTree extends EObject {
+public interface FaultTree extends IDBase {
 	/**
 	 * Returns the value of the '<em><b>Hazard</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

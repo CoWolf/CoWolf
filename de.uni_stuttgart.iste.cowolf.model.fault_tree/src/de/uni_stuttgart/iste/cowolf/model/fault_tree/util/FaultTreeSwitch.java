@@ -184,6 +184,7 @@ public class FaultTreeSwitch<T> extends Switch<T> {
 			case FaultTreePackage.FAULT_TREE: {
 				FaultTree faultTree = (FaultTree)theEObject;
 				T result = caseFaultTree(faultTree);
+				if (result == null) result = caseIDBase(faultTree);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
