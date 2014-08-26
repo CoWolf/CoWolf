@@ -23,9 +23,21 @@ public abstract class AbstractModelManager {
 		return false;
 	}
 
+	/**
+	 * Return the root class for the supported model.
+	 * @return root class of model, which can be managed with this model manager.
+	 */
 	public abstract Class<?> getManagedClass();
 	
+	/**
+	 * Returns the name of the handled model.
+	 * @return returns name of the handled model.
+	 */
 	public abstract String getModelName();
 	
+	/**
+	 * Returns the Namespace of handled model.
+	 * @return the Namespace of the handled model.
+	 */
 	public abstract String getModelNamespace();
 }

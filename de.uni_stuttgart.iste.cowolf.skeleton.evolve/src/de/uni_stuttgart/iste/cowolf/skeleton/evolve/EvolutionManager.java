@@ -23,4 +23,9 @@ public class EvolutionManager extends AbstractEvolutionManager {
 		info.setMatcher(EvolutionTypeInfo.MATCHER_EMFCOMPARE);
 		return info;
 	}
+
+	@Override
+	protected Class<?> getManagedClass() {
+		return null;
+	}
 }

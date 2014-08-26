@@ -1,5 +1,6 @@
 package de.uni_stuttgart.iste.cowolf.evolution.statechart;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 
 import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
@@ -29,4 +30,9 @@ public class StatechartEvolutionManager extends AbstractEvolutionManager {
         info.setMatcher(EvolutionTypeInfo.MATCHER_EMFCOMPARE);
         return info;
     }
+
+	@Override
+	protected Class<?> getManagedClass() {
+		return StateMachine.class;
+	}
 }

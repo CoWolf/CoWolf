@@ -8,19 +8,14 @@ import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree;
 
 public class FaultTreeEvolutionManager extends AbstractEvolutionManager {
 	@Override
-	public boolean isManaged(Resource model) {
-		if (model == null || model.getContents() == null
-				|| model.getContents().isEmpty()) {
-			return false;
-		}
-
-		return model.getContents().get(0) instanceof FaultTree;
-	}
-
-	@Override
 	public EvolutionTypeInfo getEvolutionTypeInfo() {
 		EvolutionTypeInfo info = new EvolutionTypeInfo();
 		info.setMatcher(EvolutionTypeInfo.MATCHER_EMFCOMPARE);
 		return info;
+	}
+
+	@Override
+	protected Class<?> getManagedClass() {
+		return FaultTree.class;
 	}
 }
