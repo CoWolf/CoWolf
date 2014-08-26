@@ -82,7 +82,7 @@ public class CTMCExportPRISMJob extends Job {
 					output = this.mappingCSL.get(res);
 					monitor.subTask("Exporting: " + output.getAbsolutePath());
 					FileOutputStream out = new FileOutputStream(output);
-					out.write(generator.generateCSL(res).toString().getBytes());
+					out.write(generator.generateCSL(res, this.getStates(res), this.getLabels(res), true).toString().getBytes());
 					out.close();
 					monitor.worked(1);
 				} catch(SecurityException | IOException e) {
