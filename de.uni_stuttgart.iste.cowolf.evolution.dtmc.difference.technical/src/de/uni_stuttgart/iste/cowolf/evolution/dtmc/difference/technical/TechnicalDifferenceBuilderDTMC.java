@@ -12,7 +12,7 @@ import org.eclipse.emf.henshin.trace.impl.TracePackageImpl;
 import org.sidiff.difference.technical.TechnicalDifferenceBuilder;
 import org.silift.common.util.access.EMFModelAccessEx;
 
-import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCemfPackage;
+import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCPackage;
 
 /**
  * 
@@ -54,8 +54,8 @@ public class TechnicalDifferenceBuilderDTMC extends TechnicalDifferenceBuilder {
 	@Override
 	protected void checkDocumentType(Resource model) {
 		String docType = EMFModelAccessEx.getCharacteristicDocumentType(model);
-		assert (docType == DTMCemfPackage.eNS_URI) : "Wrong document type: Expected "
-				+ DTMCemfPackage.eNS_URI + " but got " + docType;
+		assert (docType == DTMCPackage.eNS_URI) : "Wrong document type: Expected "
+				+ DTMCPackage.eNS_URI + " but got " + docType;
 	}
 
 	@Override
@@ -65,7 +65,7 @@ public class TechnicalDifferenceBuilderDTMC extends TechnicalDifferenceBuilder {
 
 	@Override
 	public String getDocumentType() {
-		return DTMCemfPackage.eNS_URI;
+		return DTMCPackage.eNS_URI;
 	}
 
 	@Override
