@@ -4,19 +4,14 @@ package de.uni_stuttgart.iste.cowolf.model.component_diagram.impl;
 
 import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
 import de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase;
-
 import de.uni_stuttgart.iste.cowolf.model.commonBase.impl.IDBaseImpl;
-
-import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfPackage;
+import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.Interface;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.Port;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -101,7 +96,7 @@ public class InterfaceImpl extends IDBaseImpl implements Interface {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return Component_diagramemfPackage.Literals.INTERFACE;
+		return Component_diagramPackage.Literals.INTERFACE;
 	}
 
 	/**
@@ -122,7 +117,7 @@ public class InterfaceImpl extends IDBaseImpl implements Interface {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Component_diagramemfPackage.INTERFACE__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, Component_diagramPackage.INTERFACE__NAME, oldName, name));
 	}
 
 	/**
@@ -143,7 +138,7 @@ public class InterfaceImpl extends IDBaseImpl implements Interface {
 		String oldDescription = description;
 		description = newDescription;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Component_diagramemfPackage.INTERFACE__DESCRIPTION, oldDescription, description));
+			eNotify(new ENotificationImpl(this, Notification.SET, Component_diagramPackage.INTERFACE__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -157,7 +152,7 @@ public class InterfaceImpl extends IDBaseImpl implements Interface {
 			homePort = (Port)eResolveProxy(oldHomePort);
 			if (homePort != oldHomePort) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, Component_diagramemfPackage.INTERFACE__HOME_PORT, oldHomePort, homePort));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, Component_diagramPackage.INTERFACE__HOME_PORT, oldHomePort, homePort));
 			}
 		}
 		return homePort;
@@ -181,7 +176,7 @@ public class InterfaceImpl extends IDBaseImpl implements Interface {
 		Port oldHomePort = homePort;
 		homePort = newHomePort;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, Component_diagramemfPackage.INTERFACE__HOME_PORT, oldHomePort, newHomePort);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, Component_diagramPackage.INTERFACE__HOME_PORT, oldHomePort, newHomePort);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -196,14 +191,14 @@ public class InterfaceImpl extends IDBaseImpl implements Interface {
 		if (newHomePort != homePort) {
 			NotificationChain msgs = null;
 			if (homePort != null)
-				msgs = ((InternalEObject)homePort).eInverseRemove(this, Component_diagramemfPackage.PORT__PROVIDED_INTERFACES, Port.class, msgs);
+				msgs = ((InternalEObject)homePort).eInverseRemove(this, Component_diagramPackage.PORT__PROVIDED_INTERFACES, Port.class, msgs);
 			if (newHomePort != null)
-				msgs = ((InternalEObject)newHomePort).eInverseAdd(this, Component_diagramemfPackage.PORT__PROVIDED_INTERFACES, Port.class, msgs);
+				msgs = ((InternalEObject)newHomePort).eInverseAdd(this, Component_diagramPackage.PORT__PROVIDED_INTERFACES, Port.class, msgs);
 			msgs = basicSetHomePort(newHomePort, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Component_diagramemfPackage.INTERFACE__HOME_PORT, newHomePort, newHomePort));
+			eNotify(new ENotificationImpl(this, Notification.SET, Component_diagramPackage.INTERFACE__HOME_PORT, newHomePort, newHomePort));
 	}
 
 	/**
@@ -214,9 +209,9 @@ public class InterfaceImpl extends IDBaseImpl implements Interface {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case Component_diagramemfPackage.INTERFACE__HOME_PORT:
+			case Component_diagramPackage.INTERFACE__HOME_PORT:
 				if (homePort != null)
-					msgs = ((InternalEObject)homePort).eInverseRemove(this, Component_diagramemfPackage.PORT__PROVIDED_INTERFACES, Port.class, msgs);
+					msgs = ((InternalEObject)homePort).eInverseRemove(this, Component_diagramPackage.PORT__PROVIDED_INTERFACES, Port.class, msgs);
 				return basicSetHomePort((Port)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -230,7 +225,7 @@ public class InterfaceImpl extends IDBaseImpl implements Interface {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case Component_diagramemfPackage.INTERFACE__HOME_PORT:
+			case Component_diagramPackage.INTERFACE__HOME_PORT:
 				return basicSetHomePort(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -244,11 +239,11 @@ public class InterfaceImpl extends IDBaseImpl implements Interface {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case Component_diagramemfPackage.INTERFACE__NAME:
+			case Component_diagramPackage.INTERFACE__NAME:
 				return getName();
-			case Component_diagramemfPackage.INTERFACE__DESCRIPTION:
+			case Component_diagramPackage.INTERFACE__DESCRIPTION:
 				return getDescription();
-			case Component_diagramemfPackage.INTERFACE__HOME_PORT:
+			case Component_diagramPackage.INTERFACE__HOME_PORT:
 				if (resolve) return getHomePort();
 				return basicGetHomePort();
 		}
@@ -263,13 +258,13 @@ public class InterfaceImpl extends IDBaseImpl implements Interface {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case Component_diagramemfPackage.INTERFACE__NAME:
+			case Component_diagramPackage.INTERFACE__NAME:
 				setName((String)newValue);
 				return;
-			case Component_diagramemfPackage.INTERFACE__DESCRIPTION:
+			case Component_diagramPackage.INTERFACE__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
-			case Component_diagramemfPackage.INTERFACE__HOME_PORT:
+			case Component_diagramPackage.INTERFACE__HOME_PORT:
 				setHomePort((Port)newValue);
 				return;
 		}
@@ -284,13 +279,13 @@ public class InterfaceImpl extends IDBaseImpl implements Interface {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case Component_diagramemfPackage.INTERFACE__NAME:
+			case Component_diagramPackage.INTERFACE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case Component_diagramemfPackage.INTERFACE__DESCRIPTION:
+			case Component_diagramPackage.INTERFACE__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
-			case Component_diagramemfPackage.INTERFACE__HOME_PORT:
+			case Component_diagramPackage.INTERFACE__HOME_PORT:
 				setHomePort((Port)null);
 				return;
 		}
@@ -305,11 +300,11 @@ public class InterfaceImpl extends IDBaseImpl implements Interface {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case Component_diagramemfPackage.INTERFACE__NAME:
+			case Component_diagramPackage.INTERFACE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case Component_diagramemfPackage.INTERFACE__DESCRIPTION:
+			case Component_diagramPackage.INTERFACE__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-			case Component_diagramemfPackage.INTERFACE__HOME_PORT:
+			case Component_diagramPackage.INTERFACE__HOME_PORT:
 				return homePort != null;
 		}
 		return super.eIsSet(featureID);
@@ -324,7 +319,7 @@ public class InterfaceImpl extends IDBaseImpl implements Interface {
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == NameBase.class) {
 			switch (derivedFeatureID) {
-				case Component_diagramemfPackage.INTERFACE__NAME: return CommonBasePackage.NAME_BASE__NAME;
+				case Component_diagramPackage.INTERFACE__NAME: return CommonBasePackage.NAME_BASE__NAME;
 				default: return -1;
 			}
 		}
@@ -340,7 +335,7 @@ public class InterfaceImpl extends IDBaseImpl implements Interface {
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == NameBase.class) {
 			switch (baseFeatureID) {
-				case CommonBasePackage.NAME_BASE__NAME: return Component_diagramemfPackage.INTERFACE__NAME;
+				case CommonBasePackage.NAME_BASE__NAME: return Component_diagramPackage.INTERFACE__NAME;
 				default: return -1;
 			}
 		}

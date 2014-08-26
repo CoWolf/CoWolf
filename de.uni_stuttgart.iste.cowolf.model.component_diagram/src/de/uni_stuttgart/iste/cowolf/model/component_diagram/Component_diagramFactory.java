@@ -9,17 +9,17 @@ import org.eclipse.emf.ecore.EFactory;
  * The <b>Factory</b> for the model.
  * It provides a create method for each non-abstract class of the model.
  * <!-- end-user-doc -->
- * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfPackage
+ * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage
  * @generated
  */
-public interface Component_diagramemfFactory extends EFactory {
+public interface Component_diagramFactory extends EFactory {
 	/**
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	Component_diagramemfFactory eINSTANCE = de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramemfFactoryImpl.init();
+	Component_diagramFactory eINSTANCE = de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramFactoryImpl.init();
 
 	/**
 	 * Returns a new object of class '<em>Component Diagram</em>'.
@@ -73,6 +73,6 @@ public interface Component_diagramemfFactory extends EFactory {
 	 * @return the package supported by this factory.
 	 * @generated
 	 */
-	Component_diagramemfPackage getComponent_diagramemfPackage();
+	Component_diagramPackage getComponent_diagramPackage();
 
-} //Component_diagramemfFactory
+} //Component_diagramFactory

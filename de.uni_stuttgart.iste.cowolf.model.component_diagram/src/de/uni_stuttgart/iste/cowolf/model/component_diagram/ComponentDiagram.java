@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  * </p>
  *
- * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfPackage#getComponentDiagram()
+ * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage#getComponentDiagram()
  * @model
  * @generated
  */
@@ -37,7 +37,7 @@ public interface ComponentDiagram extends IDBase, NameBase {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Componet Container</em>' containment reference list.
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfPackage#getComponentDiagram_ComponetContainer()
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage#getComponentDiagram_ComponetContainer()
 	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component#getDiagram
 	 * @model opposite="diagram" containment="true"
 	 * @generated
@@ -54,7 +54,7 @@ public interface ComponentDiagram extends IDBase, NameBase {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Interface Container</em>' containment reference list.
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfPackage#getComponentDiagram_InterfaceContainer()
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage#getComponentDiagram_InterfaceContainer()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -70,7 +70,7 @@ public interface ComponentDiagram extends IDBase, NameBase {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Dependency Container</em>' containment reference list.
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfPackage#getComponentDiagram_DependencyContainer()
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage#getComponentDiagram_DependencyContainer()
 	 * @model containment="true"
 	 * @generated
 	 */

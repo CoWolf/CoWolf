@@ -8,8 +8,8 @@ import org.eclipse.emf.ecore.resource.Resource;
 import de.uni_stuttgart.iste.cowolf.model.AbstractArchitectureModelManager;
 import de.uni_stuttgart.iste.cowolf.model.ModelTypeInfo;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.ComponentDiagramImpl;
-import de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramemfFactoryImpl;
-import de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramemfPackageImpl;
+import de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramFactoryImpl;
+import de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.DependencyImpl;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.InterfaceImpl;
 
@@ -26,12 +26,12 @@ public class ComponentDiagramModelManageer extends AbstractArchitectureModelMana
 		List<Class<?>> properContents = new ArrayList<Class<?>>();
 
 		// create the allowed EClasses
-		properContents.add(Component_diagramemfFactoryImpl.class);
-		properContents.add(Component_diagramemfPackageImpl.class);
+		properContents.add(Component_diagramFactoryImpl.class);
+		properContents.add(Component_diagramPackageImpl.class);
 		properContents.add(ComponentDiagramImpl.class);
 		properContents.add(DependencyImpl.class);
 		properContents.add(InterfaceImpl.class);
-		ModelTypeInfo mti = new ModelTypeInfo("Component Diagram", properContents, Component_diagramemfPackage.eNS_URI);
+		ModelTypeInfo mti = new ModelTypeInfo("Component Diagram", properContents, Component_diagramPackage.eNS_URI);
 		
 		return mti;
 	}

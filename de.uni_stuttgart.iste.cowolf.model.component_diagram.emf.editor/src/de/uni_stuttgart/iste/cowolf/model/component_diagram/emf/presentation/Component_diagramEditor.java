@@ -5,7 +5,6 @@ package de.uni_stuttgart.iste.cowolf.model.component_diagram.emf.presentation;
 
 import java.io.IOException;
 import java.io.InputStream;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -24,24 +23,19 @@ import org.eclipse.core.resources.IResourceChangeListener;
 import org.eclipse.core.resources.IResourceDelta;
 import org.eclipse.core.resources.IResourceDeltaVisitor;
 import org.eclipse.core.resources.ResourcesPlugin;
-
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
-
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IStatusLineManager;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
-
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
-
 import org.eclipse.jface.util.LocalSelectionTransfer;
-
 import org.eclipse.jface.viewers.ColumnWeightData;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
@@ -55,29 +49,21 @@ import org.eclipse.jface.viewers.TableLayout;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
-
 import org.eclipse.swt.SWT;
-
 import org.eclipse.swt.custom.CTabFolder;
-
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.FileTransfer;
 import org.eclipse.swt.dnd.Transfer;
-
 import org.eclipse.swt.events.ControlAdapter;
 import org.eclipse.swt.events.ControlEvent;
-
 import org.eclipse.swt.graphics.Point;
-
 import org.eclipse.swt.layout.FillLayout;
-
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeColumn;
-
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
@@ -85,89 +71,69 @@ import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IPartListener;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PartInitException;
-
 import org.eclipse.ui.dialogs.SaveAsDialog;
-
 import org.eclipse.ui.ide.IGotoMarker;
-
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.MultiPageEditorPart;
-
 import org.eclipse.ui.views.contentoutline.ContentOutline;
 import org.eclipse.ui.views.contentoutline.ContentOutlinePage;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
-
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.PropertySheetPage;
-
 import org.eclipse.emf.common.command.BasicCommandStack;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.command.CommandStackListener;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.ui.MarkerHelper;
 import org.eclipse.emf.common.ui.ViewerPane;
-
 import org.eclipse.emf.common.ui.editor.ProblemEditorPart;
-
 import org.eclipse.emf.common.ui.viewer.IViewerProvider;
-
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
-
-
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-
+import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
-
 import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
-
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
-
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
-
+import org.eclipse.emf.edit.ui.action.ValidateAction;
+import org.eclipse.emf.edit.ui.action.ValidateAction.EclipseResourcesUtil;
 import org.eclipse.emf.edit.ui.celleditor.AdapterFactoryTreeEditor;
-
 import org.eclipse.emf.edit.ui.dnd.EditingDomainViewerDropAdapter;
 import org.eclipse.emf.edit.ui.dnd.LocalTransfer;
 import org.eclipse.emf.edit.ui.dnd.ViewerDragAdapter;
-
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.emf.edit.ui.provider.UnwrappingSelectionProvider;
-
 import org.eclipse.emf.edit.ui.util.EditUIMarkerHelper;
 import org.eclipse.emf.edit.ui.util.EditUIUtil;
-
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
-import de.uni_stuttgart.iste.cowolf.model.component_diagram.emf.provider.Component_diagramemfItemProviderAdapterFactory;
-
+import de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentDiagram;
+import de.uni_stuttgart.iste.cowolf.model.component_diagram.emf.provider.Component_diagramItemProviderAdapterFactory;
 import de.uni_stuttgart.iste.cowolf.model.commonBase.emf.provider.CommonBaseItemProviderAdapterFactory;
 
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 
 /**
- * This is an example of a Component_diagramemf model editor.
+ * This is an example of a Component_diagram model editor.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class Component_diagramemfEditor
+public class Component_diagramEditor
 	extends MultiPageEditorPart
 	implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker {
 	/**
@@ -329,18 +295,18 @@ public class Component_diagramemfEditor
 			public void partActivated(IWorkbenchPart p) {
 				if (p instanceof ContentOutline) {
 					if (((ContentOutline)p).getCurrentPage() == contentOutlinePage) {
-						getActionBarContributor().setActiveEditor(Component_diagramemfEditor.this);
+						getActionBarContributor().setActiveEditor(Component_diagramEditor.this);
 
 						setCurrentViewer(contentOutlineViewer);
 					}
 				}
 				else if (p instanceof PropertySheet) {
 					if (propertySheetPages.contains(((PropertySheet)p).getCurrentPage())) {
-						getActionBarContributor().setActiveEditor(Component_diagramemfEditor.this);
+						getActionBarContributor().setActiveEditor(Component_diagramEditor.this);
 						handleActivate();
 					}
 				}
-				else if (p == Component_diagramemfEditor.this) {
+				else if (p == Component_diagramEditor.this) {
 					handleActivate();
 				}
 			}
@@ -513,7 +479,7 @@ public class Component_diagramemfEditor
 								 public void run() {
 									 removedResources.addAll(visitor.getRemovedResources());
 									 if (!isDirty()) {
-										 getSite().getPage().closeEditor(Component_diagramemfEditor.this, false);
+										 getSite().getPage().closeEditor(Component_diagramEditor.this, false);
 									 }
 								 }
 							 });
@@ -524,7 +490,7 @@ public class Component_diagramemfEditor
 							(new Runnable() {
 								 public void run() {
 									 changedResources.addAll(visitor.getChangedResources());
-									 if (getSite().getPage().getActiveEditor() == Component_diagramemfEditor.this) {
+									 if (getSite().getPage().getActiveEditor() == Component_diagramEditor.this) {
 										 handleActivate();
 									 }
 								 }
@@ -532,7 +498,7 @@ public class Component_diagramemfEditor
 					}
 				}
 				catch (CoreException exception) {
-					Componet_diagramEditorPlugin.INSTANCE.log(exception);
+					Component_diagramEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 		};
@@ -556,7 +522,7 @@ public class Component_diagramemfEditor
 
 		if (!removedResources.isEmpty()) {
 			if (handleDirtyConflict()) {
-				getSite().getPage().closeEditor(Component_diagramemfEditor.this, false);
+				getSite().getPage().closeEditor(Component_diagramEditor.this, false);
 			}
 			else {
 				removedResources.clear();
@@ -648,7 +614,7 @@ public class Component_diagramemfEditor
 					showTabs();
 				}
 				catch (PartInitException exception) {
-					Componet_diagramEditorPlugin.INSTANCE.log(exception);
+					Component_diagramEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 
@@ -659,7 +625,7 @@ public class Component_diagramemfEditor
 						markerHelper.createMarkers(diagnostic);
 					}
 					catch (CoreException exception) {
-						Componet_diagramEditorPlugin.INSTANCE.log(exception);
+						Component_diagramEditorPlugin.INSTANCE.log(exception);
 					}
 				}
 			}
@@ -686,7 +652,7 @@ public class Component_diagramemfEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Component_diagramemfEditor() {
+	public Component_diagramEditor() {
 		super();
 		initializeEditingDomain();
 	}
@@ -703,7 +669,7 @@ public class Component_diagramemfEditor
 		adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new Component_diagramemfItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new Component_diagramItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new CommonBaseItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
@@ -1024,7 +990,7 @@ public class Component_diagramemfEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), Component_diagramemfEditor.this) {
+					new ViewerPane(getSite().getPage(), Component_diagramEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							Tree tree = new Tree(composite, SWT.MULTI);
@@ -1058,7 +1024,7 @@ public class Component_diagramemfEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), Component_diagramemfEditor.this) {
+					new ViewerPane(getSite().getPage(), Component_diagramEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							Tree tree = new Tree(composite, SWT.MULTI);
@@ -1087,7 +1053,7 @@ public class Component_diagramemfEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), Component_diagramemfEditor.this) {
+					new ViewerPane(getSite().getPage(), Component_diagramEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							return new ListViewer(composite);
@@ -1112,7 +1078,7 @@ public class Component_diagramemfEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), Component_diagramemfEditor.this) {
+					new ViewerPane(getSite().getPage(), Component_diagramEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							return new TreeViewer(composite);
@@ -1139,7 +1105,7 @@ public class Component_diagramemfEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), Component_diagramemfEditor.this) {
+					new ViewerPane(getSite().getPage(), Component_diagramEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							return new TableViewer(composite);
@@ -1182,7 +1148,7 @@ public class Component_diagramemfEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), Component_diagramemfEditor.this) {
+					new ViewerPane(getSite().getPage(), Component_diagramEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							return new TreeViewer(composite);
@@ -1402,8 +1368,8 @@ public class Component_diagramemfEditor
 			new ExtendedPropertySheetPage(editingDomain) {
 				@Override
 				public void setSelectionToViewer(List<?> selection) {
-					Component_diagramemfEditor.this.setSelectionToViewer(selection);
-					Component_diagramemfEditor.this.setFocus();
+					Component_diagramEditor.this.setSelectionToViewer(selection);
+					Component_diagramEditor.this.setFocus();
 				}
 
 				@Override
@@ -1508,6 +1474,20 @@ public class Component_diagramemfEditor
 							first = false;
 						}
 					}
+					
+					EclipseResourcesUtil resUtil = new ValidateAction.EclipseResourcesUtil();
+					for (Resource resource : savedResources) {
+						if (resource.getContents().get(0) != null && resource.getContents().get(0) instanceof ComponentDiagram)  {
+							Diagnostic diagnostic = Diagnostician.INSTANCE.validate(resource.getContents().get(0));
+							
+							resUtil.deleteMarkers(resource);
+							
+							for (Diagnostic childDiagnostic : diagnostic.getChildren())
+					        {
+					          resUtil.createMarkers(resource, childDiagnostic);
+					        }
+						}
+					}
 				}
 			};
 
@@ -1525,7 +1505,7 @@ public class Component_diagramemfEditor
 		catch (Exception exception) {
 			// Something went wrong that shouldn't.
 			//
-			Componet_diagramEditorPlugin.INSTANCE.log(exception);
+			Component_diagramEditorPlugin.INSTANCE.log(exception);
 		}
 		updateProblemIndication = true;
 		updateProblemIndication();
@@ -1729,7 +1709,7 @@ public class Component_diagramemfEditor
 	 * @generated
 	 */
 	private static String getString(String key) {
-		return Componet_diagramEditorPlugin.INSTANCE.getString(key);
+		return Component_diagramEditorPlugin.INSTANCE.getString(key);
 	}
 
 	/**
@@ -1739,7 +1719,7 @@ public class Component_diagramemfEditor
 	 * @generated
 	 */
 	private static String getString(String key, Object s1) {
-		return Componet_diagramEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
+		return Component_diagramEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
 	}
 
 	/**

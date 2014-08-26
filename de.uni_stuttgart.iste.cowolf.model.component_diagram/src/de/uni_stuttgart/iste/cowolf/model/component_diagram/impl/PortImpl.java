@@ -4,26 +4,18 @@ package de.uni_stuttgart.iste.cowolf.model.component_diagram.impl;
 
 import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
 import de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase;
-
 import de.uni_stuttgart.iste.cowolf.model.commonBase.impl.IDBaseImpl;
-
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component;
-import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfPackage;
+import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.Interface;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.Port;
-
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -165,7 +157,7 @@ public class PortImpl extends IDBaseImpl implements Port {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return Component_diagramemfPackage.Literals.PORT;
+		return Component_diagramPackage.Literals.PORT;
 	}
 
 	/**
@@ -186,7 +178,7 @@ public class PortImpl extends IDBaseImpl implements Port {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Component_diagramemfPackage.PORT__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, Component_diagramPackage.PORT__NAME, oldName, name));
 	}
 
 	/**
@@ -207,7 +199,7 @@ public class PortImpl extends IDBaseImpl implements Port {
 		String oldProtocol = protocol;
 		protocol = newProtocol;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Component_diagramemfPackage.PORT__PROTOCOL, oldProtocol, protocol));
+			eNotify(new ENotificationImpl(this, Notification.SET, Component_diagramPackage.PORT__PROTOCOL, oldProtocol, protocol));
 	}
 
 	/**
@@ -228,7 +220,7 @@ public class PortImpl extends IDBaseImpl implements Port {
 		boolean oldIsBehavior = isBehavior;
 		isBehavior = newIsBehavior;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Component_diagramemfPackage.PORT__IS_BEHAVIOR, oldIsBehavior, isBehavior));
+			eNotify(new ENotificationImpl(this, Notification.SET, Component_diagramPackage.PORT__IS_BEHAVIOR, oldIsBehavior, isBehavior));
 	}
 
 	/**
@@ -249,7 +241,7 @@ public class PortImpl extends IDBaseImpl implements Port {
 		boolean oldIsService = isService;
 		isService = newIsService;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Component_diagramemfPackage.PORT__IS_SERVICE, oldIsService, isService));
+			eNotify(new ENotificationImpl(this, Notification.SET, Component_diagramPackage.PORT__IS_SERVICE, oldIsService, isService));
 	}
 
 	/**
@@ -259,7 +251,7 @@ public class PortImpl extends IDBaseImpl implements Port {
 	 */
 	public EList<Interface> getRequiredInterfaces() {
 		if (requiredInterfaces == null) {
-			requiredInterfaces = new EObjectResolvingEList<Interface>(Interface.class, this, Component_diagramemfPackage.PORT__REQUIRED_INTERFACES);
+			requiredInterfaces = new EObjectResolvingEList<Interface>(Interface.class, this, Component_diagramPackage.PORT__REQUIRED_INTERFACES);
 		}
 		return requiredInterfaces;
 	}
@@ -271,7 +263,7 @@ public class PortImpl extends IDBaseImpl implements Port {
 	 */
 	public EList<Interface> getProvidedInterfaces() {
 		if (providedInterfaces == null) {
-			providedInterfaces = new EObjectWithInverseResolvingEList<Interface>(Interface.class, this, Component_diagramemfPackage.PORT__PROVIDED_INTERFACES, Component_diagramemfPackage.INTERFACE__HOME_PORT);
+			providedInterfaces = new EObjectWithInverseResolvingEList<Interface>(Interface.class, this, Component_diagramPackage.PORT__PROVIDED_INTERFACES, Component_diagramPackage.INTERFACE__HOME_PORT);
 		}
 		return providedInterfaces;
 	}
@@ -282,7 +274,7 @@ public class PortImpl extends IDBaseImpl implements Port {
 	 * @generated
 	 */
 	public Component getPortHost() {
-		if (eContainerFeatureID() != Component_diagramemfPackage.PORT__PORT_HOST) return null;
+		if (eContainerFeatureID() != Component_diagramPackage.PORT__PORT_HOST) return null;
 		return (Component)eInternalContainer();
 	}
 
@@ -292,7 +284,7 @@ public class PortImpl extends IDBaseImpl implements Port {
 	 * @generated
 	 */
 	public NotificationChain basicSetPortHost(Component newPortHost, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newPortHost, Component_diagramemfPackage.PORT__PORT_HOST, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newPortHost, Component_diagramPackage.PORT__PORT_HOST, msgs);
 		return msgs;
 	}
 
@@ -302,19 +294,19 @@ public class PortImpl extends IDBaseImpl implements Port {
 	 * @generated
 	 */
 	public void setPortHost(Component newPortHost) {
-		if (newPortHost != eInternalContainer() || (eContainerFeatureID() != Component_diagramemfPackage.PORT__PORT_HOST && newPortHost != null)) {
+		if (newPortHost != eInternalContainer() || (eContainerFeatureID() != Component_diagramPackage.PORT__PORT_HOST && newPortHost != null)) {
 			if (EcoreUtil.isAncestor(this, newPortHost))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newPortHost != null)
-				msgs = ((InternalEObject)newPortHost).eInverseAdd(this, Component_diagramemfPackage.COMPONENT__PORTS, Component.class, msgs);
+				msgs = ((InternalEObject)newPortHost).eInverseAdd(this, Component_diagramPackage.COMPONENT__PORTS, Component.class, msgs);
 			msgs = basicSetPortHost(newPortHost, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Component_diagramemfPackage.PORT__PORT_HOST, newPortHost, newPortHost));
+			eNotify(new ENotificationImpl(this, Notification.SET, Component_diagramPackage.PORT__PORT_HOST, newPortHost, newPortHost));
 	}
 
 	/**
@@ -326,9 +318,9 @@ public class PortImpl extends IDBaseImpl implements Port {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case Component_diagramemfPackage.PORT__PROVIDED_INTERFACES:
+			case Component_diagramPackage.PORT__PROVIDED_INTERFACES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getProvidedInterfaces()).basicAdd(otherEnd, msgs);
-			case Component_diagramemfPackage.PORT__PORT_HOST:
+			case Component_diagramPackage.PORT__PORT_HOST:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetPortHost((Component)otherEnd, msgs);
@@ -344,9 +336,9 @@ public class PortImpl extends IDBaseImpl implements Port {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case Component_diagramemfPackage.PORT__PROVIDED_INTERFACES:
+			case Component_diagramPackage.PORT__PROVIDED_INTERFACES:
 				return ((InternalEList<?>)getProvidedInterfaces()).basicRemove(otherEnd, msgs);
-			case Component_diagramemfPackage.PORT__PORT_HOST:
+			case Component_diagramPackage.PORT__PORT_HOST:
 				return basicSetPortHost(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -360,8 +352,8 @@ public class PortImpl extends IDBaseImpl implements Port {
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case Component_diagramemfPackage.PORT__PORT_HOST:
-				return eInternalContainer().eInverseRemove(this, Component_diagramemfPackage.COMPONENT__PORTS, Component.class, msgs);
+			case Component_diagramPackage.PORT__PORT_HOST:
+				return eInternalContainer().eInverseRemove(this, Component_diagramPackage.COMPONENT__PORTS, Component.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -374,19 +366,19 @@ public class PortImpl extends IDBaseImpl implements Port {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case Component_diagramemfPackage.PORT__NAME:
+			case Component_diagramPackage.PORT__NAME:
 				return getName();
-			case Component_diagramemfPackage.PORT__PROTOCOL:
+			case Component_diagramPackage.PORT__PROTOCOL:
 				return getProtocol();
-			case Component_diagramemfPackage.PORT__IS_BEHAVIOR:
+			case Component_diagramPackage.PORT__IS_BEHAVIOR:
 				return isIsBehavior();
-			case Component_diagramemfPackage.PORT__IS_SERVICE:
+			case Component_diagramPackage.PORT__IS_SERVICE:
 				return isIsService();
-			case Component_diagramemfPackage.PORT__REQUIRED_INTERFACES:
+			case Component_diagramPackage.PORT__REQUIRED_INTERFACES:
 				return getRequiredInterfaces();
-			case Component_diagramemfPackage.PORT__PROVIDED_INTERFACES:
+			case Component_diagramPackage.PORT__PROVIDED_INTERFACES:
 				return getProvidedInterfaces();
-			case Component_diagramemfPackage.PORT__PORT_HOST:
+			case Component_diagramPackage.PORT__PORT_HOST:
 				return getPortHost();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -401,27 +393,27 @@ public class PortImpl extends IDBaseImpl implements Port {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case Component_diagramemfPackage.PORT__NAME:
+			case Component_diagramPackage.PORT__NAME:
 				setName((String)newValue);
 				return;
-			case Component_diagramemfPackage.PORT__PROTOCOL:
+			case Component_diagramPackage.PORT__PROTOCOL:
 				setProtocol((String)newValue);
 				return;
-			case Component_diagramemfPackage.PORT__IS_BEHAVIOR:
+			case Component_diagramPackage.PORT__IS_BEHAVIOR:
 				setIsBehavior((Boolean)newValue);
 				return;
-			case Component_diagramemfPackage.PORT__IS_SERVICE:
+			case Component_diagramPackage.PORT__IS_SERVICE:
 				setIsService((Boolean)newValue);
 				return;
-			case Component_diagramemfPackage.PORT__REQUIRED_INTERFACES:
+			case Component_diagramPackage.PORT__REQUIRED_INTERFACES:
 				getRequiredInterfaces().clear();
 				getRequiredInterfaces().addAll((Collection<? extends Interface>)newValue);
 				return;
-			case Component_diagramemfPackage.PORT__PROVIDED_INTERFACES:
+			case Component_diagramPackage.PORT__PROVIDED_INTERFACES:
 				getProvidedInterfaces().clear();
 				getProvidedInterfaces().addAll((Collection<? extends Interface>)newValue);
 				return;
-			case Component_diagramemfPackage.PORT__PORT_HOST:
+			case Component_diagramPackage.PORT__PORT_HOST:
 				setPortHost((Component)newValue);
 				return;
 		}
@@ -436,25 +428,25 @@ public class PortImpl extends IDBaseImpl implements Port {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case Component_diagramemfPackage.PORT__NAME:
+			case Component_diagramPackage.PORT__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case Component_diagramemfPackage.PORT__PROTOCOL:
+			case Component_diagramPackage.PORT__PROTOCOL:
 				setProtocol(PROTOCOL_EDEFAULT);
 				return;
-			case Component_diagramemfPackage.PORT__IS_BEHAVIOR:
+			case Component_diagramPackage.PORT__IS_BEHAVIOR:
 				setIsBehavior(IS_BEHAVIOR_EDEFAULT);
 				return;
-			case Component_diagramemfPackage.PORT__IS_SERVICE:
+			case Component_diagramPackage.PORT__IS_SERVICE:
 				setIsService(IS_SERVICE_EDEFAULT);
 				return;
-			case Component_diagramemfPackage.PORT__REQUIRED_INTERFACES:
+			case Component_diagramPackage.PORT__REQUIRED_INTERFACES:
 				getRequiredInterfaces().clear();
 				return;
-			case Component_diagramemfPackage.PORT__PROVIDED_INTERFACES:
+			case Component_diagramPackage.PORT__PROVIDED_INTERFACES:
 				getProvidedInterfaces().clear();
 				return;
-			case Component_diagramemfPackage.PORT__PORT_HOST:
+			case Component_diagramPackage.PORT__PORT_HOST:
 				setPortHost((Component)null);
 				return;
 		}
@@ -469,19 +461,19 @@ public class PortImpl extends IDBaseImpl implements Port {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case Component_diagramemfPackage.PORT__NAME:
+			case Component_diagramPackage.PORT__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case Component_diagramemfPackage.PORT__PROTOCOL:
+			case Component_diagramPackage.PORT__PROTOCOL:
 				return PROTOCOL_EDEFAULT == null ? protocol != null : !PROTOCOL_EDEFAULT.equals(protocol);
-			case Component_diagramemfPackage.PORT__IS_BEHAVIOR:
+			case Component_diagramPackage.PORT__IS_BEHAVIOR:
 				return isBehavior != IS_BEHAVIOR_EDEFAULT;
-			case Component_diagramemfPackage.PORT__IS_SERVICE:
+			case Component_diagramPackage.PORT__IS_SERVICE:
 				return isService != IS_SERVICE_EDEFAULT;
-			case Component_diagramemfPackage.PORT__REQUIRED_INTERFACES:
+			case Component_diagramPackage.PORT__REQUIRED_INTERFACES:
 				return requiredInterfaces != null && !requiredInterfaces.isEmpty();
-			case Component_diagramemfPackage.PORT__PROVIDED_INTERFACES:
+			case Component_diagramPackage.PORT__PROVIDED_INTERFACES:
 				return providedInterfaces != null && !providedInterfaces.isEmpty();
-			case Component_diagramemfPackage.PORT__PORT_HOST:
+			case Component_diagramPackage.PORT__PORT_HOST:
 				return getPortHost() != null;
 		}
 		return super.eIsSet(featureID);
@@ -496,7 +488,7 @@ public class PortImpl extends IDBaseImpl implements Port {
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == NameBase.class) {
 			switch (derivedFeatureID) {
-				case Component_diagramemfPackage.PORT__NAME: return CommonBasePackage.NAME_BASE__NAME;
+				case Component_diagramPackage.PORT__NAME: return CommonBasePackage.NAME_BASE__NAME;
 				default: return -1;
 			}
 		}
@@ -512,7 +504,7 @@ public class PortImpl extends IDBaseImpl implements Port {
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == NameBase.class) {
 			switch (baseFeatureID) {
-				case CommonBasePackage.NAME_BASE__NAME: return Component_diagramemfPackage.PORT__NAME;
+				case CommonBasePackage.NAME_BASE__NAME: return Component_diagramPackage.PORT__NAME;
 				default: return -1;
 			}
 		}

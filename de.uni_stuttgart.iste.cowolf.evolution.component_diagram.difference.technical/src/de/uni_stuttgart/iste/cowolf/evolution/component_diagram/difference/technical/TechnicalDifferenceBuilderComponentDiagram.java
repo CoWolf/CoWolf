@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.sidiff.difference.technical.TechnicalDifferenceBuilder;
 import org.silift.common.util.access.EMFModelAccessEx;
 
-import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfPackage;
+import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage;
 
 public class TechnicalDifferenceBuilderComponentDiagram extends
 		TechnicalDifferenceBuilder {
@@ -40,8 +40,8 @@ public class TechnicalDifferenceBuilderComponentDiagram extends
 	@Override
 	protected void checkDocumentType(Resource model) {
 		String docType = EMFModelAccessEx.getCharacteristicDocumentType(model);
-		assert (docType == Component_diagramemfPackage.eNS_URI) : "Wrong document type: Expected "
-				+ Component_diagramemfPackage.eNS_URI + " but got " + docType;
+		assert (docType == Component_diagramPackage.eNS_URI) : "Wrong document type: Expected "
+				+ Component_diagramPackage.eNS_URI + " but got " + docType;
 	}
 
 	@Override
@@ -51,7 +51,7 @@ public class TechnicalDifferenceBuilderComponentDiagram extends
 
 	@Override
 	public String getDocumentType() {
-		return Component_diagramemfPackage.eNS_URI;
+		return Component_diagramPackage.eNS_URI;
 	}
 
 	@Override

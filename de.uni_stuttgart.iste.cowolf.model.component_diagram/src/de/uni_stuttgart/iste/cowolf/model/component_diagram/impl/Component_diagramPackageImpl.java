@@ -7,13 +7,13 @@ import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentDiagram;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentStereotype;
-import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfFactory;
-import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfPackage;
+import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramFactory;
+import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.Dependency;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.Interface;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.Port;
 
-import de.uni_stuttgart.iste.cowolf.model.component_diagram.util.Component_diagramemfValidator;
+import de.uni_stuttgart.iste.cowolf.model.component_diagram.util.Component_diagramValidator;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * <!-- end-user-doc -->
  * @generated
  */
-public class Component_diagramemfPackageImpl extends EPackageImpl implements Component_diagramemfPackage {
+public class Component_diagramPackageImpl extends EPackageImpl implements Component_diagramPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -84,12 +84,12 @@ public class Component_diagramemfPackageImpl extends EPackageImpl implements Com
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfPackage#eNS_URI
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage#eNS_URI
 	 * @see #init()
 	 * @generated
 	 */
-	private Component_diagramemfPackageImpl() {
-		super(eNS_URI, Component_diagramemfFactory.eINSTANCE);
+	private Component_diagramPackageImpl() {
+		super(eNS_URI, Component_diagramFactory.eINSTANCE);
 	}
 
 	/**
@@ -102,7 +102,7 @@ public class Component_diagramemfPackageImpl extends EPackageImpl implements Com
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
 	 * 
-	 * <p>This method is used to initialize {@link Component_diagramemfPackage#eINSTANCE} when that field is accessed.
+	 * <p>This method is used to initialize {@link Component_diagramPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -111,11 +111,11 @@ public class Component_diagramemfPackageImpl extends EPackageImpl implements Com
 	 * @see #initializePackageContents()
 	 * @generated
 	 */
-	public static Component_diagramemfPackage init() {
-		if (isInited) return (Component_diagramemfPackage)EPackage.Registry.INSTANCE.getEPackage(Component_diagramemfPackage.eNS_URI);
+	public static Component_diagramPackage init() {
+		if (isInited) return (Component_diagramPackage)EPackage.Registry.INSTANCE.getEPackage(Component_diagramPackage.eNS_URI);
 
 		// Obtain or create and register package
-		Component_diagramemfPackageImpl theComponent_diagramemfPackage = (Component_diagramemfPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof Component_diagramemfPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new Component_diagramemfPackageImpl());
+		Component_diagramPackageImpl theComponent_diagramPackage = (Component_diagramPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof Component_diagramPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new Component_diagramPackageImpl());
 
 		isInited = true;
 
@@ -123,27 +123,27 @@ public class Component_diagramemfPackageImpl extends EPackageImpl implements Com
 		CommonBasePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
-		theComponent_diagramemfPackage.createPackageContents();
+		theComponent_diagramPackage.createPackageContents();
 
 		// Initialize created meta-data
-		theComponent_diagramemfPackage.initializePackageContents();
+		theComponent_diagramPackage.initializePackageContents();
 
 		// Register package validator
 		EValidator.Registry.INSTANCE.put
-			(theComponent_diagramemfPackage, 
+			(theComponent_diagramPackage, 
 			 new EValidator.Descriptor() {
 				 public EValidator getEValidator() {
-					 return Component_diagramemfValidator.INSTANCE;
+					 return Component_diagramValidator.INSTANCE;
 				 }
 			 });
 
 		// Mark meta-data to indicate it can't be changed
-		theComponent_diagramemfPackage.freeze();
+		theComponent_diagramPackage.freeze();
 
   
 		// Update the registry and return the package
-		EPackage.Registry.INSTANCE.put(Component_diagramemfPackage.eNS_URI, theComponent_diagramemfPackage);
-		return theComponent_diagramemfPackage;
+		EPackage.Registry.INSTANCE.put(Component_diagramPackage.eNS_URI, theComponent_diagramPackage);
+		return theComponent_diagramPackage;
 	}
 
 	/**
@@ -385,8 +385,8 @@ public class Component_diagramemfPackageImpl extends EPackageImpl implements Com
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Component_diagramemfFactory getComponent_diagramemfFactory() {
-		return (Component_diagramemfFactory)getEFactoryInstance();
+	public Component_diagramFactory getComponent_diagramFactory() {
+		return (Component_diagramFactory)getEFactoryInstance();
 	}
 
 	/**
@@ -606,4 +606,4 @@ public class Component_diagramemfPackageImpl extends EPackageImpl implements Com
 		   });
 	}
 
-} //Component_diagramemfPackageImpl
+} //Component_diagramPackageImpl

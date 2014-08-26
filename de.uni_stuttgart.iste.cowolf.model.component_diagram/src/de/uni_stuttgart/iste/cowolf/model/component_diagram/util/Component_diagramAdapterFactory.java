@@ -19,17 +19,17 @@ import org.eclipse.emf.ecore.EObject;
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfPackage
+ * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage
  * @generated
  */
-public class Component_diagramemfAdapterFactory extends AdapterFactoryImpl {
+public class Component_diagramAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static Component_diagramemfPackage modelPackage;
+	protected static Component_diagramPackage modelPackage;
 
 	/**
 	 * Creates an instance of the adapter factory.
@@ -37,9 +37,9 @@ public class Component_diagramemfAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Component_diagramemfAdapterFactory() {
+	public Component_diagramAdapterFactory() {
 		if (modelPackage == null) {
-			modelPackage = Component_diagramemfPackage.eINSTANCE;
+			modelPackage = Component_diagramPackage.eINSTANCE;
 		}
 	}
 
@@ -68,8 +68,8 @@ public class Component_diagramemfAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Component_diagramemfSwitch<Adapter> modelSwitch =
-		new Component_diagramemfSwitch<Adapter>() {
+	protected Component_diagramSwitch<Adapter> modelSwitch =
+		new Component_diagramSwitch<Adapter>() {
 			@Override
 			public Adapter caseComponentDiagram(ComponentDiagram object) {
 				return createComponentDiagramAdapter();
@@ -228,4 +228,4 @@ public class Component_diagramemfAdapterFactory extends AdapterFactoryImpl {
 		return null;
 	}
 
-} //Component_diagramemfAdapterFactory
+} //Component_diagramAdapterFactory

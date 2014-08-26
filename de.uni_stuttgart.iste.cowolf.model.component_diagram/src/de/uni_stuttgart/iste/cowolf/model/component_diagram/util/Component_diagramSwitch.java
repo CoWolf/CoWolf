@@ -22,17 +22,17 @@ import org.eclipse.emf.ecore.util.Switch;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfPackage
+ * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage
  * @generated
  */
-public class Component_diagramemfSwitch<T> extends Switch<T> {
+public class Component_diagramSwitch<T> extends Switch<T> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static Component_diagramemfPackage modelPackage;
+	protected static Component_diagramPackage modelPackage;
 
 	/**
 	 * Creates an instance of the switch.
@@ -40,9 +40,9 @@ public class Component_diagramemfSwitch<T> extends Switch<T> {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Component_diagramemfSwitch() {
+	public Component_diagramSwitch() {
 		if (modelPackage == null) {
-			modelPackage = Component_diagramemfPackage.eINSTANCE;
+			modelPackage = Component_diagramPackage.eINSTANCE;
 		}
 	}
 
@@ -69,7 +69,7 @@ public class Component_diagramemfSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case Component_diagramemfPackage.COMPONENT_DIAGRAM: {
+			case Component_diagramPackage.COMPONENT_DIAGRAM: {
 				ComponentDiagram componentDiagram = (ComponentDiagram)theEObject;
 				T result = caseComponentDiagram(componentDiagram);
 				if (result == null) result = caseIDBase(componentDiagram);
@@ -77,7 +77,7 @@ public class Component_diagramemfSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case Component_diagramemfPackage.COMPONENT: {
+			case Component_diagramPackage.COMPONENT: {
 				Component component = (Component)theEObject;
 				T result = caseComponent(component);
 				if (result == null) result = caseNameBase(component);
@@ -85,7 +85,7 @@ public class Component_diagramemfSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case Component_diagramemfPackage.PORT: {
+			case Component_diagramPackage.PORT: {
 				Port port = (Port)theEObject;
 				T result = casePort(port);
 				if (result == null) result = caseIDBase(port);
@@ -93,7 +93,7 @@ public class Component_diagramemfSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case Component_diagramemfPackage.INTERFACE: {
+			case Component_diagramPackage.INTERFACE: {
 				Interface interface_ = (Interface)theEObject;
 				T result = caseInterface(interface_);
 				if (result == null) result = caseIDBase(interface_);
@@ -101,7 +101,7 @@ public class Component_diagramemfSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case Component_diagramemfPackage.DEPENDENCY: {
+			case Component_diagramPackage.DEPENDENCY: {
 				Dependency dependency = (Dependency)theEObject;
 				T result = caseDependency(dependency);
 				if (result == null) result = caseIDBase(dependency);
@@ -234,4 +234,4 @@ public class Component_diagramemfSwitch<T> extends Switch<T> {
 		return null;
 	}
 
-} //Component_diagramemfSwitch
+} //Component_diagramSwitch

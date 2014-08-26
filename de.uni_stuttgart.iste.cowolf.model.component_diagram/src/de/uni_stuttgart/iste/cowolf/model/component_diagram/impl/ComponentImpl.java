@@ -4,28 +4,20 @@ package de.uni_stuttgart.iste.cowolf.model.component_diagram.impl;
 
 import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
 import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
-
 import de.uni_stuttgart.iste.cowolf.model.commonBase.impl.NameBaseImpl;
-
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentDiagram;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentStereotype;
-import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfPackage;
+import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.Dependency;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.Port;
-
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
@@ -61,7 +53,7 @@ public class ComponentImpl extends NameBaseImpl implements Component {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ID_EDEFAULT = null;
+	protected static final String ID_EDEFAULT = "";
 
 	/**
 	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
@@ -169,7 +161,7 @@ public class ComponentImpl extends NameBaseImpl implements Component {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return Component_diagramemfPackage.Literals.COMPONENT;
+		return Component_diagramPackage.Literals.COMPONENT;
 	}
 
 	/**
@@ -190,7 +182,7 @@ public class ComponentImpl extends NameBaseImpl implements Component {
 		String oldId = id;
 		id = newId;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Component_diagramemfPackage.COMPONENT__ID, oldId, id));
+			eNotify(new ENotificationImpl(this, Notification.SET, Component_diagramPackage.COMPONENT__ID, oldId, id));
 	}
 
 	/**
@@ -211,7 +203,7 @@ public class ComponentImpl extends NameBaseImpl implements Component {
 		ComponentStereotype oldStereotype = stereotype;
 		stereotype = newStereotype == null ? STEREOTYPE_EDEFAULT : newStereotype;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Component_diagramemfPackage.COMPONENT__STEREOTYPE, oldStereotype, stereotype));
+			eNotify(new ENotificationImpl(this, Notification.SET, Component_diagramPackage.COMPONENT__STEREOTYPE, oldStereotype, stereotype));
 	}
 
 	/**
@@ -232,7 +224,7 @@ public class ComponentImpl extends NameBaseImpl implements Component {
 		boolean oldIsIndirectlyInstantiated = isIndirectlyInstantiated;
 		isIndirectlyInstantiated = newIsIndirectlyInstantiated;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Component_diagramemfPackage.COMPONENT__IS_INDIRECTLY_INSTANTIATED, oldIsIndirectlyInstantiated, isIndirectlyInstantiated));
+			eNotify(new ENotificationImpl(this, Notification.SET, Component_diagramPackage.COMPONENT__IS_INDIRECTLY_INSTANTIATED, oldIsIndirectlyInstantiated, isIndirectlyInstantiated));
 	}
 
 	/**
@@ -242,7 +234,7 @@ public class ComponentImpl extends NameBaseImpl implements Component {
 	 */
 	public EList<Component> getComponentContainer() {
 		if (componentContainer == null) {
-			componentContainer = new EObjectResolvingEList<Component>(Component.class, this, Component_diagramemfPackage.COMPONENT__COMPONENT_CONTAINER);
+			componentContainer = new EObjectResolvingEList<Component>(Component.class, this, Component_diagramPackage.COMPONENT__COMPONENT_CONTAINER);
 		}
 		return componentContainer;
 	}
@@ -254,7 +246,7 @@ public class ComponentImpl extends NameBaseImpl implements Component {
 	 */
 	public EList<Port> getPorts() {
 		if (ports == null) {
-			ports = new EObjectContainmentWithInverseEList<Port>(Port.class, this, Component_diagramemfPackage.COMPONENT__PORTS, Component_diagramemfPackage.PORT__PORT_HOST);
+			ports = new EObjectContainmentWithInverseEList<Port>(Port.class, this, Component_diagramPackage.COMPONENT__PORTS, Component_diagramPackage.PORT__PORT_HOST);
 		}
 		return ports;
 	}
@@ -270,7 +262,7 @@ public class ComponentImpl extends NameBaseImpl implements Component {
 			realization = (Component)eResolveProxy(oldRealization);
 			if (realization != oldRealization) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, Component_diagramemfPackage.COMPONENT__REALIZATION, oldRealization, realization));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, Component_diagramPackage.COMPONENT__REALIZATION, oldRealization, realization));
 			}
 		}
 		return realization;
@@ -294,7 +286,7 @@ public class ComponentImpl extends NameBaseImpl implements Component {
 		Component oldRealization = realization;
 		realization = newRealization;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Component_diagramemfPackage.COMPONENT__REALIZATION, oldRealization, realization));
+			eNotify(new ENotificationImpl(this, Notification.SET, Component_diagramPackage.COMPONENT__REALIZATION, oldRealization, realization));
 	}
 
 	/**
@@ -303,7 +295,7 @@ public class ComponentImpl extends NameBaseImpl implements Component {
 	 * @generated
 	 */
 	public ComponentDiagram getDiagram() {
-		if (eContainerFeatureID() != Component_diagramemfPackage.COMPONENT__DIAGRAM) return null;
+		if (eContainerFeatureID() != Component_diagramPackage.COMPONENT__DIAGRAM) return null;
 		return (ComponentDiagram)eInternalContainer();
 	}
 
@@ -313,7 +305,7 @@ public class ComponentImpl extends NameBaseImpl implements Component {
 	 * @generated
 	 */
 	public NotificationChain basicSetDiagram(ComponentDiagram newDiagram, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newDiagram, Component_diagramemfPackage.COMPONENT__DIAGRAM, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newDiagram, Component_diagramPackage.COMPONENT__DIAGRAM, msgs);
 		return msgs;
 	}
 
@@ -323,19 +315,19 @@ public class ComponentImpl extends NameBaseImpl implements Component {
 	 * @generated
 	 */
 	public void setDiagram(ComponentDiagram newDiagram) {
-		if (newDiagram != eInternalContainer() || (eContainerFeatureID() != Component_diagramemfPackage.COMPONENT__DIAGRAM && newDiagram != null)) {
+		if (newDiagram != eInternalContainer() || (eContainerFeatureID() != Component_diagramPackage.COMPONENT__DIAGRAM && newDiagram != null)) {
 			if (EcoreUtil.isAncestor(this, newDiagram))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newDiagram != null)
-				msgs = ((InternalEObject)newDiagram).eInverseAdd(this, Component_diagramemfPackage.COMPONENT_DIAGRAM__COMPONET_CONTAINER, ComponentDiagram.class, msgs);
+				msgs = ((InternalEObject)newDiagram).eInverseAdd(this, Component_diagramPackage.COMPONENT_DIAGRAM__COMPONET_CONTAINER, ComponentDiagram.class, msgs);
 			msgs = basicSetDiagram(newDiagram, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Component_diagramemfPackage.COMPONENT__DIAGRAM, newDiagram, newDiagram));
+			eNotify(new ENotificationImpl(this, Notification.SET, Component_diagramPackage.COMPONENT__DIAGRAM, newDiagram, newDiagram));
 	}
 
 	/**
@@ -345,7 +337,7 @@ public class ComponentImpl extends NameBaseImpl implements Component {
 	 */
 	public EList<Dependency> getOnDepend() {
 		if (onDepend == null) {
-			onDepend = new EObjectWithInverseResolvingEList<Dependency>(Dependency.class, this, Component_diagramemfPackage.COMPONENT__ON_DEPEND, Component_diagramemfPackage.DEPENDENCY__SUPPLIER);
+			onDepend = new EObjectWithInverseResolvingEList<Dependency>(Dependency.class, this, Component_diagramPackage.COMPONENT__ON_DEPEND, Component_diagramPackage.DEPENDENCY__SUPPLIER);
 		}
 		return onDepend;
 	}
@@ -359,13 +351,13 @@ public class ComponentImpl extends NameBaseImpl implements Component {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case Component_diagramemfPackage.COMPONENT__PORTS:
+			case Component_diagramPackage.COMPONENT__PORTS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getPorts()).basicAdd(otherEnd, msgs);
-			case Component_diagramemfPackage.COMPONENT__DIAGRAM:
+			case Component_diagramPackage.COMPONENT__DIAGRAM:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetDiagram((ComponentDiagram)otherEnd, msgs);
-			case Component_diagramemfPackage.COMPONENT__ON_DEPEND:
+			case Component_diagramPackage.COMPONENT__ON_DEPEND:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOnDepend()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -379,11 +371,11 @@ public class ComponentImpl extends NameBaseImpl implements Component {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case Component_diagramemfPackage.COMPONENT__PORTS:
+			case Component_diagramPackage.COMPONENT__PORTS:
 				return ((InternalEList<?>)getPorts()).basicRemove(otherEnd, msgs);
-			case Component_diagramemfPackage.COMPONENT__DIAGRAM:
+			case Component_diagramPackage.COMPONENT__DIAGRAM:
 				return basicSetDiagram(null, msgs);
-			case Component_diagramemfPackage.COMPONENT__ON_DEPEND:
+			case Component_diagramPackage.COMPONENT__ON_DEPEND:
 				return ((InternalEList<?>)getOnDepend()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -397,8 +389,8 @@ public class ComponentImpl extends NameBaseImpl implements Component {
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case Component_diagramemfPackage.COMPONENT__DIAGRAM:
-				return eInternalContainer().eInverseRemove(this, Component_diagramemfPackage.COMPONENT_DIAGRAM__COMPONET_CONTAINER, ComponentDiagram.class, msgs);
+			case Component_diagramPackage.COMPONENT__DIAGRAM:
+				return eInternalContainer().eInverseRemove(this, Component_diagramPackage.COMPONENT_DIAGRAM__COMPONET_CONTAINER, ComponentDiagram.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -411,22 +403,22 @@ public class ComponentImpl extends NameBaseImpl implements Component {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case Component_diagramemfPackage.COMPONENT__ID:
+			case Component_diagramPackage.COMPONENT__ID:
 				return getId();
-			case Component_diagramemfPackage.COMPONENT__STEREOTYPE:
+			case Component_diagramPackage.COMPONENT__STEREOTYPE:
 				return getStereotype();
-			case Component_diagramemfPackage.COMPONENT__IS_INDIRECTLY_INSTANTIATED:
+			case Component_diagramPackage.COMPONENT__IS_INDIRECTLY_INSTANTIATED:
 				return isIsIndirectlyInstantiated();
-			case Component_diagramemfPackage.COMPONENT__COMPONENT_CONTAINER:
+			case Component_diagramPackage.COMPONENT__COMPONENT_CONTAINER:
 				return getComponentContainer();
-			case Component_diagramemfPackage.COMPONENT__PORTS:
+			case Component_diagramPackage.COMPONENT__PORTS:
 				return getPorts();
-			case Component_diagramemfPackage.COMPONENT__REALIZATION:
+			case Component_diagramPackage.COMPONENT__REALIZATION:
 				if (resolve) return getRealization();
 				return basicGetRealization();
-			case Component_diagramemfPackage.COMPONENT__DIAGRAM:
+			case Component_diagramPackage.COMPONENT__DIAGRAM:
 				return getDiagram();
-			case Component_diagramemfPackage.COMPONENT__ON_DEPEND:
+			case Component_diagramPackage.COMPONENT__ON_DEPEND:
 				return getOnDepend();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -441,30 +433,30 @@ public class ComponentImpl extends NameBaseImpl implements Component {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case Component_diagramemfPackage.COMPONENT__ID:
+			case Component_diagramPackage.COMPONENT__ID:
 				setId((String)newValue);
 				return;
-			case Component_diagramemfPackage.COMPONENT__STEREOTYPE:
+			case Component_diagramPackage.COMPONENT__STEREOTYPE:
 				setStereotype((ComponentStereotype)newValue);
 				return;
-			case Component_diagramemfPackage.COMPONENT__IS_INDIRECTLY_INSTANTIATED:
+			case Component_diagramPackage.COMPONENT__IS_INDIRECTLY_INSTANTIATED:
 				setIsIndirectlyInstantiated((Boolean)newValue);
 				return;
-			case Component_diagramemfPackage.COMPONENT__COMPONENT_CONTAINER:
+			case Component_diagramPackage.COMPONENT__COMPONENT_CONTAINER:
 				getComponentContainer().clear();
 				getComponentContainer().addAll((Collection<? extends Component>)newValue);
 				return;
-			case Component_diagramemfPackage.COMPONENT__PORTS:
+			case Component_diagramPackage.COMPONENT__PORTS:
 				getPorts().clear();
 				getPorts().addAll((Collection<? extends Port>)newValue);
 				return;
-			case Component_diagramemfPackage.COMPONENT__REALIZATION:
+			case Component_diagramPackage.COMPONENT__REALIZATION:
 				setRealization((Component)newValue);
 				return;
-			case Component_diagramemfPackage.COMPONENT__DIAGRAM:
+			case Component_diagramPackage.COMPONENT__DIAGRAM:
 				setDiagram((ComponentDiagram)newValue);
 				return;
-			case Component_diagramemfPackage.COMPONENT__ON_DEPEND:
+			case Component_diagramPackage.COMPONENT__ON_DEPEND:
 				getOnDepend().clear();
 				getOnDepend().addAll((Collection<? extends Dependency>)newValue);
 				return;
@@ -480,28 +472,28 @@ public class ComponentImpl extends NameBaseImpl implements Component {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case Component_diagramemfPackage.COMPONENT__ID:
+			case Component_diagramPackage.COMPONENT__ID:
 				setId(ID_EDEFAULT);
 				return;
-			case Component_diagramemfPackage.COMPONENT__STEREOTYPE:
+			case Component_diagramPackage.COMPONENT__STEREOTYPE:
 				setStereotype(STEREOTYPE_EDEFAULT);
 				return;
-			case Component_diagramemfPackage.COMPONENT__IS_INDIRECTLY_INSTANTIATED:
+			case Component_diagramPackage.COMPONENT__IS_INDIRECTLY_INSTANTIATED:
 				setIsIndirectlyInstantiated(IS_INDIRECTLY_INSTANTIATED_EDEFAULT);
 				return;
-			case Component_diagramemfPackage.COMPONENT__COMPONENT_CONTAINER:
+			case Component_diagramPackage.COMPONENT__COMPONENT_CONTAINER:
 				getComponentContainer().clear();
 				return;
-			case Component_diagramemfPackage.COMPONENT__PORTS:
+			case Component_diagramPackage.COMPONENT__PORTS:
 				getPorts().clear();
 				return;
-			case Component_diagramemfPackage.COMPONENT__REALIZATION:
+			case Component_diagramPackage.COMPONENT__REALIZATION:
 				setRealization((Component)null);
 				return;
-			case Component_diagramemfPackage.COMPONENT__DIAGRAM:
+			case Component_diagramPackage.COMPONENT__DIAGRAM:
 				setDiagram((ComponentDiagram)null);
 				return;
-			case Component_diagramemfPackage.COMPONENT__ON_DEPEND:
+			case Component_diagramPackage.COMPONENT__ON_DEPEND:
 				getOnDepend().clear();
 				return;
 		}
@@ -516,21 +508,21 @@ public class ComponentImpl extends NameBaseImpl implements Component {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case Component_diagramemfPackage.COMPONENT__ID:
+			case Component_diagramPackage.COMPONENT__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-			case Component_diagramemfPackage.COMPONENT__STEREOTYPE:
+			case Component_diagramPackage.COMPONENT__STEREOTYPE:
 				return stereotype != STEREOTYPE_EDEFAULT;
-			case Component_diagramemfPackage.COMPONENT__IS_INDIRECTLY_INSTANTIATED:
+			case Component_diagramPackage.COMPONENT__IS_INDIRECTLY_INSTANTIATED:
 				return isIndirectlyInstantiated != IS_INDIRECTLY_INSTANTIATED_EDEFAULT;
-			case Component_diagramemfPackage.COMPONENT__COMPONENT_CONTAINER:
+			case Component_diagramPackage.COMPONENT__COMPONENT_CONTAINER:
 				return componentContainer != null && !componentContainer.isEmpty();
-			case Component_diagramemfPackage.COMPONENT__PORTS:
+			case Component_diagramPackage.COMPONENT__PORTS:
 				return ports != null && !ports.isEmpty();
-			case Component_diagramemfPackage.COMPONENT__REALIZATION:
+			case Component_diagramPackage.COMPONENT__REALIZATION:
 				return realization != null;
-			case Component_diagramemfPackage.COMPONENT__DIAGRAM:
+			case Component_diagramPackage.COMPONENT__DIAGRAM:
 				return getDiagram() != null;
-			case Component_diagramemfPackage.COMPONENT__ON_DEPEND:
+			case Component_diagramPackage.COMPONENT__ON_DEPEND:
 				return onDepend != null && !onDepend.isEmpty();
 		}
 		return super.eIsSet(featureID);
@@ -545,7 +537,7 @@ public class ComponentImpl extends NameBaseImpl implements Component {
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == IDBase.class) {
 			switch (derivedFeatureID) {
-				case Component_diagramemfPackage.COMPONENT__ID: return CommonBasePackage.ID_BASE__ID;
+				case Component_diagramPackage.COMPONENT__ID: return CommonBasePackage.ID_BASE__ID;
 				default: return -1;
 			}
 		}
@@ -561,7 +553,7 @@ public class ComponentImpl extends NameBaseImpl implements Component {
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == IDBase.class) {
 			switch (baseFeatureID) {
-				case CommonBasePackage.ID_BASE__ID: return Component_diagramemfPackage.COMPONENT__ID;
+				case CommonBasePackage.ID_BASE__ID: return Component_diagramPackage.COMPONENT__ID;
 				default: return -1;
 			}
 		}

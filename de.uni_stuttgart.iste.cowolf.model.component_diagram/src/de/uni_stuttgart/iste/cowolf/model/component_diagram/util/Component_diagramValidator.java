@@ -18,17 +18,17 @@ import org.eclipse.emf.ecore.util.EObjectValidator;
  * <!-- begin-user-doc -->
  * The <b>Validator</b> for the model.
  * <!-- end-user-doc -->
- * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfPackage
+ * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage
  * @generated
  */
-public class Component_diagramemfValidator extends EObjectValidator {
+public class Component_diagramValidator extends EObjectValidator {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final Component_diagramemfValidator INSTANCE = new Component_diagramemfValidator();
+	public static final Component_diagramValidator INSTANCE = new Component_diagramValidator();
 
 	/**
 	 * A constant for the {@link org.eclipse.emf.common.util.Diagnostic#getSource() source} of diagnostic {@link org.eclipse.emf.common.util.Diagnostic#getCode() codes} from this package.
@@ -62,7 +62,7 @@ public class Component_diagramemfValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Component_diagramemfValidator() {
+	public Component_diagramValidator() {
 		super();
 	}
 
@@ -74,7 +74,7 @@ public class Component_diagramemfValidator extends EObjectValidator {
 	 */
 	@Override
 	protected EPackage getEPackage() {
-	  return Component_diagramemfPackage.eINSTANCE;
+	  return Component_diagramPackage.eINSTANCE;
 	}
 
 	/**
@@ -86,17 +86,17 @@ public class Component_diagramemfValidator extends EObjectValidator {
 	@Override
 	protected boolean validate(int classifierID, Object value, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		switch (classifierID) {
-			case Component_diagramemfPackage.COMPONENT_DIAGRAM:
+			case Component_diagramPackage.COMPONENT_DIAGRAM:
 				return validateComponentDiagram((ComponentDiagram)value, diagnostics, context);
-			case Component_diagramemfPackage.COMPONENT:
+			case Component_diagramPackage.COMPONENT:
 				return validateComponent((Component)value, diagnostics, context);
-			case Component_diagramemfPackage.PORT:
+			case Component_diagramPackage.PORT:
 				return validatePort((Port)value, diagnostics, context);
-			case Component_diagramemfPackage.INTERFACE:
+			case Component_diagramPackage.INTERFACE:
 				return validateInterface((Interface)value, diagnostics, context);
-			case Component_diagramemfPackage.DEPENDENCY:
+			case Component_diagramPackage.DEPENDENCY:
 				return validateDependency((Dependency)value, diagnostics, context);
-			case Component_diagramemfPackage.COMPONENT_STEREOTYPE:
+			case Component_diagramPackage.COMPONENT_STEREOTYPE:
 				return validateComponentStereotype((ComponentStereotype)value, diagnostics, context);
 			default:
 				return true;
@@ -149,7 +149,7 @@ public class Component_diagramemfValidator extends EObjectValidator {
 	public boolean validateComponent_ComponentCantRealizieItself(Component component, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return
 			validate
-				(Component_diagramemfPackage.Literals.COMPONENT,
+				(Component_diagramPackage.Literals.COMPONENT,
 				 component,
 				 diagnostics,
 				 context,
@@ -180,7 +180,7 @@ public class Component_diagramemfValidator extends EObjectValidator {
 	public boolean validateComponent_DontRequireOwnInterfaces(Component component, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return
 			validate
-				(Component_diagramemfPackage.Literals.COMPONENT,
+				(Component_diagramPackage.Literals.COMPONENT,
 				 component,
 				 diagnostics,
 				 context,
@@ -251,7 +251,7 @@ public class Component_diagramemfValidator extends EObjectValidator {
 	public boolean validateDependency_SupplierShoudBeDifferentFromClient(Dependency dependency, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return
 			validate
-				(Component_diagramemfPackage.Literals.DEPENDENCY,
+				(Component_diagramPackage.Literals.DEPENDENCY,
 				 dependency,
 				 diagnostics,
 				 context,
@@ -286,4 +286,4 @@ public class Component_diagramemfValidator extends EObjectValidator {
 		return super.getResourceLocator();
 	}
 
-} //Component_diagramemfValidator
+} //Component_diagramValidator

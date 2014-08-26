@@ -14,71 +14,48 @@ import java.util.MissingResourceException;
 import java.util.StringTokenizer;
 
 import org.eclipse.emf.common.CommonPlugin;
-
 import org.eclipse.emf.common.util.URI;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
-
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.ecore.xmi.XMLResource;
-
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
-
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
-
 import org.eclipse.core.runtime.IProgressMonitor;
-
 import org.eclipse.jface.dialogs.MessageDialog;
-
 import org.eclipse.jface.viewers.IStructuredSelection;
-
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardPage;
-
 import org.eclipse.swt.SWT;
-
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.ModifyEvent;
-
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
-
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
-
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
-
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
-
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
 
-import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfFactory;
-import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfPackage;
-import de.uni_stuttgart.iste.cowolf.model.component_diagram.emf.provider.Componet_diagramEditPlugin;
-
+import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramFactory;
+import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage;
+import de.uni_stuttgart.iste.cowolf.model.component_diagram.emf.provider.Component_diagramEditPlugin;
 
 import org.eclipse.core.runtime.Path;
-
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
-
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchWindow;
@@ -91,7 +68,7 @@ import org.eclipse.ui.PartInitException;
  * <!-- end-user-doc -->
  * @generated
  */
-public class Component_diagramemfModelWizard extends Wizard implements INewWizard {
+public class Component_diagramModelWizard extends Wizard implements INewWizard {
 	/**
 	 * The supported extensions for created files.
 	 * <!-- begin-user-doc -->
@@ -99,7 +76,7 @@ public class Component_diagramemfModelWizard extends Wizard implements INewWizar
 	 * @generated
 	 */
 	public static final List<String> FILE_EXTENSIONS =
-		Collections.unmodifiableList(Arrays.asList(Componet_diagramEditorPlugin.INSTANCE.getString("_UI_Component_diagramemfEditorFilenameExtensions").split("\\s*,\\s*")));
+		Collections.unmodifiableList(Arrays.asList(Component_diagramEditorPlugin.INSTANCE.getString("_UI_Component_diagramEditorFilenameExtensions").split("\\s*,\\s*")));
 
 	/**
 	 * A formatted list of supported file extensions, suitable for display.
@@ -108,7 +85,7 @@ public class Component_diagramemfModelWizard extends Wizard implements INewWizar
 	 * @generated
 	 */
 	public static final String FORMATTED_FILE_EXTENSIONS =
-		Componet_diagramEditorPlugin.INSTANCE.getString("_UI_Component_diagramemfEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
+		Component_diagramEditorPlugin.INSTANCE.getString("_UI_Component_diagramEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
 
 	/**
 	 * This caches an instance of the model package.
@@ -116,7 +93,7 @@ public class Component_diagramemfModelWizard extends Wizard implements INewWizar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Component_diagramemfPackage component_diagramemfPackage = Component_diagramemfPackage.eINSTANCE;
+	protected Component_diagramPackage component_diagramPackage = Component_diagramPackage.eINSTANCE;
 
 	/**
 	 * This caches an instance of the model factory.
@@ -124,7 +101,7 @@ public class Component_diagramemfModelWizard extends Wizard implements INewWizar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Component_diagramemfFactory component_diagramemfFactory = component_diagramemfPackage.getComponent_diagramemfFactory();
+	protected Component_diagramFactory component_diagramFactory = component_diagramPackage.getComponent_diagramFactory();
 
 	/**
 	 * This is the file creation page.
@@ -132,7 +109,7 @@ public class Component_diagramemfModelWizard extends Wizard implements INewWizar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Component_diagramemfModelWizardNewFileCreationPage newFileCreationPage;
+	protected Component_diagramModelWizardNewFileCreationPage newFileCreationPage;
 
 	/**
 	 * This is the initial object creation page.
@@ -140,7 +117,7 @@ public class Component_diagramemfModelWizard extends Wizard implements INewWizar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Component_diagramemfModelWizardInitialObjectCreationPage initialObjectCreationPage;
+	protected Component_diagramModelWizardInitialObjectCreationPage initialObjectCreationPage;
 
 	/**
 	 * Remember the selection during initialization for populating the default container.
@@ -175,8 +152,8 @@ public class Component_diagramemfModelWizard extends Wizard implements INewWizar
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
 		this.selection = selection;
-		setWindowTitle(Componet_diagramEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
-		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(Componet_diagramEditorPlugin.INSTANCE.getImage("full/wizban/NewComponent_diagramemf")));
+		setWindowTitle(Component_diagramEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
+		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(Component_diagramEditorPlugin.INSTANCE.getImage("full/wizban/NewComponent_diagram")));
 	}
 
 	/**
@@ -188,7 +165,7 @@ public class Component_diagramemfModelWizard extends Wizard implements INewWizar
 	protected Collection<String> getInitialObjectNames() {
 		if (initialObjectNames == null) {
 			initialObjectNames = new ArrayList<String>();
-			for (EClassifier eClassifier : component_diagramemfPackage.getEClassifiers()) {
+			for (EClassifier eClassifier : component_diagramPackage.getEClassifiers()) {
 				if (eClassifier instanceof EClass) {
 					EClass eClass = (EClass)eClassifier;
 					if (!eClass.isAbstract() && eClass.getName().equalsIgnoreCase("ComponentDiagram")) {
@@ -208,8 +185,8 @@ public class Component_diagramemfModelWizard extends Wizard implements INewWizar
 	 * @generated
 	 */
 	protected EObject createInitialModel() {
-		EClass eClass = (EClass)component_diagramemfPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
-		EObject rootObject = component_diagramemfFactory.create(eClass);
+		EClass eClass = (EClass)component_diagramPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
+		EObject rootObject = component_diagramFactory.create(eClass);
 		return rootObject;
 	}
 
@@ -259,7 +236,7 @@ public class Component_diagramemfModelWizard extends Wizard implements INewWizar
 							resource.save(options);
 						}
 						catch (Exception exception) {
-							Componet_diagramEditorPlugin.INSTANCE.log(exception);
+							Component_diagramEditorPlugin.INSTANCE.log(exception);
 						}
 						finally {
 							progressMonitor.done();
@@ -292,14 +269,14 @@ public class Component_diagramemfModelWizard extends Wizard implements INewWizar
 					 workbench.getEditorRegistry().getDefaultEditor(modelFile.getFullPath().toString()).getId());					 	 
 			}
 			catch (PartInitException exception) {
-				MessageDialog.openError(workbenchWindow.getShell(), Componet_diagramEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
+				MessageDialog.openError(workbenchWindow.getShell(), Component_diagramEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
 				return false;
 			}
 
 			return true;
 		}
 		catch (Exception exception) {
-			Componet_diagramEditorPlugin.INSTANCE.log(exception);
+			Component_diagramEditorPlugin.INSTANCE.log(exception);
 			return false;
 		}
 	}
@@ -310,14 +287,14 @@ public class Component_diagramemfModelWizard extends Wizard implements INewWizar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public class Component_diagramemfModelWizardNewFileCreationPage extends WizardNewFileCreationPage {
+	public class Component_diagramModelWizardNewFileCreationPage extends WizardNewFileCreationPage {
 		/**
 		 * Pass in the selection.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		public Component_diagramemfModelWizardNewFileCreationPage(String pageId, IStructuredSelection selection) {
+		public Component_diagramModelWizardNewFileCreationPage(String pageId, IStructuredSelection selection) {
 			super(pageId, selection);
 		}
 
@@ -333,7 +310,7 @@ public class Component_diagramemfModelWizard extends Wizard implements INewWizar
 				String extension = new Path(getFileName()).getFileExtension();
 				if (extension == null || !FILE_EXTENSIONS.contains(extension)) {
 					String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions" : "_WARN_FilenameExtension";
-					setErrorMessage(Componet_diagramEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
+					setErrorMessage(Component_diagramEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
 					return false;
 				}
 				return true;
@@ -357,7 +334,7 @@ public class Component_diagramemfModelWizard extends Wizard implements INewWizar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public class Component_diagramemfModelWizardInitialObjectCreationPage extends WizardPage {
+	public class Component_diagramModelWizardInitialObjectCreationPage extends WizardPage {
 		/**
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -385,7 +362,7 @@ public class Component_diagramemfModelWizard extends Wizard implements INewWizar
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		public Component_diagramemfModelWizardInitialObjectCreationPage(String pageId) {
+		public Component_diagramModelWizardInitialObjectCreationPage(String pageId) {
 			super(pageId);
 		}
 
@@ -411,7 +388,7 @@ public class Component_diagramemfModelWizard extends Wizard implements INewWizar
 
 			Label containerLabel = new Label(composite, SWT.LEFT);
 			{
-				containerLabel.setText(Componet_diagramEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
+				containerLabel.setText(Component_diagramEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
 
 				GridData data = new GridData();
 				data.horizontalAlignment = GridData.FILL;
@@ -437,7 +414,7 @@ public class Component_diagramemfModelWizard extends Wizard implements INewWizar
 
 			Label encodingLabel = new Label(composite, SWT.LEFT);
 			{
-				encodingLabel.setText(Componet_diagramEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
+				encodingLabel.setText(Component_diagramEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
 
 				GridData data = new GridData();
 				data.horizontalAlignment = GridData.FILL;
@@ -536,10 +513,10 @@ public class Component_diagramemfModelWizard extends Wizard implements INewWizar
 		 */
 		protected String getLabel(String typeName) {
 			try {
-				return Componet_diagramEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
+				return Component_diagramEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
 			}
 			catch(MissingResourceException mre) {
-				Componet_diagramEditorPlugin.INSTANCE.log(mre);
+				Component_diagramEditorPlugin.INSTANCE.log(mre);
 			}
 			return typeName;
 		}
@@ -552,7 +529,7 @@ public class Component_diagramemfModelWizard extends Wizard implements INewWizar
 		protected Collection<String> getEncodings() {
 			if (encodings == null) {
 				encodings = new ArrayList<String>();
-				for (StringTokenizer stringTokenizer = new StringTokenizer(Componet_diagramEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); ) {
+				for (StringTokenizer stringTokenizer = new StringTokenizer(Component_diagramEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); ) {
 					encodings.add(stringTokenizer.nextToken());
 				}
 			}
@@ -570,10 +547,10 @@ public class Component_diagramemfModelWizard extends Wizard implements INewWizar
 	public void addPages() {
 		// Create a page, set the title, and the initial model file name.
 		//
-		newFileCreationPage = new Component_diagramemfModelWizardNewFileCreationPage("Whatever", selection);
-		newFileCreationPage.setTitle(Componet_diagramEditorPlugin.INSTANCE.getString("_UI_Component_diagramemfModelWizard_label"));
-		newFileCreationPage.setDescription(Componet_diagramEditorPlugin.INSTANCE.getString("_UI_Component_diagramemfModelWizard_description"));
-		newFileCreationPage.setFileName(Componet_diagramEditorPlugin.INSTANCE.getString("_UI_Component_diagramemfEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
+		newFileCreationPage = new Component_diagramModelWizardNewFileCreationPage("Whatever", selection);
+		newFileCreationPage.setTitle(Component_diagramEditorPlugin.INSTANCE.getString("_UI_Component_diagramModelWizard_label"));
+		newFileCreationPage.setDescription(Component_diagramEditorPlugin.INSTANCE.getString("_UI_Component_diagramModelWizard_description"));
+		newFileCreationPage.setFileName(Component_diagramEditorPlugin.INSTANCE.getString("_UI_Component_diagramEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
 		addPage(newFileCreationPage);
 
 		// Try and get the resource selection to determine a current directory for the file dialog.
@@ -599,7 +576,7 @@ public class Component_diagramemfModelWizard extends Wizard implements INewWizar
 
 					// Make up a unique new name here.
 					//
-					String defaultModelBaseFilename = Componet_diagramEditorPlugin.INSTANCE.getString("_UI_Component_diagramemfEditorFilenameDefaultBase");
+					String defaultModelBaseFilename = Component_diagramEditorPlugin.INSTANCE.getString("_UI_Component_diagramEditorFilenameDefaultBase");
 					String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
 					String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
 					for (int i = 1; ((IContainer)selectedResource).findMember(modelFilename) != null; ++i) {
@@ -609,9 +586,9 @@ public class Component_diagramemfModelWizard extends Wizard implements INewWizar
 				}
 			}
 		}
-		initialObjectCreationPage = new Component_diagramemfModelWizardInitialObjectCreationPage("Whatever2");
-		initialObjectCreationPage.setTitle(Componet_diagramEditorPlugin.INSTANCE.getString("_UI_Component_diagramemfModelWizard_label"));
-		initialObjectCreationPage.setDescription(Componet_diagramEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
+		initialObjectCreationPage = new Component_diagramModelWizardInitialObjectCreationPage("Whatever2");
+		initialObjectCreationPage.setTitle(Component_diagramEditorPlugin.INSTANCE.getString("_UI_Component_diagramModelWizard_label"));
+		initialObjectCreationPage.setDescription(Component_diagramEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
 		addPage(initialObjectCreationPage);
 	}
 

@@ -2,7 +2,7 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.component_diagram.emf.provider;
 
-import de.uni_stuttgart.iste.cowolf.model.component_diagram.util.Component_diagramemfAdapterFactory;
+import de.uni_stuttgart.iste.cowolf.model.component_diagram.util.Component_diagramAdapterFactory;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -32,7 +32,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * <!-- end-user-doc -->
  * @generated
  */
-public class Component_diagramemfItemProviderAdapterFactory extends Component_diagramemfAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
+public class Component_diagramItemProviderAdapterFactory extends Component_diagramAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc -->
@@ -63,7 +63,7 @@ public class Component_diagramemfItemProviderAdapterFactory extends Component_di
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Component_diagramemfItemProviderAdapterFactory() {
+	public Component_diagramItemProviderAdapterFactory() {
 		supportedTypes.add(IEditingDomainItemProvider.class);
 		supportedTypes.add(IStructuredItemContentProvider.class);
 		supportedTypes.add(ITreeItemContentProvider.class);

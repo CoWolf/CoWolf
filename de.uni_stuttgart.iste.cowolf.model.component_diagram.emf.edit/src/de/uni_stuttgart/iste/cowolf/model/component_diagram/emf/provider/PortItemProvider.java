@@ -4,20 +4,14 @@ package de.uni_stuttgart.iste.cowolf.model.component_diagram.emf.provider;
 
 
 import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
-
 import de.uni_stuttgart.iste.cowolf.model.commonBase.emf.provider.IDBaseItemProvider;
-
-import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfPackage;
+import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.Port;
-
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -96,7 +90,7 @@ public class PortItemProvider extends IDBaseItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Port_protocol_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Port_protocol_feature", "_UI_Port_type"),
-				 Component_diagramemfPackage.Literals.PORT__PROTOCOL,
+				 Component_diagramPackage.Literals.PORT__PROTOCOL,
 				 true,
 				 false,
 				 false,
@@ -118,7 +112,7 @@ public class PortItemProvider extends IDBaseItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Port_isBehavior_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Port_isBehavior_feature", "_UI_Port_type"),
-				 Component_diagramemfPackage.Literals.PORT__IS_BEHAVIOR,
+				 Component_diagramPackage.Literals.PORT__IS_BEHAVIOR,
 				 true,
 				 false,
 				 false,
@@ -140,7 +134,7 @@ public class PortItemProvider extends IDBaseItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Port_isService_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Port_isService_feature", "_UI_Port_type"),
-				 Component_diagramemfPackage.Literals.PORT__IS_SERVICE,
+				 Component_diagramPackage.Literals.PORT__IS_SERVICE,
 				 true,
 				 false,
 				 false,
@@ -162,7 +156,7 @@ public class PortItemProvider extends IDBaseItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Port_requiredInterfaces_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Port_requiredInterfaces_feature", "_UI_Port_type"),
-				 Component_diagramemfPackage.Literals.PORT__REQUIRED_INTERFACES,
+				 Component_diagramPackage.Literals.PORT__REQUIRED_INTERFACES,
 				 true,
 				 false,
 				 true,
@@ -184,7 +178,7 @@ public class PortItemProvider extends IDBaseItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Port_providedInterfaces_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Port_providedInterfaces_feature", "_UI_Port_type"),
-				 Component_diagramemfPackage.Literals.PORT__PROVIDED_INTERFACES,
+				 Component_diagramPackage.Literals.PORT__PROVIDED_INTERFACES,
 				 true,
 				 false,
 				 true,
@@ -231,10 +225,10 @@ public class PortItemProvider extends IDBaseItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Port.class)) {
-			case Component_diagramemfPackage.PORT__NAME:
-			case Component_diagramemfPackage.PORT__PROTOCOL:
-			case Component_diagramemfPackage.PORT__IS_BEHAVIOR:
-			case Component_diagramemfPackage.PORT__IS_SERVICE:
+			case Component_diagramPackage.PORT__NAME:
+			case Component_diagramPackage.PORT__PROTOCOL:
+			case Component_diagramPackage.PORT__IS_BEHAVIOR:
+			case Component_diagramPackage.PORT__IS_SERVICE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -261,7 +255,7 @@ public class PortItemProvider extends IDBaseItemProvider {
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return Componet_diagramEditPlugin.INSTANCE;
+		return Component_diagramEditPlugin.INSTANCE;
 	}
 
 }

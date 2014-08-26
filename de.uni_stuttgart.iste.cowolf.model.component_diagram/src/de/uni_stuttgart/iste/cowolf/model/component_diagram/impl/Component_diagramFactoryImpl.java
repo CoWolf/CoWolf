@@ -19,24 +19,24 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  * <!-- end-user-doc -->
  * @generated
  */
-public class Component_diagramemfFactoryImpl extends EFactoryImpl implements Component_diagramemfFactory {
+public class Component_diagramFactoryImpl extends EFactoryImpl implements Component_diagramFactory {
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static Component_diagramemfFactory init() {
+	public static Component_diagramFactory init() {
 		try {
-			Component_diagramemfFactory theComponent_diagramemfFactory = (Component_diagramemfFactory)EPackage.Registry.INSTANCE.getEFactory(Component_diagramemfPackage.eNS_URI);
-			if (theComponent_diagramemfFactory != null) {
-				return theComponent_diagramemfFactory;
+			Component_diagramFactory theComponent_diagramFactory = (Component_diagramFactory)EPackage.Registry.INSTANCE.getEFactory(Component_diagramPackage.eNS_URI);
+			if (theComponent_diagramFactory != null) {
+				return theComponent_diagramFactory;
 			}
 		}
 		catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
-		return new Component_diagramemfFactoryImpl();
+		return new Component_diagramFactoryImpl();
 	}
 
 	/**
@@ -45,7 +45,7 @@ public class Component_diagramemfFactoryImpl extends EFactoryImpl implements Com
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Component_diagramemfFactoryImpl() {
+	public Component_diagramFactoryImpl() {
 		super();
 	}
 
@@ -57,11 +57,11 @@ public class Component_diagramemfFactoryImpl extends EFactoryImpl implements Com
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case Component_diagramemfPackage.COMPONENT_DIAGRAM: return createComponentDiagram();
-			case Component_diagramemfPackage.COMPONENT: return createComponent();
-			case Component_diagramemfPackage.PORT: return createPort();
-			case Component_diagramemfPackage.INTERFACE: return createInterface();
-			case Component_diagramemfPackage.DEPENDENCY: return createDependency();
+			case Component_diagramPackage.COMPONENT_DIAGRAM: return createComponentDiagram();
+			case Component_diagramPackage.COMPONENT: return createComponent();
+			case Component_diagramPackage.PORT: return createPort();
+			case Component_diagramPackage.INTERFACE: return createInterface();
+			case Component_diagramPackage.DEPENDENCY: return createDependency();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -75,7 +75,7 @@ public class Component_diagramemfFactoryImpl extends EFactoryImpl implements Com
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case Component_diagramemfPackage.COMPONENT_STEREOTYPE:
+			case Component_diagramPackage.COMPONENT_STEREOTYPE:
 				return createComponentStereotypeFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
@@ -90,7 +90,7 @@ public class Component_diagramemfFactoryImpl extends EFactoryImpl implements Com
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case Component_diagramemfPackage.COMPONENT_STEREOTYPE:
+			case Component_diagramPackage.COMPONENT_STEREOTYPE:
 				return convertComponentStereotypeToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
@@ -172,8 +172,8 @@ public class Component_diagramemfFactoryImpl extends EFactoryImpl implements Com
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Component_diagramemfPackage getComponent_diagramemfPackage() {
-		return (Component_diagramemfPackage)getEPackage();
+	public Component_diagramPackage getComponent_diagramPackage() {
+		return (Component_diagramPackage)getEPackage();
 	}
 
 	/**
@@ -183,8 +183,8 @@ public class Component_diagramemfFactoryImpl extends EFactoryImpl implements Com
 	 * @generated
 	 */
 	@Deprecated
-	public static Component_diagramemfPackage getPackage() {
-		return Component_diagramemfPackage.eINSTANCE;
+	public static Component_diagramPackage getPackage() {
+		return Component_diagramPackage.eINSTANCE;
 	}
 
-} //Component_diagramemfFactoryImpl
+} //Component_diagramFactoryImpl

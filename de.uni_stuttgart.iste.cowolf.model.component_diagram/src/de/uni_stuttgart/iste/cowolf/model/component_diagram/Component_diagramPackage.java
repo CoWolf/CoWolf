@@ -22,13 +22,13 @@ import org.eclipse.emf.ecore.EReference;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramemfFactory
+ * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramFactory
  * @model kind="package"
  *        annotation="http://www.eclipse.org/OCL/Import commonBase='../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#/'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'"
  * @generated
  */
-public interface Component_diagramemfPackage extends EPackage {
+public interface Component_diagramPackage extends EPackage {
 	/**
 	 * The package name.
 	 * <!-- begin-user-doc -->
@@ -59,14 +59,14 @@ public interface Component_diagramemfPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	Component_diagramemfPackage eINSTANCE = de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramemfPackageImpl.init();
+	Component_diagramPackage eINSTANCE = de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl.init();
 
 	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.ComponentDiagramImpl <em>Component Diagram</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.ComponentDiagramImpl
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramemfPackageImpl#getComponentDiagram()
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getComponentDiagram()
 	 * @generated
 	 */
 	int COMPONENT_DIAGRAM = 0;
@@ -139,7 +139,7 @@ public interface Component_diagramemfPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.ComponentImpl
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramemfPackageImpl#getComponent()
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getComponent()
 	 * @generated
 	 */
 	int COMPONENT = 1;
@@ -248,7 +248,7 @@ public interface Component_diagramemfPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.PortImpl
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramemfPackageImpl#getPort()
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getPort()
 	 * @generated
 	 */
 	int PORT = 2;
@@ -348,7 +348,7 @@ public interface Component_diagramemfPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.InterfaceImpl
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramemfPackageImpl#getInterface()
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getInterface()
 	 * @generated
 	 */
 	int INTERFACE = 3;
@@ -412,7 +412,7 @@ public interface Component_diagramemfPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.DependencyImpl
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramemfPackageImpl#getDependency()
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getDependency()
 	 * @generated
 	 */
 	int DEPENDENCY = 4;
@@ -476,7 +476,7 @@ public interface Component_diagramemfPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentStereotype
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramemfPackageImpl#getComponentStereotype()
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getComponentStereotype()
 	 * @generated
 	 */
 	int COMPONENT_STEREOTYPE = 5;
@@ -769,7 +769,7 @@ public interface Component_diagramemfPackage extends EPackage {
 	 * @return the factory that creates the instances of the model.
 	 * @generated
 	 */
-	Component_diagramemfFactory getComponent_diagramemfFactory();
+	Component_diagramFactory getComponent_diagramFactory();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -790,7 +790,7 @@ public interface Component_diagramemfPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.ComponentDiagramImpl
-		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramemfPackageImpl#getComponentDiagram()
+		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getComponentDiagram()
 		 * @generated
 		 */
 		EClass COMPONENT_DIAGRAM = eINSTANCE.getComponentDiagram();
@@ -824,7 +824,7 @@ public interface Component_diagramemfPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.ComponentImpl
-		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramemfPackageImpl#getComponent()
+		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getComponent()
 		 * @generated
 		 */
 		EClass COMPONENT = eINSTANCE.getComponent();
@@ -890,7 +890,7 @@ public interface Component_diagramemfPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.PortImpl
-		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramemfPackageImpl#getPort()
+		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getPort()
 		 * @generated
 		 */
 		EClass PORT = eINSTANCE.getPort();
@@ -948,7 +948,7 @@ public interface Component_diagramemfPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.InterfaceImpl
-		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramemfPackageImpl#getInterface()
+		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getInterface()
 		 * @generated
 		 */
 		EClass INTERFACE = eINSTANCE.getInterface();
@@ -974,7 +974,7 @@ public interface Component_diagramemfPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.DependencyImpl
-		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramemfPackageImpl#getDependency()
+		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getDependency()
 		 * @generated
 		 */
 		EClass DEPENDENCY = eINSTANCE.getDependency();
@@ -1000,11 +1000,11 @@ public interface Component_diagramemfPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentStereotype
-		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramemfPackageImpl#getComponentStereotype()
+		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getComponentStereotype()
 		 * @generated
 		 */
 		EEnum COMPONENT_STEREOTYPE = eINSTANCE.getComponentStereotype();
 
 	}
 
-} //Component_diagramemfPackage
+} //Component_diagramPackage
