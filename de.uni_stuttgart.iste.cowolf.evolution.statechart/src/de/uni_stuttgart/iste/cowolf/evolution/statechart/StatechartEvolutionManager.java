@@ -1,6 +1,5 @@
 package de.uni_stuttgart.iste.cowolf.evolution.statechart;
 
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 
 import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;

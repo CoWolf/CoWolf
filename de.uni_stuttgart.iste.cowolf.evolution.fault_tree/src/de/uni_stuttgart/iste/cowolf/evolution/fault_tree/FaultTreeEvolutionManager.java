@@ -1,6 +1,5 @@
 package de.uni_stuttgart.iste.cowolf.evolution.fault_tree;
 
-import org.eclipse.emf.ecore.resource.Resource;
 
 import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
 import de.uni_stuttgart.iste.cowolf.evolution.EvolutionTypeInfo;
