@@ -20,7 +20,7 @@ public class FaultTreeAnalyzeWizard extends AbstractQoSAnalyzeWizard {
 	@Override
 	public void initialize(final AbstractQoSModelManager manager,
 			final Resource resource, final HashMap<String, Object> properties) {
-		super.setWindowTitle("Analyze Fault Tree");
+		super.setWindowTitle("Analyze Fault Tree with xFTA");
 		super.initialize(manager, resource, properties);
 		this.pageOne = new FaultTreeAnalyzeWizardPage1("Page 1");
 	}

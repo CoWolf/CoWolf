@@ -24,7 +24,7 @@ public class CTMCAnalyzeWizard extends AbstractQoSAnalyzeWizard {
 
 	@Override
 	public void initialize(final AbstractQoSModelManager manager, final Resource resource, final HashMap<String, Object> properties) {
-		super.setWindowTitle("Analyze CTMC");
+		super.setWindowTitle("Analyze CTMC with PRISM model checker");
 		super.initialize(manager, resource, properties);
 		this.pageOne = new AnalyzeWizardPage1("Page 1");
 		this.pageTwo = new AnalyzeWizardPage2("Page 2", resource);
