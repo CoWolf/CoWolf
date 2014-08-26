@@ -259,7 +259,7 @@ public class StateItemProvider extends IDBaseItemProvider {
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return CTMCemfEditPlugin.INSTANCE;
+		return CTMCEditPlugin.INSTANCE;
 	}
 
 }

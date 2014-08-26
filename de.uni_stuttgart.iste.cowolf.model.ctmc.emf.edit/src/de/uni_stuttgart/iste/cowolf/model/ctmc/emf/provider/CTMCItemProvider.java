@@ -205,7 +205,7 @@ public class CTMCItemProvider extends IDBaseItemProvider {
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return CTMCemfEditPlugin.INSTANCE;
+		return CTMCEditPlugin.INSTANCE;
 	}
 
 }

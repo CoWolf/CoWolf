@@ -141,7 +141,7 @@ public class LabelItemProvider extends IDBaseItemProvider {
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return CTMCemfEditPlugin.INSTANCE;
+		return CTMCEditPlugin.INSTANCE;
 	}
 
 }

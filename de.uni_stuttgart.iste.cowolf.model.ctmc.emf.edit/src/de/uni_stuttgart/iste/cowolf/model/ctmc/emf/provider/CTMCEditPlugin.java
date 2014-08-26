@@ -9,19 +9,19 @@ import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 /**
- * This is the central singleton for the CTMCemf edit plugin.
+ * This is the central singleton for the CTMC edit plugin.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public final class CTMCemfEditPlugin extends EMFPlugin {
+public final class CTMCEditPlugin extends EMFPlugin {
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final CTMCemfEditPlugin INSTANCE = new CTMCemfEditPlugin();
+	public static final CTMCEditPlugin INSTANCE = new CTMCEditPlugin();
 
 	/**
 	 * Keep track of the singleton.
@@ -37,7 +37,7 @@ public final class CTMCemfEditPlugin extends EMFPlugin {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CTMCemfEditPlugin() {
+	public CTMCEditPlugin() {
 		super
 		  (new ResourceLocator [] {
 		     CommonBaseEditPlugin.INSTANCE,

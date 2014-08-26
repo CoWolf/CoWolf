@@ -12,7 +12,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.MissingResourceException;
 import java.util.StringTokenizer;
-
 import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
@@ -55,10 +54,9 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
-
 import de.uni_stuttgart.iste.cowolf.model.ctmc.CtmcFactory;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.CtmcPackage;
-import de.uni_stuttgart.iste.cowolf.model.ctmc.emf.provider.CTMCemfEditPlugin;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.emf.provider.CTMCEditPlugin;
 
 
 /**
@@ -75,7 +73,7 @@ public class CtmcModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	public static final List<String> FILE_EXTENSIONS =
-		Collections.unmodifiableList(Arrays.asList(CTMCemfEditorPlugin.INSTANCE.getString("_UI_CtmcEditorFilenameExtensions").split("\\s*,\\s*")));
+		Collections.unmodifiableList(Arrays.asList(CTMCEditorPlugin.INSTANCE.getString("_UI_CtmcEditorFilenameExtensions").split("\\s*,\\s*")));
 
 	/**
 	 * A formatted list of supported file extensions, suitable for display.
@@ -84,7 +82,7 @@ public class CtmcModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	public static final String FORMATTED_FILE_EXTENSIONS =
-		CTMCemfEditorPlugin.INSTANCE.getString("_UI_CtmcEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
+		CTMCEditorPlugin.INSTANCE.getString("_UI_CtmcEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
 
 	/**
 	 * This caches an instance of the model package.
@@ -151,8 +149,8 @@ public class CtmcModelWizard extends Wizard implements INewWizard {
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
 		this.selection = selection;
-		setWindowTitle(CTMCemfEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
-		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(CTMCemfEditorPlugin.INSTANCE.getImage("full/wizban/NewCtmc")));
+		setWindowTitle(CTMCEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
+		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(CTMCEditorPlugin.INSTANCE.getImage("full/wizban/NewCtmc")));
 	}
 
 	/**
@@ -235,7 +233,7 @@ public class CtmcModelWizard extends Wizard implements INewWizard {
 							resource.save(options);
 						}
 						catch (Exception exception) {
-							CTMCemfEditorPlugin.INSTANCE.log(exception);
+							CTMCEditorPlugin.INSTANCE.log(exception);
 						}
 						finally {
 							progressMonitor.done();
@@ -268,14 +266,14 @@ public class CtmcModelWizard extends Wizard implements INewWizard {
 					 workbench.getEditorRegistry().getDefaultEditor(modelFile.getFullPath().toString()).getId());					 	 
 			}
 			catch (PartInitException exception) {
-				MessageDialog.openError(workbenchWindow.getShell(), CTMCemfEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
+				MessageDialog.openError(workbenchWindow.getShell(), CTMCEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
 				return false;
 			}
 
 			return true;
 		}
 		catch (Exception exception) {
-			CTMCemfEditorPlugin.INSTANCE.log(exception);
+			CTMCEditorPlugin.INSTANCE.log(exception);
 			return false;
 		}
 	}
@@ -309,7 +307,7 @@ public class CtmcModelWizard extends Wizard implements INewWizard {
 				String extension = new Path(getFileName()).getFileExtension();
 				if (extension == null || !FILE_EXTENSIONS.contains(extension)) {
 					String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions" : "_WARN_FilenameExtension";
-					setErrorMessage(CTMCemfEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
+					setErrorMessage(CTMCEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
 					return false;
 				}
 				return true;
@@ -386,7 +384,7 @@ public class CtmcModelWizard extends Wizard implements INewWizard {
 
 			Label containerLabel = new Label(composite, SWT.LEFT);
 			{
-				containerLabel.setText(CTMCemfEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
+				containerLabel.setText(CTMCEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
 
 				GridData data = new GridData();
 				data.horizontalAlignment = GridData.FILL;
@@ -412,7 +410,7 @@ public class CtmcModelWizard extends Wizard implements INewWizard {
 
 			Label encodingLabel = new Label(composite, SWT.LEFT);
 			{
-				encodingLabel.setText(CTMCemfEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
+				encodingLabel.setText(CTMCEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
 
 				GridData data = new GridData();
 				data.horizontalAlignment = GridData.FILL;
@@ -511,10 +509,10 @@ public class CtmcModelWizard extends Wizard implements INewWizard {
 		 */
 		protected String getLabel(String typeName) {
 			try {
-				return CTMCemfEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
+				return CTMCEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
 			}
 			catch(MissingResourceException mre) {
-				CTMCemfEditorPlugin.INSTANCE.log(mre);
+				CTMCEditorPlugin.INSTANCE.log(mre);
 			}
 			return typeName;
 		}
@@ -527,7 +525,7 @@ public class CtmcModelWizard extends Wizard implements INewWizard {
 		protected Collection<String> getEncodings() {
 			if (encodings == null) {
 				encodings = new ArrayList<String>();
-				for (StringTokenizer stringTokenizer = new StringTokenizer(CTMCemfEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); ) {
+				for (StringTokenizer stringTokenizer = new StringTokenizer(CTMCEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); ) {
 					encodings.add(stringTokenizer.nextToken());
 				}
 			}
@@ -546,9 +544,9 @@ public class CtmcModelWizard extends Wizard implements INewWizard {
 		// Create a page, set the title, and the initial model file name.
 		//
 		newFileCreationPage = new CtmcModelWizardNewFileCreationPage("Whatever", selection);
-		newFileCreationPage.setTitle(CTMCemfEditorPlugin.INSTANCE.getString("_UI_CtmcModelWizard_label"));
-		newFileCreationPage.setDescription(CTMCemfEditorPlugin.INSTANCE.getString("_UI_CtmcModelWizard_description"));
-		newFileCreationPage.setFileName(CTMCemfEditorPlugin.INSTANCE.getString("_UI_CtmcEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
+		newFileCreationPage.setTitle(CTMCEditorPlugin.INSTANCE.getString("_UI_CtmcModelWizard_label"));
+		newFileCreationPage.setDescription(CTMCEditorPlugin.INSTANCE.getString("_UI_CtmcModelWizard_description"));
+		newFileCreationPage.setFileName(CTMCEditorPlugin.INSTANCE.getString("_UI_CtmcEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
 		addPage(newFileCreationPage);
 
 		// Try and get the resource selection to determine a current directory for the file dialog.
@@ -574,7 +572,7 @@ public class CtmcModelWizard extends Wizard implements INewWizard {
 
 					// Make up a unique new name here.
 					//
-					String defaultModelBaseFilename = CTMCemfEditorPlugin.INSTANCE.getString("_UI_CtmcEditorFilenameDefaultBase");
+					String defaultModelBaseFilename = CTMCEditorPlugin.INSTANCE.getString("_UI_CtmcEditorFilenameDefaultBase");
 					String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
 					String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
 					for (int i = 1; ((IContainer)selectedResource).findMember(modelFilename) != null; ++i) {
@@ -585,8 +583,8 @@ public class CtmcModelWizard extends Wizard implements INewWizard {
 			}
 		}
 		initialObjectCreationPage = new CtmcModelWizardInitialObjectCreationPage("Whatever2");
-		initialObjectCreationPage.setTitle(CTMCemfEditorPlugin.INSTANCE.getString("_UI_CtmcModelWizard_label"));
-		initialObjectCreationPage.setDescription(CTMCemfEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
+		initialObjectCreationPage.setTitle(CTMCEditorPlugin.INSTANCE.getString("_UI_CtmcModelWizard_label"));
+		initialObjectCreationPage.setDescription(CTMCEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
 		addPage(initialObjectCreationPage);
 	}
 
