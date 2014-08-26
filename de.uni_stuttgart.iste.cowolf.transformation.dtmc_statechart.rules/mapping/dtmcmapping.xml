@@ -1,12 +1,80 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Mappings
-	xmlns="http://www.uni-stuttgart.iste.co.wolf.org/TransformationMapping"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.uni-stuttgart.iste.co.wolf.org/TransformationMapping Mapping.xsd ">
-	<Mapping>
-		
-		<Difference>CREATE_State_IN_StateMachine_(top)</Difference>
-		<Rule name="CreatedStateInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
+	xmlns="http://www.uni-stuttgart.iste.co.wolf.org/TransformationMapping">
+	<Mapping priority="0">
+		<Difference>SET_Label_Name</Difference>
+		<Rule name="ChangedNameOfAtomicPropositionInDTMC"
+			path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/DTMC_SC.henshin">
+			<Params>
+				<Param name="labelID" />
+			</Params>
+		</Rule>
+	</Mapping>
+	<Mapping priority="0">
+		<Difference>DELETE_Label_IN_State_(labels)</Difference>
+		<Rule name="DeletedAtomicPropositionInDTMC"
+			path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/DTMC_SC.henshin">
+			<Params />
+		</Rule>
+	</Mapping>
+	<Mapping priority="0">
+		<Difference>CREATE_Label_IN_State_(labels)</Difference>
+		<Rule name="CreatedAtomicPropositionInDTMC"
+			path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/DTMC_SC.henshin">
+			<Params>
+				<Param name="labelID" />
+			</Params>
+		</Rule>
+	</Mapping>
+	<Mapping priority="0">
+		<Difference>CHANGE_Transition_(to)_TGT_State</Difference>
+		<Rule name="ChangedTransitionTargetInDTMC"
+			path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/DTMC_SC.henshin">
+			<Params>
+				<Param name="transitionName" />
+			</Params>
+		</Rule>
+	</Mapping>
+	<Mapping priority="0">
+		<Difference>MOVE_Transition_FROM_State_(outgoing)_TO_State_(outgoing)
+		</Difference>
+		<Rule name="ChangedTransitionTargetInDTMC"
+			path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/DTMC_SC.henshin">
+			<Params>
+				<Param name="transitionName" />
+			</Params>
+		</Rule>
+	</Mapping>
+	<Mapping priority="0">
+		<Difference>SET_State_Name</Difference>
+		<Rule name="ChangedNameInDTMC"
+			path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/DTMC_SC.henshin">
+			<Params>
+				<Param name="stateID" />
+				<Param name="stateName" />
+			</Params>
+		</Rule>
+	</Mapping>
+	<Mapping priority="0">
+		<Difference>CREATE_Transition_IN_State_(outgoing)</Difference>
+		<Rule name="CreatedTransitionInDTMC"
+			path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/DTMC_SC.henshin">
+			<Params>
+				<Param name="id" />
+			</Params>
+		</Rule>
+	</Mapping>
+	<Mapping priority="0">
+		<Difference>CHANGE_DTMC_(initialState)_TGT_State</Difference>
+		<Rule name="ChangedInitialStateInDTMC"
+			path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/DTMC_SC.henshin">
+			<Params />
+		</Rule>
+	</Mapping>
+	<Mapping priority="0">
+		<Difference>CREATE_State_IN_DTMC_(States)</Difference>
+		<Rule name="CreatedStateInDTMC"
+			path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/DTMC_SC.henshin">
 			<Params>
 				<Param name="name">
 					<Change name="AddObject">
@@ -16,54 +84,11 @@
 			</Params>
 		</Rule>
 	</Mapping>
- 	<Mapping>
- 		<Difference>DELETE_State_IN_StateMachine_(top)</Difference>
- 		<Rule name="DeletedStateInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
-			<Params>
-			</Params>
-		</Rule>
- 	</Mapping>
-	<Mapping>
-		<Difference>CREATE_Transition_IN_StateMachine_(transitions)</Difference>
-		<Rule name="CreatedTransitionInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
-			<Params>
-				<Param name="name">
-					<Change name="AddObject">
-						<Reference name="obj" attribute="name" />
-					</Change>
-				</Param>
-			</Params>
-		</Rule>
-	</Mapping>
-	<Mapping>
-		<Difference>DELETE_Transition_IN_StateMachine_(transitions)</Difference>
-		<Rule name="DeletedTransitionInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
-			<Params>
-			</Params>
-		</Rule>
-	</Mapping>
-	<Mapping priority="10">
-		<Difference>CHANGE_Transition_(target)_TGT_StateVertex</Difference>
-		<Rule name="ChangedTransitionTargetInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
-			<Params>
-				<Param name="transId">
-					<Change name="RemoveReference" type="target">
-						<Reference name="src" attribute="id" />
-					</Change>
-				</Param>
-			</Params>
-		</Rule>
-	</Mapping>
-	<Mapping priority="10">
-		<ChangeSet>CHANGE_Transition_(target)_TGT_StateVertex</ChangeSet>
-		<Rule name="ChangedTransitionSourceInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
-			<Params>
-				<Param name="transId">
-					<Change name="RemoveReference" type="target">
-						<Reference name="src" attribute="id" />
-					</Change>
-				</Param>
-			</Params>
+	<Mapping priority="0">
+		<Difference>DELETE_State_IN_DTMC_(States)</Difference>
+		<Rule name="DeletedStateInDTMC"
+			path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/DTMC_SC.henshin">
+			<Params />
 		</Rule>
 	</Mapping>
 </Mappings>
