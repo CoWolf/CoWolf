@@ -62,7 +62,7 @@ public class AnalyzeWizardPage2 extends WizardPage {
 		this.chkList.setInput(this.getTree());
 		this.chkList.expandAll();
 		
-		this.chkList.addSelectionChangedListener(new ISelectionChangedListener() {
+		this.chkList.addPostSelectionChangedListener(new ISelectionChangedListener() {
 			
 			@Override
 			public void selectionChanged(SelectionChangedEvent event) {
@@ -205,23 +205,44 @@ public class AnalyzeWizardPage2 extends WizardPage {
 		properties.put("analyzeLabels", labels);
 		properties.put("analyzeStates", states);
 	}
-	
+
 	@Override
 	public boolean isPageComplete() {
-	
-		
-		if (chkList.getCheckedElements().length > 0) {
-			this.setErrorMessage(null);
+		this.setErrorMessage(null);
+		if (chkList.getCheckedElements().length > 2) {
 			return true;
+		} else {
+			// If less than three elements are selected, make sure that at least one proper state is selected (not a top level node).
+			for (Object obj : this.chkList.getCheckedElements()) {
+				if (!(obj instanceof TreeNode)) {
+					continue;
+				}
+				TreeNode node = (TreeNode) obj;
+				if (node.getParent() != null) {
+					return true;
+				}
+			}
 		}
+
+		// If absorbing states are selected and at least one absorbing state exists, evaluation can be performed.
 		if (btnAbsorbing.getSelection()) {
-			this.setErrorMessage(null);
-			return true;
+			if (resource != null
+					&& resource.getContents() != null
+					&& resource.getContents().get(0) != null
+					&& ((DTMC) resource.getContents().get(0)).getStates() != null) {
+				for (State state : ((DTMC) resource.getContents().get(0))
+						.getStates()) {
+					if (state.getOutgoing() == null
+							|| state.getOutgoing().size() == 0) {
+						return true;
+					}
+				}
+			}
 		}
-		
+
 		this.setErrorMessage("Please make at least one selection.");
-		
 		return false;
 	}
+
 	
 }

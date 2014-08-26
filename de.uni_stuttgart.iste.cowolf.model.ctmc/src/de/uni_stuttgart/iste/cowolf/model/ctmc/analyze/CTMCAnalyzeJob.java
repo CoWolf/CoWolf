@@ -109,8 +109,12 @@ public class CTMCAnalyzeJob extends Job {
 			
 			this.prismResult = new HashMap<Object, Result>();
 
-			//TODO: Set task size properly, also for DTMCAnalyzeJob.
-			monitor.beginTask("Analyse CTMC", prismResult.size() + 4);
+			if (this.parameters.containsKey("verify")) {
+				monitor.beginTask("Analyse CTMC",
+						(analyzeLabels.size() + analyzeStates.size()) * 2 + 3);
+			} else {
+				monitor.beginTask("Analyse CTMC", analyzeLabels.size() + analyzeStates.size() + 3);
+			}
 
 			PRISMGenerator generator = new PRISMGenerator();
 
@@ -228,6 +232,8 @@ public class CTMCAnalyzeJob extends Job {
 			Pattern propPattern = Pattern.compile("^(P|S)=\\?\\s*\\[\\s*F?\\s*(?:s=(\\d+)|\"(\\w+)\")\\s*\\]:\\s*$");
 			Pattern resultPattern = Pattern.compile("^([0|1]?\\.\\d+)$");
 			boolean first = true;
+
+			String type;
 			while ((line = br.readLine()) != null) {
 				Matcher m = propPattern.matcher(line);
 				int index = -1;
@@ -244,7 +250,9 @@ public class CTMCAnalyzeJob extends Job {
 							index = -1;
 							label = this.analyzeLabels.first();
 						}
+						type = "P";
 					}
+					first = false;
 				} else {
 					if (m.group(2) != null) {
 						index = Integer.parseInt(m.group(2));
@@ -254,6 +262,7 @@ public class CTMCAnalyzeJob extends Job {
 						continue;
 					}
 					line = br.readLine();
+					type = m.group(1);
 				}
 
 				if (line == null || !line.equals("Result")) {
@@ -261,7 +270,7 @@ public class CTMCAnalyzeJob extends Job {
 				}
 				line = br.readLine();
 
-				String type = m.group(1);
+				
 				m = resultPattern.matcher(line);
 				if (line == null || !m.find()) {
 					continue;

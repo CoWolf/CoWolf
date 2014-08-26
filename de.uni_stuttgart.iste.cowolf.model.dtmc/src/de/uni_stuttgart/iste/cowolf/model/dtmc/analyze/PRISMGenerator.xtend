@@ -1,11 +1,10 @@
 package de.uni_stuttgart.iste.cowolf.model.dtmc.analyze
 
-import de.uni_stuttgart.iste.cowolf.model.dtmc.State
-import org.eclipse.emf.ecore.resource.Resource
 import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC
+import de.uni_stuttgart.iste.cowolf.model.dtmc.State
 import java.util.List
-import java.util.TreeSet
 import java.util.Set
+import org.eclipse.emf.ecore.resource.Resource
 
 class PRISMGenerator {
 
@@ -92,8 +91,8 @@ module «IF e.name.empty»Model«ELSE»«e.name»«ENDIF»
 	// State "«if (f.name.empty) f.id else f.name»" => «getIntState(f)»
 	«ENDFOR»
 	
-	s : [0..«e.states.size() - 1»] init «getStart(e)»;
-		 
+	«IF (e.states.size() <= 1)»s : [0 .. 1] init 0;«ELSE»s : [0..«e.states.size() - 1»] init «getStart(e)»;«ENDIF»
+		
 	«FOR f : e.states»		
 		«IF f.outgoing.size > 0»
 		// Transitions from state "«f.name»":
