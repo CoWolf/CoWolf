@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.henshin.interpreter.EGraph;
 import org.eclipse.emf.henshin.interpreter.UnitApplication;
@@ -63,9 +64,9 @@ public abstract class AbstractTransformationManager {
     protected HenshinResourceSet rulesResourceSet = new HenshinResourceSet();
 
     protected URI fileURI;
-    
+
     public abstract Class<?> getFirstClassType();
-    
+
     public abstract Class<?> getSecondClassType();
 
     /**
@@ -78,14 +79,14 @@ public abstract class AbstractTransformationManager {
      *         this manager.
      */
     public boolean isManaged(Resource source, Resource target) {
-		if ((source == null) || (target == null)) {
-			return false;
-		}
-		if ((source.getContents() == null) || source.getContents().isEmpty()
-				|| (target.getContents() == null)
-				|| target.getContents().isEmpty()) {
-			return false;
-		}
+        if ((source == null) || (target == null)) {
+            return false;
+        }
+        if ((source.getContents() == null) || source.getContents().isEmpty()
+                || (target.getContents() == null)
+                || target.getContents().isEmpty()) {
+            return false;
+        }
 
 		if (getManagedClass1().isAssignableFrom(source.getContents().get(0).getClass()) 
 				&& getManagedClass2().isAssignableFrom(target.getContents().get(0).getClass())) {
@@ -98,7 +99,7 @@ public abstract class AbstractTransformationManager {
 		}
 
 		return false;
-	}
+    }
 
     /**
 	 * Return one of the root classes for the supported model.
@@ -132,7 +133,11 @@ public abstract class AbstractTransformationManager {
             SymmetricDifference difference, URI fileURI) {
         this.fileURI = fileURI;
         System.out.println("Loading mappings...");
-
+        URI uri = URI.createPlatformResourceURI("Test/traces.xmi", true);
+        ResourceSet resSet = new ResourceSetImpl();
+        resSet.getResources().add(source);
+        resSet.getResources().add(target);
+        resSet.getResource(uri, true);
         // Load mappings
         Mappings mappingObject;
         try {
@@ -154,12 +159,16 @@ public abstract class AbstractTransformationManager {
 
         System.out.println("Merging graphs");
         List<EGraph> graphs = new ArrayList<>();
-
+        Resource traces = resSet.getResource(uri, true);
         // initialize URI converter and update broken traces
-        this.updateTraces(source, target);
-
+        this.updateTraces(source, target, traces, resSet);
+        traces = resSet.getResource(uri, true);
+        for (Resource res : resSet.getResources()) {
+            System.out.println(res);
+        }
         graphs.add(new EGraphImpl(source));
         graphs.add(new EGraphImpl(target));
+        graphs.add(new EGraphImpl(traces));
         EGraph graph = this.mergeInstanceModels(graphs);
         System.out.println("Finished merging graphs.");
 
@@ -168,7 +177,14 @@ public abstract class AbstractTransformationManager {
             graph = this.runTransformation(graph, difference);
             System.out.println("Save result");
             try {
-                return this.save(graph, target, false);
+                Resource res = this.save(graph, target, traces, false);
+                resSet.getResources().remove(target);
+                traces.unload();
+                traces = resSet.getResource(traces.getURI(), true);
+                this.updateTraces(source, res, traces, resSet);
+                EcoreUtil.resolveAll(resSet);
+                traces.save(null);
+                return res;
             } catch (IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -187,57 +203,81 @@ public abstract class AbstractTransformationManager {
      * @param target
      *            target model
      */
-    private void updateTraces(Resource source, Resource target) {
-        Map<URI, URI> map = target.getResourceSet().getURIConverter()
-                .getURIMap();
+    private void updateTraces(Resource source, Resource target,
+            Resource traces, ResourceSet resSet) {
+        Map<URI, URI> map = resSet.getURIConverter().getURIMap();
 
         // find unresolvable proxies
         Map<EObject, Collection<Setting>> unresolvedProxies = EcoreUtil.UnresolvedProxyCrossReferencer
-                .find(target.getResourceSet());
+                .find(resSet);
         for (EObject entry : unresolvedProxies.keySet()) {
-            target.getResourceSet()
-                    .getURIConverter()
+            System.out.println(EcoreUtil.getURI(entry));
+            String extension = EcoreUtil.getURI(entry).fileExtension();
+            if (extension.equals(source.getURI().fileExtension())) {
+                resSet.getURIConverter()
                     .getURIMap()
                     .put(EcoreUtil.getURI(entry).trimFragment(),
                             source.getURI());
+            } else {
+                resSet.getURIConverter()
+                        .getURIMap()
+                        .put(EcoreUtil.getURI(entry).trimFragment(),
+                                target.getURI());
+        }
         }
 
         // find resources which are older than current element, put them in
         // converter mapping and unload them.
-        for (EObject obj : target.getContents()) {
+        for (EObject obj : traces.getContents()) {
             if (obj instanceof TraceImpl) {
                 for (EObject src : ((TraceImpl) obj).getSource()) {
-                    if (!src.eIsProxy()
-                            && !map.containsKey(src.eResource().getURI())) {
-                        target.getResourceSet().getURIConverter().getURIMap()
-                                .put(src.eResource().getURI(), source.getURI());
+                    System.out.println(src);
+                    if (!map.containsKey(EcoreUtil.getURI(src).trimFragment())) {
+                        resSet.getURIConverter()
+                                .getURIMap()
+                                .put(EcoreUtil.getURI(src).trimFragment(),
+                                        source.getURI());
+                        if (src.eResource() != null) {
                         src.eResource().unload();
                     }
-
+                }
+            }
+                for (EObject tgt : ((TraceImpl) obj).getTarget()) {
+                    System.out.println(tgt);
+                    if (!map.containsKey(EcoreUtil.getURI(tgt).trimFragment())) {
+                        resSet.getURIConverter()
+                                .getURIMap()
+                                .put(EcoreUtil.getURI(tgt).trimFragment(),
+                                        target.getURI());
+                        if (tgt.eResource() != null) {
+                            tgt.eResource().unload();
+                        }
+        }
                 }
             }
         }
 
         // resolve resources
-        EcoreUtil.resolveAll(target.getResourceSet());
-
+        EcoreUtil.resolveAll(resSet);
         // update uri of outdated resources
-        for (Resource res : target.getResourceSet().getResources()) {
+        for (Resource res : resSet.getResources()) {
+            System.out.println("Res in ResSet:" + res);
             if (map.containsKey(res.getURI())) {
+                System.out.println("old uri: " + res.getURI());
+                System.out.println("new uri: " + map.get(res.getURI()));
                 res.setURI(map.get(res.getURI()));
             }
         }
 
         // find broken proxy references and remove them from resource set
         List<Resource> toRemove = new ArrayList<>();
-        for (int index = 0; index < target.getResourceSet().getResources()
-                .size(); index++) {
-            Resource res = target.getResourceSet().getResources().get(index);
+        for (int index = 0; index < resSet.getResources().size(); index++) {
+            Resource res = resSet.getResources().get(index);
             if (!res.isLoaded() || res.getErrors().size() > 0) {
                 toRemove.add(res);
             }
         }
-        target.getResourceSet().getResources().removeAll(toRemove);
+        resSet.getResources().removeAll(toRemove);
     }
     /**
      * Saves root of the resulting model to an output file.
@@ -250,21 +290,22 @@ public abstract class AbstractTransformationManager {
      *            overwrite the transformed models or create a new file
      * @throws IOException
      */
-    protected Resource save(EGraph result, Resource target, boolean inPlace)
-            throws IOException {
+    protected Resource save(EGraph result, Resource target,
+            Resource traceModel, boolean inPlace) throws IOException {
         // Save the models.
         System.out.println("Saving models...");
         System.out.println("Number of roots: " + result.getRoots().size());
 
-        ResourceSet henshinResourceSet = target.getResourceSet();
+        ResourceSet henshinResourceSet = traceModel.getResourceSet();
         Resource temp = new ResourceImpl(target.getURI());
 
         List<EObject> list = result.getRoots();
 
         Class<? extends EObject> targetClass = target.getContents().get(0)
                 .getClass();
-
+        traceModel.getContents().clear();
         for (EObject root : list) {
+            System.out.println("root" + root);
             // root is element of target model
             if (root.getClass() == targetClass) {
 
@@ -279,12 +320,12 @@ public abstract class AbstractTransformationManager {
 
                 if (hasSource >= 1 && hasTarget >= 1) {
 
-                    temp.getContents().add(root);
+                    traceModel.getContents().add(root);
                 }
 
             }
         }
-
+        traceModel.save(null);
         // save all roots
         if (inPlace) {
 
@@ -299,6 +340,7 @@ public abstract class AbstractTransformationManager {
             Resource res = henshinResourceSet.createResource(this.fileURI);
             res.getContents().addAll(temp.getContents());
             res.save(null);
+            System.out.println(res);
             return res;
         }
 
@@ -429,29 +471,29 @@ public abstract class AbstractTransformationManager {
         }
         return null;
     }
-    
+
     protected abstract String getKey();
-    
+
     protected abstract String getReverseKey();
-    
+
     /**
      * Returns the key for which a mapping at the extension point can be stored.
      * 
      * @return string identifier
      */
     protected String getKey(Resource source) {
-		
-		if (source == null || source.getContents() == null) {
-			throw new IllegalArgumentException("Source should not be null.");
-		} else {
+
+        if (source == null || source.getContents() == null) {
+            throw new IllegalArgumentException("Source should not be null.");
+        } else {
             if (this.getFirstClassType().isAssignableFrom(
                     source.getContents().get(0).getClass())) {
-				return this.getKey();
-			} else {
-				return this.getReverseKey();
-			}
-		}
-	}
+                return this.getKey();
+            } else {
+                return this.getReverseKey();
+            }
+        }
+    }
 
     /**
      * Merges all provided EGraphs by adding all Root elements to the first

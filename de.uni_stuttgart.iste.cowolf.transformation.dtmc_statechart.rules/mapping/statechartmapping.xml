@@ -8,18 +8,23 @@
 		<Difference>CREATE_State_IN_StateMachine_(states)</Difference>
 		<Rule name="CreatedStateInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
 			<Params>
-				<Param name="name">
+				<Param name="id">
 					<Change name="AddObject">
-						<Reference name="obj" attribute="name" />
+						<Reference name="obj" attribute="id" />
 					</Change>
 				</Param>
 			</Params>
 		</Rule>
 	</Mapping>
- 	<Mapping priority="">
+ 	<Mapping priority="0">
  		<Difference>DELETE_State_IN_StateMachine_(states)</Difference>
  		<Rule name="DeletedStateInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
 			<Params>
+				<Param name="stateId">
+					<Change name="RemoveObject">
+						<Reference name="obj" attribute="id" />
+					</Change>
+				</Param>
 			</Params>
 		</Rule>
  	</Mapping>
@@ -73,6 +78,25 @@
 				<Param name="stateId">
 					<Reference name="objB" attribute="id" />
 				</Param>
+			</Params>
+		</Rule>
+	</Mapping>
+	<Mapping priority="10">
+		<Difference>CREATE_BooleanExpression_IN_State_(atomicProposition)</Difference>
+		<Rule name="CreatedAtomicPropositionInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
+			<Params>
+				<Param name="apId">
+					<Change name="AddObject">
+						<Reference name="obj" attribute="id" />
+					</Change>
+				</Param>
+			</Params>
+		</Rule>
+	</Mapping>
+	<Mapping priority="10">
+		<Difference>DELETE_BooleanExpression_IN_State_(atomicProposition)</Difference>
+		<Rule name="DeletedAtomicPropositionInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
+			<Params>
 			</Params>
 		</Rule>
 	</Mapping>

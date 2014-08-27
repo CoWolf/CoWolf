@@ -12,9 +12,11 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.henshin.trace.impl.TraceImpl;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.window.Window;
@@ -165,15 +167,40 @@ public class Transform extends AbstractHandler {
                 protected IStatus run(IProgressMonitor monitor) {
                     SymmetricDifference difference = null;
                     try {
+                        List<EObject> list = secondSource.getContents();
+                        URI uri = secondSource.getURI();
+                        Resource filteredSecondSource = secondSource
+                                .getResourceSet().createResource(uri);
+                        for (int index = 0; index < list.size(); index++) {
+                            EObject root = list.get(index);
+                            System.out.println(root);
+                            // root is a Trace and has source and target
+                            if (root.getClass() == TraceImpl.class) {
+                                int hasSource = ((TraceImpl) root).getSource()
+                                        .size();
+                                int hasTarget = ((TraceImpl) root).getTarget()
+                                        .size();
+
+                                if (hasSource >= 1 && hasTarget >= 1) {
+                                    filteredSecondSource.getContents()
+                                            .add(root);
+                                }
+
+                            } else {
+                                filteredSecondSource.getContents().add(root);
+                            }
+                        }
+                        filteredSecondSource.save(null);
                         difference = evoManager.evolve(firstSource,
-                                secondSource);
+                                filteredSecondSource);
                         Resource transformedModel = transManager.transform(
-                                secondSource, target, difference, result);
-                        target.unload();
-                        target.load(null);
+                                filteredSecondSource, target, difference,
+                                result);
                         final AbstractEvolutionManager evoManager = extensionHandler
                                 .getEvolutionManager(target);
                         if (evoManager != null) {
+                            System.out.println(target);
+                            System.out.println(transformedModel);
                             difference = evoManager.evolve(target,
                                     transformedModel);
                             String projectRoot = firstElement.getProject()
