@@ -4,7 +4,7 @@
         <Difference>SET_Label_Name</Difference>
         <Rule name="changedLabelNameInCTMC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_ctmc.rules/rules/CTMC_DTMC.henshin">
             <Params>
-                <Param name="labelID">
+                <Param name="changedLabelID">
                 	<Change name="AttributeValueChange">
                 		<Reference name="objA" attribute="id" />
                 	</Change>
@@ -16,6 +16,11 @@
         <Difference>DELETE_Label_IN_State_(labels)</Difference>
         <Rule name="deletedLabelInCTMCUnit" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_ctmc.rules/rules/CTMC_DTMC.henshin">
             <Params>
+             <Param name="labelSourceStateId">
+                <Change name="RemoveReference" type="state">
+                		<Reference name="tgt" attribute="id"/>
+                	</Change>
+                </Param>
             </Params>
         </Rule>
     </Mapping>
@@ -50,7 +55,7 @@
         <Difference>CREATE_State_IN_CTMC_(States)</Difference>
         <Rule name="CreatedStateInCTMC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_ctmc.rules/rules/CTMC_DTMC.henshin">
             <Params>
-                <Param name="stateID">
+                <Param name="createStateID">
                 	<Change name="AddObject">
                 		<Reference name="obj" attribute="id"/>
                 	</Change>
@@ -62,7 +67,16 @@
         <Difference>DELETE_Transition_IN_State_(outgoing)</Difference>
         <Rule name="deleteAndUpdateTransition" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_ctmc.rules/rules/CTMC_DTMC.henshin">
             <Params>
-                <!--<Param name="transitionID"/>-->
+                <Param name="sourceID">
+                <Change name="RemoveReference" type="from">
+                		<Reference name="tgt" attribute="id"/>
+                	</Change>
+                </Param>
+                 <Param name="targetID">
+                <Change name="RemoveReference" type="to">
+                		<Reference name="tgt" attribute="id"/>
+                	</Change>
+                </Param>
             </Params>
         </Rule>
     </Mapping>
@@ -81,13 +95,15 @@
             <Params/>
         </Rule>
     </Mapping>
-    <Mapping priority="30">
+    <Mapping priority="9">
         <Difference>SET_State_Name</Difference>
         <Rule name="changedStateNameInCTMC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_ctmc.rules/rules/CTMC_DTMC.henshin">
             <Params>
+           <Param name="changedStateID">
                 <Change name="AttributeValueChange">
                 		<Reference name="objA" attribute="id" />
                 </Change>
+                </Param>
             </Params>
         </Rule>
     </Mapping>
@@ -103,7 +119,7 @@
         <Difference>CREATE_Transition_IN_State_(outgoing)</Difference>
         <Rule name="createdOutgoingTransitionInCTMCUnit" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_ctmc.rules/rules/CTMC_DTMC.henshin">
             <Params>
-                <Param name="transitionID">
+                <Param name="outgoingTransitionID">
                 <Change name="AddObject">
                 		<Reference name="obj" attribute="id"/>
                 	</Change>
