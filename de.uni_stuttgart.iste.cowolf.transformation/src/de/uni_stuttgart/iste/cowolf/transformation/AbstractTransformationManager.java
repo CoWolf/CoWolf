@@ -201,15 +201,14 @@ public abstract class AbstractTransformationManager {
             graph = this.runTransformation(graph, difference);
             System.out.println("Save result");
             try {
-                Resource res = this.save(graph, target, traces, false);
+                Resource res = this.save(graph, source, target, traces, false);
                 resSet.getResources().remove(target);
                 traces.unload();
                 traces = resSet.getResource(traces.getURI(), true);
-                this.updateTraces(source, res, traces, resSet);
-                EcoreUtil.resolveAll(resSet);
+                // this.updateTraces(source, res, traces, resSet);
+                // EcoreUtil.resolveAll(resSet);
                 traceURI = this.buildTraceFileUri(source, res);
                 traces.setURI(traceURI);
-                System.out.println(traces.getContents().size());
                 traces.save(null);
                 return res;
             } catch (IOException e) {
@@ -233,7 +232,10 @@ public abstract class AbstractTransformationManager {
     private void updateTraces(Resource source, Resource target,
             Resource traces, ResourceSet resSet) {
         Map<URI, URI> map = resSet.getURIConverter().getURIMap();
-
+        map.clear();
+        // TODO: check src/tgt of trace and src/tgt of models
+        boolean sourceEqualToFirstClass = this.getFirstClassType()
+                .isAssignableFrom(source.getClass());
         // find unresolvable proxies
         Map<EObject, Collection<Setting>> unresolvedProxies = EcoreUtil.UnresolvedProxyCrossReferencer
                 .find(resSet);
@@ -241,29 +243,45 @@ public abstract class AbstractTransformationManager {
             System.out.println(EcoreUtil.getURI(entry));
             String extension = EcoreUtil.getURI(entry).fileExtension();
             if (extension.equals(source.getURI().fileExtension())) {
+                if (!EcoreUtil.getURI(entry).equals(source.getURI())) {
                 resSet.getURIConverter()
                         .getURIMap()
                         .put(EcoreUtil.getURI(entry).trimFragment(),
                                 source.getURI());
+                }
             } else {
+                if (!EcoreUtil.getURI(entry).equals(target.getURI())) {
                 resSet.getURIConverter()
                         .getURIMap()
                         .put(EcoreUtil.getURI(entry).trimFragment(),
                                 target.getURI());
             }
+
+            }
         }
 
         // find resources which are older than current element, put them in
         // converter mapping and unload them.
+        Resource firstModel = null;
+        Resource secondModel = null;
+        if (sourceEqualToFirstClass) {
+            firstModel = source;
+            secondModel = target;
+        } else {
+            firstModel = target;
+            secondModel = source;
+        }
         for (EObject obj : traces.getContents()) {
             if (obj instanceof TraceImpl) {
                 for (EObject src : ((TraceImpl) obj).getSource()) {
                     System.out.println(src);
-                    if (!map.containsKey(EcoreUtil.getURI(src).trimFragment())) {
+                    if (!map.containsKey(EcoreUtil.getURI(src).trimFragment())
+                            && !firstModel.getURI().equals(
+                                    EcoreUtil.getURI(src))) {
                         resSet.getURIConverter()
                                 .getURIMap()
                                 .put(EcoreUtil.getURI(src).trimFragment(),
-                                        source.getURI());
+                                        firstModel.getURI());
                         if (src.eResource() != null) {
                             src.eResource().unload();
                         }
@@ -271,11 +289,13 @@ public abstract class AbstractTransformationManager {
                 }
                 for (EObject tgt : ((TraceImpl) obj).getTarget()) {
                     System.out.println(tgt);
-                    if (!map.containsKey(EcoreUtil.getURI(tgt).trimFragment())) {
+                    if (!map.containsKey(EcoreUtil.getURI(tgt).trimFragment())
+                            && !secondModel.getURI().equals(
+                                    EcoreUtil.getURI(tgt))) {
                         resSet.getURIConverter()
                                 .getURIMap()
                                 .put(EcoreUtil.getURI(tgt).trimFragment(),
-                                        target.getURI());
+                                        secondModel.getURI());
                         if (tgt.eResource() != null) {
                             tgt.eResource().unload();
                         }
@@ -283,29 +303,34 @@ public abstract class AbstractTransformationManager {
                 }
             }
         }
-
-        // resolve resources
-        EcoreUtil.resolveAll(resSet);
-        // update uri of outdated resources
-        for (Resource res : resSet.getResources()) {
-            System.out.println("Res in ResSet:" + res);
-            if (map.containsKey(res.getURI())) {
-                System.out.println("old uri: " + res.getURI());
-                System.out.println("new uri: " + map.get(res.getURI()));
-                res.setURI(map.get(res.getURI()));
+        for (Map.Entry<URI, URI> entry : map.entrySet()) {
+            System.out
+                    .println(entry.getKey() + "--------->" + entry.getValue());
             }
+        // if (true)
+        // return;
+        // // resolve resources
+        // EcoreUtil.resolveAll(resSet);
+        // // update uri of outdated resources
+        // for (Resource res : resSet.getResources()) {
+        // System.out.println("Res in ResSet:" + res);
+        // if (map.containsKey(res.getURI())) {
+        // System.out.println("old uri: " + res.getURI());
+        // System.out.println("new uri: " + map.get(res.getURI()));
+        // res.setURI(map.get(res.getURI()));
+        // }
+        // }
+        //
+        // // find broken proxy references and remove them from resource set
+        // List<Resource> toRemove = new ArrayList<>();
+        // for (int index = 0; index < resSet.getResources().size(); index++) {
+        // Resource res = resSet.getResources().get(index);
+        // if (!res.isLoaded() || res.getErrors().size() > 0) {
+        // toRemove.add(res);
+        // }
+        // }
+        // resSet.getResources().removeAll(toRemove);
         }
-
-        // find broken proxy references and remove them from resource set
-        List<Resource> toRemove = new ArrayList<>();
-        for (int index = 0; index < resSet.getResources().size(); index++) {
-            Resource res = resSet.getResources().get(index);
-            if (!res.isLoaded() || res.getErrors().size() > 0) {
-                toRemove.add(res);
-            }
-        }
-        resSet.getResources().removeAll(toRemove);
-    }
     /**
      * Saves root of the resulting model to an output file.
      *
@@ -317,7 +342,7 @@ public abstract class AbstractTransformationManager {
      *            overwrite the transformed models or create a new file
      * @throws IOException
      */
-    protected Resource save(EGraph result, Resource target,
+    protected Resource save(EGraph result, Resource source, Resource target,
             Resource traceModel, boolean inPlace) throws IOException {
         // Save the models.
         System.out.println("Saving models...");
@@ -350,7 +375,7 @@ public abstract class AbstractTransformationManager {
 
             }
         }
-        traceModel.save(null);
+
         // save all roots
         if (inPlace) {
 
@@ -365,6 +390,9 @@ public abstract class AbstractTransformationManager {
             Resource res = henshinResourceSet.createResource(this.fileURI);
             res.getContents().addAll(temp.getContents());
             res.save(null);
+            URI traceURI = this.buildTraceFileUri(source, res);
+            traceModel.setURI(traceURI);
+            traceModel.save(null);
             return res;
         }
 
