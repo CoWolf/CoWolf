@@ -3,7 +3,7 @@
   <imports href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#/"/>
   <imports href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#/"/>
   <imports href="http://www.eclipse.org/emf/2011/Henshin/Trace#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="_sl9YIC0_EeSORK-s0s2xFA" name="createdComponentInComponentDiagram">
+  <units xsi:type="henshin:Rule" xmi:id="_sl9YIC0_EeSORK-s0s2xFA" name="createdComponentInComponentDiagram_Error">
     <lhs xmi:id="_soZBEC0_EeSORK-s0s2xFA" name="Lhs">
       <nodes xmi:id="__mRnYC0_EeSORK-s0s2xFA" incoming="_CtVe8C1AEeSORK-s0s2xFA" outgoing="_B8wWkC1AEeSORK-s0s2xFA">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//ComponentDiagram"/>
@@ -35,7 +35,7 @@
             <nodes xmi:id="_8HAOsi1AEeSORK-s0s2xFA" incoming="_8HAOti1AEeSORK-s0s2xFA" outgoing="_8HAOty1AEeSORK-s0s2xFA">
               <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//ComponentDiagram"/>
             </nodes>
-            <nodes xmi:id="_8HAOtC1AEeSORK-s0s2xFA" incoming="_8HAOty1AEeSORK-s0s2xFA _xTVQwC1AEeSORK-s0s2xFA _RrdOoC1BEeSORK-s0s2xFA" outgoing="_8HAOti1AEeSORK-s0s2xFA _w8hTQC1AEeSORK-s0s2xFA">
+            <nodes xmi:id="_8HAOtC1AEeSORK-s0s2xFA" incoming="_8HAOty1AEeSORK-s0s2xFA _xTVQwC1AEeSORK-s0s2xFA _RrdOoC1BEeSORK-s0s2xFA _RBNBMC3EEeSVn45_T4o6DA" outgoing="_8HAOti1AEeSORK-s0s2xFA _w8hTQC1AEeSORK-s0s2xFA _Uxc_sC3EEeSVn45_T4o6DA">
               <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component"/>
             </nodes>
             <nodes xmi:id="_wVSUIC1AEeSORK-s0s2xFA" incoming="_w8hTQC1AEeSORK-s0s2xFA" outgoing="_xTVQwC1AEeSORK-s0s2xFA">
@@ -49,6 +49,9 @@
             </nodes>
             <nodes xmi:id="_OVLPUC1BEeSORK-s0s2xFA" outgoing="_RrdOoC1BEeSORK-s0s2xFA">
               <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+            </nodes>
+            <nodes xmi:id="_POOnsC3EEeSVn45_T4o6DA" incoming="_Uxc_sC3EEeSVn45_T4o6DA" outgoing="_RBNBMC3EEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component"/>
             </nodes>
             <edges xmi:id="_8HAOti1AEeSORK-s0s2xFA" source="_8HAOtC1AEeSORK-s0s2xFA" target="_8HAOsi1AEeSORK-s0s2xFA">
               <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component/diagram"/>
@@ -71,6 +74,12 @@
             <edges xmi:id="_RrdOoC1BEeSORK-s0s2xFA" source="_OVLPUC1BEeSORK-s0s2xFA" target="_8HAOtC1AEeSORK-s0s2xFA">
               <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
             </edges>
+            <edges xmi:id="_Uxc_sC3EEeSVn45_T4o6DA" source="_8HAOtC1AEeSORK-s0s2xFA" target="_POOnsC3EEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component/realization"/>
+            </edges>
+            <edges xmi:id="_RBNBMC3EEeSVn45_T4o6DA" source="_POOnsC3EEeSVn45_T4o6DA" target="_8HAOtC1AEeSORK-s0s2xFA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component/componentContainer"/>
+            </edges>
           </conclusion>
           <mappings xmi:id="_8HAOsy1AEeSORK-s0s2xFA" origin="__mRnYC0_EeSORK-s0s2xFA" image="_8HAOsi1AEeSORK-s0s2xFA"/>
           <mappings xmi:id="_8HAOtS1AEeSORK-s0s2xFA" origin="_BUjHEC1AEeSORK-s0s2xFA" image="_8HAOtC1AEeSORK-s0s2xFA"/>
@@ -89,13 +98,13 @@
       <nodes xmi:id="_LDRPIS1AEeSORK-s0s2xFA" incoming="_bUvSgS1AEeSORK-s0s2xFA _hkdkIC1AEeSORK-s0s2xFA" outgoing="_arln0C1AEeSORK-s0s2xFA _hGJ3gC1AEeSORK-s0s2xFA">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree"/>
       </nodes>
-      <nodes xmi:id="_RckTgC1AEeSORK-s0s2xFA" incoming="_euAUYC1AEeSORK-s0s2xFA _hGJ3gC1AEeSORK-s0s2xFA" outgoing="_cB9k4C1AEeSORK-s0s2xFA _hkdkIC1AEeSORK-s0s2xFA">
+      <nodes xmi:id="_RckTgC1AEeSORK-s0s2xFA" incoming="_euAUYC1AEeSORK-s0s2xFA _hGJ3gC1AEeSORK-s0s2xFA _rAkbUC3GEeSVn45_T4o6DA" outgoing="_cB9k4C1AEeSORK-s0s2xFA _hkdkIC1AEeSORK-s0s2xFA">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//ErrorInstance"/>
       </nodes>
       <nodes xmi:id="_W5ZvoC1AEeSORK-s0s2xFA" outgoing="_d1CsEC1AEeSORK-s0s2xFA _euAUYC1AEeSORK-s0s2xFA">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
       </nodes>
-      <nodes xmi:id="_ZGn1IS1AEeSORK-s0s2xFA" incoming="_arln0C1AEeSORK-s0s2xFA _cB9k4C1AEeSORK-s0s2xFA" outgoing="_bUvSgS1AEeSORK-s0s2xFA">
+      <nodes xmi:id="_ZGn1IS1AEeSORK-s0s2xFA" incoming="_arln0C1AEeSORK-s0s2xFA _cB9k4C1AEeSORK-s0s2xFA" outgoing="_bUvSgS1AEeSORK-s0s2xFA _rAkbUC3GEeSVn45_T4o6DA">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//ErrorType"/>
       </nodes>
       <edges xmi:id="_B8wWkS1AEeSORK-s0s2xFA" source="__mRnYS0_EeSORK-s0s2xFA" target="_BUjuIC1AEeSORK-s0s2xFA">
@@ -125,10 +134,737 @@
       <edges xmi:id="_d1CsEC1AEeSORK-s0s2xFA" source="_W5ZvoC1AEeSORK-s0s2xFA" target="_BUjuIC1AEeSORK-s0s2xFA">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
       </edges>
+      <edges xmi:id="_rAkbUC3GEeSVn45_T4o6DA" source="_ZGn1IS1AEeSORK-s0s2xFA" target="_RckTgC1AEeSORK-s0s2xFA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//ErrorType/error"/>
+      </edges>
     </rhs>
     <mappings xmi:id="__mS1gC0_EeSORK-s0s2xFA" origin="__mRnYC0_EeSORK-s0s2xFA" image="__mRnYS0_EeSORK-s0s2xFA"/>
     <mappings xmi:id="_BUjuIS1AEeSORK-s0s2xFA" origin="_BUjHEC1AEeSORK-s0s2xFA" image="_BUjuIC1AEeSORK-s0s2xFA"/>
     <mappings xmi:id="_LDRPIi1AEeSORK-s0s2xFA" origin="_LDRPIC1AEeSORK-s0s2xFA" image="_LDRPIS1AEeSORK-s0s2xFA"/>
     <mappings xmi:id="_ZGn1Ii1AEeSORK-s0s2xFA" origin="_ZGn1IC1AEeSORK-s0s2xFA" image="_ZGn1IS1AEeSORK-s0s2xFA"/>
   </units>
+  <units xsi:type="henshin:Rule" xmi:id="_NlpVwC3DEeSVn45_T4o6DA" name="createdComponentInComponentDiagram_FailurePort">
+    <lhs xmi:id="_NluOQC3DEeSVn45_T4o6DA" name="Lhs">
+      <nodes xmi:id="_Y9JZgC3DEeSVn45_T4o6DA" incoming="_nNRI0C3GEeSVn45_T4o6DA" outgoing="_kGasoC3GEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//ComponentDiagram"/>
+      </nodes>
+      <nodes xmi:id="_azMVIC3DEeSVn45_T4o6DA" incoming="_kGasoC3GEeSVn45_T4o6DA _odurIC3GEeSVn45_T4o6DA _uCbp0C3GEeSVn45_T4o6DA" outgoing="_nNRI0C3GEeSVn45_T4o6DA _tUgM0C3GEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component"/>
+      </nodes>
+      <nodes xmi:id="_cOM6kC3DEeSVn45_T4o6DA" incoming="_tUgM0C3GEeSVn45_T4o6DA" outgoing="_uCbp0C3GEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Port"/>
+      </nodes>
+      <nodes xmi:id="_pK6MIC3EEeSVn45_T4o6DA" incoming="_suvNUC3GEeSVn45_T4o6DA" outgoing="_sT1aAC3GEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree"/>
+      </nodes>
+      <nodes xmi:id="_f6p20C3GEeSVn45_T4o6DA" incoming="_sT1aAC3GEeSVn45_T4o6DA" outgoing="_suvNUC3GEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FailureType"/>
+      </nodes>
+      <nodes xmi:id="_iNT18C3GEeSVn45_T4o6DA" outgoing="_odurIC3GEeSVn45_T4o6DA">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+      </nodes>
+      <edges xmi:id="_kGasoC3GEeSVn45_T4o6DA" source="_Y9JZgC3DEeSVn45_T4o6DA" target="_azMVIC3DEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//ComponentDiagram/componetContainer"/>
+      </edges>
+      <edges xmi:id="_nNRI0C3GEeSVn45_T4o6DA" source="_azMVIC3DEeSVn45_T4o6DA" target="_Y9JZgC3DEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component/diagram"/>
+      </edges>
+      <edges xmi:id="_odurIC3GEeSVn45_T4o6DA" source="_iNT18C3GEeSVn45_T4o6DA" target="_azMVIC3DEeSVn45_T4o6DA">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+      <edges xmi:id="_sT1aAC3GEeSVn45_T4o6DA" source="_pK6MIC3EEeSVn45_T4o6DA" target="_f6p20C3GEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree/failure_type"/>
+      </edges>
+      <edges xmi:id="_suvNUC3GEeSVn45_T4o6DA" source="_f6p20C3GEeSVn45_T4o6DA" target="_pK6MIC3EEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FailureType/root"/>
+      </edges>
+      <edges xmi:id="_tUgM0C3GEeSVn45_T4o6DA" source="_azMVIC3DEeSVn45_T4o6DA" target="_cOM6kC3DEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component/ports"/>
+      </edges>
+      <edges xmi:id="_uCbp0C3GEeSVn45_T4o6DA" source="_cOM6kC3DEeSVn45_T4o6DA" target="_azMVIC3DEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Port/portHost"/>
+      </edges>
+      <formula xsi:type="henshin:Not" xmi:id="_2b6dQC3GEeSVn45_T4o6DA">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_2b6dQS3GEeSVn45_T4o6DA">
+          <conclusion xmi:id="_2b6dQi3GEeSVn45_T4o6DA">
+            <nodes xmi:id="_2b6dQy3GEeSVn45_T4o6DA" incoming="_2b6dRy3GEeSVn45_T4o6DA" outgoing="_2b7EUC3GEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//ComponentDiagram"/>
+            </nodes>
+            <nodes xmi:id="_2b6dRS3GEeSVn45_T4o6DA" incoming="_2b7EUC3GEeSVn45_T4o6DA _2b7EUy3GEeSVn45_T4o6DA _2b7EVi3GEeSVn45_T4o6DA _zaCAoC3GEeSVn45_T4o6DA" outgoing="_2b6dRy3GEeSVn45_T4o6DA _2b7EWi3GEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component"/>
+            </nodes>
+            <nodes xmi:id="_2b7EUS3GEeSVn45_T4o6DA" outgoing="_2b7EUy3GEeSVn45_T4o6DA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+            </nodes>
+            <nodes xmi:id="_2b7EVC3GEeSVn45_T4o6DA" incoming="_2b7EWi3GEeSVn45_T4o6DA" outgoing="_2b7EVi3GEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Port"/>
+            </nodes>
+            <nodes xmi:id="_w3YdsC3GEeSVn45_T4o6DA" outgoing="_zaCAoC3GEeSVn45_T4o6DA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+            </nodes>
+            <nodes xmi:id="_2b7EWy3GEeSVn45_T4o6DA" incoming="_2b7EXy3GEeSVn45_T4o6DA" outgoing="_2b7rYC3GEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree"/>
+            </nodes>
+            <nodes xmi:id="_2b7EXS3GEeSVn45_T4o6DA" incoming="_2b7rYC3GEeSVn45_T4o6DA" outgoing="_2b7EXy3GEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FailureType"/>
+            </nodes>
+            <edges xmi:id="_2b6dRy3GEeSVn45_T4o6DA" source="_2b6dRS3GEeSVn45_T4o6DA" target="_2b6dQy3GEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component/diagram"/>
+            </edges>
+            <edges xmi:id="_2b7EUC3GEeSVn45_T4o6DA" source="_2b6dQy3GEeSVn45_T4o6DA" target="_2b6dRS3GEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//ComponentDiagram/componetContainer"/>
+            </edges>
+            <edges xmi:id="_2b7EUy3GEeSVn45_T4o6DA" source="_2b7EUS3GEeSVn45_T4o6DA" target="_2b6dRS3GEeSVn45_T4o6DA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+            </edges>
+            <edges xmi:id="_2b7EVi3GEeSVn45_T4o6DA" source="_2b7EVC3GEeSVn45_T4o6DA" target="_2b6dRS3GEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Port/portHost"/>
+            </edges>
+            <edges xmi:id="_2b7EWi3GEeSVn45_T4o6DA" source="_2b6dRS3GEeSVn45_T4o6DA" target="_2b7EVC3GEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component/ports"/>
+            </edges>
+            <edges xmi:id="_2b7EXy3GEeSVn45_T4o6DA" source="_2b7EXS3GEeSVn45_T4o6DA" target="_2b7EWy3GEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FailureType/root"/>
+            </edges>
+            <edges xmi:id="_2b7rYC3GEeSVn45_T4o6DA" source="_2b7EWy3GEeSVn45_T4o6DA" target="_2b7EXS3GEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree/failure_type"/>
+            </edges>
+            <edges xmi:id="_zaCAoC3GEeSVn45_T4o6DA" source="_w3YdsC3GEeSVn45_T4o6DA" target="_2b6dRS3GEeSVn45_T4o6DA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_2b6dRC3GEeSVn45_T4o6DA" origin="_Y9JZgC3DEeSVn45_T4o6DA" image="_2b6dQy3GEeSVn45_T4o6DA"/>
+          <mappings xmi:id="_2b6dRi3GEeSVn45_T4o6DA" origin="_azMVIC3DEeSVn45_T4o6DA" image="_2b6dRS3GEeSVn45_T4o6DA"/>
+          <mappings xmi:id="_2b7EUi3GEeSVn45_T4o6DA" origin="_iNT18C3GEeSVn45_T4o6DA" image="_2b7EUS3GEeSVn45_T4o6DA"/>
+          <mappings xmi:id="_2b7EVS3GEeSVn45_T4o6DA" origin="_cOM6kC3DEeSVn45_T4o6DA" image="_2b7EVC3GEeSVn45_T4o6DA"/>
+          <mappings xmi:id="_2b7EXC3GEeSVn45_T4o6DA" origin="_pK6MIC3EEeSVn45_T4o6DA" image="_2b7EWy3GEeSVn45_T4o6DA"/>
+          <mappings xmi:id="_2b7EXi3GEeSVn45_T4o6DA" origin="_f6p20C3GEeSVn45_T4o6DA" image="_2b7EXS3GEeSVn45_T4o6DA"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_NluOQS3DEeSVn45_T4o6DA" name="Rhs">
+      <nodes xmi:id="_Y9JZgS3DEeSVn45_T4o6DA" incoming="_nNRv4C3GEeSVn45_T4o6DA" outgoing="_kGasoS3GEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//ComponentDiagram"/>
+      </nodes>
+      <nodes xmi:id="_azMVIS3DEeSVn45_T4o6DA" incoming="_kGasoS3GEeSVn45_T4o6DA _odurIS3GEeSVn45_T4o6DA _uCbp0S3GEeSVn45_T4o6DA" outgoing="_nNRv4C3GEeSVn45_T4o6DA _tUgM0S3GEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component"/>
+      </nodes>
+      <nodes xmi:id="_cOM6kS3DEeSVn45_T4o6DA" incoming="_tUgM0S3GEeSVn45_T4o6DA" outgoing="_uCbp0S3GEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Port"/>
+      </nodes>
+      <nodes xmi:id="_pK6MIS3EEeSVn45_T4o6DA" incoming="_suv0YC3GEeSVn45_T4o6DA" outgoing="_sT1aAS3GEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree"/>
+      </nodes>
+      <nodes xmi:id="_eh4GAC3GEeSVn45_T4o6DA" incoming="_pWffIC3GEeSVn45_T4o6DA _qYzQsC3GEeSVn45_T4o6DA" outgoing="_p26EkC3GEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FailureInstance"/>
+      </nodes>
+      <nodes xmi:id="_f6p20S3GEeSVn45_T4o6DA" incoming="_sT1aAS3GEeSVn45_T4o6DA _p26EkC3GEeSVn45_T4o6DA" outgoing="_suv0YC3GEeSVn45_T4o6DA _qYzQsC3GEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FailureType"/>
+      </nodes>
+      <nodes xmi:id="_iNT18S3GEeSVn45_T4o6DA" outgoing="_odurIS3GEeSVn45_T4o6DA _pWffIC3GEeSVn45_T4o6DA">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+      </nodes>
+      <edges xmi:id="_kGasoS3GEeSVn45_T4o6DA" source="_Y9JZgS3DEeSVn45_T4o6DA" target="_azMVIS3DEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//ComponentDiagram/componetContainer"/>
+      </edges>
+      <edges xmi:id="_nNRv4C3GEeSVn45_T4o6DA" source="_azMVIS3DEeSVn45_T4o6DA" target="_Y9JZgS3DEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component/diagram"/>
+      </edges>
+      <edges xmi:id="_odurIS3GEeSVn45_T4o6DA" source="_iNT18S3GEeSVn45_T4o6DA" target="_azMVIS3DEeSVn45_T4o6DA">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+      <edges xmi:id="_sT1aAS3GEeSVn45_T4o6DA" source="_pK6MIS3EEeSVn45_T4o6DA" target="_f6p20S3GEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree/failure_type"/>
+      </edges>
+      <edges xmi:id="_suv0YC3GEeSVn45_T4o6DA" source="_f6p20S3GEeSVn45_T4o6DA" target="_pK6MIS3EEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FailureType/root"/>
+      </edges>
+      <edges xmi:id="_tUgM0S3GEeSVn45_T4o6DA" source="_azMVIS3DEeSVn45_T4o6DA" target="_cOM6kS3DEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component/ports"/>
+      </edges>
+      <edges xmi:id="_uCbp0S3GEeSVn45_T4o6DA" source="_cOM6kS3DEeSVn45_T4o6DA" target="_azMVIS3DEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Port/portHost"/>
+      </edges>
+      <edges xmi:id="_pWffIC3GEeSVn45_T4o6DA" source="_iNT18S3GEeSVn45_T4o6DA" target="_eh4GAC3GEeSVn45_T4o6DA">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+      </edges>
+      <edges xmi:id="_qYzQsC3GEeSVn45_T4o6DA" source="_f6p20S3GEeSVn45_T4o6DA" target="_eh4GAC3GEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FailureType/instance"/>
+      </edges>
+      <edges xmi:id="_p26EkC3GEeSVn45_T4o6DA" source="_eh4GAC3GEeSVn45_T4o6DA" target="_f6p20S3GEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FailureInstance/type"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_Y9JZgi3DEeSVn45_T4o6DA" origin="_Y9JZgC3DEeSVn45_T4o6DA" image="_Y9JZgS3DEeSVn45_T4o6DA"/>
+    <mappings xmi:id="_azMVIi3DEeSVn45_T4o6DA" origin="_azMVIC3DEeSVn45_T4o6DA" image="_azMVIS3DEeSVn45_T4o6DA"/>
+    <mappings xmi:id="_cONhoC3DEeSVn45_T4o6DA" origin="_cOM6kC3DEeSVn45_T4o6DA" image="_cOM6kS3DEeSVn45_T4o6DA"/>
+    <mappings xmi:id="_pK6MIi3EEeSVn45_T4o6DA" origin="_pK6MIC3EEeSVn45_T4o6DA" image="_pK6MIS3EEeSVn45_T4o6DA"/>
+    <mappings xmi:id="_f6p20i3GEeSVn45_T4o6DA" origin="_f6p20C3GEeSVn45_T4o6DA" image="_f6p20S3GEeSVn45_T4o6DA"/>
+    <mappings xmi:id="_iNT18i3GEeSVn45_T4o6DA" origin="_iNT18C3GEeSVn45_T4o6DA" image="_iNT18S3GEeSVn45_T4o6DA"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_Iqiw4C3HEeSVn45_T4o6DA" name="createdComponentInComponentDiagram_FailureSubComponent">
+    <lhs xmi:id="_Iqiw4S3HEeSVn45_T4o6DA" name="Lhs">
+      <nodes xmi:id="_Iqiw4i3HEeSVn45_T4o6DA" incoming="_Iqiw6S3HEeSVn45_T4o6DA" outgoing="_Iqiw6C3HEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//ComponentDiagram"/>
+      </nodes>
+      <nodes xmi:id="_Iqiw4y3HEeSVn45_T4o6DA" incoming="_Iqiw6C3HEeSVn45_T4o6DA _Iqiw6i3HEeSVn45_T4o6DA _ZtxoYC3HEeSVn45_T4o6DA" outgoing="_Iqiw6S3HEeSVn45_T4o6DA _ZUvdUC3HEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component"/>
+      </nodes>
+      <nodes xmi:id="_Iqiw5S3HEeSVn45_T4o6DA" incoming="_Iqiw7C3HEeSVn45_T4o6DA" outgoing="_Iqiw6y3HEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree"/>
+      </nodes>
+      <nodes xmi:id="_Iqiw5i3HEeSVn45_T4o6DA" incoming="_Iqiw6y3HEeSVn45_T4o6DA" outgoing="_Iqiw7C3HEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FailureType"/>
+      </nodes>
+      <nodes xmi:id="_Iqiw5y3HEeSVn45_T4o6DA" outgoing="_Iqiw6i3HEeSVn45_T4o6DA">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+      </nodes>
+      <nodes xmi:id="_SRgEEC3HEeSVn45_T4o6DA" incoming="_ZUvdUC3HEeSVn45_T4o6DA" outgoing="_ZtxoYC3HEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component"/>
+      </nodes>
+      <edges xmi:id="_Iqiw6C3HEeSVn45_T4o6DA" source="_Iqiw4i3HEeSVn45_T4o6DA" target="_Iqiw4y3HEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//ComponentDiagram/componetContainer"/>
+      </edges>
+      <edges xmi:id="_Iqiw6S3HEeSVn45_T4o6DA" source="_Iqiw4y3HEeSVn45_T4o6DA" target="_Iqiw4i3HEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component/diagram"/>
+      </edges>
+      <edges xmi:id="_Iqiw6i3HEeSVn45_T4o6DA" source="_Iqiw5y3HEeSVn45_T4o6DA" target="_Iqiw4y3HEeSVn45_T4o6DA">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+      <edges xmi:id="_Iqiw6y3HEeSVn45_T4o6DA" source="_Iqiw5S3HEeSVn45_T4o6DA" target="_Iqiw5i3HEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree/failure_type"/>
+      </edges>
+      <edges xmi:id="_Iqiw7C3HEeSVn45_T4o6DA" source="_Iqiw5i3HEeSVn45_T4o6DA" target="_Iqiw5S3HEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FailureType/root"/>
+      </edges>
+      <edges xmi:id="_ZUvdUC3HEeSVn45_T4o6DA" source="_Iqiw4y3HEeSVn45_T4o6DA" target="_SRgEEC3HEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component/realization"/>
+      </edges>
+      <edges xmi:id="_ZtxoYC3HEeSVn45_T4o6DA" source="_SRgEEC3HEeSVn45_T4o6DA" target="_Iqiw4y3HEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component/componentContainer"/>
+      </edges>
+      <formula xsi:type="henshin:Not" xmi:id="_Iqiw7y3HEeSVn45_T4o6DA">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_Iqiw8C3HEeSVn45_T4o6DA">
+          <conclusion xmi:id="_Iqiw8S3HEeSVn45_T4o6DA">
+            <nodes xmi:id="_Iqiw8i3HEeSVn45_T4o6DA" incoming="_Iqiw-S3HEeSVn45_T4o6DA" outgoing="_Iqiw-i3HEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//ComponentDiagram"/>
+            </nodes>
+            <nodes xmi:id="_Iqiw8y3HEeSVn45_T4o6DA" incoming="_Iqiw-i3HEeSVn45_T4o6DA _Iqiw-y3HEeSVn45_T4o6DA _IqixAC3HEeSVn45_T4o6DA" outgoing="_Iqiw-S3HEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component"/>
+            </nodes>
+            <nodes xmi:id="_Iqiw9C3HEeSVn45_T4o6DA" outgoing="_Iqiw-y3HEeSVn45_T4o6DA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+            </nodes>
+            <nodes xmi:id="_Iqiw9i3HEeSVn45_T4o6DA" outgoing="_IqixAC3HEeSVn45_T4o6DA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+            </nodes>
+            <nodes xmi:id="_Iqiw9y3HEeSVn45_T4o6DA" incoming="_Iqiw_i3HEeSVn45_T4o6DA" outgoing="_Iqiw_y3HEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree"/>
+            </nodes>
+            <nodes xmi:id="_Iqiw-C3HEeSVn45_T4o6DA" incoming="_Iqiw_y3HEeSVn45_T4o6DA" outgoing="_Iqiw_i3HEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FailureType"/>
+            </nodes>
+            <edges xmi:id="_Iqiw-S3HEeSVn45_T4o6DA" source="_Iqiw8y3HEeSVn45_T4o6DA" target="_Iqiw8i3HEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component/diagram"/>
+            </edges>
+            <edges xmi:id="_Iqiw-i3HEeSVn45_T4o6DA" source="_Iqiw8i3HEeSVn45_T4o6DA" target="_Iqiw8y3HEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//ComponentDiagram/componetContainer"/>
+            </edges>
+            <edges xmi:id="_Iqiw-y3HEeSVn45_T4o6DA" source="_Iqiw9C3HEeSVn45_T4o6DA" target="_Iqiw8y3HEeSVn45_T4o6DA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+            </edges>
+            <edges xmi:id="_Iqiw_i3HEeSVn45_T4o6DA" source="_Iqiw-C3HEeSVn45_T4o6DA" target="_Iqiw9y3HEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FailureType/root"/>
+            </edges>
+            <edges xmi:id="_Iqiw_y3HEeSVn45_T4o6DA" source="_Iqiw9y3HEeSVn45_T4o6DA" target="_Iqiw-C3HEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree/failure_type"/>
+            </edges>
+            <edges xmi:id="_IqixAC3HEeSVn45_T4o6DA" source="_Iqiw9i3HEeSVn45_T4o6DA" target="_Iqiw8y3HEeSVn45_T4o6DA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_IqixAS3HEeSVn45_T4o6DA" origin="_Iqiw4i3HEeSVn45_T4o6DA" image="_Iqiw8i3HEeSVn45_T4o6DA"/>
+          <mappings xmi:id="_IqixAi3HEeSVn45_T4o6DA" origin="_Iqiw4y3HEeSVn45_T4o6DA" image="_Iqiw8y3HEeSVn45_T4o6DA"/>
+          <mappings xmi:id="_IqixAy3HEeSVn45_T4o6DA" origin="_Iqiw5y3HEeSVn45_T4o6DA" image="_Iqiw9C3HEeSVn45_T4o6DA"/>
+          <mappings xmi:id="_IqixBS3HEeSVn45_T4o6DA" origin="_Iqiw5S3HEeSVn45_T4o6DA" image="_Iqiw9y3HEeSVn45_T4o6DA"/>
+          <mappings xmi:id="_IqixBi3HEeSVn45_T4o6DA" origin="_Iqiw5i3HEeSVn45_T4o6DA" image="_Iqiw-C3HEeSVn45_T4o6DA"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_IqixBy3HEeSVn45_T4o6DA" name="Rhs">
+      <nodes xmi:id="_IqixCC3HEeSVn45_T4o6DA" incoming="_IqixEC3HEeSVn45_T4o6DA" outgoing="_IqixDy3HEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//ComponentDiagram"/>
+      </nodes>
+      <nodes xmi:id="_IqixCS3HEeSVn45_T4o6DA" incoming="_IqixDy3HEeSVn45_T4o6DA _IqixES3HEeSVn45_T4o6DA _aksCQy3HEeSVn45_T4o6DA" outgoing="_IqixEC3HEeSVn45_T4o6DA _aksCQi3HEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component"/>
+      </nodes>
+      <nodes xmi:id="_IqixCy3HEeSVn45_T4o6DA" incoming="_IqixEy3HEeSVn45_T4o6DA" outgoing="_IqixEi3HEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree"/>
+      </nodes>
+      <nodes xmi:id="_IqixDC3HEeSVn45_T4o6DA" incoming="_IqixFi3HEeSVn45_T4o6DA _IqixFy3HEeSVn45_T4o6DA" outgoing="_IqixGC3HEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FailureInstance"/>
+      </nodes>
+      <nodes xmi:id="_IqixDS3HEeSVn45_T4o6DA" incoming="_IqixEi3HEeSVn45_T4o6DA _IqixGC3HEeSVn45_T4o6DA" outgoing="_IqixEy3HEeSVn45_T4o6DA _IqixFy3HEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FailureType"/>
+      </nodes>
+      <nodes xmi:id="_IqixDi3HEeSVn45_T4o6DA" outgoing="_IqixES3HEeSVn45_T4o6DA _IqixFi3HEeSVn45_T4o6DA">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+      </nodes>
+      <nodes xmi:id="_aksCQC3HEeSVn45_T4o6DA" incoming="_aksCQi3HEeSVn45_T4o6DA" outgoing="_aksCQy3HEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component"/>
+      </nodes>
+      <edges xmi:id="_IqixDy3HEeSVn45_T4o6DA" source="_IqixCC3HEeSVn45_T4o6DA" target="_IqixCS3HEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//ComponentDiagram/componetContainer"/>
+      </edges>
+      <edges xmi:id="_IqixEC3HEeSVn45_T4o6DA" source="_IqixCS3HEeSVn45_T4o6DA" target="_IqixCC3HEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component/diagram"/>
+      </edges>
+      <edges xmi:id="_IqixES3HEeSVn45_T4o6DA" source="_IqixDi3HEeSVn45_T4o6DA" target="_IqixCS3HEeSVn45_T4o6DA">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+      <edges xmi:id="_IqixEi3HEeSVn45_T4o6DA" source="_IqixCy3HEeSVn45_T4o6DA" target="_IqixDS3HEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree/failure_type"/>
+      </edges>
+      <edges xmi:id="_IqixEy3HEeSVn45_T4o6DA" source="_IqixDS3HEeSVn45_T4o6DA" target="_IqixCy3HEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FailureType/root"/>
+      </edges>
+      <edges xmi:id="_IqixFi3HEeSVn45_T4o6DA" source="_IqixDi3HEeSVn45_T4o6DA" target="_IqixDC3HEeSVn45_T4o6DA">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+      </edges>
+      <edges xmi:id="_IqixFy3HEeSVn45_T4o6DA" source="_IqixDS3HEeSVn45_T4o6DA" target="_IqixDC3HEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FailureType/instance"/>
+      </edges>
+      <edges xmi:id="_IqixGC3HEeSVn45_T4o6DA" source="_IqixDC3HEeSVn45_T4o6DA" target="_IqixDS3HEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FailureInstance/type"/>
+      </edges>
+      <edges xmi:id="_aksCQi3HEeSVn45_T4o6DA" source="_IqixCS3HEeSVn45_T4o6DA" target="_aksCQC3HEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component/realization"/>
+      </edges>
+      <edges xmi:id="_aksCQy3HEeSVn45_T4o6DA" source="_aksCQC3HEeSVn45_T4o6DA" target="_IqixCS3HEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component/componentContainer"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_IqixGS3HEeSVn45_T4o6DA" origin="_Iqiw4i3HEeSVn45_T4o6DA" image="_IqixCC3HEeSVn45_T4o6DA"/>
+    <mappings xmi:id="_IqixGi3HEeSVn45_T4o6DA" origin="_Iqiw4y3HEeSVn45_T4o6DA" image="_IqixCS3HEeSVn45_T4o6DA"/>
+    <mappings xmi:id="_IqixHC3HEeSVn45_T4o6DA" origin="_Iqiw5S3HEeSVn45_T4o6DA" image="_IqixCy3HEeSVn45_T4o6DA"/>
+    <mappings xmi:id="_IqixHS3HEeSVn45_T4o6DA" origin="_Iqiw5i3HEeSVn45_T4o6DA" image="_IqixDS3HEeSVn45_T4o6DA"/>
+    <mappings xmi:id="_IqixHi3HEeSVn45_T4o6DA" origin="_Iqiw5y3HEeSVn45_T4o6DA" image="_IqixDi3HEeSVn45_T4o6DA"/>
+    <mappings xmi:id="_aksCQS3HEeSVn45_T4o6DA" origin="_SRgEEC3HEeSVn45_T4o6DA" image="_aksCQC3HEeSVn45_T4o6DA"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_0Y8b0i3NEeSVn45_T4o6DA" name="createdComponentInComponentDiagram_ErrorNew">
+    <lhs xmi:id="_0Y8b0y3NEeSVn45_T4o6DA" name="Lhs">
+      <nodes xmi:id="_0Y8b1C3NEeSVn45_T4o6DA" incoming="_0Y8b2S3NEeSVn45_T4o6DA" outgoing="_0Y8b2C3NEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//ComponentDiagram"/>
+      </nodes>
+      <nodes xmi:id="_0Y8b1S3NEeSVn45_T4o6DA" incoming="_0Y8b2C3NEeSVn45_T4o6DA" outgoing="_0Y8b2S3NEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component"/>
+      </nodes>
+      <nodes xmi:id="_0Y8b1i3NEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree"/>
+      </nodes>
+      <edges xmi:id="_0Y8b2C3NEeSVn45_T4o6DA" source="_0Y8b1C3NEeSVn45_T4o6DA" target="_0Y8b1S3NEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//ComponentDiagram/componetContainer"/>
+      </edges>
+      <edges xmi:id="_0Y8b2S3NEeSVn45_T4o6DA" source="_0Y8b1S3NEeSVn45_T4o6DA" target="_0Y8b1C3NEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component/diagram"/>
+      </edges>
+      <formula xsi:type="henshin:Not" xmi:id="_0Y8b3C3NEeSVn45_T4o6DA">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_0Y8b3S3NEeSVn45_T4o6DA">
+          <conclusion xmi:id="_0Y8b3i3NEeSVn45_T4o6DA">
+            <nodes xmi:id="_0Y8b3y3NEeSVn45_T4o6DA" incoming="_0Y8b5i3NEeSVn45_T4o6DA" outgoing="_0Y8b5y3NEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//ComponentDiagram"/>
+            </nodes>
+            <nodes xmi:id="_0Y8b4C3NEeSVn45_T4o6DA" incoming="_0Y8b5y3NEeSVn45_T4o6DA _0Y8b6y3NEeSVn45_T4o6DA _0Y8b7C3NEeSVn45_T4o6DA _0Y8b7i3NEeSVn45_T4o6DA" outgoing="_0Y8b5i3NEeSVn45_T4o6DA _0Y8b6i3NEeSVn45_T4o6DA _0Y8b7S3NEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component"/>
+            </nodes>
+            <nodes xmi:id="_0Y8b4S3NEeSVn45_T4o6DA" incoming="_0Y8b6i3NEeSVn45_T4o6DA" outgoing="_0Y8b6y3NEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Port"/>
+            </nodes>
+            <nodes xmi:id="_0Y8b4i3NEeSVn45_T4o6DA" incoming="_0Y8b6C3NEeSVn45_T4o6DA" outgoing="_0Y8b6S3NEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree"/>
+            </nodes>
+            <nodes xmi:id="_0Y8b4y3NEeSVn45_T4o6DA" incoming="_0Y8b6S3NEeSVn45_T4o6DA" outgoing="_0Y8b6C3NEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//ErrorType"/>
+            </nodes>
+            <nodes xmi:id="_0Y8b5C3NEeSVn45_T4o6DA" outgoing="_0Y8b7C3NEeSVn45_T4o6DA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+            </nodes>
+            <nodes xmi:id="_0Y8b5S3NEeSVn45_T4o6DA" incoming="_0Y8b7S3NEeSVn45_T4o6DA" outgoing="_0Y8b7i3NEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component"/>
+            </nodes>
+            <edges xmi:id="_0Y8b5i3NEeSVn45_T4o6DA" source="_0Y8b4C3NEeSVn45_T4o6DA" target="_0Y8b3y3NEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component/diagram"/>
+            </edges>
+            <edges xmi:id="_0Y8b5y3NEeSVn45_T4o6DA" source="_0Y8b3y3NEeSVn45_T4o6DA" target="_0Y8b4C3NEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//ComponentDiagram/componetContainer"/>
+            </edges>
+            <edges xmi:id="_0Y8b6C3NEeSVn45_T4o6DA" source="_0Y8b4y3NEeSVn45_T4o6DA" target="_0Y8b4i3NEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//ErrorType/root"/>
+            </edges>
+            <edges xmi:id="_0Y8b6S3NEeSVn45_T4o6DA" source="_0Y8b4i3NEeSVn45_T4o6DA" target="_0Y8b4y3NEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree/error_type"/>
+            </edges>
+            <edges xmi:id="_0Y8b6i3NEeSVn45_T4o6DA" source="_0Y8b4C3NEeSVn45_T4o6DA" target="_0Y8b4S3NEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component/ports"/>
+            </edges>
+            <edges xmi:id="_0Y8b6y3NEeSVn45_T4o6DA" source="_0Y8b4S3NEeSVn45_T4o6DA" target="_0Y8b4C3NEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Port/portHost"/>
+            </edges>
+            <edges xmi:id="_0Y8b7C3NEeSVn45_T4o6DA" source="_0Y8b5C3NEeSVn45_T4o6DA" target="_0Y8b4C3NEeSVn45_T4o6DA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+            </edges>
+            <edges xmi:id="_0Y8b7S3NEeSVn45_T4o6DA" source="_0Y8b4C3NEeSVn45_T4o6DA" target="_0Y8b5S3NEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component/realization"/>
+            </edges>
+            <edges xmi:id="_0Y8b7i3NEeSVn45_T4o6DA" source="_0Y8b5S3NEeSVn45_T4o6DA" target="_0Y8b4C3NEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component/componentContainer"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_0Y8b7y3NEeSVn45_T4o6DA" origin="_0Y8b1C3NEeSVn45_T4o6DA" image="_0Y8b3y3NEeSVn45_T4o6DA"/>
+          <mappings xmi:id="_0Y8b8C3NEeSVn45_T4o6DA" origin="_0Y8b1S3NEeSVn45_T4o6DA" image="_0Y8b4C3NEeSVn45_T4o6DA"/>
+          <mappings xmi:id="_0Y8b8S3NEeSVn45_T4o6DA" origin="_0Y8b1i3NEeSVn45_T4o6DA" image="_0Y8b4i3NEeSVn45_T4o6DA"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_0Y8b8y3NEeSVn45_T4o6DA" name="Rhs">
+      <nodes xmi:id="_0Y8b9C3NEeSVn45_T4o6DA" incoming="_0Y8b-y3NEeSVn45_T4o6DA" outgoing="_0Y8b-i3NEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//ComponentDiagram"/>
+      </nodes>
+      <nodes xmi:id="_0Y8b9S3NEeSVn45_T4o6DA" incoming="_0Y8b-i3NEeSVn45_T4o6DA _0Y8cAi3NEeSVn45_T4o6DA" outgoing="_0Y8b-y3NEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component"/>
+      </nodes>
+      <nodes xmi:id="_0Y8b9i3NEeSVn45_T4o6DA" incoming="_0Y8cAS3NEeSVn45_T4o6DA _0Y8b2y3NEeSVn45_T4o6DA" outgoing="_0Y8b_y3NEeSVn45_T4o6DA _0Y8b2i3NEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree"/>
+      </nodes>
+      <nodes xmi:id="_0Y8b9y3NEeSVn45_T4o6DA" incoming="_0Y8b_i3NEeSVn45_T4o6DA _0Y8b_y3NEeSVn45_T4o6DA _0Y8cAy3NEeSVn45_T4o6DA" outgoing="_0Y8cAC3NEeSVn45_T4o6DA _0Y8cAS3NEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//ErrorInstance"/>
+      </nodes>
+      <nodes xmi:id="_0Y8b-C3NEeSVn45_T4o6DA" outgoing="_0Y8cAi3NEeSVn45_T4o6DA _0Y8b_i3NEeSVn45_T4o6DA">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+      </nodes>
+      <nodes xmi:id="_0Y8b1y3NEeSVn45_T4o6DA" incoming="_0Y8b2i3NEeSVn45_T4o6DA _0Y8cAC3NEeSVn45_T4o6DA" outgoing="_0Y8b2y3NEeSVn45_T4o6DA _0Y8cAy3NEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//ErrorType"/>
+      </nodes>
+      <edges xmi:id="_0Y8b-i3NEeSVn45_T4o6DA" source="_0Y8b9C3NEeSVn45_T4o6DA" target="_0Y8b9S3NEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//ComponentDiagram/componetContainer"/>
+      </edges>
+      <edges xmi:id="_0Y8b-y3NEeSVn45_T4o6DA" source="_0Y8b9S3NEeSVn45_T4o6DA" target="_0Y8b9C3NEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component/diagram"/>
+      </edges>
+      <edges xmi:id="_0Y8b_i3NEeSVn45_T4o6DA" source="_0Y8b-C3NEeSVn45_T4o6DA" target="_0Y8b9y3NEeSVn45_T4o6DA">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+      </edges>
+      <edges xmi:id="_0Y8b_y3NEeSVn45_T4o6DA" source="_0Y8b9i3NEeSVn45_T4o6DA" target="_0Y8b9y3NEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree/error_instance"/>
+      </edges>
+      <edges xmi:id="_0Y8cAC3NEeSVn45_T4o6DA" source="_0Y8b9y3NEeSVn45_T4o6DA" target="_0Y8b1y3NEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//ErrorInstance/type"/>
+      </edges>
+      <edges xmi:id="_0Y8cAS3NEeSVn45_T4o6DA" source="_0Y8b9y3NEeSVn45_T4o6DA" target="_0Y8b9i3NEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//ErrorInstance/root"/>
+      </edges>
+      <edges xmi:id="_0Y8cAi3NEeSVn45_T4o6DA" source="_0Y8b-C3NEeSVn45_T4o6DA" target="_0Y8b9S3NEeSVn45_T4o6DA">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+      <edges xmi:id="_0Y8cAy3NEeSVn45_T4o6DA" source="_0Y8b1y3NEeSVn45_T4o6DA" target="_0Y8b9y3NEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//ErrorType/error"/>
+      </edges>
+      <edges xmi:id="_0Y8b2i3NEeSVn45_T4o6DA" source="_0Y8b9i3NEeSVn45_T4o6DA" target="_0Y8b1y3NEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree/error_type"/>
+      </edges>
+      <edges xmi:id="_0Y8b2y3NEeSVn45_T4o6DA" source="_0Y8b1y3NEeSVn45_T4o6DA" target="_0Y8b9i3NEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//ErrorType/root"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_0Y8cBC3NEeSVn45_T4o6DA" origin="_0Y8b1C3NEeSVn45_T4o6DA" image="_0Y8b9C3NEeSVn45_T4o6DA"/>
+    <mappings xmi:id="_0Y8cBS3NEeSVn45_T4o6DA" origin="_0Y8b1S3NEeSVn45_T4o6DA" image="_0Y8b9S3NEeSVn45_T4o6DA"/>
+    <mappings xmi:id="_0Y8cBi3NEeSVn45_T4o6DA" origin="_0Y8b1i3NEeSVn45_T4o6DA" image="_0Y8b9i3NEeSVn45_T4o6DA"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_IL0wYC3OEeSVn45_T4o6DA" name="createdComponentInComponentDiagram_FailurePortNew">
+    <lhs xmi:id="_IL0wYS3OEeSVn45_T4o6DA" name="Lhs">
+      <nodes xmi:id="_IL0wYi3OEeSVn45_T4o6DA" incoming="_IL0waS3OEeSVn45_T4o6DA" outgoing="_IL0waC3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//ComponentDiagram"/>
+      </nodes>
+      <nodes xmi:id="_IL0wYy3OEeSVn45_T4o6DA" incoming="_IL0waC3OEeSVn45_T4o6DA _IL0wai3OEeSVn45_T4o6DA _IL0wbi3OEeSVn45_T4o6DA" outgoing="_IL0waS3OEeSVn45_T4o6DA _IL0wbS3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component"/>
+      </nodes>
+      <nodes xmi:id="_IL0wZC3OEeSVn45_T4o6DA" incoming="_IL0wbS3OEeSVn45_T4o6DA" outgoing="_IL0wbi3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Port"/>
+      </nodes>
+      <nodes xmi:id="_IL0wZS3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree"/>
+      </nodes>
+      <nodes xmi:id="_IL0wZy3OEeSVn45_T4o6DA" outgoing="_IL0wai3OEeSVn45_T4o6DA">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+      </nodes>
+      <edges xmi:id="_IL0waC3OEeSVn45_T4o6DA" source="_IL0wYi3OEeSVn45_T4o6DA" target="_IL0wYy3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//ComponentDiagram/componetContainer"/>
+      </edges>
+      <edges xmi:id="_IL0waS3OEeSVn45_T4o6DA" source="_IL0wYy3OEeSVn45_T4o6DA" target="_IL0wYi3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component/diagram"/>
+      </edges>
+      <edges xmi:id="_IL0wai3OEeSVn45_T4o6DA" source="_IL0wZy3OEeSVn45_T4o6DA" target="_IL0wYy3OEeSVn45_T4o6DA">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+      <edges xmi:id="_IL0wbS3OEeSVn45_T4o6DA" source="_IL0wYy3OEeSVn45_T4o6DA" target="_IL0wZC3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component/ports"/>
+      </edges>
+      <edges xmi:id="_IL0wbi3OEeSVn45_T4o6DA" source="_IL0wZC3OEeSVn45_T4o6DA" target="_IL0wYy3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Port/portHost"/>
+      </edges>
+      <formula xsi:type="henshin:Not" xmi:id="_IL0wby3OEeSVn45_T4o6DA">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_IL0wcC3OEeSVn45_T4o6DA">
+          <conclusion xmi:id="_IL0wcS3OEeSVn45_T4o6DA">
+            <nodes xmi:id="_IL0wci3OEeSVn45_T4o6DA" incoming="_IL0weS3OEeSVn45_T4o6DA" outgoing="_IL0wei3OEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//ComponentDiagram"/>
+            </nodes>
+            <nodes xmi:id="_IL0wcy3OEeSVn45_T4o6DA" incoming="_IL0wei3OEeSVn45_T4o6DA _IL0wey3OEeSVn45_T4o6DA _IL0wfC3OEeSVn45_T4o6DA _IL0wgC3OEeSVn45_T4o6DA" outgoing="_IL0weS3OEeSVn45_T4o6DA _IL0wfS3OEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component"/>
+            </nodes>
+            <nodes xmi:id="_IL0wdC3OEeSVn45_T4o6DA" outgoing="_IL0wey3OEeSVn45_T4o6DA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+            </nodes>
+            <nodes xmi:id="_IL0wdS3OEeSVn45_T4o6DA" incoming="_IL0wfS3OEeSVn45_T4o6DA" outgoing="_IL0wfC3OEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Port"/>
+            </nodes>
+            <nodes xmi:id="_IL0wdi3OEeSVn45_T4o6DA" outgoing="_IL0wgC3OEeSVn45_T4o6DA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+            </nodes>
+            <nodes xmi:id="_IL0wdy3OEeSVn45_T4o6DA" incoming="_IL0wfi3OEeSVn45_T4o6DA" outgoing="_IL0wfy3OEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree"/>
+            </nodes>
+            <nodes xmi:id="_IL0weC3OEeSVn45_T4o6DA" incoming="_IL0wfy3OEeSVn45_T4o6DA" outgoing="_IL0wfi3OEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FailureType"/>
+            </nodes>
+            <edges xmi:id="_IL0weS3OEeSVn45_T4o6DA" source="_IL0wcy3OEeSVn45_T4o6DA" target="_IL0wci3OEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component/diagram"/>
+            </edges>
+            <edges xmi:id="_IL0wei3OEeSVn45_T4o6DA" source="_IL0wci3OEeSVn45_T4o6DA" target="_IL0wcy3OEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//ComponentDiagram/componetContainer"/>
+            </edges>
+            <edges xmi:id="_IL0wey3OEeSVn45_T4o6DA" source="_IL0wdC3OEeSVn45_T4o6DA" target="_IL0wcy3OEeSVn45_T4o6DA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+            </edges>
+            <edges xmi:id="_IL0wfC3OEeSVn45_T4o6DA" source="_IL0wdS3OEeSVn45_T4o6DA" target="_IL0wcy3OEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Port/portHost"/>
+            </edges>
+            <edges xmi:id="_IL0wfS3OEeSVn45_T4o6DA" source="_IL0wcy3OEeSVn45_T4o6DA" target="_IL0wdS3OEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component/ports"/>
+            </edges>
+            <edges xmi:id="_IL0wfi3OEeSVn45_T4o6DA" source="_IL0weC3OEeSVn45_T4o6DA" target="_IL0wdy3OEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FailureType/root"/>
+            </edges>
+            <edges xmi:id="_IL0wfy3OEeSVn45_T4o6DA" source="_IL0wdy3OEeSVn45_T4o6DA" target="_IL0weC3OEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree/failure_type"/>
+            </edges>
+            <edges xmi:id="_IL0wgC3OEeSVn45_T4o6DA" source="_IL0wdi3OEeSVn45_T4o6DA" target="_IL0wcy3OEeSVn45_T4o6DA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_IL0wgS3OEeSVn45_T4o6DA" origin="_IL0wYi3OEeSVn45_T4o6DA" image="_IL0wci3OEeSVn45_T4o6DA"/>
+          <mappings xmi:id="_IL0wgi3OEeSVn45_T4o6DA" origin="_IL0wYy3OEeSVn45_T4o6DA" image="_IL0wcy3OEeSVn45_T4o6DA"/>
+          <mappings xmi:id="_IL0wgy3OEeSVn45_T4o6DA" origin="_IL0wZy3OEeSVn45_T4o6DA" image="_IL0wdC3OEeSVn45_T4o6DA"/>
+          <mappings xmi:id="_IL0whC3OEeSVn45_T4o6DA" origin="_IL0wZC3OEeSVn45_T4o6DA" image="_IL0wdS3OEeSVn45_T4o6DA"/>
+          <mappings xmi:id="_IL0whS3OEeSVn45_T4o6DA" origin="_IL0wZS3OEeSVn45_T4o6DA" image="_IL0wdy3OEeSVn45_T4o6DA"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_IL0why3OEeSVn45_T4o6DA" name="Rhs">
+      <nodes xmi:id="_IL0wiC3OEeSVn45_T4o6DA" incoming="_IL0wkC3OEeSVn45_T4o6DA" outgoing="_IL0wjy3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//ComponentDiagram"/>
+      </nodes>
+      <nodes xmi:id="_IL0wiS3OEeSVn45_T4o6DA" incoming="_IL0wjy3OEeSVn45_T4o6DA _IL0wkS3OEeSVn45_T4o6DA _IL0wlS3OEeSVn45_T4o6DA" outgoing="_IL0wkC3OEeSVn45_T4o6DA _IL0wlC3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component"/>
+      </nodes>
+      <nodes xmi:id="_IL0wii3OEeSVn45_T4o6DA" incoming="_IL0wlC3OEeSVn45_T4o6DA" outgoing="_IL0wlS3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Port"/>
+      </nodes>
+      <nodes xmi:id="_IL0wiy3OEeSVn45_T4o6DA" incoming="_IL0wbC3OEeSVn45_T4o6DA" outgoing="_IL0way3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree"/>
+      </nodes>
+      <nodes xmi:id="_IL0wjC3OEeSVn45_T4o6DA" incoming="_IL0wli3OEeSVn45_T4o6DA _IL0wly3OEeSVn45_T4o6DA" outgoing="_IL0wmC3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FailureInstance"/>
+      </nodes>
+      <nodes xmi:id="_IL0wZi3OEeSVn45_T4o6DA" incoming="_IL0way3OEeSVn45_T4o6DA _IL0wmC3OEeSVn45_T4o6DA" outgoing="_IL0wbC3OEeSVn45_T4o6DA _IL0wly3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FailureType"/>
+      </nodes>
+      <nodes xmi:id="_IL0wji3OEeSVn45_T4o6DA" outgoing="_IL0wkS3OEeSVn45_T4o6DA _IL0wli3OEeSVn45_T4o6DA">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+      </nodes>
+      <edges xmi:id="_IL0wjy3OEeSVn45_T4o6DA" source="_IL0wiC3OEeSVn45_T4o6DA" target="_IL0wiS3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//ComponentDiagram/componetContainer"/>
+      </edges>
+      <edges xmi:id="_IL0wkC3OEeSVn45_T4o6DA" source="_IL0wiS3OEeSVn45_T4o6DA" target="_IL0wiC3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component/diagram"/>
+      </edges>
+      <edges xmi:id="_IL0wkS3OEeSVn45_T4o6DA" source="_IL0wji3OEeSVn45_T4o6DA" target="_IL0wiS3OEeSVn45_T4o6DA">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+      <edges xmi:id="_IL0wlC3OEeSVn45_T4o6DA" source="_IL0wiS3OEeSVn45_T4o6DA" target="_IL0wii3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component/ports"/>
+      </edges>
+      <edges xmi:id="_IL0wlS3OEeSVn45_T4o6DA" source="_IL0wii3OEeSVn45_T4o6DA" target="_IL0wiS3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Port/portHost"/>
+      </edges>
+      <edges xmi:id="_IL0wli3OEeSVn45_T4o6DA" source="_IL0wji3OEeSVn45_T4o6DA" target="_IL0wjC3OEeSVn45_T4o6DA">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+      </edges>
+      <edges xmi:id="_IL0wly3OEeSVn45_T4o6DA" source="_IL0wZi3OEeSVn45_T4o6DA" target="_IL0wjC3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FailureType/instance"/>
+      </edges>
+      <edges xmi:id="_IL0wmC3OEeSVn45_T4o6DA" source="_IL0wjC3OEeSVn45_T4o6DA" target="_IL0wZi3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FailureInstance/type"/>
+      </edges>
+      <edges xmi:id="_IL0way3OEeSVn45_T4o6DA" source="_IL0wiy3OEeSVn45_T4o6DA" target="_IL0wZi3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree/failure_type"/>
+      </edges>
+      <edges xmi:id="_IL0wbC3OEeSVn45_T4o6DA" source="_IL0wZi3OEeSVn45_T4o6DA" target="_IL0wiy3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FailureType/root"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_IL0wmS3OEeSVn45_T4o6DA" origin="_IL0wYi3OEeSVn45_T4o6DA" image="_IL0wiC3OEeSVn45_T4o6DA"/>
+    <mappings xmi:id="_IL0wmi3OEeSVn45_T4o6DA" origin="_IL0wYy3OEeSVn45_T4o6DA" image="_IL0wiS3OEeSVn45_T4o6DA"/>
+    <mappings xmi:id="_IL0wmy3OEeSVn45_T4o6DA" origin="_IL0wZC3OEeSVn45_T4o6DA" image="_IL0wii3OEeSVn45_T4o6DA"/>
+    <mappings xmi:id="_IL0wnC3OEeSVn45_T4o6DA" origin="_IL0wZS3OEeSVn45_T4o6DA" image="_IL0wiy3OEeSVn45_T4o6DA"/>
+    <mappings xmi:id="_IL0wni3OEeSVn45_T4o6DA" origin="_IL0wZy3OEeSVn45_T4o6DA" image="_IL0wji3OEeSVn45_T4o6DA"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_XfUIkC3OEeSVn45_T4o6DA" name="createdComponentInComponentDiagram_FailureSubComponentNew">
+    <lhs xmi:id="_XfUIkS3OEeSVn45_T4o6DA" name="Lhs">
+      <nodes xmi:id="_XfUIki3OEeSVn45_T4o6DA" incoming="_XfUImS3OEeSVn45_T4o6DA" outgoing="_XfUImC3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//ComponentDiagram"/>
+      </nodes>
+      <nodes xmi:id="_XfUIky3OEeSVn45_T4o6DA" incoming="_XfUImC3OEeSVn45_T4o6DA _XfUImi3OEeSVn45_T4o6DA _XfUIni3OEeSVn45_T4o6DA" outgoing="_XfUImS3OEeSVn45_T4o6DA _XfUInS3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component"/>
+      </nodes>
+      <nodes xmi:id="_XfUIlC3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree"/>
+      </nodes>
+      <nodes xmi:id="_XfUIli3OEeSVn45_T4o6DA" outgoing="_XfUImi3OEeSVn45_T4o6DA">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+      </nodes>
+      <nodes xmi:id="_XfUIly3OEeSVn45_T4o6DA" incoming="_XfUInS3OEeSVn45_T4o6DA" outgoing="_XfUIni3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component"/>
+      </nodes>
+      <edges xmi:id="_XfUImC3OEeSVn45_T4o6DA" source="_XfUIki3OEeSVn45_T4o6DA" target="_XfUIky3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//ComponentDiagram/componetContainer"/>
+      </edges>
+      <edges xmi:id="_XfUImS3OEeSVn45_T4o6DA" source="_XfUIky3OEeSVn45_T4o6DA" target="_XfUIki3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component/diagram"/>
+      </edges>
+      <edges xmi:id="_XfUImi3OEeSVn45_T4o6DA" source="_XfUIli3OEeSVn45_T4o6DA" target="_XfUIky3OEeSVn45_T4o6DA">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+      <edges xmi:id="_XfUInS3OEeSVn45_T4o6DA" source="_XfUIky3OEeSVn45_T4o6DA" target="_XfUIly3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component/realization"/>
+      </edges>
+      <edges xmi:id="_XfUIni3OEeSVn45_T4o6DA" source="_XfUIly3OEeSVn45_T4o6DA" target="_XfUIky3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component/componentContainer"/>
+      </edges>
+      <formula xsi:type="henshin:Not" xmi:id="_XfUIny3OEeSVn45_T4o6DA">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_XfUIoC3OEeSVn45_T4o6DA">
+          <conclusion xmi:id="_XfUIoS3OEeSVn45_T4o6DA">
+            <nodes xmi:id="_XfUIoi3OEeSVn45_T4o6DA" incoming="_XfUIqC3OEeSVn45_T4o6DA" outgoing="_XfUIqS3OEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//ComponentDiagram"/>
+            </nodes>
+            <nodes xmi:id="_XfUIoy3OEeSVn45_T4o6DA" incoming="_XfUIqS3OEeSVn45_T4o6DA _XfUIqi3OEeSVn45_T4o6DA _XfUIrS3OEeSVn45_T4o6DA" outgoing="_XfUIqC3OEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component"/>
+            </nodes>
+            <nodes xmi:id="_XfUIpC3OEeSVn45_T4o6DA" outgoing="_XfUIqi3OEeSVn45_T4o6DA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+            </nodes>
+            <nodes xmi:id="_XfUIpS3OEeSVn45_T4o6DA" outgoing="_XfUIrS3OEeSVn45_T4o6DA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+            </nodes>
+            <nodes xmi:id="_XfUIpi3OEeSVn45_T4o6DA" incoming="_XfUIqy3OEeSVn45_T4o6DA" outgoing="_XfUIrC3OEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree"/>
+            </nodes>
+            <nodes xmi:id="_XfUIpy3OEeSVn45_T4o6DA" incoming="_XfUIrC3OEeSVn45_T4o6DA" outgoing="_XfUIqy3OEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FailureType"/>
+            </nodes>
+            <edges xmi:id="_XfUIqC3OEeSVn45_T4o6DA" source="_XfUIoy3OEeSVn45_T4o6DA" target="_XfUIoi3OEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component/diagram"/>
+            </edges>
+            <edges xmi:id="_XfUIqS3OEeSVn45_T4o6DA" source="_XfUIoi3OEeSVn45_T4o6DA" target="_XfUIoy3OEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//ComponentDiagram/componetContainer"/>
+            </edges>
+            <edges xmi:id="_XfUIqi3OEeSVn45_T4o6DA" source="_XfUIpC3OEeSVn45_T4o6DA" target="_XfUIoy3OEeSVn45_T4o6DA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+            </edges>
+            <edges xmi:id="_XfUIqy3OEeSVn45_T4o6DA" source="_XfUIpy3OEeSVn45_T4o6DA" target="_XfUIpi3OEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FailureType/root"/>
+            </edges>
+            <edges xmi:id="_XfUIrC3OEeSVn45_T4o6DA" source="_XfUIpi3OEeSVn45_T4o6DA" target="_XfUIpy3OEeSVn45_T4o6DA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree/failure_type"/>
+            </edges>
+            <edges xmi:id="_XfUIrS3OEeSVn45_T4o6DA" source="_XfUIpS3OEeSVn45_T4o6DA" target="_XfUIoy3OEeSVn45_T4o6DA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_XfUIri3OEeSVn45_T4o6DA" origin="_XfUIki3OEeSVn45_T4o6DA" image="_XfUIoi3OEeSVn45_T4o6DA"/>
+          <mappings xmi:id="_XfUIry3OEeSVn45_T4o6DA" origin="_XfUIky3OEeSVn45_T4o6DA" image="_XfUIoy3OEeSVn45_T4o6DA"/>
+          <mappings xmi:id="_XfUIsC3OEeSVn45_T4o6DA" origin="_XfUIli3OEeSVn45_T4o6DA" image="_XfUIpC3OEeSVn45_T4o6DA"/>
+          <mappings xmi:id="_XfUIsS3OEeSVn45_T4o6DA" origin="_XfUIlC3OEeSVn45_T4o6DA" image="_XfUIpi3OEeSVn45_T4o6DA"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_XfUIsy3OEeSVn45_T4o6DA" name="Rhs">
+      <nodes xmi:id="_XfUItC3OEeSVn45_T4o6DA" incoming="_XfUIvC3OEeSVn45_T4o6DA" outgoing="_XfUIuy3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//ComponentDiagram"/>
+      </nodes>
+      <nodes xmi:id="_XfUItS3OEeSVn45_T4o6DA" incoming="_XfUIuy3OEeSVn45_T4o6DA _XfUIvS3OEeSVn45_T4o6DA _XfUIxC3OEeSVn45_T4o6DA" outgoing="_XfUIvC3OEeSVn45_T4o6DA _XfUIwy3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component"/>
+      </nodes>
+      <nodes xmi:id="_XfUIti3OEeSVn45_T4o6DA" incoming="_XfUInC3OEeSVn45_T4o6DA" outgoing="_XfUImy3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree"/>
+      </nodes>
+      <nodes xmi:id="_XfUIty3OEeSVn45_T4o6DA" incoming="_XfUIwC3OEeSVn45_T4o6DA _XfUIwS3OEeSVn45_T4o6DA" outgoing="_XfUIwi3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FailureInstance"/>
+      </nodes>
+      <nodes xmi:id="_XfUIlS3OEeSVn45_T4o6DA" incoming="_XfUImy3OEeSVn45_T4o6DA _XfUIwi3OEeSVn45_T4o6DA" outgoing="_XfUInC3OEeSVn45_T4o6DA _XfUIwS3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FailureType"/>
+      </nodes>
+      <nodes xmi:id="_XfUIuS3OEeSVn45_T4o6DA" outgoing="_XfUIvS3OEeSVn45_T4o6DA _XfUIwC3OEeSVn45_T4o6DA">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+      </nodes>
+      <nodes xmi:id="_XfUIui3OEeSVn45_T4o6DA" incoming="_XfUIwy3OEeSVn45_T4o6DA" outgoing="_XfUIxC3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component"/>
+      </nodes>
+      <edges xmi:id="_XfUIuy3OEeSVn45_T4o6DA" source="_XfUItC3OEeSVn45_T4o6DA" target="_XfUItS3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//ComponentDiagram/componetContainer"/>
+      </edges>
+      <edges xmi:id="_XfUIvC3OEeSVn45_T4o6DA" source="_XfUItS3OEeSVn45_T4o6DA" target="_XfUItC3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component/diagram"/>
+      </edges>
+      <edges xmi:id="_XfUIvS3OEeSVn45_T4o6DA" source="_XfUIuS3OEeSVn45_T4o6DA" target="_XfUItS3OEeSVn45_T4o6DA">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+      <edges xmi:id="_XfUIwC3OEeSVn45_T4o6DA" source="_XfUIuS3OEeSVn45_T4o6DA" target="_XfUIty3OEeSVn45_T4o6DA">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+      </edges>
+      <edges xmi:id="_XfUIwS3OEeSVn45_T4o6DA" source="_XfUIlS3OEeSVn45_T4o6DA" target="_XfUIty3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FailureType/instance"/>
+      </edges>
+      <edges xmi:id="_XfUIwi3OEeSVn45_T4o6DA" source="_XfUIty3OEeSVn45_T4o6DA" target="_XfUIlS3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FailureInstance/type"/>
+      </edges>
+      <edges xmi:id="_XfUIwy3OEeSVn45_T4o6DA" source="_XfUItS3OEeSVn45_T4o6DA" target="_XfUIui3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component/realization"/>
+      </edges>
+      <edges xmi:id="_XfUIxC3OEeSVn45_T4o6DA" source="_XfUIui3OEeSVn45_T4o6DA" target="_XfUItS3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//Component/componentContainer"/>
+      </edges>
+      <edges xmi:id="_XfUImy3OEeSVn45_T4o6DA" source="_XfUIti3OEeSVn45_T4o6DA" target="_XfUIlS3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree/failure_type"/>
+      </edges>
+      <edges xmi:id="_XfUInC3OEeSVn45_T4o6DA" source="_XfUIlS3OEeSVn45_T4o6DA" target="_XfUIti3OEeSVn45_T4o6DA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FailureType/root"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_XfUIxS3OEeSVn45_T4o6DA" origin="_XfUIki3OEeSVn45_T4o6DA" image="_XfUItC3OEeSVn45_T4o6DA"/>
+    <mappings xmi:id="_XfUIxi3OEeSVn45_T4o6DA" origin="_XfUIky3OEeSVn45_T4o6DA" image="_XfUItS3OEeSVn45_T4o6DA"/>
+    <mappings xmi:id="_XfUIxy3OEeSVn45_T4o6DA" origin="_XfUIlC3OEeSVn45_T4o6DA" image="_XfUIti3OEeSVn45_T4o6DA"/>
+    <mappings xmi:id="_XfUIyS3OEeSVn45_T4o6DA" origin="_XfUIli3OEeSVn45_T4o6DA" image="_XfUIuS3OEeSVn45_T4o6DA"/>
+    <mappings xmi:id="_XfUIyi3OEeSVn45_T4o6DA" origin="_XfUIly3OEeSVn45_T4o6DA" image="_XfUIui3OEeSVn45_T4o6DA"/>
+  </units>
+  <units xsi:type="henshin:IndependentUnit" xmi:id="_TR53gC3PEeSVn45_T4o6DA" name="createdComponentInComponentDiagramUnit" subUnits="_sl9YIC0_EeSORK-s0s2xFA _NlpVwC3DEeSVn45_T4o6DA _Iqiw4C3HEeSVn45_T4o6DA _0Y8b0i3NEeSVn45_T4o6DA _IL0wYC3OEeSVn45_T4o6DA _XfUIkC3OEeSVn45_T4o6DA"/>
 </henshin:Module>
