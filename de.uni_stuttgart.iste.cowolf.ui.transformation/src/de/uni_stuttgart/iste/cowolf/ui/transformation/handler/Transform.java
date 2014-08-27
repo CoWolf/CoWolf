@@ -194,8 +194,8 @@ public class Transform extends AbstractHandler {
                         difference = evoManager.evolve(firstSource,
                                 filteredSecondSource);
                         Resource transformedModel = transManager.transform(
-                                filteredSecondSource, target, difference,
-                                result);
+                                firstSource, filteredSecondSource, target,
+                                difference, result);
                         final AbstractEvolutionManager evoManager = extensionHandler
                                 .getEvolutionManager(target);
                         if (evoManager != null) {

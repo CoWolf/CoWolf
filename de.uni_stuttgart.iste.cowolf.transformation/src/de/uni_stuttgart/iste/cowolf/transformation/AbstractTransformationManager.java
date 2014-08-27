@@ -96,9 +96,24 @@ public abstract class AbstractTransformationManager {
 		if (getManagedClass1().isAssignableFrom(target.getContents().get(0).getClass()) 
 				&& getManagedClass2().isAssignableFrom(source.getContents().get(0).getClass())) {
 			return true;
-		}
+        }
 
-		return false;
+        return false;
+
+    }
+
+    private URI buildTraceFileUri(Resource source, Resource target) {
+        String[] segments = source.getURI().segments();
+        String filename = segments[segments.length - 1];
+        filename = filename.substring(0, filename.lastIndexOf("."));
+        filename += "-"
+                + target.getURI().segments()[target.getURI().segments().length - 1];
+        filename = filename.substring(0, filename.lastIndexOf("."));
+        filename += "." + this.getKey(source) + ".trace";
+        URI traceURI = source.getURI().trimSegments(1).appendSegment("Traces")
+                .appendSegment(filename);
+        return traceURI;
+		
     }
 
     /**
@@ -129,15 +144,23 @@ public abstract class AbstractTransformationManager {
      * @return
      * 
      */
-    public Resource transform(Resource source, Resource target,
-            SymmetricDifference difference, URI fileURI) {
+    public Resource transform(Resource oldSource, Resource source,
+            Resource target, SymmetricDifference difference, URI fileURI) {
         this.fileURI = fileURI;
         System.out.println("Loading mappings...");
-        URI uri = URI.createPlatformResourceURI("Test/traces.xmi", true);
+
         ResourceSet resSet = new ResourceSetImpl();
         resSet.getResources().add(source);
         resSet.getResources().add(target);
-        resSet.getResource(uri, true);
+        Resource traces = null;
+        URI traceURI = this.buildTraceFileUri(oldSource, target);
+        try {
+            traces = resSet.getResource(traceURI, true);
+        } catch (Exception e) {
+            e.printStackTrace();
+            traces = resSet.createResource(traceURI);
+        }
+
         // Load mappings
         Mappings mappingObject;
         try {
@@ -159,12 +182,13 @@ public abstract class AbstractTransformationManager {
 
         System.out.println("Merging graphs");
         List<EGraph> graphs = new ArrayList<>();
-        Resource traces = resSet.getResource(uri, true);
         // initialize URI converter and update broken traces
         this.updateTraces(source, target, traces, resSet);
-        traces = resSet.getResource(uri, true);
-        for (Resource res : resSet.getResources()) {
-            System.out.println(res);
+        try {
+            traces = resSet.getResource(traceURI, true);
+        } catch (Exception e) {
+            e.printStackTrace();
+            traces = resSet.createResource(traceURI);
         }
         graphs.add(new EGraphImpl(source));
         graphs.add(new EGraphImpl(target));
@@ -183,6 +207,9 @@ public abstract class AbstractTransformationManager {
                 traces = resSet.getResource(traces.getURI(), true);
                 this.updateTraces(source, res, traces, resSet);
                 EcoreUtil.resolveAll(resSet);
+                traceURI = this.buildTraceFileUri(source, res);
+                traces.setURI(traceURI);
+                System.out.println(traces.getContents().size());
                 traces.save(null);
                 return res;
             } catch (IOException e) {
@@ -215,15 +242,15 @@ public abstract class AbstractTransformationManager {
             String extension = EcoreUtil.getURI(entry).fileExtension();
             if (extension.equals(source.getURI().fileExtension())) {
                 resSet.getURIConverter()
-                    .getURIMap()
-                    .put(EcoreUtil.getURI(entry).trimFragment(),
-                            source.getURI());
+                        .getURIMap()
+                        .put(EcoreUtil.getURI(entry).trimFragment(),
+                                source.getURI());
             } else {
                 resSet.getURIConverter()
                         .getURIMap()
                         .put(EcoreUtil.getURI(entry).trimFragment(),
                                 target.getURI());
-        }
+            }
         }
 
         // find resources which are older than current element, put them in
@@ -238,10 +265,10 @@ public abstract class AbstractTransformationManager {
                                 .put(EcoreUtil.getURI(src).trimFragment(),
                                         source.getURI());
                         if (src.eResource() != null) {
-                        src.eResource().unload();
+                            src.eResource().unload();
+                        }
                     }
                 }
-            }
                 for (EObject tgt : ((TraceImpl) obj).getTarget()) {
                     System.out.println(tgt);
                     if (!map.containsKey(EcoreUtil.getURI(tgt).trimFragment())) {
@@ -252,7 +279,7 @@ public abstract class AbstractTransformationManager {
                         if (tgt.eResource() != null) {
                             tgt.eResource().unload();
                         }
-        }
+                    }
                 }
             }
         }
@@ -308,9 +335,7 @@ public abstract class AbstractTransformationManager {
             System.out.println("root" + root);
             // root is element of target model
             if (root.getClass() == targetClass) {
-
                 temp.getContents().add(root);
-
             }
 
             // root is a Trace and has source and target
@@ -319,7 +344,7 @@ public abstract class AbstractTransformationManager {
                 int hasTarget = ((TraceImpl) root).getTarget().size();
 
                 if (hasSource >= 1 && hasTarget >= 1) {
-
+                    System.out.println("added root node to contents");
                     traceModel.getContents().add(root);
                 }
 
@@ -340,7 +365,6 @@ public abstract class AbstractTransformationManager {
             Resource res = henshinResourceSet.createResource(this.fileURI);
             res.getContents().addAll(temp.getContents());
             res.save(null);
-            System.out.println(res);
             return res;
         }
 
