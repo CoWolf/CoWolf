@@ -105,7 +105,46 @@ public class DTMCValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateDTMC(DTMC dtmc, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(dtmc, diagnostics, context);
+		if (!validate_NoCircularContainment(dtmc, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(dtmc, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(dtmc, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(dtmc, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(dtmc, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(dtmc, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(dtmc, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(dtmc, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(dtmc, diagnostics, context);
+		if (result || diagnostics != null) result &= validateDTMC_initalStateRequierd(dtmc, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * The cached validation expression for the initalStateRequierd constraint of '<em>DTMC</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String DTMC__INITAL_STATE_REQUIERD__EEXPRESSION = "self.initialState -> size() >0";
+
+	/**
+	 * Validates the initalStateRequierd constraint of '<em>DTMC</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateDTMC_initalStateRequierd(DTMC dtmc, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(DTMCPackage.Literals.DTMC,
+				 dtmc,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
+				 "initalStateRequierd",
+				 DTMC__INITAL_STATE_REQUIERD__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
 
 	/**
