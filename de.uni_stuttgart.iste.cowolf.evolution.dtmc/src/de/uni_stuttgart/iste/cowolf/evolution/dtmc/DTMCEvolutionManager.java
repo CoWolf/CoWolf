@@ -31,4 +31,9 @@ public class DTMCEvolutionManager extends AbstractEvolutionManager {
 		return info;
 	}
 
+	@Override
+	protected Class<?> getManagedClass() {
+		return DTMC.class;
+	}
+
 }

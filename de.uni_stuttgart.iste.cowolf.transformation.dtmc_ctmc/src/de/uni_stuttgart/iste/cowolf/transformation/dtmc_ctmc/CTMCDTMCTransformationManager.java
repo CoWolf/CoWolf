@@ -8,13 +8,11 @@ import java.net.URL;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.osgi.framework.Bundle;
 
 import de.uni_stuttgart.iste.cowolf.model.ctmc.CTMC;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC;
 import de.uni_stuttgart.iste.cowolf.transformation.AbstractTransformationManager;
-import de.uni_stuttgart.iste.cowolf.transformation.TransformationTypeInfo;
 
 /**
  * 
@@ -30,32 +28,6 @@ public class CTMCDTMCTransformationManager extends
 	 * Key for extension point identification.
 	 */
 	private final static String KEY = "ctmc_dtmc";
-	private final static Class<?> FIRST_MODEL = DTMC.class;
-	private final static Class<?> SECOND_MODEL = CTMC.class;
-
-	@Override
-	public boolean isManaged(Resource source, Resource target) {
-		if ((source == null) || (target == null)) {
-			return false;
-		}
-		if ((source.getContents() == null) || source.getContents().isEmpty()
-				|| (target.getContents() == null)
-				|| target.getContents().isEmpty()) {
-			return false;
-		}
-
-		return (((FIRST_MODEL.isAssignableFrom(source.getContents().get(0)
-				.getClass())) && (SECOND_MODEL.isAssignableFrom(target
-				.getContents().get(0).getClass()))) || ((SECOND_MODEL
-				.isAssignableFrom(source.getContents().get(0).getClass())) && (FIRST_MODEL
-				.isAssignableFrom(target.getContents().get(0).getClass()))));
-	}
-
-	@Override
-	public TransformationTypeInfo getTransformationTypeInfo() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	protected String getKey() {
@@ -79,6 +51,16 @@ public class CTMCDTMCTransformationManager extends
 		}
 
 		return ruleDirectory;
+	}
+
+	@Override
+	public Class<?> getManagedClass1() {
+		return DTMC.class;
+	}
+
+	@Override
+	public Class<?> getManagedClass2() {
+		return CTMC.class;
 	}
 
 }

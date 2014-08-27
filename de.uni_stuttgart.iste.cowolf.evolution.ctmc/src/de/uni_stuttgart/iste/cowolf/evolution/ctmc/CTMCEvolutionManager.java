@@ -1,5 +1,6 @@
 package de.uni_stuttgart.iste.cowolf.evolution.ctmc;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 
 import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
@@ -22,5 +23,10 @@ public class CTMCEvolutionManager extends AbstractEvolutionManager {
 		EvolutionTypeInfo info = new EvolutionTypeInfo();
 		info.setMatcher(EvolutionTypeInfo.MATCHER_EMFCOMPARE);
 		return info;
+	}
+
+	@Override
+	protected Class<? extends EObject> getManagedClass() {
+		return CTMC.class;
 	}
 }

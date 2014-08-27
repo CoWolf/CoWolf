@@ -29,4 +29,9 @@ public class StatechartEvolutionManager extends AbstractEvolutionManager {
         info.setMatcher(EvolutionTypeInfo.MATCHER_EMFCOMPARE);
         return info;
     }
+
+	@Override
+	protected Class<?> getManagedClass() {
+		return StateMachine.class;
+	}
 }

@@ -14,7 +14,6 @@ import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
 import de.uni_stuttgart.iste.cowolf.model.AbstractArchitectureModelManager;
 import de.uni_stuttgart.iste.cowolf.model.AbstractModelManager;
 import de.uni_stuttgart.iste.cowolf.model.AbstractQoSModelManager;
-import de.uni_stuttgart.iste.cowolf.model.ModelTypeInfo;
 import de.uni_stuttgart.iste.cowolf.transformation.AbstractTransformationManager;
 
 /**
@@ -228,44 +227,26 @@ public class ExtensionHandler {
         return null;
     }
 
-    private List<ModelTypeInfo> getAllModelTypeInfos() {
-
-        List<ModelTypeInfo> allModelTypeInfos = new ArrayList<ModelTypeInfo>();
-
-        for (AbstractQoSModelManager manager : qosModelManagers) {
-            ModelTypeInfo info = manager.getModelTypeInfo();
-            if (info != null) {
-                allModelTypeInfos.add(info);
-            }
-        }
-        for (AbstractArchitectureModelManager manager : architectureModelManagers) {
-            ModelTypeInfo info = manager.getModelTypeInfo();
-            if (info != null) {
-                allModelTypeInfos.add(info);
-            }
-        }
-
-        return allModelTypeInfos;
-
-    }
-
     public List<String> getAllModelNames() {
-
         List<String> allModelNames = new ArrayList<String>();
 
-        for (ModelTypeInfo modelTypeInfo : getAllModelTypeInfos()) {
-            allModelNames.add(modelTypeInfo.METAMODEL_NAME);
+        for (AbstractQoSModelManager manager : qosModelManagers) {
+            allModelNames.add(manager.getModelName());
         }
-
+        for (AbstractArchitectureModelManager manager : architectureModelManagers) {
+            allModelNames.add(manager.getModelName());
+        }
         return allModelNames;
     }
 
     public List<String> getAllModelDocumentTypes() {
-
         List<String> allModelNames = new ArrayList<String>();
 
-        for (ModelTypeInfo modelTypeInfo : getAllModelTypeInfos()) {
-            allModelNames.add(modelTypeInfo.DOCUMENT_TYPE);
+        for (AbstractQoSModelManager manager : qosModelManagers) {
+            allModelNames.add(manager.getModelNamespace());
+        }
+        for (AbstractArchitectureModelManager manager : architectureModelManagers) {
+            allModelNames.add(manager.getModelNamespace());
         }
 
         return allModelNames;

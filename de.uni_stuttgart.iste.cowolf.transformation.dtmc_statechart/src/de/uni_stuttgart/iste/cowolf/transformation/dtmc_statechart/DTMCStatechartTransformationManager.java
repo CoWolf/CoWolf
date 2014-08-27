@@ -8,13 +8,11 @@ import java.net.URL;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.osgi.framework.Bundle;
 
 import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC;
 import de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine;
 import de.uni_stuttgart.iste.cowolf.transformation.AbstractTransformationManager;
-import de.uni_stuttgart.iste.cowolf.transformation.TransformationTypeInfo;
 
 /**
  * @author Michael Zimmermann
@@ -32,30 +30,6 @@ public class DTMCStatechartTransformationManager
      * Key for extension point identification.
      */
     private final static String KEY = "dtmc_statechart";
-
-    @Override
-    public boolean isManaged(Resource source, Resource target) {
-        if ((source == null) || (target == null)) {
-            return false;
-        }
-        if ((source.getContents() == null) || source.getContents().isEmpty()
-                || (target.getContents() == null)
-                || target.getContents().isEmpty()) {
-            return false;
-        }
-
-        return (((source.getContents().get(0) instanceof StateMachine) && (target
-                .getContents().get(0) instanceof DTMC)) || ((target
-                .getContents().get(0) instanceof StateMachine) && (source
-                .getContents().get(0) instanceof DTMC)));
-
-    }
-
-    @Override
-    public TransformationTypeInfo getTransformationTypeInfo() {
-        // TODO Auto-generated method stub
-        return null;
-    }
 
     @Override
     protected String getKey() {
@@ -81,5 +55,16 @@ public class DTMCStatechartTransformationManager
 
         return ruleDirectory;
     }
+
+	@Override
+	public Class<?> getManagedClass1() {
+		return DTMC.class;
+	}
+
+	@Override
+	public Class<?> getManagedClass2() {
+		// TODO Auto-generated method stub
+		return StateMachine.class;
+	}
 
 }

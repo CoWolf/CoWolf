@@ -37,9 +37,23 @@ public abstract class AbstractEvolutionManager {
      * @param model
      * @return true if it is able to handle model.
      */
-    public abstract boolean isManaged(Resource model);
+    public boolean isManaged(Resource model) {
+		if (model == null) {
+			return false;
+		}
+		if (model.getContents() == null || model.getContents().isEmpty()) {
+			return false;
+		}
+		
+		if (this.getManagedClass().isAssignableFrom(model.getContents().get(0).getClass())) {
+			return true;
+		}
+		return false;
+	}
 
-    /**
+    protected abstract Class<?> getManagedClass();
+
+	/**
      * This method handles the evolution between two models of the same class.
      * It returns the differences between two models.
      *
