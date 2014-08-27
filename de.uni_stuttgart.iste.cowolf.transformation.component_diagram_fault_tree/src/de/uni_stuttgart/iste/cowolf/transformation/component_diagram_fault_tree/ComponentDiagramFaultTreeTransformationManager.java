@@ -22,7 +22,7 @@ import org.osgi.framework.Bundle;
  */
 public class ComponentDiagramFaultTreeTransformationManager extends AbstractTransformationManager {
 
-	private static final String RULE_DIRECTORY = "de.uni_stuttgart.iste.cowolf.transformation.ctmc_dtmc.rules";
+	private static final String RULE_DIRECTORY = "de.uni_stuttgart.iste.cowolf.transformation.component_diagram_fault_tree.rules";
 	/**
 	 * Key for extension point identification.
 	 */
