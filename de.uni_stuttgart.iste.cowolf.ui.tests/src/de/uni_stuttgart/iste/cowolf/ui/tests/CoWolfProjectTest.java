@@ -85,6 +85,7 @@ public class CoWolfProjectTest {
 	@Test
 	public void CreateProjectItemsTest() throws Exception {
 
+		//create a project that contains all Cowolf Items
 		bot.menu("File").menu("New").menu("Other...").click();
 		bot.tree().getTreeItem("CoWolf").expand();
 		bot.tree().getTreeItem("CoWolf").getNode("CoWolf Project").select();
@@ -92,69 +93,76 @@ public class CoWolfProjectTest {
 		bot.textWithLabel("&Project name:").setText("CoWolf-Test-Project");
 		bot.button("Finish").click();
 		bot.button("Yes").click();
-		bot.tree().getTreeItem("CoWolf-Test-Project").expand();
+				
+		//Create an Activity Diagram model
+		openProjectWizardwithContextMenu();
+		createModel("Activity Diagram");
+		
+		//Create an Component_diagramemf model
+		openProjectWizardwithContextMenu();
+		createModel("Component_diagramemf Model");
+		
+		//Create an Ctmc model
+		openProjectWizardwithContextMenu();
+		createModel("Ctmc Model");
+		
+		//Create an DTMC model
+		openProjectWizardwithContextMenu();
+		createModel("DTMC Model");
+		
+		//Create an Component_diagramemf model
+		openProjectWizardwithContextMenu();
+		createModel("FaultTree Model");
 
-		bot.tree().getTreeItem("CoWolf-Test-Project").getNode("models").select();
-		bot.tree().contextMenu("New").menu("Other...").click();
-		bot.tree().getTreeItem("CoWolf").getNode("Models").expand();
-		bot.tree().getTreeItem("CoWolf").getNode("Models").getNode("Activity Diagram").select();
-		bot.button("Next >").click();
-		bot.button("Next >").click();
-		bot.button("Finish").click();
-		bot.tree().getTreeItem("CoWolf-Test-Project").getNode("models").select();
-		bot.tree().contextMenu("New").menu("Other...").click();
-		bot.tree().getTreeItem("CoWolf").getNode("Models").select();
-		bot.tree().getTreeItem("CoWolf").getNode("Models").getNode("Component_diagramemf Model").select();
-		bot.button("Next >").click();
-		bot.button("Finish").click();
-		bot.tree().getTreeItem("CoWolf-Test-Project").getNode("models").select();
-		bot.tree().contextMenu("New").menu("Other...").click();
-		bot.tree().getTreeItem("CoWolf").getNode("Models").getNode("Ctmc Model").select();
-		bot.button("Next >").click();
-		bot.button("Finish").click();
-		bot.tree().getTreeItem("CoWolf-Test-Project").getNode("models").select();
-		bot.tree().contextMenu("New").menu("Other...").click();
-		bot.tree().getTreeItem("CoWolf").getNode("Models").getNode("DTMC Model").select();
-		bot.button("Next >").click();
-		bot.button("Next >").click();
-		bot.button("Finish").click();
-		bot.tree().getTreeItem("CoWolf-Test-Project").getNode("models").select();
-		bot.tree().contextMenu("New").menu("Other...").click();
-		bot.tree().getTreeItem("CoWolf").getNode("Models").getNode("FaultTree Model").select();
-		bot.button("Next >").click();
-		bot.button("Next >").click();
-		bot.button("Finish").click();
-
-
-		bot.tree().getTreeItem("CoWolf-Test-Project").select();
-		bot.tree().getTreeItem("CoWolf-Test-Project").getNode("models").select();
-		bot.tree().contextMenu("New").menu("Other...").click();
-		bot.tree().getTreeItem("CoWolf").getNode("Models").getNode("statechartemf Model").select();
-		bot.button("Next >").click();
-		bot.button("Finish").click();
-
-		bot.tree().getTreeItem("CoWolf-Test-Project").select();
-		bot.tree().contextMenu("New").menu("Other...").click();
+		//Create an statechartemf model
+		openProjectWizardwithContextMenu();
+		createModel("statechartemf Model");
+		
+		//create a new Cowolf Folder
+		openProjectWizardwithContextMenu();
 		bot.tree().getTreeItem("CoWolf").getNode("CoWolf Folder").select();
 		bot.button("Next >").click();
 		bot.textWithLabel("Folder &name:").setText("CoWolfTestFolder");
 		bot.button("Finish").click();
-		bot.tree().getTreeItem("CoWolf-Test-Project").select();
-		bot.tree().getTreeItem("CoWolf-Test-Project").getNode("CoWolfTestFolder").select();
-		bot.tree().contextMenu("New").menu("Other...").click();
+		
+		//Create CoWolf Transformation Mapping file within Cowolf folder
+		SWTBotTreeItem projectFolder = bot.tree().getTreeItem("CoWolf-Test-Project").select();
+		isExpanded(projectFolder);
+		projectFolder.getNode("CoWolfTestFolder").select();
+		projectFolder.contextMenu("New").menu("Other...").click();
 		bot.tree().getTreeItem("CoWolf").getNode("CoWolf Transformation Mapping File").select();
 		bot.button("Next >").click();
-		bot.textWithLabel("File na&me:").setText("Transformation-Mapping-File.transmap");
+		bot.textWithLabel("File na&me:").setText("testt.transmap");
 		bot.button("Finish").click();
-
+		
 	}
-
- 
+	
+	private void createModel(String nModel){
+		bot.tree().getTreeItem("CoWolf").getNode("Models").expand();
+		bot.tree().getTreeItem("CoWolf").getNode("Models").getNode(nModel).select();
+		bot.button("Next >").click();
+		bot.button("Next >").click();
+		bot.button("Finish").click();		
+	}
+	
+	private void openProjectWizardwithContextMenu(){
+		SWTBotTreeItem projectTree =  bot.tree().getTreeItem("CoWolf-Test-Project");
+		isExpanded(projectTree);
+		projectTree.getNode("models").select();
+		projectTree.contextMenu("New").menu("Other...").click();
+	}
+	
+    private boolean isExpanded(SWTBotTreeItem item){
+		if (item.isExpanded()){
+			item.collapse();
+		}
+		item.expand();
+		return item.getItems().length > 0;
+    }
  
 	@AfterClass
 	public static void sleep() {
 		bot.sleep(2000);
-
 	}
 	
 	@After
