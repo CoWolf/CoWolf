@@ -8,32 +8,44 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.henshin.trace.impl.TracePackageImpl;
 import org.sidiff.difference.technical.TechnicalDifferenceBuilder;
 import org.silift.common.util.access.EMFModelAccessEx;
 
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage;
 
+/**
+ * 
+ * To filter not needed stuff.
+ * 
+ * 
+ * @author: Michael Zimmermann
+ */
 public class TechnicalDifferenceBuilderComponentDiagram extends
 		TechnicalDifferenceBuilder {
 
 	@Override
 	protected Set<EClass> getUnconsideredNodeTypes() {
 		Set<EClass> unconsideredNodeTypes = new HashSet<EClass>();
-		// No filtering
+		unconsideredNodeTypes.add(TracePackageImpl.eINSTANCE.getTrace());
 		return unconsideredNodeTypes;
 	}
 
 	@Override
 	protected Set<EReference> getUnconsideredEdgeTypes() {
 		Set<EReference> unconsideredEdgeTypes = new HashSet<EReference>();
-		// No filtering
+		unconsideredEdgeTypes.add(TracePackageImpl.eINSTANCE.getTrace_Source());
+		unconsideredEdgeTypes.add(TracePackageImpl.eINSTANCE
+				.getTrace_SubTraces());
+		unconsideredEdgeTypes.add(TracePackageImpl.eINSTANCE.getTrace_Target());
 		return unconsideredEdgeTypes;
 	}
 
 	@Override
 	protected Set<EAttribute> getUnconsideredAttributeTypes() {
 		Set<EAttribute> unconsideredAttributeTypes = new HashSet<EAttribute>();
-		// No filtering
+		unconsideredAttributeTypes.add(TracePackageImpl.eINSTANCE
+				.getTrace_Name());
 		return unconsideredAttributeTypes;
 	}
 
@@ -56,7 +68,7 @@ public class TechnicalDifferenceBuilderComponentDiagram extends
 
 	@Override
 	public String getName() {
-		return "Statechart Technical Difference Builder";
+		return "Component Diagram Technical Difference Builder";
 	}
 
 }
