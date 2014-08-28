@@ -8,7 +8,6 @@ import java.net.URL;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentDiagram;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree;
 import de.uni_stuttgart.iste.cowolf.transformation.AbstractTransformationManager;
-import de.uni_stuttgart.iste.cowolf.transformation.TransformationTypeInfo;
 
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Path;
@@ -49,12 +48,6 @@ public class ComponentDiagramFaultTreeTransformationManager extends AbstractTran
 	}
 
 	@Override
-	public TransformationTypeInfo getTransformationTypeInfo() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	protected String getKey() {
 		return KEY;
 	}
@@ -76,6 +69,16 @@ public class ComponentDiagramFaultTreeTransformationManager extends AbstractTran
 		}
 
 		return ruleDirectory;
+	}
+
+	@Override
+	public Class<?> getManagedClass1() {
+		return FIRST_MODEL;
+	}
+
+	@Override
+	public Class<?> getManagedClass2() {
+		return SECOND_MODEL;
 	}
 
 }
