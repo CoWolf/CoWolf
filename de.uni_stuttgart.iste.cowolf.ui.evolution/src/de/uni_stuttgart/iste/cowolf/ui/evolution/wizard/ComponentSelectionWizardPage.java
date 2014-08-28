@@ -1,10 +1,14 @@
 package de.uni_stuttgart.iste.cowolf.ui.evolution.wizard;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.emf.common.ui.dialogs.WorkspaceResourceDialog;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
@@ -31,6 +35,8 @@ import de.uni_stuttgart.iste.cowolf.ui.evolution.properties.EvolutionTester;
  * @author Rene Trefft
  */
 public class ComponentSelectionWizardPage extends WizardPage {
+
+	private final static String RESOURCE_PLUGIN = "/de.uni_stuttgart.iste.cowolf.ui/";
 
 	/**
 	 * Wizard for Model Selection.
@@ -68,12 +74,20 @@ public class ComponentSelectionWizardPage extends WizardPage {
         this.wizard = wizard;
         this.setDescription("Compare two versions of a model with SiLift.");
         this.setTitle("Compare models with each other.");
-        arrowDown = new Image(Display.getCurrent(),
-                ComponentSelectionWizardPage.class
-                        .getResourceAsStream("../res/arrow_down.png"));
-        arrowUp = new Image(Display.getCurrent(),
-                ComponentSelectionWizardPage.class
-                        .getResourceAsStream("../res/arrow_up.png"));
+        try {
+            URI arrowDownURI = URI.createPlatformPluginURI(RESOURCE_PLUGIN
+                    + "icons/arrow_down.png", true);
+            arrowDown = new Image(Display.getCurrent(), new URL(
+                    arrowDownURI.toString()).openStream());
+            URI arrowUpURI = URI.createPlatformPluginURI(RESOURCE_PLUGIN
+                    + "icons/arrow_up.png", true);
+            arrowUp = new Image(Display.getCurrent(), new URL(
+                    arrowUpURI.toString()).openStream());
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
