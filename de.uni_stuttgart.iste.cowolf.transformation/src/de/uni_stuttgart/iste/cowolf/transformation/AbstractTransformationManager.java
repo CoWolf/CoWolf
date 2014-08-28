@@ -235,7 +235,8 @@ public abstract class AbstractTransformationManager {
         map.clear();
         // TODO: check src/tgt of trace and src/tgt of models
         boolean sourceEqualToFirstClass = this.getFirstClassType()
-                .isAssignableFrom(source.getClass());
+                .isAssignableFrom(source.getContents()
+                        .get(0).getClass());
         // find unresolvable proxies
         Map<EObject, Collection<Setting>> unresolvedProxies = EcoreUtil.UnresolvedProxyCrossReferencer
                 .find(resSet);

@@ -85,10 +85,10 @@
         <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateMachine/states"/>
       </edges>
       <edges xmi:id="_jHe-UCxJEeSFwPSj36WR4A" source="_k8HGMCd-EeSHtuLwGUUreA" target="_pr6dMCd-EeSHtuLwGUUreA">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
       </edges>
       <edges xmi:id="_jYnxoCxJEeSFwPSj36WR4A" source="_k8HGMCd-EeSHtuLwGUUreA" target="_t9NTQCd-EeSHtuLwGUUreA">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
       </edges>
     </rhs>
     <mappings xmi:id="_pC2SESd-EeSHtuLwGUUreA" origin="_hAY3gCd-EeSHtuLwGUUreA" image="_pC2SECd-EeSHtuLwGUUreA"/>
@@ -96,6 +96,7 @@
     <mappings xmi:id="_mm6IASxIEeSFwPSj36WR4A" origin="_k3lfcCxIEeSFwPSj36WR4A" image="_mm6IACxIEeSFwPSj36WR4A"/>
   </units>
   <units xsi:type="henshin:Rule" xmi:id="_HFkUQCd-EeSHtuLwGUUreA" name="DeletedStateInDTMC">
+    <parameters xmi:id="_Yv6VQC60EeS9_vPHDzd5ZQ" name="id"/>
     <lhs xmi:id="_HFkUQSd-EeSHtuLwGUUreA" name="Lhs">
       <nodes xmi:id="_kEKVECd_EeSHtuLwGUUreA">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//DTMC"/>
@@ -110,36 +111,46 @@
         <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateMachine"/>
       </nodes>
       <edges xmi:id="_0ZNk0CxJEeSFwPSj36WR4A" source="_n-s4ACd_EeSHtuLwGUUreA" target="_orLjgCd_EeSHtuLwGUUreA">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
       </edges>
       <edges xmi:id="_7Zw2cCxJEeSFwPSj36WR4A" source="_40y_UCxJEeSFwPSj36WR4A" target="_orLjgCd_EeSHtuLwGUUreA">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateMachine/states"/>
       </edges>
-      <formula xsi:type="henshin:Not" xmi:id="_1kk30Cd_EeSHtuLwGUUreA">
-        <child xsi:type="henshin:NestedCondition" xmi:id="_1kk30Sd_EeSHtuLwGUUreA">
-          <conclusion xmi:id="_1kk30id_EeSHtuLwGUUreA">
-            <nodes xmi:id="_1kk30yd_EeSHtuLwGUUreA" outgoing="_pyJyoCd_EeSHtuLwGUUreA">
+      <formula xsi:type="henshin:Not" xmi:id="_lG0LEC61EeS9_vPHDzd5ZQ">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_lG0LES61EeS9_vPHDzd5ZQ">
+          <conclusion xmi:id="_lG0LEi61EeS9_vPHDzd5ZQ">
+            <nodes xmi:id="_lG0LEy61EeS9_vPHDzd5ZQ" outgoing="_pyJyoCd_EeSHtuLwGUUreA">
               <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//DTMC"/>
             </nodes>
             <nodes xmi:id="_pIo7kCd_EeSHtuLwGUUreA" incoming="_pyJyoCd_EeSHtuLwGUUreA _z6EKsCxJEeSFwPSj36WR4A">
               <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//State"/>
             </nodes>
-            <nodes xmi:id="_1kk32id_EeSHtuLwGUUreA">
-              <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//State"/>
-            </nodes>
-            <nodes xmi:id="_1kk33Sd_EeSHtuLwGUUreA" outgoing="_z6EKsCxJEeSFwPSj36WR4A">
+            <nodes xmi:id="_lG0yJC61EeS9_vPHDzd5ZQ" outgoing="_lG0yKC61EeS9_vPHDzd5ZQ _z6EKsCxJEeSFwPSj36WR4A">
               <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
             </nodes>
-            <edges xmi:id="_pyJyoCd_EeSHtuLwGUUreA" source="_1kk30yd_EeSHtuLwGUUreA" target="_pIo7kCd_EeSHtuLwGUUreA">
-              <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//DTMC/States"/>
-            </edges>
-            <edges xmi:id="_z6EKsCxJEeSFwPSj36WR4A" source="_1kk33Sd_EeSHtuLwGUUreA" target="_pIo7kCd_EeSHtuLwGUUreA">
+            <nodes xmi:id="_lG0yJi61EeS9_vPHDzd5ZQ" incoming="_lG0yKC61EeS9_vPHDzd5ZQ _lG1ZMy61EeS9_vPHDzd5ZQ">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//State"/>
+            </nodes>
+            <nodes xmi:id="_lG1ZMS61EeS9_vPHDzd5ZQ" outgoing="_lG1ZMy61EeS9_vPHDzd5ZQ">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateMachine"/>
+            </nodes>
+            <edges xmi:id="_lG0yKC61EeS9_vPHDzd5ZQ" source="_lG0yJC61EeS9_vPHDzd5ZQ" target="_lG0yJi61EeS9_vPHDzd5ZQ">
               <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
             </edges>
+            <edges xmi:id="_lG1ZMy61EeS9_vPHDzd5ZQ" source="_lG1ZMS61EeS9_vPHDzd5ZQ" target="_lG0yJi61EeS9_vPHDzd5ZQ">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateMachine/states"/>
+            </edges>
+            <edges xmi:id="_pyJyoCd_EeSHtuLwGUUreA" source="_lG0LEy61EeS9_vPHDzd5ZQ" target="_pIo7kCd_EeSHtuLwGUUreA">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//DTMC/States"/>
+            </edges>
+            <edges xmi:id="_z6EKsCxJEeSFwPSj36WR4A" source="_lG0yJC61EeS9_vPHDzd5ZQ" target="_pIo7kCd_EeSHtuLwGUUreA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+            </edges>
           </conclusion>
-          <mappings xmi:id="_1kk31Cd_EeSHtuLwGUUreA" origin="_kEKVECd_EeSHtuLwGUUreA" image="_1kk30yd_EeSHtuLwGUUreA"/>
-          <mappings xmi:id="_1kk32yd_EeSHtuLwGUUreA" origin="_orLjgCd_EeSHtuLwGUUreA" image="_1kk32id_EeSHtuLwGUUreA"/>
-          <mappings xmi:id="_1kk33id_EeSHtuLwGUUreA" origin="_n-s4ACd_EeSHtuLwGUUreA" image="_1kk33Sd_EeSHtuLwGUUreA"/>
+          <mappings xmi:id="_lG0LFC61EeS9_vPHDzd5ZQ" origin="_kEKVECd_EeSHtuLwGUUreA" image="_lG0LEy61EeS9_vPHDzd5ZQ"/>
+          <mappings xmi:id="_lG0yJS61EeS9_vPHDzd5ZQ" origin="_n-s4ACd_EeSHtuLwGUUreA" image="_lG0yJC61EeS9_vPHDzd5ZQ"/>
+          <mappings xmi:id="_lG0yJy61EeS9_vPHDzd5ZQ" origin="_orLjgCd_EeSHtuLwGUUreA" image="_lG0yJi61EeS9_vPHDzd5ZQ"/>
+          <mappings xmi:id="_lG1ZMi61EeS9_vPHDzd5ZQ" origin="_40y_UCxJEeSFwPSj36WR4A" image="_lG1ZMS61EeS9_vPHDzd5ZQ"/>
         </child>
       </formula>
     </lhs>
@@ -163,10 +174,10 @@
       <nodes xmi:id="_jnUvQiw5EeSFwPSj36WR4A" name="" outgoing="_jnUvSCw5EeSFwPSj36WR4A _jnUvSSw5EeSFwPSj36WR4A">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//DTMC"/>
       </nodes>
-      <nodes xmi:id="_jnUvQyw5EeSFwPSj36WR4A" incoming="_jnUvSiw5EeSFwPSj36WR4A _jnUvSyw5EeSFwPSj36WR4A">
+      <nodes xmi:id="_jnUvQyw5EeSFwPSj36WR4A" incoming="_jnUvSiw5EeSFwPSj36WR4A _jnUvSyw5EeSFwPSj36WR4A _nwmYIC6yEeS9_vPHDzd5ZQ _-5ZfsC6yEeS9_vPHDzd5ZQ" outgoing="_ri1ToC6yEeS9_vPHDzd5ZQ _9ChdoC6yEeS9_vPHDzd5ZQ">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//Transition"/>
       </nodes>
-      <nodes xmi:id="_jnUvRCw5EeSFwPSj36WR4A" outgoing="_jnUvSiw5EeSFwPSj36WR4A">
+      <nodes xmi:id="_jnUvRCw5EeSFwPSj36WR4A" outgoing="_jnUvSiw5EeSFwPSj36WR4A __kMwMC6yEeS9_vPHDzd5ZQ __7i5MC6yEeS9_vPHDzd5ZQ">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateMachine"/>
       </nodes>
       <nodes xmi:id="_jnUvRSw5EeSFwPSj36WR4A" incoming="_jnUvSCw5EeSFwPSj36WR4A">
@@ -178,6 +189,12 @@
       <nodes xmi:id="_jnUvRyw5EeSFwPSj36WR4A" outgoing="_jnUvSyw5EeSFwPSj36WR4A">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
       </nodes>
+      <nodes xmi:id="_ldrTQC6yEeS9_vPHDzd5ZQ" incoming="_9ChdoC6yEeS9_vPHDzd5ZQ __kMwMC6yEeS9_vPHDzd5ZQ" outgoing="_nwmYIC6yEeS9_vPHDzd5ZQ">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//State"/>
+      </nodes>
+      <nodes xmi:id="_luSiIC6yEeS9_vPHDzd5ZQ" incoming="_ri1ToC6yEeS9_vPHDzd5ZQ __7i5MC6yEeS9_vPHDzd5ZQ" outgoing="_-5ZfsC6yEeS9_vPHDzd5ZQ">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//State"/>
+      </nodes>
       <edges xmi:id="_jnUvSCw5EeSFwPSj36WR4A" source="_jnUvQiw5EeSFwPSj36WR4A" target="_jnUvRSw5EeSFwPSj36WR4A">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//DTMC/States"/>
       </edges>
@@ -188,60 +205,104 @@
         <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateMachine/transitions"/>
       </edges>
       <edges xmi:id="_jnUvSyw5EeSFwPSj36WR4A" source="_jnUvRyw5EeSFwPSj36WR4A" target="_jnUvQyw5EeSFwPSj36WR4A">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
       </edges>
-      <formula xsi:type="henshin:Not" xmi:id="_jnUvTCw5EeSFwPSj36WR4A">
-        <child xsi:type="henshin:NestedCondition" xmi:id="_jnUvTSw5EeSFwPSj36WR4A">
-          <conclusion xmi:id="_jnUvTiw5EeSFwPSj36WR4A">
-            <nodes xmi:id="_jnUvTyw5EeSFwPSj36WR4A" outgoing="_jnUvViw5EeSFwPSj36WR4A">
-              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
-            </nodes>
-            <nodes xmi:id="_jnUvUCw5EeSFwPSj36WR4A" incoming="_jnUvWSw5EeSFwPSj36WR4A _jnUvWiw5EeSFwPSj36WR4A _jnUvViw5EeSFwPSj36WR4A" outgoing="_jnUvWyw5EeSFwPSj36WR4A _jnUvXCw5EeSFwPSj36WR4A">
-              <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//Transition"/>
-            </nodes>
-            <nodes xmi:id="_jnUvUSw5EeSFwPSj36WR4A" name="" outgoing="_jnUvVyw5EeSFwPSj36WR4A _jnUvWCw5EeSFwPSj36WR4A">
+      <edges xmi:id="_nwmYIC6yEeS9_vPHDzd5ZQ" source="_ldrTQC6yEeS9_vPHDzd5ZQ" target="_jnUvQyw5EeSFwPSj36WR4A">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateVertex/incoming"/>
+      </edges>
+      <edges xmi:id="_ri1ToC6yEeS9_vPHDzd5ZQ" source="_jnUvQyw5EeSFwPSj36WR4A" target="_luSiIC6yEeS9_vPHDzd5ZQ">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//Transition/source"/>
+      </edges>
+      <edges xmi:id="_9ChdoC6yEeS9_vPHDzd5ZQ" source="_jnUvQyw5EeSFwPSj36WR4A" target="_ldrTQC6yEeS9_vPHDzd5ZQ">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//Transition/target"/>
+      </edges>
+      <edges xmi:id="_-5ZfsC6yEeS9_vPHDzd5ZQ" source="_luSiIC6yEeS9_vPHDzd5ZQ" target="_jnUvQyw5EeSFwPSj36WR4A">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateVertex/outgoing"/>
+      </edges>
+      <edges xmi:id="__kMwMC6yEeS9_vPHDzd5ZQ" source="_jnUvRCw5EeSFwPSj36WR4A" target="_ldrTQC6yEeS9_vPHDzd5ZQ">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateMachine/states"/>
+      </edges>
+      <edges xmi:id="__7i5MC6yEeS9_vPHDzd5ZQ" source="_jnUvRCw5EeSFwPSj36WR4A" target="_luSiIC6yEeS9_vPHDzd5ZQ">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateMachine/states"/>
+      </edges>
+      <formula xsi:type="henshin:Not" xmi:id="_SmJXIC6zEeS9_vPHDzd5ZQ">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_SmJXIS6zEeS9_vPHDzd5ZQ">
+          <conclusion xmi:id="_SmJXIi6zEeS9_vPHDzd5ZQ">
+            <nodes xmi:id="_SmJXIy6zEeS9_vPHDzd5ZQ" name="" outgoing="_SmJXJy6zEeS9_vPHDzd5ZQ _SmJ-Mi6zEeS9_vPHDzd5ZQ">
               <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//DTMC"/>
             </nodes>
-            <nodes xmi:id="_jnUvUiw5EeSFwPSj36WR4A" incoming="_jnUvVyw5EeSFwPSj36WR4A _jnUvWyw5EeSFwPSj36WR4A" outgoing="_jnUvWSw5EeSFwPSj36WR4A">
+            <nodes xmi:id="_SmJXJS6zEeS9_vPHDzd5ZQ" incoming="_SmJXJy6zEeS9_vPHDzd5ZQ _jnUvWyw5EeSFwPSj36WR4A">
               <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//State"/>
             </nodes>
-            <nodes xmi:id="_jnUvUyw5EeSFwPSj36WR4A" incoming="_jnUvWCw5EeSFwPSj36WR4A _jnUvXCw5EeSFwPSj36WR4A" outgoing="_jnUvWiw5EeSFwPSj36WR4A">
+            <nodes xmi:id="_SmJ-MC6zEeS9_vPHDzd5ZQ" incoming="_SmJ-Mi6zEeS9_vPHDzd5ZQ _jnUvXCw5EeSFwPSj36WR4A">
               <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//State"/>
             </nodes>
-            <nodes xmi:id="_jnUvVCw5EeSFwPSj36WR4A">
+            <nodes xmi:id="_SmJ-My6zEeS9_vPHDzd5ZQ" incoming="_SmJ-Ny6zEeS9_vPHDzd5ZQ _SmKlQS6zEeS9_vPHDzd5ZQ _SmKlRC6zEeS9_vPHDzd5ZQ _SmKlRy6zEeS9_vPHDzd5ZQ" outgoing="_SmLMUC6zEeS9_vPHDzd5ZQ _SmLMUS6zEeS9_vPHDzd5ZQ">
               <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//Transition"/>
             </nodes>
-            <nodes xmi:id="_jnUvVSw5EeSFwPSj36WR4A">
+            <nodes xmi:id="_SmJ-NS6zEeS9_vPHDzd5ZQ" outgoing="_SmJ-Ny6zEeS9_vPHDzd5ZQ _SmLMUi6zEeS9_vPHDzd5ZQ _SmLMUy6zEeS9_vPHDzd5ZQ">
               <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateMachine"/>
             </nodes>
-            <edges xmi:id="_jnUvViw5EeSFwPSj36WR4A" source="_jnUvTyw5EeSFwPSj36WR4A" target="_jnUvUCw5EeSFwPSj36WR4A">
+            <nodes xmi:id="_SmJ-OC6zEeS9_vPHDzd5ZQ" outgoing="_SmKlQS6zEeS9_vPHDzd5ZQ _jnUvViw5EeSFwPSj36WR4A">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+            </nodes>
+            <nodes xmi:id="_SmKlQi6zEeS9_vPHDzd5ZQ" incoming="_SmLMUS6zEeS9_vPHDzd5ZQ _SmLMUi6zEeS9_vPHDzd5ZQ" outgoing="_SmKlRC6zEeS9_vPHDzd5ZQ">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//State"/>
+            </nodes>
+            <nodes xmi:id="_SmKlRS6zEeS9_vPHDzd5ZQ" incoming="_SmLMUC6zEeS9_vPHDzd5ZQ _SmLMUy6zEeS9_vPHDzd5ZQ" outgoing="_SmKlRy6zEeS9_vPHDzd5ZQ">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//State"/>
+            </nodes>
+            <nodes xmi:id="_jnUvUCw5EeSFwPSj36WR4A" incoming="_jnUvViw5EeSFwPSj36WR4A" outgoing="_jnUvWyw5EeSFwPSj36WR4A _jnUvXCw5EeSFwPSj36WR4A">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//Transition"/>
+            </nodes>
+            <edges xmi:id="_SmJXJy6zEeS9_vPHDzd5ZQ" source="_SmJXIy6zEeS9_vPHDzd5ZQ" target="_SmJXJS6zEeS9_vPHDzd5ZQ">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//DTMC/States"/>
+            </edges>
+            <edges xmi:id="_SmJ-Mi6zEeS9_vPHDzd5ZQ" source="_SmJXIy6zEeS9_vPHDzd5ZQ" target="_SmJ-MC6zEeS9_vPHDzd5ZQ">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//DTMC/States"/>
+            </edges>
+            <edges xmi:id="_SmJ-Ny6zEeS9_vPHDzd5ZQ" source="_SmJ-NS6zEeS9_vPHDzd5ZQ" target="_SmJ-My6zEeS9_vPHDzd5ZQ">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateMachine/transitions"/>
+            </edges>
+            <edges xmi:id="_SmKlQS6zEeS9_vPHDzd5ZQ" source="_SmJ-OC6zEeS9_vPHDzd5ZQ" target="_SmJ-My6zEeS9_vPHDzd5ZQ">
               <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
             </edges>
-            <edges xmi:id="_jnUvVyw5EeSFwPSj36WR4A" source="_jnUvUSw5EeSFwPSj36WR4A" target="_jnUvUiw5EeSFwPSj36WR4A">
-              <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//DTMC/States"/>
+            <edges xmi:id="_SmKlRC6zEeS9_vPHDzd5ZQ" source="_SmKlQi6zEeS9_vPHDzd5ZQ" target="_SmJ-My6zEeS9_vPHDzd5ZQ">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateVertex/incoming"/>
             </edges>
-            <edges xmi:id="_jnUvWCw5EeSFwPSj36WR4A" source="_jnUvUSw5EeSFwPSj36WR4A" target="_jnUvUyw5EeSFwPSj36WR4A">
-              <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//DTMC/States"/>
+            <edges xmi:id="_SmKlRy6zEeS9_vPHDzd5ZQ" source="_SmKlRS6zEeS9_vPHDzd5ZQ" target="_SmJ-My6zEeS9_vPHDzd5ZQ">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateVertex/outgoing"/>
             </edges>
-            <edges xmi:id="_jnUvWSw5EeSFwPSj36WR4A" source="_jnUvUiw5EeSFwPSj36WR4A" target="_jnUvUCw5EeSFwPSj36WR4A">
-              <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//State/incoming"/>
+            <edges xmi:id="_SmLMUC6zEeS9_vPHDzd5ZQ" source="_SmJ-My6zEeS9_vPHDzd5ZQ" target="_SmKlRS6zEeS9_vPHDzd5ZQ">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//Transition/source"/>
             </edges>
-            <edges xmi:id="_jnUvWiw5EeSFwPSj36WR4A" source="_jnUvUyw5EeSFwPSj36WR4A" target="_jnUvUCw5EeSFwPSj36WR4A">
-              <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//State/outgoing"/>
+            <edges xmi:id="_SmLMUS6zEeS9_vPHDzd5ZQ" source="_SmJ-My6zEeS9_vPHDzd5ZQ" target="_SmKlQi6zEeS9_vPHDzd5ZQ">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//Transition/target"/>
             </edges>
-            <edges xmi:id="_jnUvWyw5EeSFwPSj36WR4A" source="_jnUvUCw5EeSFwPSj36WR4A" target="_jnUvUiw5EeSFwPSj36WR4A">
+            <edges xmi:id="_SmLMUi6zEeS9_vPHDzd5ZQ" source="_SmJ-NS6zEeS9_vPHDzd5ZQ" target="_SmKlQi6zEeS9_vPHDzd5ZQ">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateMachine/states"/>
+            </edges>
+            <edges xmi:id="_SmLMUy6zEeS9_vPHDzd5ZQ" source="_SmJ-NS6zEeS9_vPHDzd5ZQ" target="_SmKlRS6zEeS9_vPHDzd5ZQ">
+              <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateMachine/states"/>
+            </edges>
+            <edges xmi:id="_jnUvViw5EeSFwPSj36WR4A" source="_SmJ-OC6zEeS9_vPHDzd5ZQ" target="_jnUvUCw5EeSFwPSj36WR4A">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+            </edges>
+            <edges xmi:id="_jnUvWyw5EeSFwPSj36WR4A" source="_jnUvUCw5EeSFwPSj36WR4A" target="_SmJXJS6zEeS9_vPHDzd5ZQ">
               <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//Transition/to"/>
             </edges>
-            <edges xmi:id="_jnUvXCw5EeSFwPSj36WR4A" source="_jnUvUCw5EeSFwPSj36WR4A" target="_jnUvUyw5EeSFwPSj36WR4A">
+            <edges xmi:id="_jnUvXCw5EeSFwPSj36WR4A" source="_jnUvUCw5EeSFwPSj36WR4A" target="_SmJ-MC6zEeS9_vPHDzd5ZQ">
               <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//Transition/from"/>
             </edges>
           </conclusion>
-          <mappings xmi:id="_jnUvXSw5EeSFwPSj36WR4A" origin="_jnUvRyw5EeSFwPSj36WR4A" image="_jnUvTyw5EeSFwPSj36WR4A"/>
-          <mappings xmi:id="_jnUvXiw5EeSFwPSj36WR4A" origin="_jnUvQiw5EeSFwPSj36WR4A" image="_jnUvUSw5EeSFwPSj36WR4A"/>
-          <mappings xmi:id="_jnUvXyw5EeSFwPSj36WR4A" origin="_jnUvRSw5EeSFwPSj36WR4A" image="_jnUvUiw5EeSFwPSj36WR4A"/>
-          <mappings xmi:id="_jnUvYCw5EeSFwPSj36WR4A" origin="_jnUvRiw5EeSFwPSj36WR4A" image="_jnUvUyw5EeSFwPSj36WR4A"/>
-          <mappings xmi:id="_jnUvYSw5EeSFwPSj36WR4A" origin="_jnUvQyw5EeSFwPSj36WR4A" image="_jnUvVCw5EeSFwPSj36WR4A"/>
-          <mappings xmi:id="_jnUvYiw5EeSFwPSj36WR4A" origin="_jnUvRCw5EeSFwPSj36WR4A" image="_jnUvVSw5EeSFwPSj36WR4A"/>
+          <mappings xmi:id="_SmJXJC6zEeS9_vPHDzd5ZQ" origin="_jnUvQiw5EeSFwPSj36WR4A" image="_SmJXIy6zEeS9_vPHDzd5ZQ"/>
+          <mappings xmi:id="_SmJXJi6zEeS9_vPHDzd5ZQ" origin="_jnUvRSw5EeSFwPSj36WR4A" image="_SmJXJS6zEeS9_vPHDzd5ZQ"/>
+          <mappings xmi:id="_SmJ-MS6zEeS9_vPHDzd5ZQ" origin="_jnUvRiw5EeSFwPSj36WR4A" image="_SmJ-MC6zEeS9_vPHDzd5ZQ"/>
+          <mappings xmi:id="_SmJ-NC6zEeS9_vPHDzd5ZQ" origin="_jnUvQyw5EeSFwPSj36WR4A" image="_SmJ-My6zEeS9_vPHDzd5ZQ"/>
+          <mappings xmi:id="_SmJ-Ni6zEeS9_vPHDzd5ZQ" origin="_jnUvRCw5EeSFwPSj36WR4A" image="_SmJ-NS6zEeS9_vPHDzd5ZQ"/>
+          <mappings xmi:id="_SmKlQC6zEeS9_vPHDzd5ZQ" origin="_jnUvRyw5EeSFwPSj36WR4A" image="_SmJ-OC6zEeS9_vPHDzd5ZQ"/>
+          <mappings xmi:id="_SmKlQy6zEeS9_vPHDzd5ZQ" origin="_ldrTQC6yEeS9_vPHDzd5ZQ" image="_SmKlQi6zEeS9_vPHDzd5ZQ"/>
+          <mappings xmi:id="_SmKlRi6zEeS9_vPHDzd5ZQ" origin="_luSiIC6yEeS9_vPHDzd5ZQ" image="_SmKlRS6zEeS9_vPHDzd5ZQ"/>
         </child>
       </formula>
     </lhs>
@@ -249,7 +310,7 @@
       <nodes xmi:id="_jnUvZCw5EeSFwPSj36WR4A" outgoing="_jnUvaSw5EeSFwPSj36WR4A _jnUvaiw5EeSFwPSj36WR4A">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//DTMC"/>
       </nodes>
-      <nodes xmi:id="_jnUvZSw5EeSFwPSj36WR4A">
+      <nodes xmi:id="_jnUvZSw5EeSFwPSj36WR4A" outgoing="__kMwMS6yEeS9_vPHDzd5ZQ __7i5MS6yEeS9_vPHDzd5ZQ">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateMachine"/>
       </nodes>
       <nodes xmi:id="_jnUvZiw5EeSFwPSj36WR4A" incoming="_jnUvaSw5EeSFwPSj36WR4A">
@@ -261,11 +322,23 @@
       <nodes xmi:id="_jnUvaCw5EeSFwPSj36WR4A">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
       </nodes>
+      <nodes xmi:id="_ldtvgC6yEeS9_vPHDzd5ZQ" incoming="__kMwMS6yEeS9_vPHDzd5ZQ">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//State"/>
+      </nodes>
+      <nodes xmi:id="_luSiIS6yEeS9_vPHDzd5ZQ" incoming="__7i5MS6yEeS9_vPHDzd5ZQ">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//State"/>
+      </nodes>
       <edges xmi:id="_jnUvaSw5EeSFwPSj36WR4A" source="_jnUvZCw5EeSFwPSj36WR4A" target="_jnUvZiw5EeSFwPSj36WR4A">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//DTMC/States"/>
       </edges>
       <edges xmi:id="_jnUvaiw5EeSFwPSj36WR4A" source="_jnUvZCw5EeSFwPSj36WR4A" target="_jnUvZyw5EeSFwPSj36WR4A">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//DTMC/States"/>
+      </edges>
+      <edges xmi:id="__kMwMS6yEeS9_vPHDzd5ZQ" source="_jnUvZSw5EeSFwPSj36WR4A" target="_ldtvgC6yEeS9_vPHDzd5ZQ">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateMachine/states"/>
+      </edges>
+      <edges xmi:id="__7i5MS6yEeS9_vPHDzd5ZQ" source="_jnUvZSw5EeSFwPSj36WR4A" target="_luSiIS6yEeS9_vPHDzd5ZQ">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateMachine/states"/>
       </edges>
     </rhs>
     <mappings xmi:id="_jnUvayw5EeSFwPSj36WR4A" origin="_jnUvQiw5EeSFwPSj36WR4A" image="_jnUvZCw5EeSFwPSj36WR4A"/>
@@ -273,6 +346,8 @@
     <mappings xmi:id="_jnUvbSw5EeSFwPSj36WR4A" origin="_jnUvRSw5EeSFwPSj36WR4A" image="_jnUvZiw5EeSFwPSj36WR4A"/>
     <mappings xmi:id="_jnUvbiw5EeSFwPSj36WR4A" origin="_jnUvRiw5EeSFwPSj36WR4A" image="_jnUvZyw5EeSFwPSj36WR4A"/>
     <mappings xmi:id="_jnUvbyw5EeSFwPSj36WR4A" origin="_jnUvRyw5EeSFwPSj36WR4A" image="_jnUvaCw5EeSFwPSj36WR4A"/>
+    <mappings xmi:id="_ldtvgS6yEeS9_vPHDzd5ZQ" origin="_ldrTQC6yEeS9_vPHDzd5ZQ" image="_ldtvgC6yEeS9_vPHDzd5ZQ"/>
+    <mappings xmi:id="_luSiIi6yEeS9_vPHDzd5ZQ" origin="_luSiIC6yEeS9_vPHDzd5ZQ" image="_luSiIS6yEeS9_vPHDzd5ZQ"/>
   </units>
   <units xsi:type="henshin:Rule" xmi:id="_jnUvcCw5EeSFwPSj36WR4A" name="CreatedTransitionInDTMC">
     <parameters xmi:id="_jnUvcSw5EeSFwPSj36WR4A" name="id"/>
@@ -320,16 +395,16 @@
         <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//DTMC/States"/>
       </edges>
       <edges xmi:id="_jnUvgyw5EeSFwPSj36WR4A" source="_jnUveyw5EeSFwPSj36WR4A" target="_jnUvdCw5EeSFwPSj36WR4A">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
       </edges>
       <edges xmi:id="_jnUvhCw5EeSFwPSj36WR4A" source="_jnUveyw5EeSFwPSj36WR4A" target="_jnUveCw5EeSFwPSj36WR4A">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
-      </edges>
-      <edges xmi:id="_jnUvhSw5EeSFwPSj36WR4A" source="_jnUvfCw5EeSFwPSj36WR4A" target="_jnUvdSw5EeSFwPSj36WR4A">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
       </edges>
-      <edges xmi:id="_jnUvhiw5EeSFwPSj36WR4A" source="_jnUvfCw5EeSFwPSj36WR4A" target="_jnUveSw5EeSFwPSj36WR4A">
+      <edges xmi:id="_jnUvhSw5EeSFwPSj36WR4A" source="_jnUvfCw5EeSFwPSj36WR4A" target="_jnUvdSw5EeSFwPSj36WR4A">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+      <edges xmi:id="_jnUvhiw5EeSFwPSj36WR4A" source="_jnUvfCw5EeSFwPSj36WR4A" target="_jnUveSw5EeSFwPSj36WR4A">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
       </edges>
       <edges xmi:id="_CqQokCxKEeSFwPSj36WR4A" source="_BiIi4CxKEeSFwPSj36WR4A" target="_jnUveCw5EeSFwPSj36WR4A">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateMachine/states"/>
@@ -388,22 +463,22 @@
         <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//DTMC/States"/>
       </edges>
       <edges xmi:id="_jnUvmCw5EeSFwPSj36WR4A" source="_jnUvjSw5EeSFwPSj36WR4A" target="_jnUviyw5EeSFwPSj36WR4A">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
       </edges>
       <edges xmi:id="_jnUvmSw5EeSFwPSj36WR4A" source="_jnUvjSw5EeSFwPSj36WR4A" target="_jnUvjiw5EeSFwPSj36WR4A">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
       </edges>
       <edges xmi:id="_jnUvniw5EeSFwPSj36WR4A" source="_jnUvkiw5EeSFwPSj36WR4A" target="_jnUviSw5EeSFwPSj36WR4A">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
       </edges>
       <edges xmi:id="_jnUvnyw5EeSFwPSj36WR4A" source="_jnUvkiw5EeSFwPSj36WR4A" target="_jnUvjyw5EeSFwPSj36WR4A">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
-      </edges>
-      <edges xmi:id="_jnUvoCw5EeSFwPSj36WR4A" source="_jnUvkyw5EeSFwPSj36WR4A" target="_jnUviiw5EeSFwPSj36WR4A">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
       </edges>
-      <edges xmi:id="_jnUvoSw5EeSFwPSj36WR4A" source="_jnUvkyw5EeSFwPSj36WR4A" target="_jnUvkCw5EeSFwPSj36WR4A">
+      <edges xmi:id="_jnUvoCw5EeSFwPSj36WR4A" source="_jnUvkyw5EeSFwPSj36WR4A" target="_jnUviiw5EeSFwPSj36WR4A">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+      <edges xmi:id="_jnUvoSw5EeSFwPSj36WR4A" source="_jnUvkyw5EeSFwPSj36WR4A" target="_jnUvkCw5EeSFwPSj36WR4A">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
       </edges>
       <edges xmi:id="_CqQokSxKEeSFwPSj36WR4A" source="_BiIi4SxKEeSFwPSj36WR4A" target="_jnUvjyw5EeSFwPSj36WR4A">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateMachine/states"/>
@@ -483,16 +558,16 @@
         <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateMachine/states"/>
       </edges>
       <edges xmi:id="_ZNxcUCxLEeSFwPSj36WR4A" source="_WFWeYCxBEeSFwPSj36WR4A" target="_YEnncCxBEeSFwPSj36WR4A">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
       </edges>
       <edges xmi:id="_ZkIG0CxLEeSFwPSj36WR4A" source="_WFWeYCxBEeSFwPSj36WR4A" target="_rGmgECxAEeSFwPSj36WR4A">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
-      </edges>
-      <edges xmi:id="_Z-9BoCxLEeSFwPSj36WR4A" source="_T9SaICxLEeSFwPSj36WR4A" target="_xz4a8CxBEeSFwPSj36WR4A">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
       </edges>
-      <edges xmi:id="_aQ1b0CxLEeSFwPSj36WR4A" source="_T9SaICxLEeSFwPSj36WR4A" target="_vDLqYCxAEeSFwPSj36WR4A">
+      <edges xmi:id="_Z-9BoCxLEeSFwPSj36WR4A" source="_T9SaICxLEeSFwPSj36WR4A" target="_xz4a8CxBEeSFwPSj36WR4A">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+      </edges>
+      <edges xmi:id="_aQ1b0CxLEeSFwPSj36WR4A" source="_T9SaICxLEeSFwPSj36WR4A" target="_vDLqYCxAEeSFwPSj36WR4A">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
       </edges>
     </lhs>
     <rhs xmi:id="_LFw2Riw_EeSFwPSj36WR4A" name="Rhs">
@@ -545,16 +620,16 @@
         <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateMachine/states"/>
       </edges>
       <edges xmi:id="_ZNxcUSxLEeSFwPSj36WR4A" source="_WFWeYSxBEeSFwPSj36WR4A" target="_YEnncSxBEeSFwPSj36WR4A">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
       </edges>
       <edges xmi:id="_ZkIG0SxLEeSFwPSj36WR4A" source="_WFWeYSxBEeSFwPSj36WR4A" target="_rGmgESxAEeSFwPSj36WR4A">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
-      </edges>
-      <edges xmi:id="_Z-9BoSxLEeSFwPSj36WR4A" source="_T9SaISxLEeSFwPSj36WR4A" target="_xz4a8SxBEeSFwPSj36WR4A">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
       </edges>
-      <edges xmi:id="_aQ1b0SxLEeSFwPSj36WR4A" source="_T9SaISxLEeSFwPSj36WR4A" target="_vDLqYSxAEeSFwPSj36WR4A">
+      <edges xmi:id="_Z-9BoSxLEeSFwPSj36WR4A" source="_T9SaISxLEeSFwPSj36WR4A" target="_xz4a8SxBEeSFwPSj36WR4A">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+      </edges>
+      <edges xmi:id="_aQ1b0SxLEeSFwPSj36WR4A" source="_T9SaISxLEeSFwPSj36WR4A" target="_vDLqYSxAEeSFwPSj36WR4A">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
       </edges>
     </rhs>
     <mappings xmi:id="_m1cM4ixAEeSFwPSj36WR4A" origin="_m1cM4CxAEeSFwPSj36WR4A" image="_m1cM4SxAEeSFwPSj36WR4A"/>
@@ -616,16 +691,16 @@
         <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateMachine/states"/>
       </edges>
       <edges xmi:id="_UVPKsyxMEeSFwPSj36WR4A" source="_UVPKpyxMEeSFwPSj36WR4A" target="_UVPKqCxMEeSFwPSj36WR4A">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
       </edges>
       <edges xmi:id="_UVPKtCxMEeSFwPSj36WR4A" source="_UVPKpyxMEeSFwPSj36WR4A" target="_UVPKpCxMEeSFwPSj36WR4A">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
-      </edges>
-      <edges xmi:id="_UVPKtSxMEeSFwPSj36WR4A" source="_UVPKrCxMEeSFwPSj36WR4A" target="_UVPKqSxMEeSFwPSj36WR4A">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
       </edges>
-      <edges xmi:id="_UVPKtixMEeSFwPSj36WR4A" source="_UVPKrCxMEeSFwPSj36WR4A" target="_UVPKpixMEeSFwPSj36WR4A">
+      <edges xmi:id="_UVPKtSxMEeSFwPSj36WR4A" source="_UVPKrCxMEeSFwPSj36WR4A" target="_UVPKqSxMEeSFwPSj36WR4A">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+      </edges>
+      <edges xmi:id="_UVPKtixMEeSFwPSj36WR4A" source="_UVPKrCxMEeSFwPSj36WR4A" target="_UVPKpixMEeSFwPSj36WR4A">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
       </edges>
       <edges xmi:id="_VMMLUCxNEeSFwPSj36WR4A" source="_UVPKqCxMEeSFwPSj36WR4A" target="_UVPKqixMEeSFwPSj36WR4A">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//Transition/source"/>
@@ -678,16 +753,16 @@
         <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateMachine/states"/>
       </edges>
       <edges xmi:id="_UVPKyCxMEeSFwPSj36WR4A" source="_UVPKvCxMEeSFwPSj36WR4A" target="_UVPKvSxMEeSFwPSj36WR4A">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
       </edges>
       <edges xmi:id="_UVPKySxMEeSFwPSj36WR4A" source="_UVPKvCxMEeSFwPSj36WR4A" target="_UVPKuSxMEeSFwPSj36WR4A">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
-      </edges>
-      <edges xmi:id="_UVPKyixMEeSFwPSj36WR4A" source="_UVPKwSxMEeSFwPSj36WR4A" target="_UVPKvixMEeSFwPSj36WR4A">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
       </edges>
-      <edges xmi:id="_UVPKyyxMEeSFwPSj36WR4A" source="_UVPKwSxMEeSFwPSj36WR4A" target="_UVPKuyxMEeSFwPSj36WR4A">
+      <edges xmi:id="_UVPKyixMEeSFwPSj36WR4A" source="_UVPKwSxMEeSFwPSj36WR4A" target="_UVPKvixMEeSFwPSj36WR4A">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+      </edges>
+      <edges xmi:id="_UVPKyyxMEeSFwPSj36WR4A" source="_UVPKwSxMEeSFwPSj36WR4A" target="_UVPKuyxMEeSFwPSj36WR4A">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
       </edges>
       <edges xmi:id="_UxOGkCxNEeSFwPSj36WR4A" source="_UVPKvSxMEeSFwPSj36WR4A" target="_UVPKvixMEeSFwPSj36WR4A">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//Transition/source"/>
@@ -735,10 +810,10 @@
         <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateMachine/states"/>
       </edges>
       <edges xmi:id="_oveIQCxOEeSFwPSj36WR4A" source="_QbaHcCxOEeSFwPSj36WR4A" target="_IszdACxOEeSFwPSj36WR4A">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
       </edges>
       <edges xmi:id="_o-OV8CxOEeSFwPSj36WR4A" source="_QbaHcCxOEeSFwPSj36WR4A" target="_SPMZQCxOEeSFwPSj36WR4A">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
       </edges>
     </lhs>
     <rhs xmi:id="_9ChAJixNEeSFwPSj36WR4A" name="Rhs">
@@ -773,10 +848,10 @@
         <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateMachine/states"/>
       </edges>
       <edges xmi:id="_oveIQSxOEeSFwPSj36WR4A" source="_QbaHcSxOEeSFwPSj36WR4A" target="_Is9OACxOEeSFwPSj36WR4A">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
       </edges>
       <edges xmi:id="_o-OV8SxOEeSFwPSj36WR4A" source="_QbaHcSxOEeSFwPSj36WR4A" target="_SPMZQSxOEeSFwPSj36WR4A">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
       </edges>
     </rhs>
     <mappings xmi:id="_FoZ34ixOEeSFwPSj36WR4A" origin="_FoZ34CxOEeSFwPSj36WR4A" image="_FoZ34SxOEeSFwPSj36WR4A"/>
@@ -784,91 +859,6 @@
     <mappings xmi:id="_QbaHcixOEeSFwPSj36WR4A" origin="_QbaHcCxOEeSFwPSj36WR4A" image="_QbaHcSxOEeSFwPSj36WR4A"/>
     <mappings xmi:id="_SPMZQixOEeSFwPSj36WR4A" origin="_SPMZQCxOEeSFwPSj36WR4A" image="_SPMZQSxOEeSFwPSj36WR4A"/>
     <mappings xmi:id="_bPmp0ixOEeSFwPSj36WR4A" origin="_bPmp0CxOEeSFwPSj36WR4A" image="_bPmp0SxOEeSFwPSj36WR4A"/>
-  </units>
-  <units xsi:type="henshin:Rule" xmi:id="_tV0K0CxaEeSFwPSj36WR4A" name="CreatedInitialStateInDTMC">
-    <lhs xmi:id="_tV31MCxaEeSFwPSj36WR4A" name="Lhs">
-      <nodes xmi:id="_0ID6sCxaEeSFwPSj36WR4A" outgoing="_5xTbICxaEeSFwPSj36WR4A">
-        <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//DTMC"/>
-      </nodes>
-      <nodes xmi:id="_1yajsCxaEeSFwPSj36WR4A" incoming="_5xTbICxaEeSFwPSj36WR4A _-SrUkCxaEeSFwPSj36WR4A">
-        <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//State"/>
-      </nodes>
-      <nodes xmi:id="_7lvNMCxaEeSFwPSj36WR4A" outgoing="_-SrUkCxaEeSFwPSj36WR4A _Mm0voCxbEeSFwPSj36WR4A">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
-      </nodes>
-      <nodes xmi:id="_EjkD0CxbEeSFwPSj36WR4A">
-        <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateMachine"/>
-      </nodes>
-      <nodes xmi:id="_K2n9UCxbEeSFwPSj36WR4A" incoming="_Mm0voCxbEeSFwPSj36WR4A">
-        <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//State"/>
-      </nodes>
-      <edges xmi:id="_5xTbICxaEeSFwPSj36WR4A" source="_0ID6sCxaEeSFwPSj36WR4A" target="_1yajsCxaEeSFwPSj36WR4A">
-        <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//DTMC/States"/>
-      </edges>
-      <edges xmi:id="_-SrUkCxaEeSFwPSj36WR4A" source="_7lvNMCxaEeSFwPSj36WR4A" target="_1yajsCxaEeSFwPSj36WR4A">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
-      </edges>
-      <edges xmi:id="_Mm0voCxbEeSFwPSj36WR4A" source="_7lvNMCxaEeSFwPSj36WR4A" target="_K2n9UCxbEeSFwPSj36WR4A">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
-      </edges>
-    </lhs>
-    <rhs xmi:id="_tV4cQCxaEeSFwPSj36WR4A" name="Rhs">
-      <nodes xmi:id="_0IEhwCxaEeSFwPSj36WR4A" outgoing="_5xTbISxaEeSFwPSj36WR4A">
-        <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//DTMC"/>
-      </nodes>
-      <nodes xmi:id="_1yajsSxaEeSFwPSj36WR4A" incoming="_5xTbISxaEeSFwPSj36WR4A _-SrUkSxaEeSFwPSj36WR4A">
-        <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//State"/>
-      </nodes>
-      <nodes xmi:id="_7lvNMSxaEeSFwPSj36WR4A" outgoing="_-SrUkSxaEeSFwPSj36WR4A _Mm0voSxbEeSFwPSj36WR4A">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
-      </nodes>
-      <nodes xmi:id="_Ejkq4CxbEeSFwPSj36WR4A" outgoing="_RRl1oCxbEeSFwPSj36WR4A">
-        <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateMachine"/>
-      </nodes>
-      <nodes xmi:id="_K2n9USxbEeSFwPSj36WR4A" incoming="_Mm0voSxbEeSFwPSj36WR4A _RRl1oCxbEeSFwPSj36WR4A">
-        <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//State"/>
-      </nodes>
-      <edges xmi:id="_5xTbISxaEeSFwPSj36WR4A" source="_0IEhwCxaEeSFwPSj36WR4A" target="_1yajsSxaEeSFwPSj36WR4A">
-        <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//DTMC/States"/>
-      </edges>
-      <edges xmi:id="_-SrUkSxaEeSFwPSj36WR4A" source="_7lvNMSxaEeSFwPSj36WR4A" target="_1yajsSxaEeSFwPSj36WR4A">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
-      </edges>
-      <edges xmi:id="_Mm0voSxbEeSFwPSj36WR4A" source="_7lvNMSxaEeSFwPSj36WR4A" target="_K2n9USxbEeSFwPSj36WR4A">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
-      </edges>
-      <edges xmi:id="_RRl1oCxbEeSFwPSj36WR4A" source="_Ejkq4CxbEeSFwPSj36WR4A" target="_K2n9USxbEeSFwPSj36WR4A">
-        <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateMachine/initialStates"/>
-      </edges>
-    </rhs>
-    <mappings xmi:id="_0IEhwSxaEeSFwPSj36WR4A" origin="_0ID6sCxaEeSFwPSj36WR4A" image="_0IEhwCxaEeSFwPSj36WR4A"/>
-    <mappings xmi:id="_1yajsixaEeSFwPSj36WR4A" origin="_1yajsCxaEeSFwPSj36WR4A" image="_1yajsSxaEeSFwPSj36WR4A"/>
-    <mappings xmi:id="_7lvNMixaEeSFwPSj36WR4A" origin="_7lvNMCxaEeSFwPSj36WR4A" image="_7lvNMSxaEeSFwPSj36WR4A"/>
-    <mappings xmi:id="_Ejkq4SxbEeSFwPSj36WR4A" origin="_EjkD0CxbEeSFwPSj36WR4A" image="_Ejkq4CxbEeSFwPSj36WR4A"/>
-    <mappings xmi:id="_K2n9UixbEeSFwPSj36WR4A" origin="_K2n9UCxbEeSFwPSj36WR4A" image="_K2n9USxbEeSFwPSj36WR4A"/>
-  </units>
-  <units xsi:type="henshin:Rule" xmi:id="_Y3xj4CxbEeSFwPSj36WR4A" name="DeletedInitialStateInDTMC">
-    <lhs xmi:id="_Y3zZECxbEeSFwPSj36WR4A" name="Lhs">
-      <nodes xmi:id="_IAZhoCxcEeSFwPSj36WR4A" outgoing="_K59vwCxcEeSFwPSj36WR4A">
-        <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateMachine"/>
-      </nodes>
-      <nodes xmi:id="_JEajYCxcEeSFwPSj36WR4A" incoming="_K59vwCxcEeSFwPSj36WR4A">
-        <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//State"/>
-      </nodes>
-      <edges xmi:id="_K59vwCxcEeSFwPSj36WR4A" source="_IAZhoCxcEeSFwPSj36WR4A" target="_JEajYCxcEeSFwPSj36WR4A">
-        <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateMachine/initialStates"/>
-      </edges>
-    </lhs>
-    <rhs xmi:id="_Y3zZESxbEeSFwPSj36WR4A" name="Rhs">
-      <nodes xmi:id="_IAaIsCxcEeSFwPSj36WR4A">
-        <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateMachine"/>
-      </nodes>
-      <nodes xmi:id="_JEajYSxcEeSFwPSj36WR4A">
-        <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//State"/>
-      </nodes>
-    </rhs>
-    <mappings xmi:id="_IAaIsSxcEeSFwPSj36WR4A" origin="_IAZhoCxcEeSFwPSj36WR4A" image="_IAaIsCxcEeSFwPSj36WR4A"/>
-    <mappings xmi:id="_JEbKcCxcEeSFwPSj36WR4A" origin="_JEajYCxcEeSFwPSj36WR4A" image="_JEajYSxcEeSFwPSj36WR4A"/>
   </units>
   <units xsi:type="henshin:Rule" xmi:id="_PevigCxcEeSFwPSj36WR4A" name="ChangedInitialStateInDTMC">
     <lhs xmi:id="_PexXsCxcEeSFwPSj36WR4A" name="Lhs">
@@ -894,10 +884,10 @@
         <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//DTMC/initialState"/>
       </edges>
       <edges xmi:id="_fERF4CxcEeSFwPSj36WR4A" source="_d6KDMCxcEeSFwPSj36WR4A" target="_a6zWICxcEeSFwPSj36WR4A">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
       </edges>
       <edges xmi:id="_lISd0CxcEeSFwPSj36WR4A" source="_d6KDMCxcEeSFwPSj36WR4A" target="_h_PpQCxcEeSFwPSj36WR4A">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
       </edges>
       <edges xmi:id="_ymUwQCxcEeSFwPSj36WR4A" source="_qAb4gCxcEeSFwPSj36WR4A" target="_vKp6oCxcEeSFwPSj36WR4A">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateMachine/initialStates"/>
@@ -926,10 +916,10 @@
         <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//DTMC/initialState"/>
       </edges>
       <edges xmi:id="_fERs8CxcEeSFwPSj36WR4A" source="_d6KqQCxcEeSFwPSj36WR4A" target="_a6zWISxcEeSFwPSj36WR4A">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
       </edges>
       <edges xmi:id="_lITE4CxcEeSFwPSj36WR4A" source="_d6KqQCxcEeSFwPSj36WR4A" target="_h_PpQSxcEeSFwPSj36WR4A">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
       </edges>
       <edges xmi:id="_rzi04CxcEeSFwPSj36WR4A" source="_qAb4gSxcEeSFwPSj36WR4A" target="_h_PpQSxcEeSFwPSj36WR4A">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateMachine/initialStates"/>
@@ -942,8 +932,9 @@
     <mappings xmi:id="_qAb4gixcEeSFwPSj36WR4A" origin="_qAb4gCxcEeSFwPSj36WR4A" image="_qAb4gSxcEeSFwPSj36WR4A"/>
     <mappings xmi:id="_vKp6oixcEeSFwPSj36WR4A" origin="_vKp6oCxcEeSFwPSj36WR4A" image="_vKp6oSxcEeSFwPSj36WR4A"/>
   </units>
-  <units xsi:type="henshin:Rule" xmi:id="_adg2kCzzEeSaW6h9UejR2g" name="CreatedAtomicPropositionInDTMC">
+  <units xsi:type="henshin:Rule" xmi:id="_adg2kCzzEeSaW6h9UejR2g" name="CreatedLabelInDTMC">
     <parameters xmi:id="_i09XwCz1EeSaW6h9UejR2g" name="labelID"/>
+    <parameters xmi:id="_UEtlsC6ZEeS9_vPHDzd5ZQ" name="name"/>
     <lhs xmi:id="_agMXJCzzEeSaW6h9UejR2g" name="Lhs">
       <nodes xmi:id="_llFA4CzzEeSaW6h9UejR2g" outgoing="_y6qh8CzzEeSaW6h9UejR2g">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//DTMC"/>
@@ -976,10 +967,10 @@
         <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//State/labels"/>
       </edges>
       <edges xmi:id="_0gc0ACzzEeSaW6h9UejR2g" source="_ukADsCzzEeSaW6h9UejR2g" target="_nRHr8CzzEeSaW6h9UejR2g">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
       </edges>
       <edges xmi:id="_028ocCzzEeSaW6h9UejR2g" source="_ukADsCzzEeSaW6h9UejR2g" target="_xNIpICzzEeSaW6h9UejR2g">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
       </edges>
       <edges xmi:id="_1SOPMCzzEeSaW6h9UejR2g" source="_wkAMkCzzEeSaW6h9UejR2g" target="_xNIpICzzEeSaW6h9UejR2g">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateMachine/states"/>
@@ -1026,22 +1017,22 @@
         <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//State/labels"/>
       </edges>
       <edges xmi:id="_0gc0ASzzEeSaW6h9UejR2g" source="_ukADsSzzEeSaW6h9UejR2g" target="_nRHr8SzzEeSaW6h9UejR2g">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
       </edges>
       <edges xmi:id="_028ocSzzEeSaW6h9UejR2g" source="_ukADsSzzEeSaW6h9UejR2g" target="_xNIpISzzEeSaW6h9UejR2g">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
       </edges>
       <edges xmi:id="_1SOPMSzzEeSaW6h9UejR2g" source="_wkAMkSzzEeSaW6h9UejR2g" target="_xNIpISzzEeSaW6h9UejR2g">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateMachine/states"/>
       </edges>
       <edges xmi:id="_83uoACzzEeSaW6h9UejR2g" source="_4zFt4CzzEeSaW6h9UejR2g" target="_xqf6kCzzEeSaW6h9UejR2g">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
       </edges>
       <edges xmi:id="_2ws_YCzzEeSaW6h9UejR2g" source="_xNIpISzzEeSaW6h9UejR2g" target="_xqf6kCzzEeSaW6h9UejR2g">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//State/atomicProposition"/>
       </edges>
       <edges xmi:id="_pC_nUCz1EeSaW6h9UejR2g" source="_4zFt4CzzEeSaW6h9UejR2g" target="_qjYt8SzzEeSaW6h9UejR2g">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
       </edges>
     </rhs>
     <mappings xmi:id="_llFA4izzEeSaW6h9UejR2g" origin="_llFA4CzzEeSaW6h9UejR2g" image="_llFA4SzzEeSaW6h9UejR2g"/>
@@ -1051,7 +1042,7 @@
     <mappings xmi:id="_wkAMkizzEeSaW6h9UejR2g" origin="_wkAMkCzzEeSaW6h9UejR2g" image="_wkAMkSzzEeSaW6h9UejR2g"/>
     <mappings xmi:id="_xNIpIizzEeSaW6h9UejR2g" origin="_xNIpICzzEeSaW6h9UejR2g" image="_xNIpISzzEeSaW6h9UejR2g"/>
   </units>
-  <units xsi:type="henshin:Rule" xmi:id="_rv22MCz1EeSaW6h9UejR2g" name="DeletedAtomicPropositionInDTMC">
+  <units xsi:type="henshin:Rule" xmi:id="_rv22MCz1EeSaW6h9UejR2g" name="DeletedLabelInDTMC">
     <lhs xmi:id="_rv22NSz1EeSaW6h9UejR2g" name="Lhs">
       <nodes xmi:id="_v3LQ4Cz1EeSaW6h9UejR2g" outgoing="_ZMRw0Cz2EeSaW6h9UejR2g">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//DTMC"/>
@@ -1078,13 +1069,13 @@
         <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//DTMC/States"/>
       </edges>
       <edges xmi:id="_cflUoCz2EeSaW6h9UejR2g" source="_7f0vACz1EeSaW6h9UejR2g" target="_y4magCz1EeSaW6h9UejR2g">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
       </edges>
       <edges xmi:id="_lsODUCz2EeSaW6h9UejR2g" source="_7f0vACz1EeSaW6h9UejR2g" target="_9-1IECz1EeSaW6h9UejR2g">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
       </edges>
       <edges xmi:id="_obwywCz2EeSaW6h9UejR2g" source="_7v7AgCz1EeSaW6h9UejR2g" target="_XcqNUCz2EeSaW6h9UejR2g">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
       </edges>
       <edges xmi:id="_uRpoECz2EeSaW6h9UejR2g" source="_WESsMCz2EeSaW6h9UejR2g" target="_9-1IECz1EeSaW6h9UejR2g">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateMachine/states"/>
@@ -1126,7 +1117,7 @@
               <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//DTMC/States"/>
             </edges>
             <edges xmi:id="_ndnvgCz2EeSaW6h9UejR2g" source="_b42ExSz2EeSaW6h9UejR2g" target="_UPUHkCz2EeSaW6h9UejR2g">
-              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
             </edges>
           </conclusion>
           <mappings xmi:id="_baJWlCz2EeSaW6h9UejR2g" origin="_y4magCz1EeSaW6h9UejR2g" image="_baJWkyz2EeSaW6h9UejR2g"/>
@@ -1162,10 +1153,10 @@
         <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//DTMC/States"/>
       </edges>
       <edges xmi:id="_cflUoSz2EeSaW6h9UejR2g" source="_7f0vASz1EeSaW6h9UejR2g" target="_y4magSz1EeSaW6h9UejR2g">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
       </edges>
       <edges xmi:id="_lsODUSz2EeSaW6h9UejR2g" source="_7f0vASz1EeSaW6h9UejR2g" target="_9-1IESz1EeSaW6h9UejR2g">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
       </edges>
       <edges xmi:id="_uRpoESz2EeSaW6h9UejR2g" source="_WESsMSz2EeSaW6h9UejR2g" target="_9-1IESz1EeSaW6h9UejR2g">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateMachine/states"/>
@@ -1178,8 +1169,9 @@
     <mappings xmi:id="_9-1IEiz1EeSaW6h9UejR2g" origin="_9-1IECz1EeSaW6h9UejR2g" image="_9-1IESz1EeSaW6h9UejR2g"/>
     <mappings xmi:id="_WESsMiz2EeSaW6h9UejR2g" origin="_WESsMCz2EeSaW6h9UejR2g" image="_WESsMSz2EeSaW6h9UejR2g"/>
   </units>
-  <units xsi:type="henshin:Rule" xmi:id="_2aLOYCz2EeSaW6h9UejR2g" name="ChangedNameOfAtomicPropositionInDTMC">
+  <units xsi:type="henshin:Rule" xmi:id="_2aLOYCz2EeSaW6h9UejR2g" name="ChangedLabelNameInDTMC">
     <parameters xmi:id="_fP_KQCz3EeSaW6h9UejR2g" name="labelID"/>
+    <parameters xmi:id="_1-JI0C6aEeS9_vPHDzd5ZQ" name="name"/>
     <lhs xmi:id="_2aU_YCz2EeSaW6h9UejR2g" name="Lhs">
       <nodes xmi:id="_64JOgCz2EeSaW6h9UejR2g" outgoing="_Dmh68Cz3EeSaW6h9UejR2g">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//DTMC"/>
@@ -1215,10 +1207,10 @@
         <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateMachine/states"/>
       </edges>
       <edges xmi:id="_CLoDMCz3EeSaW6h9UejR2g" source="_8LTfgCz2EeSaW6h9UejR2g" target="_7KeUoCz2EeSaW6h9UejR2g">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
       </edges>
       <edges xmi:id="_CfmIECz3EeSaW6h9UejR2g" source="_8Rj4gCz2EeSaW6h9UejR2g" target="_70p6ECz2EeSaW6h9UejR2g">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
       </edges>
       <edges xmi:id="_Dmh68Cz3EeSaW6h9UejR2g" source="_64JOgCz2EeSaW6h9UejR2g" target="_7KeUoCz2EeSaW6h9UejR2g">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//DTMC/States"/>
@@ -1230,10 +1222,10 @@
         <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//State/atomicProposition"/>
       </edges>
       <edges xmi:id="_C4VYMCz3EeSaW6h9UejR2g" source="_8Rj4gCz2EeSaW6h9UejR2g" target="_-4T4UCz2EeSaW6h9UejR2g">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
       </edges>
       <edges xmi:id="_irpY0Cz3EeSaW6h9UejR2g" source="_8LTfgCz2EeSaW6h9UejR2g" target="_98jasCz2EeSaW6h9UejR2g">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
       </edges>
     </lhs>
     <rhs xmi:id="_2aU_YSz2EeSaW6h9UejR2g" name="Rhs">
@@ -1274,10 +1266,10 @@
         <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//StateMachine/states"/>
       </edges>
       <edges xmi:id="_CLoDMSz3EeSaW6h9UejR2g" source="_8LTfgSz2EeSaW6h9UejR2g" target="_7KeUoSz2EeSaW6h9UejR2g">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
       </edges>
       <edges xmi:id="_CfmIESz3EeSaW6h9UejR2g" source="_8Rj4gSz2EeSaW6h9UejR2g" target="_70p6ESz2EeSaW6h9UejR2g">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
       </edges>
       <edges xmi:id="_Dmh68Sz3EeSaW6h9UejR2g" source="_64JOgSz2EeSaW6h9UejR2g" target="_7KeUoSz2EeSaW6h9UejR2g">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.dtmc/model/DTMC.ecore#//DTMC/States"/>
@@ -1289,10 +1281,10 @@
         <type href="../../de.uni_stuttgart.iste.cowolf.model.statechart/model/statechart.ecore#//State/atomicProposition"/>
       </edges>
       <edges xmi:id="_a7QltCz3EeSaW6h9UejR2g" source="_8Rj4gSz2EeSaW6h9UejR2g" target="_a7QlsCz3EeSaW6h9UejR2g">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
       </edges>
       <edges xmi:id="_irpY0Sz3EeSaW6h9UejR2g" source="_8LTfgSz2EeSaW6h9UejR2g" target="_98jasSz2EeSaW6h9UejR2g">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
       </edges>
     </rhs>
     <mappings xmi:id="_64JOgiz2EeSaW6h9UejR2g" origin="_64JOgCz2EeSaW6h9UejR2g" image="_64JOgSz2EeSaW6h9UejR2g"/>

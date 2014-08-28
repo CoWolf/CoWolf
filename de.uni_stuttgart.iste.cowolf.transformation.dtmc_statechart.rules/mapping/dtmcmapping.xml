@@ -1,109 +1,119 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Mappings
-	xmlns="http://www.uni-stuttgart.iste.co.wolf.org/TransformationMapping">
-	<Mapping priority="0">
-		<Difference>SET_Label_Name</Difference>
-		<Rule name="ChangedNameOfAtomicPropositionInDTMC"
-			path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/DTMC_SC.henshin">
-			<Params>
-				<Param name="labelID" />
-			</Params>
-		</Rule>
-	</Mapping>
-	<Mapping priority="0">
-		<Difference>DELETE_Label_IN_State_(labels)</Difference>
-		<Rule name="DeletedAtomicPropositionInDTMC"
-			path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/DTMC_SC.henshin">
-			<Params />
-		</Rule>
-	</Mapping>
-	<Mapping priority="0">
-		<Difference>CREATE_Label_IN_State_(labels)</Difference>
-		<Rule name="CreatedAtomicPropositionInDTMC"
-			path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/DTMC_SC.henshin">
-			<Params>
-				<Param name="labelID" />
-			</Params>
-		</Rule>
-	</Mapping>
-	<Mapping priority="0">
-		<Difference>CHANGE_Transition_(to)_TGT_State</Difference>
-		<Rule name="ChangedTransitionTargetInDTMC"
-			path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/DTMC_SC.henshin">
-			<Params>
-				<Param name="transitionName">
-				<Change name="RemoveReference" type="target">
-						<Reference name="target" attribute="id" />
-					</Change>
-					</Param>
-			</Params>
-		</Rule>
-	</Mapping>
-	<Mapping priority="0">
-		<Difference>MOVE_Transition_FROM_State_(outgoing)_TO_State_(outgoing)
-		</Difference>
-		<Rule name="ChangedTransitionSourceInDTMC"
-			path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/DTMC_SC.henshin">
-			<Params>
-				<Param name="transitionName">
-				<Change name="RemoveReference" type="target">
-						<Reference name="src" attribute="id" />
-					</Change>
-					</Param>
-			</Params>
-		</Rule>
-	</Mapping>
-	<Mapping priority="0">
-		<Difference>SET_State_Name</Difference>
-		<Rule name="ChangedNameInDTMC"
-			path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/DTMC_SC.henshin">
-			<Params>
-				<Param name="stateID">
-				<Change name="AttributeValueChange" type="name">
-						<Reference name="target" attribute="id" />
-					</Change>
-				</Param>
-			</Params>
-		</Rule>
-	</Mapping>
-	<Mapping priority="0">
-		<Difference>CREATE_Transition_IN_State_(outgoing)</Difference>
-		<Rule name="CreatedTransitionInDTMC"
-			path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/DTMC_SC.henshin">
-			<Params>
-				<Param name="id">
-				    <Change name="AddObject">
-						<Reference name="obj" attribute="id" />
-					</Change>
-					</Param>	
-			   </Params>
-		</Rule>
-	</Mapping>
-	<Mapping priority="0">
-		<Difference>CHANGE_DTMC_(initialState)_TGT_State</Difference>
-		<Rule name="ChangedInitialStateInDTMC"
-			path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/DTMC_SC.henshin">
-			<Params />
-		</Rule>
-	</Mapping>
-	<Mapping priority="0">
-		<Difference>CREATE_State_IN_DTMC_(States)</Difference>
-		<Rule name="CreatedStateInDTMC"
-			path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/DTMC_SC.henshin">
-			<Params>
-				<Param name="name">
-					<Change name="AddObject">
-						<Reference name="obj" attribute="name" />
-					</Change>
-				</Param>
-			</Params>
-		</Rule>
-	</Mapping>
-	<Mapping priority="0">
-		<Difference>DELETE_State_IN_DTMC_(States)</Difference>
-		<Rule name="DeletedStateInDTMC"
-			path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/DTMC_SC.henshin">
-			<Params />
-		</Rule>
-	</Mapping>
-</Mappings>
+<ns2:Mappings xmlns:ns2="http://www.uni-stuttgart.iste.co.wolf.org/TransformationMapping">
+    <ns2:changeMapping/>
+    <ns2:Mapping priority="0">
+        <ns2:Difference>DELETE_Label_IN_State_(labels)</ns2:Difference>
+        <ns2:Rule name="DeletedLabelInDTMC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/DTMC_SC.henshin">
+            <ns2:Params/>
+        </ns2:Rule>
+    </ns2:Mapping>
+    <ns2:Mapping priority="0">
+        <ns2:Difference>SET_Label_Name</ns2:Difference>
+        <ns2:Rule name="ChangedLabelNameInDTMC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/DTMC_SC.henshin">
+            <ns2:Params>
+                <ns2:Param name="labelID">
+                <ns2:Change name="AttributeValueChange" type="name">
+                        <ns2:Reference name="objB" attribute="id"/>
+                    </ns2:Change>
+                    </ns2:Param>
+            </ns2:Params>
+        </ns2:Rule>
+    </ns2:Mapping>
+    <ns2:Mapping priority="0">
+        <ns2:Difference>CHANGE_Transition_(to)_TGT_State</ns2:Difference>
+        <ns2:Rule name="ChangedTransitionTargetInDTMC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/DTMC_SC.henshin">
+            <ns2:Params>
+                <ns2:Param name="transitionName">
+                    <ns2:Change name="RemoveReference" type="src">
+                        <ns2:Reference name="target" attribute="id"/>
+                    </ns2:Change>
+                </ns2:Param>
+            </ns2:Params>
+        </ns2:Rule>
+    </ns2:Mapping>
+    <ns2:Mapping priority="0">
+        <ns2:Difference>CREATE_Label_IN_State_(labels)</ns2:Difference>
+        <ns2:Rule name="CreatedLabelInDTMC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/DTMC_SC.henshin">
+            <ns2:Params>
+                <ns2:Param name="labelID">
+                <ns2:Change name="AddReference" type="labels">
+                        <ns2:Reference name="tgt" attribute="id"/>
+                    </ns2:Change>
+                    </ns2:Param>
+            </ns2:Params>
+        </ns2:Rule>
+    </ns2:Mapping>
+    <ns2:Mapping priority="0">
+        <ns2:Difference>DELETE_Transition_IN_State_(outgoing)</ns2:Difference>
+        <ns2:Rule name="DeletedTransitionInDTMC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/DTMC_SC.henshin">
+            <ns2:Params>
+            </ns2:Params>            
+        </ns2:Rule>
+    </ns2:Mapping>
+    <ns2:Mapping priority="0">
+        <ns2:Difference>MOVE_Transition_FROM_State_(outgoing)_TO_State_(outgoing)</ns2:Difference>
+        <ns2:Rule name="ChangedTransitionSourceInDTMC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/DTMC_SC.henshin">
+            <ns2:Params>
+                <ns2:Param name="transitionName">
+                    <ns2:Change name="RemoveReference" type="outgoing">
+                        <ns2:Reference name="tgt" attribute="id"/>
+                    </ns2:Change>
+                </ns2:Param>
+            </ns2:Params>
+        </ns2:Rule>
+    </ns2:Mapping>
+    <ns2:Mapping priority="0">
+        <ns2:Difference>SET_State_Name</ns2:Difference>
+        <ns2:Rule name="ChangedNameInDTMC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/DTMC_SC.henshin">
+            <ns2:Params>
+                <ns2:Param name="stateID">
+                    <ns2:Change name="AttributeValueChange" type="name">
+                        <ns2:Reference name="objB" attribute="id"/>
+                    </ns2:Change>
+                </ns2:Param>
+            </ns2:Params>
+        </ns2:Rule>
+    </ns2:Mapping>
+    <ns2:Mapping priority="1">
+        <ns2:Difference>CREATE_Transition_IN_State_(outgoing)</ns2:Difference>
+        <ns2:Rule name="CreatedTransitionInDTMC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/DTMC_SC.henshin">
+            <ns2:Params>
+                <ns2:Param name="id">
+                    <ns2:Change name="AddObject">
+                        <ns2:Reference name="obj" attribute="id"/>
+                    </ns2:Change>
+                </ns2:Param>
+            </ns2:Params>
+        </ns2:Rule>
+    </ns2:Mapping>
+    <ns2:Mapping priority="0">
+        <ns2:Difference>CHANGE_DTMC_(initialState)_TGT_State</ns2:Difference>
+        <ns2:Rule name="ChangedInitialStateInDTMC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/DTMC_SC.henshin">
+            <ns2:Params/>
+        </ns2:Rule>
+    </ns2:Mapping>
+    <ns2:Mapping priority="0">
+        <ns2:Difference>CREATE_State_IN_DTMC_(States)</ns2:Difference>
+        <ns2:Rule name="CreatedStateInDTMC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/DTMC_SC.henshin">
+            <ns2:Params>
+                <ns2:Param name="name">
+                    <ns2:Change name="AddObject">
+                        <ns2:Reference name="obj" attribute="name"/>
+                    </ns2:Change>
+                </ns2:Param>
+            </ns2:Params>
+        </ns2:Rule>
+    </ns2:Mapping>
+    <ns2:Mapping priority="0">
+        <ns2:Difference>DELETE_State_IN_DTMC_(States)</ns2:Difference>
+        <ns2:Rule name="DeletedStateInDTMC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/DTMC_SC.henshin">
+          <ns2:Params>
+               <!--  <ns2:Param name="id">
+                    <ns2:Change name="RemoveObject">
+                        <ns2:Reference name="obj" attribute="id"/>
+                    </ns2:Change>
+                </ns2:Param> -->
+            </ns2:Params>
+        </ns2:Rule>
+    </ns2:Mapping>
+</ns2:Mappings>
