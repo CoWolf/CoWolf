@@ -244,18 +244,18 @@ public abstract class AbstractTransformationManager {
             String extension = EcoreUtil.getURI(entry).fileExtension();
             if (extension.equals(source.getURI().fileExtension())) {
                 if (!EcoreUtil.getURI(entry).equals(source.getURI())) {
-                resSet.getURIConverter()
-                        .getURIMap()
-                        .put(EcoreUtil.getURI(entry).trimFragment(),
-                                source.getURI());
+                    resSet.getURIConverter()
+                            .getURIMap()
+                            .put(EcoreUtil.getURI(entry).trimFragment(),
+                                    source.getURI());
                 }
             } else {
                 if (!EcoreUtil.getURI(entry).equals(target.getURI())) {
-                resSet.getURIConverter()
-                        .getURIMap()
-                        .put(EcoreUtil.getURI(entry).trimFragment(),
-                                target.getURI());
-            }
+                    resSet.getURIConverter()
+                            .getURIMap()
+                            .put(EcoreUtil.getURI(entry).trimFragment(),
+                                    target.getURI());
+                }
 
             }
         }
@@ -306,31 +306,8 @@ public abstract class AbstractTransformationManager {
         for (Map.Entry<URI, URI> entry : map.entrySet()) {
             System.out
                     .println(entry.getKey() + "--------->" + entry.getValue());
-            }
-        // if (true)
-        // return;
-        // // resolve resources
-        // EcoreUtil.resolveAll(resSet);
-        // // update uri of outdated resources
-        // for (Resource res : resSet.getResources()) {
-        // System.out.println("Res in ResSet:" + res);
-        // if (map.containsKey(res.getURI())) {
-        // System.out.println("old uri: " + res.getURI());
-        // System.out.println("new uri: " + map.get(res.getURI()));
-        // res.setURI(map.get(res.getURI()));
-        // }
-        // }
-        //
-        // // find broken proxy references and remove them from resource set
-        // List<Resource> toRemove = new ArrayList<>();
-        // for (int index = 0; index < resSet.getResources().size(); index++) {
-        // Resource res = resSet.getResources().get(index);
-        // if (!res.isLoaded() || res.getErrors().size() > 0) {
-        // toRemove.add(res);
-        // }
-        // }
-        // resSet.getResources().removeAll(toRemove);
         }
+    }
     /**
      * Saves root of the resulting model to an output file.
      *

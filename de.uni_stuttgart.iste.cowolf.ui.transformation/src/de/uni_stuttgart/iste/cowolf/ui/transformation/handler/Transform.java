@@ -160,7 +160,6 @@ public class Transform extends AbstractHandler {
         final AbstractTransformationManager transManager = this.extensionHandler
                 .getTransformationManager(firstSourceModel, target);
         if (evoManager != null && transManager != null) {
-
             Job job = new Job("Model Co-Evolution") {
 
                 @Override
@@ -197,11 +196,12 @@ public class Transform extends AbstractHandler {
                                 firstSource, filteredSecondSource, target,
                                 difference, result);
                         final AbstractEvolutionManager evoManager = extensionHandler
-                                .getEvolutionManager(target);
+                                .getEvolutionManager(transformedModel);
                         if (evoManager != null) {
-                            System.out.println(target);
-                            System.out.println(transformedModel);
-                            difference = evoManager.evolve(target,
+                            URI targetURI = target.getURI();
+                            Resource target2 = new ResourceSetImpl()
+                                    .getResource(targetURI, true);
+                            difference = evoManager.evolve(target2,
                                     transformedModel);
                             String projectRoot = firstElement.getProject()
                                     .getLocation().toFile().toString();
@@ -238,8 +238,8 @@ public class Transform extends AbstractHandler {
                     return Status.OK_STATUS;
                 }
             };
+            job.setUser(true);
             job.schedule();
-
         }
 
         return null;

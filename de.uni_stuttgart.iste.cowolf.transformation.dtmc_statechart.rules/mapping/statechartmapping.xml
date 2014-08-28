@@ -3,7 +3,7 @@
 	xmlns="http://www.uni-stuttgart.iste.co.wolf.org/TransformationMapping"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.uni-stuttgart.iste.co.wolf.org/TransformationMapping Mapping.xsd ">
-	<Mapping>
+	<Mapping priority="0">
 		
 		<Difference>CREATE_State_IN_StateMachine_(states)</Difference>
 		<Rule name="CreatedStateInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
@@ -16,7 +16,7 @@
 			</Params>
 		</Rule>
 	</Mapping>
- 	<Mapping priority="1">
+ 	<Mapping priority="20">
  		<Difference>DELETE_State_IN_StateMachine_(states)</Difference>
  		<Rule name="DeletedStateInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
 			<Params>
@@ -28,13 +28,13 @@
 			</Params>
 		</Rule>
  	</Mapping>
-	<Mapping priority="10">
+	<Mapping priority="0">
 		<Difference>CREATE_Transition_IN_StateMachine_(transitions)</Difference>
 		<Rule name="CreatedTransitionInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
 			<Params>
-				<Param name="name">
+				<Param name="id">
 					<Change name="AddObject">
-						<Reference name="obj" attribute="name" />
+						<Reference name="obj" attribute="id" />
 					</Change>
 				</Param>
 			</Params>
@@ -81,7 +81,7 @@
 			</Params>
 		</Rule>
 	</Mapping>
-	<Mapping priority="10">
+	<Mapping priority="1">
 		<Difference>CREATE_BooleanExpression_IN_State_(atomicProposition)</Difference>
 		<Rule name="CreatedAtomicPropositionInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
 			<Params>
@@ -93,7 +93,7 @@
 			</Params>
 		</Rule>
 	</Mapping>
-	<Mapping priority="10">
+	<Mapping priority="19">
 		<Difference>DELETE_BooleanExpression_IN_State_(atomicProposition)</Difference>
 		<Rule name="DeletedAtomicPropositionInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
 			<Params>

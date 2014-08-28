@@ -23,21 +23,21 @@ public class ParameterHandler {
         Object result = null;
         // check for corresponding change
         if (changeSet != null) {
-
-            String paramChangeName = parameter.getChange().getName();
-
-            for (Change change : changeSet.getChanges()) {
-                String changeName = change.eClass().getName();
-                if (changeName.equals(paramChangeName)) {
-                    Object changeResult = this.handleChange(change);
-                    if (changeResult != null) {
-                        result = changeResult;
+            if (parameter.getChange() != null) {
+                String paramChangeName = parameter.getChange().getName();
+                for (Change change : changeSet.getChanges()) {
+                    String changeName = change.eClass().getName();
+                    if (changeName.equals(paramChangeName)) {
+                        Object changeResult = this.handleChange(change);
+                        if (changeResult != null) {
+                            result = changeResult;
+                        }
                     }
                 }
+                return result;
             }
-
         }
-        return result;
+        return null;
     }
     private Object handleChange(Change change) {
         Object result = null;
