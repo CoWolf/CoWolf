@@ -187,4 +187,17 @@ public class ModelAssociationFactoryImpl extends EFactoryImpl implements ModelAs
 		return ModelAssociationPackage.eINSTANCE;
 	}
 
+	@Override
+	public void saveAll() {
+		for (Resource res : resources.values()) {
+			try {
+				res.save(Collections.EMPTY_MAP);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+	}
+
 } //ModelAssociationFactoryImpl

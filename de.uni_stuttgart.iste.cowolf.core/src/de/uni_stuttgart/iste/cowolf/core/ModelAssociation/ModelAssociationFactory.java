@@ -66,4 +66,9 @@ public interface ModelAssociationFactory extends EFactory {
 	 */
 	ModelAssociationPackage getModelAssociationPackage();
 
+	/**
+	 * saves all loaded model associations.
+	 */
+	void saveAll();
+
 } //ModelAssociationFactory

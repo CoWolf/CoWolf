@@ -5,7 +5,7 @@ import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchListener;
 import org.eclipse.ui.PlatformUI;
 
-import de.uni_stuttgart.iste.cowolf.core.ModelAssociationManager.ModelAssociationManager;
+import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociationFactory;
 
 
 /**
@@ -25,8 +25,6 @@ public class StartTrigger implements IStartup {
 		// listener for end of eclipse
 		addWorkbenchListener();
 
-		// load properties
-		ModelAssociationManager.getInstance().loadAll();
 
 	}
 
@@ -46,7 +44,7 @@ public class StartTrigger implements IStartup {
 				 */
 				@Override
 				public boolean preShutdown(IWorkbench workbench, boolean forced) {
-					ModelAssociationManager.getInstance().saveAll();
+					ModelAssociationFactory.eINSTANCE.saveAll();
 					return true;
 				}
 

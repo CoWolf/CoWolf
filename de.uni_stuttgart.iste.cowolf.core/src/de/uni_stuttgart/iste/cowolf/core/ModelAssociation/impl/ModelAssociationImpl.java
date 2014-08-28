@@ -126,6 +126,8 @@ public class ModelAssociationImpl extends MinimalEObjectImpl.Container implement
 		}
 		return models;
 	}
+	
+	//public Association addAssociation()
 
 	/**
 	 * <!-- begin-user-doc -->
