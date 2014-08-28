@@ -7,9 +7,9 @@
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="ModelAssociation">
     <eStructuralFeatures xsi:type="ecore:EReference" name="models" upperBound="-1"
-        eType="#//Model" containment="true"/>
+        eType="#//Model" containment="true" eOpposite="#//Model/parent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="associations" upperBound="-1"
-        eType="#//Association"/>
+        eType="#//Association" eOpposite="#//Association/parent"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Model">
     <eStructuralFeatures xsi:type="ecore:EReference" name="versions" upperBound="-1"
@@ -17,6 +17,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="model" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="modelID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//ModelAssociation"
+        eOpposite="#//ModelAssociation/models"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Association">
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
@@ -26,6 +28,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="traces" upperBound="-1"
         eType="ecore:EClass ../../org.eclipse.emf.henshin.trace/model/trace.ecore#//Trace"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="timestamp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//ModelAssociation"
+        eOpposite="#//ModelAssociation/associations"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModelVersion">
     <eStructuralFeatures xsi:type="ecore:EReference" name="model" eType="#//Model"

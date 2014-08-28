@@ -3,6 +3,7 @@
 package de.uni_stuttgart.iste.cowolf.core.ModelAssociation.impl;
 
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Association;
+import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociation;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociationPackage;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelVersion;
 
@@ -36,6 +37,7 @@ import org.eclipse.emf.henshin.trace.Trace;
  *   <li>{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.impl.AssociationImpl#getTarget <em>Target</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.impl.AssociationImpl#getTraces <em>Traces</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.impl.AssociationImpl#getTimestamp <em>Timestamp</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.impl.AssociationImpl#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
  *
@@ -91,6 +93,16 @@ public class AssociationImpl extends MinimalEObjectImpl.Container implements Ass
 	 * @ordered
 	 */
 	protected long timestamp = TIMESTAMP_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getParent() <em>Parent</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParent()
+	 * @generated
+	 * @ordered
+	 */
+	protected ModelAssociation parent;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -193,6 +205,66 @@ public class AssociationImpl extends MinimalEObjectImpl.Container implements Ass
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ModelAssociation getParent() {
+		if (parent != null && parent.eIsProxy()) {
+			InternalEObject oldParent = (InternalEObject)parent;
+			parent = (ModelAssociation)eResolveProxy(oldParent);
+			if (parent != oldParent) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelAssociationPackage.ASSOCIATION__PARENT, oldParent, parent));
+			}
+		}
+		return parent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ModelAssociation basicGetParent() {
+		return parent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetParent(ModelAssociation newParent, NotificationChain msgs) {
+		ModelAssociation oldParent = parent;
+		parent = newParent;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelAssociationPackage.ASSOCIATION__PARENT, oldParent, newParent);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setParent(ModelAssociation newParent) {
+		if (newParent != parent) {
+			NotificationChain msgs = null;
+			if (parent != null)
+				msgs = ((InternalEObject)parent).eInverseRemove(this, ModelAssociationPackage.MODEL_ASSOCIATION__ASSOCIATIONS, ModelAssociation.class, msgs);
+			if (newParent != null)
+				msgs = ((InternalEObject)newParent).eInverseAdd(this, ModelAssociationPackage.MODEL_ASSOCIATION__ASSOCIATIONS, ModelAssociation.class, msgs);
+			msgs = basicSetParent(newParent, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelAssociationPackage.ASSOCIATION__PARENT, newParent, newParent));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -201,6 +273,10 @@ public class AssociationImpl extends MinimalEObjectImpl.Container implements Ass
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSource()).basicAdd(otherEnd, msgs);
 			case ModelAssociationPackage.ASSOCIATION__TARGET:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getTarget()).basicAdd(otherEnd, msgs);
+			case ModelAssociationPackage.ASSOCIATION__PARENT:
+				if (parent != null)
+					msgs = ((InternalEObject)parent).eInverseRemove(this, ModelAssociationPackage.MODEL_ASSOCIATION__ASSOCIATIONS, ModelAssociation.class, msgs);
+				return basicSetParent((ModelAssociation)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -217,6 +293,8 @@ public class AssociationImpl extends MinimalEObjectImpl.Container implements Ass
 				return ((InternalEList<?>)getSource()).basicRemove(otherEnd, msgs);
 			case ModelAssociationPackage.ASSOCIATION__TARGET:
 				return ((InternalEList<?>)getTarget()).basicRemove(otherEnd, msgs);
+			case ModelAssociationPackage.ASSOCIATION__PARENT:
+				return basicSetParent(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -237,6 +315,9 @@ public class AssociationImpl extends MinimalEObjectImpl.Container implements Ass
 				return getTraces();
 			case ModelAssociationPackage.ASSOCIATION__TIMESTAMP:
 				return getTimestamp();
+			case ModelAssociationPackage.ASSOCIATION__PARENT:
+				if (resolve) return getParent();
+				return basicGetParent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -265,6 +346,9 @@ public class AssociationImpl extends MinimalEObjectImpl.Container implements Ass
 			case ModelAssociationPackage.ASSOCIATION__TIMESTAMP:
 				setTimestamp((Long)newValue);
 				return;
+			case ModelAssociationPackage.ASSOCIATION__PARENT:
+				setParent((ModelAssociation)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -289,6 +373,9 @@ public class AssociationImpl extends MinimalEObjectImpl.Container implements Ass
 			case ModelAssociationPackage.ASSOCIATION__TIMESTAMP:
 				setTimestamp(TIMESTAMP_EDEFAULT);
 				return;
+			case ModelAssociationPackage.ASSOCIATION__PARENT:
+				setParent((ModelAssociation)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -309,6 +396,8 @@ public class AssociationImpl extends MinimalEObjectImpl.Container implements Ass
 				return traces != null && !traces.isEmpty();
 			case ModelAssociationPackage.ASSOCIATION__TIMESTAMP:
 				return timestamp != TIMESTAMP_EDEFAULT;
+			case ModelAssociationPackage.ASSOCIATION__PARENT:
+				return parent != null;
 		}
 		return super.eIsSet(featureID);
 	}

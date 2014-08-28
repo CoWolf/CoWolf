@@ -4,21 +4,32 @@ package de.uni_stuttgart.iste.cowolf.core.ModelAssociation.impl;
 
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Association;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Model;
+import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociation;
+import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociationFactory;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociationPackage;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelVersion;
+import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
 
+import java.io.IOException;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -31,6 +42,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.impl.ModelImpl#getVersions <em>Versions</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.impl.ModelImpl#getModel <em>Model</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.impl.ModelImpl#getModelID <em>Model ID</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.impl.ModelImpl#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
  *
@@ -105,6 +117,57 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	protected EClass eStaticClass() {
 		return ModelAssociationPackage.eINSTANCE.getModel();
 	}
+	
+	@Override
+	public ModelVersion createVersion(Resource res) {
+		
+		// Check for identical model ID
+		if (this.getModelID() != null) {
+			if (!(res.getContents().get(0) instanceof IDBase) || !((IDBase)res.getContents().get(0)).getId().equals(this.getModelID())) {
+				throw new IllegalArgumentException("Given model version is no instance of this model (model id violation)");
+			}
+		}
+		
+		long timestamp = new Date().getTime();
+		
+		String filename = ModelAssociationPackage.VERSIONBASEDIR + this.getModel() + "." + timestamp;
+		URI uri = URI.createURI(this.getParent().getProject().getLocationURI().toString() + "/" + filename);
+		
+		res.getResourceSet().createResource(uri);
+		res.getContents().clear();
+		res.getContents().addAll(res.getContents());
+		try {
+			res.save(Collections.EMPTY_MAP);
+			
+			ModelVersion version = ModelAssociationFactory.eINSTANCE.createModelVersion();
+			version.setManual(false);
+			version.setTimestamp(timestamp);
+			version.setModel(this);
+			
+			return version;
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+	@Override
+	public ModelVersion createVersion() {
+		ResourceSetImpl resSet = new ResourceSetImpl();
+		URI uri = URI.createURI(this.getParent().getProject().getLocationURI().toString() + "/" + this.getModel());
+		Resource res = resSet.createResource(uri);
+		try {
+			res.load(Collections.EMPTY_MAP);
+			
+			return this.createVersion(res);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -138,6 +201,12 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ModelAssociationPackage.MODEL__MODEL, oldModel, model));
 	}
+	
+	public Resource getResource() {
+		ResourceSet resSet = new ResourceSetImpl();
+		URI uri = URI.createURI(this.getModel());
+		return resSet.getResource(uri, false);
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -160,6 +229,48 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 			eNotify(new ENotificationImpl(this, Notification.SET, ModelAssociationPackage.MODEL__MODEL_ID, oldModelID, modelID));
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ModelAssociation getParent() {
+		if (eContainerFeatureID() != ModelAssociationPackage.MODEL__PARENT) return null;
+		return (ModelAssociation)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetParent(ModelAssociation newParent, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newParent, ModelAssociationPackage.MODEL__PARENT, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setParent(ModelAssociation newParent) {
+		if (newParent != eInternalContainer() || (eContainerFeatureID() != ModelAssociationPackage.MODEL__PARENT && newParent != null)) {
+			if (EcoreUtil.isAncestor(this, newParent))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newParent != null)
+				msgs = ((InternalEObject)newParent).eInverseAdd(this, ModelAssociationPackage.MODEL_ASSOCIATION__MODELS, ModelAssociation.class, msgs);
+			msgs = basicSetParent(newParent, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelAssociationPackage.MODEL__PARENT, newParent, newParent));
+	}
+
+	@Override
 	public List<Association> getSourceAssociations() {
 		LinkedList<Association> list = new LinkedList<Association>();
 		
@@ -170,6 +281,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 		return list;
 	}
 	
+	@Override
 	public List<Association> getTargetAssociations() {
 		LinkedList<Association> list = new LinkedList<Association>();
 		
@@ -180,6 +292,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 		return list;
 	}
 	
+	@Override
 	public List<Association> getAllAssociations() {
 		LinkedList<Association> list = new LinkedList<Association>();
 		
@@ -202,6 +315,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 		switch (featureID) {
 			case ModelAssociationPackage.MODEL__VERSIONS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getVersions()).basicAdd(otherEnd, msgs);
+			case ModelAssociationPackage.MODEL__PARENT:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetParent((ModelAssociation)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -216,8 +333,24 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 		switch (featureID) {
 			case ModelAssociationPackage.MODEL__VERSIONS:
 				return ((InternalEList<?>)getVersions()).basicRemove(otherEnd, msgs);
+			case ModelAssociationPackage.MODEL__PARENT:
+				return basicSetParent(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case ModelAssociationPackage.MODEL__PARENT:
+				return eInternalContainer().eInverseRemove(this, ModelAssociationPackage.MODEL_ASSOCIATION__MODELS, ModelAssociation.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -234,6 +367,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 				return getModel();
 			case ModelAssociationPackage.MODEL__MODEL_ID:
 				return getModelID();
+			case ModelAssociationPackage.MODEL__PARENT:
+				return getParent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -257,6 +392,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 			case ModelAssociationPackage.MODEL__MODEL_ID:
 				setModelID((String)newValue);
 				return;
+			case ModelAssociationPackage.MODEL__PARENT:
+				setParent((ModelAssociation)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -278,6 +416,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 			case ModelAssociationPackage.MODEL__MODEL_ID:
 				setModelID(MODEL_ID_EDEFAULT);
 				return;
+			case ModelAssociationPackage.MODEL__PARENT:
+				setParent((ModelAssociation)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -296,6 +437,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 				return MODEL_EDEFAULT == null ? model != null : !MODEL_EDEFAULT.equals(model);
 			case ModelAssociationPackage.MODEL__MODEL_ID:
 				return MODEL_ID_EDEFAULT == null ? modelID != null : !MODEL_ID_EDEFAULT.equals(modelID);
+			case ModelAssociationPackage.MODEL__PARENT:
+				return getParent() != null;
 		}
 		return super.eIsSet(featureID);
 	}

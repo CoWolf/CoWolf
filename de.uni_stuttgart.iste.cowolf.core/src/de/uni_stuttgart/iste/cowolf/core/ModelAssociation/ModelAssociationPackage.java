@@ -25,6 +25,10 @@ import org.eclipse.emf.ecore.EReference;
  * @generated
  */
 public interface ModelAssociationPackage extends EPackage {
+	
+	static String PROJECT_FILENAME = ".modelassociation";
+	static String VERSIONBASEDIR = ".modelversions/";
+	
 	/**
 	 * The package name.
 	 * <!-- begin-user-doc -->
@@ -141,13 +145,22 @@ public interface ModelAssociationPackage extends EPackage {
 	int MODEL__MODEL_ID = 2;
 
 	/**
+	 * The feature id for the '<em><b>Parent</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__PARENT = 3;
+
+	/**
 	 * The number of structural features of the '<em>Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_FEATURE_COUNT = 3;
+	int MODEL_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Model</em>' class.
@@ -205,13 +218,22 @@ public interface ModelAssociationPackage extends EPackage {
 	int ASSOCIATION__TIMESTAMP = 3;
 
 	/**
+	 * The feature id for the '<em><b>Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSOCIATION__PARENT = 4;
+
+	/**
 	 * The number of structural features of the '<em>Association</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSOCIATION_FEATURE_COUNT = 4;
+	int ASSOCIATION_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Association</em>' class.
@@ -381,6 +403,17 @@ public interface ModelAssociationPackage extends EPackage {
 	EAttribute getModel_ModelID();
 
 	/**
+	 * Returns the meta object for the container reference '{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Model#getParent <em>Parent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Parent</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Model#getParent()
+	 * @see #getModel()
+	 * @generated
+	 */
+	EReference getModel_Parent();
+
+	/**
 	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Association <em>Association</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -433,6 +466,17 @@ public interface ModelAssociationPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAssociation_Timestamp();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Association#getParent <em>Parent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Parent</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Association#getParent()
+	 * @see #getAssociation()
+	 * @generated
+	 */
+	EReference getAssociation_Parent();
 
 	/**
 	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelVersion <em>Model Version</em>}'.

@@ -20,6 +20,7 @@ import org.eclipse.emf.henshin.trace.Trace;
  *   <li>{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Association#getTarget <em>Target</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Association#getTraces <em>Traces</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Association#getTimestamp <em>Timestamp</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Association#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
  *
@@ -105,5 +106,33 @@ public interface Association extends EObject {
 	 * @generated
 	 */
 	void setTimestamp(long value);
+
+	/**
+	 * Returns the value of the '<em><b>Parent</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociation#getAssociations <em>Associations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Parent</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Parent</em>' reference.
+	 * @see #setParent(ModelAssociation)
+	 * @see de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociationPackage#getAssociation_Parent()
+	 * @see de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociation#getAssociations
+	 * @model opposite="associations"
+	 * @generated
+	 */
+	ModelAssociation getParent();
+
+	/**
+	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Association#getParent <em>Parent</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Parent</em>' reference.
+	 * @see #getParent()
+	 * @generated
+	 */
+	void setParent(ModelAssociation value);
 
 } // Association

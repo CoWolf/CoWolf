@@ -29,8 +29,6 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
  */
 public class ModelAssociationFactoryImpl extends EFactoryImpl implements ModelAssociationFactory {
 	
-	private static String PROJECT_FILENAME = ".modelassociation";
-	
 	private Map<IProject, Resource> resources;
 	
 	/**
@@ -97,9 +95,10 @@ public class ModelAssociationFactoryImpl extends EFactoryImpl implements ModelAs
 	}
 
 	private void loadOrCreateResource(IProject project) {
+		
 		ResourceSet resSet = new ResourceSetImpl();
 		
-		URI uri = URI.createURI(project.getFile(PROJECT_FILENAME).getLocation().toString());
+		URI uri = URI.createURI(project.getFile(ModelAssociationPackage.PROJECT_FILENAME).getLocation().toString());
 		Resource res = resSet.getResource(uri, false);
 		
 		if (res == null) {
@@ -128,6 +127,8 @@ public class ModelAssociationFactoryImpl extends EFactoryImpl implements ModelAs
 			
 		});
 		
+		((ModelAssociation)res.getContents().get(0)).setProject(project);
+		
 		this.resources.put(project, res);
 		
 	}
@@ -143,7 +144,7 @@ public class ModelAssociationFactoryImpl extends EFactoryImpl implements ModelAs
 	 * @generated
 	 */
 	public Model createModel() {
-		ModelImpl model = new ModelImpl();
+		Model model = new ModelImpl();
 		return model;
 	}
 
@@ -163,7 +164,7 @@ public class ModelAssociationFactoryImpl extends EFactoryImpl implements ModelAs
 	 * @generated
 	 */
 	public ModelVersion createModelVersion() {
-		ModelVersionImpl modelVersion = new ModelVersionImpl();
+		ModelVersion modelVersion = new ModelVersionImpl();
 		return modelVersion;
 	}
 

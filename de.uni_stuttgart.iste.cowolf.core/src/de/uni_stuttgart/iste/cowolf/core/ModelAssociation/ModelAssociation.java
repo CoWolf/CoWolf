@@ -2,9 +2,10 @@
  */
 package de.uni_stuttgart.iste.cowolf.core.ModelAssociation;
 
+import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,6 +28,7 @@ public interface ModelAssociation extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Models</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Model}.
+	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Model#getParent <em>Parent</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Models</em>' containment reference list isn't clear,
@@ -35,7 +37,8 @@ public interface ModelAssociation extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Models</em>' containment reference list.
 	 * @see de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociationPackage#getModelAssociation_Models()
-	 * @model containment="true"
+	 * @see de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Model#getParent
+	 * @model opposite="parent" containment="true"
 	 * @generated
 	 */
 	EList<Model> getModels();
@@ -43,6 +46,7 @@ public interface ModelAssociation extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Associations</b></em>' reference list.
 	 * The list contents are of type {@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Association}.
+	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Association#getParent <em>Parent</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Associations</em>' reference list isn't clear,
@@ -51,9 +55,18 @@ public interface ModelAssociation extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Associations</em>' reference list.
 	 * @see de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociationPackage#getModelAssociation_Associations()
-	 * @model
+	 * @see de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Association#getParent
+	 * @model opposite="parent"
 	 * @generated
 	 */
 	EList<Association> getAssociations();
+
+	public abstract Model getModel(Resource res);
+
+	public abstract Model registerModel(Resource res);
+
+	public abstract void setProject(IProject project);
+
+	public abstract IProject getProject();
 
 } // ModelAssociation

@@ -185,6 +185,15 @@ public class ModelAssociationPackageImpl extends EPackageImpl implements ModelAs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getModel_Parent() {
+		return (EReference)modelEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getAssociation() {
 		return associationEClass;
 	}
@@ -223,6 +232,15 @@ public class ModelAssociationPackageImpl extends EPackageImpl implements ModelAs
 	 */
 	public EAttribute getAssociation_Timestamp() {
 		return (EAttribute)associationEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAssociation_Parent() {
+		return (EReference)associationEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -324,12 +342,14 @@ public class ModelAssociationPackageImpl extends EPackageImpl implements ModelAs
 		createEReference(modelEClass, MODEL__VERSIONS);
 		createEAttribute(modelEClass, MODEL__MODEL);
 		createEAttribute(modelEClass, MODEL__MODEL_ID);
+		createEReference(modelEClass, MODEL__PARENT);
 
 		associationEClass = createEClass(ASSOCIATION);
 		createEReference(associationEClass, ASSOCIATION__SOURCE);
 		createEReference(associationEClass, ASSOCIATION__TARGET);
 		createEReference(associationEClass, ASSOCIATION__TRACES);
 		createEAttribute(associationEClass, ASSOCIATION__TIMESTAMP);
+		createEReference(associationEClass, ASSOCIATION__PARENT);
 
 		modelVersionEClass = createEClass(MODEL_VERSION);
 		createEReference(modelVersionEClass, MODEL_VERSION__MODEL);
@@ -374,19 +394,21 @@ public class ModelAssociationPackageImpl extends EPackageImpl implements ModelAs
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(modelAssociationEClass, ModelAssociation.class, "ModelAssociation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getModelAssociation_Models(), this.getModel(), null, "models", null, 0, -1, ModelAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getModelAssociation_Associations(), this.getAssociation(), null, "associations", null, 0, -1, ModelAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModelAssociation_Models(), this.getModel(), this.getModel_Parent(), "models", null, 0, -1, ModelAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModelAssociation_Associations(), this.getAssociation(), this.getAssociation_Parent(), "associations", null, 0, -1, ModelAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getModel_Versions(), this.getModelVersion(), this.getModelVersion_Model(), "versions", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getModel_Model(), ecorePackage.getEString(), "model", null, 1, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getModel_ModelID(), ecorePackage.getEString(), "modelID", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModel_Parent(), this.getModelAssociation(), this.getModelAssociation_Models(), "parent", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(associationEClass, Association.class, "Association", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAssociation_Source(), this.getModelVersion(), this.getModelVersion_SourceAssociations(), "source", null, 1, -1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAssociation_Target(), this.getModelVersion(), this.getModelVersion_TargetAssociations(), "target", null, 1, -1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAssociation_Traces(), theTracePackage.getTrace(), null, "traces", null, 0, -1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAssociation_Timestamp(), ecorePackage.getELong(), "timestamp", null, 0, 1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAssociation_Parent(), this.getModelAssociation(), this.getModelAssociation_Associations(), "parent", null, 0, 1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(modelVersionEClass, ModelVersion.class, "ModelVersion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getModelVersion_Model(), this.getModel(), this.getModel_Versions(), "model", null, 0, 1, ModelVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

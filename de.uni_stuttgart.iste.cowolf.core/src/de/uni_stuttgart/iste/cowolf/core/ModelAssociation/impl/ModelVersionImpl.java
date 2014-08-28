@@ -7,17 +7,20 @@ import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Model;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociationPackage;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelVersion;
 
+import java.io.IOException;
 import java.util.Collection;
+import java.util.Collections;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -200,6 +203,22 @@ public class ModelVersionImpl extends MinimalEObjectImpl.Container implements Mo
 		timestamp = newTimestamp;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ModelAssociationPackage.MODEL_VERSION__TIMESTAMP, oldTimestamp, timestamp));
+	}
+	
+	@Override
+	public Resource getResource() {
+		ResourceSetImpl resSet = new ResourceSetImpl();
+		URI uri = URI.createURI(this.getModel().getParent().getProject().getLocationURI().toString()
+				+ "/" + this.getModel().getModel() + "." + this.getTimestamp());
+		Resource res = resSet.createResource(uri);
+		try {
+			res.load(Collections.EMPTY_MAP);
+			return res;
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	/**

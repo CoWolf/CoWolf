@@ -2,9 +2,15 @@
  */
 package de.uni_stuttgart.iste.cowolf.core.ModelAssociation;
 
-import org.eclipse.emf.common.util.EList;
+import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
 
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,6 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Model#getVersions <em>Versions</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Model#getModel <em>Model</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Model#getModelID <em>Model ID</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Model#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
  *
@@ -94,5 +101,44 @@ public interface Model extends EObject {
 	 * @generated
 	 */
 	void setModelID(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Parent</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociation#getModels <em>Models</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Parent</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Parent</em>' container reference.
+	 * @see #setParent(ModelAssociation)
+	 * @see de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociationPackage#getModel_Parent()
+	 * @see de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociation#getModels
+	 * @model opposite="models" transient="false"
+	 * @generated
+	 */
+	ModelAssociation getParent();
+
+	/**
+	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Model#getParent <em>Parent</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Parent</em>' container reference.
+	 * @see #getParent()
+	 * @generated
+	 */
+	void setParent(ModelAssociation value);
+
+	public abstract List<Association> getAllAssociations();
+
+	public abstract List<Association> getTargetAssociations();
+
+	public abstract List<Association> getSourceAssociations();
+
+	public abstract ModelVersion createVersion(Resource res);
+
+	public abstract ModelVersion createVersion();
+
 
 } // Model
