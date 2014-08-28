@@ -36,7 +36,7 @@ import de.uni_stuttgart.iste.cowolf.ui.evolution.properties.EvolutionTester;
  */
 public class ComponentSelectionWizardPage extends WizardPage {
 
-	private final static String RESOURCE_PLUGIN = "/de.uni_stuttgart.iste.cowolf.ui/";;
+	private final static String RESOURCE_PLUGIN = "/de.uni_stuttgart.iste.cowolf.ui/";
 
 	/**
 	 * Wizard for Model Selection.
