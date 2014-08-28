@@ -153,7 +153,7 @@ public class CTMCAnalyzeJob extends Job {
 			Reader r = new InputStreamReader(
 					CommandLineExecutor.execCommandAndGetStream(this.prismRootPath,
 							"prism " + this.prismSMPath + " " + this.prismCSLPath
-									+ " -exportresults " + this.prismResultPath + this.prismParameters));
+									+ " -exportresults " + this.prismResultPath + this.prismParameters, "Analyze CTMC with PRISM"));
 			BufferedReader in = new BufferedReader(r);
 			String line;
 			while ((line = in.readLine()) != null) {
