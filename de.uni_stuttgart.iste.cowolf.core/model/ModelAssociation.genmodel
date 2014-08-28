@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.uni_stuttgart.iste.cowolf.core/src" modelPluginID="de.uni_stuttgart.iste.cowolf.core"
+    modelName="ModelAssociation" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    usedGenPackages="../../org.eclipse.emf.henshin.trace/model/trace.genmodel#//trace"
+    classNamePattern="" operationReflection="true" importOrganizing="true">
+  <foreignModel>ModelAssociation.ecore</foreignModel>
+  <genPackages prefix="ModelAssociation" basePackage="de.uni_stuttgart.iste.cowolf.core"
+      disposableProviderFactory="true" adapterFactory="false" generateExampleClass="false"
+      literalsInterface="false" multipleEditorPages="false" generateModelWizard="false"
+      ecorePackage="ModelAssociation.ecore#/" publicationLocation="">
+    <genClasses ecoreClass="ModelAssociation.ecore#//ModelAssociation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ModelAssociation.ecore#//ModelAssociation/models"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ModelAssociation.ecore#//ModelAssociation/associations"/>
+    </genClasses>
+    <genClasses ecoreClass="ModelAssociation.ecore#//Model">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ModelAssociation.ecore#//Model/versions"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EAttribute ModelAssociation.ecore#//Model/model"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ModelAssociation.ecore#//Model/modelID"/>
+    </genClasses>
+    <genClasses ecoreClass="ModelAssociation.ecore#//Association">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ModelAssociation.ecore#//Association/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ModelAssociation.ecore#//Association/target"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ModelAssociation.ecore#//Association/traces"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ModelAssociation.ecore#//Association/timestamp"/>
+    </genClasses>
+    <genClasses ecoreClass="ModelAssociation.ecore#//ModelVersion">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ModelAssociation.ecore#//ModelVersion/model"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ModelAssociation.ecore#//ModelVersion/timestamp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ModelAssociation.ecore#//ModelVersion/current"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ModelAssociation.ecore#//ModelVersion/manual"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ModelAssociation.ecore#//ModelVersion/targetAssociations"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ModelAssociation.ecore#//ModelVersion/sourceAssociations"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
