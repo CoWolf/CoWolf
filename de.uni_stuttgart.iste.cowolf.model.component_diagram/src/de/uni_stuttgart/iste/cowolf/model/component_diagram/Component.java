@@ -27,7 +27,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage#getComponent()
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='ComponentCantRealizieItself DontRequireOwnInterfaces'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot ComponentCantRealizieItself='self <> self.realization' DontRequireOwnInterfaces='self.ports.requiredInterfaces.homePort.portHost -> forAll(\n\t\t\tcomponent | component <> self\n\t\t) or self.ports.requiredInterfaces.homePort.portHost -> size() = 0'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL ComponentCantRealizieItself='self <> self.realization' DontRequireOwnInterfaces='self.ports.requiredInterfaces.homePort.portHost -> forAll(\n\t\t\tcomponent | component <> self\n\t\t) or self.ports.requiredInterfaces.homePort.portHost -> size() = 0'"
  * @generated
  */
 public interface Component extends NameBase, IDBase {

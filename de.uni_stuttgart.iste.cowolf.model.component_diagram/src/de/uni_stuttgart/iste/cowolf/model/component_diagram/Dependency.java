@@ -20,7 +20,7 @@ import de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase;
  *
  * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage#getDependency()
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='SupplierShoudBeDifferentFromClient'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot SupplierShoudBeDifferentFromClient='Tuple {\n\tmessage : String = \n\t\t\t\'The dependency supplier component should be not the same component like the client\',\n\tstatus : Boolean = \n\t\t\tself.supplier <> self.client\n}.status'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL SupplierShoudBeDifferentFromClient='Tuple {\n\tmessage : String = \n\t\t\t\'The dependency supplier component should be not the same component like the client\',\n\tstatus : Boolean = \n\t\t\tself.supplier <> self.client\n}.status'"
  * @generated
  */
 public interface Dependency extends IDBase, NameBase {
