@@ -65,10 +65,6 @@ public abstract class AbstractTransformationManager {
 
     protected URI fileURI;
 
-    public abstract Class<?> getFirstClassType();
-
-    public abstract Class<?> getSecondClassType();
-
     /**
      * 
      * @param source
@@ -234,7 +230,7 @@ public abstract class AbstractTransformationManager {
         Map<URI, URI> map = resSet.getURIConverter().getURIMap();
         map.clear();
         // TODO: check src/tgt of trace and src/tgt of models
-        boolean sourceEqualToFirstClass = this.getFirstClassType()
+        boolean sourceEqualToFirstClass = this.getManagedClass1()
                 .isAssignableFrom(source.getContents()
                         .get(0).getClass());
         // find unresolvable proxies
@@ -516,7 +512,7 @@ public abstract class AbstractTransformationManager {
         if (source == null || source.getContents() == null) {
             throw new IllegalArgumentException("Source should not be null.");
         } else {
-            if (this.getFirstClassType().isAssignableFrom(
+            if (this.getManagedClass1().isAssignableFrom(
                     source.getContents().get(0).getClass())) {
                 return this.getKey();
             } else {
