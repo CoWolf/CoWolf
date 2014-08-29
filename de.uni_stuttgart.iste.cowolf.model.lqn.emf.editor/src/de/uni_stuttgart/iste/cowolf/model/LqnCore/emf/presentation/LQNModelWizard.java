@@ -190,7 +190,7 @@ public class LQNModelWizard extends Wizard implements INewWizard {
 	 * Returns the names of the features representing global elements.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected Collection<String> getInitialObjectNames() {
 		if (initialObjectNames == null) {
@@ -200,7 +200,7 @@ public class LQNModelWizard extends Wizard implements INewWizard {
 					EClassifier eClassifier = eStructuralFeature.getEType();
 					if (eClassifier instanceof EClass) {
 						EClass eClass = (EClass)eClassifier;
-						if (!eClass.isAbstract()) {
+						if (!eClass.isAbstract() && eClass.getName().equalsIgnoreCase("DocumentRoot")) {
 							initialObjectNames.add(eStructuralFeature.getName());
 						}
 					}
