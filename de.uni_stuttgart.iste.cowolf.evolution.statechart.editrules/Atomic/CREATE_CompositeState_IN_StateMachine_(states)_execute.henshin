@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_iG9hMCxkEeSKHvuYIUm5Ng" name="CREATE_CompositeState_IN_StateMachine_(states)" description="Creates one CompositeState in StateMachine">
+  <imports href="http://Statechart/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_iG-IQCxkEeSKHvuYIUm5Ng" name="createCompositeState_IN_StateMachine" description="creates one CompositeState in the context: StateMachine">
+    <parameters xmi:id="_iG-IQSxkEeSKHvuYIUm5Ng" name="Selected"/>
+    <parameters xmi:id="_iG-IQixkEeSKHvuYIUm5Ng" name="New"/>
+    <parameters xmi:id="_iG-IQyxkEeSKHvuYIUm5Ng" name="Id"/>
+    <parameters xmi:id="_iG-IRCxkEeSKHvuYIUm5Ng" name="Name"/>
+    <parameters xmi:id="_iG-IRSxkEeSKHvuYIUm5Ng" name="IsConcurrent"/>
+    <lhs xmi:id="_iG-IRixkEeSKHvuYIUm5Ng" name="Lhs">
+      <nodes xmi:id="_iG-IRyxkEeSKHvuYIUm5Ng" name="Selected">
+        <type href="http://Statechart/1.0#//StateMachine"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_iG-ISCxkEeSKHvuYIUm5Ng" name="Rhs">
+      <nodes xmi:id="_iG-ISSxkEeSKHvuYIUm5Ng" name="Selected" incoming="_iG-ITyxkEeSKHvuYIUm5Ng" outgoing="_iG-ITixkEeSKHvuYIUm5Ng">
+        <type href="http://Statechart/1.0#//StateMachine"/>
+      </nodes>
+      <nodes xmi:id="_iG-ISixkEeSKHvuYIUm5Ng" name="New" incoming="_iG-ITixkEeSKHvuYIUm5Ng" outgoing="_iG-ITyxkEeSKHvuYIUm5Ng">
+        <type href="http://Statechart/1.0#//CompositeState"/>
+        <attributes xmi:id="_iG-ISyxkEeSKHvuYIUm5Ng" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_iG-ITCxkEeSKHvuYIUm5Ng" value="Name">
+          <type href="http://CommonBase/1.0#//NameBase/name"/>
+        </attributes>
+        <attributes xmi:id="_iG-ITSxkEeSKHvuYIUm5Ng" value="IsConcurrent">
+          <type href="http://Statechart/1.0#//CompositeState/isConcurrent"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_iG-ITixkEeSKHvuYIUm5Ng" source="_iG-ISSxkEeSKHvuYIUm5Ng" target="_iG-ISixkEeSKHvuYIUm5Ng">
+        <type href="http://Statechart/1.0#//StateMachine/states"/>
+      </edges>
+      <edges xmi:id="_iG-ITyxkEeSKHvuYIUm5Ng" source="_iG-ISixkEeSKHvuYIUm5Ng" target="_iG-ISSxkEeSKHvuYIUm5Ng">
+        <type href="http://Statechart/1.0#//State/state_container"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_iG-IUCxkEeSKHvuYIUm5Ng" origin="_iG-IRyxkEeSKHvuYIUm5Ng" image="_iG-ISSxkEeSKHvuYIUm5Ng"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_iG-IUSxkEeSKHvuYIUm5Ng" name="mainUnit" description="Creates one CompositeState depending on available contexts in model instance" subUnits="_iG-IQCxkEeSKHvuYIUm5Ng">
+    <parameters xmi:id="_iG-IUixkEeSKHvuYIUm5Ng" name="New"/>
+    <parameters xmi:id="_iG-IUyxkEeSKHvuYIUm5Ng" name="selectedEObject"/>
+    <parameters xmi:id="_iG-IVCxkEeSKHvuYIUm5Ng" name="Id"/>
+    <parameters xmi:id="_iG-IVSxkEeSKHvuYIUm5Ng" name="Name"/>
+    <parameters xmi:id="_iG-IVixkEeSKHvuYIUm5Ng" name="IsConcurrent"/>
+    <parameterMappings xmi:id="_iG-IVyxkEeSKHvuYIUm5Ng" source="_iG-IUyxkEeSKHvuYIUm5Ng" target="_iG-IQSxkEeSKHvuYIUm5Ng"/>
+    <parameterMappings xmi:id="_iG-IWCxkEeSKHvuYIUm5Ng" source="_iG-IQixkEeSKHvuYIUm5Ng" target="_iG-IUixkEeSKHvuYIUm5Ng"/>
+    <parameterMappings xmi:id="_iG-IWSxkEeSKHvuYIUm5Ng" source="_iG-IVCxkEeSKHvuYIUm5Ng" target="_iG-IQyxkEeSKHvuYIUm5Ng"/>
+    <parameterMappings xmi:id="_iG-IWixkEeSKHvuYIUm5Ng" source="_iG-IVSxkEeSKHvuYIUm5Ng" target="_iG-IRCxkEeSKHvuYIUm5Ng"/>
+    <parameterMappings xmi:id="_iG-IWyxkEeSKHvuYIUm5Ng" source="_iG-IVixkEeSKHvuYIUm5Ng" target="_iG-IRSxkEeSKHvuYIUm5Ng"/>
+  </units>
+</henshin:Module>

@@ -2,6 +2,8 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.statechart.util;
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
+import de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase;
 import de.uni_stuttgart.iste.cowolf.model.statechart.*;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -266,7 +268,7 @@ public class statechartemfSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseIDBase(de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase object) {
+	public T caseIDBase(IDBase object) {
 		return null;
 	}
 
@@ -281,7 +283,7 @@ public class statechartemfSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseNameBase(de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase object) {
+	public T caseNameBase(NameBase object) {
 		return null;
 	}
 

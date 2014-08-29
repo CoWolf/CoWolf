@@ -3,6 +3,8 @@
 package de.uni_stuttgart.iste.cowolf.model.statechart.emf.provider;
 
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
+import de.uni_stuttgart.iste.cowolf.model.commonBase.emf.provider.IDBaseItemProvider;
 import de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine;
 import de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfFactory;
 import de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage;
@@ -24,7 +26,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class StateMachineItemProvider 
-	extends de.uni_stuttgart.iste.cowolf.model.commonBase.emf.provider.IDBaseItemProvider {
+	extends IDBaseItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -47,6 +49,7 @@ public class StateMachineItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
+			addInitialStatesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -64,11 +67,33 @@ public class StateMachineItemProvider
 				 getResourceLocator(),
 				 getString("_UI_NameBase_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_NameBase_name_feature", "_UI_NameBase_type"),
-				 de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.Literals.NAME_BASE__NAME,
+				 CommonBasePackage.Literals.NAME_BASE__NAME,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Initial States feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addInitialStatesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_StateMachine_initialStates_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_StateMachine_initialStates_feature", "_UI_StateMachine_type"),
+				 statechartemfPackage.Literals.STATE_MACHINE__INITIAL_STATES,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
@@ -86,7 +111,7 @@ public class StateMachineItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(statechartemfPackage.Literals.STATE_MACHINE__TRANSITIONS);
-			childrenFeatures.add(statechartemfPackage.Literals.STATE_MACHINE__TOP);
+			childrenFeatures.add(statechartemfPackage.Literals.STATE_MACHINE__STATES);
 		}
 		return childrenFeatures;
 	}
@@ -146,7 +171,7 @@ public class StateMachineItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case statechartemfPackage.STATE_MACHINE__TRANSITIONS:
-			case statechartemfPackage.STATE_MACHINE__TOP:
+			case statechartemfPackage.STATE_MACHINE__STATES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -171,12 +196,12 @@ public class StateMachineItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(statechartemfPackage.Literals.STATE_MACHINE__TOP,
+				(statechartemfPackage.Literals.STATE_MACHINE__STATES,
 				 statechartemfFactory.eINSTANCE.createState()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(statechartemfPackage.Literals.STATE_MACHINE__TOP,
+				(statechartemfPackage.Literals.STATE_MACHINE__STATES,
 				 statechartemfFactory.eINSTANCE.createCompositeState()));
 	}
 

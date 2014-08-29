@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_iDkO8CxkEeSKHvuYIUm5Ng" name="CREATE_BooleanExpression_IN_State_(atomicProposition)" description="Creates one BooleanExpression in State">
+  <imports href="http://Statechart/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_iD2i0CxkEeSKHvuYIUm5Ng" name="createBooleanExpression_IN_State" description="creates one BooleanExpression in the context: State">
+    <parameters xmi:id="_iD2i0SxkEeSKHvuYIUm5Ng" name="Selected"/>
+    <parameters xmi:id="_iD2i0ixkEeSKHvuYIUm5Ng" name="New"/>
+    <parameters xmi:id="_iD2i0yxkEeSKHvuYIUm5Ng" name="Id"/>
+    <parameters xmi:id="_iD2i1CxkEeSKHvuYIUm5Ng" name="Name"/>
+    <parameters xmi:id="_iD2i1SxkEeSKHvuYIUm5Ng" name="Value"/>
+    <lhs xmi:id="_iD2i1ixkEeSKHvuYIUm5Ng" name="Lhs">
+      <nodes xmi:id="_iD2i1yxkEeSKHvuYIUm5Ng" name="Selected">
+        <type href="http://Statechart/1.0#//State"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_iD2i2CxkEeSKHvuYIUm5Ng" name="Rhs">
+      <nodes xmi:id="_iD2i2SxkEeSKHvuYIUm5Ng" name="Selected" outgoing="_iD2i3ixkEeSKHvuYIUm5Ng">
+        <type href="http://Statechart/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_iD2i2ixkEeSKHvuYIUm5Ng" name="New" incoming="_iD2i3ixkEeSKHvuYIUm5Ng">
+        <type href="http://Statechart/1.0#//BooleanExpression"/>
+        <attributes xmi:id="_iD2i2yxkEeSKHvuYIUm5Ng" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_iD2i3CxkEeSKHvuYIUm5Ng" value="Name">
+          <type href="http://CommonBase/1.0#//NameBase/name"/>
+        </attributes>
+        <attributes xmi:id="_iD2i3SxkEeSKHvuYIUm5Ng" value="Value">
+          <type href="http://Statechart/1.0#//BooleanExpression/value"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_iD2i3ixkEeSKHvuYIUm5Ng" source="_iD2i2SxkEeSKHvuYIUm5Ng" target="_iD2i2ixkEeSKHvuYIUm5Ng">
+        <type href="http://Statechart/1.0#//State/atomicProposition"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_iD2i3yxkEeSKHvuYIUm5Ng" origin="_iD2i1yxkEeSKHvuYIUm5Ng" image="_iD2i2SxkEeSKHvuYIUm5Ng"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_iD2i4CxkEeSKHvuYIUm5Ng" name="mainUnit" description="Creates one BooleanExpression depending on available contexts in model instance" subUnits="_iD2i0CxkEeSKHvuYIUm5Ng">
+    <parameters xmi:id="_iD2i4SxkEeSKHvuYIUm5Ng" name="New"/>
+    <parameters xmi:id="_iD2i4ixkEeSKHvuYIUm5Ng" name="selectedEObject"/>
+    <parameters xmi:id="_iD2i4yxkEeSKHvuYIUm5Ng" name="Id"/>
+    <parameters xmi:id="_iD2i5CxkEeSKHvuYIUm5Ng" name="Name"/>
+    <parameters xmi:id="_iD2i5SxkEeSKHvuYIUm5Ng" name="Value"/>
+    <parameterMappings xmi:id="_iD2i5ixkEeSKHvuYIUm5Ng" source="_iD2i4ixkEeSKHvuYIUm5Ng" target="_iD2i0SxkEeSKHvuYIUm5Ng"/>
+    <parameterMappings xmi:id="_iD2i5yxkEeSKHvuYIUm5Ng" source="_iD2i0ixkEeSKHvuYIUm5Ng" target="_iD2i4SxkEeSKHvuYIUm5Ng"/>
+    <parameterMappings xmi:id="_iD2i6CxkEeSKHvuYIUm5Ng" source="_iD2i4yxkEeSKHvuYIUm5Ng" target="_iD2i0yxkEeSKHvuYIUm5Ng"/>
+    <parameterMappings xmi:id="_iD2i6SxkEeSKHvuYIUm5Ng" source="_iD2i5CxkEeSKHvuYIUm5Ng" target="_iD2i1CxkEeSKHvuYIUm5Ng"/>
+    <parameterMappings xmi:id="_iD2i6ixkEeSKHvuYIUm5Ng" source="_iD2i5SxkEeSKHvuYIUm5Ng" target="_iD2i1SxkEeSKHvuYIUm5Ng"/>
+  </units>
+</henshin:Module>

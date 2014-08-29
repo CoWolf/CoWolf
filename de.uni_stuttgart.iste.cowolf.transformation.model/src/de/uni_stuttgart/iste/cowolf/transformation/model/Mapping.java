@@ -69,10 +69,12 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"difference", "rule"})
+@XmlType(name = "")
 public class Mapping {
 
-    @XmlElement(name = "Difference", required = true)
+    @XmlElement(name = "Change")
+    protected String change;
+    @XmlElement(name = "Difference")
     protected String difference;
     @XmlElement(name = "Rule", required = true)
     protected Rule rule;
@@ -136,40 +138,42 @@ public class Mapping {
         this.priority = priority;
     }
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result
-				+ ((difference == null) ? 0 : difference.hashCode());
-		result = prime * result + priority;
-		result = prime * result + ((rule == null) ? 0 : rule.hashCode());
-		return result;
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Object#hashCode()
+     */
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result
+                + ((difference == null) ? 0 : difference.hashCode());
+        result = prime * result + priority;
+        result = prime * result + ((rule == null) ? 0 : rule.hashCode());
+        return result;
+    }
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Mapping other = (Mapping) obj;
-		if (difference == null) {
-			if (other.difference != null)
-				return false;
-		} else if (!difference.equals(other.difference))
-			return false;
-		return true;
-	}
-    
-    
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Object#equals(java.lang.Object)
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Mapping other = (Mapping) obj;
+        if (difference == null) {
+            if (other.difference != null)
+                return false;
+        } else if (!difference.equals(other.difference))
+            return false;
+        return true;
+    }
 
 }

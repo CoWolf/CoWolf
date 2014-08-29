@@ -2,6 +2,9 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.statechart.impl;
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
+import de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase;
+import de.uni_stuttgart.iste.cowolf.model.commonBase.impl.IDBaseImpl;
 import de.uni_stuttgart.iste.cowolf.model.statechart.BooleanExpression;
 import de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage;
 import org.eclipse.emf.common.notify.Notification;
@@ -22,7 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class BooleanExpressionImpl extends de.uni_stuttgart.iste.cowolf.model.commonBase.impl.IDBaseImpl implements BooleanExpression {
+public class BooleanExpressionImpl extends IDBaseImpl implements BooleanExpression {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -199,9 +202,9 @@ public class BooleanExpressionImpl extends de.uni_stuttgart.iste.cowolf.model.co
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase.class) {
+		if (baseClass == NameBase.class) {
 			switch (derivedFeatureID) {
-				case statechartemfPackage.BOOLEAN_EXPRESSION__NAME: return de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.NAME_BASE__NAME;
+				case statechartemfPackage.BOOLEAN_EXPRESSION__NAME: return CommonBasePackage.NAME_BASE__NAME;
 				default: return -1;
 			}
 		}
@@ -215,9 +218,9 @@ public class BooleanExpressionImpl extends de.uni_stuttgart.iste.cowolf.model.co
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase.class) {
+		if (baseClass == NameBase.class) {
 			switch (baseFeatureID) {
-				case de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.NAME_BASE__NAME: return statechartemfPackage.BOOLEAN_EXPRESSION__NAME;
+				case CommonBasePackage.NAME_BASE__NAME: return statechartemfPackage.BOOLEAN_EXPRESSION__NAME;
 				default: return -1;
 			}
 		}

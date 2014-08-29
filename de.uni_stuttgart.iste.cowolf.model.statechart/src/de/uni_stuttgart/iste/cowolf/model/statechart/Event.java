@@ -2,6 +2,8 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.statechart;
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
+import de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -21,7 +23,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Event extends de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase, de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase {
+public interface Event extends IDBase, NameBase {
 	/**
 	 * Returns the value of the '<em><b>Evt container</b></em>' reference list.
 	 * The list contents are of type {@link de.uni_stuttgart.iste.cowolf.model.statechart.Transition}.

@@ -2,6 +2,9 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.statechart.impl;
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
+import de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase;
+import de.uni_stuttgart.iste.cowolf.model.commonBase.impl.IDBaseImpl;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -33,7 +36,7 @@ import de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage;
  *
  * @generated
  */
-public class StateVertexImpl extends de.uni_stuttgart.iste.cowolf.model.commonBase.impl.IDBaseImpl implements StateVertex {
+public class StateVertexImpl extends IDBaseImpl implements StateVertex {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -330,9 +333,9 @@ public class StateVertexImpl extends de.uni_stuttgart.iste.cowolf.model.commonBa
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase.class) {
+		if (baseClass == NameBase.class) {
 			switch (derivedFeatureID) {
-				case statechartemfPackage.STATE_VERTEX__NAME: return de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.NAME_BASE__NAME;
+				case statechartemfPackage.STATE_VERTEX__NAME: return CommonBasePackage.NAME_BASE__NAME;
 				default: return -1;
 			}
 		}
@@ -346,9 +349,9 @@ public class StateVertexImpl extends de.uni_stuttgart.iste.cowolf.model.commonBa
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase.class) {
+		if (baseClass == NameBase.class) {
 			switch (baseFeatureID) {
-				case de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.NAME_BASE__NAME: return statechartemfPackage.STATE_VERTEX__NAME;
+				case CommonBasePackage.NAME_BASE__NAME: return statechartemfPackage.STATE_VERTEX__NAME;
 				default: return -1;
 			}
 		}

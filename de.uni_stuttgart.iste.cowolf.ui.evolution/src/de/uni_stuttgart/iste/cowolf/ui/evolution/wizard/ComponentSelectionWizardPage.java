@@ -127,7 +127,7 @@ public class ComponentSelectionWizardPage extends WizardPage {
         // row for checkbox
         this.checkbox = new Button(container, SWT.CHECK);
         this.checkbox.setText("Add models to Association manager.");
-        Label labelCheckbox = new Label(container, SWT.NONE);
+       
         // complete wizard page
         this.setControl(container);
 

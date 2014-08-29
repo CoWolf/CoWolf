@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_iG1lYCxkEeSKHvuYIUm5Ng" name="MOVE_State_FROM_StateMachine_(states)_TO_CompositeState_(subVertexes)" description="MOVEs State from StateMachine(Reference:states) to CompositeState(Reference:subVertexes">
+  <imports href="http://Statechart/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_iG1lYSxkEeSKHvuYIUm5Ng" name="moveState_FROM_StateMachine_states_TO_CompositeState_CompositeState" description="Moves State from StateMachine(Reference:states) toCompositeState(Reference:CompositeState)">
+    <parameters xmi:id="_iG1lYixkEeSKHvuYIUm5Ng" name="Selected"/>
+    <parameters xmi:id="_iG1lYyxkEeSKHvuYIUm5Ng" name="OldSource"/>
+    <parameters xmi:id="_iG2McCxkEeSKHvuYIUm5Ng" name="NewSource"/>
+    <lhs xmi:id="_iG2McSxkEeSKHvuYIUm5Ng" name="Lhs">
+      <nodes xmi:id="_iG2McixkEeSKHvuYIUm5Ng" name="Selected" incoming="_iG2MdSxkEeSKHvuYIUm5Ng" outgoing="_iG2MdixkEeSKHvuYIUm5Ng">
+        <type href="http://Statechart/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_iG2McyxkEeSKHvuYIUm5Ng" name="OldSource" incoming="_iG2MdixkEeSKHvuYIUm5Ng" outgoing="_iG2MdSxkEeSKHvuYIUm5Ng">
+        <type href="http://Statechart/1.0#//StateMachine"/>
+      </nodes>
+      <nodes xmi:id="_iG2MdCxkEeSKHvuYIUm5Ng" name="NewSource">
+        <type href="http://Statechart/1.0#//CompositeState"/>
+      </nodes>
+      <edges xmi:id="_iG2MdSxkEeSKHvuYIUm5Ng" source="_iG2McyxkEeSKHvuYIUm5Ng" target="_iG2McixkEeSKHvuYIUm5Ng">
+        <type href="http://Statechart/1.0#//StateMachine/states"/>
+      </edges>
+      <edges xmi:id="_iG2MdixkEeSKHvuYIUm5Ng" source="_iG2McixkEeSKHvuYIUm5Ng" target="_iG2McyxkEeSKHvuYIUm5Ng">
+        <type href="http://Statechart/1.0#//State/state_container"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_iG2MdyxkEeSKHvuYIUm5Ng" name="Rhs">
+      <nodes xmi:id="_iG2MeCxkEeSKHvuYIUm5Ng" name="Selected" incoming="_iG2MeyxkEeSKHvuYIUm5Ng" outgoing="_iG2MfCxkEeSKHvuYIUm5Ng">
+        <type href="http://Statechart/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_iG2MeSxkEeSKHvuYIUm5Ng" name="OldSource">
+        <type href="http://Statechart/1.0#//StateMachine"/>
+      </nodes>
+      <nodes xmi:id="_iG2MeixkEeSKHvuYIUm5Ng" name="NewSource" incoming="_iG2MfCxkEeSKHvuYIUm5Ng" outgoing="_iG2MeyxkEeSKHvuYIUm5Ng">
+        <type href="http://Statechart/1.0#//CompositeState"/>
+      </nodes>
+      <edges xmi:id="_iG2MeyxkEeSKHvuYIUm5Ng" source="_iG2MeixkEeSKHvuYIUm5Ng" target="_iG2MeCxkEeSKHvuYIUm5Ng">
+        <type href="http://Statechart/1.0#//CompositeState/subVertexes"/>
+      </edges>
+      <edges xmi:id="_iG2MfCxkEeSKHvuYIUm5Ng" source="_iG2MeCxkEeSKHvuYIUm5Ng" target="_iG2MeixkEeSKHvuYIUm5Ng">
+        <type href="http://Statechart/1.0#//StateVertex/sv_container"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_iG2MfSxkEeSKHvuYIUm5Ng" origin="_iG2McixkEeSKHvuYIUm5Ng" image="_iG2MeCxkEeSKHvuYIUm5Ng"/>
+    <mappings xmi:id="_iG2MfixkEeSKHvuYIUm5Ng" origin="_iG2McyxkEeSKHvuYIUm5Ng" image="_iG2MeSxkEeSKHvuYIUm5Ng"/>
+    <mappings xmi:id="_iG2MfyxkEeSKHvuYIUm5Ng" origin="_iG2MdCxkEeSKHvuYIUm5Ng" image="_iG2MeixkEeSKHvuYIUm5Ng"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_iG2MgCxkEeSKHvuYIUm5Ng" name="mainUnit" subUnits="_iG1lYSxkEeSKHvuYIUm5Ng">
+    <parameters xmi:id="_iG2MgSxkEeSKHvuYIUm5Ng" name="selectedEObject"/>
+    <parameters xmi:id="_iG2MgixkEeSKHvuYIUm5Ng" name="OldSource"/>
+    <parameters xmi:id="_iG2MgyxkEeSKHvuYIUm5Ng" name="NewSource"/>
+    <parameterMappings xmi:id="_iG2MhCxkEeSKHvuYIUm5Ng" source="_iG2MgSxkEeSKHvuYIUm5Ng" target="_iG1lYixkEeSKHvuYIUm5Ng"/>
+    <parameterMappings xmi:id="_iG2MhSxkEeSKHvuYIUm5Ng" source="_iG2MgixkEeSKHvuYIUm5Ng" target="_iG1lYyxkEeSKHvuYIUm5Ng"/>
+    <parameterMappings xmi:id="_iG2MhixkEeSKHvuYIUm5Ng" source="_iG2MgyxkEeSKHvuYIUm5Ng" target="_iG2McCxkEeSKHvuYIUm5Ng"/>
+  </units>
+</henshin:Module>

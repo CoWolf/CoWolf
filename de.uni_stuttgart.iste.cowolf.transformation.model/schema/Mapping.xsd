@@ -16,7 +16,20 @@
                           <element maxOccurs="unbounded" name="Param">
                             <complexType>
                               <sequence>
-                                <element name="Path" type="string" maxOccurs="unbounded" />
+                                <element name="Change" maxOccurs="1" minOccurs="1">
+                                	<complexType>
+                                		<sequence>
+                                			<element name="Reference">
+                                				<complexType>
+                                					<attribute name="name" use="required" type="string" />
+                                					<attribute name="attribute" use="required" type="string" />
+                                				</complexType>
+                                			</element>
+                                		</sequence>
+                                		<attribute name="name" use="required" type="string" />
+                                		<attribute name="type" use="required" type="string" />
+                                	</complexType>
+                                </element>
                               </sequence>
                               <attribute name="name" type="string" />
                             </complexType>

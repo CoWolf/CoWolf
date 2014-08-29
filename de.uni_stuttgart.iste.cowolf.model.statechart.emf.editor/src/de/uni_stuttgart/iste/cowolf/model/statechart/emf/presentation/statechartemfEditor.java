@@ -118,6 +118,7 @@ import org.eclipse.emf.edit.ui.util.EditUIMarkerHelper;
 import org.eclipse.emf.edit.ui.util.EditUIUtil;
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 import de.uni_stuttgart.iste.cowolf.model.statechart.emf.provider.statechartemfItemProviderAdapterFactory;
+import de.uni_stuttgart.iste.cowolf.model.commonBase.emf.provider.CommonBaseItemProviderAdapterFactory;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 
@@ -664,7 +665,7 @@ public class statechartemfEditor
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new statechartemfItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new de.uni_stuttgart.iste.cowolf.model.commonBase.emf.provider.CommonBaseItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new CommonBaseItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.

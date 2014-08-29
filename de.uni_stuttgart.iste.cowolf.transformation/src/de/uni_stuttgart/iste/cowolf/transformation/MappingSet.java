@@ -1,5 +1,6 @@
 package de.uni_stuttgart.iste.cowolf.transformation;
 
+import org.sidiff.difference.symmetric.Change;
 import org.sidiff.difference.symmetric.SemanticChangeSet;
 
 import de.uni_stuttgart.iste.cowolf.transformation.model.Mapping;
@@ -16,6 +17,7 @@ public class MappingSet implements Comparable<MappingSet> {
 
     private Mapping mapping;
     private SemanticChangeSet changeSet;
+    protected Change change;
     /**
      * @return the mapping
      */
@@ -45,11 +47,20 @@ public class MappingSet implements Comparable<MappingSet> {
     @Override
     public int compareTo(MappingSet o) {
         if (this.mapping.getPriority() > o.mapping.getPriority()) {
-            return -1;
-        } else if (this.mapping.getPriority() < o.mapping.getPriority()) {
             return 1;
+        } else if (this.mapping.getPriority() < o.mapping.getPriority()) {
+            return -1;
         }
         return 0;
+    }
+    public void setChange(Change change) {
+        this.change = change;
+    }
+    /**
+     * @return the change
+     */
+    public Change getChange() {
+        return change;
     }
 
 }

@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.State#getState_container <em>State container</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.State#getInternalTransitions <em>Internal Transitions</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.State#getDeferrableEvents <em>Deferrable Events</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.State#getAtomicProposition <em>Atomic Proposition</em>}</li>
  * </ul>
  * </p>
  *
@@ -25,7 +26,7 @@ import org.eclipse.emf.common.util.EList;
 public interface State extends StateVertex {
 	/**
 	 * Returns the value of the '<em><b>State container</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine#getTop <em>Top</em>}'.
+	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine#getStates <em>States</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>State container</em>' container reference isn't clear,
@@ -35,8 +36,8 @@ public interface State extends StateVertex {
 	 * @return the value of the '<em>State container</em>' container reference.
 	 * @see #setState_container(StateMachine)
 	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage#getState_State_container()
-	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine#getTop
-	 * @model opposite="top" required="true" transient="false" ordered="false"
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine#getStates
+	 * @model opposite="states" required="true" transient="false" ordered="false"
 	 * @generated
 	 */
 	StateMachine getState_container();
@@ -86,5 +87,21 @@ public interface State extends StateVertex {
 	 * @generated
 	 */
 	EList<Event> getDeferrableEvents();
+
+	/**
+	 * Returns the value of the '<em><b>Atomic Proposition</b></em>' containment reference list.
+	 * The list contents are of type {@link de.uni_stuttgart.iste.cowolf.model.statechart.BooleanExpression}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Atomic Proposition</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Atomic Proposition</em>' containment reference list.
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage#getState_AtomicProposition()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<BooleanExpression> getAtomicProposition();
 
 } // State

@@ -2,6 +2,9 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.statechart;
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
+import de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -24,7 +27,7 @@ package de.uni_stuttgart.iste.cowolf.model.statechart;
  * @model
  * @generated
  */
-public interface Transition extends de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase, de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase {
+public interface Transition extends IDBase, NameBase {
 	/**
 	 * Returns the value of the '<em><b>Trans SM container</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine#getTransitions <em>Transitions</em>}'.

@@ -2,6 +2,7 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.statechart;
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -73,7 +74,7 @@ public interface statechartemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_EXPRESSION__ID = de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.ID_BASE__ID;
+	int BOOLEAN_EXPRESSION__ID = CommonBasePackage.ID_BASE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -82,7 +83,7 @@ public interface statechartemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_EXPRESSION__NAME = de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
+	int BOOLEAN_EXPRESSION__NAME = CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -91,7 +92,7 @@ public interface statechartemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_EXPRESSION__VALUE = de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
+	int BOOLEAN_EXPRESSION__VALUE = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Boolean Expression</em>' class.
@@ -100,7 +101,7 @@ public interface statechartemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_EXPRESSION_FEATURE_COUNT = de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
+	int BOOLEAN_EXPRESSION_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Boolean Expression</em>' class.
@@ -109,7 +110,7 @@ public interface statechartemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_EXPRESSION_OPERATION_COUNT = de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.ID_BASE_OPERATION_COUNT + 0;
+	int BOOLEAN_EXPRESSION_OPERATION_COUNT = CommonBasePackage.ID_BASE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateMachineImpl <em>State Machine</em>}' class.
@@ -128,7 +129,7 @@ public interface statechartemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATE_MACHINE__ID = de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.ID_BASE__ID;
+	int STATE_MACHINE__ID = CommonBasePackage.ID_BASE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -137,7 +138,7 @@ public interface statechartemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATE_MACHINE__NAME = de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
+	int STATE_MACHINE__NAME = CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Transitions</b></em>' containment reference list.
@@ -146,16 +147,25 @@ public interface statechartemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATE_MACHINE__TRANSITIONS = de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
+	int STATE_MACHINE__TRANSITIONS = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Top</b></em>' containment reference list.
+	 * The feature id for the '<em><b>States</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATE_MACHINE__TOP = de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
+	int STATE_MACHINE__STATES = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Initial States</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATE_MACHINE__INITIAL_STATES = CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>State Machine</em>' class.
@@ -164,7 +174,7 @@ public interface statechartemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATE_MACHINE_FEATURE_COUNT = de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
+	int STATE_MACHINE_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>State Machine</em>' class.
@@ -173,7 +183,7 @@ public interface statechartemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATE_MACHINE_OPERATION_COUNT = de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.ID_BASE_OPERATION_COUNT + 0;
+	int STATE_MACHINE_OPERATION_COUNT = CommonBasePackage.ID_BASE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateVertexImpl <em>State Vertex</em>}' class.
@@ -192,7 +202,7 @@ public interface statechartemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATE_VERTEX__ID = de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.ID_BASE__ID;
+	int STATE_VERTEX__ID = CommonBasePackage.ID_BASE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -201,7 +211,7 @@ public interface statechartemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATE_VERTEX__NAME = de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
+	int STATE_VERTEX__NAME = CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Sv container</b></em>' container reference.
@@ -210,7 +220,7 @@ public interface statechartemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATE_VERTEX__SV_CONTAINER = de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
+	int STATE_VERTEX__SV_CONTAINER = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing</b></em>' reference list.
@@ -219,7 +229,7 @@ public interface statechartemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATE_VERTEX__OUTGOING = de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
+	int STATE_VERTEX__OUTGOING = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Incoming</b></em>' reference list.
@@ -228,7 +238,7 @@ public interface statechartemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATE_VERTEX__INCOMING = de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
+	int STATE_VERTEX__INCOMING = CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>State Vertex</em>' class.
@@ -237,7 +247,7 @@ public interface statechartemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATE_VERTEX_FEATURE_COUNT = de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.ID_BASE_FEATURE_COUNT + 4;
+	int STATE_VERTEX_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>State Vertex</em>' class.
@@ -246,7 +256,7 @@ public interface statechartemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATE_VERTEX_OPERATION_COUNT = de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.ID_BASE_OPERATION_COUNT + 0;
+	int STATE_VERTEX_OPERATION_COUNT = CommonBasePackage.ID_BASE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateImpl <em>State</em>}' class.
@@ -331,13 +341,22 @@ public interface statechartemfPackage extends EPackage {
 	int STATE__DEFERRABLE_EVENTS = STATE_VERTEX_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Atomic Proposition</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATE__ATOMIC_PROPOSITION = STATE_VERTEX_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>State</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATE_FEATURE_COUNT = STATE_VERTEX_FEATURE_COUNT + 3;
+	int STATE_FEATURE_COUNT = STATE_VERTEX_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>State</em>' class.
@@ -431,6 +450,15 @@ public interface statechartemfPackage extends EPackage {
 	int COMPOSITE_STATE__DEFERRABLE_EVENTS = STATE__DEFERRABLE_EVENTS;
 
 	/**
+	 * The feature id for the '<em><b>Atomic Proposition</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_STATE__ATOMIC_PROPOSITION = STATE__ATOMIC_PROPOSITION;
+
+	/**
 	 * The feature id for the '<em><b>Sub Vertexes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -483,7 +511,7 @@ public interface statechartemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION__ID = de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.ID_BASE__ID;
+	int TRANSITION__ID = CommonBasePackage.ID_BASE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -492,7 +520,7 @@ public interface statechartemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION__NAME = de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
+	int TRANSITION__NAME = CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Trans SM container</b></em>' container reference.
@@ -501,7 +529,7 @@ public interface statechartemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION__TRANS_SM_CONTAINER = de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
+	int TRANSITION__TRANS_SM_CONTAINER = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Trans Scontainer</b></em>' container reference.
@@ -510,7 +538,7 @@ public interface statechartemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION__TRANS_SCONTAINER = de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
+	int TRANSITION__TRANS_SCONTAINER = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Trigger</b></em>' reference.
@@ -519,7 +547,7 @@ public interface statechartemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION__TRIGGER = de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
+	int TRANSITION__TRIGGER = CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Guard</b></em>' containment reference.
@@ -528,7 +556,7 @@ public interface statechartemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION__GUARD = de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.ID_BASE_FEATURE_COUNT + 4;
+	int TRANSITION__GUARD = CommonBasePackage.ID_BASE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -537,7 +565,7 @@ public interface statechartemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION__SOURCE = de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.ID_BASE_FEATURE_COUNT + 5;
+	int TRANSITION__SOURCE = CommonBasePackage.ID_BASE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -546,7 +574,7 @@ public interface statechartemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION__TARGET = de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.ID_BASE_FEATURE_COUNT + 6;
+	int TRANSITION__TARGET = CommonBasePackage.ID_BASE_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Transition</em>' class.
@@ -555,7 +583,7 @@ public interface statechartemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION_FEATURE_COUNT = de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.ID_BASE_FEATURE_COUNT + 7;
+	int TRANSITION_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of operations of the '<em>Transition</em>' class.
@@ -564,7 +592,7 @@ public interface statechartemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION_OPERATION_COUNT = de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.ID_BASE_OPERATION_COUNT + 0;
+	int TRANSITION_OPERATION_COUNT = CommonBasePackage.ID_BASE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.GuardImpl <em>Guard</em>}' class.
@@ -583,7 +611,7 @@ public interface statechartemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GUARD__ID = de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.ID_BASE__ID;
+	int GUARD__ID = CommonBasePackage.ID_BASE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -592,7 +620,7 @@ public interface statechartemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GUARD__NAME = de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
+	int GUARD__NAME = CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Gua container</b></em>' container reference.
@@ -601,7 +629,7 @@ public interface statechartemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GUARD__GUA_CONTAINER = de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
+	int GUARD__GUA_CONTAINER = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Expression</b></em>' reference.
@@ -610,7 +638,7 @@ public interface statechartemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GUARD__EXPRESSION = de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
+	int GUARD__EXPRESSION = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Guard</em>' class.
@@ -619,7 +647,7 @@ public interface statechartemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GUARD_FEATURE_COUNT = de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
+	int GUARD_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Guard</em>' class.
@@ -628,7 +656,7 @@ public interface statechartemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GUARD_OPERATION_COUNT = de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.ID_BASE_OPERATION_COUNT + 0;
+	int GUARD_OPERATION_COUNT = CommonBasePackage.ID_BASE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.EventImpl <em>Event</em>}' class.
@@ -647,7 +675,7 @@ public interface statechartemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT__ID = de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.ID_BASE__ID;
+	int EVENT__ID = CommonBasePackage.ID_BASE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -656,7 +684,7 @@ public interface statechartemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT__NAME = de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
+	int EVENT__NAME = CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Evt container</b></em>' reference list.
@@ -665,7 +693,7 @@ public interface statechartemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT__EVT_CONTAINER = de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
+	int EVENT__EVT_CONTAINER = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Targets</b></em>' reference list.
@@ -674,7 +702,7 @@ public interface statechartemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT__TARGETS = de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
+	int EVENT__TARGETS = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Event</em>' class.
@@ -683,7 +711,7 @@ public interface statechartemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_FEATURE_COUNT = de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
+	int EVENT_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Event</em>' class.
@@ -692,7 +720,7 @@ public interface statechartemfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_OPERATION_COUNT = de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.ID_BASE_OPERATION_COUNT + 0;
+	int EVENT_OPERATION_COUNT = CommonBasePackage.ID_BASE_OPERATION_COUNT + 0;
 
 
 	/**
@@ -738,15 +766,26 @@ public interface statechartemfPackage extends EPackage {
 	EReference getStateMachine_Transitions();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine#getTop <em>Top</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine#getStates <em>States</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Top</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine#getTop()
+	 * @return the meta object for the containment reference list '<em>States</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine#getStates()
 	 * @see #getStateMachine()
 	 * @generated
 	 */
-	EReference getStateMachine_Top();
+	EReference getStateMachine_States();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine#getInitialStates <em>Initial States</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Initial States</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine#getInitialStates()
+	 * @see #getStateMachine()
+	 * @generated
+	 */
+	EReference getStateMachine_InitialStates();
 
 	/**
 	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.statechart.State <em>State</em>}'.
@@ -790,6 +829,17 @@ public interface statechartemfPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getState_DeferrableEvents();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.model.statechart.State#getAtomicProposition <em>Atomic Proposition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Atomic Proposition</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.State#getAtomicProposition()
+	 * @see #getState()
+	 * @generated
+	 */
+	EReference getState_AtomicProposition();
 
 	/**
 	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.statechart.CompositeState <em>Composite State</em>}'.
@@ -1066,12 +1116,20 @@ public interface statechartemfPackage extends EPackage {
 		EReference STATE_MACHINE__TRANSITIONS = eINSTANCE.getStateMachine_Transitions();
 
 		/**
-		 * The meta object literal for the '<em><b>Top</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>States</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference STATE_MACHINE__TOP = eINSTANCE.getStateMachine_Top();
+		EReference STATE_MACHINE__STATES = eINSTANCE.getStateMachine_States();
+
+		/**
+		 * The meta object literal for the '<em><b>Initial States</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STATE_MACHINE__INITIAL_STATES = eINSTANCE.getStateMachine_InitialStates();
 
 		/**
 		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateImpl <em>State</em>}' class.
@@ -1106,6 +1164,14 @@ public interface statechartemfPackage extends EPackage {
 		 * @generated
 		 */
 		EReference STATE__DEFERRABLE_EVENTS = eINSTANCE.getState_DeferrableEvents();
+
+		/**
+		 * The meta object literal for the '<em><b>Atomic Proposition</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STATE__ATOMIC_PROPOSITION = eINSTANCE.getState_AtomicProposition();
 
 		/**
 		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.CompositeStateImpl <em>Composite State</em>}' class.

@@ -1,15 +1,5 @@
 package de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.net.URL;
-
-import org.eclipse.core.runtime.FileLocator;
-import org.eclipse.core.runtime.Path;
-import org.eclipse.core.runtime.Platform;
-import org.osgi.framework.Bundle;
-
 import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC;
 import de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine;
 import de.uni_stuttgart.iste.cowolf.transformation.AbstractTransformationManager;
@@ -23,38 +13,25 @@ import de.uni_stuttgart.iste.cowolf.transformation.AbstractTransformationManager
  *        separate trace file)
  * @TODO: Should the transformation be done in place or not?
  */
-public class DTMCStatechartTransformationManager
-        extends
-            AbstractTransformationManager {
-    /**
-     * Key for extension point identification.
-     */
-    private final static String KEY = "dtmc_statechart";
+public class DTMCStatechartTransformationManager extends
+		AbstractTransformationManager {
 
-    @Override
-    protected String getKey() {
-        return KEY;
-    }
+	/**
+	 * Key for extension point identification.
+	 */
+	private final static String KEY = "dtmc_statechart";
 
-    @Override
-    protected File getRuleDirectory() {
-        Bundle root = Platform
-                .getBundle("de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules");
-        URL url = FileLocator.find(root, new Path(File.separator + "rules"
-                + File.separator), null);
-        File ruleDirectory = null;
-        try {
-            url = FileLocator.toFileURL(url);
-            ruleDirectory = new File(new java.net.URI(url.getProtocol(),
-                    url.getPath(), null));
+	private final static String REVERSE_KEY = "statechart_dtmc";
 
-        } catch (IOException | URISyntaxException e1) {
-            System.out.println(e1);
-            return null;
-        }
+	@Override
+	protected String getKey() {
+		return KEY;
+	}
 
-        return ruleDirectory;
-    }
+	@Override
+	protected String getReverseKey() {
+		return REVERSE_KEY;
+	}
 
 	@Override
 	public Class<?> getManagedClass1() {
@@ -63,7 +40,6 @@ public class DTMCStatechartTransformationManager
 
 	@Override
 	public Class<?> getManagedClass2() {
-		// TODO Auto-generated method stub
 		return StateMachine.class;
 	}
 

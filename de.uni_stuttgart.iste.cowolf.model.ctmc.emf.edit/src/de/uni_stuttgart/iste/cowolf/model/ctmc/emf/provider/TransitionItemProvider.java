@@ -144,9 +144,18 @@ public class TransitionItemProvider extends IDBaseItemProvider {
 	@Override
 	public String getText(Object object) {
 		String label ="" + ((Transition)object).getRate();
-		if (((Transition)object).getTo() instanceof State && !((Transition)object).getTo().getName().isEmpty()) {
-			label += " -> " + ((Transition)object).getTo().getName();
+		
+		State transitionTo = ((Transition) object).getTo();
+
+		if (transitionTo instanceof State) {
+			String transitionToName = transitionTo.getName();
+
+			if (transitionToName != null && !transitionToName.isEmpty()) {
+				label += " -> " + transitionToName;
+			}
+
 		}
+		
 		return label == null || label.length() == 0 ?
 			getString("_UI_Transition_type") :
 			getString("_UI_Transition_type") + " " + label;

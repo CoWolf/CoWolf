@@ -2,6 +2,9 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.statechart.impl;
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
+import de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase;
+import de.uni_stuttgart.iste.cowolf.model.commonBase.impl.IDBaseImpl;
 import de.uni_stuttgart.iste.cowolf.model.statechart.State;
 import de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine;
 import de.uni_stuttgart.iste.cowolf.model.statechart.Transition;
@@ -25,13 +28,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateMachineImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateMachineImpl#getTransitions <em>Transitions</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateMachineImpl#getTop <em>Top</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateMachineImpl#getStates <em>States</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateMachineImpl#getInitialStates <em>Initial States</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class StateMachineImpl extends de.uni_stuttgart.iste.cowolf.model.commonBase.impl.IDBaseImpl implements StateMachine {
+public class StateMachineImpl extends IDBaseImpl implements StateMachine {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -63,14 +67,24 @@ public class StateMachineImpl extends de.uni_stuttgart.iste.cowolf.model.commonB
 	protected EList<Transition> transitions;
 
 	/**
-	 * The cached value of the '{@link #getTop() <em>Top</em>}' containment reference list.
+	 * The cached value of the '{@link #getStates() <em>States</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTop()
+	 * @see #getStates()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<State> top;
+	protected EList<State> states;
+
+	/**
+	 * The cached value of the '{@link #getInitialStates() <em>Initial States</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInitialStates()
+	 * @generated
+	 * @ordered
+	 */
+	protected State initialStates;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -129,11 +143,49 @@ public class StateMachineImpl extends de.uni_stuttgart.iste.cowolf.model.commonB
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<State> getTop() {
-		if (top == null) {
-			top = new EObjectContainmentWithInverseEList<State>(State.class, this, statechartemfPackage.STATE_MACHINE__TOP, statechartemfPackage.STATE__STATE_CONTAINER);
+	public EList<State> getStates() {
+		if (states == null) {
+			states = new EObjectContainmentWithInverseEList<State>(State.class, this, statechartemfPackage.STATE_MACHINE__STATES, statechartemfPackage.STATE__STATE_CONTAINER);
 		}
-		return top;
+		return states;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public State getInitialStates() {
+		if (initialStates != null && initialStates.eIsProxy()) {
+			InternalEObject oldInitialStates = (InternalEObject)initialStates;
+			initialStates = (State)eResolveProxy(oldInitialStates);
+			if (initialStates != oldInitialStates) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, statechartemfPackage.STATE_MACHINE__INITIAL_STATES, oldInitialStates, initialStates));
+			}
+		}
+		return initialStates;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public State basicGetInitialStates() {
+		return initialStates;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInitialStates(State newInitialStates) {
+		State oldInitialStates = initialStates;
+		initialStates = newInitialStates;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, statechartemfPackage.STATE_MACHINE__INITIAL_STATES, oldInitialStates, initialStates));
 	}
 
 	/**
@@ -147,8 +199,8 @@ public class StateMachineImpl extends de.uni_stuttgart.iste.cowolf.model.commonB
 		switch (featureID) {
 			case statechartemfPackage.STATE_MACHINE__TRANSITIONS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getTransitions()).basicAdd(otherEnd, msgs);
-			case statechartemfPackage.STATE_MACHINE__TOP:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getTop()).basicAdd(otherEnd, msgs);
+			case statechartemfPackage.STATE_MACHINE__STATES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getStates()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -163,8 +215,8 @@ public class StateMachineImpl extends de.uni_stuttgart.iste.cowolf.model.commonB
 		switch (featureID) {
 			case statechartemfPackage.STATE_MACHINE__TRANSITIONS:
 				return ((InternalEList<?>)getTransitions()).basicRemove(otherEnd, msgs);
-			case statechartemfPackage.STATE_MACHINE__TOP:
-				return ((InternalEList<?>)getTop()).basicRemove(otherEnd, msgs);
+			case statechartemfPackage.STATE_MACHINE__STATES:
+				return ((InternalEList<?>)getStates()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -181,8 +233,11 @@ public class StateMachineImpl extends de.uni_stuttgart.iste.cowolf.model.commonB
 				return getName();
 			case statechartemfPackage.STATE_MACHINE__TRANSITIONS:
 				return getTransitions();
-			case statechartemfPackage.STATE_MACHINE__TOP:
-				return getTop();
+			case statechartemfPackage.STATE_MACHINE__STATES:
+				return getStates();
+			case statechartemfPackage.STATE_MACHINE__INITIAL_STATES:
+				if (resolve) return getInitialStates();
+				return basicGetInitialStates();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -203,9 +258,12 @@ public class StateMachineImpl extends de.uni_stuttgart.iste.cowolf.model.commonB
 				getTransitions().clear();
 				getTransitions().addAll((Collection<? extends Transition>)newValue);
 				return;
-			case statechartemfPackage.STATE_MACHINE__TOP:
-				getTop().clear();
-				getTop().addAll((Collection<? extends State>)newValue);
+			case statechartemfPackage.STATE_MACHINE__STATES:
+				getStates().clear();
+				getStates().addAll((Collection<? extends State>)newValue);
+				return;
+			case statechartemfPackage.STATE_MACHINE__INITIAL_STATES:
+				setInitialStates((State)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -225,8 +283,11 @@ public class StateMachineImpl extends de.uni_stuttgart.iste.cowolf.model.commonB
 			case statechartemfPackage.STATE_MACHINE__TRANSITIONS:
 				getTransitions().clear();
 				return;
-			case statechartemfPackage.STATE_MACHINE__TOP:
-				getTop().clear();
+			case statechartemfPackage.STATE_MACHINE__STATES:
+				getStates().clear();
+				return;
+			case statechartemfPackage.STATE_MACHINE__INITIAL_STATES:
+				setInitialStates((State)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -244,8 +305,10 @@ public class StateMachineImpl extends de.uni_stuttgart.iste.cowolf.model.commonB
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case statechartemfPackage.STATE_MACHINE__TRANSITIONS:
 				return transitions != null && !transitions.isEmpty();
-			case statechartemfPackage.STATE_MACHINE__TOP:
-				return top != null && !top.isEmpty();
+			case statechartemfPackage.STATE_MACHINE__STATES:
+				return states != null && !states.isEmpty();
+			case statechartemfPackage.STATE_MACHINE__INITIAL_STATES:
+				return initialStates != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -257,9 +320,9 @@ public class StateMachineImpl extends de.uni_stuttgart.iste.cowolf.model.commonB
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase.class) {
+		if (baseClass == NameBase.class) {
 			switch (derivedFeatureID) {
-				case statechartemfPackage.STATE_MACHINE__NAME: return de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.NAME_BASE__NAME;
+				case statechartemfPackage.STATE_MACHINE__NAME: return CommonBasePackage.NAME_BASE__NAME;
 				default: return -1;
 			}
 		}
@@ -273,9 +336,9 @@ public class StateMachineImpl extends de.uni_stuttgart.iste.cowolf.model.commonB
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase.class) {
+		if (baseClass == NameBase.class) {
 			switch (baseFeatureID) {
-				case de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.NAME_BASE__NAME: return statechartemfPackage.STATE_MACHINE__NAME;
+				case CommonBasePackage.NAME_BASE__NAME: return statechartemfPackage.STATE_MACHINE__NAME;
 				default: return -1;
 			}
 		}

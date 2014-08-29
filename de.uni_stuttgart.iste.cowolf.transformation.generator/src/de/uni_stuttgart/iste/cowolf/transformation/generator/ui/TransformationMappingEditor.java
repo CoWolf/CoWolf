@@ -688,7 +688,7 @@ public class TransformationMappingEditor extends EditorPart {
 							RecognitionRule selectedRecognitionRule = (RecognitionRule) selectedObj;
 							Unit selectedTransformationRule = (Unit) selectedObj2;
 							Mapping newMapping = new Mapping();
-							// TODO via UI
+
 							newMapping.setPriority(0);
 							String changeSetName = RecognitionRuleUtil
 									.getRecognitionRuleName(selectedRecognitionRule);

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_iIXPYCxkEeSKHvuYIUm5Ng" name="MOVE_CompositeState_FROM_StateMachine_(states)_TO_CompositeState_(subVertexes)" description="MOVEs CompositeState from StateMachine(Reference:states) to CompositeState(Reference:subVertexes">
+  <imports href="http://Statechart/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_iIXPYSxkEeSKHvuYIUm5Ng" name="moveCompositeState_FROM_StateMachine_states_TO_CompositeState_CompositeState" description="Moves CompositeState from StateMachine(Reference:states) toCompositeState(Reference:CompositeState)">
+    <parameters xmi:id="_iIXPYixkEeSKHvuYIUm5Ng" name="Selected"/>
+    <parameters xmi:id="_iIXPYyxkEeSKHvuYIUm5Ng" name="OldSource"/>
+    <parameters xmi:id="_iIXPZCxkEeSKHvuYIUm5Ng" name="NewSource"/>
+    <lhs xmi:id="_iIXPZSxkEeSKHvuYIUm5Ng" name="Lhs">
+      <nodes xmi:id="_iIXPZixkEeSKHvuYIUm5Ng" name="Selected" incoming="_iIXPaSxkEeSKHvuYIUm5Ng" outgoing="_iIXPaixkEeSKHvuYIUm5Ng">
+        <type href="http://Statechart/1.0#//CompositeState"/>
+      </nodes>
+      <nodes xmi:id="_iIXPZyxkEeSKHvuYIUm5Ng" name="OldSource" incoming="_iIXPaixkEeSKHvuYIUm5Ng" outgoing="_iIXPaSxkEeSKHvuYIUm5Ng">
+        <type href="http://Statechart/1.0#//StateMachine"/>
+      </nodes>
+      <nodes xmi:id="_iIXPaCxkEeSKHvuYIUm5Ng" name="NewSource">
+        <type href="http://Statechart/1.0#//CompositeState"/>
+      </nodes>
+      <edges xmi:id="_iIXPaSxkEeSKHvuYIUm5Ng" source="_iIXPZyxkEeSKHvuYIUm5Ng" target="_iIXPZixkEeSKHvuYIUm5Ng">
+        <type href="http://Statechart/1.0#//StateMachine/states"/>
+      </edges>
+      <edges xmi:id="_iIXPaixkEeSKHvuYIUm5Ng" source="_iIXPZixkEeSKHvuYIUm5Ng" target="_iIXPZyxkEeSKHvuYIUm5Ng">
+        <type href="http://Statechart/1.0#//State/state_container"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_iIXPayxkEeSKHvuYIUm5Ng" name="Rhs">
+      <nodes xmi:id="_iIXPbCxkEeSKHvuYIUm5Ng" name="Selected" incoming="_iIXPbyxkEeSKHvuYIUm5Ng" outgoing="_iIXPcCxkEeSKHvuYIUm5Ng">
+        <type href="http://Statechart/1.0#//CompositeState"/>
+      </nodes>
+      <nodes xmi:id="_iIXPbSxkEeSKHvuYIUm5Ng" name="OldSource">
+        <type href="http://Statechart/1.0#//StateMachine"/>
+      </nodes>
+      <nodes xmi:id="_iIXPbixkEeSKHvuYIUm5Ng" name="NewSource" incoming="_iIXPcCxkEeSKHvuYIUm5Ng" outgoing="_iIXPbyxkEeSKHvuYIUm5Ng">
+        <type href="http://Statechart/1.0#//CompositeState"/>
+      </nodes>
+      <edges xmi:id="_iIXPbyxkEeSKHvuYIUm5Ng" source="_iIXPbixkEeSKHvuYIUm5Ng" target="_iIXPbCxkEeSKHvuYIUm5Ng">
+        <type href="http://Statechart/1.0#//CompositeState/subVertexes"/>
+      </edges>
+      <edges xmi:id="_iIXPcCxkEeSKHvuYIUm5Ng" source="_iIXPbCxkEeSKHvuYIUm5Ng" target="_iIXPbixkEeSKHvuYIUm5Ng">
+        <type href="http://Statechart/1.0#//StateVertex/sv_container"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_iIXPcSxkEeSKHvuYIUm5Ng" origin="_iIXPZixkEeSKHvuYIUm5Ng" image="_iIXPbCxkEeSKHvuYIUm5Ng"/>
+    <mappings xmi:id="_iIXPcixkEeSKHvuYIUm5Ng" origin="_iIXPZyxkEeSKHvuYIUm5Ng" image="_iIXPbSxkEeSKHvuYIUm5Ng"/>
+    <mappings xmi:id="_iIXPcyxkEeSKHvuYIUm5Ng" origin="_iIXPaCxkEeSKHvuYIUm5Ng" image="_iIXPbixkEeSKHvuYIUm5Ng"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_iIXPdCxkEeSKHvuYIUm5Ng" name="mainUnit" subUnits="_iIXPYSxkEeSKHvuYIUm5Ng">
+    <parameters xmi:id="_iIXPdSxkEeSKHvuYIUm5Ng" name="selectedEObject"/>
+    <parameters xmi:id="_iIXPdixkEeSKHvuYIUm5Ng" name="OldSource"/>
+    <parameters xmi:id="_iIXPdyxkEeSKHvuYIUm5Ng" name="NewSource"/>
+    <parameterMappings xmi:id="_iIXPeCxkEeSKHvuYIUm5Ng" source="_iIXPdSxkEeSKHvuYIUm5Ng" target="_iIXPYixkEeSKHvuYIUm5Ng"/>
+    <parameterMappings xmi:id="_iIXPeSxkEeSKHvuYIUm5Ng" source="_iIXPdixkEeSKHvuYIUm5Ng" target="_iIXPYyxkEeSKHvuYIUm5Ng"/>
+    <parameterMappings xmi:id="_iIXPeixkEeSKHvuYIUm5Ng" source="_iIXPdyxkEeSKHvuYIUm5Ng" target="_iIXPZCxkEeSKHvuYIUm5Ng"/>
+  </units>
+</henshin:Module>

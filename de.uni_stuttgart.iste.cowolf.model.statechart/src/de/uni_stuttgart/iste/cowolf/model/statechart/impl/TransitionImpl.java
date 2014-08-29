@@ -2,6 +2,9 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.statechart.impl;
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
+import de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase;
+import de.uni_stuttgart.iste.cowolf.model.commonBase.impl.IDBaseImpl;
 import de.uni_stuttgart.iste.cowolf.model.statechart.Event;
 import de.uni_stuttgart.iste.cowolf.model.statechart.Guard;
 import de.uni_stuttgart.iste.cowolf.model.statechart.State;
@@ -35,7 +38,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *
  * @generated
  */
-public class TransitionImpl extends de.uni_stuttgart.iste.cowolf.model.commonBase.impl.IDBaseImpl implements Transition {
+public class TransitionImpl extends IDBaseImpl implements Transition {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -645,9 +648,9 @@ public class TransitionImpl extends de.uni_stuttgart.iste.cowolf.model.commonBas
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase.class) {
+		if (baseClass == NameBase.class) {
 			switch (derivedFeatureID) {
-				case statechartemfPackage.TRANSITION__NAME: return de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.NAME_BASE__NAME;
+				case statechartemfPackage.TRANSITION__NAME: return CommonBasePackage.NAME_BASE__NAME;
 				default: return -1;
 			}
 		}
@@ -661,9 +664,9 @@ public class TransitionImpl extends de.uni_stuttgart.iste.cowolf.model.commonBas
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase.class) {
+		if (baseClass == NameBase.class) {
 			switch (baseFeatureID) {
-				case de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage.NAME_BASE__NAME: return statechartemfPackage.TRANSITION__NAME;
+				case CommonBasePackage.NAME_BASE__NAME: return statechartemfPackage.TRANSITION__NAME;
 				default: return -1;
 			}
 		}

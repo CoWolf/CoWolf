@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.henshin.interpreter.EGraph;
 import org.eclipse.emf.henshin.interpreter.UnitApplication;
@@ -35,6 +36,7 @@ import org.eclipse.emf.henshin.model.Module;
 import org.eclipse.emf.henshin.model.Unit;
 import org.eclipse.emf.henshin.model.resource.HenshinResourceSet;
 import org.eclipse.emf.henshin.trace.impl.TraceImpl;
+import org.sidiff.difference.symmetric.AttributeValueChange;
 import org.sidiff.difference.symmetric.Change;
 import org.sidiff.difference.symmetric.SemanticChangeSet;
 import org.sidiff.difference.symmetric.SymmetricDifference;
@@ -54,435 +56,536 @@ import de.uni_stuttgart.iste.cowolf.transformation.model.util.XMLMappingLoader;
  * @TODO: Should the transformation be done in place or not?
  */
 public abstract class AbstractTransformationManager {
-	/**
-	 * 
-	 */
-	protected Map<String, Mapping> mappings;
-	protected Map<String, Unit> units;
-	protected HenshinResourceSet rulesResourceSet = new HenshinResourceSet();
+    /**
+     * Mapping between difference name and mapping object containing
+     * {@link SemanticChangeSet}.
+     */
+    protected Map<String, Mapping> mappings;
+    /**
+     * Mapping between difference name and mapping object containing
+     * {@link Change}
+     */
+    protected Map<String, Mapping> changeMapping;
+    /**
+     * Map containing all Henshin units. Key: Name of the unit.
+     */
+    protected Map<String, Unit> units;
 
-	protected URI fileURI;
+    /**
+     * URI of the result file.
+     */
+    protected URI fileURI;
 
-	/**
-	 * 
-	 * @param source
-	 *            source model.
-	 * @param target
-	 *            target model.
-	 * @return Returns whether given source and target models are managed by
-	 *         this manager.
-	 */
-	public boolean isManaged(Resource source, Resource target) {
-		if ((source == null) || (target == null)) {
-			return false;
-		}
-		if ((source.getContents() == null) || source.getContents().isEmpty()
-				|| (target.getContents() == null)
-				|| target.getContents().isEmpty()) {
-			return false;
-		}
-		
-		if (getManagedClass1().isAssignableFrom(source.getContents().get(0).getClass()) 
-				&& getManagedClass2().isAssignableFrom(target.getContents().get(0).getClass())) {
-			return true;
-		}
+    /**
+     * 
+     * @param source
+     *            source model.
+     * @param target
+     *            target model.
+     * @return Returns whether given source and target models are managed by
+     *         this manager.
+     */
+    public boolean isManaged(Resource source, Resource target) {
+        if ((source == null) || (target == null)) {
+            return false;
+        }
+        if ((source.getContents() == null) || source.getContents().isEmpty()
+                || (target.getContents() == null)
+                || target.getContents().isEmpty()) {
+            return false;
+        }
 
-		if (getManagedClass1().isAssignableFrom(target.getContents().get(0).getClass()) 
-				&& getManagedClass2().isAssignableFrom(source.getContents().get(0).getClass())) {
-			return true;
-		}
+        if (getManagedClass1().isAssignableFrom(
+                source.getContents().get(0).getClass())
+                && getManagedClass2().isAssignableFrom(
+                        target.getContents().get(0).getClass())) {
+            return true;
+        }
 
-		return false;
-	}
+        if (getManagedClass1().isAssignableFrom(
+                target.getContents().get(0).getClass())
+                && getManagedClass2().isAssignableFrom(
+                        source.getContents().get(0).getClass())) {
+            return true;
+        }
 
-	/**
-	 * Return one of the root classes for the supported model.
-	 * @return root class of model, which can be managed with this transformation manager.
-	 */
-	public abstract Class<?> getManagedClass1();
+        return false;
 
-	/**
-	 * Return one of the root classes for the supported model.
-	 * @return root class of model, which can be managed with this transformation manager.
-	 */
-	public abstract Class<?> getManagedClass2();
+    }
 
-	/**
-	 * Performs an incremental transformation between source and target model.
-	 * The source model got evolved before and differences are stored in the
-	 * difference object.
-	 * 
-	 * @param source
-	 *            source model which got evolved before.
-	 * @param target
-	 *            model which should be evolved by changes in the source model.
-	 * @param difference
-	 *            contains evolution steps of the source model.
-	 * @param fileURI
-	 *            uri of the file to save.
-	 * @return
-	 * 
-	 */
-	public Resource transform(Resource source, Resource target,
-			SymmetricDifference difference, URI fileURI) {
-		this.fileURI = fileURI;
-		System.out.println("Loading mappings...");
+    /**
+     * Builds uri of the trace file based on source and target model.
+     * 
+     * @param source
+     * @param target
+     * @return
+     */
+    private URI buildTraceFileUri(Resource source, Resource target) {
+        String[] segments = source.getURI().segments();
+        String filename = segments[segments.length - 1];
+        filename = filename.substring(0, filename.lastIndexOf("."));
+        filename += "-"
+                + target.getURI().segments()[target.getURI().segments().length - 1];
+        filename = filename.substring(0, filename.lastIndexOf("."));
+        filename += "." + this.getKey(source) + ".trace";
+        URI traceURI = source.getURI().trimSegments(1).appendSegment("Traces")
+                .appendSegment(filename);
+        return traceURI;
 
-		// Load mappings
-		Mappings mappingObject;
-		try {
-			mappingObject = XMLMappingLoader.loadMapping(this.getMapping());
-			this.mappings = mappingObject.getMapping();
-			System.out.println("Found " + mappingObject.getMapping().size()
-					+ " mappings.");
-		} catch (JAXBException e1) {
-			e1.printStackTrace();
-			return null;
-		}
-		// Load rules from files in folder
-		System.out.println("Load henshin rules");
-		this.units = this.getHenshinRules();
-		System.out.println("Number of henshin rules:" + this.units.size());
+    }
 
-		System.out.println("Merging graphs");
-		List<EGraph> graphs = new ArrayList<>();
+    /**
+     * Return one of the root classes for the supported model.
+     * 
+     * @return root class of model, which can be managed with this
+     *         transformation manager.
+     */
+    public abstract Class<?> getManagedClass1();
 
-		// find broken proxy references and remove them from resource set
-		List<Resource> toRemove = new ArrayList<>();
-		for (int index = 0; index < target.getResourceSet().getResources()
-				.size(); index++) {
-			Resource res = target.getResourceSet().getResources().get(index);
-			if (!res.isLoaded() || res.getErrors().size() > 0) {
-				toRemove.add(res);
-			}
-		}
-		target.getResourceSet().getResources().removeAll(toRemove);
+    /**
+     * Return one of the root classes for the supported model.
+     * 
+     * @return root class of model, which can be managed with this
+     *         transformation manager.
+     */
+    public abstract Class<?> getManagedClass2();
 
-		// initialize URI converter
-		this.updateTraces(source, target);
+    /**
+     * Performs an incremental transformation between source and target model.
+     * The source model got evolved before and differences are stored in the
+     * difference object.
+     * 
+     * @param source
+     *            source model which got evolved before.
+     * @param target
+     *            model which should be evolved by changes in the source model.
+     * @param difference
+     *            contains evolution steps of the source model.
+     * @param fileURI
+     *            uri of the file to save.
+     * @return
+     * 
+     */
+    public Resource transform(Resource oldSource, Resource source,
+            Resource target, SymmetricDifference difference, URI fileURI) {
+        this.fileURI = fileURI;
+        System.out.println("Loading mappings...");
 
-		graphs.add(new EGraphImpl(source));
-		graphs.add(new EGraphImpl(target));
-		EGraph graph = this.mergeInstanceModels(graphs);
-		System.out.println("Finished merging graphs.");
+        // build resource set first time.
+        ResourceSet resSet = new ResourceSetImpl();
+        resSet.getResources().add(source);
+        resSet.getResources().add(target);
+        Resource traces = null;
+        URI traceURI = this.buildTraceFileUri(oldSource, target);
+        try {
+            traces = resSet.getResource(traceURI, true);
+        } catch (Exception e) {
+            System.out.println("traces file could not be found.");
+            traces = resSet.createResource(traceURI);
+        }
 
-		if (difference != null) {
-			System.out.println("Run Transformation");
-			graph = this.runTransformation(graph, difference);
-			System.out.println("Save result");
-			try {
-				return this.save(graph, target, false);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		} else {
-			System.out.println("Difference is null");
-			return null;
-		}
-		return null;
-	}
-	/**
-	 * Builds an URI converter used to update traces to current model resources.
-	 * 
-	 * @param source
-	 *            source model
-	 * @param target
-	 *            target model
-	 */
-	private void updateTraces(Resource source, Resource target) {
-		Map<URI, URI> map = target.getResourceSet().getURIConverter()
-				.getURIMap();
+        // Load mappings
+        Mappings mappingObject;
+        try {
+            mappingObject = XMLMappingLoader.loadMapping(this
+                    .getMapping(source));
+            this.mappings = mappingObject.getMapping();
+            this.changeMapping = mappingObject.getChangeMapping();
+            System.out.println("Found " + mappingObject.getMapping().size()
+                    + " mappings.");
+        } catch (JAXBException e1) {
+            e1.printStackTrace();
+            return null;
+        }
+        System.out.println("Mapping loaded for " + this.getKey(source));
+        // Load rules from files in folder
+        System.out.println("Load henshin rules");
+        this.units = this.getHenshinRules();
+        System.out.println("Number of henshin rules:" + this.units.size());
 
-		// find unresolvable proxies
-		Map<EObject, Collection<Setting>> unresolvedProxies = EcoreUtil.UnresolvedProxyCrossReferencer
-				.find(target.getResourceSet());
-		for (EObject entry : unresolvedProxies.keySet()) {
-			target.getResourceSet()
-			.getURIConverter()
-			.getURIMap()
-			.put(EcoreUtil.getURI(entry).trimFragment(),
-					source.getURI());
-		}
+        System.out.println("Merging graphs");
+        List<EGraph> graphs = new ArrayList<>();
 
-		// find resources which are older than current element, put them in
-		// converter mapping and unload them.
-		for (EObject obj : target.getContents()) {
-			if (obj instanceof TraceImpl) {
-				for (EObject src : ((TraceImpl) obj).getSource()) {
-					if (!src.eIsProxy()
-							&& !map.containsKey(src.eResource().getURI())) {
-						target.getResourceSet().getURIConverter().getURIMap()
-						.put(src.eResource().getURI(), source.getURI());
-						src.eResource().unload();
-					}
+        // initialize URI converter and update broken traces (trace references
+        // point to current model afterwards)
+        this.updateTraces(source, target, traces, resSet);
+        // update traces. done by first unloading traces resource and reloaded
+        // after that.
+        // URIConverter of the resource set now does the work by pointing
+        // references to current source and target model.
+        traces.unload();
+        try {
+            traces = resSet.getResource(traceURI, true);
+            EcoreUtil.resolveAll(traces);
+        } catch (Exception e) {
+            System.out.println("traces file could not be found.");
+            traces = resSet.createResource(traceURI);
+        }
 
-				}
-			}
-		}
+        // init henshin graph
+        graphs.add(new EGraphImpl(source));
+        graphs.add(new EGraphImpl(target));
+        graphs.add(new EGraphImpl(traces));
+        EGraph graph = this.mergeInstanceModels(graphs);
+        System.out.println("Finished merging graphs.");
 
-		// resolve resources
-		EcoreUtil.resolveAll(target.getResourceSet());
+        if (difference != null) {
+            System.out.println("Run Transformation");
+            graph = this.runTransformation(graph, difference);
+            System.out.println("Save result");
+            try {
+                Resource res = this.save(graph, source, target, traces, false);
+                resSet.getResources().remove(target);
+                traces.unload();
+                traces = resSet.getResource(traces.getURI(), true);
+                // this.updateTraces(source, res, traces, resSet);
+                // EcoreUtil.resolveAll(resSet);
+                traceURI = this.buildTraceFileUri(source, res);
+                traces.setURI(traceURI);
+                traces.save(null);
+                return res;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("Difference is null");
+            return null;
+        }
+        return null;
+    }
+    /**
+     * Builds an URI converter used to update traces to current model resources.
+     * 
+     * @param source
+     *            source model
+     * @param target
+     *            target model
+     */
+    private void updateTraces(Resource source, Resource target,
+            Resource traces, ResourceSet resSet) {
+        URI sourceURI = source.getURI();
+        URI targetURI = target.getURI();
+        Map<URI, URI> map = resSet.getURIConverter().getURIMap();
+        map.clear();
+        boolean sourceEqualToFirstClass = this.getManagedClass1()
+                .isAssignableFrom(source.getContents().get(0).getClass());
 
-		// update uri of outdated resources
-		for (Resource res : target.getResourceSet().getResources()) {
-			if (map.containsKey(res.getURI())) {
-				res.setURI(map.get(res.getURI()));
-			}
-		}
-	}
-	/**
-	 * Saves root of the resulting model to an output file.
-	 *
-	 * @param result
-	 *            graph to be saved
-	 * @param target
-	 *            resource to save
-	 * @param inPlace
-	 *            overwrite the transformed models or create a new file
-	 * @throws IOException
-	 */
-	protected Resource save(EGraph result, Resource target, boolean inPlace)
-			throws IOException {
-		// Save the models.
-		System.out.println("Saving models...");
-		System.out.println("Number of roots: " + result.getRoots().size());
+        // find unresolvable proxies
+        Map<EObject, Collection<Setting>> unresolvedProxies = EcoreUtil.UnresolvedProxyCrossReferencer
+                .find(resSet);
+        for (EObject entry : unresolvedProxies.keySet()) {
+            URI entryURI = EcoreUtil.getURI(entry);
+            String extension = entryURI.fileExtension();
+            if (extension.equals(sourceURI.fileExtension())) {
+                if (!entryURI.equals(sourceURI)) {
+                    map.put(entryURI.trimFragment(), sourceURI);
+                }
+            } else {
+                if (!entryURI.equals(targetURI)) {
+                    map.put(entryURI.trimFragment(), targetURI);
+                }
 
-		ResourceSet henshinResourceSet = target.getResourceSet();
-		// TODO: decide where traces should be stored (source or target model
-		// file or separate trace file).
-		// TODO: Transformation in place or not?
-		Resource temp = new ResourceImpl(target.getURI());
+            }
+        }
 
-		List<EObject> list = result.getRoots();
+        // find resources which are older than current element, put them in
+        // converter mapping and unload them.
+        Resource firstModel = null;
+        Resource secondModel = null;
+        if (sourceEqualToFirstClass) {
+            firstModel = source;
+            secondModel = target;
+        } else {
+            firstModel = target;
+            secondModel = source;
+        }
+        // update trace source and target references
+        for (EObject obj : traces.getContents()) {
+            if (obj instanceof TraceImpl) {
+                for (EObject src : ((TraceImpl) obj).getSource()) {
+                    URI srcURI = EcoreUtil.getURI(src);
+                    if (!map.containsKey(srcURI.trimFragment())
+                            && !firstModel.getURI().equals(srcURI)) {
+                        map.put(srcURI.trimFragment(), firstModel.getURI());
+                        if (src.eResource() != null) {
+                            src.eResource().unload();
+                        }
+                    }
+                }
+                for (EObject tgt : ((TraceImpl) obj).getTarget()) {
+                    URI tgtURI = EcoreUtil.getURI(tgt);
+                    if (!map.containsKey(tgtURI.trimFragment())
+                            && !secondModel.getURI().equals(tgtURI)) {
+                        map.put(tgtURI.trimFragment(), secondModel.getURI());
+                        if (tgt.eResource() != null) {
+                            tgt.eResource().unload();
+                        }
+                    }
+                }
+            }
+        }
+        for (Map.Entry<URI, URI> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + " ---------> "
+                    + entry.getValue());
+        }
+    }
+    /**
+     * Saves root of the resulting model to an output file.
+     *
+     * @param result
+     *            graph to be saved
+     * @param target
+     *            resource to save
+     * @param inPlace
+     *            overwrite the transformed models or create a new file
+     * @throws IOException
+     */
+    protected Resource save(EGraph result, Resource source, Resource target,
+            Resource traceModel, boolean inPlace) throws IOException {
+        // Save the models.
+        System.out.println("Saving models...");
+        System.out.println("Number of roots: " + result.getRoots().size());
 
-		Class<? extends EObject> targetClass = target.getContents().get(0)
-				.getClass();
+        ResourceSet henshinResourceSet = traceModel.getResourceSet();
+        Resource temp = new ResourceImpl(target.getURI());
 
-		for (EObject root : list) {
-			// root is element of target model
-			if (root.getClass() == targetClass) {
+        List<EObject> list = result.getRoots();
 
-				temp.getContents().add(root);
+        Class<? extends EObject> targetClass = target.getContents().get(0)
+                .getClass();
+        traceModel.getContents().clear();
+        for (EObject root : list) {
+            // root is element of target model
+            if (root.getClass() == targetClass) {
+                temp.getContents().add(root);
+            }
 
-			}
+            // root is a Trace and has source and target
+            if (root.getClass() == TraceImpl.class) {
+                int hasSource = ((TraceImpl) root).getSource().size();
+                int hasTarget = ((TraceImpl) root).getTarget().size();
 
-			// root is a Trace and has source and target
-			if (root.getClass() == TraceImpl.class) {
-				int hasSource = ((TraceImpl) root).getSource().size();
-				int hasTarget = ((TraceImpl) root).getTarget().size();
+                if (hasSource >= 1 && hasTarget >= 1) {
+                    traceModel.getContents().add(root);
+                }
 
-				if (hasSource >= 1 && hasTarget >= 1) {
+            }
+        }
 
-					temp.getContents().add(root);
-				}
+        // save all roots
+        if (inPlace) {
 
-			}
-		}
+            target.save(null);
+            return target;
 
-		// save all roots
-		if (inPlace) {
+        } else {
+            if (!this.fileURI.isPlatformResource()) {
+                this.fileURI = URI.createPlatformResourceURI(this.fileURI
+                        .toString().substring(1), true);
+            }
+            Resource res = henshinResourceSet.createResource(this.fileURI);
+            res.getContents().addAll(temp.getContents());
+            res.save(null);
+            URI traceURI = this.buildTraceFileUri(source, res);
+            traceModel.setURI(traceURI);
+            traceModel.save(null);
+            return res;
+        }
 
-			target.save(null);
-			return target;
+    }
+    /**
+     * Transforms a provided graph with multiple rules from the provided
+     * henshinFile. Multiple parameters per rule possible.
+     *
+     * @param graph
+     *            to be transformed
+     * @param henshinFile
+     *            .henshin File that contains the transformation rules. Located
+     *            in the base-folder specified when calling init()
+     * @param rules
+     *            rule names to be executed plus Hashmap of parameter to be set
+     *            for that rule.
+     * @return
+     */
+    protected EGraph runTransformation(EGraph graph,
+            SymmetricDifference difference) {
+        boolean result;
+        ParameterHandler paramHandler = new ParameterHandler();
 
-		} else {
-			if (!this.fileURI.isPlatformResource()) {
-				this.fileURI = URI.createPlatformResourceURI(this.fileURI
-						.toString().substring(1), true);
-			}
-			Resource res = henshinResourceSet.createResource(this.fileURI);
-			res.getContents().addAll(temp.getContents());
-			res.save(null);
-			return res;
-		}
+        // load each rule which has to be executed, set parameters and transform
+        // the provided graph
+        UnitApplication application = new UnitApplicationImpl(new EngineImpl());
+        application.setEGraph(graph);
+        List<SemanticChangeSet> changeSets = difference.getChangeSets();
+        // execute rules one by one, order from change sets.
+        List<MappingSet> mappings = new ArrayList<>();
 
-	}
-	/**
-	 * Transforms a provided graph with multiple rules from the provided
-	 * henshinFile. Multiple parameters per rule possible.
-	 *
-	 * @param graph
-	 *            to be transformed
-	 * @param henshinFile
-	 *            .henshin File that contains the transformation rules. Located
-	 *            in the base-folder specified when calling init()
-	 * @param rules
-	 *            rule names to be executed plus Hashmap of parameter to be set
-	 *            for that rule.
-	 * @return
-	 */
-	protected EGraph runTransformation(EGraph graph,
-			SymmetricDifference difference) {
-		// TODO: perform only rules needed
-		boolean result;
+        for (SemanticChangeSet changeSet : changeSets) {
+            System.out.println(changeSet.getName());
+            Mapping mapping = this.mappings.get(changeSet.getName());
+            if (mapping != null) {
+                MappingSet set = new MappingSet();
+                set.setChangeSet(changeSet);
+                set.setMapping(mapping);
+                mappings.add(set);
+            }
+        }
+        // sort mappings according to priority.
+        Collections.sort(mappings);
+        // add changes, are not affected by priorities.
+        for (org.sidiff.difference.symmetric.Change change : difference
+                .getChanges()) {
+            if (change instanceof AttributeValueChange) {
+                AttributeValueChange avChange = (AttributeValueChange) change;
+                // build key to identify change
+                String key = avChange.getObjA().eClass().getEPackage()
+                        .getNsPrefix();
+                key += "/" + avChange.getObjA().eClass().getName();
+                key += "/" + avChange.getType().getName();
+                Mapping mapping = this.changeMapping.get(key);
+                if (mapping != null) {
+                    MappingSet set = new MappingSet();
+                    set.setChange(change);
+                    set.setMapping(mapping);
+                    mappings.add(set);
+                }
+                System.out.println(key);
+            }
 
-		// load each rule which has to be executed, set parameters and transform
-		// the provided graph
-		UnitApplication application = new UnitApplicationImpl(new EngineImpl());
-		application.setEGraph(graph);
-		List<SemanticChangeSet> changeSets = difference.getChangeSets();
-		// execute rules one by one, order from change sets.
-		List<MappingSet> mappings = new ArrayList<>();
-		for (SemanticChangeSet changeSet : changeSets) {
-			System.out.println("Changeset: " + changeSet.getName());
-			Mapping mapping = this.mappings.get(changeSet.getName());
-			if (mapping != null) {
-				MappingSet set = new MappingSet();
-				set.setChangeSet(changeSet);
-				set.setMapping(mapping);
-				mappings.add(set);
-			}
-		}
-		Collections.sort(mappings);
-		for (MappingSet mappingSet : mappings) {
-			graph = application.getEGraph();
-			application = new UnitApplicationImpl(new EngineImpl());
-			application.setEGraph(graph);
-			Mapping mapping = mappingSet.getMapping();
-			SemanticChangeSet changeSet = mappingSet.getChangeSet();
-			// fetch rule/unit from mapping
-			Rule rule = mapping.getRule();
-			Unit unit = this.units.get(rule.getName());
-			if (unit != null) {
-				application.setUnit(unit);
-				// traverse parameters from config object.
-				for (Param param : rule.getParams().getParam()) {
-					String name = param.getName();
-					Object value = null;
-					List<String> path = param.getPath();
-					// check for corresponding change
+        }
+        // perform transformation.
+        for (MappingSet mappingSet : mappings) {
+            graph = application.getEGraph();
+            application = new UnitApplicationImpl(new EngineImpl());
+            application.setEGraph(graph);
+            Mapping mapping = mappingSet.getMapping();
+            SemanticChangeSet changeSet = mappingSet.getChangeSet();
+            // fetch rule/unit from mapping
+            Rule rule = mapping.getRule();
+            Unit unit = this.units.get(rule.getName());
+            if (unit != null) {
+                application.setUnit(unit);
+                // traverse parameters from config object.
+                for (Param param : rule.getParams().getParam()) {
+                    Object value = null;
+                    if (mappingSet.getChangeSet() != null) {
+                        value = paramHandler
+                                .getParameterValue(param, changeSet);
+                    } else {
+                        value = paramHandler.getParameterValue(param,
+                                mappingSet.getChange());
+                    }
 
-					for (Change change : changeSet.getChanges()) {
-						if (change.eClass().getName().equals(path.get(0))) {
-							value = change;
-						}
-					}
-					// traverse xml and object tree
-					int counter = 1;
-					while (value != null && counter < path.size()) {
-						EObject eObject = (EObject) value;
-						value = eObject.eGet(eObject.eClass()
-								.getEStructuralFeature(path.get(counter)));
-						counter++;
-						System.out.println(value);
-					}
-					System.out.println(value);
-					application.setParameterValue(name, value);
-				}
-				result = application.execute(new LoggingApplicationMonitor());
-				application.getAssignment().clear();
-				System.out.println(unit.getName() + " "
-						+ (result ? "successful" : "error"));
-			} else {
-				System.out.println("No rule found for changeset with name "
-						+ changeSet.getName());
-			}
+                    String name = param.getName();
+                    if (value == null) {
+                        throw new IllegalArgumentException("Parameter " + name
+                                + " is set to null");
+                    }
+                    application.setParameterValue(name, value);
+                }
+                result = application.execute(new LoggingApplicationMonitor());
+                System.out.println(unit.getName() + " "
+                        + (result ? "successful" : "error"));
+            } else {
+                System.out.println("No rule found for changeset with name "
+                        + changeSet.getName());
+            }
 
-		}
+        }
 
-		return application.getEGraph();
-	}
+        return application.getEGraph();
+    }
 
-	/**
-	 * Returns an input stream with the mapping.
-	 * 
-	 * @return stream containing mapping.
-	 */
-	private InputStream getMapping() {
-		IExtensionRegistry er = RegistryFactory.getRegistry();
-		IExtensionPoint exPoint = er
-				.getExtensionPoint("de.uni_stuttgart.iste.cowolf.transformationMappingExtension");
-		for (IExtension extension : exPoint.getExtensions()) {
-			for (IConfigurationElement element : extension
-					.getConfigurationElements()) {
-				// select config file via extension point
-				if (element.getAttribute("key").equals(this.getKey())) {
-					String platformString = extension.getNamespaceIdentifier()
-							+ File.separator + element.getAttribute("file");
-					try {
-						URL url = new URL(URI.createPlatformPluginURI(
-								platformString, true).toString());
-						return url.openStream();
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
-				}
-			}
-		}
-		return null;
-	}
-	/**
-	 * Returns the key for which a mapping at the extension point can be stored.
-	 * 
-	 * @return string identifier
-	 */
-	protected abstract String getKey();
+    /**
+     * Returns an input stream with the mapping.
+     * 
+     * @return stream containing mapping.
+     */
+    private InputStream getMapping(Resource source) {
+        IExtensionRegistry er = RegistryFactory.getRegistry();
+        IExtensionPoint exPoint = er
+                .getExtensionPoint("de.uni_stuttgart.iste.cowolf.transformationMappingExtension");
+        for (IExtension extension : exPoint.getExtensions()) {
+            for (IConfigurationElement element : extension
+                    .getConfigurationElements()) {
+                // select config file via extension point
+                if (element.getAttribute("key").equals(this.getKey(source))) {
+                    String platformString = extension.getNamespaceIdentifier()
+                            + File.separator + element.getAttribute("file");
+                    try {
+                        URL url = new URL(URI.createPlatformPluginURI(
+                                platformString, true).toString());
+                        return url.openStream();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+        return null;
+    }
 
-	/**
-	 * Merges all provided EGraphs by adding all Root elements to the first
-	 * Graph.
-	 *
-	 * @param models
-	 *            to be merged
-	 * @return EGraph with all Roots of the provided models
-	 */
-	private EGraph mergeInstanceModels(List<EGraph> models) {
-		if (models.size() > 0) {
-			EGraph mergedGraph = models.get(0);
-			models.remove(0);
-			for (EGraph current : models) {
-				for (EObject tree : current.getRoots()) {
-					mergedGraph.addTree(tree);
-				}
-			}
-			return mergedGraph;
-		} else {
-			return null;
-		}
-	}
+    protected abstract String getKey();
 
-	/**
-	 * Returns a Map containing the henshin rules with their name as identifier.
-	 * 
-	 * @return
-	 */
-	private Map<String, Unit> getHenshinRules() {
-		Map<String, Unit> units = new HashMap<>();
-		File ruleDirectory = this.getRuleDirectory();
-		List<File> henshinFiles = new ArrayList<>();
-		if (!ruleDirectory.isDirectory()) {
-			System.out.println("No directory selected.");
-			return null;
-		}
-		for (File henshinFile : ruleDirectory.listFiles()) {
-			//
-			String extension = "";
-			String fileName = henshinFile.toString();
-			int i = fileName.lastIndexOf('.');
-			if (i > 0) {
-				extension = fileName.substring(i + 1);
-			}
-			if (!henshinFile.isDirectory() && extension.equals("henshin")) {
-				henshinFiles.add(henshinFile);
-			}
-		}
-		for (File henshinFile : henshinFiles) {
-			System.out.println(henshinFile.getPath());
-			Module module = this.rulesResourceSet.getModule(
-					henshinFile.getPath(), true);
-			for (Unit unit : module.getUnits()) {
-				units.put(unit.getName(), unit);
-			}
-		}
-		return units;
-	}
-	/**
-	 * Returns the directory containing the rule files.
-	 * 
-	 * TODO: will be later replaced by path in transformation mapping file.
-	 * 
-	 * @return directory as file
-	 */
-	protected abstract File getRuleDirectory();
+    protected abstract String getReverseKey();
+
+    /**
+     * Returns the key for which a mapping at the extension point can be stored.
+     * 
+     * @return string identifier
+     */
+    protected String getKey(Resource source) {
+
+        if (source == null || source.getContents() == null) {
+            throw new IllegalArgumentException("Source should not be null.");
+        } else {
+            if (this.getManagedClass1().isAssignableFrom(
+                    source.getContents().get(0).getClass())) {
+                return this.getKey();
+            } else {
+                return this.getReverseKey();
+            }
+        }
+    }
+
+    /**
+     * Merges all provided EGraphs by adding all Root elements to the first
+     * Graph.
+     *
+     * @param models
+     *            to be merged
+     * @return EGraph with all Roots of the provided models
+     */
+    private EGraph mergeInstanceModels(List<EGraph> models) {
+        if (models.size() > 0) {
+            EGraph mergedGraph = models.get(0);
+            models.remove(0);
+            for (EGraph current : models) {
+                for (EObject tree : current.getRoots()) {
+                    mergedGraph.addTree(tree);
+                }
+            }
+            return mergedGraph;
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * Returns a Map containing the henshin rules with their name as identifier.
+     * 
+     * @return
+     */
+    private Map<String, Unit> getHenshinRules() {
+        Map<String, Unit> units = new HashMap<>();
+        for (Mapping mapping : this.mappings.values()) {
+            URI uri = URI.createURI(mapping.getRule().getPath());
+            HenshinResourceSet rulesResourceSet = new HenshinResourceSet();
+            Module module = rulesResourceSet.getModule(uri, true);
+            for (Unit unit : module.getUnits()) {
+                units.put(unit.getName(), unit);
+            }
+        }
+        return units;
+    }
 }

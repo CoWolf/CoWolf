@@ -2,24 +2,20 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.statechart.impl;
 
+import de.uni_stuttgart.iste.cowolf.model.statechart.BooleanExpression;
 import de.uni_stuttgart.iste.cowolf.model.statechart.Event;
 import de.uni_stuttgart.iste.cowolf.model.statechart.State;
 import de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine;
 import de.uni_stuttgart.iste.cowolf.model.statechart.Transition;
 import de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage;
-
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -35,6 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateImpl#getState_container <em>State container</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateImpl#getInternalTransitions <em>Internal Transitions</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateImpl#getDeferrableEvents <em>Deferrable Events</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateImpl#getAtomicProposition <em>Atomic Proposition</em>}</li>
  * </ul>
  * </p>
  *
@@ -60,6 +57,16 @@ public class StateImpl extends StateVertexImpl implements State {
 	 * @ordered
 	 */
 	protected EList<Event> deferrableEvents;
+
+	/**
+	 * The cached value of the '{@link #getAtomicProposition() <em>Atomic Proposition</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAtomicProposition()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<BooleanExpression> atomicProposition;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -113,7 +120,7 @@ public class StateImpl extends StateVertexImpl implements State {
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newState_container != null)
-				msgs = ((InternalEObject)newState_container).eInverseAdd(this, statechartemfPackage.STATE_MACHINE__TOP, StateMachine.class, msgs);
+				msgs = ((InternalEObject)newState_container).eInverseAdd(this, statechartemfPackage.STATE_MACHINE__STATES, StateMachine.class, msgs);
 			msgs = basicSetState_container(newState_container, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -143,6 +150,18 @@ public class StateImpl extends StateVertexImpl implements State {
 			deferrableEvents = new EObjectWithInverseResolvingEList.ManyInverse<Event>(Event.class, this, statechartemfPackage.STATE__DEFERRABLE_EVENTS, statechartemfPackage.EVENT__TARGETS);
 		}
 		return deferrableEvents;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<BooleanExpression> getAtomicProposition() {
+		if (atomicProposition == null) {
+			atomicProposition = new EObjectContainmentEList<BooleanExpression>(BooleanExpression.class, this, statechartemfPackage.STATE__ATOMIC_PROPOSITION);
+		}
+		return atomicProposition;
 	}
 
 	/**
@@ -180,6 +199,8 @@ public class StateImpl extends StateVertexImpl implements State {
 				return ((InternalEList<?>)getInternalTransitions()).basicRemove(otherEnd, msgs);
 			case statechartemfPackage.STATE__DEFERRABLE_EVENTS:
 				return ((InternalEList<?>)getDeferrableEvents()).basicRemove(otherEnd, msgs);
+			case statechartemfPackage.STATE__ATOMIC_PROPOSITION:
+				return ((InternalEList<?>)getAtomicProposition()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -193,7 +214,7 @@ public class StateImpl extends StateVertexImpl implements State {
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case statechartemfPackage.STATE__STATE_CONTAINER:
-				return eInternalContainer().eInverseRemove(this, statechartemfPackage.STATE_MACHINE__TOP, StateMachine.class, msgs);
+				return eInternalContainer().eInverseRemove(this, statechartemfPackage.STATE_MACHINE__STATES, StateMachine.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -212,6 +233,8 @@ public class StateImpl extends StateVertexImpl implements State {
 				return getInternalTransitions();
 			case statechartemfPackage.STATE__DEFERRABLE_EVENTS:
 				return getDeferrableEvents();
+			case statechartemfPackage.STATE__ATOMIC_PROPOSITION:
+				return getAtomicProposition();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -236,6 +259,10 @@ public class StateImpl extends StateVertexImpl implements State {
 				getDeferrableEvents().clear();
 				getDeferrableEvents().addAll((Collection<? extends Event>)newValue);
 				return;
+			case statechartemfPackage.STATE__ATOMIC_PROPOSITION:
+				getAtomicProposition().clear();
+				getAtomicProposition().addAll((Collection<? extends BooleanExpression>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -257,6 +284,9 @@ public class StateImpl extends StateVertexImpl implements State {
 			case statechartemfPackage.STATE__DEFERRABLE_EVENTS:
 				getDeferrableEvents().clear();
 				return;
+			case statechartemfPackage.STATE__ATOMIC_PROPOSITION:
+				getAtomicProposition().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -275,6 +305,8 @@ public class StateImpl extends StateVertexImpl implements State {
 				return internalTransitions != null && !internalTransitions.isEmpty();
 			case statechartemfPackage.STATE__DEFERRABLE_EVENTS:
 				return deferrableEvents != null && !deferrableEvents.isEmpty();
+			case statechartemfPackage.STATE__ATOMIC_PROPOSITION:
+				return atomicProposition != null && !atomicProposition.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
