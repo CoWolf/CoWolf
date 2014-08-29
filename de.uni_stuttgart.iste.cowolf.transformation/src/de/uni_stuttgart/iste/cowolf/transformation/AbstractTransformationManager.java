@@ -37,6 +37,7 @@ import org.eclipse.emf.henshin.model.Unit;
 import org.eclipse.emf.henshin.model.resource.HenshinResourceSet;
 import org.eclipse.emf.henshin.trace.impl.TraceImpl;
 import org.sidiff.difference.symmetric.AttributeValueChange;
+import org.sidiff.difference.symmetric.Change;
 import org.sidiff.difference.symmetric.SemanticChangeSet;
 import org.sidiff.difference.symmetric.SymmetricDifference;
 
@@ -56,13 +57,23 @@ import de.uni_stuttgart.iste.cowolf.transformation.model.util.XMLMappingLoader;
  */
 public abstract class AbstractTransformationManager {
     /**
-     * 
+     * Mapping between difference name and mapping object containing
+     * {@link SemanticChangeSet}.
      */
     protected Map<String, Mapping> mappings;
+    /**
+     * Mapping between difference name and mapping object containing
+     * {@link Change}
+     */
     protected Map<String, Mapping> changeMapping;
+    /**
+     * Map containing all Henshin units. Key: Name of the unit.
+     */
     protected Map<String, Unit> units;
-    protected HenshinResourceSet rulesResourceSet = new HenshinResourceSet();
 
+    /**
+     * URI of the result file.
+     */
     protected URI fileURI;
 
     /**
@@ -102,6 +113,13 @@ public abstract class AbstractTransformationManager {
 
     }
 
+    /**
+     * Builds uri of the trace file based on source and target model.
+     * 
+     * @param source
+     * @param target
+     * @return
+     */
     private URI buildTraceFileUri(Resource source, Resource target) {
         String[] segments = source.getURI().segments();
         String filename = segments[segments.length - 1];
@@ -227,7 +245,6 @@ public abstract class AbstractTransformationManager {
                 traces.save(null);
                 return res;
             } catch (IOException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         } else {
@@ -392,7 +409,6 @@ public abstract class AbstractTransformationManager {
      */
     protected EGraph runTransformation(EGraph graph,
             SymmetricDifference difference) {
-        // TODO: perform only rules needed
         boolean result;
         ParameterHandler paramHandler = new ParameterHandler();
 
@@ -414,28 +430,29 @@ public abstract class AbstractTransformationManager {
                 mappings.add(set);
             }
         }
+        // sort mappings according to priority.
         Collections.sort(mappings);
+        // add changes, are not affected by priorities.
         for (org.sidiff.difference.symmetric.Change change : difference
                 .getChanges()) {
             if (change instanceof AttributeValueChange) {
                 AttributeValueChange avChange = (AttributeValueChange) change;
+                // build key to identify change
                 String key = avChange.getObjA().eClass().getEPackage()
                         .getNsPrefix();
                 key += "/" + avChange.getObjA().eClass().getName();
                 key += "/" + avChange.getType().getName();
                 Mapping mapping = this.changeMapping.get(key);
                 if (mapping != null) {
-                    System.out.println(mapping);
                     MappingSet set = new MappingSet();
                     set.setChange(change);
                     set.setMapping(mapping);
                     mappings.add(set);
                 }
-                System.out.println(key);
             }
 
         }
-
+        // perform transformation.
         for (MappingSet mappingSet : mappings) {
             graph = application.getEGraph();
             application = new UnitApplicationImpl(new EngineImpl());
@@ -558,7 +575,8 @@ public abstract class AbstractTransformationManager {
         Map<String, Unit> units = new HashMap<>();
         for (Mapping mapping : this.mappings.values()) {
             URI uri = URI.createURI(mapping.getRule().getPath());
-            Module module = this.rulesResourceSet.getModule(uri, true);
+            HenshinResourceSet rulesResourceSet = new HenshinResourceSet();
+            Module module = rulesResourceSet.getModule(uri, true);
             for (Unit unit : module.getUnits()) {
                 units.put(unit.getName(), unit);
             }
