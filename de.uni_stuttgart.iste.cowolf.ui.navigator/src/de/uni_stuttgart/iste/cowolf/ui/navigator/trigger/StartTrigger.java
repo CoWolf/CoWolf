@@ -1,11 +1,13 @@
 package de.uni_stuttgart.iste.cowolf.ui.navigator.trigger;
 
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.ui.IStartup;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchListener;
 import org.eclipse.ui.PlatformUI;
 
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociationFactory;
+import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelResourceChangeListener;
 
 
 /**
@@ -24,8 +26,15 @@ public class StartTrigger implements IStartup {
 
 		// listener for end of eclipse
 		addWorkbenchListener();
+		
+		addResourceChangeListener();
 
 
+	}
+
+	private void addResourceChangeListener() {
+		ResourcesPlugin.getWorkspace().addResourceChangeListener(new ModelResourceChangeListener());
+		
 	}
 
 	/**
@@ -59,6 +68,8 @@ public class StartTrigger implements IStartup {
 				public void postShutdown(IWorkbench workbench) {
 					// nothing to do
 				}
+				
+				
 
 			};
 			PlatformUI.getWorkbench().addWorkbenchListener(workbenchListener);

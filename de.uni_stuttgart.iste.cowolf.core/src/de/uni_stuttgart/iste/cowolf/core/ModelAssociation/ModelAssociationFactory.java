@@ -2,6 +2,7 @@
  */
 package de.uni_stuttgart.iste.cowolf.core.ModelAssociation;
 
+import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.ecore.EFactory;
 
 /**
@@ -70,5 +71,7 @@ public interface ModelAssociationFactory extends EFactory {
 	 * saves all loaded model associations.
 	 */
 	void saveAll();
+
+	public abstract ModelAssociation getModelAssociation(IProject project);
 
 } //ModelAssociationFactory

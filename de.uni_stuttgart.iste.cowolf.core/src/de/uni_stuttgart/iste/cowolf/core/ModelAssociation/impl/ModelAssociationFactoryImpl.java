@@ -4,6 +4,7 @@ package de.uni_stuttgart.iste.cowolf.core.ModelAssociation.impl;
 
 import java.io.IOException;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.*;
@@ -58,6 +59,8 @@ public class ModelAssociationFactoryImpl extends EFactoryImpl implements ModelAs
 	 */
 	public ModelAssociationFactoryImpl() {
 		super();
+		this.resources = new HashMap<>();
+
 	}
 
 	/**
@@ -78,7 +81,13 @@ public class ModelAssociationFactoryImpl extends EFactoryImpl implements ModelAs
 	}
 
 	
+	@Override
 	public ModelAssociation getModelAssociation(IProject project) {
+		
+		if (project == null) {
+			throw new IllegalArgumentException("No project given.");
+		}
+		
 		Resource res = this.getResource(project);
 		if (res == null || res.getContents() == null || !(res.getContents().get(0) instanceof ModelAssociation)) {
 			return null;
@@ -91,21 +100,28 @@ public class ModelAssociationFactoryImpl extends EFactoryImpl implements ModelAs
 		if (!this.resources.containsKey(project)) {
 			this.loadOrCreateResource(project);
 		}
-		return null;
+		return this.resources.get(project);
 	}
 
 	private void loadOrCreateResource(IProject project) {
 		
 		ResourceSet resSet = new ResourceSetImpl();
 		
-		URI uri = URI.createURI(project.getFile(ModelAssociationPackage.PROJECT_FILENAME).getLocation().toString());
-		Resource res = resSet.getResource(uri, false);
+		URI uri = URI.createURI(project.getLocationURI().toString() + "/" + ModelAssociationPackage.PROJECT_FILENAME);
+		Resource res = resSet.createResource(uri);
 		
-		if (res == null) {
-			res = resSet.createResource(uri);
+		if (project.getFile(ModelAssociationPackage.PROJECT_FILENAME).exists()) {
+			try {
+				res.load(Collections.EMPTY_MAP);
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 		
-		if (!(res.getContents().get(0) instanceof ModelAssociation)) {
+		if (res.getContents().isEmpty()) {
+			res.getContents().add(createModelAssociation());
+		} else if (!(res.getContents().get(0) instanceof ModelAssociation)) {
 			res.getContents().set(0, createModelAssociation());
 		}
 		
@@ -115,7 +131,8 @@ public class ModelAssociationFactoryImpl extends EFactoryImpl implements ModelAs
 			@Override
 			public void notifyChanged(Notification notification) {
 				if (notification.getEventType() == Notification.SET
-						&& notification.getFeatureID(Resource.class) == Resource.RESOURCE__IS_MODIFIED) {
+						&& notification.getFeatureID(Resource.class) == Resource.RESOURCE__IS_MODIFIED
+						&& ((Resource) notification.getNotifier()).isModified()) {
 					try {
 						((Resource) notification.getNotifier()).save(Collections.EMPTY_MAP);
 					} catch (IOException e) {

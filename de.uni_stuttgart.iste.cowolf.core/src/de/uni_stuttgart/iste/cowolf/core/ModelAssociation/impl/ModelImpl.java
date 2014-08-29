@@ -17,6 +17,13 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.WorkspaceJob;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -130,14 +137,15 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 		
 		long timestamp = new Date().getTime();
 		
-		String filename = ModelAssociationPackage.VERSIONBASEDIR + this.getModel() + "." + timestamp;
+		String filename = ModelAssociationPackage.VERSIONBASEDIR + this.getModel() + "/" + timestamp + ".version";
 		URI uri = URI.createURI(this.getParent().getProject().getLocationURI().toString() + "/" + filename);
 		
-		res.getResourceSet().createResource(uri);
-		res.getContents().clear();
-		res.getContents().addAll(res.getContents());
+		Resource newRes = res.getResourceSet().createResource(uri);
+		newRes.getContents().clear();
+		newRes.getContents().addAll(res.getContents());
+		
 		try {
-			res.save(Collections.EMPTY_MAP);
+			newRes.save(Collections.EMPTY_MAP);
 			
 			ModelVersion version = ModelAssociationFactory.eINSTANCE.createModelVersion();
 			version.setManual(false);
@@ -180,6 +188,27 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 		}
 		return versions;
 	}
+	
+	@Override
+	public void prepareRemove() {
+		final IFolder versionfolder = this.getParent().getProject().getFolder(ModelAssociationPackage.VERSIONBASEDIR + this.getModel());
+		new WorkspaceJob("Update model versioning...") {
+
+			@Override
+			public IStatus runInWorkspace(IProgressMonitor monitor)
+					throws CoreException {
+				try {
+					versionfolder.delete(true, monitor);
+				} catch (CoreException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				return Status.OK_STATUS;
+			}
+			
+		}.schedule();
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -202,6 +231,49 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 			eNotify(new ENotificationImpl(this, Notification.SET, ModelAssociationPackage.MODEL__MODEL, oldModel, model));
 	}
 	
+	/**
+	 * 
+	 * @param newPath new path to model file, relative to project root.
+	 * @return
+	 */
+	@Override
+	public boolean rename(final String newPath) {
+		if (newPath.equals(this.getModel())) {
+			return true;
+		}
+		
+		if (!this.getParent().getProject().getFile(newPath).exists()) {
+			return false;
+		}
+		
+		final IFolder versionfolder = this.getParent().getProject().getFolder(ModelAssociationPackage.VERSIONBASEDIR + this.getModel());
+		
+		if (!versionfolder.exists()) {
+			return false;
+		}
+		
+		final IPath moveto = this.getParent().getProject().getFolder(ModelAssociationPackage.VERSIONBASEDIR + newPath).getFullPath();
+		
+		new WorkspaceJob("Update model versioning...") {
+
+			@Override
+			public IStatus runInWorkspace(IProgressMonitor monitor) {
+				try {
+					versionfolder.move(moveto, true, monitor);
+					setModel(newPath);
+				} catch (CoreException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				return Status.OK_STATUS;
+			}
+		}.schedule();
+		
+		return true;
+	}
+	
+	@Override
 	public Resource getResource() {
 		ResourceSet resSet = new ResourceSetImpl();
 		URI uri = URI.createURI(this.getModel());

@@ -69,4 +69,8 @@ public interface ModelAssociation extends EObject {
 
 	public abstract IProject getProject();
 
+	Model getModelByPath(String file);
+
+	void removeModel(Model model);
+
 } // ModelAssociation

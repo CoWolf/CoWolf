@@ -2,14 +2,15 @@
  */
 package de.uni_stuttgart.iste.cowolf.core.ModelAssociation;
 
-import java.io.IOException;
-import java.util.Collections;
 import java.util.List;
 
+import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 
 /**
@@ -139,6 +140,12 @@ public interface Model extends EObject {
 	public abstract ModelVersion createVersion(Resource res);
 
 	public abstract ModelVersion createVersion();
+
+	public abstract boolean rename(String newPath);
+
+	public abstract Resource getResource();
+
+	abstract void prepareRemove();
 
 
 } // Model

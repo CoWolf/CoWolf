@@ -101,9 +101,20 @@ public class ModelAssociationImpl extends MinimalEObjectImpl.Container implement
 			if (res.getContents().get(0) instanceof IDBase) {
 				model.setModelID(((IDBase)res.getContents().get(0)).getId());
 			}
+			model.setParent(this);
+			
+			return model;
 		}
 		
 		return null;
+	}
+	
+	@Override
+	public void removeModel(Model model) {
+		if (this.getModels().contains(model)) {
+			model.prepareRemove();
+			this.getModels().remove(model);
+		}
 	}
 	
 	/**
@@ -116,23 +127,24 @@ public class ModelAssociationImpl extends MinimalEObjectImpl.Container implement
 	public Model getModel(Resource res) {
 		
 		String file = getModelFile(res);
-		String id = null;
-		if (res.getContents().get(0) instanceof IDBase) {
-			id = ((IDBase)res.getContents().get(0)).getId();
-		}
 		
+		return this.getModelByPath(file);
+	}
+	
+	@Override
+	public Model getModelByPath(String file) {
 		for (Model model : getModels()) {
-			if (model.getModel().equals(file) && (id == null || model.getModelID().equals(id))) {
+			if (model.getModel().equals(file)) {
 				return model;
 			}
 		}
 		
 		return null;
+		
 	}
-	
+
 	private String getModelFile(Resource res) {
-		URI projectPath = URI.createURI(this.getProject().getFullPath().toString());
-		return res.getURI().deresolve(projectPath).toFileString();
+		return res.getURI().toFileString().substring(this.getProject().getLocation().toString().length()+1);
 	}
 
 	/**
@@ -146,8 +158,6 @@ public class ModelAssociationImpl extends MinimalEObjectImpl.Container implement
 		}
 		return models;
 	}
-	
-	//public Association addAssociation()
 
 	/**
 	 * <!-- begin-user-doc -->

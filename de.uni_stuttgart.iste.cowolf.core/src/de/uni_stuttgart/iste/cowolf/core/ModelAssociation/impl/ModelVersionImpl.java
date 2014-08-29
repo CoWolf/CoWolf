@@ -209,7 +209,7 @@ public class ModelVersionImpl extends MinimalEObjectImpl.Container implements Mo
 	public Resource getResource() {
 		ResourceSetImpl resSet = new ResourceSetImpl();
 		URI uri = URI.createURI(this.getModel().getParent().getProject().getLocationURI().toString()
-				+ "/" + this.getModel().getModel() + "." + this.getTimestamp());
+				+ "/" + this.getModel().getModel() + "/" + this.getTimestamp() + ".version");
 		Resource res = resSet.createResource(uri);
 		try {
 			res.load(Collections.EMPTY_MAP);
