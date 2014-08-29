@@ -7,9 +7,9 @@
 		<ns2:Rule name="CreatedStateInDTMC"
 			path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/DTMC_SC.henshin">
 			<ns2:Params>
-				<ns2:Param name="name">
+				<ns2:Param name="id">
 					<ns2:Change name="AddObject">
-						<ns2:Reference name="obj" attribute="name" />
+						<ns2:Reference name="obj" attribute="id" />
 					</ns2:Change>
 				</ns2:Param>
 			</ns2:Params>
@@ -120,8 +120,8 @@
 			path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/DTMC_SC.henshin">
 			<ns2:Params>
 				<ns2:Param name="transitionName">
-					<ns2:Change name="RemoveReference" type="src">
-						<ns2:Reference name="target" attribute="id" />
+					<ns2:Change name="RemoveReference" type="incoming">
+						<ns2:Reference name="tgt" attribute="id" />
 					</ns2:Change>
 				</ns2:Param>
 			</ns2:Params>
@@ -133,6 +133,16 @@
 		<ns2:Rule name="DeletedTransitionInDTMC"
 			path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/DTMC_SC.henshin">
 			<ns2:Params>
+			<ns2:Param name="id">
+					<ns2:Change name="RemoveReference" type="outgoing">
+						<ns2:Reference name="src" attribute="id" />
+					</ns2:Change>
+				</ns2:Param>
+				<ns2:Param name="id2">
+					<ns2:Change name="RemoveReference" type="incoming">
+						<ns2:Reference name="src" attribute="id" />
+					</ns2:Change>
+				</ns2:Param>
 			</ns2:Params>
 		</ns2:Rule>
 	</ns2:Mapping>
