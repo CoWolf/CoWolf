@@ -11,6 +11,26 @@ Require-Bundle: org.eclipse.xtext;visibility:=reexport,
  org.apache.commons.logging;bundle-version="1.0.4";resolution:=optional,
  org.eclipse.emf.codegen.ecore;resolution:=optional,
  org.eclipse.emf.mwe.utils;resolution:=optional,
- org.eclipse.emf.mwe2.launch;resolution:=optional
-Import-Package: org.apache.log4j
+ org.eclipse.emf.mwe2.launch;resolution:=optional,
+ org.eclipse.xtext.util,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.common,
+ org.antlr.runtime,
+ org.eclipse.xtext.common.types,
+ org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional
+Import-Package: org.apache.log4j,
+ org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: de.uni_stuttgart.iste.cowolf.model.ctmc.xtext,
+ de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.services,
+ de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL,
+ de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl,
+ de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.util,
+ de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.serializer,
+ de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.parser.antlr,
+ de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.parser.antlr.internal,
+ de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.validation,
+ de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.scoping,
+ de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.generator,
+ de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.formatting
+
