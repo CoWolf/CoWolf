@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.uni_stuttgart.iste.cowolf.model.lqn/src" editDirectory="/de.uni_stuttgart.iste.cowolf.model.lqn.emf.edit/src"
+    editorDirectory="/de.uni_stuttgart.iste.cowolf.model.lqn.emf.editor/src" modelPluginID="de.uni_stuttgart.iste.cowolf.model.lqn"
+    modelName="LQN" editPluginClass="de.uni_stuttgart.iste.cowolf.model.lqn.emf.provider.LQNEditPlugin"
+    editorPluginClass="de.uni_stuttgart.iste.cowolf.model.lqn.emf.presentation.LQNEditorPlugin"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" testSuiteClass="de.uni_stuttgart.iste.cowolf.model.lqn.tests.LQNAllTests"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    editPluginID="de.uni_stuttgart.iste.cowolf.model.lqn.emf.edit" editorPluginID="de.uni_stuttgart.iste.cowolf.model.lqn.emf.editor"
+    usedGenPackages="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.genmodel#//commonBase"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>LQN.ecore</foreignModel>
+  <genPackages prefix="LQN" basePackage="de.uni_stuttgart.iste.cowolf.model" resource="XML"
+      disposableProviderFactory="true" providerPackageSuffix="emf.provider" presentationPackageSuffix="emf.presentation"
+      multipleEditorPages="false" ecorePackage="LQN.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="LQN.ecore#//AxisType">
+      <genEnumLiterals ecoreEnumLiteral="LQN.ecore#//AxisType/linear"/>
+      <genEnumLiterals ecoreEnumLiteral="LQN.ecore#//AxisType/log"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="LQN.ecore#//CallOrderType">
+      <genEnumLiterals ecoreEnumLiteral="LQN.ecore#//CallOrderType/STOCHASTIC"/>
+      <genEnumLiterals ecoreEnumLiteral="LQN.ecore#//CallOrderType/DETERMINISTIC"/>
+      <genEnumLiterals ecoreEnumLiteral="LQN.ecore#//CallOrderType/LIST"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="LQN.ecore#//SchedulingType">
+      <genEnumLiterals ecoreEnumLiteral="LQN.ecore#//SchedulingType/fcfs"/>
+      <genEnumLiterals ecoreEnumLiteral="LQN.ecore#//SchedulingType/ps"/>
+      <genEnumLiterals ecoreEnumLiteral="LQN.ecore#//SchedulingType/pp"/>
+      <genEnumLiterals ecoreEnumLiteral="LQN.ecore#//SchedulingType/rand"/>
+      <genEnumLiterals ecoreEnumLiteral="LQN.ecore#//SchedulingType/hol"/>
+      <genEnumLiterals ecoreEnumLiteral="LQN.ecore#//SchedulingType/psHol"/>
+      <genEnumLiterals ecoreEnumLiteral="LQN.ecore#//SchedulingType/psPp"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="LQN.ecore#//SemaphoreType">
+      <genEnumLiterals ecoreEnumLiteral="LQN.ecore#//SemaphoreType/signal"/>
+      <genEnumLiterals ecoreEnumLiteral="LQN.ecore#//SemaphoreType/wait"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="LQN.ecore#//TaskOptionType">
+      <genEnumLiterals ecoreEnumLiteral="LQN.ecore#//TaskOptionType/YES"/>
+      <genEnumLiterals ecoreEnumLiteral="LQN.ecore#//TaskOptionType/NO"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="LQN.ecore#//TaskSchedulingType">
+      <genEnumLiterals ecoreEnumLiteral="LQN.ecore#//TaskSchedulingType/ref"/>
+      <genEnumLiterals ecoreEnumLiteral="LQN.ecore#//TaskSchedulingType/fcfs"/>
+      <genEnumLiterals ecoreEnumLiteral="LQN.ecore#//TaskSchedulingType/pri"/>
+      <genEnumLiterals ecoreEnumLiteral="LQN.ecore#//TaskSchedulingType/hol"/>
+      <genEnumLiterals ecoreEnumLiteral="LQN.ecore#//TaskSchedulingType/burst"/>
+      <genEnumLiterals ecoreEnumLiteral="LQN.ecore#//TaskSchedulingType/poll"/>
+      <genEnumLiterals ecoreEnumLiteral="LQN.ecore#//TaskSchedulingType/inf"/>
+      <genEnumLiterals ecoreEnumLiteral="LQN.ecore#//TaskSchedulingType/semaphore"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="LQN.ecore#//TypeType">
+      <genEnumLiterals ecoreEnumLiteral="LQN.ecore#//TypeType/PH1PH2"/>
+      <genEnumLiterals ecoreEnumLiteral="LQN.ecore#//TypeType/GRAPH"/>
+      <genEnumLiterals ecoreEnumLiteral="LQN.ecore#//TypeType/NONE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="LQN.ecore#//ValidType">
+      <genEnumLiterals ecoreEnumLiteral="LQN.ecore#//ValidType/YES"/>
+      <genEnumLiterals ecoreEnumLiteral="LQN.ecore#//ValidType/NO"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="LQN.ecore#//XmlDebugType">
+      <genEnumLiterals ecoreEnumLiteral="LQN.ecore#//XmlDebugType/true"/>
+      <genEnumLiterals ecoreEnumLiteral="LQN.ecore#//XmlDebugType/false"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="LQN.ecore#//AxisTypeObject"/>
+    <genDataTypes ecoreDataType="LQN.ecore#//CallOrderTypeObject"/>
+    <genDataTypes ecoreDataType="LQN.ecore#//ConnectFromType"/>
+    <genDataTypes ecoreDataType="LQN.ecore#//ConnectToType"/>
+    <genDataTypes ecoreDataType="LQN.ecore#//PhaseType"/>
+    <genDataTypes ecoreDataType="LQN.ecore#//SchedulingTypeObject"/>
+    <genDataTypes ecoreDataType="LQN.ecore#//SciNotation"/>
+    <genDataTypes ecoreDataType="LQN.ecore#//SemaphoreTypeObject"/>
+    <genDataTypes ecoreDataType="LQN.ecore#//SrvnFloat"/>
+    <genDataTypes ecoreDataType="LQN.ecore#//TaskOptionTypeObject"/>
+    <genDataTypes ecoreDataType="LQN.ecore#//TaskSchedulingTypeObject"/>
+    <genDataTypes ecoreDataType="LQN.ecore#//TypeTypeObject"/>
+    <genDataTypes ecoreDataType="LQN.ecore#//ValidTypeObject"/>
+    <genDataTypes ecoreDataType="LQN.ecore#//XmlDebugTypeObject"/>
+    <genClasses ecoreClass="LQN.ecore#//ActivityDefBase">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//ActivityDefBase/resultJoinDelay"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//ActivityDefBase/resultForwarding"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//ActivityDefBase/serviceTimeDistribution"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//ActivityDefBase/resultActivity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ActivityDefBase/callOrder"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ActivityDefBase/hostDemandCvsq"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ActivityDefBase/hostDemandMean"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ActivityDefBase/maxServiceTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ActivityDefBase/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ActivityDefBase/thinkTime"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//ActivityDefType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//ActivityDefType/callList"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute LQN.ecore#//ActivityDefType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference LQN.ecore#//ActivityDefType/synchCall"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference LQN.ecore#//ActivityDefType/asynchCall"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ActivityDefType/boundToEntry"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//ActivityGraphBase">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//ActivityGraphBase/activity"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//ActivityGraphBase/precedence"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//ActivityListType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//ActivityListType/activity"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//ActivityLoopListType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//ActivityLoopListType/activity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ActivityLoopListType/end"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//ActivityLoopType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ActivityLoopType/count"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//ActivityMakingCallType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ActivityMakingCallType/callsMean"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//ActivityOrType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ActivityOrType/prob"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//ActivityPhasesType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//ActivityPhasesType/callList"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute LQN.ecore#//ActivityPhasesType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference LQN.ecore#//ActivityPhasesType/synchCall"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference LQN.ecore#//ActivityPhasesType/asynchCall"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ActivityPhasesType/phase"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//ActivityType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ActivityType/name"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//AndJoinListType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//AndJoinListType/activity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//AndJoinListType/quorum"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//AsynchCallType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//AsynchCallType/dest"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//AsynchCallType/fanin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//AsynchCallType/fanout"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//BindType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//BindType/parameter"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//BindType/processorBinding"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//BindType/portBinding"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//CallListType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//CallListType/synchCall"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//CallListType/asynchCall"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference LQN.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference LQN.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//DocumentRoot/lqnCore"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//DocumentRoot/lqnModel"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//EntryActivityDefType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//EntryActivityDefType/callList"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute LQN.ecore#//EntryActivityDefType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference LQN.ecore#//EntryActivityDefType/synchCall"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference LQN.ecore#//EntryActivityDefType/asynchCall"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//EntryActivityDefType/firstActivity"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//EntryActivityGraph">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//EntryActivityGraph/replyActivity"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//EntryMakingCallType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//EntryMakingCallType/prob"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//EntryType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//EntryType/resultEntry"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//EntryType/serviceTimeDistribution"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//EntryType/forwarding"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//EntryType/entryActivityGraph"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//EntryType/entryPhaseActivities"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//EntryType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//EntryType/openArrivalRate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//EntryType/priority"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//EntryType/semaphore"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//EntryType/type"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//FirstPlotType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//FirstPlotType/variable"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//HistogramBinType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//HistogramBinType/begin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//HistogramBinType/conf95"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//HistogramBinType/conf99"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//HistogramBinType/end"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//HistogramBinType/prob"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//InPortType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//InPortType/connectFrom"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//InPortType/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//InPortType/name"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//InterfaceType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//InterfaceType/inPort"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//InterfaceType/outPort"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//LqnCoreType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//LqnCoreType/processor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//LqnCoreType/slot"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//LqnModelType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//LqnModelType/runControl"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//LqnModelType/plotControl"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//LqnModelType/solverParams"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//LqnModelType/processor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//LqnModelType/slot"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//LqnModelType/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//LqnModelType/lqncoreSchemaVersion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//LqnModelType/lqnSchemaVersion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//LqnModelType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//LqnModelType/xmlDebug"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//MakingCallType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//MakingCallType/resultCall"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//MakingCallType/dest"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//MakingCallType/fanin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//MakingCallType/fanout"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//OrListType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//OrListType/activity"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//OutPortType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//OutPortType/connectTo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//OutPortType/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//OutPortType/name"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//OutputDistributionType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//OutputDistributionType/underflowBin"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//OutputDistributionType/histogramBin"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//OutputDistributionType/overflowBin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//OutputDistributionType/binSize"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//OutputDistributionType/kurtosis"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//OutputDistributionType/max"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//OutputDistributionType/mean"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//OutputDistributionType/midPoint"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//OutputDistributionType/min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//OutputDistributionType/numberBins"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//OutputDistributionType/skew"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//OutputDistributionType/stdDev"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//OutputDistributionType/xSamples"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//OutputEntryDistributionType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//OutputEntryDistributionType/phase"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//OutputResultForwardingANDJoinDelay">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//OutputResultForwardingANDJoinDelay/resultConf95"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//OutputResultForwardingANDJoinDelay/resultConf99"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//OutputResultForwardingANDJoinDelay/dest"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//OutputResultForwardingANDJoinDelay/joinVariance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//OutputResultForwardingANDJoinDelay/joinWaiting"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//OutputResultForwardingANDJoinDelay/waiting"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//OutputResultType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//OutputResultType/resultConf95"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//OutputResultType/resultConf99"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//OutputResultType/openWaitTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//OutputResultType/phase1ProcWaiting"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//OutputResultType/phase1ServiceTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//OutputResultType/phase1ServiceTimeVariance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//OutputResultType/phase1Utilization"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//OutputResultType/phase2ProcWaiting"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//OutputResultType/phase2ServiceTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//OutputResultType/phase2ServiceTimeVariance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//OutputResultType/phase2Utilization"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//OutputResultType/phase3ProcWaiting"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//OutputResultType/phase3ServiceTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//OutputResultType/phase3ServiceTimeVariance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//OutputResultType/phase3Utilization"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//OutputResultType/probExceedMaxServiceTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//OutputResultType/procUtilization"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//OutputResultType/procWaiting"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//OutputResultType/serviceTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//OutputResultType/serviceTimeVariance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//OutputResultType/squaredCoeffVariation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//OutputResultType/throughput"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//OutputResultType/throughputBound"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//OutputResultType/utilization"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//OutputResultType/waiting"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//OutputResultType/waitingVariance"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//ParameterType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ParameterType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ParameterType/value"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//ParaType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ParaType/startValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ParaType/endValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ParaType/stepValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ParaType/value"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//PhaseActivities">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//PhaseActivities/activity"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//PlotControlType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//PlotControlType/firstPlot"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//PlotControlType/plot"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//PlotType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//PlotType/variable"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//PortBindingType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//PortBindingType/source"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//PortBindingType/target"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//PragmaType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//PragmaType/param"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//PragmaType/value"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//PrecedenceType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//PrecedenceType/pre"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//PrecedenceType/preOR"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//PrecedenceType/preAND"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//PrecedenceType/post"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//PrecedenceType/postOR"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//PrecedenceType/postAND"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//PrecedenceType/postLOOP"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//ProcessorBindingType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ProcessorBindingType/source"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ProcessorBindingType/target"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//ProcessorType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//ProcessorType/resultProcessor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//ProcessorType/task"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ProcessorType/multiplicity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ProcessorType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ProcessorType/quantum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ProcessorType/replication"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ProcessorType/scheduling"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ProcessorType/speedFactor"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//ReplyActivityType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ReplyActivityType/name"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//ReplyEntryType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//ReplyEntryType/replyActivity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ReplyEntryType/name"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//ResultConf95Type">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf95Type/joinVariance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf95Type/joinWaiting"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf95Type/waiting"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//ResultConf95Type1">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf95Type1/openWaitTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf95Type1/phase1ProcWaiting"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf95Type1/phase1ServiceTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf95Type1/phase1ServiceTimeVariance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf95Type1/phase1Utilization"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf95Type1/phase2ProcWaiting"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf95Type1/phase2ServiceTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf95Type1/phase2ServiceTimeVariance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf95Type1/phase2Utilization"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf95Type1/phase3ProcWaiting"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf95Type1/phase3ServiceTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf95Type1/phase3ServiceTimeVariance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf95Type1/phase3Utilization"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf95Type1/probExceedMaxServiceTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf95Type1/procUtilization"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf95Type1/procWaiting"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf95Type1/serviceTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf95Type1/serviceTimeVariance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf95Type1/squaredCoeffVariation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf95Type1/throughput"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf95Type1/throughputBound"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf95Type1/utilization"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf95Type1/waiting"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf95Type1/waitingVariance"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//ResultConf99Type">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf99Type/joinVariance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf99Type/joinWaiting"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf99Type/waiting"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//ResultConf99Type1">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf99Type1/openWaitTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf99Type1/phase1ProcWaiting"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf99Type1/phase1ServiceTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf99Type1/phase1ServiceTimeVariance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf99Type1/phase1Utilization"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf99Type1/phase2ProcWaiting"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf99Type1/phase2ServiceTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf99Type1/phase2ServiceTimeVariance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf99Type1/phase2Utilization"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf99Type1/phase3ProcWaiting"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf99Type1/phase3ServiceTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf99Type1/phase3ServiceTimeVariance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf99Type1/phase3Utilization"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf99Type1/probExceedMaxServiceTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf99Type1/procUtilization"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf99Type1/procWaiting"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf99Type1/serviceTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf99Type1/serviceTimeVariance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf99Type1/squaredCoeffVariation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf99Type1/throughput"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf99Type1/throughputBound"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf99Type1/utilization"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf99Type1/waiting"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultConf99Type1/waitingVariance"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//ResultGeneralType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultGeneralType/convVal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultGeneralType/elapsedTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultGeneralType/iterations"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultGeneralType/platformInfo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultGeneralType/solverInfo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultGeneralType/systemCpuTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultGeneralType/userCpuTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ResultGeneralType/valid"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//RunControlType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//RunControlType/para"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//ServiceType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//ServiceType/name"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//SingleActivityListType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//SingleActivityListType/activity"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//SlotType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//SlotType/interface"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//SlotType/binding"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//SlotType/bindTarget"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//SlotType/replicNum"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//SolverParamsType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//SolverParamsType/resultGeneral"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//SolverParamsType/pragma"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//SolverParamsType/comment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//SolverParamsType/convVal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//SolverParamsType/itLimit"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//SolverParamsType/printInt"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//SolverParamsType/underrelaxCoeff"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//SynchCallType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//SynchCallType/dest"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//SynchCallType/fanin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//SynchCallType/fanout"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//TaskActivityGraph">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//TaskActivityGraph/replyEntry"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//TaskType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//TaskType/resultTask"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//TaskType/entry"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//TaskType/service"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//TaskType/taskActivities"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//TaskType/activityGraph"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//TaskType/multiplicity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//TaskType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//TaskType/priority"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//TaskType/queueLength"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//TaskType/replication"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//TaskType/scheduling"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//TaskType/thinkTime"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

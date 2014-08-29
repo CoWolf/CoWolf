@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated LQN -->
+      <package
+            uri="http://LQN/1.0"
+            class="de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage"
+            genModel="model/LQN.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated LQN -->
+      <parser
+            type="lqn"
+            class="de.uni_stuttgart.iste.cowolf.model.LqnCore.util.LQNResourceFactoryImpl"/>
+   </extension>
+
+</plugin>

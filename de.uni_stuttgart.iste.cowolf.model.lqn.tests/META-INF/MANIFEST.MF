@@ -1,8 +1,20 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-SymbolicName: de.uni_stuttgart.iste.cowolf.model.lqn.tests
+Bundle-Name: %pluginName
+Bundle-SymbolicName: de.uni_stuttgart.iste.cowolf.model.lqn.tests;singleton:=true
 Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
 Fragment-Host: de.uni_stuttgart.iste.cowolf.model.lqn;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: de.uni_stuttgart.iste.cowolf.model.LqnCore.tests,
+ de.uni_stuttgart.iste.cowolf.model.lqn.tests
+Require-Bundle: org.eclipse.core.runtime,
+ de.uni_stuttgart.iste.cowolf.model.lqn;visibility:=reexport,
+ de.uni_stuttgart.iste.cowolf.model;visibility:=reexport,
+ org.eclipse.emf.ecore.xmi;visibility:=reexport,
+ org.junit;visibility:=reexport
+Bundle-ActivationPolicy: lazy
 Import-Package: org.junit;version="4.11.0",
  org.junit.runner;version="4.11.0"
