@@ -477,6 +477,10 @@ public abstract class AbstractTransformationManager {
                     }
 
                     String name = param.getName();
+                    if (value == null) {
+                        throw new IllegalArgumentException("Parameter " + name
+                                + " is set to null");
+                    }
                     application.setParameterValue(name, value);
                 }
                 result = application.execute(new LoggingApplicationMonitor());
