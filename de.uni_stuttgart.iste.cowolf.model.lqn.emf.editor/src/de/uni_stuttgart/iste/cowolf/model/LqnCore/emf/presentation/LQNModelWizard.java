@@ -200,7 +200,7 @@ public class LQNModelWizard extends Wizard implements INewWizard {
 					EClassifier eClassifier = eStructuralFeature.getEType();
 					if (eClassifier instanceof EClass) {
 						EClass eClass = (EClass)eClassifier;
-						if (!eClass.isAbstract() && eClass.getName().equalsIgnoreCase("DocumentRoot")) {
+						if (!eClass.isAbstract() && eClass.getName().equalsIgnoreCase("LqnCoreType")) {
 							initialObjectNames.add(eStructuralFeature.getName());
 						}
 					}
@@ -407,8 +407,7 @@ public class LQNModelWizard extends Wizard implements INewWizard {
 		 * @generated
 		 */
 		public void createControl(Composite parent) {
-			Composite composite = new Composite(parent, SWT.NONE);
-			{
+			Composite composite = new Composite(parent, SWT.NONE); {
 				GridLayout layout = new GridLayout();
 				layout.numColumns = 1;
 				layout.verticalSpacing = 12;
