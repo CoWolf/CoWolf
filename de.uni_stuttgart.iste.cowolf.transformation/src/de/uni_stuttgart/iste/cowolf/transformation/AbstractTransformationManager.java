@@ -84,14 +84,18 @@ public abstract class AbstractTransformationManager {
             return false;
         }
 
-		if (getManagedClass1().isAssignableFrom(source.getContents().get(0).getClass()) 
-				&& getManagedClass2().isAssignableFrom(target.getContents().get(0).getClass())) {
-			return true;
-		}
+        if (getManagedClass1().isAssignableFrom(
+                source.getContents().get(0).getClass())
+                && getManagedClass2().isAssignableFrom(
+                        target.getContents().get(0).getClass())) {
+            return true;
+        }
 
-		if (getManagedClass1().isAssignableFrom(target.getContents().get(0).getClass()) 
-				&& getManagedClass2().isAssignableFrom(source.getContents().get(0).getClass())) {
-			return true;
+        if (getManagedClass1().isAssignableFrom(
+                target.getContents().get(0).getClass())
+                && getManagedClass2().isAssignableFrom(
+                        source.getContents().get(0).getClass())) {
+            return true;
         }
 
         return false;
@@ -109,20 +113,24 @@ public abstract class AbstractTransformationManager {
         URI traceURI = source.getURI().trimSegments(1).appendSegment("Traces")
                 .appendSegment(filename);
         return traceURI;
-		
+
     }
 
     /**
-	 * Return one of the root classes for the supported model.
-	 * @return root class of model, which can be managed with this transformation manager.
-	 */
-	public abstract Class<?> getManagedClass1();
+     * Return one of the root classes for the supported model.
+     * 
+     * @return root class of model, which can be managed with this
+     *         transformation manager.
+     */
+    public abstract Class<?> getManagedClass1();
 
-	/**
-	 * Return one of the root classes for the supported model.
-	 * @return root class of model, which can be managed with this transformation manager.
-	 */
-	public abstract Class<?> getManagedClass2();
+    /**
+     * Return one of the root classes for the supported model.
+     * 
+     * @return root class of model, which can be managed with this
+     *         transformation manager.
+     */
+    public abstract Class<?> getManagedClass2();
 
     /**
      * Performs an incremental transformation between source and target model.
@@ -180,8 +188,10 @@ public abstract class AbstractTransformationManager {
         List<EGraph> graphs = new ArrayList<>();
         // initialize URI converter and update broken traces
         this.updateTraces(source, target, traces, resSet);
+        traces.unload();
         try {
             traces = resSet.getResource(traceURI, true);
+            EcoreUtil.resolveAll(traces);
         } catch (Exception e) {
             e.printStackTrace();
             traces = resSet.createResource(traceURI);
@@ -231,8 +241,7 @@ public abstract class AbstractTransformationManager {
         map.clear();
         // TODO: check src/tgt of trace and src/tgt of models
         boolean sourceEqualToFirstClass = this.getManagedClass1()
-                .isAssignableFrom(source.getContents()
-                        .get(0).getClass());
+                .isAssignableFrom(source.getContents().get(0).getClass());
         // find unresolvable proxies
         Map<EObject, Collection<Setting>> unresolvedProxies = EcoreUtil.UnresolvedProxyCrossReferencer
                 .find(resSet);
