@@ -153,6 +153,7 @@ public abstract class AbstractTransformationManager {
         this.fileURI = fileURI;
         System.out.println("Loading mappings...");
 
+        // build resource set first time.
         ResourceSet resSet = new ResourceSetImpl();
         resSet.getResources().add(source);
         resSet.getResources().add(target);
@@ -161,7 +162,7 @@ public abstract class AbstractTransformationManager {
         try {
             traces = resSet.getResource(traceURI, true);
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("traces file could not be found.");
             traces = resSet.createResource(traceURI);
         }
 
@@ -186,16 +187,24 @@ public abstract class AbstractTransformationManager {
 
         System.out.println("Merging graphs");
         List<EGraph> graphs = new ArrayList<>();
-        // initialize URI converter and update broken traces
+
+        // initialize URI converter and update broken traces (trace references
+        // point to current model afterwards)
         this.updateTraces(source, target, traces, resSet);
+        // update traces. done by first unloading traces resource and reloaded
+        // after that.
+        // URIConverter of the resource set now does the work by pointing
+        // references to current source and target model.
         traces.unload();
         try {
             traces = resSet.getResource(traceURI, true);
             EcoreUtil.resolveAll(traces);
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("traces file could not be found.");
             traces = resSet.createResource(traceURI);
         }
+
+        // init henshin graph
         graphs.add(new EGraphImpl(source));
         graphs.add(new EGraphImpl(target));
         graphs.add(new EGraphImpl(traces));
@@ -237,30 +246,26 @@ public abstract class AbstractTransformationManager {
      */
     private void updateTraces(Resource source, Resource target,
             Resource traces, ResourceSet resSet) {
+        URI sourceURI = source.getURI();
+        URI targetURI = target.getURI();
         Map<URI, URI> map = resSet.getURIConverter().getURIMap();
         map.clear();
-        // TODO: check src/tgt of trace and src/tgt of models
         boolean sourceEqualToFirstClass = this.getManagedClass1()
                 .isAssignableFrom(source.getContents().get(0).getClass());
+
         // find unresolvable proxies
         Map<EObject, Collection<Setting>> unresolvedProxies = EcoreUtil.UnresolvedProxyCrossReferencer
                 .find(resSet);
         for (EObject entry : unresolvedProxies.keySet()) {
-            System.out.println(EcoreUtil.getURI(entry));
-            String extension = EcoreUtil.getURI(entry).fileExtension();
-            if (extension.equals(source.getURI().fileExtension())) {
-                if (!EcoreUtil.getURI(entry).equals(source.getURI())) {
-                    resSet.getURIConverter()
-                            .getURIMap()
-                            .put(EcoreUtil.getURI(entry).trimFragment(),
-                                    source.getURI());
+            URI entryURI = EcoreUtil.getURI(entry);
+            String extension = entryURI.fileExtension();
+            if (extension.equals(sourceURI.fileExtension())) {
+                if (!entryURI.equals(sourceURI)) {
+                    map.put(entryURI.trimFragment(), sourceURI);
                 }
             } else {
-                if (!EcoreUtil.getURI(entry).equals(target.getURI())) {
-                    resSet.getURIConverter()
-                            .getURIMap()
-                            .put(EcoreUtil.getURI(entry).trimFragment(),
-                                    target.getURI());
+                if (!entryURI.equals(targetURI)) {
+                    map.put(entryURI.trimFragment(), targetURI);
                 }
 
             }
@@ -277,31 +282,24 @@ public abstract class AbstractTransformationManager {
             firstModel = target;
             secondModel = source;
         }
+        // update trace source and target references
         for (EObject obj : traces.getContents()) {
             if (obj instanceof TraceImpl) {
                 for (EObject src : ((TraceImpl) obj).getSource()) {
-                    System.out.println(src);
-                    if (!map.containsKey(EcoreUtil.getURI(src).trimFragment())
-                            && !firstModel.getURI().equals(
-                                    EcoreUtil.getURI(src))) {
-                        resSet.getURIConverter()
-                                .getURIMap()
-                                .put(EcoreUtil.getURI(src).trimFragment(),
-                                        firstModel.getURI());
+                    URI srcURI = EcoreUtil.getURI(src);
+                    if (!map.containsKey(srcURI.trimFragment())
+                            && !firstModel.getURI().equals(srcURI)) {
+                        map.put(srcURI.trimFragment(), firstModel.getURI());
                         if (src.eResource() != null) {
                             src.eResource().unload();
                         }
                     }
                 }
                 for (EObject tgt : ((TraceImpl) obj).getTarget()) {
-                    System.out.println(tgt);
-                    if (!map.containsKey(EcoreUtil.getURI(tgt).trimFragment())
-                            && !secondModel.getURI().equals(
-                                    EcoreUtil.getURI(tgt))) {
-                        resSet.getURIConverter()
-                                .getURIMap()
-                                .put(EcoreUtil.getURI(tgt).trimFragment(),
-                                        secondModel.getURI());
+                    URI tgtURI = EcoreUtil.getURI(tgt);
+                    if (!map.containsKey(tgtURI.trimFragment())
+                            && !secondModel.getURI().equals(tgtURI)) {
+                        map.put(tgtURI.trimFragment(), secondModel.getURI());
                         if (tgt.eResource() != null) {
                             tgt.eResource().unload();
                         }
@@ -310,8 +308,8 @@ public abstract class AbstractTransformationManager {
             }
         }
         for (Map.Entry<URI, URI> entry : map.entrySet()) {
-            System.out
-                    .println(entry.getKey() + "--------->" + entry.getValue());
+            System.out.println(entry.getKey() + " ---------> "
+                    + entry.getValue());
         }
     }
     /**
@@ -340,7 +338,6 @@ public abstract class AbstractTransformationManager {
                 .getClass();
         traceModel.getContents().clear();
         for (EObject root : list) {
-            System.out.println("root" + root);
             // root is element of target model
             if (root.getClass() == targetClass) {
                 temp.getContents().add(root);
@@ -352,7 +349,6 @@ public abstract class AbstractTransformationManager {
                 int hasTarget = ((TraceImpl) root).getTarget().size();
 
                 if (hasSource >= 1 && hasTarget >= 1) {
-                    System.out.println("added root node to contents");
                     traceModel.getContents().add(root);
                 }
 

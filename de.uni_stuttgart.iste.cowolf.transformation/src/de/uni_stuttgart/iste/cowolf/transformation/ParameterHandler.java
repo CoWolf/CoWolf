@@ -3,6 +3,7 @@ package de.uni_stuttgart.iste.cowolf.transformation;
 import org.eclipse.emf.ecore.EObject;
 import org.sidiff.difference.symmetric.AddObject;
 import org.sidiff.difference.symmetric.AddReference;
+import org.sidiff.difference.symmetric.AttributeValueChange;
 import org.sidiff.difference.symmetric.Change;
 import org.sidiff.difference.symmetric.RemoveObject;
 import org.sidiff.difference.symmetric.RemoveReference;
@@ -11,11 +12,27 @@ import org.sidiff.difference.symmetric.SemanticChangeSet;
 import de.uni_stuttgart.iste.cowolf.transformation.model.Param;
 import de.uni_stuttgart.iste.cowolf.transformation.model.Reference;
 
+/**
+ * 
+ * @author Michael Müller
+ *
+ */
 public class ParameterHandler {
 
     private Param parameter;
 
     public Object getParameterValue(Param parameter, Change change) {
+        if (change instanceof AttributeValueChange) {
+            Reference ref = parameter.getReference();
+            EObject obj = null;
+            if (ref.getName().equals("objA")) {
+                obj = ((AttributeValueChange) change).getObjA();
+            } else {
+                obj = ((AttributeValueChange) change).getObjB();
+            }
+            String feature = ref.getAttribute();
+            return obj.eGet(obj.eClass().getEStructuralFeature(feature));
+        }
         return null;
     }
     public Object getParameterValue(Param parameter, SemanticChangeSet changeSet) {

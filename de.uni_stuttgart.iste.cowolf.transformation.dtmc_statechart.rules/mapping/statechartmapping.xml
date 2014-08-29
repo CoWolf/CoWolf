@@ -16,14 +16,14 @@
 			</Params>
 		</Rule>
 	</Mapping>
- 	<Mapping priority="20">
+ 	<Mapping priority="21">
  		<Difference>DELETE_State_IN_StateMachine_(states)</Difference>
  		<Rule name="DeletedStateInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
 			<Params>
 			</Params>
 		</Rule>
  	</Mapping>
-	<Mapping priority="0">
+	<Mapping priority="1">
 		<Difference>CREATE_Transition_IN_StateMachine_(transitions)</Difference>
 		<Rule name="CreatedTransitionInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
 			<Params>
@@ -35,7 +35,7 @@
 			</Params>
 		</Rule>
 	</Mapping>
-	<Mapping priority="0">
+	<Mapping priority="20">
 		<Difference>DELETE_Transition_IN_StateMachine_(transitions)</Difference>
 		<Rule name="DeletedTransitionInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
 			<Params>
@@ -66,7 +66,7 @@
 			</Params>
 		</Rule>
 	</Mapping>
-	<Mapping>
+	<Mapping priority="10">
 		<Change>statechart/State/name</Change>
 		<Rule name="ChangedNameInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
 			<Params>
@@ -91,6 +91,20 @@
 	<Mapping priority="19">
 		<Difference>DELETE_BooleanExpression_IN_State_(atomicProposition)</Difference>
 		<Rule name="DeletedAtomicPropositionInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
+			<Params>
+			</Params>
+		</Rule>
+	</Mapping>
+	<Mapping priority="10">
+		<Difference>SET_StateMachine_(initialStates)_TGT_State</Difference>
+		<Rule name="SetInitialStateInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin" >
+			<Params>
+			</Params>
+		</Rule>
+	</Mapping>
+	<Mapping priority="10">
+		<Difference>UNSET_StateMachine_(initialStates)_TGT_State</Difference>
+		<Rule name="DeletedInitialStateInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin" >
 			<Params>
 			</Params>
 		</Rule>
