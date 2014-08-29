@@ -1,0 +1,9 @@
+grammar de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.PCTL with org.eclipse.xtext.common.Terminals
+
+generate pCTL "http://www.uni_stuttgart.de/iste/cowolf/model/ctmc/xtext/PCTL"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';
