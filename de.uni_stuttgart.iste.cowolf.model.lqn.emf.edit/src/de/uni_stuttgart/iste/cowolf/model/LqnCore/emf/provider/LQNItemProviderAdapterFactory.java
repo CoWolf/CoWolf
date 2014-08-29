@@ -1496,6 +1496,8 @@ public class LQNItemProviderAdapterFactory extends LQNAdapterFactory implements 
 		if (bindTypeItemProvider != null) bindTypeItemProvider.dispose();
 		if (callListTypeItemProvider != null) callListTypeItemProvider.dispose();
 		if (documentRootItemProvider != null) documentRootItemProvider.dispose();
+		if (lqnCoreTypeItemProvider != null) lqnCoreTypeItemProvider.dispose();
+		if (lqnModelTypeItemProvider != null) lqnModelTypeItemProvider.dispose();
 		if (entryActivityDefTypeItemProvider != null) entryActivityDefTypeItemProvider.dispose();
 		if (entryActivityGraphItemProvider != null) entryActivityGraphItemProvider.dispose();
 		if (entryMakingCallTypeItemProvider != null) entryMakingCallTypeItemProvider.dispose();
@@ -1504,8 +1506,6 @@ public class LQNItemProviderAdapterFactory extends LQNAdapterFactory implements 
 		if (histogramBinTypeItemProvider != null) histogramBinTypeItemProvider.dispose();
 		if (inPortTypeItemProvider != null) inPortTypeItemProvider.dispose();
 		if (interfaceTypeItemProvider != null) interfaceTypeItemProvider.dispose();
-		if (lqnCoreTypeItemProvider != null) lqnCoreTypeItemProvider.dispose();
-		if (lqnModelTypeItemProvider != null) lqnModelTypeItemProvider.dispose();
 		if (makingCallTypeItemProvider != null) makingCallTypeItemProvider.dispose();
 		if (orListTypeItemProvider != null) orListTypeItemProvider.dispose();
 		if (outPortTypeItemProvider != null) outPortTypeItemProvider.dispose();
