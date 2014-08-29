@@ -449,6 +449,7 @@ public abstract class AbstractTransformationManager {
                     set.setMapping(mapping);
                     mappings.add(set);
                 }
+                System.out.println(key);
             }
 
         }
