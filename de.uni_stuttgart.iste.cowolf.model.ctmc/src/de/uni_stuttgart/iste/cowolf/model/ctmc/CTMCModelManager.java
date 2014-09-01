@@ -43,4 +43,9 @@ public class CTMCModelManager extends AbstractQoSModelManager{
 	public String getModelNamespace() {
 		return CtmcPackage.eNS_URI;
 	}
+	
+	@Override
+	public String getFileExtension() {
+		return "ctmc";
+	}
 }

@@ -12,9 +12,10 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 
-import de.uni_stuttgart.iste.cowolf.core.extensions.ExtensionHandler;
 import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
+import de.uni_stuttgart.iste.cowolf.evolution.EvolutionRegistry;
 import de.uni_stuttgart.iste.cowolf.transformation.AbstractTransformationManager;
+import de.uni_stuttgart.iste.cowolf.transformation.TransformationRegistry;
 
 /**
  * Checks on base of the current selected models, if the co-evolve button should
@@ -27,17 +28,14 @@ public class TransformationTester extends PropertyTester {
 	public static final String PROPERTY_NAMESPACE = "de.uni_stuttgart.iste.cowolf.ui.transformation.properties.transformation";
 	public static final String PROPERTY_CAN_FOO = "canFoo";
 
-	private ExtensionHandler extensionHandler;
-
 	public TransformationTester() {
-		this.extensionHandler = ExtensionHandler.getInstance();
 	}
 
 	@Override
 	public boolean test(Object receiver, String property, Object[] args,
 			Object expectedValue) {
 
-		ExtensionHandler extensionHandler = ExtensionHandler.getInstance();
+		EvolutionRegistry extensionHandler = EvolutionRegistry.getInstance();
 
 		IWorkbenchWindow window = PlatformUI.getWorkbench()
 				.getActiveWorkbenchWindow();
@@ -123,12 +121,9 @@ public class TransformationTester extends PropertyTester {
 
 		// both selected source models are of the same type if the returned
 		// evolution managers are equal
-		AbstractEvolutionManager firstElementEvolutionManager = this.extensionHandler
-				.getEvolutionManager(modelAResource);
-		AbstractEvolutionManager secondElementEvolutionManager = this.extensionHandler
-				.getEvolutionManager(modelBResource);
-		AbstractEvolutionManager thirdElementEvolutionManager = this.extensionHandler
-				.getEvolutionManager(modelCResource);
+		AbstractEvolutionManager firstElementEvolutionManager = EvolutionRegistry.getInstance().getEvolutionManager(modelAResource);
+		AbstractEvolutionManager secondElementEvolutionManager = EvolutionRegistry.getInstance().getEvolutionManager(modelBResource);
+		AbstractEvolutionManager thirdElementEvolutionManager = EvolutionRegistry.getInstance().getEvolutionManager(modelCResource);
 
 		// First and second of same type
 		if ((firstElementEvolutionManager != null)
@@ -136,7 +131,7 @@ public class TransformationTester extends PropertyTester {
 				&& firstElementEvolutionManager
 						.equals(secondElementEvolutionManager)) {
 
-			AbstractTransformationManager transManager = this.extensionHandler
+			AbstractTransformationManager transManager = TransformationRegistry.getInstance()
 					.getTransformationManager(modelAResource, modelCResource);
 
 			// First and third of different type
@@ -155,8 +150,7 @@ public class TransformationTester extends PropertyTester {
 				&& firstElementEvolutionManager
 						.equals(thirdElementEvolutionManager)) {
 
-			AbstractTransformationManager transManager = this.extensionHandler
-					.getTransformationManager(modelAResource, modelBResource);
+			AbstractTransformationManager transManager = TransformationRegistry.getInstance().getTransformationManager(modelAResource, modelBResource);
 
 			// First and second of different type
 			if ((transManager != null)
@@ -174,8 +168,7 @@ public class TransformationTester extends PropertyTester {
 				&& secondElementEvolutionManager
 						.equals(thirdElementEvolutionManager)) {
 
-			AbstractTransformationManager transManager = this.extensionHandler
-					.getTransformationManager(modelAResource, modelCResource);
+			AbstractTransformationManager transManager = TransformationRegistry.getInstance().getTransformationManager(modelAResource, modelCResource);
 
 			// First and third of different type
 			if ((transManager != null)

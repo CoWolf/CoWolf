@@ -21,9 +21,9 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.sidiff.difference.symmetric.SymmetricDifference;
 
-import de.uni_stuttgart.iste.cowolf.core.extensions.ExtensionHandler;
 import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
 import de.uni_stuttgart.iste.cowolf.evolution.EvolutionException;
+import de.uni_stuttgart.iste.cowolf.evolution.EvolutionRegistry;
 import de.uni_stuttgart.iste.cowolf.ui.evolution.DifferencesView;
 import de.uni_stuttgart.iste.cowolf.ui.evolution.util.ResourceUtil;
 import de.uni_stuttgart.iste.cowolf.ui.evolution.wizard.ComponentSelectionWizard;
@@ -84,7 +84,7 @@ public class Evolve extends AbstractHandler {
             @Override
             protected IStatus run(IProgressMonitor monitor) {
                 try {
-                    ExtensionHandler extensionHandler = ExtensionHandler
+                    EvolutionRegistry extensionHandler = EvolutionRegistry
                             .getInstance();
                     AbstractEvolutionManager modelManager = extensionHandler
                             .getEvolutionManager(firstModel);

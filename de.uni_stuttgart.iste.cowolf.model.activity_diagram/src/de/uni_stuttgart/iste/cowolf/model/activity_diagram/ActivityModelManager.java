@@ -22,4 +22,9 @@ public class ActivityModelManager extends AbstractArchitectureModelManager {
 		return Activity_diagramPackage.eNS_URI;
 	}
 
+	@Override
+	public String getFileExtension() {
+		return "activity_diagram";
+	}
+
 }

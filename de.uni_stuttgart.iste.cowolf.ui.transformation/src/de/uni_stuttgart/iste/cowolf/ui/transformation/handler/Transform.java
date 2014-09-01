@@ -26,10 +26,11 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.sidiff.difference.symmetric.SymmetricDifference;
 
-import de.uni_stuttgart.iste.cowolf.core.extensions.ExtensionHandler;
 import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
 import de.uni_stuttgart.iste.cowolf.evolution.EvolutionException;
+import de.uni_stuttgart.iste.cowolf.evolution.EvolutionRegistry;
 import de.uni_stuttgart.iste.cowolf.transformation.AbstractTransformationManager;
+import de.uni_stuttgart.iste.cowolf.transformation.TransformationRegistry;
 import de.uni_stuttgart.iste.cowolf.ui.evolution.DifferencesView;
 import de.uni_stuttgart.iste.cowolf.ui.transformation.wizard.TransformationWizard;
 
@@ -40,10 +41,7 @@ import de.uni_stuttgart.iste.cowolf.ui.transformation.wizard.TransformationWizar
  */
 public class Transform extends AbstractHandler {
 
-    private ExtensionHandler extensionHandler;
-
     public Transform() {
-        this.extensionHandler = ExtensionHandler.getInstance();
     }
 
     @Override
@@ -76,9 +74,8 @@ public class Transform extends AbstractHandler {
 
             // If first and second element of different type, make second
             // element to third element
-            if (this.extensionHandler.getEvolutionManager(firstSourceModel)
-                    .equals(this.extensionHandler
-                            .getEvolutionManager(tempModel))) {
+            if (EvolutionRegistry.getInstance().getEvolutionManager(firstSourceModel)
+                    .equals(EvolutionRegistry.getInstance().getEvolutionManager(tempModel))) {
                 secondSourceModel = tempModel;
                 secondSourceElement = tempElement;
             } else {
@@ -96,9 +93,9 @@ public class Transform extends AbstractHandler {
                 targetElement = tempElement;
 
                 // Element one and three of same type
-            } else if (this.extensionHandler.getEvolutionManager(
+            } else if (EvolutionRegistry.getInstance().getEvolutionManager(
                     firstSourceModel).equals(
-                    this.extensionHandler.getEvolutionManager(tempModel))) {
+                    		EvolutionRegistry.getInstance().getEvolutionManager(tempModel))) {
                 secondSourceModel = this.getResourceOfIFile(tempElement);
                 secondSourceElement = tempElement;
 
@@ -155,11 +152,9 @@ public class Transform extends AbstractHandler {
         final Resource target = this.getResourceOfIFile(modelWizard
                 .getTargetModel());
         final IFile firstElement = firstSourceElement;
-        final AbstractEvolutionManager evoManager = this.extensionHandler
-                .getEvolutionManager(firstSourceModel);
+        final AbstractEvolutionManager evoManager = EvolutionRegistry.getInstance().getEvolutionManager(firstSourceModel);
 
-        final AbstractTransformationManager transManager = this.extensionHandler
-                .getTransformationManager(firstSourceModel, target);
+        final AbstractTransformationManager transManager = TransformationRegistry.getInstance().getTransformationManager(firstSourceModel, target);
         if (evoManager != null && transManager != null) {
             Job job = new Job("Model Co-Evolution") {
 
@@ -196,7 +191,7 @@ public class Transform extends AbstractHandler {
                         Resource transformedModel = transManager.transform(
                                 firstSource, filteredSecondSource, target,
                                 difference, result);
-                        final AbstractEvolutionManager evoManager = extensionHandler
+                        final AbstractEvolutionManager evoManager = EvolutionRegistry.getInstance()
                                 .getEvolutionManager(transformedModel);
                         if (evoManager != null) {
                             URI targetURI = target.getURI();

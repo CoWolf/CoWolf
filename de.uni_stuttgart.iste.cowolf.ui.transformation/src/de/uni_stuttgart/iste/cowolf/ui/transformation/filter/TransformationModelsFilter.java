@@ -9,14 +9,14 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
 
-import de.uni_stuttgart.iste.cowolf.core.extensions.ExtensionHandler;
+import de.uni_stuttgart.iste.cowolf.evolution.EvolutionRegistry;
 
 public class TransformationModelsFilter extends ViewerFilter {
 
 	ResourceSet set = new ResourceSetImpl();
 
 	// Extension handler to get managers from.
-	ExtensionHandler handler = ExtensionHandler.getInstance();
+	EvolutionRegistry handler = EvolutionRegistry.getInstance();
 
 	@Override
 	public boolean select(Viewer viewer, Object parentElement, Object element) {

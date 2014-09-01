@@ -52,7 +52,7 @@ import org.sidiff.difference.rulebase.RecognitionRule;
 import org.sidiff.difference.rulebase.extension.IRuleBase;
 import org.sidiff.difference.rulebase.util.RuleBaseUtil;
 
-import de.uni_stuttgart.iste.cowolf.core.extensions.ExtensionHandler;
+import de.uni_stuttgart.iste.cowolf.model.ModelRegistry;
 import de.uni_stuttgart.iste.cowolf.transformation.model.Mapping;
 import de.uni_stuttgart.iste.cowolf.transformation.model.Mappings;
 import de.uni_stuttgart.iste.cowolf.transformation.model.Param;
@@ -282,7 +282,7 @@ public class TransformationMappingEditor extends EditorPart {
 	 */
 	private IRuleBase[] getRecognitionRulesTreeViewerInitialInput() {
 
-		List<String> modelDocumentTypes = ExtensionHandler.getInstance()
+		List<String> modelDocumentTypes = ModelRegistry.getInstance()
 				.getAllModelDocumentTypes();
 
 		Set<IRuleBase> allRuleBases = new HashSet<IRuleBase>();

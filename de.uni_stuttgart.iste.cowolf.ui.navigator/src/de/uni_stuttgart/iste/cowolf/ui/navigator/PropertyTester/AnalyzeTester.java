@@ -14,9 +14,9 @@ import org.eclipse.ui.ISelectionService;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 
-import de.uni_stuttgart.iste.cowolf.core.extensions.ExtensionHandler;
 import de.uni_stuttgart.iste.cowolf.model.AbstractModelManager;
 import de.uni_stuttgart.iste.cowolf.model.AbstractQoSModelManager;
+import de.uni_stuttgart.iste.cowolf.model.ModelRegistry;
 
 public class AnalyzeTester extends PropertyTester {
 
@@ -26,8 +26,6 @@ public class AnalyzeTester extends PropertyTester {
 	@Override
 	public boolean test(final Object receiver, final String property,
 			final Object[] args, final Object expectedValue) {
-
-		ExtensionHandler extensionHandler = ExtensionHandler.getInstance();
 
 		IWorkbenchWindow window = PlatformUI.getWorkbench()
 				.getActiveWorkbenchWindow();
@@ -73,8 +71,7 @@ public class AnalyzeTester extends PropertyTester {
 				}
 
 				resource = resourceSet.getResource(uri, true);
-				AbstractModelManager modelManager = extensionHandler
-						.getModelManager(resource);
+				AbstractModelManager modelManager = ModelRegistry.getInstance().getModelManager(resource);
 
 				// must find model manager
 				if (modelManager != null && modelManager instanceof AbstractQoSModelManager) {
