@@ -21,7 +21,6 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.sidiff.difference.symmetric.SymmetricDifference;
 
-import de.uni_stuttgart.iste.cowolf.core.ModelAssociationManager.ModelAssociationManager;
 import de.uni_stuttgart.iste.cowolf.core.extensions.ExtensionHandler;
 import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
 import de.uni_stuttgart.iste.cowolf.evolution.EvolutionException;
@@ -76,8 +75,9 @@ public class Evolve extends AbstractHandler {
                     .getModelA());
         }
         if (modelWizard.isAssociationSelected()) {
-            ModelAssociationManager.getInstance().addAssociation(firstModel,
-                    secondModel, firstElement.getProject());
+        	//TODO: use new model association manager.
+//            ModelAssociationManager.getInstance().addAssociation(firstModel,
+//                    secondModel, firstElement.getProject());
         }
         final IFile element = firstElement;
         Job job = new Job("Model Evolution") {
