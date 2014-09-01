@@ -18,9 +18,11 @@ import org.eclipse.core.runtime.IExtension;
 import org.eclipse.core.runtime.IExtensionPoint;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.RegistryFactory;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
+import org.eclipse.emf.ecore.impl.BasicEObjectImpl;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
@@ -38,6 +40,7 @@ import org.eclipse.emf.henshin.model.resource.HenshinResourceSet;
 import org.eclipse.emf.henshin.trace.impl.TraceImpl;
 import org.sidiff.difference.symmetric.AttributeValueChange;
 import org.sidiff.difference.symmetric.Change;
+import org.sidiff.difference.symmetric.RemoveObject;
 import org.sidiff.difference.symmetric.SemanticChangeSet;
 import org.sidiff.difference.symmetric.SymmetricDifference;
 
@@ -94,23 +97,24 @@ public abstract class AbstractTransformationManager {
                 || target.getContents().isEmpty()) {
             return false;
         }
+        
+        return isManaged(source.getContents().get(0).getClass(), target.getContents().get(0).getClass());
 
-        if (getManagedClass1().isAssignableFrom(
-                source.getContents().get(0).getClass())
-                && getManagedClass2().isAssignableFrom(
-                        target.getContents().get(0).getClass())) {
+    }
+    
+    public boolean isManaged(Class<?> source, Class<?> target) {
+    	
+    	if (getManagedClass1().isAssignableFrom(source)
+                && getManagedClass2().isAssignableFrom(target)) {
             return true;
         }
 
-        if (getManagedClass1().isAssignableFrom(
-                target.getContents().get(0).getClass())
-                && getManagedClass2().isAssignableFrom(
-                        source.getContents().get(0).getClass())) {
+        if (getManagedClass1().isAssignableFrom(target)
+                && getManagedClass2().isAssignableFrom(source)) {
             return true;
         }
-
-        return false;
-
+    	
+    	return false;
     }
 
     /**
@@ -150,6 +154,27 @@ public abstract class AbstractTransformationManager {
      */
     public abstract Class<?> getManagedClass2();
 
+//    public ModelVersion transform(Model source, Model target) {
+//    	ResourceSet resSet = new ResourceSetImpl();
+//        resSet.getResources().add(source.getResource());
+//        resSet.getResources().add(target.getResource());
+//        
+//        
+//        
+////        URI traceURI = this.buildTraceFileUri(oldSource, target);
+////        try {
+////            traces = resSet.getResource(traceURI, true);
+////        } catch (Exception e) {
+////            System.out.println("traces file could not be found.");
+////            traces = resSet.createResource(traceURI);
+////        }
+//    	
+//    	
+//    	return null;
+//    }
+    
+    
+    
     /**
      * Performs an incremental transformation between source and target model.
      * The source model got evolved before and differences are stored in the
@@ -173,6 +198,7 @@ public abstract class AbstractTransformationManager {
 
         // build resource set first time.
         ResourceSet resSet = new ResourceSetImpl();
+        resSet.getResources().add(oldSource);
         resSet.getResources().add(source);
         resSet.getResources().add(target);
         Resource traces = null;
@@ -205,6 +231,9 @@ public abstract class AbstractTransformationManager {
 
         System.out.println("Merging graphs");
         List<EGraph> graphs = new ArrayList<>();
+        
+        Resource oldTraces = resSet.createResource(URI.createURI("oldTraces"));
+        oldTraces.getContents().addAll(traces.getContents());
 
         // initialize URI converter and update broken traces (trace references
         // point to current model afterwards)
@@ -223,10 +252,13 @@ public abstract class AbstractTransformationManager {
         }
 
         // init henshin graph
+        graphs.add(new EGraphImpl(oldSource));
         graphs.add(new EGraphImpl(source));
         graphs.add(new EGraphImpl(target));
+        graphs.add(new EGraphImpl(oldTraces));
         graphs.add(new EGraphImpl(traces));
         EGraph graph = this.mergeInstanceModels(graphs);
+        graph.add(difference);
         System.out.println("Finished merging graphs.");
 
         if (difference != null) {
@@ -253,7 +285,8 @@ public abstract class AbstractTransformationManager {
         }
         return null;
     }
-    /**
+
+	/**
      * Builds an URI converter used to update traces to current model resources.
      * 
      * @param source
@@ -464,6 +497,7 @@ public abstract class AbstractTransformationManager {
             Rule rule = mapping.getRule();
             Unit unit = this.units.get(rule.getName());
             if (unit != null) {
+            	System.out.println(unit.getName() + ":");
                 application.setUnit(unit);
                 // traverse parameters from config object.
                 for (Param param : rule.getParams().getParam()) {
@@ -482,9 +516,10 @@ public abstract class AbstractTransformationManager {
                                 + " is set to null");
                     }
                     application.setParameterValue(name, value);
+                    System.out.println(name +" -> " + value);
                 }
                 result = application.execute(new LoggingApplicationMonitor());
-                System.out.println(unit.getName() + " "
+                System.out.println(" "
                         + (result ? "successful" : "error"));
             } else {
                 System.out.println("No rule found for changeset with name "

@@ -43,8 +43,8 @@
 		<ns2:Rule name="DeletedStateInDTMC"
 			path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/DTMC_SC.henshin">
 			<ns2:Params>
-				<!-- <ns2:Param name="id"> <ns2:Change name="RemoveObject"> <ns2:Reference 
-					name="obj" attribute="id"/> </ns2:Change> </ns2:Param> -->
+				<ns2:Param name="id"> <ns2:Change name="RemoveObject"> <ns2:Reference 
+					name="obj" attribute="id"/> </ns2:Change> </ns2:Param>
 			</ns2:Params>
 		</ns2:Rule>
 	</ns2:Mapping>
@@ -135,12 +135,7 @@
 			<ns2:Params>
 			<ns2:Param name="id">
 					<ns2:Change name="RemoveReference" type="outgoing">
-						<ns2:Reference name="src" attribute="id" />
-					</ns2:Change>
-				</ns2:Param>
-				<ns2:Param name="id2">
-					<ns2:Change name="RemoveReference" type="incoming">
-						<ns2:Reference name="src" attribute="id" />
+						<ns2:Reference name="tgt" attribute="id" />
 					</ns2:Change>
 				</ns2:Param>
 			</ns2:Params>
