@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated sequence -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="sequence.presentation.SequenceModelWizardID"
+            name="%_UI_SequenceModelWizard_label"
+            class="sequence.presentation.SequenceModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/SequenceModelFile.gif">
+         <description>%_UI_SequenceModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated sequence -->
+      <editor
+            id="sequence.presentation.SequenceEditorID"
+            name="%_UI_SequenceEditor_label"
+            icon="icons/full/obj16/SequenceModelFile.gif"
+            extensions="sequence"
+            class="sequence.presentation.SequenceEditor"
+            contributorClass="sequence.presentation.SequenceActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
