@@ -6,11 +6,15 @@ import org.eclipse.jface.wizard.Wizard;
 public class EditPropertiesWizard extends Wizard {
 
 	protected EditPropertiesWizardPage1 pageOne;
+	String key;
+	String value;
 
-	public EditPropertiesWizard(final Resource resource, String content) {
+	public EditPropertiesWizard(final Resource resource, String key, String value) {
 		super();
 		super.setWindowTitle("Analyze CTMC with PRISM model checker");
-		this.pageOne = new EditPropertiesWizardPage1("Page 1", resource);
+		this.pageOne = new EditPropertiesWizardPage1("Page 1", resource, key, value);
+		this.key = key;
+		this.value = value;
 	}
 
 	@Override
@@ -22,11 +26,20 @@ public class EditPropertiesWizard extends Wizard {
 	public void addPages() {
 		this.addPage(this.pageOne);
 	}
-
+	
 	@Override
 	public boolean performFinish() {
-		// TODO Auto-generated method stub
+		key = pageOne.getKey();
+		value = pageOne.getValue();
 		return true;
+	}
+
+	public String getKey ()  {
+		return key;
+	}
+	
+	public String getValue ()  {
+		return value;
 	}
 
 }
