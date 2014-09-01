@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.uni_stuttgart.iste.cowolf.model.sequence_diagram/src"
+    modelPluginID="de.uni_stuttgart.iste.cowolf.model.sequence_diagram" modelName="Sequence"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="7.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>sequence.ecore</foreignModel>
+  <genPackages prefix="Sequence" disposableProviderFactory="true" ecorePackage="sequence.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="sequence.ecore#//MessageKind">
+      <genEnumLiterals ecoreEnumLiteral="sequence.ecore#//MessageKind/complete"/>
+      <genEnumLiterals ecoreEnumLiteral="sequence.ecore#//MessageKind/lost"/>
+      <genEnumLiterals ecoreEnumLiteral="sequence.ecore#//MessageKind/found"/>
+      <genEnumLiterals ecoreEnumLiteral="sequence.ecore#//MessageKind/unknown"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="sequence.ecore#//MessageSort">
+      <genEnumLiterals ecoreEnumLiteral="sequence.ecore#//MessageSort/synchCall"/>
+      <genEnumLiterals ecoreEnumLiteral="sequence.ecore#//MessageSort/asynchCall"/>
+      <genEnumLiterals ecoreEnumLiteral="sequence.ecore#//MessageSort/asynchSignal"/>
+      <genEnumLiterals ecoreEnumLiteral="sequence.ecore#//MessageSort/createMessage"/>
+      <genEnumLiterals ecoreEnumLiteral="sequence.ecore#//MessageSort/deleteMessage"/>
+      <genEnumLiterals ecoreEnumLiteral="sequence.ecore#//MessageSort/reply"/>
+    </genEnums>
+    <genClasses ecoreClass="sequence.ecore#//sequence">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sequence.ecore#//sequence/element"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sequence.ecore#//sequence/block"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="sequence.ecore#//Element"/>
+    <genClasses ecoreClass="sequence.ecore#//Lifeline">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sequence.ecore#//Lifeline/Name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sequence.ecore#//Lifeline/task"/>
+    </genClasses>
+    <genClasses ecoreClass="sequence.ecore#//Message">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sequence.ecore#//Message/MessageKind"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sequence.ecore#//Message/MessageSort"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sequence.ecore#//Message/from"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sequence.ecore#//Message/to"/>
+    </genClasses>
+    <genClasses ecoreClass="sequence.ecore#//Task">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sequence.ecore#//Task/outgoing"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sequence.ecore#//Task/incoming"/>
+    </genClasses>
+    <genClasses ecoreClass="sequence.ecore#//Block"/>
+    <genClasses ecoreClass="sequence.ecore#//LoopBlock">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sequence.ecore#//LoopBlock/include"/>
+    </genClasses>
+    <genClasses ecoreClass="sequence.ecore#//AltBlock">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sequence.ecore#//AltBlock/alternative"/>
+    </genClasses>
+    <genClasses ecoreClass="sequence.ecore#//Alternative">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sequence.ecore#//Alternative/includes"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
