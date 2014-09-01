@@ -5,15 +5,15 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
 
-import de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentDiagram;
-import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree;
-import de.uni_stuttgart.iste.cowolf.transformation.AbstractTransformationManager;
-
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.osgi.framework.Bundle;
+
+import de.uni_stuttgart.iste.cowolf.model.component_diagram.Architecture;
+import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree;
+import de.uni_stuttgart.iste.cowolf.transformation.AbstractTransformationManager;
 
 /**
  * @author David K
@@ -26,7 +26,7 @@ public class ComponentDiagramFaultTreeTransformationManager extends AbstractTran
 	 * Key for extension point identification.
 	 */
 	private final static String KEY = "componentdiagram_faulttree";
-	private final static Class<?> FIRST_MODEL = ComponentDiagram.class;
+	private final static Class<?> FIRST_MODEL = Architecture.class;
 	private final static Class<?> SECOND_MODEL = FaultTree.class;
 	
 	@Override

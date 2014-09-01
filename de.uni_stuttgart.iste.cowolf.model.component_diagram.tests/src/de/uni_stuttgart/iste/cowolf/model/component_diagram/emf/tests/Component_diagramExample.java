@@ -2,9 +2,9 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.component_diagram.emf.tests;
 
-import de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentDiagram;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramFactory;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage;
+import de.uni_stuttgart.iste.cowolf.model.component_diagram.Connector;
 
 import java.io.File;
 import java.io.IOException;
@@ -60,7 +60,7 @@ public class Component_diagramExample {
 			System.out.println("Enter a list of file paths or URIs that have content like this:");
 			try {
 				Resource resource = resourceSet.createResource(URI.createURI("http:///My.component_diagram"));
-				ComponentDiagram root = Component_diagramFactory.eINSTANCE.createComponentDiagram();
+				Connector root = Component_diagramFactory.eINSTANCE.createConnector();
 				resource.getContents().add(root);
 				resource.save(System.out, null);
 			}
