@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_meQOIDHhEeSHm4XzJdiyiw" name="CHANGE_ComponentInstance_(type)_TGT_ComponentType" description="CHANGEs ComponentInstance's reference type the target ComponentType">
+  <imports href="http://component_diagram/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_meQOITHhEeSHm4XzJdiyiw" name="changeComponentInstance_type_TO_ComponentType" description="Change the EReference type">
+    <parameters xmi:id="_meQOIjHhEeSHm4XzJdiyiw" name="Selected"/>
+    <parameters xmi:id="_meQOIzHhEeSHm4XzJdiyiw" name="OldTarget"/>
+    <parameters xmi:id="_meQOJDHhEeSHm4XzJdiyiw" name="NewTarget"/>
+    <lhs xmi:id="_meQOJTHhEeSHm4XzJdiyiw" name="Lhs">
+      <nodes xmi:id="_meQOJjHhEeSHm4XzJdiyiw" name="Selected" incoming="_meQOKjHhEeSHm4XzJdiyiw" outgoing="_meQOKTHhEeSHm4XzJdiyiw">
+        <type href="http://component_diagram/1.0#//ComponentInstance"/>
+      </nodes>
+      <nodes xmi:id="_meQOJzHhEeSHm4XzJdiyiw" name="OldTarget" incoming="_meQOKTHhEeSHm4XzJdiyiw" outgoing="_meQOKjHhEeSHm4XzJdiyiw">
+        <type href="http://component_diagram/1.0#//ComponentType"/>
+      </nodes>
+      <nodes xmi:id="_meQOKDHhEeSHm4XzJdiyiw" name="NewTarget">
+        <type href="http://component_diagram/1.0#//ComponentType"/>
+      </nodes>
+      <edges xmi:id="_meQOKTHhEeSHm4XzJdiyiw" source="_meQOJjHhEeSHm4XzJdiyiw" target="_meQOJzHhEeSHm4XzJdiyiw">
+        <type href="http://component_diagram/1.0#//ComponentInstance/type"/>
+      </edges>
+      <edges xmi:id="_meQOKjHhEeSHm4XzJdiyiw" source="_meQOJzHhEeSHm4XzJdiyiw" target="_meQOJjHhEeSHm4XzJdiyiw">
+        <type href="http://component_diagram/1.0#//ComponentType/instance"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_meQOKzHhEeSHm4XzJdiyiw" name="Rhs">
+      <nodes xmi:id="_meQOLDHhEeSHm4XzJdiyiw" name="Selected" incoming="_meQ1MzHhEeSHm4XzJdiyiw" outgoing="_meQ1MjHhEeSHm4XzJdiyiw">
+        <type href="http://component_diagram/1.0#//ComponentInstance"/>
+      </nodes>
+      <nodes xmi:id="_meQ1MDHhEeSHm4XzJdiyiw" name="OldTarget">
+        <type href="http://component_diagram/1.0#//ComponentType"/>
+      </nodes>
+      <nodes xmi:id="_meQ1MTHhEeSHm4XzJdiyiw" name="NewTarget" incoming="_meQ1MjHhEeSHm4XzJdiyiw" outgoing="_meQ1MzHhEeSHm4XzJdiyiw">
+        <type href="http://component_diagram/1.0#//ComponentType"/>
+      </nodes>
+      <edges xmi:id="_meQ1MjHhEeSHm4XzJdiyiw" source="_meQOLDHhEeSHm4XzJdiyiw" target="_meQ1MTHhEeSHm4XzJdiyiw">
+        <type href="http://component_diagram/1.0#//ComponentInstance/type"/>
+      </edges>
+      <edges xmi:id="_meQ1MzHhEeSHm4XzJdiyiw" source="_meQ1MTHhEeSHm4XzJdiyiw" target="_meQOLDHhEeSHm4XzJdiyiw">
+        <type href="http://component_diagram/1.0#//ComponentType/instance"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_meQ1NDHhEeSHm4XzJdiyiw" origin="_meQOJjHhEeSHm4XzJdiyiw" image="_meQOLDHhEeSHm4XzJdiyiw"/>
+    <mappings xmi:id="_meQ1NTHhEeSHm4XzJdiyiw" origin="_meQOJzHhEeSHm4XzJdiyiw" image="_meQ1MDHhEeSHm4XzJdiyiw"/>
+    <mappings xmi:id="_meQ1NjHhEeSHm4XzJdiyiw" origin="_meQOKDHhEeSHm4XzJdiyiw" image="_meQ1MTHhEeSHm4XzJdiyiw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_meQ1NzHhEeSHm4XzJdiyiw" name="mainUnit" subUnits="_meQOITHhEeSHm4XzJdiyiw">
+    <parameters xmi:id="_meQ1ODHhEeSHm4XzJdiyiw" name="selectedEObject"/>
+    <parameters xmi:id="_meQ1OTHhEeSHm4XzJdiyiw" name="OldTarget"/>
+    <parameters xmi:id="_meQ1OjHhEeSHm4XzJdiyiw" name="NewTarget"/>
+    <parameterMappings xmi:id="_meQ1OzHhEeSHm4XzJdiyiw" source="_meQ1ODHhEeSHm4XzJdiyiw" target="_meQOIjHhEeSHm4XzJdiyiw"/>
+    <parameterMappings xmi:id="_meQ1PDHhEeSHm4XzJdiyiw" source="_meQ1OTHhEeSHm4XzJdiyiw" target="_meQOIzHhEeSHm4XzJdiyiw"/>
+    <parameterMappings xmi:id="_meQ1PTHhEeSHm4XzJdiyiw" source="_meQ1OjHhEeSHm4XzJdiyiw" target="_meQOJDHhEeSHm4XzJdiyiw"/>
+  </units>
+</henshin:Module>

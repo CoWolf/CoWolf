@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mc_p4DHhEeSHm4XzJdiyiw" name="CREATE_Actuator_IN_Architecture_(component)" description="Creates one Actuator in Architecture">
+  <imports href="http://component_diagram/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mc_p4THhEeSHm4XzJdiyiw" name="createActuator_IN_Architecture" description="creates one Actuator in the context: Architecture">
+    <parameters xmi:id="_mc_p4jHhEeSHm4XzJdiyiw" name="Selected"/>
+    <parameters xmi:id="_mc_p4zHhEeSHm4XzJdiyiw" name="New"/>
+    <parameters xmi:id="_mc_p5DHhEeSHm4XzJdiyiw" name="Name"/>
+    <parameters xmi:id="_mc_p5THhEeSHm4XzJdiyiw" name="PowerSupply"/>
+    <lhs xmi:id="_mc_p5jHhEeSHm4XzJdiyiw" name="Lhs">
+      <nodes xmi:id="_mc_p5zHhEeSHm4XzJdiyiw" name="Selected">
+        <type href="http://component_diagram/1.0#//Architecture"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mc_p6DHhEeSHm4XzJdiyiw" name="Rhs">
+      <nodes xmi:id="_mc_p6THhEeSHm4XzJdiyiw" name="Selected" outgoing="_mc_p7THhEeSHm4XzJdiyiw">
+        <type href="http://component_diagram/1.0#//Architecture"/>
+      </nodes>
+      <nodes xmi:id="_mc_p6jHhEeSHm4XzJdiyiw" name="New" incoming="_mc_p7THhEeSHm4XzJdiyiw">
+        <type href="http://component_diagram/1.0#//Actuator"/>
+        <attributes xmi:id="_mc_p6zHhEeSHm4XzJdiyiw" value="Name">
+          <type href="http://component_diagram/1.0#//ComponentType/name"/>
+        </attributes>
+        <attributes xmi:id="_mc_p7DHhEeSHm4XzJdiyiw" value="PowerSupply">
+          <type href="http://component_diagram/1.0#//HardwareComponent/powerSupply"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_mc_p7THhEeSHm4XzJdiyiw" source="_mc_p6THhEeSHm4XzJdiyiw" target="_mc_p6jHhEeSHm4XzJdiyiw">
+        <type href="http://component_diagram/1.0#//Architecture/component"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_mc_p7jHhEeSHm4XzJdiyiw" origin="_mc_p5zHhEeSHm4XzJdiyiw" image="_mc_p6THhEeSHm4XzJdiyiw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mc_p7zHhEeSHm4XzJdiyiw" name="mainUnit" description="Creates one Actuator depending on available contexts in model instance" subUnits="_mc_p4THhEeSHm4XzJdiyiw">
+    <parameters xmi:id="_mc_p8DHhEeSHm4XzJdiyiw" name="New"/>
+    <parameters xmi:id="_mc_p8THhEeSHm4XzJdiyiw" name="selectedEObject"/>
+    <parameters xmi:id="_mc_p8jHhEeSHm4XzJdiyiw" name="Name"/>
+    <parameters xmi:id="_mc_p8zHhEeSHm4XzJdiyiw" name="PowerSupply"/>
+    <parameterMappings xmi:id="_mc_p9DHhEeSHm4XzJdiyiw" source="_mc_p8THhEeSHm4XzJdiyiw" target="_mc_p4jHhEeSHm4XzJdiyiw"/>
+    <parameterMappings xmi:id="_mc_p9THhEeSHm4XzJdiyiw" source="_mc_p4zHhEeSHm4XzJdiyiw" target="_mc_p8DHhEeSHm4XzJdiyiw"/>
+    <parameterMappings xmi:id="_mc_p9jHhEeSHm4XzJdiyiw" source="_mc_p8jHhEeSHm4XzJdiyiw" target="_mc_p5DHhEeSHm4XzJdiyiw"/>
+    <parameterMappings xmi:id="_mc_p9zHhEeSHm4XzJdiyiw" source="_mc_p8zHhEeSHm4XzJdiyiw" target="_mc_p5THhEeSHm4XzJdiyiw"/>
+  </units>
+</henshin:Module>

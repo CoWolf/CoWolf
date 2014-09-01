@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mfEtgDHhEeSHm4XzJdiyiw" name="REMOVE_PortType_(port_instance)_TGT_PortInstance" description="Removes PortType's reference port_instance the target PortInstance">
+  <imports href="http://component_diagram/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mfEtgTHhEeSHm4XzJdiyiw" name="removeFromPortType_port_instance_PortInstance" description="Removes from PortType's reference port_instance the target PortInstance">
+    <parameters xmi:id="_mfEtgjHhEeSHm4XzJdiyiw" name="Selected"/>
+    <parameters xmi:id="_mfEtgzHhEeSHm4XzJdiyiw" name="OldTarget"/>
+    <lhs xmi:id="_mfEthDHhEeSHm4XzJdiyiw" name="LHS">
+      <nodes xmi:id="_mfEthTHhEeSHm4XzJdiyiw" name="Selected" incoming="_mfEtiDHhEeSHm4XzJdiyiw" outgoing="_mfEthzHhEeSHm4XzJdiyiw">
+        <type href="http://component_diagram/1.0#//PortType"/>
+      </nodes>
+      <nodes xmi:id="_mfEthjHhEeSHm4XzJdiyiw" name="OldTarget" incoming="_mfEthzHhEeSHm4XzJdiyiw" outgoing="_mfEtiDHhEeSHm4XzJdiyiw">
+        <type href="http://component_diagram/1.0#//PortInstance"/>
+      </nodes>
+      <edges xmi:id="_mfEthzHhEeSHm4XzJdiyiw" source="_mfEthTHhEeSHm4XzJdiyiw" target="_mfEthjHhEeSHm4XzJdiyiw">
+        <type href="http://component_diagram/1.0#//PortType/port_instance"/>
+      </edges>
+      <edges xmi:id="_mfEtiDHhEeSHm4XzJdiyiw" source="_mfEthjHhEeSHm4XzJdiyiw" target="_mfEthTHhEeSHm4XzJdiyiw">
+        <type href="http://component_diagram/1.0#//PortInstance/type"/>
+      </edges>
+      <formula xsi:type="henshin:NestedCondition" xmi:id="_mfEtiTHhEeSHm4XzJdiyiw">
+        <conclusion xmi:id="_mfEtijHhEeSHm4XzJdiyiw" name="sufficientElementsMustExist">
+          <nodes xmi:id="_mfEtizHhEeSHm4XzJdiyiw" name="OldTarget" outgoing="_mfEtjzHhEeSHm4XzJdiyiw _mfEtkDHhEeSHm4XzJdiyiw">
+            <type href="http://component_diagram/1.0#//PortInstance"/>
+          </nodes>
+          <nodes xmi:id="_mfEtjDHhEeSHm4XzJdiyiw" name="Selected">
+            <type href="http://component_diagram/1.0#//PortType"/>
+          </nodes>
+          <nodes xmi:id="_mfEtjTHhEeSHm4XzJdiyiw" incoming="_mfEtjzHhEeSHm4XzJdiyiw">
+            <type href="http://component_diagram/1.0#//PortType"/>
+          </nodes>
+          <nodes xmi:id="_mfEtjjHhEeSHm4XzJdiyiw" incoming="_mfEtkDHhEeSHm4XzJdiyiw">
+            <type href="http://component_diagram/1.0#//PortType"/>
+          </nodes>
+          <edges xmi:id="_mfEtjzHhEeSHm4XzJdiyiw" source="_mfEtizHhEeSHm4XzJdiyiw" target="_mfEtjTHhEeSHm4XzJdiyiw">
+            <type href="http://component_diagram/1.0#//PortInstance/type"/>
+          </edges>
+          <edges xmi:id="_mfEtkDHhEeSHm4XzJdiyiw" source="_mfEtizHhEeSHm4XzJdiyiw" target="_mfEtjjHhEeSHm4XzJdiyiw">
+            <type href="http://component_diagram/1.0#//PortInstance/type"/>
+          </edges>
+        </conclusion>
+        <mappings xmi:id="_mfEtkTHhEeSHm4XzJdiyiw" origin="_mfEthjHhEeSHm4XzJdiyiw" image="_mfEtizHhEeSHm4XzJdiyiw"/>
+        <mappings xmi:id="_mfEtkjHhEeSHm4XzJdiyiw" origin="_mfEthTHhEeSHm4XzJdiyiw" image="_mfEtjDHhEeSHm4XzJdiyiw"/>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_mfEtkzHhEeSHm4XzJdiyiw" name="RHS">
+      <nodes xmi:id="_mfEtlDHhEeSHm4XzJdiyiw" name="Selected">
+        <type href="http://component_diagram/1.0#//PortType"/>
+      </nodes>
+      <nodes xmi:id="_mfEtlTHhEeSHm4XzJdiyiw" name="OldTarget">
+        <type href="http://component_diagram/1.0#//PortInstance"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_mfEtljHhEeSHm4XzJdiyiw" origin="_mfEthTHhEeSHm4XzJdiyiw" image="_mfEtlDHhEeSHm4XzJdiyiw"/>
+    <mappings xmi:id="_mfEtlzHhEeSHm4XzJdiyiw" origin="_mfEthjHhEeSHm4XzJdiyiw" image="_mfEtlTHhEeSHm4XzJdiyiw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mfEtmDHhEeSHm4XzJdiyiw" name="mainUnit" subUnits="_mfEtgTHhEeSHm4XzJdiyiw">
+    <parameters xmi:id="_mfEtmTHhEeSHm4XzJdiyiw" name="selectedEObject"/>
+    <parameters xmi:id="_mfEtmjHhEeSHm4XzJdiyiw" name="OldTarget"/>
+    <parameterMappings xmi:id="_mfEtmzHhEeSHm4XzJdiyiw" source="_mfEtmTHhEeSHm4XzJdiyiw" target="_mfEtgjHhEeSHm4XzJdiyiw"/>
+    <parameterMappings xmi:id="_mfEtnDHhEeSHm4XzJdiyiw" source="_mfEtmjHhEeSHm4XzJdiyiw" target="_mfEtgzHhEeSHm4XzJdiyiw"/>
+  </units>
+</henshin:Module>

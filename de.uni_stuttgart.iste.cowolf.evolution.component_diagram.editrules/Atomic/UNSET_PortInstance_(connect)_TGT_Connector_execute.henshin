@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_makoADHhEeSHm4XzJdiyiw" name="UNSET_PortInstance_(connect)_TGT_Connector" description="Unsets PortInstance's reference connect the target Connector">
+  <imports href="http://component_diagram/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_makoATHhEeSHm4XzJdiyiw" name="unsetPortInstance_connect_TO_Connector" description="UnsetPortInstanceRefconnectToConnector">
+    <parameters xmi:id="_makoAjHhEeSHm4XzJdiyiw" name="Selected"/>
+    <parameters xmi:id="_makoAzHhEeSHm4XzJdiyiw" name="OldTarget"/>
+    <lhs xmi:id="_makoBDHhEeSHm4XzJdiyiw" name="LHS">
+      <nodes xmi:id="_malPEDHhEeSHm4XzJdiyiw" name="Selected" incoming="_malPEzHhEeSHm4XzJdiyiw" outgoing="_malPEjHhEeSHm4XzJdiyiw">
+        <type href="http://component_diagram/1.0#//PortInstance"/>
+      </nodes>
+      <nodes xmi:id="_malPETHhEeSHm4XzJdiyiw" name="OldTarget" incoming="_malPEjHhEeSHm4XzJdiyiw" outgoing="_malPEzHhEeSHm4XzJdiyiw">
+        <type href="http://component_diagram/1.0#//Connector"/>
+      </nodes>
+      <edges xmi:id="_malPEjHhEeSHm4XzJdiyiw" source="_malPEDHhEeSHm4XzJdiyiw" target="_malPETHhEeSHm4XzJdiyiw">
+        <type href="http://component_diagram/1.0#//PortInstance/connect"/>
+      </edges>
+      <edges xmi:id="_malPEzHhEeSHm4XzJdiyiw" source="_malPETHhEeSHm4XzJdiyiw" target="_malPEDHhEeSHm4XzJdiyiw">
+        <type href="http://component_diagram/1.0#//Connector/port"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_malPFDHhEeSHm4XzJdiyiw" name="RHS">
+      <nodes xmi:id="_malPFTHhEeSHm4XzJdiyiw" name="Selected">
+        <type href="http://component_diagram/1.0#//PortInstance"/>
+      </nodes>
+      <nodes xmi:id="_malPFjHhEeSHm4XzJdiyiw" name="OldTarget">
+        <type href="http://component_diagram/1.0#//Connector"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_malPFzHhEeSHm4XzJdiyiw" origin="_malPEDHhEeSHm4XzJdiyiw" image="_malPFTHhEeSHm4XzJdiyiw"/>
+    <mappings xmi:id="_malPGDHhEeSHm4XzJdiyiw" origin="_malPETHhEeSHm4XzJdiyiw" image="_malPFjHhEeSHm4XzJdiyiw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_malPGTHhEeSHm4XzJdiyiw" name="mainUnit" subUnits="_makoATHhEeSHm4XzJdiyiw">
+    <parameters xmi:id="_malPGjHhEeSHm4XzJdiyiw" name="selectedEObject"/>
+    <parameters xmi:id="_malPGzHhEeSHm4XzJdiyiw" name="OldTarget"/>
+    <parameterMappings xmi:id="_malPHDHhEeSHm4XzJdiyiw" source="_malPGjHhEeSHm4XzJdiyiw" target="_makoAjHhEeSHm4XzJdiyiw"/>
+    <parameterMappings xmi:id="_malPHTHhEeSHm4XzJdiyiw" source="_malPGzHhEeSHm4XzJdiyiw" target="_makoAzHhEeSHm4XzJdiyiw"/>
+  </units>
+</henshin:Module>

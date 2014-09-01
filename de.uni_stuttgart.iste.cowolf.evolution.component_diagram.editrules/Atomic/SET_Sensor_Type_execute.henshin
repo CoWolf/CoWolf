@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mdbuwDHhEeSHm4XzJdiyiw" name="SET_Sensor_Type" description="Sets Sensor Type">
+  <imports href="http://component_diagram/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mdbuwTHhEeSHm4XzJdiyiw" name="setSensorType" description="Sets the EAttribute type">
+    <parameters xmi:id="_mdbuwjHhEeSHm4XzJdiyiw" name="Selected"/>
+    <parameters xmi:id="_mdbuwzHhEeSHm4XzJdiyiw" name="Type"/>
+    <lhs xmi:id="_mdbuxDHhEeSHm4XzJdiyiw" name="Lhs">
+      <nodes xmi:id="_mdbuxTHhEeSHm4XzJdiyiw" name="Selected">
+        <type href="http://component_diagram/1.0#//Sensor"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mdbuxjHhEeSHm4XzJdiyiw" name="Rhs">
+      <nodes xmi:id="_mdbuxzHhEeSHm4XzJdiyiw" name="Selected">
+        <type href="http://component_diagram/1.0#//Sensor"/>
+        <attributes xmi:id="_mdbuyDHhEeSHm4XzJdiyiw" value="Type">
+          <type href="http://component_diagram/1.0#//Sensor/type"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_mdbuyTHhEeSHm4XzJdiyiw" origin="_mdbuxTHhEeSHm4XzJdiyiw" image="_mdbuxzHhEeSHm4XzJdiyiw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mdbuyjHhEeSHm4XzJdiyiw" name="mainUnit" subUnits="_mdbuwTHhEeSHm4XzJdiyiw">
+    <parameters xmi:id="_mdbuyzHhEeSHm4XzJdiyiw" name="selectedEObject"/>
+    <parameters xmi:id="_mdbuzDHhEeSHm4XzJdiyiw" name="Type"/>
+    <parameterMappings xmi:id="_mdbuzTHhEeSHm4XzJdiyiw" source="_mdbuyzHhEeSHm4XzJdiyiw" target="_mdbuwjHhEeSHm4XzJdiyiw"/>
+    <parameterMappings xmi:id="_mdbuzjHhEeSHm4XzJdiyiw" source="_mdbuzDHhEeSHm4XzJdiyiw" target="_mdbuwzHhEeSHm4XzJdiyiw"/>
+  </units>
+</henshin:Module>

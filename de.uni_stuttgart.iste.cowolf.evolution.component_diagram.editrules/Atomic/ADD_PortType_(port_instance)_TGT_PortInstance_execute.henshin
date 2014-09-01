@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_me_1ADHhEeSHm4XzJdiyiw" name="ADD_PortType_(port_instance)_TGT_PortInstance" description="Adds to PortType's reference port_instance the target PortInstance">
+  <imports href="http://component_diagram/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_me_1ATHhEeSHm4XzJdiyiw" name="addToPortType_port_instance_PortInstance" description="Adds to PortType's reference port_instance the target PortInstance">
+    <parameters xmi:id="_me_1AjHhEeSHm4XzJdiyiw" name="Selected"/>
+    <parameters xmi:id="_me_1AzHhEeSHm4XzJdiyiw" name="NewTarget"/>
+    <lhs xmi:id="_me_1BDHhEeSHm4XzJdiyiw" name="Lhs">
+      <nodes xmi:id="_me_1BTHhEeSHm4XzJdiyiw" name="Selected">
+        <type href="http://component_diagram/1.0#//PortType"/>
+      </nodes>
+      <nodes xmi:id="_me_1BjHhEeSHm4XzJdiyiw" name="NewTarget">
+        <type href="http://component_diagram/1.0#//PortInstance"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_me_1BzHhEeSHm4XzJdiyiw">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_me_1CDHhEeSHm4XzJdiyiw">
+          <conclusion xmi:id="_me_1CTHhEeSHm4XzJdiyiw" name="doNotExceedUpperBound">
+            <nodes xmi:id="_me_1CjHhEeSHm4XzJdiyiw" name="NewTarget" outgoing="_me_1DTHhEeSHm4XzJdiyiw">
+              <type href="http://component_diagram/1.0#//PortInstance"/>
+            </nodes>
+            <nodes xmi:id="_me_1CzHhEeSHm4XzJdiyiw" name="Selected">
+              <type href="http://component_diagram/1.0#//PortType"/>
+            </nodes>
+            <nodes xmi:id="_me_1DDHhEeSHm4XzJdiyiw" incoming="_me_1DTHhEeSHm4XzJdiyiw">
+              <type href="http://component_diagram/1.0#//PortType"/>
+            </nodes>
+            <edges xmi:id="_me_1DTHhEeSHm4XzJdiyiw" source="_me_1CjHhEeSHm4XzJdiyiw" target="_me_1DDHhEeSHm4XzJdiyiw">
+              <type href="http://component_diagram/1.0#//PortInstance/type"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_me_1DjHhEeSHm4XzJdiyiw" origin="_me_1BjHhEeSHm4XzJdiyiw" image="_me_1CjHhEeSHm4XzJdiyiw"/>
+          <mappings xmi:id="_me_1DzHhEeSHm4XzJdiyiw" origin="_me_1BTHhEeSHm4XzJdiyiw" image="_me_1CzHhEeSHm4XzJdiyiw"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_me_1EDHhEeSHm4XzJdiyiw" name="Rhs">
+      <nodes xmi:id="_me_1ETHhEeSHm4XzJdiyiw" name="Selected" incoming="_me_1FDHhEeSHm4XzJdiyiw" outgoing="_me_1EzHhEeSHm4XzJdiyiw">
+        <type href="http://component_diagram/1.0#//PortType"/>
+      </nodes>
+      <nodes xmi:id="_me_1EjHhEeSHm4XzJdiyiw" name="NewTarget" incoming="_me_1EzHhEeSHm4XzJdiyiw" outgoing="_me_1FDHhEeSHm4XzJdiyiw">
+        <type href="http://component_diagram/1.0#//PortInstance"/>
+      </nodes>
+      <edges xmi:id="_me_1EzHhEeSHm4XzJdiyiw" source="_me_1ETHhEeSHm4XzJdiyiw" target="_me_1EjHhEeSHm4XzJdiyiw">
+        <type href="http://component_diagram/1.0#//PortType/port_instance"/>
+      </edges>
+      <edges xmi:id="_me_1FDHhEeSHm4XzJdiyiw" source="_me_1EjHhEeSHm4XzJdiyiw" target="_me_1ETHhEeSHm4XzJdiyiw">
+        <type href="http://component_diagram/1.0#//PortInstance/type"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_me_1FTHhEeSHm4XzJdiyiw" origin="_me_1BTHhEeSHm4XzJdiyiw" image="_me_1ETHhEeSHm4XzJdiyiw"/>
+    <mappings xmi:id="_me_1FjHhEeSHm4XzJdiyiw" origin="_me_1BjHhEeSHm4XzJdiyiw" image="_me_1EjHhEeSHm4XzJdiyiw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_me_1FzHhEeSHm4XzJdiyiw" name="mainUnit" subUnits="_me_1ATHhEeSHm4XzJdiyiw">
+    <parameters xmi:id="_me_1GDHhEeSHm4XzJdiyiw" name="selectedEObject"/>
+    <parameters xmi:id="_me_1GTHhEeSHm4XzJdiyiw" name="NewTarget"/>
+    <parameterMappings xmi:id="_me_1GjHhEeSHm4XzJdiyiw" source="_me_1GDHhEeSHm4XzJdiyiw" target="_me_1AjHhEeSHm4XzJdiyiw"/>
+    <parameterMappings xmi:id="_me_1GzHhEeSHm4XzJdiyiw" source="_me_1GTHhEeSHm4XzJdiyiw" target="_me_1AzHhEeSHm4XzJdiyiw"/>
+  </units>
+</henshin:Module>

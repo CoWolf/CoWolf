@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mcabEDHhEeSHm4XzJdiyiw" name="DELETE_ElectronicDevice_IN_Architecture_(component)" description="Deletes one ElectronicDevice in Architecture">
+  <imports href="http://component_diagram/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mcbCIDHhEeSHm4XzJdiyiw" name="deleteElectronicDevice_IN_Architecture" description="deletes one ElectronicDevice in the context: Architecture">
+    <parameters xmi:id="_mcbCITHhEeSHm4XzJdiyiw" name="Selected"/>
+    <parameters xmi:id="_mcbCIjHhEeSHm4XzJdiyiw" name="ToBeDeleted"/>
+    <lhs xmi:id="_mcbCIzHhEeSHm4XzJdiyiw" name="LHS">
+      <nodes xmi:id="_mcbCJDHhEeSHm4XzJdiyiw" name="Selected" outgoing="_mcbCJjHhEeSHm4XzJdiyiw">
+        <type href="http://component_diagram/1.0#//Architecture"/>
+      </nodes>
+      <nodes xmi:id="_mcbCJTHhEeSHm4XzJdiyiw" name="ToBeDeleted" incoming="_mcbCJjHhEeSHm4XzJdiyiw">
+        <type href="http://component_diagram/1.0#//ElectronicDevice"/>
+      </nodes>
+      <edges xmi:id="_mcbCJjHhEeSHm4XzJdiyiw" source="_mcbCJDHhEeSHm4XzJdiyiw" target="_mcbCJTHhEeSHm4XzJdiyiw">
+        <type href="http://component_diagram/1.0#//Architecture/component"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_mcbCJzHhEeSHm4XzJdiyiw" name="RHS">
+      <nodes xmi:id="_mcbCKDHhEeSHm4XzJdiyiw" name="Selected">
+        <type href="http://component_diagram/1.0#//Architecture"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_mcbCKTHhEeSHm4XzJdiyiw" origin="_mcbCJDHhEeSHm4XzJdiyiw" image="_mcbCKDHhEeSHm4XzJdiyiw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mcbCKjHhEeSHm4XzJdiyiw" name="mainUnit" description="Deletes one ElectronicDevice depending on available contexts in model instance" subUnits="_mcbCIDHhEeSHm4XzJdiyiw">
+    <parameters xmi:id="_mcbCKzHhEeSHm4XzJdiyiw" name="ToBeDeleted"/>
+    <parameters xmi:id="_mcbCLDHhEeSHm4XzJdiyiw" name="selectedEObject"/>
+    <parameterMappings xmi:id="_mcbCLTHhEeSHm4XzJdiyiw" source="_mcbCLDHhEeSHm4XzJdiyiw" target="_mcbCITHhEeSHm4XzJdiyiw"/>
+    <parameterMappings xmi:id="_mcbCLjHhEeSHm4XzJdiyiw" source="_mcbCKzHhEeSHm4XzJdiyiw" target="_mcbCIjHhEeSHm4XzJdiyiw"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mdTy8DHhEeSHm4XzJdiyiw" name="CREATE_Sensor_IN_Architecture_(component)" description="Creates one Sensor in Architecture">
+  <imports href="http://component_diagram/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mdTy8THhEeSHm4XzJdiyiw" name="createSensor_IN_Architecture" description="creates one Sensor in the context: Architecture">
+    <parameters xmi:id="_mdTy8jHhEeSHm4XzJdiyiw" name="Selected"/>
+    <parameters xmi:id="_mdTy8zHhEeSHm4XzJdiyiw" name="New"/>
+    <parameters xmi:id="_mdTy9DHhEeSHm4XzJdiyiw" name="Name"/>
+    <parameters xmi:id="_mdTy9THhEeSHm4XzJdiyiw" name="PowerSupply"/>
+    <parameters xmi:id="_mdTy9jHhEeSHm4XzJdiyiw" name="Type"/>
+    <lhs xmi:id="_mdTy9zHhEeSHm4XzJdiyiw" name="Lhs">
+      <nodes xmi:id="_mdTy-DHhEeSHm4XzJdiyiw" name="Selected">
+        <type href="http://component_diagram/1.0#//Architecture"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mdTy-THhEeSHm4XzJdiyiw" name="Rhs">
+      <nodes xmi:id="_mdTy-jHhEeSHm4XzJdiyiw" name="Selected" outgoing="_mdTy_zHhEeSHm4XzJdiyiw">
+        <type href="http://component_diagram/1.0#//Architecture"/>
+      </nodes>
+      <nodes xmi:id="_mdTy-zHhEeSHm4XzJdiyiw" name="New" incoming="_mdTy_zHhEeSHm4XzJdiyiw">
+        <type href="http://component_diagram/1.0#//Sensor"/>
+        <attributes xmi:id="_mdTy_DHhEeSHm4XzJdiyiw" value="Name">
+          <type href="http://component_diagram/1.0#//ComponentType/name"/>
+        </attributes>
+        <attributes xmi:id="_mdTy_THhEeSHm4XzJdiyiw" value="PowerSupply">
+          <type href="http://component_diagram/1.0#//HardwareComponent/powerSupply"/>
+        </attributes>
+        <attributes xmi:id="_mdTy_jHhEeSHm4XzJdiyiw" value="Type">
+          <type href="http://component_diagram/1.0#//Sensor/type"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_mdTy_zHhEeSHm4XzJdiyiw" source="_mdTy-jHhEeSHm4XzJdiyiw" target="_mdTy-zHhEeSHm4XzJdiyiw">
+        <type href="http://component_diagram/1.0#//Architecture/component"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_mdTzADHhEeSHm4XzJdiyiw" origin="_mdTy-DHhEeSHm4XzJdiyiw" image="_mdTy-jHhEeSHm4XzJdiyiw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mdTzATHhEeSHm4XzJdiyiw" name="mainUnit" description="Creates one Sensor depending on available contexts in model instance" subUnits="_mdTy8THhEeSHm4XzJdiyiw">
+    <parameters xmi:id="_mdTzAjHhEeSHm4XzJdiyiw" name="New"/>
+    <parameters xmi:id="_mdTzAzHhEeSHm4XzJdiyiw" name="selectedEObject"/>
+    <parameters xmi:id="_mdTzBDHhEeSHm4XzJdiyiw" name="Name"/>
+    <parameters xmi:id="_mdTzBTHhEeSHm4XzJdiyiw" name="PowerSupply"/>
+    <parameters xmi:id="_mdTzBjHhEeSHm4XzJdiyiw" name="Type"/>
+    <parameterMappings xmi:id="_mdTzBzHhEeSHm4XzJdiyiw" source="_mdTzAzHhEeSHm4XzJdiyiw" target="_mdTy8jHhEeSHm4XzJdiyiw"/>
+    <parameterMappings xmi:id="_mdTzCDHhEeSHm4XzJdiyiw" source="_mdTy8zHhEeSHm4XzJdiyiw" target="_mdTzAjHhEeSHm4XzJdiyiw"/>
+    <parameterMappings xmi:id="_mdTzCTHhEeSHm4XzJdiyiw" source="_mdTzBDHhEeSHm4XzJdiyiw" target="_mdTy9DHhEeSHm4XzJdiyiw"/>
+    <parameterMappings xmi:id="_mdTzCjHhEeSHm4XzJdiyiw" source="_mdTzBTHhEeSHm4XzJdiyiw" target="_mdTy9THhEeSHm4XzJdiyiw"/>
+    <parameterMappings xmi:id="_mdTzCzHhEeSHm4XzJdiyiw" source="_mdTzBjHhEeSHm4XzJdiyiw" target="_mdTy9jHhEeSHm4XzJdiyiw"/>
+  </units>
+</henshin:Module>

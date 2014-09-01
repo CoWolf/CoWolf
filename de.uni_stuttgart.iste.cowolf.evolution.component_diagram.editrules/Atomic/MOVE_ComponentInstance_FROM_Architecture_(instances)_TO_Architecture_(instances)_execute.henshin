@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_meoBkDHhEeSHm4XzJdiyiw" name="MOVE_ComponentInstance_FROM_Architecture_(instances)_TO_Architecture_(instances)" description="MOVEs ComponentInstance from Architecture(Reference:instances) to Architecture(Reference:instances">
+  <imports href="http://component_diagram/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_meoBkTHhEeSHm4XzJdiyiw" name="moveComponentInstance_FROM_Architecture_instances_TO_Architecture_Architecture" description="Moves ComponentInstance from Architecture(Reference:instances) toArchitecture(Reference:Architecture)">
+    <parameters xmi:id="_meoBkjHhEeSHm4XzJdiyiw" name="Selected"/>
+    <parameters xmi:id="_meoBkzHhEeSHm4XzJdiyiw" name="OldSource"/>
+    <parameters xmi:id="_meoBlDHhEeSHm4XzJdiyiw" name="NewSource"/>
+    <lhs xmi:id="_meoBlTHhEeSHm4XzJdiyiw" name="Lhs">
+      <nodes xmi:id="_meoBljHhEeSHm4XzJdiyiw" name="Selected" incoming="_meoBmTHhEeSHm4XzJdiyiw">
+        <type href="http://component_diagram/1.0#//ComponentInstance"/>
+      </nodes>
+      <nodes xmi:id="_meoBlzHhEeSHm4XzJdiyiw" name="OldSource" outgoing="_meoBmTHhEeSHm4XzJdiyiw">
+        <type href="http://component_diagram/1.0#//Architecture"/>
+      </nodes>
+      <nodes xmi:id="_meoBmDHhEeSHm4XzJdiyiw" name="NewSource">
+        <type href="http://component_diagram/1.0#//Architecture"/>
+      </nodes>
+      <edges xmi:id="_meoBmTHhEeSHm4XzJdiyiw" source="_meoBlzHhEeSHm4XzJdiyiw" target="_meoBljHhEeSHm4XzJdiyiw">
+        <type href="http://component_diagram/1.0#//Architecture/instances"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_meoooDHhEeSHm4XzJdiyiw" name="Rhs">
+      <nodes xmi:id="_meoooTHhEeSHm4XzJdiyiw" name="Selected" incoming="_meoopDHhEeSHm4XzJdiyiw">
+        <type href="http://component_diagram/1.0#//ComponentInstance"/>
+      </nodes>
+      <nodes xmi:id="_meooojHhEeSHm4XzJdiyiw" name="OldSource">
+        <type href="http://component_diagram/1.0#//Architecture"/>
+      </nodes>
+      <nodes xmi:id="_meooozHhEeSHm4XzJdiyiw" name="NewSource" outgoing="_meoopDHhEeSHm4XzJdiyiw">
+        <type href="http://component_diagram/1.0#//Architecture"/>
+      </nodes>
+      <edges xmi:id="_meoopDHhEeSHm4XzJdiyiw" source="_meooozHhEeSHm4XzJdiyiw" target="_meoooTHhEeSHm4XzJdiyiw">
+        <type href="http://component_diagram/1.0#//Architecture/instances"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_meoopTHhEeSHm4XzJdiyiw" origin="_meoBljHhEeSHm4XzJdiyiw" image="_meoooTHhEeSHm4XzJdiyiw"/>
+    <mappings xmi:id="_meoopjHhEeSHm4XzJdiyiw" origin="_meoBlzHhEeSHm4XzJdiyiw" image="_meooojHhEeSHm4XzJdiyiw"/>
+    <mappings xmi:id="_meoopzHhEeSHm4XzJdiyiw" origin="_meoBmDHhEeSHm4XzJdiyiw" image="_meooozHhEeSHm4XzJdiyiw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_meooqDHhEeSHm4XzJdiyiw" name="mainUnit" subUnits="_meoBkTHhEeSHm4XzJdiyiw">
+    <parameters xmi:id="_meooqTHhEeSHm4XzJdiyiw" name="selectedEObject"/>
+    <parameters xmi:id="_meooqjHhEeSHm4XzJdiyiw" name="OldSource"/>
+    <parameters xmi:id="_meooqzHhEeSHm4XzJdiyiw" name="NewSource"/>
+    <parameterMappings xmi:id="_meoorDHhEeSHm4XzJdiyiw" source="_meooqTHhEeSHm4XzJdiyiw" target="_meoBkjHhEeSHm4XzJdiyiw"/>
+    <parameterMappings xmi:id="_meoorTHhEeSHm4XzJdiyiw" source="_meooqjHhEeSHm4XzJdiyiw" target="_meoBkzHhEeSHm4XzJdiyiw"/>
+    <parameterMappings xmi:id="_meoorjHhEeSHm4XzJdiyiw" source="_meooqzHhEeSHm4XzJdiyiw" target="_meoBlDHhEeSHm4XzJdiyiw"/>
+  </units>
+</henshin:Module>
