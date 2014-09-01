@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_k_lYYCkoEeSR5d0JIP8zig" name="ADD_ErrorType_(error)_TGT_ErrorInstance" description="Adds to ErrorType's reference error the target ErrorInstance">
+  <imports href="http://FaultTree/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_k_lYYSkoEeSR5d0JIP8zig" name="addToErrorType_error_ErrorInstance" description="Adds to ErrorType's reference error the target ErrorInstance">
+    <parameters xmi:id="_k_lYYikoEeSR5d0JIP8zig" name="Selected"/>
+    <parameters xmi:id="_k_lYYykoEeSR5d0JIP8zig" name="NewTarget"/>
+    <lhs xmi:id="_k_lYZCkoEeSR5d0JIP8zig" name="Lhs">
+      <nodes xmi:id="_k_lYZSkoEeSR5d0JIP8zig" name="Selected">
+        <type href="http://FaultTree/1.0#//ErrorType"/>
+      </nodes>
+      <nodes xmi:id="_k_lYZikoEeSR5d0JIP8zig" name="NewTarget">
+        <type href="http://FaultTree/1.0#//ErrorInstance"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_k_lYZykoEeSR5d0JIP8zig">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_k_lYaCkoEeSR5d0JIP8zig">
+          <conclusion xmi:id="_k_lYaSkoEeSR5d0JIP8zig" name="doNotExceedUpperBound">
+            <nodes xmi:id="_k_lYaikoEeSR5d0JIP8zig" name="NewTarget" outgoing="_k_lYbSkoEeSR5d0JIP8zig">
+              <type href="http://FaultTree/1.0#//ErrorInstance"/>
+            </nodes>
+            <nodes xmi:id="_k_lYbCkoEeSR5d0JIP8zig" incoming="_k_lYbSkoEeSR5d0JIP8zig">
+              <type href="http://FaultTree/1.0#//ErrorType"/>
+            </nodes>
+            <edges xmi:id="_k_lYbSkoEeSR5d0JIP8zig" source="_k_lYaikoEeSR5d0JIP8zig" target="_k_lYbCkoEeSR5d0JIP8zig">
+              <type href="http://FaultTree/1.0#//ErrorInstance/type"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_k_lYbikoEeSR5d0JIP8zig" origin="_k_lYZikoEeSR5d0JIP8zig" image="_k_lYaikoEeSR5d0JIP8zig"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_k_lYcCkoEeSR5d0JIP8zig" name="Rhs">
+      <nodes xmi:id="_k_lYcSkoEeSR5d0JIP8zig" name="Selected" incoming="_k_lYdCkoEeSR5d0JIP8zig" outgoing="_k_lYcykoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//ErrorType"/>
+      </nodes>
+      <nodes xmi:id="_k_lYcikoEeSR5d0JIP8zig" name="NewTarget" incoming="_k_lYcykoEeSR5d0JIP8zig" outgoing="_k_lYdCkoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//ErrorInstance"/>
+      </nodes>
+      <edges xmi:id="_k_lYcykoEeSR5d0JIP8zig" source="_k_lYcSkoEeSR5d0JIP8zig" target="_k_lYcikoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//ErrorType/error"/>
+      </edges>
+      <edges xmi:id="_k_lYdCkoEeSR5d0JIP8zig" source="_k_lYcikoEeSR5d0JIP8zig" target="_k_lYcSkoEeSR5d0JIP8zig">
+        <type href="http://FaultTree/1.0#//ErrorInstance/type"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_k_lYdSkoEeSR5d0JIP8zig" origin="_k_lYZSkoEeSR5d0JIP8zig" image="_k_lYcSkoEeSR5d0JIP8zig"/>
+    <mappings xmi:id="_k_lYdikoEeSR5d0JIP8zig" origin="_k_lYZikoEeSR5d0JIP8zig" image="_k_lYcikoEeSR5d0JIP8zig"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_k_lYdykoEeSR5d0JIP8zig" name="mainUnit" subUnits="_k_lYYSkoEeSR5d0JIP8zig">
+    <parameters xmi:id="_k_lYeCkoEeSR5d0JIP8zig" name="selectedEObject"/>
+    <parameters xmi:id="_k_lYeSkoEeSR5d0JIP8zig" name="NewTarget"/>
+    <parameterMappings xmi:id="_k_lYeikoEeSR5d0JIP8zig" source="_k_lYeCkoEeSR5d0JIP8zig" target="_k_lYYikoEeSR5d0JIP8zig"/>
+    <parameterMappings xmi:id="_k_lYeykoEeSR5d0JIP8zig" source="_k_lYeSkoEeSR5d0JIP8zig" target="_k_lYYykoEeSR5d0JIP8zig"/>
+  </units>
+</henshin:Module>

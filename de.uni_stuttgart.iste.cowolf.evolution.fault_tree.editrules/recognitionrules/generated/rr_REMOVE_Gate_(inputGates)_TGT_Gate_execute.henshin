@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_-FCf8DHmEeSydohUrNFgfA" name="RR: REMOVE_Gate_(inputGates)_TGT_Gate" description="Recognize: Removes Gate's reference inputGates the target Gate">
+  <imports href="http://www.sidiff.org/difference/symmetric/1.0#/"/>
+  <imports href="http://FaultTree/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_-FCf8THmEeSydohUrNFgfA" name="rr:removeFromGate_inputGates_Gate" description="Recognize: Removes from Gate's reference inputGates the target Gate">
+    <parameters xmi:id="_-FCf8jHmEeSydohUrNFgfA" name="Selected"/>
+    <parameters xmi:id="_-FCf8zHmEeSydohUrNFgfA" name="OldTarget"/>
+    <lhs xmi:id="_-FCf9DHmEeSydohUrNFgfA" name="Lhs">
+      <nodes xmi:id="_-FCf9THmEeSydohUrNFgfA" name="A.Selected" incoming="_-FCf-zHmEeSydohUrNFgfA" outgoing="_-FCf_jHmEeSydohUrNFgfA">
+        <type href="http://FaultTree/1.0#//Gate"/>
+      </nodes>
+      <nodes xmi:id="_-FCf9jHmEeSydohUrNFgfA" name="A.OldTarget" incoming="_-FCf_DHmEeSydohUrNFgfA _-FCf_jHmEeSydohUrNFgfA">
+        <type href="http://FaultTree/1.0#//Gate"/>
+      </nodes>
+      <nodes xmi:id="_-FCf9zHmEeSydohUrNFgfA" name="" outgoing="_-FCf-zHmEeSydohUrNFgfA _-FCf_DHmEeSydohUrNFgfA _-FCf_THmEeSydohUrNFgfA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference"/>
+      </nodes>
+      <nodes xmi:id="_-FCf-DHmEeSydohUrNFgfA" name="" incoming="_-FCf_THmEeSydohUrNFgfA">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+        <attributes xmi:id="_-FCf-THmEeSydohUrNFgfA" value="&quot;inputGates&quot;">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_-FCf-jHmEeSydohUrNFgfA" name="">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_-FCf-zHmEeSydohUrNFgfA" source="_-FCf9zHmEeSydohUrNFgfA" target="_-FCf9THmEeSydohUrNFgfA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/src"/>
+      </edges>
+      <edges xmi:id="_-FCf_DHmEeSydohUrNFgfA" source="_-FCf9zHmEeSydohUrNFgfA" target="_-FCf9jHmEeSydohUrNFgfA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/tgt"/>
+      </edges>
+      <edges xmi:id="_-FCf_THmEeSydohUrNFgfA" source="_-FCf9zHmEeSydohUrNFgfA" target="_-FCf-DHmEeSydohUrNFgfA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/type"/>
+      </edges>
+      <edges xmi:id="_-FCf_jHmEeSydohUrNFgfA" source="_-FCf9THmEeSydohUrNFgfA" target="_-FCf9jHmEeSydohUrNFgfA">
+        <type href="http://FaultTree/1.0#//Gate/inputGates"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_-FCf_zHmEeSydohUrNFgfA" name="Rhs">
+      <nodes xmi:id="_-FCgADHmEeSydohUrNFgfA" name="A.Selected" incoming="_-FCgDjHmEeSydohUrNFgfA" outgoing="_-FCgETHmEeSydohUrNFgfA">
+        <type href="http://FaultTree/1.0#//Gate"/>
+      </nodes>
+      <nodes xmi:id="_-FCgATHmEeSydohUrNFgfA" name="A.OldTarget" incoming="_-FCgDzHmEeSydohUrNFgfA _-FCgETHmEeSydohUrNFgfA">
+        <type href="http://FaultTree/1.0#//Gate"/>
+      </nodes>
+      <nodes xmi:id="_-FCgAjHmEeSydohUrNFgfA" name="" incoming="_-FCgEjHmEeSydohUrNFgfA" outgoing="_-FCgDjHmEeSydohUrNFgfA _-FCgDzHmEeSydohUrNFgfA _-FCgEDHmEeSydohUrNFgfA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference"/>
+      </nodes>
+      <nodes xmi:id="_-FCgAzHmEeSydohUrNFgfA" name="" incoming="_-FCgEDHmEeSydohUrNFgfA">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+      </nodes>
+      <nodes xmi:id="_-FCgBDHmEeSydohUrNFgfA" incoming="_-FCgEzHmEeSydohUrNFgfA" outgoing="_-FCgEjHmEeSydohUrNFgfA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet"/>
+        <attributes xmi:id="_-FCgBTHmEeSydohUrNFgfA" value="&quot;REMOVE_Gate_(inputGates)_TGT_Gate&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/name"/>
+        </attributes>
+        <attributes xmi:id="_-FCgBjHmEeSydohUrNFgfA" value="&quot;Removes Gate's reference inputGates the target Gate&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/description"/>
+        </attributes>
+        <attributes xmi:id="_-FCgBzHmEeSydohUrNFgfA" value="&quot;REMOVE_Gate_(inputGates)_TGT_Gate&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/editRName"/>
+        </attributes>
+        <attributes xmi:id="_-FCgCDHmEeSydohUrNFgfA" value="&quot;RR: REMOVE_Gate_(inputGates)_TGT_Gate&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/recognitionRName"/>
+        </attributes>
+        <attributes xmi:id="_-FCgCTHmEeSydohUrNFgfA" value="1">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/priority"/>
+        </attributes>
+        <attributes xmi:id="_-FCgCjHmEeSydohUrNFgfA" value="0">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfACs"/>
+        </attributes>
+        <attributes xmi:id="_-FCgCzHmEeSydohUrNFgfA" value="2">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfParams"/>
+        </attributes>
+        <attributes xmi:id="_-FCgDDHmEeSydohUrNFgfA" value="4">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/refinementLevel"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_-FCgDTHmEeSydohUrNFgfA" name="" outgoing="_-FCgEzHmEeSydohUrNFgfA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_-FCgDjHmEeSydohUrNFgfA" source="_-FCgAjHmEeSydohUrNFgfA" target="_-FCgADHmEeSydohUrNFgfA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/src"/>
+      </edges>
+      <edges xmi:id="_-FCgDzHmEeSydohUrNFgfA" source="_-FCgAjHmEeSydohUrNFgfA" target="_-FCgATHmEeSydohUrNFgfA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/tgt"/>
+      </edges>
+      <edges xmi:id="_-FCgEDHmEeSydohUrNFgfA" source="_-FCgAjHmEeSydohUrNFgfA" target="_-FCgAzHmEeSydohUrNFgfA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/type"/>
+      </edges>
+      <edges xmi:id="_-FCgETHmEeSydohUrNFgfA" source="_-FCgADHmEeSydohUrNFgfA" target="_-FCgATHmEeSydohUrNFgfA">
+        <type href="http://FaultTree/1.0#//Gate/inputGates"/>
+      </edges>
+      <edges xmi:id="_-FCgEjHmEeSydohUrNFgfA" source="_-FCgBDHmEeSydohUrNFgfA" target="_-FCgAjHmEeSydohUrNFgfA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_-FCgEzHmEeSydohUrNFgfA" source="_-FCgDTHmEeSydohUrNFgfA" target="_-FCgBDHmEeSydohUrNFgfA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference/changeSets"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_-FCgFDHmEeSydohUrNFgfA" origin="_-FCf9THmEeSydohUrNFgfA" image="_-FCgADHmEeSydohUrNFgfA"/>
+    <mappings xmi:id="_-FCgFTHmEeSydohUrNFgfA" origin="_-FCf9jHmEeSydohUrNFgfA" image="_-FCgATHmEeSydohUrNFgfA"/>
+    <mappings xmi:id="_-FCgFjHmEeSydohUrNFgfA" origin="_-FCf9zHmEeSydohUrNFgfA" image="_-FCgAjHmEeSydohUrNFgfA"/>
+    <mappings xmi:id="_-FCgFzHmEeSydohUrNFgfA" origin="_-FCf-DHmEeSydohUrNFgfA" image="_-FCgAzHmEeSydohUrNFgfA"/>
+    <mappings xmi:id="_-FCgGDHmEeSydohUrNFgfA" origin="_-FCf-jHmEeSydohUrNFgfA" image="_-FCgDTHmEeSydohUrNFgfA"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_iK_soCxkEeSKHvuYIUm5Ng" name="ADD_Event_(evt_container)_TGT_Transition" description="Adds to Event's reference evt_container the target Transition">
+  <imports href="http://Statechart/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_iK_soSxkEeSKHvuYIUm5Ng" name="addToEvent_evt_container_Transition" description="Adds to Event's reference evt_container the target Transition">
+    <parameters xmi:id="_iK_soixkEeSKHvuYIUm5Ng" name="Selected"/>
+    <parameters xmi:id="_iK_soyxkEeSKHvuYIUm5Ng" name="NewTarget"/>
+    <lhs xmi:id="_iK_spCxkEeSKHvuYIUm5Ng" name="Lhs">
+      <nodes xmi:id="_iK_spSxkEeSKHvuYIUm5Ng" name="Selected">
+        <type href="http://Statechart/1.0#//Event"/>
+      </nodes>
+      <nodes xmi:id="_iK_spixkEeSKHvuYIUm5Ng" name="NewTarget">
+        <type href="http://Statechart/1.0#//Transition"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_iK_spyxkEeSKHvuYIUm5Ng">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_iK_sqCxkEeSKHvuYIUm5Ng">
+          <conclusion xmi:id="_iK_sqSxkEeSKHvuYIUm5Ng" name="doNotExceedUpperBound">
+            <nodes xmi:id="_iK_sqixkEeSKHvuYIUm5Ng" name="NewTarget" outgoing="_iK_srSxkEeSKHvuYIUm5Ng">
+              <type href="http://Statechart/1.0#//Transition"/>
+            </nodes>
+            <nodes xmi:id="_iK_srCxkEeSKHvuYIUm5Ng" incoming="_iK_srSxkEeSKHvuYIUm5Ng">
+              <type href="http://Statechart/1.0#//Event"/>
+            </nodes>
+            <edges xmi:id="_iK_srSxkEeSKHvuYIUm5Ng" source="_iK_sqixkEeSKHvuYIUm5Ng" target="_iK_srCxkEeSKHvuYIUm5Ng">
+              <type href="http://Statechart/1.0#//Transition/trigger"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_iK_srixkEeSKHvuYIUm5Ng" origin="_iK_spixkEeSKHvuYIUm5Ng" image="_iK_sqixkEeSKHvuYIUm5Ng"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_iK_ssCxkEeSKHvuYIUm5Ng" name="Rhs">
+      <nodes xmi:id="_iK_ssSxkEeSKHvuYIUm5Ng" name="Selected" incoming="_iK_stCxkEeSKHvuYIUm5Ng" outgoing="_iK_ssyxkEeSKHvuYIUm5Ng">
+        <type href="http://Statechart/1.0#//Event"/>
+      </nodes>
+      <nodes xmi:id="_iK_ssixkEeSKHvuYIUm5Ng" name="NewTarget" incoming="_iK_ssyxkEeSKHvuYIUm5Ng" outgoing="_iK_stCxkEeSKHvuYIUm5Ng">
+        <type href="http://Statechart/1.0#//Transition"/>
+      </nodes>
+      <edges xmi:id="_iK_ssyxkEeSKHvuYIUm5Ng" source="_iK_ssSxkEeSKHvuYIUm5Ng" target="_iK_ssixkEeSKHvuYIUm5Ng">
+        <type href="http://Statechart/1.0#//Event/evt_container"/>
+      </edges>
+      <edges xmi:id="_iK_stCxkEeSKHvuYIUm5Ng" source="_iK_ssixkEeSKHvuYIUm5Ng" target="_iK_ssSxkEeSKHvuYIUm5Ng">
+        <type href="http://Statechart/1.0#//Transition/trigger"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_iK_stSxkEeSKHvuYIUm5Ng" origin="_iK_spSxkEeSKHvuYIUm5Ng" image="_iK_ssSxkEeSKHvuYIUm5Ng"/>
+    <mappings xmi:id="_iK_stixkEeSKHvuYIUm5Ng" origin="_iK_spixkEeSKHvuYIUm5Ng" image="_iK_ssixkEeSKHvuYIUm5Ng"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_iK_styxkEeSKHvuYIUm5Ng" name="mainUnit" subUnits="_iK_soSxkEeSKHvuYIUm5Ng">
+    <parameters xmi:id="_iK_suCxkEeSKHvuYIUm5Ng" name="selectedEObject"/>
+    <parameters xmi:id="_iK_suSxkEeSKHvuYIUm5Ng" name="NewTarget"/>
+    <parameterMappings xmi:id="_iK_suixkEeSKHvuYIUm5Ng" source="_iK_suCxkEeSKHvuYIUm5Ng" target="_iK_soixkEeSKHvuYIUm5Ng"/>
+    <parameterMappings xmi:id="_iK_suyxkEeSKHvuYIUm5Ng" source="_iK_suSxkEeSKHvuYIUm5Ng" target="_iK_soyxkEeSKHvuYIUm5Ng"/>
+  </units>
+</henshin:Module>

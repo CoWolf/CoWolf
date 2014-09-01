@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="__I6-0DHmEeSydohUrNFgfA" name="RR: SET_BooleanExpression_Value" description="Recognize: Sets BooleanExpression Value">
+  <imports href="http://www.sidiff.org/difference/symmetric/1.0#/"/>
+  <imports href="http://Statechart/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="__I6-0THmEeSydohUrNFgfA" name="rr:setBooleanExpressionValue" description="Recognize: Sets the EAttribute value">
+    <parameters xmi:id="__I6-0jHmEeSydohUrNFgfA" name="Selected"/>
+    <parameters xmi:id="__I6-0zHmEeSydohUrNFgfA" name="Value"/>
+    <lhs xmi:id="__I6-1DHmEeSydohUrNFgfA" name="Lhs">
+      <nodes xmi:id="__I6-1THmEeSydohUrNFgfA" name="B.Selected" incoming="__I6-3jHmEeSydohUrNFgfA __I6-4DHmEeSydohUrNFgfA">
+        <type href="http://Statechart/1.0#//BooleanExpression"/>
+        <attributes xmi:id="__I6-1jHmEeSydohUrNFgfA" value="Value">
+          <type href="http://Statechart/1.0#//BooleanExpression/value"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="__I6-1zHmEeSydohUrNFgfA" name="A.Selected" incoming="__I6-3THmEeSydohUrNFgfA __I6-3zHmEeSydohUrNFgfA">
+        <type href="http://Statechart/1.0#//BooleanExpression"/>
+      </nodes>
+      <nodes xmi:id="__I6-2DHmEeSydohUrNFgfA" name="" outgoing="__I6-3THmEeSydohUrNFgfA __I6-3jHmEeSydohUrNFgfA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence"/>
+      </nodes>
+      <nodes xmi:id="__I6-2THmEeSydohUrNFgfA" name="" outgoing="__I6-3zHmEeSydohUrNFgfA __I6-4DHmEeSydohUrNFgfA __I6-4THmEeSydohUrNFgfA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange"/>
+      </nodes>
+      <nodes xmi:id="__I6-2jHmEeSydohUrNFgfA" name="" incoming="__I6-4THmEeSydohUrNFgfA">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
+        <attributes xmi:id="__I6-2zHmEeSydohUrNFgfA" value="&quot;value&quot;">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="__I6-3DHmEeSydohUrNFgfA" name="">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="__I6-3THmEeSydohUrNFgfA" source="__I6-2DHmEeSydohUrNFgfA" target="__I6-1zHmEeSydohUrNFgfA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objA"/>
+      </edges>
+      <edges xmi:id="__I6-3jHmEeSydohUrNFgfA" source="__I6-2DHmEeSydohUrNFgfA" target="__I6-1THmEeSydohUrNFgfA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objB"/>
+      </edges>
+      <edges xmi:id="__I6-3zHmEeSydohUrNFgfA" source="__I6-2THmEeSydohUrNFgfA" target="__I6-1zHmEeSydohUrNFgfA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange/objA"/>
+      </edges>
+      <edges xmi:id="__I6-4DHmEeSydohUrNFgfA" source="__I6-2THmEeSydohUrNFgfA" target="__I6-1THmEeSydohUrNFgfA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange/objB"/>
+      </edges>
+      <edges xmi:id="__I6-4THmEeSydohUrNFgfA" source="__I6-2THmEeSydohUrNFgfA" target="__I6-2jHmEeSydohUrNFgfA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange/type"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="__I6-4jHmEeSydohUrNFgfA" name="Rhs">
+      <nodes xmi:id="__I6-4zHmEeSydohUrNFgfA" name="B.Selected" incoming="__I6-8zHmEeSydohUrNFgfA __I6-9THmEeSydohUrNFgfA">
+        <type href="http://Statechart/1.0#//BooleanExpression"/>
+      </nodes>
+      <nodes xmi:id="__I6-5DHmEeSydohUrNFgfA" name="A.Selected" incoming="__I6-8jHmEeSydohUrNFgfA __I6-9DHmEeSydohUrNFgfA">
+        <type href="http://Statechart/1.0#//BooleanExpression"/>
+      </nodes>
+      <nodes xmi:id="__I6-5THmEeSydohUrNFgfA" name="" outgoing="__I6-8jHmEeSydohUrNFgfA __I6-8zHmEeSydohUrNFgfA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence"/>
+      </nodes>
+      <nodes xmi:id="__I6-5jHmEeSydohUrNFgfA" name="" incoming="__I6-9zHmEeSydohUrNFgfA" outgoing="__I6-9DHmEeSydohUrNFgfA __I6-9THmEeSydohUrNFgfA __I6-9jHmEeSydohUrNFgfA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange"/>
+      </nodes>
+      <nodes xmi:id="__I6-5zHmEeSydohUrNFgfA" name="" incoming="__I6-9jHmEeSydohUrNFgfA">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
+      </nodes>
+      <nodes xmi:id="__I6-6DHmEeSydohUrNFgfA" incoming="__I6--DHmEeSydohUrNFgfA" outgoing="__I6-9zHmEeSydohUrNFgfA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet"/>
+        <attributes xmi:id="__I6-6THmEeSydohUrNFgfA" value="&quot;SET_BooleanExpression_Value&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/name"/>
+        </attributes>
+        <attributes xmi:id="__I6-6jHmEeSydohUrNFgfA" value="&quot;Sets BooleanExpression Value&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/description"/>
+        </attributes>
+        <attributes xmi:id="__I6-6zHmEeSydohUrNFgfA" value="&quot;SET_BooleanExpression_Value&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/editRName"/>
+        </attributes>
+        <attributes xmi:id="__I6-7DHmEeSydohUrNFgfA" value="&quot;RR: SET_BooleanExpression_Value&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/recognitionRName"/>
+        </attributes>
+        <attributes xmi:id="__I6-7THmEeSydohUrNFgfA" value="1">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/priority"/>
+        </attributes>
+        <attributes xmi:id="__I6-7jHmEeSydohUrNFgfA" value="0">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfACs"/>
+        </attributes>
+        <attributes xmi:id="__I6-7zHmEeSydohUrNFgfA" value="2">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfParams"/>
+        </attributes>
+        <attributes xmi:id="__I6-8DHmEeSydohUrNFgfA" value="3">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/refinementLevel"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="__I6-8THmEeSydohUrNFgfA" name="" outgoing="__I6--DHmEeSydohUrNFgfA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="__I6-8jHmEeSydohUrNFgfA" source="__I6-5THmEeSydohUrNFgfA" target="__I6-5DHmEeSydohUrNFgfA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objA"/>
+      </edges>
+      <edges xmi:id="__I6-8zHmEeSydohUrNFgfA" source="__I6-5THmEeSydohUrNFgfA" target="__I6-4zHmEeSydohUrNFgfA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objB"/>
+      </edges>
+      <edges xmi:id="__I6-9DHmEeSydohUrNFgfA" source="__I6-5jHmEeSydohUrNFgfA" target="__I6-5DHmEeSydohUrNFgfA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange/objA"/>
+      </edges>
+      <edges xmi:id="__I6-9THmEeSydohUrNFgfA" source="__I6-5jHmEeSydohUrNFgfA" target="__I6-4zHmEeSydohUrNFgfA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange/objB"/>
+      </edges>
+      <edges xmi:id="__I6-9jHmEeSydohUrNFgfA" source="__I6-5jHmEeSydohUrNFgfA" target="__I6-5zHmEeSydohUrNFgfA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange/type"/>
+      </edges>
+      <edges xmi:id="__I6-9zHmEeSydohUrNFgfA" source="__I6-6DHmEeSydohUrNFgfA" target="__I6-5jHmEeSydohUrNFgfA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="__I6--DHmEeSydohUrNFgfA" source="__I6-8THmEeSydohUrNFgfA" target="__I6-6DHmEeSydohUrNFgfA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference/changeSets"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="__I6--THmEeSydohUrNFgfA" origin="__I6-1THmEeSydohUrNFgfA" image="__I6-4zHmEeSydohUrNFgfA"/>
+    <mappings xmi:id="__I6--jHmEeSydohUrNFgfA" origin="__I6-1zHmEeSydohUrNFgfA" image="__I6-5DHmEeSydohUrNFgfA"/>
+    <mappings xmi:id="__I6--zHmEeSydohUrNFgfA" origin="__I6-2DHmEeSydohUrNFgfA" image="__I6-5THmEeSydohUrNFgfA"/>
+    <mappings xmi:id="__I6-_DHmEeSydohUrNFgfA" origin="__I6-2THmEeSydohUrNFgfA" image="__I6-5jHmEeSydohUrNFgfA"/>
+    <mappings xmi:id="__I6-_THmEeSydohUrNFgfA" origin="__I6-2jHmEeSydohUrNFgfA" image="__I6-5zHmEeSydohUrNFgfA"/>
+    <mappings xmi:id="__I6-_jHmEeSydohUrNFgfA" origin="__I6-3DHmEeSydohUrNFgfA" image="__I6-8THmEeSydohUrNFgfA"/>
+  </units>
+</henshin:Module>
