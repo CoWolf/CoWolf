@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_7JzzQCxnEeST64OCYIvQJw" name="CREATE_State_IN_CTMC_(States)" description="Creates one State in CTMC">
+  <imports href="http://ctmc/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_7JzzQSxnEeST64OCYIvQJw" name="createState_IN_CTMC" description="creates one State in the context: CTMC">
+    <parameters xmi:id="_7JzzQixnEeST64OCYIvQJw" name="Selected"/>
+    <parameters xmi:id="_7JzzQyxnEeST64OCYIvQJw" name="New"/>
+    <parameters xmi:id="_7JzzRCxnEeST64OCYIvQJw" name="Id"/>
+    <parameters xmi:id="_7JzzRSxnEeST64OCYIvQJw" name="Name"/>
+    <lhs xmi:id="_7JzzRixnEeST64OCYIvQJw" name="Lhs">
+      <nodes xmi:id="_7JzzRyxnEeST64OCYIvQJw" name="Selected">
+        <type href="http://ctmc/1.0#//CTMC"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_7JzzSCxnEeST64OCYIvQJw" name="Rhs">
+      <nodes xmi:id="_7JzzSSxnEeST64OCYIvQJw" name="Selected" outgoing="_7JzzTSxnEeST64OCYIvQJw">
+        <type href="http://ctmc/1.0#//CTMC"/>
+      </nodes>
+      <nodes xmi:id="_7JzzSixnEeST64OCYIvQJw" name="New" incoming="_7JzzTSxnEeST64OCYIvQJw">
+        <type href="http://ctmc/1.0#//State"/>
+        <attributes xmi:id="_7JzzSyxnEeST64OCYIvQJw" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_7JzzTCxnEeST64OCYIvQJw" value="Name">
+          <type href="http://ctmc/1.0#//State/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_7JzzTSxnEeST64OCYIvQJw" source="_7JzzSSxnEeST64OCYIvQJw" target="_7JzzSixnEeST64OCYIvQJw">
+        <type href="http://ctmc/1.0#//CTMC/States"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_7JzzTixnEeST64OCYIvQJw" origin="_7JzzRyxnEeST64OCYIvQJw" image="_7JzzSSxnEeST64OCYIvQJw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_7JzzTyxnEeST64OCYIvQJw" name="mainUnit" description="Creates one State depending on available contexts in model instance" subUnits="_7JzzQSxnEeST64OCYIvQJw">
+    <parameters xmi:id="_7JzzUCxnEeST64OCYIvQJw" name="New"/>
+    <parameters xmi:id="_7JzzUSxnEeST64OCYIvQJw" name="selectedEObject"/>
+    <parameters xmi:id="_7JzzUixnEeST64OCYIvQJw" name="Id"/>
+    <parameters xmi:id="_7JzzUyxnEeST64OCYIvQJw" name="Name"/>
+    <parameterMappings xmi:id="_7JzzVCxnEeST64OCYIvQJw" source="_7JzzUSxnEeST64OCYIvQJw" target="_7JzzQixnEeST64OCYIvQJw"/>
+    <parameterMappings xmi:id="_7JzzVSxnEeST64OCYIvQJw" source="_7JzzQyxnEeST64OCYIvQJw" target="_7JzzUCxnEeST64OCYIvQJw"/>
+    <parameterMappings xmi:id="_7JzzVixnEeST64OCYIvQJw" source="_7JzzUixnEeST64OCYIvQJw" target="_7JzzRCxnEeST64OCYIvQJw"/>
+    <parameterMappings xmi:id="_7JzzVyxnEeST64OCYIvQJw" source="_7JzzUyxnEeST64OCYIvQJw" target="_7JzzRSxnEeST64OCYIvQJw"/>
+  </units>
+</henshin:Module>

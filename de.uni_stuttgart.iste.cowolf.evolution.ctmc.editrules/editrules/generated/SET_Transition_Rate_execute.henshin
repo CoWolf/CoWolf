@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_7K_fGyxnEeST64OCYIvQJw" name="SET_Transition_Rate" description="Sets Transition Rate">
+  <imports href="http://ctmc/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_7K_fHCxnEeST64OCYIvQJw" name="setTransitionRate" description="Sets the EAttribute rate">
+    <parameters xmi:id="_7K_fHSxnEeST64OCYIvQJw" name="Selected"/>
+    <parameters xmi:id="_7K_fHixnEeST64OCYIvQJw" name="Rate"/>
+    <lhs xmi:id="_7K_fHyxnEeST64OCYIvQJw" name="Lhs">
+      <nodes xmi:id="_7K_fICxnEeST64OCYIvQJw" name="Selected">
+        <type href="http://ctmc/1.0#//Transition"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_7K_fISxnEeST64OCYIvQJw" name="Rhs">
+      <nodes xmi:id="_7K_fIixnEeST64OCYIvQJw" name="Selected">
+        <type href="http://ctmc/1.0#//Transition"/>
+        <attributes xmi:id="_7K_fIyxnEeST64OCYIvQJw" value="Rate">
+          <type href="http://ctmc/1.0#//Transition/rate"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_7K_fJCxnEeST64OCYIvQJw" origin="_7K_fICxnEeST64OCYIvQJw" image="_7K_fIixnEeST64OCYIvQJw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_7K_fJSxnEeST64OCYIvQJw" name="mainUnit" subUnits="_7K_fHCxnEeST64OCYIvQJw">
+    <parameters xmi:id="_7K_fJixnEeST64OCYIvQJw" name="selectedEObject"/>
+    <parameters xmi:id="_7K_fJyxnEeST64OCYIvQJw" name="Rate"/>
+    <parameterMappings xmi:id="_7K_fKCxnEeST64OCYIvQJw" source="_7K_fJixnEeST64OCYIvQJw" target="_7K_fHSxnEeST64OCYIvQJw"/>
+    <parameterMappings xmi:id="_7K_fKSxnEeST64OCYIvQJw" source="_7K_fJyxnEeST64OCYIvQJw" target="_7K_fHixnEeST64OCYIvQJw"/>
+  </units>
+</henshin:Module>

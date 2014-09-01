@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_7KzRwCxnEeST64OCYIvQJw" name="CREATE_Transition_IN_State_(outgoing)" description="Creates one Transition in State">
+  <imports href="http://ctmc/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_7KzRwSxnEeST64OCYIvQJw" name="createTransition_IN_State" description="creates one Transition in the context: State">
+    <parameters xmi:id="_7KzRwixnEeST64OCYIvQJw" name="Selected"/>
+    <parameters xmi:id="_7KzRwyxnEeST64OCYIvQJw" name="New"/>
+    <parameters xmi:id="_7KzRxCxnEeST64OCYIvQJw" name="Id"/>
+    <parameters xmi:id="_7KzRxSxnEeST64OCYIvQJw" name="Rate"/>
+    <parameters xmi:id="_7KzRxixnEeST64OCYIvQJw" name="Existing"/>
+    <lhs xmi:id="_7KzRxyxnEeST64OCYIvQJw" name="Lhs">
+      <nodes xmi:id="_7KzRyCxnEeST64OCYIvQJw" name="Selected">
+        <type href="http://ctmc/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_7KzRySxnEeST64OCYIvQJw" name="Existing">
+        <type href="http://ctmc/1.0#//State"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_7KzRyixnEeST64OCYIvQJw" name="Rhs">
+      <nodes xmi:id="_7KzRyyxnEeST64OCYIvQJw" name="Selected" incoming="_7KzR0SxnEeST64OCYIvQJw" outgoing="_7KzR0CxnEeST64OCYIvQJw">
+        <type href="http://ctmc/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_7KzRzCxnEeST64OCYIvQJw" name="New" incoming="_7KzR0CxnEeST64OCYIvQJw _7KzR0yxnEeST64OCYIvQJw" outgoing="_7KzR0SxnEeST64OCYIvQJw _7KzR0ixnEeST64OCYIvQJw">
+        <type href="http://ctmc/1.0#//Transition"/>
+        <attributes xmi:id="_7KzRzSxnEeST64OCYIvQJw" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_7KzRzixnEeST64OCYIvQJw" value="Rate">
+          <type href="http://ctmc/1.0#//Transition/rate"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_7KzRzyxnEeST64OCYIvQJw" name="Existing" incoming="_7KzR0ixnEeST64OCYIvQJw" outgoing="_7KzR0yxnEeST64OCYIvQJw">
+        <type href="http://ctmc/1.0#//State"/>
+      </nodes>
+      <edges xmi:id="_7KzR0CxnEeST64OCYIvQJw" source="_7KzRyyxnEeST64OCYIvQJw" target="_7KzRzCxnEeST64OCYIvQJw">
+        <type href="http://ctmc/1.0#//State/outgoing"/>
+      </edges>
+      <edges xmi:id="_7KzR0SxnEeST64OCYIvQJw" source="_7KzRzCxnEeST64OCYIvQJw" target="_7KzRyyxnEeST64OCYIvQJw">
+        <type href="http://ctmc/1.0#//Transition/from"/>
+      </edges>
+      <edges xmi:id="_7KzR0ixnEeST64OCYIvQJw" source="_7KzRzCxnEeST64OCYIvQJw" target="_7KzRzyxnEeST64OCYIvQJw">
+        <type href="http://ctmc/1.0#//Transition/to"/>
+      </edges>
+      <edges xmi:id="_7KzR0yxnEeST64OCYIvQJw" source="_7KzRzyxnEeST64OCYIvQJw" target="_7KzRzCxnEeST64OCYIvQJw">
+        <type href="http://ctmc/1.0#//State/incoming"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_7KzR1CxnEeST64OCYIvQJw" origin="_7KzRyCxnEeST64OCYIvQJw" image="_7KzRyyxnEeST64OCYIvQJw"/>
+    <mappings xmi:id="_7KzR1SxnEeST64OCYIvQJw" origin="_7KzRySxnEeST64OCYIvQJw" image="_7KzRzyxnEeST64OCYIvQJw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_7KzR1ixnEeST64OCYIvQJw" name="mainUnit" description="Creates one Transition depending on available contexts in model instance" subUnits="_7KzRwSxnEeST64OCYIvQJw">
+    <parameters xmi:id="_7KzR1yxnEeST64OCYIvQJw" name="New"/>
+    <parameters xmi:id="_7KzR2CxnEeST64OCYIvQJw" name="selectedEObject"/>
+    <parameters xmi:id="_7KzR2SxnEeST64OCYIvQJw" name="Id"/>
+    <parameters xmi:id="_7KzR2ixnEeST64OCYIvQJw" name="Rate"/>
+    <parameters xmi:id="_7Kz40CxnEeST64OCYIvQJw" name="Existing"/>
+    <parameterMappings xmi:id="_7Kz40SxnEeST64OCYIvQJw" source="_7KzR2CxnEeST64OCYIvQJw" target="_7KzRwixnEeST64OCYIvQJw"/>
+    <parameterMappings xmi:id="_7Kz40ixnEeST64OCYIvQJw" source="_7KzRwyxnEeST64OCYIvQJw" target="_7KzR1yxnEeST64OCYIvQJw"/>
+    <parameterMappings xmi:id="_7Kz40yxnEeST64OCYIvQJw" source="_7KzR2SxnEeST64OCYIvQJw" target="_7KzRxCxnEeST64OCYIvQJw"/>
+    <parameterMappings xmi:id="_7Kz41CxnEeST64OCYIvQJw" source="_7KzR2ixnEeST64OCYIvQJw" target="_7KzRxSxnEeST64OCYIvQJw"/>
+    <parameterMappings xmi:id="_7Kz41SxnEeST64OCYIvQJw" source="_7Kz40CxnEeST64OCYIvQJw" target="_7KzRxixnEeST64OCYIvQJw"/>
+  </units>
+</henshin:Module>
