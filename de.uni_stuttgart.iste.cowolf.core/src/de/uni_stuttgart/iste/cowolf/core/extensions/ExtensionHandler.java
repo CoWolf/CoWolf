@@ -1,5 +1,7 @@
 package de.uni_stuttgart.iste.cowolf.core.extensions;
 
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -252,4 +254,7 @@ public class ExtensionHandler {
         return allModelNames;
     }
 
+    public List<OutputStream> createAllCommandLineExecutionListener() {
+    	return this.createExecuteableExtensions("de.uni_stuttgart.iste.cowolf.core.CommandLineExecutionListener", "class", OutputStream.class);
+    }
 }
