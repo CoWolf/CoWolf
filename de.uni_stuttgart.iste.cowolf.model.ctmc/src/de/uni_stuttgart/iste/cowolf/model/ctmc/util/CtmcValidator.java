@@ -105,7 +105,46 @@ public class CtmcValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateCTMC(CTMC ctmc, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(ctmc, diagnostics, context);
+		if (!validate_NoCircularContainment(ctmc, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(ctmc, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(ctmc, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(ctmc, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(ctmc, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(ctmc, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(ctmc, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(ctmc, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(ctmc, diagnostics, context);
+		if (result || diagnostics != null) result &= validateCTMC_initalStateRequired(ctmc, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * The cached validation expression for the initalStateRequired constraint of '<em>CTMC</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String CTMC__INITAL_STATE_REQUIRED__EEXPRESSION = "self.initialState -> size() >0";
+
+	/**
+	 * Validates the initalStateRequired constraint of '<em>CTMC</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateCTMC_initalStateRequired(CTMC ctmc, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(CtmcPackage.Literals.CTMC,
+				 ctmc,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
+				 "initalStateRequired",
+				 CTMC__INITAL_STATE_REQUIRED__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
 
 	/**

@@ -371,7 +371,7 @@ public class CtmcPackageImpl extends EPackageImpl implements CtmcPackage {
 		initEClass(ctmcEClass, de.uni_stuttgart.iste.cowolf.model.ctmc.CTMC.class, "CTMC", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCTMC_Name(), ecorePackage.getEString(), "name", "", 0, 1, de.uni_stuttgart.iste.cowolf.model.ctmc.CTMC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCTMC_States(), this.getState(), null, "States", null, 0, -1, de.uni_stuttgart.iste.cowolf.model.ctmc.CTMC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCTMC_InitialState(), this.getState(), null, "initialState", null, 1, 1, de.uni_stuttgart.iste.cowolf.model.ctmc.CTMC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCTMC_InitialState(), this.getState(), null, "initialState", null, 0, 1, de.uni_stuttgart.iste.cowolf.model.ctmc.CTMC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getState_Name(), ecorePackage.getEString(), "name", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -435,6 +435,12 @@ public class CtmcPackageImpl extends EPackageImpl implements CtmcPackage {
 			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL"
 		   });	
 		addAnnotation
+		  (ctmcEClass, 
+		   source, 
+		   new String[] {
+			 "constraints", "initalStateRequired"
+		   });	
+		addAnnotation
 		  (stateEClass, 
 		   source, 
 		   new String[] {
@@ -456,6 +462,12 @@ public class CtmcPackageImpl extends EPackageImpl implements CtmcPackage {
 	 */
 	protected void createOCLAnnotations() {
 		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL";	
+		addAnnotation
+		  (ctmcEClass, 
+		   source, 
+		   new String[] {
+			 "initalStateRequired", "self.initialState -> size() >0"
+		   });	
 		addAnnotation
 		  (stateEClass, 
 		   source, 

@@ -114,25 +114,25 @@ public class DTMCValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(dtmc, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(dtmc, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(dtmc, diagnostics, context);
-		if (result || diagnostics != null) result &= validateDTMC_initalStateRequierd(dtmc, diagnostics, context);
+		if (result || diagnostics != null) result &= validateDTMC_initalStateRequired(dtmc, diagnostics, context);
 		return result;
 	}
 
 	/**
-	 * The cached validation expression for the initalStateRequierd constraint of '<em>DTMC</em>'.
+	 * The cached validation expression for the initalStateRequired constraint of '<em>DTMC</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String DTMC__INITAL_STATE_REQUIERD__EEXPRESSION = "self.initialState -> size() >0";
+	protected static final String DTMC__INITAL_STATE_REQUIRED__EEXPRESSION = "self.initialState -> size() >0";
 
 	/**
-	 * Validates the initalStateRequierd constraint of '<em>DTMC</em>'.
+	 * Validates the initalStateRequired constraint of '<em>DTMC</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateDTMC_initalStateRequierd(DTMC dtmc, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateDTMC_initalStateRequired(DTMC dtmc, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return
 			validate
 				(DTMCPackage.Literals.DTMC,
@@ -140,8 +140,8 @@ public class DTMCValidator extends EObjectValidator {
 				 diagnostics,
 				 context,
 				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
-				 "initalStateRequierd",
-				 DTMC__INITAL_STATE_REQUIERD__EEXPRESSION,
+				 "initalStateRequired",
+				 DTMC__INITAL_STATE_REQUIRED__EEXPRESSION,
 				 Diagnostic.ERROR,
 				 DIAGNOSTIC_SOURCE,
 				 0);

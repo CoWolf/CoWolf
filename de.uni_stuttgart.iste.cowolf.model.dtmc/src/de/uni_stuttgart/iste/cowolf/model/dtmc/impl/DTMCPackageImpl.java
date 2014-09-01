@@ -361,7 +361,7 @@ public class DTMCPackageImpl extends EPackageImpl implements DTMCPackage {
 		initEClass(dtmcEClass, de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC.class, "DTMC", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDTMC_Name(), ecorePackage.getEString(), "name", "", 0, 1, de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDTMC_States(), this.getState(), null, "States", null, 0, -1, de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDTMC_InitialState(), this.getState(), null, "initialState", null, 1, 1, de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDTMC_InitialState(), this.getState(), null, "initialState", null, 0, 1, de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getState_Name(), ecorePackage.getEString(), "name", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -424,6 +424,12 @@ public class DTMCPackageImpl extends EPackageImpl implements DTMCPackage {
 			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL"
 		   });	
 		addAnnotation
+		  (dtmcEClass, 
+		   source, 
+		   new String[] {
+			 "constraints", "initalStateRequired"
+		   });	
+		addAnnotation
 		  (stateEClass, 
 		   source, 
 		   new String[] {
@@ -445,6 +451,12 @@ public class DTMCPackageImpl extends EPackageImpl implements DTMCPackage {
 	 */
 	protected void createOCLAnnotations() {
 		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL";	
+		addAnnotation
+		  (dtmcEClass, 
+		   source, 
+		   new String[] {
+			 "initalStateRequired", "self.initialState -> size() >0"
+		   });	
 		addAnnotation
 		  (stateEClass, 
 		   source, 

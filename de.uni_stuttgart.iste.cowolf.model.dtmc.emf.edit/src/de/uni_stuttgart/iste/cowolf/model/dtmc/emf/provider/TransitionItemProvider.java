@@ -55,57 +55,69 @@ public class TransitionItemProvider extends IDBaseItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the From feature. <!-- begin-user-doc
+	 * This adds a property descriptor for the From feature.
+	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected void addFromPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Transition_from_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Transition_from_feature", "_UI_Transition_type"),
-				DTMCPackage.Literals.TRANSITION__FROM, true, false, true, null,
-				null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Transition_from_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Transition_from_feature", "_UI_Transition_type"),
+				 DTMCPackage.Literals.TRANSITION__FROM,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
-	 * This adds a property descriptor for the To feature. <!-- begin-user-doc
+	 * This adds a property descriptor for the To feature.
+	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected void addToPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Transition_to_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Transition_to_feature", "_UI_Transition_type"),
-				DTMCPackage.Literals.TRANSITION__TO, true, false, true, null,
-				null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Transition_to_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Transition_to_feature", "_UI_Transition_type"),
+				 DTMCPackage.Literals.TRANSITION__TO,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Prob feature. <!-- begin-user-doc
+	 * This adds a property descriptor for the Prob feature.
+	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected void addProbPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Transition_prob_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Transition_prob_feature", "_UI_Transition_type"),
-				DTMCPackage.Literals.TRANSITION__PROB, true, false, false,
-				ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Transition_prob_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Transition_prob_feature", "_UI_Transition_type"),
+				 DTMCPackage.Literals.TRANSITION__PROB,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -116,8 +128,7 @@ public class TransitionItemProvider extends IDBaseItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/Transition"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Transition"));
 	}
 
 	/**
@@ -145,11 +156,10 @@ public class TransitionItemProvider extends IDBaseItemProvider {
 	}
 
 	/**
-	 * This handles model notifications by calling {@link #updateChildren} to
-	 * update any cached children and by creating a viewer notification, which
-	 * it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!--
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -157,12 +167,11 @@ public class TransitionItemProvider extends IDBaseItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Transition.class)) {
-		case DTMCPackage.TRANSITION__FROM:
-		case DTMCPackage.TRANSITION__TO:
-		case DTMCPackage.TRANSITION__PROB:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), false, true));
-			return;
+			case DTMCPackage.TRANSITION__FROM:
+			case DTMCPackage.TRANSITION__TO:
+			case DTMCPackage.TRANSITION__PROB:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}

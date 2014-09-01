@@ -21,7 +21,8 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  *
  * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCPackage#getDTMC()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='initalStateRequired'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL initalStateRequired='self.initialState -> size() >0'"
  * @generated
  */
 public interface DTMC extends IDBase {
@@ -79,7 +80,7 @@ public interface DTMC extends IDBase {
 	 * @return the value of the '<em>Initial State</em>' reference.
 	 * @see #setInitialState(State)
 	 * @see de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCPackage#getDTMC_InitialState()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	State getInitialState();
