@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_oTHEgDHBEeSBN5eTlbAeIA" name="RR: SET_Gate_(outputGate)_TGT_Gate" description="Recognize: Sets Gate's reference outputGate the target Gate">
+  <imports href="http://www.sidiff.org/difference/symmetric/1.0#/"/>
+  <imports href="http://FaultTree/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_oTHEgTHBEeSBN5eTlbAeIA" name="rr:setGate_outputGate_TO_Gate" description="Recognize: SetGateRefoutputGateToGate">
+    <parameters xmi:id="_oTHEgjHBEeSBN5eTlbAeIA" name="Selected"/>
+    <parameters xmi:id="_oTHEgzHBEeSBN5eTlbAeIA" name="NewTarget"/>
+    <lhs xmi:id="_oTHEhDHBEeSBN5eTlbAeIA" name="Lhs">
+      <nodes xmi:id="_oTHEhTHBEeSBN5eTlbAeIA" name="B.Selected" incoming="_oTHEizHBEeSBN5eTlbAeIA" outgoing="_oTHEjjHBEeSBN5eTlbAeIA">
+        <type href="http://FaultTree/1.0#//Gate"/>
+      </nodes>
+      <nodes xmi:id="_oTHEhjHBEeSBN5eTlbAeIA" name="B.NewTarget" incoming="_oTHEjDHBEeSBN5eTlbAeIA _oTHEjjHBEeSBN5eTlbAeIA">
+        <type href="http://FaultTree/1.0#//Gate"/>
+      </nodes>
+      <nodes xmi:id="_oTHEhzHBEeSBN5eTlbAeIA" name="" outgoing="_oTHEizHBEeSBN5eTlbAeIA _oTHEjDHBEeSBN5eTlbAeIA _oTHEjTHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference"/>
+      </nodes>
+      <nodes xmi:id="_oTHEiDHBEeSBN5eTlbAeIA" name="" incoming="_oTHEjTHBEeSBN5eTlbAeIA">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+        <attributes xmi:id="_oTHEiTHBEeSBN5eTlbAeIA" value="&quot;outputGate&quot;">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_oTHEijHBEeSBN5eTlbAeIA" name="">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_oTHEizHBEeSBN5eTlbAeIA" source="_oTHEhzHBEeSBN5eTlbAeIA" target="_oTHEhTHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/src"/>
+      </edges>
+      <edges xmi:id="_oTHEjDHBEeSBN5eTlbAeIA" source="_oTHEhzHBEeSBN5eTlbAeIA" target="_oTHEhjHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/tgt"/>
+      </edges>
+      <edges xmi:id="_oTHEjTHBEeSBN5eTlbAeIA" source="_oTHEhzHBEeSBN5eTlbAeIA" target="_oTHEiDHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/type"/>
+      </edges>
+      <edges xmi:id="_oTHEjjHBEeSBN5eTlbAeIA" source="_oTHEhTHBEeSBN5eTlbAeIA" target="_oTHEhjHBEeSBN5eTlbAeIA">
+        <type href="http://FaultTree/1.0#//Gate/outputGate"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_oTHEjzHBEeSBN5eTlbAeIA" name="Rhs">
+      <nodes xmi:id="_oTHEkDHBEeSBN5eTlbAeIA" name="B.Selected" incoming="_oTHEnjHBEeSBN5eTlbAeIA" outgoing="_oTHEoTHBEeSBN5eTlbAeIA">
+        <type href="http://FaultTree/1.0#//Gate"/>
+      </nodes>
+      <nodes xmi:id="_oTHEkTHBEeSBN5eTlbAeIA" name="B.NewTarget" incoming="_oTHEnzHBEeSBN5eTlbAeIA _oTHEoTHBEeSBN5eTlbAeIA">
+        <type href="http://FaultTree/1.0#//Gate"/>
+      </nodes>
+      <nodes xmi:id="_oTHEkjHBEeSBN5eTlbAeIA" name="" incoming="_oTHEojHBEeSBN5eTlbAeIA" outgoing="_oTHEnjHBEeSBN5eTlbAeIA _oTHEnzHBEeSBN5eTlbAeIA _oTHEoDHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference"/>
+      </nodes>
+      <nodes xmi:id="_oTHEkzHBEeSBN5eTlbAeIA" name="" incoming="_oTHEoDHBEeSBN5eTlbAeIA">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+      </nodes>
+      <nodes xmi:id="_oTHElDHBEeSBN5eTlbAeIA" incoming="_oTHEozHBEeSBN5eTlbAeIA" outgoing="_oTHEojHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet"/>
+        <attributes xmi:id="_oTHElTHBEeSBN5eTlbAeIA" value="&quot;SET_Gate_(outputGate)_TGT_Gate&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/name"/>
+        </attributes>
+        <attributes xmi:id="_oTHEljHBEeSBN5eTlbAeIA" value="&quot;Sets Gate's reference outputGate the target Gate&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/description"/>
+        </attributes>
+        <attributes xmi:id="_oTHElzHBEeSBN5eTlbAeIA" value="&quot;SET_Gate_(outputGate)_TGT_Gate&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/editRName"/>
+        </attributes>
+        <attributes xmi:id="_oTHEmDHBEeSBN5eTlbAeIA" value="&quot;RR: SET_Gate_(outputGate)_TGT_Gate&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/recognitionRName"/>
+        </attributes>
+        <attributes xmi:id="_oTHEmTHBEeSBN5eTlbAeIA" value="1">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/priority"/>
+        </attributes>
+        <attributes xmi:id="_oTHEmjHBEeSBN5eTlbAeIA" value="0">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfACs"/>
+        </attributes>
+        <attributes xmi:id="_oTHEmzHBEeSBN5eTlbAeIA" value="2">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfParams"/>
+        </attributes>
+        <attributes xmi:id="_oTHEnDHBEeSBN5eTlbAeIA" value="4">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/refinementLevel"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_oTHEnTHBEeSBN5eTlbAeIA" name="" outgoing="_oTHEozHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_oTHEnjHBEeSBN5eTlbAeIA" source="_oTHEkjHBEeSBN5eTlbAeIA" target="_oTHEkDHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/src"/>
+      </edges>
+      <edges xmi:id="_oTHEnzHBEeSBN5eTlbAeIA" source="_oTHEkjHBEeSBN5eTlbAeIA" target="_oTHEkTHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/tgt"/>
+      </edges>
+      <edges xmi:id="_oTHEoDHBEeSBN5eTlbAeIA" source="_oTHEkjHBEeSBN5eTlbAeIA" target="_oTHEkzHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/type"/>
+      </edges>
+      <edges xmi:id="_oTHEoTHBEeSBN5eTlbAeIA" source="_oTHEkDHBEeSBN5eTlbAeIA" target="_oTHEkTHBEeSBN5eTlbAeIA">
+        <type href="http://FaultTree/1.0#//Gate/outputGate"/>
+      </edges>
+      <edges xmi:id="_oTHEojHBEeSBN5eTlbAeIA" source="_oTHElDHBEeSBN5eTlbAeIA" target="_oTHEkjHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_oTHEozHBEeSBN5eTlbAeIA" source="_oTHEnTHBEeSBN5eTlbAeIA" target="_oTHElDHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference/changeSets"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_oTHEpDHBEeSBN5eTlbAeIA" origin="_oTHEhTHBEeSBN5eTlbAeIA" image="_oTHEkDHBEeSBN5eTlbAeIA"/>
+    <mappings xmi:id="_oTHEpTHBEeSBN5eTlbAeIA" origin="_oTHEhjHBEeSBN5eTlbAeIA" image="_oTHEkTHBEeSBN5eTlbAeIA"/>
+    <mappings xmi:id="_oTHEpjHBEeSBN5eTlbAeIA" origin="_oTHEhzHBEeSBN5eTlbAeIA" image="_oTHEkjHBEeSBN5eTlbAeIA"/>
+    <mappings xmi:id="_oTHEpzHBEeSBN5eTlbAeIA" origin="_oTHEiDHBEeSBN5eTlbAeIA" image="_oTHEkzHBEeSBN5eTlbAeIA"/>
+    <mappings xmi:id="_oTHEqDHBEeSBN5eTlbAeIA" origin="_oTHEijHBEeSBN5eTlbAeIA" image="_oTHEnTHBEeSBN5eTlbAeIA"/>
+  </units>
+</henshin:Module>

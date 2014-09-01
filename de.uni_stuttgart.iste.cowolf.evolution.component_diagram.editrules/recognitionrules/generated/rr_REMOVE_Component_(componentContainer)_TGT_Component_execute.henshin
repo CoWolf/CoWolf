@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_nPOloDHBEeSBN5eTlbAeIA" name="RR: REMOVE_Component_(componentContainer)_TGT_Component" description="Recognize: Removes Component's reference componentContainer the target Component">
+  <imports href="http://www.sidiff.org/difference/symmetric/1.0#/"/>
+  <imports href="http://ComponentDiagram/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_nPOloTHBEeSBN5eTlbAeIA" name="rr:removeFromComponent_componentContainer_Component" description="Recognize: Removes from Component's reference componentContainer the target Component">
+    <parameters xmi:id="_nPOlojHBEeSBN5eTlbAeIA" name="Selected"/>
+    <parameters xmi:id="_nPOlozHBEeSBN5eTlbAeIA" name="OldTarget"/>
+    <lhs xmi:id="_nPOlpDHBEeSBN5eTlbAeIA" name="Lhs">
+      <nodes xmi:id="_nPOlpTHBEeSBN5eTlbAeIA" name="A.Selected" incoming="_nPOlqzHBEeSBN5eTlbAeIA" outgoing="_nPOlrjHBEeSBN5eTlbAeIA">
+        <type href="http://ComponentDiagram/1.0#//Component"/>
+      </nodes>
+      <nodes xmi:id="_nPOlpjHBEeSBN5eTlbAeIA" name="A.OldTarget" incoming="_nPOlrDHBEeSBN5eTlbAeIA _nPOlrjHBEeSBN5eTlbAeIA">
+        <type href="http://ComponentDiagram/1.0#//Component"/>
+      </nodes>
+      <nodes xmi:id="_nPOlpzHBEeSBN5eTlbAeIA" name="" outgoing="_nPOlqzHBEeSBN5eTlbAeIA _nPOlrDHBEeSBN5eTlbAeIA _nPOlrTHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference"/>
+      </nodes>
+      <nodes xmi:id="_nPOlqDHBEeSBN5eTlbAeIA" name="" incoming="_nPOlrTHBEeSBN5eTlbAeIA">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+        <attributes xmi:id="_nPOlqTHBEeSBN5eTlbAeIA" value="&quot;componentContainer&quot;">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_nPOlqjHBEeSBN5eTlbAeIA" name="">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_nPOlqzHBEeSBN5eTlbAeIA" source="_nPOlpzHBEeSBN5eTlbAeIA" target="_nPOlpTHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/src"/>
+      </edges>
+      <edges xmi:id="_nPOlrDHBEeSBN5eTlbAeIA" source="_nPOlpzHBEeSBN5eTlbAeIA" target="_nPOlpjHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/tgt"/>
+      </edges>
+      <edges xmi:id="_nPOlrTHBEeSBN5eTlbAeIA" source="_nPOlpzHBEeSBN5eTlbAeIA" target="_nPOlqDHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/type"/>
+      </edges>
+      <edges xmi:id="_nPOlrjHBEeSBN5eTlbAeIA" source="_nPOlpTHBEeSBN5eTlbAeIA" target="_nPOlpjHBEeSBN5eTlbAeIA">
+        <type href="http://ComponentDiagram/1.0#//Component/componentContainer"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_nPOlrzHBEeSBN5eTlbAeIA" name="Rhs">
+      <nodes xmi:id="_nPOlsDHBEeSBN5eTlbAeIA" name="A.Selected" incoming="_nPOlvjHBEeSBN5eTlbAeIA" outgoing="_nPOlwTHBEeSBN5eTlbAeIA">
+        <type href="http://ComponentDiagram/1.0#//Component"/>
+      </nodes>
+      <nodes xmi:id="_nPOlsTHBEeSBN5eTlbAeIA" name="A.OldTarget" incoming="_nPOlvzHBEeSBN5eTlbAeIA _nPOlwTHBEeSBN5eTlbAeIA">
+        <type href="http://ComponentDiagram/1.0#//Component"/>
+      </nodes>
+      <nodes xmi:id="_nPOlsjHBEeSBN5eTlbAeIA" name="" incoming="_nPOlwjHBEeSBN5eTlbAeIA" outgoing="_nPOlvjHBEeSBN5eTlbAeIA _nPOlvzHBEeSBN5eTlbAeIA _nPOlwDHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference"/>
+      </nodes>
+      <nodes xmi:id="_nPOlszHBEeSBN5eTlbAeIA" name="" incoming="_nPOlwDHBEeSBN5eTlbAeIA">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+      </nodes>
+      <nodes xmi:id="_nPOltDHBEeSBN5eTlbAeIA" incoming="_nPOlwzHBEeSBN5eTlbAeIA" outgoing="_nPOlwjHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet"/>
+        <attributes xmi:id="_nPOltTHBEeSBN5eTlbAeIA" value="&quot;REMOVE_Component_(componentContainer)_TGT_Component&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/name"/>
+        </attributes>
+        <attributes xmi:id="_nPOltjHBEeSBN5eTlbAeIA" value="&quot;Removes Component's reference componentContainer the target Component&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/description"/>
+        </attributes>
+        <attributes xmi:id="_nPOltzHBEeSBN5eTlbAeIA" value="&quot;REMOVE_Component_(componentContainer)_TGT_Component&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/editRName"/>
+        </attributes>
+        <attributes xmi:id="_nPOluDHBEeSBN5eTlbAeIA" value="&quot;RR: REMOVE_Component_(componentContainer)_TGT_Component&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/recognitionRName"/>
+        </attributes>
+        <attributes xmi:id="_nPOluTHBEeSBN5eTlbAeIA" value="1">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/priority"/>
+        </attributes>
+        <attributes xmi:id="_nPOlujHBEeSBN5eTlbAeIA" value="0">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfACs"/>
+        </attributes>
+        <attributes xmi:id="_nPOluzHBEeSBN5eTlbAeIA" value="2">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfParams"/>
+        </attributes>
+        <attributes xmi:id="_nPOlvDHBEeSBN5eTlbAeIA" value="6">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/refinementLevel"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_nPOlvTHBEeSBN5eTlbAeIA" name="" outgoing="_nPOlwzHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_nPOlvjHBEeSBN5eTlbAeIA" source="_nPOlsjHBEeSBN5eTlbAeIA" target="_nPOlsDHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/src"/>
+      </edges>
+      <edges xmi:id="_nPOlvzHBEeSBN5eTlbAeIA" source="_nPOlsjHBEeSBN5eTlbAeIA" target="_nPOlsTHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/tgt"/>
+      </edges>
+      <edges xmi:id="_nPOlwDHBEeSBN5eTlbAeIA" source="_nPOlsjHBEeSBN5eTlbAeIA" target="_nPOlszHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/type"/>
+      </edges>
+      <edges xmi:id="_nPOlwTHBEeSBN5eTlbAeIA" source="_nPOlsDHBEeSBN5eTlbAeIA" target="_nPOlsTHBEeSBN5eTlbAeIA">
+        <type href="http://ComponentDiagram/1.0#//Component/componentContainer"/>
+      </edges>
+      <edges xmi:id="_nPOlwjHBEeSBN5eTlbAeIA" source="_nPOltDHBEeSBN5eTlbAeIA" target="_nPOlsjHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_nPOlwzHBEeSBN5eTlbAeIA" source="_nPOlvTHBEeSBN5eTlbAeIA" target="_nPOltDHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference/changeSets"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_nPOlxDHBEeSBN5eTlbAeIA" origin="_nPOlpTHBEeSBN5eTlbAeIA" image="_nPOlsDHBEeSBN5eTlbAeIA"/>
+    <mappings xmi:id="_nPOlxTHBEeSBN5eTlbAeIA" origin="_nPOlpjHBEeSBN5eTlbAeIA" image="_nPOlsTHBEeSBN5eTlbAeIA"/>
+    <mappings xmi:id="_nPOlxjHBEeSBN5eTlbAeIA" origin="_nPOlpzHBEeSBN5eTlbAeIA" image="_nPOlsjHBEeSBN5eTlbAeIA"/>
+    <mappings xmi:id="_nPOlxzHBEeSBN5eTlbAeIA" origin="_nPOlqDHBEeSBN5eTlbAeIA" image="_nPOlszHBEeSBN5eTlbAeIA"/>
+    <mappings xmi:id="_nPOlyDHBEeSBN5eTlbAeIA" origin="_nPOlqjHBEeSBN5eTlbAeIA" image="_nPOlvTHBEeSBN5eTlbAeIA"/>
+  </units>
+</henshin:Module>

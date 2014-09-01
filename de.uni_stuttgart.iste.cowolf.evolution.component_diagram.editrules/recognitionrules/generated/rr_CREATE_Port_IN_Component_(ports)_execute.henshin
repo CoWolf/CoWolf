@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_nOcigDHBEeSBN5eTlbAeIA" name="RR: CREATE_Port_IN_Component_(ports)" description="Recognize: Creates one Port in Component">
+  <imports href="http://www.sidiff.org/difference/symmetric/1.0#/"/>
+  <imports href="http://ComponentDiagram/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_nOcigTHBEeSBN5eTlbAeIA" name="rr:createPort_IN_Component" description="Recognize: creates one Port in the context: Component">
+    <parameters xmi:id="_nOcigjHBEeSBN5eTlbAeIA" name="Selected"/>
+    <parameters xmi:id="_nOcigzHBEeSBN5eTlbAeIA" name="New"/>
+    <parameters xmi:id="_nOcihDHBEeSBN5eTlbAeIA" name="Id"/>
+    <parameters xmi:id="_nOcihTHBEeSBN5eTlbAeIA" name="Name"/>
+    <parameters xmi:id="_nOcihjHBEeSBN5eTlbAeIA" name="Protocol"/>
+    <parameters xmi:id="_nOcihzHBEeSBN5eTlbAeIA" name="IsBehavior"/>
+    <parameters xmi:id="_nOciiDHBEeSBN5eTlbAeIA" name="IsService"/>
+    <lhs xmi:id="_nOciiTHBEeSBN5eTlbAeIA" name="Lhs">
+      <nodes xmi:id="_nOciijHBEeSBN5eTlbAeIA" name="B.Selected" incoming="_nOcimjHBEeSBN5eTlbAeIA _nOcinzHBEeSBN5eTlbAeIA _nOcioTHBEeSBN5eTlbAeIA" outgoing="_nOcinTHBEeSBN5eTlbAeIA">
+        <type href="http://ComponentDiagram/1.0#//Component"/>
+      </nodes>
+      <nodes xmi:id="_nOciizHBEeSBN5eTlbAeIA" name="" outgoing="_nOcimTHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddObject"/>
+      </nodes>
+      <nodes xmi:id="_nOcijDHBEeSBN5eTlbAeIA" name="B.New" incoming="_nOcimTHBEeSBN5eTlbAeIA _nOcimzHBEeSBN5eTlbAeIA _nOcinTHBEeSBN5eTlbAeIA _nOcinjHBEeSBN5eTlbAeIA" outgoing="_nOcioTHBEeSBN5eTlbAeIA">
+        <type href="http://ComponentDiagram/1.0#//Port"/>
+        <attributes xmi:id="_nOcijTHBEeSBN5eTlbAeIA" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_nOcijjHBEeSBN5eTlbAeIA" value="Name">
+          <type href="http://CommonBase/1.0#//NameBase/name"/>
+        </attributes>
+        <attributes xmi:id="_nOcijzHBEeSBN5eTlbAeIA" value="Protocol">
+          <type href="http://ComponentDiagram/1.0#//Port/protocol"/>
+        </attributes>
+        <attributes xmi:id="_nOcikDHBEeSBN5eTlbAeIA" value="IsBehavior">
+          <type href="http://ComponentDiagram/1.0#//Port/isBehavior"/>
+        </attributes>
+        <attributes xmi:id="_nOcikTHBEeSBN5eTlbAeIA" value="IsService">
+          <type href="http://ComponentDiagram/1.0#//Port/isService"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_nOcikjHBEeSBN5eTlbAeIA" name="" outgoing="_nOcimjHBEeSBN5eTlbAeIA _nOcimzHBEeSBN5eTlbAeIA _nOcinDHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference"/>
+      </nodes>
+      <nodes xmi:id="_nOcikzHBEeSBN5eTlbAeIA" name="" incoming="_nOcinDHBEeSBN5eTlbAeIA">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+        <attributes xmi:id="_nOcilDHBEeSBN5eTlbAeIA" value="&quot;ports&quot;">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_nOcilTHBEeSBN5eTlbAeIA" name="" outgoing="_nOcinjHBEeSBN5eTlbAeIA _nOcinzHBEeSBN5eTlbAeIA _nOcioDHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference"/>
+      </nodes>
+      <nodes xmi:id="_nOciljHBEeSBN5eTlbAeIA" name="" incoming="_nOcioDHBEeSBN5eTlbAeIA">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+        <attributes xmi:id="_nOcilzHBEeSBN5eTlbAeIA" value="&quot;portHost&quot;">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_nOcimDHBEeSBN5eTlbAeIA" name="">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_nOcimTHBEeSBN5eTlbAeIA" source="_nOciizHBEeSBN5eTlbAeIA" target="_nOcijDHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddObject/obj"/>
+      </edges>
+      <edges xmi:id="_nOcimjHBEeSBN5eTlbAeIA" source="_nOcikjHBEeSBN5eTlbAeIA" target="_nOciijHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/src"/>
+      </edges>
+      <edges xmi:id="_nOcimzHBEeSBN5eTlbAeIA" source="_nOcikjHBEeSBN5eTlbAeIA" target="_nOcijDHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/tgt"/>
+      </edges>
+      <edges xmi:id="_nOcinDHBEeSBN5eTlbAeIA" source="_nOcikjHBEeSBN5eTlbAeIA" target="_nOcikzHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/type"/>
+      </edges>
+      <edges xmi:id="_nOcinTHBEeSBN5eTlbAeIA" source="_nOciijHBEeSBN5eTlbAeIA" target="_nOcijDHBEeSBN5eTlbAeIA">
+        <type href="http://ComponentDiagram/1.0#//Component/ports"/>
+      </edges>
+      <edges xmi:id="_nOcinjHBEeSBN5eTlbAeIA" source="_nOcilTHBEeSBN5eTlbAeIA" target="_nOcijDHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/src"/>
+      </edges>
+      <edges xmi:id="_nOcinzHBEeSBN5eTlbAeIA" source="_nOcilTHBEeSBN5eTlbAeIA" target="_nOciijHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/tgt"/>
+      </edges>
+      <edges xmi:id="_nOcioDHBEeSBN5eTlbAeIA" source="_nOcilTHBEeSBN5eTlbAeIA" target="_nOciljHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/type"/>
+      </edges>
+      <edges xmi:id="_nOcioTHBEeSBN5eTlbAeIA" source="_nOcijDHBEeSBN5eTlbAeIA" target="_nOciijHBEeSBN5eTlbAeIA">
+        <type href="http://ComponentDiagram/1.0#//Port/portHost"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_nOciojHBEeSBN5eTlbAeIA" name="Rhs">
+      <nodes xmi:id="_nOciozHBEeSBN5eTlbAeIA" name="B.Selected" incoming="_nOcitTHBEeSBN5eTlbAeIA _nOciujHBEeSBN5eTlbAeIA _nOcivDHBEeSBN5eTlbAeIA" outgoing="_nOciuDHBEeSBN5eTlbAeIA">
+        <type href="http://ComponentDiagram/1.0#//Component"/>
+      </nodes>
+      <nodes xmi:id="_nOcipDHBEeSBN5eTlbAeIA" name="" incoming="_nOcivTHBEeSBN5eTlbAeIA" outgoing="_nOcitDHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddObject"/>
+      </nodes>
+      <nodes xmi:id="_nOcipTHBEeSBN5eTlbAeIA" name="B.New" incoming="_nOcitDHBEeSBN5eTlbAeIA _nOcitjHBEeSBN5eTlbAeIA _nOciuDHBEeSBN5eTlbAeIA _nOciuTHBEeSBN5eTlbAeIA" outgoing="_nOcivDHBEeSBN5eTlbAeIA">
+        <type href="http://ComponentDiagram/1.0#//Port"/>
+      </nodes>
+      <nodes xmi:id="_nOcipjHBEeSBN5eTlbAeIA" name="" incoming="_nOcivjHBEeSBN5eTlbAeIA" outgoing="_nOcitTHBEeSBN5eTlbAeIA _nOcitjHBEeSBN5eTlbAeIA _nOcitzHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference"/>
+      </nodes>
+      <nodes xmi:id="_nOcipzHBEeSBN5eTlbAeIA" name="" incoming="_nOcitzHBEeSBN5eTlbAeIA">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+      </nodes>
+      <nodes xmi:id="_nOciqDHBEeSBN5eTlbAeIA" name="" incoming="_nOcivzHBEeSBN5eTlbAeIA" outgoing="_nOciuTHBEeSBN5eTlbAeIA _nOciujHBEeSBN5eTlbAeIA _nOciuzHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference"/>
+      </nodes>
+      <nodes xmi:id="_nOciqTHBEeSBN5eTlbAeIA" name="" incoming="_nOciuzHBEeSBN5eTlbAeIA">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+      </nodes>
+      <nodes xmi:id="_nOciqjHBEeSBN5eTlbAeIA" incoming="_nOciwDHBEeSBN5eTlbAeIA" outgoing="_nOcivTHBEeSBN5eTlbAeIA _nOcivjHBEeSBN5eTlbAeIA _nOcivzHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet"/>
+        <attributes xmi:id="_nOciqzHBEeSBN5eTlbAeIA" value="&quot;CREATE_Port_IN_Component_(ports)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/name"/>
+        </attributes>
+        <attributes xmi:id="_nOcirDHBEeSBN5eTlbAeIA" value="&quot;Creates one Port in Component&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/description"/>
+        </attributes>
+        <attributes xmi:id="_nOcirTHBEeSBN5eTlbAeIA" value="&quot;CREATE_Port_IN_Component_(ports)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/editRName"/>
+        </attributes>
+        <attributes xmi:id="_nOcirjHBEeSBN5eTlbAeIA" value="&quot;RR: CREATE_Port_IN_Component_(ports)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/recognitionRName"/>
+        </attributes>
+        <attributes xmi:id="_nOcirzHBEeSBN5eTlbAeIA" value="1">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/priority"/>
+        </attributes>
+        <attributes xmi:id="_nOcisDHBEeSBN5eTlbAeIA" value="0">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfACs"/>
+        </attributes>
+        <attributes xmi:id="_nOcisTHBEeSBN5eTlbAeIA" value="7">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfParams"/>
+        </attributes>
+        <attributes xmi:id="_nOcisjHBEeSBN5eTlbAeIA" value="6">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/refinementLevel"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_nOciszHBEeSBN5eTlbAeIA" name="" outgoing="_nOciwDHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_nOcitDHBEeSBN5eTlbAeIA" source="_nOcipDHBEeSBN5eTlbAeIA" target="_nOcipTHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddObject/obj"/>
+      </edges>
+      <edges xmi:id="_nOcitTHBEeSBN5eTlbAeIA" source="_nOcipjHBEeSBN5eTlbAeIA" target="_nOciozHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/src"/>
+      </edges>
+      <edges xmi:id="_nOcitjHBEeSBN5eTlbAeIA" source="_nOcipjHBEeSBN5eTlbAeIA" target="_nOcipTHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/tgt"/>
+      </edges>
+      <edges xmi:id="_nOcitzHBEeSBN5eTlbAeIA" source="_nOcipjHBEeSBN5eTlbAeIA" target="_nOcipzHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/type"/>
+      </edges>
+      <edges xmi:id="_nOciuDHBEeSBN5eTlbAeIA" source="_nOciozHBEeSBN5eTlbAeIA" target="_nOcipTHBEeSBN5eTlbAeIA">
+        <type href="http://ComponentDiagram/1.0#//Component/ports"/>
+      </edges>
+      <edges xmi:id="_nOciuTHBEeSBN5eTlbAeIA" source="_nOciqDHBEeSBN5eTlbAeIA" target="_nOcipTHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/src"/>
+      </edges>
+      <edges xmi:id="_nOciujHBEeSBN5eTlbAeIA" source="_nOciqDHBEeSBN5eTlbAeIA" target="_nOciozHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/tgt"/>
+      </edges>
+      <edges xmi:id="_nOciuzHBEeSBN5eTlbAeIA" source="_nOciqDHBEeSBN5eTlbAeIA" target="_nOciqTHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/type"/>
+      </edges>
+      <edges xmi:id="_nOcivDHBEeSBN5eTlbAeIA" source="_nOcipTHBEeSBN5eTlbAeIA" target="_nOciozHBEeSBN5eTlbAeIA">
+        <type href="http://ComponentDiagram/1.0#//Port/portHost"/>
+      </edges>
+      <edges xmi:id="_nOcivTHBEeSBN5eTlbAeIA" source="_nOciqjHBEeSBN5eTlbAeIA" target="_nOcipDHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_nOcivjHBEeSBN5eTlbAeIA" source="_nOciqjHBEeSBN5eTlbAeIA" target="_nOcipjHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_nOcivzHBEeSBN5eTlbAeIA" source="_nOciqjHBEeSBN5eTlbAeIA" target="_nOciqDHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_nOciwDHBEeSBN5eTlbAeIA" source="_nOciszHBEeSBN5eTlbAeIA" target="_nOciqjHBEeSBN5eTlbAeIA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference/changeSets"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_nOciwTHBEeSBN5eTlbAeIA" origin="_nOciijHBEeSBN5eTlbAeIA" image="_nOciozHBEeSBN5eTlbAeIA"/>
+    <mappings xmi:id="_nOciwjHBEeSBN5eTlbAeIA" origin="_nOciizHBEeSBN5eTlbAeIA" image="_nOcipDHBEeSBN5eTlbAeIA"/>
+    <mappings xmi:id="_nOciwzHBEeSBN5eTlbAeIA" origin="_nOcijDHBEeSBN5eTlbAeIA" image="_nOcipTHBEeSBN5eTlbAeIA"/>
+    <mappings xmi:id="_nOcixDHBEeSBN5eTlbAeIA" origin="_nOcikjHBEeSBN5eTlbAeIA" image="_nOcipjHBEeSBN5eTlbAeIA"/>
+    <mappings xmi:id="_nOcixTHBEeSBN5eTlbAeIA" origin="_nOcikzHBEeSBN5eTlbAeIA" image="_nOcipzHBEeSBN5eTlbAeIA"/>
+    <mappings xmi:id="_nOcixjHBEeSBN5eTlbAeIA" origin="_nOcilTHBEeSBN5eTlbAeIA" image="_nOciqDHBEeSBN5eTlbAeIA"/>
+    <mappings xmi:id="_nOcixzHBEeSBN5eTlbAeIA" origin="_nOciljHBEeSBN5eTlbAeIA" image="_nOciqTHBEeSBN5eTlbAeIA"/>
+    <mappings xmi:id="_nOciyDHBEeSBN5eTlbAeIA" origin="_nOcimDHBEeSBN5eTlbAeIA" image="_nOciszHBEeSBN5eTlbAeIA"/>
+  </units>
+</henshin:Module>
