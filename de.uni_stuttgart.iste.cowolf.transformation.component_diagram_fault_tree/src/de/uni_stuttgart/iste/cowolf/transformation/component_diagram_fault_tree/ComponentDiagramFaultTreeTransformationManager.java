@@ -1,16 +1,7 @@
 package de.uni_stuttgart.iste.cowolf.transformation.component_diagram_fault_tree;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.net.URL;
-
-import org.eclipse.core.runtime.FileLocator;
-import org.eclipse.core.runtime.Path;
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.osgi.framework.Bundle;
 import org.sidiff.difference.symmetric.SymmetricDifference;
 
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.Architecture;
@@ -23,17 +14,17 @@ import de.uni_stuttgart.iste.cowolf.transformation.AbstractTransformationManager
  */
 public class ComponentDiagramFaultTreeTransformationManager extends AbstractTransformationManager {
 
-	private static final String RULE_DIRECTORY = "de.uni_stuttgart.iste.cowolf.transformation.component_diagram_fault_tree.rules";
 	/**
 	 * Key for extension point identification.
 	 */
 	private final static String KEY = "componentdiagram_faulttree";
+	private final static String REVERSE_KEY = "faulttree_componentdiagram";
 	private final static Class<?> FIRST_MODEL = Architecture.class;
 	private final static Class<?> SECOND_MODEL = FaultTree.class;
 	
 	@Override
 	public boolean isManaged(Resource source, Resource target) {
-		if ((source == null) || (target == null)) {
+		if ((source == null) || (target == null)) { 
 			return false;
 		}
 		if ((source.getContents() == null) || source.getContents().isEmpty()
@@ -55,25 +46,6 @@ public class ComponentDiagramFaultTreeTransformationManager extends AbstractTran
 	}
 
 	@Override
-	protected File getRuleDirectory() {
-		Bundle root = Platform.getBundle(RULE_DIRECTORY);
-		URL url = FileLocator.find(root, new Path(File.separator + "rules"
-				+ File.separator), null);
-		File ruleDirectory = null;
-		try {
-			url = FileLocator.toFileURL(url);
-			ruleDirectory = new File(new java.net.URI(url.getProtocol(),
-					url.getPath(), null));
-
-		} catch (IOException | URISyntaxException e1) {
-			System.out.println(e1);
-			return null;
-		}
-
-		return ruleDirectory;
-	}
-
-	@Override
 	public Class<?> getManagedClass1() {
 		return FIRST_MODEL;
 	}
@@ -84,9 +56,14 @@ public class ComponentDiagramFaultTreeTransformationManager extends AbstractTran
 	}
 	
 	@Override
-	public Resource transform(Resource source, Resource target, SymmetricDifference difference, URI fileURI) {
+	public Resource transform(Resource oldSource, Resource source, Resource target, SymmetricDifference difference, URI fileURI) {
 		CoWolfConstructTree.init(source, target);
 		CoWolfConstructTree.run();
 		return target;
+	}
+
+	@Override
+	protected String getReverseKey() {
+		return REVERSE_KEY;
 	}
 }
