@@ -11,9 +11,9 @@
 	</GeneralSettings>
 	
 	<MetaModelSettings>
-		<MainModel nsUri="http://ctmc/1.0" />		
+		<MainModel nsUri="http://dtmc/1.0" />	
 
-		<MaskedClassifiers>	
+		 		<MaskedClassifiers>	
 		</MaskedClassifiers>
 	</MetaModelSettings>
 	
@@ -30,16 +30,17 @@
 
 	<!-- nested=true: means the root element can also appear
 	somewhere in its lower containments (eg. (Sub-)StateMachine)-->
-	<Root name="CTMC" nested="false"/>
+	<Root name="DTMC" nested="false"/>
 	
 	<WhiteList>			
-		<EClassifier name="CTMC" />		
+		<EClassifier name="DTMC" />		
 		<EClassifier name="Label" />		
-		<EClassifier name="State" />
-		<EClassifier name="Transition" />	
-
+		<EClassifier name="State" />		
+		<EClassifier name="Transition" />		
+	
     		
-    </WhiteList>
+    		<!--EClassifier name="ConnectionPointReference"/-->	
+	</WhiteList>
 	
 	<BlackList>
 		<!--  Using "Constraint" is not adviced when MOVEs, which include switching of references, are enabled -->
