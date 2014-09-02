@@ -99,21 +99,16 @@ public class ConstructTree {
 		return null;
 	}
 
-	private static void init() {
+	public static void init(Resource source, Resource target) {
 		// Add the own extension to importable instance models.
 		TransformationsUtil.registerExtensions();
 
 		// Load Packages.
 		TransformationsUtil.loadPackages();
 
-		// Create a resource set for the working directory.
-		HenshinResourceSet resourceSet = new HenshinResourceSet();
-
 		// Load instance models.
-		saInstanceModel = resourceSet
-				.getResource(TransformationsConstants.SA_MODEL_PATH);
-		faulttreeInstanceModel = resourceSet
-				.getResource(TransformationsConstants.FAULTTREE_MODEL_PATH);
+		saInstanceModel = source;
+		faulttreeInstanceModel = target;
 
 		// Initialize the graphs.
 		saGraph = new EGraphImpl(saInstanceModel);
@@ -179,9 +174,6 @@ public class ConstructTree {
 	public static void run() {
 		// Logging.
 		TransformationsLogger.log("Preparing...");
-
-		// Initialize.
-		init();
 
 		// Local variables.
 		boolean result = false;
@@ -516,13 +508,13 @@ public class ConstructTree {
 		// Create Traces between SA model and FT model.
 		TransformationsLogger.log("Creating Traces...");
 		for (String error_name : errorComponentMap.keySet()) {
-			ConnectComponentInstanceWithErrorInstance.run(
-					TransformationsConstants.MODEL_NAME,
+			ConnectComponentInstanceWithErrorInstance.run(saInstanceModel,
+					faulttreeInstanceModel,
 					errorComponentMap.get(error_name), error_name);
 		}
 		for (String failure_name : failureComponentMap.keySet()) {
-			ConnectComponentInstanceWithFailureInstance.run(
-					TransformationsConstants.MODEL_NAME,
+			ConnectComponentInstanceWithFailureInstance.run(saInstanceModel,
+					faulttreeInstanceModel,
 					failureComponentMap.get(failure_name), failure_name);
 		}
 	}

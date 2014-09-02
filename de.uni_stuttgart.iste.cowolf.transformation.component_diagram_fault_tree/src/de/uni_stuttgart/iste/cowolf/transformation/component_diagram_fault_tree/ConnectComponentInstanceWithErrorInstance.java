@@ -24,21 +24,16 @@ public class ConnectComponentInstanceWithErrorInstance {
 	private static EGraph saGraph;
 	private static EGraph faulttreeGraph;
 
-	private static void init(String model_name) {
+	private static void init(Resource sa, Resource ft) {
 		// Add the own extension to importable instance models.
 		TransformationsUtil.registerExtensions();
 
 		// Load Packages.
 		TransformationsUtil.loadPackages();
 
-		// Create a resource set for the working directory.
-		HenshinResourceSet resourceSet = new HenshinResourceSet();
-
 		// Load instance models.
-		saInstanceModel = resourceSet
-				.getResource("model/" + model_name + ".sa");
-		faulttreeInstanceModel = resourceSet
-				.getResource("model/" + model_name + ".faulttree");
+		saInstanceModel = sa;
+		faulttreeInstanceModel = ft;
 
 		// Initialize the graphs.
 		saGraph = new EGraphImpl(saInstanceModel);
@@ -56,13 +51,10 @@ public class ConnectComponentInstanceWithErrorInstance {
 	 * @param error_instance
 	 *            - String
 	 */
-	public static void run(String model_name, String component_instance, String error_instance) {
+	public static void run(Resource sa, Resource ft, String component_instance, String error_instance) {
 		// Logging.
 		TransformationsLogger.log("Preparing...");
-
-		// Initialize.
-		init(model_name);
-
+		init(sa, ft);
 		// Merge all input models in the saGraph.
 		saGraph = TransformationsUtil.mergeInstanceModels(saGraph, faulttreeGraph);
 

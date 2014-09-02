@@ -17,6 +17,7 @@ import de.uni_stuttgart.iste.cowolf.model.component_diagram.*;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.*;
 
 
+
 /**
  * Provides some common functionalities for the Henshin transformations.
  * 
@@ -61,10 +62,10 @@ public class TransformationsUtil {
 	 * Registers the needed file extension of our instance models.
 	 */
 	public static void registerExtensions() {
-		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("sa",
-				new XMIResourceFactoryImpl());
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(
-				"faulttree", new XMIResourceFactoryImpl());
+				TransformationsConstants.SA_EXTENSION, new XMIResourceFactoryImpl());
+		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(
+				TransformationsConstants.FT_EXTENSION, new XMIResourceFactoryImpl());
 	}
 
 	// ------------------------------------------------------------

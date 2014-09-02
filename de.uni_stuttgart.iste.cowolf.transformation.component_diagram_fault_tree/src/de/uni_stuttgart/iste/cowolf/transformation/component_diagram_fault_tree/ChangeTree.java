@@ -660,7 +660,7 @@ public class ChangeTree {
 		}
 	}
 
-	private static void init() {
+	private static void init(Resource sa, Resource ft) {
 		// Add the own extension to importable instance models.
 		TransformationsUtil.registerExtensions();
 
@@ -671,8 +671,8 @@ public class ChangeTree {
 		HenshinResourceSet resourceSet = new HenshinResourceSet();
 
 		// Load instance models.
-		saInstanceModel = resourceSet.getResource(TransformationsConstants.SA_MODEL_PATH);
-		faulttreeInstanceModel = resourceSet.getResource(TransformationsConstants.FAULTTREE_MODEL_PATH);
+		saInstanceModel = sa;
+		faulttreeInstanceModel = ft;
 
 		// Initialize the graphs.
 		saGraph = new EGraphImpl(saInstanceModel);
@@ -681,42 +681,10 @@ public class ChangeTree {
 		handledNewConnections = new ArrayList<String>();
 	}
 
-	public static void main(String[] args) {
-		// Comparison c = compare("model/v1.sa", "model/v2.sa");
-		// run(c.getDifferences());
-
-		// Provide test data for scenario 00.
-		List<String> newComponentTypes = new ArrayList<String>();
-		newComponentTypes.add("Sensor");
-		List<String> newPortTypes = new ArrayList<String>();
-		newPortTypes.add("SensorType");
-		List<String> newComponentInstances = new ArrayList<String>();
-		newComponentInstances.add("altimeter");
-		List<String> newPortInstances = new ArrayList<String>();
-		newPortInstances.add("controllerToAltimeter_ControllerPort");
-		newPortInstances.add("controllerToAltimeter_AltimeterPort");
-		List<String> newSubComponentInstances = new ArrayList<String>();
-		List<String> newConnectors = new ArrayList<String>();
-		newConnectors.add("controllerToAltimeter_Connector");
-
-		// // Provide test data for scenario 01.
-		// List<String> newComponentTypes = new ArrayList<String>();
-		// newComponentTypes.add("PowerSupply");
-		// List<String> newPortTypes = new ArrayList<String>();
-		// List<String> newComponentInstances = new ArrayList<String>();
-		// List<String> newPortInstances = new ArrayList<String>();
-		// List<String> newSubComponentInstances = new ArrayList<String>();
-		// newSubComponentInstances.add("battery");
-		// List<String> newConnectors = new ArrayList<String>();
-
-		// Start change tree algorithm.
-		run(newComponentTypes, newPortTypes, newComponentInstances, newPortInstances, newSubComponentInstances, newConnectors);
-	}
-
 	/**
 	 * Provides the functionality to adjust the fault tree based on the changes in SA.
 	 */
-	public static void run(
+	public static void run(Resource sa, Resource ft,
 	/* EList<Diff> changes */List<String> newComponentTypes, List<String> newPortTypes, List<String> newComponentInstances, List<String> newPortInstances,
 			List<String> newSubComponentInstances, List<String> newConnectors) {
 		/*
@@ -734,7 +702,7 @@ public class ChangeTree {
 		System.out.println("\n\n");
 
 		// Initialize.
-		init();
+		init(sa, ft);
 
 		// Merge all input models in the saGraph.
 		saGraph = TransformationsUtil.mergeInstanceModels(saGraph, faulttreeGraph);

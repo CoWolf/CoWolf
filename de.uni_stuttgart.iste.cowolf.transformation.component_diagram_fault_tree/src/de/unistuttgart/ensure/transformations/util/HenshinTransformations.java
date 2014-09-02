@@ -3,6 +3,7 @@ package de.unistuttgart.ensure.transformations.util;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.henshin.interpreter.EGraph;
 import org.eclipse.emf.henshin.interpreter.Match;
 import org.eclipse.emf.henshin.interpreter.UnitApplication;
@@ -40,7 +41,7 @@ public class HenshinTransformations {
 	 * @return boolean
 	 */
 	public static boolean changeParentComponent(String child_component, String parent_component, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/SA.henshin").getUnit("ChangeParentComponent");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.SA_HENSHIN), false).getUnit("ChangeParentComponent");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("child_component", child_component);
 		application.setParameterValue("parent_component", parent_component);
@@ -66,7 +67,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean clearErrorInstance(EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("ClearErrorInstance");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("ClearErrorInstance");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		boolean result = application.execute(null);
 
@@ -87,7 +88,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean clearErrorType(EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("ClearErrorType");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("ClearErrorType");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		boolean result = application.execute(null);
 
@@ -108,7 +109,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean clearEvent(EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("ClearEvent");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("ClearEvent");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		boolean result = application.execute(null);
 
@@ -129,7 +130,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean clearFailureInstance(EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("ClearFailureInstance");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("ClearFailureInstance");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		boolean result = application.execute(null);
 
@@ -150,7 +151,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean clearFailureType(EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("ClearFailureType");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("ClearFailureType");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		boolean result = application.execute(null);
 
@@ -171,7 +172,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean clearGate(EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("ClearGate");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("ClearGate");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		boolean result = application.execute(null);
 
@@ -192,7 +193,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean clearTrace(EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("ClearTrace");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("ClearTrace");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		boolean result = application.execute(null);
 
@@ -217,7 +218,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean connectBasicEventToIntermediateEvent(String source_event, String target_event, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/changeTree.henshin").getUnit("ConnectBasicEventToIntermediateEvent");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.CHANGE_TREE_HENSHIN), false).getUnit("ConnectBasicEventToIntermediateEvent");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("source_event", source_event);
 		application.setParameterValue("target_event", target_event);
@@ -247,7 +248,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean connectComponentInstanceWithErrorInstance(String component_instance, String error_instance, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/ensure.henshin").getUnit("ConnectComponentInstanceWithErrorInstance");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.ENSURE_HENSHIN), false).getUnit("ConnectComponentInstanceWithErrorInstance");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("component_instance", component_instance);
 		application.setParameterValue("error_instance", error_instance);
@@ -277,7 +278,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean connectComponentInstanceWithFailureInstance(String component_instance, String failure_instance, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/ensure.henshin").getUnit("ConnectComponentInstanceWithFailureInstance");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.ENSURE_HENSHIN), false).getUnit("ConnectComponentInstanceWithFailureInstance");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("component_instance", component_instance);
 		application.setParameterValue("failure_instance", failure_instance);
@@ -307,7 +308,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean connectConnectorWithFailureInstance(String connector, String failure_instance, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/ensure.henshin").getUnit("ConnectConnectorWithFailureInstance");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.ENSURE_HENSHIN), false).getUnit("ConnectConnectorWithFailureInstance");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("connector", connector);
 		application.setParameterValue("failure_instance", failure_instance);
@@ -337,7 +338,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean connectIntermediateEventToIntermediateEvent(String source_event, String target_event, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/changeTree.henshin").getUnit("ConnectIntermediateEventToIntermediateEvent");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.CHANGE_TREE_HENSHIN), false).getUnit("ConnectIntermediateEventToIntermediateEvent");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("source_event", source_event);
 		application.setParameterValue("target_event", target_event);
@@ -367,7 +368,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean connectPortInstanceWithErrorInstance(String port_instance, String error_instance, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/ensure.henshin").getUnit("ConnectPortInstanceWithErrorInstance");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.ENSURE_HENSHIN), false).getUnit("ConnectPortInstanceWithErrorInstance");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("port_instance", port_instance);
 		application.setParameterValue("error_instance", error_instance);
@@ -397,7 +398,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean connectPortInstanceWithFailureInstance(String port_instance, String failure_instance, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/ensure.henshin").getUnit("ConnectPortInstanceWithFailureInstance");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.ENSURE_HENSHIN), false).getUnit("ConnectPortInstanceWithFailureInstance");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("port_instance", port_instance);
 		application.setParameterValue("failure_instance", failure_instance);
@@ -426,7 +427,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean createANDGate(int gate_id, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("CreateANDGate");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("CreateANDGate");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("gate_id", gate_id);
 		boolean result = application.execute(null);
@@ -454,7 +455,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean createAssociatedConnector(String connector, String port1, String port2, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/SA.henshin").getUnit("CreateAssociatedConnector");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.SA_HENSHIN), false).getUnit("CreateAssociatedConnector");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("connector", connector);
 		application.setParameterValue("port1", port1);
@@ -488,7 +489,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean createAssociatedErrorInstance(String component_instance, String error_name, String error_type, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/ensure.henshin").getUnit("CreateAssociatedErrorInstance");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.ENSURE_HENSHIN), false).getUnit("CreateAssociatedErrorInstance");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("component_instance", component_instance);
 		application.setParameterValue("error_name", error_name);
@@ -521,7 +522,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean createAssociatedFailureInstance(String component_instance, String failure_name, String failure_type, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/ensure.henshin").getUnit("CreateAssociatedFailureInstance");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.ENSURE_HENSHIN), false).getUnit("CreateAssociatedFailureInstance");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("component_instance", component_instance);
 		application.setParameterValue("failure_name", failure_name);
@@ -554,7 +555,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean createBasicEvent(int event_id, String event_name, String event_description, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("CreateBasicEvent");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("CreateBasicEvent");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("event_id", event_id);
 		application.setParameterValue("event_name", event_name);
@@ -586,7 +587,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean createConnectionBetweenBasicEventAndErrorInstance(String basic_event, String error_instance, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("CreateConnectionBetweenBasicEventAndErrorInstance");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("CreateConnectionBetweenBasicEventAndErrorInstance");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("basic_event", basic_event);
 		application.setParameterValue("error_instance", error_instance);
@@ -617,7 +618,7 @@ public class HenshinTransformations {
 	 */
 	public static boolean createConnectionBetweenIntermediateEventAndFailureInstance(String intermediate_event, String failure_instance, EGraph graph,
 			boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("CreateConnectionBetweenIntermediateEventAndFailureInstance");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("CreateConnectionBetweenIntermediateEventAndFailureInstance");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("intermediate_event", intermediate_event);
 		application.setParameterValue("failure_instance", failure_instance);
@@ -647,7 +648,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean createConnectionEventToGate(String event_name, String gate_id, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("CreateConnectionEventToGate");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("CreateConnectionEventToGate");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("event_name", event_name);
 		application.setParameterValue("gate_id", gate_id);
@@ -677,7 +678,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean createConnectionGateToEvent(int gate_id, String event_name, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("CreateConnectionGateToEvent");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("CreateConnectionGateToEvent");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("gate_id", gate_id);
 		application.setParameterValue("event_name", event_name);
@@ -707,7 +708,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean createConnectionGateToGate(int gate_id1, int gate_id2, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("CreateConnectionGateToGate");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("CreateConnectionGateToGate");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("gate_id1", gate_id1);
 		application.setParameterValue("gate_id2", gate_id2);
@@ -737,7 +738,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean createErrorInstance(String error_name, String type, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("CreateErrorInstance");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("CreateErrorInstance");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("error_name", error_name);
 		application.setParameterValue("type", type);
@@ -765,7 +766,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean createErrorType(String type_name, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("CreateErrorType");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("CreateErrorType");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("type_name", type_name);
 		boolean result = application.execute(null);
@@ -791,7 +792,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean createFailureInstance(String failure_name, String type, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("CreateFailureInstance");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("CreateFailureInstance");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("failure_name", failure_name);
 		application.setParameterValue("type", type);
@@ -819,7 +820,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean createFailureType(String type_name, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("CreateFailureType");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("CreateFailureType");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("type_name", type_name);
 		boolean result = application.execute(null);
@@ -843,7 +844,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean createINHIBITGate(int gate_id, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("CreateINHIBITGate");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("CreateINHIBITGate");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("gate_id", gate_id);
 		boolean result = application.execute(null);
@@ -871,7 +872,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean createIntermediateEvent(int event_id, String event_name, String event_description, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("CreateIntermediateEvent");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("CreateIntermediateEvent");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("event_id", event_id);
 		application.setParameterValue("event_name", event_name);
@@ -905,7 +906,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean createNewFailureWithPreviousError(String new_name, String previous_error, String failure_type, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("CreateNewFailureWithPreviousError");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("CreateNewFailureWithPreviousError");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("new_name", new_name);
 		application.setParameterValue("previous_error", previous_error);
@@ -937,7 +938,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean createNewFailureWithPreviousFailure(String new_name, String previous_failure, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("CreateNewFailureWithPreviousFailure");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("CreateNewFailureWithPreviousFailure");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("new_name", new_name);
 		application.setParameterValue("previous_failure", previous_failure);
@@ -965,7 +966,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean createORGate(int gate_id, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("CreateORGate");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("CreateORGate");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("gate_id", gate_id);
 		boolean result = application.execute(null);
@@ -989,7 +990,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean createPriorANDGate(int gate_id, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("CreatePriorANDGate");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("CreatePriorANDGate");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("gate_id", gate_id);
 		boolean result = application.execute(null);
@@ -1013,7 +1014,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean createXORGate(int gate_id, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("CreateXORGate");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("CreateXORGate");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("gate_id", gate_id);
 		boolean result = application.execute(null);
@@ -1037,7 +1038,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean deleteComponentInstance(String component_instance, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/SA.henshin").getUnit("DeleteComponentInstance");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.SA_HENSHIN), false).getUnit("DeleteComponentInstance");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("component_instance", component_instance);
 		boolean result = application.execute(null);
@@ -1060,7 +1061,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean deleteComponentType(String type_name, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/SA.henshin").getUnit("DeleteComponentType");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.SA_HENSHIN), false).getUnit("DeleteComponentType");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("component_type", type_name);
 		boolean result = application.execute(null);
@@ -1086,7 +1087,7 @@ public class HenshinTransformations {
 	 * @return boolean
 	 */
 	public static boolean deleteConnectionBEToIE(String basic_event, String intermediate_event, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("DeleteConnectionBEToIE");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("DeleteConnectionBEToIE");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("basic_event", basic_event);
 		application.setParameterValue("intermediate_event", intermediate_event);
@@ -1116,7 +1117,7 @@ public class HenshinTransformations {
 	 * @return boolean
 	 */
 	public static boolean deleteConnectionBetweenParentAndChildComponent(String child_component, String parent_component, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/SA.henshin").getUnit("DeleteConnectionBetweenParentAndChildComponent");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.SA_HENSHIN), false).getUnit("DeleteConnectionBetweenParentAndChildComponent");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("child_component", child_component);
 		application.setParameterValue("parent_component", parent_component);
@@ -1146,7 +1147,7 @@ public class HenshinTransformations {
 	 * @return boolean
 	 */
 	public static boolean deleteConnectionGateToEvent(int gateID, String eventName, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("DeleteConnectionGateToEvent");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("DeleteConnectionGateToEvent");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("gateID", gateID);
 		application.setParameterValue("eventName", eventName);
@@ -1176,7 +1177,7 @@ public class HenshinTransformations {
 	 * @return boolean
 	 */
 	public static boolean deleteConnectionIEToIE(String intermediate_event_1, String intermediate_event_2, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("DeleteConnectionIEToIE");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("DeleteConnectionIEToIE");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("intermediate_event_1", intermediate_event_1);
 		application.setParameterValue("intermediate_event_2", intermediate_event_2);
@@ -1204,7 +1205,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean deleteConnector(String connector, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/SA.henshin").getUnit("DeleteConnector");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.SA_HENSHIN), false).getUnit("DeleteConnector");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("connector", connector);
 		boolean result = application.execute(null);
@@ -1228,7 +1229,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean deleteConnectorForPortInstance(String port_instance, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/SA.henshin").getUnit("DeleteConnectorForPortInstance");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.SA_HENSHIN), false).getUnit("DeleteConnectorForPortInstance");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("port_instance", port_instance);
 		boolean result = application.execute(null);
@@ -1252,7 +1253,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean deleteErrorInstance(String error_instance, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("DeleteErrorInstance");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("DeleteErrorInstance");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("error_instance", error_instance);
 		boolean result = application.execute(null);
@@ -1276,7 +1277,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean deleteErrorType(String error_type, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("DeleteErrorType");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("DeleteErrorType");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("error_type", error_type);
 		boolean result = application.execute(null);
@@ -1299,7 +1300,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean deleteEvent(String event_name, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("DeleteEvent");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("DeleteEvent");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("event_name", event_name);
 		boolean result = application.execute(null);
@@ -1323,7 +1324,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean deleteFailureInstance(String failure_instance, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("DeleteFailureInstance");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("DeleteFailureInstance");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("failure_instance", failure_instance);
 		boolean result = application.execute(null);
@@ -1347,7 +1348,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean deleteFailureType(String failure_type, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("DeleteFailureType");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("DeleteFailureType");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("failure_type", failure_type);
 		boolean result = application.execute(null);
@@ -1371,7 +1372,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean deleteGate(int gateID, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("DeleteGate");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("DeleteGate");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("gateID", gateID);
 		boolean result = application.execute(null);
@@ -1397,7 +1398,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean deleteInputRelationBEToIE(String source_event, String target_event, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/changeTree.henshin").getUnit("DeleteInputRelationBEToIE");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.CHANGE_TREE_HENSHIN), false).getUnit("DeleteInputRelationBEToIE");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("source_event", source_event);
 		application.setParameterValue("target_event", target_event);
@@ -1427,7 +1428,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean deleteInputRelationIEToIE(String source_event, String target_event, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/changeTree.henshin").getUnit("DeleteInputRelationIEToIE");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.CHANGE_TREE_HENSHIN), false).getUnit("DeleteInputRelationIEToIE");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("source_event", source_event);
 		application.setParameterValue("target_event", target_event);
@@ -1455,7 +1456,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean deletePortInstance(String port_instance, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/SA.henshin").getUnit("DeletePortInstance");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.SA_HENSHIN), false).getUnit("DeletePortInstance");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("port_instance", port_instance);
 		boolean result = application.execute(null);
@@ -1478,7 +1479,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean deletePortType(String port_type, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/SA.henshin").getUnit("DeletePortType");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.SA_HENSHIN), false).getUnit("DeletePortType");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("port_type", port_type);
 		boolean result = application.execute(null);
@@ -1502,7 +1503,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean deleteSourceTraceFromComponentInstance(String component_instance, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/SA.henshin").getUnit("DeleteSourceTraceFromComponentInstance");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.SA_HENSHIN), false).getUnit("DeleteSourceTraceFromComponentInstance");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("component_instance", component_instance);
 		boolean result = application.execute(null);
@@ -1526,7 +1527,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean deleteSourceTraceFromPortInstance(String port_instance, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/SA.henshin").getUnit("DeleteSourceTraceFromPortInstance");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.SA_HENSHIN), false).getUnit("DeleteSourceTraceFromPortInstance");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("port_instance", port_instance);
 		boolean result = application.execute(null);
@@ -1550,7 +1551,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean deleteTargetTraceFromErrorInstance(String error_instance, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("DeleteTargetTraceFromErrorInstance");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("DeleteTargetTraceFromErrorInstance");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("error_instance", error_instance);
 		boolean result = application.execute(null);
@@ -1574,7 +1575,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean deleteTargetTraceFromFailureInstance(String failure_instance, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("DeleteTargetTraceFromFailureInstance");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("DeleteTargetTraceFromFailureInstance");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("failure_instance", failure_instance);
 		boolean result = application.execute(null);
@@ -1600,7 +1601,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean ensureError(String component_instance, int new_event_id, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/ensure.henshin").getUnit("EnsureError");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.ENSURE_HENSHIN), false).getUnit("EnsureError");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("component_instance", component_instance);
 		application.setParameterValue("new_event_id", new_event_id);
@@ -1627,7 +1628,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean ensureFailure(String component_instance, int new_event_id, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/ensure.henshin").getUnit("EnsureFailure");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.ENSURE_HENSHIN), false).getUnit("EnsureFailure");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("component_instance", component_instance);
 		application.setParameterValue("new_event_id", new_event_id);
@@ -1652,7 +1653,7 @@ public class HenshinTransformations {
 	 * @return true if error type already exists in model, otherwise false
 	 */
 	public static boolean existsErrorType(String error_type, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/changeTree.henshin").getUnit("ExistsErrorType");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.CHANGE_TREE_HENSHIN), false).getUnit("ExistsErrorType");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("error_type", error_type);
 		boolean result = application.execute(null);
@@ -1678,7 +1679,7 @@ public class HenshinTransformations {
 	 * @return true if failure type already exists in model, otherwise false
 	 */
 	public static boolean existsFailureType(String failure_type, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/changeTree.henshin").getUnit("ExistsFailureType");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.CHANGE_TREE_HENSHIN), false).getUnit("ExistsFailureType");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("failure_type", failure_type);
 		boolean result = application.execute(null);
@@ -1714,7 +1715,7 @@ public class HenshinTransformations {
 
 		// Get the rule and the according multirule, which store the result
 		// parameter.
-		Rule rule = (Rule) new HenshinResourceSet().getModule("henshin/ensure.henshin").getUnit("PropagateErrorToComponentFromPort");
+		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.ENSURE_HENSHIN), false).getUnit("PropagateErrorToComponentFromPort");
 		Rule multiRule = rule.getMultiRule("propagateError");
 		Parameter resultParameter = multiRule.getParameter("affected_component");
 
@@ -1767,7 +1768,7 @@ public class HenshinTransformations {
 
 		// Get the rule and the according multirule, which store the result
 		// parameter.
-		Rule rule = (Rule) new HenshinResourceSet().getModule("henshin/ensure.henshin").getUnit("PropagateFailureToComponentFromPort");
+		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.ENSURE_HENSHIN), false).getUnit("PropagateFailureToComponentFromPort");
 		Rule multiRule = rule.getMultiRule("propagateError");
 		Parameter resultParameter = multiRule.getParameter("affected_component");
 
@@ -1821,7 +1822,7 @@ public class HenshinTransformations {
 
 		// Get the rule and the according multirule, which store the result
 		// parameter.
-		Rule rule = (Rule) new HenshinResourceSet().getModule("henshin/ensure.henshin").getUnit("PropagateFailureToParentComponent");
+		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.ENSURE_HENSHIN), false).getUnit("PropagateFailureToParentComponent");
 		Rule multiRule = rule.getMultiRule("propagateError");
 		Parameter resultParameter = multiRule.getParameter("affected_component");
 
@@ -1873,7 +1874,7 @@ public class HenshinTransformations {
 
 		// Get the rule and the according multirule, which store the result
 		// parameter.
-		Rule rule = (Rule) new HenshinResourceSet().getModule("henshin/ensure.henshin").getUnit("PropagateFailureToConnectedPortFromPort");
+		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.ENSURE_HENSHIN), false).getUnit("PropagateFailureToConnectedPortFromPort");
 		Rule multiRule = rule.getMultiRule("propagateError");
 		Parameter resultParameter = multiRule.getParameter("affected_port");
 
@@ -1925,7 +1926,7 @@ public class HenshinTransformations {
 
 		// Get the rule and the according multirule, which store the result
 		// parameter.
-		Rule rule = (Rule) new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("GetBasicEventForErrorInstance");
+		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("GetBasicEventForErrorInstance");
 		Rule multiRule = rule.getMultiRule("searchBasicEvent");
 		Parameter resultParameter = multiRule.getParameter("found_basic_event");
 
@@ -1969,7 +1970,7 @@ public class HenshinTransformations {
 
 		// Get the rule and the according multirule, which store the result
 		// parameter.
-		Rule rule = (Rule) new HenshinResourceSet().getModule("henshin/SA.henshin").getUnit("GetComponentInstancesOfType");
+		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.SA_HENSHIN), false).getUnit("GetComponentInstancesOfType");
 		Rule multiRule = rule.getMultiRule("searchComponents");
 		Parameter resultParameter = multiRule.getParameter("found_component");
 
@@ -2011,7 +2012,7 @@ public class HenshinTransformations {
 
 		// Get the rule and the according multirule, which store the result
 		// parameter.
-		Rule rule = (Rule) new HenshinResourceSet().getModule("henshin/SA.henshin").getUnit("GetConnectedPortOfPort");
+		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.SA_HENSHIN), false).getUnit("GetConnectedPortOfPort");
 		Rule multiRule = rule.getMultiRule("searchPort");
 		Parameter resultParameter = multiRule.getParameter("found_port");
 
@@ -2057,7 +2058,7 @@ public class HenshinTransformations {
 		List<String> connectors = new ArrayList<String>();
 
 		// Get the rule and the according multirule, which store the result parameter.
-		Rule rule = (Rule) new HenshinResourceSet().getModule("henshin/changeTree.henshin").getUnit("GetConnector");
+		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.CHANGE_TREE_HENSHIN), false).getUnit("GetConnector");
 		Rule multiRule = rule.getMultiRule("searchConnector");
 		Parameter resultParameter = multiRule.getParameter("found_connector");
 
@@ -2101,7 +2102,7 @@ public class HenshinTransformations {
 	public static String getDescription(String event, EGraph graph, boolean logging) throws RuntimeException {
 		List<String> desriptions = new ArrayList<String>();
 
-		Rule rule = (Rule) new HenshinResourceSet().getModule("henshin/changeTree.henshin").getUnit("GetDescription");
+		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.CHANGE_TREE_HENSHIN), false).getUnit("GetDescription");
 		Rule multiRule = rule.getMultiRule("searchDescription");
 		Parameter resultParameter = multiRule.getParameter("found_description");
 
@@ -2145,7 +2146,7 @@ public class HenshinTransformations {
 
 		// Get the rule and the according multirule, which store the result
 		// parameter.
-		Rule rule = (Rule) new HenshinResourceSet().getModule("henshin/ensure.henshin").getUnit("GetErrorInstancesForComponent");
+		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.ENSURE_HENSHIN), false).getUnit("GetErrorInstancesForComponent");
 		Rule multiRule = rule.getMultiRule("searchErrors");
 		Parameter resultParameter = multiRule.getParameter("found_error");
 
@@ -2184,7 +2185,7 @@ public class HenshinTransformations {
 
 		// Get the rule and the according multirule, which store the result
 		// parameter.
-		Rule rule = (Rule) new HenshinResourceSet().getModule("henshin/ensure.henshin").getUnit("GetErrorInstancesForPort");
+		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.ENSURE_HENSHIN), false).getUnit("GetErrorInstancesForPort");
 		Rule multiRule = rule.getMultiRule("searchErrors");
 		Parameter resultParameter = multiRule.getParameter("found_error");
 
@@ -2223,7 +2224,7 @@ public class HenshinTransformations {
 
 		// Get the rule and the according multirule, which store the result
 		// parameter.
-		Rule rule = (Rule) new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("GetErrorInstancesOfType");
+		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("GetErrorInstancesOfType");
 		Rule multiRule = rule.getMultiRule("searchErrors");
 		Parameter resultParameter = multiRule.getParameter("found_error");
 
@@ -2263,7 +2264,7 @@ public class HenshinTransformations {
 
 		// Get the rule and the according multirule, which store the result
 		// parameter.
-		Rule rule = (Rule) new HenshinResourceSet().getModule("henshin/ensure.henshin").getUnit("GetFailureInstancesForComponent");
+		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.ENSURE_HENSHIN), false).getUnit("GetFailureInstancesForComponent");
 		Rule multiRule = rule.getMultiRule("searchFailures");
 		Parameter resultParameter = multiRule.getParameter("found_failure");
 
@@ -2302,7 +2303,7 @@ public class HenshinTransformations {
 
 		// Get the rule and the according multirule, which store the result
 		// parameter.
-		Rule rule = (Rule) new HenshinResourceSet().getModule("henshin/ensure.henshin").getUnit("GetFailureInstancesForPort");
+		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.ENSURE_HENSHIN), false).getUnit("GetFailureInstancesForPort");
 		Rule multiRule = rule.getMultiRule("searchFailures");
 		Parameter resultParameter = multiRule.getParameter("found_failure");
 
@@ -2341,7 +2342,7 @@ public class HenshinTransformations {
 
 		// Get the rule and the according multirule, which store the result
 		// parameter.
-		Rule rule = (Rule) new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("GetFailureInstancesOfType");
+		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("GetFailureInstancesOfType");
 		Rule multiRule = rule.getMultiRule("searchFailures");
 		Parameter resultParameter = multiRule.getParameter("found_failure");
 
@@ -2374,7 +2375,7 @@ public class HenshinTransformations {
 		int freeID = 0;
 		boolean idAlreadyExists = true;
 
-		Unit unit = new HenshinResourceSet().getModule("henshin/changeTree.henshin").getUnit("ExistsGateID");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.CHANGE_TREE_HENSHIN), false).getUnit("ExistsGateID");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 
 		while (idAlreadyExists) {
@@ -2400,7 +2401,7 @@ public class HenshinTransformations {
 		int freeID = 0;
 		boolean idAlreadyExists = true;
 
-		Unit unit = new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("ExistsEventID");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("ExistsEventID");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 
 		while (idAlreadyExists) {
@@ -2435,7 +2436,7 @@ public class HenshinTransformations {
 
 		// Get the rule and the according multirule, which store the result
 		// parameter.
-		Rule rule = (Rule) new HenshinResourceSet().getModule("henshin/SA.henshin").getUnit("GetInComponentOfPort");
+		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.SA_HENSHIN), false).getUnit("GetInComponentOfPort");
 		Rule multiRule = rule.getMultiRule("searchComponent");
 		Parameter resultParameter = multiRule.getParameter("found_component");
 
@@ -2480,7 +2481,7 @@ public class HenshinTransformations {
 
 		// Get the rule and the according multirule, which store the result
 		// parameter.
-		Rule rule = (Rule) new HenshinResourceSet().getModule("henshin/SA.henshin").getUnit("GetInPorts");
+		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.SA_HENSHIN), false).getUnit("GetInPorts");
 		Rule multiRule = rule.getMultiRule("searchInPorts");
 		Parameter resultParameter = multiRule.getParameter("found_port");
 
@@ -2518,7 +2519,7 @@ public class HenshinTransformations {
 	public static String getInputEventOfIntermediateEvent(String intermediate_event, EGraph graph, boolean logging) throws RuntimeException {
 		List<String> incomingEvents = new ArrayList<String>();
 
-		Rule rule = (Rule) new HenshinResourceSet().getModule("henshin/changeTree.henshin").getUnit("GetInputEventOfIntermediateEvent");
+		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.CHANGE_TREE_HENSHIN), false).getUnit("GetInputEventOfIntermediateEvent");
 		Rule multiRule = rule.getMultiRule("searchEvent");
 		Parameter resultParameter = multiRule.getParameter("found_event");
 
@@ -2558,7 +2559,7 @@ public class HenshinTransformations {
 	public static List<String> getInputEvents(int gate, EGraph graph, boolean logging) {
 		List<String> events = new ArrayList<String>();
 
-		Rule rule = (Rule) new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("GetInputEvents");
+		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("GetInputEvents");
 		Rule multiRule = rule.getMultiRule("searchEvents");
 		Parameter resultParameter = multiRule.getParameter("found_event");
 
@@ -2595,7 +2596,7 @@ public class HenshinTransformations {
 	public static Integer getInputGateForEvent(String event, EGraph graph, boolean logging) throws RuntimeException {
 		List<Integer> gates = new ArrayList<Integer>();
 
-		Rule rule = (Rule) new HenshinResourceSet().getModule("henshin/changeTree.henshin").getUnit("GetInputGateForEvent");
+		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.CHANGE_TREE_HENSHIN), false).getUnit("GetInputGateForEvent");
 		Rule multiRule = rule.getMultiRule("searchGate");
 		Parameter resultParameter = multiRule.getParameter("found_id");
 
@@ -2635,7 +2636,7 @@ public class HenshinTransformations {
 	public static List<Integer> getInputGates(int gate, EGraph graph, boolean logging) {
 		List<Integer> gates = new ArrayList<Integer>();
 
-		Rule rule = (Rule) new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("GetInputGates");
+		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("GetInputGates");
 		Rule multiRule = rule.getMultiRule("searchGates");
 		Parameter resultParameter = multiRule.getParameter("found_gate");
 
@@ -2676,7 +2677,7 @@ public class HenshinTransformations {
 
 		// Get the rule and the according multirule, which store the result
 		// parameter.
-		Rule rule = (Rule) new HenshinResourceSet().getModule("henshin/changeTree.henshin").getUnit("GetIntermediateEventForFailureInstance");
+		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.CHANGE_TREE_HENSHIN), false).getUnit("GetIntermediateEventForFailureInstance");
 		Rule multiRule = rule.getMultiRule("searchEvent");
 		Parameter resultParameter = multiRule.getParameter("found_event");
 
@@ -2723,7 +2724,7 @@ public class HenshinTransformations {
 
 		// Get the rule and the according multirule, which store the result
 		// parameter.
-		Rule rule = (Rule) new HenshinResourceSet().getModule("henshin/SA.henshin").getUnit("GetOutComponentOfPort");
+		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.SA_HENSHIN), false).getUnit("GetOutComponentOfPort");
 		Rule multiRule = rule.getMultiRule("searchComponent");
 		Parameter resultParameter = multiRule.getParameter("found_component");
 
@@ -2768,7 +2769,7 @@ public class HenshinTransformations {
 
 		// Get the rule and the according multirule, which store the result
 		// parameter.
-		Rule rule = (Rule) new HenshinResourceSet().getModule("henshin/SA.henshin").getUnit("GetOutPorts");
+		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.SA_HENSHIN), false).getUnit("GetOutPorts");
 		Rule multiRule = rule.getMultiRule("searchOutPorts");
 		Parameter resultParameter = multiRule.getParameter("found_port");
 
@@ -2806,7 +2807,7 @@ public class HenshinTransformations {
 	public static String getOutputEvent(int gate, EGraph graph, boolean logging) throws RuntimeException {
 		List<String> events = new ArrayList<String>();
 
-		Rule rule = (Rule) new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("GetOutputEvent");
+		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("GetOutputEvent");
 		Rule multiRule = rule.getMultiRule("searchEvent");
 		Parameter resultParameter = multiRule.getParameter("found_event");
 
@@ -2851,7 +2852,7 @@ public class HenshinTransformations {
 	public static String getOutputEventForBasicEvent(String basic_event, EGraph graph, boolean logging) throws RuntimeException {
 		List<String> outgoingEvents = new ArrayList<String>();
 
-		Rule rule = (Rule) new HenshinResourceSet().getModule("henshin/changeTree.henshin").getUnit("GetOutputEventForBasicEvent");
+		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.CHANGE_TREE_HENSHIN), false).getUnit("GetOutputEventForBasicEvent");
 		Rule multiRule = rule.getMultiRule("searchEvent");
 		Parameter resultParameter = multiRule.getParameter("found_event");
 
@@ -2893,7 +2894,7 @@ public class HenshinTransformations {
 	public static String getOutputEventForIntermediateEvent(String intermediate_event, EGraph graph, boolean logging) throws RuntimeException {
 		List<String> outgoingEvents = new ArrayList<String>();
 
-		Rule rule = (Rule) new HenshinResourceSet().getModule("henshin/changeTree.henshin").getUnit("GetOutputEventForIntermediateEvent");
+		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.CHANGE_TREE_HENSHIN), false).getUnit("GetOutputEventForIntermediateEvent");
 		Rule multiRule = rule.getMultiRule("searchEvent");
 		Parameter resultParameter = multiRule.getParameter("found_event");
 
@@ -2935,7 +2936,7 @@ public class HenshinTransformations {
 	public static Integer getOutputGate(int gate, EGraph graph, boolean logging) throws RuntimeException {
 		List<Integer> gates = new ArrayList<Integer>();
 
-		Rule rule = (Rule) new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("GetOutputGate");
+		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("GetOutputGate");
 		Rule multiRule = rule.getMultiRule("searchGate");
 		Parameter resultParameter = multiRule.getParameter("found_gate");
 
@@ -2977,7 +2978,7 @@ public class HenshinTransformations {
 	public static Integer getOutputGateOfEvent(String event, EGraph graph, boolean logging) throws RuntimeException {
 		List<Integer> gates = new ArrayList<Integer>();
 
-		Rule rule = (Rule) new HenshinResourceSet().getModule("henshin/changeTree.henshin").getUnit("GetOutputGateOfEvent");
+		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.CHANGE_TREE_HENSHIN), false).getUnit("GetOutputGateOfEvent");
 		Rule multiRule = rule.getMultiRule("searchGate");
 		Parameter resultParameter = multiRule.getParameter("found_gate");
 
@@ -3023,7 +3024,7 @@ public class HenshinTransformations {
 
 		// Get the rule and the according multirule, which store the result
 		// parameter.
-		Rule rule = (Rule) new HenshinResourceSet().getModule("henshin/SA.henshin").getUnit("GetParentComponent");
+		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.SA_HENSHIN), false).getUnit("GetParentComponent");
 		Rule multiRule = rule.getMultiRule("searchParent");
 		Parameter resultParameter = multiRule.getParameter("parent_component");
 
@@ -3067,7 +3068,7 @@ public class HenshinTransformations {
 
 		// Get the rule and the according multirule, which store the result
 		// parameter.
-		Rule rule = (Rule) new HenshinResourceSet().getModule("henshin/SA.henshin").getUnit("GetPortInstancesOfType");
+		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.SA_HENSHIN), false).getUnit("GetPortInstancesOfType");
 		Rule multiRule = rule.getMultiRule("searchPorts");
 		Parameter resultParameter = multiRule.getParameter("found_port");
 
@@ -3106,7 +3107,7 @@ public class HenshinTransformations {
 
 		// Get the rule and the according multirule, which store the result
 		// parameter.
-		Rule rule = (Rule) new HenshinResourceSet().getModule("henshin/SA.henshin").getUnit("GetPorts");
+		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.SA_HENSHIN), false).getUnit("GetPorts");
 		Rule multiRule = rule.getMultiRule("searchPorts");
 		Parameter resultParameter = multiRule.getParameter("found_port");
 
@@ -3145,7 +3146,7 @@ public class HenshinTransformations {
 
 		// Get the rule and the according multirule, which store the result
 		// parameter.
-		Rule rule = (Rule) new HenshinResourceSet().getModule("henshin/SA.henshin").getUnit("GetPortTypesOfComponentType");
+		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.SA_HENSHIN), false).getUnit("GetPortTypesOfComponentType");
 		Rule multiRule = rule.getMultiRule("searchTypes");
 		Parameter resultParameter = multiRule.getParameter("found_type");
 
@@ -3187,7 +3188,7 @@ public class HenshinTransformations {
 
 		// Get the rule and the according multirule, which store the result
 		// parameter.
-		Rule rule = (Rule) new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("GetPreviousError");
+		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("GetPreviousError");
 		Rule multiRule = rule.getMultiRule("getPreviousError");
 		Parameter resultParameter = multiRule.getParameter("previous_error");
 
@@ -3235,7 +3236,7 @@ public class HenshinTransformations {
 
 		// Get the rule and the according multirule, which store the result
 		// parameter.
-		Rule rule = (Rule) new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("GetPreviousFailure");
+		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("GetPreviousFailure");
 		Rule multiRule = rule.getMultiRule("getPreviousFailure");
 		Parameter resultParameter = multiRule.getParameter("previous_failure");
 
@@ -3280,7 +3281,7 @@ public class HenshinTransformations {
 
 		// Get the rule and the according multirule, which store the result
 		// parameter.
-		Rule rule = (Rule) new HenshinResourceSet().getModule("henshin/SA.henshin").getUnit("GetChildComponents");
+		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.SA_HENSHIN), false).getUnit("GetChildComponents");
 		Rule multiRule = rule.getMultiRule("searchChildren");
 		Parameter resultParameter = multiRule.getParameter("child_component");
 
@@ -3322,7 +3323,7 @@ public class HenshinTransformations {
 
 		// Get the rule and the according multirule, which store the result
 		// parameter.
-		Rule rule = (Rule) new HenshinResourceSet().getModule("henshin/fault_tree.henshin").getUnit("GetTypeOfErrorInstance");
+		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), false).getUnit("GetTypeOfErrorInstance");
 		Rule multiRule = rule.getMultiRule("searchType");
 		Parameter resultParameter = multiRule.getParameter("error_type");
 
@@ -3372,7 +3373,7 @@ public class HenshinTransformations {
 
 		// Get the rule and the according multirule, which store the result
 		// parameter.
-		Rule rule = (Rule) new HenshinResourceSet().getModule("henshin/SA.henshin").getUnit("GetUsedPortInSourceComponentForConnection");
+		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.SA_HENSHIN), false).getUnit("GetUsedPortInSourceComponentForConnection");
 		Rule multiRule = rule.getMultiRule("searchPort");
 		Parameter resultParameter = multiRule.getParameter("found_port");
 
@@ -3416,7 +3417,7 @@ public class HenshinTransformations {
 	 * @return true if given intermediate event has an event as input
 	 */
 	public static boolean hasEventAsInput(String intermediate_event, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/changeTree.henshin").getUnit("HasEventAsInput");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.CHANGE_TREE_HENSHIN), false).getUnit("HasEventAsInput");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("intermediate_event", intermediate_event);
 		boolean result = application.execute(null);
@@ -3440,7 +3441,7 @@ public class HenshinTransformations {
 	 * @return true if given event has any Gate as input, otherwise false
 	 */
 	public static boolean hasGateAsInput(String event, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/changeTree.henshin").getUnit("HasGateAsInput");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.CHANGE_TREE_HENSHIN), false).getUnit("HasGateAsInput");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("event", event);
 		boolean result = application.execute(null);
@@ -3464,7 +3465,7 @@ public class HenshinTransformations {
 	 * @return true if given event has an OR-Gate as input, otherwise false
 	 */
 	public static boolean hasORGateAsInput(String event, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/changeTree.henshin").getUnit("HasORGateAsInput");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.CHANGE_TREE_HENSHIN), false).getUnit("HasORGateAsInput");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("event", event);
 		boolean result = application.execute(null);
@@ -3488,7 +3489,7 @@ public class HenshinTransformations {
 	 * @return true if given event is a basic event, otherwise false
 	 */
 	public static boolean isBasicEvent(String event, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/changeTree.henshin").getUnit("IsBasicEvent");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.CHANGE_TREE_HENSHIN), false).getUnit("IsBasicEvent");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("event", event);
 		boolean result = application.execute(null);
@@ -3512,7 +3513,7 @@ public class HenshinTransformations {
 	 * @return true if given event is a intermediate event, otherwise false
 	 */
 	public static boolean isIntermediateEvent(String event, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/changeTree.henshin").getUnit("IsIntermediateEvent");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.CHANGE_TREE_HENSHIN), false).getUnit("IsIntermediateEvent");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("event", event);
 		boolean result = application.execute(null);
@@ -3536,7 +3537,7 @@ public class HenshinTransformations {
 	 * @return true if given gate ID refers to an OR gate, otherwise false
 	 */
 	public static boolean isORGate(int gate, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/changeTree.henshin").getUnit("IsORGate");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.CHANGE_TREE_HENSHIN), false).getUnit("IsORGate");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("gate", gate);
 		boolean result = application.execute(null);
@@ -3560,7 +3561,7 @@ public class HenshinTransformations {
 	 * @return boolean
 	 */
 	public static boolean isPortInstanceInPort(String port_instance, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/SA.henshin").getUnit("IsPortInstanceInPort");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.SA_HENSHIN), false).getUnit("IsPortInstanceInPort");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("port_instance", port_instance);
 		boolean result = application.execute(null);
@@ -3584,7 +3585,7 @@ public class HenshinTransformations {
 	 * @return boolean
 	 */
 	public static boolean isPortInstanceOutPort(String port_instance, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/SA.henshin").getUnit("IsPortInstanceOutPort");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.SA_HENSHIN), false).getUnit("IsPortInstanceOutPort");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("port_instance", port_instance);
 		boolean result = application.execute(null);
@@ -3608,7 +3609,7 @@ public class HenshinTransformations {
 	 * @return boolean
 	 */
 	public static boolean isSensor(String component_instance, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/ChangeTree.henshin").getUnit("IsSensor");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.CHANGE_TREE_HENSHIN), false).getUnit("IsSensor");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("component_instance", component_instance);
 		boolean result = application.execute(null);
@@ -3632,7 +3633,7 @@ public class HenshinTransformations {
 	 * @return boolean
 	 */
 	public static boolean isSoftwareComponent(String component_instance, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/ChangeTree.henshin").getUnit("IsSoftwareComponent");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.CHANGE_TREE_HENSHIN), false).getUnit("IsSoftwareComponent");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("component_instance", component_instance);
 		boolean result = application.execute(null);
@@ -3658,7 +3659,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean movePortToComponentAsIncoming(String port_instance, String component_instance, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/SA.henshin").getUnit("MovePortToComponentAsIncoming");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.SA_HENSHIN), false).getUnit("MovePortToComponentAsIncoming");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("port_instance", port_instance);
 		application.setParameterValue("component_instance", component_instance);
@@ -3688,7 +3689,7 @@ public class HenshinTransformations {
 	 * @return success of execution
 	 */
 	public static boolean movePortToComponentAsOutgoing(String port_instance, String component_instance, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/SA.henshin").getUnit("MovePortToComponentAsOutgoing");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.SA_HENSHIN), false).getUnit("MovePortToComponentAsOutgoing");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("port_instance", port_instance);
 		application.setParameterValue("component_instance", component_instance);
@@ -3718,7 +3719,7 @@ public class HenshinTransformations {
 	 * @return boolean, whether rule executed successful.
 	 */
 	public static boolean propagateErrorToComponentFromPort(String port_instance, String error_instance, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/ensure.henshin").getUnit("PropagateErrorToComponentFromPort");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.ENSURE_HENSHIN), false).getUnit("PropagateErrorToComponentFromPort");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("port_instance", port_instance);
 		application.setParameterValue("error_instance", error_instance);
@@ -3748,7 +3749,7 @@ public class HenshinTransformations {
 	 * @return boolean, whether rule executed successful.
 	 */
 	public static boolean propagateFailureToComponentFromPort(String port_instance, String failure_instance, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/ensure.henshin").getUnit("PropagateFailureToComponentFromPort");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.ENSURE_HENSHIN), false).getUnit("PropagateFailureToComponentFromPort");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("port_instance", port_instance);
 		application.setParameterValue("failure_instance", failure_instance);
@@ -3778,7 +3779,7 @@ public class HenshinTransformations {
 	 * @return boolean, whether rule executed successful.
 	 */
 	public static boolean propagateFailureToConnectedPortFromPort(String port_instance, String failure_instance, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/ensure.henshin").getUnit("PropagateFailureToConnectedPortFromPort");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.ENSURE_HENSHIN), false).getUnit("PropagateFailureToConnectedPortFromPort");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("port_instance", port_instance);
 		application.setParameterValue("failure_instance", failure_instance);
@@ -3808,7 +3809,7 @@ public class HenshinTransformations {
 	 * @return boolean, whether it was successful.
 	 */
 	public static boolean propagateFailureToParentComponent(String component_instance, String failure_instance, EGraph graph, boolean logging) {
-		Unit unit = new HenshinResourceSet().getModule("henshin/ensure.henshin").getUnit("PropagateFailureToParentComponent");
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.ENSURE_HENSHIN), false).getUnit("PropagateFailureToParentComponent");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("component_instance", component_instance);
 		application.setParameterValue("failure_instance", failure_instance);

@@ -57,8 +57,8 @@ public class ComponentDiagramFaultTreeTransformationManager extends AbstractTran
 	
 	@Override
 	public Resource transform(Resource oldSource, Resource source, Resource target, SymmetricDifference difference, URI fileURI) {
-		CoWolfConstructTree.init(source, target);
-		CoWolfConstructTree.run();
+		ConstructTree.init(source, target);
+		ConstructTree.run();
 		return target;
 	}
 
