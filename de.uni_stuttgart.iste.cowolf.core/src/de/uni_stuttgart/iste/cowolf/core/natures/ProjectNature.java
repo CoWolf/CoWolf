@@ -11,6 +11,7 @@ import org.eclipse.core.runtime.CoreException;
 public class ProjectNature implements IProjectNature {
 
 	public static final String NATURE_ID = "de.uni_stuttgart.iste.cowolf.ui.projectNature"; //$NON-NLS-1$
+	public static final String MODELING_NATURE_ID = "org.eclipse.sirius.nature.modelingproject";
 
 	@Override
 	public void configure() throws CoreException {
