@@ -3,7 +3,6 @@ package de.uni_stuttgart.iste.cowolf.transformation.component_diagram_fault_tree
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.henshin.interpreter.impl.EGraphImpl;
 
-import de.unistuttgart.ensure.transformations.ConstructTree;
 import de.unistuttgart.ensure.transformations.util.TransformationsUtil;
 
 public class CoWolfConstructTree extends ConstructTree {
