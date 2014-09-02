@@ -2,6 +2,8 @@
  */
 package sequence.tests;
 
+import commonBase.tests.IDBaseTest;
+
 import junit.textui.TestRunner;
 
 import sequence.AltBlock;
@@ -13,7 +15,7 @@ import sequence.SequenceFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class AltBlockTest extends BlockTest {
+public class AltBlockTest extends IDBaseTest {
 
 	/**
 	 * <!-- begin-user-doc -->

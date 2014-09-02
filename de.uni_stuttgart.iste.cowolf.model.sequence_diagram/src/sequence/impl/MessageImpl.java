@@ -2,18 +2,15 @@
  */
 package sequence.impl;
 
+import commonBase.impl.IDBaseImpl;
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import sequence.Message;
 import sequence.MessageKind;
-import sequence.MessageSort;
 import sequence.SequencePackage;
-import sequence.Task;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,15 +20,14 @@ import sequence.Task;
  * The following features are implemented:
  * <ul>
  *   <li>{@link sequence.impl.MessageImpl#getMessageKind <em>Message Kind</em>}</li>
- *   <li>{@link sequence.impl.MessageImpl#getMessageSort <em>Message Sort</em>}</li>
- *   <li>{@link sequence.impl.MessageImpl#getFrom <em>From</em>}</li>
- *   <li>{@link sequence.impl.MessageImpl#getTo <em>To</em>}</li>
+ *   <li>{@link sequence.impl.MessageImpl#getMessage <em>Message</em>}</li>
+ *   <li>{@link sequence.impl.MessageImpl#getIn <em>In</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class MessageImpl extends ElementImpl implements Message {
+public abstract class MessageImpl extends IDBaseImpl implements Message {
 	/**
 	 * The default value of the '{@link #getMessageKind() <em>Message Kind</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -40,7 +36,7 @@ public class MessageImpl extends ElementImpl implements Message {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final MessageKind MESSAGE_KIND_EDEFAULT = MessageKind.COMPLETE;
+	protected static final MessageKind MESSAGE_KIND_EDEFAULT = MessageKind.LOST;
 
 	/**
 	 * The cached value of the '{@link #getMessageKind() <em>Message Kind</em>}' attribute.
@@ -53,44 +49,34 @@ public class MessageImpl extends ElementImpl implements Message {
 	protected MessageKind messageKind = MESSAGE_KIND_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getMessageSort() <em>Message Sort</em>}' attribute.
+	 * The default value of the '{@link #getMessage() <em>Message</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMessageSort()
+	 * @see #getMessage()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final MessageSort MESSAGE_SORT_EDEFAULT = MessageSort.SYNCH_CALL;
+	protected static final String MESSAGE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getMessageSort() <em>Message Sort</em>}' attribute.
+	 * The cached value of the '{@link #getMessage() <em>Message</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMessageSort()
+	 * @see #getMessage()
 	 * @generated
 	 * @ordered
 	 */
-	protected MessageSort messageSort = MESSAGE_SORT_EDEFAULT;
+	protected String message = MESSAGE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getFrom() <em>From</em>}' reference.
+	 * The cached value of the '{@link #getIn() <em>In</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFrom()
+	 * @see #getIn()
 	 * @generated
 	 * @ordered
 	 */
-	protected Task from;
-
-	/**
-	 * The cached value of the '{@link #getTo() <em>To</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTo()
-	 * @generated
-	 * @ordered
-	 */
-	protected Task to;
+	protected sequence.Container in;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -137,8 +123,8 @@ public class MessageImpl extends ElementImpl implements Message {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MessageSort getMessageSort() {
-		return messageSort;
+	public String getMessage() {
+		return message;
 	}
 
 	/**
@@ -146,11 +132,11 @@ public class MessageImpl extends ElementImpl implements Message {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMessageSort(MessageSort newMessageSort) {
-		MessageSort oldMessageSort = messageSort;
-		messageSort = newMessageSort == null ? MESSAGE_SORT_EDEFAULT : newMessageSort;
+	public void setMessage(String newMessage) {
+		String oldMessage = message;
+		message = newMessage;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SequencePackage.MESSAGE__MESSAGE_SORT, oldMessageSort, messageSort));
+			eNotify(new ENotificationImpl(this, Notification.SET, SequencePackage.MESSAGE__MESSAGE, oldMessage, message));
 	}
 
 	/**
@@ -158,16 +144,16 @@ public class MessageImpl extends ElementImpl implements Message {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Task getFrom() {
-		if (from != null && from.eIsProxy()) {
-			InternalEObject oldFrom = (InternalEObject)from;
-			from = (Task)eResolveProxy(oldFrom);
-			if (from != oldFrom) {
+	public sequence.Container getIn() {
+		if (in != null && in.eIsProxy()) {
+			InternalEObject oldIn = (InternalEObject)in;
+			in = (sequence.Container)eResolveProxy(oldIn);
+			if (in != oldIn) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SequencePackage.MESSAGE__FROM, oldFrom, from));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SequencePackage.MESSAGE__IN, oldIn, in));
 			}
 		}
-		return from;
+		return in;
 	}
 
 	/**
@@ -175,8 +161,8 @@ public class MessageImpl extends ElementImpl implements Message {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Task basicGetFrom() {
-		return from;
+	public sequence.Container basicGetIn() {
+		return in;
 	}
 
 	/**
@@ -184,28 +170,14 @@ public class MessageImpl extends ElementImpl implements Message {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFrom(Task newFrom) {
-		Task oldFrom = from;
-		from = newFrom;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SequencePackage.MESSAGE__FROM, oldFrom, from));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Task getTo() {
-		if (to != null && to.eIsProxy()) {
-			InternalEObject oldTo = (InternalEObject)to;
-			to = (Task)eResolveProxy(oldTo);
-			if (to != oldTo) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SequencePackage.MESSAGE__TO, oldTo, to));
-			}
+	public NotificationChain basicSetIn(sequence.Container newIn, NotificationChain msgs) {
+		sequence.Container oldIn = in;
+		in = newIn;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SequencePackage.MESSAGE__IN, oldIn, newIn);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
-		return to;
+		return msgs;
 	}
 
 	/**
@@ -213,8 +185,18 @@ public class MessageImpl extends ElementImpl implements Message {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Task basicGetTo() {
-		return to;
+	public void setIn(sequence.Container newIn) {
+		if (newIn != in) {
+			NotificationChain msgs = null;
+			if (in != null)
+				msgs = ((InternalEObject)in).eInverseRemove(this, SequencePackage.CONTAINER__MESSAGES, sequence.Container.class, msgs);
+			if (newIn != null)
+				msgs = ((InternalEObject)newIn).eInverseAdd(this, SequencePackage.CONTAINER__MESSAGES, sequence.Container.class, msgs);
+			msgs = basicSetIn(newIn, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SequencePackage.MESSAGE__IN, newIn, newIn));
 	}
 
 	/**
@@ -222,11 +204,29 @@ public class MessageImpl extends ElementImpl implements Message {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTo(Task newTo) {
-		Task oldTo = to;
-		to = newTo;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SequencePackage.MESSAGE__TO, oldTo, to));
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case SequencePackage.MESSAGE__IN:
+				if (in != null)
+					msgs = ((InternalEObject)in).eInverseRemove(this, SequencePackage.CONTAINER__MESSAGES, sequence.Container.class, msgs);
+				return basicSetIn((sequence.Container)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case SequencePackage.MESSAGE__IN:
+				return basicSetIn(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -239,14 +239,11 @@ public class MessageImpl extends ElementImpl implements Message {
 		switch (featureID) {
 			case SequencePackage.MESSAGE__MESSAGE_KIND:
 				return getMessageKind();
-			case SequencePackage.MESSAGE__MESSAGE_SORT:
-				return getMessageSort();
-			case SequencePackage.MESSAGE__FROM:
-				if (resolve) return getFrom();
-				return basicGetFrom();
-			case SequencePackage.MESSAGE__TO:
-				if (resolve) return getTo();
-				return basicGetTo();
+			case SequencePackage.MESSAGE__MESSAGE:
+				return getMessage();
+			case SequencePackage.MESSAGE__IN:
+				if (resolve) return getIn();
+				return basicGetIn();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -262,14 +259,11 @@ public class MessageImpl extends ElementImpl implements Message {
 			case SequencePackage.MESSAGE__MESSAGE_KIND:
 				setMessageKind((MessageKind)newValue);
 				return;
-			case SequencePackage.MESSAGE__MESSAGE_SORT:
-				setMessageSort((MessageSort)newValue);
+			case SequencePackage.MESSAGE__MESSAGE:
+				setMessage((String)newValue);
 				return;
-			case SequencePackage.MESSAGE__FROM:
-				setFrom((Task)newValue);
-				return;
-			case SequencePackage.MESSAGE__TO:
-				setTo((Task)newValue);
+			case SequencePackage.MESSAGE__IN:
+				setIn((sequence.Container)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -286,14 +280,11 @@ public class MessageImpl extends ElementImpl implements Message {
 			case SequencePackage.MESSAGE__MESSAGE_KIND:
 				setMessageKind(MESSAGE_KIND_EDEFAULT);
 				return;
-			case SequencePackage.MESSAGE__MESSAGE_SORT:
-				setMessageSort(MESSAGE_SORT_EDEFAULT);
+			case SequencePackage.MESSAGE__MESSAGE:
+				setMessage(MESSAGE_EDEFAULT);
 				return;
-			case SequencePackage.MESSAGE__FROM:
-				setFrom((Task)null);
-				return;
-			case SequencePackage.MESSAGE__TO:
-				setTo((Task)null);
+			case SequencePackage.MESSAGE__IN:
+				setIn((sequence.Container)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -309,12 +300,10 @@ public class MessageImpl extends ElementImpl implements Message {
 		switch (featureID) {
 			case SequencePackage.MESSAGE__MESSAGE_KIND:
 				return messageKind != MESSAGE_KIND_EDEFAULT;
-			case SequencePackage.MESSAGE__MESSAGE_SORT:
-				return messageSort != MESSAGE_SORT_EDEFAULT;
-			case SequencePackage.MESSAGE__FROM:
-				return from != null;
-			case SequencePackage.MESSAGE__TO:
-				return to != null;
+			case SequencePackage.MESSAGE__MESSAGE:
+				return MESSAGE_EDEFAULT == null ? message != null : !MESSAGE_EDEFAULT.equals(message);
+			case SequencePackage.MESSAGE__IN:
+				return in != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -329,10 +318,10 @@ public class MessageImpl extends ElementImpl implements Message {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (MessageKind: ");
+		result.append(" (messageKind: ");
 		result.append(messageKind);
-		result.append(", MessageSort: ");
-		result.append(messageSort);
+		result.append(", message: ");
+		result.append(message);
 		result.append(')');
 		return result.toString();
 	}

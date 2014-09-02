@@ -22,15 +22,6 @@ public interface SequenceFactory extends EFactory {
 	SequenceFactory eINSTANCE = sequence.impl.SequenceFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Sequence</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Sequence</em>'.
-	 * @generated
-	 */
-	Sequence createSequence();
-
-	/**
 	 * Returns a new object of class '<em>Lifeline</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -40,15 +31,6 @@ public interface SequenceFactory extends EFactory {
 	Lifeline createLifeline();
 
 	/**
-	 * Returns a new object of class '<em>Message</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Message</em>'.
-	 * @generated
-	 */
-	Message createMessage();
-
-	/**
 	 * Returns a new object of class '<em>Task</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -56,15 +38,6 @@ public interface SequenceFactory extends EFactory {
 	 * @generated
 	 */
 	Task createTask();
-
-	/**
-	 * Returns a new object of class '<em>Block</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Block</em>'.
-	 * @generated
-	 */
-	Block createBlock();
 
 	/**
 	 * Returns a new object of class '<em>Loop Block</em>'.
@@ -92,6 +65,78 @@ public interface SequenceFactory extends EFactory {
 	 * @generated
 	 */
 	Alternative createAlternative();
+
+	/**
+	 * Returns a new object of class '<em>opt Block</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>opt Block</em>'.
+	 * @generated
+	 */
+	optBlock createoptBlock();
+
+	/**
+	 * Returns a new object of class '<em>Sequence</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sequence</em>'.
+	 * @generated
+	 */
+	Sequence createSequence();
+
+	/**
+	 * Returns a new object of class '<em>Block Base</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Block Base</em>'.
+	 * @generated
+	 */
+	BlockBase createBlockBase();
+
+	/**
+	 * Returns a new object of class '<em>top Layer</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>top Layer</em>'.
+	 * @generated
+	 */
+	topLayer createtopLayer();
+
+	/**
+	 * Returns a new object of class '<em>Initial Message</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Initial Message</em>'.
+	 * @generated
+	 */
+	InitialMessage createInitialMessage();
+
+	/**
+	 * Returns a new object of class '<em>Actor</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Actor</em>'.
+	 * @generated
+	 */
+	Actor createActor();
+
+	/**
+	 * Returns a new object of class '<em>Special Message</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Special Message</em>'.
+	 * @generated
+	 */
+	SpecialMessage createSpecialMessage();
+
+	/**
+	 * Returns a new object of class '<em>Normal Message</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Normal Message</em>'.
+	 * @generated
+	 */
+	NormalMessage createNormalMessage();
 
 	/**
 	 * Returns the package supported by this factory.

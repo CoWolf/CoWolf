@@ -2,7 +2,7 @@
  */
 package sequence.tests;
 
-import junit.framework.TestCase;
+import commonBase.tests.IDBaseTest;
 
 import junit.textui.TestRunner;
 
@@ -15,15 +15,7 @@ import sequence.Task;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TaskTest extends TestCase {
-
-	/**
-	 * The fixture for this Task test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Task fixture = null;
+public class TaskTest extends IDBaseTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -45,23 +37,14 @@ public class TaskTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this Task test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(Task fixture) {
-		this.fixture = fixture;
-	}
-
-	/**
 	 * Returns the fixture for this Task test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected Task getFixture() {
-		return fixture;
+		return (Task)fixture;
 	}
 
 	/**

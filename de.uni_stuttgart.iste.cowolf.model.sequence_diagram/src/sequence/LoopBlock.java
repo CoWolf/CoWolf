@@ -2,7 +2,7 @@
  */
 package sequence;
 
-import org.eclipse.emf.common.util.EList;
+import commonBase.IDBase;
 
 
 /**
@@ -13,7 +13,7 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link sequence.LoopBlock#getInclude <em>Include</em>}</li>
+ *   <li>{@link sequence.LoopBlock#getCondition <em>Condition</em>}</li>
  * </ul>
  * </p>
  *
@@ -21,21 +21,31 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface LoopBlock extends Block {
-
+public interface LoopBlock extends Block, IDBase, BlockBase {
 	/**
-	 * Returns the value of the '<em><b>Include</b></em>' containment reference list.
-	 * The list contents are of type {@link sequence.Element}.
+	 * Returns the value of the '<em><b>Condition</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Include</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Condition</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Include</em>' containment reference list.
-	 * @see sequence.SequencePackage#getLoopBlock_Include()
-	 * @model containment="true"
+	 * @return the value of the '<em>Condition</em>' attribute.
+	 * @see #setCondition(String)
+	 * @see sequence.SequencePackage#getLoopBlock_Condition()
+	 * @model required="true"
 	 * @generated
 	 */
-	EList<Element> getInclude();
+	String getCondition();
+
+	/**
+	 * Sets the value of the '{@link sequence.LoopBlock#getCondition <em>Condition</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Condition</em>' attribute.
+	 * @see #getCondition()
+	 * @generated
+	 */
+	void setCondition(String value);
+
 } // LoopBlock

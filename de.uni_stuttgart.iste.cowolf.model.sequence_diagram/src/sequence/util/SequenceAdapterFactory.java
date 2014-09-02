@@ -2,6 +2,7 @@
  */
 package sequence.util;
 
+import commonBase.IDBase;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -68,14 +69,6 @@ public class SequenceAdapterFactory extends AdapterFactoryImpl {
 	protected SequenceSwitch<Adapter> modelSwitch =
 		new SequenceSwitch<Adapter>() {
 			@Override
-			public Adapter caseSequence(Sequence object) {
-				return createSequenceAdapter();
-			}
-			@Override
-			public Adapter caseElement(Element object) {
-				return createElementAdapter();
-			}
-			@Override
 			public Adapter caseLifeline(Lifeline object) {
 				return createLifelineAdapter();
 			}
@@ -88,10 +81,6 @@ public class SequenceAdapterFactory extends AdapterFactoryImpl {
 				return createTaskAdapter();
 			}
 			@Override
-			public Adapter caseBlock(Block object) {
-				return createBlockAdapter();
-			}
-			@Override
 			public Adapter caseLoopBlock(LoopBlock object) {
 				return createLoopBlockAdapter();
 			}
@@ -102,6 +91,54 @@ public class SequenceAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseAlternative(Alternative object) {
 				return createAlternativeAdapter();
+			}
+			@Override
+			public Adapter caseoptBlock(optBlock object) {
+				return createoptBlockAdapter();
+			}
+			@Override
+			public Adapter casetopLayer(topLayer object) {
+				return createtopLayerAdapter();
+			}
+			@Override
+			public Adapter caseContainer(Container object) {
+				return createContainerAdapter();
+			}
+			@Override
+			public Adapter caseBlock(Block object) {
+				return createBlockAdapter();
+			}
+			@Override
+			public Adapter caseInitialMessage(InitialMessage object) {
+				return createInitialMessageAdapter();
+			}
+			@Override
+			public Adapter caseActor(Actor object) {
+				return createActorAdapter();
+			}
+			@Override
+			public Adapter caseSpecialMessage(SpecialMessage object) {
+				return createSpecialMessageAdapter();
+			}
+			@Override
+			public Adapter caseNormalMessage(NormalMessage object) {
+				return createNormalMessageAdapter();
+			}
+			@Override
+			public Adapter caseMessageBase(MessageBase object) {
+				return createMessageBaseAdapter();
+			}
+			@Override
+			public Adapter caseSequence(Sequence object) {
+				return createSequenceAdapter();
+			}
+			@Override
+			public Adapter caseBlockBase(BlockBase object) {
+				return createBlockBaseAdapter();
+			}
+			@Override
+			public Adapter caseIDBase(IDBase object) {
+				return createIDBaseAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -122,34 +159,6 @@ public class SequenceAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
-
-	/**
-	 * Creates a new adapter for an object of class '{@link sequence.Sequence <em>Sequence</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see sequence.Sequence
-	 * @generated
-	 */
-	public Adapter createSequenceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link sequence.Element <em>Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see sequence.Element
-	 * @generated
-	 */
-	public Adapter createElementAdapter() {
-		return null;
-	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link sequence.Lifeline <em>Lifeline</em>}'.
@@ -194,20 +203,6 @@ public class SequenceAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link sequence.Block <em>Block</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see sequence.Block
-	 * @generated
-	 */
-	public Adapter createBlockAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link sequence.LoopBlock <em>Loop Block</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -246,6 +241,174 @@ public class SequenceAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAlternativeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link sequence.optBlock <em>opt Block</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see sequence.optBlock
+	 * @generated
+	 */
+	public Adapter createoptBlockAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link sequence.Sequence <em>Sequence</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see sequence.Sequence
+	 * @generated
+	 */
+	public Adapter createSequenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link sequence.BlockBase <em>Block Base</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see sequence.BlockBase
+	 * @generated
+	 */
+	public Adapter createBlockBaseAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link commonBase.IDBase <em>ID Base</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see commonBase.IDBase
+	 * @generated
+	 */
+	public Adapter createIDBaseAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link sequence.topLayer <em>top Layer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see sequence.topLayer
+	 * @generated
+	 */
+	public Adapter createtopLayerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link sequence.Container <em>Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see sequence.Container
+	 * @generated
+	 */
+	public Adapter createContainerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link sequence.Block <em>Block</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see sequence.Block
+	 * @generated
+	 */
+	public Adapter createBlockAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link sequence.InitialMessage <em>Initial Message</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see sequence.InitialMessage
+	 * @generated
+	 */
+	public Adapter createInitialMessageAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link sequence.Actor <em>Actor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see sequence.Actor
+	 * @generated
+	 */
+	public Adapter createActorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link sequence.SpecialMessage <em>Special Message</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see sequence.SpecialMessage
+	 * @generated
+	 */
+	public Adapter createSpecialMessageAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link sequence.NormalMessage <em>Normal Message</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see sequence.NormalMessage
+	 * @generated
+	 */
+	public Adapter createNormalMessageAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link sequence.MessageBase <em>Message Base</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see sequence.MessageBase
+	 * @generated
+	 */
+	public Adapter createMessageBaseAdapter() {
 		return null;
 	}
 

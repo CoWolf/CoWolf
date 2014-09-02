@@ -2,6 +2,7 @@
  */
 package sequence;
 
+import commonBase.IDBase;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -13,7 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link sequence.Lifeline#getName <em>Name</em>}</li>
- *   <li>{@link sequence.Lifeline#getTask <em>Task</em>}</li>
+ *   <li>{@link sequence.Lifeline#getTasks <em>Tasks</em>}</li>
  * </ul>
  * </p>
  *
@@ -21,7 +22,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Lifeline extends Element {
+public interface Lifeline extends IDBase {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -49,19 +50,21 @@ public interface Lifeline extends Element {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Task</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Tasks</b></em>' reference list.
 	 * The list contents are of type {@link sequence.Task}.
+	 * It is bidirectional and its opposite is '{@link sequence.Task#getLifeline <em>Lifeline</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Task</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Tasks</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Task</em>' containment reference list.
-	 * @see sequence.SequencePackage#getLifeline_Task()
-	 * @model containment="true"
+	 * @return the value of the '<em>Tasks</em>' reference list.
+	 * @see sequence.SequencePackage#getLifeline_Tasks()
+	 * @see sequence.Task#getLifeline
+	 * @model opposite="lifeline"
 	 * @generated
 	 */
-	EList<Task> getTask();
+	EList<Task> getTasks();
 
 } // Lifeline

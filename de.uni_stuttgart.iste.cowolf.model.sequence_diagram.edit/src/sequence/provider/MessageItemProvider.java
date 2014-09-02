@@ -3,19 +3,17 @@
 package sequence.provider;
 
 
+import commonBase.provider.IDBaseItemProvider;
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import sequence.Message;
-import sequence.MessageKind;
 import sequence.SequencePackage;
 
 /**
@@ -24,7 +22,8 @@ import sequence.SequencePackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class MessageItemProvider extends ElementItemProvider {
+public class MessageItemProvider 
+	extends IDBaseItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -47,9 +46,8 @@ public class MessageItemProvider extends ElementItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addMessageKindPropertyDescriptor(object);
-			addMessageSortPropertyDescriptor(object);
-			addFromPropertyDescriptor(object);
-			addToPropertyDescriptor(object);
+			addMessagePropertyDescriptor(object);
+			addInPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -65,8 +63,8 @@ public class MessageItemProvider extends ElementItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Message_MessageKind_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Message_MessageKind_feature", "_UI_Message_type"),
+				 getString("_UI_Message_messageKind_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Message_messageKind_feature", "_UI_Message_type"),
 				 SequencePackage.Literals.MESSAGE__MESSAGE_KIND,
 				 true,
 				 false,
@@ -77,19 +75,19 @@ public class MessageItemProvider extends ElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Message Sort feature.
+	 * This adds a property descriptor for the Message feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addMessageSortPropertyDescriptor(Object object) {
+	protected void addMessagePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Message_MessageSort_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Message_MessageSort_feature", "_UI_Message_type"),
-				 SequencePackage.Literals.MESSAGE__MESSAGE_SORT,
+				 getString("_UI_Message_message_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Message_message_feature", "_UI_Message_type"),
+				 SequencePackage.Literals.MESSAGE__MESSAGE,
 				 true,
 				 false,
 				 false,
@@ -99,41 +97,19 @@ public class MessageItemProvider extends ElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the From feature.
+	 * This adds a property descriptor for the In feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addFromPropertyDescriptor(Object object) {
+	protected void addInPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Message_from_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Message_from_feature", "_UI_Message_type"),
-				 SequencePackage.Literals.MESSAGE__FROM,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the To feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addToPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Message_to_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Message_to_feature", "_UI_Message_type"),
-				 SequencePackage.Literals.MESSAGE__TO,
+				 getString("_UI_Message_in_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Message_in_feature", "_UI_Message_type"),
+				 SequencePackage.Literals.MESSAGE__IN,
 				 true,
 				 false,
 				 true,
@@ -161,8 +137,7 @@ public class MessageItemProvider extends ElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		MessageKind labelValue = ((Message)object).getMessageKind();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((Message)object).getId();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Message_type") :
 			getString("_UI_Message_type") + " " + label;
@@ -182,7 +157,7 @@ public class MessageItemProvider extends ElementItemProvider {
 
 		switch (notification.getFeatureID(Message.class)) {
 			case SequencePackage.MESSAGE__MESSAGE_KIND:
-			case SequencePackage.MESSAGE__MESSAGE_SORT:
+			case SequencePackage.MESSAGE__MESSAGE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -199,6 +174,17 @@ public class MessageItemProvider extends ElementItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return SequenceEditPlugin.INSTANCE;
 	}
 
 }

@@ -57,14 +57,19 @@ public class SequenceFactoryImpl extends EFactoryImpl implements SequenceFactory
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case SequencePackage.SEQUENCE: return createSequence();
 			case SequencePackage.LIFELINE: return createLifeline();
-			case SequencePackage.MESSAGE: return createMessage();
 			case SequencePackage.TASK: return createTask();
-			case SequencePackage.BLOCK: return createBlock();
 			case SequencePackage.LOOP_BLOCK: return createLoopBlock();
 			case SequencePackage.ALT_BLOCK: return createAltBlock();
 			case SequencePackage.ALTERNATIVE: return createAlternative();
+			case SequencePackage.OPT_BLOCK: return createoptBlock();
+			case SequencePackage.TOP_LAYER: return createtopLayer();
+			case SequencePackage.INITIAL_MESSAGE: return createInitialMessage();
+			case SequencePackage.ACTOR: return createActor();
+			case SequencePackage.SPECIAL_MESSAGE: return createSpecialMessage();
+			case SequencePackage.NORMAL_MESSAGE: return createNormalMessage();
+			case SequencePackage.SEQUENCE: return createSequence();
+			case SequencePackage.BLOCK_BASE: return createBlockBase();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -80,8 +85,10 @@ public class SequenceFactoryImpl extends EFactoryImpl implements SequenceFactory
 		switch (eDataType.getClassifierID()) {
 			case SequencePackage.MESSAGE_KIND:
 				return createMessageKindFromString(eDataType, initialValue);
-			case SequencePackage.MESSAGE_SORT:
-				return createMessageSortFromString(eDataType, initialValue);
+			case SequencePackage.MESSAGE_SORT_SPECIAL:
+				return createMessageSortSpecialFromString(eDataType, initialValue);
+			case SequencePackage.MESSAGE_SORT_NORMAL:
+				return createMessageSortNormalFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -97,21 +104,13 @@ public class SequenceFactoryImpl extends EFactoryImpl implements SequenceFactory
 		switch (eDataType.getClassifierID()) {
 			case SequencePackage.MESSAGE_KIND:
 				return convertMessageKindToString(eDataType, instanceValue);
-			case SequencePackage.MESSAGE_SORT:
-				return convertMessageSortToString(eDataType, instanceValue);
+			case SequencePackage.MESSAGE_SORT_SPECIAL:
+				return convertMessageSortSpecialToString(eDataType, instanceValue);
+			case SequencePackage.MESSAGE_SORT_NORMAL:
+				return convertMessageSortNormalToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Sequence createSequence() {
-		SequenceImpl sequence = new SequenceImpl();
-		return sequence;
 	}
 
 	/**
@@ -129,29 +128,9 @@ public class SequenceFactoryImpl extends EFactoryImpl implements SequenceFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Message createMessage() {
-		MessageImpl message = new MessageImpl();
-		return message;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Task createTask() {
 		TaskImpl task = new TaskImpl();
 		return task;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Block createBlock() {
-		BlockImpl block = new BlockImpl();
-		return block;
 	}
 
 	/**
@@ -189,6 +168,86 @@ public class SequenceFactoryImpl extends EFactoryImpl implements SequenceFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public optBlock createoptBlock() {
+		optBlockImpl optBlock = new optBlockImpl();
+		return optBlock;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Sequence createSequence() {
+		SequenceImpl sequence = new SequenceImpl();
+		return sequence;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BlockBase createBlockBase() {
+		BlockBaseImpl blockBase = new BlockBaseImpl();
+		return blockBase;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public topLayer createtopLayer() {
+		topLayerImpl topLayer = new topLayerImpl();
+		return topLayer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public InitialMessage createInitialMessage() {
+		InitialMessageImpl initialMessage = new InitialMessageImpl();
+		return initialMessage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Actor createActor() {
+		ActorImpl actor = new ActorImpl();
+		return actor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SpecialMessage createSpecialMessage() {
+		SpecialMessageImpl specialMessage = new SpecialMessageImpl();
+		return specialMessage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NormalMessage createNormalMessage() {
+		NormalMessageImpl normalMessage = new NormalMessageImpl();
+		return normalMessage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public MessageKind createMessageKindFromString(EDataType eDataType, String initialValue) {
 		MessageKind result = MessageKind.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -209,8 +268,8 @@ public class SequenceFactoryImpl extends EFactoryImpl implements SequenceFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MessageSort createMessageSortFromString(EDataType eDataType, String initialValue) {
-		MessageSort result = MessageSort.get(initialValue);
+	public MessageSortSpecial createMessageSortSpecialFromString(EDataType eDataType, String initialValue) {
+		MessageSortSpecial result = MessageSortSpecial.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -220,7 +279,27 @@ public class SequenceFactoryImpl extends EFactoryImpl implements SequenceFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertMessageSortToString(EDataType eDataType, Object instanceValue) {
+	public String convertMessageSortSpecialToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MessageSortNormal createMessageSortNormalFromString(EDataType eDataType, String initialValue) {
+		MessageSortNormal result = MessageSortNormal.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertMessageSortNormalToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
