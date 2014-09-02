@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mbA6YDKFEeS-2ouOJu-Wmw" name="SET_TaskType_Name" description="Sets TaskType Name">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mbA6YTKFEeS-2ouOJu-Wmw" name="setTaskTypeName" description="Sets the EAttribute name">
+    <parameters xmi:id="_mbA6YjKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mbA6YzKFEeS-2ouOJu-Wmw" name="Name"/>
+    <lhs xmi:id="_mbA6ZDKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mbA6ZTKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//TaskType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mbA6ZjKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mbA6ZzKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//TaskType"/>
+        <attributes xmi:id="_mbA6aDKFEeS-2ouOJu-Wmw" value="Name">
+          <type href="http://LQN/1.0#//TaskType/name"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_mbA6aTKFEeS-2ouOJu-Wmw" origin="_mbA6ZTKFEeS-2ouOJu-Wmw" image="_mbA6ZzKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mbA6ajKFEeS-2ouOJu-Wmw" name="mainUnit" subUnits="_mbA6YTKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mbA6azKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mbA6bDKFEeS-2ouOJu-Wmw" name="Name"/>
+    <parameterMappings xmi:id="_mbA6bTKFEeS-2ouOJu-Wmw" source="_mbA6azKFEeS-2ouOJu-Wmw" target="_mbA6YjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mbA6bjKFEeS-2ouOJu-Wmw" source="_mbA6bDKFEeS-2ouOJu-Wmw" target="_mbA6YzKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

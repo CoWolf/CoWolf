@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mJoPcDKFEeS-2ouOJu-Wmw" name="SET_OutputResultForwardingANDJoinDelay_Waiting" description="Sets OutputResultForwardingANDJoinDelay Waiting">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mJoPcTKFEeS-2ouOJu-Wmw" name="setOutputResultForwardingANDJoinDelayWaiting" description="Sets the EAttribute waiting">
+    <parameters xmi:id="_mJoPcjKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mJoPczKFEeS-2ouOJu-Wmw" name="Waiting"/>
+    <lhs xmi:id="_mJoPdDKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mJoPdTKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//OutputResultForwardingANDJoinDelay"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mJoPdjKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mJoPdzKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//OutputResultForwardingANDJoinDelay"/>
+        <attributes xmi:id="_mJoPeDKFEeS-2ouOJu-Wmw" value="Waiting">
+          <type href="http://LQN/1.0#//OutputResultForwardingANDJoinDelay/waiting"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_mJoPeTKFEeS-2ouOJu-Wmw" origin="_mJoPdTKFEeS-2ouOJu-Wmw" image="_mJoPdzKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mJoPejKFEeS-2ouOJu-Wmw" name="mainUnit" subUnits="_mJoPcTKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mJoPezKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mJoPfDKFEeS-2ouOJu-Wmw" name="Waiting"/>
+    <parameterMappings xmi:id="_mJoPfTKFEeS-2ouOJu-Wmw" source="_mJoPezKFEeS-2ouOJu-Wmw" target="_mJoPcjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mJoPfjKFEeS-2ouOJu-Wmw" source="_mJoPfDKFEeS-2ouOJu-Wmw" target="_mJoPczKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

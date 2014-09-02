@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mGPkTzKFEeS-2ouOJu-Wmw" name="SET_HistogramBinType_Prob" description="Sets HistogramBinType Prob">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mGPkUDKFEeS-2ouOJu-Wmw" name="setHistogramBinTypeProb" description="Sets the EAttribute prob">
+    <parameters xmi:id="_mGPkUTKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mGPkUjKFEeS-2ouOJu-Wmw" name="Prob"/>
+    <lhs xmi:id="_mGPkUzKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mGPkVDKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//HistogramBinType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mGPkVTKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mGPkVjKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//HistogramBinType"/>
+        <attributes xmi:id="_mGPkVzKFEeS-2ouOJu-Wmw" value="Prob">
+          <type href="http://LQN/1.0#//HistogramBinType/prob"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_mGPkWDKFEeS-2ouOJu-Wmw" origin="_mGPkVDKFEeS-2ouOJu-Wmw" image="_mGPkVjKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mGPkWTKFEeS-2ouOJu-Wmw" name="mainUnit" subUnits="_mGPkUDKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mGPkWjKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mGPkWzKFEeS-2ouOJu-Wmw" name="Prob"/>
+    <parameterMappings xmi:id="_mGPkXDKFEeS-2ouOJu-Wmw" source="_mGPkWjKFEeS-2ouOJu-Wmw" target="_mGPkUTKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mGPkXTKFEeS-2ouOJu-Wmw" source="_mGPkWzKFEeS-2ouOJu-Wmw" target="_mGPkUjKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mE12EDKFEeS-2ouOJu-Wmw" name="CREATE_EntryType_IN_TaskType_(entry)" description="Creates one EntryType in TaskType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mE12ETKFEeS-2ouOJu-Wmw" name="createEntryType_IN_TaskType" description="creates one EntryType in the context: TaskType">
+    <parameters xmi:id="_mE12EjKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mE12EzKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_mE12FDKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameters xmi:id="_mE12FTKFEeS-2ouOJu-Wmw" name="Name"/>
+    <parameters xmi:id="_mE12FjKFEeS-2ouOJu-Wmw" name="OpenArrivalRate"/>
+    <parameters xmi:id="_mE12FzKFEeS-2ouOJu-Wmw" name="Priority"/>
+    <parameters xmi:id="_mE12GDKFEeS-2ouOJu-Wmw" name="Semaphore"/>
+    <parameters xmi:id="_mE12GTKFEeS-2ouOJu-Wmw" name="Type"/>
+    <lhs xmi:id="_mE12GjKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mE12GzKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//TaskType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mE12HDKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mE12HTKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mE12JTKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//TaskType"/>
+      </nodes>
+      <nodes xmi:id="_mE12HjKFEeS-2ouOJu-Wmw" name="New" incoming="_mE12JTKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//EntryType"/>
+        <attributes xmi:id="_mE12HzKFEeS-2ouOJu-Wmw" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_mE12IDKFEeS-2ouOJu-Wmw" value="Name">
+          <type href="http://LQN/1.0#//EntryType/name"/>
+        </attributes>
+        <attributes xmi:id="_mE12ITKFEeS-2ouOJu-Wmw" value="OpenArrivalRate">
+          <type href="http://LQN/1.0#//EntryType/openArrivalRate"/>
+        </attributes>
+        <attributes xmi:id="_mE12IjKFEeS-2ouOJu-Wmw" value="Priority">
+          <type href="http://LQN/1.0#//EntryType/priority"/>
+        </attributes>
+        <attributes xmi:id="_mE12IzKFEeS-2ouOJu-Wmw" value="Semaphore">
+          <type href="http://LQN/1.0#//EntryType/semaphore"/>
+        </attributes>
+        <attributes xmi:id="_mE12JDKFEeS-2ouOJu-Wmw" value="Type">
+          <type href="http://LQN/1.0#//EntryType/type"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_mE12JTKFEeS-2ouOJu-Wmw" source="_mE12HTKFEeS-2ouOJu-Wmw" target="_mE12HjKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//TaskType/entry"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_mE12JjKFEeS-2ouOJu-Wmw" origin="_mE12GzKFEeS-2ouOJu-Wmw" image="_mE12HTKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mE12JzKFEeS-2ouOJu-Wmw" name="mainUnit" description="Creates one EntryType depending on available contexts in model instance" subUnits="_mE12ETKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mE12KDKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_mE12KTKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mE12KjKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameters xmi:id="_mE12KzKFEeS-2ouOJu-Wmw" name="Name"/>
+    <parameters xmi:id="_mE12LDKFEeS-2ouOJu-Wmw" name="OpenArrivalRate"/>
+    <parameters xmi:id="_mE12LTKFEeS-2ouOJu-Wmw" name="Priority"/>
+    <parameters xmi:id="_mE12LjKFEeS-2ouOJu-Wmw" name="Semaphore"/>
+    <parameters xmi:id="_mE12LzKFEeS-2ouOJu-Wmw" name="Type"/>
+    <parameterMappings xmi:id="_mE12MDKFEeS-2ouOJu-Wmw" source="_mE12KTKFEeS-2ouOJu-Wmw" target="_mE12EjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mE12MTKFEeS-2ouOJu-Wmw" source="_mE12EzKFEeS-2ouOJu-Wmw" target="_mE12KDKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mE12MjKFEeS-2ouOJu-Wmw" source="_mE12KjKFEeS-2ouOJu-Wmw" target="_mE12FDKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mE12MzKFEeS-2ouOJu-Wmw" source="_mE12KzKFEeS-2ouOJu-Wmw" target="_mE12FTKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mE12NDKFEeS-2ouOJu-Wmw" source="_mE12LDKFEeS-2ouOJu-Wmw" target="_mE12FjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mE12NTKFEeS-2ouOJu-Wmw" source="_mE12LTKFEeS-2ouOJu-Wmw" target="_mE12FzKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mE12NjKFEeS-2ouOJu-Wmw" source="_mE12LjKFEeS-2ouOJu-Wmw" target="_mE12GDKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mE12NzKFEeS-2ouOJu-Wmw" source="_mE12LzKFEeS-2ouOJu-Wmw" target="_mE12GTKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

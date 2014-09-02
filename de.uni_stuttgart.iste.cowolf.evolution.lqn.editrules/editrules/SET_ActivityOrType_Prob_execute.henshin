@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_l_CJADKFEeS-2ouOJu-Wmw" name="SET_ActivityOrType_Prob" description="Sets ActivityOrType Prob">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_l_CJATKFEeS-2ouOJu-Wmw" name="setActivityOrTypeProb" description="Sets the EAttribute prob">
+    <parameters xmi:id="_l_CJAjKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_l_CJAzKFEeS-2ouOJu-Wmw" name="Prob"/>
+    <lhs xmi:id="_l_CJBDKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_l_CJBTKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//ActivityOrType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_l_CJBjKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_l_CJBzKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//ActivityOrType"/>
+        <attributes xmi:id="_l_CJCDKFEeS-2ouOJu-Wmw" value="Prob">
+          <type href="http://LQN/1.0#//ActivityOrType/prob"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_l_CJCTKFEeS-2ouOJu-Wmw" origin="_l_CJBTKFEeS-2ouOJu-Wmw" image="_l_CJBzKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_l_CJCjKFEeS-2ouOJu-Wmw" name="mainUnit" subUnits="_l_CJATKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_l_CJCzKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_l_CJDDKFEeS-2ouOJu-Wmw" name="Prob"/>
+    <parameterMappings xmi:id="_l_CJDTKFEeS-2ouOJu-Wmw" source="_l_CJCzKFEeS-2ouOJu-Wmw" target="_l_CJAjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_l_CJDjKFEeS-2ouOJu-Wmw" source="_l_CJDDKFEeS-2ouOJu-Wmw" target="_l_CJAzKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

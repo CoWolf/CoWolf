@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mQo2YDKFEeS-2ouOJu-Wmw" name="DELETE_ProcessorType_IN_LqnModelType_(processor)" description="Deletes one ProcessorType in LqnModelType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mQo2YTKFEeS-2ouOJu-Wmw" name="deleteProcessorType_IN_LqnModelType" description="deletes one ProcessorType in the context: LqnModelType">
+    <parameters xmi:id="_mQo2YjKFEeS-2ouOJu-Wmw" name="Child"/>
+    <parameters xmi:id="_mQo2YzKFEeS-2ouOJu-Wmw" name="Child1"/>
+    <parameters xmi:id="_mQo2ZDKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mQo2ZTKFEeS-2ouOJu-Wmw" name="ToBeDeleted"/>
+    <lhs xmi:id="_mQo2ZjKFEeS-2ouOJu-Wmw" name="LHS">
+      <nodes xmi:id="_mQo2ZzKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mQo2azKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//LqnModelType"/>
+      </nodes>
+      <nodes xmi:id="_mQo2aDKFEeS-2ouOJu-Wmw" name="ToBeDeleted" incoming="_mQo2azKFEeS-2ouOJu-Wmw" outgoing="_mQo2bDKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ProcessorType"/>
+      </nodes>
+      <nodes xmi:id="_mQo2aTKFEeS-2ouOJu-Wmw" name="Child" incoming="_mQo2bDKFEeS-2ouOJu-Wmw" outgoing="_mQo2bTKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//TaskType"/>
+      </nodes>
+      <nodes xmi:id="_mQo2ajKFEeS-2ouOJu-Wmw" name="Child1" incoming="_mQo2bTKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+      <edges xmi:id="_mQo2azKFEeS-2ouOJu-Wmw" source="_mQo2ZzKFEeS-2ouOJu-Wmw" target="_mQo2aDKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//LqnModelType/processor"/>
+      </edges>
+      <edges xmi:id="_mQo2bDKFEeS-2ouOJu-Wmw" source="_mQo2aDKFEeS-2ouOJu-Wmw" target="_mQo2aTKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ProcessorType/task"/>
+      </edges>
+      <edges xmi:id="_mQo2bTKFEeS-2ouOJu-Wmw" source="_mQo2aTKFEeS-2ouOJu-Wmw" target="_mQo2ajKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//TaskType/entry"/>
+      </edges>
+      <formula xsi:type="henshin:And" xmi:id="_mQo2bjKFEeS-2ouOJu-Wmw">
+        <left xsi:type="henshin:And" xmi:id="_mQo2bzKFEeS-2ouOJu-Wmw">
+          <left xsi:type="henshin:NestedCondition" xmi:id="_mQo2cDKFEeS-2ouOJu-Wmw">
+            <conclusion xmi:id="_mQo2cTKFEeS-2ouOJu-Wmw" name="sufficientElementsMustExist">
+              <nodes xmi:id="_mQo2cjKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mQo2djKFEeS-2ouOJu-Wmw _mQo2dzKFEeS-2ouOJu-Wmw">
+                <type href="http://LQN/1.0#//LqnModelType"/>
+              </nodes>
+              <nodes xmi:id="_mQo2czKFEeS-2ouOJu-Wmw" name="ToBeDeleted">
+                <type href="http://LQN/1.0#//ProcessorType"/>
+              </nodes>
+              <nodes xmi:id="_mQo2dDKFEeS-2ouOJu-Wmw" incoming="_mQo2djKFEeS-2ouOJu-Wmw">
+                <type href="http://LQN/1.0#//ProcessorType"/>
+              </nodes>
+              <nodes xmi:id="_mQo2dTKFEeS-2ouOJu-Wmw" incoming="_mQo2dzKFEeS-2ouOJu-Wmw">
+                <type href="http://LQN/1.0#//ProcessorType"/>
+              </nodes>
+              <edges xmi:id="_mQo2djKFEeS-2ouOJu-Wmw" source="_mQo2cjKFEeS-2ouOJu-Wmw" target="_mQo2dDKFEeS-2ouOJu-Wmw">
+                <type href="http://LQN/1.0#//LqnModelType/processor"/>
+              </edges>
+              <edges xmi:id="_mQo2dzKFEeS-2ouOJu-Wmw" source="_mQo2cjKFEeS-2ouOJu-Wmw" target="_mQo2dTKFEeS-2ouOJu-Wmw">
+                <type href="http://LQN/1.0#//LqnModelType/processor"/>
+              </edges>
+            </conclusion>
+            <mappings xmi:id="_mQo2eDKFEeS-2ouOJu-Wmw" origin="_mQo2ZzKFEeS-2ouOJu-Wmw" image="_mQo2cjKFEeS-2ouOJu-Wmw"/>
+            <mappings xmi:id="_mQo2eTKFEeS-2ouOJu-Wmw" origin="_mQo2aDKFEeS-2ouOJu-Wmw" image="_mQo2czKFEeS-2ouOJu-Wmw"/>
+          </left>
+          <right xsi:type="henshin:NestedCondition" xmi:id="_mQo2ejKFEeS-2ouOJu-Wmw">
+            <conclusion xmi:id="_mQo2ezKFEeS-2ouOJu-Wmw" name="sufficientElementsMustExist">
+              <nodes xmi:id="_mQo2fDKFEeS-2ouOJu-Wmw" name="ToBeDeleted" outgoing="_mQo2gDKFEeS-2ouOJu-Wmw _mQo2gTKFEeS-2ouOJu-Wmw">
+                <type href="http://LQN/1.0#//ProcessorType"/>
+              </nodes>
+              <nodes xmi:id="_mQo2fTKFEeS-2ouOJu-Wmw" name="Child">
+                <type href="http://LQN/1.0#//TaskType"/>
+              </nodes>
+              <nodes xmi:id="_mQo2fjKFEeS-2ouOJu-Wmw" incoming="_mQo2gDKFEeS-2ouOJu-Wmw">
+                <type href="http://LQN/1.0#//TaskType"/>
+              </nodes>
+              <nodes xmi:id="_mQo2fzKFEeS-2ouOJu-Wmw" incoming="_mQo2gTKFEeS-2ouOJu-Wmw">
+                <type href="http://LQN/1.0#//TaskType"/>
+              </nodes>
+              <edges xmi:id="_mQo2gDKFEeS-2ouOJu-Wmw" source="_mQo2fDKFEeS-2ouOJu-Wmw" target="_mQo2fjKFEeS-2ouOJu-Wmw">
+                <type href="http://LQN/1.0#//ProcessorType/task"/>
+              </edges>
+              <edges xmi:id="_mQo2gTKFEeS-2ouOJu-Wmw" source="_mQo2fDKFEeS-2ouOJu-Wmw" target="_mQo2fzKFEeS-2ouOJu-Wmw">
+                <type href="http://LQN/1.0#//ProcessorType/task"/>
+              </edges>
+            </conclusion>
+            <mappings xmi:id="_mQo2gjKFEeS-2ouOJu-Wmw" origin="_mQo2aDKFEeS-2ouOJu-Wmw" image="_mQo2fDKFEeS-2ouOJu-Wmw"/>
+            <mappings xmi:id="_mQo2gzKFEeS-2ouOJu-Wmw" origin="_mQo2aTKFEeS-2ouOJu-Wmw" image="_mQo2fTKFEeS-2ouOJu-Wmw"/>
+          </right>
+        </left>
+        <right xsi:type="henshin:NestedCondition" xmi:id="_mQo2hDKFEeS-2ouOJu-Wmw">
+          <conclusion xmi:id="_mQo2hTKFEeS-2ouOJu-Wmw" name="sufficientElementsMustExist">
+            <nodes xmi:id="_mQo2hjKFEeS-2ouOJu-Wmw" name="Child" outgoing="_mQo2ijKFEeS-2ouOJu-Wmw _mQo2izKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//TaskType"/>
+            </nodes>
+            <nodes xmi:id="_mQo2hzKFEeS-2ouOJu-Wmw" name="Child1">
+              <type href="http://LQN/1.0#//EntryType"/>
+            </nodes>
+            <nodes xmi:id="_mQo2iDKFEeS-2ouOJu-Wmw" incoming="_mQo2ijKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//EntryType"/>
+            </nodes>
+            <nodes xmi:id="_mQo2iTKFEeS-2ouOJu-Wmw" incoming="_mQo2izKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//EntryType"/>
+            </nodes>
+            <edges xmi:id="_mQo2ijKFEeS-2ouOJu-Wmw" source="_mQo2hjKFEeS-2ouOJu-Wmw" target="_mQo2iDKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//TaskType/entry"/>
+            </edges>
+            <edges xmi:id="_mQo2izKFEeS-2ouOJu-Wmw" source="_mQo2hjKFEeS-2ouOJu-Wmw" target="_mQo2iTKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//TaskType/entry"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_mQo2jDKFEeS-2ouOJu-Wmw" origin="_mQo2aTKFEeS-2ouOJu-Wmw" image="_mQo2hjKFEeS-2ouOJu-Wmw"/>
+          <mappings xmi:id="_mQo2jTKFEeS-2ouOJu-Wmw" origin="_mQo2ajKFEeS-2ouOJu-Wmw" image="_mQo2hzKFEeS-2ouOJu-Wmw"/>
+        </right>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_mQo2jjKFEeS-2ouOJu-Wmw" name="RHS">
+      <nodes xmi:id="_mQo2jzKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//LqnModelType"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_mQo2kDKFEeS-2ouOJu-Wmw" origin="_mQo2ZzKFEeS-2ouOJu-Wmw" image="_mQo2jzKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mQo2kTKFEeS-2ouOJu-Wmw" name="mainUnit" description="Deletes one ProcessorType depending on available contexts in model instance" subUnits="_mQo2YTKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mQo2kjKFEeS-2ouOJu-Wmw" name="Child"/>
+    <parameters xmi:id="_mQo2kzKFEeS-2ouOJu-Wmw" name="Child1"/>
+    <parameters xmi:id="_mQo2lDKFEeS-2ouOJu-Wmw" name="ToBeDeleted"/>
+    <parameters xmi:id="_mQo2lTKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameterMappings xmi:id="_mQo2ljKFEeS-2ouOJu-Wmw" source="_mQo2kjKFEeS-2ouOJu-Wmw" target="_mQo2YjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mQo2lzKFEeS-2ouOJu-Wmw" source="_mQo2kzKFEeS-2ouOJu-Wmw" target="_mQo2YzKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mQo2mDKFEeS-2ouOJu-Wmw" source="_mQo2lTKFEeS-2ouOJu-Wmw" target="_mQo2ZDKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mQo2mTKFEeS-2ouOJu-Wmw" source="_mQo2lDKFEeS-2ouOJu-Wmw" target="_mQo2ZTKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

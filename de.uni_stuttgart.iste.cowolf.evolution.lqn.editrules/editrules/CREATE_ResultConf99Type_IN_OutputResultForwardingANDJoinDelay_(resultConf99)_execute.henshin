@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mUA6gDKFEeS-2ouOJu-Wmw" name="CREATE_ResultConf99Type_IN_OutputResultForwardingANDJoinDelay_(resultConf99)" description="Creates one ResultConf99Type in OutputResultForwardingANDJoinDelay">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mUA6gTKFEeS-2ouOJu-Wmw" name="createResultConf99Type_IN_OutputResultForwardingANDJoinDelay" description="creates one ResultConf99Type in the context: OutputResultForwardingANDJoinDelay">
+    <parameters xmi:id="_mUA6gjKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mUA6gzKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_mUA6hDKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameters xmi:id="_mUA6hTKFEeS-2ouOJu-Wmw" name="JoinVariance"/>
+    <parameters xmi:id="_mUA6hjKFEeS-2ouOJu-Wmw" name="JoinWaiting"/>
+    <parameters xmi:id="_mUA6hzKFEeS-2ouOJu-Wmw" name="Waiting"/>
+    <lhs xmi:id="_mUA6iDKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mUA6iTKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//OutputResultForwardingANDJoinDelay"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mUA6ijKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mUA6izKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mUA6kTKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//OutputResultForwardingANDJoinDelay"/>
+      </nodes>
+      <nodes xmi:id="_mUA6jDKFEeS-2ouOJu-Wmw" name="New" incoming="_mUA6kTKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ResultConf99Type"/>
+        <attributes xmi:id="_mUA6jTKFEeS-2ouOJu-Wmw" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_mUA6jjKFEeS-2ouOJu-Wmw" value="JoinVariance">
+          <type href="http://LQN/1.0#//ResultConf99Type/joinVariance"/>
+        </attributes>
+        <attributes xmi:id="_mUA6jzKFEeS-2ouOJu-Wmw" value="JoinWaiting">
+          <type href="http://LQN/1.0#//ResultConf99Type/joinWaiting"/>
+        </attributes>
+        <attributes xmi:id="_mUA6kDKFEeS-2ouOJu-Wmw" value="Waiting">
+          <type href="http://LQN/1.0#//ResultConf99Type/waiting"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_mUA6kTKFEeS-2ouOJu-Wmw" source="_mUA6izKFEeS-2ouOJu-Wmw" target="_mUA6jDKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//OutputResultForwardingANDJoinDelay/resultConf99"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_mUA6kjKFEeS-2ouOJu-Wmw" origin="_mUA6iTKFEeS-2ouOJu-Wmw" image="_mUA6izKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mUA6kzKFEeS-2ouOJu-Wmw" name="mainUnit" description="Creates one ResultConf99Type depending on available contexts in model instance" subUnits="_mUA6gTKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mUA6lDKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_mUA6lTKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mUA6ljKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameters xmi:id="_mUA6lzKFEeS-2ouOJu-Wmw" name="JoinVariance"/>
+    <parameters xmi:id="_mUA6mDKFEeS-2ouOJu-Wmw" name="JoinWaiting"/>
+    <parameters xmi:id="_mUA6mTKFEeS-2ouOJu-Wmw" name="Waiting"/>
+    <parameterMappings xmi:id="_mUA6mjKFEeS-2ouOJu-Wmw" source="_mUA6lTKFEeS-2ouOJu-Wmw" target="_mUA6gjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mUA6mzKFEeS-2ouOJu-Wmw" source="_mUA6gzKFEeS-2ouOJu-Wmw" target="_mUA6lDKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mUA6nDKFEeS-2ouOJu-Wmw" source="_mUA6ljKFEeS-2ouOJu-Wmw" target="_mUA6hDKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mUA6nTKFEeS-2ouOJu-Wmw" source="_mUA6lzKFEeS-2ouOJu-Wmw" target="_mUA6hTKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mUA6njKFEeS-2ouOJu-Wmw" source="_mUA6mDKFEeS-2ouOJu-Wmw" target="_mUA6hjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mUA6nzKFEeS-2ouOJu-Wmw" source="_mUA6mTKFEeS-2ouOJu-Wmw" target="_mUA6hzKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

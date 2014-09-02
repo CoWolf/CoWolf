@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mP-IMjKFEeS-2ouOJu-Wmw" name="CREATE_PrecedenceType_IN_ActivityGraphBase_(precedence)" description="Creates one PrecedenceType in ActivityGraphBase">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mP-IMzKFEeS-2ouOJu-Wmw" name="createPrecedenceType_IN_ActivityGraphBase" description="creates one PrecedenceType in the context: ActivityGraphBase">
+    <parameters xmi:id="_mP-INDKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mP-INTKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_mP-INjKFEeS-2ouOJu-Wmw" name="Id"/>
+    <lhs xmi:id="_mP-INzKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mP-IODKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//ActivityGraphBase"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mP-IOTKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mP-IOjKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mP-IPTKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityGraphBase"/>
+      </nodes>
+      <nodes xmi:id="_mP-IOzKFEeS-2ouOJu-Wmw" name="New" incoming="_mP-IPTKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//PrecedenceType"/>
+        <attributes xmi:id="_mP-IPDKFEeS-2ouOJu-Wmw" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_mP-IPTKFEeS-2ouOJu-Wmw" source="_mP-IOjKFEeS-2ouOJu-Wmw" target="_mP-IOzKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityGraphBase/precedence"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_mP-IPjKFEeS-2ouOJu-Wmw" origin="_mP-IODKFEeS-2ouOJu-Wmw" image="_mP-IOjKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mP-IPzKFEeS-2ouOJu-Wmw" name="mainUnit" description="Creates one PrecedenceType depending on available contexts in model instance" subUnits="_mP-IMzKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mP-IQDKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_mP-IQTKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mP-IQjKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameterMappings xmi:id="_mP-IQzKFEeS-2ouOJu-Wmw" source="_mP-IQTKFEeS-2ouOJu-Wmw" target="_mP-INDKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mP-IRDKFEeS-2ouOJu-Wmw" source="_mP-INTKFEeS-2ouOJu-Wmw" target="_mP-IQDKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mP-IRTKFEeS-2ouOJu-Wmw" source="_mP-IQjKFEeS-2ouOJu-Wmw" target="_mP-INjKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

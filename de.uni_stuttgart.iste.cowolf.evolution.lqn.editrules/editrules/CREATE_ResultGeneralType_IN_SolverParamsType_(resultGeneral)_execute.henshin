@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mV8NOTKFEeS-2ouOJu-Wmw" name="CREATE_ResultGeneralType_IN_SolverParamsType_(resultGeneral)" description="Creates one ResultGeneralType in SolverParamsType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mV8NOjKFEeS-2ouOJu-Wmw" name="createResultGeneralType_IN_SolverParamsType" description="creates one ResultGeneralType in the context: SolverParamsType">
+    <parameters xmi:id="_mV8NOzKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mV8NPDKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_mV8NPTKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameters xmi:id="_mV8NPjKFEeS-2ouOJu-Wmw" name="ConvVal"/>
+    <parameters xmi:id="_mV8NPzKFEeS-2ouOJu-Wmw" name="ElapsedTime"/>
+    <parameters xmi:id="_mV8NQDKFEeS-2ouOJu-Wmw" name="Iterations"/>
+    <parameters xmi:id="_mV8NQTKFEeS-2ouOJu-Wmw" name="PlatformInfo"/>
+    <parameters xmi:id="_mV8NQjKFEeS-2ouOJu-Wmw" name="SolverInfo"/>
+    <parameters xmi:id="_mV8NQzKFEeS-2ouOJu-Wmw" name="SystemCpuTime"/>
+    <parameters xmi:id="_mV8NRDKFEeS-2ouOJu-Wmw" name="UserCpuTime"/>
+    <parameters xmi:id="_mV8NRTKFEeS-2ouOJu-Wmw" name="Valid"/>
+    <lhs xmi:id="_mV8NRjKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mV8NRzKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//SolverParamsType"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_mV8NSDKFEeS-2ouOJu-Wmw">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_mV8NSTKFEeS-2ouOJu-Wmw">
+          <conclusion xmi:id="_mV8NSjKFEeS-2ouOJu-Wmw" name="doNotExceedUpperBound">
+            <nodes xmi:id="_mV8NSzKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mV8NVzKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//SolverParamsType"/>
+            </nodes>
+            <nodes xmi:id="_mV8NTDKFEeS-2ouOJu-Wmw" name="New">
+              <type href="http://LQN/1.0#//ResultGeneralType"/>
+              <attributes xmi:id="_mV8NTTKFEeS-2ouOJu-Wmw" value="Id">
+                <type href="http://CommonBase/1.0#//IDBase/id"/>
+              </attributes>
+              <attributes xmi:id="_mV8NTjKFEeS-2ouOJu-Wmw" value="ConvVal">
+                <type href="http://LQN/1.0#//ResultGeneralType/convVal"/>
+              </attributes>
+              <attributes xmi:id="_mV8NTzKFEeS-2ouOJu-Wmw" value="ElapsedTime">
+                <type href="http://LQN/1.0#//ResultGeneralType/elapsedTime"/>
+              </attributes>
+              <attributes xmi:id="_mV8NUDKFEeS-2ouOJu-Wmw" value="Iterations">
+                <type href="http://LQN/1.0#//ResultGeneralType/iterations"/>
+              </attributes>
+              <attributes xmi:id="_mV8NUTKFEeS-2ouOJu-Wmw" value="PlatformInfo">
+                <type href="http://LQN/1.0#//ResultGeneralType/platformInfo"/>
+              </attributes>
+              <attributes xmi:id="_mV8NUjKFEeS-2ouOJu-Wmw" value="SolverInfo">
+                <type href="http://LQN/1.0#//ResultGeneralType/solverInfo"/>
+              </attributes>
+              <attributes xmi:id="_mV8NUzKFEeS-2ouOJu-Wmw" value="SystemCpuTime">
+                <type href="http://LQN/1.0#//ResultGeneralType/systemCpuTime"/>
+              </attributes>
+              <attributes xmi:id="_mV8NVDKFEeS-2ouOJu-Wmw" value="UserCpuTime">
+                <type href="http://LQN/1.0#//ResultGeneralType/userCpuTime"/>
+              </attributes>
+              <attributes xmi:id="_mV8NVTKFEeS-2ouOJu-Wmw" value="Valid">
+                <type href="http://LQN/1.0#//ResultGeneralType/valid"/>
+              </attributes>
+            </nodes>
+            <nodes xmi:id="_mV8NVjKFEeS-2ouOJu-Wmw" incoming="_mV8NVzKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//ResultGeneralType"/>
+            </nodes>
+            <edges xmi:id="_mV8NVzKFEeS-2ouOJu-Wmw" source="_mV8NSzKFEeS-2ouOJu-Wmw" target="_mV8NVjKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//SolverParamsType/resultGeneral"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_mV8NWDKFEeS-2ouOJu-Wmw" origin="_mV8NWzKFEeS-2ouOJu-Wmw" image="_mV8NSzKFEeS-2ouOJu-Wmw"/>
+          <mappings xmi:id="_mV8NWTKFEeS-2ouOJu-Wmw" origin="_mV8NXDKFEeS-2ouOJu-Wmw" image="_mV8NTDKFEeS-2ouOJu-Wmw"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_mV8NWjKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mV8NWzKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mV8NZjKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//SolverParamsType"/>
+      </nodes>
+      <nodes xmi:id="_mV8NXDKFEeS-2ouOJu-Wmw" name="New" incoming="_mV8NZjKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ResultGeneralType"/>
+        <attributes xmi:id="_mV8NXTKFEeS-2ouOJu-Wmw" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_mV8NXjKFEeS-2ouOJu-Wmw" value="ConvVal">
+          <type href="http://LQN/1.0#//ResultGeneralType/convVal"/>
+        </attributes>
+        <attributes xmi:id="_mV8NXzKFEeS-2ouOJu-Wmw" value="ElapsedTime">
+          <type href="http://LQN/1.0#//ResultGeneralType/elapsedTime"/>
+        </attributes>
+        <attributes xmi:id="_mV8NYDKFEeS-2ouOJu-Wmw" value="Iterations">
+          <type href="http://LQN/1.0#//ResultGeneralType/iterations"/>
+        </attributes>
+        <attributes xmi:id="_mV8NYTKFEeS-2ouOJu-Wmw" value="PlatformInfo">
+          <type href="http://LQN/1.0#//ResultGeneralType/platformInfo"/>
+        </attributes>
+        <attributes xmi:id="_mV8NYjKFEeS-2ouOJu-Wmw" value="SolverInfo">
+          <type href="http://LQN/1.0#//ResultGeneralType/solverInfo"/>
+        </attributes>
+        <attributes xmi:id="_mV8NYzKFEeS-2ouOJu-Wmw" value="SystemCpuTime">
+          <type href="http://LQN/1.0#//ResultGeneralType/systemCpuTime"/>
+        </attributes>
+        <attributes xmi:id="_mV8NZDKFEeS-2ouOJu-Wmw" value="UserCpuTime">
+          <type href="http://LQN/1.0#//ResultGeneralType/userCpuTime"/>
+        </attributes>
+        <attributes xmi:id="_mV8NZTKFEeS-2ouOJu-Wmw" value="Valid">
+          <type href="http://LQN/1.0#//ResultGeneralType/valid"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_mV8NZjKFEeS-2ouOJu-Wmw" source="_mV8NWzKFEeS-2ouOJu-Wmw" target="_mV8NXDKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//SolverParamsType/resultGeneral"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_mV8NZzKFEeS-2ouOJu-Wmw" origin="_mV8NRzKFEeS-2ouOJu-Wmw" image="_mV8NWzKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mV8NaDKFEeS-2ouOJu-Wmw" name="mainUnit" description="Creates one ResultGeneralType depending on available contexts in model instance" subUnits="_mV8NOjKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mV8NaTKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_mV8NajKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mV8NazKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameters xmi:id="_mV8NbDKFEeS-2ouOJu-Wmw" name="ConvVal"/>
+    <parameters xmi:id="_mV8NbTKFEeS-2ouOJu-Wmw" name="ElapsedTime"/>
+    <parameters xmi:id="_mV8NbjKFEeS-2ouOJu-Wmw" name="Iterations"/>
+    <parameters xmi:id="_mV8NbzKFEeS-2ouOJu-Wmw" name="PlatformInfo"/>
+    <parameters xmi:id="_mV8NcDKFEeS-2ouOJu-Wmw" name="SolverInfo"/>
+    <parameters xmi:id="_mV8NcTKFEeS-2ouOJu-Wmw" name="SystemCpuTime"/>
+    <parameters xmi:id="_mV8NcjKFEeS-2ouOJu-Wmw" name="UserCpuTime"/>
+    <parameters xmi:id="_mV8NczKFEeS-2ouOJu-Wmw" name="Valid"/>
+    <parameterMappings xmi:id="_mV8NdDKFEeS-2ouOJu-Wmw" source="_mV8NajKFEeS-2ouOJu-Wmw" target="_mV8NOzKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mV8NdTKFEeS-2ouOJu-Wmw" source="_mV8NPDKFEeS-2ouOJu-Wmw" target="_mV8NaTKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mWCTwDKFEeS-2ouOJu-Wmw" source="_mV8NazKFEeS-2ouOJu-Wmw" target="_mV8NPTKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mWCTwTKFEeS-2ouOJu-Wmw" source="_mV8NbDKFEeS-2ouOJu-Wmw" target="_mV8NPjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mWCTwjKFEeS-2ouOJu-Wmw" source="_mV8NbTKFEeS-2ouOJu-Wmw" target="_mV8NPzKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mWCTwzKFEeS-2ouOJu-Wmw" source="_mV8NbjKFEeS-2ouOJu-Wmw" target="_mV8NQDKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mWCTxDKFEeS-2ouOJu-Wmw" source="_mV8NbzKFEeS-2ouOJu-Wmw" target="_mV8NQTKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mWCTxTKFEeS-2ouOJu-Wmw" source="_mV8NcDKFEeS-2ouOJu-Wmw" target="_mV8NQjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mWCTxjKFEeS-2ouOJu-Wmw" source="_mV8NcTKFEeS-2ouOJu-Wmw" target="_mV8NQzKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mWCTxzKFEeS-2ouOJu-Wmw" source="_mV8NcjKFEeS-2ouOJu-Wmw" target="_mV8NRDKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mWCTyDKFEeS-2ouOJu-Wmw" source="_mV8NczKFEeS-2ouOJu-Wmw" target="_mV8NRTKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

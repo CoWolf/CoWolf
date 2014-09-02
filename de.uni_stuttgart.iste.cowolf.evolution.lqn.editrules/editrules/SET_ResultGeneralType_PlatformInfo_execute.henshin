@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mWIagjKFEeS-2ouOJu-Wmw" name="SET_ResultGeneralType_PlatformInfo" description="Sets ResultGeneralType PlatformInfo">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mWIagzKFEeS-2ouOJu-Wmw" name="setResultGeneralTypePlatformInfo" description="Sets the EAttribute platformInfo">
+    <parameters xmi:id="_mWIahDKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mWIahTKFEeS-2ouOJu-Wmw" name="PlatformInfo"/>
+    <lhs xmi:id="_mWIahjKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mWIahzKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//ResultGeneralType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mWIaiDKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mWIaiTKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//ResultGeneralType"/>
+        <attributes xmi:id="_mWIaijKFEeS-2ouOJu-Wmw" value="PlatformInfo">
+          <type href="http://LQN/1.0#//ResultGeneralType/platformInfo"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_mWIaizKFEeS-2ouOJu-Wmw" origin="_mWIahzKFEeS-2ouOJu-Wmw" image="_mWIaiTKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mWIajDKFEeS-2ouOJu-Wmw" name="mainUnit" subUnits="_mWIagzKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mWIajTKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mWIajjKFEeS-2ouOJu-Wmw" name="PlatformInfo"/>
+    <parameterMappings xmi:id="_mWIajzKFEeS-2ouOJu-Wmw" source="_mWIajTKFEeS-2ouOJu-Wmw" target="_mWIahDKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mWIakDKFEeS-2ouOJu-Wmw" source="_mWIajjKFEeS-2ouOJu-Wmw" target="_mWIahTKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

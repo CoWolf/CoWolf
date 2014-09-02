@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mBbVsDKFEeS-2ouOJu-Wmw" name="CREATE_AndJoinListType_IN_PrecedenceType_(preAND)_Variant3645685717489" description="Creates one AndJoinListType in PrecedenceType Variant3645685717489">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mBbVsTKFEeS-2ouOJu-Wmw" name="createAndJoinListType_IN_PrecedenceType" description="creates one AndJoinListType in the context: PrecedenceType">
+    <parameters xmi:id="_mBbVsjKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mBbVszKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_mBbVtDKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameters xmi:id="_mBbVtTKFEeS-2ouOJu-Wmw" name="Quorum"/>
+    <parameters xmi:id="_mBbVtjKFEeS-2ouOJu-Wmw" name="Child"/>
+    <parameters xmi:id="_mBbVtzKFEeS-2ouOJu-Wmw" name="Id1"/>
+    <parameters xmi:id="_mBbVuDKFEeS-2ouOJu-Wmw" name="Name"/>
+    <parameters xmi:id="_mBbVuTKFEeS-2ouOJu-Wmw" name="Prob"/>
+    <parameters xmi:id="_mBbVujKFEeS-2ouOJu-Wmw" name="Child1"/>
+    <parameters xmi:id="_mBbVuzKFEeS-2ouOJu-Wmw" name="Id2"/>
+    <parameters xmi:id="_mBbVvDKFEeS-2ouOJu-Wmw" name="Name1"/>
+    <parameters xmi:id="_mBbVvTKFEeS-2ouOJu-Wmw" name="Child2"/>
+    <parameters xmi:id="_mBbVvjKFEeS-2ouOJu-Wmw" name="Id3"/>
+    <parameters xmi:id="_mBbVvzKFEeS-2ouOJu-Wmw" name="Name2"/>
+    <parameters xmi:id="_mBbVwDKFEeS-2ouOJu-Wmw" name="Count"/>
+    <lhs xmi:id="_mBbVwTKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mBbVwjKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//PrecedenceType"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_mBbVwzKFEeS-2ouOJu-Wmw">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_mBbVxDKFEeS-2ouOJu-Wmw">
+          <conclusion xmi:id="_mBbVxTKFEeS-2ouOJu-Wmw" name="doNotExceedUpperBound">
+            <nodes xmi:id="_mBbVxjKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mBbVyzKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//PrecedenceType"/>
+            </nodes>
+            <nodes xmi:id="_mBbVxzKFEeS-2ouOJu-Wmw" name="New">
+              <type href="http://LQN/1.0#//AndJoinListType"/>
+              <attributes xmi:id="_mBbVyDKFEeS-2ouOJu-Wmw" value="Id">
+                <type href="http://CommonBase/1.0#//IDBase/id"/>
+              </attributes>
+              <attributes xmi:id="_mBbVyTKFEeS-2ouOJu-Wmw" value="Quorum">
+                <type href="http://LQN/1.0#//AndJoinListType/quorum"/>
+              </attributes>
+            </nodes>
+            <nodes xmi:id="_mBbVyjKFEeS-2ouOJu-Wmw" incoming="_mBbVyzKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//AndJoinListType"/>
+            </nodes>
+            <edges xmi:id="_mBbVyzKFEeS-2ouOJu-Wmw" source="_mBbVxjKFEeS-2ouOJu-Wmw" target="_mBbVyjKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//PrecedenceType/preAND"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_mBbVzDKFEeS-2ouOJu-Wmw" origin="_mBbVzzKFEeS-2ouOJu-Wmw" image="_mBbVxjKFEeS-2ouOJu-Wmw"/>
+          <mappings xmi:id="_mBbVzTKFEeS-2ouOJu-Wmw" origin="_mBbV0DKFEeS-2ouOJu-Wmw" image="_mBbVxzKFEeS-2ouOJu-Wmw"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_mBbVzjKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mBbVzzKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mBb8xDKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//PrecedenceType"/>
+      </nodes>
+      <nodes xmi:id="_mBbV0DKFEeS-2ouOJu-Wmw" name="New" incoming="_mBb8xDKFEeS-2ouOJu-Wmw" outgoing="_mBb8xTKFEeS-2ouOJu-Wmw _mBb8xjKFEeS-2ouOJu-Wmw _mBb8xzKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//AndJoinListType"/>
+        <attributes xmi:id="_mBbV0TKFEeS-2ouOJu-Wmw" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_mBbV0jKFEeS-2ouOJu-Wmw" value="Quorum">
+          <type href="http://LQN/1.0#//AndJoinListType/quorum"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_mBbV0zKFEeS-2ouOJu-Wmw" name="Child" incoming="_mBb8xTKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityOrType"/>
+        <attributes xmi:id="_mBbV1DKFEeS-2ouOJu-Wmw" value="Id1">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_mBbV1TKFEeS-2ouOJu-Wmw" value="Name">
+          <type href="http://LQN/1.0#//ActivityType/name"/>
+        </attributes>
+        <attributes xmi:id="_mBbV1jKFEeS-2ouOJu-Wmw" value="Prob">
+          <type href="http://LQN/1.0#//ActivityOrType/prob"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_mBbV1zKFEeS-2ouOJu-Wmw" name="Child1" incoming="_mBb8xjKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityOrType"/>
+        <attributes xmi:id="_mBbV2DKFEeS-2ouOJu-Wmw" value="Id2">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_mBbV2TKFEeS-2ouOJu-Wmw" value="Name1">
+          <type href="http://LQN/1.0#//ActivityType/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_mBb8wDKFEeS-2ouOJu-Wmw" name="Child2" incoming="_mBb8xzKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityLoopType"/>
+        <attributes xmi:id="_mBb8wTKFEeS-2ouOJu-Wmw" value="Id3">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_mBb8wjKFEeS-2ouOJu-Wmw" value="Name2">
+          <type href="http://LQN/1.0#//ActivityType/name"/>
+        </attributes>
+        <attributes xmi:id="_mBb8wzKFEeS-2ouOJu-Wmw" value="Count">
+          <type href="http://LQN/1.0#//ActivityLoopType/count"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_mBb8xDKFEeS-2ouOJu-Wmw" source="_mBbVzzKFEeS-2ouOJu-Wmw" target="_mBbV0DKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//PrecedenceType/preAND"/>
+      </edges>
+      <edges xmi:id="_mBb8xTKFEeS-2ouOJu-Wmw" source="_mBbV0DKFEeS-2ouOJu-Wmw" target="_mBbV0zKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//AndJoinListType/activity"/>
+      </edges>
+      <edges xmi:id="_mBb8xjKFEeS-2ouOJu-Wmw" source="_mBbV0DKFEeS-2ouOJu-Wmw" target="_mBbV1zKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//AndJoinListType/activity"/>
+      </edges>
+      <edges xmi:id="_mBb8xzKFEeS-2ouOJu-Wmw" source="_mBbV0DKFEeS-2ouOJu-Wmw" target="_mBb8wDKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//AndJoinListType/activity"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_mBb8yDKFEeS-2ouOJu-Wmw" origin="_mBbVwjKFEeS-2ouOJu-Wmw" image="_mBbVzzKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mBb8yTKFEeS-2ouOJu-Wmw" name="mainUnit" description="Creates one AndJoinListType depending on available contexts in model instance" subUnits="_mBbVsTKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mBb8yjKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_mBb8yzKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mBb8zDKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameters xmi:id="_mBb8zTKFEeS-2ouOJu-Wmw" name="Quorum"/>
+    <parameters xmi:id="_mBb8zjKFEeS-2ouOJu-Wmw" name="Child"/>
+    <parameters xmi:id="_mBb8zzKFEeS-2ouOJu-Wmw" name="Id1"/>
+    <parameters xmi:id="_mBb80DKFEeS-2ouOJu-Wmw" name="Name"/>
+    <parameters xmi:id="_mBb80TKFEeS-2ouOJu-Wmw" name="Prob"/>
+    <parameters xmi:id="_mBb80jKFEeS-2ouOJu-Wmw" name="Child1"/>
+    <parameters xmi:id="_mBb80zKFEeS-2ouOJu-Wmw" name="Id2"/>
+    <parameters xmi:id="_mBb81DKFEeS-2ouOJu-Wmw" name="Name1"/>
+    <parameters xmi:id="_mBb81TKFEeS-2ouOJu-Wmw" name="Child2"/>
+    <parameters xmi:id="_mBb81jKFEeS-2ouOJu-Wmw" name="Id3"/>
+    <parameters xmi:id="_mBb81zKFEeS-2ouOJu-Wmw" name="Name2"/>
+    <parameters xmi:id="_mBb82DKFEeS-2ouOJu-Wmw" name="Count"/>
+    <parameterMappings xmi:id="_mBb82TKFEeS-2ouOJu-Wmw" source="_mBb8yzKFEeS-2ouOJu-Wmw" target="_mBbVsjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mBb82jKFEeS-2ouOJu-Wmw" source="_mBbVszKFEeS-2ouOJu-Wmw" target="_mBb8yjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mBb82zKFEeS-2ouOJu-Wmw" source="_mBb8zDKFEeS-2ouOJu-Wmw" target="_mBbVtDKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mBb83DKFEeS-2ouOJu-Wmw" source="_mBb8zTKFEeS-2ouOJu-Wmw" target="_mBbVtTKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mBb83TKFEeS-2ouOJu-Wmw" source="_mBbVtjKFEeS-2ouOJu-Wmw" target="_mBb8zjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mBb83jKFEeS-2ouOJu-Wmw" source="_mBb8zzKFEeS-2ouOJu-Wmw" target="_mBbVtzKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mBb83zKFEeS-2ouOJu-Wmw" source="_mBb80DKFEeS-2ouOJu-Wmw" target="_mBbVuDKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mBb84DKFEeS-2ouOJu-Wmw" source="_mBb80TKFEeS-2ouOJu-Wmw" target="_mBbVuTKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mBb84TKFEeS-2ouOJu-Wmw" source="_mBbVujKFEeS-2ouOJu-Wmw" target="_mBb80jKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mBb84jKFEeS-2ouOJu-Wmw" source="_mBb80zKFEeS-2ouOJu-Wmw" target="_mBbVuzKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mBb84zKFEeS-2ouOJu-Wmw" source="_mBb81DKFEeS-2ouOJu-Wmw" target="_mBbVvDKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mBb85DKFEeS-2ouOJu-Wmw" source="_mBbVvTKFEeS-2ouOJu-Wmw" target="_mBb81TKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mBb85TKFEeS-2ouOJu-Wmw" source="_mBb81jKFEeS-2ouOJu-Wmw" target="_mBbVvjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mBb85jKFEeS-2ouOJu-Wmw" source="_mBb81zKFEeS-2ouOJu-Wmw" target="_mBbVvzKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mBb85zKFEeS-2ouOJu-Wmw" source="_mBb82DKFEeS-2ouOJu-Wmw" target="_mBbVwDKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

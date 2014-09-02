@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mGn-wDKFEeS-2ouOJu-Wmw" name="MOVE_HistogramBinType_FROM_OutputDistributionType_(overflowBin)_TO_OutputDistributionType_(overflowBin)" description="MOVEs HistogramBinType from OutputDistributionType(Reference:overflowBin) to OutputDistributionType(Reference:overflowBin">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mGn-wTKFEeS-2ouOJu-Wmw" name="moveHistogramBinType_FROM_OutputDistributionType_overflowBin_TO_OutputDistributionType_OutputDistributionType" description="Moves HistogramBinType from OutputDistributionType(Reference:overflowBin) toOutputDistributionType(Reference:OutputDistributionType)">
+    <parameters xmi:id="_mGn-wjKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mGn-wzKFEeS-2ouOJu-Wmw" name="OldSource"/>
+    <parameters xmi:id="_mGn-xDKFEeS-2ouOJu-Wmw" name="NewSource"/>
+    <lhs xmi:id="_mGn-xTKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mGn-xjKFEeS-2ouOJu-Wmw" name="Selected" incoming="_mGn-yTKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//HistogramBinType"/>
+      </nodes>
+      <nodes xmi:id="_mGn-xzKFEeS-2ouOJu-Wmw" name="OldSource" outgoing="_mGn-yTKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//OutputDistributionType"/>
+      </nodes>
+      <nodes xmi:id="_mGn-yDKFEeS-2ouOJu-Wmw" name="NewSource">
+        <type href="http://LQN/1.0#//OutputDistributionType"/>
+      </nodes>
+      <edges xmi:id="_mGn-yTKFEeS-2ouOJu-Wmw" source="_mGn-xzKFEeS-2ouOJu-Wmw" target="_mGn-xjKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//OutputDistributionType/overflowBin"/>
+      </edges>
+      <formula xsi:type="henshin:Not" xmi:id="_mGn-yjKFEeS-2ouOJu-Wmw">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_mGn-yzKFEeS-2ouOJu-Wmw">
+          <conclusion xmi:id="_mGn-zDKFEeS-2ouOJu-Wmw" name="doNotExceedUpperBound">
+            <nodes xmi:id="_mGn-zTKFEeS-2ouOJu-Wmw" name="NewSource" outgoing="_mGn-0DKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//OutputDistributionType"/>
+            </nodes>
+            <nodes xmi:id="_mGn-zjKFEeS-2ouOJu-Wmw" name="Selected">
+              <type href="http://LQN/1.0#//HistogramBinType"/>
+            </nodes>
+            <nodes xmi:id="_mGn-zzKFEeS-2ouOJu-Wmw" incoming="_mGn-0DKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//HistogramBinType"/>
+            </nodes>
+            <edges xmi:id="_mGn-0DKFEeS-2ouOJu-Wmw" source="_mGn-zTKFEeS-2ouOJu-Wmw" target="_mGn-zzKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//OutputDistributionType/overflowBin"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_mGn-0TKFEeS-2ouOJu-Wmw" origin="_mGn-yDKFEeS-2ouOJu-Wmw" image="_mGn-zTKFEeS-2ouOJu-Wmw"/>
+          <mappings xmi:id="_mGn-0jKFEeS-2ouOJu-Wmw" origin="_mGn-xjKFEeS-2ouOJu-Wmw" image="_mGn-zjKFEeS-2ouOJu-Wmw"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_mGn-0zKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mGn-1DKFEeS-2ouOJu-Wmw" name="Selected" incoming="_mGn-1zKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//HistogramBinType"/>
+      </nodes>
+      <nodes xmi:id="_mGn-1TKFEeS-2ouOJu-Wmw" name="OldSource">
+        <type href="http://LQN/1.0#//OutputDistributionType"/>
+      </nodes>
+      <nodes xmi:id="_mGn-1jKFEeS-2ouOJu-Wmw" name="NewSource" outgoing="_mGn-1zKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//OutputDistributionType"/>
+      </nodes>
+      <edges xmi:id="_mGn-1zKFEeS-2ouOJu-Wmw" source="_mGn-1jKFEeS-2ouOJu-Wmw" target="_mGn-1DKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//OutputDistributionType/overflowBin"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_mGn-2DKFEeS-2ouOJu-Wmw" origin="_mGn-xjKFEeS-2ouOJu-Wmw" image="_mGn-1DKFEeS-2ouOJu-Wmw"/>
+    <mappings xmi:id="_mGn-2TKFEeS-2ouOJu-Wmw" origin="_mGn-xzKFEeS-2ouOJu-Wmw" image="_mGn-1TKFEeS-2ouOJu-Wmw"/>
+    <mappings xmi:id="_mGn-2jKFEeS-2ouOJu-Wmw" origin="_mGn-yDKFEeS-2ouOJu-Wmw" image="_mGn-1jKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mGn-2zKFEeS-2ouOJu-Wmw" name="mainUnit" subUnits="_mGn-wTKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mGn-3DKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mGn-3TKFEeS-2ouOJu-Wmw" name="OldSource"/>
+    <parameters xmi:id="_mGn-3jKFEeS-2ouOJu-Wmw" name="NewSource"/>
+    <parameterMappings xmi:id="_mGn-3zKFEeS-2ouOJu-Wmw" source="_mGn-3DKFEeS-2ouOJu-Wmw" target="_mGn-wjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mGn-4DKFEeS-2ouOJu-Wmw" source="_mGn-3TKFEeS-2ouOJu-Wmw" target="_mGn-wzKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mGn-4TKFEeS-2ouOJu-Wmw" source="_mGn-3jKFEeS-2ouOJu-Wmw" target="_mGn-xDKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

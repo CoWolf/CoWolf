@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mDDtcDKFEeS-2ouOJu-Wmw" name="CREATE_CallListType_IN_ActivityPhasesType_(callList)" description="Creates one CallListType in ActivityPhasesType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mDDtcTKFEeS-2ouOJu-Wmw" name="createCallListType_IN_ActivityPhasesType" description="creates one CallListType in the context: ActivityPhasesType">
+    <parameters xmi:id="_mDDtcjKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mDDtczKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_mDDtdDKFEeS-2ouOJu-Wmw" name="Id"/>
+    <lhs xmi:id="_mDDtdTKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mDDtdjKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//ActivityPhasesType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mDDtdzKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mDDteDKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mDDtezKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityPhasesType"/>
+      </nodes>
+      <nodes xmi:id="_mDDteTKFEeS-2ouOJu-Wmw" name="New" incoming="_mDDtezKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//CallListType"/>
+        <attributes xmi:id="_mDDtejKFEeS-2ouOJu-Wmw" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_mDDtezKFEeS-2ouOJu-Wmw" source="_mDDteDKFEeS-2ouOJu-Wmw" target="_mDDteTKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityPhasesType/callList"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_mDDtfDKFEeS-2ouOJu-Wmw" origin="_mDDtdjKFEeS-2ouOJu-Wmw" image="_mDDteDKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mDDtfTKFEeS-2ouOJu-Wmw" name="mainUnit" description="Creates one CallListType depending on available contexts in model instance" subUnits="_mDDtcTKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mDDtfjKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_mDDtfzKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mDDtgDKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameterMappings xmi:id="_mDDtgTKFEeS-2ouOJu-Wmw" source="_mDDtfzKFEeS-2ouOJu-Wmw" target="_mDDtcjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mDDtgjKFEeS-2ouOJu-Wmw" source="_mDDtczKFEeS-2ouOJu-Wmw" target="_mDDtfjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mDDtgzKFEeS-2ouOJu-Wmw" source="_mDDtgDKFEeS-2ouOJu-Wmw" target="_mDDtdDKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

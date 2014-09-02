@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_l6NTYDKFEeS-2ouOJu-Wmw" name="DELETE_ActivityDefType_IN_ActivityGraphBase_(activity)" description="Deletes one ActivityDefType in ActivityGraphBase">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_l6NTYTKFEeS-2ouOJu-Wmw" name="deleteActivityDefType_IN_ActivityGraphBase" description="deletes one ActivityDefType in the context: ActivityGraphBase">
+    <parameters xmi:id="_l6NTYjKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_l6NTYzKFEeS-2ouOJu-Wmw" name="ToBeDeleted"/>
+    <lhs xmi:id="_l6NTZDKFEeS-2ouOJu-Wmw" name="LHS">
+      <nodes xmi:id="_l6NTZTKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_l6NTZzKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityGraphBase"/>
+      </nodes>
+      <nodes xmi:id="_l6NTZjKFEeS-2ouOJu-Wmw" name="ToBeDeleted" incoming="_l6NTZzKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityDefType"/>
+      </nodes>
+      <edges xmi:id="_l6NTZzKFEeS-2ouOJu-Wmw" source="_l6NTZTKFEeS-2ouOJu-Wmw" target="_l6NTZjKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityGraphBase/activity"/>
+      </edges>
+      <formula xsi:type="henshin:NestedCondition" xmi:id="_l6NTaDKFEeS-2ouOJu-Wmw">
+        <conclusion xmi:id="_l6NTaTKFEeS-2ouOJu-Wmw" name="sufficientElementsMustExist">
+          <nodes xmi:id="_l6NTajKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_l6NTbjKFEeS-2ouOJu-Wmw _l6NTbzKFEeS-2ouOJu-Wmw">
+            <type href="http://LQN/1.0#//ActivityGraphBase"/>
+          </nodes>
+          <nodes xmi:id="_l6NTazKFEeS-2ouOJu-Wmw" name="ToBeDeleted">
+            <type href="http://LQN/1.0#//ActivityDefType"/>
+          </nodes>
+          <nodes xmi:id="_l6NTbDKFEeS-2ouOJu-Wmw" incoming="_l6NTbjKFEeS-2ouOJu-Wmw">
+            <type href="http://LQN/1.0#//ActivityDefType"/>
+          </nodes>
+          <nodes xmi:id="_l6NTbTKFEeS-2ouOJu-Wmw" incoming="_l6NTbzKFEeS-2ouOJu-Wmw">
+            <type href="http://LQN/1.0#//ActivityDefType"/>
+          </nodes>
+          <edges xmi:id="_l6NTbjKFEeS-2ouOJu-Wmw" source="_l6NTajKFEeS-2ouOJu-Wmw" target="_l6NTbDKFEeS-2ouOJu-Wmw">
+            <type href="http://LQN/1.0#//ActivityGraphBase/activity"/>
+          </edges>
+          <edges xmi:id="_l6NTbzKFEeS-2ouOJu-Wmw" source="_l6NTajKFEeS-2ouOJu-Wmw" target="_l6NTbTKFEeS-2ouOJu-Wmw">
+            <type href="http://LQN/1.0#//ActivityGraphBase/activity"/>
+          </edges>
+        </conclusion>
+        <mappings xmi:id="_l6NTcDKFEeS-2ouOJu-Wmw" origin="_l6NTZTKFEeS-2ouOJu-Wmw" image="_l6NTajKFEeS-2ouOJu-Wmw"/>
+        <mappings xmi:id="_l6NTcTKFEeS-2ouOJu-Wmw" origin="_l6NTZjKFEeS-2ouOJu-Wmw" image="_l6NTazKFEeS-2ouOJu-Wmw"/>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_l6NTcjKFEeS-2ouOJu-Wmw" name="RHS">
+      <nodes xmi:id="_l6NTczKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//ActivityGraphBase"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_l6NTdDKFEeS-2ouOJu-Wmw" origin="_l6NTZTKFEeS-2ouOJu-Wmw" image="_l6NTczKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_l6NTdTKFEeS-2ouOJu-Wmw" name="mainUnit" description="Deletes one ActivityDefType depending on available contexts in model instance" subUnits="_l6NTYTKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_l6NTdjKFEeS-2ouOJu-Wmw" name="ToBeDeleted"/>
+    <parameters xmi:id="_l6NTdzKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameterMappings xmi:id="_l6NTeDKFEeS-2ouOJu-Wmw" source="_l6NTdzKFEeS-2ouOJu-Wmw" target="_l6NTYjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_l6NTeTKFEeS-2ouOJu-Wmw" source="_l6NTdjKFEeS-2ouOJu-Wmw" target="_l6NTYzKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

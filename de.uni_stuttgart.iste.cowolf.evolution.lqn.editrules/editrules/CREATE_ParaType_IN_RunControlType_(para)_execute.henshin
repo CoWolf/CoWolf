@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mOStADKFEeS-2ouOJu-Wmw" name="CREATE_ParaType_IN_RunControlType_(para)" description="Creates one ParaType in RunControlType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mOStATKFEeS-2ouOJu-Wmw" name="createParaType_IN_RunControlType" description="creates one ParaType in the context: RunControlType">
+    <parameters xmi:id="_mOStAjKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mOStAzKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_mOStBDKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameters xmi:id="_mOStBTKFEeS-2ouOJu-Wmw" name="StartValue"/>
+    <parameters xmi:id="_mOStBjKFEeS-2ouOJu-Wmw" name="EndValue"/>
+    <parameters xmi:id="_mOStBzKFEeS-2ouOJu-Wmw" name="StepValue"/>
+    <parameters xmi:id="_mOStCDKFEeS-2ouOJu-Wmw" name="Value"/>
+    <lhs xmi:id="_mOStCTKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mOStCjKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//RunControlType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mOStCzKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mOStDDKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mOStEzKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//RunControlType"/>
+      </nodes>
+      <nodes xmi:id="_mOStDTKFEeS-2ouOJu-Wmw" name="New" incoming="_mOStEzKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ParaType"/>
+        <attributes xmi:id="_mOStDjKFEeS-2ouOJu-Wmw" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_mOStDzKFEeS-2ouOJu-Wmw" value="StartValue">
+          <type href="http://LQN/1.0#//ParaType/startValue"/>
+        </attributes>
+        <attributes xmi:id="_mOStEDKFEeS-2ouOJu-Wmw" value="EndValue">
+          <type href="http://LQN/1.0#//ParaType/endValue"/>
+        </attributes>
+        <attributes xmi:id="_mOStETKFEeS-2ouOJu-Wmw" value="StepValue">
+          <type href="http://LQN/1.0#//ParaType/stepValue"/>
+        </attributes>
+        <attributes xmi:id="_mOStEjKFEeS-2ouOJu-Wmw" value="Value">
+          <type href="http://LQN/1.0#//ParaType/value"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_mOStEzKFEeS-2ouOJu-Wmw" source="_mOStDDKFEeS-2ouOJu-Wmw" target="_mOStDTKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//RunControlType/para"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_mOStFDKFEeS-2ouOJu-Wmw" origin="_mOStCjKFEeS-2ouOJu-Wmw" image="_mOStDDKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mOStFTKFEeS-2ouOJu-Wmw" name="mainUnit" description="Creates one ParaType depending on available contexts in model instance" subUnits="_mOStATKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mOStFjKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_mOStFzKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mOStGDKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameters xmi:id="_mOStGTKFEeS-2ouOJu-Wmw" name="StartValue"/>
+    <parameters xmi:id="_mOStGjKFEeS-2ouOJu-Wmw" name="EndValue"/>
+    <parameters xmi:id="_mOStGzKFEeS-2ouOJu-Wmw" name="StepValue"/>
+    <parameters xmi:id="_mOStHDKFEeS-2ouOJu-Wmw" name="Value"/>
+    <parameterMappings xmi:id="_mOStHTKFEeS-2ouOJu-Wmw" source="_mOStFzKFEeS-2ouOJu-Wmw" target="_mOStAjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mOStHjKFEeS-2ouOJu-Wmw" source="_mOStAzKFEeS-2ouOJu-Wmw" target="_mOStFjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mOStHzKFEeS-2ouOJu-Wmw" source="_mOStGDKFEeS-2ouOJu-Wmw" target="_mOStBDKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mOStIDKFEeS-2ouOJu-Wmw" source="_mOStGTKFEeS-2ouOJu-Wmw" target="_mOStBTKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mOStITKFEeS-2ouOJu-Wmw" source="_mOStGjKFEeS-2ouOJu-Wmw" target="_mOStBjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mOStIjKFEeS-2ouOJu-Wmw" source="_mOStGzKFEeS-2ouOJu-Wmw" target="_mOStBzKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mOStIzKFEeS-2ouOJu-Wmw" source="_mOStHDKFEeS-2ouOJu-Wmw" target="_mOStCDKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

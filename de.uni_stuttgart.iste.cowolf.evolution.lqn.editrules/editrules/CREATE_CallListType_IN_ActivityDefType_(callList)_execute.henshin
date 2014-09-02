@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mC3gQzKFEeS-2ouOJu-Wmw" name="CREATE_CallListType_IN_ActivityDefType_(callList)" description="Creates one CallListType in ActivityDefType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mC3gRDKFEeS-2ouOJu-Wmw" name="createCallListType_IN_ActivityDefType" description="creates one CallListType in the context: ActivityDefType">
+    <parameters xmi:id="_mC3gRTKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mC3gRjKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_mC3gRzKFEeS-2ouOJu-Wmw" name="Id"/>
+    <lhs xmi:id="_mC3gSDKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mC3gSTKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//ActivityDefType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mC3gSjKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mC3gSzKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mC3gTjKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityDefType"/>
+      </nodes>
+      <nodes xmi:id="_mC3gTDKFEeS-2ouOJu-Wmw" name="New" incoming="_mC3gTjKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//CallListType"/>
+        <attributes xmi:id="_mC3gTTKFEeS-2ouOJu-Wmw" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_mC3gTjKFEeS-2ouOJu-Wmw" source="_mC3gSzKFEeS-2ouOJu-Wmw" target="_mC3gTDKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityDefType/callList"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_mC3gTzKFEeS-2ouOJu-Wmw" origin="_mC3gSTKFEeS-2ouOJu-Wmw" image="_mC3gSzKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mC3gUDKFEeS-2ouOJu-Wmw" name="mainUnit" description="Creates one CallListType depending on available contexts in model instance" subUnits="_mC3gRDKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mC3gUTKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_mC3gUjKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mC3gUzKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameterMappings xmi:id="_mC3gVDKFEeS-2ouOJu-Wmw" source="_mC3gUjKFEeS-2ouOJu-Wmw" target="_mC3gRTKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mC3gVTKFEeS-2ouOJu-Wmw" source="_mC3gRjKFEeS-2ouOJu-Wmw" target="_mC3gUTKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mC3gVjKFEeS-2ouOJu-Wmw" source="_mC3gUzKFEeS-2ouOJu-Wmw" target="_mC3gRzKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_l-dhYzKFEeS-2ouOJu-Wmw" name="MOVE_ActivityLoopType_FROM_ActivityListType_(activity)_TO_ActivityLoopListType_(activity)" description="MOVEs ActivityLoopType from ActivityListType(Reference:activity) to ActivityLoopListType(Reference:activity">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_l-dhZDKFEeS-2ouOJu-Wmw" name="moveActivityLoopType_FROM_ActivityListType_activity_TO_ActivityLoopListType_ActivityLoopListType" description="Moves ActivityLoopType from ActivityListType(Reference:activity) toActivityLoopListType(Reference:ActivityLoopListType)">
+    <parameters xmi:id="_l-dhZTKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_l-dhZjKFEeS-2ouOJu-Wmw" name="OldSource"/>
+    <parameters xmi:id="_l-dhZzKFEeS-2ouOJu-Wmw" name="NewSource"/>
+    <lhs xmi:id="_l-dhaDKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_l-dhaTKFEeS-2ouOJu-Wmw" name="Selected" incoming="_l-dhbDKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityLoopType"/>
+      </nodes>
+      <nodes xmi:id="_l-dhajKFEeS-2ouOJu-Wmw" name="OldSource" outgoing="_l-dhbDKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityListType"/>
+      </nodes>
+      <nodes xmi:id="_l-dhazKFEeS-2ouOJu-Wmw" name="NewSource">
+        <type href="http://LQN/1.0#//ActivityLoopListType"/>
+      </nodes>
+      <edges xmi:id="_l-dhbDKFEeS-2ouOJu-Wmw" source="_l-dhajKFEeS-2ouOJu-Wmw" target="_l-dhaTKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityListType/activity"/>
+      </edges>
+      <formula xsi:type="henshin:NestedCondition" xmi:id="_l-dhbTKFEeS-2ouOJu-Wmw">
+        <conclusion xmi:id="_l-dhbjKFEeS-2ouOJu-Wmw" name="sufficientElementsMustExist">
+          <nodes xmi:id="_l-dhbzKFEeS-2ouOJu-Wmw" name="OldSource" outgoing="_l-dhczKFEeS-2ouOJu-Wmw _l-dhdDKFEeS-2ouOJu-Wmw">
+            <type href="http://LQN/1.0#//ActivityListType"/>
+          </nodes>
+          <nodes xmi:id="_l-dhcDKFEeS-2ouOJu-Wmw" name="Selected">
+            <type href="http://LQN/1.0#//ActivityLoopType"/>
+          </nodes>
+          <nodes xmi:id="_l-dhcTKFEeS-2ouOJu-Wmw" incoming="_l-dhczKFEeS-2ouOJu-Wmw">
+            <type href="http://LQN/1.0#//ActivityLoopType"/>
+          </nodes>
+          <nodes xmi:id="_l-dhcjKFEeS-2ouOJu-Wmw" incoming="_l-dhdDKFEeS-2ouOJu-Wmw">
+            <type href="http://LQN/1.0#//ActivityLoopType"/>
+          </nodes>
+          <edges xmi:id="_l-dhczKFEeS-2ouOJu-Wmw" source="_l-dhbzKFEeS-2ouOJu-Wmw" target="_l-dhcTKFEeS-2ouOJu-Wmw">
+            <type href="http://LQN/1.0#//ActivityListType/activity"/>
+          </edges>
+          <edges xmi:id="_l-dhdDKFEeS-2ouOJu-Wmw" source="_l-dhbzKFEeS-2ouOJu-Wmw" target="_l-dhcjKFEeS-2ouOJu-Wmw">
+            <type href="http://LQN/1.0#//ActivityListType/activity"/>
+          </edges>
+        </conclusion>
+        <mappings xmi:id="_l-dhdTKFEeS-2ouOJu-Wmw" origin="_l-dhajKFEeS-2ouOJu-Wmw" image="_l-dhbzKFEeS-2ouOJu-Wmw"/>
+        <mappings xmi:id="_l-dhdjKFEeS-2ouOJu-Wmw" origin="_l-dhaTKFEeS-2ouOJu-Wmw" image="_l-dhcDKFEeS-2ouOJu-Wmw"/>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_l-dhdzKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_l-dheDKFEeS-2ouOJu-Wmw" name="Selected" incoming="_l-dhezKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityLoopType"/>
+      </nodes>
+      <nodes xmi:id="_l-dheTKFEeS-2ouOJu-Wmw" name="OldSource">
+        <type href="http://LQN/1.0#//ActivityListType"/>
+      </nodes>
+      <nodes xmi:id="_l-dhejKFEeS-2ouOJu-Wmw" name="NewSource" outgoing="_l-dhezKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityLoopListType"/>
+      </nodes>
+      <edges xmi:id="_l-dhezKFEeS-2ouOJu-Wmw" source="_l-dhejKFEeS-2ouOJu-Wmw" target="_l-dheDKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityLoopListType/activity"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_l-dhfDKFEeS-2ouOJu-Wmw" origin="_l-dhaTKFEeS-2ouOJu-Wmw" image="_l-dheDKFEeS-2ouOJu-Wmw"/>
+    <mappings xmi:id="_l-dhfTKFEeS-2ouOJu-Wmw" origin="_l-dhajKFEeS-2ouOJu-Wmw" image="_l-dheTKFEeS-2ouOJu-Wmw"/>
+    <mappings xmi:id="_l-dhfjKFEeS-2ouOJu-Wmw" origin="_l-dhazKFEeS-2ouOJu-Wmw" image="_l-dhejKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_l-dhfzKFEeS-2ouOJu-Wmw" name="mainUnit" subUnits="_l-dhZDKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_l-dhgDKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_l-dhgTKFEeS-2ouOJu-Wmw" name="OldSource"/>
+    <parameters xmi:id="_l-dhgjKFEeS-2ouOJu-Wmw" name="NewSource"/>
+    <parameterMappings xmi:id="_l-dhgzKFEeS-2ouOJu-Wmw" source="_l-dhgDKFEeS-2ouOJu-Wmw" target="_l-dhZTKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_l-dhhDKFEeS-2ouOJu-Wmw" source="_l-dhgTKFEeS-2ouOJu-Wmw" target="_l-dhZjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_l-dhhTKFEeS-2ouOJu-Wmw" source="_l-dhgjKFEeS-2ouOJu-Wmw" target="_l-dhZzKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

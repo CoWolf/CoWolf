@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_l85bADKFEeS-2ouOJu-Wmw" name="DELETE_ActivityLoopListType_IN_PrecedenceType_(postLOOP)" description="Deletes one ActivityLoopListType in PrecedenceType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_l85bATKFEeS-2ouOJu-Wmw" name="deleteActivityLoopListType_IN_PrecedenceType" description="deletes one ActivityLoopListType in the context: PrecedenceType">
+    <parameters xmi:id="_l85bAjKFEeS-2ouOJu-Wmw" name="Child"/>
+    <parameters xmi:id="_l85bAzKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_l85bBDKFEeS-2ouOJu-Wmw" name="ToBeDeleted"/>
+    <lhs xmi:id="_l85bBTKFEeS-2ouOJu-Wmw" name="LHS">
+      <nodes xmi:id="_l85bBjKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_l85bCTKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//PrecedenceType"/>
+      </nodes>
+      <nodes xmi:id="_l85bBzKFEeS-2ouOJu-Wmw" name="ToBeDeleted" incoming="_l85bCTKFEeS-2ouOJu-Wmw" outgoing="_l85bCjKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityLoopListType"/>
+      </nodes>
+      <nodes xmi:id="_l85bCDKFEeS-2ouOJu-Wmw" name="Child" incoming="_l85bCjKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityLoopType"/>
+      </nodes>
+      <edges xmi:id="_l85bCTKFEeS-2ouOJu-Wmw" source="_l85bBjKFEeS-2ouOJu-Wmw" target="_l85bBzKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//PrecedenceType/postLOOP"/>
+      </edges>
+      <edges xmi:id="_l85bCjKFEeS-2ouOJu-Wmw" source="_l85bBzKFEeS-2ouOJu-Wmw" target="_l85bCDKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityLoopListType/activity"/>
+      </edges>
+      <formula xsi:type="henshin:NestedCondition" xmi:id="_l85bCzKFEeS-2ouOJu-Wmw">
+        <conclusion xmi:id="_l85bDDKFEeS-2ouOJu-Wmw" name="sufficientElementsMustExist">
+          <nodes xmi:id="_l85bDTKFEeS-2ouOJu-Wmw" name="ToBeDeleted" outgoing="_l85bETKFEeS-2ouOJu-Wmw _l85bEjKFEeS-2ouOJu-Wmw">
+            <type href="http://LQN/1.0#//ActivityLoopListType"/>
+          </nodes>
+          <nodes xmi:id="_l85bDjKFEeS-2ouOJu-Wmw" name="Child">
+            <type href="http://LQN/1.0#//ActivityLoopType"/>
+          </nodes>
+          <nodes xmi:id="_l85bDzKFEeS-2ouOJu-Wmw" incoming="_l85bETKFEeS-2ouOJu-Wmw">
+            <type href="http://LQN/1.0#//ActivityLoopType"/>
+          </nodes>
+          <nodes xmi:id="_l85bEDKFEeS-2ouOJu-Wmw" incoming="_l85bEjKFEeS-2ouOJu-Wmw">
+            <type href="http://LQN/1.0#//ActivityLoopType"/>
+          </nodes>
+          <edges xmi:id="_l85bETKFEeS-2ouOJu-Wmw" source="_l85bDTKFEeS-2ouOJu-Wmw" target="_l85bDzKFEeS-2ouOJu-Wmw">
+            <type href="http://LQN/1.0#//ActivityLoopListType/activity"/>
+          </edges>
+          <edges xmi:id="_l85bEjKFEeS-2ouOJu-Wmw" source="_l85bDTKFEeS-2ouOJu-Wmw" target="_l85bEDKFEeS-2ouOJu-Wmw">
+            <type href="http://LQN/1.0#//ActivityLoopListType/activity"/>
+          </edges>
+        </conclusion>
+        <mappings xmi:id="_l85bEzKFEeS-2ouOJu-Wmw" origin="_l85bBzKFEeS-2ouOJu-Wmw" image="_l85bDTKFEeS-2ouOJu-Wmw"/>
+        <mappings xmi:id="_l85bFDKFEeS-2ouOJu-Wmw" origin="_l85bCDKFEeS-2ouOJu-Wmw" image="_l85bDjKFEeS-2ouOJu-Wmw"/>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_l85bFTKFEeS-2ouOJu-Wmw" name="RHS">
+      <nodes xmi:id="_l85bFjKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//PrecedenceType"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_l85bFzKFEeS-2ouOJu-Wmw">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_l85bGDKFEeS-2ouOJu-Wmw">
+          <conclusion xmi:id="_l85bGTKFEeS-2ouOJu-Wmw" name="doNotExceedUpperBound">
+            <nodes xmi:id="_l85bGjKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_l85bHzKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//PrecedenceType"/>
+            </nodes>
+            <nodes xmi:id="_l85bGzKFEeS-2ouOJu-Wmw" name="New">
+              <type href="http://LQN/1.0#//ActivityLoopListType"/>
+              <attributes xmi:id="_l85bHDKFEeS-2ouOJu-Wmw" value="Id">
+                <type href="http://CommonBase/1.0#//IDBase/id"/>
+              </attributes>
+              <attributes xmi:id="_l85bHTKFEeS-2ouOJu-Wmw" value="End">
+                <type href="http://LQN/1.0#//ActivityLoopListType/end"/>
+              </attributes>
+            </nodes>
+            <nodes xmi:id="_l85bHjKFEeS-2ouOJu-Wmw" incoming="_l85bHzKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//ActivityLoopListType"/>
+            </nodes>
+            <edges xmi:id="_l85bHzKFEeS-2ouOJu-Wmw" source="_l85bGjKFEeS-2ouOJu-Wmw" target="_l85bHjKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//PrecedenceType/postLOOP"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_l85bIDKFEeS-2ouOJu-Wmw" origin="_l85bBjKFEeS-2ouOJu-Wmw" image="_l85bGjKFEeS-2ouOJu-Wmw"/>
+          <mappings xmi:id="_l85bITKFEeS-2ouOJu-Wmw" origin="_l85bBzKFEeS-2ouOJu-Wmw" image="_l85bGzKFEeS-2ouOJu-Wmw"/>
+        </child>
+      </formula>
+    </rhs>
+    <mappings xmi:id="_l85bIjKFEeS-2ouOJu-Wmw" origin="_l85bBjKFEeS-2ouOJu-Wmw" image="_l85bFjKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_l85bIzKFEeS-2ouOJu-Wmw" name="mainUnit" description="Deletes one ActivityLoopListType depending on available contexts in model instance" subUnits="_l85bATKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_l85bJDKFEeS-2ouOJu-Wmw" name="Child"/>
+    <parameters xmi:id="_l85bJTKFEeS-2ouOJu-Wmw" name="ToBeDeleted"/>
+    <parameters xmi:id="_l85bJjKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameterMappings xmi:id="_l85bJzKFEeS-2ouOJu-Wmw" source="_l85bJDKFEeS-2ouOJu-Wmw" target="_l85bAjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_l85bKDKFEeS-2ouOJu-Wmw" source="_l85bJjKFEeS-2ouOJu-Wmw" target="_l85bAzKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_l85bKTKFEeS-2ouOJu-Wmw" source="_l85bJTKFEeS-2ouOJu-Wmw" target="_l85bBDKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

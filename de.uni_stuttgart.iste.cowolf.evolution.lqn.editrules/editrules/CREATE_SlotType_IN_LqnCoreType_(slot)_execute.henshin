@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mY9E4DKFEeS-2ouOJu-Wmw" name="CREATE_SlotType_IN_LqnCoreType_(slot)" description="Creates one SlotType in LqnCoreType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mY9E4TKFEeS-2ouOJu-Wmw" name="createSlotType_IN_LqnCoreType" description="creates one SlotType in the context: LqnCoreType">
+    <parameters xmi:id="_mY9E4jKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mY9E4zKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_mY9E5DKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameters xmi:id="_mY9E5TKFEeS-2ouOJu-Wmw" name="BindTarget"/>
+    <parameters xmi:id="_mY9E5jKFEeS-2ouOJu-Wmw" name="ReplicNum"/>
+    <parameters xmi:id="_mY9E5zKFEeS-2ouOJu-Wmw" name="Child"/>
+    <parameters xmi:id="_mY9E6DKFEeS-2ouOJu-Wmw" name="Id1"/>
+    <parameters xmi:id="_mY9E6TKFEeS-2ouOJu-Wmw" name="Child1"/>
+    <parameters xmi:id="_mY9E6jKFEeS-2ouOJu-Wmw" name="Id2"/>
+    <lhs xmi:id="_mY9E6zKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mY9E7DKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//LqnCoreType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mY9E7TKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mY9E7jKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mY9E9zKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//LqnCoreType"/>
+      </nodes>
+      <nodes xmi:id="_mY9E7zKFEeS-2ouOJu-Wmw" name="New" incoming="_mY9E9zKFEeS-2ouOJu-Wmw" outgoing="_mY9E-DKFEeS-2ouOJu-Wmw _mY9E-TKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//SlotType"/>
+        <attributes xmi:id="_mY9E8DKFEeS-2ouOJu-Wmw" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_mY9E8TKFEeS-2ouOJu-Wmw" value="BindTarget">
+          <type href="http://LQN/1.0#//SlotType/bindTarget"/>
+        </attributes>
+        <attributes xmi:id="_mY9E8jKFEeS-2ouOJu-Wmw" value="ReplicNum">
+          <type href="http://LQN/1.0#//SlotType/replicNum"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_mY9E8zKFEeS-2ouOJu-Wmw" name="Child" incoming="_mY9E-DKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//InterfaceType"/>
+        <attributes xmi:id="_mY9E9DKFEeS-2ouOJu-Wmw" value="Id1">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_mY9E9TKFEeS-2ouOJu-Wmw" name="Child1" incoming="_mY9E-TKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//BindType"/>
+        <attributes xmi:id="_mY9E9jKFEeS-2ouOJu-Wmw" value="Id2">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_mY9E9zKFEeS-2ouOJu-Wmw" source="_mY9E7jKFEeS-2ouOJu-Wmw" target="_mY9E7zKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//LqnCoreType/slot"/>
+      </edges>
+      <edges xmi:id="_mY9E-DKFEeS-2ouOJu-Wmw" source="_mY9E7zKFEeS-2ouOJu-Wmw" target="_mY9E8zKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//SlotType/interface"/>
+      </edges>
+      <edges xmi:id="_mY9E-TKFEeS-2ouOJu-Wmw" source="_mY9E7zKFEeS-2ouOJu-Wmw" target="_mY9E9TKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//SlotType/binding"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_mY9E-jKFEeS-2ouOJu-Wmw" origin="_mY9E7DKFEeS-2ouOJu-Wmw" image="_mY9E7jKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mY9E-zKFEeS-2ouOJu-Wmw" name="mainUnit" description="Creates one SlotType depending on available contexts in model instance" subUnits="_mY9E4TKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mY9E_DKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_mY9E_TKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mY9E_jKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameters xmi:id="_mY9E_zKFEeS-2ouOJu-Wmw" name="BindTarget"/>
+    <parameters xmi:id="_mY9FADKFEeS-2ouOJu-Wmw" name="ReplicNum"/>
+    <parameters xmi:id="_mY9FATKFEeS-2ouOJu-Wmw" name="Child"/>
+    <parameters xmi:id="_mY9FAjKFEeS-2ouOJu-Wmw" name="Id1"/>
+    <parameters xmi:id="_mY9FAzKFEeS-2ouOJu-Wmw" name="Child1"/>
+    <parameters xmi:id="_mY9FBDKFEeS-2ouOJu-Wmw" name="Id2"/>
+    <parameterMappings xmi:id="_mY9FBTKFEeS-2ouOJu-Wmw" source="_mY9E_TKFEeS-2ouOJu-Wmw" target="_mY9E4jKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mY9FBjKFEeS-2ouOJu-Wmw" source="_mY9E4zKFEeS-2ouOJu-Wmw" target="_mY9E_DKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mY9FBzKFEeS-2ouOJu-Wmw" source="_mY9E_jKFEeS-2ouOJu-Wmw" target="_mY9E5DKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mY9FCDKFEeS-2ouOJu-Wmw" source="_mY9E_zKFEeS-2ouOJu-Wmw" target="_mY9E5TKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mY9FCTKFEeS-2ouOJu-Wmw" source="_mY9FADKFEeS-2ouOJu-Wmw" target="_mY9E5jKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mY9FCjKFEeS-2ouOJu-Wmw" source="_mY9E5zKFEeS-2ouOJu-Wmw" target="_mY9FATKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mY9FCzKFEeS-2ouOJu-Wmw" source="_mY9FAjKFEeS-2ouOJu-Wmw" target="_mY9E6DKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mY9FDDKFEeS-2ouOJu-Wmw" source="_mY9E6TKFEeS-2ouOJu-Wmw" target="_mY9FAzKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mY9FDTKFEeS-2ouOJu-Wmw" source="_mY9FBDKFEeS-2ouOJu-Wmw" target="_mY9E6jKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

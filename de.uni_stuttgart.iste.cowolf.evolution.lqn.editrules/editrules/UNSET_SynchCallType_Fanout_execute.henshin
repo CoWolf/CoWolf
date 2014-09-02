@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_maBb4DKFEeS-2ouOJu-Wmw" name="UNSET_SynchCallType_Fanout" description="Unsets SynchCallType Fanout">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_maBb4TKFEeS-2ouOJu-Wmw" name="unsetSynchCallTypeFanout" description="Sets the EAttribute fanout">
+    <parameters xmi:id="_maBb4jKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <lhs xmi:id="_maBb4zKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_maBb5DKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//SynchCallType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_maBb5TKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_maBb5jKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//SynchCallType"/>
+        <attributes xmi:id="_maBb5zKFEeS-2ouOJu-Wmw" value="0">
+          <type href="http://LQN/1.0#//SynchCallType/fanout"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_maBb6DKFEeS-2ouOJu-Wmw" origin="_maBb5DKFEeS-2ouOJu-Wmw" image="_maBb5jKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_maBb6TKFEeS-2ouOJu-Wmw" name="mainUnit" subUnits="_maBb4TKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_maBb6jKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameterMappings xmi:id="_maBb6zKFEeS-2ouOJu-Wmw" source="_maBb6jKFEeS-2ouOJu-Wmw" target="_maBb4jKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

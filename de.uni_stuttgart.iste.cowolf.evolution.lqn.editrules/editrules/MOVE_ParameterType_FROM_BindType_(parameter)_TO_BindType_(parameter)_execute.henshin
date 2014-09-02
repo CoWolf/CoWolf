@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mOPpsDKFEeS-2ouOJu-Wmw" name="MOVE_ParameterType_FROM_BindType_(parameter)_TO_BindType_(parameter)" description="MOVEs ParameterType from BindType(Reference:parameter) to BindType(Reference:parameter">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mOPpsTKFEeS-2ouOJu-Wmw" name="moveParameterType_FROM_BindType_parameter_TO_BindType_BindType" description="Moves ParameterType from BindType(Reference:parameter) toBindType(Reference:BindType)">
+    <parameters xmi:id="_mOPpsjKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mOPpszKFEeS-2ouOJu-Wmw" name="OldSource"/>
+    <parameters xmi:id="_mOPptDKFEeS-2ouOJu-Wmw" name="NewSource"/>
+    <lhs xmi:id="_mOPptTKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mOPptjKFEeS-2ouOJu-Wmw" name="Selected" incoming="_mOPpuTKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ParameterType"/>
+      </nodes>
+      <nodes xmi:id="_mOPptzKFEeS-2ouOJu-Wmw" name="OldSource" outgoing="_mOPpuTKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//BindType"/>
+      </nodes>
+      <nodes xmi:id="_mOPpuDKFEeS-2ouOJu-Wmw" name="NewSource">
+        <type href="http://LQN/1.0#//BindType"/>
+      </nodes>
+      <edges xmi:id="_mOPpuTKFEeS-2ouOJu-Wmw" source="_mOPptzKFEeS-2ouOJu-Wmw" target="_mOPptjKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//BindType/parameter"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_mOPpujKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mOPpuzKFEeS-2ouOJu-Wmw" name="Selected" incoming="_mOPpvjKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ParameterType"/>
+      </nodes>
+      <nodes xmi:id="_mOPpvDKFEeS-2ouOJu-Wmw" name="OldSource">
+        <type href="http://LQN/1.0#//BindType"/>
+      </nodes>
+      <nodes xmi:id="_mOPpvTKFEeS-2ouOJu-Wmw" name="NewSource" outgoing="_mOPpvjKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//BindType"/>
+      </nodes>
+      <edges xmi:id="_mOPpvjKFEeS-2ouOJu-Wmw" source="_mOPpvTKFEeS-2ouOJu-Wmw" target="_mOPpuzKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//BindType/parameter"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_mOPpvzKFEeS-2ouOJu-Wmw" origin="_mOPptjKFEeS-2ouOJu-Wmw" image="_mOPpuzKFEeS-2ouOJu-Wmw"/>
+    <mappings xmi:id="_mOPpwDKFEeS-2ouOJu-Wmw" origin="_mOPptzKFEeS-2ouOJu-Wmw" image="_mOPpvDKFEeS-2ouOJu-Wmw"/>
+    <mappings xmi:id="_mOPpwTKFEeS-2ouOJu-Wmw" origin="_mOPpuDKFEeS-2ouOJu-Wmw" image="_mOPpvTKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mOPpwjKFEeS-2ouOJu-Wmw" name="mainUnit" subUnits="_mOPpsTKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mOPpwzKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mOPpxDKFEeS-2ouOJu-Wmw" name="OldSource"/>
+    <parameters xmi:id="_mOPpxTKFEeS-2ouOJu-Wmw" name="NewSource"/>
+    <parameterMappings xmi:id="_mOPpxjKFEeS-2ouOJu-Wmw" source="_mOPpwzKFEeS-2ouOJu-Wmw" target="_mOPpsjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mOPpxzKFEeS-2ouOJu-Wmw" source="_mOPpxDKFEeS-2ouOJu-Wmw" target="_mOPpszKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mOPpyDKFEeS-2ouOJu-Wmw" source="_mOPpxTKFEeS-2ouOJu-Wmw" target="_mOPptDKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

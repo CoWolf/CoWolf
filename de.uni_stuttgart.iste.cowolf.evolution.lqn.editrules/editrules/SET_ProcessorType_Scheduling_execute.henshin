@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mRBRCjKFEeS-2ouOJu-Wmw" name="SET_ProcessorType_Scheduling" description="Sets ProcessorType Scheduling">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mRBRCzKFEeS-2ouOJu-Wmw" name="setProcessorTypeScheduling" description="Sets the EAttribute scheduling">
+    <parameters xmi:id="_mRBRDDKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mRBRDTKFEeS-2ouOJu-Wmw" name="Scheduling"/>
+    <lhs xmi:id="_mRBRDjKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mRBRDzKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//ProcessorType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mRBREDKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mRBRETKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//ProcessorType"/>
+        <attributes xmi:id="_mRBREjKFEeS-2ouOJu-Wmw" value="Scheduling">
+          <type href="http://LQN/1.0#//ProcessorType/scheduling"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_mRBREzKFEeS-2ouOJu-Wmw" origin="_mRBRDzKFEeS-2ouOJu-Wmw" image="_mRBRETKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mRBRFDKFEeS-2ouOJu-Wmw" name="mainUnit" subUnits="_mRBRCzKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mRBRFTKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mRBRFjKFEeS-2ouOJu-Wmw" name="Scheduling"/>
+    <parameterMappings xmi:id="_mRBRFzKFEeS-2ouOJu-Wmw" source="_mRBRFTKFEeS-2ouOJu-Wmw" target="_mRBRDDKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mRBRGDKFEeS-2ouOJu-Wmw" source="_mRBRFjKFEeS-2ouOJu-Wmw" target="_mRBRDTKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

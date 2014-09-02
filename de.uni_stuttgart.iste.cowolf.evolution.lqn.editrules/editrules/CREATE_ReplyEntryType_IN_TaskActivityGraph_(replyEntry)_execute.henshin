@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mR_hQDKFEeS-2ouOJu-Wmw" name="CREATE_ReplyEntryType_IN_TaskActivityGraph_(replyEntry)" description="Creates one ReplyEntryType in TaskActivityGraph">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mR_hQTKFEeS-2ouOJu-Wmw" name="createReplyEntryType_IN_TaskActivityGraph" description="creates one ReplyEntryType in the context: TaskActivityGraph">
+    <parameters xmi:id="_mR_hQjKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mR_hQzKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_mR_hRDKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameters xmi:id="_mR_hRTKFEeS-2ouOJu-Wmw" name="Name"/>
+    <parameters xmi:id="_mR_hRjKFEeS-2ouOJu-Wmw" name="Child"/>
+    <parameters xmi:id="_mR_hRzKFEeS-2ouOJu-Wmw" name="Id1"/>
+    <parameters xmi:id="_mR_hSDKFEeS-2ouOJu-Wmw" name="Name1"/>
+    <lhs xmi:id="_mR_hSTKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mR_hSjKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//TaskActivityGraph"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mR_hSzKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mR_hTDKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mR_hUzKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//TaskActivityGraph"/>
+      </nodes>
+      <nodes xmi:id="_mR_hTTKFEeS-2ouOJu-Wmw" name="New" incoming="_mR_hUzKFEeS-2ouOJu-Wmw" outgoing="_mR_hVDKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ReplyEntryType"/>
+        <attributes xmi:id="_mR_hTjKFEeS-2ouOJu-Wmw" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_mR_hTzKFEeS-2ouOJu-Wmw" value="Name">
+          <type href="http://LQN/1.0#//ReplyEntryType/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_mR_hUDKFEeS-2ouOJu-Wmw" name="Child" incoming="_mR_hVDKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ReplyActivityType"/>
+        <attributes xmi:id="_mR_hUTKFEeS-2ouOJu-Wmw" value="Id1">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_mR_hUjKFEeS-2ouOJu-Wmw" value="Name1">
+          <type href="http://LQN/1.0#//ReplyActivityType/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_mR_hUzKFEeS-2ouOJu-Wmw" source="_mR_hTDKFEeS-2ouOJu-Wmw" target="_mR_hTTKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//TaskActivityGraph/replyEntry"/>
+      </edges>
+      <edges xmi:id="_mR_hVDKFEeS-2ouOJu-Wmw" source="_mR_hTTKFEeS-2ouOJu-Wmw" target="_mR_hUDKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ReplyEntryType/replyActivity"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_mR_hVTKFEeS-2ouOJu-Wmw" origin="_mR_hSjKFEeS-2ouOJu-Wmw" image="_mR_hTDKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mR_hVjKFEeS-2ouOJu-Wmw" name="mainUnit" description="Creates one ReplyEntryType depending on available contexts in model instance" subUnits="_mR_hQTKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mR_hVzKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_mR_hWDKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mR_hWTKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameters xmi:id="_mR_hWjKFEeS-2ouOJu-Wmw" name="Name"/>
+    <parameters xmi:id="_mR_hWzKFEeS-2ouOJu-Wmw" name="Child"/>
+    <parameters xmi:id="_mR_hXDKFEeS-2ouOJu-Wmw" name="Id1"/>
+    <parameters xmi:id="_mR_hXTKFEeS-2ouOJu-Wmw" name="Name1"/>
+    <parameterMappings xmi:id="_mR_hXjKFEeS-2ouOJu-Wmw" source="_mR_hWDKFEeS-2ouOJu-Wmw" target="_mR_hQjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mR_hXzKFEeS-2ouOJu-Wmw" source="_mR_hQzKFEeS-2ouOJu-Wmw" target="_mR_hVzKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mR_hYDKFEeS-2ouOJu-Wmw" source="_mR_hWTKFEeS-2ouOJu-Wmw" target="_mR_hRDKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mR_hYTKFEeS-2ouOJu-Wmw" source="_mR_hWjKFEeS-2ouOJu-Wmw" target="_mR_hRTKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mR_hYjKFEeS-2ouOJu-Wmw" source="_mR_hRjKFEeS-2ouOJu-Wmw" target="_mR_hWzKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mR_hYzKFEeS-2ouOJu-Wmw" source="_mR_hXDKFEeS-2ouOJu-Wmw" target="_mR_hRzKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mR_hZDKFEeS-2ouOJu-Wmw" source="_mR_hXTKFEeS-2ouOJu-Wmw" target="_mR_hSDKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

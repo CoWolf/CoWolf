@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_l9pB4DKFEeS-2ouOJu-Wmw" name="CREATE_ActivityLoopType_IN_ActivityListType_(activity)" description="Creates one ActivityLoopType in ActivityListType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_l9pB4TKFEeS-2ouOJu-Wmw" name="createActivityLoopType_IN_ActivityListType" description="creates one ActivityLoopType in the context: ActivityListType">
+    <parameters xmi:id="_l9pB4jKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_l9pB4zKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_l9pB5DKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameters xmi:id="_l9pB5TKFEeS-2ouOJu-Wmw" name="Name"/>
+    <parameters xmi:id="_l9pB5jKFEeS-2ouOJu-Wmw" name="Count"/>
+    <lhs xmi:id="_l9pB5zKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_l9pB6DKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//ActivityListType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_l9pB6TKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_l9pB6jKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_l9pB7zKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityListType"/>
+      </nodes>
+      <nodes xmi:id="_l9pB6zKFEeS-2ouOJu-Wmw" name="New" incoming="_l9pB7zKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityLoopType"/>
+        <attributes xmi:id="_l9pB7DKFEeS-2ouOJu-Wmw" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_l9pB7TKFEeS-2ouOJu-Wmw" value="Name">
+          <type href="http://LQN/1.0#//ActivityType/name"/>
+        </attributes>
+        <attributes xmi:id="_l9pB7jKFEeS-2ouOJu-Wmw" value="Count">
+          <type href="http://LQN/1.0#//ActivityLoopType/count"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_l9pB7zKFEeS-2ouOJu-Wmw" source="_l9pB6jKFEeS-2ouOJu-Wmw" target="_l9pB6zKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityListType/activity"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_l9pB8DKFEeS-2ouOJu-Wmw" origin="_l9pB6DKFEeS-2ouOJu-Wmw" image="_l9pB6jKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_l9pB8TKFEeS-2ouOJu-Wmw" name="mainUnit" description="Creates one ActivityLoopType depending on available contexts in model instance" subUnits="_l9pB4TKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_l9pB8jKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_l9pB8zKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_l9pB9DKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameters xmi:id="_l9pB9TKFEeS-2ouOJu-Wmw" name="Name"/>
+    <parameters xmi:id="_l9pB9jKFEeS-2ouOJu-Wmw" name="Count"/>
+    <parameterMappings xmi:id="_l9pB9zKFEeS-2ouOJu-Wmw" source="_l9pB8zKFEeS-2ouOJu-Wmw" target="_l9pB4jKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_l9pB-DKFEeS-2ouOJu-Wmw" source="_l9pB4zKFEeS-2ouOJu-Wmw" target="_l9pB8jKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_l9pB-TKFEeS-2ouOJu-Wmw" source="_l9pB9DKFEeS-2ouOJu-Wmw" target="_l9pB5DKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_l9pB-jKFEeS-2ouOJu-Wmw" source="_l9pB9TKFEeS-2ouOJu-Wmw" target="_l9pB5TKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_l9pB-zKFEeS-2ouOJu-Wmw" source="_l9pB9jKFEeS-2ouOJu-Wmw" target="_l9pB5jKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

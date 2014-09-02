@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mMlc0DKFEeS-2ouOJu-Wmw" name="SET_OutputResultType_Phase1ServiceTime" description="Sets OutputResultType Phase1ServiceTime">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mMlc0TKFEeS-2ouOJu-Wmw" name="setOutputResultTypePhase1ServiceTime" description="Sets the EAttribute phase1ServiceTime">
+    <parameters xmi:id="_mMlc0jKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mMlc0zKFEeS-2ouOJu-Wmw" name="Phase1ServiceTime"/>
+    <lhs xmi:id="_mMlc1DKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mMlc1TKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//OutputResultType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mMlc1jKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mMlc1zKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//OutputResultType"/>
+        <attributes xmi:id="_mMlc2DKFEeS-2ouOJu-Wmw" value="Phase1ServiceTime">
+          <type href="http://LQN/1.0#//OutputResultType/phase1ServiceTime"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_mMlc2TKFEeS-2ouOJu-Wmw" origin="_mMlc1TKFEeS-2ouOJu-Wmw" image="_mMlc1zKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mMlc2jKFEeS-2ouOJu-Wmw" name="mainUnit" subUnits="_mMlc0TKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mMlc2zKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mMlc3DKFEeS-2ouOJu-Wmw" name="Phase1ServiceTime"/>
+    <parameterMappings xmi:id="_mMlc3TKFEeS-2ouOJu-Wmw" source="_mMlc2zKFEeS-2ouOJu-Wmw" target="_mMlc0jKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mMlc3jKFEeS-2ouOJu-Wmw" source="_mMlc3DKFEeS-2ouOJu-Wmw" target="_mMlc0zKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mMWMQDKFEeS-2ouOJu-Wmw" name="SET_OutputResultType_ProcUtilization" description="Sets OutputResultType ProcUtilization">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mMWMQTKFEeS-2ouOJu-Wmw" name="setOutputResultTypeProcUtilization" description="Sets the EAttribute procUtilization">
+    <parameters xmi:id="_mMWMQjKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mMWzUDKFEeS-2ouOJu-Wmw" name="ProcUtilization"/>
+    <lhs xmi:id="_mMWzUTKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mMWzUjKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//OutputResultType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mMWzUzKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mMWzVDKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//OutputResultType"/>
+        <attributes xmi:id="_mMWzVTKFEeS-2ouOJu-Wmw" value="ProcUtilization">
+          <type href="http://LQN/1.0#//OutputResultType/procUtilization"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_mMWzVjKFEeS-2ouOJu-Wmw" origin="_mMWzUjKFEeS-2ouOJu-Wmw" image="_mMWzVDKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mMWzVzKFEeS-2ouOJu-Wmw" name="mainUnit" subUnits="_mMWMQTKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mMWzWDKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mMWzWTKFEeS-2ouOJu-Wmw" name="ProcUtilization"/>
+    <parameterMappings xmi:id="_mMWzWjKFEeS-2ouOJu-Wmw" source="_mMWzWDKFEeS-2ouOJu-Wmw" target="_mMWMQjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mMWzWzKFEeS-2ouOJu-Wmw" source="_mMWzWTKFEeS-2ouOJu-Wmw" target="_mMWzUDKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

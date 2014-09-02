@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_l7o2wDKFEeS-2ouOJu-Wmw" name="DELETE_ActivityListType_IN_PrecedenceType_(postAND)_Variant3645101265273" description="Deletes one ActivityListType in PrecedenceType Variant3645101265273">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_l7o2wTKFEeS-2ouOJu-Wmw" name="deleteActivityListType_IN_PrecedenceType" description="deletes one ActivityListType in the context: PrecedenceType">
+    <parameters xmi:id="_l7o2wjKFEeS-2ouOJu-Wmw" name="Child"/>
+    <parameters xmi:id="_l7o2wzKFEeS-2ouOJu-Wmw" name="Child1"/>
+    <parameters xmi:id="_l7o2xDKFEeS-2ouOJu-Wmw" name="Child2"/>
+    <parameters xmi:id="_l7o2xTKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_l7o2xjKFEeS-2ouOJu-Wmw" name="ToBeDeleted"/>
+    <lhs xmi:id="_l7o2xzKFEeS-2ouOJu-Wmw" name="LHS">
+      <nodes xmi:id="_l7o2yDKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_l7o2zTKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//PrecedenceType"/>
+      </nodes>
+      <nodes xmi:id="_l7o2yTKFEeS-2ouOJu-Wmw" name="ToBeDeleted" incoming="_l7o2zTKFEeS-2ouOJu-Wmw" outgoing="_l7o2zjKFEeS-2ouOJu-Wmw _l7o2zzKFEeS-2ouOJu-Wmw _l7o20DKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityListType"/>
+      </nodes>
+      <nodes xmi:id="_l7o2yjKFEeS-2ouOJu-Wmw" name="Child" incoming="_l7o2zjKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityOrType"/>
+      </nodes>
+      <nodes xmi:id="_l7o2yzKFEeS-2ouOJu-Wmw" name="Child1" incoming="_l7o2zzKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityLoopType"/>
+      </nodes>
+      <nodes xmi:id="_l7o2zDKFEeS-2ouOJu-Wmw" name="Child2" incoming="_l7o20DKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityLoopType"/>
+      </nodes>
+      <edges xmi:id="_l7o2zTKFEeS-2ouOJu-Wmw" source="_l7o2yDKFEeS-2ouOJu-Wmw" target="_l7o2yTKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//PrecedenceType/postAND"/>
+      </edges>
+      <edges xmi:id="_l7o2zjKFEeS-2ouOJu-Wmw" source="_l7o2yTKFEeS-2ouOJu-Wmw" target="_l7o2yjKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityListType/activity"/>
+      </edges>
+      <edges xmi:id="_l7o2zzKFEeS-2ouOJu-Wmw" source="_l7o2yTKFEeS-2ouOJu-Wmw" target="_l7o2yzKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityListType/activity"/>
+      </edges>
+      <edges xmi:id="_l7o20DKFEeS-2ouOJu-Wmw" source="_l7o2yTKFEeS-2ouOJu-Wmw" target="_l7o2zDKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityListType/activity"/>
+      </edges>
+      <formula xsi:type="henshin:And" xmi:id="_l7o20TKFEeS-2ouOJu-Wmw">
+        <left xsi:type="henshin:And" xmi:id="_l7o20jKFEeS-2ouOJu-Wmw">
+          <left xsi:type="henshin:NestedCondition" xmi:id="_l7o20zKFEeS-2ouOJu-Wmw">
+            <conclusion xmi:id="_l7o21DKFEeS-2ouOJu-Wmw" name="sufficientElementsMustExist">
+              <nodes xmi:id="_l7o21TKFEeS-2ouOJu-Wmw" name="ToBeDeleted" outgoing="_l7o22TKFEeS-2ouOJu-Wmw _l7o22jKFEeS-2ouOJu-Wmw">
+                <type href="http://LQN/1.0#//ActivityListType"/>
+              </nodes>
+              <nodes xmi:id="_l7o21jKFEeS-2ouOJu-Wmw" name="Child">
+                <type href="http://LQN/1.0#//ActivityOrType"/>
+              </nodes>
+              <nodes xmi:id="_l7o21zKFEeS-2ouOJu-Wmw" incoming="_l7o22TKFEeS-2ouOJu-Wmw">
+                <type href="http://LQN/1.0#//ActivityOrType"/>
+              </nodes>
+              <nodes xmi:id="_l7o22DKFEeS-2ouOJu-Wmw" incoming="_l7o22jKFEeS-2ouOJu-Wmw">
+                <type href="http://LQN/1.0#//ActivityOrType"/>
+              </nodes>
+              <edges xmi:id="_l7o22TKFEeS-2ouOJu-Wmw" source="_l7o21TKFEeS-2ouOJu-Wmw" target="_l7o21zKFEeS-2ouOJu-Wmw">
+                <type href="http://LQN/1.0#//ActivityListType/activity"/>
+              </edges>
+              <edges xmi:id="_l7o22jKFEeS-2ouOJu-Wmw" source="_l7o21TKFEeS-2ouOJu-Wmw" target="_l7o22DKFEeS-2ouOJu-Wmw">
+                <type href="http://LQN/1.0#//ActivityListType/activity"/>
+              </edges>
+            </conclusion>
+            <mappings xmi:id="_l7o22zKFEeS-2ouOJu-Wmw" origin="_l7o2yTKFEeS-2ouOJu-Wmw" image="_l7o21TKFEeS-2ouOJu-Wmw"/>
+            <mappings xmi:id="_l7o23DKFEeS-2ouOJu-Wmw" origin="_l7o2yjKFEeS-2ouOJu-Wmw" image="_l7o21jKFEeS-2ouOJu-Wmw"/>
+          </left>
+          <right xsi:type="henshin:NestedCondition" xmi:id="_l7o23TKFEeS-2ouOJu-Wmw">
+            <conclusion xmi:id="_l7o23jKFEeS-2ouOJu-Wmw" name="sufficientElementsMustExist">
+              <nodes xmi:id="_l7o23zKFEeS-2ouOJu-Wmw" name="ToBeDeleted" outgoing="_l7o24zKFEeS-2ouOJu-Wmw _l7o25DKFEeS-2ouOJu-Wmw">
+                <type href="http://LQN/1.0#//ActivityListType"/>
+              </nodes>
+              <nodes xmi:id="_l7o24DKFEeS-2ouOJu-Wmw" name="Child1">
+                <type href="http://LQN/1.0#//ActivityLoopType"/>
+              </nodes>
+              <nodes xmi:id="_l7o24TKFEeS-2ouOJu-Wmw" incoming="_l7o24zKFEeS-2ouOJu-Wmw">
+                <type href="http://LQN/1.0#//ActivityLoopType"/>
+              </nodes>
+              <nodes xmi:id="_l7o24jKFEeS-2ouOJu-Wmw" incoming="_l7o25DKFEeS-2ouOJu-Wmw">
+                <type href="http://LQN/1.0#//ActivityLoopType"/>
+              </nodes>
+              <edges xmi:id="_l7o24zKFEeS-2ouOJu-Wmw" source="_l7o23zKFEeS-2ouOJu-Wmw" target="_l7o24TKFEeS-2ouOJu-Wmw">
+                <type href="http://LQN/1.0#//ActivityListType/activity"/>
+              </edges>
+              <edges xmi:id="_l7o25DKFEeS-2ouOJu-Wmw" source="_l7o23zKFEeS-2ouOJu-Wmw" target="_l7o24jKFEeS-2ouOJu-Wmw">
+                <type href="http://LQN/1.0#//ActivityListType/activity"/>
+              </edges>
+            </conclusion>
+            <mappings xmi:id="_l7o25TKFEeS-2ouOJu-Wmw" origin="_l7o2yTKFEeS-2ouOJu-Wmw" image="_l7o23zKFEeS-2ouOJu-Wmw"/>
+            <mappings xmi:id="_l7o25jKFEeS-2ouOJu-Wmw" origin="_l7o2yzKFEeS-2ouOJu-Wmw" image="_l7o24DKFEeS-2ouOJu-Wmw"/>
+          </right>
+        </left>
+        <right xsi:type="henshin:NestedCondition" xmi:id="_l7o25zKFEeS-2ouOJu-Wmw">
+          <conclusion xmi:id="_l7o26DKFEeS-2ouOJu-Wmw" name="sufficientElementsMustExist">
+            <nodes xmi:id="_l7o26TKFEeS-2ouOJu-Wmw" name="ToBeDeleted" outgoing="_l7o27TKFEeS-2ouOJu-Wmw _l7o27jKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//ActivityListType"/>
+            </nodes>
+            <nodes xmi:id="_l7o26jKFEeS-2ouOJu-Wmw" name="Child2">
+              <type href="http://LQN/1.0#//ActivityLoopType"/>
+            </nodes>
+            <nodes xmi:id="_l7o26zKFEeS-2ouOJu-Wmw" incoming="_l7o27TKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//ActivityLoopType"/>
+            </nodes>
+            <nodes xmi:id="_l7o27DKFEeS-2ouOJu-Wmw" incoming="_l7o27jKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//ActivityLoopType"/>
+            </nodes>
+            <edges xmi:id="_l7o27TKFEeS-2ouOJu-Wmw" source="_l7o26TKFEeS-2ouOJu-Wmw" target="_l7o26zKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//ActivityListType/activity"/>
+            </edges>
+            <edges xmi:id="_l7o27jKFEeS-2ouOJu-Wmw" source="_l7o26TKFEeS-2ouOJu-Wmw" target="_l7o27DKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//ActivityListType/activity"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_l7o27zKFEeS-2ouOJu-Wmw" origin="_l7o2yTKFEeS-2ouOJu-Wmw" image="_l7o26TKFEeS-2ouOJu-Wmw"/>
+          <mappings xmi:id="_l7o28DKFEeS-2ouOJu-Wmw" origin="_l7o2zDKFEeS-2ouOJu-Wmw" image="_l7o26jKFEeS-2ouOJu-Wmw"/>
+        </right>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_l7o28TKFEeS-2ouOJu-Wmw" name="RHS">
+      <nodes xmi:id="_l7o28jKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//PrecedenceType"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_l7o28zKFEeS-2ouOJu-Wmw">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_l7o29DKFEeS-2ouOJu-Wmw">
+          <conclusion xmi:id="_l7o29TKFEeS-2ouOJu-Wmw" name="doNotExceedUpperBound">
+            <nodes xmi:id="_l7o29jKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_l7o2-jKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//PrecedenceType"/>
+            </nodes>
+            <nodes xmi:id="_l7o29zKFEeS-2ouOJu-Wmw" name="New">
+              <type href="http://LQN/1.0#//ActivityListType"/>
+              <attributes xmi:id="_l7o2-DKFEeS-2ouOJu-Wmw" value="Id">
+                <type href="http://CommonBase/1.0#//IDBase/id"/>
+              </attributes>
+            </nodes>
+            <nodes xmi:id="_l7o2-TKFEeS-2ouOJu-Wmw" incoming="_l7o2-jKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//ActivityListType"/>
+            </nodes>
+            <edges xmi:id="_l7o2-jKFEeS-2ouOJu-Wmw" source="_l7o29jKFEeS-2ouOJu-Wmw" target="_l7o2-TKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//PrecedenceType/postAND"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_l7o2-zKFEeS-2ouOJu-Wmw" origin="_l7o2yDKFEeS-2ouOJu-Wmw" image="_l7o29jKFEeS-2ouOJu-Wmw"/>
+          <mappings xmi:id="_l7o2_DKFEeS-2ouOJu-Wmw" origin="_l7o2yTKFEeS-2ouOJu-Wmw" image="_l7o29zKFEeS-2ouOJu-Wmw"/>
+        </child>
+      </formula>
+    </rhs>
+    <mappings xmi:id="_l7o2_TKFEeS-2ouOJu-Wmw" origin="_l7o2yDKFEeS-2ouOJu-Wmw" image="_l7o28jKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_l7o2_jKFEeS-2ouOJu-Wmw" name="mainUnit" description="Deletes one ActivityListType depending on available contexts in model instance" subUnits="_l7o2wTKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_l7o2_zKFEeS-2ouOJu-Wmw" name="Child"/>
+    <parameters xmi:id="_l7o3ADKFEeS-2ouOJu-Wmw" name="Child1"/>
+    <parameters xmi:id="_l7o3ATKFEeS-2ouOJu-Wmw" name="Child2"/>
+    <parameters xmi:id="_l7o3AjKFEeS-2ouOJu-Wmw" name="ToBeDeleted"/>
+    <parameters xmi:id="_l7o3AzKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameterMappings xmi:id="_l7o3BDKFEeS-2ouOJu-Wmw" source="_l7o2_zKFEeS-2ouOJu-Wmw" target="_l7o2wjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_l7o3BTKFEeS-2ouOJu-Wmw" source="_l7o3ADKFEeS-2ouOJu-Wmw" target="_l7o2wzKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_l7o3BjKFEeS-2ouOJu-Wmw" source="_l7o3ATKFEeS-2ouOJu-Wmw" target="_l7o2xDKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_l7o3BzKFEeS-2ouOJu-Wmw" source="_l7o3AzKFEeS-2ouOJu-Wmw" target="_l7o2xTKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_l7o3CDKFEeS-2ouOJu-Wmw" source="_l7o3AjKFEeS-2ouOJu-Wmw" target="_l7o2xjKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

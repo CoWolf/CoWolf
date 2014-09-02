@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mZepUDKFEeS-2ouOJu-Wmw" name="MOVE_SlotType_FROM_LqnCoreType_(slot)_TO_LqnCoreType_(slot)" description="MOVEs SlotType from LqnCoreType(Reference:slot) to LqnCoreType(Reference:slot">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mZepUTKFEeS-2ouOJu-Wmw" name="moveSlotType_FROM_LqnCoreType_slot_TO_LqnCoreType_LqnCoreType" description="Moves SlotType from LqnCoreType(Reference:slot) toLqnCoreType(Reference:LqnCoreType)">
+    <parameters xmi:id="_mZepUjKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mZepUzKFEeS-2ouOJu-Wmw" name="OldSource"/>
+    <parameters xmi:id="_mZepVDKFEeS-2ouOJu-Wmw" name="NewSource"/>
+    <lhs xmi:id="_mZepVTKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mZepVjKFEeS-2ouOJu-Wmw" name="Selected" incoming="_mZepWTKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//SlotType"/>
+      </nodes>
+      <nodes xmi:id="_mZepVzKFEeS-2ouOJu-Wmw" name="OldSource" outgoing="_mZepWTKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//LqnCoreType"/>
+      </nodes>
+      <nodes xmi:id="_mZepWDKFEeS-2ouOJu-Wmw" name="NewSource">
+        <type href="http://LQN/1.0#//LqnCoreType"/>
+      </nodes>
+      <edges xmi:id="_mZepWTKFEeS-2ouOJu-Wmw" source="_mZepVzKFEeS-2ouOJu-Wmw" target="_mZepVjKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//LqnCoreType/slot"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_mZepWjKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mZepWzKFEeS-2ouOJu-Wmw" name="Selected" incoming="_mZepXjKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//SlotType"/>
+      </nodes>
+      <nodes xmi:id="_mZepXDKFEeS-2ouOJu-Wmw" name="OldSource">
+        <type href="http://LQN/1.0#//LqnCoreType"/>
+      </nodes>
+      <nodes xmi:id="_mZepXTKFEeS-2ouOJu-Wmw" name="NewSource" outgoing="_mZepXjKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//LqnCoreType"/>
+      </nodes>
+      <edges xmi:id="_mZepXjKFEeS-2ouOJu-Wmw" source="_mZepXTKFEeS-2ouOJu-Wmw" target="_mZepWzKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//LqnCoreType/slot"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_mZepXzKFEeS-2ouOJu-Wmw" origin="_mZepVjKFEeS-2ouOJu-Wmw" image="_mZepWzKFEeS-2ouOJu-Wmw"/>
+    <mappings xmi:id="_mZepYDKFEeS-2ouOJu-Wmw" origin="_mZepVzKFEeS-2ouOJu-Wmw" image="_mZepXDKFEeS-2ouOJu-Wmw"/>
+    <mappings xmi:id="_mZepYTKFEeS-2ouOJu-Wmw" origin="_mZepWDKFEeS-2ouOJu-Wmw" image="_mZepXTKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mZepYjKFEeS-2ouOJu-Wmw" name="mainUnit" subUnits="_mZepUTKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mZepYzKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mZepZDKFEeS-2ouOJu-Wmw" name="OldSource"/>
+    <parameters xmi:id="_mZepZTKFEeS-2ouOJu-Wmw" name="NewSource"/>
+    <parameterMappings xmi:id="_mZfQYDKFEeS-2ouOJu-Wmw" source="_mZepYzKFEeS-2ouOJu-Wmw" target="_mZepUjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mZfQYTKFEeS-2ouOJu-Wmw" source="_mZepZDKFEeS-2ouOJu-Wmw" target="_mZepUzKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mZfQYjKFEeS-2ouOJu-Wmw" source="_mZepZTKFEeS-2ouOJu-Wmw" target="_mZepVDKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

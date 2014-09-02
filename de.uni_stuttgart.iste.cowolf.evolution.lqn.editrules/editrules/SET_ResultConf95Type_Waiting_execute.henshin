@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mSR1IDKFEeS-2ouOJu-Wmw" name="SET_ResultConf95Type_Waiting" description="Sets ResultConf95Type Waiting">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mSR1ITKFEeS-2ouOJu-Wmw" name="setResultConf95TypeWaiting" description="Sets the EAttribute waiting">
+    <parameters xmi:id="_mSR1IjKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mSR1IzKFEeS-2ouOJu-Wmw" name="Waiting"/>
+    <lhs xmi:id="_mSR1JDKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mSR1JTKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//ResultConf95Type"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mSR1JjKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mSR1JzKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//ResultConf95Type"/>
+        <attributes xmi:id="_mSR1KDKFEeS-2ouOJu-Wmw" value="Waiting">
+          <type href="http://LQN/1.0#//ResultConf95Type/waiting"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_mSR1KTKFEeS-2ouOJu-Wmw" origin="_mSR1JTKFEeS-2ouOJu-Wmw" image="_mSR1JzKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mSR1KjKFEeS-2ouOJu-Wmw" name="mainUnit" subUnits="_mSR1ITKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mSR1KzKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mSR1LDKFEeS-2ouOJu-Wmw" name="Waiting"/>
+    <parameterMappings xmi:id="_mSR1LTKFEeS-2ouOJu-Wmw" source="_mSR1KzKFEeS-2ouOJu-Wmw" target="_mSR1IjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mSR1LjKFEeS-2ouOJu-Wmw" source="_mSR1LDKFEeS-2ouOJu-Wmw" target="_mSR1IzKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

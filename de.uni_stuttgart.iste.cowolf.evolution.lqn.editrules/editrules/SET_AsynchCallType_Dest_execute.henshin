@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mCfFoDKFEeS-2ouOJu-Wmw" name="SET_AsynchCallType_Dest" description="Sets AsynchCallType Dest">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mCfFoTKFEeS-2ouOJu-Wmw" name="setAsynchCallTypeDest" description="Sets the EAttribute dest">
+    <parameters xmi:id="_mCfFojKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mCfFozKFEeS-2ouOJu-Wmw" name="Dest"/>
+    <lhs xmi:id="_mCfFpDKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mCfFpTKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//AsynchCallType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mCfFpjKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mCfFpzKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//AsynchCallType"/>
+        <attributes xmi:id="_mCfFqDKFEeS-2ouOJu-Wmw" value="Dest">
+          <type href="http://LQN/1.0#//AsynchCallType/dest"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_mCfFqTKFEeS-2ouOJu-Wmw" origin="_mCfFpTKFEeS-2ouOJu-Wmw" image="_mCfFpzKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mCfFqjKFEeS-2ouOJu-Wmw" name="mainUnit" subUnits="_mCfFoTKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mCfFqzKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mCfFrDKFEeS-2ouOJu-Wmw" name="Dest"/>
+    <parameterMappings xmi:id="_mCfFrTKFEeS-2ouOJu-Wmw" source="_mCfFqzKFEeS-2ouOJu-Wmw" target="_mCfFojKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mCfFrjKFEeS-2ouOJu-Wmw" source="_mCfFrDKFEeS-2ouOJu-Wmw" target="_mCfFozKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

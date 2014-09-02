@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mIaugDKFEeS-2ouOJu-Wmw" name="SET_OutputDistributionType_BinSize" description="Sets OutputDistributionType BinSize">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mIaugTKFEeS-2ouOJu-Wmw" name="setOutputDistributionTypeBinSize" description="Sets the EAttribute binSize">
+    <parameters xmi:id="_mIaugjKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mIaugzKFEeS-2ouOJu-Wmw" name="BinSize"/>
+    <lhs xmi:id="_mIauhDKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mIauhTKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//OutputDistributionType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mIauhjKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mIauhzKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//OutputDistributionType"/>
+        <attributes xmi:id="_mIauiDKFEeS-2ouOJu-Wmw" value="BinSize">
+          <type href="http://LQN/1.0#//OutputDistributionType/binSize"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_mIauiTKFEeS-2ouOJu-Wmw" origin="_mIauhTKFEeS-2ouOJu-Wmw" image="_mIauhzKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mIauijKFEeS-2ouOJu-Wmw" name="mainUnit" subUnits="_mIaugTKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mIauizKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mIaujDKFEeS-2ouOJu-Wmw" name="BinSize"/>
+    <parameterMappings xmi:id="_mIaujTKFEeS-2ouOJu-Wmw" source="_mIauizKFEeS-2ouOJu-Wmw" target="_mIaugjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mIaujjKFEeS-2ouOJu-Wmw" source="_mIaujDKFEeS-2ouOJu-Wmw" target="_mIaugzKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

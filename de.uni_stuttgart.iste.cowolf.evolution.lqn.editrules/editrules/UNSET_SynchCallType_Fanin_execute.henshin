@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mZ7VQDKFEeS-2ouOJu-Wmw" name="UNSET_SynchCallType_Fanin" description="Unsets SynchCallType Fanin">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mZ7VQTKFEeS-2ouOJu-Wmw" name="unsetSynchCallTypeFanin" description="Sets the EAttribute fanin">
+    <parameters xmi:id="_mZ7VQjKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <lhs xmi:id="_mZ7VQzKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mZ7VRDKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//SynchCallType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mZ7VRTKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mZ7VRjKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//SynchCallType"/>
+        <attributes xmi:id="_mZ7VRzKFEeS-2ouOJu-Wmw" value="0">
+          <type href="http://LQN/1.0#//SynchCallType/fanin"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_mZ7VSDKFEeS-2ouOJu-Wmw" origin="_mZ7VRDKFEeS-2ouOJu-Wmw" image="_mZ7VRjKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mZ7VSTKFEeS-2ouOJu-Wmw" name="mainUnit" subUnits="_mZ7VQTKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mZ7VSjKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameterMappings xmi:id="_mZ7VSzKFEeS-2ouOJu-Wmw" source="_mZ7VSjKFEeS-2ouOJu-Wmw" target="_mZ7VQjKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

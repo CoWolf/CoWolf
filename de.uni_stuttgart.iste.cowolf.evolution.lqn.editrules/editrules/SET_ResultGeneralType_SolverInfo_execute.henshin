@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mWoJyTKFEeS-2ouOJu-Wmw" name="SET_ResultGeneralType_SolverInfo" description="Sets ResultGeneralType SolverInfo">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mWoJyjKFEeS-2ouOJu-Wmw" name="setResultGeneralTypeSolverInfo" description="Sets the EAttribute solverInfo">
+    <parameters xmi:id="_mWoJyzKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mWoJzDKFEeS-2ouOJu-Wmw" name="SolverInfo"/>
+    <lhs xmi:id="_mWoJzTKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mWoJzjKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//ResultGeneralType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mWoJzzKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mWoJ0DKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//ResultGeneralType"/>
+        <attributes xmi:id="_mWoJ0TKFEeS-2ouOJu-Wmw" value="SolverInfo">
+          <type href="http://LQN/1.0#//ResultGeneralType/solverInfo"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_mWoJ0jKFEeS-2ouOJu-Wmw" origin="_mWoJzjKFEeS-2ouOJu-Wmw" image="_mWoJ0DKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mWoJ0zKFEeS-2ouOJu-Wmw" name="mainUnit" subUnits="_mWoJyjKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mWoJ1DKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mWoJ1TKFEeS-2ouOJu-Wmw" name="SolverInfo"/>
+    <parameterMappings xmi:id="_mWoJ1jKFEeS-2ouOJu-Wmw" source="_mWoJ1DKFEeS-2ouOJu-Wmw" target="_mWoJyzKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mWoJ1zKFEeS-2ouOJu-Wmw" source="_mWoJ1TKFEeS-2ouOJu-Wmw" target="_mWoJzDKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

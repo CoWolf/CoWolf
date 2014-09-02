@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mISysDKFEeS-2ouOJu-Wmw" name="SET_OutputDistributionType_Max" description="Sets OutputDistributionType Max">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mISysTKFEeS-2ouOJu-Wmw" name="setOutputDistributionTypeMax" description="Sets the EAttribute max">
+    <parameters xmi:id="_mISysjKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mISyszKFEeS-2ouOJu-Wmw" name="Max"/>
+    <lhs xmi:id="_mISytDKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mISytTKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//OutputDistributionType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mISytjKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mISytzKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//OutputDistributionType"/>
+        <attributes xmi:id="_mISyuDKFEeS-2ouOJu-Wmw" value="Max">
+          <type href="http://LQN/1.0#//OutputDistributionType/max"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_mISyuTKFEeS-2ouOJu-Wmw" origin="_mISytTKFEeS-2ouOJu-Wmw" image="_mISytzKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mISyujKFEeS-2ouOJu-Wmw" name="mainUnit" subUnits="_mISysTKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mISyuzKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mISyvDKFEeS-2ouOJu-Wmw" name="Max"/>
+    <parameterMappings xmi:id="_mISyvTKFEeS-2ouOJu-Wmw" source="_mISyuzKFEeS-2ouOJu-Wmw" target="_mISysjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mISyvjKFEeS-2ouOJu-Wmw" source="_mISyvDKFEeS-2ouOJu-Wmw" target="_mISyszKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

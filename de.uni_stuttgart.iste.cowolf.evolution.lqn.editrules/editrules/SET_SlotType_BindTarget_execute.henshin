@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mZDLgDKFEeS-2ouOJu-Wmw" name="SET_SlotType_BindTarget" description="Sets SlotType BindTarget">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mZDLgTKFEeS-2ouOJu-Wmw" name="setSlotTypeBindTarget" description="Sets the EAttribute bindTarget">
+    <parameters xmi:id="_mZDLgjKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mZDLgzKFEeS-2ouOJu-Wmw" name="BindTarget"/>
+    <lhs xmi:id="_mZDLhDKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mZDLhTKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//SlotType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mZDLhjKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mZDLhzKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//SlotType"/>
+        <attributes xmi:id="_mZDLiDKFEeS-2ouOJu-Wmw" value="BindTarget">
+          <type href="http://LQN/1.0#//SlotType/bindTarget"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_mZDLiTKFEeS-2ouOJu-Wmw" origin="_mZDLhTKFEeS-2ouOJu-Wmw" image="_mZDLhzKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mZDLijKFEeS-2ouOJu-Wmw" name="mainUnit" subUnits="_mZDLgTKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mZDLizKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mZDLjDKFEeS-2ouOJu-Wmw" name="BindTarget"/>
+    <parameterMappings xmi:id="_mZDLjTKFEeS-2ouOJu-Wmw" source="_mZDLizKFEeS-2ouOJu-Wmw" target="_mZDLgjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mZDLjjKFEeS-2ouOJu-Wmw" source="_mZDLjDKFEeS-2ouOJu-Wmw" target="_mZDLgzKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

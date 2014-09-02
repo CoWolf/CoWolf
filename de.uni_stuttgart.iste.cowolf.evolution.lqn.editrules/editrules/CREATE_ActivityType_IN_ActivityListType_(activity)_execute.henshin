@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mAfhkDKFEeS-2ouOJu-Wmw" name="CREATE_ActivityType_IN_ActivityListType_(activity)" description="Creates one ActivityType in ActivityListType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mAfhkTKFEeS-2ouOJu-Wmw" name="createActivityType_IN_ActivityListType" description="creates one ActivityType in the context: ActivityListType">
+    <parameters xmi:id="_mAfhkjKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mAfhkzKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_mAfhlDKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameters xmi:id="_mAfhlTKFEeS-2ouOJu-Wmw" name="Name"/>
+    <lhs xmi:id="_mAfhljKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mAfhlzKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//ActivityListType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mAfhmDKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mAfhmTKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mAfhnTKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityListType"/>
+      </nodes>
+      <nodes xmi:id="_mAfhmjKFEeS-2ouOJu-Wmw" name="New" incoming="_mAfhnTKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityType"/>
+        <attributes xmi:id="_mAfhmzKFEeS-2ouOJu-Wmw" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_mAfhnDKFEeS-2ouOJu-Wmw" value="Name">
+          <type href="http://LQN/1.0#//ActivityType/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_mAfhnTKFEeS-2ouOJu-Wmw" source="_mAfhmTKFEeS-2ouOJu-Wmw" target="_mAfhmjKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityListType/activity"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_mAfhnjKFEeS-2ouOJu-Wmw" origin="_mAfhlzKFEeS-2ouOJu-Wmw" image="_mAfhmTKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mAfhnzKFEeS-2ouOJu-Wmw" name="mainUnit" description="Creates one ActivityType depending on available contexts in model instance" subUnits="_mAfhkTKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mAfhoDKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_mAfhoTKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mAfhojKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameters xmi:id="_mAfhozKFEeS-2ouOJu-Wmw" name="Name"/>
+    <parameterMappings xmi:id="_mAfhpDKFEeS-2ouOJu-Wmw" source="_mAfhoTKFEeS-2ouOJu-Wmw" target="_mAfhkjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mAfhpTKFEeS-2ouOJu-Wmw" source="_mAfhkzKFEeS-2ouOJu-Wmw" target="_mAfhoDKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mAfhpjKFEeS-2ouOJu-Wmw" source="_mAfhojKFEeS-2ouOJu-Wmw" target="_mAfhlDKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mAfhpzKFEeS-2ouOJu-Wmw" source="_mAfhozKFEeS-2ouOJu-Wmw" target="_mAfhlTKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

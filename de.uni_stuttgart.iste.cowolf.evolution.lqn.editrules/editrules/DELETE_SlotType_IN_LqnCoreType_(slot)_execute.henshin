@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mY9FDjKFEeS-2ouOJu-Wmw" name="DELETE_SlotType_IN_LqnCoreType_(slot)" description="Deletes one SlotType in LqnCoreType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mY9FDzKFEeS-2ouOJu-Wmw" name="deleteSlotType_IN_LqnCoreType" description="deletes one SlotType in the context: LqnCoreType">
+    <parameters xmi:id="_mY9FEDKFEeS-2ouOJu-Wmw" name="Child"/>
+    <parameters xmi:id="_mY9FETKFEeS-2ouOJu-Wmw" name="Child1"/>
+    <parameters xmi:id="_mY9FEjKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mY9FEzKFEeS-2ouOJu-Wmw" name="ToBeDeleted"/>
+    <lhs xmi:id="_mY9FFDKFEeS-2ouOJu-Wmw" name="LHS">
+      <nodes xmi:id="_mY9FFTKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mY9FGTKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//LqnCoreType"/>
+      </nodes>
+      <nodes xmi:id="_mY9FFjKFEeS-2ouOJu-Wmw" name="ToBeDeleted" incoming="_mY9FGTKFEeS-2ouOJu-Wmw" outgoing="_mY9FGjKFEeS-2ouOJu-Wmw _mY9FGzKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//SlotType"/>
+      </nodes>
+      <nodes xmi:id="_mY9FFzKFEeS-2ouOJu-Wmw" name="Child" incoming="_mY9FGjKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//InterfaceType"/>
+      </nodes>
+      <nodes xmi:id="_mY9FGDKFEeS-2ouOJu-Wmw" name="Child1" incoming="_mY9FGzKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//BindType"/>
+      </nodes>
+      <edges xmi:id="_mY9FGTKFEeS-2ouOJu-Wmw" source="_mY9FFTKFEeS-2ouOJu-Wmw" target="_mY9FFjKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//LqnCoreType/slot"/>
+      </edges>
+      <edges xmi:id="_mY9FGjKFEeS-2ouOJu-Wmw" source="_mY9FFjKFEeS-2ouOJu-Wmw" target="_mY9FFzKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//SlotType/interface"/>
+      </edges>
+      <edges xmi:id="_mY9FGzKFEeS-2ouOJu-Wmw" source="_mY9FFjKFEeS-2ouOJu-Wmw" target="_mY9FGDKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//SlotType/binding"/>
+      </edges>
+      <formula xsi:type="henshin:And" xmi:id="_mY9FHDKFEeS-2ouOJu-Wmw">
+        <left xsi:type="henshin:NestedCondition" xmi:id="_mY9FHTKFEeS-2ouOJu-Wmw">
+          <conclusion xmi:id="_mY9FHjKFEeS-2ouOJu-Wmw" name="sufficientElementsMustExist">
+            <nodes xmi:id="_mY9FHzKFEeS-2ouOJu-Wmw" name="ToBeDeleted" outgoing="_mY9FIzKFEeS-2ouOJu-Wmw _mY9FJDKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//SlotType"/>
+            </nodes>
+            <nodes xmi:id="_mY9FIDKFEeS-2ouOJu-Wmw" name="Child">
+              <type href="http://LQN/1.0#//InterfaceType"/>
+            </nodes>
+            <nodes xmi:id="_mY9FITKFEeS-2ouOJu-Wmw" incoming="_mY9FIzKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//InterfaceType"/>
+            </nodes>
+            <nodes xmi:id="_mY9FIjKFEeS-2ouOJu-Wmw" incoming="_mY9FJDKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//InterfaceType"/>
+            </nodes>
+            <edges xmi:id="_mY9FIzKFEeS-2ouOJu-Wmw" source="_mY9FHzKFEeS-2ouOJu-Wmw" target="_mY9FITKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//SlotType/interface"/>
+            </edges>
+            <edges xmi:id="_mY9FJDKFEeS-2ouOJu-Wmw" source="_mY9FHzKFEeS-2ouOJu-Wmw" target="_mY9FIjKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//SlotType/interface"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_mY9FJTKFEeS-2ouOJu-Wmw" origin="_mY9FFjKFEeS-2ouOJu-Wmw" image="_mY9FHzKFEeS-2ouOJu-Wmw"/>
+          <mappings xmi:id="_mY9FJjKFEeS-2ouOJu-Wmw" origin="_mY9FFzKFEeS-2ouOJu-Wmw" image="_mY9FIDKFEeS-2ouOJu-Wmw"/>
+        </left>
+        <right xsi:type="henshin:NestedCondition" xmi:id="_mY9FJzKFEeS-2ouOJu-Wmw">
+          <conclusion xmi:id="_mY9FKDKFEeS-2ouOJu-Wmw" name="sufficientElementsMustExist">
+            <nodes xmi:id="_mY9FKTKFEeS-2ouOJu-Wmw" name="ToBeDeleted" outgoing="_mY9FLTKFEeS-2ouOJu-Wmw _mY9FLjKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//SlotType"/>
+            </nodes>
+            <nodes xmi:id="_mY9FKjKFEeS-2ouOJu-Wmw" name="Child1">
+              <type href="http://LQN/1.0#//BindType"/>
+            </nodes>
+            <nodes xmi:id="_mY9FKzKFEeS-2ouOJu-Wmw" incoming="_mY9FLTKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//BindType"/>
+            </nodes>
+            <nodes xmi:id="_mY9FLDKFEeS-2ouOJu-Wmw" incoming="_mY9FLjKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//BindType"/>
+            </nodes>
+            <edges xmi:id="_mY9FLTKFEeS-2ouOJu-Wmw" source="_mY9FKTKFEeS-2ouOJu-Wmw" target="_mY9FKzKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//SlotType/binding"/>
+            </edges>
+            <edges xmi:id="_mY9FLjKFEeS-2ouOJu-Wmw" source="_mY9FKTKFEeS-2ouOJu-Wmw" target="_mY9FLDKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//SlotType/binding"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_mY9FLzKFEeS-2ouOJu-Wmw" origin="_mY9FFjKFEeS-2ouOJu-Wmw" image="_mY9FKTKFEeS-2ouOJu-Wmw"/>
+          <mappings xmi:id="_mY9FMDKFEeS-2ouOJu-Wmw" origin="_mY9FGDKFEeS-2ouOJu-Wmw" image="_mY9FKjKFEeS-2ouOJu-Wmw"/>
+        </right>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_mY9FMTKFEeS-2ouOJu-Wmw" name="RHS">
+      <nodes xmi:id="_mY9FMjKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//LqnCoreType"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_mY9FMzKFEeS-2ouOJu-Wmw" origin="_mY9FFTKFEeS-2ouOJu-Wmw" image="_mY9FMjKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mY9FNDKFEeS-2ouOJu-Wmw" name="mainUnit" description="Deletes one SlotType depending on available contexts in model instance" subUnits="_mY9FDzKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mY9FNTKFEeS-2ouOJu-Wmw" name="Child"/>
+    <parameters xmi:id="_mY9FNjKFEeS-2ouOJu-Wmw" name="Child1"/>
+    <parameters xmi:id="_mY9FNzKFEeS-2ouOJu-Wmw" name="ToBeDeleted"/>
+    <parameters xmi:id="_mY9FODKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameterMappings xmi:id="_mY9FOTKFEeS-2ouOJu-Wmw" source="_mY9FNTKFEeS-2ouOJu-Wmw" target="_mY9FEDKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mY9FOjKFEeS-2ouOJu-Wmw" source="_mY9FNjKFEeS-2ouOJu-Wmw" target="_mY9FETKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mY9FOzKFEeS-2ouOJu-Wmw" source="_mY9FODKFEeS-2ouOJu-Wmw" target="_mY9FEjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mY9FPDKFEeS-2ouOJu-Wmw" source="_mY9FNzKFEeS-2ouOJu-Wmw" target="_mY9FEzKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

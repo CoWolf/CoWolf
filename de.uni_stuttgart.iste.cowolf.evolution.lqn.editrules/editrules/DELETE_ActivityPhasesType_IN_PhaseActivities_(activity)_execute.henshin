@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mAGgADKFEeS-2ouOJu-Wmw" name="DELETE_ActivityPhasesType_IN_PhaseActivities_(activity)" description="Deletes one ActivityPhasesType in PhaseActivities">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mAGgATKFEeS-2ouOJu-Wmw" name="deleteActivityPhasesType_IN_PhaseActivities" description="deletes one ActivityPhasesType in the context: PhaseActivities">
+    <parameters xmi:id="_mAHHEDKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mAHHETKFEeS-2ouOJu-Wmw" name="ToBeDeleted"/>
+    <lhs xmi:id="_mAHHEjKFEeS-2ouOJu-Wmw" name="LHS">
+      <nodes xmi:id="_mAHHEzKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mAHHFTKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//PhaseActivities"/>
+      </nodes>
+      <nodes xmi:id="_mAHHFDKFEeS-2ouOJu-Wmw" name="ToBeDeleted" incoming="_mAHHFTKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityPhasesType"/>
+      </nodes>
+      <edges xmi:id="_mAHHFTKFEeS-2ouOJu-Wmw" source="_mAHHEzKFEeS-2ouOJu-Wmw" target="_mAHHFDKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//PhaseActivities/activity"/>
+      </edges>
+      <formula xsi:type="henshin:NestedCondition" xmi:id="_mAHHFjKFEeS-2ouOJu-Wmw">
+        <conclusion xmi:id="_mAHHFzKFEeS-2ouOJu-Wmw" name="sufficientElementsMustExist">
+          <nodes xmi:id="_mAHHGDKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mAHHHDKFEeS-2ouOJu-Wmw _mAHHHTKFEeS-2ouOJu-Wmw">
+            <type href="http://LQN/1.0#//PhaseActivities"/>
+          </nodes>
+          <nodes xmi:id="_mAHHGTKFEeS-2ouOJu-Wmw" name="ToBeDeleted">
+            <type href="http://LQN/1.0#//ActivityPhasesType"/>
+          </nodes>
+          <nodes xmi:id="_mAHHGjKFEeS-2ouOJu-Wmw" incoming="_mAHHHDKFEeS-2ouOJu-Wmw">
+            <type href="http://LQN/1.0#//ActivityPhasesType"/>
+          </nodes>
+          <nodes xmi:id="_mAHHGzKFEeS-2ouOJu-Wmw" incoming="_mAHHHTKFEeS-2ouOJu-Wmw">
+            <type href="http://LQN/1.0#//ActivityPhasesType"/>
+          </nodes>
+          <edges xmi:id="_mAHHHDKFEeS-2ouOJu-Wmw" source="_mAHHGDKFEeS-2ouOJu-Wmw" target="_mAHHGjKFEeS-2ouOJu-Wmw">
+            <type href="http://LQN/1.0#//PhaseActivities/activity"/>
+          </edges>
+          <edges xmi:id="_mAHHHTKFEeS-2ouOJu-Wmw" source="_mAHHGDKFEeS-2ouOJu-Wmw" target="_mAHHGzKFEeS-2ouOJu-Wmw">
+            <type href="http://LQN/1.0#//PhaseActivities/activity"/>
+          </edges>
+        </conclusion>
+        <mappings xmi:id="_mAHHHjKFEeS-2ouOJu-Wmw" origin="_mAHHEzKFEeS-2ouOJu-Wmw" image="_mAHHGDKFEeS-2ouOJu-Wmw"/>
+        <mappings xmi:id="_mAHHHzKFEeS-2ouOJu-Wmw" origin="_mAHHFDKFEeS-2ouOJu-Wmw" image="_mAHHGTKFEeS-2ouOJu-Wmw"/>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_mAHHIDKFEeS-2ouOJu-Wmw" name="RHS">
+      <nodes xmi:id="_mAHHITKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//PhaseActivities"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_mAHHIjKFEeS-2ouOJu-Wmw">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_mAHHIzKFEeS-2ouOJu-Wmw">
+          <conclusion xmi:id="_mAHHJDKFEeS-2ouOJu-Wmw" name="doNotExceedUpperBound">
+            <nodes xmi:id="_mAHHJTKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mAHHMzKFEeS-2ouOJu-Wmw _mAHHNDKFEeS-2ouOJu-Wmw _mAHHNTKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//PhaseActivities"/>
+            </nodes>
+            <nodes xmi:id="_mAHHJjKFEeS-2ouOJu-Wmw" name="New">
+              <type href="http://LQN/1.0#//ActivityPhasesType"/>
+              <attributes xmi:id="_mAHHJzKFEeS-2ouOJu-Wmw" value="Id">
+                <type href="http://CommonBase/1.0#//IDBase/id"/>
+              </attributes>
+              <attributes xmi:id="_mAHHKDKFEeS-2ouOJu-Wmw" value="CallOrder">
+                <type href="http://LQN/1.0#//ActivityDefBase/callOrder"/>
+              </attributes>
+              <attributes xmi:id="_mAHHKTKFEeS-2ouOJu-Wmw" value="HostDemandCvsq">
+                <type href="http://LQN/1.0#//ActivityDefBase/hostDemandCvsq"/>
+              </attributes>
+              <attributes xmi:id="_mAHHKjKFEeS-2ouOJu-Wmw" value="HostDemandMean">
+                <type href="http://LQN/1.0#//ActivityDefBase/hostDemandMean"/>
+              </attributes>
+              <attributes xmi:id="_mAHHKzKFEeS-2ouOJu-Wmw" value="MaxServiceTime">
+                <type href="http://LQN/1.0#//ActivityDefBase/maxServiceTime"/>
+              </attributes>
+              <attributes xmi:id="_mAHHLDKFEeS-2ouOJu-Wmw" value="Name">
+                <type href="http://LQN/1.0#//ActivityDefBase/name"/>
+              </attributes>
+              <attributes xmi:id="_mAHHLTKFEeS-2ouOJu-Wmw" value="ThinkTime">
+                <type href="http://LQN/1.0#//ActivityDefBase/thinkTime"/>
+              </attributes>
+              <attributes xmi:id="_mAHHLjKFEeS-2ouOJu-Wmw" value="Group">
+                <type href="http://LQN/1.0#//ActivityPhasesType/group"/>
+              </attributes>
+              <attributes xmi:id="_mAHHLzKFEeS-2ouOJu-Wmw" value="Phase">
+                <type href="http://LQN/1.0#//ActivityPhasesType/phase"/>
+              </attributes>
+            </nodes>
+            <nodes xmi:id="_mAHHMDKFEeS-2ouOJu-Wmw" incoming="_mAHHMzKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//ActivityPhasesType"/>
+            </nodes>
+            <nodes xmi:id="_mAHHMTKFEeS-2ouOJu-Wmw" incoming="_mAHHNDKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//ActivityPhasesType"/>
+            </nodes>
+            <nodes xmi:id="_mAHHMjKFEeS-2ouOJu-Wmw" incoming="_mAHHNTKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//ActivityPhasesType"/>
+            </nodes>
+            <edges xmi:id="_mAHHMzKFEeS-2ouOJu-Wmw" source="_mAHHJTKFEeS-2ouOJu-Wmw" target="_mAHHMDKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//PhaseActivities/activity"/>
+            </edges>
+            <edges xmi:id="_mAHHNDKFEeS-2ouOJu-Wmw" source="_mAHHJTKFEeS-2ouOJu-Wmw" target="_mAHHMTKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//PhaseActivities/activity"/>
+            </edges>
+            <edges xmi:id="_mAHHNTKFEeS-2ouOJu-Wmw" source="_mAHHJTKFEeS-2ouOJu-Wmw" target="_mAHHMjKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//PhaseActivities/activity"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_mAHHNjKFEeS-2ouOJu-Wmw" origin="_mAHHEzKFEeS-2ouOJu-Wmw" image="_mAHHJTKFEeS-2ouOJu-Wmw"/>
+          <mappings xmi:id="_mAHHNzKFEeS-2ouOJu-Wmw" origin="_mAHHFDKFEeS-2ouOJu-Wmw" image="_mAHHJjKFEeS-2ouOJu-Wmw"/>
+        </child>
+      </formula>
+    </rhs>
+    <mappings xmi:id="_mAHHODKFEeS-2ouOJu-Wmw" origin="_mAHHEzKFEeS-2ouOJu-Wmw" image="_mAHHITKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mAHHOTKFEeS-2ouOJu-Wmw" name="mainUnit" description="Deletes one ActivityPhasesType depending on available contexts in model instance" subUnits="_mAGgATKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mAHHOjKFEeS-2ouOJu-Wmw" name="ToBeDeleted"/>
+    <parameters xmi:id="_mAHHOzKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameterMappings xmi:id="_mAHHPDKFEeS-2ouOJu-Wmw" source="_mAHHOzKFEeS-2ouOJu-Wmw" target="_mAHHEDKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mAHHPTKFEeS-2ouOJu-Wmw" source="_mAHHOjKFEeS-2ouOJu-Wmw" target="_mAHHETKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

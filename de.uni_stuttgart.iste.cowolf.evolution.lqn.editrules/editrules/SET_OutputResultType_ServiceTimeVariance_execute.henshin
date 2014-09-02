@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mMUXEDKFEeS-2ouOJu-Wmw" name="SET_OutputResultType_ServiceTimeVariance" description="Sets OutputResultType ServiceTimeVariance">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mMUXETKFEeS-2ouOJu-Wmw" name="setOutputResultTypeServiceTimeVariance" description="Sets the EAttribute serviceTimeVariance">
+    <parameters xmi:id="_mMUXEjKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mMUXEzKFEeS-2ouOJu-Wmw" name="ServiceTimeVariance"/>
+    <lhs xmi:id="_mMUXFDKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mMUXFTKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//OutputResultType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mMU-IDKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mMU-ITKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//OutputResultType"/>
+        <attributes xmi:id="_mMU-IjKFEeS-2ouOJu-Wmw" value="ServiceTimeVariance">
+          <type href="http://LQN/1.0#//OutputResultType/serviceTimeVariance"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_mMU-IzKFEeS-2ouOJu-Wmw" origin="_mMUXFTKFEeS-2ouOJu-Wmw" image="_mMU-ITKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mMU-JDKFEeS-2ouOJu-Wmw" name="mainUnit" subUnits="_mMUXETKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mMU-JTKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mMU-JjKFEeS-2ouOJu-Wmw" name="ServiceTimeVariance"/>
+    <parameterMappings xmi:id="_mMU-JzKFEeS-2ouOJu-Wmw" source="_mMU-JTKFEeS-2ouOJu-Wmw" target="_mMUXEjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mMU-KDKFEeS-2ouOJu-Wmw" source="_mMU-JjKFEeS-2ouOJu-Wmw" target="_mMUXEzKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

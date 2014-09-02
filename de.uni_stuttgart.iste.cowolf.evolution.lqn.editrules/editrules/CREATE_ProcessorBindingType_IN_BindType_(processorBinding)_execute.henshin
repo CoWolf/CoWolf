@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mQKVQDKFEeS-2ouOJu-Wmw" name="CREATE_ProcessorBindingType_IN_BindType_(processorBinding)" description="Creates one ProcessorBindingType in BindType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mQKVQTKFEeS-2ouOJu-Wmw" name="createProcessorBindingType_IN_BindType" description="creates one ProcessorBindingType in the context: BindType">
+    <parameters xmi:id="_mQKVQjKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mQKVQzKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_mQKVRDKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameters xmi:id="_mQKVRTKFEeS-2ouOJu-Wmw" name="Source"/>
+    <parameters xmi:id="_mQKVRjKFEeS-2ouOJu-Wmw" name="Target"/>
+    <lhs xmi:id="_mQKVRzKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mQKVSDKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//BindType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mQKVSTKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mQKVSjKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mQKVTzKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//BindType"/>
+      </nodes>
+      <nodes xmi:id="_mQKVSzKFEeS-2ouOJu-Wmw" name="New" incoming="_mQKVTzKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ProcessorBindingType"/>
+        <attributes xmi:id="_mQKVTDKFEeS-2ouOJu-Wmw" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_mQKVTTKFEeS-2ouOJu-Wmw" value="Source">
+          <type href="http://LQN/1.0#//ProcessorBindingType/source"/>
+        </attributes>
+        <attributes xmi:id="_mQKVTjKFEeS-2ouOJu-Wmw" value="Target">
+          <type href="http://LQN/1.0#//ProcessorBindingType/target"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_mQKVTzKFEeS-2ouOJu-Wmw" source="_mQKVSjKFEeS-2ouOJu-Wmw" target="_mQKVSzKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//BindType/processorBinding"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_mQKVUDKFEeS-2ouOJu-Wmw" origin="_mQKVSDKFEeS-2ouOJu-Wmw" image="_mQKVSjKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mQKVUTKFEeS-2ouOJu-Wmw" name="mainUnit" description="Creates one ProcessorBindingType depending on available contexts in model instance" subUnits="_mQKVQTKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mQKVUjKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_mQKVUzKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mQKVVDKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameters xmi:id="_mQKVVTKFEeS-2ouOJu-Wmw" name="Source"/>
+    <parameters xmi:id="_mQKVVjKFEeS-2ouOJu-Wmw" name="Target"/>
+    <parameterMappings xmi:id="_mQKVVzKFEeS-2ouOJu-Wmw" source="_mQKVUzKFEeS-2ouOJu-Wmw" target="_mQKVQjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mQKVWDKFEeS-2ouOJu-Wmw" source="_mQKVQzKFEeS-2ouOJu-Wmw" target="_mQKVUjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mQKVWTKFEeS-2ouOJu-Wmw" source="_mQKVVDKFEeS-2ouOJu-Wmw" target="_mQKVRDKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mQKVWjKFEeS-2ouOJu-Wmw" source="_mQKVVTKFEeS-2ouOJu-Wmw" target="_mQKVRTKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mQKVWzKFEeS-2ouOJu-Wmw" source="_mQKVVjKFEeS-2ouOJu-Wmw" target="_mQKVRjKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

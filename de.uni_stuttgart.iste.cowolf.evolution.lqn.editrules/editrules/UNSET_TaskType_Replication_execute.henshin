@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mbHoEDKFEeS-2ouOJu-Wmw" name="UNSET_TaskType_Replication" description="Unsets TaskType Replication">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mbHoETKFEeS-2ouOJu-Wmw" name="unsetTaskTypeReplication" description="Sets the EAttribute replication">
+    <parameters xmi:id="_mbHoEjKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <lhs xmi:id="_mbHoEzKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mbHoFDKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//TaskType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mbHoFTKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mbHoFjKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//TaskType"/>
+        <attributes xmi:id="_mbHoFzKFEeS-2ouOJu-Wmw" value="1">
+          <type href="http://LQN/1.0#//TaskType/replication"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_mbHoGDKFEeS-2ouOJu-Wmw" origin="_mbHoFDKFEeS-2ouOJu-Wmw" image="_mbHoFjKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mbHoGTKFEeS-2ouOJu-Wmw" name="mainUnit" subUnits="_mbHoETKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mbHoGjKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameterMappings xmi:id="_mbHoGzKFEeS-2ouOJu-Wmw" source="_mbHoGjKFEeS-2ouOJu-Wmw" target="_mbHoEjKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>
