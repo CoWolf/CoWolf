@@ -16,6 +16,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.ListIterator;
 
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.WorkspaceJob;
@@ -276,8 +277,15 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	@Override
 	public Resource getResource() {
 		ResourceSet resSet = new ResourceSetImpl();
-		URI uri = URI.createURI(this.getModel());
-		return resSet.getResource(uri, false);
+		URI uri = URI.createURI(this.getParent().getProject().getLocationURI().toString() + "/" + this.getModel());
+		Resource res = resSet.createResource(uri);
+		try {
+			res.load(Collections.EMPTY_MAP);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return res;
 	}
 
 	/**
@@ -374,6 +382,30 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 		}
 		
 		return list;
+	}
+
+	@Override
+	public Association getLatestAssociationTo(Model target) {
+		ListIterator<ModelVersion> versionIt = this.getVersions().listIterator(this.getVersions().size());
+		
+		List<Association> targetAssocs = target.getTargetAssociations();
+		
+		while (versionIt.hasPrevious()) {
+			ModelVersion version = versionIt.previous();
+			for (Association assoc : version.getSourceAssociations()) {
+				if (targetAssocs.contains(assoc)) {
+					return assoc;
+				}
+			}
+		}
+		
+		return null;
+	}
+
+	@Override
+	public boolean hasChanges() {
+		// TODO check for changes between working copy and newest version
+		return true;
 	}
 
 	/**

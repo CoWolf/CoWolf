@@ -142,5 +142,9 @@ public interface Model extends EObject {
 
 	abstract void prepareRemove();
 
+	Association getLatestAssociationTo(Model target);
+
+	boolean hasChanges();
+
 
 } // Model

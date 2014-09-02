@@ -4,9 +4,11 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,11 +20,11 @@ import org.eclipse.core.runtime.IExtension;
 import org.eclipse.core.runtime.IExtensionPoint;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.RegistryFactory;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
-import org.eclipse.emf.ecore.impl.BasicEObjectImpl;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
@@ -37,13 +39,21 @@ import org.eclipse.emf.henshin.interpreter.impl.UnitApplicationImpl;
 import org.eclipse.emf.henshin.model.Module;
 import org.eclipse.emf.henshin.model.Unit;
 import org.eclipse.emf.henshin.model.resource.HenshinResourceSet;
+import org.eclipse.emf.henshin.trace.Trace;
 import org.eclipse.emf.henshin.trace.impl.TraceImpl;
 import org.sidiff.difference.symmetric.AttributeValueChange;
 import org.sidiff.difference.symmetric.Change;
-import org.sidiff.difference.symmetric.RemoveObject;
 import org.sidiff.difference.symmetric.SemanticChangeSet;
 import org.sidiff.difference.symmetric.SymmetricDifference;
 
+import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Association;
+import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Model;
+import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociation;
+import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociationFactory;
+import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelVersion;
+import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
+import de.uni_stuttgart.iste.cowolf.evolution.EvolutionException;
+import de.uni_stuttgart.iste.cowolf.evolution.EvolutionRegistry;
 import de.uni_stuttgart.iste.cowolf.transformation.model.Mapping;
 import de.uni_stuttgart.iste.cowolf.transformation.model.Mappings;
 import de.uni_stuttgart.iste.cowolf.transformation.model.Param;
@@ -154,28 +164,147 @@ public abstract class AbstractTransformationManager {
      */
     public abstract Class<?> getManagedClass2();
 
-//    public ModelVersion transform(Model source, Model target) {
-//    	ResourceSet resSet = new ResourceSetImpl();
-//        resSet.getResources().add(source.getResource());
-//        resSet.getResources().add(target.getResource());
-//        
-//        
-//        
-////        URI traceURI = this.buildTraceFileUri(oldSource, target);
-////        try {
-////            traces = resSet.getResource(traceURI, true);
-////        } catch (Exception e) {
-////            System.out.println("traces file could not be found.");
-////            traces = resSet.createResource(traceURI);
-////        }
-//    	
-//    	
-//    	return null;
-//    }
+    public ModelVersion transform(Model sourceModel, Model targetModel) {
+    	
+    	if (!sourceModel.getParent().equals(targetModel.getParent())) {
+    		throw new InvalidParameterException("Models must be in the same project");
+    	}
+    	
+        Association latest = sourceModel.getLatestAssociationTo(targetModel);
+        
+        // per default, use initial version (directly after creation of file) as base.
+        ModelVersion oldSourceVersion = sourceModel.getVersions().get(0);;
+        ModelVersion sourceVersion;
+        
+        if (latest != null) {
+	        
+	        for (ModelVersion version : latest.getSource()) {
+	        	if (version.getModel().equals(sourceModel)) {
+	        		oldSourceVersion = version;
+	        		break;
+	        	}
+	        }
+        }
+        
+        
+        // Create new version if there are changes in the model, else use latest.
+        if (sourceModel.hasChanges()) {
+        	sourceVersion = sourceModel.createVersion();
+        } else {
+        	sourceVersion = sourceModel.getVersions().get(sourceModel.getVersions().size()-1);
+        }
+        
+        // Break if there are no changes since the last transformation (old == current)
+        if (oldSourceVersion.equals(sourceVersion)) {
+        	for (ModelVersion version : latest.getTarget()) {
+	        	if (version.getModel().equals(targetModel)) {
+	        		return version;
+	        	}
+	        }
+        	return null;
+        }
+        
+        // Create backup version for target model if needed.
+        if (targetModel.hasChanges()) {
+        	targetModel.createVersion();
+        }
+        
+        // Got all needed versions.
+        
+        Resource oldSourceRes = oldSourceVersion.getResource();
+        Resource sourceRes = sourceVersion.getResource();
+        Resource targetRes = targetModel.getResource();
+        
+        System.out.println(oldSourceRes.getURI().toString());
+        System.out.println(sourceRes.getURI().toString());
+        System.out.println(targetRes.getURI().toString());
+        
+        EList<Trace> newTraces = new BasicEList<Trace>();
+        if (latest != null) {
+        	newTraces = this.createTraceCopy(latest.getTraces(), oldSourceRes, sourceRes);
+        }
+        
+        //Get evolution between old and new source.
+        AbstractEvolutionManager evolutionManager = EvolutionRegistry.getInstance().getEvolutionManager(sourceRes);
+        SymmetricDifference difference;
+        try {
+			difference = evolutionManager.evolve(oldSourceRes, sourceRes);
+		} catch (EvolutionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+        
+        //load mapping
+        Mappings mappingObject;
+        try {
+            mappingObject = XMLMappingLoader.loadMapping(this.getMapping(sourceRes));
+            this.mappings = mappingObject.getMapping();
+            this.changeMapping = mappingObject.getChangeMapping();
+            System.out.println("Found " + mappingObject.getMapping().size()
+                    + " mappings.");
+        } catch (JAXBException e1) {
+            e1.printStackTrace();
+            return null;
+        }
+        System.out.println("Mapping loaded for " + this.getKey(sourceRes));
+        // Load rules from files in folder
+        System.out.println("Load henshin rules");
+        this.units = this.getHenshinRules();
+        System.out.println("Number of henshin rules:" + this.units.size());
+
+        EGraph graph = new EGraphImpl();
+        graph.addAll(oldSourceRes.getContents());
+        graph.addAll(sourceRes.getContents());
+        graph.addAll(targetRes.getContents());
+        if (latest != null) {
+        	graph.addAll(latest.getTraces());
+        }
+        graph.addAll(newTraces);
+        graph.add(difference);
+        
+        System.out.println("Finished merging graphs.");
+
+        if (difference != null) {
+            System.out.println("Run Transformation");
+            graph = this.runTransformation(graph, difference);
+            System.out.println("Save result");
+            
+            ModelVersion newTargetVersion = null;
+            try {
+                this.setResult(graph, sourceRes, targetRes, newTraces);
+                
+                targetRes.save(Collections.EMPTY_MAP);
+                
+                newTargetVersion = targetModel.createVersion();
+                
+                Association newAssoc = ModelAssociationFactory.eINSTANCE.createAssociation();
+                sourceModel.getParent().getAssociations().add(newAssoc);
+                newAssoc.getTraces().addAll(newTraces);
+                newAssoc.setTimestamp(new Date().getTime());
+                newAssoc.getSource().add(sourceVersion);
+                newAssoc.getTarget().add(newTargetVersion);
+                
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            
+            return newTargetVersion;
+        } else {
+            System.out.println("Difference is null");
+            return null;
+        }
+    }
     
     
     
-    /**
+    private EList<Trace> createTraceCopy(EList<Trace> traces,
+			Resource oldSourceRes, Resource sourceRes) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/**
      * Performs an incremental transformation between source and target model.
      * The source model got evolved before and differences are stored in the
      * difference object.
@@ -426,6 +555,56 @@ public abstract class AbstractTransformationManager {
         }
 
     }
+    
+    /**
+     * Saves root of the resulting model to an output file.
+     *
+     * @param result
+     *            graph to be saved
+     * @param target
+     *            resource to save
+     * @param inPlace
+     *            overwrite the transformed models or create a new file
+     * @throws IOException
+     */
+    protected void setResult(EGraph result, Resource source, Resource target, EList<Trace> traces) throws IOException {
+        // Save the models.
+        System.out.println("Saving models...");
+        System.out.println("Number of roots: " + result.getRoots().size());
+
+        traces.clear();
+        
+        Resource temp = new ResourceImpl(target.getURI());
+
+        List<EObject> list = result.getRoots();
+
+        Class<? extends EObject> targetClass = target.getContents().get(0).getClass();
+        
+        for (EObject root : list) {
+            // root is element of target model
+            if (root.getClass() == targetClass) {
+                temp.getContents().add(root);
+            }
+
+            // root is a Trace and has source and target
+            else if (root.getClass() == Trace.class) {
+                int hasSource = ((Trace) root).getSource().size();
+                int hasTarget = ((Trace) root).getTarget().size();
+
+                if (hasSource >= 1 && hasTarget >= 1) {
+                    traces.add((Trace) root);
+                }
+
+            }
+        }
+
+        target.getContents().clear();
+        if (temp.getContents().size() > 0) {
+        	target.getContents().add(temp.getContents().get(0));
+        }
+
+    }
+    
     /**
      * Transforms a provided graph with multiple rules from the provided
      * henshinFile. Multiple parameters per rule possible.

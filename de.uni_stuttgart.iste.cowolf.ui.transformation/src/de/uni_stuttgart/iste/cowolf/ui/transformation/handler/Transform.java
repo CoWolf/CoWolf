@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.henshin.trace.impl.TraceImpl;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.window.Window;
@@ -26,6 +25,10 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.sidiff.difference.symmetric.SymmetricDifference;
 
+import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Model;
+import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociation;
+import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociationFactory;
+import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelVersion;
 import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
 import de.uni_stuttgart.iste.cowolf.evolution.EvolutionException;
 import de.uni_stuttgart.iste.cowolf.evolution.EvolutionRegistry;
@@ -162,43 +165,25 @@ public class Transform extends AbstractHandler {
                 protected IStatus run(IProgressMonitor monitor) {
                     SymmetricDifference difference = null;
                     try {
-                        List<EObject> list = secondSource.getContents();
-                        URI uri = secondSource.getURI();
-                        Resource filteredSecondSource = secondSource
-                                .getResourceSet().createResource(uri);
-                        for (int index = 0; index < list.size(); index++) {
-                            EObject root = list.get(index);
-                            System.out.println(root);
-                            // root is a Trace and has source and target
-                            if (root.getClass() == TraceImpl.class) {
-                                int hasSource = ((TraceImpl) root).getSource()
-                                        .size();
-                                int hasTarget = ((TraceImpl) root).getTarget()
-                                        .size();
-
-                                if (hasSource >= 1 && hasTarget >= 1) {
-                                    filteredSecondSource.getContents()
-                                            .add(root);
-                                }
-
-                            } else {
-                                filteredSecondSource.getContents().add(root);
-                            }
-                        }
-                        filteredSecondSource.save(null);
-                        difference = evoManager.evolve(firstSource,
-                                filteredSecondSource);
-                        Resource transformedModel = transManager.transform(
-                                firstSource, filteredSecondSource, target,
-                                difference, result);
+                        
+                        ModelAssociation ma = ModelAssociationFactory.eINSTANCE.getModelAssociation(
+                        		modelWizard.getSourceModelB().getProject());
+                        
+                        System.out.println(modelWizard.getSourceModelB().getProjectRelativePath().toString());
+                        System.out.println(modelWizard.getTargetModel().getProjectRelativePath().toString());
+                        Model sourceModel = ma.getModelByPath(modelWizard.getSourceModelB().getProjectRelativePath().toString());
+                        Model targetModel = ma.getModelByPath(modelWizard.getTargetModel().getProjectRelativePath().toString());
+                        Resource oldTarget = targetModel.getResource();
+                        
+                        ModelVersion newVersion = transManager.transform(sourceModel, targetModel);
+                        
+                        
                         final AbstractEvolutionManager evoManager = EvolutionRegistry.getInstance()
-                                .getEvolutionManager(transformedModel);
+                                .getEvolutionManager(target);
                         if (evoManager != null) {
-                            URI targetURI = target.getURI();
-                            Resource target2 = new ResourceSetImpl()
-                                    .getResource(targetURI, true);
-                            difference = evoManager.evolve(target2,
-                                    transformedModel);
+                            
+                            difference = evoManager.evolve(oldTarget,
+                                    newVersion.getResource());
                             String projectRoot = firstElement.getProject()
                                     .getLocation().toFile().toString();
                             final String evolveResultsFilePath = evoManager
