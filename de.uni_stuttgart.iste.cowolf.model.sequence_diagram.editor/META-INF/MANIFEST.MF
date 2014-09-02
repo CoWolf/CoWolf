@@ -1,18 +1,19 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
-Bundle-SymbolicName: de.uni_stuttgart.iste.cowolf.model.sequence_diagram.editor;singleton:=true
+Bundle-SymbolicName: de.uni_stuttgart.iste.cowolf.model.sequence_diagram.emf.editor;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: sequence.presentation.SequenceEditorPlugin$Implementation
+Bundle-Activator: de.uni_stuttgart.iste.cowolf.model.sequence_diagram.emf.presentation.Sequence_diagramEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: sequence.presentation
+Export-Package: de.uni_stuttgart.iste.cowolf.model.sequence_diagram.emf.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
- de.uni_stuttgart.iste.cowolf.model.sequence_diagram.edit;visibility:=reexport,
+ de.uni_stuttgart.iste.cowolf.model.sequence_diagram.emf.edit;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.emf.edit.ui;visibility:=reexport,
- org.eclipse.ui.ide;visibility:=reexport
+ org.eclipse.ui.ide;visibility:=reexport,
+ de.uni_stuttgart.iste.cowolf.model.emf.edit;visibility:=reexport
 Bundle-ActivationPolicy: lazy
