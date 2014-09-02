@@ -2,8 +2,23 @@ grammar de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.PCTL with org.eclipse.xtex
 
 generate pCTL "http://www.uni_stuttgart.de/iste/cowolf/model/ctmc/xtext/PCTL"
 
+
 Model:
-	greetings+=Greeting*;
+	start+=Start*;
 	
-Greeting:
-	'Hello' name=ID '!';
+Start:
+	" " STRING*;
+	
+	
+//	Start:
+//	State | Label | {Start} "(" item=Start ")" "and" "(" location=Start ")" | {Start} "(" item=Start ")" "|" location=Start | S | P;
+//State:
+//	"(" 'State:' name=ID ")";
+//Label:
+//	"(" 'Label:' name=ID ")";
+//S:
+//	"S" (((">" | "<" | ">=" | "<=" | "=") DECIMAL) | "=?") "[" item=Start "]";
+//P:
+//	"P" (((">" | "<" | ">=" | "<=" | "=") DECIMAL) | "=?") "[""F" item=Start "]";
+//
+//DECIMAL: INT '.' INT;

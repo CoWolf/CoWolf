@@ -82,7 +82,8 @@ public class CTMCExportPRISMJob extends Job {
 					output = this.mappingCSL.get(res);
 					monitor.subTask("Exporting: " + output.getAbsolutePath());
 					FileOutputStream out = new FileOutputStream(output);
-					out.write(generator.generateCSL(res, this.getStates(res), this.getLabels(res), true).toString().getBytes());
+					// TODO: Generator has changed, needs to read out properties from file, by Dave, 02.09.2014
+//					out.write(generator.generateCSL(res, this.getStates(res), this.getLabels(res), true).toString().getBytes());
 					out.close();
 					monitor.worked(1);
 				} catch(SecurityException | IOException e) {

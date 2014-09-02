@@ -5,8 +5,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.TreeSet;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -99,7 +99,7 @@ public class AnalyzeWizardPage1 extends WizardPage {
 		try {
 			FileOutputStream out = new FileOutputStream(clsFile);
 			for (TableItem tableItem : table.getItems()) {
-				out.write((tableItem.getText(1) + "," + tableItem.getText(2) + "_")
+				out.write((tableItem.getText(1) + "_#" + tableItem.getText(2) + "__#")
 						.getBytes());
 			}
 			out.close();
@@ -189,10 +189,10 @@ public class AnalyzeWizardPage1 extends WizardPage {
 			}
 		});
 
-		String[] tableData = data.split("_");
+		String[] tableData = data.split("__#");
 		for (String string : tableData) {
-			if (string.contains(",")) {
-				String[] tableSubData = string.split(",");
+			if (string.contains("_#")) {
+				String[] tableSubData = string.split("_#");
 				if (tableSubData.length > 1) {
 					addTableItem(tableSubData[0], tableSubData[1]);
 				} else {
@@ -282,13 +282,17 @@ public class AnalyzeWizardPage1 extends WizardPage {
 	}
 
 	public void setProperties(final HashMap<String, Object> properties) {
-
-		TreeSet<String> labels = new TreeSet<String>();
-		TreeSet<String> states = new TreeSet<String>();
-
-		// properties.put("analyzeAbsorbing", this.btnAbsorbing.getSelection());
-		properties.put("analyzeLabels", labels);
-		properties.put("analyzeStates", states);
+		ArrayList<String> propsNames = new ArrayList<String>();
+		ArrayList<String> props = new ArrayList<String>();
+		for (TableItem item : table.getItems()) {
+			if (item.getChecked()) {
+				propsNames.add(item.getText(1));
+				props.add(item.getText(2));
+			}
+		}
+		
+		properties.put("analyzePropertyNames", propsNames);
+		properties.put("analyzeProperties", props);
 	}
 
 	@Override

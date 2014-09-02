@@ -2,13 +2,14 @@ package de.uni_stuttgart.iste.cowolf.model.ctmc.analyze
 
 import de.uni_stuttgart.iste.cowolf.model.ctmc.CTMC
 import de.uni_stuttgart.iste.cowolf.model.ctmc.State
+import java.util.ArrayList
 import java.util.List
-import java.util.Set
 import org.eclipse.emf.ecore.resource.Resource
 
 class PRISMGenerator {
 
 	var idToIntMap = newHashMap()
+	var nameToIntMap = newHashMap()
 
 	def CharSequence generateSM(Resource resource) {
 		if (resource.contents.size > 0 && resource.contents.get(0) instanceof CTMC) {
@@ -25,7 +26,7 @@ class PRISMGenerator {
 		}
 	}
 
-	def CharSequence generateCSL(Resource resource, Set<State> analyzeStates, Set<String> analyzeLabels,
+	def CharSequence generateCSL(Resource resource, ArrayList<String> analyzeProperties,
 		boolean isValidation) {
 		var result = "";
 
@@ -33,34 +34,13 @@ class PRISMGenerator {
 			var e = resource.getContents().get(0) as CTMC;
 
 			addStatesToMap(e);
-
-			for (State state : analyzeStates) {
-				if (e.states.contains(state)) {
-					result += "P=? [ F s=" + getIntState(state) + " ]\n";
-				}
+			addStatesNamesToMap(e);
+			
+			for (String property : analyzeProperties) {
+				var newString = replace(property);
+				
+				result += newString + "\n";
 			}
-
-			for (String label : analyzeLabels) {
-				if (e.states.map(s|s.labels).flatten.exists[l|l.name.equals(label)]) {
-					result += "P=? [ F \"" + label + "\" ]\n";
-				}
-			}
-
-			if (isValidation) {
-				for (State state : analyzeStates) {
-					if (e.states.contains(state)) {
-						result += "S=? [ s=" + getIntState(state) + " ]\n";
-					}
-				}
-
-				for (String label : analyzeLabels) {
-					if (e.states.map(s|s.labels).flatten.exists[l|l.name.equals(label)]) {
-						result += "S=? [ \"" + label + "\" ]\n";
-					}
-				}
-			}
-		} else {
-			return result;
 		}
 
 		return result;
@@ -85,7 +65,24 @@ class PRISMGenerator {
 			«idToIntMap.put(e.states.get(i).id, i)»	
 		«ENDFOR»
 	'''
-
+	
+	def addStatesNamesToMap(CTMC e) '''
+		«nameToIntMap = newHashMap()»
+		«FOR i : 0 .. e.states.size - 1»  
+			«nameToIntMap.put(e.states.get(i).name, i)»	
+		«ENDFOR»
+	'''
+	
+	def String replace (String s) {
+		var result = s;
+	
+		for (entry : nameToIntMap.entrySet()) {     
+			result = result.replace("State:"+entry.key, "s="+entry.value)
+		} 
+		
+		return result;
+	}
+	
 	def getIntState(State e) {
 		if (idToIntMap.containsKey(e.id)) '''«idToIntMap.get(e.id)»''' else throw new Exception("Unknown state found.")
 	}
