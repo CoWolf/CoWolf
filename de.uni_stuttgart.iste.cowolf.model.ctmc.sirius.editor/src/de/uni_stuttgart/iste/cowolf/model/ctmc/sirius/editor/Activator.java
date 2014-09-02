@@ -1,4 +1,4 @@
-package defaultpackage;
+package de.uni_stuttgart.iste.cowolf.model.ctmc.sirius.editor;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -13,7 +13,7 @@ import org.osgi.framework.BundleContext;
  */
 public class Activator extends AbstractUIPlugin {
     // The plug-in ID
-    public static final String PLUGIN_ID = "dtmc.design";
+    public static final String PLUGIN_ID = "de.uni_stuttgart.iste.cowolf.model.ctmc.sirius.editor";
 
     // The shared instance
     private static Activator plugin;
@@ -35,7 +35,7 @@ public class Activator extends AbstractUIPlugin {
       super.start(context);
 	  plugin = this;
 	  viewpoints = new HashSet<Viewpoint>();
-	  viewpoints.addAll(ViewpointRegistry.getInstance().registerFromPlugin(PLUGIN_ID + "/description/dtmc.odesign")); 
+	  viewpoints.addAll(ViewpointRegistry.getInstance().registerFromPlugin(PLUGIN_ID + "/description/ctmc.odesign")); 
     }
 
     /*
