@@ -3,21 +3,17 @@
 package sequence.provider;
 
 
+import commonBase.provider.IDBaseItemProvider;
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.ecore.EStructuralFeature;
-
+import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import sequence.Lifeline;
-import sequence.SequenceFactory;
 import sequence.SequencePackage;
 
 /**
@@ -26,7 +22,8 @@ import sequence.SequencePackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class LifelineItemProvider extends ElementItemProvider {
+public class LifelineItemProvider 
+	extends IDBaseItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -49,6 +46,7 @@ public class LifelineItemProvider extends ElementItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
+			addTasksPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -64,8 +62,8 @@ public class LifelineItemProvider extends ElementItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Lifeline_Name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Lifeline_Name_feature", "_UI_Lifeline_type"),
+				 getString("_UI_Lifeline_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Lifeline_name_feature", "_UI_Lifeline_type"),
 				 SequencePackage.Literals.LIFELINE__NAME,
 				 true,
 				 false,
@@ -76,33 +74,25 @@ public class LifelineItemProvider extends ElementItemProvider {
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * This adds a property descriptor for the Tasks feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(SequencePackage.Literals.LIFELINE__TASK);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
+	protected void addTasksPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Lifeline_tasks_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Lifeline_tasks_feature", "_UI_Lifeline_type"),
+				 SequencePackage.Literals.LIFELINE__TASKS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -146,9 +136,6 @@ public class LifelineItemProvider extends ElementItemProvider {
 			case SequencePackage.LIFELINE__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case SequencePackage.LIFELINE__TASK:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -163,11 +150,17 @@ public class LifelineItemProvider extends ElementItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
 
-		newChildDescriptors.add
-			(createChildParameter
-				(SequencePackage.Literals.LIFELINE__TASK,
-				 SequenceFactory.eINSTANCE.createTask()));
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return SequenceEditPlugin.INSTANCE;
 	}
 
 }

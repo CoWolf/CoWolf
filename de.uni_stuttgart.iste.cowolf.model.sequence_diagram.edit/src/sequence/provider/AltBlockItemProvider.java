@@ -3,12 +3,12 @@
 package sequence.provider;
 
 
+import commonBase.provider.IDBaseItemProvider;
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
@@ -22,7 +22,8 @@ import sequence.SequencePackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class AltBlockItemProvider extends BlockItemProvider {
+public class AltBlockItemProvider 
+	extends IDBaseItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -97,7 +98,10 @@ public class AltBlockItemProvider extends BlockItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_AltBlock_type");
+		String label = ((AltBlock)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_AltBlock_type") :
+			getString("_UI_AltBlock_type") + " " + label;
 	}
 	
 
@@ -135,6 +139,17 @@ public class AltBlockItemProvider extends BlockItemProvider {
 			(createChildParameter
 				(SequencePackage.Literals.ALT_BLOCK__ALTERNATIVE,
 				 SequenceFactory.eINSTANCE.createAlternative()));
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return SequenceEditPlugin.INSTANCE;
 	}
 
 }

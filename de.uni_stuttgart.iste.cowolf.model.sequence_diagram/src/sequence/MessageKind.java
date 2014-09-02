@@ -19,16 +19,6 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum MessageKind implements Enumerator {
 	/**
-	 * The '<em><b>Complete</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #COMPLETE_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	COMPLETE(0, "complete", "complete"),
-
-	/**
 	 * The '<em><b>Lost</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -46,32 +36,7 @@ public enum MessageKind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FOUND(2, "found", "found"),
-
-	/**
-	 * The '<em><b>Unknown</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #UNKNOWN_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	UNKNOWN(3, "unknown", "unknown");
-
-	/**
-	 * The '<em><b>Complete</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Complete</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #COMPLETE
-	 * @model name="complete"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int COMPLETE_VALUE = 0;
+	FOUND(0, "found", "found");
 
 	/**
 	 * The '<em><b>Lost</b></em>' literal value.
@@ -101,22 +66,7 @@ public enum MessageKind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int FOUND_VALUE = 2;
-
-	/**
-	 * The '<em><b>Unknown</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Unknown</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #UNKNOWN
-	 * @model name="unknown"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int UNKNOWN_VALUE = 3;
+	public static final int FOUND_VALUE = 0;
 
 	/**
 	 * An array of all the '<em><b>Message Kind</b></em>' enumerators.
@@ -126,10 +76,8 @@ public enum MessageKind implements Enumerator {
 	 */
 	private static final MessageKind[] VALUES_ARRAY =
 		new MessageKind[] {
-			COMPLETE,
 			LOST,
 			FOUND,
-			UNKNOWN,
 		};
 
 	/**
@@ -180,10 +128,8 @@ public enum MessageKind implements Enumerator {
 	 */
 	public static MessageKind get(int value) {
 		switch (value) {
-			case COMPLETE_VALUE: return COMPLETE;
 			case LOST_VALUE: return LOST;
 			case FOUND_VALUE: return FOUND;
-			case UNKNOWN_VALUE: return UNKNOWN;
 		}
 		return null;
 	}

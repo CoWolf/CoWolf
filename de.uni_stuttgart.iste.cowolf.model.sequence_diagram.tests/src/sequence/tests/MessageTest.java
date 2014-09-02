@@ -2,10 +2,9 @@
  */
 package sequence.tests;
 
-import junit.textui.TestRunner;
+import commonBase.tests.IDBaseTest;
 
 import sequence.Message;
-import sequence.SequenceFactory;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,16 +12,7 @@ import sequence.SequenceFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class MessageTest extends ElementTest {
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static void main(String[] args) {
-		TestRunner.run(MessageTest.class);
-	}
+public abstract class MessageTest extends IDBaseTest {
 
 	/**
 	 * Constructs a new Message test case with the given name.
@@ -43,28 +33,6 @@ public class MessageTest extends ElementTest {
 	@Override
 	protected Message getFixture() {
 		return (Message)fixture;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#setUp()
-	 * @generated
-	 */
-	@Override
-	protected void setUp() throws Exception {
-		setFixture(SequenceFactory.eINSTANCE.createMessage());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#tearDown()
-	 * @generated
-	 */
-	@Override
-	protected void tearDown() throws Exception {
-		setFixture(null);
 	}
 
 } //MessageTest

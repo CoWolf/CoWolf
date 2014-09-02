@@ -4,15 +4,22 @@ package sequence.tests;
 
 import java.io.File;
 import java.io.IOException;
+
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
+
 import org.eclipse.emf.ecore.EObject;
+
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+
 import org.eclipse.emf.ecore.util.Diagnostician;
+
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import sequence.Sequence;
+
+import sequence.Lifeline;
 import sequence.SequenceFactory;
 import sequence.SequencePackage;
 
@@ -53,7 +60,7 @@ public class SequenceExample {
 			System.out.println("Enter a list of file paths or URIs that have content like this:");
 			try {
 				Resource resource = resourceSet.createResource(URI.createURI("http:///My.sequence"));
-				Sequence root = SequenceFactory.eINSTANCE.createSequence();
+				Lifeline root = SequenceFactory.eINSTANCE.createLifeline();
 				resource.getContents().add(root);
 				resource.save(System.out, null);
 			}

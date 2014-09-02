@@ -2,21 +2,16 @@
  */
 package sequence.impl;
 
+import commonBase.impl.IDBaseImpl;
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import sequence.Lifeline;
 import sequence.SequencePackage;
 import sequence.Task;
@@ -29,13 +24,13 @@ import sequence.Task;
  * The following features are implemented:
  * <ul>
  *   <li>{@link sequence.impl.LifelineImpl#getName <em>Name</em>}</li>
- *   <li>{@link sequence.impl.LifelineImpl#getTask <em>Task</em>}</li>
+ *   <li>{@link sequence.impl.LifelineImpl#getTasks <em>Tasks</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class LifelineImpl extends ElementImpl implements Lifeline {
+public class LifelineImpl extends IDBaseImpl implements Lifeline {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -57,14 +52,14 @@ public class LifelineImpl extends ElementImpl implements Lifeline {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getTask() <em>Task</em>}' containment reference list.
+	 * The cached value of the '{@link #getTasks() <em>Tasks</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTask()
+	 * @see #getTasks()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Task> task;
+	protected EList<Task> tasks;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -111,11 +106,26 @@ public class LifelineImpl extends ElementImpl implements Lifeline {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Task> getTask() {
-		if (task == null) {
-			task = new EObjectContainmentEList<Task>(Task.class, this, SequencePackage.LIFELINE__TASK);
+	public EList<Task> getTasks() {
+		if (tasks == null) {
+			tasks = new EObjectWithInverseResolvingEList<Task>(Task.class, this, SequencePackage.LIFELINE__TASKS, SequencePackage.TASK__LIFELINE);
 		}
-		return task;
+		return tasks;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case SequencePackage.LIFELINE__TASKS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getTasks()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -126,8 +136,8 @@ public class LifelineImpl extends ElementImpl implements Lifeline {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SequencePackage.LIFELINE__TASK:
-				return ((InternalEList<?>)getTask()).basicRemove(otherEnd, msgs);
+			case SequencePackage.LIFELINE__TASKS:
+				return ((InternalEList<?>)getTasks()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -142,8 +152,8 @@ public class LifelineImpl extends ElementImpl implements Lifeline {
 		switch (featureID) {
 			case SequencePackage.LIFELINE__NAME:
 				return getName();
-			case SequencePackage.LIFELINE__TASK:
-				return getTask();
+			case SequencePackage.LIFELINE__TASKS:
+				return getTasks();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -160,9 +170,9 @@ public class LifelineImpl extends ElementImpl implements Lifeline {
 			case SequencePackage.LIFELINE__NAME:
 				setName((String)newValue);
 				return;
-			case SequencePackage.LIFELINE__TASK:
-				getTask().clear();
-				getTask().addAll((Collection<? extends Task>)newValue);
+			case SequencePackage.LIFELINE__TASKS:
+				getTasks().clear();
+				getTasks().addAll((Collection<? extends Task>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -179,8 +189,8 @@ public class LifelineImpl extends ElementImpl implements Lifeline {
 			case SequencePackage.LIFELINE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case SequencePackage.LIFELINE__TASK:
-				getTask().clear();
+			case SequencePackage.LIFELINE__TASKS:
+				getTasks().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -196,8 +206,8 @@ public class LifelineImpl extends ElementImpl implements Lifeline {
 		switch (featureID) {
 			case SequencePackage.LIFELINE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case SequencePackage.LIFELINE__TASK:
-				return task != null && !task.isEmpty();
+			case SequencePackage.LIFELINE__TASKS:
+				return tasks != null && !tasks.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -212,7 +222,7 @@ public class LifelineImpl extends ElementImpl implements Lifeline {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (Name: ");
+		result.append(" (name: ");
 		result.append(name);
 		result.append(')');
 		return result.toString();

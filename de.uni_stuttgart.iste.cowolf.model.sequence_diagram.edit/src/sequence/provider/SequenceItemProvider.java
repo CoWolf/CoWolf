@@ -3,25 +3,15 @@
 package sequence.provider;
 
 
+import commonBase.provider.IDBaseItemProvider;
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import sequence.Sequence;
 import sequence.SequenceFactory;
 import sequence.SequencePackage;
@@ -33,13 +23,7 @@ import sequence.SequencePackage;
  * @generated
  */
 public class SequenceItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends IDBaseItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -77,8 +61,7 @@ public class SequenceItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SequencePackage.Literals.SEQUENCE__ELEMENT);
-			childrenFeatures.add(SequencePackage.Literals.SEQUENCE__BLOCK);
+			childrenFeatures.add(SequencePackage.Literals.SEQUENCE__TOP_LAYER);
 		}
 		return childrenFeatures;
 	}
@@ -115,7 +98,10 @@ public class SequenceItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Sequence_type");
+		String label = ((Sequence)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Sequence_type") :
+			getString("_UI_Sequence_type") + " " + label;
 	}
 	
 
@@ -131,8 +117,7 @@ public class SequenceItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Sequence.class)) {
-			case SequencePackage.SEQUENCE__ELEMENT:
-			case SequencePackage.SEQUENCE__BLOCK:
+			case SequencePackage.SEQUENCE__TOP_LAYER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -152,28 +137,8 @@ public class SequenceItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SequencePackage.Literals.SEQUENCE__ELEMENT,
-				 SequenceFactory.eINSTANCE.createLifeline()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SequencePackage.Literals.SEQUENCE__ELEMENT,
-				 SequenceFactory.eINSTANCE.createMessage()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SequencePackage.Literals.SEQUENCE__BLOCK,
-				 SequenceFactory.eINSTANCE.createBlock()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SequencePackage.Literals.SEQUENCE__BLOCK,
-				 SequenceFactory.eINSTANCE.createLoopBlock()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SequencePackage.Literals.SEQUENCE__BLOCK,
-				 SequenceFactory.eINSTANCE.createAltBlock()));
+				(SequencePackage.Literals.SEQUENCE__TOP_LAYER,
+				 SequenceFactory.eINSTANCE.createtopLayer()));
 	}
 
 	/**

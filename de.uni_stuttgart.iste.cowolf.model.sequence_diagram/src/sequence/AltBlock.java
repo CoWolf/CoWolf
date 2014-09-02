@@ -2,8 +2,8 @@
  */
 package sequence;
 
+import commonBase.IDBase;
 import org.eclipse.emf.common.util.EList;
-
 
 /**
  * <!-- begin-user-doc -->
@@ -21,8 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface AltBlock extends Block {
-
+public interface AltBlock extends IDBase, BlockBase {
 	/**
 	 * Returns the value of the '<em><b>Alternative</b></em>' containment reference list.
 	 * The list contents are of type {@link sequence.Alternative}.
@@ -38,4 +37,5 @@ public interface AltBlock extends Block {
 	 * @generated
 	 */
 	EList<Alternative> getAlternative();
+
 } // AltBlock

@@ -72,29 +72,6 @@ public class SequenceItemProviderAdapterFactory extends SequenceAdapterFactory i
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link sequence.Sequence} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SequenceItemProvider sequenceItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link sequence.Sequence}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createSequenceAdapter() {
-		if (sequenceItemProvider == null) {
-			sequenceItemProvider = new SequenceItemProvider(this);
-		}
-
-		return sequenceItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link sequence.Lifeline} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -118,29 +95,6 @@ public class SequenceItemProviderAdapterFactory extends SequenceAdapterFactory i
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link sequence.Message} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected MessageItemProvider messageItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link sequence.Message}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createMessageAdapter() {
-		if (messageItemProvider == null) {
-			messageItemProvider = new MessageItemProvider(this);
-		}
-
-		return messageItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link sequence.Task} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -161,29 +115,6 @@ public class SequenceItemProviderAdapterFactory extends SequenceAdapterFactory i
 		}
 
 		return taskItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link sequence.Block} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BlockItemProvider blockItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link sequence.Block}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBlockAdapter() {
-		if (blockItemProvider == null) {
-			blockItemProvider = new BlockItemProvider(this);
-		}
-
-		return blockItemProvider;
 	}
 
 	/**
@@ -253,6 +184,190 @@ public class SequenceItemProviderAdapterFactory extends SequenceAdapterFactory i
 		}
 
 		return alternativeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link sequence.optBlock} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected optBlockItemProvider optBlockItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link sequence.optBlock}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createoptBlockAdapter() {
+		if (optBlockItemProvider == null) {
+			optBlockItemProvider = new optBlockItemProvider(this);
+		}
+
+		return optBlockItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link sequence.Sequence} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SequenceItemProvider sequenceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link sequence.Sequence}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSequenceAdapter() {
+		if (sequenceItemProvider == null) {
+			sequenceItemProvider = new SequenceItemProvider(this);
+		}
+
+		return sequenceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link sequence.BlockBase} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BlockBaseItemProvider blockBaseItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link sequence.BlockBase}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBlockBaseAdapter() {
+		if (blockBaseItemProvider == null) {
+			blockBaseItemProvider = new BlockBaseItemProvider(this);
+		}
+
+		return blockBaseItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link sequence.topLayer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected topLayerItemProvider topLayerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link sequence.topLayer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createtopLayerAdapter() {
+		if (topLayerItemProvider == null) {
+			topLayerItemProvider = new topLayerItemProvider(this);
+		}
+
+		return topLayerItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link sequence.InitialMessage} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InitialMessageItemProvider initialMessageItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link sequence.InitialMessage}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInitialMessageAdapter() {
+		if (initialMessageItemProvider == null) {
+			initialMessageItemProvider = new InitialMessageItemProvider(this);
+		}
+
+		return initialMessageItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link sequence.Actor} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ActorItemProvider actorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link sequence.Actor}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createActorAdapter() {
+		if (actorItemProvider == null) {
+			actorItemProvider = new ActorItemProvider(this);
+		}
+
+		return actorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link sequence.SpecialMessage} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SpecialMessageItemProvider specialMessageItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link sequence.SpecialMessage}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSpecialMessageAdapter() {
+		if (specialMessageItemProvider == null) {
+			specialMessageItemProvider = new SpecialMessageItemProvider(this);
+		}
+
+		return specialMessageItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link sequence.NormalMessage} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NormalMessageItemProvider normalMessageItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link sequence.NormalMessage}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNormalMessageAdapter() {
+		if (normalMessageItemProvider == null) {
+			normalMessageItemProvider = new NormalMessageItemProvider(this);
+		}
+
+		return normalMessageItemProvider;
 	}
 
 	/**
@@ -354,14 +469,19 @@ public class SequenceItemProviderAdapterFactory extends SequenceAdapterFactory i
 	 * @generated
 	 */
 	public void dispose() {
-		if (sequenceItemProvider != null) sequenceItemProvider.dispose();
 		if (lifelineItemProvider != null) lifelineItemProvider.dispose();
-		if (messageItemProvider != null) messageItemProvider.dispose();
 		if (taskItemProvider != null) taskItemProvider.dispose();
-		if (blockItemProvider != null) blockItemProvider.dispose();
 		if (loopBlockItemProvider != null) loopBlockItemProvider.dispose();
 		if (altBlockItemProvider != null) altBlockItemProvider.dispose();
 		if (alternativeItemProvider != null) alternativeItemProvider.dispose();
+		if (optBlockItemProvider != null) optBlockItemProvider.dispose();
+		if (topLayerItemProvider != null) topLayerItemProvider.dispose();
+		if (initialMessageItemProvider != null) initialMessageItemProvider.dispose();
+		if (actorItemProvider != null) actorItemProvider.dispose();
+		if (specialMessageItemProvider != null) specialMessageItemProvider.dispose();
+		if (normalMessageItemProvider != null) normalMessageItemProvider.dispose();
+		if (sequenceItemProvider != null) sequenceItemProvider.dispose();
+		if (blockBaseItemProvider != null) blockBaseItemProvider.dispose();
 	}
 
 }

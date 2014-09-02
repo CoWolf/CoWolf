@@ -3,23 +3,15 @@
 package sequence.provider;
 
 
+import commonBase.provider.IDBaseItemProvider;
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import sequence.SequenceFactory;
 import sequence.SequencePackage;
@@ -32,13 +24,7 @@ import sequence.Task;
  * @generated
  */
 public class TaskItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends IDBaseItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -60,25 +46,48 @@ public class TaskItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addIncomingPropertyDescriptor(object);
+			addLifelinePropertyDescriptor(object);
+			addInPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Incoming feature.
+	 * This adds a property descriptor for the Lifeline feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIncomingPropertyDescriptor(Object object) {
+	protected void addLifelinePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Task_incoming_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Task_incoming_feature", "_UI_Task_type"),
-				 SequencePackage.Literals.TASK__INCOMING,
+				 getString("_UI_Task_lifeline_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Task_lifeline_feature", "_UI_Task_type"),
+				 SequencePackage.Literals.TASK__LIFELINE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the In feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addInPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Task_in_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Task_in_feature", "_UI_Task_type"),
+				 SequencePackage.Literals.TASK__IN,
 				 true,
 				 false,
 				 true,
@@ -99,7 +108,7 @@ public class TaskItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SequencePackage.Literals.TASK__OUTGOING);
+			childrenFeatures.add(SequencePackage.Literals.TASK__OUTGOING_MESSAGES);
 		}
 		return childrenFeatures;
 	}
@@ -136,7 +145,10 @@ public class TaskItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Task_type");
+		String label = ((Task)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Task_type") :
+			getString("_UI_Task_type") + " " + label;
 	}
 	
 
@@ -152,7 +164,7 @@ public class TaskItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Task.class)) {
-			case SequencePackage.TASK__OUTGOING:
+			case SequencePackage.TASK__OUTGOING_MESSAGES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -172,8 +184,13 @@ public class TaskItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SequencePackage.Literals.TASK__OUTGOING,
-				 SequenceFactory.eINSTANCE.createMessage()));
+				(SequencePackage.Literals.TASK__OUTGOING_MESSAGES,
+				 SequenceFactory.eINSTANCE.createSpecialMessage()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SequencePackage.Literals.TASK__OUTGOING_MESSAGES,
+				 SequenceFactory.eINSTANCE.createNormalMessage()));
 	}
 
 	/**
