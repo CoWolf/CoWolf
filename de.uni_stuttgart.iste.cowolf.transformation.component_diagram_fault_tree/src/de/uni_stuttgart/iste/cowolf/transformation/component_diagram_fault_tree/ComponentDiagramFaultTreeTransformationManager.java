@@ -8,8 +8,10 @@ import java.net.URL;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.osgi.framework.Bundle;
+import org.sidiff.difference.symmetric.SymmetricDifference;
 
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.Architecture;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree;
@@ -80,5 +82,11 @@ public class ComponentDiagramFaultTreeTransformationManager extends AbstractTran
 	public Class<?> getManagedClass2() {
 		return SECOND_MODEL;
 	}
-
+	
+	@Override
+	public Resource transform(Resource source, Resource target, SymmetricDifference difference, URI fileURI) {
+		CoWolfConstructTree.init(source, target);
+		CoWolfConstructTree.run();
+		return target;
+	}
 }
