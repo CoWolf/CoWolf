@@ -2,7 +2,7 @@
  */
 package sequence.tests;
 
-import junit.framework.TestCase;
+import commonBase.tests.IDBaseTest;
 
 import junit.textui.TestRunner;
 
@@ -15,15 +15,7 @@ import sequence.SequenceFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SequenceTest extends TestCase {
-
-	/**
-	 * The fixture for this Sequence test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Sequence fixture = null;
+public class SequenceTest extends IDBaseTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -45,23 +37,14 @@ public class SequenceTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this Sequence test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(Sequence fixture) {
-		this.fixture = fixture;
-	}
-
-	/**
 	 * Returns the fixture for this Sequence test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected Sequence getFixture() {
-		return fixture;
+		return (Sequence)fixture;
 	}
 
 	/**

@@ -2,24 +2,15 @@
  */
 package sequence.impl;
 
-import java.util.Collection;
-
+import commonBase.impl.IDBaseImpl;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
-import sequence.Block;
-import sequence.Element;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import sequence.Sequence;
 import sequence.SequencePackage;
+import sequence.topLayer;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,33 +19,22 @@ import sequence.SequencePackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link sequence.impl.SequenceImpl#getElement <em>Element</em>}</li>
- *   <li>{@link sequence.impl.SequenceImpl#getBlock <em>Block</em>}</li>
+ *   <li>{@link sequence.impl.SequenceImpl#getTopLayer <em>Top Layer</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class SequenceImpl extends MinimalEObjectImpl.Container implements Sequence {
+public class SequenceImpl extends IDBaseImpl implements Sequence {
 	/**
-	 * The cached value of the '{@link #getElement() <em>Element</em>}' containment reference list.
+	 * The cached value of the '{@link #getTopLayer() <em>Top Layer</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getElement()
+	 * @see #getTopLayer()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Element> element;
-
-	/**
-	 * The cached value of the '{@link #getBlock() <em>Block</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getBlock()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Block> block;
+	protected topLayer topLayer;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -80,11 +60,8 @@ public class SequenceImpl extends MinimalEObjectImpl.Container implements Sequen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Element> getElement() {
-		if (element == null) {
-			element = new EObjectContainmentEList<Element>(Element.class, this, SequencePackage.SEQUENCE__ELEMENT);
-		}
-		return element;
+	public topLayer getTopLayer() {
+		return topLayer;
 	}
 
 	/**
@@ -92,11 +69,33 @@ public class SequenceImpl extends MinimalEObjectImpl.Container implements Sequen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Block> getBlock() {
-		if (block == null) {
-			block = new EObjectContainmentEList<Block>(Block.class, this, SequencePackage.SEQUENCE__BLOCK);
+	public NotificationChain basicSetTopLayer(topLayer newTopLayer, NotificationChain msgs) {
+		topLayer oldTopLayer = topLayer;
+		topLayer = newTopLayer;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SequencePackage.SEQUENCE__TOP_LAYER, oldTopLayer, newTopLayer);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
-		return block;
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTopLayer(topLayer newTopLayer) {
+		if (newTopLayer != topLayer) {
+			NotificationChain msgs = null;
+			if (topLayer != null)
+				msgs = ((InternalEObject)topLayer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SequencePackage.SEQUENCE__TOP_LAYER, null, msgs);
+			if (newTopLayer != null)
+				msgs = ((InternalEObject)newTopLayer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SequencePackage.SEQUENCE__TOP_LAYER, null, msgs);
+			msgs = basicSetTopLayer(newTopLayer, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SequencePackage.SEQUENCE__TOP_LAYER, newTopLayer, newTopLayer));
 	}
 
 	/**
@@ -107,10 +106,8 @@ public class SequenceImpl extends MinimalEObjectImpl.Container implements Sequen
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SequencePackage.SEQUENCE__ELEMENT:
-				return ((InternalEList<?>)getElement()).basicRemove(otherEnd, msgs);
-			case SequencePackage.SEQUENCE__BLOCK:
-				return ((InternalEList<?>)getBlock()).basicRemove(otherEnd, msgs);
+			case SequencePackage.SEQUENCE__TOP_LAYER:
+				return basicSetTopLayer(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -123,10 +120,8 @@ public class SequenceImpl extends MinimalEObjectImpl.Container implements Sequen
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SequencePackage.SEQUENCE__ELEMENT:
-				return getElement();
-			case SequencePackage.SEQUENCE__BLOCK:
-				return getBlock();
+			case SequencePackage.SEQUENCE__TOP_LAYER:
+				return getTopLayer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -136,17 +131,11 @@ public class SequenceImpl extends MinimalEObjectImpl.Container implements Sequen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SequencePackage.SEQUENCE__ELEMENT:
-				getElement().clear();
-				getElement().addAll((Collection<? extends Element>)newValue);
-				return;
-			case SequencePackage.SEQUENCE__BLOCK:
-				getBlock().clear();
-				getBlock().addAll((Collection<? extends Block>)newValue);
+			case SequencePackage.SEQUENCE__TOP_LAYER:
+				setTopLayer((topLayer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -160,11 +149,8 @@ public class SequenceImpl extends MinimalEObjectImpl.Container implements Sequen
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SequencePackage.SEQUENCE__ELEMENT:
-				getElement().clear();
-				return;
-			case SequencePackage.SEQUENCE__BLOCK:
-				getBlock().clear();
+			case SequencePackage.SEQUENCE__TOP_LAYER:
+				setTopLayer((topLayer)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -178,10 +164,8 @@ public class SequenceImpl extends MinimalEObjectImpl.Container implements Sequen
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SequencePackage.SEQUENCE__ELEMENT:
-				return element != null && !element.isEmpty();
-			case SequencePackage.SEQUENCE__BLOCK:
-				return block != null && !block.isEmpty();
+			case SequencePackage.SEQUENCE__TOP_LAYER:
+				return topLayer != null;
 		}
 		return super.eIsSet(featureID);
 	}

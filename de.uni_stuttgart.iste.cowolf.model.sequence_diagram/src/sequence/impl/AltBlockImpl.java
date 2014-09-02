@@ -2,11 +2,11 @@
  */
 package sequence.impl;
 
+import commonBase.impl.IDBaseImpl;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -27,7 +27,7 @@ import sequence.SequencePackage;
  *
  * @generated
  */
-public class AltBlockImpl extends BlockImpl implements AltBlock {
+public class AltBlockImpl extends IDBaseImpl implements AltBlock {
 	/**
 	 * The cached value of the '{@link #getAlternative() <em>Alternative</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

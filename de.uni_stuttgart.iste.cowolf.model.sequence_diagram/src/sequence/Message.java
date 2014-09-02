@@ -2,6 +2,7 @@
  */
 package sequence;
 
+import commonBase.IDBase;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,17 +13,16 @@ package sequence;
  * The following features are supported:
  * <ul>
  *   <li>{@link sequence.Message#getMessageKind <em>Message Kind</em>}</li>
- *   <li>{@link sequence.Message#getMessageSort <em>Message Sort</em>}</li>
- *   <li>{@link sequence.Message#getFrom <em>From</em>}</li>
- *   <li>{@link sequence.Message#getTo <em>To</em>}</li>
+ *   <li>{@link sequence.Message#getMessage <em>Message</em>}</li>
+ *   <li>{@link sequence.Message#getIn <em>In</em>}</li>
  * </ul>
  * </p>
  *
  * @see sequence.SequencePackage#getMessage()
- * @model
+ * @model abstract="true"
  * @generated
  */
-public interface Message extends Element {
+public interface Message extends IDBase {
 	/**
 	 * Returns the value of the '<em><b>Message Kind</b></em>' attribute.
 	 * The literals are from the enumeration {@link sequence.MessageKind}.
@@ -53,84 +53,57 @@ public interface Message extends Element {
 	void setMessageKind(MessageKind value);
 
 	/**
-	 * Returns the value of the '<em><b>Message Sort</b></em>' attribute.
-	 * The literals are from the enumeration {@link sequence.MessageSort}.
+	 * Returns the value of the '<em><b>Message</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Message Sort</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Message</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Message Sort</em>' attribute.
-	 * @see sequence.MessageSort
-	 * @see #setMessageSort(MessageSort)
-	 * @see sequence.SequencePackage#getMessage_MessageSort()
+	 * @return the value of the '<em>Message</em>' attribute.
+	 * @see #setMessage(String)
+	 * @see sequence.SequencePackage#getMessage_Message()
 	 * @model
 	 * @generated
 	 */
-	MessageSort getMessageSort();
+	String getMessage();
 
 	/**
-	 * Sets the value of the '{@link sequence.Message#getMessageSort <em>Message Sort</em>}' attribute.
+	 * Sets the value of the '{@link sequence.Message#getMessage <em>Message</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Message Sort</em>' attribute.
-	 * @see sequence.MessageSort
-	 * @see #getMessageSort()
+	 * @param value the new value of the '<em>Message</em>' attribute.
+	 * @see #getMessage()
 	 * @generated
 	 */
-	void setMessageSort(MessageSort value);
+	void setMessage(String value);
 
 	/**
-	 * Returns the value of the '<em><b>From</b></em>' reference.
+	 * Returns the value of the '<em><b>In</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link sequence.Container#getMessages <em>Messages</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>From</em>' reference isn't clear,
+	 * If the meaning of the '<em>In</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>From</em>' reference.
-	 * @see #setFrom(Task)
-	 * @see sequence.SequencePackage#getMessage_From()
-	 * @model required="true"
+	 * @return the value of the '<em>In</em>' reference.
+	 * @see #setIn(Container)
+	 * @see sequence.SequencePackage#getMessage_In()
+	 * @see sequence.Container#getMessages
+	 * @model opposite="messages" required="true"
 	 * @generated
 	 */
-	Task getFrom();
+	Container getIn();
 
 	/**
-	 * Sets the value of the '{@link sequence.Message#getFrom <em>From</em>}' reference.
+	 * Sets the value of the '{@link sequence.Message#getIn <em>In</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>From</em>' reference.
-	 * @see #getFrom()
+	 * @param value the new value of the '<em>In</em>' reference.
+	 * @see #getIn()
 	 * @generated
 	 */
-	void setFrom(Task value);
-
-	/**
-	 * Returns the value of the '<em><b>To</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>To</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>To</em>' reference.
-	 * @see #setTo(Task)
-	 * @see sequence.SequencePackage#getMessage_To()
-	 * @model required="true"
-	 * @generated
-	 */
-	Task getTo();
-
-	/**
-	 * Sets the value of the '{@link sequence.Message#getTo <em>To</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>To</em>' reference.
-	 * @see #getTo()
-	 * @generated
-	 */
-	void setTo(Task value);
+	void setIn(Container value);
 
 } // Message

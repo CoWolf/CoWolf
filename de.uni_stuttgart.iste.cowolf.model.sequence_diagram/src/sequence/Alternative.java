@@ -2,9 +2,8 @@
  */
 package sequence;
 
-import org.eclipse.emf.common.util.EList;
+import commonBase.IDBase;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,7 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link sequence.Alternative#getIncludes <em>Includes</em>}</li>
+ *   <li>{@link sequence.Alternative#getCondition <em>Condition</em>}</li>
  * </ul>
  * </p>
  *
@@ -22,21 +21,31 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Alternative extends EObject {
+public interface Alternative extends Block, IDBase {
 	/**
-	 * Returns the value of the '<em><b>Includes</b></em>' containment reference list.
-	 * The list contents are of type {@link sequence.Element}.
+	 * Returns the value of the '<em><b>Condition</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Includes</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Condition</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Includes</em>' containment reference list.
-	 * @see sequence.SequencePackage#getAlternative_Includes()
-	 * @model containment="true"
+	 * @return the value of the '<em>Condition</em>' attribute.
+	 * @see #setCondition(String)
+	 * @see sequence.SequencePackage#getAlternative_Condition()
+	 * @model required="true"
 	 * @generated
 	 */
-	EList<Element> getIncludes();
+	String getCondition();
+
+	/**
+	 * Sets the value of the '{@link sequence.Alternative#getCondition <em>Condition</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Condition</em>' attribute.
+	 * @see #getCondition()
+	 * @generated
+	 */
+	void setCondition(String value);
 
 } // Alternative

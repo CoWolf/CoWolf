@@ -2,8 +2,6 @@
  */
 package sequence.tests;
 
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 import sequence.Alternative;
@@ -15,15 +13,7 @@ import sequence.SequenceFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class AlternativeTest extends TestCase {
-
-	/**
-	 * The fixture for this Alternative test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Alternative fixture = null;
+public class AlternativeTest extends BlockTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -45,23 +35,14 @@ public class AlternativeTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this Alternative test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(Alternative fixture) {
-		this.fixture = fixture;
-	}
-
-	/**
 	 * Returns the fixture for this Alternative test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected Alternative getFixture() {
-		return fixture;
+		return (Alternative)fixture;
 	}
 
 	/**

@@ -2,6 +2,8 @@
  */
 package sequence.tests;
 
+import commonBase.tests.IDBaseTest;
+
 import junit.textui.TestRunner;
 
 import sequence.Lifeline;
@@ -13,7 +15,7 @@ import sequence.SequenceFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class LifelineTest extends ElementTest {
+public class LifelineTest extends IDBaseTest {
 
 	/**
 	 * <!-- begin-user-doc -->
