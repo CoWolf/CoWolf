@@ -16,10 +16,39 @@
 			</Params>
 		</Rule>
 	</Mapping>
+	<Mapping priority="0">
+		<Difference>CREATE_CompositeState_IN_StateMachine_(states)</Difference>
+		<Rule name="CreatedStateInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
+			<Params>
+				<Param name="id">
+					<Change name="AddObject">
+						<Reference name="obj" attribute="id" />
+					</Change>
+				</Param>
+			</Params>
+		</Rule>
+	</Mapping>
  	<Mapping priority="21">
  		<Difference>DELETE_State_IN_StateMachine_(states)</Difference>
  		<Rule name="DeletedStateInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
 			<Params>
+				<Param name="id">
+					<Change name="RemoveObject">
+						<Reference name="obj" attribute="id" />
+					</Change>
+				</Param>
+			</Params>
+		</Rule>
+ 	</Mapping>
+ 	<Mapping priority="21">
+ 		<Difference>DELETE_CompositeState_IN_StateMachine_(states)</Difference>
+ 		<Rule name="DeletedStateInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
+			<Params>
+				<Param name="id">
+					<Change name="RemoveObject">
+						<Reference name="obj" attribute="id" />
+					</Change>
+				</Param>
 			</Params>
 		</Rule>
  	</Mapping>
@@ -39,6 +68,11 @@
 		<Difference>DELETE_Transition_IN_StateMachine_(transitions)</Difference>
 		<Rule name="DeletedTransitionInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
 			<Params>
+				<Param name="id">
+					<Change name="RemoveObject">
+						<Reference name="obj" attribute="id" />
+					</Change>
+				</Param>
 			</Params>
 		</Rule>
 	</Mapping>
@@ -92,6 +126,11 @@
 		<Difference>DELETE_BooleanExpression_IN_State_(atomicProposition)</Difference>
 		<Rule name="DeletedAtomicPropositionInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
 			<Params>
+				<Param name="id">
+					<Change name="RemoveObject">
+						<Reference name="obj" attribute="id" />
+					</Change>
+				</Param>
 			</Params>
 		</Rule>
 	</Mapping>
