@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_PVrokDNsEeSG0o4D3vCONA" name="RR: CREATE_OutputResultForwardingANDJoinDelay_IN_ActivityDefBase_(resultJoinDelay)" description="Recognize: Creates one OutputResultForwardingANDJoinDelay in ActivityDefBase">
+  <imports href="http://www.sidiff.org/difference/symmetric/1.0#/"/>
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_PVrokTNsEeSG0o4D3vCONA" name="rr:createOutputResultForwardingANDJoinDelay_IN_ActivityDefBase" description="Recognize: creates one OutputResultForwardingANDJoinDelay in the context: ActivityDefBase">
+    <parameters xmi:id="_PVrokjNsEeSG0o4D3vCONA" name="Selected"/>
+    <parameters xmi:id="_PVrokzNsEeSG0o4D3vCONA" name="New"/>
+    <parameters xmi:id="_PVrolDNsEeSG0o4D3vCONA" name="Id"/>
+    <parameters xmi:id="_PVrolTNsEeSG0o4D3vCONA" name="Dest"/>
+    <parameters xmi:id="_PVroljNsEeSG0o4D3vCONA" name="JoinVariance"/>
+    <parameters xmi:id="_PVrolzNsEeSG0o4D3vCONA" name="JoinWaiting"/>
+    <parameters xmi:id="_PVromDNsEeSG0o4D3vCONA" name="Waiting"/>
+    <lhs xmi:id="_PVromTNsEeSG0o4D3vCONA" name="Lhs">
+      <nodes xmi:id="_PVromjNsEeSG0o4D3vCONA" name="B.Selected" incoming="_PVropzNsEeSG0o4D3vCONA" outgoing="_PVroqjNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//ActivityDefBase"/>
+      </nodes>
+      <nodes xmi:id="_PVromzNsEeSG0o4D3vCONA" name="" outgoing="_PVropjNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddObject"/>
+      </nodes>
+      <nodes xmi:id="_PVronDNsEeSG0o4D3vCONA" name="B.New" incoming="_PVropjNsEeSG0o4D3vCONA _PVroqDNsEeSG0o4D3vCONA _PVroqjNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//OutputResultForwardingANDJoinDelay"/>
+        <attributes xmi:id="_PVronTNsEeSG0o4D3vCONA" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_PVronjNsEeSG0o4D3vCONA" value="Dest">
+          <type href="http://LQN/1.0#//OutputResultForwardingANDJoinDelay/dest"/>
+        </attributes>
+        <attributes xmi:id="_PVronzNsEeSG0o4D3vCONA" value="JoinVariance">
+          <type href="http://LQN/1.0#//OutputResultForwardingANDJoinDelay/joinVariance"/>
+        </attributes>
+        <attributes xmi:id="_PVrooDNsEeSG0o4D3vCONA" value="JoinWaiting">
+          <type href="http://LQN/1.0#//OutputResultForwardingANDJoinDelay/joinWaiting"/>
+        </attributes>
+        <attributes xmi:id="_PVrooTNsEeSG0o4D3vCONA" value="Waiting">
+          <type href="http://LQN/1.0#//OutputResultForwardingANDJoinDelay/waiting"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_PVroojNsEeSG0o4D3vCONA" name="" outgoing="_PVropzNsEeSG0o4D3vCONA _PVroqDNsEeSG0o4D3vCONA _PVroqTNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference"/>
+      </nodes>
+      <nodes xmi:id="_PVroozNsEeSG0o4D3vCONA" name="" incoming="_PVroqTNsEeSG0o4D3vCONA">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+        <attributes xmi:id="_PVropDNsEeSG0o4D3vCONA" value="&quot;resultJoinDelay&quot;">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_PVropTNsEeSG0o4D3vCONA" name="">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_PVropjNsEeSG0o4D3vCONA" source="_PVromzNsEeSG0o4D3vCONA" target="_PVronDNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddObject/obj"/>
+      </edges>
+      <edges xmi:id="_PVropzNsEeSG0o4D3vCONA" source="_PVroojNsEeSG0o4D3vCONA" target="_PVromjNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/src"/>
+      </edges>
+      <edges xmi:id="_PVroqDNsEeSG0o4D3vCONA" source="_PVroojNsEeSG0o4D3vCONA" target="_PVronDNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/tgt"/>
+      </edges>
+      <edges xmi:id="_PVroqTNsEeSG0o4D3vCONA" source="_PVroojNsEeSG0o4D3vCONA" target="_PVroozNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/type"/>
+      </edges>
+      <edges xmi:id="_PVroqjNsEeSG0o4D3vCONA" source="_PVromjNsEeSG0o4D3vCONA" target="_PVronDNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//ActivityDefBase/resultJoinDelay"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_PVroqzNsEeSG0o4D3vCONA" name="Rhs">
+      <nodes xmi:id="_PVrorDNsEeSG0o4D3vCONA" name="B.Selected" incoming="_PVrovDNsEeSG0o4D3vCONA" outgoing="_PVrovzNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//ActivityDefBase"/>
+      </nodes>
+      <nodes xmi:id="_PVrorTNsEeSG0o4D3vCONA" name="" incoming="_PVrowDNsEeSG0o4D3vCONA" outgoing="_PVrouzNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddObject"/>
+      </nodes>
+      <nodes xmi:id="_PVrorjNsEeSG0o4D3vCONA" name="B.New" incoming="_PVrouzNsEeSG0o4D3vCONA _PVrovTNsEeSG0o4D3vCONA _PVrovzNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//OutputResultForwardingANDJoinDelay"/>
+      </nodes>
+      <nodes xmi:id="_PVrorzNsEeSG0o4D3vCONA" name="" incoming="_PVrowTNsEeSG0o4D3vCONA" outgoing="_PVrovDNsEeSG0o4D3vCONA _PVrovTNsEeSG0o4D3vCONA _PVrovjNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference"/>
+      </nodes>
+      <nodes xmi:id="_PVrosDNsEeSG0o4D3vCONA" name="" incoming="_PVrovjNsEeSG0o4D3vCONA">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+      </nodes>
+      <nodes xmi:id="_PVrosTNsEeSG0o4D3vCONA" incoming="_PVrowjNsEeSG0o4D3vCONA" outgoing="_PVrowDNsEeSG0o4D3vCONA _PVrowTNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet"/>
+        <attributes xmi:id="_PVrosjNsEeSG0o4D3vCONA" value="&quot;CREATE_OutputResultForwardingANDJoinDelay_IN_ActivityDefBase_(resultJoinDelay)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/name"/>
+        </attributes>
+        <attributes xmi:id="_PVroszNsEeSG0o4D3vCONA" value="&quot;Creates one OutputResultForwardingANDJoinDelay in ActivityDefBase&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/description"/>
+        </attributes>
+        <attributes xmi:id="_PVrotDNsEeSG0o4D3vCONA" value="&quot;CREATE_OutputResultForwardingANDJoinDelay_IN_ActivityDefBase_(resultJoinDelay)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/editRName"/>
+        </attributes>
+        <attributes xmi:id="_PVrotTNsEeSG0o4D3vCONA" value="&quot;RR: CREATE_OutputResultForwardingANDJoinDelay_IN_ActivityDefBase_(resultJoinDelay)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/recognitionRName"/>
+        </attributes>
+        <attributes xmi:id="_PVrotjNsEeSG0o4D3vCONA" value="1">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/priority"/>
+        </attributes>
+        <attributes xmi:id="_PVrotzNsEeSG0o4D3vCONA" value="0">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfACs"/>
+        </attributes>
+        <attributes xmi:id="_PVrouDNsEeSG0o4D3vCONA" value="7">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfParams"/>
+        </attributes>
+        <attributes xmi:id="_PVrouTNsEeSG0o4D3vCONA" value="4">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/refinementLevel"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_PVroujNsEeSG0o4D3vCONA" name="" outgoing="_PVrowjNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_PVrouzNsEeSG0o4D3vCONA" source="_PVrorTNsEeSG0o4D3vCONA" target="_PVrorjNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddObject/obj"/>
+      </edges>
+      <edges xmi:id="_PVrovDNsEeSG0o4D3vCONA" source="_PVrorzNsEeSG0o4D3vCONA" target="_PVrorDNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/src"/>
+      </edges>
+      <edges xmi:id="_PVrovTNsEeSG0o4D3vCONA" source="_PVrorzNsEeSG0o4D3vCONA" target="_PVrorjNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/tgt"/>
+      </edges>
+      <edges xmi:id="_PVrovjNsEeSG0o4D3vCONA" source="_PVrorzNsEeSG0o4D3vCONA" target="_PVrosDNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/type"/>
+      </edges>
+      <edges xmi:id="_PVrovzNsEeSG0o4D3vCONA" source="_PVrorDNsEeSG0o4D3vCONA" target="_PVrorjNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//ActivityDefBase/resultJoinDelay"/>
+      </edges>
+      <edges xmi:id="_PVrowDNsEeSG0o4D3vCONA" source="_PVrosTNsEeSG0o4D3vCONA" target="_PVrorTNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_PVrowTNsEeSG0o4D3vCONA" source="_PVrosTNsEeSG0o4D3vCONA" target="_PVrorzNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_PVrowjNsEeSG0o4D3vCONA" source="_PVroujNsEeSG0o4D3vCONA" target="_PVrosTNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference/changeSets"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_PVrowzNsEeSG0o4D3vCONA" origin="_PVromjNsEeSG0o4D3vCONA" image="_PVrorDNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_PVroxDNsEeSG0o4D3vCONA" origin="_PVromzNsEeSG0o4D3vCONA" image="_PVrorTNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_PVroxTNsEeSG0o4D3vCONA" origin="_PVronDNsEeSG0o4D3vCONA" image="_PVrorjNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_PVroxjNsEeSG0o4D3vCONA" origin="_PVroojNsEeSG0o4D3vCONA" image="_PVrorzNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_PVroxzNsEeSG0o4D3vCONA" origin="_PVroozNsEeSG0o4D3vCONA" image="_PVrosDNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_PVroyDNsEeSG0o4D3vCONA" origin="_PVropTNsEeSG0o4D3vCONA" image="_PVroujNsEeSG0o4D3vCONA"/>
+  </units>
+</henshin:Module>

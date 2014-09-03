@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_VL51EDNsEeSG0o4D3vCONA" name="RR: MOVE_InPortType_FROM_InterfaceType_(inPort)_TO_InterfaceType_(inPort)" description="Recognize: MOVEs InPortType from InterfaceType(Reference:inPort) to InterfaceType(Reference:inPort">
+  <imports href="http://www.sidiff.org/difference/symmetric/1.0#/"/>
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_VL51ETNsEeSG0o4D3vCONA" name="rr:moveInPortType_FROM_InterfaceType_inPort_TO_InterfaceType_InterfaceType" description="Recognize: Moves InPortType from InterfaceType(Reference:inPort) toInterfaceType(Reference:InterfaceType)">
+    <parameters xmi:id="_VL51EjNsEeSG0o4D3vCONA" name="Selected"/>
+    <parameters xmi:id="_VL51EzNsEeSG0o4D3vCONA" name="OldSource"/>
+    <parameters xmi:id="_VL51FDNsEeSG0o4D3vCONA" name="NewSource"/>
+    <lhs xmi:id="_VL51FTNsEeSG0o4D3vCONA" name="Lhs">
+      <nodes xmi:id="_VL51FjNsEeSG0o4D3vCONA" name="B.Selected" incoming="_VL51ITNsEeSG0o4D3vCONA _VL51JzNsEeSG0o4D3vCONA _VL51KTNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//InPortType"/>
+      </nodes>
+      <nodes xmi:id="_VL51FzNsEeSG0o4D3vCONA" name="A.Selected" incoming="_VL51IDNsEeSG0o4D3vCONA _VL51IzNsEeSG0o4D3vCONA _VL51JTNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//InPortType"/>
+      </nodes>
+      <nodes xmi:id="_VL51GDNsEeSG0o4D3vCONA" name="" outgoing="_VL51IDNsEeSG0o4D3vCONA _VL51ITNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence"/>
+      </nodes>
+      <nodes xmi:id="_VL51GTNsEeSG0o4D3vCONA" name="A.OldSource" incoming="_VL51IjNsEeSG0o4D3vCONA" outgoing="_VL51JTNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//InterfaceType"/>
+      </nodes>
+      <nodes xmi:id="_VL51GjNsEeSG0o4D3vCONA" name="B.NewSource" incoming="_VL51JjNsEeSG0o4D3vCONA" outgoing="_VL51KTNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//InterfaceType"/>
+      </nodes>
+      <nodes xmi:id="_VL51GzNsEeSG0o4D3vCONA" name="" outgoing="_VL51IjNsEeSG0o4D3vCONA _VL51IzNsEeSG0o4D3vCONA _VL51JDNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference"/>
+      </nodes>
+      <nodes xmi:id="_VL51HDNsEeSG0o4D3vCONA" name="" incoming="_VL51JDNsEeSG0o4D3vCONA _VL51KDNsEeSG0o4D3vCONA">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+        <attributes xmi:id="_VL51HTNsEeSG0o4D3vCONA" value="&quot;inPort&quot;">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_VL51HjNsEeSG0o4D3vCONA" name="" outgoing="_VL51JjNsEeSG0o4D3vCONA _VL51JzNsEeSG0o4D3vCONA _VL51KDNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference"/>
+      </nodes>
+      <nodes xmi:id="_VL51HzNsEeSG0o4D3vCONA" name="">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_VL51IDNsEeSG0o4D3vCONA" source="_VL51GDNsEeSG0o4D3vCONA" target="_VL51FzNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objA"/>
+      </edges>
+      <edges xmi:id="_VL51ITNsEeSG0o4D3vCONA" source="_VL51GDNsEeSG0o4D3vCONA" target="_VL51FjNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objB"/>
+      </edges>
+      <edges xmi:id="_VL51IjNsEeSG0o4D3vCONA" source="_VL51GzNsEeSG0o4D3vCONA" target="_VL51GTNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/src"/>
+      </edges>
+      <edges xmi:id="_VL51IzNsEeSG0o4D3vCONA" source="_VL51GzNsEeSG0o4D3vCONA" target="_VL51FzNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/tgt"/>
+      </edges>
+      <edges xmi:id="_VL51JDNsEeSG0o4D3vCONA" source="_VL51GzNsEeSG0o4D3vCONA" target="_VL51HDNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/type"/>
+      </edges>
+      <edges xmi:id="_VL51JTNsEeSG0o4D3vCONA" source="_VL51GTNsEeSG0o4D3vCONA" target="_VL51FzNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//InterfaceType/inPort"/>
+      </edges>
+      <edges xmi:id="_VL51JjNsEeSG0o4D3vCONA" source="_VL51HjNsEeSG0o4D3vCONA" target="_VL51GjNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/src"/>
+      </edges>
+      <edges xmi:id="_VL51JzNsEeSG0o4D3vCONA" source="_VL51HjNsEeSG0o4D3vCONA" target="_VL51FjNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/tgt"/>
+      </edges>
+      <edges xmi:id="_VL51KDNsEeSG0o4D3vCONA" source="_VL51HjNsEeSG0o4D3vCONA" target="_VL51HDNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/type"/>
+      </edges>
+      <edges xmi:id="_VL51KTNsEeSG0o4D3vCONA" source="_VL51GjNsEeSG0o4D3vCONA" target="_VL51FjNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//InterfaceType/inPort"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_VL51KjNsEeSG0o4D3vCONA" name="Rhs">
+      <nodes xmi:id="_VL51KzNsEeSG0o4D3vCONA" name="B.Selected" incoming="_VL51PjNsEeSG0o4D3vCONA _VL51RDNsEeSG0o4D3vCONA _VL51RjNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//InPortType"/>
+      </nodes>
+      <nodes xmi:id="_VL51LDNsEeSG0o4D3vCONA" name="A.Selected" incoming="_VL51PTNsEeSG0o4D3vCONA _VL51QDNsEeSG0o4D3vCONA _VL51QjNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//InPortType"/>
+      </nodes>
+      <nodes xmi:id="_VL51LTNsEeSG0o4D3vCONA" name="" outgoing="_VL51PTNsEeSG0o4D3vCONA _VL51PjNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence"/>
+      </nodes>
+      <nodes xmi:id="_VL51LjNsEeSG0o4D3vCONA" name="A.OldSource" incoming="_VL51PzNsEeSG0o4D3vCONA" outgoing="_VL51QjNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//InterfaceType"/>
+      </nodes>
+      <nodes xmi:id="_VL51LzNsEeSG0o4D3vCONA" name="B.NewSource" incoming="_VL51QzNsEeSG0o4D3vCONA" outgoing="_VL51RjNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//InterfaceType"/>
+      </nodes>
+      <nodes xmi:id="_VL51MDNsEeSG0o4D3vCONA" name="" incoming="_VL51RzNsEeSG0o4D3vCONA" outgoing="_VL51PzNsEeSG0o4D3vCONA _VL51QDNsEeSG0o4D3vCONA _VL51QTNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference"/>
+      </nodes>
+      <nodes xmi:id="_VL51MTNsEeSG0o4D3vCONA" name="" incoming="_VL51QTNsEeSG0o4D3vCONA _VL51RTNsEeSG0o4D3vCONA">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+      </nodes>
+      <nodes xmi:id="_VL51MjNsEeSG0o4D3vCONA" name="" incoming="_VL51SDNsEeSG0o4D3vCONA" outgoing="_VL51QzNsEeSG0o4D3vCONA _VL51RDNsEeSG0o4D3vCONA _VL51RTNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference"/>
+      </nodes>
+      <nodes xmi:id="_VL51MzNsEeSG0o4D3vCONA" incoming="_VL51STNsEeSG0o4D3vCONA" outgoing="_VL51RzNsEeSG0o4D3vCONA _VL51SDNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet"/>
+        <attributes xmi:id="_VL51NDNsEeSG0o4D3vCONA" value="&quot;MOVE_InPortType_FROM_InterfaceType_(inPort)_TO_InterfaceType_(inPort)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/name"/>
+        </attributes>
+        <attributes xmi:id="_VL51NTNsEeSG0o4D3vCONA" value="&quot;MOVEs InPortType from InterfaceType(Reference:inPort) to InterfaceType(Reference:inPort&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/description"/>
+        </attributes>
+        <attributes xmi:id="_VL51NjNsEeSG0o4D3vCONA" value="&quot;MOVE_InPortType_FROM_InterfaceType_(inPort)_TO_InterfaceType_(inPort)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/editRName"/>
+        </attributes>
+        <attributes xmi:id="_VL51NzNsEeSG0o4D3vCONA" value="&quot;RR: MOVE_InPortType_FROM_InterfaceType_(inPort)_TO_InterfaceType_(inPort)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/recognitionRName"/>
+        </attributes>
+        <attributes xmi:id="_VL51ODNsEeSG0o4D3vCONA" value="1">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/priority"/>
+        </attributes>
+        <attributes xmi:id="_VL51OTNsEeSG0o4D3vCONA" value="0">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfACs"/>
+        </attributes>
+        <attributes xmi:id="_VL51OjNsEeSG0o4D3vCONA" value="3">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfParams"/>
+        </attributes>
+        <attributes xmi:id="_VL51OzNsEeSG0o4D3vCONA" value="6">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/refinementLevel"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_VL51PDNsEeSG0o4D3vCONA" name="" outgoing="_VL51STNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_VL51PTNsEeSG0o4D3vCONA" source="_VL51LTNsEeSG0o4D3vCONA" target="_VL51LDNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objA"/>
+      </edges>
+      <edges xmi:id="_VL51PjNsEeSG0o4D3vCONA" source="_VL51LTNsEeSG0o4D3vCONA" target="_VL51KzNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objB"/>
+      </edges>
+      <edges xmi:id="_VL51PzNsEeSG0o4D3vCONA" source="_VL51MDNsEeSG0o4D3vCONA" target="_VL51LjNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/src"/>
+      </edges>
+      <edges xmi:id="_VL51QDNsEeSG0o4D3vCONA" source="_VL51MDNsEeSG0o4D3vCONA" target="_VL51LDNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/tgt"/>
+      </edges>
+      <edges xmi:id="_VL51QTNsEeSG0o4D3vCONA" source="_VL51MDNsEeSG0o4D3vCONA" target="_VL51MTNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/type"/>
+      </edges>
+      <edges xmi:id="_VL51QjNsEeSG0o4D3vCONA" source="_VL51LjNsEeSG0o4D3vCONA" target="_VL51LDNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//InterfaceType/inPort"/>
+      </edges>
+      <edges xmi:id="_VL51QzNsEeSG0o4D3vCONA" source="_VL51MjNsEeSG0o4D3vCONA" target="_VL51LzNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/src"/>
+      </edges>
+      <edges xmi:id="_VL51RDNsEeSG0o4D3vCONA" source="_VL51MjNsEeSG0o4D3vCONA" target="_VL51KzNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/tgt"/>
+      </edges>
+      <edges xmi:id="_VL51RTNsEeSG0o4D3vCONA" source="_VL51MjNsEeSG0o4D3vCONA" target="_VL51MTNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/type"/>
+      </edges>
+      <edges xmi:id="_VL51RjNsEeSG0o4D3vCONA" source="_VL51LzNsEeSG0o4D3vCONA" target="_VL51KzNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//InterfaceType/inPort"/>
+      </edges>
+      <edges xmi:id="_VL51RzNsEeSG0o4D3vCONA" source="_VL51MzNsEeSG0o4D3vCONA" target="_VL51MDNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_VL51SDNsEeSG0o4D3vCONA" source="_VL51MzNsEeSG0o4D3vCONA" target="_VL51MjNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_VL51STNsEeSG0o4D3vCONA" source="_VL51PDNsEeSG0o4D3vCONA" target="_VL51MzNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference/changeSets"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_VL51SjNsEeSG0o4D3vCONA" origin="_VL51FjNsEeSG0o4D3vCONA" image="_VL51KzNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_VL51SzNsEeSG0o4D3vCONA" origin="_VL51FzNsEeSG0o4D3vCONA" image="_VL51LDNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_VL51TDNsEeSG0o4D3vCONA" origin="_VL51GDNsEeSG0o4D3vCONA" image="_VL51LTNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_VL51TTNsEeSG0o4D3vCONA" origin="_VL51GTNsEeSG0o4D3vCONA" image="_VL51LjNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_VL51TjNsEeSG0o4D3vCONA" origin="_VL51GjNsEeSG0o4D3vCONA" image="_VL51LzNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_VL51TzNsEeSG0o4D3vCONA" origin="_VL51GzNsEeSG0o4D3vCONA" image="_VL51MDNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_VL51UDNsEeSG0o4D3vCONA" origin="_VL51HDNsEeSG0o4D3vCONA" image="_VL51MTNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_VL51UTNsEeSG0o4D3vCONA" origin="_VL51HjNsEeSG0o4D3vCONA" image="_VL51MjNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_VL51UjNsEeSG0o4D3vCONA" origin="_VL51HzNsEeSG0o4D3vCONA" image="_VL51PDNsEeSG0o4D3vCONA"/>
+  </units>
+</henshin:Module>

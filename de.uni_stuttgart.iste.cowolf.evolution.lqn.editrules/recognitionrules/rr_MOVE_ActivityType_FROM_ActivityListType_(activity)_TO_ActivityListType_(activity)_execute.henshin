@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_TtbE4DNsEeSG0o4D3vCONA" name="RR: MOVE_ActivityType_FROM_ActivityListType_(activity)_TO_ActivityListType_(activity)" description="Recognize: MOVEs ActivityType from ActivityListType(Reference:activity) to ActivityListType(Reference:activity">
+  <imports href="http://www.sidiff.org/difference/symmetric/1.0#/"/>
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_TtbE4TNsEeSG0o4D3vCONA" name="rr:moveActivityType_FROM_ActivityListType_activity_TO_ActivityListType_ActivityListType" description="Recognize: Moves ActivityType from ActivityListType(Reference:activity) toActivityListType(Reference:ActivityListType)">
+    <parameters xmi:id="_TtbE4jNsEeSG0o4D3vCONA" name="Selected"/>
+    <parameters xmi:id="_TtbE4zNsEeSG0o4D3vCONA" name="OldSource"/>
+    <parameters xmi:id="_TtbE5DNsEeSG0o4D3vCONA" name="NewSource"/>
+    <lhs xmi:id="_TtbE5TNsEeSG0o4D3vCONA" name="Lhs">
+      <nodes xmi:id="_TtbE5jNsEeSG0o4D3vCONA" name="B.Selected" incoming="_TtbE8TNsEeSG0o4D3vCONA _TtbE9zNsEeSG0o4D3vCONA _TtbE-TNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//ActivityType"/>
+      </nodes>
+      <nodes xmi:id="_TtbE5zNsEeSG0o4D3vCONA" name="A.Selected" incoming="_TtbE8DNsEeSG0o4D3vCONA _TtbE8zNsEeSG0o4D3vCONA _TtbE9TNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//ActivityType"/>
+      </nodes>
+      <nodes xmi:id="_TtbE6DNsEeSG0o4D3vCONA" name="" outgoing="_TtbE8DNsEeSG0o4D3vCONA _TtbE8TNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence"/>
+      </nodes>
+      <nodes xmi:id="_TtbE6TNsEeSG0o4D3vCONA" name="A.OldSource" incoming="_TtbE8jNsEeSG0o4D3vCONA" outgoing="_TtbE9TNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//ActivityListType"/>
+      </nodes>
+      <nodes xmi:id="_TtbE6jNsEeSG0o4D3vCONA" name="B.NewSource" incoming="_TtbE9jNsEeSG0o4D3vCONA" outgoing="_TtbE-TNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//ActivityListType"/>
+      </nodes>
+      <nodes xmi:id="_TtbE6zNsEeSG0o4D3vCONA" name="" outgoing="_TtbE8jNsEeSG0o4D3vCONA _TtbE8zNsEeSG0o4D3vCONA _TtbE9DNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference"/>
+      </nodes>
+      <nodes xmi:id="_TtbE7DNsEeSG0o4D3vCONA" name="" incoming="_TtbE9DNsEeSG0o4D3vCONA _TtbE-DNsEeSG0o4D3vCONA">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+        <attributes xmi:id="_TtbE7TNsEeSG0o4D3vCONA" value="&quot;activity&quot;">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_TtbE7jNsEeSG0o4D3vCONA" name="" outgoing="_TtbE9jNsEeSG0o4D3vCONA _TtbE9zNsEeSG0o4D3vCONA _TtbE-DNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference"/>
+      </nodes>
+      <nodes xmi:id="_TtbE7zNsEeSG0o4D3vCONA" name="">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_TtbE8DNsEeSG0o4D3vCONA" source="_TtbE6DNsEeSG0o4D3vCONA" target="_TtbE5zNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objA"/>
+      </edges>
+      <edges xmi:id="_TtbE8TNsEeSG0o4D3vCONA" source="_TtbE6DNsEeSG0o4D3vCONA" target="_TtbE5jNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objB"/>
+      </edges>
+      <edges xmi:id="_TtbE8jNsEeSG0o4D3vCONA" source="_TtbE6zNsEeSG0o4D3vCONA" target="_TtbE6TNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/src"/>
+      </edges>
+      <edges xmi:id="_TtbE8zNsEeSG0o4D3vCONA" source="_TtbE6zNsEeSG0o4D3vCONA" target="_TtbE5zNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/tgt"/>
+      </edges>
+      <edges xmi:id="_TtbE9DNsEeSG0o4D3vCONA" source="_TtbE6zNsEeSG0o4D3vCONA" target="_TtbE7DNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/type"/>
+      </edges>
+      <edges xmi:id="_TtbE9TNsEeSG0o4D3vCONA" source="_TtbE6TNsEeSG0o4D3vCONA" target="_TtbE5zNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//ActivityListType/activity"/>
+      </edges>
+      <edges xmi:id="_TtbE9jNsEeSG0o4D3vCONA" source="_TtbE7jNsEeSG0o4D3vCONA" target="_TtbE6jNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/src"/>
+      </edges>
+      <edges xmi:id="_TtbE9zNsEeSG0o4D3vCONA" source="_TtbE7jNsEeSG0o4D3vCONA" target="_TtbE5jNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/tgt"/>
+      </edges>
+      <edges xmi:id="_TtbE-DNsEeSG0o4D3vCONA" source="_TtbE7jNsEeSG0o4D3vCONA" target="_TtbE7DNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/type"/>
+      </edges>
+      <edges xmi:id="_TtbE-TNsEeSG0o4D3vCONA" source="_TtbE6jNsEeSG0o4D3vCONA" target="_TtbE5jNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//ActivityListType/activity"/>
+      </edges>
+      <formula xsi:type="henshin:NestedCondition" xmi:id="_TtbE-jNsEeSG0o4D3vCONA">
+        <conclusion xmi:id="_TtbE-zNsEeSG0o4D3vCONA" name="sufficientElementsMustExist">
+          <nodes xmi:id="_TtbE_DNsEeSG0o4D3vCONA" incoming="_TtbFAzNsEeSG0o4D3vCONA">
+            <type href="http://LQN/1.0#//ActivityType"/>
+          </nodes>
+          <nodes xmi:id="_TtbE_TNsEeSG0o4D3vCONA" incoming="_TtbFBDNsEeSG0o4D3vCONA">
+            <type href="http://LQN/1.0#//ActivityType"/>
+          </nodes>
+          <nodes xmi:id="_TtbE_jNsEeSG0o4D3vCONA" name="" outgoing="_TtbFATNsEeSG0o4D3vCONA _TtbFAjNsEeSG0o4D3vCONA">
+            <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence"/>
+          </nodes>
+          <nodes xmi:id="_TtbE_zNsEeSG0o4D3vCONA" name="A.OldSource" incoming="_TtbFATNsEeSG0o4D3vCONA">
+            <type href="http://LQN/1.0#//ActivityListType"/>
+          </nodes>
+          <nodes xmi:id="_TtbFADNsEeSG0o4D3vCONA" name="B.OldSource" incoming="_TtbFAjNsEeSG0o4D3vCONA" outgoing="_TtbFAzNsEeSG0o4D3vCONA _TtbFBDNsEeSG0o4D3vCONA">
+            <type href="http://LQN/1.0#//ActivityListType"/>
+          </nodes>
+          <edges xmi:id="_TtbFATNsEeSG0o4D3vCONA" source="_TtbE_jNsEeSG0o4D3vCONA" target="_TtbE_zNsEeSG0o4D3vCONA">
+            <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objA"/>
+          </edges>
+          <edges xmi:id="_TtbFAjNsEeSG0o4D3vCONA" source="_TtbE_jNsEeSG0o4D3vCONA" target="_TtbFADNsEeSG0o4D3vCONA">
+            <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objB"/>
+          </edges>
+          <edges xmi:id="_TtbFAzNsEeSG0o4D3vCONA" source="_TtbFADNsEeSG0o4D3vCONA" target="_TtbE_DNsEeSG0o4D3vCONA">
+            <type href="http://LQN/1.0#//ActivityListType/activity"/>
+          </edges>
+          <edges xmi:id="_TtbFBDNsEeSG0o4D3vCONA" source="_TtbFADNsEeSG0o4D3vCONA" target="_TtbE_TNsEeSG0o4D3vCONA">
+            <type href="http://LQN/1.0#//ActivityListType/activity"/>
+          </edges>
+        </conclusion>
+        <mappings xmi:id="_TtbFBTNsEeSG0o4D3vCONA" origin="_TtbE6TNsEeSG0o4D3vCONA" image="_TtbE_zNsEeSG0o4D3vCONA"/>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_TtbFBjNsEeSG0o4D3vCONA" name="Rhs">
+      <nodes xmi:id="_TtbFBzNsEeSG0o4D3vCONA" name="B.Selected" incoming="_TtbFGjNsEeSG0o4D3vCONA _TtbFIDNsEeSG0o4D3vCONA _TtbFIjNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//ActivityType"/>
+      </nodes>
+      <nodes xmi:id="_TtbFCDNsEeSG0o4D3vCONA" name="A.Selected" incoming="_TtbFGTNsEeSG0o4D3vCONA _TtbFHDNsEeSG0o4D3vCONA _TtbFHjNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//ActivityType"/>
+      </nodes>
+      <nodes xmi:id="_TtbFCTNsEeSG0o4D3vCONA" name="" outgoing="_TtbFGTNsEeSG0o4D3vCONA _TtbFGjNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence"/>
+      </nodes>
+      <nodes xmi:id="_TtbFCjNsEeSG0o4D3vCONA" name="A.OldSource" incoming="_TtbFGzNsEeSG0o4D3vCONA" outgoing="_TtbFHjNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//ActivityListType"/>
+      </nodes>
+      <nodes xmi:id="_TtbFCzNsEeSG0o4D3vCONA" name="B.NewSource" incoming="_TtbFHzNsEeSG0o4D3vCONA" outgoing="_TtbFIjNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//ActivityListType"/>
+      </nodes>
+      <nodes xmi:id="_TtbFDDNsEeSG0o4D3vCONA" name="" incoming="_TtbFIzNsEeSG0o4D3vCONA" outgoing="_TtbFGzNsEeSG0o4D3vCONA _TtbFHDNsEeSG0o4D3vCONA _TtbFHTNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference"/>
+      </nodes>
+      <nodes xmi:id="_TtbFDTNsEeSG0o4D3vCONA" name="" incoming="_TtbFHTNsEeSG0o4D3vCONA _TtbFITNsEeSG0o4D3vCONA">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+      </nodes>
+      <nodes xmi:id="_TtbFDjNsEeSG0o4D3vCONA" name="" incoming="_TtbFJDNsEeSG0o4D3vCONA" outgoing="_TtbFHzNsEeSG0o4D3vCONA _TtbFIDNsEeSG0o4D3vCONA _TtbFITNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference"/>
+      </nodes>
+      <nodes xmi:id="_TtbFDzNsEeSG0o4D3vCONA" incoming="_TtbFJTNsEeSG0o4D3vCONA" outgoing="_TtbFIzNsEeSG0o4D3vCONA _TtbFJDNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet"/>
+        <attributes xmi:id="_TtbFEDNsEeSG0o4D3vCONA" value="&quot;MOVE_ActivityType_FROM_ActivityListType_(activity)_TO_ActivityListType_(activity)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/name"/>
+        </attributes>
+        <attributes xmi:id="_TtbFETNsEeSG0o4D3vCONA" value="&quot;MOVEs ActivityType from ActivityListType(Reference:activity) to ActivityListType(Reference:activity&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/description"/>
+        </attributes>
+        <attributes xmi:id="_TtbFEjNsEeSG0o4D3vCONA" value="&quot;MOVE_ActivityType_FROM_ActivityListType_(activity)_TO_ActivityListType_(activity)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/editRName"/>
+        </attributes>
+        <attributes xmi:id="_TtbFEzNsEeSG0o4D3vCONA" value="&quot;RR: MOVE_ActivityType_FROM_ActivityListType_(activity)_TO_ActivityListType_(activity)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/recognitionRName"/>
+        </attributes>
+        <attributes xmi:id="_TtbFFDNsEeSG0o4D3vCONA" value="1">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/priority"/>
+        </attributes>
+        <attributes xmi:id="_TtbFFTNsEeSG0o4D3vCONA" value="2">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfACs"/>
+        </attributes>
+        <attributes xmi:id="_TtbFFjNsEeSG0o4D3vCONA" value="3">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfParams"/>
+        </attributes>
+        <attributes xmi:id="_TtbFFzNsEeSG0o4D3vCONA" value="6">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/refinementLevel"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_TtbFGDNsEeSG0o4D3vCONA" name="" outgoing="_TtbFJTNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_TtbFGTNsEeSG0o4D3vCONA" source="_TtbFCTNsEeSG0o4D3vCONA" target="_TtbFCDNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objA"/>
+      </edges>
+      <edges xmi:id="_TtbFGjNsEeSG0o4D3vCONA" source="_TtbFCTNsEeSG0o4D3vCONA" target="_TtbFBzNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objB"/>
+      </edges>
+      <edges xmi:id="_TtbFGzNsEeSG0o4D3vCONA" source="_TtbFDDNsEeSG0o4D3vCONA" target="_TtbFCjNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/src"/>
+      </edges>
+      <edges xmi:id="_TtbFHDNsEeSG0o4D3vCONA" source="_TtbFDDNsEeSG0o4D3vCONA" target="_TtbFCDNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/tgt"/>
+      </edges>
+      <edges xmi:id="_TtbFHTNsEeSG0o4D3vCONA" source="_TtbFDDNsEeSG0o4D3vCONA" target="_TtbFDTNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/type"/>
+      </edges>
+      <edges xmi:id="_TtbFHjNsEeSG0o4D3vCONA" source="_TtbFCjNsEeSG0o4D3vCONA" target="_TtbFCDNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//ActivityListType/activity"/>
+      </edges>
+      <edges xmi:id="_TtbFHzNsEeSG0o4D3vCONA" source="_TtbFDjNsEeSG0o4D3vCONA" target="_TtbFCzNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/src"/>
+      </edges>
+      <edges xmi:id="_TtbFIDNsEeSG0o4D3vCONA" source="_TtbFDjNsEeSG0o4D3vCONA" target="_TtbFBzNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/tgt"/>
+      </edges>
+      <edges xmi:id="_TtbFITNsEeSG0o4D3vCONA" source="_TtbFDjNsEeSG0o4D3vCONA" target="_TtbFDTNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/type"/>
+      </edges>
+      <edges xmi:id="_TtbFIjNsEeSG0o4D3vCONA" source="_TtbFCzNsEeSG0o4D3vCONA" target="_TtbFBzNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//ActivityListType/activity"/>
+      </edges>
+      <edges xmi:id="_TtbFIzNsEeSG0o4D3vCONA" source="_TtbFDzNsEeSG0o4D3vCONA" target="_TtbFDDNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_TtbFJDNsEeSG0o4D3vCONA" source="_TtbFDzNsEeSG0o4D3vCONA" target="_TtbFDjNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_TtbFJTNsEeSG0o4D3vCONA" source="_TtbFGDNsEeSG0o4D3vCONA" target="_TtbFDzNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference/changeSets"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_TtbFJjNsEeSG0o4D3vCONA" origin="_TtbE5jNsEeSG0o4D3vCONA" image="_TtbFBzNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_TtbFJzNsEeSG0o4D3vCONA" origin="_TtbE5zNsEeSG0o4D3vCONA" image="_TtbFCDNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_TtbFKDNsEeSG0o4D3vCONA" origin="_TtbE6DNsEeSG0o4D3vCONA" image="_TtbFCTNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_TtbFKTNsEeSG0o4D3vCONA" origin="_TtbE6TNsEeSG0o4D3vCONA" image="_TtbFCjNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_TtbFKjNsEeSG0o4D3vCONA" origin="_TtbE6jNsEeSG0o4D3vCONA" image="_TtbFCzNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_TtbFKzNsEeSG0o4D3vCONA" origin="_TtbE6zNsEeSG0o4D3vCONA" image="_TtbFDDNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_TtbFLDNsEeSG0o4D3vCONA" origin="_TtbE7DNsEeSG0o4D3vCONA" image="_TtbFDTNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_TtbFLTNsEeSG0o4D3vCONA" origin="_TtbE7jNsEeSG0o4D3vCONA" image="_TtbFDjNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_TtbFLjNsEeSG0o4D3vCONA" origin="_TtbE7zNsEeSG0o4D3vCONA" image="_TtbFGDNsEeSG0o4D3vCONA"/>
+  </units>
+</henshin:Module>

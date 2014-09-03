@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_RKo_EDNsEeSG0o4D3vCONA" name="RR: DELETE_OutputEntryDistributionType_IN_EntryType_(serviceTimeDistribution)" description="Recognize: Deletes one OutputEntryDistributionType in EntryType">
+  <imports href="http://www.sidiff.org/difference/symmetric/1.0#/"/>
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_RKo_ETNsEeSG0o4D3vCONA" name="rr:deleteOutputEntryDistributionType_IN_EntryType" description="Recognize: deletes one OutputEntryDistributionType in the context: EntryType">
+    <parameters xmi:id="_RKo_EjNsEeSG0o4D3vCONA" name="Selected"/>
+    <parameters xmi:id="_RKo_EzNsEeSG0o4D3vCONA" name="ToBeDeleted"/>
+    <lhs xmi:id="_RKo_FDNsEeSG0o4D3vCONA" name="Lhs">
+      <nodes xmi:id="_RKo_FTNsEeSG0o4D3vCONA" name="A.Selected" incoming="_RKo_HTNsEeSG0o4D3vCONA" outgoing="_RKo_IDNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+      <nodes xmi:id="_RKo_FjNsEeSG0o4D3vCONA" name="" outgoing="_RKo_HDNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveObject"/>
+      </nodes>
+      <nodes xmi:id="_RKo_FzNsEeSG0o4D3vCONA" name="A.ToBeDeleted" incoming="_RKo_HDNsEeSG0o4D3vCONA _RKo_HjNsEeSG0o4D3vCONA _RKo_IDNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//OutputEntryDistributionType"/>
+      </nodes>
+      <nodes xmi:id="_RKo_GDNsEeSG0o4D3vCONA" name="" outgoing="_RKo_HTNsEeSG0o4D3vCONA _RKo_HjNsEeSG0o4D3vCONA _RKo_HzNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference"/>
+      </nodes>
+      <nodes xmi:id="_RKo_GTNsEeSG0o4D3vCONA" name="" incoming="_RKo_HzNsEeSG0o4D3vCONA">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+        <attributes xmi:id="_RKo_GjNsEeSG0o4D3vCONA" value="&quot;serviceTimeDistribution&quot;">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_RKo_GzNsEeSG0o4D3vCONA" name="">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_RKo_HDNsEeSG0o4D3vCONA" source="_RKo_FjNsEeSG0o4D3vCONA" target="_RKo_FzNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveObject/obj"/>
+      </edges>
+      <edges xmi:id="_RKo_HTNsEeSG0o4D3vCONA" source="_RKo_GDNsEeSG0o4D3vCONA" target="_RKo_FTNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/src"/>
+      </edges>
+      <edges xmi:id="_RKo_HjNsEeSG0o4D3vCONA" source="_RKo_GDNsEeSG0o4D3vCONA" target="_RKo_FzNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/tgt"/>
+      </edges>
+      <edges xmi:id="_RKo_HzNsEeSG0o4D3vCONA" source="_RKo_GDNsEeSG0o4D3vCONA" target="_RKo_GTNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/type"/>
+      </edges>
+      <edges xmi:id="_RKo_IDNsEeSG0o4D3vCONA" source="_RKo_FTNsEeSG0o4D3vCONA" target="_RKo_FzNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//EntryType/serviceTimeDistribution"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_RKo_ITNsEeSG0o4D3vCONA" name="Rhs">
+      <nodes xmi:id="_RKo_IjNsEeSG0o4D3vCONA" name="A.Selected" incoming="_RKo_MjNsEeSG0o4D3vCONA" outgoing="_RKo_NTNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+      <nodes xmi:id="_RKo_IzNsEeSG0o4D3vCONA" name="" incoming="_RKo_NjNsEeSG0o4D3vCONA" outgoing="_RKo_MTNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveObject"/>
+      </nodes>
+      <nodes xmi:id="_RKo_JDNsEeSG0o4D3vCONA" name="A.ToBeDeleted" incoming="_RKo_MTNsEeSG0o4D3vCONA _RKo_MzNsEeSG0o4D3vCONA _RKo_NTNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//OutputEntryDistributionType"/>
+      </nodes>
+      <nodes xmi:id="_RKo_JTNsEeSG0o4D3vCONA" name="" incoming="_RKo_NzNsEeSG0o4D3vCONA" outgoing="_RKo_MjNsEeSG0o4D3vCONA _RKo_MzNsEeSG0o4D3vCONA _RKo_NDNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference"/>
+      </nodes>
+      <nodes xmi:id="_RKo_JjNsEeSG0o4D3vCONA" name="" incoming="_RKo_NDNsEeSG0o4D3vCONA">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+      </nodes>
+      <nodes xmi:id="_RKo_JzNsEeSG0o4D3vCONA" incoming="_RKo_ODNsEeSG0o4D3vCONA" outgoing="_RKo_NjNsEeSG0o4D3vCONA _RKo_NzNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet"/>
+        <attributes xmi:id="_RKo_KDNsEeSG0o4D3vCONA" value="&quot;DELETE_OutputEntryDistributionType_IN_EntryType_(serviceTimeDistribution)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/name"/>
+        </attributes>
+        <attributes xmi:id="_RKo_KTNsEeSG0o4D3vCONA" value="&quot;Deletes one OutputEntryDistributionType in EntryType&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/description"/>
+        </attributes>
+        <attributes xmi:id="_RKo_KjNsEeSG0o4D3vCONA" value="&quot;DELETE_OutputEntryDistributionType_IN_EntryType_(serviceTimeDistribution)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/editRName"/>
+        </attributes>
+        <attributes xmi:id="_RKo_KzNsEeSG0o4D3vCONA" value="&quot;RR: DELETE_OutputEntryDistributionType_IN_EntryType_(serviceTimeDistribution)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/recognitionRName"/>
+        </attributes>
+        <attributes xmi:id="_RKo_LDNsEeSG0o4D3vCONA" value="1">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/priority"/>
+        </attributes>
+        <attributes xmi:id="_RKo_LTNsEeSG0o4D3vCONA" value="0">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfACs"/>
+        </attributes>
+        <attributes xmi:id="_RKo_LjNsEeSG0o4D3vCONA" value="2">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfParams"/>
+        </attributes>
+        <attributes xmi:id="_RKo_LzNsEeSG0o4D3vCONA" value="5">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/refinementLevel"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_RKo_MDNsEeSG0o4D3vCONA" name="" outgoing="_RKo_ODNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_RKo_MTNsEeSG0o4D3vCONA" source="_RKo_IzNsEeSG0o4D3vCONA" target="_RKo_JDNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveObject/obj"/>
+      </edges>
+      <edges xmi:id="_RKo_MjNsEeSG0o4D3vCONA" source="_RKo_JTNsEeSG0o4D3vCONA" target="_RKo_IjNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/src"/>
+      </edges>
+      <edges xmi:id="_RKo_MzNsEeSG0o4D3vCONA" source="_RKo_JTNsEeSG0o4D3vCONA" target="_RKo_JDNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/tgt"/>
+      </edges>
+      <edges xmi:id="_RKo_NDNsEeSG0o4D3vCONA" source="_RKo_JTNsEeSG0o4D3vCONA" target="_RKo_JjNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/type"/>
+      </edges>
+      <edges xmi:id="_RKo_NTNsEeSG0o4D3vCONA" source="_RKo_IjNsEeSG0o4D3vCONA" target="_RKo_JDNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//EntryType/serviceTimeDistribution"/>
+      </edges>
+      <edges xmi:id="_RKo_NjNsEeSG0o4D3vCONA" source="_RKo_JzNsEeSG0o4D3vCONA" target="_RKo_IzNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_RKo_NzNsEeSG0o4D3vCONA" source="_RKo_JzNsEeSG0o4D3vCONA" target="_RKo_JTNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_RKo_ODNsEeSG0o4D3vCONA" source="_RKo_MDNsEeSG0o4D3vCONA" target="_RKo_JzNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference/changeSets"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_RKo_OTNsEeSG0o4D3vCONA" origin="_RKo_FTNsEeSG0o4D3vCONA" image="_RKo_IjNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_RKo_OjNsEeSG0o4D3vCONA" origin="_RKo_FjNsEeSG0o4D3vCONA" image="_RKo_IzNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_RKo_OzNsEeSG0o4D3vCONA" origin="_RKo_FzNsEeSG0o4D3vCONA" image="_RKo_JDNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_RKo_PDNsEeSG0o4D3vCONA" origin="_RKo_GDNsEeSG0o4D3vCONA" image="_RKo_JTNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_RKo_PTNsEeSG0o4D3vCONA" origin="_RKo_GTNsEeSG0o4D3vCONA" image="_RKo_JjNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_RKo_PjNsEeSG0o4D3vCONA" origin="_RKo_GzNsEeSG0o4D3vCONA" image="_RKo_MDNsEeSG0o4D3vCONA"/>
+  </units>
+</henshin:Module>

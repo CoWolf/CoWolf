@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_Rq7osDNsEeSG0o4D3vCONA" name="RR: DELETE_PragmaType_IN_SolverParamsType_(pragma)" description="Recognize: Deletes one PragmaType in SolverParamsType">
+  <imports href="http://www.sidiff.org/difference/symmetric/1.0#/"/>
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_Rq7osTNsEeSG0o4D3vCONA" name="rr:deletePragmaType_IN_SolverParamsType" description="Recognize: deletes one PragmaType in the context: SolverParamsType">
+    <parameters xmi:id="_Rq7osjNsEeSG0o4D3vCONA" name="Selected"/>
+    <parameters xmi:id="_Rq7oszNsEeSG0o4D3vCONA" name="ToBeDeleted"/>
+    <lhs xmi:id="_Rq7otDNsEeSG0o4D3vCONA" name="Lhs">
+      <nodes xmi:id="_Rq7otTNsEeSG0o4D3vCONA" name="A.Selected" incoming="_Rq7ovTNsEeSG0o4D3vCONA" outgoing="_Rq7owDNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//SolverParamsType"/>
+      </nodes>
+      <nodes xmi:id="_Rq7otjNsEeSG0o4D3vCONA" name="" outgoing="_Rq7ovDNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveObject"/>
+      </nodes>
+      <nodes xmi:id="_Rq7otzNsEeSG0o4D3vCONA" name="A.ToBeDeleted" incoming="_Rq7ovDNsEeSG0o4D3vCONA _Rq7ovjNsEeSG0o4D3vCONA _Rq7owDNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//PragmaType"/>
+      </nodes>
+      <nodes xmi:id="_Rq7ouDNsEeSG0o4D3vCONA" name="" outgoing="_Rq7ovTNsEeSG0o4D3vCONA _Rq7ovjNsEeSG0o4D3vCONA _Rq7ovzNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference"/>
+      </nodes>
+      <nodes xmi:id="_Rq7ouTNsEeSG0o4D3vCONA" name="" incoming="_Rq7ovzNsEeSG0o4D3vCONA">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+        <attributes xmi:id="_Rq7oujNsEeSG0o4D3vCONA" value="&quot;pragma&quot;">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_Rq7ouzNsEeSG0o4D3vCONA" name="">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_Rq7ovDNsEeSG0o4D3vCONA" source="_Rq7otjNsEeSG0o4D3vCONA" target="_Rq7otzNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveObject/obj"/>
+      </edges>
+      <edges xmi:id="_Rq7ovTNsEeSG0o4D3vCONA" source="_Rq7ouDNsEeSG0o4D3vCONA" target="_Rq7otTNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/src"/>
+      </edges>
+      <edges xmi:id="_Rq7ovjNsEeSG0o4D3vCONA" source="_Rq7ouDNsEeSG0o4D3vCONA" target="_Rq7otzNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/tgt"/>
+      </edges>
+      <edges xmi:id="_Rq7ovzNsEeSG0o4D3vCONA" source="_Rq7ouDNsEeSG0o4D3vCONA" target="_Rq7ouTNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/type"/>
+      </edges>
+      <edges xmi:id="_Rq7owDNsEeSG0o4D3vCONA" source="_Rq7otTNsEeSG0o4D3vCONA" target="_Rq7otzNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//SolverParamsType/pragma"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_Rq7owTNsEeSG0o4D3vCONA" name="Rhs">
+      <nodes xmi:id="_Rq7owjNsEeSG0o4D3vCONA" name="A.Selected" incoming="_Rq7o0jNsEeSG0o4D3vCONA" outgoing="_Rq7o1TNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//SolverParamsType"/>
+      </nodes>
+      <nodes xmi:id="_Rq7owzNsEeSG0o4D3vCONA" name="" incoming="_Rq7o1jNsEeSG0o4D3vCONA" outgoing="_Rq7o0TNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveObject"/>
+      </nodes>
+      <nodes xmi:id="_Rq7oxDNsEeSG0o4D3vCONA" name="A.ToBeDeleted" incoming="_Rq7o0TNsEeSG0o4D3vCONA _Rq7o0zNsEeSG0o4D3vCONA _Rq7o1TNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//PragmaType"/>
+      </nodes>
+      <nodes xmi:id="_Rq7oxTNsEeSG0o4D3vCONA" name="" incoming="_Rq7o1zNsEeSG0o4D3vCONA" outgoing="_Rq7o0jNsEeSG0o4D3vCONA _Rq7o0zNsEeSG0o4D3vCONA _Rq7o1DNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference"/>
+      </nodes>
+      <nodes xmi:id="_Rq7oxjNsEeSG0o4D3vCONA" name="" incoming="_Rq7o1DNsEeSG0o4D3vCONA">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+      </nodes>
+      <nodes xmi:id="_Rq7oxzNsEeSG0o4D3vCONA" incoming="_Rq7o2DNsEeSG0o4D3vCONA" outgoing="_Rq7o1jNsEeSG0o4D3vCONA _Rq7o1zNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet"/>
+        <attributes xmi:id="_Rq7oyDNsEeSG0o4D3vCONA" value="&quot;DELETE_PragmaType_IN_SolverParamsType_(pragma)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/name"/>
+        </attributes>
+        <attributes xmi:id="_Rq7oyTNsEeSG0o4D3vCONA" value="&quot;Deletes one PragmaType in SolverParamsType&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/description"/>
+        </attributes>
+        <attributes xmi:id="_Rq7oyjNsEeSG0o4D3vCONA" value="&quot;DELETE_PragmaType_IN_SolverParamsType_(pragma)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/editRName"/>
+        </attributes>
+        <attributes xmi:id="_Rq7oyzNsEeSG0o4D3vCONA" value="&quot;RR: DELETE_PragmaType_IN_SolverParamsType_(pragma)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/recognitionRName"/>
+        </attributes>
+        <attributes xmi:id="_Rq7ozDNsEeSG0o4D3vCONA" value="1">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/priority"/>
+        </attributes>
+        <attributes xmi:id="_Rq7ozTNsEeSG0o4D3vCONA" value="0">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfACs"/>
+        </attributes>
+        <attributes xmi:id="_Rq7ozjNsEeSG0o4D3vCONA" value="2">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfParams"/>
+        </attributes>
+        <attributes xmi:id="_Rq7ozzNsEeSG0o4D3vCONA" value="4">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/refinementLevel"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_Rq7o0DNsEeSG0o4D3vCONA" name="" outgoing="_Rq7o2DNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_Rq7o0TNsEeSG0o4D3vCONA" source="_Rq7owzNsEeSG0o4D3vCONA" target="_Rq7oxDNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveObject/obj"/>
+      </edges>
+      <edges xmi:id="_Rq7o0jNsEeSG0o4D3vCONA" source="_Rq7oxTNsEeSG0o4D3vCONA" target="_Rq7owjNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/src"/>
+      </edges>
+      <edges xmi:id="_Rq7o0zNsEeSG0o4D3vCONA" source="_Rq7oxTNsEeSG0o4D3vCONA" target="_Rq7oxDNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/tgt"/>
+      </edges>
+      <edges xmi:id="_Rq7o1DNsEeSG0o4D3vCONA" source="_Rq7oxTNsEeSG0o4D3vCONA" target="_Rq7oxjNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/type"/>
+      </edges>
+      <edges xmi:id="_Rq7o1TNsEeSG0o4D3vCONA" source="_Rq7owjNsEeSG0o4D3vCONA" target="_Rq7oxDNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//SolverParamsType/pragma"/>
+      </edges>
+      <edges xmi:id="_Rq7o1jNsEeSG0o4D3vCONA" source="_Rq7oxzNsEeSG0o4D3vCONA" target="_Rq7owzNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_Rq7o1zNsEeSG0o4D3vCONA" source="_Rq7oxzNsEeSG0o4D3vCONA" target="_Rq7oxTNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_Rq7o2DNsEeSG0o4D3vCONA" source="_Rq7o0DNsEeSG0o4D3vCONA" target="_Rq7oxzNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference/changeSets"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_Rq7o2TNsEeSG0o4D3vCONA" origin="_Rq7otTNsEeSG0o4D3vCONA" image="_Rq7owjNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_Rq7o2jNsEeSG0o4D3vCONA" origin="_Rq7otjNsEeSG0o4D3vCONA" image="_Rq7owzNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_Rq7o2zNsEeSG0o4D3vCONA" origin="_Rq7otzNsEeSG0o4D3vCONA" image="_Rq7oxDNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_Rq7o3DNsEeSG0o4D3vCONA" origin="_Rq7ouDNsEeSG0o4D3vCONA" image="_Rq7oxTNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_Rq7o3TNsEeSG0o4D3vCONA" origin="_Rq7ouTNsEeSG0o4D3vCONA" image="_Rq7oxjNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_Rq7o3jNsEeSG0o4D3vCONA" origin="_Rq7ouzNsEeSG0o4D3vCONA" image="_Rq7o0DNsEeSG0o4D3vCONA"/>
+  </units>
+</henshin:Module>

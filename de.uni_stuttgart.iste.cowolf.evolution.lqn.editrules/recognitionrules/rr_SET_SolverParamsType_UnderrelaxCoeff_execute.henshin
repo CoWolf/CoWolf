@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_hmiJwDNsEeSG0o4D3vCONA" name="RR: SET_SolverParamsType_UnderrelaxCoeff" description="Recognize: Sets SolverParamsType UnderrelaxCoeff">
+  <imports href="http://www.sidiff.org/difference/symmetric/1.0#/"/>
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_hmiJwTNsEeSG0o4D3vCONA" name="rr:setSolverParamsTypeUnderrelaxCoeff" description="Recognize: Sets the EAttribute underrelaxCoeff">
+    <parameters xmi:id="_hmiJwjNsEeSG0o4D3vCONA" name="Selected"/>
+    <parameters xmi:id="_hmiJwzNsEeSG0o4D3vCONA" name="UnderrelaxCoeff"/>
+    <lhs xmi:id="_hmiJxDNsEeSG0o4D3vCONA" name="Lhs">
+      <nodes xmi:id="_hmiJxTNsEeSG0o4D3vCONA" name="B.Selected" incoming="_hmiJzjNsEeSG0o4D3vCONA _hmiJ0DNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//SolverParamsType"/>
+        <attributes xmi:id="_hmiJxjNsEeSG0o4D3vCONA" value="UnderrelaxCoeff">
+          <type href="http://LQN/1.0#//SolverParamsType/underrelaxCoeff"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_hmiJxzNsEeSG0o4D3vCONA" name="A.Selected" incoming="_hmiJzTNsEeSG0o4D3vCONA _hmiJzzNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//SolverParamsType"/>
+      </nodes>
+      <nodes xmi:id="_hmiJyDNsEeSG0o4D3vCONA" name="" outgoing="_hmiJzTNsEeSG0o4D3vCONA _hmiJzjNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence"/>
+      </nodes>
+      <nodes xmi:id="_hmiJyTNsEeSG0o4D3vCONA" name="" outgoing="_hmiJzzNsEeSG0o4D3vCONA _hmiJ0DNsEeSG0o4D3vCONA _hmiJ0TNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange"/>
+      </nodes>
+      <nodes xmi:id="_hmiJyjNsEeSG0o4D3vCONA" name="" incoming="_hmiJ0TNsEeSG0o4D3vCONA">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
+        <attributes xmi:id="_hmiJyzNsEeSG0o4D3vCONA" value="&quot;underrelaxCoeff&quot;">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_hmiJzDNsEeSG0o4D3vCONA" name="">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_hmiJzTNsEeSG0o4D3vCONA" source="_hmiJyDNsEeSG0o4D3vCONA" target="_hmiJxzNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objA"/>
+      </edges>
+      <edges xmi:id="_hmiJzjNsEeSG0o4D3vCONA" source="_hmiJyDNsEeSG0o4D3vCONA" target="_hmiJxTNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objB"/>
+      </edges>
+      <edges xmi:id="_hmiJzzNsEeSG0o4D3vCONA" source="_hmiJyTNsEeSG0o4D3vCONA" target="_hmiJxzNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange/objA"/>
+      </edges>
+      <edges xmi:id="_hmiJ0DNsEeSG0o4D3vCONA" source="_hmiJyTNsEeSG0o4D3vCONA" target="_hmiJxTNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange/objB"/>
+      </edges>
+      <edges xmi:id="_hmiJ0TNsEeSG0o4D3vCONA" source="_hmiJyTNsEeSG0o4D3vCONA" target="_hmiJyjNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange/type"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_hmiJ0jNsEeSG0o4D3vCONA" name="Rhs">
+      <nodes xmi:id="_hmiJ0zNsEeSG0o4D3vCONA" name="B.Selected" incoming="_hmiJ4zNsEeSG0o4D3vCONA _hmiJ5TNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//SolverParamsType"/>
+      </nodes>
+      <nodes xmi:id="_hmiJ1DNsEeSG0o4D3vCONA" name="A.Selected" incoming="_hmiJ4jNsEeSG0o4D3vCONA _hmiJ5DNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//SolverParamsType"/>
+      </nodes>
+      <nodes xmi:id="_hmiJ1TNsEeSG0o4D3vCONA" name="" outgoing="_hmiJ4jNsEeSG0o4D3vCONA _hmiJ4zNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence"/>
+      </nodes>
+      <nodes xmi:id="_hmiJ1jNsEeSG0o4D3vCONA" name="" incoming="_hmiJ5zNsEeSG0o4D3vCONA" outgoing="_hmiJ5DNsEeSG0o4D3vCONA _hmiJ5TNsEeSG0o4D3vCONA _hmiJ5jNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange"/>
+      </nodes>
+      <nodes xmi:id="_hmiJ1zNsEeSG0o4D3vCONA" name="" incoming="_hmiJ5jNsEeSG0o4D3vCONA">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
+      </nodes>
+      <nodes xmi:id="_hmiJ2DNsEeSG0o4D3vCONA" incoming="_hmiJ6DNsEeSG0o4D3vCONA" outgoing="_hmiJ5zNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet"/>
+        <attributes xmi:id="_hmiJ2TNsEeSG0o4D3vCONA" value="&quot;SET_SolverParamsType_UnderrelaxCoeff&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/name"/>
+        </attributes>
+        <attributes xmi:id="_hmiJ2jNsEeSG0o4D3vCONA" value="&quot;Sets SolverParamsType UnderrelaxCoeff&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/description"/>
+        </attributes>
+        <attributes xmi:id="_hmiJ2zNsEeSG0o4D3vCONA" value="&quot;SET_SolverParamsType_UnderrelaxCoeff&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/editRName"/>
+        </attributes>
+        <attributes xmi:id="_hmiJ3DNsEeSG0o4D3vCONA" value="&quot;RR: SET_SolverParamsType_UnderrelaxCoeff&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/recognitionRName"/>
+        </attributes>
+        <attributes xmi:id="_hmiJ3TNsEeSG0o4D3vCONA" value="1">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/priority"/>
+        </attributes>
+        <attributes xmi:id="_hmiJ3jNsEeSG0o4D3vCONA" value="0">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfACs"/>
+        </attributes>
+        <attributes xmi:id="_hmiJ3zNsEeSG0o4D3vCONA" value="2">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfParams"/>
+        </attributes>
+        <attributes xmi:id="_hmiJ4DNsEeSG0o4D3vCONA" value="2">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/refinementLevel"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_hmiJ4TNsEeSG0o4D3vCONA" name="" outgoing="_hmiJ6DNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_hmiJ4jNsEeSG0o4D3vCONA" source="_hmiJ1TNsEeSG0o4D3vCONA" target="_hmiJ1DNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objA"/>
+      </edges>
+      <edges xmi:id="_hmiJ4zNsEeSG0o4D3vCONA" source="_hmiJ1TNsEeSG0o4D3vCONA" target="_hmiJ0zNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objB"/>
+      </edges>
+      <edges xmi:id="_hmiJ5DNsEeSG0o4D3vCONA" source="_hmiJ1jNsEeSG0o4D3vCONA" target="_hmiJ1DNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange/objA"/>
+      </edges>
+      <edges xmi:id="_hmiJ5TNsEeSG0o4D3vCONA" source="_hmiJ1jNsEeSG0o4D3vCONA" target="_hmiJ0zNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange/objB"/>
+      </edges>
+      <edges xmi:id="_hmiJ5jNsEeSG0o4D3vCONA" source="_hmiJ1jNsEeSG0o4D3vCONA" target="_hmiJ1zNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange/type"/>
+      </edges>
+      <edges xmi:id="_hmiJ5zNsEeSG0o4D3vCONA" source="_hmiJ2DNsEeSG0o4D3vCONA" target="_hmiJ1jNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_hmiJ6DNsEeSG0o4D3vCONA" source="_hmiJ4TNsEeSG0o4D3vCONA" target="_hmiJ2DNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference/changeSets"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_hmiJ6TNsEeSG0o4D3vCONA" origin="_hmiJxTNsEeSG0o4D3vCONA" image="_hmiJ0zNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_hmiJ6jNsEeSG0o4D3vCONA" origin="_hmiJxzNsEeSG0o4D3vCONA" image="_hmiJ1DNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_hmiJ6zNsEeSG0o4D3vCONA" origin="_hmiJyDNsEeSG0o4D3vCONA" image="_hmiJ1TNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_hmiJ7DNsEeSG0o4D3vCONA" origin="_hmiJyTNsEeSG0o4D3vCONA" image="_hmiJ1jNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_hmiJ7TNsEeSG0o4D3vCONA" origin="_hmiJyjNsEeSG0o4D3vCONA" image="_hmiJ1zNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_hmiJ7jNsEeSG0o4D3vCONA" origin="_hmiJzDNsEeSG0o4D3vCONA" image="_hmiJ4TNsEeSG0o4D3vCONA"/>
+  </units>
+</henshin:Module>

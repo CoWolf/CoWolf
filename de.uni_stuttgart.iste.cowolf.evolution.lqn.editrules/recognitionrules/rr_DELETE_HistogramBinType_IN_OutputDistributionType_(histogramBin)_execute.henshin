@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_Q15eIDNsEeSG0o4D3vCONA" name="RR: DELETE_HistogramBinType_IN_OutputDistributionType_(histogramBin)" description="Recognize: Deletes one HistogramBinType in OutputDistributionType">
+  <imports href="http://www.sidiff.org/difference/symmetric/1.0#/"/>
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_Q15eITNsEeSG0o4D3vCONA" name="rr:deleteHistogramBinType_IN_OutputDistributionType" description="Recognize: deletes one HistogramBinType in the context: OutputDistributionType">
+    <parameters xmi:id="_Q15eIjNsEeSG0o4D3vCONA" name="Selected"/>
+    <parameters xmi:id="_Q15eIzNsEeSG0o4D3vCONA" name="ToBeDeleted"/>
+    <lhs xmi:id="_Q15eJDNsEeSG0o4D3vCONA" name="Lhs">
+      <nodes xmi:id="_Q15eJTNsEeSG0o4D3vCONA" name="A.Selected" incoming="_Q15eLTNsEeSG0o4D3vCONA" outgoing="_Q15eMDNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//OutputDistributionType"/>
+      </nodes>
+      <nodes xmi:id="_Q15eJjNsEeSG0o4D3vCONA" name="" outgoing="_Q15eLDNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveObject"/>
+      </nodes>
+      <nodes xmi:id="_Q15eJzNsEeSG0o4D3vCONA" name="A.ToBeDeleted" incoming="_Q15eLDNsEeSG0o4D3vCONA _Q15eLjNsEeSG0o4D3vCONA _Q15eMDNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//HistogramBinType"/>
+      </nodes>
+      <nodes xmi:id="_Q15eKDNsEeSG0o4D3vCONA" name="" outgoing="_Q15eLTNsEeSG0o4D3vCONA _Q15eLjNsEeSG0o4D3vCONA _Q15eLzNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference"/>
+      </nodes>
+      <nodes xmi:id="_Q15eKTNsEeSG0o4D3vCONA" name="" incoming="_Q15eLzNsEeSG0o4D3vCONA">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+        <attributes xmi:id="_Q15eKjNsEeSG0o4D3vCONA" value="&quot;histogramBin&quot;">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_Q15eKzNsEeSG0o4D3vCONA" name="">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_Q15eLDNsEeSG0o4D3vCONA" source="_Q15eJjNsEeSG0o4D3vCONA" target="_Q15eJzNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveObject/obj"/>
+      </edges>
+      <edges xmi:id="_Q15eLTNsEeSG0o4D3vCONA" source="_Q15eKDNsEeSG0o4D3vCONA" target="_Q15eJTNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/src"/>
+      </edges>
+      <edges xmi:id="_Q15eLjNsEeSG0o4D3vCONA" source="_Q15eKDNsEeSG0o4D3vCONA" target="_Q15eJzNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/tgt"/>
+      </edges>
+      <edges xmi:id="_Q15eLzNsEeSG0o4D3vCONA" source="_Q15eKDNsEeSG0o4D3vCONA" target="_Q15eKTNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/type"/>
+      </edges>
+      <edges xmi:id="_Q15eMDNsEeSG0o4D3vCONA" source="_Q15eJTNsEeSG0o4D3vCONA" target="_Q15eJzNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//OutputDistributionType/histogramBin"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_Q15eMTNsEeSG0o4D3vCONA" name="Rhs">
+      <nodes xmi:id="_Q15eMjNsEeSG0o4D3vCONA" name="A.Selected" incoming="_Q15eQjNsEeSG0o4D3vCONA" outgoing="_Q15eRTNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//OutputDistributionType"/>
+      </nodes>
+      <nodes xmi:id="_Q15eMzNsEeSG0o4D3vCONA" name="" incoming="_Q15eRjNsEeSG0o4D3vCONA" outgoing="_Q15eQTNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveObject"/>
+      </nodes>
+      <nodes xmi:id="_Q15eNDNsEeSG0o4D3vCONA" name="A.ToBeDeleted" incoming="_Q15eQTNsEeSG0o4D3vCONA _Q15eQzNsEeSG0o4D3vCONA _Q15eRTNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//HistogramBinType"/>
+      </nodes>
+      <nodes xmi:id="_Q15eNTNsEeSG0o4D3vCONA" name="" incoming="_Q15eRzNsEeSG0o4D3vCONA" outgoing="_Q15eQjNsEeSG0o4D3vCONA _Q15eQzNsEeSG0o4D3vCONA _Q15eRDNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference"/>
+      </nodes>
+      <nodes xmi:id="_Q15eNjNsEeSG0o4D3vCONA" name="" incoming="_Q15eRDNsEeSG0o4D3vCONA">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+      </nodes>
+      <nodes xmi:id="_Q15eNzNsEeSG0o4D3vCONA" incoming="_Q15eSDNsEeSG0o4D3vCONA" outgoing="_Q15eRjNsEeSG0o4D3vCONA _Q15eRzNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet"/>
+        <attributes xmi:id="_Q15eODNsEeSG0o4D3vCONA" value="&quot;DELETE_HistogramBinType_IN_OutputDistributionType_(histogramBin)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/name"/>
+        </attributes>
+        <attributes xmi:id="_Q15eOTNsEeSG0o4D3vCONA" value="&quot;Deletes one HistogramBinType in OutputDistributionType&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/description"/>
+        </attributes>
+        <attributes xmi:id="_Q15eOjNsEeSG0o4D3vCONA" value="&quot;DELETE_HistogramBinType_IN_OutputDistributionType_(histogramBin)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/editRName"/>
+        </attributes>
+        <attributes xmi:id="_Q15eOzNsEeSG0o4D3vCONA" value="&quot;RR: DELETE_HistogramBinType_IN_OutputDistributionType_(histogramBin)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/recognitionRName"/>
+        </attributes>
+        <attributes xmi:id="_Q15ePDNsEeSG0o4D3vCONA" value="1">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/priority"/>
+        </attributes>
+        <attributes xmi:id="_Q15ePTNsEeSG0o4D3vCONA" value="0">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfACs"/>
+        </attributes>
+        <attributes xmi:id="_Q15ePjNsEeSG0o4D3vCONA" value="2">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfParams"/>
+        </attributes>
+        <attributes xmi:id="_Q15ePzNsEeSG0o4D3vCONA" value="4">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/refinementLevel"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_Q15eQDNsEeSG0o4D3vCONA" name="" outgoing="_Q15eSDNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_Q15eQTNsEeSG0o4D3vCONA" source="_Q15eMzNsEeSG0o4D3vCONA" target="_Q15eNDNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveObject/obj"/>
+      </edges>
+      <edges xmi:id="_Q15eQjNsEeSG0o4D3vCONA" source="_Q15eNTNsEeSG0o4D3vCONA" target="_Q15eMjNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/src"/>
+      </edges>
+      <edges xmi:id="_Q15eQzNsEeSG0o4D3vCONA" source="_Q15eNTNsEeSG0o4D3vCONA" target="_Q15eNDNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/tgt"/>
+      </edges>
+      <edges xmi:id="_Q15eRDNsEeSG0o4D3vCONA" source="_Q15eNTNsEeSG0o4D3vCONA" target="_Q15eNjNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/type"/>
+      </edges>
+      <edges xmi:id="_Q15eRTNsEeSG0o4D3vCONA" source="_Q15eMjNsEeSG0o4D3vCONA" target="_Q15eNDNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//OutputDistributionType/histogramBin"/>
+      </edges>
+      <edges xmi:id="_Q15eRjNsEeSG0o4D3vCONA" source="_Q15eNzNsEeSG0o4D3vCONA" target="_Q15eMzNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_Q15eRzNsEeSG0o4D3vCONA" source="_Q15eNzNsEeSG0o4D3vCONA" target="_Q15eNTNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_Q15eSDNsEeSG0o4D3vCONA" source="_Q15eQDNsEeSG0o4D3vCONA" target="_Q15eNzNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference/changeSets"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_Q15eSTNsEeSG0o4D3vCONA" origin="_Q15eJTNsEeSG0o4D3vCONA" image="_Q15eMjNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_Q15eSjNsEeSG0o4D3vCONA" origin="_Q15eJjNsEeSG0o4D3vCONA" image="_Q15eMzNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_Q15eSzNsEeSG0o4D3vCONA" origin="_Q15eJzNsEeSG0o4D3vCONA" image="_Q15eNDNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_Q15eTDNsEeSG0o4D3vCONA" origin="_Q15eKDNsEeSG0o4D3vCONA" image="_Q15eNTNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_Q15eTTNsEeSG0o4D3vCONA" origin="_Q15eKTNsEeSG0o4D3vCONA" image="_Q15eNjNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_Q15eTjNsEeSG0o4D3vCONA" origin="_Q15eKzNsEeSG0o4D3vCONA" image="_Q15eQDNsEeSG0o4D3vCONA"/>
+  </units>
+</henshin:Module>

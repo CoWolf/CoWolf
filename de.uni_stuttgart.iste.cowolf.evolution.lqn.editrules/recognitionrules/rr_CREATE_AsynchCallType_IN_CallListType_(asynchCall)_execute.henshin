@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_OxGU0DNsEeSG0o4D3vCONA" name="RR: CREATE_AsynchCallType_IN_CallListType_(asynchCall)" description="Recognize: Creates one AsynchCallType in CallListType">
+  <imports href="http://www.sidiff.org/difference/symmetric/1.0#/"/>
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_OxGU0TNsEeSG0o4D3vCONA" name="rr:createAsynchCallType_IN_CallListType" description="Recognize: creates one AsynchCallType in the context: CallListType">
+    <parameters xmi:id="_OxGU0jNsEeSG0o4D3vCONA" name="Selected"/>
+    <parameters xmi:id="_OxGU0zNsEeSG0o4D3vCONA" name="New"/>
+    <parameters xmi:id="_OxGU1DNsEeSG0o4D3vCONA" name="Id"/>
+    <parameters xmi:id="_OxGU1TNsEeSG0o4D3vCONA" name="Dest"/>
+    <parameters xmi:id="_OxGU1jNsEeSG0o4D3vCONA" name="Fanin"/>
+    <parameters xmi:id="_OxGU1zNsEeSG0o4D3vCONA" name="Fanout"/>
+    <lhs xmi:id="_OxGU2DNsEeSG0o4D3vCONA" name="Lhs">
+      <nodes xmi:id="_OxGU2TNsEeSG0o4D3vCONA" name="B.Selected" incoming="_OxGU5TNsEeSG0o4D3vCONA" outgoing="_OxGU6DNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//CallListType"/>
+      </nodes>
+      <nodes xmi:id="_OxGU2jNsEeSG0o4D3vCONA" name="" outgoing="_OxGU5DNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddObject"/>
+      </nodes>
+      <nodes xmi:id="_OxGU2zNsEeSG0o4D3vCONA" name="B.New" incoming="_OxGU5DNsEeSG0o4D3vCONA _OxGU5jNsEeSG0o4D3vCONA _OxGU6DNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//AsynchCallType"/>
+        <attributes xmi:id="_OxGU3DNsEeSG0o4D3vCONA" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_OxGU3TNsEeSG0o4D3vCONA" value="Dest">
+          <type href="http://LQN/1.0#//AsynchCallType/dest"/>
+        </attributes>
+        <attributes xmi:id="_OxGU3jNsEeSG0o4D3vCONA" value="Fanin">
+          <type href="http://LQN/1.0#//AsynchCallType/fanin"/>
+        </attributes>
+        <attributes xmi:id="_OxGU3zNsEeSG0o4D3vCONA" value="Fanout">
+          <type href="http://LQN/1.0#//AsynchCallType/fanout"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_OxGU4DNsEeSG0o4D3vCONA" name="" outgoing="_OxGU5TNsEeSG0o4D3vCONA _OxGU5jNsEeSG0o4D3vCONA _OxGU5zNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference"/>
+      </nodes>
+      <nodes xmi:id="_OxGU4TNsEeSG0o4D3vCONA" name="" incoming="_OxGU5zNsEeSG0o4D3vCONA">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+        <attributes xmi:id="_OxGU4jNsEeSG0o4D3vCONA" value="&quot;asynchCall&quot;">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_OxGU4zNsEeSG0o4D3vCONA" name="">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_OxGU5DNsEeSG0o4D3vCONA" source="_OxGU2jNsEeSG0o4D3vCONA" target="_OxGU2zNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddObject/obj"/>
+      </edges>
+      <edges xmi:id="_OxGU5TNsEeSG0o4D3vCONA" source="_OxGU4DNsEeSG0o4D3vCONA" target="_OxGU2TNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/src"/>
+      </edges>
+      <edges xmi:id="_OxGU5jNsEeSG0o4D3vCONA" source="_OxGU4DNsEeSG0o4D3vCONA" target="_OxGU2zNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/tgt"/>
+      </edges>
+      <edges xmi:id="_OxGU5zNsEeSG0o4D3vCONA" source="_OxGU4DNsEeSG0o4D3vCONA" target="_OxGU4TNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/type"/>
+      </edges>
+      <edges xmi:id="_OxGU6DNsEeSG0o4D3vCONA" source="_OxGU2TNsEeSG0o4D3vCONA" target="_OxGU2zNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//CallListType/asynchCall"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_OxGU6TNsEeSG0o4D3vCONA" name="Rhs">
+      <nodes xmi:id="_OxGU6jNsEeSG0o4D3vCONA" name="B.Selected" incoming="_OxGU-jNsEeSG0o4D3vCONA" outgoing="_OxGU_TNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//CallListType"/>
+      </nodes>
+      <nodes xmi:id="_OxGU6zNsEeSG0o4D3vCONA" name="" incoming="_OxGU_jNsEeSG0o4D3vCONA" outgoing="_OxGU-TNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddObject"/>
+      </nodes>
+      <nodes xmi:id="_OxGU7DNsEeSG0o4D3vCONA" name="B.New" incoming="_OxGU-TNsEeSG0o4D3vCONA _OxGU-zNsEeSG0o4D3vCONA _OxGU_TNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//AsynchCallType"/>
+      </nodes>
+      <nodes xmi:id="_OxGU7TNsEeSG0o4D3vCONA" name="" incoming="_OxGU_zNsEeSG0o4D3vCONA" outgoing="_OxGU-jNsEeSG0o4D3vCONA _OxGU-zNsEeSG0o4D3vCONA _OxGU_DNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference"/>
+      </nodes>
+      <nodes xmi:id="_OxGU7jNsEeSG0o4D3vCONA" name="" incoming="_OxGU_DNsEeSG0o4D3vCONA">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+      </nodes>
+      <nodes xmi:id="_OxGU7zNsEeSG0o4D3vCONA" incoming="_OxGVADNsEeSG0o4D3vCONA" outgoing="_OxGU_jNsEeSG0o4D3vCONA _OxGU_zNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet"/>
+        <attributes xmi:id="_OxGU8DNsEeSG0o4D3vCONA" value="&quot;CREATE_AsynchCallType_IN_CallListType_(asynchCall)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/name"/>
+        </attributes>
+        <attributes xmi:id="_OxGU8TNsEeSG0o4D3vCONA" value="&quot;Creates one AsynchCallType in CallListType&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/description"/>
+        </attributes>
+        <attributes xmi:id="_OxGU8jNsEeSG0o4D3vCONA" value="&quot;CREATE_AsynchCallType_IN_CallListType_(asynchCall)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/editRName"/>
+        </attributes>
+        <attributes xmi:id="_OxGU8zNsEeSG0o4D3vCONA" value="&quot;RR: CREATE_AsynchCallType_IN_CallListType_(asynchCall)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/recognitionRName"/>
+        </attributes>
+        <attributes xmi:id="_OxGU9DNsEeSG0o4D3vCONA" value="1">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/priority"/>
+        </attributes>
+        <attributes xmi:id="_OxGU9TNsEeSG0o4D3vCONA" value="0">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfACs"/>
+        </attributes>
+        <attributes xmi:id="_OxGU9jNsEeSG0o4D3vCONA" value="6">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfParams"/>
+        </attributes>
+        <attributes xmi:id="_OxGU9zNsEeSG0o4D3vCONA" value="4">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/refinementLevel"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_OxGU-DNsEeSG0o4D3vCONA" name="" outgoing="_OxGVADNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_OxGU-TNsEeSG0o4D3vCONA" source="_OxGU6zNsEeSG0o4D3vCONA" target="_OxGU7DNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddObject/obj"/>
+      </edges>
+      <edges xmi:id="_OxGU-jNsEeSG0o4D3vCONA" source="_OxGU7TNsEeSG0o4D3vCONA" target="_OxGU6jNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/src"/>
+      </edges>
+      <edges xmi:id="_OxGU-zNsEeSG0o4D3vCONA" source="_OxGU7TNsEeSG0o4D3vCONA" target="_OxGU7DNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/tgt"/>
+      </edges>
+      <edges xmi:id="_OxGU_DNsEeSG0o4D3vCONA" source="_OxGU7TNsEeSG0o4D3vCONA" target="_OxGU7jNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/type"/>
+      </edges>
+      <edges xmi:id="_OxGU_TNsEeSG0o4D3vCONA" source="_OxGU6jNsEeSG0o4D3vCONA" target="_OxGU7DNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//CallListType/asynchCall"/>
+      </edges>
+      <edges xmi:id="_OxGU_jNsEeSG0o4D3vCONA" source="_OxGU7zNsEeSG0o4D3vCONA" target="_OxGU6zNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_OxGU_zNsEeSG0o4D3vCONA" source="_OxGU7zNsEeSG0o4D3vCONA" target="_OxGU7TNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_OxGVADNsEeSG0o4D3vCONA" source="_OxGU-DNsEeSG0o4D3vCONA" target="_OxGU7zNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference/changeSets"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_OxGVATNsEeSG0o4D3vCONA" origin="_OxGU2TNsEeSG0o4D3vCONA" image="_OxGU6jNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_OxGVAjNsEeSG0o4D3vCONA" origin="_OxGU2jNsEeSG0o4D3vCONA" image="_OxGU6zNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_OxGVAzNsEeSG0o4D3vCONA" origin="_OxGU2zNsEeSG0o4D3vCONA" image="_OxGU7DNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_OxGVBDNsEeSG0o4D3vCONA" origin="_OxGU4DNsEeSG0o4D3vCONA" image="_OxGU7TNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_OxGVBTNsEeSG0o4D3vCONA" origin="_OxGU4TNsEeSG0o4D3vCONA" image="_OxGU7jNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_OxGVBjNsEeSG0o4D3vCONA" origin="_OxGU4zNsEeSG0o4D3vCONA" image="_OxGU-DNsEeSG0o4D3vCONA"/>
+  </units>
+</henshin:Module>

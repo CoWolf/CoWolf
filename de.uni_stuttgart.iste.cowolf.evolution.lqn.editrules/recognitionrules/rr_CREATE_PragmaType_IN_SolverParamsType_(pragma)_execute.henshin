@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_PzMD8DNsEeSG0o4D3vCONA" name="RR: CREATE_PragmaType_IN_SolverParamsType_(pragma)" description="Recognize: Creates one PragmaType in SolverParamsType">
+  <imports href="http://www.sidiff.org/difference/symmetric/1.0#/"/>
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_PzMD8TNsEeSG0o4D3vCONA" name="rr:createPragmaType_IN_SolverParamsType" description="Recognize: creates one PragmaType in the context: SolverParamsType">
+    <parameters xmi:id="_PzMD8jNsEeSG0o4D3vCONA" name="Selected"/>
+    <parameters xmi:id="_PzMD8zNsEeSG0o4D3vCONA" name="New"/>
+    <parameters xmi:id="_PzMD9DNsEeSG0o4D3vCONA" name="Id"/>
+    <parameters xmi:id="_PzMD9TNsEeSG0o4D3vCONA" name="Param"/>
+    <parameters xmi:id="_PzMD9jNsEeSG0o4D3vCONA" name="Value"/>
+    <lhs xmi:id="_PzMD9zNsEeSG0o4D3vCONA" name="Lhs">
+      <nodes xmi:id="_PzMD-DNsEeSG0o4D3vCONA" name="B.Selected" incoming="_PzMEAzNsEeSG0o4D3vCONA" outgoing="_PzMEBjNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//SolverParamsType"/>
+      </nodes>
+      <nodes xmi:id="_PzMD-TNsEeSG0o4D3vCONA" name="" outgoing="_PzMEAjNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddObject"/>
+      </nodes>
+      <nodes xmi:id="_PzMD-jNsEeSG0o4D3vCONA" name="B.New" incoming="_PzMEAjNsEeSG0o4D3vCONA _PzMEBDNsEeSG0o4D3vCONA _PzMEBjNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//PragmaType"/>
+        <attributes xmi:id="_PzMD-zNsEeSG0o4D3vCONA" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_PzMD_DNsEeSG0o4D3vCONA" value="Param">
+          <type href="http://LQN/1.0#//PragmaType/param"/>
+        </attributes>
+        <attributes xmi:id="_PzMD_TNsEeSG0o4D3vCONA" value="Value">
+          <type href="http://LQN/1.0#//PragmaType/value"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_PzMD_jNsEeSG0o4D3vCONA" name="" outgoing="_PzMEAzNsEeSG0o4D3vCONA _PzMEBDNsEeSG0o4D3vCONA _PzMEBTNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference"/>
+      </nodes>
+      <nodes xmi:id="_PzMD_zNsEeSG0o4D3vCONA" name="" incoming="_PzMEBTNsEeSG0o4D3vCONA">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+        <attributes xmi:id="_PzMEADNsEeSG0o4D3vCONA" value="&quot;pragma&quot;">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_PzMEATNsEeSG0o4D3vCONA" name="">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_PzMEAjNsEeSG0o4D3vCONA" source="_PzMD-TNsEeSG0o4D3vCONA" target="_PzMD-jNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddObject/obj"/>
+      </edges>
+      <edges xmi:id="_PzMEAzNsEeSG0o4D3vCONA" source="_PzMD_jNsEeSG0o4D3vCONA" target="_PzMD-DNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/src"/>
+      </edges>
+      <edges xmi:id="_PzMEBDNsEeSG0o4D3vCONA" source="_PzMD_jNsEeSG0o4D3vCONA" target="_PzMD-jNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/tgt"/>
+      </edges>
+      <edges xmi:id="_PzMEBTNsEeSG0o4D3vCONA" source="_PzMD_jNsEeSG0o4D3vCONA" target="_PzMD_zNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/type"/>
+      </edges>
+      <edges xmi:id="_PzMEBjNsEeSG0o4D3vCONA" source="_PzMD-DNsEeSG0o4D3vCONA" target="_PzMD-jNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//SolverParamsType/pragma"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_PzMEBzNsEeSG0o4D3vCONA" name="Rhs">
+      <nodes xmi:id="_PzMECDNsEeSG0o4D3vCONA" name="B.Selected" incoming="_PzMEGDNsEeSG0o4D3vCONA" outgoing="_PzMEGzNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//SolverParamsType"/>
+      </nodes>
+      <nodes xmi:id="_PzMECTNsEeSG0o4D3vCONA" name="" incoming="_PzMEHDNsEeSG0o4D3vCONA" outgoing="_PzMEFzNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddObject"/>
+      </nodes>
+      <nodes xmi:id="_PzMECjNsEeSG0o4D3vCONA" name="B.New" incoming="_PzMEFzNsEeSG0o4D3vCONA _PzMEGTNsEeSG0o4D3vCONA _PzMEGzNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//PragmaType"/>
+      </nodes>
+      <nodes xmi:id="_PzMECzNsEeSG0o4D3vCONA" name="" incoming="_PzMEHTNsEeSG0o4D3vCONA" outgoing="_PzMEGDNsEeSG0o4D3vCONA _PzMEGTNsEeSG0o4D3vCONA _PzMEGjNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference"/>
+      </nodes>
+      <nodes xmi:id="_PzMEDDNsEeSG0o4D3vCONA" name="" incoming="_PzMEGjNsEeSG0o4D3vCONA">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+      </nodes>
+      <nodes xmi:id="_PzMEDTNsEeSG0o4D3vCONA" incoming="_PzMEHjNsEeSG0o4D3vCONA" outgoing="_PzMEHDNsEeSG0o4D3vCONA _PzMEHTNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet"/>
+        <attributes xmi:id="_PzMEDjNsEeSG0o4D3vCONA" value="&quot;CREATE_PragmaType_IN_SolverParamsType_(pragma)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/name"/>
+        </attributes>
+        <attributes xmi:id="_PzMEDzNsEeSG0o4D3vCONA" value="&quot;Creates one PragmaType in SolverParamsType&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/description"/>
+        </attributes>
+        <attributes xmi:id="_PzMEEDNsEeSG0o4D3vCONA" value="&quot;CREATE_PragmaType_IN_SolverParamsType_(pragma)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/editRName"/>
+        </attributes>
+        <attributes xmi:id="_PzMEETNsEeSG0o4D3vCONA" value="&quot;RR: CREATE_PragmaType_IN_SolverParamsType_(pragma)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/recognitionRName"/>
+        </attributes>
+        <attributes xmi:id="_PzMEEjNsEeSG0o4D3vCONA" value="1">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/priority"/>
+        </attributes>
+        <attributes xmi:id="_PzMEEzNsEeSG0o4D3vCONA" value="0">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfACs"/>
+        </attributes>
+        <attributes xmi:id="_PzMEFDNsEeSG0o4D3vCONA" value="5">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfParams"/>
+        </attributes>
+        <attributes xmi:id="_PzMEFTNsEeSG0o4D3vCONA" value="4">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/refinementLevel"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_PzMEFjNsEeSG0o4D3vCONA" name="" outgoing="_PzMEHjNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_PzMEFzNsEeSG0o4D3vCONA" source="_PzMECTNsEeSG0o4D3vCONA" target="_PzMECjNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddObject/obj"/>
+      </edges>
+      <edges xmi:id="_PzMEGDNsEeSG0o4D3vCONA" source="_PzMECzNsEeSG0o4D3vCONA" target="_PzMECDNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/src"/>
+      </edges>
+      <edges xmi:id="_PzMEGTNsEeSG0o4D3vCONA" source="_PzMECzNsEeSG0o4D3vCONA" target="_PzMECjNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/tgt"/>
+      </edges>
+      <edges xmi:id="_PzMEGjNsEeSG0o4D3vCONA" source="_PzMECzNsEeSG0o4D3vCONA" target="_PzMEDDNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/type"/>
+      </edges>
+      <edges xmi:id="_PzMEGzNsEeSG0o4D3vCONA" source="_PzMECDNsEeSG0o4D3vCONA" target="_PzMECjNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//SolverParamsType/pragma"/>
+      </edges>
+      <edges xmi:id="_PzMEHDNsEeSG0o4D3vCONA" source="_PzMEDTNsEeSG0o4D3vCONA" target="_PzMECTNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_PzMEHTNsEeSG0o4D3vCONA" source="_PzMEDTNsEeSG0o4D3vCONA" target="_PzMECzNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_PzMEHjNsEeSG0o4D3vCONA" source="_PzMEFjNsEeSG0o4D3vCONA" target="_PzMEDTNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference/changeSets"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_PzMEHzNsEeSG0o4D3vCONA" origin="_PzMD-DNsEeSG0o4D3vCONA" image="_PzMECDNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_PzMEIDNsEeSG0o4D3vCONA" origin="_PzMD-TNsEeSG0o4D3vCONA" image="_PzMECTNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_PzMEITNsEeSG0o4D3vCONA" origin="_PzMD-jNsEeSG0o4D3vCONA" image="_PzMECjNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_PzMEIjNsEeSG0o4D3vCONA" origin="_PzMD_jNsEeSG0o4D3vCONA" image="_PzMECzNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_PzMEIzNsEeSG0o4D3vCONA" origin="_PzMD_zNsEeSG0o4D3vCONA" image="_PzMEDDNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_PzMEJDNsEeSG0o4D3vCONA" origin="_PzMEATNsEeSG0o4D3vCONA" image="_PzMEFjNsEeSG0o4D3vCONA"/>
+  </units>
+</henshin:Module>

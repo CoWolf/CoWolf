@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_Uw230DNsEeSG0o4D3vCONA" name="RR: MOVE_HistogramBinType_FROM_OutputDistributionType_(histogramBin)_TO_OutputDistributionType_(overflowBin)" description="Recognize: MOVEs HistogramBinType from OutputDistributionType(Reference:histogramBin) to OutputDistributionType(Reference:overflowBin">
+  <imports href="http://www.sidiff.org/difference/symmetric/1.0#/"/>
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_Uw230TNsEeSG0o4D3vCONA" name="rr:moveHistogramBinType_FROM_OutputDistributionType_histogramBin_TO_OutputDistributionType_OutputDistributionType" description="Recognize: Moves HistogramBinType from OutputDistributionType(Reference:histogramBin) toOutputDistributionType(Reference:OutputDistributionType)">
+    <parameters xmi:id="_Uw230jNsEeSG0o4D3vCONA" name="Selected"/>
+    <parameters xmi:id="_Uw230zNsEeSG0o4D3vCONA" name="OldSource"/>
+    <parameters xmi:id="_Uw231DNsEeSG0o4D3vCONA" name="NewSource"/>
+    <lhs xmi:id="_Uw231TNsEeSG0o4D3vCONA" name="Lhs">
+      <nodes xmi:id="_Uw231jNsEeSG0o4D3vCONA" name="B.Selected" incoming="_Uw234zNsEeSG0o4D3vCONA _Uw236TNsEeSG0o4D3vCONA _Uw236zNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//HistogramBinType"/>
+      </nodes>
+      <nodes xmi:id="_Uw231zNsEeSG0o4D3vCONA" name="A.Selected" incoming="_Uw234jNsEeSG0o4D3vCONA _Uw235TNsEeSG0o4D3vCONA _Uw235zNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//HistogramBinType"/>
+      </nodes>
+      <nodes xmi:id="_Uw232DNsEeSG0o4D3vCONA" name="" outgoing="_Uw234jNsEeSG0o4D3vCONA _Uw234zNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence"/>
+      </nodes>
+      <nodes xmi:id="_Uw232TNsEeSG0o4D3vCONA" name="A.OldSource" incoming="_Uw235DNsEeSG0o4D3vCONA" outgoing="_Uw235zNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//OutputDistributionType"/>
+      </nodes>
+      <nodes xmi:id="_Uw232jNsEeSG0o4D3vCONA" name="B.NewSource" incoming="_Uw236DNsEeSG0o4D3vCONA" outgoing="_Uw236zNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//OutputDistributionType"/>
+      </nodes>
+      <nodes xmi:id="_Uw232zNsEeSG0o4D3vCONA" name="" outgoing="_Uw235DNsEeSG0o4D3vCONA _Uw235TNsEeSG0o4D3vCONA _Uw235jNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference"/>
+      </nodes>
+      <nodes xmi:id="_Uw233DNsEeSG0o4D3vCONA" name="" incoming="_Uw235jNsEeSG0o4D3vCONA">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+        <attributes xmi:id="_Uw233TNsEeSG0o4D3vCONA" value="&quot;histogramBin&quot;">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_Uw233jNsEeSG0o4D3vCONA" name="" outgoing="_Uw236DNsEeSG0o4D3vCONA _Uw236TNsEeSG0o4D3vCONA _Uw236jNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference"/>
+      </nodes>
+      <nodes xmi:id="_Uw233zNsEeSG0o4D3vCONA" name="" incoming="_Uw236jNsEeSG0o4D3vCONA">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+        <attributes xmi:id="_Uw234DNsEeSG0o4D3vCONA" value="&quot;overflowBin&quot;">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_Uw234TNsEeSG0o4D3vCONA" name="">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_Uw234jNsEeSG0o4D3vCONA" source="_Uw232DNsEeSG0o4D3vCONA" target="_Uw231zNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objA"/>
+      </edges>
+      <edges xmi:id="_Uw234zNsEeSG0o4D3vCONA" source="_Uw232DNsEeSG0o4D3vCONA" target="_Uw231jNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objB"/>
+      </edges>
+      <edges xmi:id="_Uw235DNsEeSG0o4D3vCONA" source="_Uw232zNsEeSG0o4D3vCONA" target="_Uw232TNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/src"/>
+      </edges>
+      <edges xmi:id="_Uw235TNsEeSG0o4D3vCONA" source="_Uw232zNsEeSG0o4D3vCONA" target="_Uw231zNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/tgt"/>
+      </edges>
+      <edges xmi:id="_Uw235jNsEeSG0o4D3vCONA" source="_Uw232zNsEeSG0o4D3vCONA" target="_Uw233DNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/type"/>
+      </edges>
+      <edges xmi:id="_Uw235zNsEeSG0o4D3vCONA" source="_Uw232TNsEeSG0o4D3vCONA" target="_Uw231zNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//OutputDistributionType/histogramBin"/>
+      </edges>
+      <edges xmi:id="_Uw236DNsEeSG0o4D3vCONA" source="_Uw233jNsEeSG0o4D3vCONA" target="_Uw232jNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/src"/>
+      </edges>
+      <edges xmi:id="_Uw236TNsEeSG0o4D3vCONA" source="_Uw233jNsEeSG0o4D3vCONA" target="_Uw231jNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/tgt"/>
+      </edges>
+      <edges xmi:id="_Uw236jNsEeSG0o4D3vCONA" source="_Uw233jNsEeSG0o4D3vCONA" target="_Uw233zNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/type"/>
+      </edges>
+      <edges xmi:id="_Uw236zNsEeSG0o4D3vCONA" source="_Uw232jNsEeSG0o4D3vCONA" target="_Uw231jNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//OutputDistributionType/overflowBin"/>
+      </edges>
+      <formula xsi:type="henshin:Not" xmi:id="_Uw237DNsEeSG0o4D3vCONA">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_Uw237TNsEeSG0o4D3vCONA">
+          <conclusion xmi:id="_Uw237jNsEeSG0o4D3vCONA" name="doNotExceedUpperBound">
+            <nodes xmi:id="_Uw237zNsEeSG0o4D3vCONA" incoming="_Uw238TNsEeSG0o4D3vCONA">
+              <type href="http://LQN/1.0#//HistogramBinType"/>
+            </nodes>
+            <nodes xmi:id="_Uw238DNsEeSG0o4D3vCONA" name="B.NewSource" outgoing="_Uw238TNsEeSG0o4D3vCONA">
+              <type href="http://LQN/1.0#//OutputDistributionType"/>
+            </nodes>
+            <edges xmi:id="_Uw238TNsEeSG0o4D3vCONA" source="_Uw238DNsEeSG0o4D3vCONA" target="_Uw237zNsEeSG0o4D3vCONA">
+              <type href="http://LQN/1.0#//OutputDistributionType/overflowBin"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_Uw238jNsEeSG0o4D3vCONA" origin="_Uw232jNsEeSG0o4D3vCONA" image="_Uw238DNsEeSG0o4D3vCONA"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_Uw238zNsEeSG0o4D3vCONA" name="Rhs">
+      <nodes xmi:id="_Uw239DNsEeSG0o4D3vCONA" name="B.Selected" incoming="_Uw24CDNsEeSG0o4D3vCONA _Uw24DjNsEeSG0o4D3vCONA _Uw24EDNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//HistogramBinType"/>
+      </nodes>
+      <nodes xmi:id="_Uw239TNsEeSG0o4D3vCONA" name="A.Selected" incoming="_Uw24BzNsEeSG0o4D3vCONA _Uw24CjNsEeSG0o4D3vCONA _Uw24DDNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//HistogramBinType"/>
+      </nodes>
+      <nodes xmi:id="_Uw239jNsEeSG0o4D3vCONA" name="" outgoing="_Uw24BzNsEeSG0o4D3vCONA _Uw24CDNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence"/>
+      </nodes>
+      <nodes xmi:id="_Uw239zNsEeSG0o4D3vCONA" name="A.OldSource" incoming="_Uw24CTNsEeSG0o4D3vCONA" outgoing="_Uw24DDNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//OutputDistributionType"/>
+      </nodes>
+      <nodes xmi:id="_Uw23-DNsEeSG0o4D3vCONA" name="B.NewSource" incoming="_Uw24DTNsEeSG0o4D3vCONA" outgoing="_Uw24EDNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//OutputDistributionType"/>
+      </nodes>
+      <nodes xmi:id="_Uw23-TNsEeSG0o4D3vCONA" name="" incoming="_Uw24ETNsEeSG0o4D3vCONA" outgoing="_Uw24CTNsEeSG0o4D3vCONA _Uw24CjNsEeSG0o4D3vCONA _Uw24CzNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference"/>
+      </nodes>
+      <nodes xmi:id="_Uw23-jNsEeSG0o4D3vCONA" name="" incoming="_Uw24CzNsEeSG0o4D3vCONA">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+      </nodes>
+      <nodes xmi:id="_Uw23-zNsEeSG0o4D3vCONA" name="" incoming="_Uw24EjNsEeSG0o4D3vCONA" outgoing="_Uw24DTNsEeSG0o4D3vCONA _Uw24DjNsEeSG0o4D3vCONA _Uw24DzNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference"/>
+      </nodes>
+      <nodes xmi:id="_Uw23_DNsEeSG0o4D3vCONA" name="" incoming="_Uw24DzNsEeSG0o4D3vCONA">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+      </nodes>
+      <nodes xmi:id="_Uw23_TNsEeSG0o4D3vCONA" incoming="_Uw24EzNsEeSG0o4D3vCONA" outgoing="_Uw24ETNsEeSG0o4D3vCONA _Uw24EjNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet"/>
+        <attributes xmi:id="_Uw23_jNsEeSG0o4D3vCONA" value="&quot;MOVE_HistogramBinType_FROM_OutputDistributionType_(histogramBin)_TO_OutputDistributionType_(overflowBin)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/name"/>
+        </attributes>
+        <attributes xmi:id="_Uw23_zNsEeSG0o4D3vCONA" value="&quot;MOVEs HistogramBinType from OutputDistributionType(Reference:histogramBin) to OutputDistributionType(Reference:overflowBin&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/description"/>
+        </attributes>
+        <attributes xmi:id="_Uw24ADNsEeSG0o4D3vCONA" value="&quot;MOVE_HistogramBinType_FROM_OutputDistributionType_(histogramBin)_TO_OutputDistributionType_(overflowBin)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/editRName"/>
+        </attributes>
+        <attributes xmi:id="_Uw24ATNsEeSG0o4D3vCONA" value="&quot;RR: MOVE_HistogramBinType_FROM_OutputDistributionType_(histogramBin)_TO_OutputDistributionType_(overflowBin)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/recognitionRName"/>
+        </attributes>
+        <attributes xmi:id="_Uw24AjNsEeSG0o4D3vCONA" value="1">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/priority"/>
+        </attributes>
+        <attributes xmi:id="_Uw24AzNsEeSG0o4D3vCONA" value="1">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfACs"/>
+        </attributes>
+        <attributes xmi:id="_Uw24BDNsEeSG0o4D3vCONA" value="3">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfParams"/>
+        </attributes>
+        <attributes xmi:id="_Uw24BTNsEeSG0o4D3vCONA" value="6">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/refinementLevel"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_Uw24BjNsEeSG0o4D3vCONA" name="" outgoing="_Uw24EzNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_Uw24BzNsEeSG0o4D3vCONA" source="_Uw239jNsEeSG0o4D3vCONA" target="_Uw239TNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objA"/>
+      </edges>
+      <edges xmi:id="_Uw24CDNsEeSG0o4D3vCONA" source="_Uw239jNsEeSG0o4D3vCONA" target="_Uw239DNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objB"/>
+      </edges>
+      <edges xmi:id="_Uw24CTNsEeSG0o4D3vCONA" source="_Uw23-TNsEeSG0o4D3vCONA" target="_Uw239zNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/src"/>
+      </edges>
+      <edges xmi:id="_Uw24CjNsEeSG0o4D3vCONA" source="_Uw23-TNsEeSG0o4D3vCONA" target="_Uw239TNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/tgt"/>
+      </edges>
+      <edges xmi:id="_Uw24CzNsEeSG0o4D3vCONA" source="_Uw23-TNsEeSG0o4D3vCONA" target="_Uw23-jNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/type"/>
+      </edges>
+      <edges xmi:id="_Uw24DDNsEeSG0o4D3vCONA" source="_Uw239zNsEeSG0o4D3vCONA" target="_Uw239TNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//OutputDistributionType/histogramBin"/>
+      </edges>
+      <edges xmi:id="_Uw24DTNsEeSG0o4D3vCONA" source="_Uw23-zNsEeSG0o4D3vCONA" target="_Uw23-DNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/src"/>
+      </edges>
+      <edges xmi:id="_Uw24DjNsEeSG0o4D3vCONA" source="_Uw23-zNsEeSG0o4D3vCONA" target="_Uw239DNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/tgt"/>
+      </edges>
+      <edges xmi:id="_Uw24DzNsEeSG0o4D3vCONA" source="_Uw23-zNsEeSG0o4D3vCONA" target="_Uw23_DNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/type"/>
+      </edges>
+      <edges xmi:id="_Uw24EDNsEeSG0o4D3vCONA" source="_Uw23-DNsEeSG0o4D3vCONA" target="_Uw239DNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//OutputDistributionType/overflowBin"/>
+      </edges>
+      <edges xmi:id="_Uw24ETNsEeSG0o4D3vCONA" source="_Uw23_TNsEeSG0o4D3vCONA" target="_Uw23-TNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_Uw24EjNsEeSG0o4D3vCONA" source="_Uw23_TNsEeSG0o4D3vCONA" target="_Uw23-zNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_Uw24EzNsEeSG0o4D3vCONA" source="_Uw24BjNsEeSG0o4D3vCONA" target="_Uw23_TNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference/changeSets"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_Uw24FDNsEeSG0o4D3vCONA" origin="_Uw231jNsEeSG0o4D3vCONA" image="_Uw239DNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_Uw24FTNsEeSG0o4D3vCONA" origin="_Uw231zNsEeSG0o4D3vCONA" image="_Uw239TNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_Uw24FjNsEeSG0o4D3vCONA" origin="_Uw232DNsEeSG0o4D3vCONA" image="_Uw239jNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_Uw24FzNsEeSG0o4D3vCONA" origin="_Uw232TNsEeSG0o4D3vCONA" image="_Uw239zNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_Uw24GDNsEeSG0o4D3vCONA" origin="_Uw232jNsEeSG0o4D3vCONA" image="_Uw23-DNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_Uw24GTNsEeSG0o4D3vCONA" origin="_Uw232zNsEeSG0o4D3vCONA" image="_Uw23-TNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_Uw24GjNsEeSG0o4D3vCONA" origin="_Uw233DNsEeSG0o4D3vCONA" image="_Uw23-jNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_Uw24GzNsEeSG0o4D3vCONA" origin="_Uw233jNsEeSG0o4D3vCONA" image="_Uw23-zNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_Uw24HDNsEeSG0o4D3vCONA" origin="_Uw233zNsEeSG0o4D3vCONA" image="_Uw23_DNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_Uw24HTNsEeSG0o4D3vCONA" origin="_Uw234TNsEeSG0o4D3vCONA" image="_Uw24BjNsEeSG0o4D3vCONA"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_SAXtMDNsEeSG0o4D3vCONA" name="RR: DELETE_ResultGeneralType_IN_SolverParamsType_(resultGeneral)" description="Recognize: Deletes one ResultGeneralType in SolverParamsType">
+  <imports href="http://www.sidiff.org/difference/symmetric/1.0#/"/>
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_SAXtMTNsEeSG0o4D3vCONA" name="rr:deleteResultGeneralType_IN_SolverParamsType" description="Recognize: deletes one ResultGeneralType in the context: SolverParamsType">
+    <parameters xmi:id="_SAXtMjNsEeSG0o4D3vCONA" name="Selected"/>
+    <parameters xmi:id="_SAXtMzNsEeSG0o4D3vCONA" name="ToBeDeleted"/>
+    <lhs xmi:id="_SAXtNDNsEeSG0o4D3vCONA" name="Lhs">
+      <nodes xmi:id="_SAXtNTNsEeSG0o4D3vCONA" name="A.Selected" incoming="_SAXtPTNsEeSG0o4D3vCONA" outgoing="_SAXtQDNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//SolverParamsType"/>
+      </nodes>
+      <nodes xmi:id="_SAXtNjNsEeSG0o4D3vCONA" name="" outgoing="_SAXtPDNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveObject"/>
+      </nodes>
+      <nodes xmi:id="_SAXtNzNsEeSG0o4D3vCONA" name="A.ToBeDeleted" incoming="_SAXtPDNsEeSG0o4D3vCONA _SAXtPjNsEeSG0o4D3vCONA _SAXtQDNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//ResultGeneralType"/>
+      </nodes>
+      <nodes xmi:id="_SAXtODNsEeSG0o4D3vCONA" name="" outgoing="_SAXtPTNsEeSG0o4D3vCONA _SAXtPjNsEeSG0o4D3vCONA _SAXtPzNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference"/>
+      </nodes>
+      <nodes xmi:id="_SAXtOTNsEeSG0o4D3vCONA" name="" incoming="_SAXtPzNsEeSG0o4D3vCONA">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+        <attributes xmi:id="_SAXtOjNsEeSG0o4D3vCONA" value="&quot;resultGeneral&quot;">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_SAXtOzNsEeSG0o4D3vCONA" name="">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_SAXtPDNsEeSG0o4D3vCONA" source="_SAXtNjNsEeSG0o4D3vCONA" target="_SAXtNzNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveObject/obj"/>
+      </edges>
+      <edges xmi:id="_SAXtPTNsEeSG0o4D3vCONA" source="_SAXtODNsEeSG0o4D3vCONA" target="_SAXtNTNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/src"/>
+      </edges>
+      <edges xmi:id="_SAXtPjNsEeSG0o4D3vCONA" source="_SAXtODNsEeSG0o4D3vCONA" target="_SAXtNzNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/tgt"/>
+      </edges>
+      <edges xmi:id="_SAXtPzNsEeSG0o4D3vCONA" source="_SAXtODNsEeSG0o4D3vCONA" target="_SAXtOTNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/type"/>
+      </edges>
+      <edges xmi:id="_SAXtQDNsEeSG0o4D3vCONA" source="_SAXtNTNsEeSG0o4D3vCONA" target="_SAXtNzNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//SolverParamsType/resultGeneral"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_SAXtQTNsEeSG0o4D3vCONA" name="Rhs">
+      <nodes xmi:id="_SAXtQjNsEeSG0o4D3vCONA" name="A.Selected" incoming="_SAXtUjNsEeSG0o4D3vCONA" outgoing="_SAXtVTNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//SolverParamsType"/>
+      </nodes>
+      <nodes xmi:id="_SAXtQzNsEeSG0o4D3vCONA" name="" incoming="_SAXtVjNsEeSG0o4D3vCONA" outgoing="_SAXtUTNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveObject"/>
+      </nodes>
+      <nodes xmi:id="_SAXtRDNsEeSG0o4D3vCONA" name="A.ToBeDeleted" incoming="_SAXtUTNsEeSG0o4D3vCONA _SAXtUzNsEeSG0o4D3vCONA _SAXtVTNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//ResultGeneralType"/>
+      </nodes>
+      <nodes xmi:id="_SAXtRTNsEeSG0o4D3vCONA" name="" incoming="_SAXtVzNsEeSG0o4D3vCONA" outgoing="_SAXtUjNsEeSG0o4D3vCONA _SAXtUzNsEeSG0o4D3vCONA _SAXtVDNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference"/>
+      </nodes>
+      <nodes xmi:id="_SAXtRjNsEeSG0o4D3vCONA" name="" incoming="_SAXtVDNsEeSG0o4D3vCONA">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+      </nodes>
+      <nodes xmi:id="_SAXtRzNsEeSG0o4D3vCONA" incoming="_SAXtWDNsEeSG0o4D3vCONA" outgoing="_SAXtVjNsEeSG0o4D3vCONA _SAXtVzNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet"/>
+        <attributes xmi:id="_SAXtSDNsEeSG0o4D3vCONA" value="&quot;DELETE_ResultGeneralType_IN_SolverParamsType_(resultGeneral)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/name"/>
+        </attributes>
+        <attributes xmi:id="_SAXtSTNsEeSG0o4D3vCONA" value="&quot;Deletes one ResultGeneralType in SolverParamsType&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/description"/>
+        </attributes>
+        <attributes xmi:id="_SAXtSjNsEeSG0o4D3vCONA" value="&quot;DELETE_ResultGeneralType_IN_SolverParamsType_(resultGeneral)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/editRName"/>
+        </attributes>
+        <attributes xmi:id="_SAXtSzNsEeSG0o4D3vCONA" value="&quot;RR: DELETE_ResultGeneralType_IN_SolverParamsType_(resultGeneral)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/recognitionRName"/>
+        </attributes>
+        <attributes xmi:id="_SAXtTDNsEeSG0o4D3vCONA" value="1">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/priority"/>
+        </attributes>
+        <attributes xmi:id="_SAXtTTNsEeSG0o4D3vCONA" value="0">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfACs"/>
+        </attributes>
+        <attributes xmi:id="_SAXtTjNsEeSG0o4D3vCONA" value="2">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfParams"/>
+        </attributes>
+        <attributes xmi:id="_SAXtTzNsEeSG0o4D3vCONA" value="4">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/refinementLevel"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_SAXtUDNsEeSG0o4D3vCONA" name="" outgoing="_SAXtWDNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_SAXtUTNsEeSG0o4D3vCONA" source="_SAXtQzNsEeSG0o4D3vCONA" target="_SAXtRDNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveObject/obj"/>
+      </edges>
+      <edges xmi:id="_SAXtUjNsEeSG0o4D3vCONA" source="_SAXtRTNsEeSG0o4D3vCONA" target="_SAXtQjNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/src"/>
+      </edges>
+      <edges xmi:id="_SAXtUzNsEeSG0o4D3vCONA" source="_SAXtRTNsEeSG0o4D3vCONA" target="_SAXtRDNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/tgt"/>
+      </edges>
+      <edges xmi:id="_SAXtVDNsEeSG0o4D3vCONA" source="_SAXtRTNsEeSG0o4D3vCONA" target="_SAXtRjNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/type"/>
+      </edges>
+      <edges xmi:id="_SAXtVTNsEeSG0o4D3vCONA" source="_SAXtQjNsEeSG0o4D3vCONA" target="_SAXtRDNsEeSG0o4D3vCONA">
+        <type href="http://LQN/1.0#//SolverParamsType/resultGeneral"/>
+      </edges>
+      <edges xmi:id="_SAXtVjNsEeSG0o4D3vCONA" source="_SAXtRzNsEeSG0o4D3vCONA" target="_SAXtQzNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_SAXtVzNsEeSG0o4D3vCONA" source="_SAXtRzNsEeSG0o4D3vCONA" target="_SAXtRTNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_SAXtWDNsEeSG0o4D3vCONA" source="_SAXtUDNsEeSG0o4D3vCONA" target="_SAXtRzNsEeSG0o4D3vCONA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference/changeSets"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_SAXtWTNsEeSG0o4D3vCONA" origin="_SAXtNTNsEeSG0o4D3vCONA" image="_SAXtQjNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_SAXtWjNsEeSG0o4D3vCONA" origin="_SAXtNjNsEeSG0o4D3vCONA" image="_SAXtQzNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_SAXtWzNsEeSG0o4D3vCONA" origin="_SAXtNzNsEeSG0o4D3vCONA" image="_SAXtRDNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_SAXtXDNsEeSG0o4D3vCONA" origin="_SAXtODNsEeSG0o4D3vCONA" image="_SAXtRTNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_SAXtXTNsEeSG0o4D3vCONA" origin="_SAXtOTNsEeSG0o4D3vCONA" image="_SAXtRjNsEeSG0o4D3vCONA"/>
+    <mappings xmi:id="_SAXtXjNsEeSG0o4D3vCONA" origin="_SAXtOzNsEeSG0o4D3vCONA" image="_SAXtUDNsEeSG0o4D3vCONA"/>
+  </units>
+</henshin:Module>
