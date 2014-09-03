@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mFk1_zKFEeS-2ouOJu-Wmw" name="CREATE_HistogramBinType_IN_OutputDistributionType_(histogramBin)" description="Creates one HistogramBinType in OutputDistributionType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mFk2ADKFEeS-2ouOJu-Wmw" name="createHistogramBinType_IN_OutputDistributionType" description="creates one HistogramBinType in the context: OutputDistributionType">
+    <parameters xmi:id="_mFk2ATKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mFk2AjKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_mFk2AzKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameters xmi:id="_mFk2BDKFEeS-2ouOJu-Wmw" name="Begin"/>
+    <parameters xmi:id="_mFk2BTKFEeS-2ouOJu-Wmw" name="Conf95"/>
+    <parameters xmi:id="_mFk2BjKFEeS-2ouOJu-Wmw" name="Conf99"/>
+    <parameters xmi:id="_mFk2BzKFEeS-2ouOJu-Wmw" name="End"/>
+    <parameters xmi:id="_mFk2CDKFEeS-2ouOJu-Wmw" name="Prob"/>
+    <lhs xmi:id="_mFk2CTKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mFk2CjKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//OutputDistributionType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mFk2CzKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mFk2DDKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mFk2FDKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//OutputDistributionType"/>
+      </nodes>
+      <nodes xmi:id="_mFk2DTKFEeS-2ouOJu-Wmw" name="New" incoming="_mFk2FDKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//HistogramBinType"/>
+        <attributes xmi:id="_mFk2DjKFEeS-2ouOJu-Wmw" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_mFk2DzKFEeS-2ouOJu-Wmw" value="Begin">
+          <type href="http://LQN/1.0#//HistogramBinType/begin"/>
+        </attributes>
+        <attributes xmi:id="_mFk2EDKFEeS-2ouOJu-Wmw" value="Conf95">
+          <type href="http://LQN/1.0#//HistogramBinType/conf95"/>
+        </attributes>
+        <attributes xmi:id="_mFk2ETKFEeS-2ouOJu-Wmw" value="Conf99">
+          <type href="http://LQN/1.0#//HistogramBinType/conf99"/>
+        </attributes>
+        <attributes xmi:id="_mFk2EjKFEeS-2ouOJu-Wmw" value="End">
+          <type href="http://LQN/1.0#//HistogramBinType/end"/>
+        </attributes>
+        <attributes xmi:id="_mFk2EzKFEeS-2ouOJu-Wmw" value="Prob">
+          <type href="http://LQN/1.0#//HistogramBinType/prob"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_mFk2FDKFEeS-2ouOJu-Wmw" source="_mFk2DDKFEeS-2ouOJu-Wmw" target="_mFk2DTKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//OutputDistributionType/histogramBin"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_mFk2FTKFEeS-2ouOJu-Wmw" origin="_mFk2CjKFEeS-2ouOJu-Wmw" image="_mFk2DDKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mFk2FjKFEeS-2ouOJu-Wmw" name="mainUnit" description="Creates one HistogramBinType depending on available contexts in model instance" subUnits="_mFk2ADKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mFk2FzKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_mFk2GDKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mFk2GTKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameters xmi:id="_mFk2GjKFEeS-2ouOJu-Wmw" name="Begin"/>
+    <parameters xmi:id="_mFk2GzKFEeS-2ouOJu-Wmw" name="Conf95"/>
+    <parameters xmi:id="_mFk2HDKFEeS-2ouOJu-Wmw" name="Conf99"/>
+    <parameters xmi:id="_mFk2HTKFEeS-2ouOJu-Wmw" name="End"/>
+    <parameters xmi:id="_mFk2HjKFEeS-2ouOJu-Wmw" name="Prob"/>
+    <parameterMappings xmi:id="_mFk2HzKFEeS-2ouOJu-Wmw" source="_mFk2GDKFEeS-2ouOJu-Wmw" target="_mFk2ATKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mFk2IDKFEeS-2ouOJu-Wmw" source="_mFk2AjKFEeS-2ouOJu-Wmw" target="_mFk2FzKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mFk2ITKFEeS-2ouOJu-Wmw" source="_mFk2GTKFEeS-2ouOJu-Wmw" target="_mFk2AzKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mFk2IjKFEeS-2ouOJu-Wmw" source="_mFk2GjKFEeS-2ouOJu-Wmw" target="_mFk2BDKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mFk2IzKFEeS-2ouOJu-Wmw" source="_mFk2GzKFEeS-2ouOJu-Wmw" target="_mFk2BTKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mFk2JDKFEeS-2ouOJu-Wmw" source="_mFk2HDKFEeS-2ouOJu-Wmw" target="_mFk2BjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mFk2JTKFEeS-2ouOJu-Wmw" source="_mFk2HTKFEeS-2ouOJu-Wmw" target="_mFk2BzKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mFk2JjKFEeS-2ouOJu-Wmw" source="_mFk2HjKFEeS-2ouOJu-Wmw" target="_mFk2CDKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

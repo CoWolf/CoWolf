@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mFYo5jKFEeS-2ouOJu-Wmw" name="SET_FirstPlotType_Variable" description="Sets FirstPlotType Variable">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mFYo5zKFEeS-2ouOJu-Wmw" name="setFirstPlotTypeVariable" description="Sets the EAttribute variable">
+    <parameters xmi:id="_mFYo6DKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mFYo6TKFEeS-2ouOJu-Wmw" name="Variable"/>
+    <lhs xmi:id="_mFYo6jKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mFYo6zKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//FirstPlotType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mFYo7DKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mFYo7TKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//FirstPlotType"/>
+        <attributes xmi:id="_mFYo7jKFEeS-2ouOJu-Wmw" value="Variable">
+          <type href="http://LQN/1.0#//FirstPlotType/variable"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_mFYo7zKFEeS-2ouOJu-Wmw" origin="_mFYo6zKFEeS-2ouOJu-Wmw" image="_mFYo7TKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mFYo8DKFEeS-2ouOJu-Wmw" name="mainUnit" subUnits="_mFYo5zKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mFYo8TKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mFYo8jKFEeS-2ouOJu-Wmw" name="Variable"/>
+    <parameterMappings xmi:id="_mFYo8zKFEeS-2ouOJu-Wmw" source="_mFYo8TKFEeS-2ouOJu-Wmw" target="_mFYo6DKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mFYo9DKFEeS-2ouOJu-Wmw" source="_mFYo8jKFEeS-2ouOJu-Wmw" target="_mFYo6TKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

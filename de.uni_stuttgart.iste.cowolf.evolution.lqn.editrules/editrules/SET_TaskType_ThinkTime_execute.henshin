@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mbKrYDKFEeS-2ouOJu-Wmw" name="SET_TaskType_ThinkTime" description="Sets TaskType ThinkTime">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mbKrYTKFEeS-2ouOJu-Wmw" name="setTaskTypeThinkTime" description="Sets the EAttribute thinkTime">
+    <parameters xmi:id="_mbKrYjKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mbKrYzKFEeS-2ouOJu-Wmw" name="ThinkTime"/>
+    <lhs xmi:id="_mbKrZDKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mbKrZTKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//TaskType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mbKrZjKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mbKrZzKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//TaskType"/>
+        <attributes xmi:id="_mbKraDKFEeS-2ouOJu-Wmw" value="ThinkTime">
+          <type href="http://LQN/1.0#//TaskType/thinkTime"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_mbKraTKFEeS-2ouOJu-Wmw" origin="_mbKrZTKFEeS-2ouOJu-Wmw" image="_mbKrZzKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mbKrajKFEeS-2ouOJu-Wmw" name="mainUnit" subUnits="_mbKrYTKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mbKrazKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mbKrbDKFEeS-2ouOJu-Wmw" name="ThinkTime"/>
+    <parameterMappings xmi:id="_mbKrbTKFEeS-2ouOJu-Wmw" source="_mbKrazKFEeS-2ouOJu-Wmw" target="_mbKrYjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mbKrbjKFEeS-2ouOJu-Wmw" source="_mbKrbDKFEeS-2ouOJu-Wmw" target="_mbKrYzKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

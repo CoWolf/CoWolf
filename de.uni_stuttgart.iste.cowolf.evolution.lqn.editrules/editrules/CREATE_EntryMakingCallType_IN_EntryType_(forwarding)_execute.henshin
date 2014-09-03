@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mEepsDKFEeS-2ouOJu-Wmw" name="CREATE_EntryMakingCallType_IN_EntryType_(forwarding)" description="Creates one EntryMakingCallType in EntryType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mEepsTKFEeS-2ouOJu-Wmw" name="createEntryMakingCallType_IN_EntryType" description="creates one EntryMakingCallType in the context: EntryType">
+    <parameters xmi:id="_mEepsjKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mEepszKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_mEeptDKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameters xmi:id="_mEeptTKFEeS-2ouOJu-Wmw" name="Dest"/>
+    <parameters xmi:id="_mEeptjKFEeS-2ouOJu-Wmw" name="Fanin"/>
+    <parameters xmi:id="_mEeptzKFEeS-2ouOJu-Wmw" name="Fanout"/>
+    <parameters xmi:id="_mEepuDKFEeS-2ouOJu-Wmw" name="Prob"/>
+    <lhs xmi:id="_mEepuTKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mEepujKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mEepuzKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mEepvDKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mEepwzKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+      <nodes xmi:id="_mEepvTKFEeS-2ouOJu-Wmw" name="New" incoming="_mEepwzKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//EntryMakingCallType"/>
+        <attributes xmi:id="_mEepvjKFEeS-2ouOJu-Wmw" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_mEepvzKFEeS-2ouOJu-Wmw" value="Dest">
+          <type href="http://LQN/1.0#//MakingCallType/dest"/>
+        </attributes>
+        <attributes xmi:id="_mEepwDKFEeS-2ouOJu-Wmw" value="Fanin">
+          <type href="http://LQN/1.0#//MakingCallType/fanin"/>
+        </attributes>
+        <attributes xmi:id="_mEepwTKFEeS-2ouOJu-Wmw" value="Fanout">
+          <type href="http://LQN/1.0#//MakingCallType/fanout"/>
+        </attributes>
+        <attributes xmi:id="_mEepwjKFEeS-2ouOJu-Wmw" value="Prob">
+          <type href="http://LQN/1.0#//EntryMakingCallType/prob"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_mEepwzKFEeS-2ouOJu-Wmw" source="_mEepvDKFEeS-2ouOJu-Wmw" target="_mEepvTKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//EntryType/forwarding"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_mEepxDKFEeS-2ouOJu-Wmw" origin="_mEepujKFEeS-2ouOJu-Wmw" image="_mEepvDKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mEepxTKFEeS-2ouOJu-Wmw" name="mainUnit" description="Creates one EntryMakingCallType depending on available contexts in model instance" subUnits="_mEepsTKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mEepxjKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_mEepxzKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mEepyDKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameters xmi:id="_mEepyTKFEeS-2ouOJu-Wmw" name="Dest"/>
+    <parameters xmi:id="_mEepyjKFEeS-2ouOJu-Wmw" name="Fanin"/>
+    <parameters xmi:id="_mEepyzKFEeS-2ouOJu-Wmw" name="Fanout"/>
+    <parameters xmi:id="_mEepzDKFEeS-2ouOJu-Wmw" name="Prob"/>
+    <parameterMappings xmi:id="_mEepzTKFEeS-2ouOJu-Wmw" source="_mEepxzKFEeS-2ouOJu-Wmw" target="_mEepsjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mEepzjKFEeS-2ouOJu-Wmw" source="_mEepszKFEeS-2ouOJu-Wmw" target="_mEepxjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mEepzzKFEeS-2ouOJu-Wmw" source="_mEepyDKFEeS-2ouOJu-Wmw" target="_mEeptDKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mEep0DKFEeS-2ouOJu-Wmw" source="_mEepyTKFEeS-2ouOJu-Wmw" target="_mEeptTKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mEep0TKFEeS-2ouOJu-Wmw" source="_mEepyjKFEeS-2ouOJu-Wmw" target="_mEeptjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mEep0jKFEeS-2ouOJu-Wmw" source="_mEepyzKFEeS-2ouOJu-Wmw" target="_mEeptzKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mEep0zKFEeS-2ouOJu-Wmw" source="_mEepzDKFEeS-2ouOJu-Wmw" target="_mEepuDKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

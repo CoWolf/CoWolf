@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mMMbQDKFEeS-2ouOJu-Wmw" name="SET_OutputResultType_Phase1Utilization" description="Sets OutputResultType Phase1Utilization">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mMMbQTKFEeS-2ouOJu-Wmw" name="setOutputResultTypePhase1Utilization" description="Sets the EAttribute phase1Utilization">
+    <parameters xmi:id="_mMMbQjKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mMMbQzKFEeS-2ouOJu-Wmw" name="Phase1Utilization"/>
+    <lhs xmi:id="_mMMbRDKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mMMbRTKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//OutputResultType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mMMbRjKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mMMbRzKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//OutputResultType"/>
+        <attributes xmi:id="_mMMbSDKFEeS-2ouOJu-Wmw" value="Phase1Utilization">
+          <type href="http://LQN/1.0#//OutputResultType/phase1Utilization"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_mMMbSTKFEeS-2ouOJu-Wmw" origin="_mMMbRTKFEeS-2ouOJu-Wmw" image="_mMMbRzKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mMMbSjKFEeS-2ouOJu-Wmw" name="mainUnit" subUnits="_mMMbQTKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mMMbSzKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mMMbTDKFEeS-2ouOJu-Wmw" name="Phase1Utilization"/>
+    <parameterMappings xmi:id="_mMMbTTKFEeS-2ouOJu-Wmw" source="_mMMbSzKFEeS-2ouOJu-Wmw" target="_mMMbQjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mMMbTjKFEeS-2ouOJu-Wmw" source="_mMMbTDKFEeS-2ouOJu-Wmw" target="_mMMbQzKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

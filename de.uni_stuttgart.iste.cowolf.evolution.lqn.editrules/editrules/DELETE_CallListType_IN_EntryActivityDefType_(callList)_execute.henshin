@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mDDtYDKFEeS-2ouOJu-Wmw" name="DELETE_CallListType_IN_EntryActivityDefType_(callList)" description="Deletes one CallListType in EntryActivityDefType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mDDtYTKFEeS-2ouOJu-Wmw" name="deleteCallListType_IN_EntryActivityDefType" description="deletes one CallListType in the context: EntryActivityDefType">
+    <parameters xmi:id="_mDDtYjKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mDDtYzKFEeS-2ouOJu-Wmw" name="ToBeDeleted"/>
+    <lhs xmi:id="_mDDtZDKFEeS-2ouOJu-Wmw" name="LHS">
+      <nodes xmi:id="_mDDtZTKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mDDtZzKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//EntryActivityDefType"/>
+      </nodes>
+      <nodes xmi:id="_mDDtZjKFEeS-2ouOJu-Wmw" name="ToBeDeleted" incoming="_mDDtZzKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//CallListType"/>
+      </nodes>
+      <edges xmi:id="_mDDtZzKFEeS-2ouOJu-Wmw" source="_mDDtZTKFEeS-2ouOJu-Wmw" target="_mDDtZjKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//EntryActivityDefType/callList"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_mDDtaDKFEeS-2ouOJu-Wmw" name="RHS">
+      <nodes xmi:id="_mDDtaTKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//EntryActivityDefType"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_mDDtajKFEeS-2ouOJu-Wmw" origin="_mDDtZTKFEeS-2ouOJu-Wmw" image="_mDDtaTKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mDDtazKFEeS-2ouOJu-Wmw" name="mainUnit" description="Deletes one CallListType depending on available contexts in model instance" subUnits="_mDDtYTKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mDDtbDKFEeS-2ouOJu-Wmw" name="ToBeDeleted"/>
+    <parameters xmi:id="_mDDtbTKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameterMappings xmi:id="_mDDtbjKFEeS-2ouOJu-Wmw" source="_mDDtbTKFEeS-2ouOJu-Wmw" target="_mDDtYjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mDDtbzKFEeS-2ouOJu-Wmw" source="_mDDtbDKFEeS-2ouOJu-Wmw" target="_mDDtYzKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

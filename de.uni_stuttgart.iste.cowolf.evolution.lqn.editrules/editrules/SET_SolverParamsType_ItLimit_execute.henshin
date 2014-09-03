@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mZvIHjKFEeS-2ouOJu-Wmw" name="SET_SolverParamsType_ItLimit" description="Sets SolverParamsType ItLimit">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mZvIHzKFEeS-2ouOJu-Wmw" name="setSolverParamsTypeItLimit" description="Sets the EAttribute itLimit">
+    <parameters xmi:id="_mZvIIDKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mZvIITKFEeS-2ouOJu-Wmw" name="ItLimit"/>
+    <lhs xmi:id="_mZvIIjKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mZvIIzKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//SolverParamsType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mZvIJDKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mZvIJTKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//SolverParamsType"/>
+        <attributes xmi:id="_mZvIJjKFEeS-2ouOJu-Wmw" value="ItLimit">
+          <type href="http://LQN/1.0#//SolverParamsType/itLimit"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_mZvIJzKFEeS-2ouOJu-Wmw" origin="_mZvIIzKFEeS-2ouOJu-Wmw" image="_mZvIJTKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mZvIKDKFEeS-2ouOJu-Wmw" name="mainUnit" subUnits="_mZvIHzKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mZvIKTKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mZvIKjKFEeS-2ouOJu-Wmw" name="ItLimit"/>
+    <parameterMappings xmi:id="_mZvIKzKFEeS-2ouOJu-Wmw" source="_mZvIKTKFEeS-2ouOJu-Wmw" target="_mZvIIDKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mZvILDKFEeS-2ouOJu-Wmw" source="_mZvIKjKFEeS-2ouOJu-Wmw" target="_mZvIITKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

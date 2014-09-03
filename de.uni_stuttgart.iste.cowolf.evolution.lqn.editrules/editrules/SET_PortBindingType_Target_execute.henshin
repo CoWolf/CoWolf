@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mPtCQDKFEeS-2ouOJu-Wmw" name="SET_PortBindingType_Target" description="Sets PortBindingType Target">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mPtCQTKFEeS-2ouOJu-Wmw" name="setPortBindingTypeTarget" description="Sets the EAttribute target">
+    <parameters xmi:id="_mPtCQjKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mPtCQzKFEeS-2ouOJu-Wmw" name="Target"/>
+    <lhs xmi:id="_mPtCRDKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mPtCRTKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//PortBindingType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mPtCRjKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mPtCRzKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//PortBindingType"/>
+        <attributes xmi:id="_mPtCSDKFEeS-2ouOJu-Wmw" value="Target">
+          <type href="http://LQN/1.0#//PortBindingType/target"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_mPtCSTKFEeS-2ouOJu-Wmw" origin="_mPtCRTKFEeS-2ouOJu-Wmw" image="_mPtCRzKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mPtCSjKFEeS-2ouOJu-Wmw" name="mainUnit" subUnits="_mPtCQTKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mPtCSzKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mPtCTDKFEeS-2ouOJu-Wmw" name="Target"/>
+    <parameterMappings xmi:id="_mPtCTTKFEeS-2ouOJu-Wmw" source="_mPtCSzKFEeS-2ouOJu-Wmw" target="_mPtCQjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mPtCTjKFEeS-2ouOJu-Wmw" source="_mPtCTDKFEeS-2ouOJu-Wmw" target="_mPtCQzKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

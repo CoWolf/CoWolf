@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mPME4DKFEeS-2ouOJu-Wmw" name="CREATE_PlotType_IN_PlotControlType_(plot)" description="Creates one PlotType in PlotControlType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mPME4TKFEeS-2ouOJu-Wmw" name="createPlotType_IN_PlotControlType" description="creates one PlotType in the context: PlotControlType">
+    <parameters xmi:id="_mPME4jKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mPME4zKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_mPME5DKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameters xmi:id="_mPME5TKFEeS-2ouOJu-Wmw" name="Variable"/>
+    <lhs xmi:id="_mPME5jKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mPME5zKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//PlotControlType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mPME6DKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mPME6TKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mPME7TKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//PlotControlType"/>
+      </nodes>
+      <nodes xmi:id="_mPME6jKFEeS-2ouOJu-Wmw" name="New" incoming="_mPME7TKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//PlotType"/>
+        <attributes xmi:id="_mPME6zKFEeS-2ouOJu-Wmw" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_mPME7DKFEeS-2ouOJu-Wmw" value="Variable">
+          <type href="http://LQN/1.0#//PlotType/variable"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_mPME7TKFEeS-2ouOJu-Wmw" source="_mPME6TKFEeS-2ouOJu-Wmw" target="_mPME6jKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//PlotControlType/plot"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_mPME7jKFEeS-2ouOJu-Wmw" origin="_mPME5zKFEeS-2ouOJu-Wmw" image="_mPME6TKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mPME7zKFEeS-2ouOJu-Wmw" name="mainUnit" description="Creates one PlotType depending on available contexts in model instance" subUnits="_mPME4TKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mPME8DKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_mPME8TKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mPME8jKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameters xmi:id="_mPME8zKFEeS-2ouOJu-Wmw" name="Variable"/>
+    <parameterMappings xmi:id="_mPME9DKFEeS-2ouOJu-Wmw" source="_mPME8TKFEeS-2ouOJu-Wmw" target="_mPME4jKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mPME9TKFEeS-2ouOJu-Wmw" source="_mPME4zKFEeS-2ouOJu-Wmw" target="_mPME8DKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mPME9jKFEeS-2ouOJu-Wmw" source="_mPME8jKFEeS-2ouOJu-Wmw" target="_mPME5DKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mPME9zKFEeS-2ouOJu-Wmw" source="_mPME8zKFEeS-2ouOJu-Wmw" target="_mPME5TKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

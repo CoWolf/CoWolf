@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_l6BGIDKFEeS-2ouOJu-Wmw" name="CREATE_ActivityDefType_IN_ActivityGraphBase_(activity)" description="Creates one ActivityDefType in ActivityGraphBase">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_l6BGITKFEeS-2ouOJu-Wmw" name="createActivityDefType_IN_ActivityGraphBase" description="creates one ActivityDefType in the context: ActivityGraphBase">
+    <parameters xmi:id="_l6BGIjKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_l6BGIzKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_l6BGJDKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameters xmi:id="_l6BGJTKFEeS-2ouOJu-Wmw" name="CallOrder"/>
+    <parameters xmi:id="_l6BGJjKFEeS-2ouOJu-Wmw" name="HostDemandCvsq"/>
+    <parameters xmi:id="_l6BGJzKFEeS-2ouOJu-Wmw" name="HostDemandMean"/>
+    <parameters xmi:id="_l6BGKDKFEeS-2ouOJu-Wmw" name="MaxServiceTime"/>
+    <parameters xmi:id="_l6BGKTKFEeS-2ouOJu-Wmw" name="Name"/>
+    <parameters xmi:id="_l6BGKjKFEeS-2ouOJu-Wmw" name="ThinkTime"/>
+    <parameters xmi:id="_l6BGKzKFEeS-2ouOJu-Wmw" name="Group"/>
+    <parameters xmi:id="_l6BGLDKFEeS-2ouOJu-Wmw" name="BoundToEntry"/>
+    <lhs xmi:id="_l6BGLTKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_l6BGLjKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//ActivityGraphBase"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_l6BGLzKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_l6BGMDKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_l6BGOzKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityGraphBase"/>
+      </nodes>
+      <nodes xmi:id="_l6BGMTKFEeS-2ouOJu-Wmw" name="New" incoming="_l6BGOzKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityDefType"/>
+        <attributes xmi:id="_l6BGMjKFEeS-2ouOJu-Wmw" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_l6BGMzKFEeS-2ouOJu-Wmw" value="CallOrder">
+          <type href="http://LQN/1.0#//ActivityDefBase/callOrder"/>
+        </attributes>
+        <attributes xmi:id="_l6BGNDKFEeS-2ouOJu-Wmw" value="HostDemandCvsq">
+          <type href="http://LQN/1.0#//ActivityDefBase/hostDemandCvsq"/>
+        </attributes>
+        <attributes xmi:id="_l6BGNTKFEeS-2ouOJu-Wmw" value="HostDemandMean">
+          <type href="http://LQN/1.0#//ActivityDefBase/hostDemandMean"/>
+        </attributes>
+        <attributes xmi:id="_l6BGNjKFEeS-2ouOJu-Wmw" value="MaxServiceTime">
+          <type href="http://LQN/1.0#//ActivityDefBase/maxServiceTime"/>
+        </attributes>
+        <attributes xmi:id="_l6BGNzKFEeS-2ouOJu-Wmw" value="Name">
+          <type href="http://LQN/1.0#//ActivityDefBase/name"/>
+        </attributes>
+        <attributes xmi:id="_l6BGODKFEeS-2ouOJu-Wmw" value="ThinkTime">
+          <type href="http://LQN/1.0#//ActivityDefBase/thinkTime"/>
+        </attributes>
+        <attributes xmi:id="_l6BGOTKFEeS-2ouOJu-Wmw" value="Group">
+          <type href="http://LQN/1.0#//ActivityDefType/group"/>
+        </attributes>
+        <attributes xmi:id="_l6BGOjKFEeS-2ouOJu-Wmw" value="BoundToEntry">
+          <type href="http://LQN/1.0#//ActivityDefType/boundToEntry"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_l6BGOzKFEeS-2ouOJu-Wmw" source="_l6BGMDKFEeS-2ouOJu-Wmw" target="_l6BGMTKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityGraphBase/activity"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_l6BGPDKFEeS-2ouOJu-Wmw" origin="_l6BGLjKFEeS-2ouOJu-Wmw" image="_l6BGMDKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_l6BGPTKFEeS-2ouOJu-Wmw" name="mainUnit" description="Creates one ActivityDefType depending on available contexts in model instance" subUnits="_l6BGITKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_l6BGPjKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_l6BGPzKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_l6BGQDKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameters xmi:id="_l6BGQTKFEeS-2ouOJu-Wmw" name="CallOrder"/>
+    <parameters xmi:id="_l6BGQjKFEeS-2ouOJu-Wmw" name="HostDemandCvsq"/>
+    <parameters xmi:id="_l6BGQzKFEeS-2ouOJu-Wmw" name="HostDemandMean"/>
+    <parameters xmi:id="_l6BGRDKFEeS-2ouOJu-Wmw" name="MaxServiceTime"/>
+    <parameters xmi:id="_l6BGRTKFEeS-2ouOJu-Wmw" name="Name"/>
+    <parameters xmi:id="_l6BGRjKFEeS-2ouOJu-Wmw" name="ThinkTime"/>
+    <parameters xmi:id="_l6BGRzKFEeS-2ouOJu-Wmw" name="Group"/>
+    <parameters xmi:id="_l6BGSDKFEeS-2ouOJu-Wmw" name="BoundToEntry"/>
+    <parameterMappings xmi:id="_l6BGSTKFEeS-2ouOJu-Wmw" source="_l6BGPzKFEeS-2ouOJu-Wmw" target="_l6BGIjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_l6BGSjKFEeS-2ouOJu-Wmw" source="_l6BGIzKFEeS-2ouOJu-Wmw" target="_l6BGPjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_l6BGSzKFEeS-2ouOJu-Wmw" source="_l6BGQDKFEeS-2ouOJu-Wmw" target="_l6BGJDKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_l6BGTDKFEeS-2ouOJu-Wmw" source="_l6BGQTKFEeS-2ouOJu-Wmw" target="_l6BGJTKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_l6BGTTKFEeS-2ouOJu-Wmw" source="_l6BGQjKFEeS-2ouOJu-Wmw" target="_l6BGJjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_l6BGTjKFEeS-2ouOJu-Wmw" source="_l6BGQzKFEeS-2ouOJu-Wmw" target="_l6BGJzKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_l6BGTzKFEeS-2ouOJu-Wmw" source="_l6BGRDKFEeS-2ouOJu-Wmw" target="_l6BGKDKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_l6BGUDKFEeS-2ouOJu-Wmw" source="_l6BGRTKFEeS-2ouOJu-Wmw" target="_l6BGKTKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_l6BGUTKFEeS-2ouOJu-Wmw" source="_l6BGRjKFEeS-2ouOJu-Wmw" target="_l6BGKjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_l6BGUjKFEeS-2ouOJu-Wmw" source="_l6BGRzKFEeS-2ouOJu-Wmw" target="_l6BGKzKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_l6BGUzKFEeS-2ouOJu-Wmw" source="_l6BGSDKFEeS-2ouOJu-Wmw" target="_l6BGLDKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mHGf-TKFEeS-2ouOJu-Wmw" name="MOVE_InPortType_FROM_InterfaceType_(inPort)_TO_InterfaceType_(inPort)" description="MOVEs InPortType from InterfaceType(Reference:inPort) to InterfaceType(Reference:inPort">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mHGf-jKFEeS-2ouOJu-Wmw" name="moveInPortType_FROM_InterfaceType_inPort_TO_InterfaceType_InterfaceType" description="Moves InPortType from InterfaceType(Reference:inPort) toInterfaceType(Reference:InterfaceType)">
+    <parameters xmi:id="_mHGf-zKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mHGf_DKFEeS-2ouOJu-Wmw" name="OldSource"/>
+    <parameters xmi:id="_mHGf_TKFEeS-2ouOJu-Wmw" name="NewSource"/>
+    <lhs xmi:id="_mHGf_jKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mHGf_zKFEeS-2ouOJu-Wmw" name="Selected" incoming="_mHGgAjKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//InPortType"/>
+      </nodes>
+      <nodes xmi:id="_mHGgADKFEeS-2ouOJu-Wmw" name="OldSource" outgoing="_mHGgAjKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//InterfaceType"/>
+      </nodes>
+      <nodes xmi:id="_mHGgATKFEeS-2ouOJu-Wmw" name="NewSource">
+        <type href="http://LQN/1.0#//InterfaceType"/>
+      </nodes>
+      <edges xmi:id="_mHGgAjKFEeS-2ouOJu-Wmw" source="_mHGgADKFEeS-2ouOJu-Wmw" target="_mHGf_zKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//InterfaceType/inPort"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_mHGgAzKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mHGgBDKFEeS-2ouOJu-Wmw" name="Selected" incoming="_mHGgBzKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//InPortType"/>
+      </nodes>
+      <nodes xmi:id="_mHGgBTKFEeS-2ouOJu-Wmw" name="OldSource">
+        <type href="http://LQN/1.0#//InterfaceType"/>
+      </nodes>
+      <nodes xmi:id="_mHGgBjKFEeS-2ouOJu-Wmw" name="NewSource" outgoing="_mHGgBzKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//InterfaceType"/>
+      </nodes>
+      <edges xmi:id="_mHGgBzKFEeS-2ouOJu-Wmw" source="_mHGgBjKFEeS-2ouOJu-Wmw" target="_mHGgBDKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//InterfaceType/inPort"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_mHGgCDKFEeS-2ouOJu-Wmw" origin="_mHGf_zKFEeS-2ouOJu-Wmw" image="_mHGgBDKFEeS-2ouOJu-Wmw"/>
+    <mappings xmi:id="_mHGgCTKFEeS-2ouOJu-Wmw" origin="_mHGgADKFEeS-2ouOJu-Wmw" image="_mHGgBTKFEeS-2ouOJu-Wmw"/>
+    <mappings xmi:id="_mHGgCjKFEeS-2ouOJu-Wmw" origin="_mHGgATKFEeS-2ouOJu-Wmw" image="_mHGgBjKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mHGgCzKFEeS-2ouOJu-Wmw" name="mainUnit" subUnits="_mHGf-jKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mHGgDDKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mHGgDTKFEeS-2ouOJu-Wmw" name="OldSource"/>
+    <parameters xmi:id="_mHGgDjKFEeS-2ouOJu-Wmw" name="NewSource"/>
+    <parameterMappings xmi:id="_mHGgDzKFEeS-2ouOJu-Wmw" source="_mHGgDDKFEeS-2ouOJu-Wmw" target="_mHGf-zKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mHGgEDKFEeS-2ouOJu-Wmw" source="_mHGgDTKFEeS-2ouOJu-Wmw" target="_mHGf_DKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mHGgETKFEeS-2ouOJu-Wmw" source="_mHGgDjKFEeS-2ouOJu-Wmw" target="_mHGf_TKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

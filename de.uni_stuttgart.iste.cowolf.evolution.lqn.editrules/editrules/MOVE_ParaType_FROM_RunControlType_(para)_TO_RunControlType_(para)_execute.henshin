@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mOuK0DKFEeS-2ouOJu-Wmw" name="MOVE_ParaType_FROM_RunControlType_(para)_TO_RunControlType_(para)" description="MOVEs ParaType from RunControlType(Reference:para) to RunControlType(Reference:para">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mOuK0TKFEeS-2ouOJu-Wmw" name="moveParaType_FROM_RunControlType_para_TO_RunControlType_RunControlType" description="Moves ParaType from RunControlType(Reference:para) toRunControlType(Reference:RunControlType)">
+    <parameters xmi:id="_mOuK0jKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mOuK0zKFEeS-2ouOJu-Wmw" name="OldSource"/>
+    <parameters xmi:id="_mOuK1DKFEeS-2ouOJu-Wmw" name="NewSource"/>
+    <lhs xmi:id="_mOuK1TKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mOuK1jKFEeS-2ouOJu-Wmw" name="Selected" incoming="_mOuK2TKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ParaType"/>
+      </nodes>
+      <nodes xmi:id="_mOuK1zKFEeS-2ouOJu-Wmw" name="OldSource" outgoing="_mOuK2TKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//RunControlType"/>
+      </nodes>
+      <nodes xmi:id="_mOuK2DKFEeS-2ouOJu-Wmw" name="NewSource">
+        <type href="http://LQN/1.0#//RunControlType"/>
+      </nodes>
+      <edges xmi:id="_mOuK2TKFEeS-2ouOJu-Wmw" source="_mOuK1zKFEeS-2ouOJu-Wmw" target="_mOuK1jKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//RunControlType/para"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_mOuK2jKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mOuK2zKFEeS-2ouOJu-Wmw" name="Selected" incoming="_mOuK3jKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ParaType"/>
+      </nodes>
+      <nodes xmi:id="_mOuK3DKFEeS-2ouOJu-Wmw" name="OldSource">
+        <type href="http://LQN/1.0#//RunControlType"/>
+      </nodes>
+      <nodes xmi:id="_mOuK3TKFEeS-2ouOJu-Wmw" name="NewSource" outgoing="_mOuK3jKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//RunControlType"/>
+      </nodes>
+      <edges xmi:id="_mOuK3jKFEeS-2ouOJu-Wmw" source="_mOuK3TKFEeS-2ouOJu-Wmw" target="_mOuK2zKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//RunControlType/para"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_mOuK3zKFEeS-2ouOJu-Wmw" origin="_mOuK1jKFEeS-2ouOJu-Wmw" image="_mOuK2zKFEeS-2ouOJu-Wmw"/>
+    <mappings xmi:id="_mOuK4DKFEeS-2ouOJu-Wmw" origin="_mOuK1zKFEeS-2ouOJu-Wmw" image="_mOuK3DKFEeS-2ouOJu-Wmw"/>
+    <mappings xmi:id="_mOuK4TKFEeS-2ouOJu-Wmw" origin="_mOuK2DKFEeS-2ouOJu-Wmw" image="_mOuK3TKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mOuK4jKFEeS-2ouOJu-Wmw" name="mainUnit" subUnits="_mOuK0TKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mOuK4zKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mOuK5DKFEeS-2ouOJu-Wmw" name="OldSource"/>
+    <parameters xmi:id="_mOuK5TKFEeS-2ouOJu-Wmw" name="NewSource"/>
+    <parameterMappings xmi:id="_mOuK5jKFEeS-2ouOJu-Wmw" source="_mOuK4zKFEeS-2ouOJu-Wmw" target="_mOuK0jKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mOuK5zKFEeS-2ouOJu-Wmw" source="_mOuK5DKFEeS-2ouOJu-Wmw" target="_mOuK0zKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mOuK6DKFEeS-2ouOJu-Wmw" source="_mOuK5TKFEeS-2ouOJu-Wmw" target="_mOuK1DKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mXGqwDKFEeS-2ouOJu-Wmw" name="DELETE_RunControlType_IN_LqnModelType_(runControl)" description="Deletes one RunControlType in LqnModelType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mXGqwTKFEeS-2ouOJu-Wmw" name="deleteRunControlType_IN_LqnModelType" description="deletes one RunControlType in the context: LqnModelType">
+    <parameters xmi:id="_mXGqwjKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mXGqwzKFEeS-2ouOJu-Wmw" name="ToBeDeleted"/>
+    <lhs xmi:id="_mXGqxDKFEeS-2ouOJu-Wmw" name="LHS">
+      <nodes xmi:id="_mXGqxTKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mXGqxzKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//LqnModelType"/>
+      </nodes>
+      <nodes xmi:id="_mXGqxjKFEeS-2ouOJu-Wmw" name="ToBeDeleted" incoming="_mXGqxzKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//RunControlType"/>
+      </nodes>
+      <edges xmi:id="_mXGqxzKFEeS-2ouOJu-Wmw" source="_mXGqxTKFEeS-2ouOJu-Wmw" target="_mXGqxjKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//LqnModelType/runControl"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_mXGqyDKFEeS-2ouOJu-Wmw" name="RHS">
+      <nodes xmi:id="_mXGqyTKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//LqnModelType"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_mXGqyjKFEeS-2ouOJu-Wmw">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_mXGqyzKFEeS-2ouOJu-Wmw">
+          <conclusion xmi:id="_mXGqzDKFEeS-2ouOJu-Wmw" name="doNotExceedUpperBound">
+            <nodes xmi:id="_mXGqzTKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mXGq0TKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//LqnModelType"/>
+            </nodes>
+            <nodes xmi:id="_mXGqzjKFEeS-2ouOJu-Wmw" name="New">
+              <type href="http://LQN/1.0#//RunControlType"/>
+              <attributes xmi:id="_mXGqzzKFEeS-2ouOJu-Wmw" value="Id">
+                <type href="http://CommonBase/1.0#//IDBase/id"/>
+              </attributes>
+            </nodes>
+            <nodes xmi:id="_mXGq0DKFEeS-2ouOJu-Wmw" incoming="_mXGq0TKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//RunControlType"/>
+            </nodes>
+            <edges xmi:id="_mXGq0TKFEeS-2ouOJu-Wmw" source="_mXGqzTKFEeS-2ouOJu-Wmw" target="_mXGq0DKFEeS-2ouOJu-Wmw">
+              <type href="http://LQN/1.0#//LqnModelType/runControl"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_mXGq0jKFEeS-2ouOJu-Wmw" origin="_mXGqxTKFEeS-2ouOJu-Wmw" image="_mXGqzTKFEeS-2ouOJu-Wmw"/>
+          <mappings xmi:id="_mXGq0zKFEeS-2ouOJu-Wmw" origin="_mXGqxjKFEeS-2ouOJu-Wmw" image="_mXGqzjKFEeS-2ouOJu-Wmw"/>
+        </child>
+      </formula>
+    </rhs>
+    <mappings xmi:id="_mXGq1DKFEeS-2ouOJu-Wmw" origin="_mXGqxTKFEeS-2ouOJu-Wmw" image="_mXGqyTKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mXGq1TKFEeS-2ouOJu-Wmw" name="mainUnit" description="Deletes one RunControlType depending on available contexts in model instance" subUnits="_mXGqwTKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mXGq1jKFEeS-2ouOJu-Wmw" name="ToBeDeleted"/>
+    <parameters xmi:id="_mXGq1zKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameterMappings xmi:id="_mXGq2DKFEeS-2ouOJu-Wmw" source="_mXGq1zKFEeS-2ouOJu-Wmw" target="_mXGqwjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mXGq2TKFEeS-2ouOJu-Wmw" source="_mXGq1jKFEeS-2ouOJu-Wmw" target="_mXGqwzKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

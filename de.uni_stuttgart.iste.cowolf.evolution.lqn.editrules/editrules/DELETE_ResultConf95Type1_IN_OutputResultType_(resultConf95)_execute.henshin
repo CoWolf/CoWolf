@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mSkJADKFEeS-2ouOJu-Wmw" name="DELETE_ResultConf95Type1_IN_OutputResultType_(resultConf95)" description="Deletes one ResultConf95Type1 in OutputResultType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mSkJATKFEeS-2ouOJu-Wmw" name="deleteResultConf95Type1_IN_OutputResultType" description="deletes one ResultConf95Type1 in the context: OutputResultType">
+    <parameters xmi:id="_mSkJAjKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mSkJAzKFEeS-2ouOJu-Wmw" name="ToBeDeleted"/>
+    <lhs xmi:id="_mSkJBDKFEeS-2ouOJu-Wmw" name="LHS">
+      <nodes xmi:id="_mSkJBTKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mSkJBzKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//OutputResultType"/>
+      </nodes>
+      <nodes xmi:id="_mSkJBjKFEeS-2ouOJu-Wmw" name="ToBeDeleted" incoming="_mSkJBzKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ResultConf95Type1"/>
+      </nodes>
+      <edges xmi:id="_mSkJBzKFEeS-2ouOJu-Wmw" source="_mSkJBTKFEeS-2ouOJu-Wmw" target="_mSkJBjKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//OutputResultType/resultConf95"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_mSkJCDKFEeS-2ouOJu-Wmw" name="RHS">
+      <nodes xmi:id="_mSkJCTKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//OutputResultType"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_mSkJCjKFEeS-2ouOJu-Wmw" origin="_mSkJBTKFEeS-2ouOJu-Wmw" image="_mSkJCTKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mSkJCzKFEeS-2ouOJu-Wmw" name="mainUnit" description="Deletes one ResultConf95Type1 depending on available contexts in model instance" subUnits="_mSkJATKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mSkJDDKFEeS-2ouOJu-Wmw" name="ToBeDeleted"/>
+    <parameters xmi:id="_mSkJDTKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameterMappings xmi:id="_mSkJDjKFEeS-2ouOJu-Wmw" source="_mSkJDTKFEeS-2ouOJu-Wmw" target="_mSkJAjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mSkJDzKFEeS-2ouOJu-Wmw" source="_mSkJDDKFEeS-2ouOJu-Wmw" target="_mSkJAzKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

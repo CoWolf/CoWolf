@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mZJSIDKFEeS-2ouOJu-Wmw" name="SET_SlotType_ReplicNum" description="Sets SlotType ReplicNum">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mZJSITKFEeS-2ouOJu-Wmw" name="setSlotTypeReplicNum" description="Sets the EAttribute replicNum">
+    <parameters xmi:id="_mZJSIjKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mZJSIzKFEeS-2ouOJu-Wmw" name="ReplicNum"/>
+    <lhs xmi:id="_mZJSJDKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mZJSJTKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//SlotType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mZJSJjKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mZJSJzKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//SlotType"/>
+        <attributes xmi:id="_mZJSKDKFEeS-2ouOJu-Wmw" value="ReplicNum">
+          <type href="http://LQN/1.0#//SlotType/replicNum"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_mZJSKTKFEeS-2ouOJu-Wmw" origin="_mZJSJTKFEeS-2ouOJu-Wmw" image="_mZJSJzKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mZJSKjKFEeS-2ouOJu-Wmw" name="mainUnit" subUnits="_mZJSITKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mZJSKzKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mZJSLDKFEeS-2ouOJu-Wmw" name="ReplicNum"/>
+    <parameterMappings xmi:id="_mZJSLTKFEeS-2ouOJu-Wmw" source="_mZJSKzKFEeS-2ouOJu-Wmw" target="_mZJSIjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mZJSLjKFEeS-2ouOJu-Wmw" source="_mZJSLDKFEeS-2ouOJu-Wmw" target="_mZJSIzKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

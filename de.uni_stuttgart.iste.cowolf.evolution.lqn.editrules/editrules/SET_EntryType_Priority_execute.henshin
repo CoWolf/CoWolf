@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mFL0UDKFEeS-2ouOJu-Wmw" name="SET_EntryType_Priority" description="Sets EntryType Priority">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mFL0UTKFEeS-2ouOJu-Wmw" name="setEntryTypePriority" description="Sets the EAttribute priority">
+    <parameters xmi:id="_mFL0UjKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mFL0UzKFEeS-2ouOJu-Wmw" name="Priority"/>
+    <lhs xmi:id="_mFL0VDKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mFL0VTKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mFL0VjKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mFL0VzKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//EntryType"/>
+        <attributes xmi:id="_mFL0WDKFEeS-2ouOJu-Wmw" value="Priority">
+          <type href="http://LQN/1.0#//EntryType/priority"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_mFL0WTKFEeS-2ouOJu-Wmw" origin="_mFL0VTKFEeS-2ouOJu-Wmw" image="_mFL0VzKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mFL0WjKFEeS-2ouOJu-Wmw" name="mainUnit" subUnits="_mFL0UTKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mFL0WzKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mFL0XDKFEeS-2ouOJu-Wmw" name="Priority"/>
+    <parameterMappings xmi:id="_mFL0XTKFEeS-2ouOJu-Wmw" source="_mFL0WzKFEeS-2ouOJu-Wmw" target="_mFL0UjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mFL0XjKFEeS-2ouOJu-Wmw" source="_mFL0XDKFEeS-2ouOJu-Wmw" target="_mFL0UzKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

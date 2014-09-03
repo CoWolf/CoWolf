@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mZ1OrDKFEeS-2ouOJu-Wmw" name="CREATE_SynchCallType_IN_CallListType_(synchCall)" description="Creates one SynchCallType in CallListType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mZ1OrTKFEeS-2ouOJu-Wmw" name="createSynchCallType_IN_CallListType" description="creates one SynchCallType in the context: CallListType">
+    <parameters xmi:id="_mZ1OrjKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mZ1OrzKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_mZ1OsDKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameters xmi:id="_mZ1OsTKFEeS-2ouOJu-Wmw" name="Dest"/>
+    <parameters xmi:id="_mZ1OsjKFEeS-2ouOJu-Wmw" name="Fanin"/>
+    <parameters xmi:id="_mZ1OszKFEeS-2ouOJu-Wmw" name="Fanout"/>
+    <lhs xmi:id="_mZ1OtDKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mZ1OtTKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//CallListType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mZ1OtjKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mZ1OtzKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mZ1OvTKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//CallListType"/>
+      </nodes>
+      <nodes xmi:id="_mZ1OuDKFEeS-2ouOJu-Wmw" name="New" incoming="_mZ1OvTKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//SynchCallType"/>
+        <attributes xmi:id="_mZ1OuTKFEeS-2ouOJu-Wmw" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_mZ1OujKFEeS-2ouOJu-Wmw" value="Dest">
+          <type href="http://LQN/1.0#//SynchCallType/dest"/>
+        </attributes>
+        <attributes xmi:id="_mZ1OuzKFEeS-2ouOJu-Wmw" value="Fanin">
+          <type href="http://LQN/1.0#//SynchCallType/fanin"/>
+        </attributes>
+        <attributes xmi:id="_mZ1OvDKFEeS-2ouOJu-Wmw" value="Fanout">
+          <type href="http://LQN/1.0#//SynchCallType/fanout"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_mZ1OvTKFEeS-2ouOJu-Wmw" source="_mZ1OtzKFEeS-2ouOJu-Wmw" target="_mZ1OuDKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//CallListType/synchCall"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_mZ1OvjKFEeS-2ouOJu-Wmw" origin="_mZ1OtTKFEeS-2ouOJu-Wmw" image="_mZ1OtzKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mZ1OvzKFEeS-2ouOJu-Wmw" name="mainUnit" description="Creates one SynchCallType depending on available contexts in model instance" subUnits="_mZ1OrTKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mZ1OwDKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_mZ1OwTKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mZ1OwjKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameters xmi:id="_mZ1OwzKFEeS-2ouOJu-Wmw" name="Dest"/>
+    <parameters xmi:id="_mZ1OxDKFEeS-2ouOJu-Wmw" name="Fanin"/>
+    <parameters xmi:id="_mZ1OxTKFEeS-2ouOJu-Wmw" name="Fanout"/>
+    <parameterMappings xmi:id="_mZ1OxjKFEeS-2ouOJu-Wmw" source="_mZ1OwTKFEeS-2ouOJu-Wmw" target="_mZ1OrjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mZ1OxzKFEeS-2ouOJu-Wmw" source="_mZ1OrzKFEeS-2ouOJu-Wmw" target="_mZ1OwDKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mZ1OyDKFEeS-2ouOJu-Wmw" source="_mZ1OwjKFEeS-2ouOJu-Wmw" target="_mZ1OsDKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mZ1OyTKFEeS-2ouOJu-Wmw" source="_mZ1OwzKFEeS-2ouOJu-Wmw" target="_mZ1OsTKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mZ1OyjKFEeS-2ouOJu-Wmw" source="_mZ1OxDKFEeS-2ouOJu-Wmw" target="_mZ1OsjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mZ1OyzKFEeS-2ouOJu-Wmw" source="_mZ1OxTKFEeS-2ouOJu-Wmw" target="_mZ1OszKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mXS4IjKFEeS-2ouOJu-Wmw" name="CREATE_ServiceType_IN_TaskType_(service)" description="Creates one ServiceType in TaskType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mXS4IzKFEeS-2ouOJu-Wmw" name="createServiceType_IN_TaskType" description="creates one ServiceType in the context: TaskType">
+    <parameters xmi:id="_mXS4JDKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mXS4JTKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_mXS4JjKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameters xmi:id="_mXS4JzKFEeS-2ouOJu-Wmw" name="Name"/>
+    <lhs xmi:id="_mXS4KDKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mXS4KTKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//TaskType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mXS4KjKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mXS4KzKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mXS4LzKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//TaskType"/>
+      </nodes>
+      <nodes xmi:id="_mXS4LDKFEeS-2ouOJu-Wmw" name="New" incoming="_mXS4LzKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ServiceType"/>
+        <attributes xmi:id="_mXS4LTKFEeS-2ouOJu-Wmw" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_mXS4LjKFEeS-2ouOJu-Wmw" value="Name">
+          <type href="http://LQN/1.0#//ServiceType/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_mXS4LzKFEeS-2ouOJu-Wmw" source="_mXS4KzKFEeS-2ouOJu-Wmw" target="_mXS4LDKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//TaskType/service"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_mXS4MDKFEeS-2ouOJu-Wmw" origin="_mXS4KTKFEeS-2ouOJu-Wmw" image="_mXS4KzKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mXS4MTKFEeS-2ouOJu-Wmw" name="mainUnit" description="Creates one ServiceType depending on available contexts in model instance" subUnits="_mXS4IzKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mXS4MjKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_mXS4MzKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mXS4NDKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameters xmi:id="_mXS4NTKFEeS-2ouOJu-Wmw" name="Name"/>
+    <parameterMappings xmi:id="_mXS4NjKFEeS-2ouOJu-Wmw" source="_mXS4MzKFEeS-2ouOJu-Wmw" target="_mXS4JDKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mXS4NzKFEeS-2ouOJu-Wmw" source="_mXS4JTKFEeS-2ouOJu-Wmw" target="_mXS4MjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mXS4ODKFEeS-2ouOJu-Wmw" source="_mXS4NDKFEeS-2ouOJu-Wmw" target="_mXS4JjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mXS4OTKFEeS-2ouOJu-Wmw" source="_mXS4NTKFEeS-2ouOJu-Wmw" target="_mXS4JzKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

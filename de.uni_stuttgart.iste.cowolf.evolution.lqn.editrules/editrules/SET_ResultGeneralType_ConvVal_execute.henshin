@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mWoJujKFEeS-2ouOJu-Wmw" name="SET_ResultGeneralType_ConvVal" description="Sets ResultGeneralType ConvVal">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mWoJuzKFEeS-2ouOJu-Wmw" name="setResultGeneralTypeConvVal" description="Sets the EAttribute convVal">
+    <parameters xmi:id="_mWoJvDKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mWoJvTKFEeS-2ouOJu-Wmw" name="ConvVal"/>
+    <lhs xmi:id="_mWoJvjKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mWoJvzKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//ResultGeneralType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mWoJwDKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mWoJwTKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//ResultGeneralType"/>
+        <attributes xmi:id="_mWoJwjKFEeS-2ouOJu-Wmw" value="ConvVal">
+          <type href="http://LQN/1.0#//ResultGeneralType/convVal"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_mWoJwzKFEeS-2ouOJu-Wmw" origin="_mWoJvzKFEeS-2ouOJu-Wmw" image="_mWoJwTKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mWoJxDKFEeS-2ouOJu-Wmw" name="mainUnit" subUnits="_mWoJuzKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mWoJxTKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mWoJxjKFEeS-2ouOJu-Wmw" name="ConvVal"/>
+    <parameterMappings xmi:id="_mWoJxzKFEeS-2ouOJu-Wmw" source="_mWoJxTKFEeS-2ouOJu-Wmw" target="_mWoJvDKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mWoJyDKFEeS-2ouOJu-Wmw" source="_mWoJxjKFEeS-2ouOJu-Wmw" target="_mWoJvTKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

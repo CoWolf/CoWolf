@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mP0-EDKFEeS-2ouOJu-Wmw" name="CREATE_PragmaType_IN_SolverParamsType_(pragma)" description="Creates one PragmaType in SolverParamsType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mP0-ETKFEeS-2ouOJu-Wmw" name="createPragmaType_IN_SolverParamsType" description="creates one PragmaType in the context: SolverParamsType">
+    <parameters xmi:id="_mP0-EjKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mP0-EzKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_mP0-FDKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameters xmi:id="_mP0-FTKFEeS-2ouOJu-Wmw" name="Param"/>
+    <parameters xmi:id="_mP0-FjKFEeS-2ouOJu-Wmw" name="Value"/>
+    <lhs xmi:id="_mP0-FzKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mP0-GDKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//SolverParamsType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mP0-GTKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mP0-GjKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mP0-HzKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//SolverParamsType"/>
+      </nodes>
+      <nodes xmi:id="_mP0-GzKFEeS-2ouOJu-Wmw" name="New" incoming="_mP0-HzKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//PragmaType"/>
+        <attributes xmi:id="_mP0-HDKFEeS-2ouOJu-Wmw" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_mP0-HTKFEeS-2ouOJu-Wmw" value="Param">
+          <type href="http://LQN/1.0#//PragmaType/param"/>
+        </attributes>
+        <attributes xmi:id="_mP0-HjKFEeS-2ouOJu-Wmw" value="Value">
+          <type href="http://LQN/1.0#//PragmaType/value"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_mP0-HzKFEeS-2ouOJu-Wmw" source="_mP0-GjKFEeS-2ouOJu-Wmw" target="_mP0-GzKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//SolverParamsType/pragma"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_mP0-IDKFEeS-2ouOJu-Wmw" origin="_mP0-GDKFEeS-2ouOJu-Wmw" image="_mP0-GjKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mP0-ITKFEeS-2ouOJu-Wmw" name="mainUnit" description="Creates one PragmaType depending on available contexts in model instance" subUnits="_mP0-ETKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mP0-IjKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_mP0-IzKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mP0-JDKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameters xmi:id="_mP0-JTKFEeS-2ouOJu-Wmw" name="Param"/>
+    <parameters xmi:id="_mP0-JjKFEeS-2ouOJu-Wmw" name="Value"/>
+    <parameterMappings xmi:id="_mP0-JzKFEeS-2ouOJu-Wmw" source="_mP0-IzKFEeS-2ouOJu-Wmw" target="_mP0-EjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mP0-KDKFEeS-2ouOJu-Wmw" source="_mP0-EzKFEeS-2ouOJu-Wmw" target="_mP0-IjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mP0-KTKFEeS-2ouOJu-Wmw" source="_mP0-JDKFEeS-2ouOJu-Wmw" target="_mP0-FDKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mP0-KjKFEeS-2ouOJu-Wmw" source="_mP0-JTKFEeS-2ouOJu-Wmw" target="_mP0-FTKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mP0-KzKFEeS-2ouOJu-Wmw" source="_mP0-JjKFEeS-2ouOJu-Wmw" target="_mP0-FjKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

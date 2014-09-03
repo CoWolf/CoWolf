@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mOBnQDKFEeS-2ouOJu-Wmw" name="CREATE_ParameterType_IN_BindType_(parameter)" description="Creates one ParameterType in BindType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mOBnQTKFEeS-2ouOJu-Wmw" name="createParameterType_IN_BindType" description="creates one ParameterType in the context: BindType">
+    <parameters xmi:id="_mOBnQjKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mOBnQzKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_mOBnRDKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameters xmi:id="_mOBnRTKFEeS-2ouOJu-Wmw" name="Name"/>
+    <parameters xmi:id="_mOBnRjKFEeS-2ouOJu-Wmw" name="Value"/>
+    <lhs xmi:id="_mOBnRzKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mOBnSDKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//BindType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mOBnSTKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mOBnSjKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mOBnTzKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//BindType"/>
+      </nodes>
+      <nodes xmi:id="_mOBnSzKFEeS-2ouOJu-Wmw" name="New" incoming="_mOBnTzKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ParameterType"/>
+        <attributes xmi:id="_mOBnTDKFEeS-2ouOJu-Wmw" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_mOBnTTKFEeS-2ouOJu-Wmw" value="Name">
+          <type href="http://LQN/1.0#//ParameterType/name"/>
+        </attributes>
+        <attributes xmi:id="_mOBnTjKFEeS-2ouOJu-Wmw" value="Value">
+          <type href="http://LQN/1.0#//ParameterType/value"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_mOBnTzKFEeS-2ouOJu-Wmw" source="_mOBnSjKFEeS-2ouOJu-Wmw" target="_mOBnSzKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//BindType/parameter"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_mOBnUDKFEeS-2ouOJu-Wmw" origin="_mOBnSDKFEeS-2ouOJu-Wmw" image="_mOBnSjKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mOBnUTKFEeS-2ouOJu-Wmw" name="mainUnit" description="Creates one ParameterType depending on available contexts in model instance" subUnits="_mOBnQTKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mOBnUjKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_mOBnUzKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mOBnVDKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameters xmi:id="_mOBnVTKFEeS-2ouOJu-Wmw" name="Name"/>
+    <parameters xmi:id="_mOBnVjKFEeS-2ouOJu-Wmw" name="Value"/>
+    <parameterMappings xmi:id="_mOBnVzKFEeS-2ouOJu-Wmw" source="_mOBnUzKFEeS-2ouOJu-Wmw" target="_mOBnQjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mOBnWDKFEeS-2ouOJu-Wmw" source="_mOBnQzKFEeS-2ouOJu-Wmw" target="_mOBnUjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mOBnWTKFEeS-2ouOJu-Wmw" source="_mOBnVDKFEeS-2ouOJu-Wmw" target="_mOBnRDKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mOBnWjKFEeS-2ouOJu-Wmw" source="_mOBnVTKFEeS-2ouOJu-Wmw" target="_mOBnRTKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mOBnWzKFEeS-2ouOJu-Wmw" source="_mOBnVjKFEeS-2ouOJu-Wmw" target="_mOBnRjKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

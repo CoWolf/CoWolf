@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mIveoDKFEeS-2ouOJu-Wmw" name="DELETE_OutputEntryDistributionType_IN_EntryType_(serviceTimeDistribution)" description="Deletes one OutputEntryDistributionType in EntryType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mIveoTKFEeS-2ouOJu-Wmw" name="deleteOutputEntryDistributionType_IN_EntryType" description="deletes one OutputEntryDistributionType in the context: EntryType">
+    <parameters xmi:id="_mIveojKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mIveozKFEeS-2ouOJu-Wmw" name="ToBeDeleted"/>
+    <lhs xmi:id="_mIvepDKFEeS-2ouOJu-Wmw" name="LHS">
+      <nodes xmi:id="_mIvepTKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mIvepzKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+      <nodes xmi:id="_mIvepjKFEeS-2ouOJu-Wmw" name="ToBeDeleted" incoming="_mIvepzKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//OutputEntryDistributionType"/>
+      </nodes>
+      <edges xmi:id="_mIvepzKFEeS-2ouOJu-Wmw" source="_mIvepTKFEeS-2ouOJu-Wmw" target="_mIvepjKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//EntryType/serviceTimeDistribution"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_mIveqDKFEeS-2ouOJu-Wmw" name="RHS">
+      <nodes xmi:id="_mIveqTKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_mIveqjKFEeS-2ouOJu-Wmw" origin="_mIvepTKFEeS-2ouOJu-Wmw" image="_mIveqTKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mIveqzKFEeS-2ouOJu-Wmw" name="mainUnit" description="Deletes one OutputEntryDistributionType depending on available contexts in model instance" subUnits="_mIveoTKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mIverDKFEeS-2ouOJu-Wmw" name="ToBeDeleted"/>
+    <parameters xmi:id="_mIverTKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameterMappings xmi:id="_mIverjKFEeS-2ouOJu-Wmw" source="_mIverTKFEeS-2ouOJu-Wmw" target="_mIveojKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mIverzKFEeS-2ouOJu-Wmw" source="_mIverDKFEeS-2ouOJu-Wmw" target="_mIveozKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_l-pumjKFEeS-2ouOJu-Wmw" name="CREATE_ActivityOrType_IN_ActivityListType_(activity)" description="Creates one ActivityOrType in ActivityListType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_l-pumzKFEeS-2ouOJu-Wmw" name="createActivityOrType_IN_ActivityListType" description="creates one ActivityOrType in the context: ActivityListType">
+    <parameters xmi:id="_l-punDKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_l-punTKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_l-punjKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameters xmi:id="_l-punzKFEeS-2ouOJu-Wmw" name="Name"/>
+    <parameters xmi:id="_l-puoDKFEeS-2ouOJu-Wmw" name="Prob"/>
+    <lhs xmi:id="_l-puoTKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_l-puojKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//ActivityListType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_l-puozKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_l-pupDKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_l-puqTKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityListType"/>
+      </nodes>
+      <nodes xmi:id="_l-pupTKFEeS-2ouOJu-Wmw" name="New" incoming="_l-puqTKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityOrType"/>
+        <attributes xmi:id="_l-pupjKFEeS-2ouOJu-Wmw" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_l-pupzKFEeS-2ouOJu-Wmw" value="Name">
+          <type href="http://LQN/1.0#//ActivityType/name"/>
+        </attributes>
+        <attributes xmi:id="_l-puqDKFEeS-2ouOJu-Wmw" value="Prob">
+          <type href="http://LQN/1.0#//ActivityOrType/prob"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_l-puqTKFEeS-2ouOJu-Wmw" source="_l-pupDKFEeS-2ouOJu-Wmw" target="_l-pupTKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityListType/activity"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_l-puqjKFEeS-2ouOJu-Wmw" origin="_l-puojKFEeS-2ouOJu-Wmw" image="_l-pupDKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_l-puqzKFEeS-2ouOJu-Wmw" name="mainUnit" description="Creates one ActivityOrType depending on available contexts in model instance" subUnits="_l-pumzKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_l-purDKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_l-purTKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_l-purjKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameters xmi:id="_l-purzKFEeS-2ouOJu-Wmw" name="Name"/>
+    <parameters xmi:id="_l-pusDKFEeS-2ouOJu-Wmw" name="Prob"/>
+    <parameterMappings xmi:id="_l-pusTKFEeS-2ouOJu-Wmw" source="_l-purTKFEeS-2ouOJu-Wmw" target="_l-punDKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_l-pusjKFEeS-2ouOJu-Wmw" source="_l-punTKFEeS-2ouOJu-Wmw" target="_l-purDKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_l-puszKFEeS-2ouOJu-Wmw" source="_l-purjKFEeS-2ouOJu-Wmw" target="_l-punjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_l-putDKFEeS-2ouOJu-Wmw" source="_l-purzKFEeS-2ouOJu-Wmw" target="_l-punzKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_l-putTKFEeS-2ouOJu-Wmw" source="_l-pusDKFEeS-2ouOJu-Wmw" target="_l-puoDKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

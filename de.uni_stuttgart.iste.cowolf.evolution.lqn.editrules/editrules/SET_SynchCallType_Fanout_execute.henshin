@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_maBb-zKFEeS-2ouOJu-Wmw" name="SET_SynchCallType_Fanout" description="Sets SynchCallType Fanout">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_maBb_DKFEeS-2ouOJu-Wmw" name="setSynchCallTypeFanout" description="Sets the EAttribute fanout">
+    <parameters xmi:id="_maBb_TKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_maBb_jKFEeS-2ouOJu-Wmw" name="Fanout"/>
+    <lhs xmi:id="_maBb_zKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_maBcADKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//SynchCallType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_maBcATKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_maBcAjKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//SynchCallType"/>
+        <attributes xmi:id="_maBcAzKFEeS-2ouOJu-Wmw" value="Fanout">
+          <type href="http://LQN/1.0#//SynchCallType/fanout"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_maBcBDKFEeS-2ouOJu-Wmw" origin="_maBcADKFEeS-2ouOJu-Wmw" image="_maBcAjKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_maBcBTKFEeS-2ouOJu-Wmw" name="mainUnit" subUnits="_maBb_DKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_maBcBjKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_maBcBzKFEeS-2ouOJu-Wmw" name="Fanout"/>
+    <parameterMappings xmi:id="_maBcCDKFEeS-2ouOJu-Wmw" source="_maBcBjKFEeS-2ouOJu-Wmw" target="_maBb_TKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_maBcCTKFEeS-2ouOJu-Wmw" source="_maBcBzKFEeS-2ouOJu-Wmw" target="_maBb_jKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

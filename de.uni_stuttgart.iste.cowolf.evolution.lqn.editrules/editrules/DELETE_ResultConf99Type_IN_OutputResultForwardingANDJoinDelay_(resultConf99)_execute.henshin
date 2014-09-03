@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mUD90DKFEeS-2ouOJu-Wmw" name="DELETE_ResultConf99Type_IN_OutputResultForwardingANDJoinDelay_(resultConf99)" description="Deletes one ResultConf99Type in OutputResultForwardingANDJoinDelay">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mUD90TKFEeS-2ouOJu-Wmw" name="deleteResultConf99Type_IN_OutputResultForwardingANDJoinDelay" description="deletes one ResultConf99Type in the context: OutputResultForwardingANDJoinDelay">
+    <parameters xmi:id="_mUD90jKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mUD90zKFEeS-2ouOJu-Wmw" name="ToBeDeleted"/>
+    <lhs xmi:id="_mUD91DKFEeS-2ouOJu-Wmw" name="LHS">
+      <nodes xmi:id="_mUD91TKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mUD91zKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//OutputResultForwardingANDJoinDelay"/>
+      </nodes>
+      <nodes xmi:id="_mUD91jKFEeS-2ouOJu-Wmw" name="ToBeDeleted" incoming="_mUD91zKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ResultConf99Type"/>
+      </nodes>
+      <edges xmi:id="_mUD91zKFEeS-2ouOJu-Wmw" source="_mUD91TKFEeS-2ouOJu-Wmw" target="_mUD91jKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//OutputResultForwardingANDJoinDelay/resultConf99"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_mUD92DKFEeS-2ouOJu-Wmw" name="RHS">
+      <nodes xmi:id="_mUD92TKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//OutputResultForwardingANDJoinDelay"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_mUD92jKFEeS-2ouOJu-Wmw" origin="_mUD91TKFEeS-2ouOJu-Wmw" image="_mUD92TKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mUD92zKFEeS-2ouOJu-Wmw" name="mainUnit" description="Deletes one ResultConf99Type depending on available contexts in model instance" subUnits="_mUD90TKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mUD93DKFEeS-2ouOJu-Wmw" name="ToBeDeleted"/>
+    <parameters xmi:id="_mUD93TKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameterMappings xmi:id="_mUD93jKFEeS-2ouOJu-Wmw" source="_mUD93TKFEeS-2ouOJu-Wmw" target="_mUD90jKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mUD93zKFEeS-2ouOJu-Wmw" source="_mUD93DKFEeS-2ouOJu-Wmw" target="_mUD90zKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

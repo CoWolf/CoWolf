@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_l-jn7zKFEeS-2ouOJu-Wmw" name="CREATE_ActivityOrType_IN_AndJoinListType_(activity)" description="Creates one ActivityOrType in AndJoinListType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_l-jn8DKFEeS-2ouOJu-Wmw" name="createActivityOrType_IN_AndJoinListType" description="creates one ActivityOrType in the context: AndJoinListType">
+    <parameters xmi:id="_l-jn8TKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_l-jn8jKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_l-jn8zKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameters xmi:id="_l-jn9DKFEeS-2ouOJu-Wmw" name="Name"/>
+    <parameters xmi:id="_l-jn9TKFEeS-2ouOJu-Wmw" name="Prob"/>
+    <lhs xmi:id="_l-jn9jKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_l-jn9zKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//AndJoinListType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_l-jn-DKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_l-jn-TKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_l-jn_jKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//AndJoinListType"/>
+      </nodes>
+      <nodes xmi:id="_l-jn-jKFEeS-2ouOJu-Wmw" name="New" incoming="_l-jn_jKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityOrType"/>
+        <attributes xmi:id="_l-jn-zKFEeS-2ouOJu-Wmw" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_l-jn_DKFEeS-2ouOJu-Wmw" value="Name">
+          <type href="http://LQN/1.0#//ActivityType/name"/>
+        </attributes>
+        <attributes xmi:id="_l-jn_TKFEeS-2ouOJu-Wmw" value="Prob">
+          <type href="http://LQN/1.0#//ActivityOrType/prob"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_l-jn_jKFEeS-2ouOJu-Wmw" source="_l-jn-TKFEeS-2ouOJu-Wmw" target="_l-jn-jKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//AndJoinListType/activity"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_l-jn_zKFEeS-2ouOJu-Wmw" origin="_l-jn9zKFEeS-2ouOJu-Wmw" image="_l-jn-TKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_l-joADKFEeS-2ouOJu-Wmw" name="mainUnit" description="Creates one ActivityOrType depending on available contexts in model instance" subUnits="_l-jn8DKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_l-joATKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_l-joAjKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_l-joAzKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameters xmi:id="_l-joBDKFEeS-2ouOJu-Wmw" name="Name"/>
+    <parameters xmi:id="_l-joBTKFEeS-2ouOJu-Wmw" name="Prob"/>
+    <parameterMappings xmi:id="_l-joBjKFEeS-2ouOJu-Wmw" source="_l-joAjKFEeS-2ouOJu-Wmw" target="_l-jn8TKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_l-joBzKFEeS-2ouOJu-Wmw" source="_l-jn8jKFEeS-2ouOJu-Wmw" target="_l-joATKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_l-joCDKFEeS-2ouOJu-Wmw" source="_l-joAzKFEeS-2ouOJu-Wmw" target="_l-jn8zKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_l-joCTKFEeS-2ouOJu-Wmw" source="_l-joBDKFEeS-2ouOJu-Wmw" target="_l-jn9DKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_l-joCjKFEeS-2ouOJu-Wmw" source="_l-joBTKFEeS-2ouOJu-Wmw" target="_l-jn9TKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mOdFEDKFEeS-2ouOJu-Wmw" name="SET_ParaType_EndValue" description="Sets ParaType EndValue">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mOdFETKFEeS-2ouOJu-Wmw" name="setParaTypeEndValue" description="Sets the EAttribute endValue">
+    <parameters xmi:id="_mOdFEjKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mOdFEzKFEeS-2ouOJu-Wmw" name="EndValue"/>
+    <lhs xmi:id="_mOdFFDKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mOdFFTKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//ParaType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mOdFFjKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mOdFFzKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//ParaType"/>
+        <attributes xmi:id="_mOdFGDKFEeS-2ouOJu-Wmw" value="EndValue">
+          <type href="http://LQN/1.0#//ParaType/endValue"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_mOdFGTKFEeS-2ouOJu-Wmw" origin="_mOdFFTKFEeS-2ouOJu-Wmw" image="_mOdFFzKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mOdFGjKFEeS-2ouOJu-Wmw" name="mainUnit" subUnits="_mOdFETKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mOdFGzKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mOdFHDKFEeS-2ouOJu-Wmw" name="EndValue"/>
+    <parameterMappings xmi:id="_mOdFHTKFEeS-2ouOJu-Wmw" source="_mOdFGzKFEeS-2ouOJu-Wmw" target="_mOdFEjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mOdFHjKFEeS-2ouOJu-Wmw" source="_mOdFHDKFEeS-2ouOJu-Wmw" target="_mOdFEzKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

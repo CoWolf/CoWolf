@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mP52kDKFEeS-2ouOJu-Wmw" name="SET_PragmaType_Value" description="Sets PragmaType Value">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mP52kTKFEeS-2ouOJu-Wmw" name="setPragmaTypeValue" description="Sets the EAttribute value">
+    <parameters xmi:id="_mP52kjKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mP52kzKFEeS-2ouOJu-Wmw" name="Value"/>
+    <lhs xmi:id="_mP52lDKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mP52lTKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//PragmaType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mP52ljKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mP52lzKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//PragmaType"/>
+        <attributes xmi:id="_mP52mDKFEeS-2ouOJu-Wmw" value="Value">
+          <type href="http://LQN/1.0#//PragmaType/value"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_mP52mTKFEeS-2ouOJu-Wmw" origin="_mP52lTKFEeS-2ouOJu-Wmw" image="_mP52lzKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mP52mjKFEeS-2ouOJu-Wmw" name="mainUnit" subUnits="_mP52kTKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mP52mzKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mP52nDKFEeS-2ouOJu-Wmw" name="Value"/>
+    <parameterMappings xmi:id="_mP52nTKFEeS-2ouOJu-Wmw" source="_mP52mzKFEeS-2ouOJu-Wmw" target="_mP52kjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mP52njKFEeS-2ouOJu-Wmw" source="_mP52nDKFEeS-2ouOJu-Wmw" target="_mP52kzKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mIN6MDKFEeS-2ouOJu-Wmw" name="SET_OutputDistributionType_StdDev" description="Sets OutputDistributionType StdDev">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mIN6MTKFEeS-2ouOJu-Wmw" name="setOutputDistributionTypeStdDev" description="Sets the EAttribute stdDev">
+    <parameters xmi:id="_mIN6MjKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mIN6MzKFEeS-2ouOJu-Wmw" name="StdDev"/>
+    <lhs xmi:id="_mIN6NDKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mIN6NTKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//OutputDistributionType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mIN6NjKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mIN6NzKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//OutputDistributionType"/>
+        <attributes xmi:id="_mIN6ODKFEeS-2ouOJu-Wmw" value="StdDev">
+          <type href="http://LQN/1.0#//OutputDistributionType/stdDev"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_mIN6OTKFEeS-2ouOJu-Wmw" origin="_mIN6NTKFEeS-2ouOJu-Wmw" image="_mIN6NzKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mIN6OjKFEeS-2ouOJu-Wmw" name="mainUnit" subUnits="_mIN6MTKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mIN6OzKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mIN6PDKFEeS-2ouOJu-Wmw" name="StdDev"/>
+    <parameterMappings xmi:id="_mIN6PTKFEeS-2ouOJu-Wmw" source="_mIN6OzKFEeS-2ouOJu-Wmw" target="_mIN6MjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mIN6PjKFEeS-2ouOJu-Wmw" source="_mIN6PDKFEeS-2ouOJu-Wmw" target="_mIN6MzKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mJUGYDKFEeS-2ouOJu-Wmw" name="CREATE_OutputResultForwardingANDJoinDelay_IN_ActivityDefBase_(resultJoinDelay)" description="Creates one OutputResultForwardingANDJoinDelay in ActivityDefBase">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mJUGYTKFEeS-2ouOJu-Wmw" name="createOutputResultForwardingANDJoinDelay_IN_ActivityDefBase" description="creates one OutputResultForwardingANDJoinDelay in the context: ActivityDefBase">
+    <parameters xmi:id="_mJUGYjKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mJUGYzKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_mJUGZDKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameters xmi:id="_mJUGZTKFEeS-2ouOJu-Wmw" name="Dest"/>
+    <parameters xmi:id="_mJUGZjKFEeS-2ouOJu-Wmw" name="JoinVariance"/>
+    <parameters xmi:id="_mJUGZzKFEeS-2ouOJu-Wmw" name="JoinWaiting"/>
+    <parameters xmi:id="_mJUGaDKFEeS-2ouOJu-Wmw" name="Waiting"/>
+    <lhs xmi:id="_mJUGaTKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mJUGajKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//ActivityDefBase"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mJUGazKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mJUGbDKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mJUtczKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityDefBase"/>
+      </nodes>
+      <nodes xmi:id="_mJUGbTKFEeS-2ouOJu-Wmw" name="New" incoming="_mJUtczKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//OutputResultForwardingANDJoinDelay"/>
+        <attributes xmi:id="_mJUGbjKFEeS-2ouOJu-Wmw" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_mJUGbzKFEeS-2ouOJu-Wmw" value="Dest">
+          <type href="http://LQN/1.0#//OutputResultForwardingANDJoinDelay/dest"/>
+        </attributes>
+        <attributes xmi:id="_mJUtcDKFEeS-2ouOJu-Wmw" value="JoinVariance">
+          <type href="http://LQN/1.0#//OutputResultForwardingANDJoinDelay/joinVariance"/>
+        </attributes>
+        <attributes xmi:id="_mJUtcTKFEeS-2ouOJu-Wmw" value="JoinWaiting">
+          <type href="http://LQN/1.0#//OutputResultForwardingANDJoinDelay/joinWaiting"/>
+        </attributes>
+        <attributes xmi:id="_mJUtcjKFEeS-2ouOJu-Wmw" value="Waiting">
+          <type href="http://LQN/1.0#//OutputResultForwardingANDJoinDelay/waiting"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_mJUtczKFEeS-2ouOJu-Wmw" source="_mJUGbDKFEeS-2ouOJu-Wmw" target="_mJUGbTKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//ActivityDefBase/resultJoinDelay"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_mJUtdDKFEeS-2ouOJu-Wmw" origin="_mJUGajKFEeS-2ouOJu-Wmw" image="_mJUGbDKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mJUtdTKFEeS-2ouOJu-Wmw" name="mainUnit" description="Creates one OutputResultForwardingANDJoinDelay depending on available contexts in model instance" subUnits="_mJUGYTKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mJUtdjKFEeS-2ouOJu-Wmw" name="New"/>
+    <parameters xmi:id="_mJUtdzKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mJUteDKFEeS-2ouOJu-Wmw" name="Id"/>
+    <parameters xmi:id="_mJUteTKFEeS-2ouOJu-Wmw" name="Dest"/>
+    <parameters xmi:id="_mJUtejKFEeS-2ouOJu-Wmw" name="JoinVariance"/>
+    <parameters xmi:id="_mJUtezKFEeS-2ouOJu-Wmw" name="JoinWaiting"/>
+    <parameters xmi:id="_mJUtfDKFEeS-2ouOJu-Wmw" name="Waiting"/>
+    <parameterMappings xmi:id="_mJUtfTKFEeS-2ouOJu-Wmw" source="_mJUtdzKFEeS-2ouOJu-Wmw" target="_mJUGYjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mJUtfjKFEeS-2ouOJu-Wmw" source="_mJUGYzKFEeS-2ouOJu-Wmw" target="_mJUtdjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mJUtfzKFEeS-2ouOJu-Wmw" source="_mJUteDKFEeS-2ouOJu-Wmw" target="_mJUGZDKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mJUtgDKFEeS-2ouOJu-Wmw" source="_mJUteTKFEeS-2ouOJu-Wmw" target="_mJUGZTKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mJUtgTKFEeS-2ouOJu-Wmw" source="_mJUtejKFEeS-2ouOJu-Wmw" target="_mJUGZjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mJUtgjKFEeS-2ouOJu-Wmw" source="_mJUtezKFEeS-2ouOJu-Wmw" target="_mJUGZzKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mJUtgzKFEeS-2ouOJu-Wmw" source="_mJUtfDKFEeS-2ouOJu-Wmw" target="_mJUGaDKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

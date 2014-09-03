@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mHlBADKFEeS-2ouOJu-Wmw" name="DELETE_OutPortType_IN_InterfaceType_(outPort)" description="Deletes one OutPortType in InterfaceType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mHlBATKFEeS-2ouOJu-Wmw" name="deleteOutPortType_IN_InterfaceType" description="deletes one OutPortType in the context: InterfaceType">
+    <parameters xmi:id="_mHlBAjKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mHlBAzKFEeS-2ouOJu-Wmw" name="ToBeDeleted"/>
+    <lhs xmi:id="_mHlBBDKFEeS-2ouOJu-Wmw" name="LHS">
+      <nodes xmi:id="_mHlBBTKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mHlBBzKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//InterfaceType"/>
+      </nodes>
+      <nodes xmi:id="_mHlBBjKFEeS-2ouOJu-Wmw" name="ToBeDeleted" incoming="_mHlBBzKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//OutPortType"/>
+      </nodes>
+      <edges xmi:id="_mHlBBzKFEeS-2ouOJu-Wmw" source="_mHlBBTKFEeS-2ouOJu-Wmw" target="_mHlBBjKFEeS-2ouOJu-Wmw">
+        <type href="http://LQN/1.0#//InterfaceType/outPort"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_mHlBCDKFEeS-2ouOJu-Wmw" name="RHS">
+      <nodes xmi:id="_mHlBCTKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//InterfaceType"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_mHlBCjKFEeS-2ouOJu-Wmw" origin="_mHlBBTKFEeS-2ouOJu-Wmw" image="_mHlBCTKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mHlBCzKFEeS-2ouOJu-Wmw" name="mainUnit" description="Deletes one OutPortType depending on available contexts in model instance" subUnits="_mHlBATKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mHlBDDKFEeS-2ouOJu-Wmw" name="ToBeDeleted"/>
+    <parameters xmi:id="_mHlBDTKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameterMappings xmi:id="_mHlBDjKFEeS-2ouOJu-Wmw" source="_mHlBDTKFEeS-2ouOJu-Wmw" target="_mHlBAjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mHlBDzKFEeS-2ouOJu-Wmw" source="_mHlBDDKFEeS-2ouOJu-Wmw" target="_mHlBAzKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mAoEcDKFEeS-2ouOJu-Wmw" name="SET_ActivityType_Name" description="Sets ActivityType Name">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_mAoEcTKFEeS-2ouOJu-Wmw" name="setActivityTypeName" description="Sets the EAttribute name">
+    <parameters xmi:id="_mAoEcjKFEeS-2ouOJu-Wmw" name="Selected"/>
+    <parameters xmi:id="_mAoEczKFEeS-2ouOJu-Wmw" name="Name"/>
+    <lhs xmi:id="_mAoEdDKFEeS-2ouOJu-Wmw" name="Lhs">
+      <nodes xmi:id="_mAoEdTKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//ActivityType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_mAoEdjKFEeS-2ouOJu-Wmw" name="Rhs">
+      <nodes xmi:id="_mAoEdzKFEeS-2ouOJu-Wmw" name="Selected">
+        <type href="http://LQN/1.0#//ActivityType"/>
+        <attributes xmi:id="_mAoEeDKFEeS-2ouOJu-Wmw" value="Name">
+          <type href="http://LQN/1.0#//ActivityType/name"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_mAoEeTKFEeS-2ouOJu-Wmw" origin="_mAoEdTKFEeS-2ouOJu-Wmw" image="_mAoEdzKFEeS-2ouOJu-Wmw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_mAoEejKFEeS-2ouOJu-Wmw" name="mainUnit" subUnits="_mAoEcTKFEeS-2ouOJu-Wmw">
+    <parameters xmi:id="_mAoEezKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
+    <parameters xmi:id="_mAoEfDKFEeS-2ouOJu-Wmw" name="Name"/>
+    <parameterMappings xmi:id="_mAoEfTKFEeS-2ouOJu-Wmw" source="_mAoEezKFEeS-2ouOJu-Wmw" target="_mAoEcjKFEeS-2ouOJu-Wmw"/>
+    <parameterMappings xmi:id="_mAoEfjKFEeS-2ouOJu-Wmw" source="_mAoEfDKFEeS-2ouOJu-Wmw" target="_mAoEczKFEeS-2ouOJu-Wmw"/>
+  </units>
+</henshin:Module>
