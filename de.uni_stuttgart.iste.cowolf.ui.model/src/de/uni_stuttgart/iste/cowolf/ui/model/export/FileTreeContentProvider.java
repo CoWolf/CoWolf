@@ -1,6 +1,9 @@
 package de.uni_stuttgart.iste.cowolf.ui.model.export;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.List;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
@@ -14,14 +17,23 @@ import org.eclipse.jface.viewers.Viewer;
 
 public class FileTreeContentProvider implements ITreeContentProvider {
 
-	private String fileExtension;
+	private List<String> fileExtension;
 
 	/**
 	 * Constructor.
 	 * @param fileExtension Extension, which should be shown at this tree.
 	 */
 	public FileTreeContentProvider(String fileExtension) {
-		this.fileExtension = fileExtension;
+		this.fileExtension = new ArrayList<String>();
+		this.fileExtension.add(fileExtension);
+	}
+	
+	/**
+	 * Constructor.
+	 * @param fileExtension Extensions, which should be shown at this tree.
+	 */
+	public FileTreeContentProvider(String[] fileExtension) {
+		this.fileExtension = Arrays.asList(fileExtension);
 	}
 
 	@Override
@@ -52,7 +64,7 @@ public class FileTreeContentProvider implements ITreeContentProvider {
 	 * @return List of resources, contains Containers which have children 
 	 *			with this extension and the files with the extension.
 	 */
-	private Object[] filterExtension(IResource[] members) {
+	protected Object[] filterExtension(IResource[] members) {
 		LinkedList<IResource> filteredResources = new LinkedList<IResource>();
 		for (IResource res : members) {
 			if (!(res instanceof IFile)) {
@@ -63,8 +75,7 @@ public class FileTreeContentProvider implements ITreeContentProvider {
 				filteredResources.add(res);
 				continue;
 			}
-
-			if (res.getFileExtension().equals(this.fileExtension)) {
+			if(this.fileExtension.contains(res.getFileExtension())) {
 				filteredResources.add(res);
 			}
 		}

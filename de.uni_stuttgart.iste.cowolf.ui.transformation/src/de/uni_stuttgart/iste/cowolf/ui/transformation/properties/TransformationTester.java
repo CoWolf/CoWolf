@@ -1,6 +1,7 @@
 package de.uni_stuttgart.iste.cowolf.ui.transformation.properties;
 
-import java.util.List;
+import java.io.File;
+import java.util.Set;
 
 import org.eclipse.core.expressions.PropertyTester;
 import org.eclipse.core.resources.IFile;
@@ -8,192 +9,90 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.ui.ISelectionService;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 
-import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
-import de.uni_stuttgart.iste.cowolf.evolution.EvolutionRegistry;
-import de.uni_stuttgart.iste.cowolf.transformation.AbstractTransformationManager;
+import de.uni_stuttgart.iste.cowolf.model.AbstractModelManager;
+import de.uni_stuttgart.iste.cowolf.model.AbstractQoSModelManager;
+import de.uni_stuttgart.iste.cowolf.model.ModelRegistry;
 import de.uni_stuttgart.iste.cowolf.transformation.TransformationRegistry;
 
-/**
- * Checks on base of the current selected models, if the co-evolve button should
- * be grayed out or not.
- *
- * @author Michael Zimmermann
- */
 public class TransformationTester extends PropertyTester {
-
-	public static final String PROPERTY_NAMESPACE = "de.uni_stuttgart.iste.cowolf.ui.transformation.properties.transformation";
-	public static final String PROPERTY_CAN_FOO = "canFoo";
 
 	public TransformationTester() {
 	}
 
 	@Override
-	public boolean test(Object receiver, String property, Object[] args,
-			Object expectedValue) {
-
-		EvolutionRegistry extensionHandler = EvolutionRegistry.getInstance();
+	public boolean test(final Object receiver, final String property,
+			final Object[] args, final Object expectedValue) {
 
 		IWorkbenchWindow window = PlatformUI.getWorkbench()
 				.getActiveWorkbenchWindow();
-		if ((window == null) || (window.getSelectionService() == null)) {
+	
+		if (window == null) {
 			return false;
 		}
-		if (!(window.getSelectionService().getSelection() instanceof IStructuredSelection)) {
-			return false;
-		}
-		IStructuredSelection selection = (IStructuredSelection) window
-				.getSelectionService().getSelection();
+		
+		ISelectionService selectionService = window.getSelectionService();
 
-		List<?> list = selection.toList();
-
-		// One model selected
-		if (list.size() == 1) {
-			Object firstElement = list.get(0);
-			if (firstElement instanceof IFile) {
-				Resource firstElementResource = this
-						.getResourceOfIFile((IFile) firstElement);
-				return extensionHandler
-						.getEvolutionManager(firstElementResource) != null;
-			}
-		}
-
-		// Two models selected
-		else if (list.size() == 2) {
-
-			Object firstElement = list.get(0);
-			Object secondElement = list.get(1);
-
-			if ((firstElement instanceof IFile)
-					&& (secondElement instanceof IFile)) {
-
-				Resource firstElementResource = this
-						.getResourceOfIFile((IFile) firstElement);
-				Resource secondElementResource = this
-						.getResourceOfIFile((IFile) secondElement);
-
-				// both selected models are of the same type if the returned
-				// evolution managers are equal
-				AbstractEvolutionManager firstElementEvolutionManager = extensionHandler
-						.getEvolutionManager(firstElementResource);
-				AbstractEvolutionManager secondElementEvolutionManager = extensionHandler
-						.getEvolutionManager(secondElementResource);
-
-				return ((firstElementEvolutionManager != null) && (secondElementEvolutionManager != null));
-
-			}
-		}
-
-		// Three models selected
-		else if (list.size() == 3) {
-
-			Object firstElement = list.get(0);
-			Object secondElement = list.get(1);
-			Object thirdElement = list.get(2);
-
-			if ((firstElement instanceof IFile)
-					&& (secondElement instanceof IFile)
-					&& (thirdElement instanceof IFile)) {
-
-				return this.isTransformationPossible((IFile) firstElement,
-						(IFile) secondElement, (IFile) thirdElement);
-
-			}
-		}
-
-		return false;
-
-	}
-
-	public boolean isTransformationPossible(IFile modelA, IFile modelB,
-			IFile targetModel) {
-
-		if ((modelA == null) || (modelB == null) || (targetModel == null)) {
+		if (selectionService == null) {
 			return false;
 		}
 
-		Resource modelAResource = this.getResourceOfIFile(modelA);
-		Resource modelBResource = this.getResourceOfIFile(modelB);
-		Resource modelCResource = this.getResourceOfIFile(targetModel);
+		ISelection selection = selectionService.getSelection();
 
-		// both selected source models are of the same type if the returned
-		// evolution managers are equal
-		AbstractEvolutionManager firstElementEvolutionManager = EvolutionRegistry.getInstance().getEvolutionManager(modelAResource);
-		AbstractEvolutionManager secondElementEvolutionManager = EvolutionRegistry.getInstance().getEvolutionManager(modelBResource);
-		AbstractEvolutionManager thirdElementEvolutionManager = EvolutionRegistry.getInstance().getEvolutionManager(modelCResource);
-
-		// First and second of same type
-		if ((firstElementEvolutionManager != null)
-				&& (secondElementEvolutionManager != null)
-				&& firstElementEvolutionManager
-						.equals(secondElementEvolutionManager)) {
-
-			AbstractTransformationManager transManager = TransformationRegistry.getInstance()
-					.getTransformationManager(modelAResource, modelCResource);
-
-			// First and third of different type
-			if ((transManager != null)
-					&& !firstElementEvolutionManager
-							.equals(thirdElementEvolutionManager)) {
-
-				return true;
-			}
-
+		if (selection == null || !(selection instanceof IStructuredSelection)) {
+			return false;
 		}
-
-		// First and third of same type
-		else if ((firstElementEvolutionManager != null)
-				&& (thirdElementEvolutionManager != null)
-				&& firstElementEvolutionManager
-						.equals(thirdElementEvolutionManager)) {
-
-			AbstractTransformationManager transManager = TransformationRegistry.getInstance().getTransformationManager(modelAResource, modelBResource);
-
-			// First and second of different type
-			if ((transManager != null)
-					&& !firstElementEvolutionManager
-							.equals(secondElementEvolutionManager)) {
-
-				return true;
-			}
-
+		
+		Object selectedElement = ((IStructuredSelection)selection).getFirstElement();
+		
+		if (selectedElement == null) {
+			return false;
 		}
-
-		// Second and third of same type
-		else if ((secondElementEvolutionManager != null)
-				&& (thirdElementEvolutionManager != null)
-				&& secondElementEvolutionManager
-						.equals(thirdElementEvolutionManager)) {
-
-			AbstractTransformationManager transManager = TransformationRegistry.getInstance().getTransformationManager(modelAResource, modelCResource);
-
-			// First and third of different type
-			if ((transManager != null)
-					&& !firstElementEvolutionManager
-							.equals(thirdElementEvolutionManager)) {
-
-				return true;
-			}
-		}
-
-		return false;
-	}
-
-	public Resource getResourceOfIFile(IFile model) {
-		URI uri = URI.createPlatformResourceURI(model.getFullPath().toString(),
-				true);
-		ResourceSet resourceSet = new ResourceSetImpl();
+		
+		
+		// catch exceptions from wrong parsing as we can only recognize IFiles
 		try {
-			Resource modelResource = resourceSet.getResource(uri, true);
-			return modelResource;
-		} catch (Exception exc) {
+			// file then try to parse
+			if (selectedElement instanceof IFile) {
+				IFile iFile = (IFile) selectedElement;
+				File file = iFile.getLocation().toFile();
+
+				ResourceSet resourceSet = new ResourceSetImpl();
+				Resource resource;
+
+				URI uri = URI.createPlatformResourceURI(iFile.getFullPath()
+						.toString(), true);
+
+				if (!file.exists()) {
+					return false;
+				}
+
+				resource = resourceSet.getResource(uri, true);
+				AbstractModelManager modelManager = ModelRegistry.getInstance().getModelManager(resource);
+				
+				// must find model manager
+				if (modelManager == null || !(modelManager instanceof AbstractQoSModelManager)) {
+					return false;
+				}
+
+				Set<Class<?>> classes = TransformationRegistry.getInstance().getTargetTransformations(modelManager.getManagedClass());
+				if (classes.isEmpty()) {
+					return false;
+				}
+				return true;
+
+			} else {
+				// no file -> cannot open
+				return false;
+			}
+
+		} catch (Exception e) {
+			return false;
 		}
-
-		return null;
-
 	}
-
 }
