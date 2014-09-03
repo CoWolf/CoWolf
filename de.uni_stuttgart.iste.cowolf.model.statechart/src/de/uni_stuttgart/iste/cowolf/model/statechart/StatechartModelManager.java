@@ -21,6 +21,6 @@ public class StatechartModelManager extends AbstractArchitectureModelManager {
 	
 	@Override
 	public String getFileExtension() {
-		return "statechart";
+		return "statechartemf";
 	}
 }

@@ -6,9 +6,9 @@ import java.io.InputStream;
 import java.net.URL;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,7 +21,6 @@ import org.eclipse.core.runtime.IExtensionPoint;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.RegistryFactory;
 import org.eclipse.emf.common.util.BasicEList;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
@@ -48,8 +47,6 @@ import org.sidiff.difference.symmetric.SymmetricDifference;
 
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Association;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Model;
-import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociation;
-import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociationFactory;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelVersion;
 import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
 import de.uni_stuttgart.iste.cowolf.evolution.EvolutionException;
@@ -173,7 +170,7 @@ public abstract class AbstractTransformationManager {
         Association latest = sourceModel.getLatestAssociationTo(targetModel);
         
         // per default, use initial version (directly after creation of file) as base.
-        ModelVersion oldSourceVersion = sourceModel.getVersions().get(0);;
+        ModelVersion oldSourceVersion = sourceModel.getVersions().get(0);
         ModelVersion sourceVersion;
         
         if (latest != null) {
@@ -211,29 +208,31 @@ public abstract class AbstractTransformationManager {
         
         // Got all needed versions.
         
-        Resource oldSourceRes = oldSourceVersion.getResource();
-        Resource sourceRes = sourceVersion.getResource();
-        Resource targetRes = targetModel.getResource();
+        ResourceSet transResSet = generateTransformationResources(oldSourceVersion.getResource(),
+        															sourceVersion.getResource(),
+        															targetModel.getResource(),
+        															latest);
         
-        System.out.println(oldSourceRes.getURI().toString());
-        System.out.println(sourceRes.getURI().toString());
-        System.out.println(targetRes.getURI().toString());
+        Resource sourceRes = transResSet.getResources().get(0);
         
-        EList<Trace> newTraces = new BasicEList<Trace>();
-        if (latest != null) {
-        	newTraces = this.createTraceCopy(latest.getTraces(), oldSourceRes, sourceRes);
+        for (Resource res : transResSet.getResources()) {
+        	System.out.println(res.getURI().toString()+ ": " + Arrays.toString(res.getContents().toArray()));
         }
         
         //Get evolution between old and new source.
         AbstractEvolutionManager evolutionManager = EvolutionRegistry.getInstance().getEvolutionManager(sourceRes);
         SymmetricDifference difference;
         try {
-			difference = evolutionManager.evolve(oldSourceRes, sourceRes);
+			difference = evolutionManager.evolve(
+					transResSet.getResource(URI.createURI("transform:old"), false),
+					sourceRes);
 		} catch (EvolutionException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 		}
+        
+        transResSet.createResource(URI.createURI("transform:diff")).getContents().add(difference);
         
         //load mapping
         Mappings mappingObject;
@@ -253,15 +252,33 @@ public abstract class AbstractTransformationManager {
         this.units = this.getHenshinRules();
         System.out.println("Number of henshin rules:" + this.units.size());
 
-        EGraph graph = new EGraphImpl();
-        graph.addAll(oldSourceRes.getContents());
-        graph.addAll(sourceRes.getContents());
-        graph.addAll(targetRes.getContents());
-        if (latest != null) {
-        	graph.addAll(latest.getTraces());
+        ArrayList<EGraph> graphSources = new ArrayList<EGraph>(4);
+        
+//        for (Resource res : transResSet.getResources()) {
+//        	if (res.getURI().toString().equals("transform:old")) {
+//        		continue;
+//        	}
+//        	graphSources.add(new EGraphImpl(res));
+//        }
+        Resource traceRes = transResSet.getResource(URI.createURI("traces"), false);
+        graphSources.add(new EGraphImpl(transResSet.getResource(URI.createURI("transform:diff"), false)));
+        if (traceRes != null && traceRes.getContents().size() > 0) {
+        	graphSources.add(new EGraphImpl(traceRes));
+        } else {
+        	graphSources.add(new EGraphImpl(transResSet.getResource(URI.createURI("transform:source"), false)));
+        	graphSources.add(new EGraphImpl(transResSet.getResource(URI.createURI("transform:target"), false)));
         }
-        graph.addAll(newTraces);
-        graph.add(difference);
+        //graphSources.add(new EGraphImpl(transResSet.getResource(URI.createURI("transform:old"), false)));
+//        //graphSources.add(new EGraphImpl(newTraces));
+//        if (latest != null) {
+//        	graphSources.add(new EGraphImpl(EcoreUtil.copyAll(latest.getTraces())));
+//        }
+        //graphSources.add(new EGraphImpl(difference));
+        EGraph graph = mergeInstanceModels(graphSources);
+        
+        for (EObject o : graph.getRoots()) {
+        	System.out.println(o);
+        }
         
         System.out.println("Finished merging graphs.");
 
@@ -272,16 +289,26 @@ public abstract class AbstractTransformationManager {
             
             ModelVersion newTargetVersion = null;
             try {
-                this.setResult(graph, sourceRes, targetRes, newTraces);
+            	Resource traces = transResSet.createResource(URI.createURI("transform:newTraces"));
+            	Resource targetRes = targetModel.getResource();
+                this.setResult(graph, sourceRes, targetRes, traces);
+                
+                System.out.println("targetRes size: " + targetRes.getContents().size());
+                System.out.println("targetRes class: " + targetRes.getContents().get(0).getClass().getName());
                 
                 targetRes.save(Collections.EMPTY_MAP);
+                targetRes.unload();
                 
                 newTargetVersion = targetModel.createVersion();
                 
-                Association newAssoc = ModelAssociationFactory.eINSTANCE.createAssociation();
-                sourceModel.getParent().getAssociations().add(newAssoc);
-                newAssoc.getTraces().addAll(newTraces);
-                newAssoc.setTimestamp(new Date().getTime());
+                Association newAssoc = sourceModel.getParent().registerAssociation();
+                BasicEList<Trace> tl = new BasicEList<Trace>();
+                for (EObject o : traces.getContents()) {
+                	if (o instanceof Trace) {
+                		tl.add((Trace) o);
+                	}
+                }
+                newAssoc.getTraces().addAll(tl);
                 newAssoc.getSource().add(sourceVersion);
                 newAssoc.getTarget().add(newTargetVersion);
                 
@@ -298,10 +325,52 @@ public abstract class AbstractTransformationManager {
     
     
     
-    private EList<Trace> createTraceCopy(EList<Trace> traces,
-			Resource oldSourceRes, Resource sourceRes) {
-		// TODO Auto-generated method stub
-		return null;
+    private ResourceSet generateTransformationResources(Resource oldSourceRes,
+			Resource sourceRes, Resource targetRes, Association latest) {
+    	ResourceSet set = new ResourceSetImpl();
+    	if (oldSourceRes.getContents().size() <= 0) {
+    		return set;
+    	}
+    	
+    	URI sourceURI;
+    	URI targetURI;
+    	if (this.getManagedClass1().isAssignableFrom(oldSourceRes.getContents().get(0).getClass())) {
+    		sourceURI = URI.createURI("transform:source");
+    		targetURI = URI.createURI("transform:target");
+    	} else {
+    		sourceURI = URI.createURI("transform:target");
+    		targetURI = URI.createURI("transform:source");
+    	}
+    	
+    	System.out.println("Target content");
+    	for (EObject o : targetRes.getContents()) {
+    		System.out.println(o);
+    	}
+    				
+    	
+	
+		Resource source = set.createResource(sourceURI);
+		source.getContents().addAll(EcoreUtil.copyAll(sourceRes.getContents()));
+		Resource target = set.createResource(targetURI);
+		target.getContents().addAll(EcoreUtil.copyAll(targetRes.getContents()));
+		
+    	
+    	if (latest != null) {
+    		set.createResource(URI.createURI("traces")).getContents().addAll(new BasicEList<>(EcoreUtil.copyAll(latest.getTraces())));
+    		
+//    		EList<Trace> traces = new BasicEList<>(EcoreUtil.copyAll(latest.getTraces()));
+//    		ResourceSet oldSet = new ResourceSetImpl();
+//    		oldSet.createResource(URI.createURI("oldTraces")).getContents().addAll(traces);
+//    		Resource oldRes = oldSet.createResource(sourceURI);
+//    		oldRes.getContents().addAll(EcoreUtil.copyAll(oldSourceRes.getContents()));
+//    		oldRes.setURI(URI.createURI("transform:old"));
+//
+//    		set.getResources().addAll(oldSet.getResources());
+    	}// else {
+    		set.createResource(URI.createURI("transform:old")).getContents().addAll(EcoreUtil.copyAll(oldSourceRes.getContents()));
+    	//}
+    	
+    	return set;
 	}
 
 	/**
@@ -565,43 +634,51 @@ public abstract class AbstractTransformationManager {
      *            resource to save
      * @param inPlace
      *            overwrite the transformed models or create a new file
+     * @return 
      * @throws IOException
      */
-    protected void setResult(EGraph result, Resource source, Resource target, EList<Trace> traces) throws IOException {
+    protected Resource setResult(EGraph result, Resource source, Resource target, Resource traces) throws IOException {
         // Save the models.
         System.out.println("Saving models...");
         System.out.println("Number of roots: " + result.getRoots().size());
 
-        traces.clear();
-        
-        Resource temp = new ResourceImpl(target.getURI());
+        traces.getContents().clear();
 
         List<EObject> list = result.getRoots();
 
         Class<? extends EObject> targetClass = target.getContents().get(0).getClass();
         
+        
+        target.getContents().clear();
         for (EObject root : list) {
+        	System.out.println(root);
             // root is element of target model
             if (root.getClass() == targetClass) {
-                temp.getContents().add(root);
+                target.getContents().add(EcoreUtil.copy(root));
             }
 
             // root is a Trace and has source and target
-            else if (root.getClass() == Trace.class) {
+            else if (root instanceof Trace) {
                 int hasSource = ((Trace) root).getSource().size();
                 int hasTarget = ((Trace) root).getTarget().size();
 
                 if (hasSource >= 1 && hasTarget >= 1) {
-                    traces.add((Trace) root);
+                	System.out.println("Add trace " + Arrays.toString(((Trace) root).getSource().toArray())
+                			+  Arrays.toString(((Trace) root).getTarget().toArray()));
+                    traces.getContents().add(root);
                 }
 
             }
         }
-
-        target.getContents().clear();
-        if (temp.getContents().size() > 0) {
-        	target.getContents().add(temp.getContents().get(0));
-        }
+        
+        Resource temp = new ResourceSetImpl().createResource(URI.createURI(target.getURI().toString() + ".graph"));
+        temp.getContents().clear();
+        temp.getContents().addAll(EcoreUtil.copyAll(result.getRoots()));
+        temp.save(Collections.EMPTY_MAP);
+        
+        return target;
+        
+        
 
     }
     

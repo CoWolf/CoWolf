@@ -1,8 +1,5 @@
 package de.uni_stuttgart.iste.cowolf.evolution;
 
-import org.sidiff.difference.matcher.namedelement.NamedElementMatcher;
-import org.sidiff.difference.matcher.uri.URIFragmentMatcher;
-
 /**
  * 
  * @author michael
@@ -10,22 +7,6 @@ import org.sidiff.difference.matcher.uri.URIFragmentMatcher;
  */
 public class EvolutionTypeInfo {
 
-    /**
-     * Key for named element matcher.
-     */
-    public static final String MATCHER_NAMEDELEMENT = NamedElementMatcher.KEY;
-    /**
-     * Key for ecore id matcher.
-     */
-    public static final String MATCHER_ECOREID = "EcoreIDMatcher";
-    /**
-     * Key for UUID matcher.
-     */
-    public static final String MATCHER_UUID = "UUIDMatcher";
-    /**
-     * Key for URI matcher.
-     */
-    public static final String MATCHER_URI = URIFragmentMatcher.KEY;
     /**
      * Key for EMFCompare matcher.
      */

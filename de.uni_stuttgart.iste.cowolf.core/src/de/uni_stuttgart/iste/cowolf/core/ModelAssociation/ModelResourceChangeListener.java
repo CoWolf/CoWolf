@@ -111,8 +111,8 @@ public class ModelResourceChangeListener implements IResourceChangeListener {
 						if ((delta.getFlags() & IResourceDelta.CONTENT) == IResourceDelta.CONTENT) {
 							Model model = ma.getModelByPath(res.getProjectRelativePath().toString());
 							if (model != null) {
-								model.createVersion();
-								System.out.println("Created version.");
+//								model.createVersion();
+//								System.out.println("Created version.");
 							}
 						}
 						break;

@@ -8,9 +8,8 @@ import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociation;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociationFactory;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociationPackage;
 import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
-
 import java.util.Collection;
-
+import java.util.Date;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -19,7 +18,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -48,7 +46,7 @@ public class ModelAssociationImpl extends MinimalEObjectImpl.Container implement
 	protected EList<Model> models;
 
 	/**
-	 * The cached value of the '{@link #getAssociations() <em>Associations</em>}' reference list.
+	 * The cached value of the '{@link #getAssociations() <em>Associations</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getAssociations()
@@ -158,6 +156,16 @@ public class ModelAssociationImpl extends MinimalEObjectImpl.Container implement
 		return models;
 	}
 
+	@Override
+	public Association registerAssociation() {
+		
+		Association assoc = ModelAssociationFactory.eINSTANCE.createAssociation();
+		assoc.setTimestamp(new Date().getTime());
+		assoc.setParent(this);
+		
+		return assoc;
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -165,7 +173,7 @@ public class ModelAssociationImpl extends MinimalEObjectImpl.Container implement
 	 */
 	public EList<Association> getAssociations() {
 		if (associations == null) {
-			associations = new EObjectWithInverseResolvingEList<Association>(Association.class, this, ModelAssociationPackage.MODEL_ASSOCIATION__ASSOCIATIONS, ModelAssociationPackage.ASSOCIATION__PARENT);
+			associations = new EObjectContainmentWithInverseEList<Association>(Association.class, this, ModelAssociationPackage.MODEL_ASSOCIATION__ASSOCIATIONS, ModelAssociationPackage.ASSOCIATION__PARENT);
 		}
 		return associations;
 	}
