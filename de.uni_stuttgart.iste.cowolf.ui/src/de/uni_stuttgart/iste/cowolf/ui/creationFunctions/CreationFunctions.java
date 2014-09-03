@@ -1,9 +1,7 @@
 package de.uni_stuttgart.iste.cowolf.ui.creationFunctions;
 
 import java.net.URI;
-
 import javax.swing.JOptionPane;
-
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
@@ -12,11 +10,6 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
-
-
-
-
-
 import de.uni_stuttgart.iste.cowolf.core.extensions.ExtensionHandler;
 import de.uni_stuttgart.iste.cowolf.core.natures.ProjectNature;
 import de.uni_stuttgart.iste.cowolf.ui.externalizedStrings.Messages;
@@ -49,8 +42,7 @@ public class CreationFunctions {
 				Messages.CreationFunctions_folder_title_models, iProject);
 		// properties
 		createFolder(".properties", iProject);
-
-
+		
 		if (ModelPreferencePage.getFolderPreference()) {
 
 			// one folder for every registered model
@@ -132,13 +124,14 @@ public class CreationFunctions {
 	 */
 	private static void addNature(IProject iProject) {
 		try {
-			if (!iProject.hasNature(ProjectNature.NATURE_ID)) {
+			if (!iProject.hasNature(ProjectNature.NATURE_ID) && !iProject.hasNature(ProjectNature.MODELING_NATURE_ID)) {
 				IProjectDescription description = iProject.getDescription();
 				String[] previousNatures = description.getNatureIds();
-				String[] newNatures = new String[previousNatures.length + 1];
+				String[] newNatures = new String[previousNatures.length + 2];
 				System.arraycopy(previousNatures, 0, newNatures, 0,
 						previousNatures.length);
 				newNatures[previousNatures.length] = ProjectNature.NATURE_ID;
+				newNatures[previousNatures.length+1] = ProjectNature.MODELING_NATURE_ID;
 				description.setNatureIds(newNatures);
 
 				IProgressMonitor monitor = null;
