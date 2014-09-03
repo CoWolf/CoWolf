@@ -1,24 +1,29 @@
 grammar de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.PCTL with org.eclipse.xtext.common.Terminals
 
 generate pCTL "http://www.uni_stuttgart.de/iste/cowolf/model/ctmc/xtext/PCTL"
+	
+Addition returns Expression:
+ Multiplication ({Addition.left=current} '+' right=Multiplication)*;
 
+Multiplication returns Expression:
+ Primary ({Multiplication.left=current} '*' right=Primary)*;
 
-Model:
-	start+=Start*;
-	
-Start:
-	" " STRING*;
-	
-	
-//	Start:
-//	State | Label | {Start} "(" item=Start ")" "and" "(" location=Start ")" | {Start} "(" item=Start ")" "|" location=Start | S | P;
-//State:
-//	"(" 'State:' name=ID ")";
-//Label:
-//	"(" 'Label:' name=ID ")";
-//S:
-//	"S" (((">" | "<" | ">=" | "<=" | "=") DECIMAL) | "=?") "[" item=Start "]";
+Primary returns Expression:
+ NumberLiteral |
+ '(' Addition ')';
+
+NumberLiteral:
+ value=INT;
+//	
+////Start:
+////	State | Label | {Start} "(" item=Start ")" "and" "(" location=Start ")" | {Start} "(" item=Start ")" "|" location=Start | S | P;
+//State returns Expression:
+//	"(""State:" name=ID ")";
+//Label returns Expression:
+//	"(""\"" name=ID "\""")";
+//S returns Expression:
+//	"S" (((">" | "<" | ">=" | "<=" | "=") DECIMAL) | "=?") "[" Addition "]";
 //P:
-//	"P" (((">" | "<" | ">=" | "<=" | "=") DECIMAL) | "=?") "[""F" item=Start "]";
+//	"P" (((">" | "<" | ">=" | "<=" | "=") DECIMAL) | "=?") "[""F" Addition "]";
 //
 //DECIMAL: INT '.' INT;

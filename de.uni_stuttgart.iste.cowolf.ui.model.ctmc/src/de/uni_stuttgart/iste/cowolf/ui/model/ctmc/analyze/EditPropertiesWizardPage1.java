@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -183,14 +185,14 @@ public class EditPropertiesWizardPage1 extends WizardPage {
 				combo_4.select(0);
 		
 				text_3 = new Text(grpCslproperties, SWT.BORDER);
-				text_3.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false,
+				text_3.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false,
 						1, 1));
 		
 				CLabel lblAnd = new CLabel(grpCslproperties, SWT.NONE);
 				lblAnd.setText("and");
 		
 				text_4 = new Text(grpCslproperties, SWT.BORDER);
-				text_4.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false,
+				text_4.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false,
 						1, 1));
 
 		lblHoldsWithProbability = new Label(grpCslproperties, SWT.NONE);
@@ -251,7 +253,7 @@ public class EditPropertiesWizardPage1 extends WizardPage {
 		text_5 = new Text(grpTexteditor, SWT.BORDER);
 		GridData gd_text_5 = new GridData(SWT.LEFT, SWT.CENTER, false, false,
 				1, 1);
-		gd_text_5.widthHint = 635;
+		gd_text_5.widthHint = 759;
 		text_5.setLayoutData(gd_text_5);
 		text_5.setText(key);
 
@@ -294,6 +296,7 @@ public class EditPropertiesWizardPage1 extends WizardPage {
 					}
 				}
 			}
+			Collections.sort(statesAndLabels , new OrderAlphabeticallyComparator());
 			combo_1.setItems(statesAndLabels.toArray(new String[statesAndLabels
 					.size()]));
 			combo_2.setItems(statesAndLabels.toArray(new String[statesAndLabels
@@ -302,6 +305,15 @@ public class EditPropertiesWizardPage1 extends WizardPage {
 
 	}
 
+	public class OrderAlphabeticallyComparator implements Comparator<String> 
+	{
+		@Override
+		public int compare(String sortKey1,String sortKey2) 
+		{
+			return sortKey1.compareTo(sortKey2);
+		}
+	}
+	
 	@Override
 	public boolean isPageComplete() {
 		try {
@@ -428,8 +440,7 @@ public class EditPropertiesWizardPage1 extends WizardPage {
 						+ combo_1.getItem(combo_1.getSelectionIndex())
 						+ " always was true before "
 						+ combo_2.getItem(combo_2.getSelectionIndex())
-						+ " becomes true with probability " + probString
-						+ timeString);
+						+ " becomes true " + timeString + "with probability " + probString);
 			if (combo_4.getSelectionIndex() == 0) {
 				setValue("P" + probString + " [ ("
 						+ combo_1.getItem(combo_1.getSelectionIndex())
@@ -461,8 +472,7 @@ public class EditPropertiesWizardPage1 extends WizardPage {
 					+ combo_1.getItem(combo_1.getSelectionIndex())
 					+ " was true, "
 					+ combo_2.getItem(combo_2.getSelectionIndex())
-					+ " will be true with probability " + probString + " "
-					+ timeString);
+					+ " will be true " + timeString + "with probability " + probString);
 
 			if (combo_4.getSelectionIndex() == 0) {
 				setValue("P>=1 [ G (("

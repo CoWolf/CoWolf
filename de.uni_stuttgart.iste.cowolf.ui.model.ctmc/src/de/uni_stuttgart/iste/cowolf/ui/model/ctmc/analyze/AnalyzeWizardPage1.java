@@ -32,6 +32,7 @@ import org.eclipse.swt.widgets.ScrollBar;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
+import org.eclipse.swt.widgets.Label;
 
 public class AnalyzeWizardPage1 extends WizardPage {
 
@@ -115,28 +116,41 @@ public class AnalyzeWizardPage1 extends WizardPage {
 	public void createControl(final Composite parent) {
 		this.container = new Composite(parent, SWT.NONE);
 		this.setControl(this.container);
-		this.container.setLayout(new GridLayout(3, false));
-
-		tableViewer = new TableViewer(container, SWT.CHECK | SWT.FULL_SELECTION);
-		tableViewer.setContentProvider(ArrayContentProvider.getInstance());
-		table = tableViewer.getTable();
-		GridData gd_t = new GridData(SWT.FILL, SWT.FILL, true, true, 3, 1);
-		gd_t.widthHint = 554;
-		table.setLayoutData(gd_t);
-		table.setLinesVisible(true);
-
-		final TableColumn column1 = new TableColumn(table, SWT.CENTER);
-		column1.setResizable(false);
-		column1.setText(" ");
-		column1.setWidth(40);
-		final TableColumn column2 = new TableColumn(table, SWT.LEFT);
-		column2.setText("Name");
-		column2.setWidth(180);
-		final TableColumn column3 = new TableColumn(table, SWT.LEFT);
-		column3.setResizable(false);
-		column3.setText("Property");
-		column3.setWidth(180);
-		table.setHeaderVisible(true);
+		this.container.setLayout(new GridLayout(5, false));
+		
+				tableViewer = new TableViewer(container, SWT.CHECK | SWT.FULL_SELECTION);
+				tableViewer.setContentProvider(ArrayContentProvider.getInstance());
+				table = tableViewer.getTable();
+				GridData gd_t = new GridData(SWT.FILL, SWT.FILL, true, true, 5, 1);
+				gd_t.widthHint = 554;
+				table.setLayoutData(gd_t);
+				table.setLinesVisible(true);
+				
+						final TableColumn column1 = new TableColumn(table, SWT.CENTER);
+						column1.setResizable(false);
+						column1.setText(" ");
+						column1.setWidth(40);
+						final TableColumn column2 = new TableColumn(table, SWT.LEFT);
+						column2.setText("Name");
+						column2.setWidth(180);
+						final TableColumn column3 = new TableColumn(table, SWT.LEFT);
+						column3.setResizable(false);
+						column3.setText("Property");
+						column3.setWidth(180);
+						table.setHeaderVisible(true);
+						
+								table.addSelectionListener(new SelectionListener() {
+						
+									@Override
+									public void widgetSelected(SelectionEvent arg0) {
+										AnalyzeWizardPage1.this.getContainer().updateButtons();
+									}
+						
+									@Override
+									public void widgetDefaultSelected(SelectionEvent arg0) {
+										// TODO Auto-generated method stub
+									}
+								});
 
 		container.addControlListener(new ControlAdapter() {
 			@Override
@@ -176,19 +190,6 @@ public class AnalyzeWizardPage1 extends WizardPage {
 			}
 		});
 
-		table.addSelectionListener(new SelectionListener() {
-
-			@Override
-			public void widgetSelected(SelectionEvent arg0) {
-				AnalyzeWizardPage1.this.getContainer().updateButtons();
-			}
-
-			@Override
-			public void widgetDefaultSelected(SelectionEvent arg0) {
-				// TODO Auto-generated method stub
-			}
-		});
-
 		String[] tableData = data.split("__#");
 		for (String string : tableData) {
 			if (string.contains("_#")) {
@@ -200,6 +201,46 @@ public class AnalyzeWizardPage1 extends WizardPage {
 				}
 			}
 		}
+		
+		Button btnSelectAll = new Button(container, SWT.NONE);
+		btnSelectAll.setText("Select All");
+		btnSelectAll.addSelectionListener(new SelectionListener() {
+
+			@Override
+			public void widgetSelected(SelectionEvent arg0) {
+				for (TableItem item : table.getItems()) {
+					item.setChecked(true);
+				}
+				AnalyzeWizardPage1.this.getContainer().updateButtons();
+			}
+
+			@Override
+			public void widgetDefaultSelected(SelectionEvent arg0) {
+				// TODO Auto-generated method stub
+
+			}
+		});
+
+		
+		Button btnDeselectAll = new Button(container, SWT.NONE);
+		btnDeselectAll.setText("Deselect All");
+		btnDeselectAll.addSelectionListener(new SelectionListener() {
+
+			@Override
+			public void widgetSelected(SelectionEvent arg0) {
+				for (TableItem item : table.getItems()) {
+					item.setChecked(false);
+				}
+				AnalyzeWizardPage1.this.getContainer().updateButtons();
+			}
+
+			@Override
+			public void widgetDefaultSelected(SelectionEvent arg0) {
+				// TODO Auto-generated method stub
+
+			}
+		});
+
 
 		Button btnAdd = new Button(container, SWT.NONE);
 		btnAdd.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, true, false,

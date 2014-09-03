@@ -45,6 +45,25 @@ class PRISMGenerator {
 
 		return result;
 	}
+	
+	def CharSequence generateCSL(Resource resource, ArrayList<String> analyzeProperties, ArrayList<String> analyzePropertyNames,
+		boolean isValidation) {
+		var result = "";
+
+		if (resource.getContents().size() > 0 && resource.getContents().get(0) instanceof CTMC) {
+			var e = resource.getContents().get(0) as CTMC;
+
+			addStatesToMap(e);
+			addStatesNamesToMap(e);
+			
+			for (var i = 0; i <analyzeProperties.size; i++) {
+				var newString = replace(analyzeProperties.get(i));
+				result += "// " + analyzePropertyNames.get(i) + "\n" + newString + "\n";
+			}
+		}
+
+		return result;
+	}
 
 	def CharSequence generateLabels(Resource resource) {
 

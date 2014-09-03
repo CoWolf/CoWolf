@@ -102,7 +102,6 @@ public class CTMCAnalyzeJob extends Job {
 		}
 
 		try {
-			CTMC root = (CTMC) this.model.getContents().get(0);
 			getAnalyzeProperties();
 
 			this.prismResult = new ArrayList<CTMCAnalyzeJob.Result>();
@@ -172,7 +171,7 @@ public class CTMCAnalyzeJob extends Job {
 
 			smFile.delete();
 			cslFile.delete();
-			// resultFile.delete();
+			resultFile.delete();
 
 			System.out.println("Results:");
 			for (Result entry : this.prismResult) {

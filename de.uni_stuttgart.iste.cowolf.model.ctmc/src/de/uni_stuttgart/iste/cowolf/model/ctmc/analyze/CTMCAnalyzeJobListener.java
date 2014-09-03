@@ -101,7 +101,8 @@ public class CTMCAnalyzeJobListener implements IJobChangeListener {
 				out.write("Property,Result\n".getBytes());
 
 				for (Result entry : job.getAnalysis()) {
-					out.write(entry.name.getBytes());
+					out.write(("\"" + entry.name.replaceAll("\"", "\"\"") + "\"")
+							.getBytes());
 					out.write(',');
 					out.write(entry.value.getBytes());
 					out.write('\n');
@@ -120,12 +121,14 @@ public class CTMCAnalyzeJobListener implements IJobChangeListener {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block				
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (CoreException e) {
-			JOptionPane.showMessageDialog(null,
-					"Error saving result to csv. Is result csv file from previous run still open?",
-					"Error saving result", JOptionPane.ERROR_MESSAGE);
+			JOptionPane
+					.showMessageDialog(
+							null,
+							"Error saving result to csv. Is result csv file from previous run still open?",
+							"Error saving result", JOptionPane.ERROR_MESSAGE);
 		}
 
 		if (this.listener != null) {

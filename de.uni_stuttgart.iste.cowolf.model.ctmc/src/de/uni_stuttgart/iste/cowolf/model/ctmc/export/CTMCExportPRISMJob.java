@@ -1,22 +1,24 @@
 package de.uni_stuttgart.iste.cowolf.model.ctmc.export;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
+
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
 
-import de.uni_stuttgart.iste.cowolf.model.ctmc.CTMC;
-import de.uni_stuttgart.iste.cowolf.model.ctmc.Label;
-import de.uni_stuttgart.iste.cowolf.model.ctmc.State;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.analyze.PRISMGenerator;
 
 public class CTMCExportPRISMJob extends Job {
@@ -80,10 +82,53 @@ public class CTMCExportPRISMJob extends Job {
 						continue;
 					}
 					output = this.mappingCSL.get(res);
+					
+					IFile modelfile = ResourcesPlugin.getWorkspace().getRoot()
+							.getFile(new Path(res.getURI().toPlatformString(true)));
+
+					IFile resultfile = ResourcesPlugin.getWorkspace().getRoot()
+							.getFile(modelfile.getFullPath().addFileExtension("csl"));
+
+					File clsFile = new File(resultfile.getLocationURI());
+
+					String data = "";
+					if (clsFile.exists()) {
+						try (BufferedReader reader = new BufferedReader(new FileReader(
+								clsFile))) {
+
+							String line = null;
+							while ((line = reader.readLine()) != null) {
+								data += line;
+							}
+						} catch (IOException x) {
+							System.err.format("IOException: %s%n", x);
+						}
+					} else {
+						try {
+							clsFile.createNewFile();
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+					
+					ArrayList<String> properties = new ArrayList<String>();
+					ArrayList<String> propertyNames = new ArrayList<String>();
+					
+					String[] tableData = data.split("__#");
+					for (String string : tableData) {
+						if (string.contains("_#")) {
+							String[] tableSubData = string.split("_#");
+							if (tableSubData.length > 1) {
+								propertyNames.add(tableSubData[0]);
+								properties.add(tableSubData[1]);
+							}
+						}
+					}
+					
 					monitor.subTask("Exporting: " + output.getAbsolutePath());
 					FileOutputStream out = new FileOutputStream(output);
-					// TODO: Generator has changed, needs to read out properties from file, by Dave, 02.09.2014
-//					out.write(generator.generateCSL(res, this.getStates(res), this.getLabels(res), true).toString().getBytes());
+					out.write(generator.generateCSL(res, properties, propertyNames, true).toString().getBytes());
 					out.close();
 					monitor.worked(1);
 				} catch(SecurityException | IOException e) {
@@ -94,29 +139,5 @@ public class CTMCExportPRISMJob extends Job {
 		monitor.done();
 
 		return Status.OK_STATUS;
-	}
-	
-	private Set<State> getStates(Resource res) {
-		HashSet<State> states = new HashSet<State>();
-		EList<State> list = ((CTMC) res.getContents().get(0)).getStates();
-		for (State state : list) {
-			states.add(state);
-		}
-		return states;
-	}
-
-	/**
-	 * Returns all labelnames for the given model.
-	 * @param resource Resource to get labels for.
-	 * @return Names of labels, empty if none can found.
-	 */
-	private Set<String> getLabels(Resource resource) {
-		HashSet<String> labelNames = new HashSet<String>();
-		for (State s : ((CTMC) resource.getContents().get(0)).getStates()) {
-			for (Label l : s.getLabels()) {
-				labelNames.add(l.getName());
-			}
-		}
-		return labelNames;
 	}
 }
