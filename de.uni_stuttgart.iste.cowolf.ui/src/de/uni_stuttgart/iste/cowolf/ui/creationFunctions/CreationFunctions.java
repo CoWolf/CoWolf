@@ -1,11 +1,7 @@
 package de.uni_stuttgart.iste.cowolf.ui.creationFunctions;
 
-import java.io.File;
-import java.io.IOException;
 import java.net.URI;
-
 import javax.swing.JOptionPane;
-
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
@@ -14,13 +10,6 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
-
-
-
-
-
-
-
 import de.uni_stuttgart.iste.cowolf.core.extensions.ExtensionHandler;
 import de.uni_stuttgart.iste.cowolf.core.natures.ProjectNature;
 import de.uni_stuttgart.iste.cowolf.ui.externalizedStrings.Messages;
