@@ -109,10 +109,7 @@ public class FaultTreeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((FaultTree)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_FaultTree_type") :
-			getString("_UI_FaultTree_type") + " " + label;
+		return getString("_UI_FaultTree_type");
 	}
 	
 
