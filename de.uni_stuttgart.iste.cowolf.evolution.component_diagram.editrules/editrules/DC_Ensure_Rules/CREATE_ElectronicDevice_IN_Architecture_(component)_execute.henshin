@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_1QL-ADN5EeSNuISj7DMDOA" name="CREATE_ElectronicDevice_IN_Architecture_(component)" description="Creates one ElectronicDevice in Architecture">
+  <imports href="http://component_diagram/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_1QL-ATN5EeSNuISj7DMDOA" name="createElectronicDevice_IN_Architecture" description="creates one ElectronicDevice in the context: Architecture">
+    <parameters xmi:id="_1QL-AjN5EeSNuISj7DMDOA" name="Selected"/>
+    <parameters xmi:id="_1QL-AzN5EeSNuISj7DMDOA" name="New"/>
+    <parameters xmi:id="_1QL-BDN5EeSNuISj7DMDOA" name="Name"/>
+    <parameters xmi:id="_1QL-BTN5EeSNuISj7DMDOA" name="PowerSupply"/>
+    <lhs xmi:id="_1QL-BjN5EeSNuISj7DMDOA" name="Lhs">
+      <nodes xmi:id="_1QL-BzN5EeSNuISj7DMDOA" name="Selected">
+        <type href="http://component_diagram/1.0#//Architecture"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_1QL-CDN5EeSNuISj7DMDOA" name="Rhs">
+      <nodes xmi:id="_1QL-CTN5EeSNuISj7DMDOA" name="Selected" outgoing="_1QL-DTN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//Architecture"/>
+      </nodes>
+      <nodes xmi:id="_1QL-CjN5EeSNuISj7DMDOA" name="New" incoming="_1QL-DTN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//ElectronicDevice"/>
+        <attributes xmi:id="_1QL-CzN5EeSNuISj7DMDOA" value="Name">
+          <type href="http://component_diagram/1.0#//ComponentType/name"/>
+        </attributes>
+        <attributes xmi:id="_1QL-DDN5EeSNuISj7DMDOA" value="PowerSupply">
+          <type href="http://component_diagram/1.0#//HardwareComponent/powerSupply"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_1QL-DTN5EeSNuISj7DMDOA" source="_1QL-CTN5EeSNuISj7DMDOA" target="_1QL-CjN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//Architecture/component"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_1QL-DjN5EeSNuISj7DMDOA" origin="_1QL-BzN5EeSNuISj7DMDOA" image="_1QL-CTN5EeSNuISj7DMDOA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_1QL-DzN5EeSNuISj7DMDOA" name="mainUnit" description="Creates one ElectronicDevice depending on available contexts in model instance" subUnits="_1QL-ATN5EeSNuISj7DMDOA">
+    <parameters xmi:id="_1QL-EDN5EeSNuISj7DMDOA" name="New"/>
+    <parameters xmi:id="_1QL-ETN5EeSNuISj7DMDOA" name="selectedEObject"/>
+    <parameters xmi:id="_1QL-EjN5EeSNuISj7DMDOA" name="Name"/>
+    <parameters xmi:id="_1QL-EzN5EeSNuISj7DMDOA" name="PowerSupply"/>
+    <parameterMappings xmi:id="_1QL-FDN5EeSNuISj7DMDOA" source="_1QL-ETN5EeSNuISj7DMDOA" target="_1QL-AjN5EeSNuISj7DMDOA"/>
+    <parameterMappings xmi:id="_1QL-FTN5EeSNuISj7DMDOA" source="_1QL-AzN5EeSNuISj7DMDOA" target="_1QL-EDN5EeSNuISj7DMDOA"/>
+    <parameterMappings xmi:id="_1QL-FjN5EeSNuISj7DMDOA" source="_1QL-EjN5EeSNuISj7DMDOA" target="_1QL-BDN5EeSNuISj7DMDOA"/>
+    <parameterMappings xmi:id="_1QL-FzN5EeSNuISj7DMDOA" source="_1QL-EzN5EeSNuISj7DMDOA" target="_1QL-BTN5EeSNuISj7DMDOA"/>
+  </units>
+</henshin:Module>

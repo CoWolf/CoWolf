@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_1RvdMDN5EeSNuISj7DMDOA" name="CREATE_ComponentInstance_IN_ComponentInstance_(subcomponent)" description="Creates one ComponentInstance in ComponentInstance">
+  <imports href="http://component_diagram/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_1RvdMTN5EeSNuISj7DMDOA" name="createComponentInstance_IN_ComponentInstance" description="creates one ComponentInstance in the context: ComponentInstance">
+    <parameters xmi:id="_1RvdMjN5EeSNuISj7DMDOA" name="Selected"/>
+    <parameters xmi:id="_1RvdMzN5EeSNuISj7DMDOA" name="New"/>
+    <parameters xmi:id="_1RvdNDN5EeSNuISj7DMDOA" name="Name"/>
+    <parameters xmi:id="_1RvdNTN5EeSNuISj7DMDOA" name="Version"/>
+    <parameters xmi:id="_1RvdNjN5EeSNuISj7DMDOA" name="Existing"/>
+    <lhs xmi:id="_1RvdNzN5EeSNuISj7DMDOA" name="Lhs">
+      <nodes xmi:id="_1RvdODN5EeSNuISj7DMDOA" name="Selected">
+        <type href="http://component_diagram/1.0#//ComponentInstance"/>
+      </nodes>
+      <nodes xmi:id="_1RvdOTN5EeSNuISj7DMDOA" name="Existing">
+        <type href="http://component_diagram/1.0#//ComponentType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_1RvdOjN5EeSNuISj7DMDOA" name="Rhs">
+      <nodes xmi:id="_1RvdOzN5EeSNuISj7DMDOA" name="Selected" incoming="_1RvdQTN5EeSNuISj7DMDOA" outgoing="_1RvdQDN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//ComponentInstance"/>
+      </nodes>
+      <nodes xmi:id="_1RvdPDN5EeSNuISj7DMDOA" name="New" incoming="_1RvdQDN5EeSNuISj7DMDOA _1RvdQzN5EeSNuISj7DMDOA" outgoing="_1RvdQTN5EeSNuISj7DMDOA _1RvdQjN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//ComponentInstance"/>
+        <attributes xmi:id="_1RvdPTN5EeSNuISj7DMDOA" value="Name">
+          <type href="http://component_diagram/1.0#//ComponentInstance/name"/>
+        </attributes>
+        <attributes xmi:id="_1RvdPjN5EeSNuISj7DMDOA" value="Version">
+          <type href="http://component_diagram/1.0#//ComponentInstance/version"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_1RvdPzN5EeSNuISj7DMDOA" name="Existing" incoming="_1RvdQjN5EeSNuISj7DMDOA" outgoing="_1RvdQzN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//ComponentType"/>
+      </nodes>
+      <edges xmi:id="_1RvdQDN5EeSNuISj7DMDOA" source="_1RvdOzN5EeSNuISj7DMDOA" target="_1RvdPDN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//ComponentInstance/subcomponent"/>
+      </edges>
+      <edges xmi:id="_1RvdQTN5EeSNuISj7DMDOA" source="_1RvdPDN5EeSNuISj7DMDOA" target="_1RvdOzN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//ComponentInstance/parentcomponent"/>
+      </edges>
+      <edges xmi:id="_1RvdQjN5EeSNuISj7DMDOA" source="_1RvdPDN5EeSNuISj7DMDOA" target="_1RvdPzN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//ComponentInstance/type"/>
+      </edges>
+      <edges xmi:id="_1RvdQzN5EeSNuISj7DMDOA" source="_1RvdPzN5EeSNuISj7DMDOA" target="_1RvdPDN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//ComponentType/instance"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_1RvdRDN5EeSNuISj7DMDOA" origin="_1RvdODN5EeSNuISj7DMDOA" image="_1RvdOzN5EeSNuISj7DMDOA"/>
+    <mappings xmi:id="_1RvdRTN5EeSNuISj7DMDOA" origin="_1RvdOTN5EeSNuISj7DMDOA" image="_1RvdPzN5EeSNuISj7DMDOA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_1RvdRjN5EeSNuISj7DMDOA" name="mainUnit" description="Creates one ComponentInstance depending on available contexts in model instance" subUnits="_1RvdMTN5EeSNuISj7DMDOA">
+    <parameters xmi:id="_1RvdRzN5EeSNuISj7DMDOA" name="New"/>
+    <parameters xmi:id="_1RvdSDN5EeSNuISj7DMDOA" name="selectedEObject"/>
+    <parameters xmi:id="_1RvdSTN5EeSNuISj7DMDOA" name="Name"/>
+    <parameters xmi:id="_1RvdSjN5EeSNuISj7DMDOA" name="Version"/>
+    <parameters xmi:id="_1RvdSzN5EeSNuISj7DMDOA" name="Existing"/>
+    <parameterMappings xmi:id="_1RvdTDN5EeSNuISj7DMDOA" source="_1RvdSDN5EeSNuISj7DMDOA" target="_1RvdMjN5EeSNuISj7DMDOA"/>
+    <parameterMappings xmi:id="_1RvdTTN5EeSNuISj7DMDOA" source="_1RvdMzN5EeSNuISj7DMDOA" target="_1RvdRzN5EeSNuISj7DMDOA"/>
+    <parameterMappings xmi:id="_1RvdTjN5EeSNuISj7DMDOA" source="_1RvdSTN5EeSNuISj7DMDOA" target="_1RvdNDN5EeSNuISj7DMDOA"/>
+    <parameterMappings xmi:id="_1RvdTzN5EeSNuISj7DMDOA" source="_1RvdSjN5EeSNuISj7DMDOA" target="_1RvdNTN5EeSNuISj7DMDOA"/>
+    <parameterMappings xmi:id="_1RvdUDN5EeSNuISj7DMDOA" source="_1RvdSzN5EeSNuISj7DMDOA" target="_1RvdNjN5EeSNuISj7DMDOA"/>
+  </units>
+</henshin:Module>

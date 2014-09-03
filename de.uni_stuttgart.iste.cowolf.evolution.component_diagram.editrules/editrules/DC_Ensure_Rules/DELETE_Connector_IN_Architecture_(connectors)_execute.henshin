@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_1M1IADN5EeSNuISj7DMDOA" name="DELETE_Connector_IN_Architecture_(connectors)" description="Deletes one Connector in Architecture">
+  <imports href="http://component_diagram/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_1M1IATN5EeSNuISj7DMDOA" name="deleteConnector_IN_Architecture" description="deletes one Connector in the context: Architecture">
+    <parameters xmi:id="_1M1IAjN5EeSNuISj7DMDOA" name="Existing"/>
+    <parameters xmi:id="_1M1IAzN5EeSNuISj7DMDOA" name="Existing1"/>
+    <parameters xmi:id="_1M1IBDN5EeSNuISj7DMDOA" name="Existing2"/>
+    <parameters xmi:id="_1M1IBTN5EeSNuISj7DMDOA" name="Selected"/>
+    <parameters xmi:id="_1M1IBjN5EeSNuISj7DMDOA" name="ToBeDeleted"/>
+    <lhs xmi:id="_1M1IBzN5EeSNuISj7DMDOA" name="LHS">
+      <nodes xmi:id="_1M1ICDN5EeSNuISj7DMDOA" name="Selected" outgoing="_1M1vEDN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//Architecture"/>
+      </nodes>
+      <nodes xmi:id="_1M1ICTN5EeSNuISj7DMDOA" name="ToBeDeleted" incoming="_1M1vEDN5EeSNuISj7DMDOA _1M1vEjN5EeSNuISj7DMDOA _1M1vFjN5EeSNuISj7DMDOA" outgoing="_1M1vETN5EeSNuISj7DMDOA _1M1vFTN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//Connector"/>
+      </nodes>
+      <nodes xmi:id="_1M1ICjN5EeSNuISj7DMDOA" name="Existing" incoming="_1M1vETN5EeSNuISj7DMDOA _1M1vFDN5EeSNuISj7DMDOA" outgoing="_1M1vEjN5EeSNuISj7DMDOA _1M1vEzN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//PortInstance"/>
+      </nodes>
+      <nodes xmi:id="_1M1ICzN5EeSNuISj7DMDOA" name="Existing1" incoming="_1M1vEzN5EeSNuISj7DMDOA" outgoing="_1M1vFDN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//PortType"/>
+      </nodes>
+      <nodes xmi:id="_1M1IDDN5EeSNuISj7DMDOA" name="Existing2" incoming="_1M1vFTN5EeSNuISj7DMDOA" outgoing="_1M1vFjN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//PortInstance"/>
+      </nodes>
+      <edges xmi:id="_1M1vEDN5EeSNuISj7DMDOA" source="_1M1ICDN5EeSNuISj7DMDOA" target="_1M1ICTN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//Architecture/connectors"/>
+      </edges>
+      <edges xmi:id="_1M1vETN5EeSNuISj7DMDOA" source="_1M1ICTN5EeSNuISj7DMDOA" target="_1M1ICjN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//Connector/port"/>
+      </edges>
+      <edges xmi:id="_1M1vEjN5EeSNuISj7DMDOA" source="_1M1ICjN5EeSNuISj7DMDOA" target="_1M1ICTN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//PortInstance/connect"/>
+      </edges>
+      <edges xmi:id="_1M1vEzN5EeSNuISj7DMDOA" source="_1M1ICjN5EeSNuISj7DMDOA" target="_1M1ICzN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//PortInstance/type"/>
+      </edges>
+      <edges xmi:id="_1M1vFDN5EeSNuISj7DMDOA" source="_1M1ICzN5EeSNuISj7DMDOA" target="_1M1ICjN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//PortType/port_instance"/>
+      </edges>
+      <edges xmi:id="_1M1vFTN5EeSNuISj7DMDOA" source="_1M1ICTN5EeSNuISj7DMDOA" target="_1M1IDDN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//Connector/port"/>
+      </edges>
+      <edges xmi:id="_1M1vFjN5EeSNuISj7DMDOA" source="_1M1IDDN5EeSNuISj7DMDOA" target="_1M1ICTN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//PortInstance/connect"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_1M1vFzN5EeSNuISj7DMDOA" name="RHS">
+      <nodes xmi:id="_1M1vGDN5EeSNuISj7DMDOA" name="Selected">
+        <type href="http://component_diagram/1.0#//Architecture"/>
+      </nodes>
+      <nodes xmi:id="_1M1vGTN5EeSNuISj7DMDOA" name="Existing">
+        <type href="http://component_diagram/1.0#//PortInstance"/>
+      </nodes>
+      <nodes xmi:id="_1M1vGjN5EeSNuISj7DMDOA" name="Existing1">
+        <type href="http://component_diagram/1.0#//PortType"/>
+      </nodes>
+      <nodes xmi:id="_1M1vGzN5EeSNuISj7DMDOA" name="Existing2">
+        <type href="http://component_diagram/1.0#//PortInstance"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_1M1vHDN5EeSNuISj7DMDOA" origin="_1M1ICDN5EeSNuISj7DMDOA" image="_1M1vGDN5EeSNuISj7DMDOA"/>
+    <mappings xmi:id="_1M1vHTN5EeSNuISj7DMDOA" origin="_1M1ICjN5EeSNuISj7DMDOA" image="_1M1vGTN5EeSNuISj7DMDOA"/>
+    <mappings xmi:id="_1M1vHjN5EeSNuISj7DMDOA" origin="_1M1ICzN5EeSNuISj7DMDOA" image="_1M1vGjN5EeSNuISj7DMDOA"/>
+    <mappings xmi:id="_1M1vHzN5EeSNuISj7DMDOA" origin="_1M1IDDN5EeSNuISj7DMDOA" image="_1M1vGzN5EeSNuISj7DMDOA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_1M1vIDN5EeSNuISj7DMDOA" name="mainUnit" description="Deletes one Connector depending on available contexts in model instance" subUnits="_1M1IATN5EeSNuISj7DMDOA">
+    <parameters xmi:id="_1M1vITN5EeSNuISj7DMDOA" name="Existing"/>
+    <parameters xmi:id="_1M1vIjN5EeSNuISj7DMDOA" name="Existing1"/>
+    <parameters xmi:id="_1M1vIzN5EeSNuISj7DMDOA" name="Existing2"/>
+    <parameters xmi:id="_1M1vJDN5EeSNuISj7DMDOA" name="ToBeDeleted"/>
+    <parameters xmi:id="_1M1vJTN5EeSNuISj7DMDOA" name="selectedEObject"/>
+    <parameterMappings xmi:id="_1M1vJjN5EeSNuISj7DMDOA" source="_1M1vITN5EeSNuISj7DMDOA" target="_1M1IAjN5EeSNuISj7DMDOA"/>
+    <parameterMappings xmi:id="_1M1vJzN5EeSNuISj7DMDOA" source="_1M1vIjN5EeSNuISj7DMDOA" target="_1M1IAzN5EeSNuISj7DMDOA"/>
+    <parameterMappings xmi:id="_1M1vKDN5EeSNuISj7DMDOA" source="_1M1vIzN5EeSNuISj7DMDOA" target="_1M1IBDN5EeSNuISj7DMDOA"/>
+    <parameterMappings xmi:id="_1M1vKTN5EeSNuISj7DMDOA" source="_1M1vJTN5EeSNuISj7DMDOA" target="_1M1IBTN5EeSNuISj7DMDOA"/>
+    <parameterMappings xmi:id="_1M1vKjN5EeSNuISj7DMDOA" source="_1M1vJDN5EeSNuISj7DMDOA" target="_1M1IBjN5EeSNuISj7DMDOA"/>
+  </units>
+</henshin:Module>

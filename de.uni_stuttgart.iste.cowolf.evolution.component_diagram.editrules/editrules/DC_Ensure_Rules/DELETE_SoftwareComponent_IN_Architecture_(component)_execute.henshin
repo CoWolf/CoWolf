@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_1P8GYDN5EeSNuISj7DMDOA" name="DELETE_SoftwareComponent_IN_Architecture_(component)" description="Deletes one SoftwareComponent in Architecture">
+  <imports href="http://component_diagram/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_1P8GYTN5EeSNuISj7DMDOA" name="deleteSoftwareComponent_IN_Architecture" description="deletes one SoftwareComponent in the context: Architecture">
+    <parameters xmi:id="_1P8GYjN5EeSNuISj7DMDOA" name="Selected"/>
+    <parameters xmi:id="_1P8GYzN5EeSNuISj7DMDOA" name="ToBeDeleted"/>
+    <lhs xmi:id="_1P8GZDN5EeSNuISj7DMDOA" name="LHS">
+      <nodes xmi:id="_1P8GZTN5EeSNuISj7DMDOA" name="Selected" outgoing="_1P8GZzN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//Architecture"/>
+      </nodes>
+      <nodes xmi:id="_1P8GZjN5EeSNuISj7DMDOA" name="ToBeDeleted" incoming="_1P8GZzN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//SoftwareComponent"/>
+      </nodes>
+      <edges xmi:id="_1P8GZzN5EeSNuISj7DMDOA" source="_1P8GZTN5EeSNuISj7DMDOA" target="_1P8GZjN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//Architecture/component"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_1P8GaDN5EeSNuISj7DMDOA" name="RHS">
+      <nodes xmi:id="_1P8GaTN5EeSNuISj7DMDOA" name="Selected">
+        <type href="http://component_diagram/1.0#//Architecture"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_1P8GajN5EeSNuISj7DMDOA" origin="_1P8GZTN5EeSNuISj7DMDOA" image="_1P8GaTN5EeSNuISj7DMDOA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_1P8GazN5EeSNuISj7DMDOA" name="mainUnit" description="Deletes one SoftwareComponent depending on available contexts in model instance" subUnits="_1P8GYTN5EeSNuISj7DMDOA">
+    <parameters xmi:id="_1P8GbDN5EeSNuISj7DMDOA" name="ToBeDeleted"/>
+    <parameters xmi:id="_1P8GbTN5EeSNuISj7DMDOA" name="selectedEObject"/>
+    <parameterMappings xmi:id="_1P8GbjN5EeSNuISj7DMDOA" source="_1P8GbTN5EeSNuISj7DMDOA" target="_1P8GYjN5EeSNuISj7DMDOA"/>
+    <parameterMappings xmi:id="_1P8GbzN5EeSNuISj7DMDOA" source="_1P8GbDN5EeSNuISj7DMDOA" target="_1P8GYzN5EeSNuISj7DMDOA"/>
+  </units>
+</henshin:Module>

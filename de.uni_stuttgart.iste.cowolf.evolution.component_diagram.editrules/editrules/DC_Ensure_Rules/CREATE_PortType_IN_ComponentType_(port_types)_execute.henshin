@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_1SymEDN5EeSNuISj7DMDOA" name="CREATE_PortType_IN_ComponentType_(port_types)" description="Creates one PortType in ComponentType">
+  <imports href="http://component_diagram/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_1SymETN5EeSNuISj7DMDOA" name="createPortType_IN_ComponentType" description="creates one PortType in the context: ComponentType">
+    <parameters xmi:id="_1SymEjN5EeSNuISj7DMDOA" name="Selected"/>
+    <parameters xmi:id="_1SymEzN5EeSNuISj7DMDOA" name="New"/>
+    <parameters xmi:id="_1SymFDN5EeSNuISj7DMDOA" name="Name"/>
+    <lhs xmi:id="_1SymFTN5EeSNuISj7DMDOA" name="Lhs">
+      <nodes xmi:id="_1SymFjN5EeSNuISj7DMDOA" name="Selected">
+        <type href="http://component_diagram/1.0#//ComponentType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_1SymFzN5EeSNuISj7DMDOA" name="Rhs">
+      <nodes xmi:id="_1SymGDN5EeSNuISj7DMDOA" name="Selected" incoming="_1SymHDN5EeSNuISj7DMDOA" outgoing="_1SymGzN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//ComponentType"/>
+      </nodes>
+      <nodes xmi:id="_1SymGTN5EeSNuISj7DMDOA" name="New" incoming="_1SymGzN5EeSNuISj7DMDOA" outgoing="_1SymHDN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//PortType"/>
+        <attributes xmi:id="_1SymGjN5EeSNuISj7DMDOA" value="Name">
+          <type href="http://component_diagram/1.0#//PortType/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_1SymGzN5EeSNuISj7DMDOA" source="_1SymGDN5EeSNuISj7DMDOA" target="_1SymGTN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//ComponentType/port_types"/>
+      </edges>
+      <edges xmi:id="_1SymHDN5EeSNuISj7DMDOA" source="_1SymGTN5EeSNuISj7DMDOA" target="_1SymGDN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//PortType/component_type"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_1SzNIDN5EeSNuISj7DMDOA" origin="_1SymFjN5EeSNuISj7DMDOA" image="_1SymGDN5EeSNuISj7DMDOA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_1SzNITN5EeSNuISj7DMDOA" name="mainUnit" description="Creates one PortType depending on available contexts in model instance" subUnits="_1SymETN5EeSNuISj7DMDOA">
+    <parameters xmi:id="_1SzNIjN5EeSNuISj7DMDOA" name="New"/>
+    <parameters xmi:id="_1SzNIzN5EeSNuISj7DMDOA" name="selectedEObject"/>
+    <parameters xmi:id="_1SzNJDN5EeSNuISj7DMDOA" name="Name"/>
+    <parameterMappings xmi:id="_1SzNJTN5EeSNuISj7DMDOA" source="_1SzNIzN5EeSNuISj7DMDOA" target="_1SymEjN5EeSNuISj7DMDOA"/>
+    <parameterMappings xmi:id="_1SzNJjN5EeSNuISj7DMDOA" source="_1SymEzN5EeSNuISj7DMDOA" target="_1SzNIjN5EeSNuISj7DMDOA"/>
+    <parameterMappings xmi:id="_1SzNJzN5EeSNuISj7DMDOA" source="_1SzNJDN5EeSNuISj7DMDOA" target="_1SymFDN5EeSNuISj7DMDOA"/>
+  </units>
+</henshin:Module>
