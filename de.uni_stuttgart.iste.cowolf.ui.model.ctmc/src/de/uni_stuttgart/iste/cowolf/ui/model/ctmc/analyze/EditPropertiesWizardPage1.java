@@ -23,7 +23,6 @@ import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
 import de.uni_stuttgart.iste.cowolf.model.ctmc.CTMC;
@@ -71,7 +70,7 @@ public class EditPropertiesWizardPage1 extends WizardPage {
 		this.setControl(this.container);
 		this.container.setLayout(new GridLayout(1, false));
 
-		Group grpCslproperties = new Group(container, SWT.NONE);
+		final Group grpCslproperties = new Group(container, SWT.NONE);
 		grpCslproperties.setLayout(new GridLayout(5, false));
 		grpCslproperties.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true,
 				false, 1, 1));
@@ -94,38 +93,38 @@ public class EditPropertiesWizardPage1 extends WizardPage {
 			@Override
 			public void widgetSelected(SelectionEvent arg0) {
 				if (combo.getSelectionIndex() == 0) {
-					lblFor.setText("Eventually");
+					lblFor.setText("Probability that");
 					lblAnd_1.setText("-");
 					lblWithin.setText("-");
+					lblHoldsWithProbability.setText("eventually is true is");
 					combo_2.setEnabled(false);
 					combo_4.setEnabled(false);
 				}
 				if (combo.getSelectionIndex() == 1) {
-					lblFor.setText("Eventually");
+					lblFor.setText("Probability that");
 					lblAnd_1.setText("-");
-					lblWithin.setText("within");
+					lblWithin.setText("is true within");
+					lblHoldsWithProbability.setText("is");
 					combo_2.setEnabled(false);
 					combo_4.setEnabled(true);
 				}
 				if (combo.getSelectionIndex() == 2) {
-					lblFor.setText("If this allways was true:");
-					lblAnd_1.setText("this will be true:");
-					lblWithin.setText("within");
+					lblFor.setText("Probability that");
+					lblAnd_1.setText("always was true before");
+					lblWithin.setText("becomes true within");
+					lblHoldsWithProbability.setText("is");
 					combo_2.setEnabled(true);
 					combo_4.setEnabled(true);
 				}
 				if (combo.getSelectionIndex() == 3) {
 					lblFor.setText("If");
-					lblAnd_1.setText("then");
-					lblWithin.setText("within");
+					lblAnd_1.setText("was true, ");
+					lblWithin.setText("will be true within");
+					lblHoldsWithProbability.setText("with probability");
 					combo_2.setEnabled(true);
 					combo_4.setEnabled(true);
 				}
-				lblFor.pack();
-				lblAnd_1.pack();
-				lblWithin.pack();
-				container.layout();
-				parent.layout();
+				grpCslproperties.layout();
 			}
 
 			@Override
@@ -145,9 +144,9 @@ public class EditPropertiesWizardPage1 extends WizardPage {
 		new Label(grpCslproperties, SWT.NONE);
 
 		lblFor = new Label(grpCslproperties, SWT.NONE);
-		lblFor.setLayoutData(new GridData(SWT.CENTER, SWT.FILL, false, false,
+		lblFor.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false,
 				1, 1));
-		lblFor.setText("Eventually");
+		lblFor.setText("Probability that");
 
 		combo_1 = new Combo(grpCslproperties, SWT.READ_ONLY);
 		combo_1.setToolTipText("");
@@ -169,11 +168,35 @@ public class EditPropertiesWizardPage1 extends WizardPage {
 		new Label(grpCslproperties, SWT.NONE);
 		new Label(grpCslproperties, SWT.NONE);
 		new Label(grpCslproperties, SWT.NONE);
+		
+				lblWithin = new Label(grpCslproperties, SWT.NONE);
+				lblWithin.setText("-");
+				lblWithin.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false,
+						false, 1, 1));
+		
+				combo_4 = new Combo(grpCslproperties, SWT.READ_ONLY);
+				combo_4.setEnabled(false);
+				combo_4.setItems(new String[] { "no time bound", "within ...",
+						"after ...", "between ... and ..." });
+				combo_4.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false,
+						1, 1));
+				combo_4.select(0);
+		
+				text_3 = new Text(grpCslproperties, SWT.BORDER);
+				text_3.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false,
+						1, 1));
+		
+				CLabel lblAnd = new CLabel(grpCslproperties, SWT.NONE);
+				lblAnd.setText("and");
+		
+				text_4 = new Text(grpCslproperties, SWT.BORDER);
+				text_4.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false,
+						1, 1));
 
 		lblHoldsWithProbability = new Label(grpCslproperties, SWT.NONE);
-		lblHoldsWithProbability.setLayoutData(new GridData(SWT.RIGHT,
+		lblHoldsWithProbability.setLayoutData(new GridData(SWT.CENTER,
 				SWT.CENTER, false, false, 1, 1));
-		lblHoldsWithProbability.setText("is true with a probability of");
+		lblHoldsWithProbability.setText("eventually is true is");
 
 		combo_3 = new Combo(grpCslproperties, SWT.READ_ONLY);
 		combo_3.setItems(new String[] { ">", ">=", "<=", "<", "=?" });
@@ -186,30 +209,11 @@ public class EditPropertiesWizardPage1 extends WizardPage {
 				1, 1));
 		new Label(grpCslproperties, SWT.NONE);
 		new Label(grpCslproperties, SWT.NONE);
-
-		lblWithin = new Label(grpCslproperties, SWT.NONE);
-		lblWithin.setText("-");
-		lblWithin.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false,
-				false, 1, 1));
-
-		combo_4 = new Combo(grpCslproperties, SWT.READ_ONLY);
-		combo_4.setEnabled(false);
-		combo_4.setItems(new String[] { "no time bound", "within ...",
-				"after ...", "between ... and ..." });
-		combo_4.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false,
-				1, 1));
-		combo_4.select(0);
-
-		text_3 = new Text(grpCslproperties, SWT.BORDER);
-		text_3.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false,
-				1, 1));
-
-		CLabel lblAnd = new CLabel(grpCslproperties, SWT.NONE);
-		lblAnd.setText("and");
-
-		text_4 = new Text(grpCslproperties, SWT.BORDER);
-		text_4.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false,
-				1, 1));
+		new Label(grpCslproperties, SWT.NONE);
+		new Label(grpCslproperties, SWT.NONE);
+		new Label(grpCslproperties, SWT.NONE);
+		new Label(grpCslproperties, SWT.NONE);
+		new Label(grpCslproperties, SWT.NONE);
 		new Label(grpCslproperties, SWT.NONE);
 		new Label(grpCslproperties, SWT.NONE);
 		new Label(grpCslproperties, SWT.NONE);
@@ -457,7 +461,7 @@ public class EditPropertiesWizardPage1 extends WizardPage {
 					+ combo_1.getItem(combo_1.getSelectionIndex())
 					+ " was true, "
 					+ combo_2.getItem(combo_2.getSelectionIndex())
-					+ " will be true with probability " + probString
+					+ " will be true with probability " + probString + " "
 					+ timeString);
 
 			if (combo_4.getSelectionIndex() == 0) {
