@@ -85,6 +85,7 @@ public class ComponentDiagramFaultTreeTransformationManager extends AbstractTran
 			System.out.println(changeSet.getEditRName());
 			Object name = null;
 			for (Change change : changeSet.getChanges()) {
+				name = null;
                 String changeName = change.eClass().getName();
                 System.out.println(changeName);
                 if (change instanceof AddReference) {
@@ -97,18 +98,18 @@ public class ComponentDiagramFaultTreeTransformationManager extends AbstractTran
                     //return this.handleRemoveObject((RemoveObject) change);
                 }
                 
-                if(name == null){
-                	name = "";
+                if(name != null){
+	                System.out.println(name);
+	                switch(changeSet.getEditRName()){
+		    			case "CREATE_SoftwareComponent_IN_Architecture_(component)" : newComponentTypes.add(name.toString()); break;
+		    			case "CREATE_HardwareComponent_IN_Architecture_(component)" : newComponentTypes.add(name.toString()); break;
+		    			case "CREATE_ElectronicDevice_IN_Architecture_(component)" : newComponentTypes.add(name.toString()); break;
+		    			case "CREATE_MechanicalDevice_IN_Architecture_(component)" : newComponentTypes.add(name.toString()); break;
+		    			case "CREATE_ComponentInstance_IN_Architecture_(instances)" : newComponentInstances.add(name.toString()); break;
+		    			case "CREATE_PortType_IN_Architecture_(port_type)" : newPortTypes.add(name.toString()); break;
+		    			default : break; 
+	    			}
                 }
-                System.out.println(name);
-                switch(changeSet.getEditRName()){
-    			case "CREATE_SoftwareComponent_IN_Architecture_(component)" : newComponentInstances.add(name.toString()); break;
-    			case "CREATE_HardwareComponent_IN_Architecture_(component)" : newComponentInstances.add(name.toString()); break;
-    			case "CREATE_ElectronicDevice_IN_Architecture_(component)" : newComponentInstances.add(name.toString()); break;
-    			case "CREATE_MechanicalDevice_IN_Architecture_(component)" : newComponentInstances.add(name.toString()); break;
-    			case "CREATE_PortType_IN_Architecture_(port_type)" : newPortTypes.add(name.toString()); break;
-    			default : break; 
-    			}
                 
             }
 			

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_TkhYAO7tEeKPweTl6E6tGw">
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_TkhYAO7tEeKPweTl6E6tGw" name="Module1" description="Its a magic module">
   <imports href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#/"/>
   <imports href="http://www.eclipse.org/emf/2011/Henshin/Trace#/"/>
   <imports href="http://www.eclipse.org/emf/2002/Ecore#/"/>
   <units xsi:type="henshin:Rule" xmi:id="_fZMf8O7tEeKPweTl6E6tGw" name="CreateIntermediateEvent">
     <parameters xmi:id="__BlbANeBEeO7IZ-6dS-ItA" name="event_id">
-      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
     <parameters xmi:id="_uZv6cH36EeOlTMC6vL6wVA" name="event_name">
       <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -28,8 +28,8 @@
               <attributes xmi:id="_BiAfgPOoEeKDM8j_BCWZ4w" value="event_name">
                 <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Event/name"/>
               </attributes>
-              <attributes xmi:id="_kspSINeCEeO7IZ-6dS-ItA" value="event_id">
-                <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Event/id"/>
+              <attributes xmi:id="_F9U6kDRHEeSVNPaIMvVhsA" value="event_id">
+                <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
               </attributes>
             </nodes>
             <edges xmi:id="__DlVQPOnEeKDM8j_BCWZ4w" source="_C44y4vOoEeKDM8j_BCWZ4w" target="__DkHIPOnEeKDM8j_BCWZ4w">
@@ -52,8 +52,8 @@
         <attributes xmi:id="__-wkEPOnEeKDM8j_BCWZ4w" value="event_description">
           <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Event/description"/>
         </attributes>
-        <attributes xmi:id="_ZAdX0NeCEeO7IZ-6dS-ItA" value="event_id">
-          <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Event/id"/>
+        <attributes xmi:id="_FDvnMDRHEeSVNPaIMvVhsA" value="event_id">
+          <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
         </attributes>
       </nodes>
       <edges xmi:id="_Bxz8YE7JEeOq-6I_LXjr8Q" source="_768JUPOnEeKDM8j_BCWZ4w" target="_-l-MMPOnEeKDM8j_BCWZ4w">
@@ -92,13 +92,13 @@
   </units>
   <units xsi:type="henshin:Rule" xmi:id="_5aSDQO7tEeKPweTl6E6tGw" name="DeleteGate" checkDangling="false">
     <parameters xmi:id="_scU0UPOpEeKDM8j_BCWZ4w" name="gateID">
-      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
     <lhs xmi:id="_5aTRYO7tEeKPweTl6E6tGw" name="Lhs">
       <nodes xmi:id="_9cx6EPOoEeKDM8j_BCWZ4w" incoming="_gGRoMPOqEeKDM8j_BCWZ4w">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate"/>
-        <attributes xmi:id="_AopuQPOrEeKKIcUx2kzBsg" value="gateID">
-          <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+        <attributes xmi:id="_LAIGEDRHEeSVNPaIMvVhsA" value="gateID">
+          <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
         </attributes>
       </nodes>
       <nodes xmi:id="_fPGIkPOqEeKDM8j_BCWZ4w" outgoing="_gGRoMPOqEeKDM8j_BCWZ4w">
@@ -117,7 +117,7 @@
   </units>
   <units xsi:type="henshin:Rule" xmi:id="_9v4xkO7tEeKPweTl6E6tGw" name="CreateConnectionGateToEvent">
     <parameters xmi:id="_zzMcoH4AEeOjQ7q_SDxB6w" name="gate_id">
-      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
     <parameters xmi:id="_rNCNEPRhEeKgRYzlESQvOg" name="event_name">
       <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -125,8 +125,8 @@
     <lhs xmi:id="_9v6mwO7tEeKPweTl6E6tGw" name="Lhs">
       <nodes xmi:id="_D8rjcPOuEeKKIcUx2kzBsg">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate"/>
-        <attributes xmi:id="_GHKeAPOuEeKKIcUx2kzBsg" value="gate_id">
-          <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+        <attributes xmi:id="_Po5oADRHEeSVNPaIMvVhsA" value="gate_id">
+          <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
         </attributes>
       </nodes>
       <nodes xmi:id="_E2x0MPOuEeKKIcUx2kzBsg">
@@ -139,8 +139,8 @@
     <rhs xmi:id="_9v6mwe7tEeKPweTl6E6tGw" name="Rhs">
       <nodes xmi:id="_D8rjcfOuEeKKIcUx2kzBsg" incoming="_Q9P2UPQoEeKgRYzlESQvOg" outgoing="_svYV8PQnEeKgRYzlESQvOg">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate"/>
-        <attributes xmi:id="_GHLFEPOuEeKKIcUx2kzBsg" value="gate_id">
-          <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+        <attributes xmi:id="_Po6PEDRHEeSVNPaIMvVhsA" value="gate_id">
+          <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
         </attributes>
       </nodes>
       <nodes xmi:id="_E2x0MfOuEeKKIcUx2kzBsg" incoming="_svYV8PQnEeKgRYzlESQvOg" outgoing="_Q9P2UPQoEeKgRYzlESQvOg">
@@ -161,7 +161,7 @@
   </units>
   <units xsi:type="henshin:Rule" xmi:id="__lzxYO7tEeKPweTl6E6tGw" name="DeleteConnectionGateToEvent" checkDangling="false">
     <parameters xmi:id="_w_NW8PQoEeKgRYzlESQvOg" name="gateID">
-      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
     <parameters xmi:id="_w_NW8fQoEeKgRYzlESQvOg" name="eventName">
       <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -175,8 +175,8 @@
       </nodes>
       <nodes xmi:id="_X9emwPRHEeKgRYzlESQvOg" incoming="_cJ8AIPRHEeKgRYzlESQvOg" outgoing="_cfBfUPRHEeKgRYzlESQvOg">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate"/>
-        <attributes xmi:id="_aan-oPRHEeKgRYzlESQvOg" value="gateID">
-          <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+        <attributes xmi:id="_T5t88DRHEeSVNPaIMvVhsA" value="gateID">
+          <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
         </attributes>
       </nodes>
       <edges xmi:id="_cJ8AIPRHEeKgRYzlESQvOg" source="_WycXAPRHEeKgRYzlESQvOg" target="_X9emwPRHEeKgRYzlESQvOg">
@@ -195,8 +195,8 @@
       </nodes>
       <nodes xmi:id="_X9fN0PRHEeKgRYzlESQvOg">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate"/>
-        <attributes xmi:id="_aan-ofRHEeKgRYzlESQvOg" value="gateID">
-          <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+        <attributes xmi:id="_T5ukADRHEeSVNPaIMvVhsA" value="gateID">
+          <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
         </attributes>
       </nodes>
     </rhs>
@@ -205,7 +205,7 @@
   </units>
   <units xsi:type="henshin:Rule" xmi:id="_V_4ccPOpEeKDM8j_BCWZ4w" name="CreateANDGate">
     <parameters xmi:id="_oIgwcH37EeOlTMC6vL6wVA" name="gate_id">
-      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
     <lhs xmi:id="_WAAYQPOpEeKDM8j_BCWZ4w" name="Lhs">
       <nodes xmi:id="_bS3ZAPOpEeKDM8j_BCWZ4w">
@@ -219,8 +219,8 @@
             </nodes>
             <nodes xmi:id="_dgB0IPOpEeKDM8j_BCWZ4w" incoming="_dgDCQPOpEeKDM8j_BCWZ4w">
               <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//AND"/>
-              <attributes xmi:id="_nJ0_8POpEeKDM8j_BCWZ4w" value="gate_id">
-                <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+              <attributes xmi:id="_bdvIADRHEeSVNPaIMvVhsA" value="gate_id">
+                <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
               </attributes>
             </nodes>
             <edges xmi:id="_dgDCQPOpEeKDM8j_BCWZ4w" source="_fTdgo_OpEeKDM8j_BCWZ4w" target="_dgB0IPOpEeKDM8j_BCWZ4w">
@@ -237,8 +237,8 @@
       </nodes>
       <nodes xmi:id="_bqenwPOpEeKDM8j_BCWZ4w" incoming="_bqfO0fOpEeKDM8j_BCWZ4w">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//AND"/>
-        <attributes xmi:id="_eGmr8POpEeKDM8j_BCWZ4w" value="gate_id">
-          <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+        <attributes xmi:id="_aoydADRHEeSVNPaIMvVhsA" value="gate_id">
+          <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
         </attributes>
       </nodes>
       <edges xmi:id="_bqfO0fOpEeKDM8j_BCWZ4w" source="_bS3ZAfOpEeKDM8j_BCWZ4w" target="_bqenwPOpEeKDM8j_BCWZ4w">
@@ -249,43 +249,43 @@
   </units>
   <units xsi:type="henshin:Rule" xmi:id="_qwDN0POrEeKKIcUx2kzBsg" name="CreateORGate">
     <parameters xmi:id="_s-xUwH37EeOlTMC6vL6wVA" name="gate_id">
-      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
     <lhs xmi:id="_qwboUPOrEeKKIcUx2kzBsg" name="Lhs">
       <nodes xmi:id="_tNSsUPOrEeKKIcUx2kzBsg">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree"/>
       </nodes>
-      <formula xsi:type="henshin:Not" xmi:id="_u9s6APOrEeKKIcUx2kzBsg">
-        <child xsi:type="henshin:NestedCondition" xmi:id="_u9s6AfOrEeKKIcUx2kzBsg">
-          <conclusion xmi:id="_u9s6AvOrEeKKIcUx2kzBsg">
-            <nodes xmi:id="_u9thEPOrEeKKIcUx2kzBsg" outgoing="_t4vdEPOrEeKKIcUx2kzBsg">
+      <formula xsi:type="henshin:Not" xmi:id="_0Eai0DRHEeSVNPaIMvVhsA">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_0Eai0TRHEeSVNPaIMvVhsA">
+          <conclusion xmi:id="_0Eai0jRHEeSVNPaIMvVhsA">
+            <nodes xmi:id="_0Eai0zRHEeSVNPaIMvVhsA" outgoing="_yVimMDRHEeSVNPaIMvVhsA">
               <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree"/>
             </nodes>
-            <nodes xmi:id="_t4tn4POrEeKKIcUx2kzBsg" incoming="_t4vdEPOrEeKKIcUx2kzBsg">
+            <nodes xmi:id="_xLNhEDRHEeSVNPaIMvVhsA" incoming="_yVimMDRHEeSVNPaIMvVhsA">
               <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//OR"/>
-              <attributes xmi:id="_xBiaAPOrEeKKIcUx2kzBsg" value="gate_id">
-                <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+              <attributes xmi:id="_02KI0DRHEeSVNPaIMvVhsA" value="gate_id">
+                <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
               </attributes>
             </nodes>
-            <edges xmi:id="_t4vdEPOrEeKKIcUx2kzBsg" source="_u9thEPOrEeKKIcUx2kzBsg" target="_t4tn4POrEeKKIcUx2kzBsg">
+            <edges xmi:id="_yVimMDRHEeSVNPaIMvVhsA" source="_0Eai0zRHEeSVNPaIMvVhsA" target="_xLNhEDRHEeSVNPaIMvVhsA">
               <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree/gate"/>
             </edges>
           </conclusion>
-          <mappings xmi:id="_u9uIIPOrEeKKIcUx2kzBsg" origin="_tNSsUPOrEeKKIcUx2kzBsg" image="_u9thEPOrEeKKIcUx2kzBsg"/>
+          <mappings xmi:id="_0Eai1DRHEeSVNPaIMvVhsA" origin="_tNSsUPOrEeKKIcUx2kzBsg" image="_0Eai0zRHEeSVNPaIMvVhsA"/>
         </child>
       </formula>
     </lhs>
     <rhs xmi:id="_qwboUfOrEeKKIcUx2kzBsg" name="Rhs">
-      <nodes xmi:id="_tNTTYPOrEeKKIcUx2kzBsg" outgoing="_tjF9MPOrEeKKIcUx2kzBsg">
+      <nodes xmi:id="_tNTTYPOrEeKKIcUx2kzBsg" outgoing="_x2X98DRHEeSVNPaIMvVhsA">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree"/>
       </nodes>
-      <nodes xmi:id="_tjEIAPOrEeKKIcUx2kzBsg" incoming="_tjF9MPOrEeKKIcUx2kzBsg">
+      <nodes xmi:id="_wMGNcDRHEeSVNPaIMvVhsA" incoming="_x2X98DRHEeSVNPaIMvVhsA">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//OR"/>
-        <attributes xmi:id="_wZzEkPOrEeKKIcUx2kzBsg" value="gate_id">
-          <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+        <attributes xmi:id="_0llWMDRHEeSVNPaIMvVhsA" value="gate_id">
+          <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
         </attributes>
       </nodes>
-      <edges xmi:id="_tjF9MPOrEeKKIcUx2kzBsg" source="_tNTTYPOrEeKKIcUx2kzBsg" target="_tjEIAPOrEeKKIcUx2kzBsg">
+      <edges xmi:id="_x2X98DRHEeSVNPaIMvVhsA" source="_tNTTYPOrEeKKIcUx2kzBsg" target="_wMGNcDRHEeSVNPaIMvVhsA">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree/gate"/>
       </edges>
     </rhs>
@@ -293,7 +293,7 @@
   </units>
   <units xsi:type="henshin:Rule" xmi:id="_Abj4APOsEeKKIcUx2kzBsg" name="CreateXORGate">
     <parameters xmi:id="_vsoCIH37EeOlTMC6vL6wVA" name="gate_id">
-      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
     <lhs xmi:id="_AbrMwPOsEeKKIcUx2kzBsg" name="Lhs">
       <nodes xmi:id="_blTsgPOsEeKKIcUx2kzBsg">
@@ -307,8 +307,8 @@
             </nodes>
             <nodes xmi:id="_cbPO8POsEeKKIcUx2kzBsg" incoming="_cbQdEPOsEeKKIcUx2kzBsg">
               <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//XOR"/>
-              <attributes xmi:id="_dcl-QPOsEeKKIcUx2kzBsg" value="gate_id">
-                <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+              <attributes xmi:id="_5C2ywDRHEeSVNPaIMvVhsA" value="gate_id">
+                <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
               </attributes>
             </nodes>
             <edges xmi:id="_cbQdEPOsEeKKIcUx2kzBsg" source="_egr4gPOsEeKKIcUx2kzBsg" target="_cbPO8POsEeKKIcUx2kzBsg">
@@ -325,8 +325,8 @@
       </nodes>
       <nodes xmi:id="_cHVbgPOsEeKKIcUx2kzBsg" incoming="_cHWpoPOsEeKKIcUx2kzBsg">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//XOR"/>
-        <attributes xmi:id="_dX7gsPOsEeKKIcUx2kzBsg" value="gate_id">
-          <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+        <attributes xmi:id="_53pFsDRHEeSVNPaIMvVhsA" value="gate_id">
+          <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
         </attributes>
       </nodes>
       <edges xmi:id="_cHWpoPOsEeKKIcUx2kzBsg" source="_blhu8POsEeKKIcUx2kzBsg" target="_cHVbgPOsEeKKIcUx2kzBsg">
@@ -337,7 +337,7 @@
   </units>
   <units xsi:type="henshin:Rule" xmi:id="_EXGggPOsEeKKIcUx2kzBsg" name="CreatePriorANDGate">
     <parameters xmi:id="_0qMvYH37EeOlTMC6vL6wVA" name="gate_id">
-      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
     <lhs xmi:id="_EXN1QPOsEeKKIcUx2kzBsg" name="Lhs">
       <nodes xmi:id="_nM7P4POsEeKKIcUx2kzBsg">
@@ -351,8 +351,8 @@
             </nodes>
             <nodes xmi:id="_o5ccEPOsEeKKIcUx2kzBsg" incoming="_o5eRQPOsEeKKIcUx2kzBsg">
               <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//PriorAND"/>
-              <attributes xmi:id="_pg1MMPOsEeKKIcUx2kzBsg" value="gate_id">
-                <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+              <attributes xmi:id="_-TBr4DRHEeSVNPaIMvVhsA" value="gate_id">
+                <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
               </attributes>
             </nodes>
             <edges xmi:id="_o5eRQPOsEeKKIcUx2kzBsg" source="_qaSjwPOsEeKKIcUx2kzBsg" target="_o5ccEPOsEeKKIcUx2kzBsg">
@@ -369,8 +369,8 @@
       </nodes>
       <nodes xmi:id="_odYyMPOsEeKKIcUx2kzBsg" incoming="_odaAUPOsEeKKIcUx2kzBsg">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//PriorAND"/>
-        <attributes xmi:id="_pZ_kYPOsEeKKIcUx2kzBsg" value="gate_id">
-          <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+        <attributes xmi:id="_-0eMEDRHEeSVNPaIMvVhsA" value="gate_id">
+          <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
         </attributes>
       </nodes>
       <edges xmi:id="_odaAUPOsEeKKIcUx2kzBsg" source="_nM728POsEeKKIcUx2kzBsg" target="_odYyMPOsEeKKIcUx2kzBsg">
@@ -381,7 +381,7 @@
   </units>
   <units xsi:type="henshin:Rule" xmi:id="_LfJhQPOsEeKKIcUx2kzBsg" name="CreateINHIBITGate">
     <parameters xmi:id="_2tdnoH37EeOlTMC6vL6wVA" name="gate_id">
-      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
     <lhs xmi:id="_LfQO8POsEeKKIcUx2kzBsg" name="Lhs">
       <nodes xmi:id="_wqYo0POsEeKKIcUx2kzBsg">
@@ -395,8 +395,8 @@
             </nodes>
             <nodes xmi:id="_ylhf0POsEeKKIcUx2kzBsg" incoming="_yljVAPOsEeKKIcUx2kzBsg">
               <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Inhibit"/>
-              <attributes xmi:id="_0p81sPOsEeKKIcUx2kzBsg" value="gate_id">
-                <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+              <attributes xmi:id="_DkBrcDRIEeSVNPaIMvVhsA" value="gate_id">
+                <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
               </attributes>
             </nodes>
             <edges xmi:id="_yljVAPOsEeKKIcUx2kzBsg" source="_z6xbgPOsEeKKIcUx2kzBsg" target="_ylhf0POsEeKKIcUx2kzBsg">
@@ -413,8 +413,8 @@
       </nodes>
       <nodes xmi:id="_yDGIMPOsEeKKIcUx2kzBsg" incoming="_yDHWUPOsEeKKIcUx2kzBsg">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Inhibit"/>
-        <attributes xmi:id="_0kZnUPOsEeKKIcUx2kzBsg" value="gate_id">
-          <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+        <attributes xmi:id="_DJedcDRIEeSVNPaIMvVhsA" value="gate_id">
+          <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
         </attributes>
       </nodes>
       <edges xmi:id="_yDHWUPOsEeKKIcUx2kzBsg" source="_wqYo0fOsEeKKIcUx2kzBsg" target="_yDGIMPOsEeKKIcUx2kzBsg">
@@ -428,13 +428,13 @@
       <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
     <parameters xmi:id="_1me_MH4AEeOjQ7q_SDxB6w" name="gate_id">
-      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
     <lhs xmi:id="_fudn4PQoEeKgRYzlESQvOg" name="Lhs">
       <nodes xmi:id="_l_FRYPQoEeKgRYzlESQvOg">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate"/>
-        <attributes xmi:id="_nJoY8PQoEeKgRYzlESQvOg" value="gate_id">
-          <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+        <attributes xmi:id="_HviCkDRIEeSVNPaIMvVhsA" value="gate_id">
+          <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
         </attributes>
       </nodes>
       <nodes xmi:id="_mfLtwPQoEeKgRYzlESQvOg">
@@ -447,8 +447,8 @@
     <rhs xmi:id="_fudn4fQoEeKgRYzlESQvOg" name="Rhs">
       <nodes xmi:id="_l_F4cPQoEeKgRYzlESQvOg" incoming="_qDqhIPQoEeKgRYzlESQvOg" outgoing="_pXohkPQoEeKgRYzlESQvOg">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate"/>
-        <attributes xmi:id="_nJpAAPQoEeKgRYzlESQvOg" value="gate_id">
-          <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+        <attributes xmi:id="_HviCkTRIEeSVNPaIMvVhsA" value="gate_id">
+          <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
         </attributes>
       </nodes>
       <nodes xmi:id="_mfLtwfQoEeKgRYzlESQvOg" incoming="_pXohkPQoEeKgRYzlESQvOg" outgoing="_qDqhIPQoEeKgRYzlESQvOg">
@@ -472,13 +472,13 @@
       <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
     <parameters xmi:id="_1flx4fQoEeKgRYzlESQvOg" name="gateID">
-      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
     <lhs xmi:id="_zMQdUPQoEeKgRYzlESQvOg" name="Lhs">
       <nodes xmi:id="_e65r4PRHEeKgRYzlESQvOg" incoming="_n5Fu4PRHEeKgRYzlESQvOg" outgoing="_nh3hsPRHEeKgRYzlESQvOg">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate"/>
-        <attributes xmi:id="_hvBZUPRHEeKgRYzlESQvOg" value="gateID">
-          <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+        <attributes xmi:id="_NHQVMDRIEeSVNPaIMvVhsA" value="gateID">
+          <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
         </attributes>
       </nodes>
       <nodes xmi:id="_fQHG4PRHEeKgRYzlESQvOg" incoming="_nh3hsPRHEeKgRYzlESQvOg" outgoing="_n5Fu4PRHEeKgRYzlESQvOg">
@@ -497,8 +497,8 @@
     <rhs xmi:id="_zMQdUfQoEeKgRYzlESQvOg" name="Rhs">
       <nodes xmi:id="_e65r4fRHEeKgRYzlESQvOg">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate"/>
-        <attributes xmi:id="_hvBZUfRHEeKgRYzlESQvOg" value="gateID">
-          <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+        <attributes xmi:id="_NHQVMTRIEeSVNPaIMvVhsA" value="gateID">
+          <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
         </attributes>
       </nodes>
       <nodes xmi:id="_fQHG4fRHEeKgRYzlESQvOg">
@@ -527,36 +527,36 @@
   </units>
   <units xsi:type="henshin:Rule" xmi:id="_ndKzoPRiEeKgRYzlESQvOg" name="CreateConnectionGateToGate">
     <parameters xmi:id="_3uIoMH4AEeOjQ7q_SDxB6w" name="gate_id1">
-      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
     <parameters xmi:id="_3uIoMX4AEeOjQ7q_SDxB6w" name="gate_id2">
-      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
     <lhs xmi:id="_ndN28PRiEeKgRYzlESQvOg" name="Lhs">
       <nodes xmi:id="_p9sPoPRiEeKgRYzlESQvOg">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate"/>
-        <attributes xmi:id="_qhsUkPRiEeKgRYzlESQvOg" value="gate_id1">
-          <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+        <attributes xmi:id="_hnDXADREEeSVNPaIMvVhsA" value="gate_id1">
+          <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
         </attributes>
       </nodes>
       <nodes xmi:id="_qQpA0PRiEeKgRYzlESQvOg">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate"/>
-        <attributes xmi:id="_qnRYIPRiEeKgRYzlESQvOg" value="gate_id2">
-          <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+        <attributes xmi:id="_kiz9gDREEeSVNPaIMvVhsA" value="gate_id2">
+          <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
         </attributes>
       </nodes>
     </lhs>
     <rhs xmi:id="_ndOeAPRiEeKgRYzlESQvOg" name="Rhs">
       <nodes xmi:id="_p9sPofRiEeKgRYzlESQvOg" incoming="_uyUcQPRiEeKgRYzlESQvOg" outgoing="_uWvTgPRiEeKgRYzlESQvOg">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate"/>
-        <attributes xmi:id="_qhsUkfRiEeKgRYzlESQvOg" value="gate_id1">
-          <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+        <attributes xmi:id="_hnD-EDREEeSVNPaIMvVhsA" value="gate_id1">
+          <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
         </attributes>
       </nodes>
       <nodes xmi:id="_qQpA0fRiEeKgRYzlESQvOg" incoming="_uWvTgPRiEeKgRYzlESQvOg" outgoing="_uyUcQPRiEeKgRYzlESQvOg">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate"/>
-        <attributes xmi:id="_qnR_MPRiEeKgRYzlESQvOg" value="gate_id2">
-          <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+        <attributes xmi:id="_kiz9gTREEeSVNPaIMvVhsA" value="gate_id2">
+          <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
         </attributes>
       </nodes>
       <edges xmi:id="_uyUcQPRiEeKgRYzlESQvOg" source="_qQpA0fRiEeKgRYzlESQvOg" target="_p9sPofRiEeKgRYzlESQvOg">
@@ -571,22 +571,22 @@
   </units>
   <units xsi:type="henshin:Rule" xmi:id="_gvxxwPRmEeKgRYzlESQvOg" name="DeleteConnectionGateToGate" checkDangling="false">
     <parameters xmi:id="_i4i1EPRmEeKgRYzlESQvOg" name="gateID1">
-      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
     <parameters xmi:id="_i4i1EfRmEeKgRYzlESQvOg" name="gateID2">
-      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
     <lhs xmi:id="_gv01EPRmEeKgRYzlESQvOg" name="Lhs">
       <nodes xmi:id="_ltx80PRmEeKgRYzlESQvOg" incoming="_pwI_APRmEeKgRYzlESQvOg" outgoing="_qGaJ8PRmEeKgRYzlESQvOg">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate"/>
-        <attributes xmi:id="_madcoPRmEeKgRYzlESQvOg" value="gateID2">
-          <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+        <attributes xmi:id="_tba88DREEeSVNPaIMvVhsA" value="gateID2">
+          <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
         </attributes>
       </nodes>
       <nodes xmi:id="_mBEFMPRmEeKgRYzlESQvOg" incoming="_qGaJ8PRmEeKgRYzlESQvOg" outgoing="_pwI_APRmEeKgRYzlESQvOg">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate"/>
-        <attributes xmi:id="_mTzbAPRmEeKgRYzlESQvOg" value="gateID1">
-          <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+        <attributes xmi:id="_5nVgMDREEeSVNPaIMvVhsA" value="gateID1">
+          <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
         </attributes>
       </nodes>
       <edges xmi:id="_pwI_APRmEeKgRYzlESQvOg" source="_mBEFMPRmEeKgRYzlESQvOg" target="_ltx80PRmEeKgRYzlESQvOg">
@@ -599,14 +599,14 @@
     <rhs xmi:id="_gv1cIPRmEeKgRYzlESQvOg" name="Rhs">
       <nodes xmi:id="_ltx80fRmEeKgRYzlESQvOg">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate"/>
-        <attributes xmi:id="_madcofRmEeKgRYzlESQvOg" value="gateID2">
-          <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+        <attributes xmi:id="_tba88TREEeSVNPaIMvVhsA" value="gateID2">
+          <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
         </attributes>
       </nodes>
       <nodes xmi:id="_mBEsQPRmEeKgRYzlESQvOg">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate"/>
-        <attributes xmi:id="_mTzbAfRmEeKgRYzlESQvOg" value="gateID1">
-          <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+        <attributes xmi:id="_5nVgMTREEeSVNPaIMvVhsA" value="gateID1">
+          <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
         </attributes>
       </nodes>
     </rhs>
@@ -615,7 +615,7 @@
   </units>
   <units xsi:type="henshin:Rule" xmi:id="_mNZqwAKNEeOqy6zVTfyGYA" name="CreateHazard">
     <parameters xmi:id="_IvK6oNeCEeO7IZ-6dS-ItA" name="hazard_id">
-      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
     <parameters xmi:id="_oenfcAKNEeOqy6zVTfyGYA" name="hazard_name">
       <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -638,8 +638,8 @@
               <attributes xmi:id="_yDUI0AKNEeOqy6zVTfyGYA" value="hazard_name">
                 <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Event/name"/>
               </attributes>
-              <attributes xmi:id="_lJZfkNeCEeO7IZ-6dS-ItA" value="hazard_id">
-                <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Event/id"/>
+              <attributes xmi:id="_TVdEMDRFEeSVNPaIMvVhsA" value="hazard_id">
+                <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
               </attributes>
             </nodes>
             <edges xmi:id="_uwz2QAKNEeOqy6zVTfyGYA" source="_uw1EYwKNEeOqy6zVTfyGYA" target="_uwzPMAKNEeOqy6zVTfyGYA">
@@ -665,8 +665,8 @@
         <attributes xmi:id="_30ZWoAKNEeOqy6zVTfyGYA" value="hazard_description">
           <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Event/description"/>
         </attributes>
-        <attributes xmi:id="_cP0PwNeCEeO7IZ-6dS-ItA" value="hazard_id">
-          <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Event/id"/>
+        <attributes xmi:id="_OQCCgDRFEeSVNPaIMvVhsA" value="hazard_id">
+          <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
         </attributes>
       </nodes>
       <edges xmi:id="_vMiI8AKNEeOqy6zVTfyGYA" source="_r4tAsQKNEeOqy6zVTfyGYA" target="_sjecAAKNEeOqy6zVTfyGYA">
@@ -680,7 +680,7 @@
   </units>
   <units xsi:type="henshin:Rule" xmi:id="_i9z5IE7HEeOq-6I_LXjr8Q" name="CreateBasicEvent">
     <parameters xmi:id="_zQ_h0NeBEeO7IZ-6dS-ItA" name="event_id">
-      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
     <parameters xmi:id="_kmROMH36EeOlTMC6vL6wVA" name="event_name">
       <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -700,8 +700,8 @@
               <attributes xmi:id="_3XttUE7OEeOR9IAQLNQazQ" value="event_name">
                 <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Event/name"/>
               </attributes>
-              <attributes xmi:id="_j99nMNeCEeO7IZ-6dS-ItA" value="event_id">
-                <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Event/id"/>
+              <attributes xmi:id="_bTUSoDRFEeSVNPaIMvVhsA" value="event_id">
+                <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
               </attributes>
             </nodes>
             <nodes xmi:id="_26PHIE7OEeOR9IAQLNQazQ" outgoing="_2Qm7UE7OEeOR9IAQLNQazQ">
@@ -724,8 +724,8 @@
         <attributes xmi:id="_5HTf0E7HEeOq-6I_LXjr8Q" value="event_description">
           <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Event/description"/>
         </attributes>
-        <attributes xmi:id="_03SxQNeBEeO7IZ-6dS-ItA" value="event_id">
-          <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Event/id"/>
+        <attributes xmi:id="_aG7_EDRFEeSVNPaIMvVhsA" value="event_id">
+          <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
         </attributes>
       </nodes>
       <nodes xmi:id="_1uJHcE7OEeOR9IAQLNQazQ" outgoing="_2FkI8E7OEeOR9IAQLNQazQ">
@@ -840,7 +840,7 @@
     </rhs>
     <mappings xmi:id="_NY-ZIVEAEeOI4f-2YMsDIQ" origin="_MummcFEAEeOI4f-2YMsDIQ" image="_NY-ZIFEAEeOI4f-2YMsDIQ"/>
   </units>
-  <units xsi:type="henshin:Rule" xmi:id="_G5XNMFEHEeOI4f-2YMsDIQ" name="CreateErrorInstance">
+  <units xsi:type="henshin:Rule" xmi:id="_G5XNMFEHEeOI4f-2YMsDIQ" name="CreateErrorInstance" description="Description">
     <parameters xmi:id="_7Ql3wH3_EeOjQ7q_SDxB6w" name="error_name">
       <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
@@ -1371,6 +1371,9 @@
     <parameters xmi:id="_GQlzYG8LEeOnDthNQvX9KQ" name="failure_instance">
       <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
+    <parameters xmi:id="_6nhSMDRBEeSVNPaIMvVhsA" name="previous_failure">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
     <lhs xmi:id="_GBuQ8G8LEeOnDthNQvX9KQ" name="Lhs">
       <nodes xmi:id="_PnJTEG8LEeOnDthNQvX9KQ">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FailureInstance"/>
@@ -1389,7 +1392,10 @@
     </rhs>
     <mappings xmi:id="_PnJTEm8LEeOnDthNQvX9KQ" origin="_PnJTEG8LEeOnDthNQvX9KQ" image="_PnJTEW8LEeOnDthNQvX9KQ"/>
     <multiRules xmi:id="_VMLB4G8LEeOnDthNQvX9KQ" name="getPreviousFailure">
-      <parameters xmi:id="_eWLTUG8LEeOnDthNQvX9KQ" name="previous_failure">
+      <parameters xmi:id="_eWLTUG8LEeOnDthNQvX9KQ" name="failure_instance">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <parameters xmi:id="_4ELWQDRCEeSVNPaIMvVhsA" name="previous_failure">
         <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </parameters>
       <lhs xmi:id="_VMLB4W8LEeOnDthNQvX9KQ" name="Lhs">
@@ -1436,6 +1442,9 @@
     <parameters xmi:id="_HSmC8G8LEeOnDthNQvX9KQ" name="failure_instance">
       <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
+    <parameters xmi:id="_6nigUDRBEeSVNPaIMvVhsA" name="previous_error">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
     <lhs xmi:id="_HDblkG8LEeOnDthNQvX9KQ" name="Lhs">
       <nodes xmi:id="_ldbC0G8LEeOnDthNQvX9KQ">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FailureInstance"/>
@@ -1454,7 +1463,10 @@
     </rhs>
     <mappings xmi:id="_ldbp4W8LEeOnDthNQvX9KQ" origin="_ldbC0G8LEeOnDthNQvX9KQ" image="_ldbp4G8LEeOnDthNQvX9KQ"/>
     <multiRules xmi:id="_pyXp0G8LEeOnDthNQvX9KQ" name="getPreviousError">
-      <parameters xmi:id="_0ZGX8G8LEeOnDthNQvX9KQ" name="previous_error">
+      <parameters xmi:id="_0ZGX8G8LEeOnDthNQvX9KQ" name="failure_instance">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <parameters xmi:id="_4EL9UDRCEeSVNPaIMvVhsA" name="previous_error">
         <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </parameters>
       <lhs xmi:id="_pyXp0W8LEeOnDthNQvX9KQ" name="Lhs">
@@ -1613,6 +1625,9 @@
     <parameters xmi:id="_RFwQwHSKEeOdu-VNiFC6ag" name="error_type">
       <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
+    <parameters xmi:id="_6njHYDRBEeSVNPaIMvVhsA" name="found_error">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
     <lhs xmi:id="_O-EykHSKEeOdu-VNiFC6ag" name="Lhs">
       <nodes xmi:id="_XQTHcHSKEeOdu-VNiFC6ag">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//ErrorType"/>
@@ -1631,7 +1646,10 @@
     </rhs>
     <mappings xmi:id="_XQTHcnSKEeOdu-VNiFC6ag" origin="_XQTHcHSKEeOdu-VNiFC6ag" image="_XQTHcXSKEeOdu-VNiFC6ag"/>
     <multiRules xmi:id="_aTvqUHSKEeOdu-VNiFC6ag" name="searchErrors">
-      <parameters xmi:id="_yuXmIHSKEeOdu-VNiFC6ag" name="found_error">
+      <parameters xmi:id="_yuXmIHSKEeOdu-VNiFC6ag" name="error_type">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <parameters xmi:id="_4EMkYDRCEeSVNPaIMvVhsA" name="found_error">
         <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </parameters>
       <lhs xmi:id="_aTvqUXSKEeOdu-VNiFC6ag" name="Lhs">
@@ -1684,6 +1702,9 @@
     <parameters xmi:id="_iPxa0HSMEeOdu-VNiFC6ag" name="failure_type">
       <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
+    <parameters xmi:id="_6njucDRBEeSVNPaIMvVhsA" name="found_failure">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
     <lhs xmi:id="_gVDakHSMEeOdu-VNiFC6ag" name="Lhs">
       <nodes xmi:id="_kQANMHSMEeOdu-VNiFC6ag">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FailureType"/>
@@ -1702,7 +1723,10 @@
     </rhs>
     <mappings xmi:id="_kQANMnSMEeOdu-VNiFC6ag" origin="_kQANMHSMEeOdu-VNiFC6ag" image="_kQANMXSMEeOdu-VNiFC6ag"/>
     <multiRules xmi:id="_tqhm4HSMEeOdu-VNiFC6ag" name="searchFailures">
-      <parameters xmi:id="_6wnTYHSMEeOdu-VNiFC6ag" name="found_failure">
+      <parameters xmi:id="_6wnTYHSMEeOdu-VNiFC6ag" name="failure_type">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <parameters xmi:id="_4ENLcDRCEeSVNPaIMvVhsA" name="found_failure">
         <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </parameters>
       <lhs xmi:id="_tqhm4XSMEeOdu-VNiFC6ag" name="Lhs">
@@ -1755,6 +1779,9 @@
     <parameters xmi:id="_XgCLkHSVEeOdu-VNiFC6ag" name="error_instance">
       <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
+    <parameters xmi:id="_6njucjRBEeSVNPaIMvVhsA" name="error_type">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
     <lhs xmi:id="_Vs7PMHSVEeOdu-VNiFC6ag" name="Lhs">
       <nodes xmi:id="_Yh4qIHSVEeOdu-VNiFC6ag">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//ErrorInstance"/>
@@ -1773,7 +1800,10 @@
     </rhs>
     <mappings xmi:id="_Yh5RMXSVEeOdu-VNiFC6ag" origin="_Yh4qIHSVEeOdu-VNiFC6ag" image="_Yh5RMHSVEeOdu-VNiFC6ag"/>
     <multiRules xmi:id="_bPQ2YHSVEeOdu-VNiFC6ag" name="searchType">
-      <parameters xmi:id="_v0X5MHSVEeOdu-VNiFC6ag" name="error_type">
+      <parameters xmi:id="_v0X5MHSVEeOdu-VNiFC6ag" name="error_instance">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <parameters xmi:id="_4ENygDRCEeSVNPaIMvVhsA" name="error_type">
         <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </parameters>
       <lhs xmi:id="_bPQ2YXSVEeOdu-VNiFC6ag" name="Lhs">
@@ -1824,35 +1854,38 @@
   </units>
   <units xsi:type="henshin:Rule" xmi:id="_kTLbMHTHEeOhxcMULaMGtA" name="GetInputEvents">
     <parameters xmi:id="_nmbUoHTHEeOhxcMULaMGtA" name="gate">
-      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_6nkVgTRBEeSVNPaIMvVhsA" name="found_event">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
     <lhs xmi:id="_kTTXAHTHEeOhxcMULaMGtA" name="Lhs">
       <nodes xmi:id="_pzGnkHTHEeOhxcMULaMGtA">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate"/>
-        <attributes xmi:id="_uil1gHTHEeOhxcMULaMGtA" value="gate">
-          <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+        <attributes xmi:id="_pIvxYDRFEeSVNPaIMvVhsA" value="gate">
+          <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
         </attributes>
       </nodes>
     </lhs>
     <rhs xmi:id="_kTT-EHTHEeOhxcMULaMGtA" name="Rhs">
       <nodes xmi:id="_pzGnkXTHEeOhxcMULaMGtA">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate"/>
-        <attributes xmi:id="_uil1gXTHEeOhxcMULaMGtA" value="gate">
-          <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+        <attributes xmi:id="_pIwYcDRFEeSVNPaIMvVhsA" value="gate">
+          <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
         </attributes>
       </nodes>
     </rhs>
     <mappings xmi:id="_pzGnknTHEeOhxcMULaMGtA" origin="_pzGnkHTHEeOhxcMULaMGtA" image="_pzGnkXTHEeOhxcMULaMGtA"/>
     <multiRules xmi:id="_zhJaMHTHEeOhxcMULaMGtA" name="searchEvents">
-      <parameters xmi:id="_NytCcHTIEeOhxcMULaMGtA" name="found_event">
+      <parameters xmi:id="_NytCcHTIEeOhxcMULaMGtA" name="gate">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <parameters xmi:id="_4ENygTRCEeSVNPaIMvVhsA" name="found_event">
         <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </parameters>
       <lhs xmi:id="_zhKBQHTHEeOhxcMULaMGtA" name="Lhs">
         <nodes xmi:id="_zhLPYHTHEeOhxcMULaMGtA" incoming="_1VDn0HTHEeOhxcMULaMGtA" outgoing="_3dIuoHTHEeOhxcMULaMGtA">
           <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate"/>
-          <attributes xmi:id="_zhLPYXTHEeOhxcMULaMGtA" value="gate">
-            <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
-          </attributes>
         </nodes>
         <nodes xmi:id="_vfp6sHTHEeOhxcMULaMGtA" incoming="_3dIuoHTHEeOhxcMULaMGtA" outgoing="_1VDn0HTHEeOhxcMULaMGtA">
           <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Event"/>
@@ -1870,9 +1903,6 @@
       <rhs xmi:id="_zhKBQXTHEeOhxcMULaMGtA" name="Rhs">
         <nodes xmi:id="_zhKoUHTHEeOhxcMULaMGtA" incoming="_1VEO4HTHEeOhxcMULaMGtA" outgoing="_3dJVsHTHEeOhxcMULaMGtA">
           <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate"/>
-          <attributes xmi:id="_zhKoUXTHEeOhxcMULaMGtA" value="gate">
-            <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
-          </attributes>
         </nodes>
         <nodes xmi:id="_vfp6sXTHEeOhxcMULaMGtA" incoming="_3dJVsHTHEeOhxcMULaMGtA" outgoing="_1VEO4HTHEeOhxcMULaMGtA">
           <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Event"/>
@@ -1895,35 +1925,38 @@
   </units>
   <units xsi:type="henshin:Rule" xmi:id="_VmfH0HTIEeOhxcMULaMGtA" name="GetOutputEvent">
     <parameters xmi:id="_W8IFEHTIEeOhxcMULaMGtA" name="gate">
-      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_6nk8kDRBEeSVNPaIMvVhsA" name="found_event">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
     <lhs xmi:id="_VmnqsHTIEeOhxcMULaMGtA" name="Lhs">
       <nodes xmi:id="_aCojAHTIEeOhxcMULaMGtA">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate"/>
-        <attributes xmi:id="_ag82sHTIEeOhxcMULaMGtA" value="gate">
-          <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+        <attributes xmi:id="_9K6fMDRFEeSVNPaIMvVhsA" value="gate">
+          <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
         </attributes>
       </nodes>
     </lhs>
     <rhs xmi:id="_VmnqsXTIEeOhxcMULaMGtA" name="Rhs">
       <nodes xmi:id="_aCojAXTIEeOhxcMULaMGtA">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate"/>
-        <attributes xmi:id="_ag9dwHTIEeOhxcMULaMGtA" value="gate">
-          <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+        <attributes xmi:id="_9K7GQDRFEeSVNPaIMvVhsA" value="gate">
+          <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
         </attributes>
       </nodes>
     </rhs>
     <mappings xmi:id="_aCojAnTIEeOhxcMULaMGtA" origin="_aCojAHTIEeOhxcMULaMGtA" image="_aCojAXTIEeOhxcMULaMGtA"/>
     <multiRules xmi:id="_dWoDUHTIEeOhxcMULaMGtA" name="searchEvent">
-      <parameters xmi:id="_pfJ7YHTIEeOhxcMULaMGtA" name="found_event">
+      <parameters xmi:id="_pfJ7YHTIEeOhxcMULaMGtA" name="gate">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <parameters xmi:id="_4EOZkDRCEeSVNPaIMvVhsA" name="found_event">
         <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </parameters>
       <lhs xmi:id="_dWoDUXTIEeOhxcMULaMGtA" name="Lhs">
         <nodes xmi:id="_dWoqYXTIEeOhxcMULaMGtA" incoming="_enUPIHTIEeOhxcMULaMGtA" outgoing="_fYlUAHTIEeOhxcMULaMGtA">
           <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate"/>
-          <attributes xmi:id="_dWoqYnTIEeOhxcMULaMGtA" value="gate">
-            <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
-          </attributes>
         </nodes>
         <nodes xmi:id="_a6_HUHTIEeOhxcMULaMGtA" incoming="_fYlUAHTIEeOhxcMULaMGtA" outgoing="_enUPIHTIEeOhxcMULaMGtA">
           <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Event"/>
@@ -1941,9 +1974,6 @@
       <rhs xmi:id="_dWoDUnTIEeOhxcMULaMGtA" name="Rhs">
         <nodes xmi:id="_dWoDU3TIEeOhxcMULaMGtA" incoming="_enU2MHTIEeOhxcMULaMGtA" outgoing="_fYl7EHTIEeOhxcMULaMGtA">
           <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate"/>
-          <attributes xmi:id="_dWoDVHTIEeOhxcMULaMGtA" value="gate">
-            <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
-          </attributes>
         </nodes>
         <nodes xmi:id="_a6_uYHTIEeOhxcMULaMGtA" incoming="_fYl7EHTIEeOhxcMULaMGtA" outgoing="_enU2MHTIEeOhxcMULaMGtA">
           <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Event"/>
@@ -1965,41 +1995,40 @@
     </multiRules>
   </units>
   <units xsi:type="henshin:Rule" xmi:id="_s-5YsHTIEeOhxcMULaMGtA" name="GetInputGates">
-    <parameters xmi:id="_uULwoHTIEeOhxcMULaMGtA" name="gate">
-      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <parameters xmi:id="_uULwoHTIEeOhxcMULaMGtA" name="gate"/>
+    <parameters xmi:id="_6nljoDRBEeSVNPaIMvVhsA" name="found_gate">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
     <lhs xmi:id="_s-_fUHTIEeOhxcMULaMGtA" name="Lhs">
       <nodes xmi:id="_wTn40HTIEeOhxcMULaMGtA">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate"/>
-        <attributes xmi:id="_w1kIQHTIEeOhxcMULaMGtA" value="gate">
-          <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+        <attributes xmi:id="_AsOp0DRGEeSVNPaIMvVhsA" value="gate">
+          <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
         </attributes>
       </nodes>
     </lhs>
     <rhs xmi:id="_s-_fUXTIEeOhxcMULaMGtA" name="Rhs">
       <nodes xmi:id="_wTn40XTIEeOhxcMULaMGtA">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate"/>
-        <attributes xmi:id="_w1kIQXTIEeOhxcMULaMGtA" value="gate">
-          <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+        <attributes xmi:id="_AsOp0TRGEeSVNPaIMvVhsA" value="gate">
+          <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
         </attributes>
       </nodes>
     </rhs>
     <mappings xmi:id="_wTn40nTIEeOhxcMULaMGtA" origin="_wTn40HTIEeOhxcMULaMGtA" image="_wTn40XTIEeOhxcMULaMGtA"/>
     <multiRules xmi:id="_0CNqcHTIEeOhxcMULaMGtA" name="searchGates">
-      <parameters xmi:id="_9htqwHTIEeOhxcMULaMGtA" name="found_gate">
-        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <parameters xmi:id="_9htqwHTIEeOhxcMULaMGtA" name="gate"/>
+      <parameters xmi:id="_4EPAoDRCEeSVNPaIMvVhsA" name="found_gate">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </parameters>
       <lhs xmi:id="_0CNqcXTIEeOhxcMULaMGtA" name="Lhs">
         <nodes xmi:id="_0CORg3TIEeOhxcMULaMGtA" incoming="_1bqJoHTIEeOhxcMULaMGtA" outgoing="_08HG4HTIEeOhxcMULaMGtA">
           <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate"/>
-          <attributes xmi:id="_0CORhHTIEeOhxcMULaMGtA" value="gate">
-            <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
-          </attributes>
         </nodes>
         <nodes xmi:id="_xuvL8HTIEeOhxcMULaMGtA" incoming="_08HG4HTIEeOhxcMULaMGtA" outgoing="_1bqJoHTIEeOhxcMULaMGtA">
           <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate"/>
-          <attributes xmi:id="_x_1jAHTIEeOhxcMULaMGtA" value="found_gate">
-            <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+          <attributes xmi:id="_DBVgADRGEeSVNPaIMvVhsA" value="found_gate">
+            <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
           </attributes>
         </nodes>
         <edges xmi:id="_08HG4HTIEeOhxcMULaMGtA" source="_0CORg3TIEeOhxcMULaMGtA" target="_xuvL8HTIEeOhxcMULaMGtA">
@@ -2012,14 +2041,11 @@
       <rhs xmi:id="_0CNqcnTIEeOhxcMULaMGtA" name="Rhs">
         <nodes xmi:id="_0CORgHTIEeOhxcMULaMGtA" incoming="_1bqJoXTIEeOhxcMULaMGtA" outgoing="_08Ht8HTIEeOhxcMULaMGtA">
           <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate"/>
-          <attributes xmi:id="_0CORgXTIEeOhxcMULaMGtA" value="gate">
-            <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
-          </attributes>
         </nodes>
         <nodes xmi:id="_xuvzAHTIEeOhxcMULaMGtA" incoming="_08Ht8HTIEeOhxcMULaMGtA" outgoing="_1bqJoXTIEeOhxcMULaMGtA">
           <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate"/>
-          <attributes xmi:id="_x_1jAXTIEeOhxcMULaMGtA" value="found_gate">
-            <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+          <attributes xmi:id="_DBVgATRGEeSVNPaIMvVhsA" value="found_gate">
+            <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
           </attributes>
         </nodes>
         <edges xmi:id="_08Ht8HTIEeOhxcMULaMGtA" source="_0CORgHTIEeOhxcMULaMGtA" target="_xuvzAHTIEeOhxcMULaMGtA">
@@ -2037,40 +2063,43 @@
   </units>
   <units xsi:type="henshin:Rule" xmi:id="_BGziIHTJEeOhxcMULaMGtA" name="GetOutputGate">
     <parameters xmi:id="_DBlMwHTJEeOhxcMULaMGtA" name="gate">
-      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_6nmKsTRBEeSVNPaIMvVhsA" name="found_gate" description="">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
     <lhs xmi:id="_BG6P0HTJEeOhxcMULaMGtA" name="Lhs">
       <nodes xmi:id="_Ds0iIHTJEeOhxcMULaMGtA">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate"/>
-        <attributes xmi:id="_Ej-zoHTJEeOhxcMULaMGtA" value="gate">
-          <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+        <attributes xmi:id="_NOnzYDRGEeSVNPaIMvVhsA" value="gate">
+          <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
         </attributes>
       </nodes>
     </lhs>
     <rhs xmi:id="_BG6P0XTJEeOhxcMULaMGtA" name="Rhs">
       <nodes xmi:id="_Ds0iIXTJEeOhxcMULaMGtA">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate"/>
-        <attributes xmi:id="_Ej_asHTJEeOhxcMULaMGtA" value="gate">
-          <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+        <attributes xmi:id="_NOnzYTRGEeSVNPaIMvVhsA" value="gate">
+          <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
         </attributes>
       </nodes>
     </rhs>
     <mappings xmi:id="_Ds0iInTJEeOhxcMULaMGtA" origin="_Ds0iIHTJEeOhxcMULaMGtA" image="_Ds0iIXTJEeOhxcMULaMGtA"/>
     <multiRules xmi:id="_HBO5MHTJEeOhxcMULaMGtA" name="searchGate">
-      <parameters xmi:id="_Vo67UHTJEeOhxcMULaMGtA" name="found_gate" description="">
-        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <parameters xmi:id="_Vo67UHTJEeOhxcMULaMGtA" name="gate">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <parameters xmi:id="_4EPnsDRCEeSVNPaIMvVhsA" name="found_gate" description="">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </parameters>
       <lhs xmi:id="_HBPgQHTJEeOhxcMULaMGtA" name="Lhs">
         <nodes xmi:id="_HBPgRXTJEeOhxcMULaMGtA" incoming="_JWFQsHTJEeOhxcMULaMGtA" outgoing="_IYEJQHTJEeOhxcMULaMGtA">
           <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate"/>
-          <attributes xmi:id="_HBPgRnTJEeOhxcMULaMGtA" value="gate">
-            <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
-          </attributes>
         </nodes>
         <nodes xmi:id="_EQczoHTJEeOhxcMULaMGtA" incoming="_IYEJQHTJEeOhxcMULaMGtA" outgoing="_JWFQsHTJEeOhxcMULaMGtA">
           <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate"/>
-          <attributes xmi:id="_EqqDYHTJEeOhxcMULaMGtA" value="found_gate">
-            <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+          <attributes xmi:id="_N7KwUDRGEeSVNPaIMvVhsA" value="found_gate">
+            <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
           </attributes>
         </nodes>
         <edges xmi:id="_IYEJQHTJEeOhxcMULaMGtA" source="_HBPgRXTJEeOhxcMULaMGtA" target="_EQczoHTJEeOhxcMULaMGtA">
@@ -2083,14 +2112,11 @@
       <rhs xmi:id="_HBPgQXTJEeOhxcMULaMGtA" name="Rhs">
         <nodes xmi:id="_HBPgQnTJEeOhxcMULaMGtA" incoming="_JWF3wHTJEeOhxcMULaMGtA" outgoing="_IYEwUHTJEeOhxcMULaMGtA">
           <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate"/>
-          <attributes xmi:id="_HBPgQ3TJEeOhxcMULaMGtA" value="gate">
-            <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
-          </attributes>
         </nodes>
         <nodes xmi:id="_EQdasHTJEeOhxcMULaMGtA" incoming="_IYEwUHTJEeOhxcMULaMGtA" outgoing="_JWF3wHTJEeOhxcMULaMGtA">
           <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate"/>
-          <attributes xmi:id="_EqqqcHTJEeOhxcMULaMGtA" value="found_gate">
-            <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+          <attributes xmi:id="_N7KwUTRGEeSVNPaIMvVhsA" value="found_gate">
+            <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
           </attributes>
         </nodes>
         <edges xmi:id="_IYEwUHTJEeOhxcMULaMGtA" source="_HBPgQnTJEeOhxcMULaMGtA" target="_EQdasHTJEeOhxcMULaMGtA">
@@ -2152,16 +2178,16 @@
   </units>
   <units xsi:type="henshin:Rule" xmi:id="_m4gmoHUzEeOWPLEyJlrnaA" name="ChangeIDOfGate">
     <parameters xmi:id="_psH9wHUzEeOWPLEyJlrnaA" name="gate">
-      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
     <parameters xmi:id="_psH9wXUzEeOWPLEyJlrnaA" name="new_id">
-      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
     <lhs xmi:id="_m4jp8HUzEeOWPLEyJlrnaA" name="Lhs">
       <nodes xmi:id="_qY4WEHUzEeOWPLEyJlrnaA">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate"/>
-        <attributes xmi:id="_raI-wHUzEeOWPLEyJlrnaA" value="gate">
-          <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+        <attributes xmi:id="_kzLC0DRGEeSVNPaIMvVhsA" value="gate">
+          <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
         </attributes>
       </nodes>
       <formula xsi:type="henshin:Not" xmi:id="_rB3BonUzEeOWPLEyJlrnaA">
@@ -2169,14 +2195,14 @@
           <conclusion xmi:id="_rB3BpHUzEeOWPLEyJlrnaA">
             <nodes xmi:id="_rB3BpXUzEeOWPLEyJlrnaA">
               <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate"/>
-              <attributes xmi:id="_raI-wnUzEeOWPLEyJlrnaA" value="gate">
-                <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+              <attributes xmi:id="_kzLC0jRGEeSVNPaIMvVhsA" value="gate">
+                <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
               </attributes>
             </nodes>
             <nodes xmi:id="_rB2akHUzEeOWPLEyJlrnaA">
               <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate"/>
-              <attributes xmi:id="_rifCcHUzEeOWPLEyJlrnaA" value="new_id">
-                <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+              <attributes xmi:id="_cZFLYDRGEeSVNPaIMvVhsA" value="new_id">
+                <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
               </attributes>
             </nodes>
           </conclusion>
@@ -2187,8 +2213,8 @@
     <rhs xmi:id="_m4jp8XUzEeOWPLEyJlrnaA" name="Rhs">
       <nodes xmi:id="_qY4WEXUzEeOWPLEyJlrnaA">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate"/>
-        <attributes xmi:id="_raI-wXUzEeOWPLEyJlrnaA" value="new_id">
-          <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+        <attributes xmi:id="_kzLC0TRGEeSVNPaIMvVhsA" value="new_id">
+          <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
         </attributes>
       </nodes>
     </rhs>
@@ -2391,8 +2417,8 @@
         <attributes xmi:id="_rDA_YHd8EeOK3d9L4rVnSQ" value="basic_event">
           <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Event/name"/>
         </attributes>
-        <attributes xmi:id="_rVeoYHd8EeOK3d9L4rVnSQ" value="new_prob">
-          <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//BasicEvent/probablity"/>
+        <attributes xmi:id="_rjjxgDRGEeSVNPaIMvVhsA" value="new_prob">
+          <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//BasicEvent/probability"/>
         </attributes>
       </nodes>
     </rhs>
@@ -2446,6 +2472,12 @@
     <mappings xmi:id="_ufyLwHd9EeOK3d9L4rVnSQ" origin="_ufxksHd9EeOK3d9L4rVnSQ" image="_ufxksXd9EeOK3d9L4rVnSQ"/>
     <mappings xmi:id="_u3bPsnd9EeOK3d9L4rVnSQ" origin="_u3bPsHd9EeOK3d9L4rVnSQ" image="_u3bPsXd9EeOK3d9L4rVnSQ"/>
     <multiRules xmi:id="_cmv4MHd-EeOK3d9L4rVnSQ" name="tryToDelete">
+      <parameters xmi:id="_6nn_4DRBEeSVNPaIMvVhsA" name="failure_instance">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <parameters xmi:id="_6nn_4TRBEeSVNPaIMvVhsA" name="new_previous_error">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
       <lhs xmi:id="_cmyUcHd-EeOK3d9L4rVnSQ" name="Lhs">
         <nodes xmi:id="_cmy7hHd-EeOK3d9L4rVnSQ" outgoing="_zkFMEHd9EeOK3d9L4rVnSQ">
           <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FailureInstance"/>
@@ -2545,6 +2577,12 @@
     <mappings xmi:id="_58bYwnd-EeOK3d9L4rVnSQ" origin="_58bYwHd-EeOK3d9L4rVnSQ" image="_58bYwXd-EeOK3d9L4rVnSQ"/>
     <mappings xmi:id="_6VHlknd-EeOK3d9L4rVnSQ" origin="_6VHlkHd-EeOK3d9L4rVnSQ" image="_6VHlkXd-EeOK3d9L4rVnSQ"/>
     <multiRules xmi:id="_G8XZ8Hd_EeOK3d9L4rVnSQ" name="tryToDelete">
+      <parameters xmi:id="_6nom8DRBEeSVNPaIMvVhsA" name="failure_instance">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <parameters xmi:id="_6nom8TRBEeSVNPaIMvVhsA" name="new_previous_failure">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
       <lhs xmi:id="_G8XZ8Xd_EeOK3d9L4rVnSQ" name="Lhs">
         <nodes xmi:id="_G8YBBHd_EeOK3d9L4rVnSQ" outgoing="__p8VMHd-EeOK3d9L4rVnSQ">
           <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FailureInstance"/>
@@ -2651,6 +2689,12 @@
     <mappings xmi:id="_c_UTwnd_EeOK3d9L4rVnSQ" origin="_c_UTwHd_EeOK3d9L4rVnSQ" image="_c_UTwXd_EeOK3d9L4rVnSQ"/>
     <mappings xmi:id="_fAp5Ynd_EeOK3d9L4rVnSQ" origin="_fAp5YHd_EeOK3d9L4rVnSQ" image="_fAp5YXd_EeOK3d9L4rVnSQ"/>
     <multiRules xmi:id="_lFPSAHd_EeOK3d9L4rVnSQ" name="tryToDeletePreviousError">
+      <parameters xmi:id="_6npOADRBEeSVNPaIMvVhsA" name="failure_instance">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <parameters xmi:id="_6npOATRBEeSVNPaIMvVhsA" name="new_previous_failure">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
       <lhs xmi:id="_lFP5EHd_EeOK3d9L4rVnSQ" name="Lhs">
         <nodes xmi:id="_lFP5FXd_EeOK3d9L4rVnSQ" outgoing="_h3otkHd_EeOK3d9L4rVnSQ _oJ7yEnd_EeOK3d9L4rVnSQ _xQJvsHd_EeOK3d9L4rVnSQ">
           <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FailureInstance"/>
@@ -2720,6 +2764,12 @@
       <multiMappings xmi:id="_lFQgLXd_EeOK3d9L4rVnSQ" origin="_fAp5YHd_EeOK3d9L4rVnSQ" image="_lFQgLHd_EeOK3d9L4rVnSQ"/>
     </multiRules>
     <multiRules xmi:id="_ucrigHd_EeOK3d9L4rVnSQ" name="tryToDeletePreviousFailure">
+      <parameters xmi:id="_6npOAjRBEeSVNPaIMvVhsA" name="failure_instance">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <parameters xmi:id="_6npOAzRBEeSVNPaIMvVhsA" name="new_previous_failure">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
       <lhs xmi:id="_ucrigXd_EeOK3d9L4rVnSQ" name="Lhs">
         <nodes xmi:id="_ucsJk3d_EeOK3d9L4rVnSQ" outgoing="_oJ7LAHd_EeOK3d9L4rVnSQ _xQJvsnd_EeOK3d9L4rVnSQ">
           <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FailureInstance"/>
@@ -2838,6 +2888,12 @@
     <mappings xmi:id="_RRzuUHeAEeOK3d9L4rVnSQ" origin="_RRzHQHeAEeOK3d9L4rVnSQ" image="_RRzHQXeAEeOK3d9L4rVnSQ"/>
     <mappings xmi:id="_RnXHkXeAEeOK3d9L4rVnSQ" origin="_RnWggHeAEeOK3d9L4rVnSQ" image="_RnXHkHeAEeOK3d9L4rVnSQ"/>
     <multiRules xmi:id="_a2gXsHeAEeOK3d9L4rVnSQ" name="tryToDeletePreviousFailure">
+      <parameters xmi:id="_6np1EDRBEeSVNPaIMvVhsA" name="failure_instance">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <parameters xmi:id="_6np1ETRBEeSVNPaIMvVhsA" name="new_previous_error">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
       <lhs xmi:id="_a2gXsXeAEeOK3d9L4rVnSQ" name="Lhs">
         <nodes xmi:id="_a2gXtneAEeOK3d9L4rVnSQ" outgoing="_Yfom8HeAEeOK3d9L4rVnSQ _e3pR4neAEeOK3d9L4rVnSQ _r6ePAHeAEeOK3d9L4rVnSQ">
           <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FailureInstance"/>
@@ -2907,6 +2963,12 @@
       <multiMappings xmi:id="_a2hl0neAEeOK3d9L4rVnSQ" origin="_RnWggHeAEeOK3d9L4rVnSQ" image="_a2hl0XeAEeOK3d9L4rVnSQ"/>
     </multiRules>
     <multiRules xmi:id="_lCPy8HeAEeOK3d9L4rVnSQ" name="tryToDeletePreviousError">
+      <parameters xmi:id="_6np1EjRBEeSVNPaIMvVhsA" name="failure_instance">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <parameters xmi:id="_6nqcIDRBEeSVNPaIMvVhsA" name="new_previous_error">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
       <lhs xmi:id="_lCPy8XeAEeOK3d9L4rVnSQ" name="Lhs">
         <nodes xmi:id="_lCPy9neAEeOK3d9L4rVnSQ" outgoing="_e3oq0HeAEeOK3d9L4rVnSQ _r6ePAneAEeOK3d9L4rVnSQ">
           <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FailureInstance"/>
@@ -3021,6 +3083,12 @@
     <mappings xmi:id="_GxQrQneBEeOK3d9L4rVnSQ" origin="_GxQrQHeBEeOK3d9L4rVnSQ" image="_GxQrQXeBEeOK3d9L4rVnSQ"/>
     <mappings xmi:id="_TL-fgneBEeOK3d9L4rVnSQ" origin="_TL-fgHeBEeOK3d9L4rVnSQ" image="_TL-fgXeBEeOK3d9L4rVnSQ"/>
     <multiRules xmi:id="_ZcYtoHeBEeOK3d9L4rVnSQ" name="tryToDelete">
+      <parameters xmi:id="_6nrDMDRBEeSVNPaIMvVhsA" name="failure_instance">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <parameters xmi:id="_6nrDMTRBEeSVNPaIMvVhsA" name="new_intermediate_event">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
       <lhs xmi:id="_ZcYtoXeBEeOK3d9L4rVnSQ" name="Lhs">
         <nodes xmi:id="_ZcZUsHeBEeOK3d9L4rVnSQ" incoming="_bJFgAHeBEeOK3d9L4rVnSQ _y5Pig3eBEeOK3d9L4rVnSQ" outgoing="_Us1OQHeBEeOK3d9L4rVnSQ">
           <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FailureInstance"/>
@@ -3132,6 +3200,12 @@
     <mappings xmi:id="_LpJx0neCEeOK3d9L4rVnSQ" origin="_LpJx0HeCEeOK3d9L4rVnSQ" image="_LpJx0XeCEeOK3d9L4rVnSQ"/>
     <mappings xmi:id="_L_6sAneCEeOK3d9L4rVnSQ" origin="_L_6sAHeCEeOK3d9L4rVnSQ" image="_L_6sAXeCEeOK3d9L4rVnSQ"/>
     <multiRules xmi:id="_SvJkIHeCEeOK3d9L4rVnSQ" name="tryToDelete">
+      <parameters xmi:id="_6n33gDRBEeSVNPaIMvVhsA" name="error_instance">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <parameters xmi:id="_6n33gTRBEeSVNPaIMvVhsA" name="new_basic_event">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
       <lhs xmi:id="_SvJkIXeCEeOK3d9L4rVnSQ" name="Lhs">
         <nodes xmi:id="_SvJkJneCEeOK3d9L4rVnSQ" incoming="_UVJ4oHeCEeOK3d9L4rVnSQ _l55hwneCEeOK3d9L4rVnSQ" outgoing="_QP5TcHeCEeOK3d9L4rVnSQ _jeHb03eCEeOK3d9L4rVnSQ">
           <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//ErrorInstance"/>
@@ -3283,55 +3357,11 @@
     <mappings xmi:id="_kAKsEneaEeOajfafpWDqeA" origin="_kAKsEHeaEeOajfafpWDqeA" image="_kAKsEXeaEeOajfafpWDqeA"/>
     <mappings xmi:id="_kkpSIneaEeOajfafpWDqeA" origin="_kkpSIHeaEeOajfafpWDqeA" image="_kkpSIXeaEeOajfafpWDqeA"/>
   </units>
-  <units xsi:type="henshin:Rule" xmi:id="_fGmjsH3-EeOjQ7q_SDxB6w" name="CreateErrorType">
-    <parameters xmi:id="_azLxQH3_EeOjQ7q_SDxB6w" name="type_name">
-      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </parameters>
-    <lhs xmi:id="_fGsDQH3-EeOjQ7q_SDxB6w" name="Lhs">
-      <nodes xmi:id="_hczmEH3-EeOjQ7q_SDxB6w">
-        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree"/>
-      </nodes>
-      <formula xsi:type="henshin:Not" xmi:id="_u7agQH3-EeOjQ7q_SDxB6w">
-        <child xsi:type="henshin:NestedCondition" xmi:id="_u7agQX3-EeOjQ7q_SDxB6w">
-          <conclusion xmi:id="_u7agQn3-EeOjQ7q_SDxB6w">
-            <nodes xmi:id="_u7agQ33-EeOjQ7q_SDxB6w" outgoing="_h-QGQH3-EeOjQ7q_SDxB6w">
-              <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree"/>
-            </nodes>
-            <nodes xmi:id="_h-O4IH3-EeOjQ7q_SDxB6w" incoming="_h-QGQH3-EeOjQ7q_SDxB6w">
-              <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//ErrorType"/>
-              <attributes xmi:id="_iapHUH3-EeOjQ7q_SDxB6w" value="type_name">
-                <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//ErrorType/name"/>
-              </attributes>
-            </nodes>
-            <edges xmi:id="_h-QGQH3-EeOjQ7q_SDxB6w" source="_u7agQ33-EeOjQ7q_SDxB6w" target="_h-O4IH3-EeOjQ7q_SDxB6w">
-              <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree/error_type"/>
-            </edges>
-          </conclusion>
-          <mappings xmi:id="_u7agRH3-EeOjQ7q_SDxB6w" origin="_hczmEH3-EeOjQ7q_SDxB6w" image="_u7agQ33-EeOjQ7q_SDxB6w"/>
-        </child>
-      </formula>
-    </lhs>
-    <rhs xmi:id="_fGsDQX3-EeOjQ7q_SDxB6w" name="Rhs">
-      <nodes xmi:id="_gsgKgH3-EeOjQ7q_SDxB6w" incoming="_nGhnoH3-EeOjQ7q_SDxB6w" outgoing="_j8-cwH3-EeOjQ7q_SDxB6w">
-        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//ErrorType"/>
-        <attributes xmi:id="_iTv1IH3-EeOjQ7q_SDxB6w" value="type_name">
-          <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//ErrorType/name"/>
-        </attributes>
-      </nodes>
-      <nodes xmi:id="_hczmEX3-EeOjQ7q_SDxB6w" incoming="_j8-cwH3-EeOjQ7q_SDxB6w" outgoing="_nGhnoH3-EeOjQ7q_SDxB6w">
-        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree"/>
-      </nodes>
-      <edges xmi:id="_nGhnoH3-EeOjQ7q_SDxB6w" source="_hczmEX3-EeOjQ7q_SDxB6w" target="_gsgKgH3-EeOjQ7q_SDxB6w">
-        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree/error_type"/>
-      </edges>
-      <edges xmi:id="_j8-cwH3-EeOjQ7q_SDxB6w" source="_gsgKgH3-EeOjQ7q_SDxB6w" target="_hczmEX3-EeOjQ7q_SDxB6w">
-        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//ErrorType/root"/>
-      </edges>
-    </rhs>
-    <mappings xmi:id="_hczmEn3-EeOjQ7q_SDxB6w" origin="_hczmEH3-EeOjQ7q_SDxB6w" image="_hczmEX3-EeOjQ7q_SDxB6w"/>
-  </units>
   <units xsi:type="henshin:Rule" xmi:id="_P39c4I4xEeO0odPhTVVy7w" name="GetBasicEventForErrorInstance">
     <parameters xmi:id="_Sc77EI4xEeO0odPhTVVy7w" name="error_instance">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_6n4ekDRBEeSVNPaIMvVhsA" name="found_basic_event">
       <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
     <lhs xmi:id="_P81V0I4xEeO0odPhTVVy7w" name="Lhs">
@@ -3352,7 +3382,10 @@
     </rhs>
     <mappings xmi:id="_jf0NQo4xEeO0odPhTVVy7w" origin="_jf0NQI4xEeO0odPhTVVy7w" image="_jf0NQY4xEeO0odPhTVVy7w"/>
     <multiRules xmi:id="_typH8I4xEeO0odPhTVVy7w" name="searchBasicEvent">
-      <parameters xmi:id="_FTmQ0I4yEeO0odPhTVVy7w" name="found_basic_event">
+      <parameters xmi:id="_FTmQ0I4yEeO0odPhTVVy7w" name="error_instance">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <parameters xmi:id="_4EVuUDRCEeSVNPaIMvVhsA" name="found_basic_event">
         <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </parameters>
       <lhs xmi:id="_typvAI4xEeO0odPhTVVy7w" name="Lhs">
@@ -3405,6 +3438,9 @@
     <parameters xmi:id="_kpD30I4yEeO0odPhTVVy7w" name="basic_event">
       <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
+    <parameters xmi:id="_6n5ssDRBEeSVNPaIMvVhsA" name="found_gate">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
     <lhs xmi:id="_iYXAgI4yEeO0odPhTVVy7w" name="Lhs">
       <nodes xmi:id="_l36QkI4yEeO0odPhTVVy7w">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//BasicEvent"/>
@@ -3423,8 +3459,11 @@
     </rhs>
     <mappings xmi:id="_l363oI4yEeO0odPhTVVy7w" origin="_l36QkI4yEeO0odPhTVVy7w" image="_l36QkY4yEeO0odPhTVVy7w"/>
     <multiRules xmi:id="_7hXFQI4yEeO0odPhTVVy7w" name="searchGate">
-      <parameters xmi:id="_dF0TYI4zEeO0odPhTVVy7w" name="found_gate">
-        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <parameters xmi:id="_dF0TYI4zEeO0odPhTVVy7w" name="basic_event">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <parameters xmi:id="_4EWVYDRCEeSVNPaIMvVhsA" name="found_gate">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </parameters>
       <lhs xmi:id="_7hXFQY4yEeO0odPhTVVy7w" name="Lhs">
         <nodes xmi:id="_7hXsUI4yEeO0odPhTVVy7w" incoming="_DW3o8I4zEeO0odPhTVVy7w" outgoing="_-z2wwI4yEeO0odPhTVVy7w">
@@ -3435,8 +3474,8 @@
         </nodes>
         <nodes xmi:id="_my8VcI4yEeO0odPhTVVy7w" incoming="_-z2wwI4yEeO0odPhTVVy7w" outgoing="_DW3o8I4zEeO0odPhTVVy7w">
           <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate"/>
-          <attributes xmi:id="_vnNncI4yEeO0odPhTVVy7w" value="found_gate">
-            <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+          <attributes xmi:id="_xIw0kDRIEeSVNPaIMvVhsA" value="found_gate">
+            <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
           </attributes>
         </nodes>
         <edges xmi:id="_-z2wwI4yEeO0odPhTVVy7w" source="_7hXsUI4yEeO0odPhTVVy7w" target="_my8VcI4yEeO0odPhTVVy7w">
@@ -3455,8 +3494,8 @@
         </nodes>
         <nodes xmi:id="_my8VcY4yEeO0odPhTVVy7w" incoming="_-z3X0I4yEeO0odPhTVVy7w" outgoing="_DW4QAI4zEeO0odPhTVVy7w">
           <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate"/>
-          <attributes xmi:id="_vnNncY4yEeO0odPhTVVy7w" value="found_gate">
-            <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Gate/id"/>
+          <attributes xmi:id="_xIw0kTRIEeSVNPaIMvVhsA" value="found_gate">
+            <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
           </attributes>
         </nodes>
         <edges xmi:id="_-z3X0I4yEeO0odPhTVVy7w" source="_7hXFQ44yEeO0odPhTVVy7w" target="_my8VcY4yEeO0odPhTVVy7w">
@@ -3650,24 +3689,50 @@
   </units>
   <units xsi:type="henshin:Rule" xmi:id="_3bpScNeDEeO7IZ-6dS-ItA" name="ExistsEventID">
     <parameters xmi:id="_5OJx4NeDEeO7IZ-6dS-ItA" name="event_id">
-      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
     <lhs xmi:id="_3bs80NeDEeO7IZ-6dS-ItA" name="Lhs">
       <nodes xmi:id="_6Ow6UNeDEeO7IZ-6dS-ItA">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Event"/>
-        <attributes xmi:id="_7Fyo8NeDEeO7IZ-6dS-ItA" value="event_id">
-          <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Event/id"/>
+        <attributes xmi:id="_4GVVkDRGEeSVNPaIMvVhsA" value="event_id">
+          <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
         </attributes>
       </nodes>
     </lhs>
     <rhs xmi:id="_3bs80deDEeO7IZ-6dS-ItA" name="Rhs">
       <nodes xmi:id="_6Ow6UdeDEeO7IZ-6dS-ItA">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Event"/>
-        <attributes xmi:id="_7Fyo8deDEeO7IZ-6dS-ItA" value="event_id">
-          <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Event/id"/>
+        <attributes xmi:id="_4GVVkTRGEeSVNPaIMvVhsA" value="event_id">
+          <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
         </attributes>
       </nodes>
     </rhs>
     <mappings xmi:id="_6Ow6UteDEeO7IZ-6dS-ItA" origin="_6Ow6UNeDEeO7IZ-6dS-ItA" image="_6Ow6UdeDEeO7IZ-6dS-ItA"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_3eymsDRBEeSVNPaIMvVhsA" name="CreateErrorType" description="Description" checkDangling="false">
+    <parameters xmi:id="_LASa8DRDEeSVNPaIMvVhsA" name="type_name"/>
+    <lhs xmi:id="_3e7JkDRBEeSVNPaIMvVhsA" name="Lhs">
+      <nodes xmi:id="_7e93kDRBEeSVNPaIMvVhsA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_3e7woDRBEeSVNPaIMvVhsA" name="Rhs">
+      <nodes xmi:id="_7e93kTRBEeSVNPaIMvVhsA" incoming="_FgY5MDRCEeSVNPaIMvVhsA" outgoing="_93E-cDRBEeSVNPaIMvVhsA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree"/>
+      </nodes>
+      <nodes xmi:id="_8bqwYDRBEeSVNPaIMvVhsA" incoming="_93E-cDRBEeSVNPaIMvVhsA" outgoing="_FgY5MDRCEeSVNPaIMvVhsA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//ErrorType"/>
+        <attributes xmi:id="_88zVQDRGEeSVNPaIMvVhsA" value="type_name">
+          <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//ErrorType/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_93E-cDRBEeSVNPaIMvVhsA" source="_7e93kTRBEeSVNPaIMvVhsA" target="_8bqwYDRBEeSVNPaIMvVhsA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree/error_type"/>
+      </edges>
+      <edges xmi:id="_FgY5MDRCEeSVNPaIMvVhsA" source="_8bqwYDRBEeSVNPaIMvVhsA" target="_7e93kTRBEeSVNPaIMvVhsA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//ErrorType/root"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_7e93kjRBEeSVNPaIMvVhsA" origin="_7e93kDRBEeSVNPaIMvVhsA" image="_7e93kTRBEeSVNPaIMvVhsA"/>
   </units>
 </henshin:Module>
