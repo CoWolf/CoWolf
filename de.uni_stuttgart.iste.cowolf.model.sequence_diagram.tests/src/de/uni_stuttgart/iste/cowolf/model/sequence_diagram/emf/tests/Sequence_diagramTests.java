@@ -31,6 +31,7 @@ public class Sequence_diagramTests extends TestSuite {
 	 */
 	public static Test suite() {
 		TestSuite suite = new Sequence_diagramTests("sequence_diagram Tests");
+		suite.addTestSuite(SequenceTest.class);
 		return suite;
 	}
 
