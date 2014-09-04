@@ -13,9 +13,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
+import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.eclipse.core.resources.IProjectDescription;
@@ -37,7 +39,11 @@ import org.sidiff.editrule.validation.EditRuleValidator;
  * model versions.
  * 
  * @author Rene Trefft
+ * 
+ * @goal generate
+ * @phase generate-sources
  */
+@Mojo(name = "")
 public class RecognitionRulesGenerator extends AbstractMojo {
 
 	RuleBaseWrapper ruleBaseWrapper = null;
@@ -255,7 +261,7 @@ public class RecognitionRulesGenerator extends AbstractMojo {
 			RuleBaseWrapper ruleBaseWrapper = new RuleBaseWrapper(ruleBaseURI,
 					recognitionRulesDir, editRulesDir, false);
 
-			ruleBaseWrapper.setName(getRuleBasePluginBundleName());
+			ruleBaseWrapper.setName(getRuleBaseName());
 
 		}
 
@@ -276,7 +282,7 @@ public class RecognitionRulesGenerator extends AbstractMojo {
 	 * 
 	 * @return
 	 */
-	private String getRuleBasePluginBundleName() {
+	private String getRuleBaseName() {
 
 		File bundleManifestFile = new File(project.getBasedir()
 				+ File.separator + "META-INF" + File.separator + "MANIFEST.MF");
@@ -306,6 +312,9 @@ public class RecognitionRulesGenerator extends AbstractMojo {
 							"Bundle name \"" + bundleName
 									+ "\" used for name of rulebase.");
 					return matcher.group(1);
+				} else {
+					getLog().debug(
+							"Bundle name not defined in manifest.");
 				}
 
 			} catch (IOException exc) {

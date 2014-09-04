@@ -32,7 +32,7 @@
 	</repositories>
 
 	<build>
-	
+
 		<plugins>
 
 			<plugin>
@@ -181,11 +181,11 @@
 				</configuration>
 			</plugin>
 
-			<!-- <plugin> <artifactId>maven-antrun-plugin</artifactId> <version>1.7</version> 
-				<executions> <execution> <id>generate-silift-recognition-rules</id> <phase>generate-sources</phase> 
-				<configuration> <tasks> Place any ant task here. You can add anything you 
-				can add between <target> and </target> in a build.xml. </tasks> </configuration> 
-				<goals> <goal>run</goal> </goals> </execution> </executions> </plugin> -->
+			<plugin>
+				<groupId>de.uni_stuttgart.iste.cowolf</groupId>
+				<artifactId>silift-rulebase-maven-plugin</artifactId>
+				<version>1.0.0-SNAPSHOT</version>
+			</plugin>
 
 		</plugins>
 
@@ -203,7 +203,7 @@
 			<url>https://lismore.informatik.uni-stuttgart.de/nexus/content/repositories/snapshots</url>
 		</snapshotRepository>
 	</distributionManagement>
-	
+
 	<modules>
 		<module>../de.uni_stuttgart.iste.cowolf.core</module>
 		<module>../de.uni_stuttgart.iste.cowolf.core.feature</module>
@@ -463,38 +463,7 @@
 		<module>
 			../de.uni_stuttgart.iste.cowolf.model.dtmc.sirius.editor
 		</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.evolution.recognitionrules.generator
-			../de.uni_stuttgart.iste.cowolf.evolution.lqn.difference.technical
-		</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.evolution.lqn.editrules
-		</module>
-		<module>
-			../de.uni_stuttgart.iste.transformation.faulttree_ctmc
-		</module>
-		<module>
-			../de.uni_stuttgart.iste.transformation.faulttree_ctmc.rules
-		</module>
-		<module>
-			../de.uni_stuttgart.iste.transformation.faulttree_ctmc.tests
-		</module>
-		<module>
-			../de.uni_stuttgart.iste.transformation.faulttree_ctmc.feature
-		</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl
-		</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl.sdk
-		</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl.tests
-		</module>
-		<module>
-			../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl.ui
-		</module>
 		<module>../silift-recognition-rules-maven-plugin</module>
 	</modules>
-	
+
 </project>
