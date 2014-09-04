@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="ASCII"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_Nct4ACn5EeSLIZGeh65hEw" name="DELETE_Label_IN_State_(labels)" description="Deletes one Label in State">
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_6qiAMDQQEeSrh9PiAm7rSQ" name="DELETE_Label_IN_State_(labels)" description="Deletes one Label in State">
   <imports href="http://dtmc/1.0#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="_NcufECn5EeSLIZGeh65hEw" name="deleteLabel_IN_State" description="deletes one Label in the context: State">
-    <parameters xmi:id="_NcufESn5EeSLIZGeh65hEw" name="Selected"/>
-    <parameters xmi:id="_NcufEin5EeSLIZGeh65hEw" name="ToBeDeleted"/>
-    <lhs xmi:id="_NcufEyn5EeSLIZGeh65hEw" name="LHS">
-      <nodes xmi:id="_NcufFCn5EeSLIZGeh65hEw" name="Selected" incoming="_NcufFyn5EeSLIZGeh65hEw" outgoing="_NcufFin5EeSLIZGeh65hEw">
+  <units xsi:type="henshin:Rule" xmi:id="_6qiAMTQQEeSrh9PiAm7rSQ" name="deleteLabel_IN_State" description="deletes one Label in the context: State">
+    <parameters xmi:id="_6qiAMjQQEeSrh9PiAm7rSQ" name="Selected"/>
+    <parameters xmi:id="_6qiAMzQQEeSrh9PiAm7rSQ" name="ToBeDeleted"/>
+    <lhs xmi:id="_6qiANDQQEeSrh9PiAm7rSQ" name="LHS">
+      <nodes xmi:id="_6qiANTQQEeSrh9PiAm7rSQ" name="Selected" incoming="_6qiAODQQEeSrh9PiAm7rSQ" outgoing="_6qiANzQQEeSrh9PiAm7rSQ">
         <type href="http://dtmc/1.0#//State"/>
       </nodes>
-      <nodes xmi:id="_NcufFSn5EeSLIZGeh65hEw" name="ToBeDeleted" incoming="_NcufFin5EeSLIZGeh65hEw" outgoing="_NcufFyn5EeSLIZGeh65hEw">
+      <nodes xmi:id="_6qiANjQQEeSrh9PiAm7rSQ" name="ToBeDeleted" incoming="_6qiANzQQEeSrh9PiAm7rSQ" outgoing="_6qiAODQQEeSrh9PiAm7rSQ">
         <type href="http://dtmc/1.0#//Label"/>
       </nodes>
-      <edges xmi:id="_NcufFin5EeSLIZGeh65hEw" source="_NcufFCn5EeSLIZGeh65hEw" target="_NcufFSn5EeSLIZGeh65hEw">
+      <edges xmi:id="_6qiANzQQEeSrh9PiAm7rSQ" source="_6qiANTQQEeSrh9PiAm7rSQ" target="_6qiANjQQEeSrh9PiAm7rSQ">
         <type href="http://dtmc/1.0#//State/labels"/>
       </edges>
-      <edges xmi:id="_NcufFyn5EeSLIZGeh65hEw" source="_NcufFSn5EeSLIZGeh65hEw" target="_NcufFCn5EeSLIZGeh65hEw">
+      <edges xmi:id="_6qiAODQQEeSrh9PiAm7rSQ" source="_6qiANjQQEeSrh9PiAm7rSQ" target="_6qiANTQQEeSrh9PiAm7rSQ">
         <type href="http://dtmc/1.0#//Label/state"/>
       </edges>
     </lhs>
-    <rhs xmi:id="_NcufGCn5EeSLIZGeh65hEw" name="RHS">
-      <nodes xmi:id="_NcufGSn5EeSLIZGeh65hEw" name="Selected">
+    <rhs xmi:id="_6qiAOTQQEeSrh9PiAm7rSQ" name="RHS">
+      <nodes xmi:id="_6qiAOjQQEeSrh9PiAm7rSQ" name="Selected">
         <type href="http://dtmc/1.0#//State"/>
       </nodes>
     </rhs>
-    <mappings xmi:id="_NcufGin5EeSLIZGeh65hEw" origin="_NcufFCn5EeSLIZGeh65hEw" image="_NcufGSn5EeSLIZGeh65hEw"/>
+    <mappings xmi:id="_6qiAOzQQEeSrh9PiAm7rSQ" origin="_6qiANTQQEeSrh9PiAm7rSQ" image="_6qiAOjQQEeSrh9PiAm7rSQ"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="_NcufGyn5EeSLIZGeh65hEw" name="mainUnit" description="Deletes one Label depending on available contexts in model instance" subUnits="_NcufECn5EeSLIZGeh65hEw">
-    <parameters xmi:id="_NcufHCn5EeSLIZGeh65hEw" name="ToBeDeleted"/>
-    <parameters xmi:id="_NcufHSn5EeSLIZGeh65hEw" name="selectedEObject"/>
-    <parameterMappings xmi:id="_NcufHin5EeSLIZGeh65hEw" source="_NcufHSn5EeSLIZGeh65hEw" target="_NcufESn5EeSLIZGeh65hEw"/>
-    <parameterMappings xmi:id="_NcufHyn5EeSLIZGeh65hEw" source="_NcufHCn5EeSLIZGeh65hEw" target="_NcufEin5EeSLIZGeh65hEw"/>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_6qiAPDQQEeSrh9PiAm7rSQ" name="mainUnit" description="Deletes one Label depending on available contexts in model instance" subUnits="_6qiAMTQQEeSrh9PiAm7rSQ">
+    <parameters xmi:id="_6qiAPTQQEeSrh9PiAm7rSQ" name="ToBeDeleted"/>
+    <parameters xmi:id="_6qiAPjQQEeSrh9PiAm7rSQ" name="selectedEObject"/>
+    <parameterMappings xmi:id="_6qiAPzQQEeSrh9PiAm7rSQ" source="_6qiAPjQQEeSrh9PiAm7rSQ" target="_6qiAMjQQEeSrh9PiAm7rSQ"/>
+    <parameterMappings xmi:id="_6qiAQDQQEeSrh9PiAm7rSQ" source="_6qiAPTQQEeSrh9PiAm7rSQ" target="_6qiAMzQQEeSrh9PiAm7rSQ"/>
   </units>
 </henshin:Module>

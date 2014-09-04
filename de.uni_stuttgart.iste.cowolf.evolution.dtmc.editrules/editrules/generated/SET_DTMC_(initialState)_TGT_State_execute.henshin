@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_6nIt8DQQEeSrh9PiAm7rSQ" name="SET_DTMC_(initialState)_TGT_State" description="Sets DTMC's reference initialState the target State">
+  <imports href="http://dtmc/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_6nIt8TQQEeSrh9PiAm7rSQ" name="setDTMC_initialState_TO_State" description="SetDTMCRefinitialStateToState">
+    <parameters xmi:id="_6nIt8jQQEeSrh9PiAm7rSQ" name="Selected"/>
+    <parameters xmi:id="_6nIt8zQQEeSrh9PiAm7rSQ" name="NewTarget"/>
+    <lhs xmi:id="_6nIt9DQQEeSrh9PiAm7rSQ" name="Lhs">
+      <nodes xmi:id="_6nIt9TQQEeSrh9PiAm7rSQ" name="Selected">
+        <type href="http://dtmc/1.0#//DTMC"/>
+      </nodes>
+      <nodes xmi:id="_6nIt9jQQEeSrh9PiAm7rSQ" name="NewTarget">
+        <type href="http://dtmc/1.0#//State"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_6nIt9zQQEeSrh9PiAm7rSQ" name="Rhs">
+      <nodes xmi:id="_6nIt-DQQEeSrh9PiAm7rSQ" name="Selected" outgoing="_6nIt-jQQEeSrh9PiAm7rSQ">
+        <type href="http://dtmc/1.0#//DTMC"/>
+      </nodes>
+      <nodes xmi:id="_6nIt-TQQEeSrh9PiAm7rSQ" name="NewTarget" incoming="_6nIt-jQQEeSrh9PiAm7rSQ">
+        <type href="http://dtmc/1.0#//State"/>
+      </nodes>
+      <edges xmi:id="_6nIt-jQQEeSrh9PiAm7rSQ" source="_6nIt-DQQEeSrh9PiAm7rSQ" target="_6nIt-TQQEeSrh9PiAm7rSQ">
+        <type href="http://dtmc/1.0#//DTMC/initialState"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_6nIt-zQQEeSrh9PiAm7rSQ" origin="_6nIt9TQQEeSrh9PiAm7rSQ" image="_6nIt-DQQEeSrh9PiAm7rSQ"/>
+    <mappings xmi:id="_6nIt_DQQEeSrh9PiAm7rSQ" origin="_6nIt9jQQEeSrh9PiAm7rSQ" image="_6nIt-TQQEeSrh9PiAm7rSQ"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_6nIt_TQQEeSrh9PiAm7rSQ" name="mainUnit" subUnits="_6nIt8TQQEeSrh9PiAm7rSQ">
+    <parameters xmi:id="_6nIt_jQQEeSrh9PiAm7rSQ" name="selectedEObject"/>
+    <parameters xmi:id="_6nIt_zQQEeSrh9PiAm7rSQ" name="NewTarget"/>
+    <parameterMappings xmi:id="_6nIuADQQEeSrh9PiAm7rSQ" source="_6nIt_jQQEeSrh9PiAm7rSQ" target="_6nIt8jQQEeSrh9PiAm7rSQ"/>
+    <parameterMappings xmi:id="_6nO0kDQQEeSrh9PiAm7rSQ" source="_6nIt_zQQEeSrh9PiAm7rSQ" target="_6nIt8zQQEeSrh9PiAm7rSQ"/>
+  </units>
+</henshin:Module>

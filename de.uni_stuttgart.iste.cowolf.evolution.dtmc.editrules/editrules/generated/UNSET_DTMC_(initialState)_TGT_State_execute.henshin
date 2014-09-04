@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_6nO0kTQQEeSrh9PiAm7rSQ" name="UNSET_DTMC_(initialState)_TGT_State" description="Unsets DTMC's reference initialState the target State">
+  <imports href="http://dtmc/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_6nO0kjQQEeSrh9PiAm7rSQ" name="unsetDTMC_initialState_TO_State" description="UnsetDTMCRefinitialStateToState">
+    <parameters xmi:id="_6nO0kzQQEeSrh9PiAm7rSQ" name="Selected"/>
+    <parameters xmi:id="_6nO0lDQQEeSrh9PiAm7rSQ" name="OldTarget"/>
+    <lhs xmi:id="_6nO0lTQQEeSrh9PiAm7rSQ" name="LHS">
+      <nodes xmi:id="_6nU7MDQQEeSrh9PiAm7rSQ" name="Selected" outgoing="_6nU7MjQQEeSrh9PiAm7rSQ">
+        <type href="http://dtmc/1.0#//DTMC"/>
+      </nodes>
+      <nodes xmi:id="_6nU7MTQQEeSrh9PiAm7rSQ" name="OldTarget" incoming="_6nU7MjQQEeSrh9PiAm7rSQ">
+        <type href="http://dtmc/1.0#//State"/>
+      </nodes>
+      <edges xmi:id="_6nU7MjQQEeSrh9PiAm7rSQ" source="_6nU7MDQQEeSrh9PiAm7rSQ" target="_6nU7MTQQEeSrh9PiAm7rSQ">
+        <type href="http://dtmc/1.0#//DTMC/initialState"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_6nU7MzQQEeSrh9PiAm7rSQ" name="RHS">
+      <nodes xmi:id="_6nU7NDQQEeSrh9PiAm7rSQ" name="Selected">
+        <type href="http://dtmc/1.0#//DTMC"/>
+      </nodes>
+      <nodes xmi:id="_6nU7NTQQEeSrh9PiAm7rSQ" name="OldTarget">
+        <type href="http://dtmc/1.0#//State"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_6nU7NjQQEeSrh9PiAm7rSQ" origin="_6nU7MDQQEeSrh9PiAm7rSQ" image="_6nU7NDQQEeSrh9PiAm7rSQ"/>
+    <mappings xmi:id="_6nU7NzQQEeSrh9PiAm7rSQ" origin="_6nU7MTQQEeSrh9PiAm7rSQ" image="_6nU7NTQQEeSrh9PiAm7rSQ"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_6nU7ODQQEeSrh9PiAm7rSQ" name="mainUnit" subUnits="_6nO0kjQQEeSrh9PiAm7rSQ">
+    <parameters xmi:id="_6nU7OTQQEeSrh9PiAm7rSQ" name="selectedEObject"/>
+    <parameters xmi:id="_6nU7OjQQEeSrh9PiAm7rSQ" name="OldTarget"/>
+    <parameterMappings xmi:id="_6nU7OzQQEeSrh9PiAm7rSQ" source="_6nU7OTQQEeSrh9PiAm7rSQ" target="_6nO0kzQQEeSrh9PiAm7rSQ"/>
+    <parameterMappings xmi:id="_6nU7PDQQEeSrh9PiAm7rSQ" source="_6nU7OjQQEeSrh9PiAm7rSQ" target="_6nO0lDQQEeSrh9PiAm7rSQ"/>
+  </units>
+</henshin:Module>

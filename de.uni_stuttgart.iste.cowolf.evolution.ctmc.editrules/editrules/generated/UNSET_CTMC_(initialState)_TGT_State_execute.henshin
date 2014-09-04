@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="__oDqIDQQEeScitwB4YOGeg" name="UNSET_CTMC_(initialState)_TGT_State" description="Unsets CTMC's reference initialState the target State">
+  <imports href="http://ctmc/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="__oERMDQQEeScitwB4YOGeg" name="unsetCTMC_initialState_TO_State" description="UnsetCTMCRefinitialStateToState">
+    <parameters xmi:id="__oERMTQQEeScitwB4YOGeg" name="Selected"/>
+    <parameters xmi:id="__oERMjQQEeScitwB4YOGeg" name="OldTarget"/>
+    <lhs xmi:id="__oERMzQQEeScitwB4YOGeg" name="LHS">
+      <nodes xmi:id="__oERNDQQEeScitwB4YOGeg" name="Selected" outgoing="__oERNjQQEeScitwB4YOGeg">
+        <type href="http://ctmc/1.0#//CTMC"/>
+      </nodes>
+      <nodes xmi:id="__oERNTQQEeScitwB4YOGeg" name="OldTarget" incoming="__oERNjQQEeScitwB4YOGeg">
+        <type href="http://ctmc/1.0#//State"/>
+      </nodes>
+      <edges xmi:id="__oERNjQQEeScitwB4YOGeg" source="__oERNDQQEeScitwB4YOGeg" target="__oERNTQQEeScitwB4YOGeg">
+        <type href="http://ctmc/1.0#//CTMC/initialState"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="__oERNzQQEeScitwB4YOGeg" name="RHS">
+      <nodes xmi:id="__oERODQQEeScitwB4YOGeg" name="Selected">
+        <type href="http://ctmc/1.0#//CTMC"/>
+      </nodes>
+      <nodes xmi:id="__oEROTQQEeScitwB4YOGeg" name="OldTarget">
+        <type href="http://ctmc/1.0#//State"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="__oEROjQQEeScitwB4YOGeg" origin="__oERNDQQEeScitwB4YOGeg" image="__oERODQQEeScitwB4YOGeg"/>
+    <mappings xmi:id="__oEROzQQEeScitwB4YOGeg" origin="__oERNTQQEeScitwB4YOGeg" image="__oEROTQQEeScitwB4YOGeg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="__oERPDQQEeScitwB4YOGeg" name="mainUnit" subUnits="__oERMDQQEeScitwB4YOGeg">
+    <parameters xmi:id="__oERPTQQEeScitwB4YOGeg" name="selectedEObject"/>
+    <parameters xmi:id="__oERPjQQEeScitwB4YOGeg" name="OldTarget"/>
+    <parameterMappings xmi:id="__oERPzQQEeScitwB4YOGeg" source="__oERPTQQEeScitwB4YOGeg" target="__oERMTQQEeScitwB4YOGeg"/>
+    <parameterMappings xmi:id="__oERQDQQEeScitwB4YOGeg" source="__oERPjQQEeScitwB4YOGeg" target="__oERMjQQEeScitwB4YOGeg"/>
+  </units>
+</henshin:Module>
