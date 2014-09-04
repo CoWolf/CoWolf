@@ -3,6 +3,9 @@ package de.uni_stuttgart.iste.cowolf.ui.evolution.wizard;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.jface.wizard.Wizard;
 
+import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Model;
+import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelVersion;
+
 /**
  * This wizard allows the user to select the two models to use for evolution.
  * 
@@ -14,46 +17,33 @@ public class ComponentSelectionWizard extends Wizard {
     /**
      * First model to use for evolution.
      */
-    private IFile modelA;
-    /**
-     * Second model to use for evolution.
-     */
-    private IFile modelB;
+    private IFile source;
+
     /**
      * Wizard page displaying contents of wizard.
      */
     private ComponentSelectionWizardPage page;
-    /**
-     * Class variable to determine whether first element is selected.
-     */
-    private boolean isFirstElementSelected = true;
 
-    private boolean isAssociationSelected = false;
-
+	private Model sourceModel;
+	private ModelVersion baseVersion;
+	private ModelVersion targetVersion;
+	
     /**
      * Constructor setting both models.
      *
-     * @param modelA
+     * @param source
      * @param modelB
      */
-    public ComponentSelectionWizard(IFile modelA, IFile modelB) {
+    public ComponentSelectionWizard(IFile source, Model sourceModel) {
         this.setWindowTitle("Model Evolution Wizard");
-        this.modelA = modelA;
-        this.modelB = modelB;
+        this.source = source;
+        this.sourceModel = sourceModel;
     }
 
     @Override
     public void addPages() {
-        this.page = new ComponentSelectionWizardPage(this);
+        this.page = new ComponentSelectionWizardPage(this, source, sourceModel);
         this.addPage(this.page);
-        // TODO add further pages if necessary
-    }
-
-    @Override
-    public boolean performFinish() {
-        this.isFirstElementSelected = this.page.isFirstModelSelected();
-        this.isAssociationSelected = this.page.isAssociatonSelected();
-        return true;
     }
 
     @Override
@@ -62,52 +52,25 @@ public class ComponentSelectionWizard extends Wizard {
     }
 
     /**
-     *
-     * @return true if first element is selected.
+     * @return the source
      */
-    public boolean isFirstModelSelected() {
-        return this.isFirstElementSelected;
-    }
-    /**
-     * @return the modelA
-     */
-    public IFile getModelA() {
-        return modelA;
-    }
-    /**
-     * @param modelA
-     *            the modelA to set
-     */
-    public void setModelA(IFile modelA) {
-        this.modelA = modelA;
-    }
-    /**
-     * @return the modelB
-     */
-    public IFile getModelB() {
-        return modelB;
-    }
-    /**
-     * @param modelB
-     *            the modelB to set
-     */
-    public void setModelB(IFile modelB) {
-        this.modelB = modelB;
+    public IFile getSource() {
+        return source;
     }
 
-    /**
-     * @return the isAssociationSelected
-     */
-    public boolean isAssociationSelected() {
-        return isAssociationSelected;
-    }
+	@Override
+	public boolean performFinish() {
+		this.baseVersion = page.getBaseVersion();
+		this.targetVersion = page.getTargetVersion();
+		return true;
+	}
 
-    /**
-     * @param isAssociationSelected
-     *            the isAssociationSelected to set
-     */
-    public void setAssociationSelected(boolean isAssociationSelected) {
-        this.isAssociationSelected = isAssociationSelected;
-    }
+	public ModelVersion getBaseVersion() {
+		return this.baseVersion;
+	}
+
+	public ModelVersion getTargetVersion() {
+		return this.targetVersion;
+	}
 
 }

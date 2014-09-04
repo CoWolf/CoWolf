@@ -4,6 +4,7 @@ package de.uni_stuttgart.iste.cowolf.core.ModelAssociation;
 
 import java.util.List;
 
+import org.eclipse.core.resources.IFile;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -148,5 +149,5 @@ public interface Model extends EObject {
 
 	Association getLatestAssociationFrom(Model source);
 
-
+	public IFile getFile();
 } // Model

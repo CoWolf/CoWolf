@@ -70,7 +70,7 @@ public interface ModelVersion extends EObject {
 	 * @model
 	 * @generated
 	 */
-	long getTimestamp();
+	public long getTimestamp();
 
 	/**
 	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelVersion#getTimestamp <em>Timestamp</em>}' attribute.

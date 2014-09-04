@@ -91,6 +91,9 @@ public class FileTreeContentProvider implements ITreeContentProvider {
 	private boolean hasUsedObjectsRecursive(IResource element) {
 		if (element instanceof IContainer) {
 			try {
+				if (element instanceof IProject && !((IProject) element).isOpen()) {
+					return false;
+				}
 				for (IResource res : ((IContainer) element).members()) {
 					if (hasUsedObjectsRecursive(res)) {
 						return true;
