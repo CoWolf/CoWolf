@@ -2,6 +2,7 @@
  */
 package de.uni_stuttgart.iste.cowolf.core.ModelAssociation.impl;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.HashMap;
@@ -109,8 +110,7 @@ public class ModelAssociationFactoryImpl extends EFactoryImpl implements ModelAs
 		
 		URI uri = URI.createURI(project.getLocationURI().toString() + "/" + ModelAssociationPackage.PROJECT_FILENAME);
 		Resource res = resSet.createResource(uri);
-		
-		if (project.getFile(ModelAssociationPackage.PROJECT_FILENAME).exists()) {
+		if (new File(project.getFile(ModelAssociationPackage.PROJECT_FILENAME).getLocation().makeAbsolute().toOSString()).exists()) {
 			try {
 				res.load(Collections.EMPTY_MAP);
 			} catch (IOException e1) {

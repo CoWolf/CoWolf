@@ -13,6 +13,7 @@ import java.util.Date;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -131,17 +132,17 @@ public class ModelAssociationImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public Model getModelByPath(String file) {
 		for (Model model : getModels()) {
-			if (model.getModel().equals(file)) {
+			if (model.getModel().trim().equals(file.trim())) {
 				return model;
 			}
 		}
 		
 		return null;
-		
 	}
 
 	private String getModelFile(Resource res) {
-		return res.getURI().toFileString().substring(this.getProject().getLocation().toString().length()+1);
+		URI uri = res.getURI().resolve(URI.createURI(this.getProject().getLocation().toString()));
+		return uri.toString().substring(this.getProject().getLocationURI().toString().length() + 1);//replace('\\', '/');
 	}
 
 	/**

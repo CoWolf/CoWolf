@@ -402,6 +402,11 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 
 	@Override
 	public Association getLatestAssociationTo(Model target) {
+		
+		if (target == null) {
+			return null;
+		}
+		
 		ListIterator<ModelVersion> versionIt = this.getVersions().listIterator(this.getVersions().size());
 		
 		List<Association> targetAssocs = target.getTargetAssociations();
@@ -409,6 +414,29 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 		while (versionIt.hasPrevious()) {
 			ModelVersion version = versionIt.previous();
 			for (Association assoc : version.getSourceAssociations()) {
+				if (targetAssocs.contains(assoc)) {
+					return assoc;
+				}
+			}
+		}
+		
+		return null;
+	}
+	
+	@Override
+	public Association getLatestAssociationFrom(Model source) {
+		
+		if (source == null) {
+			return null;
+		}
+		
+		ListIterator<ModelVersion> versionIt = this.getVersions().listIterator(this.getVersions().size());
+		
+		List<Association> targetAssocs = source.getSourceAssociations();
+		
+		while (versionIt.hasPrevious()) {
+			ModelVersion version = versionIt.previous();
+			for (Association assoc : version.getTargetAssociations()) {
 				if (targetAssocs.contains(assoc)) {
 					return assoc;
 				}

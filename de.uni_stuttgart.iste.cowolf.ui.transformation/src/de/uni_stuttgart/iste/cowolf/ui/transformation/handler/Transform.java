@@ -2,11 +2,14 @@ package de.uni_stuttgart.iste.cowolf.ui.transformation.handler;
 
 import java.security.InvalidParameterException;
 import java.util.List;
-
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -44,9 +47,7 @@ public class Transform extends AbstractHandler {
 
 		IFile selectedElement = (IFile) selection.getFirstElement();
         
-		System.out.println("Selected Element:" + selectedElement.getName());
-        
-		Resource sourceRes = getResourceOfIFile(selectedElement);
+		final Resource sourceRes = getResourceOfIFile(selectedElement);
 		if (sourceRes == null) {
 			return null;
 		}
@@ -58,26 +59,43 @@ public class Transform extends AbstractHandler {
         }
         
         //TODO get source from wizard
+        
+        
         // Coevolve all targets with specified source
-        List<IFile> targets = modelWizard.getTargets();
-        for (IFile target : targets) {
-        	try {
-	        	Resource targetRes = getResourceOfIFile(target);
-	        	AbstractTransformationManager transformationManager = TransformationRegistry.getInstance().getTransformationManager(sourceRes, targetRes);
-
-	        	ModelAssociation ma = ModelAssociationFactory.eINSTANCE.getModelAssociation(target.getProject());
-	        	transformationManager.transform(ma.getModel(sourceRes), ma.getModel(targetRes));
-        	} catch (InvalidParameterException e) {
-        		// Resources have different projects
-        		e.printStackTrace();
-        	}
-        }
+        Job coevolveJob = new Job("Coevolution of models") {
+			@Override
+			protected IStatus run(IProgressMonitor monitor) {
+				List<IFile> targets = modelWizard.getTargets();
+				monitor.beginTask(this.getName(), targets.size());
+		        for (IFile target : targets) {
+		        	if (monitor.isCanceled()) {
+		        		return Status.CANCEL_STATUS;
+		        	}
+		        	try {
+			        	Resource targetRes = getResourceOfIFile(target);
+			        	AbstractTransformationManager transformationManager = TransformationRegistry.getInstance().getTransformationManager(sourceRes, targetRes);
+			        	if (transformationManager == null) {
+			        		continue;
+			        	}
+			        	monitor.subTask("Coevolution to model: " + target.getProjectRelativePath().toOSString());
+			        	ModelAssociation ma = ModelAssociationFactory.eINSTANCE.getModelAssociation(target.getProject());
+			        	transformationManager.transform(ma.getModel(sourceRes), ma.getModel(targetRes));
+		        	} catch (InvalidParameterException e) {
+		        		e.printStackTrace();
+		        	} finally {
+		        		monitor.worked(1);
+		        	}
+		        }
+				return Status.OK_STATUS;
+			}
+		};
+		coevolveJob.setPriority(Job.LONG);
+        coevolveJob.schedule();
         return null;
     }
 
     private Resource getResourceOfIFile(IFile model) {
-        URI uri = URI.createPlatformResourceURI(model.getFullPath().toString(),
-                true);
+        URI uri = URI.createURI(model.getLocationURI().toString());
         ResourceSet resourceSet = new ResourceSetImpl();
         try {
             Resource modelResource = resourceSet.getResource(uri, true);

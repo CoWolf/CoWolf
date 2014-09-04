@@ -25,11 +25,9 @@ import de.uni_stuttgart.iste.cowolf.model.AbstractModelManager;
 import de.uni_stuttgart.iste.cowolf.model.ModelRegistry;
 import de.uni_stuttgart.iste.cowolf.transformation.TransformationRegistry;
 import de.uni_stuttgart.iste.cowolf.ui.model.export.FileTreeContentProvider;
-import de.uni_stuttgart.iste.cowolf.ui.model.export.FileTreeLabelProvider;
 
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
-import org.eclipse.swt.widgets.Button;
 
 /**
  * Transformation Wizard Page to select models for evolution step as well as the
@@ -41,8 +39,8 @@ public class TransformationWizardPage extends WizardPage {
     private ContainerCheckedTreeViewer tree;
     
     private final TransformationWizard wizard;
-    private Text txtModel;
 	private IFile source;
+	private Text txtModel;
 
 	/**
      * Page providing main content for wizard.
@@ -61,27 +59,25 @@ public class TransformationWizardPage extends WizardPage {
 	public void createControl(final Composite parent) {
 		Composite container = new Composite(parent, SWT.NULL);
 		setControl(container);
-		container.setLayout(new GridLayout(1, false));
+		GridLayout gl_container = new GridLayout(2, false);
+		gl_container.verticalSpacing = 10;
+		gl_container.horizontalSpacing = 10;
+		container.setLayout(gl_container);
 		
-		Group grpChooseSourceModel = new Group(container, SWT.NONE);
-		grpChooseSourceModel.setLayout(new GridLayout(3, false));
-		grpChooseSourceModel.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		grpChooseSourceModel.setText("Choose source model");
+		Label lblSourceModel = new Label(container, SWT.NONE);
+		GridData gd_lblSourceModel = new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1);
+		gd_lblSourceModel.horizontalIndent = 10;
+		lblSourceModel.setLayoutData(gd_lblSourceModel);
+		lblSourceModel.setText("Source model:");
 		
-		Label lblChoose = new Label(grpChooseSourceModel, SWT.NONE);
-		lblChoose.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
-		lblChoose.setText("Choose:");
-		
-		txtModel = new Text(grpChooseSourceModel, SWT.BORDER);
+		txtModel = new Text(container, SWT.BORDER);
+		txtModel.setEditable(false);
+		txtModel.setText(this.source.getProjectRelativePath().toOSString());
 		txtModel.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		txtModel.setText(source.getProjectRelativePath().toOSString());
-		
-		Button btnBrowse = new Button(grpChooseSourceModel, SWT.NONE);
-		btnBrowse.setText("Browse...");
 		
 		Group grpModelChooser = new Group(container, SWT.NONE);
 		grpModelChooser.setText("Choose target models");
-		grpModelChooser.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		grpModelChooser.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
 		GridLayout gl_grpModelChooser = new GridLayout(1, false);
 		gl_grpModelChooser.horizontalSpacing = 10;
 		gl_grpModelChooser.verticalSpacing = 10;
@@ -103,12 +99,13 @@ public class TransformationWizardPage extends WizardPage {
 		});
 		Tree tree_1 = tree.getTree();
 		GridData gd_tree_1 = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1);
+		gd_tree_1.widthHint = 307;
 		gd_tree_1.heightHint = 400;
 		tree_1.setLayoutData(gd_tree_1);
 		System.out.println("Project: " + this.source.getProject());
 		FileTreeContentProvider provider = new FileTreeContentProvider(getFilteredExtensions());
 		tree.setContentProvider(provider);
-		tree.setLabelProvider(new FileTreeLabelProvider());
+		tree.setLabelProvider(new ModelVersionTreeLabelProvider(this.source));
 		tree.setInput("root"); // pass a non-null that will be ignored
 		tree.addFilter(new ViewerFilter() {
 
@@ -121,6 +118,7 @@ public class TransformationWizardPage extends WizardPage {
 				return false;
 			}
 		});
+		tree.expandAll();
 		this.setPageComplete();
 	}
 	

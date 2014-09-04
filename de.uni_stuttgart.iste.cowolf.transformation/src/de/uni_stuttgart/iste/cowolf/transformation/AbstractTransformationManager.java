@@ -163,6 +163,14 @@ public abstract class AbstractTransformationManager {
 
     public ModelVersion transform(Model sourceModel, Model targetModel) {
     	
+    	if (sourceModel == null || targetModel == null) {
+    		throw new InvalidParameterException("One or both models are null");
+    	}
+    	
+    	if (sourceModel.getParent() == null || targetModel.getParent() == null) {
+    		throw new InvalidParameterException("Could not get model project.");
+    	}
+    	
     	if (!sourceModel.getParent().equals(targetModel.getParent())) {
     		throw new InvalidParameterException("Models must be in the same project");
     	}

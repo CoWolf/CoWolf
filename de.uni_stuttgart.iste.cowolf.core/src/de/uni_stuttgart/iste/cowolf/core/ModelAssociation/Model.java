@@ -146,5 +146,7 @@ public interface Model extends EObject {
 
 	boolean hasChanges();
 
+	Association getLatestAssociationFrom(Model source);
+
 
 } // Model

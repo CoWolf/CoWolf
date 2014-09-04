@@ -33,6 +33,9 @@ public class ModelResourceChangeListener implements IResourceChangeListener {
 				
 				// Don't go into non-CoWolf projects.
 				if (res.getType() == IResource.PROJECT) {
+					if (!res.getProject().isOpen()) {
+						return false;
+					}
 					return res.getProject().hasNature(ProjectNature.NATURE_ID);
 				}
 				
