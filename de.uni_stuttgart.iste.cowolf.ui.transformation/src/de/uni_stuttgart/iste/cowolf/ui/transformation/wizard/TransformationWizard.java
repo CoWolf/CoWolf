@@ -3,7 +3,7 @@ package de.uni_stuttgart.iste.cowolf.ui.transformation.wizard;
 import java.util.List;
 
 import org.eclipse.core.resources.IFile;
-import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 
 /**
@@ -14,9 +14,9 @@ import org.eclipse.jface.wizard.Wizard;
 public class TransformationWizard extends Wizard {
 
     // First model for evolution.
-    private Resource sourceModel;
     private IFile sourceFile;
     private List<IFile> targets;
+    private IStructuredSelection selection;
 
     /**
      * Wizard page displaying contents of wizard.
@@ -30,25 +30,26 @@ public class TransformationWizard extends Wizard {
 
     /**
      * Constructor setting both models.
-     *
-     * @param sourceModel
+     *s
      * @param sourceFile 
+     * @param selection 
      */
-    public TransformationWizard(Resource sourceModel, IFile sourceFile) {
+    public TransformationWizard(IFile sourceFile, IStructuredSelection selection) {
         this.setWindowTitle("Co-Evolution Wizard");
-        this.sourceModel = sourceModel;
         this.sourceFile = sourceFile;
+        this.selection = selection;
     }
 
 	@Override
     public void addPages() {
-        this.page = new TransformationWizardPage(this, sourceFile);
+        this.page = new TransformationWizardPage(sourceFile, this.selection);
         this.addPage(this.page);
     }
 
     @Override
     public boolean performFinish() {
     	targets = page.getSelectedFiles();
+    	this.sourceFile = page.getSourceFile();
         return true;
     }
 
@@ -61,8 +62,8 @@ public class TransformationWizard extends Wizard {
         return this.isAssociationSelected;
     }
 
-	public Resource getSourceModel() {
-		return sourceModel;
+	public IFile getSourceModel() {
+		return sourceFile;
 	}
 	
 	public List<IFile> getTargets() {

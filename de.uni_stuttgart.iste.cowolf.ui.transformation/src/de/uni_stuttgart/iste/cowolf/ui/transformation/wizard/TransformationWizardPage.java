@@ -9,6 +9,7 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.jface.viewers.CheckStateChangedEvent;
 import org.eclipse.jface.viewers.ICheckStateListener;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
@@ -37,22 +38,22 @@ import org.eclipse.swt.widgets.Text;
 public class TransformationWizardPage extends WizardPage {
 
     private ContainerCheckedTreeViewer tree;
-    
-    private final TransformationWizard wizard;
 	private IFile source;
 	private Text txtModel;
+	private IStructuredSelection selection;
 
 	/**
      * Page providing main content for wizard.
      *
      * @param wizard
+	 * @param selection2 
      */
-    protected TransformationWizardPage(TransformationWizard wizard, IFile selection) {
+    protected TransformationWizardPage(IFile source, IStructuredSelection selection) {
         super("Co-Evolution");
         this.setDescription("Co-Evolve.");
         this.setTitle("Co-Evolution.");
-        this.wizard = wizard;
-        this.source = selection;
+        this.source = source;
+        this.selection = selection;
     }
 
 	@Override
@@ -102,7 +103,6 @@ public class TransformationWizardPage extends WizardPage {
 		gd_tree_1.widthHint = 307;
 		gd_tree_1.heightHint = 400;
 		tree_1.setLayoutData(gd_tree_1);
-		System.out.println("Project: " + this.source.getProject());
 		FileTreeContentProvider provider = new FileTreeContentProvider(getFilteredExtensions());
 		tree.setContentProvider(provider);
 		tree.setLabelProvider(new ModelVersionTreeLabelProvider(this.source));
@@ -118,22 +118,19 @@ public class TransformationWizardPage extends WizardPage {
 				return false;
 			}
 		});
+		tree.setCheckedElements(selection.toArray());
 		tree.expandAll();
 		this.setPageComplete();
 	}
 	
 	public String[] getFilteredExtensions() {
-		
-		AbstractModelManager modelManager = ModelRegistry.getInstance().getModelManager(wizard.getSourceModel());
+		AbstractModelManager modelManager = ModelRegistry.getInstance().getModelManager(source.getFileExtension());
 		Set<Class<?>> classes = TransformationRegistry.getInstance().getTargetTransformations(modelManager.getManagedClass());
-		System.out.println("Source Element:" + modelManager.getManagedClass());
-		System.out.println("have " + classes.size() + " target possibilities");
 		ModelRegistry rg = ModelRegistry.getInstance();
 		List<String> extensions = new ArrayList<String>();
 		for (Class<?> modelClass : classes) {
 			
 			extensions.add(rg.getModelManager(modelClass).getFileExtension());
-			System.out.println("Class extension: " + rg.getModelManager(modelClass).getFileExtension());
 		}
 		return extensions.toArray(new String[0]);
 	}
@@ -162,5 +159,9 @@ public class TransformationWizardPage extends WizardPage {
 			}
 		}
 		return files;
+	}
+
+	public IFile getSourceFile() {
+		return this.source;
 	}
 }

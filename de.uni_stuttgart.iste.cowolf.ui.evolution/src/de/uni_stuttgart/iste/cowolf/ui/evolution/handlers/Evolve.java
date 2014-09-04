@@ -72,20 +72,9 @@ public class Evolve extends AbstractHandler {
             @Override
             protected IStatus run(IProgressMonitor monitor) {
                 try {
-                	if (baseVersion == null) {
-                		System.out.println("bug1");
-                	}
-                	if (baseVersion.getResource() == null) {
-                		System.out.println("bug2");
-                	}
-                	if (baseVersion.getResource().getURI() == null) {
-                		System.out.println("bug3");
-                	}
                     SymmetricDifference symmetricDifference = evoManager.evolve(baseVersion.getResource(), targetVersion.getResource());
                     String projectRoot = iFile.getProject().getLocation()
                             .toFile().toString();
-                    
-                    //TODO Rewrite till here, go on with further lines
                     
                     final String evolveResultsFilePath = evoManager
                             .saveEvolveResults(symmetricDifference, projectRoot
@@ -100,17 +89,14 @@ public class Evolve extends AbstractHandler {
                     return Status.OK_STATUS;
                 } catch (final EvolutionException e) {
                     Display.getDefault().syncExec(new Runnable() {
-
                         @Override
                         public void run() {
                             MessageDialog.openError(window.getShell(),
                                     "Evolution Exception occured",
                                     e.getLocalizedMessage());
                             e.printStackTrace();
-
                         }
                     });
-
                 }
                 return Status.CANCEL_STATUS;
             }

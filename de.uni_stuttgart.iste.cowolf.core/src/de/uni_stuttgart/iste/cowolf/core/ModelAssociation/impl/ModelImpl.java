@@ -18,6 +18,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
 
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.WorkspaceJob;
 import org.eclipse.core.runtime.CoreException;
@@ -609,4 +610,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 		return result.toString();
 	}
 
+	@Override
+	public IFile getFile() {
+		return this.getParent().getProject().getFile(this.getModel());
+	}
+	
 } //ModelImpl
