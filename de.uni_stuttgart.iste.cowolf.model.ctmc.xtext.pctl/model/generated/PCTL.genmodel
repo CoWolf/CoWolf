@@ -8,17 +8,18 @@
     editorPluginID="de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl.editor" runtimeVersion="2.10">
   <genPackages prefix="PCTL" basePackage="de.uni_stuttgart.iste.cowolf.model.ctmc.xtext"
       disposableProviderFactory="true" fileExtensions="pctl" ecorePackage="PCTL.ecore#/">
-    <genClasses ecoreClass="PCTL.ecore#//Expression"/>
-    <genClasses ecoreClass="PCTL.ecore#//NumberLiteral">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PCTL.ecore#//NumberLiteral/value"/>
+    <genClasses ecoreClass="PCTL.ecore#//Start">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//Start/start"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//Start/LEFT"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//Start/RIGHT"/>
     </genClasses>
-    <genClasses ecoreClass="PCTL.ecore#//Addition">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//Addition/left"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//Addition/right"/>
+    <genClasses ecoreClass="PCTL.ecore#//State"/>
+    <genClasses ecoreClass="PCTL.ecore#//Label"/>
+    <genClasses ecoreClass="PCTL.ecore#//StateOrLabel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PCTL.ecore#//StateOrLabel/name"/>
     </genClasses>
-    <genClasses ecoreClass="PCTL.ecore#//Multiplication">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//Multiplication/left"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//Multiplication/right"/>
-    </genClasses>
+    <genClasses ecoreClass="PCTL.ecore#//S"/>
+    <genClasses ecoreClass="PCTL.ecore#//P"/>
+    <genClasses ecoreClass="PCTL.ecore#//PG"/>
   </genPackages>
 </genmodel:GenModel>

@@ -2,20 +2,19 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="pCTL" nsURI="http://www.uni_stuttgart.de/iste/cowolf/model/ctmc/xtext/PCTL"
     nsPrefix="pCTL">
-  <eClassifiers xsi:type="ecore:EClass" name="Expression"/>
-  <eClassifiers xsi:type="ecore:EClass" name="NumberLiteral" eSuperTypes="#//Expression">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Addition" eSuperTypes="#//Expression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Expression"
+  <eClassifiers xsi:type="ecore:EClass" name="Start">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="start" eType="#//S" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="LEFT" eType="#//StateOrLabel"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Expression"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="RIGHT" eType="#//StateOrLabel"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Multiplication" eSuperTypes="#//Expression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Expression"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Expression"
-        containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="State" eSuperTypes="#//StateOrLabel"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Label" eSuperTypes="#//StateOrLabel"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StateOrLabel" eSuperTypes="#//S #//P">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="S"/>
+  <eClassifiers xsi:type="ecore:EClass" name="P" eSuperTypes="#//Start"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PG" eSuperTypes="#//Start"/>
 </ecore:EPackage>

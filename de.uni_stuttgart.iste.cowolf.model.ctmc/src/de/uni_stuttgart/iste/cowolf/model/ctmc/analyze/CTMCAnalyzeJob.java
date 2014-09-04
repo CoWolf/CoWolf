@@ -9,25 +9,16 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.TreeSet;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
 
 import de.uni_stuttgart.iste.cowolf.core.utilities.CommandLineExecutor;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.CTMC;
-import de.uni_stuttgart.iste.cowolf.model.ctmc.State;
 
 public class CTMCAnalyzeJob extends Job {
 

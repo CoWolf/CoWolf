@@ -170,30 +170,30 @@ public class EditPropertiesWizardPage1 extends WizardPage {
 		new Label(grpCslproperties, SWT.NONE);
 		new Label(grpCslproperties, SWT.NONE);
 		new Label(grpCslproperties, SWT.NONE);
-		
-				lblWithin = new Label(grpCslproperties, SWT.NONE);
-				lblWithin.setText("-");
-				lblWithin.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false,
-						false, 1, 1));
-		
-				combo_4 = new Combo(grpCslproperties, SWT.READ_ONLY);
-				combo_4.setEnabled(false);
-				combo_4.setItems(new String[] { "no time bound", "within ...",
-						"after ...", "between ... and ..." });
-				combo_4.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false,
-						1, 1));
-				combo_4.select(0);
-		
-				text_3 = new Text(grpCslproperties, SWT.BORDER);
-				text_3.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false,
-						1, 1));
-		
-				CLabel lblAnd = new CLabel(grpCslproperties, SWT.NONE);
-				lblAnd.setText("and");
-		
-				text_4 = new Text(grpCslproperties, SWT.BORDER);
-				text_4.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false,
-						1, 1));
+
+		lblWithin = new Label(grpCslproperties, SWT.NONE);
+		lblWithin.setText("-");
+		lblWithin.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false,
+				false, 1, 1));
+
+		combo_4 = new Combo(grpCslproperties, SWT.READ_ONLY);
+		combo_4.setEnabled(false);
+		combo_4.setItems(new String[] { "no time bound", "within ...",
+				"after ...", "between ... and ..." });
+		combo_4.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false,
+				1, 1));
+		combo_4.select(0);
+
+		text_3 = new Text(grpCslproperties, SWT.BORDER);
+		text_3.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false,
+				1, 1));
+
+		CLabel lblAnd = new CLabel(grpCslproperties, SWT.NONE);
+		lblAnd.setText("and");
+
+		text_4 = new Text(grpCslproperties, SWT.BORDER);
+		text_4.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false,
+				1, 1));
 
 		lblHoldsWithProbability = new Label(grpCslproperties, SWT.NONE);
 		lblHoldsWithProbability.setLayoutData(new GridData(SWT.CENTER,
@@ -216,13 +216,10 @@ public class EditPropertiesWizardPage1 extends WizardPage {
 		new Label(grpCslproperties, SWT.NONE);
 		new Label(grpCslproperties, SWT.NONE);
 		new Label(grpCslproperties, SWT.NONE);
-		new Label(grpCslproperties, SWT.NONE);
-		new Label(grpCslproperties, SWT.NONE);
-		new Label(grpCslproperties, SWT.NONE);
-		new Label(grpCslproperties, SWT.NONE);
-		new Label(grpCslproperties, SWT.NONE);
 
 		Button btnCreateProperty = new Button(grpCslproperties, SWT.NONE);
+		btnCreateProperty.setLayoutData(new GridData(SWT.FILL, SWT.CENTER,
+				false, false, 1, 1));
 		btnCreateProperty.setText("Create Property");
 		btnCreateProperty.addSelectionListener(new SelectionListener() {
 
@@ -289,14 +286,15 @@ public class EditPropertiesWizardPage1 extends WizardPage {
 					}
 					for (de.uni_stuttgart.iste.cowolf.model.ctmc.Label label : state
 							.getLabels()) {
-						String labelName = "\"" + label.getName() + "\"";
+						String labelName = "Label:" + label.getName();
 						if (!statesAndLabels.contains(labelName)) {
 							statesAndLabels.add(labelName);
 						}
 					}
 				}
 			}
-			Collections.sort(statesAndLabels , new OrderAlphabeticallyComparator());
+			Collections.sort(statesAndLabels,
+					new OrderAlphabeticallyComparator());
 			combo_1.setItems(statesAndLabels.toArray(new String[statesAndLabels
 					.size()]));
 			combo_2.setItems(statesAndLabels.toArray(new String[statesAndLabels
@@ -305,15 +303,13 @@ public class EditPropertiesWizardPage1 extends WizardPage {
 
 	}
 
-	public class OrderAlphabeticallyComparator implements Comparator<String> 
-	{
+	public class OrderAlphabeticallyComparator implements Comparator<String> {
 		@Override
-		public int compare(String sortKey1,String sortKey2) 
-		{
+		public int compare(String sortKey1, String sortKey2) {
 			return sortKey1.compareTo(sortKey2);
 		}
 	}
-	
+
 	@Override
 	public boolean isPageComplete() {
 		try {
@@ -377,14 +373,20 @@ public class EditPropertiesWizardPage1 extends WizardPage {
 		} else if (combo_3.getSelectionIndex() == 3) {
 			probString = "< " + text_1.getText();
 		}
+
 		String timeString = "";
+		String timeResultString = "";
 		if (combo_4.getSelectionIndex() == 1) {
 			timeString = "within " + text_3.getText() + " ";
+			timeResultString = "<= " + text_3.getText() + " ";
 		} else if (combo_4.getSelectionIndex() == 2) {
 			timeString = "after " + text_3.getText() + " ";
+			timeResultString = ">= " + text_3.getText() + " ";
 		} else if (combo_4.getSelectionIndex() == 3) {
 			timeString = "between " + text_3.getText() + " and "
 					+ text_4.getText() + " ";
+			timeResultString = "[" + text_3.getText() + ", " + text_4.getText()
+					+ "] ";
 		}
 		if (combo.getSelectionIndex() == 0) {
 			if (probString.equals("=?"))
@@ -395,7 +397,7 @@ public class EditPropertiesWizardPage1 extends WizardPage {
 				setKey("Steady State Probability: "
 						+ combo_1.getItem(combo_1.getSelectionIndex())
 						+ " eventually is true with probability " + probString);
-			setValue("S" + probString + " [ "
+			setValue("S " + probString + " [ "
 					+ combo_1.getItem(combo_1.getSelectionIndex()) + " ]");
 		}
 
@@ -409,20 +411,8 @@ public class EditPropertiesWizardPage1 extends WizardPage {
 						+ combo_1.getItem(combo_1.getSelectionIndex())
 						+ " is true " + timeString + "with probability "
 						+ probString);
-			if (combo_4.getSelectionIndex() == 0) {
-				setValue("P" + probString + " [ F ("
-						+ combo_1.getItem(combo_1.getSelectionIndex()) + ") ]");
-			} else if (combo_4.getSelectionIndex() == 1) {
-				setValue("P" + probString + " [ F<=" + text_3.getText() + " ("
-						+ combo_1.getItem(combo_1.getSelectionIndex()) + ") ]");
-			} else if (combo_4.getSelectionIndex() == 2) {
-				setValue("P" + probString + " [ F>=" + text_3.getText() + " ( "
-						+ combo_1.getItem(combo_1.getSelectionIndex()) + ") ]");
-			} else if (combo_4.getSelectionIndex() == 3) {
-				setValue("P" + probString + " [ F [" + text_3.getText() + ","
-						+ text_4.getText() + "] ("
-						+ combo_1.getItem(combo_1.getSelectionIndex()) + ") ]");
-			}
+			setValue("P " + probString + " [ F " + timeResultString + "("
+					+ combo_1.getItem(combo_1.getSelectionIndex()) + ") ]");
 
 		}
 		if (combo_2.getSelectionIndex() == -1) {
@@ -440,66 +430,28 @@ public class EditPropertiesWizardPage1 extends WizardPage {
 						+ combo_1.getItem(combo_1.getSelectionIndex())
 						+ " always was true before "
 						+ combo_2.getItem(combo_2.getSelectionIndex())
-						+ " becomes true " + timeString + "with probability " + probString);
-			if (combo_4.getSelectionIndex() == 0) {
-				setValue("P" + probString + " [ ("
-						+ combo_1.getItem(combo_1.getSelectionIndex())
-						+ ") U ("
-						+ combo_2.getItem(combo_2.getSelectionIndex()) + ") ]");
-			} else if (combo_4.getSelectionIndex() == 1) {
-				setValue("P" + probString + " [ ("
-						+ combo_1.getItem(combo_1.getSelectionIndex())
-						+ ") U<=" + text_3.getText() + " ("
-						+ combo_2.getItem(combo_2.getSelectionIndex()) + ") ]");
-			} else if (combo_4.getSelectionIndex() == 2) {
-				setValue("P" + probString + " [ ("
-						+ combo_1.getItem(combo_1.getSelectionIndex())
-						+ ") U>=" + text_3.getText() + " ("
-						+ combo_2.getItem(combo_2.getSelectionIndex()) + ") ]");
-			} else if (combo_4.getSelectionIndex() == 3) {
-				setValue("P" + probString + " [ ("
-						+ combo_1.getItem(combo_1.getSelectionIndex())
-						+ ") U [" + text_3.getText() + "," + text_4.getText()
-						+ "] (" + combo_2.getItem(combo_2.getSelectionIndex())
-						+ ") ]");
-			}
+						+ " becomes true " + timeString + "with probability "
+						+ probString);
+			setValue("P " + probString + " [ ("
+					+ combo_1.getItem(combo_1.getSelectionIndex()) + ") U "
+					+ timeResultString + "("
+					+ combo_2.getItem(combo_2.getSelectionIndex()) + ") ]");
 		}
 		if (combo.getSelectionIndex() == 3) {
 			if (probString.equals("=?")) {
-				probString = ">=0";
+				probString = ">= 0 ";
 			}
 			setKey("Probabilistic Response: If "
 					+ combo_1.getItem(combo_1.getSelectionIndex())
 					+ " was true, "
 					+ combo_2.getItem(combo_2.getSelectionIndex())
-					+ " will be true " + timeString + "with probability " + probString);
+					+ " will be true " + timeString + "with probability "
+					+ probString);
 
-			if (combo_4.getSelectionIndex() == 0) {
-				setValue("P>=1 [ G (("
-						+ combo_1.getItem(combo_1.getSelectionIndex())
-						+ ") =>P" + probString + " [ F ("
-						+ combo_2.getItem(combo_2.getSelectionIndex())
-						+ ") ] ) ]");
-			} else if (combo_4.getSelectionIndex() == 1) {
-				setValue("P>=1 [ G (("
-						+ combo_1.getItem(combo_1.getSelectionIndex())
-						+ ") =>P" + probString + " [ F <=" + text_3.getText()
-						+ " (" + combo_2.getItem(combo_2.getSelectionIndex())
-						+ ") ] ) ]");
-			} else if (combo_4.getSelectionIndex() == 2) {
-				setValue("P>=1 [ G (("
-						+ combo_1.getItem(combo_1.getSelectionIndex())
-						+ ") =>P" + probString + " [ F >=" + text_3.getText()
-						+ " (" + combo_2.getItem(combo_2.getSelectionIndex())
-						+ ") ] ) ]");
-			} else if (combo_4.getSelectionIndex() == 3) {
-				setValue("P>=1 [ G (("
-						+ combo_1.getItem(combo_1.getSelectionIndex())
-						+ ") =>P" + probString + " [ F [" + text_3.getText()
-						+ ", " + text_4.getText() + "] ("
-						+ combo_2.getItem(combo_2.getSelectionIndex())
-						+ ") ] ) ]");
-			}
+			setValue("P >= 1 [ G ( ("
+					+ combo_1.getItem(combo_1.getSelectionIndex()) + ") => P "
+					+ probString + " [ F " + timeResultString + "("
+					+ combo_2.getItem(combo_2.getSelectionIndex()) + ") ] ) ]");
 		}
 	}
 }

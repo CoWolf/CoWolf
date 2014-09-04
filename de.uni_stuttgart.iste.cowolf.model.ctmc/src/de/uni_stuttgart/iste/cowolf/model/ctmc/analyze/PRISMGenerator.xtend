@@ -10,6 +10,7 @@ class PRISMGenerator {
 
 	var idToIntMap = newHashMap()
 	var nameToIntMap = newHashMap()
+	var labelsList = newArrayList()
 
 	def CharSequence generateSM(Resource resource) {
 		if (resource.contents.size > 0 && resource.contents.get(0) instanceof CTMC) {
@@ -26,8 +27,7 @@ class PRISMGenerator {
 		}
 	}
 
-	def CharSequence generateCSL(Resource resource, ArrayList<String> analyzeProperties,
-		boolean isValidation) {
+	def CharSequence generateCSL(Resource resource, ArrayList<String> analyzeProperties, boolean isValidation) {
 		var result = "";
 
 		if (resource.getContents().size() > 0 && resource.getContents().get(0) instanceof CTMC) {
@@ -35,19 +35,20 @@ class PRISMGenerator {
 
 			addStatesToMap(e);
 			addStatesNamesToMap(e);
-			
+			addLabelNamesToMap(e);
+
 			for (String property : analyzeProperties) {
 				var newString = replace(property);
-				
+
 				result += newString + "\n";
 			}
 		}
 
 		return result;
 	}
-	
-	def CharSequence generateCSL(Resource resource, ArrayList<String> analyzeProperties, ArrayList<String> analyzePropertyNames,
-		boolean isValidation) {
+
+	def CharSequence generateCSL(Resource resource, ArrayList<String> analyzeProperties,
+		ArrayList<String> analyzePropertyNames, boolean isValidation) {
 		var result = "";
 
 		if (resource.getContents().size() > 0 && resource.getContents().get(0) instanceof CTMC) {
@@ -55,8 +56,9 @@ class PRISMGenerator {
 
 			addStatesToMap(e);
 			addStatesNamesToMap(e);
-			
-			for (var i = 0; i <analyzeProperties.size; i++) {
+			addLabelNamesToMap(e);
+
+			for (var i = 0; i < analyzeProperties.size; i++) {
 				var newString = replace(analyzeProperties.get(i));
 				result += "// " + analyzePropertyNames.get(i) + "\n" + newString + "\n";
 			}
@@ -84,24 +86,36 @@ class PRISMGenerator {
 			«idToIntMap.put(e.states.get(i).id, i)»	
 		«ENDFOR»
 	'''
-	
+
 	def addStatesNamesToMap(CTMC e) '''
 		«nameToIntMap = newHashMap()»
 		«FOR i : 0 .. e.states.size - 1»  
 			«nameToIntMap.put(e.states.get(i).name, i)»	
 		«ENDFOR»
 	'''
-	
-	def String replace (String s) {
+
+	def addLabelNamesToMap(CTMC e) '''
+		«labelsList = newArrayList()»
+		«FOR state : e.states»
+			«FOR label : state.labels»
+				«if(!labelsList.contains(label.name)) labelsList.add(label.name)»
+			«ENDFOR»
+		«ENDFOR»
+	'''
+
+	def String replace(String s) {
 		var result = s;
-	
-		for (entry : nameToIntMap.entrySet()) {     
-			result = result.replace("State:"+entry.key, "s="+entry.value)
-		} 
-		
+
+		for (entry : nameToIntMap.entrySet()) {
+			result = result.replace("State:" + entry.key, "s=" + entry.value)
+		}
+		for (entry : labelsList) {
+			result = result.replace("Label:" + entry, "\"" + entry + "\"")
+		}
+
 		return result;
 	}
-	
+
 	def getIntState(State e) {
 		if (idToIntMap.containsKey(e.id)) '''«idToIntMap.get(e.id)»''' else throw new Exception("Unknown state found.")
 	}

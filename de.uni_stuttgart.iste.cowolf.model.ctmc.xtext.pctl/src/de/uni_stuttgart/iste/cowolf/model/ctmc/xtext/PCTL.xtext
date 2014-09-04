@@ -1,29 +1,37 @@
 grammar de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.PCTL with org.eclipse.xtext.common.Terminals
 
 generate pCTL "http://www.uni_stuttgart.de/iste/cowolf/model/ctmc/xtext/PCTL"
-	
-Addition returns Expression:
- Multiplication ({Addition.left=current} '+' right=Multiplication)*;
 
-Multiplication returns Expression:
- Primary ({Multiplication.left=current} '*' right=Primary)*;
+Start:
+	start=S | P | PG;
 
-Primary returns Expression:
- NumberLiteral |
- '(' Addition ')';
+State:
+	("(" "State:" name=ID ")" | "State:" name=ID);
 
-NumberLiteral:
- value=INT;
-//	
-////Start:
-////	State | Label | {Start} "(" item=Start ")" "and" "(" location=Start ")" | {Start} "(" item=Start ")" "|" location=Start | S | P;
-//State returns Expression:
-//	"(""State:" name=ID ")";
-//Label returns Expression:
-//	"(""\"" name=ID "\""")";
-//S returns Expression:
-//	"S" (((">" | "<" | ">=" | "<=" | "=") DECIMAL) | "=?") "[" Addition "]";
-//P:
-//	"P" (((">" | "<" | ">=" | "<=" | "=") DECIMAL) | "=?") "[""F" Addition "]";
-//
-//DECIMAL: INT '.' INT;
+Label:
+	("(" "Label:" name=ID ")" | "Label:" name=ID);
+
+StateOrLabel:
+	(State | Label);
+
+S:
+	"S" Compare "[" StateOrLabel "]";
+
+P:
+	("P" Compare "[" "F" TimeBound StateOrLabel "]" | "P" Compare "[" LEFT=StateOrLabel "U" TimeBound RIGHT=StateOrLabel
+	"]");
+
+PG:
+	("P" Compare "[" "G" "(" LEFT=StateOrLabel "=>" "P" CompareWithoutUnknown "[" "F" TimeBound RIGHT=StateOrLabel "]" ")" "]");
+
+Compare:
+	(CompareWithoutUnknown | "=?");
+
+CompareWithoutUnknown:
+	(">" DECIMAL | "<" DECIMAL | ">=" DECIMAL | "<=" DECIMAL);
+
+TimeBound:
+	(">=" DECIMAL | "<=" DECIMAL | "[" DECIMAL "," DECIMAL "]")?;
+
+DECIMAL:
+	INT ('.' INT)?;
