@@ -27,8 +27,11 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Button;
+
+import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCModelManager;
 import de.uni_stuttgart.iste.cowolf.ui.model.export.FileTreeContentProvider;
 import de.uni_stuttgart.iste.cowolf.ui.model.export.ModelTreeLabelProvider;
+
 import org.eclipse.swt.widgets.Tree;
 
 public class DtmcPrismExportPage1 extends WizardPage {
@@ -81,7 +84,7 @@ public class DtmcPrismExportPage1 extends WizardPage {
 		tree = new ContainerCheckedTreeViewer(grpModelChooser);
 		Tree tree_1 = tree.getTree();
 		tree_1.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
-		FileTreeContentProvider provider = new FileTreeContentProvider("dtmcemf");
+		FileTreeContentProvider provider = new FileTreeContentProvider(new DTMCModelManager().getFileExtension());
 		tree.setContentProvider(provider);
 		tree.setLabelProvider(new ModelTreeLabelProvider());
 		tree.setInput("root"); // pass a non-null that will be ignored

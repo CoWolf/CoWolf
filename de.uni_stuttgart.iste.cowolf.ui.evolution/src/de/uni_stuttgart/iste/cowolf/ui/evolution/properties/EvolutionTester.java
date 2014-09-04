@@ -11,8 +11,8 @@ import org.eclipse.ui.ISelectionService;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 
-import de.uni_stuttgart.iste.cowolf.core.extensions.ExtensionHandler;
 import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
+import de.uni_stuttgart.iste.cowolf.evolution.EvolutionRegistry;
 import de.uni_stuttgart.iste.cowolf.ui.evolution.util.ResourceUtil;
 
 /**
@@ -29,7 +29,7 @@ public class EvolutionTester extends PropertyTester {
 	public static final String PROPERTY_NAMESPACE = "de.uni_stuttgart.iste.cowolf.ui.evolution.properties.evolution";
 	public static final String PROPERTY_CAN_FOO = "canFoo";
 
-	private ExtensionHandler extensionHandler;
+	private EvolutionRegistry extensionHandler;
 
 	@Override
 	public boolean test(Object receiver, String property, Object[] args,
@@ -94,7 +94,7 @@ public class EvolutionTester extends PropertyTester {
 	 * Constructor
 	 */
 	public EvolutionTester() {
-		this.extensionHandler = ExtensionHandler.getInstance();
+		this.extensionHandler = EvolutionRegistry.getInstance();
 	}
 
 	public boolean isEvolutionPossible(IFile oldModel, IFile newModel) {

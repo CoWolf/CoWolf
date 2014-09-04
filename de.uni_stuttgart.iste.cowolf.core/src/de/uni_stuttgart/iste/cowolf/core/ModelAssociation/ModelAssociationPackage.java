@@ -81,7 +81,7 @@ public interface ModelAssociationPackage extends EPackage {
 	int MODEL_ASSOCIATION__MODELS = 0;
 
 	/**
-	 * The feature id for the '<em><b>Associations</b></em>' reference list.
+	 * The feature id for the '<em><b>Associations</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -200,7 +200,7 @@ public interface ModelAssociationPackage extends EPackage {
 	int ASSOCIATION__TARGET = 1;
 
 	/**
-	 * The feature id for the '<em><b>Traces</b></em>' reference list.
+	 * The feature id for the '<em><b>Traces</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -218,7 +218,7 @@ public interface ModelAssociationPackage extends EPackage {
 	int ASSOCIATION__TIMESTAMP = 3;
 
 	/**
-	 * The feature id for the '<em><b>Parent</b></em>' reference.
+	 * The feature id for the '<em><b>Parent</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -349,10 +349,10 @@ public interface ModelAssociationPackage extends EPackage {
 	EReference getModelAssociation_Models();
 
 	/**
-	 * Returns the meta object for the reference list '{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociation#getAssociations <em>Associations</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociation#getAssociations <em>Associations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Associations</em>'.
+	 * @return the meta object for the containment reference list '<em>Associations</em>'.
 	 * @see de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociation#getAssociations()
 	 * @see #getModelAssociation()
 	 * @generated
@@ -446,10 +446,10 @@ public interface ModelAssociationPackage extends EPackage {
 	EReference getAssociation_Target();
 
 	/**
-	 * Returns the meta object for the reference list '{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Association#getTraces <em>Traces</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Association#getTraces <em>Traces</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Traces</em>'.
+	 * @return the meta object for the containment reference list '<em>Traces</em>'.
 	 * @see de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Association#getTraces()
 	 * @see #getAssociation()
 	 * @generated
@@ -468,10 +468,10 @@ public interface ModelAssociationPackage extends EPackage {
 	EAttribute getAssociation_Timestamp();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Association#getParent <em>Parent</em>}'.
+	 * Returns the meta object for the container reference '{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Association#getParent <em>Parent</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Parent</em>'.
+	 * @return the meta object for the container reference '<em>Parent</em>'.
 	 * @see de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Association#getParent()
 	 * @see #getAssociation()
 	 * @generated

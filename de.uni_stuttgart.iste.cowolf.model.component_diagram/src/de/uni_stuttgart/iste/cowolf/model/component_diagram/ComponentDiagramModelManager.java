@@ -36,4 +36,9 @@ public class ComponentDiagramModelManager extends AbstractArchitectureModelManag
 		return Component_diagramPackage.eNS_URI;
 	}
 
+	@Override
+	public String getFileExtension() {
+		return "component_diagram";
+	}
+
 }

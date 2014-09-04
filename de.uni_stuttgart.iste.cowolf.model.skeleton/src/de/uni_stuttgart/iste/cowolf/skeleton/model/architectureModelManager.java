@@ -29,4 +29,9 @@ public class architectureModelManager extends AbstractArchitectureModelManager {
 		// TODO namespace of the ecore model
 		return "http://ArchitectureSkeleton/1.0";
 	}
+	
+	@Override
+	public String getFileExtension() {
+		return "skeleton";
+	}
 }

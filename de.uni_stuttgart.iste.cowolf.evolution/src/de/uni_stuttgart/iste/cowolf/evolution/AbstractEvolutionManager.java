@@ -30,7 +30,7 @@ public abstract class AbstractEvolutionManager {
     /**
      * Default matcher key to use.
      */
-    private static final String MATCHER_DEFAULT = EvolutionTypeInfo.MATCHER_NAMEDELEMENT;
+    private static final String MATCHER_DEFAULT = EvolutionTypeInfo.MATCHER_EMFCOMPARE;
     /**
      * Says whether the manager is able to handle a specific model.
      *

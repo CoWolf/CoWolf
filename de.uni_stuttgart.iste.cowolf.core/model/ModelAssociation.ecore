@@ -9,7 +9,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="models" upperBound="-1"
         eType="#//Model" containment="true" eOpposite="#//Model/parent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="associations" upperBound="-1"
-        eType="#//Association" eOpposite="#//Association/parent"/>
+        eType="#//Association" containment="true" eOpposite="#//Association/parent"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Model">
     <eStructuralFeatures xsi:type="ecore:EReference" name="versions" upperBound="-1"
@@ -26,16 +26,17 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
         upperBound="-1" eType="#//ModelVersion" eOpposite="#//ModelVersion/targetAssociations"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="traces" upperBound="-1"
-        eType="ecore:EClass ../../org.eclipse.emf.henshin.trace/model/trace.ecore#//Trace"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timestamp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+        eType="ecore:EClass ../../org.eclipse.emf.henshin.trace/model/trace.ecore#//Trace"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timestamp" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//ModelAssociation"
         eOpposite="#//ModelAssociation/associations"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModelVersion">
     <eStructuralFeatures xsi:type="ecore:EReference" name="model" eType="#//Model"
         eOpposite="#//Model/versions"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timestamp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"
-        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timestamp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="current" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="manual" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="targetAssociations" upperBound="-1"

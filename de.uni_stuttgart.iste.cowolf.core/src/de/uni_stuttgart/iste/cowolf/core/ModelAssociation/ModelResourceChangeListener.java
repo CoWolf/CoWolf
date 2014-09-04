@@ -14,8 +14,8 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 
-import de.uni_stuttgart.iste.cowolf.core.extensions.ExtensionHandler;
 import de.uni_stuttgart.iste.cowolf.core.natures.ProjectNature;
+import de.uni_stuttgart.iste.cowolf.model.ModelRegistry;
 
 public class ModelResourceChangeListener implements IResourceChangeListener {
 	
@@ -33,6 +33,9 @@ public class ModelResourceChangeListener implements IResourceChangeListener {
 				
 				// Don't go into non-CoWolf projects.
 				if (res.getType() == IResource.PROJECT) {
+					if (!res.getProject().isOpen()) {
+						return false;
+					}
 					return res.getProject().hasNature(ProjectNature.NATURE_ID);
 				}
 				
@@ -51,6 +54,12 @@ public class ModelResourceChangeListener implements IResourceChangeListener {
 				}
 				
 				// Now, there are only visible files within a project.
+				
+				// Filter for managed files.
+				if (!ModelRegistry.getInstance().isModelManaged(res.getFileExtension())) {
+					return false;
+				}
+				
 				System.out.println(res.getFullPath().toString() + " - " + delta.getKind());
 				ModelAssociation ma = ModelAssociationFactory.eINSTANCE.getModelAssociation(res.getProject());
 				
@@ -70,7 +79,7 @@ public class ModelResourceChangeListener implements IResourceChangeListener {
 						}
 						
 						// not a model resource.
-						if (modelRes == null || !modelRes.isLoaded() || ExtensionHandler.getInstance().getModelManager(modelRes) == null) {
+						if (modelRes == null || !modelRes.isLoaded() || ModelRegistry.getInstance().getModelManager(modelRes) == null) {
 							return false;
 						}
 						
@@ -105,8 +114,8 @@ public class ModelResourceChangeListener implements IResourceChangeListener {
 						if ((delta.getFlags() & IResourceDelta.CONTENT) == IResourceDelta.CONTENT) {
 							Model model = ma.getModelByPath(res.getProjectRelativePath().toString());
 							if (model != null) {
-								model.createVersion();
-								System.out.println("Created version.");
+//								model.createVersion();
+//								System.out.println("Created version.");
 							}
 						}
 						break;

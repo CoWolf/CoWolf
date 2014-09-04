@@ -44,7 +44,7 @@ public interface ModelAssociation extends EObject {
 	EList<Model> getModels();
 
 	/**
-	 * Returns the value of the '<em><b>Associations</b></em>' reference list.
+	 * Returns the value of the '<em><b>Associations</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Association}.
 	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Association#getParent <em>Parent</em>}'.
 	 * <!-- begin-user-doc -->
@@ -53,10 +53,10 @@ public interface ModelAssociation extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Associations</em>' reference list.
+	 * @return the value of the '<em>Associations</em>' containment reference list.
 	 * @see de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociationPackage#getModelAssociation_Associations()
 	 * @see de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Association#getParent
-	 * @model opposite="parent"
+	 * @model opposite="parent" containment="true"
 	 * @generated
 	 */
 	EList<Association> getAssociations();
@@ -64,6 +64,8 @@ public interface ModelAssociation extends EObject {
 	public abstract Model getModel(Resource res);
 
 	public abstract Model registerModel(Resource res);
+	
+	public abstract Association registerAssociation();
 
 	public abstract void setProject(IProject project);
 

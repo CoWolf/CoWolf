@@ -9,7 +9,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
 
-import de.uni_stuttgart.iste.cowolf.core.extensions.ExtensionHandler;
+import de.uni_stuttgart.iste.cowolf.evolution.EvolutionRegistry;
 import de.uni_stuttgart.iste.cowolf.ui.evolution.util.ResourceUtil;
 
 /**
@@ -41,7 +41,7 @@ public class WorkspaceResourceDialogFilter extends ViewerFilter {
 	/**
 	 * Extension handler to get managers from.
 	 */
-	ExtensionHandler extensionHandler = ExtensionHandler.getInstance();
+	EvolutionRegistry extensionHandler = EvolutionRegistry.getInstance();
 
 	@Override
 	public boolean select(Viewer viewer, Object parentElement, Object element) {

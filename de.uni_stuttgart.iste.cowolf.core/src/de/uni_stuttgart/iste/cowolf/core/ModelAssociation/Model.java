@@ -4,14 +4,9 @@ package de.uni_stuttgart.iste.cowolf.core.ModelAssociation;
 
 import java.util.List;
 
-import org.eclipse.core.resources.IFolder;
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -146,6 +141,12 @@ public interface Model extends EObject {
 	public abstract Resource getResource();
 
 	abstract void prepareRemove();
+
+	Association getLatestAssociationTo(Model target);
+
+	boolean hasChanges();
+
+	Association getLatestAssociationFrom(Model source);
 
 
 } // Model

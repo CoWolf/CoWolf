@@ -16,6 +16,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.ListIterator;
 
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.WorkspaceJob;
@@ -130,7 +131,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 		
 		// Check for identical model ID
 		if (this.getModelID() != null) {
-			if (!(res.getContents().get(0) instanceof IDBase) || !((IDBase)res.getContents().get(0)).getId().equals(this.getModelID())) {
+			if (res.getContents().size() < 1 || !(res.getContents().get(0) instanceof IDBase) || !((IDBase)res.getContents().get(0)).getId().equals(this.getModelID())) {
 				throw new IllegalArgumentException("Given model version is no instance of this model (model id violation)");
 			}
 		}
@@ -140,9 +141,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 		String filename = ModelAssociationPackage.VERSIONBASEDIR + this.getModel() + "/" + timestamp + ".version";
 		URI uri = URI.createURI(this.getParent().getProject().getLocationURI().toString() + "/" + filename);
 		
-		Resource newRes = res.getResourceSet().createResource(uri);
+		Resource newRes = new ResourceSetImpl().createResource(uri);
 		newRes.getContents().clear();
-		newRes.getContents().addAll(res.getContents());
+		newRes.getContents().addAll(EcoreUtil.copyAll(res.getContents()));
 		
 		try {
 			newRes.save(Collections.EMPTY_MAP);
@@ -191,6 +192,22 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	
 	@Override
 	public void prepareRemove() {
+		
+		List<Association> invalidAssocs = new LinkedList<Association>();
+		for (Association assoc :  this.getSourceAssociations()) {
+			if (assoc.getSource().size() <= 1) {
+				invalidAssocs.add(assoc);
+			}
+		}
+		
+		for (Association assoc :  this.getTargetAssociations()) {
+			if (assoc.getTarget().size() <= 1) {
+				invalidAssocs.add(assoc);
+			}
+		}
+		
+		this.getParent().getAssociations().removeAll(invalidAssocs);
+		
 		final IFolder versionfolder = this.getParent().getProject().getFolder(ModelAssociationPackage.VERSIONBASEDIR + this.getModel());
 		new WorkspaceJob("Update model versioning...") {
 
@@ -276,8 +293,15 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	@Override
 	public Resource getResource() {
 		ResourceSet resSet = new ResourceSetImpl();
-		URI uri = URI.createURI(this.getModel());
-		return resSet.getResource(uri, false);
+		URI uri = URI.createURI(this.getParent().getProject().getLocationURI().toString() + "/" + this.getModel());
+		Resource res = resSet.createResource(uri);
+		try {
+			res.load(Collections.EMPTY_MAP);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return res;
 	}
 
 	/**
@@ -374,6 +398,58 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 		}
 		
 		return list;
+	}
+
+	@Override
+	public Association getLatestAssociationTo(Model target) {
+		
+		if (target == null) {
+			return null;
+		}
+		
+		ListIterator<ModelVersion> versionIt = this.getVersions().listIterator(this.getVersions().size());
+		
+		List<Association> targetAssocs = target.getTargetAssociations();
+		
+		while (versionIt.hasPrevious()) {
+			ModelVersion version = versionIt.previous();
+			for (Association assoc : version.getSourceAssociations()) {
+				if (targetAssocs.contains(assoc)) {
+					return assoc;
+				}
+			}
+		}
+		
+		return null;
+	}
+	
+	@Override
+	public Association getLatestAssociationFrom(Model source) {
+		
+		if (source == null) {
+			return null;
+		}
+		
+		ListIterator<ModelVersion> versionIt = this.getVersions().listIterator(this.getVersions().size());
+		
+		List<Association> targetAssocs = source.getSourceAssociations();
+		
+		while (versionIt.hasPrevious()) {
+			ModelVersion version = versionIt.previous();
+			for (Association assoc : version.getTargetAssociations()) {
+				if (targetAssocs.contains(assoc)) {
+					return assoc;
+				}
+			}
+		}
+		
+		return null;
+	}
+
+	@Override
+	public boolean hasChanges() {
+		// TODO check for changes between working copy and newest version
+		return true;
 	}
 
 	/**

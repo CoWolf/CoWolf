@@ -40,4 +40,9 @@ public abstract class AbstractModelManager {
 	 * @return the Namespace of the handled model.
 	 */
 	public abstract String getModelNamespace();
+	
+	/**
+	 * Returns the file extension of the handled model.
+	 */
+	public abstract String getFileExtension();
 }

@@ -18,4 +18,9 @@ public class StatechartModelManager extends AbstractArchitectureModelManager {
 	public String getModelNamespace() {
 		return statechartemfPackage.eNS_URI;
 	}
+	
+	@Override
+	public String getFileExtension() {
+		return "statechartemf";
+	}
 }

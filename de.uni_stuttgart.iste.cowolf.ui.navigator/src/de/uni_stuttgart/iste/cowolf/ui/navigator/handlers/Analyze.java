@@ -17,9 +17,9 @@ import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 
-import de.uni_stuttgart.iste.cowolf.core.extensions.ExtensionHandler;
 import de.uni_stuttgart.iste.cowolf.model.AbstractModelManager;
 import de.uni_stuttgart.iste.cowolf.model.AbstractQoSModelManager;
+import de.uni_stuttgart.iste.cowolf.model.ModelRegistry;
 import de.uni_stuttgart.iste.cowolf.ui.model.analyze.AbstractQoSAnalyzeWizard;
 import de.uni_stuttgart.iste.cowolf.ui.model.analyze.AnalyzeWizardHandler;
 import de.uni_stuttgart.iste.cowolf.ui.model.analyze.FileOpenAnalysisListener;
@@ -41,7 +41,6 @@ public class Analyze implements IHandler {
 	@Override
 	public Object execute(final ExecutionEvent event) throws ExecutionException {
 		System.out.println("Doing Analyze");
-		ExtensionHandler extensionHandler = ExtensionHandler.getInstance();
 		IWorkbenchWindow window = PlatformUI.getWorkbench()
 				.getActiveWorkbenchWindow();
 		IStructuredSelection selection = (IStructuredSelection) window.getSelectionService().getSelection();
@@ -54,7 +53,7 @@ public class Analyze implements IHandler {
 			Resource resource;
 			URI uri = URI.createPlatformResourceURI(iFile.getFullPath().toString(), true);
 			resource = resSet.getResource(uri, true);
-			AbstractModelManager modelManager = extensionHandler.getModelManager(resource);
+			AbstractModelManager modelManager = ModelRegistry.getInstance().getModelManager(resource);
 
 			if (modelManager != null && modelManager instanceof AbstractQoSModelManager) {
 				AbstractQoSModelManager qosModelManager = (AbstractQoSModelManager) modelManager;

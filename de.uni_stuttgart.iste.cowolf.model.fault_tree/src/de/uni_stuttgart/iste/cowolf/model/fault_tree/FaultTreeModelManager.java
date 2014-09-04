@@ -40,4 +40,9 @@ public class FaultTreeModelManager extends AbstractQoSModelManager {
 	public String getModelNamespace() {
 		return FaultTreePackage.eNS_URI;
 	}
+	
+	@Override
+	public String getFileExtension() {
+		return "faulttree";
+	}
 }

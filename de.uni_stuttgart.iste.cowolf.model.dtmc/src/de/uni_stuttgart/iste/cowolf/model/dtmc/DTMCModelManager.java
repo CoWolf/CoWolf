@@ -38,4 +38,9 @@ public class DTMCModelManager extends AbstractQoSModelManager {
 	public String getModelNamespace() {
 		return DTMCPackage.eNS_URI;
 	}
+	
+	@Override
+	public String getFileExtension() {
+		return "dtmc";
+	}
 }
