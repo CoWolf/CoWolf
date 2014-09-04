@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Mappings xmlns="http://www.uni-stuttgart.iste.co.wolf.org/TransformationMapping">
     <Mapping priority="20">
-        <Difference>SET_Label_Name</Difference>
+        <Change>ctmc/Label/name</Change> <!-- SET_Label_Name: Workaround for missing Attribute value change -->
         <Rule name="changedLabelNameInCTMC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_ctmc.rules/rules/CTMC_DTMC.henshin">
             <Params>
                 <Param name="changedLabelID">
-                	<Change name="AttributeValueChange">
                 		<Reference name="objA" attribute="id" />
-                	</Change>
                 </Param>
             </Params>
         </Rule>
     </Mapping>
     <Mapping priority="40">
         <Difference>DELETE_Label_IN_State_(labels)</Difference>
-        <Rule name="deletedLableInCTMCUnit" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_ctmc.rules/rules/CTMC_DTMC.henshin">
+        <Rule name="deletedLabelInCTMC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_ctmc.rules/rules/CTMC_DTMC.henshin">
             <Params>
-             <Param name="labelSourceStateId">
+             <Param name="labelSourceState">
                 <Change name="RemoveReference" type="state">
                 		<Reference name="tgt" attribute="id"/>
                 	</Change>
