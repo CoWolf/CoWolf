@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_1N77QDN5EeSNuISj7DMDOA" name="CREATE_PortInstance_IN_Architecture_(ports)" description="Creates one PortInstance in Architecture">
+  <imports href="http://component_diagram/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_1N77QTN5EeSNuISj7DMDOA" name="createPortInstance_IN_Architecture" description="creates one PortInstance in the context: Architecture">
+    <parameters xmi:id="_1N77QjN5EeSNuISj7DMDOA" name="Selected"/>
+    <parameters xmi:id="_1N77QzN5EeSNuISj7DMDOA" name="New"/>
+    <parameters xmi:id="_1N77RDN5EeSNuISj7DMDOA" name="Name"/>
+    <parameters xmi:id="_1N77RTN5EeSNuISj7DMDOA" name="Existing"/>
+    <lhs xmi:id="_1N77RjN5EeSNuISj7DMDOA" name="Lhs">
+      <nodes xmi:id="_1N77RzN5EeSNuISj7DMDOA" name="Selected">
+        <type href="http://component_diagram/1.0#//Architecture"/>
+      </nodes>
+      <nodes xmi:id="_1N77SDN5EeSNuISj7DMDOA" name="Existing">
+        <type href="http://component_diagram/1.0#//PortType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_1N77STN5EeSNuISj7DMDOA" name="Rhs">
+      <nodes xmi:id="_1N77SjN5EeSNuISj7DMDOA" name="Selected" outgoing="_1N77TjN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//Architecture"/>
+      </nodes>
+      <nodes xmi:id="_1N77SzN5EeSNuISj7DMDOA" name="New" incoming="_1N77TjN5EeSNuISj7DMDOA _1N8iUTN5EeSNuISj7DMDOA" outgoing="_1N8iUDN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//PortInstance"/>
+        <attributes xmi:id="_1N77TDN5EeSNuISj7DMDOA" value="Name">
+          <type href="http://component_diagram/1.0#//PortInstance/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_1N77TTN5EeSNuISj7DMDOA" name="Existing" incoming="_1N8iUDN5EeSNuISj7DMDOA" outgoing="_1N8iUTN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//PortType"/>
+      </nodes>
+      <edges xmi:id="_1N77TjN5EeSNuISj7DMDOA" source="_1N77SjN5EeSNuISj7DMDOA" target="_1N77SzN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//Architecture/ports"/>
+      </edges>
+      <edges xmi:id="_1N8iUDN5EeSNuISj7DMDOA" source="_1N77SzN5EeSNuISj7DMDOA" target="_1N77TTN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//PortInstance/type"/>
+      </edges>
+      <edges xmi:id="_1N8iUTN5EeSNuISj7DMDOA" source="_1N77TTN5EeSNuISj7DMDOA" target="_1N77SzN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//PortType/port_instance"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_1N8iUjN5EeSNuISj7DMDOA" origin="_1N77RzN5EeSNuISj7DMDOA" image="_1N77SjN5EeSNuISj7DMDOA"/>
+    <mappings xmi:id="_1N8iUzN5EeSNuISj7DMDOA" origin="_1N77SDN5EeSNuISj7DMDOA" image="_1N77TTN5EeSNuISj7DMDOA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_1N8iVDN5EeSNuISj7DMDOA" name="mainUnit" description="Creates one PortInstance depending on available contexts in model instance" subUnits="_1N77QTN5EeSNuISj7DMDOA">
+    <parameters xmi:id="_1N8iVTN5EeSNuISj7DMDOA" name="New"/>
+    <parameters xmi:id="_1N8iVjN5EeSNuISj7DMDOA" name="selectedEObject"/>
+    <parameters xmi:id="_1N8iVzN5EeSNuISj7DMDOA" name="Name"/>
+    <parameters xmi:id="_1N8iWDN5EeSNuISj7DMDOA" name="Existing"/>
+    <parameterMappings xmi:id="_1N8iWTN5EeSNuISj7DMDOA" source="_1N8iVjN5EeSNuISj7DMDOA" target="_1N77QjN5EeSNuISj7DMDOA"/>
+    <parameterMappings xmi:id="_1N8iWjN5EeSNuISj7DMDOA" source="_1N77QzN5EeSNuISj7DMDOA" target="_1N8iVTN5EeSNuISj7DMDOA"/>
+    <parameterMappings xmi:id="_1N8iWzN5EeSNuISj7DMDOA" source="_1N8iVzN5EeSNuISj7DMDOA" target="_1N77RDN5EeSNuISj7DMDOA"/>
+    <parameterMappings xmi:id="_1N8iXDN5EeSNuISj7DMDOA" source="_1N8iWDN5EeSNuISj7DMDOA" target="_1N77RTN5EeSNuISj7DMDOA"/>
+  </units>
+</henshin:Module>

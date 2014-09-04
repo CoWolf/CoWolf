@@ -86,18 +86,30 @@ public class Component_diagramValidator extends EObjectValidator {
 	@Override
 	protected boolean validate(int classifierID, Object value, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		switch (classifierID) {
-			case Component_diagramPackage.COMPONENT_DIAGRAM:
-				return validateComponentDiagram((ComponentDiagram)value, diagnostics, context);
-			case Component_diagramPackage.COMPONENT:
-				return validateComponent((Component)value, diagnostics, context);
-			case Component_diagramPackage.PORT:
-				return validatePort((Port)value, diagnostics, context);
-			case Component_diagramPackage.INTERFACE:
-				return validateInterface((Interface)value, diagnostics, context);
-			case Component_diagramPackage.DEPENDENCY:
-				return validateDependency((Dependency)value, diagnostics, context);
-			case Component_diagramPackage.COMPONENT_STEREOTYPE:
-				return validateComponentStereotype((ComponentStereotype)value, diagnostics, context);
+			case Component_diagramPackage.COMPONENT_TYPE:
+				return validateComponentType((ComponentType)value, diagnostics, context);
+			case Component_diagramPackage.CONNECTOR:
+				return validateConnector((Connector)value, diagnostics, context);
+			case Component_diagramPackage.PORT_INSTANCE:
+				return validatePortInstance((PortInstance)value, diagnostics, context);
+			case Component_diagramPackage.HARDWARE_COMPONENT:
+				return validateHardwareComponent((HardwareComponent)value, diagnostics, context);
+			case Component_diagramPackage.SOFTWARE_COMPONENT:
+				return validateSoftwareComponent((SoftwareComponent)value, diagnostics, context);
+			case Component_diagramPackage.ELECTRONIC_DEVICE:
+				return validateElectronicDevice((ElectronicDevice)value, diagnostics, context);
+			case Component_diagramPackage.MECHANICAL_DEVICE:
+				return validateMechanicalDevice((MechanicalDevice)value, diagnostics, context);
+			case Component_diagramPackage.ACTUATOR:
+				return validateActuator((Actuator)value, diagnostics, context);
+			case Component_diagramPackage.SENSOR:
+				return validateSensor((Sensor)value, diagnostics, context);
+			case Component_diagramPackage.ARCHITECTURE:
+				return validateArchitecture((Architecture)value, diagnostics, context);
+			case Component_diagramPackage.COMPONENT_INSTANCE:
+				return validateComponentInstance((ComponentInstance)value, diagnostics, context);
+			case Component_diagramPackage.PORT_TYPE:
+				return validatePortType((PortType)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -108,8 +120,8 @@ public class Component_diagramValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateComponentDiagram(ComponentDiagram componentDiagram, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(componentDiagram, diagnostics, context);
+	public boolean validateComponentType(ComponentType componentType, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(componentType, diagnostics, context);
 	}
 
 	/**
@@ -117,76 +129,74 @@ public class Component_diagramValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateComponent(Component component, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(component, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(component, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(component, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(component, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(component, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(component, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(component, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(component, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(component, diagnostics, context);
-		if (result || diagnostics != null) result &= validateComponent_ComponentCantRealizieItself(component, diagnostics, context);
-		if (result || diagnostics != null) result &= validateComponent_DontRequireOwnInterfaces(component, diagnostics, context);
+	public boolean validateConnector(Connector connector, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(connector, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(connector, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(connector, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(connector, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(connector, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(connector, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(connector, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(connector, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(connector, diagnostics, context);
+		if (result || diagnostics != null) result &= validateConnector_TwoPorts(connector, diagnostics, context);
+		if (result || diagnostics != null) result &= validateConnector_TwoDifferentPorts(connector, diagnostics, context);
 		return result;
 	}
 
 	/**
-	 * The cached validation expression for the ComponentCantRealizieItself constraint of '<em>Component</em>'.
+	 * The cached validation expression for the TwoPorts constraint of '<em>Connector</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String COMPONENT__COMPONENT_CANT_REALIZIE_ITSELF__EEXPRESSION = "self <> self.realization";
+	protected static final String CONNECTOR__TWO_PORTS__EEXPRESSION = "self.port->size() = 2";
 
 	/**
-	 * Validates the ComponentCantRealizieItself constraint of '<em>Component</em>'.
+	 * Validates the TwoPorts constraint of '<em>Connector</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateComponent_ComponentCantRealizieItself(Component component, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateConnector_TwoPorts(Connector connector, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return
 			validate
-				(Component_diagramPackage.Literals.COMPONENT,
-				 component,
+				(Component_diagramPackage.Literals.CONNECTOR,
+				 connector,
 				 diagnostics,
 				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
-				 "ComponentCantRealizieItself",
-				 COMPONENT__COMPONENT_CANT_REALIZIE_ITSELF__EEXPRESSION,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "TwoPorts",
+				 CONNECTOR__TWO_PORTS__EEXPRESSION,
 				 Diagnostic.ERROR,
 				 DIAGNOSTIC_SOURCE,
 				 0);
 	}
 
 	/**
-	 * The cached validation expression for the DontRequireOwnInterfaces constraint of '<em>Component</em>'.
+	 * The cached validation expression for the TwoDifferentPorts constraint of '<em>Connector</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String COMPONENT__DONT_REQUIRE_OWN_INTERFACES__EEXPRESSION = "self.ports.requiredInterfaces.homePort.portHost -> forAll(\n" +
-		"\t\t\tcomponent | component <> self\n" +
-		"\t\t) or self.ports.requiredInterfaces.homePort.portHost -> size() = 0";
+	protected static final String CONNECTOR__TWO_DIFFERENT_PORTS__EEXPRESSION = "self.port->forAll(p1, p2 | p1<>p2 implies (p1.outComponent->size() + p2.outComponent->size() = 1 and p1.inComponent->size() + p2.inComponent->size() = 1))";
 
 	/**
-	 * Validates the DontRequireOwnInterfaces constraint of '<em>Component</em>'.
+	 * Validates the TwoDifferentPorts constraint of '<em>Connector</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateComponent_DontRequireOwnInterfaces(Component component, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateConnector_TwoDifferentPorts(Connector connector, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return
 			validate
-				(Component_diagramPackage.Literals.COMPONENT,
-				 component,
+				(Component_diagramPackage.Literals.CONNECTOR,
+				 connector,
 				 diagnostics,
 				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
-				 "DontRequireOwnInterfaces",
-				 COMPONENT__DONT_REQUIRE_OWN_INTERFACES__EEXPRESSION,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "TwoDifferentPorts",
+				 CONNECTOR__TWO_DIFFERENT_PORTS__EEXPRESSION,
 				 Diagnostic.ERROR,
 				 DIAGNOSTIC_SOURCE,
 				 0);
@@ -197,67 +207,74 @@ public class Component_diagramValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validatePort(Port port, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(port, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateInterface(Interface interface_, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(interface_, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateDependency(Dependency dependency, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(dependency, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(dependency, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(dependency, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(dependency, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(dependency, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(dependency, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(dependency, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(dependency, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(dependency, diagnostics, context);
-		if (result || diagnostics != null) result &= validateDependency_SupplierShoudBeDifferentFromClient(dependency, diagnostics, context);
+	public boolean validatePortInstance(PortInstance portInstance, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(portInstance, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(portInstance, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(portInstance, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(portInstance, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(portInstance, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(portInstance, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(portInstance, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(portInstance, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(portInstance, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePortInstance_ExactlyOneConnector(portInstance, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePortInstance_ExactlyOneComponent(portInstance, diagnostics, context);
 		return result;
 	}
 
 	/**
-	 * The cached validation expression for the SupplierShoudBeDifferentFromClient constraint of '<em>Dependency</em>'.
+	 * The cached validation expression for the ExactlyOneConnector constraint of '<em>Port Instance</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String DEPENDENCY__SUPPLIER_SHOUD_BE_DIFFERENT_FROM_CLIENT__EEXPRESSION = "Tuple {\n" +
-		"\tmessage : String = \n" +
-		"\t\t\t'The dependency supplier component should be not the same component like the client',\n" +
-		"\tstatus : Boolean = \n" +
-		"\t\t\tself.supplier <> self.client\n" +
-		"}.status";
+	protected static final String PORT_INSTANCE__EXACTLY_ONE_CONNECTOR__EEXPRESSION = "self.connect->size() = 1";
 
 	/**
-	 * Validates the SupplierShoudBeDifferentFromClient constraint of '<em>Dependency</em>'.
+	 * Validates the ExactlyOneConnector constraint of '<em>Port Instance</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateDependency_SupplierShoudBeDifferentFromClient(Dependency dependency, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validatePortInstance_ExactlyOneConnector(PortInstance portInstance, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return
 			validate
-				(Component_diagramPackage.Literals.DEPENDENCY,
-				 dependency,
+				(Component_diagramPackage.Literals.PORT_INSTANCE,
+				 portInstance,
 				 diagnostics,
 				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
-				 "SupplierShoudBeDifferentFromClient",
-				 DEPENDENCY__SUPPLIER_SHOUD_BE_DIFFERENT_FROM_CLIENT__EEXPRESSION,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "ExactlyOneConnector",
+				 PORT_INSTANCE__EXACTLY_ONE_CONNECTOR__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
+	}
+
+	/**
+	 * The cached validation expression for the ExactlyOneComponent constraint of '<em>Port Instance</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String PORT_INSTANCE__EXACTLY_ONE_COMPONENT__EEXPRESSION = "self.outComponent->size() + self.inComponent->size() = 1";
+
+	/**
+	 * Validates the ExactlyOneComponent constraint of '<em>Port Instance</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePortInstance_ExactlyOneComponent(PortInstance portInstance, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(Component_diagramPackage.Literals.PORT_INSTANCE,
+				 portInstance,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "ExactlyOneComponent",
+				 PORT_INSTANCE__EXACTLY_ONE_COMPONENT__EEXPRESSION,
 				 Diagnostic.ERROR,
 				 DIAGNOSTIC_SOURCE,
 				 0);
@@ -268,8 +285,80 @@ public class Component_diagramValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateComponentStereotype(ComponentStereotype componentStereotype, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
+	public boolean validateHardwareComponent(HardwareComponent hardwareComponent, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(hardwareComponent, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateSoftwareComponent(SoftwareComponent softwareComponent, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(softwareComponent, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateElectronicDevice(ElectronicDevice electronicDevice, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(electronicDevice, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateMechanicalDevice(MechanicalDevice mechanicalDevice, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(mechanicalDevice, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateActuator(Actuator actuator, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(actuator, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateSensor(Sensor sensor, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(sensor, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateArchitecture(Architecture architecture, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(architecture, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateComponentInstance(ComponentInstance componentInstance, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(componentInstance, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePortType(PortType portType, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(portType, diagnostics, context);
 	}
 
 	/**

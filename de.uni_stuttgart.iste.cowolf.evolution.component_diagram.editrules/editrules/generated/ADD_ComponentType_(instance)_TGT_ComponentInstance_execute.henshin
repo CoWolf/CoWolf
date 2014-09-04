@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_1J6W4TN5EeSNuISj7DMDOA" name="ADD_ComponentType_(instance)_TGT_ComponentInstance" description="Adds to ComponentType's reference instance the target ComponentInstance">
+  <imports href="http://component_diagram/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_1KY4ADN5EeSNuISj7DMDOA" name="addToComponentType_instance_ComponentInstance" description="Adds to ComponentType's reference instance the target ComponentInstance">
+    <parameters xmi:id="_1KY4ATN5EeSNuISj7DMDOA" name="Selected"/>
+    <parameters xmi:id="_1KY4AjN5EeSNuISj7DMDOA" name="NewTarget"/>
+    <lhs xmi:id="_1KY4AzN5EeSNuISj7DMDOA" name="Lhs">
+      <nodes xmi:id="_1KY4BDN5EeSNuISj7DMDOA" name="Selected">
+        <type href="http://component_diagram/1.0#//ComponentType"/>
+      </nodes>
+      <nodes xmi:id="_1KY4BTN5EeSNuISj7DMDOA" name="NewTarget">
+        <type href="http://component_diagram/1.0#//ComponentInstance"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_1KY4BjN5EeSNuISj7DMDOA">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_1KY4BzN5EeSNuISj7DMDOA">
+          <conclusion xmi:id="_1KY4CDN5EeSNuISj7DMDOA" name="doNotExceedUpperBound">
+            <nodes xmi:id="_1KY4CTN5EeSNuISj7DMDOA" name="NewTarget" outgoing="_1KY4DDN5EeSNuISj7DMDOA">
+              <type href="http://component_diagram/1.0#//ComponentInstance"/>
+            </nodes>
+            <nodes xmi:id="_1KY4CzN5EeSNuISj7DMDOA" incoming="_1KY4DDN5EeSNuISj7DMDOA">
+              <type href="http://component_diagram/1.0#//ComponentType"/>
+            </nodes>
+            <edges xmi:id="_1KY4DDN5EeSNuISj7DMDOA" source="_1KY4CTN5EeSNuISj7DMDOA" target="_1KY4CzN5EeSNuISj7DMDOA">
+              <type href="http://component_diagram/1.0#//ComponentInstance/type"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_1KY4DTN5EeSNuISj7DMDOA" origin="_1KY4BTN5EeSNuISj7DMDOA" image="_1KY4CTN5EeSNuISj7DMDOA"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_1KY4DzN5EeSNuISj7DMDOA" name="Rhs">
+      <nodes xmi:id="_1KY4EDN5EeSNuISj7DMDOA" name="Selected" incoming="_1KY4EzN5EeSNuISj7DMDOA" outgoing="_1KY4EjN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//ComponentType"/>
+      </nodes>
+      <nodes xmi:id="_1KY4ETN5EeSNuISj7DMDOA" name="NewTarget" incoming="_1KY4EjN5EeSNuISj7DMDOA" outgoing="_1KY4EzN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//ComponentInstance"/>
+      </nodes>
+      <edges xmi:id="_1KY4EjN5EeSNuISj7DMDOA" source="_1KY4EDN5EeSNuISj7DMDOA" target="_1KY4ETN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//ComponentType/instance"/>
+      </edges>
+      <edges xmi:id="_1KY4EzN5EeSNuISj7DMDOA" source="_1KY4ETN5EeSNuISj7DMDOA" target="_1KY4EDN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//ComponentInstance/type"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_1KY4FDN5EeSNuISj7DMDOA" origin="_1KY4BDN5EeSNuISj7DMDOA" image="_1KY4EDN5EeSNuISj7DMDOA"/>
+    <mappings xmi:id="_1KY4FTN5EeSNuISj7DMDOA" origin="_1KY4BTN5EeSNuISj7DMDOA" image="_1KY4ETN5EeSNuISj7DMDOA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_1KY4FjN5EeSNuISj7DMDOA" name="mainUnit" subUnits="_1KY4ADN5EeSNuISj7DMDOA">
+    <parameters xmi:id="_1KY4FzN5EeSNuISj7DMDOA" name="selectedEObject"/>
+    <parameters xmi:id="_1KY4GDN5EeSNuISj7DMDOA" name="NewTarget"/>
+    <parameterMappings xmi:id="_1KY4GTN5EeSNuISj7DMDOA" source="_1KY4FzN5EeSNuISj7DMDOA" target="_1KY4ATN5EeSNuISj7DMDOA"/>
+    <parameterMappings xmi:id="_1KY4GjN5EeSNuISj7DMDOA" source="_1KY4GDN5EeSNuISj7DMDOA" target="_1KY4AjN5EeSNuISj7DMDOA"/>
+  </units>
+</henshin:Module>

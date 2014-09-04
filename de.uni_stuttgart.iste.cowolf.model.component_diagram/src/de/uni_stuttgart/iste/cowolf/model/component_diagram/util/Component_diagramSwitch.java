@@ -2,9 +2,6 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.component_diagram.util;
 
-import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
-import de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase;
-
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.*;
 
 import org.eclipse.emf.ecore.EObject;
@@ -69,43 +66,87 @@ public class Component_diagramSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case Component_diagramPackage.COMPONENT_DIAGRAM: {
-				ComponentDiagram componentDiagram = (ComponentDiagram)theEObject;
-				T result = caseComponentDiagram(componentDiagram);
-				if (result == null) result = caseIDBase(componentDiagram);
-				if (result == null) result = caseNameBase(componentDiagram);
+			case Component_diagramPackage.COMPONENT_TYPE: {
+				ComponentType componentType = (ComponentType)theEObject;
+				T result = caseComponentType(componentType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case Component_diagramPackage.COMPONENT: {
-				Component component = (Component)theEObject;
-				T result = caseComponent(component);
-				if (result == null) result = caseNameBase(component);
-				if (result == null) result = caseIDBase(component);
+			case Component_diagramPackage.CONNECTOR: {
+				Connector connector = (Connector)theEObject;
+				T result = caseConnector(connector);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case Component_diagramPackage.PORT: {
-				Port port = (Port)theEObject;
-				T result = casePort(port);
-				if (result == null) result = caseIDBase(port);
-				if (result == null) result = caseNameBase(port);
+			case Component_diagramPackage.PORT_INSTANCE: {
+				PortInstance portInstance = (PortInstance)theEObject;
+				T result = casePortInstance(portInstance);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case Component_diagramPackage.INTERFACE: {
-				Interface interface_ = (Interface)theEObject;
-				T result = caseInterface(interface_);
-				if (result == null) result = caseIDBase(interface_);
-				if (result == null) result = caseNameBase(interface_);
+			case Component_diagramPackage.HARDWARE_COMPONENT: {
+				HardwareComponent hardwareComponent = (HardwareComponent)theEObject;
+				T result = caseHardwareComponent(hardwareComponent);
+				if (result == null) result = caseComponentType(hardwareComponent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case Component_diagramPackage.DEPENDENCY: {
-				Dependency dependency = (Dependency)theEObject;
-				T result = caseDependency(dependency);
-				if (result == null) result = caseIDBase(dependency);
-				if (result == null) result = caseNameBase(dependency);
+			case Component_diagramPackage.SOFTWARE_COMPONENT: {
+				SoftwareComponent softwareComponent = (SoftwareComponent)theEObject;
+				T result = caseSoftwareComponent(softwareComponent);
+				if (result == null) result = caseComponentType(softwareComponent);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case Component_diagramPackage.ELECTRONIC_DEVICE: {
+				ElectronicDevice electronicDevice = (ElectronicDevice)theEObject;
+				T result = caseElectronicDevice(electronicDevice);
+				if (result == null) result = caseHardwareComponent(electronicDevice);
+				if (result == null) result = caseComponentType(electronicDevice);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case Component_diagramPackage.MECHANICAL_DEVICE: {
+				MechanicalDevice mechanicalDevice = (MechanicalDevice)theEObject;
+				T result = caseMechanicalDevice(mechanicalDevice);
+				if (result == null) result = caseHardwareComponent(mechanicalDevice);
+				if (result == null) result = caseComponentType(mechanicalDevice);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case Component_diagramPackage.ACTUATOR: {
+				Actuator actuator = (Actuator)theEObject;
+				T result = caseActuator(actuator);
+				if (result == null) result = caseMechanicalDevice(actuator);
+				if (result == null) result = caseHardwareComponent(actuator);
+				if (result == null) result = caseComponentType(actuator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case Component_diagramPackage.SENSOR: {
+				Sensor sensor = (Sensor)theEObject;
+				T result = caseSensor(sensor);
+				if (result == null) result = caseElectronicDevice(sensor);
+				if (result == null) result = caseHardwareComponent(sensor);
+				if (result == null) result = caseComponentType(sensor);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case Component_diagramPackage.ARCHITECTURE: {
+				Architecture architecture = (Architecture)theEObject;
+				T result = caseArchitecture(architecture);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case Component_diagramPackage.COMPONENT_INSTANCE: {
+				ComponentInstance componentInstance = (ComponentInstance)theEObject;
+				T result = caseComponentInstance(componentInstance);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case Component_diagramPackage.PORT_TYPE: {
+				PortType portType = (PortType)theEObject;
+				T result = casePortType(portType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -114,107 +155,182 @@ public class Component_diagramSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Component Diagram</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Component Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Component Diagram</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Component Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseComponentDiagram(ComponentDiagram object) {
+	public T caseComponentType(ComponentType object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Component</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Connector</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Component</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Connector</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseComponent(Component object) {
+	public T caseConnector(Connector object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Port</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Port Instance</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Port</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Port Instance</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePort(Port object) {
+	public T casePortInstance(PortInstance object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Interface</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Hardware Component</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Interface</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Hardware Component</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseInterface(Interface object) {
+	public T caseHardwareComponent(HardwareComponent object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Dependency</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Software Component</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Dependency</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Software Component</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDependency(Dependency object) {
+	public T caseSoftwareComponent(SoftwareComponent object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>ID Base</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Electronic Device</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>ID Base</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Electronic Device</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseIDBase(IDBase object) {
+	public T caseElectronicDevice(ElectronicDevice object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Name Base</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Mechanical Device</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Name Base</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Mechanical Device</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseNameBase(NameBase object) {
+	public T caseMechanicalDevice(MechanicalDevice object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Actuator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Actuator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseActuator(Actuator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Sensor</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Sensor</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSensor(Sensor object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Architecture</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Architecture</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseArchitecture(Architecture object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Component Instance</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Component Instance</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseComponentInstance(ComponentInstance object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Port Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Port Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePortType(PortType object) {
 		return null;
 	}
 

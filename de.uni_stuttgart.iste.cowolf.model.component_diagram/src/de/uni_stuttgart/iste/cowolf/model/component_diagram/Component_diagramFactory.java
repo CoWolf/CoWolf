@@ -22,49 +22,103 @@ public interface Component_diagramFactory extends EFactory {
 	Component_diagramFactory eINSTANCE = de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Component Diagram</em>'.
+	 * Returns a new object of class '<em>Connector</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Component Diagram</em>'.
+	 * @return a new object of class '<em>Connector</em>'.
 	 * @generated
 	 */
-	ComponentDiagram createComponentDiagram();
+	Connector createConnector();
 
 	/**
-	 * Returns a new object of class '<em>Component</em>'.
+	 * Returns a new object of class '<em>Port Instance</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Component</em>'.
+	 * @return a new object of class '<em>Port Instance</em>'.
 	 * @generated
 	 */
-	Component createComponent();
+	PortInstance createPortInstance();
 
 	/**
-	 * Returns a new object of class '<em>Port</em>'.
+	 * Returns a new object of class '<em>Hardware Component</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Port</em>'.
+	 * @return a new object of class '<em>Hardware Component</em>'.
 	 * @generated
 	 */
-	Port createPort();
+	HardwareComponent createHardwareComponent();
 
 	/**
-	 * Returns a new object of class '<em>Interface</em>'.
+	 * Returns a new object of class '<em>Software Component</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Interface</em>'.
+	 * @return a new object of class '<em>Software Component</em>'.
 	 * @generated
 	 */
-	Interface createInterface();
+	SoftwareComponent createSoftwareComponent();
 
 	/**
-	 * Returns a new object of class '<em>Dependency</em>'.
+	 * Returns a new object of class '<em>Electronic Device</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Dependency</em>'.
+	 * @return a new object of class '<em>Electronic Device</em>'.
 	 * @generated
 	 */
-	Dependency createDependency();
+	ElectronicDevice createElectronicDevice();
+
+	/**
+	 * Returns a new object of class '<em>Mechanical Device</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Mechanical Device</em>'.
+	 * @generated
+	 */
+	MechanicalDevice createMechanicalDevice();
+
+	/**
+	 * Returns a new object of class '<em>Actuator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Actuator</em>'.
+	 * @generated
+	 */
+	Actuator createActuator();
+
+	/**
+	 * Returns a new object of class '<em>Sensor</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sensor</em>'.
+	 * @generated
+	 */
+	Sensor createSensor();
+
+	/**
+	 * Returns a new object of class '<em>Architecture</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Architecture</em>'.
+	 * @generated
+	 */
+	Architecture createArchitecture();
+
+	/**
+	 * Returns a new object of class '<em>Component Instance</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Component Instance</em>'.
+	 * @generated
+	 */
+	ComponentInstance createComponentInstance();
+
+	/**
+	 * Returns a new object of class '<em>Port Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Port Type</em>'.
+	 * @generated
+	 */
+	PortType createPortType();
 
 	/**
 	 * Returns the package supported by this factory.

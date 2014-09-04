@@ -2,22 +2,25 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.component_diagram.impl;
 
-import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
-
-import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component;
-import de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentDiagram;
-import de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentStereotype;
+import de.uni_stuttgart.iste.cowolf.model.component_diagram.Actuator;
+import de.uni_stuttgart.iste.cowolf.model.component_diagram.Architecture;
+import de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentInstance;
+import de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentType;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramFactory;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage;
-import de.uni_stuttgart.iste.cowolf.model.component_diagram.Dependency;
-import de.uni_stuttgart.iste.cowolf.model.component_diagram.Interface;
-import de.uni_stuttgart.iste.cowolf.model.component_diagram.Port;
+import de.uni_stuttgart.iste.cowolf.model.component_diagram.Connector;
+import de.uni_stuttgart.iste.cowolf.model.component_diagram.ElectronicDevice;
+import de.uni_stuttgart.iste.cowolf.model.component_diagram.HardwareComponent;
+import de.uni_stuttgart.iste.cowolf.model.component_diagram.MechanicalDevice;
+import de.uni_stuttgart.iste.cowolf.model.component_diagram.PortInstance;
+import de.uni_stuttgart.iste.cowolf.model.component_diagram.PortType;
+import de.uni_stuttgart.iste.cowolf.model.component_diagram.Sensor;
+import de.uni_stuttgart.iste.cowolf.model.component_diagram.SoftwareComponent;
 
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.util.Component_diagramValidator;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EValidator;
@@ -36,42 +39,84 @@ public class Component_diagramPackageImpl extends EPackageImpl implements Compon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass componentDiagramEClass = null;
+	private EClass componentTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass componentEClass = null;
+	private EClass connectorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass portEClass = null;
+	private EClass portInstanceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass interfaceEClass = null;
+	private EClass hardwareComponentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dependencyEClass = null;
+	private EClass softwareComponentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum componentStereotypeEEnum = null;
+	private EClass electronicDeviceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass mechanicalDeviceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass actuatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sensorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass architectureEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass componentInstanceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass portTypeEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -119,9 +164,6 @@ public class Component_diagramPackageImpl extends EPackageImpl implements Compon
 
 		isInited = true;
 
-		// Initialize simple dependencies
-		CommonBasePackage.eINSTANCE.eClass();
-
 		// Create package meta-data objects
 		theComponent_diagramPackage.createPackageContents();
 
@@ -151,8 +193,8 @@ public class Component_diagramPackageImpl extends EPackageImpl implements Compon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getComponentDiagram() {
-		return componentDiagramEClass;
+	public EClass getComponentType() {
+		return componentTypeEClass;
 	}
 
 	/**
@@ -160,8 +202,8 @@ public class Component_diagramPackageImpl extends EPackageImpl implements Compon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComponentDiagram_ComponetContainer() {
-		return (EReference)componentDiagramEClass.getEStructuralFeatures().get(0);
+	public EAttribute getComponentType_Name() {
+		return (EAttribute)componentTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -169,8 +211,8 @@ public class Component_diagramPackageImpl extends EPackageImpl implements Compon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComponentDiagram_InterfaceContainer() {
-		return (EReference)componentDiagramEClass.getEStructuralFeatures().get(1);
+	public EReference getComponentType_Port_types() {
+		return (EReference)componentTypeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -178,8 +220,8 @@ public class Component_diagramPackageImpl extends EPackageImpl implements Compon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComponentDiagram_DependencyContainer() {
-		return (EReference)componentDiagramEClass.getEStructuralFeatures().get(2);
+	public EReference getComponentType_Instance() {
+		return (EReference)componentTypeEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -187,8 +229,8 @@ public class Component_diagramPackageImpl extends EPackageImpl implements Compon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getComponent() {
-		return componentEClass;
+	public EClass getConnector() {
+		return connectorEClass;
 	}
 
 	/**
@@ -196,8 +238,8 @@ public class Component_diagramPackageImpl extends EPackageImpl implements Compon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getComponent_Stereotype() {
-		return (EAttribute)componentEClass.getEStructuralFeatures().get(0);
+	public EAttribute getConnector_Name() {
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -205,8 +247,8 @@ public class Component_diagramPackageImpl extends EPackageImpl implements Compon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getComponent_IsIndirectlyInstantiated() {
-		return (EAttribute)componentEClass.getEStructuralFeatures().get(1);
+	public EReference getConnector_Port() {
+		return (EReference)connectorEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -214,8 +256,8 @@ public class Component_diagramPackageImpl extends EPackageImpl implements Compon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComponent_ComponentContainer() {
-		return (EReference)componentEClass.getEStructuralFeatures().get(2);
+	public EClass getPortInstance() {
+		return portInstanceEClass;
 	}
 
 	/**
@@ -223,8 +265,8 @@ public class Component_diagramPackageImpl extends EPackageImpl implements Compon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComponent_Ports() {
-		return (EReference)componentEClass.getEStructuralFeatures().get(3);
+	public EAttribute getPortInstance_Name() {
+		return (EAttribute)portInstanceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -232,8 +274,8 @@ public class Component_diagramPackageImpl extends EPackageImpl implements Compon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComponent_Realization() {
-		return (EReference)componentEClass.getEStructuralFeatures().get(4);
+	public EReference getPortInstance_Connect() {
+		return (EReference)portInstanceEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -241,8 +283,8 @@ public class Component_diagramPackageImpl extends EPackageImpl implements Compon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComponent_Diagram() {
-		return (EReference)componentEClass.getEStructuralFeatures().get(5);
+	public EReference getPortInstance_OutComponent() {
+		return (EReference)portInstanceEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -250,8 +292,8 @@ public class Component_diagramPackageImpl extends EPackageImpl implements Compon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComponent_OnDepend() {
-		return (EReference)componentEClass.getEStructuralFeatures().get(6);
+	public EReference getPortInstance_InComponent() {
+		return (EReference)portInstanceEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -259,8 +301,8 @@ public class Component_diagramPackageImpl extends EPackageImpl implements Compon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPort() {
-		return portEClass;
+	public EReference getPortInstance_Type() {
+		return (EReference)portInstanceEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -268,8 +310,8 @@ public class Component_diagramPackageImpl extends EPackageImpl implements Compon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPort_Protocol() {
-		return (EAttribute)portEClass.getEStructuralFeatures().get(0);
+	public EClass getHardwareComponent() {
+		return hardwareComponentEClass;
 	}
 
 	/**
@@ -277,8 +319,8 @@ public class Component_diagramPackageImpl extends EPackageImpl implements Compon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPort_IsBehavior() {
-		return (EAttribute)portEClass.getEStructuralFeatures().get(1);
+	public EAttribute getHardwareComponent_PowerSupply() {
+		return (EAttribute)hardwareComponentEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -286,8 +328,8 @@ public class Component_diagramPackageImpl extends EPackageImpl implements Compon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPort_IsService() {
-		return (EAttribute)portEClass.getEStructuralFeatures().get(2);
+	public EClass getSoftwareComponent() {
+		return softwareComponentEClass;
 	}
 
 	/**
@@ -295,8 +337,8 @@ public class Component_diagramPackageImpl extends EPackageImpl implements Compon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPort_RequiredInterfaces() {
-		return (EReference)portEClass.getEStructuralFeatures().get(3);
+	public EClass getElectronicDevice() {
+		return electronicDeviceEClass;
 	}
 
 	/**
@@ -304,8 +346,8 @@ public class Component_diagramPackageImpl extends EPackageImpl implements Compon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPort_ProvidedInterfaces() {
-		return (EReference)portEClass.getEStructuralFeatures().get(4);
+	public EClass getMechanicalDevice() {
+		return mechanicalDeviceEClass;
 	}
 
 	/**
@@ -313,8 +355,8 @@ public class Component_diagramPackageImpl extends EPackageImpl implements Compon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPort_PortHost() {
-		return (EReference)portEClass.getEStructuralFeatures().get(5);
+	public EClass getActuator() {
+		return actuatorEClass;
 	}
 
 	/**
@@ -322,8 +364,8 @@ public class Component_diagramPackageImpl extends EPackageImpl implements Compon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getInterface() {
-		return interfaceEClass;
+	public EClass getSensor() {
+		return sensorEClass;
 	}
 
 	/**
@@ -331,8 +373,8 @@ public class Component_diagramPackageImpl extends EPackageImpl implements Compon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getInterface_Description() {
-		return (EAttribute)interfaceEClass.getEStructuralFeatures().get(0);
+	public EAttribute getSensor_Type() {
+		return (EAttribute)sensorEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -340,8 +382,8 @@ public class Component_diagramPackageImpl extends EPackageImpl implements Compon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInterface_HomePort() {
-		return (EReference)interfaceEClass.getEStructuralFeatures().get(1);
+	public EClass getArchitecture() {
+		return architectureEClass;
 	}
 
 	/**
@@ -349,8 +391,8 @@ public class Component_diagramPackageImpl extends EPackageImpl implements Compon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getDependency() {
-		return dependencyEClass;
+	public EReference getArchitecture_Component() {
+		return (EReference)architectureEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -358,8 +400,8 @@ public class Component_diagramPackageImpl extends EPackageImpl implements Compon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDependency_Supplier() {
-		return (EReference)dependencyEClass.getEStructuralFeatures().get(0);
+	public EReference getArchitecture_Connectors() {
+		return (EReference)architectureEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -367,8 +409,8 @@ public class Component_diagramPackageImpl extends EPackageImpl implements Compon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDependency_Client() {
-		return (EReference)dependencyEClass.getEStructuralFeatures().get(1);
+	public EReference getArchitecture_Ports() {
+		return (EReference)architectureEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -376,8 +418,125 @@ public class Component_diagramPackageImpl extends EPackageImpl implements Compon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getComponentStereotype() {
-		return componentStereotypeEEnum;
+	public EReference getArchitecture_Instances() {
+		return (EReference)architectureEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getArchitecture_Port_type() {
+		return (EReference)architectureEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getComponentInstance() {
+		return componentInstanceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getComponentInstance_Name() {
+		return (EAttribute)componentInstanceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComponentInstance_Subcomponent() {
+		return (EReference)componentInstanceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComponentInstance_Parentcomponent() {
+		return (EReference)componentInstanceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComponentInstance_InPorts() {
+		return (EReference)componentInstanceEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComponentInstance_OutPorts() {
+		return (EReference)componentInstanceEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComponentInstance_Type() {
+		return (EReference)componentInstanceEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getComponentInstance_Version() {
+		return (EAttribute)componentInstanceEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPortType() {
+		return portTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPortType_Name() {
+		return (EAttribute)portTypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPortType_Component_type() {
+		return (EReference)portTypeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPortType_Port_instance() {
+		return (EReference)portTypeEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -408,38 +567,56 @@ public class Component_diagramPackageImpl extends EPackageImpl implements Compon
 		isCreated = true;
 
 		// Create classes and their features
-		componentDiagramEClass = createEClass(COMPONENT_DIAGRAM);
-		createEReference(componentDiagramEClass, COMPONENT_DIAGRAM__COMPONET_CONTAINER);
-		createEReference(componentDiagramEClass, COMPONENT_DIAGRAM__INTERFACE_CONTAINER);
-		createEReference(componentDiagramEClass, COMPONENT_DIAGRAM__DEPENDENCY_CONTAINER);
+		componentTypeEClass = createEClass(COMPONENT_TYPE);
+		createEAttribute(componentTypeEClass, COMPONENT_TYPE__NAME);
+		createEReference(componentTypeEClass, COMPONENT_TYPE__PORT_TYPES);
+		createEReference(componentTypeEClass, COMPONENT_TYPE__INSTANCE);
 
-		componentEClass = createEClass(COMPONENT);
-		createEAttribute(componentEClass, COMPONENT__STEREOTYPE);
-		createEAttribute(componentEClass, COMPONENT__IS_INDIRECTLY_INSTANTIATED);
-		createEReference(componentEClass, COMPONENT__COMPONENT_CONTAINER);
-		createEReference(componentEClass, COMPONENT__PORTS);
-		createEReference(componentEClass, COMPONENT__REALIZATION);
-		createEReference(componentEClass, COMPONENT__DIAGRAM);
-		createEReference(componentEClass, COMPONENT__ON_DEPEND);
+		connectorEClass = createEClass(CONNECTOR);
+		createEAttribute(connectorEClass, CONNECTOR__NAME);
+		createEReference(connectorEClass, CONNECTOR__PORT);
 
-		portEClass = createEClass(PORT);
-		createEAttribute(portEClass, PORT__PROTOCOL);
-		createEAttribute(portEClass, PORT__IS_BEHAVIOR);
-		createEAttribute(portEClass, PORT__IS_SERVICE);
-		createEReference(portEClass, PORT__REQUIRED_INTERFACES);
-		createEReference(portEClass, PORT__PROVIDED_INTERFACES);
-		createEReference(portEClass, PORT__PORT_HOST);
+		portInstanceEClass = createEClass(PORT_INSTANCE);
+		createEAttribute(portInstanceEClass, PORT_INSTANCE__NAME);
+		createEReference(portInstanceEClass, PORT_INSTANCE__CONNECT);
+		createEReference(portInstanceEClass, PORT_INSTANCE__OUT_COMPONENT);
+		createEReference(portInstanceEClass, PORT_INSTANCE__IN_COMPONENT);
+		createEReference(portInstanceEClass, PORT_INSTANCE__TYPE);
 
-		interfaceEClass = createEClass(INTERFACE);
-		createEAttribute(interfaceEClass, INTERFACE__DESCRIPTION);
-		createEReference(interfaceEClass, INTERFACE__HOME_PORT);
+		hardwareComponentEClass = createEClass(HARDWARE_COMPONENT);
+		createEAttribute(hardwareComponentEClass, HARDWARE_COMPONENT__POWER_SUPPLY);
 
-		dependencyEClass = createEClass(DEPENDENCY);
-		createEReference(dependencyEClass, DEPENDENCY__SUPPLIER);
-		createEReference(dependencyEClass, DEPENDENCY__CLIENT);
+		softwareComponentEClass = createEClass(SOFTWARE_COMPONENT);
 
-		// Create enums
-		componentStereotypeEEnum = createEEnum(COMPONENT_STEREOTYPE);
+		electronicDeviceEClass = createEClass(ELECTRONIC_DEVICE);
+
+		mechanicalDeviceEClass = createEClass(MECHANICAL_DEVICE);
+
+		actuatorEClass = createEClass(ACTUATOR);
+
+		sensorEClass = createEClass(SENSOR);
+		createEAttribute(sensorEClass, SENSOR__TYPE);
+
+		architectureEClass = createEClass(ARCHITECTURE);
+		createEReference(architectureEClass, ARCHITECTURE__COMPONENT);
+		createEReference(architectureEClass, ARCHITECTURE__CONNECTORS);
+		createEReference(architectureEClass, ARCHITECTURE__PORTS);
+		createEReference(architectureEClass, ARCHITECTURE__INSTANCES);
+		createEReference(architectureEClass, ARCHITECTURE__PORT_TYPE);
+
+		componentInstanceEClass = createEClass(COMPONENT_INSTANCE);
+		createEAttribute(componentInstanceEClass, COMPONENT_INSTANCE__NAME);
+		createEReference(componentInstanceEClass, COMPONENT_INSTANCE__SUBCOMPONENT);
+		createEReference(componentInstanceEClass, COMPONENT_INSTANCE__PARENTCOMPONENT);
+		createEReference(componentInstanceEClass, COMPONENT_INSTANCE__IN_PORTS);
+		createEReference(componentInstanceEClass, COMPONENT_INSTANCE__OUT_PORTS);
+		createEReference(componentInstanceEClass, COMPONENT_INSTANCE__TYPE);
+		createEAttribute(componentInstanceEClass, COMPONENT_INSTANCE__VERSION);
+
+		portTypeEClass = createEClass(PORT_TYPE);
+		createEAttribute(portTypeEClass, PORT_TYPE__NAME);
+		createEReference(portTypeEClass, PORT_TYPE__COMPONENT_TYPE);
+		createEReference(portTypeEClass, PORT_TYPE__PORT_INSTANCE);
 	}
 
 	/**
@@ -465,92 +642,78 @@ public class Component_diagramPackageImpl extends EPackageImpl implements Compon
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
-		// Obtain other dependent packages
-		CommonBasePackage theCommonBasePackage = (CommonBasePackage)EPackage.Registry.INSTANCE.getEPackage(CommonBasePackage.eNS_URI);
-
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		componentDiagramEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
-		componentDiagramEClass.getESuperTypes().add(theCommonBasePackage.getNameBase());
-		componentEClass.getESuperTypes().add(theCommonBasePackage.getNameBase());
-		componentEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
-		portEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
-		portEClass.getESuperTypes().add(theCommonBasePackage.getNameBase());
-		interfaceEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
-		interfaceEClass.getESuperTypes().add(theCommonBasePackage.getNameBase());
-		dependencyEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
-		dependencyEClass.getESuperTypes().add(theCommonBasePackage.getNameBase());
+		hardwareComponentEClass.getESuperTypes().add(this.getComponentType());
+		softwareComponentEClass.getESuperTypes().add(this.getComponentType());
+		electronicDeviceEClass.getESuperTypes().add(this.getHardwareComponent());
+		mechanicalDeviceEClass.getESuperTypes().add(this.getHardwareComponent());
+		actuatorEClass.getESuperTypes().add(this.getMechanicalDevice());
+		sensorEClass.getESuperTypes().add(this.getElectronicDevice());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(componentDiagramEClass, ComponentDiagram.class, "ComponentDiagram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getComponentDiagram_ComponetContainer(), this.getComponent(), this.getComponent_Diagram(), "componetContainer", null, 0, -1, ComponentDiagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComponentDiagram_InterfaceContainer(), this.getInterface(), null, "interfaceContainer", null, 0, -1, ComponentDiagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComponentDiagram_DependencyContainer(), this.getDependency(), null, "dependencyContainer", null, 0, -1, ComponentDiagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(componentTypeEClass, ComponentType.class, "ComponentType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getComponentType_Name(), ecorePackage.getEString(), "name", null, 0, 1, ComponentType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComponentType_Port_types(), this.getPortType(), this.getPortType_Component_type(), "port_types", null, 0, -1, ComponentType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComponentType_Instance(), this.getComponentInstance(), this.getComponentInstance_Type(), "instance", null, 0, -1, ComponentType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(componentEClass, Component.class, "Component", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getComponent_Stereotype(), this.getComponentStereotype(), "stereotype", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getComponent_IsIndirectlyInstantiated(), ecorePackage.getEBoolean(), "isIndirectlyInstantiated", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComponent_ComponentContainer(), this.getComponent(), null, "componentContainer", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComponent_Ports(), this.getPort(), this.getPort_PortHost(), "ports", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComponent_Realization(), this.getComponent(), null, "realization", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComponent_Diagram(), this.getComponentDiagram(), this.getComponentDiagram_ComponetContainer(), "diagram", null, 1, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComponent_OnDepend(), this.getDependency(), this.getDependency_Supplier(), "onDepend", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(connectorEClass, Connector.class, "Connector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getConnector_Name(), ecorePackage.getEString(), "name", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConnector_Port(), this.getPortInstance(), this.getPortInstance_Connect(), "port", null, 2, 2, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(portEClass, Port.class, "Port", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPort_Protocol(), ecorePackage.getEString(), "protocol", null, 0, 1, Port.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPort_IsBehavior(), ecorePackage.getEBoolean(), "isBehavior", null, 0, 1, Port.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPort_IsService(), ecorePackage.getEBoolean(), "isService", null, 0, 1, Port.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPort_RequiredInterfaces(), this.getInterface(), null, "requiredInterfaces", null, 0, -1, Port.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPort_ProvidedInterfaces(), this.getInterface(), this.getInterface_HomePort(), "providedInterfaces", null, 0, -1, Port.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPort_PortHost(), this.getComponent(), this.getComponent_Ports(), "portHost", null, 0, 1, Port.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(portInstanceEClass, PortInstance.class, "PortInstance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPortInstance_Name(), ecorePackage.getEString(), "name", null, 0, 1, PortInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPortInstance_Connect(), this.getConnector(), this.getConnector_Port(), "connect", null, 0, 1, PortInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPortInstance_OutComponent(), this.getComponentInstance(), this.getComponentInstance_OutPorts(), "outComponent", null, 0, 1, PortInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPortInstance_InComponent(), this.getComponentInstance(), this.getComponentInstance_InPorts(), "inComponent", null, 0, 1, PortInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPortInstance_Type(), this.getPortType(), this.getPortType_Port_instance(), "type", null, 1, 1, PortInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(interfaceEClass, Interface.class, "Interface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getInterface_Description(), ecorePackage.getEString(), "description", null, 0, 1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getInterface_HomePort(), this.getPort(), this.getPort_ProvidedInterfaces(), "homePort", null, 0, 1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(hardwareComponentEClass, HardwareComponent.class, "HardwareComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getHardwareComponent_PowerSupply(), ecorePackage.getEString(), "powerSupply", null, 0, 1, HardwareComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(dependencyEClass, Dependency.class, "Dependency", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDependency_Supplier(), this.getComponent(), this.getComponent_OnDepend(), "supplier", null, 0, 1, Dependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDependency_Client(), this.getComponent(), null, "client", null, 0, 1, Dependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(softwareComponentEClass, SoftwareComponent.class, "SoftwareComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		// Initialize enums and add enum literals
-		initEEnum(componentStereotypeEEnum, ComponentStereotype.class, "ComponentStereotype");
-		addEEnumLiteral(componentStereotypeEEnum, ComponentStereotype.COMPONENT);
-		addEEnumLiteral(componentStereotypeEEnum, ComponentStereotype.SUBSYSTEM);
-		addEEnumLiteral(componentStereotypeEEnum, ComponentStereotype.PROCESS);
-		addEEnumLiteral(componentStereotypeEEnum, ComponentStereotype.SERVICE);
-		addEEnumLiteral(componentStereotypeEEnum, ComponentStereotype.SPECIFICATION);
-		addEEnumLiteral(componentStereotypeEEnum, ComponentStereotype.REALIZATION);
-		addEEnumLiteral(componentStereotypeEEnum, ComponentStereotype.IMPLEMENT);
+		initEClass(electronicDeviceEClass, ElectronicDevice.class, "ElectronicDevice", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(mechanicalDeviceEClass, MechanicalDevice.class, "MechanicalDevice", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(actuatorEClass, Actuator.class, "Actuator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(sensorEClass, Sensor.class, "Sensor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSensor_Type(), ecorePackage.getEString(), "type", null, 0, 1, Sensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(architectureEClass, Architecture.class, "Architecture", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getArchitecture_Component(), this.getComponentType(), null, "component", null, 0, -1, Architecture.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getArchitecture_Connectors(), this.getConnector(), null, "connectors", null, 0, -1, Architecture.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getArchitecture_Ports(), this.getPortInstance(), null, "ports", null, 0, -1, Architecture.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getArchitecture_Instances(), this.getComponentInstance(), null, "instances", null, 0, -1, Architecture.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getArchitecture_Port_type(), this.getPortType(), null, "port_type", null, 0, -1, Architecture.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(componentInstanceEClass, ComponentInstance.class, "ComponentInstance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getComponentInstance_Name(), ecorePackage.getEString(), "name", null, 0, 1, ComponentInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComponentInstance_Subcomponent(), this.getComponentInstance(), this.getComponentInstance_Parentcomponent(), "subcomponent", null, 0, -1, ComponentInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComponentInstance_Parentcomponent(), this.getComponentInstance(), this.getComponentInstance_Subcomponent(), "parentcomponent", null, 0, 1, ComponentInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComponentInstance_InPorts(), this.getPortInstance(), this.getPortInstance_InComponent(), "inPorts", null, 0, -1, ComponentInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComponentInstance_OutPorts(), this.getPortInstance(), this.getPortInstance_OutComponent(), "outPorts", null, 0, -1, ComponentInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComponentInstance_Type(), this.getComponentType(), this.getComponentType_Instance(), "type", null, 1, 1, ComponentInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComponentInstance_Version(), ecorePackage.getEInt(), "version", "0", 0, 1, ComponentInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(portTypeEClass, PortType.class, "PortType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPortType_Name(), ecorePackage.getEString(), "name", null, 0, 1, PortType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPortType_Component_type(), this.getComponentType(), this.getComponentType_Port_types(), "component_type", null, 0, 1, PortType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPortType_Port_instance(), this.getPortInstance(), this.getPortInstance_Type(), "port_instance", null, 0, -1, PortType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
 
 		// Create annotations
-		// http://www.eclipse.org/OCL/Import
-		createImportAnnotations();
 		// http://www.eclipse.org/emf/2002/Ecore
 		createEcoreAnnotations();
-		// http://www.eclipse.org/emf/2002/Ecore/OCL
-		createOCLAnnotations();
-	}
-
-	/**
-	 * Initializes the annotations for <b>http://www.eclipse.org/OCL/Import</b>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void createImportAnnotations() {
-		String source = "http://www.eclipse.org/OCL/Import";	
-		addAnnotation
-		  (this, 
-		   source, 
-		   new String[] {
-			 "commonBase", "../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#/"
-		   });
+		// http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot
+		createPivotAnnotations();
 	}
 
 	/**
@@ -565,44 +728,45 @@ public class Component_diagramPackageImpl extends EPackageImpl implements Compon
 		  (this, 
 		   source, 
 		   new String[] {
-			 "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL",
-			 "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL",
-			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL"
+			 "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+			 "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"
 		   });	
 		addAnnotation
-		  (componentEClass, 
+		  (connectorEClass, 
 		   source, 
 		   new String[] {
-			 "constraints", "ComponentCantRealizieItself DontRequireOwnInterfaces"
+			 "constraints", "TwoPorts TwoDifferentPorts"
 		   });	
 		addAnnotation
-		  (dependencyEClass, 
+		  (portInstanceEClass, 
 		   source, 
 		   new String[] {
-			 "constraints", "SupplierShoudBeDifferentFromClient"
+			 "constraints", "ExactlyOneConnector ExactlyOneComponent"
 		   });
 	}
 
 	/**
-	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore/OCL</b>.
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot</b>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void createOCLAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL";	
+	protected void createPivotAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";	
 		addAnnotation
-		  (componentEClass, 
+		  (connectorEClass, 
 		   source, 
 		   new String[] {
-			 "ComponentCantRealizieItself", "self <> self.realization",
-			 "DontRequireOwnInterfaces", "self.ports.requiredInterfaces.homePort.portHost -> forAll(\n\t\t\tcomponent | component <> self\n\t\t) or self.ports.requiredInterfaces.homePort.portHost -> size() = 0"
+			 "TwoPorts", "self.port->size() = 2",
+			 "TwoDifferentPorts", "self.port->forAll(p1, p2 | p1<>p2 implies (p1.outComponent->size() + p2.outComponent->size() = 1 and p1.inComponent->size() + p2.inComponent->size() = 1))"
 		   });	
 		addAnnotation
-		  (dependencyEClass, 
+		  (portInstanceEClass, 
 		   source, 
 		   new String[] {
-			 "SupplierShoudBeDifferentFromClient", "Tuple {\n\tmessage : String = \n\t\t\t\'The dependency supplier component should be not the same component like the client\',\n\tstatus : Boolean = \n\t\t\tself.supplier <> self.client\n}.status"
+			 "ExactlyOneConnector", "self.connect->size() = 1",
+			 "ExactlyOneComponent", "self.outComponent->size() + self.inComponent->size() = 1"
 		   });
 	}
 

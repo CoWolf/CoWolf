@@ -72,118 +72,256 @@ public class Component_diagramItemProviderAdapterFactory extends Component_diagr
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentDiagram} instances.
+	 * This keeps track of the one adapter used for all {@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Connector} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ComponentDiagramItemProvider componentDiagramItemProvider;
+	protected ConnectorItemProvider connectorItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentDiagram}.
+	 * This creates an adapter for a {@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Connector}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createComponentDiagramAdapter() {
-		if (componentDiagramItemProvider == null) {
-			componentDiagramItemProvider = new ComponentDiagramItemProvider(this);
+	public Adapter createConnectorAdapter() {
+		if (connectorItemProvider == null) {
+			connectorItemProvider = new ConnectorItemProvider(this);
 		}
 
-		return componentDiagramItemProvider;
+		return connectorItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Component} instances.
+	 * This keeps track of the one adapter used for all {@link de.uni_stuttgart.iste.cowolf.model.component_diagram.PortInstance} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ComponentItemProvider componentItemProvider;
+	protected PortInstanceItemProvider portInstanceItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Component}.
+	 * This creates an adapter for a {@link de.uni_stuttgart.iste.cowolf.model.component_diagram.PortInstance}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createComponentAdapter() {
-		if (componentItemProvider == null) {
-			componentItemProvider = new ComponentItemProvider(this);
+	public Adapter createPortInstanceAdapter() {
+		if (portInstanceItemProvider == null) {
+			portInstanceItemProvider = new PortInstanceItemProvider(this);
 		}
 
-		return componentItemProvider;
+		return portInstanceItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Port} instances.
+	 * This keeps track of the one adapter used for all {@link de.uni_stuttgart.iste.cowolf.model.component_diagram.HardwareComponent} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PortItemProvider portItemProvider;
+	protected HardwareComponentItemProvider hardwareComponentItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Port}.
+	 * This creates an adapter for a {@link de.uni_stuttgart.iste.cowolf.model.component_diagram.HardwareComponent}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPortAdapter() {
-		if (portItemProvider == null) {
-			portItemProvider = new PortItemProvider(this);
+	public Adapter createHardwareComponentAdapter() {
+		if (hardwareComponentItemProvider == null) {
+			hardwareComponentItemProvider = new HardwareComponentItemProvider(this);
 		}
 
-		return portItemProvider;
+		return hardwareComponentItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Interface} instances.
+	 * This keeps track of the one adapter used for all {@link de.uni_stuttgart.iste.cowolf.model.component_diagram.SoftwareComponent} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected InterfaceItemProvider interfaceItemProvider;
+	protected SoftwareComponentItemProvider softwareComponentItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Interface}.
+	 * This creates an adapter for a {@link de.uni_stuttgart.iste.cowolf.model.component_diagram.SoftwareComponent}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createInterfaceAdapter() {
-		if (interfaceItemProvider == null) {
-			interfaceItemProvider = new InterfaceItemProvider(this);
+	public Adapter createSoftwareComponentAdapter() {
+		if (softwareComponentItemProvider == null) {
+			softwareComponentItemProvider = new SoftwareComponentItemProvider(this);
 		}
 
-		return interfaceItemProvider;
+		return softwareComponentItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Dependency} instances.
+	 * This keeps track of the one adapter used for all {@link de.uni_stuttgart.iste.cowolf.model.component_diagram.ElectronicDevice} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DependencyItemProvider dependencyItemProvider;
+	protected ElectronicDeviceItemProvider electronicDeviceItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Dependency}.
+	 * This creates an adapter for a {@link de.uni_stuttgart.iste.cowolf.model.component_diagram.ElectronicDevice}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createDependencyAdapter() {
-		if (dependencyItemProvider == null) {
-			dependencyItemProvider = new DependencyItemProvider(this);
+	public Adapter createElectronicDeviceAdapter() {
+		if (electronicDeviceItemProvider == null) {
+			electronicDeviceItemProvider = new ElectronicDeviceItemProvider(this);
 		}
 
-		return dependencyItemProvider;
+		return electronicDeviceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uni_stuttgart.iste.cowolf.model.component_diagram.MechanicalDevice} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MechanicalDeviceItemProvider mechanicalDeviceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uni_stuttgart.iste.cowolf.model.component_diagram.MechanicalDevice}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMechanicalDeviceAdapter() {
+		if (mechanicalDeviceItemProvider == null) {
+			mechanicalDeviceItemProvider = new MechanicalDeviceItemProvider(this);
+		}
+
+		return mechanicalDeviceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Actuator} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ActuatorItemProvider actuatorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Actuator}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createActuatorAdapter() {
+		if (actuatorItemProvider == null) {
+			actuatorItemProvider = new ActuatorItemProvider(this);
+		}
+
+		return actuatorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Sensor} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SensorItemProvider sensorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Sensor}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSensorAdapter() {
+		if (sensorItemProvider == null) {
+			sensorItemProvider = new SensorItemProvider(this);
+		}
+
+		return sensorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Architecture} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ArchitectureItemProvider architectureItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Architecture}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createArchitectureAdapter() {
+		if (architectureItemProvider == null) {
+			architectureItemProvider = new ArchitectureItemProvider(this);
+		}
+
+		return architectureItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentInstance} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ComponentInstanceItemProvider componentInstanceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentInstance}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createComponentInstanceAdapter() {
+		if (componentInstanceItemProvider == null) {
+			componentInstanceItemProvider = new ComponentInstanceItemProvider(this);
+		}
+
+		return componentInstanceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uni_stuttgart.iste.cowolf.model.component_diagram.PortType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PortTypeItemProvider portTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uni_stuttgart.iste.cowolf.model.component_diagram.PortType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPortTypeAdapter() {
+		if (portTypeItemProvider == null) {
+			portTypeItemProvider = new PortTypeItemProvider(this);
+		}
+
+		return portTypeItemProvider;
 	}
 
 	/**
@@ -285,11 +423,17 @@ public class Component_diagramItemProviderAdapterFactory extends Component_diagr
 	 * @generated
 	 */
 	public void dispose() {
-		if (componentDiagramItemProvider != null) componentDiagramItemProvider.dispose();
-		if (componentItemProvider != null) componentItemProvider.dispose();
-		if (portItemProvider != null) portItemProvider.dispose();
-		if (interfaceItemProvider != null) interfaceItemProvider.dispose();
-		if (dependencyItemProvider != null) dependencyItemProvider.dispose();
+		if (connectorItemProvider != null) connectorItemProvider.dispose();
+		if (portInstanceItemProvider != null) portInstanceItemProvider.dispose();
+		if (hardwareComponentItemProvider != null) hardwareComponentItemProvider.dispose();
+		if (softwareComponentItemProvider != null) softwareComponentItemProvider.dispose();
+		if (electronicDeviceItemProvider != null) electronicDeviceItemProvider.dispose();
+		if (mechanicalDeviceItemProvider != null) mechanicalDeviceItemProvider.dispose();
+		if (actuatorItemProvider != null) actuatorItemProvider.dispose();
+		if (sensorItemProvider != null) sensorItemProvider.dispose();
+		if (architectureItemProvider != null) architectureItemProvider.dispose();
+		if (componentInstanceItemProvider != null) componentInstanceItemProvider.dispose();
+		if (portTypeItemProvider != null) portTypeItemProvider.dispose();
 	}
 
 }

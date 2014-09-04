@@ -5,7 +5,6 @@ package de.uni_stuttgart.iste.cowolf.model.component_diagram.impl;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.*;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -57,11 +56,17 @@ public class Component_diagramFactoryImpl extends EFactoryImpl implements Compon
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case Component_diagramPackage.COMPONENT_DIAGRAM: return createComponentDiagram();
-			case Component_diagramPackage.COMPONENT: return createComponent();
-			case Component_diagramPackage.PORT: return createPort();
-			case Component_diagramPackage.INTERFACE: return createInterface();
-			case Component_diagramPackage.DEPENDENCY: return createDependency();
+			case Component_diagramPackage.CONNECTOR: return createConnector();
+			case Component_diagramPackage.PORT_INSTANCE: return createPortInstance();
+			case Component_diagramPackage.HARDWARE_COMPONENT: return createHardwareComponent();
+			case Component_diagramPackage.SOFTWARE_COMPONENT: return createSoftwareComponent();
+			case Component_diagramPackage.ELECTRONIC_DEVICE: return createElectronicDevice();
+			case Component_diagramPackage.MECHANICAL_DEVICE: return createMechanicalDevice();
+			case Component_diagramPackage.ACTUATOR: return createActuator();
+			case Component_diagramPackage.SENSOR: return createSensor();
+			case Component_diagramPackage.ARCHITECTURE: return createArchitecture();
+			case Component_diagramPackage.COMPONENT_INSTANCE: return createComponentInstance();
+			case Component_diagramPackage.PORT_TYPE: return createPortType();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -72,14 +77,9 @@ public class Component_diagramFactoryImpl extends EFactoryImpl implements Compon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Object createFromString(EDataType eDataType, String initialValue) {
-		switch (eDataType.getClassifierID()) {
-			case Component_diagramPackage.COMPONENT_STEREOTYPE:
-				return createComponentStereotypeFromString(eDataType, initialValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-		}
+	public Connector createConnector() {
+		ConnectorImpl connector = new ConnectorImpl();
+		return connector;
 	}
 
 	/**
@@ -87,14 +87,9 @@ public class Component_diagramFactoryImpl extends EFactoryImpl implements Compon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public String convertToString(EDataType eDataType, Object instanceValue) {
-		switch (eDataType.getClassifierID()) {
-			case Component_diagramPackage.COMPONENT_STEREOTYPE:
-				return convertComponentStereotypeToString(eDataType, instanceValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-		}
+	public PortInstance createPortInstance() {
+		PortInstanceImpl portInstance = new PortInstanceImpl();
+		return portInstance;
 	}
 
 	/**
@@ -102,9 +97,9 @@ public class Component_diagramFactoryImpl extends EFactoryImpl implements Compon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ComponentDiagram createComponentDiagram() {
-		ComponentDiagramImpl componentDiagram = new ComponentDiagramImpl();
-		return componentDiagram;
+	public HardwareComponent createHardwareComponent() {
+		HardwareComponentImpl hardwareComponent = new HardwareComponentImpl();
+		return hardwareComponent;
 	}
 
 	/**
@@ -112,9 +107,9 @@ public class Component_diagramFactoryImpl extends EFactoryImpl implements Compon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Component createComponent() {
-		ComponentImpl component = new ComponentImpl();
-		return component;
+	public SoftwareComponent createSoftwareComponent() {
+		SoftwareComponentImpl softwareComponent = new SoftwareComponentImpl();
+		return softwareComponent;
 	}
 
 	/**
@@ -122,9 +117,9 @@ public class Component_diagramFactoryImpl extends EFactoryImpl implements Compon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Port createPort() {
-		PortImpl port = new PortImpl();
-		return port;
+	public ElectronicDevice createElectronicDevice() {
+		ElectronicDeviceImpl electronicDevice = new ElectronicDeviceImpl();
+		return electronicDevice;
 	}
 
 	/**
@@ -132,9 +127,9 @@ public class Component_diagramFactoryImpl extends EFactoryImpl implements Compon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Interface createInterface() {
-		InterfaceImpl interface_ = new InterfaceImpl();
-		return interface_;
+	public MechanicalDevice createMechanicalDevice() {
+		MechanicalDeviceImpl mechanicalDevice = new MechanicalDeviceImpl();
+		return mechanicalDevice;
 	}
 
 	/**
@@ -142,9 +137,9 @@ public class Component_diagramFactoryImpl extends EFactoryImpl implements Compon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Dependency createDependency() {
-		DependencyImpl dependency = new DependencyImpl();
-		return dependency;
+	public Actuator createActuator() {
+		ActuatorImpl actuator = new ActuatorImpl();
+		return actuator;
 	}
 
 	/**
@@ -152,10 +147,9 @@ public class Component_diagramFactoryImpl extends EFactoryImpl implements Compon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ComponentStereotype createComponentStereotypeFromString(EDataType eDataType, String initialValue) {
-		ComponentStereotype result = ComponentStereotype.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
+	public Sensor createSensor() {
+		SensorImpl sensor = new SensorImpl();
+		return sensor;
 	}
 
 	/**
@@ -163,8 +157,29 @@ public class Component_diagramFactoryImpl extends EFactoryImpl implements Compon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertComponentStereotypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
+	public Architecture createArchitecture() {
+		ArchitectureImpl architecture = new ArchitectureImpl();
+		return architecture;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComponentInstance createComponentInstance() {
+		ComponentInstanceImpl componentInstance = new ComponentInstanceImpl();
+		return componentInstance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PortType createPortType() {
+		PortTypeImpl portType = new PortTypeImpl();
+		return portType;
 	}
 
 	/**

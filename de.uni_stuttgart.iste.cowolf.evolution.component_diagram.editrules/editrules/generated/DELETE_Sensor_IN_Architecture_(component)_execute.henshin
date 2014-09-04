@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_1RK1cDN5EeSNuISj7DMDOA" name="DELETE_Sensor_IN_Architecture_(component)" description="Deletes one Sensor in Architecture">
+  <imports href="http://component_diagram/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_1RK1cTN5EeSNuISj7DMDOA" name="deleteSensor_IN_Architecture" description="deletes one Sensor in the context: Architecture">
+    <parameters xmi:id="_1RK1cjN5EeSNuISj7DMDOA" name="Selected"/>
+    <parameters xmi:id="_1RK1czN5EeSNuISj7DMDOA" name="ToBeDeleted"/>
+    <lhs xmi:id="_1RK1dDN5EeSNuISj7DMDOA" name="LHS">
+      <nodes xmi:id="_1RK1dTN5EeSNuISj7DMDOA" name="Selected" outgoing="_1RK1dzN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//Architecture"/>
+      </nodes>
+      <nodes xmi:id="_1RK1djN5EeSNuISj7DMDOA" name="ToBeDeleted" incoming="_1RK1dzN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//Sensor"/>
+      </nodes>
+      <edges xmi:id="_1RK1dzN5EeSNuISj7DMDOA" source="_1RK1dTN5EeSNuISj7DMDOA" target="_1RK1djN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//Architecture/component"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_1RLcgDN5EeSNuISj7DMDOA" name="RHS">
+      <nodes xmi:id="_1RLcgTN5EeSNuISj7DMDOA" name="Selected">
+        <type href="http://component_diagram/1.0#//Architecture"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_1RLcgjN5EeSNuISj7DMDOA" origin="_1RK1dTN5EeSNuISj7DMDOA" image="_1RLcgTN5EeSNuISj7DMDOA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_1RLcgzN5EeSNuISj7DMDOA" name="mainUnit" description="Deletes one Sensor depending on available contexts in model instance" subUnits="_1RK1cTN5EeSNuISj7DMDOA">
+    <parameters xmi:id="_1RLchDN5EeSNuISj7DMDOA" name="ToBeDeleted"/>
+    <parameters xmi:id="_1RLchTN5EeSNuISj7DMDOA" name="selectedEObject"/>
+    <parameterMappings xmi:id="_1RLchjN5EeSNuISj7DMDOA" source="_1RLchTN5EeSNuISj7DMDOA" target="_1RK1cjN5EeSNuISj7DMDOA"/>
+    <parameterMappings xmi:id="_1RLchzN5EeSNuISj7DMDOA" source="_1RLchDN5EeSNuISj7DMDOA" target="_1RK1czN5EeSNuISj7DMDOA"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_1S8XEDN5EeSNuISj7DMDOA" name="CREATE_PortType_IN_Architecture_(port_type)" description="Creates one PortType in Architecture">
+  <imports href="http://component_diagram/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_1S8XETN5EeSNuISj7DMDOA" name="createPortType_IN_Architecture" description="creates one PortType in the context: Architecture">
+    <parameters xmi:id="_1S8XEjN5EeSNuISj7DMDOA" name="Selected"/>
+    <parameters xmi:id="_1S8XEzN5EeSNuISj7DMDOA" name="New"/>
+    <parameters xmi:id="_1S8XFDN5EeSNuISj7DMDOA" name="Name"/>
+    <lhs xmi:id="_1S8XFTN5EeSNuISj7DMDOA" name="Lhs">
+      <nodes xmi:id="_1S8XFjN5EeSNuISj7DMDOA" name="Selected">
+        <type href="http://component_diagram/1.0#//Architecture"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_1S8XFzN5EeSNuISj7DMDOA" name="Rhs">
+      <nodes xmi:id="_1S8XGDN5EeSNuISj7DMDOA" name="Selected" outgoing="_1S8XGzN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//Architecture"/>
+      </nodes>
+      <nodes xmi:id="_1S8XGTN5EeSNuISj7DMDOA" name="New" incoming="_1S8XGzN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//PortType"/>
+        <attributes xmi:id="_1S8XGjN5EeSNuISj7DMDOA" value="Name">
+          <type href="http://component_diagram/1.0#//PortType/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_1S8XGzN5EeSNuISj7DMDOA" source="_1S8XGDN5EeSNuISj7DMDOA" target="_1S8XGTN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//Architecture/port_type"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_1S8XHDN5EeSNuISj7DMDOA" origin="_1S8XFjN5EeSNuISj7DMDOA" image="_1S8XGDN5EeSNuISj7DMDOA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_1S8XHTN5EeSNuISj7DMDOA" name="mainUnit" description="Creates one PortType depending on available contexts in model instance" subUnits="_1S8XETN5EeSNuISj7DMDOA">
+    <parameters xmi:id="_1S8XHjN5EeSNuISj7DMDOA" name="New"/>
+    <parameters xmi:id="_1S8XHzN5EeSNuISj7DMDOA" name="selectedEObject"/>
+    <parameters xmi:id="_1S8XIDN5EeSNuISj7DMDOA" name="Name"/>
+    <parameterMappings xmi:id="_1S8XITN5EeSNuISj7DMDOA" source="_1S8XHzN5EeSNuISj7DMDOA" target="_1S8XEjN5EeSNuISj7DMDOA"/>
+    <parameterMappings xmi:id="_1S8XIjN5EeSNuISj7DMDOA" source="_1S8XEzN5EeSNuISj7DMDOA" target="_1S8XHjN5EeSNuISj7DMDOA"/>
+    <parameterMappings xmi:id="_1S8XIzN5EeSNuISj7DMDOA" source="_1S8XIDN5EeSNuISj7DMDOA" target="_1S8XFDN5EeSNuISj7DMDOA"/>
+  </units>
+</henshin:Module>

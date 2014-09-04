@@ -2,11 +2,8 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.component_diagram;
 
-import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -24,8 +21,7 @@ import org.eclipse.emf.ecore.EReference;
  * <!-- end-user-doc -->
  * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramFactory
  * @model kind="package"
- *        annotation="http://www.eclipse.org/OCL/Import commonBase='../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#/'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL' settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL' validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'"
  * @generated
  */
 public interface Component_diagramPackage extends EPackage {
@@ -43,7 +39,7 @@ public interface Component_diagramPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://ComponentDiagram/1.0";
+	String eNS_URI = "http://component_diagram/1.0";
 
 	/**
 	 * The package namespace name.
@@ -62,23 +58,14 @@ public interface Component_diagramPackage extends EPackage {
 	Component_diagramPackage eINSTANCE = de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.ComponentDiagramImpl <em>Component Diagram</em>}' class.
+	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.ComponentTypeImpl <em>Component Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.ComponentDiagramImpl
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getComponentDiagram()
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.ComponentTypeImpl
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getComponentType()
 	 * @generated
 	 */
-	int COMPONENT_DIAGRAM = 0;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPONENT_DIAGRAM__ID = CommonBasePackage.ID_BASE__ID;
+	int COMPONENT_TYPE = 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -87,62 +74,53 @@ public interface Component_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_DIAGRAM__NAME = CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
+	int COMPONENT_TYPE__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Componet Container</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Port types</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_DIAGRAM__COMPONET_CONTAINER = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
+	int COMPONENT_TYPE__PORT_TYPES = 1;
 
 	/**
-	 * The feature id for the '<em><b>Interface Container</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Instance</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_DIAGRAM__INTERFACE_CONTAINER = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
+	int COMPONENT_TYPE__INSTANCE = 2;
 
 	/**
-	 * The feature id for the '<em><b>Dependency Container</b></em>' containment reference list.
+	 * The number of structural features of the '<em>Component Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_DIAGRAM__DEPENDENCY_CONTAINER = CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
+	int COMPONENT_TYPE_FEATURE_COUNT = 3;
 
 	/**
-	 * The number of structural features of the '<em>Component Diagram</em>' class.
+	 * The number of operations of the '<em>Component Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_DIAGRAM_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 4;
+	int COMPONENT_TYPE_OPERATION_COUNT = 0;
 
 	/**
-	 * The number of operations of the '<em>Component Diagram</em>' class.
+	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.ConnectorImpl <em>Connector</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPONENT_DIAGRAM_OPERATION_COUNT = CommonBasePackage.ID_BASE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.ComponentImpl <em>Component</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.ComponentImpl
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getComponent()
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.ConnectorImpl
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getConnector()
 	 * @generated
 	 */
-	int COMPONENT = 1;
+	int CONNECTOR = 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -151,43 +129,519 @@ public interface Component_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__NAME = CommonBasePackage.NAME_BASE__NAME;
+	int CONNECTOR__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Port</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__ID = CommonBasePackage.NAME_BASE_FEATURE_COUNT + 0;
+	int CONNECTOR__PORT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Stereotype</b></em>' attribute.
+	 * The number of structural features of the '<em>Connector</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__STEREOTYPE = CommonBasePackage.NAME_BASE_FEATURE_COUNT + 1;
+	int CONNECTOR_FEATURE_COUNT = 2;
 
 	/**
-	 * The feature id for the '<em><b>Is Indirectly Instantiated</b></em>' attribute.
+	 * The number of operations of the '<em>Connector</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__IS_INDIRECTLY_INSTANTIATED = CommonBasePackage.NAME_BASE_FEATURE_COUNT + 2;
+	int CONNECTOR_OPERATION_COUNT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Component Container</b></em>' reference list.
+	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.PortInstanceImpl <em>Port Instance</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.PortInstanceImpl
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getPortInstance()
+	 * @generated
+	 */
+	int PORT_INSTANCE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__COMPONENT_CONTAINER = CommonBasePackage.NAME_BASE_FEATURE_COUNT + 3;
+	int PORT_INSTANCE__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Connect</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PORT_INSTANCE__CONNECT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Out Component</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PORT_INSTANCE__OUT_COMPONENT = 2;
+
+	/**
+	 * The feature id for the '<em><b>In Component</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PORT_INSTANCE__IN_COMPONENT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PORT_INSTANCE__TYPE = 4;
+
+	/**
+	 * The number of structural features of the '<em>Port Instance</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PORT_INSTANCE_FEATURE_COUNT = 5;
+
+	/**
+	 * The number of operations of the '<em>Port Instance</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PORT_INSTANCE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.HardwareComponentImpl <em>Hardware Component</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.HardwareComponentImpl
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getHardwareComponent()
+	 * @generated
+	 */
+	int HARDWARE_COMPONENT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HARDWARE_COMPONENT__NAME = COMPONENT_TYPE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Port types</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HARDWARE_COMPONENT__PORT_TYPES = COMPONENT_TYPE__PORT_TYPES;
+
+	/**
+	 * The feature id for the '<em><b>Instance</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HARDWARE_COMPONENT__INSTANCE = COMPONENT_TYPE__INSTANCE;
+
+	/**
+	 * The feature id for the '<em><b>Power Supply</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HARDWARE_COMPONENT__POWER_SUPPLY = COMPONENT_TYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Hardware Component</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HARDWARE_COMPONENT_FEATURE_COUNT = COMPONENT_TYPE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Hardware Component</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HARDWARE_COMPONENT_OPERATION_COUNT = COMPONENT_TYPE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.SoftwareComponentImpl <em>Software Component</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.SoftwareComponentImpl
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getSoftwareComponent()
+	 * @generated
+	 */
+	int SOFTWARE_COMPONENT = 4;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTWARE_COMPONENT__NAME = COMPONENT_TYPE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Port types</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTWARE_COMPONENT__PORT_TYPES = COMPONENT_TYPE__PORT_TYPES;
+
+	/**
+	 * The feature id for the '<em><b>Instance</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTWARE_COMPONENT__INSTANCE = COMPONENT_TYPE__INSTANCE;
+
+	/**
+	 * The number of structural features of the '<em>Software Component</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTWARE_COMPONENT_FEATURE_COUNT = COMPONENT_TYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Software Component</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTWARE_COMPONENT_OPERATION_COUNT = COMPONENT_TYPE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.ElectronicDeviceImpl <em>Electronic Device</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.ElectronicDeviceImpl
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getElectronicDevice()
+	 * @generated
+	 */
+	int ELECTRONIC_DEVICE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELECTRONIC_DEVICE__NAME = HARDWARE_COMPONENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Port types</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELECTRONIC_DEVICE__PORT_TYPES = HARDWARE_COMPONENT__PORT_TYPES;
+
+	/**
+	 * The feature id for the '<em><b>Instance</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELECTRONIC_DEVICE__INSTANCE = HARDWARE_COMPONENT__INSTANCE;
+
+	/**
+	 * The feature id for the '<em><b>Power Supply</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELECTRONIC_DEVICE__POWER_SUPPLY = HARDWARE_COMPONENT__POWER_SUPPLY;
+
+	/**
+	 * The number of structural features of the '<em>Electronic Device</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELECTRONIC_DEVICE_FEATURE_COUNT = HARDWARE_COMPONENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Electronic Device</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELECTRONIC_DEVICE_OPERATION_COUNT = HARDWARE_COMPONENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.MechanicalDeviceImpl <em>Mechanical Device</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.MechanicalDeviceImpl
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getMechanicalDevice()
+	 * @generated
+	 */
+	int MECHANICAL_DEVICE = 6;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MECHANICAL_DEVICE__NAME = HARDWARE_COMPONENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Port types</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MECHANICAL_DEVICE__PORT_TYPES = HARDWARE_COMPONENT__PORT_TYPES;
+
+	/**
+	 * The feature id for the '<em><b>Instance</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MECHANICAL_DEVICE__INSTANCE = HARDWARE_COMPONENT__INSTANCE;
+
+	/**
+	 * The feature id for the '<em><b>Power Supply</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MECHANICAL_DEVICE__POWER_SUPPLY = HARDWARE_COMPONENT__POWER_SUPPLY;
+
+	/**
+	 * The number of structural features of the '<em>Mechanical Device</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MECHANICAL_DEVICE_FEATURE_COUNT = HARDWARE_COMPONENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Mechanical Device</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MECHANICAL_DEVICE_OPERATION_COUNT = HARDWARE_COMPONENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.ActuatorImpl <em>Actuator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.ActuatorImpl
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getActuator()
+	 * @generated
+	 */
+	int ACTUATOR = 7;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTUATOR__NAME = MECHANICAL_DEVICE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Port types</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTUATOR__PORT_TYPES = MECHANICAL_DEVICE__PORT_TYPES;
+
+	/**
+	 * The feature id for the '<em><b>Instance</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTUATOR__INSTANCE = MECHANICAL_DEVICE__INSTANCE;
+
+	/**
+	 * The feature id for the '<em><b>Power Supply</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTUATOR__POWER_SUPPLY = MECHANICAL_DEVICE__POWER_SUPPLY;
+
+	/**
+	 * The number of structural features of the '<em>Actuator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTUATOR_FEATURE_COUNT = MECHANICAL_DEVICE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Actuator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTUATOR_OPERATION_COUNT = MECHANICAL_DEVICE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.SensorImpl <em>Sensor</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.SensorImpl
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getSensor()
+	 * @generated
+	 */
+	int SENSOR = 8;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSOR__NAME = ELECTRONIC_DEVICE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Port types</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSOR__PORT_TYPES = ELECTRONIC_DEVICE__PORT_TYPES;
+
+	/**
+	 * The feature id for the '<em><b>Instance</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSOR__INSTANCE = ELECTRONIC_DEVICE__INSTANCE;
+
+	/**
+	 * The feature id for the '<em><b>Power Supply</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSOR__POWER_SUPPLY = ELECTRONIC_DEVICE__POWER_SUPPLY;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSOR__TYPE = ELECTRONIC_DEVICE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Sensor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSOR_FEATURE_COUNT = ELECTRONIC_DEVICE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Sensor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSOR_OPERATION_COUNT = ELECTRONIC_DEVICE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.ArchitectureImpl <em>Architecture</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.ArchitectureImpl
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getArchitecture()
+	 * @generated
+	 */
+	int ARCHITECTURE = 9;
+
+	/**
+	 * The feature id for the '<em><b>Component</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARCHITECTURE__COMPONENT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Connectors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARCHITECTURE__CONNECTORS = 1;
 
 	/**
 	 * The feature id for the '<em><b>Ports</b></em>' containment reference list.
@@ -196,71 +650,53 @@ public interface Component_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__PORTS = CommonBasePackage.NAME_BASE_FEATURE_COUNT + 4;
+	int ARCHITECTURE__PORTS = 2;
 
 	/**
-	 * The feature id for the '<em><b>Realization</b></em>' reference.
+	 * The feature id for the '<em><b>Instances</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__REALIZATION = CommonBasePackage.NAME_BASE_FEATURE_COUNT + 5;
+	int ARCHITECTURE__INSTANCES = 3;
 
 	/**
-	 * The feature id for the '<em><b>Diagram</b></em>' container reference.
+	 * The feature id for the '<em><b>Port type</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__DIAGRAM = CommonBasePackage.NAME_BASE_FEATURE_COUNT + 6;
+	int ARCHITECTURE__PORT_TYPE = 4;
 
 	/**
-	 * The feature id for the '<em><b>On Depend</b></em>' reference list.
+	 * The number of structural features of the '<em>Architecture</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__ON_DEPEND = CommonBasePackage.NAME_BASE_FEATURE_COUNT + 7;
+	int ARCHITECTURE_FEATURE_COUNT = 5;
 
 	/**
-	 * The number of structural features of the '<em>Component</em>' class.
+	 * The number of operations of the '<em>Architecture</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_FEATURE_COUNT = CommonBasePackage.NAME_BASE_FEATURE_COUNT + 8;
+	int ARCHITECTURE_OPERATION_COUNT = 0;
 
 	/**
-	 * The number of operations of the '<em>Component</em>' class.
+	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.ComponentInstanceImpl <em>Component Instance</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPONENT_OPERATION_COUNT = CommonBasePackage.NAME_BASE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.PortImpl <em>Port</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.PortImpl
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getPort()
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.ComponentInstanceImpl
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getComponentInstance()
 	 * @generated
 	 */
-	int PORT = 2;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PORT__ID = CommonBasePackage.ID_BASE__ID;
+	int COMPONENT_INSTANCE = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -269,98 +705,89 @@ public interface Component_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PORT__NAME = CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
+	int COMPONENT_INSTANCE__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Protocol</b></em>' attribute.
+	 * The feature id for the '<em><b>Subcomponent</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PORT__PROTOCOL = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
+	int COMPONENT_INSTANCE__SUBCOMPONENT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Is Behavior</b></em>' attribute.
+	 * The feature id for the '<em><b>Parentcomponent</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PORT__IS_BEHAVIOR = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
+	int COMPONENT_INSTANCE__PARENTCOMPONENT = 2;
 
 	/**
-	 * The feature id for the '<em><b>Is Service</b></em>' attribute.
+	 * The feature id for the '<em><b>In Ports</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PORT__IS_SERVICE = CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
+	int COMPONENT_INSTANCE__IN_PORTS = 3;
 
 	/**
-	 * The feature id for the '<em><b>Required Interfaces</b></em>' reference list.
+	 * The feature id for the '<em><b>Out Ports</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PORT__REQUIRED_INTERFACES = CommonBasePackage.ID_BASE_FEATURE_COUNT + 4;
+	int COMPONENT_INSTANCE__OUT_PORTS = 4;
 
 	/**
-	 * The feature id for the '<em><b>Provided Interfaces</b></em>' reference list.
+	 * The feature id for the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PORT__PROVIDED_INTERFACES = CommonBasePackage.ID_BASE_FEATURE_COUNT + 5;
+	int COMPONENT_INSTANCE__TYPE = 5;
 
 	/**
-	 * The feature id for the '<em><b>Port Host</b></em>' container reference.
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PORT__PORT_HOST = CommonBasePackage.ID_BASE_FEATURE_COUNT + 6;
+	int COMPONENT_INSTANCE__VERSION = 6;
 
 	/**
-	 * The number of structural features of the '<em>Port</em>' class.
+	 * The number of structural features of the '<em>Component Instance</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PORT_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 7;
+	int COMPONENT_INSTANCE_FEATURE_COUNT = 7;
 
 	/**
-	 * The number of operations of the '<em>Port</em>' class.
+	 * The number of operations of the '<em>Component Instance</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PORT_OPERATION_COUNT = CommonBasePackage.ID_BASE_OPERATION_COUNT + 0;
+	int COMPONENT_INSTANCE_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.InterfaceImpl <em>Interface</em>}' class.
+	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.PortTypeImpl <em>Port Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.InterfaceImpl
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getInterface()
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.PortTypeImpl
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getPortType()
 	 * @generated
 	 */
-	int INTERFACE = 3;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERFACE__ID = CommonBasePackage.ID_BASE__ID;
+	int PORT_TYPE = 11;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -369,398 +796,461 @@ public interface Component_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTERFACE__NAME = CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
+	int PORT_TYPE__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * The feature id for the '<em><b>Component type</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERFACE__DESCRIPTION = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
+	int PORT_TYPE__COMPONENT_TYPE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Home Port</b></em>' reference.
+	 * The feature id for the '<em><b>Port instance</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERFACE__HOME_PORT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
+	int PORT_TYPE__PORT_INSTANCE = 2;
 
 	/**
-	 * The number of structural features of the '<em>Interface</em>' class.
+	 * The number of structural features of the '<em>Port Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERFACE_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
+	int PORT_TYPE_FEATURE_COUNT = 3;
 
 	/**
-	 * The number of operations of the '<em>Interface</em>' class.
+	 * The number of operations of the '<em>Port Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERFACE_OPERATION_COUNT = CommonBasePackage.ID_BASE_OPERATION_COUNT + 0;
+	int PORT_TYPE_OPERATION_COUNT = 0;
+
 
 	/**
-	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.DependencyImpl <em>Dependency</em>}' class.
+	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentType <em>Component Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.DependencyImpl
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getDependency()
+	 * @return the meta object for class '<em>Component Type</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentType
 	 * @generated
 	 */
-	int DEPENDENCY = 4;
+	EClass getComponentType();
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentType#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentType#getName()
+	 * @see #getComponentType()
 	 * @generated
-	 * @ordered
 	 */
-	int DEPENDENCY__ID = CommonBasePackage.ID_BASE__ID;
+	EAttribute getComponentType_Name();
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentType#getPort_types <em>Port types</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Port types</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentType#getPort_types()
+	 * @see #getComponentType()
 	 * @generated
-	 * @ordered
 	 */
-	int DEPENDENCY__NAME = CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
+	EReference getComponentType_Port_types();
 
 	/**
-	 * The feature id for the '<em><b>Supplier</b></em>' reference.
+	 * Returns the meta object for the reference list '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentType#getInstance <em>Instance</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Instance</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentType#getInstance()
+	 * @see #getComponentType()
 	 * @generated
-	 * @ordered
 	 */
-	int DEPENDENCY__SUPPLIER = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
+	EReference getComponentType_Instance();
 
 	/**
-	 * The feature id for the '<em><b>Client</b></em>' reference.
+	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Connector <em>Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Connector</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Connector
 	 * @generated
-	 * @ordered
 	 */
-	int DEPENDENCY__CLIENT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
+	EClass getConnector();
 
 	/**
-	 * The number of structural features of the '<em>Dependency</em>' class.
+	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Connector#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Connector#getName()
+	 * @see #getConnector()
 	 * @generated
-	 * @ordered
 	 */
-	int DEPENDENCY_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
+	EAttribute getConnector_Name();
 
 	/**
-	 * The number of operations of the '<em>Dependency</em>' class.
+	 * Returns the meta object for the reference list '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Connector#getPort <em>Port</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Port</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Connector#getPort()
+	 * @see #getConnector()
 	 * @generated
-	 * @ordered
 	 */
-	int DEPENDENCY_OPERATION_COUNT = CommonBasePackage.ID_BASE_OPERATION_COUNT + 0;
+	EReference getConnector_Port();
 
 	/**
-	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentStereotype <em>Component Stereotype</em>}' enum.
+	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.PortInstance <em>Port Instance</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentStereotype
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getComponentStereotype()
+	 * @return the meta object for class '<em>Port Instance</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.PortInstance
 	 * @generated
 	 */
-	int COMPONENT_STEREOTYPE = 5;
-
+	EClass getPortInstance();
 
 	/**
-	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentDiagram <em>Component Diagram</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.PortInstance#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Component Diagram</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentDiagram
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.PortInstance#getName()
+	 * @see #getPortInstance()
 	 * @generated
 	 */
-	EClass getComponentDiagram();
+	EAttribute getPortInstance_Name();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentDiagram#getComponetContainer <em>Componet Container</em>}'.
+	 * Returns the meta object for the reference '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.PortInstance#getConnect <em>Connect</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Componet Container</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentDiagram#getComponetContainer()
-	 * @see #getComponentDiagram()
+	 * @return the meta object for the reference '<em>Connect</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.PortInstance#getConnect()
+	 * @see #getPortInstance()
 	 * @generated
 	 */
-	EReference getComponentDiagram_ComponetContainer();
+	EReference getPortInstance_Connect();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentDiagram#getInterfaceContainer <em>Interface Container</em>}'.
+	 * Returns the meta object for the container reference '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.PortInstance#getOutComponent <em>Out Component</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Interface Container</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentDiagram#getInterfaceContainer()
-	 * @see #getComponentDiagram()
+	 * @return the meta object for the container reference '<em>Out Component</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.PortInstance#getOutComponent()
+	 * @see #getPortInstance()
 	 * @generated
 	 */
-	EReference getComponentDiagram_InterfaceContainer();
+	EReference getPortInstance_OutComponent();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentDiagram#getDependencyContainer <em>Dependency Container</em>}'.
+	 * Returns the meta object for the container reference '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.PortInstance#getInComponent <em>In Component</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Dependency Container</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentDiagram#getDependencyContainer()
-	 * @see #getComponentDiagram()
+	 * @return the meta object for the container reference '<em>In Component</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.PortInstance#getInComponent()
+	 * @see #getPortInstance()
 	 * @generated
 	 */
-	EReference getComponentDiagram_DependencyContainer();
+	EReference getPortInstance_InComponent();
 
 	/**
-	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Component <em>Component</em>}'.
+	 * Returns the meta object for the reference '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.PortInstance#getType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Component</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component
+	 * @return the meta object for the reference '<em>Type</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.PortInstance#getType()
+	 * @see #getPortInstance()
 	 * @generated
 	 */
-	EClass getComponent();
+	EReference getPortInstance_Type();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Component#getStereotype <em>Stereotype</em>}'.
+	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.HardwareComponent <em>Hardware Component</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Stereotype</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component#getStereotype()
-	 * @see #getComponent()
+	 * @return the meta object for class '<em>Hardware Component</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.HardwareComponent
 	 * @generated
 	 */
-	EAttribute getComponent_Stereotype();
+	EClass getHardwareComponent();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Component#isIsIndirectlyInstantiated <em>Is Indirectly Instantiated</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.HardwareComponent#getPowerSupply <em>Power Supply</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Indirectly Instantiated</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component#isIsIndirectlyInstantiated()
-	 * @see #getComponent()
+	 * @return the meta object for the attribute '<em>Power Supply</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.HardwareComponent#getPowerSupply()
+	 * @see #getHardwareComponent()
 	 * @generated
 	 */
-	EAttribute getComponent_IsIndirectlyInstantiated();
+	EAttribute getHardwareComponent_PowerSupply();
 
 	/**
-	 * Returns the meta object for the reference list '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Component#getComponentContainer <em>Component Container</em>}'.
+	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.SoftwareComponent <em>Software Component</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Component Container</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component#getComponentContainer()
-	 * @see #getComponent()
+	 * @return the meta object for class '<em>Software Component</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.SoftwareComponent
 	 * @generated
 	 */
-	EReference getComponent_ComponentContainer();
+	EClass getSoftwareComponent();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Component#getPorts <em>Ports</em>}'.
+	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.ElectronicDevice <em>Electronic Device</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Electronic Device</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.ElectronicDevice
+	 * @generated
+	 */
+	EClass getElectronicDevice();
+
+	/**
+	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.MechanicalDevice <em>Mechanical Device</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Mechanical Device</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.MechanicalDevice
+	 * @generated
+	 */
+	EClass getMechanicalDevice();
+
+	/**
+	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Actuator <em>Actuator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Actuator</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Actuator
+	 * @generated
+	 */
+	EClass getActuator();
+
+	/**
+	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Sensor <em>Sensor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Sensor</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Sensor
+	 * @generated
+	 */
+	EClass getSensor();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Sensor#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Sensor#getType()
+	 * @see #getSensor()
+	 * @generated
+	 */
+	EAttribute getSensor_Type();
+
+	/**
+	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Architecture <em>Architecture</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Architecture</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Architecture
+	 * @generated
+	 */
+	EClass getArchitecture();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Architecture#getComponent <em>Component</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Component</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Architecture#getComponent()
+	 * @see #getArchitecture()
+	 * @generated
+	 */
+	EReference getArchitecture_Component();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Architecture#getConnectors <em>Connectors</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Connectors</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Architecture#getConnectors()
+	 * @see #getArchitecture()
+	 * @generated
+	 */
+	EReference getArchitecture_Connectors();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Architecture#getPorts <em>Ports</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Ports</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component#getPorts()
-	 * @see #getComponent()
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Architecture#getPorts()
+	 * @see #getArchitecture()
 	 * @generated
 	 */
-	EReference getComponent_Ports();
+	EReference getArchitecture_Ports();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Component#getRealization <em>Realization</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Architecture#getInstances <em>Instances</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Realization</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component#getRealization()
-	 * @see #getComponent()
+	 * @return the meta object for the containment reference list '<em>Instances</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Architecture#getInstances()
+	 * @see #getArchitecture()
 	 * @generated
 	 */
-	EReference getComponent_Realization();
+	EReference getArchitecture_Instances();
 
 	/**
-	 * Returns the meta object for the container reference '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Component#getDiagram <em>Diagram</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Architecture#getPort_type <em>Port type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Diagram</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component#getDiagram()
-	 * @see #getComponent()
+	 * @return the meta object for the containment reference list '<em>Port type</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Architecture#getPort_type()
+	 * @see #getArchitecture()
 	 * @generated
 	 */
-	EReference getComponent_Diagram();
+	EReference getArchitecture_Port_type();
 
 	/**
-	 * Returns the meta object for the reference list '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Component#getOnDepend <em>On Depend</em>}'.
+	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentInstance <em>Component Instance</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>On Depend</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component#getOnDepend()
-	 * @see #getComponent()
+	 * @return the meta object for class '<em>Component Instance</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentInstance
 	 * @generated
 	 */
-	EReference getComponent_OnDepend();
+	EClass getComponentInstance();
 
 	/**
-	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Port <em>Port</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentInstance#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Port</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Port
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentInstance#getName()
+	 * @see #getComponentInstance()
 	 * @generated
 	 */
-	EClass getPort();
+	EAttribute getComponentInstance_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Port#getProtocol <em>Protocol</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentInstance#getSubcomponent <em>Subcomponent</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Protocol</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Port#getProtocol()
-	 * @see #getPort()
+	 * @return the meta object for the containment reference list '<em>Subcomponent</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentInstance#getSubcomponent()
+	 * @see #getComponentInstance()
 	 * @generated
 	 */
-	EAttribute getPort_Protocol();
+	EReference getComponentInstance_Subcomponent();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Port#isIsBehavior <em>Is Behavior</em>}'.
+	 * Returns the meta object for the container reference '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentInstance#getParentcomponent <em>Parentcomponent</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Behavior</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Port#isIsBehavior()
-	 * @see #getPort()
+	 * @return the meta object for the container reference '<em>Parentcomponent</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentInstance#getParentcomponent()
+	 * @see #getComponentInstance()
 	 * @generated
 	 */
-	EAttribute getPort_IsBehavior();
+	EReference getComponentInstance_Parentcomponent();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Port#isIsService <em>Is Service</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentInstance#getInPorts <em>In Ports</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Service</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Port#isIsService()
-	 * @see #getPort()
+	 * @return the meta object for the containment reference list '<em>In Ports</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentInstance#getInPorts()
+	 * @see #getComponentInstance()
 	 * @generated
 	 */
-	EAttribute getPort_IsService();
+	EReference getComponentInstance_InPorts();
 
 	/**
-	 * Returns the meta object for the reference list '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Port#getRequiredInterfaces <em>Required Interfaces</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentInstance#getOutPorts <em>Out Ports</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Required Interfaces</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Port#getRequiredInterfaces()
-	 * @see #getPort()
+	 * @return the meta object for the containment reference list '<em>Out Ports</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentInstance#getOutPorts()
+	 * @see #getComponentInstance()
 	 * @generated
 	 */
-	EReference getPort_RequiredInterfaces();
+	EReference getComponentInstance_OutPorts();
 
 	/**
-	 * Returns the meta object for the reference list '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Port#getProvidedInterfaces <em>Provided Interfaces</em>}'.
+	 * Returns the meta object for the reference '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentInstance#getType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Provided Interfaces</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Port#getProvidedInterfaces()
-	 * @see #getPort()
+	 * @return the meta object for the reference '<em>Type</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentInstance#getType()
+	 * @see #getComponentInstance()
 	 * @generated
 	 */
-	EReference getPort_ProvidedInterfaces();
+	EReference getComponentInstance_Type();
 
 	/**
-	 * Returns the meta object for the container reference '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Port#getPortHost <em>Port Host</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentInstance#getVersion <em>Version</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Port Host</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Port#getPortHost()
-	 * @see #getPort()
+	 * @return the meta object for the attribute '<em>Version</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentInstance#getVersion()
+	 * @see #getComponentInstance()
 	 * @generated
 	 */
-	EReference getPort_PortHost();
+	EAttribute getComponentInstance_Version();
 
 	/**
-	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Interface <em>Interface</em>}'.
+	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.PortType <em>Port Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Interface</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Interface
+	 * @return the meta object for class '<em>Port Type</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.PortType
 	 * @generated
 	 */
-	EClass getInterface();
+	EClass getPortType();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Interface#getDescription <em>Description</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.PortType#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Interface#getDescription()
-	 * @see #getInterface()
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.PortType#getName()
+	 * @see #getPortType()
 	 * @generated
 	 */
-	EAttribute getInterface_Description();
+	EAttribute getPortType_Name();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Interface#getHomePort <em>Home Port</em>}'.
+	 * Returns the meta object for the container reference '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.PortType#getComponent_type <em>Component type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Home Port</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Interface#getHomePort()
-	 * @see #getInterface()
+	 * @return the meta object for the container reference '<em>Component type</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.PortType#getComponent_type()
+	 * @see #getPortType()
 	 * @generated
 	 */
-	EReference getInterface_HomePort();
+	EReference getPortType_Component_type();
 
 	/**
-	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Dependency <em>Dependency</em>}'.
+	 * Returns the meta object for the reference list '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.PortType#getPort_instance <em>Port instance</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Dependency</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Dependency
+	 * @return the meta object for the reference list '<em>Port instance</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.PortType#getPort_instance()
+	 * @see #getPortType()
 	 * @generated
 	 */
-	EClass getDependency();
-
-	/**
-	 * Returns the meta object for the reference '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Dependency#getSupplier <em>Supplier</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Supplier</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Dependency#getSupplier()
-	 * @see #getDependency()
-	 * @generated
-	 */
-	EReference getDependency_Supplier();
-
-	/**
-	 * Returns the meta object for the reference '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Dependency#getClient <em>Client</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Client</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Dependency#getClient()
-	 * @see #getDependency()
-	 * @generated
-	 */
-	EReference getDependency_Client();
-
-	/**
-	 * Returns the meta object for enum '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentStereotype <em>Component Stereotype</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Component Stereotype</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentStereotype
-	 * @generated
-	 */
-	EEnum getComponentStereotype();
+	EReference getPortType_Port_instance();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -786,72 +1276,216 @@ public interface Component_diagramPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.ComponentDiagramImpl <em>Component Diagram</em>}' class.
+		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.ComponentTypeImpl <em>Component Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.ComponentDiagramImpl
-		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getComponentDiagram()
+		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.ComponentTypeImpl
+		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getComponentType()
 		 * @generated
 		 */
-		EClass COMPONENT_DIAGRAM = eINSTANCE.getComponentDiagram();
+		EClass COMPONENT_TYPE = eINSTANCE.getComponentType();
 
 		/**
-		 * The meta object literal for the '<em><b>Componet Container</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COMPONENT_DIAGRAM__COMPONET_CONTAINER = eINSTANCE.getComponentDiagram_ComponetContainer();
+		EAttribute COMPONENT_TYPE__NAME = eINSTANCE.getComponentType_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Interface Container</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Port types</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COMPONENT_DIAGRAM__INTERFACE_CONTAINER = eINSTANCE.getComponentDiagram_InterfaceContainer();
+		EReference COMPONENT_TYPE__PORT_TYPES = eINSTANCE.getComponentType_Port_types();
 
 		/**
-		 * The meta object literal for the '<em><b>Dependency Container</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Instance</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COMPONENT_DIAGRAM__DEPENDENCY_CONTAINER = eINSTANCE.getComponentDiagram_DependencyContainer();
+		EReference COMPONENT_TYPE__INSTANCE = eINSTANCE.getComponentType_Instance();
 
 		/**
-		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.ComponentImpl <em>Component</em>}' class.
+		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.ConnectorImpl <em>Connector</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.ComponentImpl
-		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getComponent()
+		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.ConnectorImpl
+		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getConnector()
 		 * @generated
 		 */
-		EClass COMPONENT = eINSTANCE.getComponent();
+		EClass CONNECTOR = eINSTANCE.getConnector();
 
 		/**
-		 * The meta object literal for the '<em><b>Stereotype</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute COMPONENT__STEREOTYPE = eINSTANCE.getComponent_Stereotype();
+		EAttribute CONNECTOR__NAME = eINSTANCE.getConnector_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Indirectly Instantiated</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Port</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute COMPONENT__IS_INDIRECTLY_INSTANTIATED = eINSTANCE.getComponent_IsIndirectlyInstantiated();
+		EReference CONNECTOR__PORT = eINSTANCE.getConnector_Port();
 
 		/**
-		 * The meta object literal for the '<em><b>Component Container</b></em>' reference list feature.
+		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.PortInstanceImpl <em>Port Instance</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.PortInstanceImpl
+		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getPortInstance()
+		 * @generated
+		 */
+		EClass PORT_INSTANCE = eINSTANCE.getPortInstance();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COMPONENT__COMPONENT_CONTAINER = eINSTANCE.getComponent_ComponentContainer();
+		EAttribute PORT_INSTANCE__NAME = eINSTANCE.getPortInstance_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Connect</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PORT_INSTANCE__CONNECT = eINSTANCE.getPortInstance_Connect();
+
+		/**
+		 * The meta object literal for the '<em><b>Out Component</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PORT_INSTANCE__OUT_COMPONENT = eINSTANCE.getPortInstance_OutComponent();
+
+		/**
+		 * The meta object literal for the '<em><b>In Component</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PORT_INSTANCE__IN_COMPONENT = eINSTANCE.getPortInstance_InComponent();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PORT_INSTANCE__TYPE = eINSTANCE.getPortInstance_Type();
+
+		/**
+		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.HardwareComponentImpl <em>Hardware Component</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.HardwareComponentImpl
+		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getHardwareComponent()
+		 * @generated
+		 */
+		EClass HARDWARE_COMPONENT = eINSTANCE.getHardwareComponent();
+
+		/**
+		 * The meta object literal for the '<em><b>Power Supply</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute HARDWARE_COMPONENT__POWER_SUPPLY = eINSTANCE.getHardwareComponent_PowerSupply();
+
+		/**
+		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.SoftwareComponentImpl <em>Software Component</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.SoftwareComponentImpl
+		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getSoftwareComponent()
+		 * @generated
+		 */
+		EClass SOFTWARE_COMPONENT = eINSTANCE.getSoftwareComponent();
+
+		/**
+		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.ElectronicDeviceImpl <em>Electronic Device</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.ElectronicDeviceImpl
+		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getElectronicDevice()
+		 * @generated
+		 */
+		EClass ELECTRONIC_DEVICE = eINSTANCE.getElectronicDevice();
+
+		/**
+		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.MechanicalDeviceImpl <em>Mechanical Device</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.MechanicalDeviceImpl
+		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getMechanicalDevice()
+		 * @generated
+		 */
+		EClass MECHANICAL_DEVICE = eINSTANCE.getMechanicalDevice();
+
+		/**
+		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.ActuatorImpl <em>Actuator</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.ActuatorImpl
+		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getActuator()
+		 * @generated
+		 */
+		EClass ACTUATOR = eINSTANCE.getActuator();
+
+		/**
+		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.SensorImpl <em>Sensor</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.SensorImpl
+		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getSensor()
+		 * @generated
+		 */
+		EClass SENSOR = eINSTANCE.getSensor();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SENSOR__TYPE = eINSTANCE.getSensor_Type();
+
+		/**
+		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.ArchitectureImpl <em>Architecture</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.ArchitectureImpl
+		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getArchitecture()
+		 * @generated
+		 */
+		EClass ARCHITECTURE = eINSTANCE.getArchitecture();
+
+		/**
+		 * The meta object literal for the '<em><b>Component</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ARCHITECTURE__COMPONENT = eINSTANCE.getArchitecture_Component();
+
+		/**
+		 * The meta object literal for the '<em><b>Connectors</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ARCHITECTURE__CONNECTORS = eINSTANCE.getArchitecture_Connectors();
 
 		/**
 		 * The meta object literal for the '<em><b>Ports</b></em>' containment reference list feature.
@@ -859,151 +1493,123 @@ public interface Component_diagramPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COMPONENT__PORTS = eINSTANCE.getComponent_Ports();
+		EReference ARCHITECTURE__PORTS = eINSTANCE.getArchitecture_Ports();
 
 		/**
-		 * The meta object literal for the '<em><b>Realization</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Instances</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COMPONENT__REALIZATION = eINSTANCE.getComponent_Realization();
+		EReference ARCHITECTURE__INSTANCES = eINSTANCE.getArchitecture_Instances();
 
 		/**
-		 * The meta object literal for the '<em><b>Diagram</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Port type</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COMPONENT__DIAGRAM = eINSTANCE.getComponent_Diagram();
+		EReference ARCHITECTURE__PORT_TYPE = eINSTANCE.getArchitecture_Port_type();
 
 		/**
-		 * The meta object literal for the '<em><b>On Depend</b></em>' reference list feature.
+		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.ComponentInstanceImpl <em>Component Instance</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.ComponentInstanceImpl
+		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getComponentInstance()
+		 * @generated
+		 */
+		EClass COMPONENT_INSTANCE = eINSTANCE.getComponentInstance();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COMPONENT__ON_DEPEND = eINSTANCE.getComponent_OnDepend();
+		EAttribute COMPONENT_INSTANCE__NAME = eINSTANCE.getComponentInstance_Name();
 
 		/**
-		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.PortImpl <em>Port</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.PortImpl
-		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getPort()
-		 * @generated
-		 */
-		EClass PORT = eINSTANCE.getPort();
-
-		/**
-		 * The meta object literal for the '<em><b>Protocol</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Subcomponent</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PORT__PROTOCOL = eINSTANCE.getPort_Protocol();
+		EReference COMPONENT_INSTANCE__SUBCOMPONENT = eINSTANCE.getComponentInstance_Subcomponent();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Behavior</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Parentcomponent</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PORT__IS_BEHAVIOR = eINSTANCE.getPort_IsBehavior();
+		EReference COMPONENT_INSTANCE__PARENTCOMPONENT = eINSTANCE.getComponentInstance_Parentcomponent();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Service</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>In Ports</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PORT__IS_SERVICE = eINSTANCE.getPort_IsService();
+		EReference COMPONENT_INSTANCE__IN_PORTS = eINSTANCE.getComponentInstance_InPorts();
 
 		/**
-		 * The meta object literal for the '<em><b>Required Interfaces</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Out Ports</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PORT__REQUIRED_INTERFACES = eINSTANCE.getPort_RequiredInterfaces();
+		EReference COMPONENT_INSTANCE__OUT_PORTS = eINSTANCE.getComponentInstance_OutPorts();
 
 		/**
-		 * The meta object literal for the '<em><b>Provided Interfaces</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PORT__PROVIDED_INTERFACES = eINSTANCE.getPort_ProvidedInterfaces();
+		EReference COMPONENT_INSTANCE__TYPE = eINSTANCE.getComponentInstance_Type();
 
 		/**
-		 * The meta object literal for the '<em><b>Port Host</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Version</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PORT__PORT_HOST = eINSTANCE.getPort_PortHost();
+		EAttribute COMPONENT_INSTANCE__VERSION = eINSTANCE.getComponentInstance_Version();
 
 		/**
-		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.InterfaceImpl <em>Interface</em>}' class.
+		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.PortTypeImpl <em>Port Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.InterfaceImpl
-		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getInterface()
+		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.PortTypeImpl
+		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getPortType()
 		 * @generated
 		 */
-		EClass INTERFACE = eINSTANCE.getInterface();
+		EClass PORT_TYPE = eINSTANCE.getPortType();
 
 		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute INTERFACE__DESCRIPTION = eINSTANCE.getInterface_Description();
-
-		/**
-		 * The meta object literal for the '<em><b>Home Port</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference INTERFACE__HOME_PORT = eINSTANCE.getInterface_HomePort();
+		EAttribute PORT_TYPE__NAME = eINSTANCE.getPortType_Name();
 
 		/**
-		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.DependencyImpl <em>Dependency</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.DependencyImpl
-		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getDependency()
-		 * @generated
-		 */
-		EClass DEPENDENCY = eINSTANCE.getDependency();
-
-		/**
-		 * The meta object literal for the '<em><b>Supplier</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Component type</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DEPENDENCY__SUPPLIER = eINSTANCE.getDependency_Supplier();
+		EReference PORT_TYPE__COMPONENT_TYPE = eINSTANCE.getPortType_Component_type();
 
 		/**
-		 * The meta object literal for the '<em><b>Client</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Port instance</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DEPENDENCY__CLIENT = eINSTANCE.getDependency_Client();
-
-		/**
-		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentStereotype <em>Component Stereotype</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentStereotype
-		 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.Component_diagramPackageImpl#getComponentStereotype()
-		 * @generated
-		 */
-		EEnum COMPONENT_STEREOTYPE = eINSTANCE.getComponentStereotype();
+		EReference PORT_TYPE__PORT_INSTANCE = eINSTANCE.getPortType_Port_instance();
 
 	}
 

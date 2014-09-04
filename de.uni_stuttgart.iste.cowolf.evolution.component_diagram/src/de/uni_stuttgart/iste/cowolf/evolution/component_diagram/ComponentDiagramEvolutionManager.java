@@ -1,15 +1,16 @@
 package de.uni_stuttgart.iste.cowolf.evolution.component_diagram;
 
 import org.eclipse.emf.ecore.EObject;
+
 import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
 import de.uni_stuttgart.iste.cowolf.evolution.EvolutionTypeInfo;
-import de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentDiagram;
+import de.uni_stuttgart.iste.cowolf.model.component_diagram.Architecture;
 
 public class ComponentDiagramEvolutionManager extends AbstractEvolutionManager {
 
 	@Override
 	protected Class<? extends EObject> getManagedClass() {
-		return ComponentDiagram.class;
+		return Architecture.class;
 	}
 
 	@Override

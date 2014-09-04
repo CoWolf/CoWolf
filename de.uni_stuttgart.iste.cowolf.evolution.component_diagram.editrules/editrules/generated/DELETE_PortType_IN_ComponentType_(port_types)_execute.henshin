@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_1S2QcDN5EeSNuISj7DMDOA" name="DELETE_PortType_IN_ComponentType_(port_types)" description="Deletes one PortType in ComponentType">
+  <imports href="http://component_diagram/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_1S2QcTN5EeSNuISj7DMDOA" name="deletePortType_IN_ComponentType" description="deletes one PortType in the context: ComponentType">
+    <parameters xmi:id="_1S2QcjN5EeSNuISj7DMDOA" name="Selected"/>
+    <parameters xmi:id="_1S2QczN5EeSNuISj7DMDOA" name="ToBeDeleted"/>
+    <lhs xmi:id="_1S2QdDN5EeSNuISj7DMDOA" name="LHS">
+      <nodes xmi:id="_1S2QdTN5EeSNuISj7DMDOA" name="Selected" incoming="_1S2QeDN5EeSNuISj7DMDOA" outgoing="_1S2QdzN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//ComponentType"/>
+      </nodes>
+      <nodes xmi:id="_1S2QdjN5EeSNuISj7DMDOA" name="ToBeDeleted" incoming="_1S2QdzN5EeSNuISj7DMDOA" outgoing="_1S2QeDN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//PortType"/>
+      </nodes>
+      <edges xmi:id="_1S2QdzN5EeSNuISj7DMDOA" source="_1S2QdTN5EeSNuISj7DMDOA" target="_1S2QdjN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//ComponentType/port_types"/>
+      </edges>
+      <edges xmi:id="_1S2QeDN5EeSNuISj7DMDOA" source="_1S2QdjN5EeSNuISj7DMDOA" target="_1S2QdTN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//PortType/component_type"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_1S2QeTN5EeSNuISj7DMDOA" name="RHS">
+      <nodes xmi:id="_1S2QejN5EeSNuISj7DMDOA" name="Selected">
+        <type href="http://component_diagram/1.0#//ComponentType"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_1S2QezN5EeSNuISj7DMDOA" origin="_1S2QdTN5EeSNuISj7DMDOA" image="_1S2QejN5EeSNuISj7DMDOA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_1S2QfDN5EeSNuISj7DMDOA" name="mainUnit" description="Deletes one PortType depending on available contexts in model instance" subUnits="_1S2QcTN5EeSNuISj7DMDOA">
+    <parameters xmi:id="_1S2QfTN5EeSNuISj7DMDOA" name="ToBeDeleted"/>
+    <parameters xmi:id="_1S2QfjN5EeSNuISj7DMDOA" name="selectedEObject"/>
+    <parameterMappings xmi:id="_1S2QfzN5EeSNuISj7DMDOA" source="_1S2QfjN5EeSNuISj7DMDOA" target="_1S2QcjN5EeSNuISj7DMDOA"/>
+    <parameterMappings xmi:id="_1S2QgDN5EeSNuISj7DMDOA" source="_1S2QfTN5EeSNuISj7DMDOA" target="_1S2QczN5EeSNuISj7DMDOA"/>
+  </units>
+</henshin:Module>

@@ -2,9 +2,6 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.component_diagram.util;
 
-import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
-import de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase;
-
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.*;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -71,32 +68,52 @@ public class Component_diagramAdapterFactory extends AdapterFactoryImpl {
 	protected Component_diagramSwitch<Adapter> modelSwitch =
 		new Component_diagramSwitch<Adapter>() {
 			@Override
-			public Adapter caseComponentDiagram(ComponentDiagram object) {
-				return createComponentDiagramAdapter();
+			public Adapter caseComponentType(ComponentType object) {
+				return createComponentTypeAdapter();
 			}
 			@Override
-			public Adapter caseComponent(Component object) {
-				return createComponentAdapter();
+			public Adapter caseConnector(Connector object) {
+				return createConnectorAdapter();
 			}
 			@Override
-			public Adapter casePort(Port object) {
-				return createPortAdapter();
+			public Adapter casePortInstance(PortInstance object) {
+				return createPortInstanceAdapter();
 			}
 			@Override
-			public Adapter caseInterface(Interface object) {
-				return createInterfaceAdapter();
+			public Adapter caseHardwareComponent(HardwareComponent object) {
+				return createHardwareComponentAdapter();
 			}
 			@Override
-			public Adapter caseDependency(Dependency object) {
-				return createDependencyAdapter();
+			public Adapter caseSoftwareComponent(SoftwareComponent object) {
+				return createSoftwareComponentAdapter();
 			}
 			@Override
-			public Adapter caseIDBase(IDBase object) {
-				return createIDBaseAdapter();
+			public Adapter caseElectronicDevice(ElectronicDevice object) {
+				return createElectronicDeviceAdapter();
 			}
 			@Override
-			public Adapter caseNameBase(NameBase object) {
-				return createNameBaseAdapter();
+			public Adapter caseMechanicalDevice(MechanicalDevice object) {
+				return createMechanicalDeviceAdapter();
+			}
+			@Override
+			public Adapter caseActuator(Actuator object) {
+				return createActuatorAdapter();
+			}
+			@Override
+			public Adapter caseSensor(Sensor object) {
+				return createSensorAdapter();
+			}
+			@Override
+			public Adapter caseArchitecture(Architecture object) {
+				return createArchitectureAdapter();
+			}
+			@Override
+			public Adapter caseComponentInstance(ComponentInstance object) {
+				return createComponentInstanceAdapter();
+			}
+			@Override
+			public Adapter casePortType(PortType object) {
+				return createPortTypeAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -119,100 +136,170 @@ public class Component_diagramAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentDiagram <em>Component Diagram</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentType <em>Component Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentDiagram
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentType
 	 * @generated
 	 */
-	public Adapter createComponentDiagramAdapter() {
+	public Adapter createComponentTypeAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Component <em>Component</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Connector <em>Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Connector
 	 * @generated
 	 */
-	public Adapter createComponentAdapter() {
+	public Adapter createConnectorAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Port <em>Port</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.PortInstance <em>Port Instance</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Port
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.PortInstance
 	 * @generated
 	 */
-	public Adapter createPortAdapter() {
+	public Adapter createPortInstanceAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Interface <em>Interface</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.HardwareComponent <em>Hardware Component</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Interface
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.HardwareComponent
 	 * @generated
 	 */
-	public Adapter createInterfaceAdapter() {
+	public Adapter createHardwareComponentAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Dependency <em>Dependency</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.SoftwareComponent <em>Software Component</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Dependency
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.SoftwareComponent
 	 * @generated
 	 */
-	public Adapter createDependencyAdapter() {
+	public Adapter createSoftwareComponentAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase <em>ID Base</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.ElectronicDevice <em>Electronic Device</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.ElectronicDevice
 	 * @generated
 	 */
-	public Adapter createIDBaseAdapter() {
+	public Adapter createElectronicDeviceAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase <em>Name Base</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.MechanicalDevice <em>Mechanical Device</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.MechanicalDevice
 	 * @generated
 	 */
-	public Adapter createNameBaseAdapter() {
+	public Adapter createMechanicalDeviceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Actuator <em>Actuator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Actuator
+	 * @generated
+	 */
+	public Adapter createActuatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Sensor <em>Sensor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Sensor
+	 * @generated
+	 */
+	public Adapter createSensorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.Architecture <em>Architecture</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Architecture
+	 * @generated
+	 */
+	public Adapter createArchitectureAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentInstance <em>Component Instance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentInstance
+	 * @generated
+	 */
+	public Adapter createComponentInstanceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.PortType <em>Port Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.PortType
+	 * @generated
+	 */
+	public Adapter createPortTypeAdapter() {
 		return null;
 	}
 

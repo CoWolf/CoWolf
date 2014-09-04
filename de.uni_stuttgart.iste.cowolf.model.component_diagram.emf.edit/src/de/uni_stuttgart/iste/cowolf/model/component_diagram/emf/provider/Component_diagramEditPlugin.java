@@ -2,8 +2,6 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.component_diagram.emf.provider;
 
-import de.uni_stuttgart.iste.cowolf.model.commonBase.emf.provider.CommonBaseEditPlugin;
-
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -40,7 +38,6 @@ public final class Component_diagramEditPlugin extends EMFPlugin {
 	public Component_diagramEditPlugin() {
 		super
 		  (new ResourceLocator [] {
-		     CommonBaseEditPlugin.INSTANCE,
 		   });
 	}
 

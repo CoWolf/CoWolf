@@ -4,53 +4,62 @@
     editDirectory="/de.uni_stuttgart.iste.cowolf.model.component_diagram.emf.edit/src"
     editorDirectory="/de.uni_stuttgart.iste.cowolf.model.component_diagram.emf.editor/src"
     modelPluginID="de.uni_stuttgart.iste.cowolf.model.component_diagram" modelName="Component_diagram"
+    editPluginClass="de.uni_stuttgart.iste.cowolf.model.component_diagram.emf.provider.Component_diagramEditPlugin"
+    editorPluginClass="de.uni_stuttgart.iste.cowolf.model.component_diagram.emf.presentation.Component_diagramEditorPlugin"
     rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
     complianceLevel="7.0" copyrightFields="false" editPluginID="de.uni_stuttgart.iste.cowolf.model.component_diagram.emf.edit"
     editorPluginID="de.uni_stuttgart.iste.cowolf.model.component_diagram.emf.editor"
-    usedGenPackages="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.genmodel#//commonBase"
-    operationReflection="true" importOrganizing="true" decoration="Live">
+    operationReflection="true" importOrganizing="true">
   <foreignModel>component_diagram.ecore</foreignModel>
   <genPackages prefix="Component_diagram" basePackage="de.uni_stuttgart.iste.cowolf.model"
       disposableProviderFactory="true" providerPackageSuffix="emf.provider" presentationPackageSuffix="emf.presentation"
-      testsPackageSuffix="emf.tests" multipleEditorPages="false" ecorePackage="component_diagram.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="component_diagram.ecore#//ComponentStereotype">
-      <genEnumLiterals ecoreEnumLiteral="component_diagram.ecore#//ComponentStereotype/Component"/>
-      <genEnumLiterals ecoreEnumLiteral="component_diagram.ecore#//ComponentStereotype/Subsystem"/>
-      <genEnumLiterals ecoreEnumLiteral="component_diagram.ecore#//ComponentStereotype/Process"/>
-      <genEnumLiterals ecoreEnumLiteral="component_diagram.ecore#//ComponentStereotype/Service"/>
-      <genEnumLiterals ecoreEnumLiteral="component_diagram.ecore#//ComponentStereotype/Specification"/>
-      <genEnumLiterals ecoreEnumLiteral="component_diagram.ecore#//ComponentStereotype/Realization"/>
-      <genEnumLiterals ecoreEnumLiteral="component_diagram.ecore#//ComponentStereotype/Implement"/>
-    </genEnums>
-    <genClasses ecoreClass="component_diagram.ecore#//ComponentDiagram">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component_diagram.ecore#//ComponentDiagram/componetContainer"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component_diagram.ecore#//ComponentDiagram/interfaceContainer"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component_diagram.ecore#//ComponentDiagram/dependencyContainer"/>
+      testsPackageSuffix="emf.tests" ecorePackage="component_diagram.ecore#/">
+    <genClasses image="false" ecoreClass="component_diagram.ecore#//ComponentType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component_diagram.ecore#//ComponentType/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component_diagram.ecore#//ComponentType/port_types"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component_diagram.ecore#//ComponentType/instance"/>
     </genClasses>
-    <genClasses ecoreClass="component_diagram.ecore#//Component">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component_diagram.ecore#//Component/stereotype"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component_diagram.ecore#//Component/isIndirectlyInstantiated"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component_diagram.ecore#//Component/componentContainer"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component_diagram.ecore#//Component/ports"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component_diagram.ecore#//Component/realization"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference component_diagram.ecore#//Component/diagram"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component_diagram.ecore#//Component/onDepend"/>
+    <genClasses ecoreClass="component_diagram.ecore#//Connector">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component_diagram.ecore#//Connector/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component_diagram.ecore#//Connector/port"/>
     </genClasses>
-    <genClasses ecoreClass="component_diagram.ecore#//Port">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component_diagram.ecore#//Port/protocol"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component_diagram.ecore#//Port/isBehavior"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component_diagram.ecore#//Port/isService"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component_diagram.ecore#//Port/requiredInterfaces"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component_diagram.ecore#//Port/providedInterfaces"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference component_diagram.ecore#//Port/portHost"/>
+    <genClasses ecoreClass="component_diagram.ecore#//PortInstance">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component_diagram.ecore#//PortInstance/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component_diagram.ecore#//PortInstance/connect"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference component_diagram.ecore#//PortInstance/outComponent"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference component_diagram.ecore#//PortInstance/inComponent"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component_diagram.ecore#//PortInstance/type"/>
     </genClasses>
-    <genClasses ecoreClass="component_diagram.ecore#//Interface">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component_diagram.ecore#//Interface/description"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component_diagram.ecore#//Interface/homePort"/>
+    <genClasses ecoreClass="component_diagram.ecore#//HardwareComponent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component_diagram.ecore#//HardwareComponent/powerSupply"/>
     </genClasses>
-    <genClasses ecoreClass="component_diagram.ecore#//Dependency">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component_diagram.ecore#//Dependency/supplier"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component_diagram.ecore#//Dependency/client"/>
+    <genClasses ecoreClass="component_diagram.ecore#//SoftwareComponent"/>
+    <genClasses ecoreClass="component_diagram.ecore#//ElectronicDevice"/>
+    <genClasses ecoreClass="component_diagram.ecore#//MechanicalDevice"/>
+    <genClasses ecoreClass="component_diagram.ecore#//Actuator"/>
+    <genClasses ecoreClass="component_diagram.ecore#//Sensor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component_diagram.ecore#//Sensor/type"/>
+    </genClasses>
+    <genClasses ecoreClass="component_diagram.ecore#//Architecture">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component_diagram.ecore#//Architecture/component"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component_diagram.ecore#//Architecture/connectors"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component_diagram.ecore#//Architecture/ports"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component_diagram.ecore#//Architecture/instances"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component_diagram.ecore#//Architecture/port_type"/>
+    </genClasses>
+    <genClasses ecoreClass="component_diagram.ecore#//ComponentInstance">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component_diagram.ecore#//ComponentInstance/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component_diagram.ecore#//ComponentInstance/subcomponent"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference component_diagram.ecore#//ComponentInstance/parentcomponent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component_diagram.ecore#//ComponentInstance/inPorts"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component_diagram.ecore#//ComponentInstance/outPorts"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component_diagram.ecore#//ComponentInstance/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component_diagram.ecore#//ComponentInstance/version"/>
+    </genClasses>
+    <genClasses ecoreClass="component_diagram.ecore#//PortType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component_diagram.ecore#//PortType/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference component_diagram.ecore#//PortType/component_type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component_diagram.ecore#//PortType/port_instance"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
