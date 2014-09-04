@@ -8,16 +8,16 @@ import java.io.Reader;
 
 public class CommandLineExecutor {
 
-	public static void execCommand(String directory, String command) throws Exception {
+	public static void execCommand(String directory, String command, String consoleName) throws Exception {
 		Reader r = new InputStreamReader(execCommandAndGetStream(directory,
-				command));
+				command, consoleName));
 		BufferedReader in = new BufferedReader(r);
 		while ((in.readLine()) != null) { /* Read output until process finished. */
 		}
 		in.close();
 	}
 
-	public static InputStream execCommandAndGetStream(String directory, String command)
+	public static InputStream execCommandAndGetStream(String directory, String command, String consolename)
 			throws Exception {
 		File dir = new File(directory);
 		Process process;
@@ -28,7 +28,7 @@ public class CommandLineExecutor {
 		} else {
 			throw new Exception(Messages.commandLineExecutor_unknown_operating_system);
 		}
-		return process.getInputStream();
+		return new PrintToExtensionsInputStream(process.getInputStream());
 	}
 
 	static boolean isWindowsSystem() {

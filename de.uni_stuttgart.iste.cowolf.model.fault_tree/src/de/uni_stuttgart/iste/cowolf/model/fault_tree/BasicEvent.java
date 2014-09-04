@@ -20,7 +20,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreePackage#getBasicEvent()
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='NoStandaloneBasicEvent'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot NoStandaloneBasicEvent='self.inputGate->size() + self.outputGate->size() + self.outEvent->size()> 0'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL NoStandaloneBasicEvent='self.inputGate->size() + self.outputGate->size() + self.outEvent->size()> 0'"
  * @generated
  */
 public interface BasicEvent extends Event {

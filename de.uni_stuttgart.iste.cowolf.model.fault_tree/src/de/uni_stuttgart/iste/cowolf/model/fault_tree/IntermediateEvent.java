@@ -20,7 +20,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreePackage#getIntermediateEvent()
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='OnlyIntermediateOrBasicEventAsInput NoStandaloneIntermediateEvent OnlyIntermediateOrHazardtAsOutput'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot OnlyIntermediateOrBasicEventAsInput='self.inEvent->forAll(e : Event | (e.oclIsTypeOf(IntermediateEvent) or e.oclIsTypeOf(BasicEvent)))' NoStandaloneIntermediateEvent='self.inputGate->size() + self.outputGate->size() + self.inEvent->size() + self.outEvent->size()> 0' OnlyIntermediateOrHazardtAsOutput='self.outEvent->forAll(e : Event | (e.oclIsTypeOf(IntermediateEvent) or e.oclIsTypeOf(Hazard)))'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL OnlyIntermediateOrBasicEventAsInput='self.inEvent->forAll(e : Event | (e.oclIsTypeOf(IntermediateEvent) or e.oclIsTypeOf(BasicEvent)))' NoStandaloneIntermediateEvent='self.inputGate->size() + self.outputGate->size() + self.inEvent->size() + self.outEvent->size()> 0' OnlyIntermediateOrHazardtAsOutput='self.outEvent->forAll(e : Event | (e.oclIsTypeOf(IntermediateEvent) or e.oclIsTypeOf(Hazard)))'"
  * @generated
  */
 public interface IntermediateEvent extends Event {

@@ -148,7 +148,7 @@ public class DTMCAnalyzeJob extends Job {
 			Reader r = new InputStreamReader(
 					CommandLineExecutor.execCommandAndGetStream(this.prismRootPath,
 							"prism " + this.prismPMPath + " " + this.prismPCTLPath
-									+ " -exportresults " + this.prismResultPath + this.prismParameters));
+									+ " -exportresults " + this.prismResultPath + this.prismParameters, "Analyze DTMC with PRISM"));
 			BufferedReader in = new BufferedReader(r);
 			String line;
 			while ((line = in.readLine()) != null) {
