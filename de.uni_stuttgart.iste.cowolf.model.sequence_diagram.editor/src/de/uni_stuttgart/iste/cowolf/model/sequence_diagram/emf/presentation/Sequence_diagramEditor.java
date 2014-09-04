@@ -156,9 +156,11 @@ import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.emf.provider.Sequence_diagramItemProviderAdapterFactory;
 
-import de.uni_stuttgart.iste.cowolf.model.commonBase.emf.provider.CommonBaseItemProviderAdapterFactory;
+import org.eclipse.emf.ecore.provider.EcoreItemProviderAdapterFactory;
 
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
+
+import org.eclipse.uml2.uml.edit.providers.UMLItemProviderAdapterFactory;
 
 
 /**
@@ -704,7 +706,8 @@ public class Sequence_diagramEditor
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new Sequence_diagramItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new CommonBaseItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new EcoreItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new UMLItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.

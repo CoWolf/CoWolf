@@ -1,6 +1,6 @@
 /**
  */
-package de.uni_stuttgart.iste.cowolf.model.sequence_diagram.emf.tests;
+package sequence_diagram.tests;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
