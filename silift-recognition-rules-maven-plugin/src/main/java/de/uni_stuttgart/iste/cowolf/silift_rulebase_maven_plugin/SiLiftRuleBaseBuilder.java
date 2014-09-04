@@ -1,4 +1,4 @@
-package de.uni_stuttgart.iste.cowolf.silift_recognition_rules_maven_plugin;
+package de.uni_stuttgart.iste.cowolf.silift_rulebase_maven_plugin;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -17,12 +17,12 @@ import java.util.regex.Pattern;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
+import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
+import org.eclipse.core.internal.resources.ProjectDescriptionReader;
 import org.eclipse.core.resources.IProjectDescription;
-import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.henshin.model.Module;
@@ -33,19 +33,18 @@ import org.sidiff.difference.rulebase.wrapper.RuleBaseWrapper;
 import org.sidiff.difference.rulebase.wrapper.util.Edit2RecognitionException;
 import org.sidiff.editrule.validation.EditRuleValidation;
 import org.sidiff.editrule.validation.EditRuleValidator;
+import org.xml.sax.InputSource;
 
 /**
- * Builds the SiLift rulebase and generates the recognition rules that are needed for the comparison of two
- * model versions.
+ * Builds the SiLift rulebase and generates the recognition rules that are
+ * needed for the comparison of two model versions.
  * 
  * @author Rene Trefft
- * 
- * @goal generate
- * @phase generate-sources
  */
-@Mojo(name = "")
-public class RecognitionRulesGenerator extends AbstractMojo {
+@Mojo(name = "build" , defaultPhase = LifecyclePhase.GENERATE_SOURCES)
+public class SiLiftRuleBaseBuilder extends AbstractMojo {
 
+	
 	RuleBaseWrapper ruleBaseWrapper = null;
 
 	/**
@@ -55,7 +54,6 @@ public class RecognitionRulesGenerator extends AbstractMojo {
 	private MavenProject project;
 
 	/**
-	 * 
 	 * @param projectRoot
 	 * @return
 	 */
@@ -68,9 +66,9 @@ public class RecognitionRulesGenerator extends AbstractMojo {
 
 			InputStream projectDescriptionInputStream = new BufferedInputStream(
 					new FileInputStream(projectDescriptionFile));
-			IProjectDescription projectDescription = ResourcesPlugin
-					.getWorkspace().loadProjectDescription(
-							projectDescriptionInputStream);
+
+			IProjectDescription projectDescription = new ProjectDescriptionReader()
+					.read(new InputSource(projectDescriptionInputStream));
 
 			String[] projectNatures = projectDescription.getNatureIds();
 
@@ -78,22 +76,22 @@ public class RecognitionRulesGenerator extends AbstractMojo {
 
 				if (projectNature.equals(RuleBaseProjectNature.NATURE_ID)) {
 					getLog().info(
-							"Artifact " + project.getArtifactId()
-									+ " is a Rulebase project.");
+							"Artifact \"" + project.getArtifactId()
+									+ "\" is a Rulebase project.");
 					return true;
 				}
 
 			}
 
 			getLog().debug(
-					"Artifact " + project.getArtifactId()
-							+ " is not a Rulebase project.");
+					"Artifact \"" + project.getArtifactId()
+							+ "\" is not a Rulebase project.");
 
-		} catch (CoreException | FileNotFoundException e) {
+		} catch (FileNotFoundException e) {
 			getLog().debug(
-					"Artifact "
+					"Artifact \""
 							+ project.getArtifactId()
-							+ " is not a valid Eclipse project, because project description file is invalid or missing.");
+							+ "\" is not a Eclipse project, because project description file \".project\" is invalid or missing.");
 		}
 
 		return false;
@@ -101,7 +99,6 @@ public class RecognitionRulesGenerator extends AbstractMojo {
 	}
 
 	/**
-	 * 
 	 * @param editRule
 	 * @return
 	 * @throws MojoExecutionException
@@ -109,7 +106,10 @@ public class RecognitionRulesGenerator extends AbstractMojo {
 	private boolean validateEditRule(File editRule)
 			throws MojoExecutionException {
 
-		getLog().debug("Validating editrule \"" + editRule.getPath() + "\"...");
+		getLog().debug(
+				"Validating editrule \"" + editRule.getPath()
+						+ "\" of artifact \"" + project.getArtifactId()
+						+ "\"...");
 
 		HenshinResourceSet resourceSet = new HenshinResourceSet();
 		Module editModule = resourceSet.getModule(editRule.getPath());
@@ -141,16 +141,21 @@ public class RecognitionRulesGenerator extends AbstractMojo {
 
 		}
 
+		getLog().debug(
+				"Validating editrule \"" + editRule.getPath()
+						+ "\" of artifact \"" + project.getArtifactId()
+						+ "\" completed.");
+
 		return noValidationErrors;
 
 	}
 
 	/**
-	 * 
 	 * @param editRules
 	 * @throws MojoExecutionException
 	 */
-	private void validateAndGenerateRecognitionRules(List<File> editRules) throws MojoExecutionException {
+	private void validateAndGenerateRecognitionRules(List<File> editRules)
+			throws MojoExecutionException {
 
 		getLog().info(
 				"Validating edit rules and generating recognition rules of them in artifact \""
@@ -160,7 +165,7 @@ public class RecognitionRulesGenerator extends AbstractMojo {
 
 			boolean noValidationErrors = validateEditRule(editRule);
 
-			if (!noValidationErrors) {
+			if (noValidationErrors) {
 
 				try {
 					generateRecognitionRule(editRule);
@@ -214,11 +219,9 @@ public class RecognitionRulesGenerator extends AbstractMojo {
 			getLog().warn(
 					"Artifact "
 							+ project.getArtifactId()
-							+ " is a Rulebase project, but has no editrules in the editrules directory.");
+							+ " is a Rulebase project, but has no rules in the editrules directory.");
 			return;
 		}
-		
-		
 
 		validateAndGenerateRecognitionRules(editRules);
 
@@ -231,7 +234,6 @@ public class RecognitionRulesGenerator extends AbstractMojo {
 	}
 
 	/**
-	 * 
 	 * @throws IOException
 	 */
 	private void buildRuleBase() throws IOException {
@@ -244,7 +246,6 @@ public class RecognitionRulesGenerator extends AbstractMojo {
 	}
 
 	/**
-	 * 
 	 * @return
 	 */
 	private RuleBaseWrapper getRuleBaseWrapper() {
@@ -261,7 +262,7 @@ public class RecognitionRulesGenerator extends AbstractMojo {
 			RuleBaseWrapper ruleBaseWrapper = new RuleBaseWrapper(ruleBaseURI,
 					recognitionRulesDir, editRulesDir, false);
 
-			ruleBaseWrapper.setName(getRuleBaseName());
+			ruleBaseWrapper.setName(chooseRuleBaseName());
 
 		}
 
@@ -279,10 +280,9 @@ public class RecognitionRulesGenerator extends AbstractMojo {
 	}
 
 	/**
-	 * 
 	 * @return
 	 */
-	private String getRuleBaseName() {
+	private String chooseRuleBaseName() {
 
 		File bundleManifestFile = new File(project.getBasedir()
 				+ File.separator + "META-INF" + File.separator + "MANIFEST.MF");
@@ -310,11 +310,10 @@ public class RecognitionRulesGenerator extends AbstractMojo {
 					String bundleName = matcher.group(1);
 					getLog().debug(
 							"Bundle name \"" + bundleName
-									+ "\" used for name of rulebase.");
+									+ "\" used as name of rulebase.");
 					return matcher.group(1);
 				} else {
-					getLog().debug(
-							"Bundle name not defined in manifest.");
+					getLog().debug("Bundle name not defined in manifest.");
 				}
 
 			} catch (IOException exc) {
@@ -340,7 +339,7 @@ public class RecognitionRulesGenerator extends AbstractMojo {
 		if (artifactName != null) {
 			getLog().debug(
 					"Maven artifact name \"" + artifactName
-							+ "\" used for name of rulebase.");
+							+ "\" used as name of rulebase.");
 			return artifactName;
 		}
 
@@ -358,6 +357,7 @@ public class RecognitionRulesGenerator extends AbstractMojo {
 	private void listHenshinFilesRecursively(File dir, List<File> henshinFiles) {
 
 		File[] files = dir.listFiles(new FilenameFilter() {
+
 			@Override
 			public boolean accept(File dir, String name) {
 				return name.toLowerCase().endsWith(".henshin");
