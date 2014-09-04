@@ -206,7 +206,7 @@ public class ConstructTree {
 				// should be linked with a basic event.
 
 				// Create BasicEvent.
-				int eventID = HenshinTransformations.getFreeEventID(null, false);
+				int eventID = HenshinTransformations.getFreeEventID(saGraph, false);
 				result = HenshinTransformations.createBasicEvent(eventID, eventName, "", saGraph, true);
 
 				// If this is the first ErrorInstance, then create the default

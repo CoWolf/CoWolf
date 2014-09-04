@@ -660,7 +660,7 @@ public class ChangeTree {
 		}
 	}
 
-	private static void init(Resource sa, Resource ft) {
+	public static void init(Resource sa, Resource ft) {
 		// Add the own extension to importable instance models.
 		TransformationsUtil.registerExtensions();
 
@@ -684,7 +684,7 @@ public class ChangeTree {
 	/**
 	 * Provides the functionality to adjust the fault tree based on the changes in SA.
 	 */
-	public static void run(Resource sa, Resource ft,
+	public static EGraph run(Resource sa, Resource ft,
 	/* EList<Diff> changes */List<String> newComponentTypes, List<String> newPortTypes, List<String> newComponentInstances, List<String> newPortInstances,
 			List<String> newSubComponentInstances, List<String> newConnectors) {
 		/*
@@ -733,12 +733,8 @@ public class ChangeTree {
 		saInstanceModel = TransformationsUtil.getSAInstanceModel(saGraph, saInstanceModel);
 		faulttreeInstanceModel = TransformationsUtil.getFaultTreeInstanceModel(saGraph, faulttreeInstanceModel);
 
-		// Save the models.
-		TransformationsLogger.log("Saving models...");
-		TransformationsUtil.saveResource(saInstanceModel);
-		TransformationsUtil.saveResource(faulttreeInstanceModel);
-
 		// Logging.
 		TransformationsLogger.log("Construction of FaultTree terminated.");
+		return saGraph;
 	}
 }
