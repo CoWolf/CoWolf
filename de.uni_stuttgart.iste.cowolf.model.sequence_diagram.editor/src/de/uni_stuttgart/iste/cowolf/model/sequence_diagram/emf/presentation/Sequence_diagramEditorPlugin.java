@@ -2,13 +2,15 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.sequence_diagram.emf.presentation;
 
-import de.uni_stuttgart.iste.cowolf.model.commonBase.emf.provider.CommonBaseEditPlugin;
-
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+
+import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
+
+import org.eclipse.uml2.uml.edit.UMLEditPlugin;
 
 /**
  * This is the central singleton for the Sequence_diagram editor plugin.
@@ -42,7 +44,8 @@ public final class Sequence_diagramEditorPlugin extends EMFPlugin {
 	public Sequence_diagramEditorPlugin() {
 		super
 			(new ResourceLocator [] {
-				CommonBaseEditPlugin.INSTANCE,
+				EcoreEditPlugin.INSTANCE,
+				UMLEditPlugin.INSTANCE,
 			});
 	}
 

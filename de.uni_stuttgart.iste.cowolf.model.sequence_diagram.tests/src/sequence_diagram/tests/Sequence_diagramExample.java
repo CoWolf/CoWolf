@@ -1,20 +1,27 @@
 /**
  */
-package de.uni_stuttgart.iste.cowolf.model.sequence_diagram.emf.tests;
+package sequence_diagram.tests;
 
-import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence;
-import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramFactory;
-import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramPackage;
-import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.util.Sequence_diagramResourceFactoryImpl;
 import java.io.File;
 import java.io.IOException;
+
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
+
 import org.eclipse.emf.ecore.EObject;
+
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+
 import org.eclipse.emf.ecore.util.Diagnostician;
+
+import sequence_diagram.Sequence;
+import sequence_diagram.Sequence_diagramFactory;
+import sequence_diagram.Sequence_diagramPackage;
+
+import sequence_diagram.util.Sequence_diagramResourceFactoryImpl;
 
 /**
  * <!-- begin-user-doc -->
