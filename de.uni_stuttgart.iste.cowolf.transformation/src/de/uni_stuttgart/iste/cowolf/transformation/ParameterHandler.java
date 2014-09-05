@@ -39,7 +39,7 @@ public class ParameterHandler {
         if (change instanceof AttributeValueChange) {
             Reference ref = parameter.getReference();
             EObject obj = null;
-            if (ref.getName().equals("objA")) {
+            if ("objA".equals(ref.getName())) {
                 obj = ((AttributeValueChange) change).getObjA();
             } else {
                 obj = ((AttributeValueChange) change).getObjB();
@@ -97,10 +97,24 @@ public class ParameterHandler {
             return this.handleAddObject((AddObject) change);
         } else if (change instanceof RemoveObject) {
             return this.handleRemoveObject((RemoveObject) change);
+        } else if (change instanceof AttributeValueChange) {
+        	return this.handleAttributeValueChange((AttributeValueChange) change);
         }
         return result;
     }
-    /**
+    private Object handleAttributeValueChange(AttributeValueChange change) {
+    	Reference reference = this.parameter.getChange().getReference();
+    	
+    	EObject obj = null;
+        if (reference.getName().equals("objA")) {
+            obj = change.getObjA();
+        } else if (reference.getName().equals("objB")) {
+            obj = change.getObjB();
+        }
+        return this.getStructuralFeature(obj);
+	}
+
+	/**
      * Handles the case when the {@link Change} is an instance of
      * {@link RemoveObject} class.
      * 
