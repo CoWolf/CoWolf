@@ -28,13 +28,8 @@
 			<scope>system</scope>
 			<systemPath>${project.basedir}/lib/org.sidiff.difference.rulebase_0.1.0.201409031903.jar</systemPath>
 		</dependency>
-		<dependency>
-			<groupId>org.sidiff</groupId>
-			<artifactId>org.sidiff.difference.rulebase.project</artifactId>
-			<version>0.1.0.201409031903</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/lib/org.sidiff.difference.rulebase.project_0.1.0.201409031903.jar</systemPath>
-		</dependency>
+
+
 		<dependency>
 			<groupId>org.sidiff</groupId>
 			<artifactId>org.sidiff.difference.rulebase.wrapper</artifactId>
@@ -43,15 +38,31 @@
 			<systemPath>${project.basedir}/lib/org.sidiff.difference.rulebase.wrapper_0.1.0.201409031903.jar</systemPath>
 		</dependency>
 		<dependency>
+			<groupId>org.sidiff</groupId>
+			<artifactId>org.sidiff.difference.lifting.edit2recognition</artifactId>
+			<version>0.1.0.201409031903</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/org.sidiff.difference.lifting.edit2recognition_0.1.0.201409031903.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.sidiff</groupId>
+			<artifactId>org.silift.common.util</artifactId>
+			<version>0.1.0.201409031903</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/org.silift.common.util_0.1.0.201409031903.jar</systemPath>
+		</dependency>
+		<dependency>
 			<groupId>org.apache.maven</groupId>
 			<artifactId>maven-core</artifactId>
 			<version>3.2.3</version>
 		</dependency>
 		<dependency>
-			<groupId>org.eclipse.birt.runtime</groupId>
-			<artifactId>org.eclipse.core.resources</artifactId>
-			<version>3.9.0.v20140514-1307</version>
+			<groupId>org.eclipse.emf</groupId>
+			<artifactId>org.eclipse.emf.ecore.xmi</artifactId>
+			<version>2.10.0-v20140514-1158</version>
 		</dependency>
+		<!-- <dependency> <groupId>org.eclipse.birt.runtime</groupId> <artifactId>org.eclipse.core.resources</artifactId> 
+			<version>3.9.0.v20140514-1307</version> </dependency> -->
 		<dependency>
 			<groupId>org.eclipse.core</groupId>
 			<artifactId>runtime</artifactId>
@@ -62,17 +73,21 @@
 			<artifactId>org.eclipse.emf.ecore</artifactId>
 			<version>2.10.0-v20140514-1158</version>
 		</dependency>
-		<dependency>
-			<groupId>org.eclipse.equinox</groupId>
-			<artifactId>common</artifactId>
-			<version>3.6.200-v20130402-1505</version>
-		</dependency>
+		<!-- <dependency> <groupId>org.eclipse.equinox</groupId> <artifactId>common</artifactId> 
+			<version>3.6.200-v20130402-1505</version> </dependency> -->
 		<dependency>
 			<groupId>org.sidiff</groupId>
 			<artifactId>org.sidiff.editrule.validation</artifactId>
 			<version>0.1.0.201409031903</version>
 			<scope>system</scope>
 			<systemPath>${project.basedir}/lib/org.sidiff.editrule.validation_0.1.0.201409031903.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.sidiff</groupId>
+			<artifactId>org.sidiff.common.henshin</artifactId>
+			<version>0.0.1.201409031903</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/org.sidiff.common.henshin_0.0.1.201409031903.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse</groupId>
@@ -86,7 +101,20 @@
 			<artifactId>org.eclipse.emf.common</artifactId>
 			<version>2.10.0-v20140514-1158</version>
 		</dependency>
+	
+	
+	
+	<dependency>
+		<groupId>org.sidiff</groupId>
+		<artifactId>org.sidiff.difference.rulebase.project</artifactId>
+		<version>0.1.0.201409031903</version>
+		<scope>system</scope>
+		<systemPath>${project.basedir}/lib/org.sidiff.difference.rulebase.project_0.1.0.201409031903.jar</systemPath>
+	</dependency>
+	
 	</dependencies>
+
+
 
 	<build>
 		<plugins>
@@ -95,7 +123,7 @@
 				<artifactId>maven-plugin-plugin</artifactId>
 				<version>3.3</version>
 				<configuration>
-					<goalPrefix>silift-rulebase-maven-plugin</goalPrefix>
+					<goalPrefix>silift-rulebase</goalPrefix>
 					<skipErrorNoDescriptorsFound>true</skipErrorNoDescriptorsFound>
 				</configuration>
 				<executions>
@@ -129,5 +157,5 @@
 		<version>1.0.0-SNAPSHOT</version>
 		<relativePath>../de.uni_stuttgart.iste.cowolf.parent</relativePath>
 	</parent>
-	
+
 </project>

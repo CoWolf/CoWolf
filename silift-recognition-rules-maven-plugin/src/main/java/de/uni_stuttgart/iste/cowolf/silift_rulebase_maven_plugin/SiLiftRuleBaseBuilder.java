@@ -1,18 +1,18 @@
 package de.uni_stuttgart.iste.cowolf.silift_rulebase_maven_plugin;
 
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FilenameFilter;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -21,19 +21,24 @@ import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
-import org.eclipse.core.internal.resources.ProjectDescriptionReader;
-import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
 import org.eclipse.emf.henshin.model.Module;
 import org.eclipse.emf.henshin.model.resource.HenshinResourceSet;
+import org.sidiff.difference.rulebase.RulebaseFactory;
 import org.sidiff.difference.rulebase.extension.AbstractProjectRuleBase;
-import org.sidiff.difference.rulebase.nature.RuleBaseProjectNature;
+import org.sidiff.difference.rulebase.impl.RulebaseFactoryImpl;
 import org.sidiff.difference.rulebase.wrapper.RuleBaseWrapper;
 import org.sidiff.difference.rulebase.wrapper.util.Edit2RecognitionException;
 import org.sidiff.editrule.validation.EditRuleValidation;
 import org.sidiff.editrule.validation.EditRuleValidator;
-import org.xml.sax.InputSource;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 /**
  * Builds the SiLift rulebase and generates the recognition rules that are
@@ -41,12 +46,13 @@ import org.xml.sax.InputSource;
  * 
  * @author Rene Trefft
  */
-@Mojo(name = "build" , defaultPhase = LifecyclePhase.GENERATE_SOURCES)
+@Mojo(name = "build", defaultPhase = LifecyclePhase.GENERATE_SOURCES)
 public class SiLiftRuleBaseBuilder extends AbstractMojo {
 
-	
-	RuleBaseWrapper ruleBaseWrapper = null;
+	private RuleBaseWrapper ruleBaseWrapper = null;
 
+	private final String ECLIPSE_PROJECT_DESCRIPTION_FILE_NAME = ".project";
+	
 	/**
 	 * The project itself. This parameter is set by Maven.
 	 */
@@ -56,43 +62,67 @@ public class SiLiftRuleBaseBuilder extends AbstractMojo {
 	/**
 	 * @param projectRoot
 	 * @return
+	 * @throws MojoExecutionException
 	 */
-	private boolean isRulebaseProject(File projectRoot) {
+	private boolean isRulebaseProject(File projectRoot)
+			throws MojoExecutionException {
 
-		File projectDescriptionFile = new File(projectRoot,
-				IProjectDescription.DESCRIPTION_FILE_NAME);
+		File projectDescriptionFile = new File(projectRoot,ECLIPSE_PROJECT_DESCRIPTION_FILE_NAME);
 
-		try {
+		if (projectDescriptionFile.isFile()) {
 
-			InputStream projectDescriptionInputStream = new BufferedInputStream(
-					new FileInputStream(projectDescriptionFile));
+			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 
-			IProjectDescription projectDescription = new ProjectDescriptionReader()
-					.read(new InputSource(projectDescriptionInputStream));
+			try {
 
-			String[] projectNatures = projectDescription.getNatureIds();
+				DocumentBuilder db = dbf.newDocumentBuilder();
+				Document doc = db.parse(projectDescriptionFile);
 
-			for (String projectNature : projectNatures) {
+				doc.getDocumentElement().normalize();
 
-				if (projectNature.equals(RuleBaseProjectNature.NATURE_ID)) {
-					getLog().info(
-							"Artifact \"" + project.getArtifactId()
-									+ "\" is a Rulebase project.");
-					return true;
+				NodeList naturesList = doc.getElementsByTagName("natures");
+
+				Node naturesNode = naturesList.item(0);
+
+				if (naturesNode != null
+						&& naturesNode.getNodeType() == Node.ELEMENT_NODE) {
+
+					Element naturesElement = (Element) naturesNode;
+					NodeList natureList = naturesElement
+							.getElementsByTagName("nature");
+
+					for (int s = 0; s < natureList.getLength(); s++) {
+
+						Node natureNode = natureList.item(s);
+						NodeList natureChildNodes = natureNode.getChildNodes();
+
+						if ("org.sidiff.difference.rulebase.project.rulebasenature"
+								.equals(natureChildNodes.item(0).getNodeValue())) {
+							return true;
+						}
+
+					}
+
 				}
+
+			} catch (ParserConfigurationException | SAXException | IOException exc) {
+
+				throw new MojoExecutionException(exc.getLocalizedMessage(), exc);
 
 			}
 
-			getLog().debug(
-					"Artifact \"" + project.getArtifactId()
-							+ "\" is not a Rulebase project.");
+		} else {
 
-		} catch (FileNotFoundException e) {
-			getLog().debug(
+			getLog().info(
 					"Artifact \""
 							+ project.getArtifactId()
-							+ "\" is not a Eclipse project, because project description file \".project\" is invalid or missing.");
+							+ "\" is not a Eclipse project, because project description file \".project\" is missing.");
+
 		}
+
+		getLog().info(
+				"Artifact \"" + project.getArtifactId()
+						+ "\" is not a Rulebase project.");
 
 		return false;
 
@@ -201,8 +231,7 @@ public class SiLiftRuleBaseBuilder extends AbstractMojo {
 			return;
 		}
 
-		File editRulesDir = new File(projectRoot,
-				AbstractProjectRuleBase.SOURCE_FOLDER);
+		File editRulesDir = new File(projectRoot, AbstractProjectRuleBase.SOURCE_FOLDER);
 
 		if (!editRulesDir.isDirectory()) {
 			getLog().warn(
@@ -259,6 +288,9 @@ public class SiLiftRuleBaseBuilder extends AbstractMojo {
 			URI recognitionRulesDir = URI.createFileURI(project.getBasedir()
 					+ File.separator + AbstractProjectRuleBase.BUILD_FOLDER);
 
+			// register rulebase factory
+			Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap( ).put("rulebase", new RulebaseFactoryImpl());
+			
 			RuleBaseWrapper ruleBaseWrapper = new RuleBaseWrapper(ruleBaseURI,
 					recognitionRulesDir, editRulesDir, false);
 
@@ -356,19 +388,13 @@ public class SiLiftRuleBaseBuilder extends AbstractMojo {
 	 */
 	private void listHenshinFilesRecursively(File dir, List<File> henshinFiles) {
 
-		File[] files = dir.listFiles(new FilenameFilter() {
-
-			@Override
-			public boolean accept(File dir, String name) {
-				return name.toLowerCase().endsWith(".henshin");
-			}
-		});
+		File[] files = dir.listFiles();
 
 		for (File file : files) {
 
 			if (file.isDirectory())
 				listHenshinFilesRecursively(file, henshinFiles);
-			else {
+			else if (file.getName().toLowerCase().endsWith(".henshin")) {
 				henshinFiles.add(file);
 			}
 		}
