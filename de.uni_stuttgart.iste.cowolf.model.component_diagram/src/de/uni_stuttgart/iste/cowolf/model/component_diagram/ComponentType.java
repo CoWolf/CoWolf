@@ -5,8 +5,6 @@ package de.uni_stuttgart.iste.cowolf.model.component_diagram;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
-import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Component Type</b></em>'.
@@ -25,7 +23,7 @@ import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
  * @model abstract="true"
  * @generated
  */
-public interface ComponentType extends EObject, IDBase {
+public interface ComponentType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->

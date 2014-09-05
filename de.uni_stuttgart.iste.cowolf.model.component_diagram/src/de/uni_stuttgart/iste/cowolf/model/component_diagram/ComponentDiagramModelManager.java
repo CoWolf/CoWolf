@@ -12,16 +12,6 @@ import de.uni_stuttgart.iste.cowolf.model.AbstractArchitectureModelManager;
 public class ComponentDiagramModelManager extends AbstractArchitectureModelManager {
 
 	@Override
-	public boolean isManaged(final Resource model) {
-		if (model == null || model.getContents() == null
-				|| model.getContents().size() == 0)
-			return false;
-		else
-			return (model.getContents().get(0) instanceof Architecture);
-
-	}
-
-	@Override
 	public Class<?> getManagedClass() {
 		return Architecture.class;
 	}

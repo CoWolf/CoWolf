@@ -7,6 +7,7 @@ import java.util.List;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.henshin.interpreter.EGraph;
 import org.sidiff.difference.symmetric.AddObject;
 import org.sidiff.difference.symmetric.AddReference;
@@ -67,8 +68,10 @@ public class ComponentDiagramFaultTreeTransformationManager extends AbstractTran
 		return SECOND_MODEL;
 	}
 	
-	/*@Override
-	public Resource transform(Resource oldSource, Resource source, Resource target, SymmetricDifference difference, URI fileURI) {
+	@Override
+	public boolean runTransformation(ResourceSet resSet, SymmetricDifference difference) {
+		Resource source = resSet.getResource(this.getSourceUri(resSet), false);
+		Resource target = resSet.getResource(this.getTargetUri(resSet), false);
 		ChangeTree.init(source, target);
 		// building lists of differences for ChangeTree
 		List<String> newComponentTypes, newPortTypes, newComponentInstances, newPortInstances,
@@ -119,9 +122,13 @@ public class ComponentDiagramFaultTreeTransformationManager extends AbstractTran
 			newSubComponentInstances.size() + " " + newConnectors.size());
 		EGraph result = ChangeTree.run(source, target, newComponentTypes, newPortTypes, newComponentInstances, newPortInstances,
 				newSubComponentInstances, newConnectors);
-
-		return target;
-	}*/
+		if (result == null) {
+			return false;
+    	}
+    	
+		this.extractResultFromGraph(result, resSet);
+		return true;
+	}
 /*	
     *//**
      * Handles a single change of a change set.
