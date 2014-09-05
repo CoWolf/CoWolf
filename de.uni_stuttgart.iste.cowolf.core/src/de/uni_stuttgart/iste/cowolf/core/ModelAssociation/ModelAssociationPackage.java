@@ -154,13 +154,21 @@ public interface ModelAssociationPackage extends EPackage {
 	int MODEL__PARENT = 3;
 
 	/**
+	 * The feature id for the '<em><b>Modification Stamp</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__MODIFICATION_STAMP = 4;
+	/**
 	 * The number of structural features of the '<em>Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_FEATURE_COUNT = 4;
+	int MODEL_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Model</em>' class.
@@ -291,13 +299,21 @@ public interface ModelAssociationPackage extends EPackage {
 	int MODEL_VERSION__MANUAL = 3;
 
 	/**
+	 * The feature id for the '<em><b>Message</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL_VERSION__MESSAGE = 4;
+	/**
 	 * The feature id for the '<em><b>Target Associations</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_VERSION__TARGET_ASSOCIATIONS = 4;
+	int MODEL_VERSION__TARGET_ASSOCIATIONS = 5;
 
 	/**
 	 * The feature id for the '<em><b>Source Associations</b></em>' reference list.
@@ -306,7 +322,7 @@ public interface ModelAssociationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_VERSION__SOURCE_ASSOCIATIONS = 5;
+	int MODEL_VERSION__SOURCE_ASSOCIATIONS = 6;
 
 	/**
 	 * The number of structural features of the '<em>Model Version</em>' class.
@@ -315,7 +331,7 @@ public interface ModelAssociationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_VERSION_FEATURE_COUNT = 6;
+	int MODEL_VERSION_FEATURE_COUNT = 7;
 
 	/**
 	 * The number of operations of the '<em>Model Version</em>' class.
@@ -412,6 +428,17 @@ public interface ModelAssociationPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getModel_Parent();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Model#getModificationStamp <em>Modification Stamp</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Modification Stamp</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Model#getModificationStamp()
+	 * @see #getModel()
+	 * @generated
+	 */
+	EAttribute getModel_ModificationStamp();
 
 	/**
 	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Association <em>Association</em>}'.
@@ -531,6 +558,17 @@ public interface ModelAssociationPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getModelVersion_Manual();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelVersion#getMessage <em>Message</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Message</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelVersion#getMessage()
+	 * @see #getModelVersion()
+	 * @generated
+	 */
+	EAttribute getModelVersion_Message();
 
 	/**
 	 * Returns the meta object for the reference list '{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelVersion#getTargetAssociations <em>Target Associations</em>}'.

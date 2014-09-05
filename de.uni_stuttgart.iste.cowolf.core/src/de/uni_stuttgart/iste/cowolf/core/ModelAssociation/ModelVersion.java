@@ -2,6 +2,8 @@
  */
 package de.uni_stuttgart.iste.cowolf.core.ModelAssociation;
 
+import java.util.List;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -18,6 +20,7 @@ import org.eclipse.emf.ecore.resource.Resource;
  *   <li>{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelVersion#getTimestamp <em>Timestamp</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelVersion#isCurrent <em>Current</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelVersion#isManual <em>Manual</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelVersion#getMessage <em>Message</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelVersion#getTargetAssociations <em>Target Associations</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelVersion#getSourceAssociations <em>Source Associations</em>}</li>
  * </ul>
@@ -70,7 +73,7 @@ public interface ModelVersion extends EObject {
 	 * @model
 	 * @generated
 	 */
-	public long getTimestamp();
+	long getTimestamp();
 
 	/**
 	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelVersion#getTimestamp <em>Timestamp</em>}' attribute.
@@ -135,6 +138,32 @@ public interface ModelVersion extends EObject {
 	void setManual(boolean value);
 
 	/**
+	 * Returns the value of the '<em><b>Message</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Message</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Message</em>' attribute.
+	 * @see #setMessage(String)
+	 * @see de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociationPackage#getModelVersion_Message()
+	 * @model
+	 * @generated
+	 */
+	String getMessage();
+
+	/**
+	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelVersion#getMessage <em>Message</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Message</em>' attribute.
+	 * @see #getMessage()
+	 * @generated
+	 */
+	void setMessage(String value);
+
+	/**
 	 * Returns the value of the '<em><b>Target Associations</b></em>' reference list.
 	 * The list contents are of type {@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Association}.
 	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Association#getTarget <em>Target</em>}'.
@@ -151,6 +180,15 @@ public interface ModelVersion extends EObject {
 	 * @generated
 	 */
 	EList<Association> getTargetAssociations();
+	
+	/**
+	 * Returns a list of both, source and target associations.
+	 * 
+	 * The list is sorted by the timestamp of the associations.
+	 * 
+	 * @return list of associations.
+	 */
+	List<Association> getAssociations();
 
 	/**
 	 * Returns the value of the '<em><b>Source Associations</b></em>' reference list.

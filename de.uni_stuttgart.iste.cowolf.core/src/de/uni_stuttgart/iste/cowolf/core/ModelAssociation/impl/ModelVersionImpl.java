@@ -6,11 +6,12 @@ import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Association;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Model;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociationPackage;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelVersion;
-
 import java.io.IOException;
 import java.util.Collection;
 import java.util.Collections;
-
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -36,6 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.impl.ModelVersionImpl#getTimestamp <em>Timestamp</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.impl.ModelVersionImpl#isCurrent <em>Current</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.impl.ModelVersionImpl#isManual <em>Manual</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.impl.ModelVersionImpl#getMessage <em>Message</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.impl.ModelVersionImpl#getTargetAssociations <em>Target Associations</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.impl.ModelVersionImpl#getSourceAssociations <em>Source Associations</em>}</li>
  * </ul>
@@ -103,6 +105,26 @@ public class ModelVersionImpl extends MinimalEObjectImpl.Container implements Mo
 	 * @ordered
 	 */
 	protected boolean manual = MANUAL_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getMessage() <em>Message</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMessage()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String MESSAGE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getMessage() <em>Message</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMessage()
+	 * @generated
+	 * @ordered
+	 */
+	protected String message = MESSAGE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getTargetAssociations() <em>Target Associations</em>}' reference list.
@@ -269,6 +291,27 @@ public class ModelVersionImpl extends MinimalEObjectImpl.Container implements Mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getMessage() {
+		return message;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMessage(String newMessage) {
+		String oldMessage = message;
+		message = newMessage;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelAssociationPackage.MODEL_VERSION__MESSAGE, oldMessage, message));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<Association> getTargetAssociations() {
 		if (targetAssociations == null) {
 			targetAssociations = new EObjectWithInverseResolvingEList.ManyInverse<Association>(Association.class, this, ModelAssociationPackage.MODEL_VERSION__TARGET_ASSOCIATIONS, ModelAssociationPackage.ASSOCIATION__TARGET);
@@ -286,6 +329,26 @@ public class ModelVersionImpl extends MinimalEObjectImpl.Container implements Mo
 			sourceAssociations = new EObjectWithInverseResolvingEList.ManyInverse<Association>(Association.class, this, ModelAssociationPackage.MODEL_VERSION__SOURCE_ASSOCIATIONS, ModelAssociationPackage.ASSOCIATION__SOURCE);
 		}
 		return sourceAssociations;
+	}
+
+	@Override
+	public List<Association> getAssociations() {
+		LinkedList<Association> list = new LinkedList<Association>();
+		
+		
+		list.addAll(this.getTargetAssociations());
+		list.addAll(this.getSourceAssociations());
+		
+		Collections.sort(list, new Comparator<Association>() {
+
+			@Override
+			public int compare(Association o1, Association o2) {
+				// TODO Auto-generated method stub
+				return (int) (o1.getTimestamp() - o2.getTimestamp());
+			}
+		});
+		
+		return list;
 	}
 
 	/**
@@ -357,6 +420,8 @@ public class ModelVersionImpl extends MinimalEObjectImpl.Container implements Mo
 				return isCurrent();
 			case ModelAssociationPackage.MODEL_VERSION__MANUAL:
 				return isManual();
+			case ModelAssociationPackage.MODEL_VERSION__MESSAGE:
+				return getMessage();
 			case ModelAssociationPackage.MODEL_VERSION__TARGET_ASSOCIATIONS:
 				return getTargetAssociations();
 			case ModelAssociationPackage.MODEL_VERSION__SOURCE_ASSOCIATIONS:
@@ -385,6 +450,9 @@ public class ModelVersionImpl extends MinimalEObjectImpl.Container implements Mo
 				return;
 			case ModelAssociationPackage.MODEL_VERSION__MANUAL:
 				setManual((Boolean)newValue);
+				return;
+			case ModelAssociationPackage.MODEL_VERSION__MESSAGE:
+				setMessage((String)newValue);
 				return;
 			case ModelAssociationPackage.MODEL_VERSION__TARGET_ASSOCIATIONS:
 				getTargetAssociations().clear();
@@ -418,6 +486,9 @@ public class ModelVersionImpl extends MinimalEObjectImpl.Container implements Mo
 			case ModelAssociationPackage.MODEL_VERSION__MANUAL:
 				setManual(MANUAL_EDEFAULT);
 				return;
+			case ModelAssociationPackage.MODEL_VERSION__MESSAGE:
+				setMessage(MESSAGE_EDEFAULT);
+				return;
 			case ModelAssociationPackage.MODEL_VERSION__TARGET_ASSOCIATIONS:
 				getTargetAssociations().clear();
 				return;
@@ -444,6 +515,8 @@ public class ModelVersionImpl extends MinimalEObjectImpl.Container implements Mo
 				return current != CURRENT_EDEFAULT;
 			case ModelAssociationPackage.MODEL_VERSION__MANUAL:
 				return manual != MANUAL_EDEFAULT;
+			case ModelAssociationPackage.MODEL_VERSION__MESSAGE:
+				return MESSAGE_EDEFAULT == null ? message != null : !MESSAGE_EDEFAULT.equals(message);
 			case ModelAssociationPackage.MODEL_VERSION__TARGET_ASSOCIATIONS:
 				return targetAssociations != null && !targetAssociations.isEmpty();
 			case ModelAssociationPackage.MODEL_VERSION__SOURCE_ASSOCIATIONS:
@@ -468,6 +541,8 @@ public class ModelVersionImpl extends MinimalEObjectImpl.Container implements Mo
 		result.append(current);
 		result.append(", manual: ");
 		result.append(manual);
+		result.append(", message: ");
+		result.append(message);
 		result.append(')');
 		return result.toString();
 	}

@@ -194,6 +194,15 @@ public class ModelAssociationPackageImpl extends EPackageImpl implements ModelAs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getModel_ModificationStamp() {
+		return (EAttribute)modelEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getAssociation() {
 		return associationEClass;
 	}
@@ -293,8 +302,17 @@ public class ModelAssociationPackageImpl extends EPackageImpl implements ModelAs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getModelVersion_Message() {
+		return (EAttribute)modelVersionEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getModelVersion_TargetAssociations() {
-		return (EReference)modelVersionEClass.getEStructuralFeatures().get(4);
+		return (EReference)modelVersionEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -303,7 +321,7 @@ public class ModelAssociationPackageImpl extends EPackageImpl implements ModelAs
 	 * @generated
 	 */
 	public EReference getModelVersion_SourceAssociations() {
-		return (EReference)modelVersionEClass.getEStructuralFeatures().get(5);
+		return (EReference)modelVersionEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -343,6 +361,7 @@ public class ModelAssociationPackageImpl extends EPackageImpl implements ModelAs
 		createEAttribute(modelEClass, MODEL__MODEL);
 		createEAttribute(modelEClass, MODEL__MODEL_ID);
 		createEReference(modelEClass, MODEL__PARENT);
+		createEAttribute(modelEClass, MODEL__MODIFICATION_STAMP);
 
 		associationEClass = createEClass(ASSOCIATION);
 		createEReference(associationEClass, ASSOCIATION__SOURCE);
@@ -356,6 +375,7 @@ public class ModelAssociationPackageImpl extends EPackageImpl implements ModelAs
 		createEAttribute(modelVersionEClass, MODEL_VERSION__TIMESTAMP);
 		createEAttribute(modelVersionEClass, MODEL_VERSION__CURRENT);
 		createEAttribute(modelVersionEClass, MODEL_VERSION__MANUAL);
+		createEAttribute(modelVersionEClass, MODEL_VERSION__MESSAGE);
 		createEReference(modelVersionEClass, MODEL_VERSION__TARGET_ASSOCIATIONS);
 		createEReference(modelVersionEClass, MODEL_VERSION__SOURCE_ASSOCIATIONS);
 	}
@@ -402,6 +422,7 @@ public class ModelAssociationPackageImpl extends EPackageImpl implements ModelAs
 		initEAttribute(getModel_Model(), ecorePackage.getEString(), "model", null, 1, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getModel_ModelID(), ecorePackage.getEString(), "modelID", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getModel_Parent(), this.getModelAssociation(), this.getModelAssociation_Models(), "parent", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getModel_ModificationStamp(), ecorePackage.getELong(), "modificationStamp", "-1", 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(associationEClass, Association.class, "Association", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAssociation_Source(), this.getModelVersion(), this.getModelVersion_SourceAssociations(), "source", null, 1, -1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -415,6 +436,7 @@ public class ModelAssociationPackageImpl extends EPackageImpl implements ModelAs
 		initEAttribute(getModelVersion_Timestamp(), ecorePackage.getELong(), "timestamp", null, 0, 1, ModelVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getModelVersion_Current(), ecorePackage.getEBoolean(), "current", null, 0, 1, ModelVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getModelVersion_Manual(), ecorePackage.getEBoolean(), "manual", null, 0, 1, ModelVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getModelVersion_Message(), ecorePackage.getEString(), "message", null, 0, 1, ModelVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getModelVersion_TargetAssociations(), this.getAssociation(), this.getAssociation_Target(), "targetAssociations", null, 0, -1, ModelVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getModelVersion_SourceAssociations(), this.getAssociation(), this.getAssociation_Source(), "sourceAssociations", null, 0, -1, ModelVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

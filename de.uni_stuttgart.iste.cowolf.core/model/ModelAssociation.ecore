@@ -19,6 +19,8 @@
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//ModelAssociation"
         eOpposite="#//ModelAssociation/models"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modificationStamp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"
+        defaultValueLiteral="-1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Association">
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
@@ -39,6 +41,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="timestamp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="current" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="manual" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="message" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="targetAssociations" upperBound="-1"
         eType="#//Association" eOpposite="#//Association/target"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sourceAssociations" upperBound="-1"

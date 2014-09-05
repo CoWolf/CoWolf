@@ -52,6 +52,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.impl.ModelImpl#getModel <em>Model</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.impl.ModelImpl#getModelID <em>Model ID</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.impl.ModelImpl#getParent <em>Parent</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.impl.ModelImpl#getModificationStamp <em>Modification Stamp</em>}</li>
  * </ul>
  * </p>
  *
@@ -109,6 +110,26 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	protected String modelID = MODEL_ID_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getModificationStamp() <em>Modification Stamp</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getModificationStamp()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final long MODIFICATION_STAMP_EDEFAULT = -1L;
+
+	/**
+	 * The cached value of the '{@link #getModificationStamp() <em>Modification Stamp</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getModificationStamp()
+	 * @generated
+	 * @ordered
+	 */
+	protected long modificationStamp = MODIFICATION_STAMP_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -153,6 +174,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 			version.setManual(false);
 			version.setTimestamp(timestamp);
 			version.setModel(this);
+			
+			this.setModificationStamp(this.getFile().getModificationStamp());
 			
 			return version;
 		} catch (IOException e) {
@@ -367,6 +390,27 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 			eNotify(new ENotificationImpl(this, Notification.SET, ModelAssociationPackage.MODEL__PARENT, newParent, newParent));
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public long getModificationStamp() {
+		return modificationStamp;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setModificationStamp(long newModificationStamp) {
+		long oldModificationStamp = modificationStamp;
+		modificationStamp = newModificationStamp;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelAssociationPackage.MODEL__MODIFICATION_STAMP, oldModificationStamp, modificationStamp));
+	}
+
 	@Override
 	public List<Association> getSourceAssociations() {
 		LinkedList<Association> list = new LinkedList<Association>();
@@ -446,10 +490,50 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 		
 		return null;
 	}
+	
+	@Override
+	public Association getLatestAssociation(Model other) {
+		
+		if (other == null) {
+			return null;
+		}
+		
+		List<Association> theseAssocs = this.getAllAssociations();
+		ListIterator<Association> assocIt = theseAssocs.listIterator(theseAssocs.size());
+		
+		
+		
+		while (assocIt.hasPrevious()) {
+			Association assoc = assocIt.previous();
+			
+			for (ModelVersion version : assoc.getSource()) {
+				if (version.getModel().equals(other)) {
+					return assoc;
+				} else if (version.getModel().equals(this)) {
+					break;
+				}
+			}
+			
+			for (ModelVersion version : assoc.getTarget()) {
+				if (version.getModel().equals(other)) {
+					return assoc;
+				} else if (version.getModel().equals(this)) {
+					break;
+				}
+			}
+		}
+		
+		return null;
+	}
 
 	@Override
 	public boolean hasChanges() {
-		// TODO check for changes between working copy and newest version
+		long modified = this.getFile().getModificationStamp();
+		
+		if (modified != IFile.NULL_STAMP && modified == this.getModificationStamp()) {
+			return false;
+		}
+		
 		return true;
 	}
 
@@ -518,6 +602,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 				return getModelID();
 			case ModelAssociationPackage.MODEL__PARENT:
 				return getParent();
+			case ModelAssociationPackage.MODEL__MODIFICATION_STAMP:
+				return getModificationStamp();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -544,6 +630,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 			case ModelAssociationPackage.MODEL__PARENT:
 				setParent((ModelAssociation)newValue);
 				return;
+			case ModelAssociationPackage.MODEL__MODIFICATION_STAMP:
+				setModificationStamp((Long)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -568,6 +657,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 			case ModelAssociationPackage.MODEL__PARENT:
 				setParent((ModelAssociation)null);
 				return;
+			case ModelAssociationPackage.MODEL__MODIFICATION_STAMP:
+				setModificationStamp(MODIFICATION_STAMP_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -588,6 +680,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 				return MODEL_ID_EDEFAULT == null ? modelID != null : !MODEL_ID_EDEFAULT.equals(modelID);
 			case ModelAssociationPackage.MODEL__PARENT:
 				return getParent() != null;
+			case ModelAssociationPackage.MODEL__MODIFICATION_STAMP:
+				return modificationStamp != MODIFICATION_STAMP_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -606,6 +700,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 		result.append(model);
 		result.append(", modelID: ");
 		result.append(modelID);
+		result.append(", modificationStamp: ");
+		result.append(modificationStamp);
 		result.append(')');
 		return result.toString();
 	}
