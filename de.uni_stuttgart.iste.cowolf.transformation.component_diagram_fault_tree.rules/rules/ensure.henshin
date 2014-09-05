@@ -107,7 +107,7 @@
       <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
     <parameters xmi:id="_7gkW0Ng7EeOYLqA0tlnaFw" name="new_event_id">
-      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
     <lhs xmi:id="_Sp4hUNgbEeKe07JKJZQ3sQ" name="Lhs">
       <nodes xmi:id="_X0HxkNgbEeKe07JKJZQ3sQ" incoming="_lByFsNgbEeKe07JKJZQ3sQ _mH6AQNgbEeKe07JKJZQ3sQ" outgoing="_lmtXsNgbEeKe07JKJZQ3sQ">
@@ -183,8 +183,8 @@
       </nodes>
       <nodes xmi:id="_ZLcw4NgbEeKe07JKJZQ3sQ" incoming="_zd0RcNgbEeKe07JKJZQ3sQ" outgoing="_zHyXENgbEeKe07JKJZQ3sQ">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//BasicEvent"/>
-        <attributes xmi:id="_laFLYNg8EeOYLqA0tlnaFw" value="new_event_id">
-          <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Event/id"/>
+        <attributes xmi:id="_VNSIcDUJEeSSXtfSyCDsRw" value="new_event_id">
+          <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
         </attributes>
       </nodes>
       <nodes xmi:id="_DClgoO72EeKPweTl6E6tGw" incoming="_D8u0sO72EeKPweTl6E6tGw">
@@ -316,7 +316,7 @@
       <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
     <parameters xmi:id="_ufAvkNg8EeOYLqA0tlnaFw" name="new_event_id">
-      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
     <lhs xmi:id="_6Ub30AS5EeOvSJC2TqY5jw" name="Lhs">
       <nodes xmi:id="_I0g2EAS6EeOvSJC2TqY5jw" incoming="_gkMXcAS6EeOvSJC2TqY5jw">
@@ -398,8 +398,8 @@
       </nodes>
       <nodes xmi:id="_WFSvoAS6EeOvSJC2TqY5jw" incoming="_9tUesGyBEeOLtY0EBVp2uQ" outgoing="_wfRUEAS6EeOvSJC2TqY5jw">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//IntermediateEvent"/>
-        <attributes xmi:id="_vc57MNg8EeOYLqA0tlnaFw" value="new_event_id">
-          <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Event/id"/>
+        <attributes xmi:id="_b8l5EDUJEeSSXtfSyCDsRw" value="new_event_id">
+          <type href="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
         </attributes>
       </nodes>
       <nodes xmi:id="_saEgIGx_EeOLtY0EBVp2uQ" incoming="_saFuQGx_EeOLtY0EBVp2uQ" outgoing="_saFuQWx_EeOLtY0EBVp2uQ">
@@ -816,6 +816,9 @@
     <parameters xmi:id="_HF0osW7_EeOnDthNQvX9KQ" name="failure_instance">
       <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
+    <parameters xmi:id="_TQSQQDUJEeSSXtfSyCDsRw" name="affected_component">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
     <lhs xmi:id="_G1DBwG7_EeOnDthNQvX9KQ" name="Lhs">
       <nodes xmi:id="_MZKKkG7_EeOnDthNQvX9KQ">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//ComponentInstance"/>
@@ -847,7 +850,13 @@
     <mappings xmi:id="_MZKKkm7_EeOnDthNQvX9KQ" origin="_MZKKkG7_EeOnDthNQvX9KQ" image="_MZKKkW7_EeOnDthNQvX9KQ"/>
     <mappings xmi:id="_Nybqom7_EeOnDthNQvX9KQ" origin="_NybqoG7_EeOnDthNQvX9KQ" image="_NybqoW7_EeOnDthNQvX9KQ"/>
     <multiRules xmi:id="_asjXsG7_EeOnDthNQvX9KQ" name="propagateError">
-      <parameters xmi:id="_XB3uUG8CEeOnDthNQvX9KQ" name="affected_component">
+      <parameters xmi:id="_XB3uUG8CEeOnDthNQvX9KQ" name="component_instance">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <parameters xmi:id="_TQS3UDUJEeSSXtfSyCDsRw" name="failure_instance">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <parameters xmi:id="_avsBEDUJEeSSXtfSyCDsRw" name="affected_component">
         <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </parameters>
       <lhs xmi:id="_askl0G7_EeOnDthNQvX9KQ" name="Lhs">
@@ -954,6 +963,9 @@
     <parameters xmi:id="_D8uM8W8DEeOnDthNQvX9KQ" name="failure_instance">
       <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
+    <parameters xmi:id="_TQTeYDUJEeSSXtfSyCDsRw" name="affected_port">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
     <lhs xmi:id="_DpvmkG8DEeOnDthNQvX9KQ" name="Lhs">
       <nodes xmi:id="_44zXEG8DEeOnDthNQvX9KQ" incoming="_dOgvYG8FEeOnDthNQvX9KQ">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//PortInstance"/>
@@ -1004,7 +1016,13 @@
     <mappings xmi:id="_5Vf6IW8DEeOnDthNQvX9KQ" origin="_5VfTEG8DEeOnDthNQvX9KQ" image="_5Vf6IG8DEeOnDthNQvX9KQ"/>
     <mappings xmi:id="_7pShsm8DEeOnDthNQvX9KQ" origin="_7pShsG8DEeOnDthNQvX9KQ" image="_7pShsW8DEeOnDthNQvX9KQ"/>
     <multiRules xmi:id="_ud824G8FEeOnDthNQvX9KQ" name="propagateError">
-      <parameters xmi:id="_9qf5kG8FEeOnDthNQvX9KQ" name="affected_port">
+      <parameters xmi:id="_9qf5kG8FEeOnDthNQvX9KQ" name="port_instance">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <parameters xmi:id="_TQUFcDUJEeSSXtfSyCDsRw" name="failure_instance">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <parameters xmi:id="_avtPMDUJEeSSXtfSyCDsRw" name="affected_port">
         <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </parameters>
       <lhs xmi:id="_ud824W8FEeOnDthNQvX9KQ" name="Lhs">
@@ -1131,6 +1149,9 @@
     <parameters xmi:id="_FX-C8W8DEeOnDthNQvX9KQ" name="failure_instance">
       <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
+    <parameters xmi:id="_TQUsgDUJEeSSXtfSyCDsRw" name="affected_component">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
     <lhs xmi:id="_FOSigG8DEeOnDthNQvX9KQ" name="Lhs">
       <nodes xmi:id="_j2nPUG8GEeOnDthNQvX9KQ">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//PortInstance"/>
@@ -1168,7 +1189,13 @@
     <mappings xmi:id="_j2odcW8GEeOnDthNQvX9KQ" origin="_j2nPUG8GEeOnDthNQvX9KQ" image="_j2odcG8GEeOnDthNQvX9KQ"/>
     <mappings xmi:id="_k73AIm8GEeOnDthNQvX9KQ" origin="_k73AIG8GEeOnDthNQvX9KQ" image="_k73AIW8GEeOnDthNQvX9KQ"/>
     <multiRules xmi:id="_2ephcG8GEeOnDthNQvX9KQ" name="propagateError">
-      <parameters xmi:id="_G61nEG8HEeOnDthNQvX9KQ" name="affected_component">
+      <parameters xmi:id="_G61nEG8HEeOnDthNQvX9KQ" name="port_instance">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <parameters xmi:id="_TQUsgTUJEeSSXtfSyCDsRw" name="failure_instance">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <parameters xmi:id="_avtPMTUJEeSSXtfSyCDsRw" name="affected_component">
         <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </parameters>
       <lhs xmi:id="_2eqIgG8GEeOnDthNQvX9KQ" name="Lhs">
@@ -1319,6 +1346,12 @@
     <mappings xmi:id="_cbeeAW8HEeOnDthNQvX9KQ" origin="_cbdP4G8HEeOnDthNQvX9KQ" image="_cbeeAG8HEeOnDthNQvX9KQ"/>
     <mappings xmi:id="_eA2gYm8HEeOnDthNQvX9KQ" origin="_eA2gYG8HEeOnDthNQvX9KQ" image="_eA2gYW8HEeOnDthNQvX9KQ"/>
     <multiRules xmi:id="_tZA9MG8HEeOnDthNQvX9KQ" name="propagateError">
+      <parameters xmi:id="_TQVTkDUJEeSSXtfSyCDsRw" name="port_instance">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <parameters xmi:id="_TQVTkTUJEeSSXtfSyCDsRw" name="error_instance">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
       <lhs xmi:id="_tZA9MW8HEeOnDthNQvX9KQ" name="Lhs">
         <nodes xmi:id="_tZBkQm8HEeOnDthNQvX9KQ" incoming="_lmQykG8HEeOnDthNQvX9KQ" outgoing="_kSjvAG8HEeOnDthNQvX9KQ">
           <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//PortInstance"/>
@@ -1427,6 +1460,9 @@
     <parameters xmi:id="_awDokG8IEeOnDthNQvX9KQ" name="component_instance">
       <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
+    <parameters xmi:id="_TQVTkjUJEeSSXtfSyCDsRw" name="found_error">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
     <lhs xmi:id="_alEgkG8IEeOnDthNQvX9KQ" name="Lhs">
       <nodes xmi:id="_2j90YG8IEeOnDthNQvX9KQ" incoming="_52NBMG8IEeOnDthNQvX9KQ">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//ComponentInstance"/>
@@ -1458,7 +1494,10 @@
     <mappings xmi:id="_2j90Ym8IEeOnDthNQvX9KQ" origin="_2j90YG8IEeOnDthNQvX9KQ" image="_2j90YW8IEeOnDthNQvX9KQ"/>
     <mappings xmi:id="_29u_Qm8IEeOnDthNQvX9KQ" origin="_29u_QG8IEeOnDthNQvX9KQ" image="_29u_QW8IEeOnDthNQvX9KQ"/>
     <multiRules xmi:id="_9po2kG8IEeOnDthNQvX9KQ" name="searchErrors">
-      <parameters xmi:id="_ExMvIG8JEeOnDthNQvX9KQ" name="found_error">
+      <parameters xmi:id="_ExMvIG8JEeOnDthNQvX9KQ" name="component_instance">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <parameters xmi:id="_avudUDUJEeSSXtfSyCDsRw" name="found_error">
         <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </parameters>
       <lhs xmi:id="_9po2kW8IEeOnDthNQvX9KQ" name="Lhs">
@@ -1520,6 +1559,9 @@
     <parameters xmi:id="_crurEG8IEeOnDthNQvX9KQ" name="component_instance">
       <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
+    <parameters xmi:id="_TQV6oTUJEeSSXtfSyCDsRw" name="found_failure">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
     <lhs xmi:id="_cgo1YG8IEeOnDthNQvX9KQ" name="Lhs">
       <nodes xmi:id="_RzObAG8JEeOnDthNQvX9KQ" incoming="_ViAZ4G8JEeOnDthNQvX9KQ">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//ComponentInstance"/>
@@ -1551,7 +1593,10 @@
     <mappings xmi:id="_RzObAm8JEeOnDthNQvX9KQ" origin="_RzObAG8JEeOnDthNQvX9KQ" image="_RzObAW8JEeOnDthNQvX9KQ"/>
     <mappings xmi:id="_SIqfgm8JEeOnDthNQvX9KQ" origin="_SIqfgG8JEeOnDthNQvX9KQ" image="_SIqfgW8JEeOnDthNQvX9KQ"/>
     <multiRules xmi:id="_XAvBsG8JEeOnDthNQvX9KQ" name="searchFailures">
-      <parameters xmi:id="_gEFRgG8JEeOnDthNQvX9KQ" name="found_failure">
+      <parameters xmi:id="_gEFRgG8JEeOnDthNQvX9KQ" name="component_instance">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <parameters xmi:id="_avvrcDUJEeSSXtfSyCDsRw" name="found_failure">
         <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </parameters>
       <lhs xmi:id="_XAvBsW8JEeOnDthNQvX9KQ" name="Lhs">
@@ -1613,6 +1658,9 @@
     <parameters xmi:id="_ej01IG8IEeOnDthNQvX9KQ" name="port_instance">
       <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
+    <parameters xmi:id="_TQWhsDUJEeSSXtfSyCDsRw" name="found_error">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
     <lhs xmi:id="_eYcrkG8IEeOnDthNQvX9KQ" name="Lhs">
       <nodes xmi:id="_oQXWcG8JEeOnDthNQvX9KQ" incoming="_tFui4G8JEeOnDthNQvX9KQ">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//PortInstance"/>
@@ -1644,7 +1692,10 @@
     <mappings xmi:id="_oQXWcm8JEeOnDthNQvX9KQ" origin="_oQXWcG8JEeOnDthNQvX9KQ" image="_oQXWcW8JEeOnDthNQvX9KQ"/>
     <mappings xmi:id="_oleDwm8JEeOnDthNQvX9KQ" origin="_oleDwG8JEeOnDthNQvX9KQ" image="_oleDwW8JEeOnDthNQvX9KQ"/>
     <multiRules xmi:id="_vrXvcG8JEeOnDthNQvX9KQ" name="searchErrors">
-      <parameters xmi:id="_0ckNkG8JEeOnDthNQvX9KQ" name="found_error">
+      <parameters xmi:id="_0ckNkG8JEeOnDthNQvX9KQ" name="port_instance">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <parameters xmi:id="_avwSgDUJEeSSXtfSyCDsRw" name="found_error">
         <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </parameters>
       <lhs xmi:id="_vrYWgG8JEeOnDthNQvX9KQ" name="Lhs">
@@ -1706,6 +1757,9 @@
     <parameters xmi:id="_f6kloG8IEeOnDthNQvX9KQ" name="port_instance">
       <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
+    <parameters xmi:id="_TQXIwDUJEeSSXtfSyCDsRw" name="found_failure">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
     <lhs xmi:id="_ftuccG8IEeOnDthNQvX9KQ" name="Lhs">
       <nodes xmi:id="_4uTvkG8JEeOnDthNQvX9KQ" incoming="__ETBQG8JEeOnDthNQvX9KQ">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#//PortInstance"/>
@@ -1737,7 +1791,10 @@
     <mappings xmi:id="_4uUWoW8JEeOnDthNQvX9KQ" origin="_4uTvkG8JEeOnDthNQvX9KQ" image="_4uUWoG8JEeOnDthNQvX9KQ"/>
     <mappings xmi:id="_5Pg_Mm8JEeOnDthNQvX9KQ" origin="_5Pg_MG8JEeOnDthNQvX9KQ" image="_5Pg_MW8JEeOnDthNQvX9KQ"/>
     <multiRules xmi:id="_AeFesG8KEeOnDthNQvX9KQ" name="searchFailures">
-      <parameters xmi:id="_KDocoG8KEeOnDthNQvX9KQ" name="found_failure">
+      <parameters xmi:id="_KDocoG8KEeOnDthNQvX9KQ" name="port_instance">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <parameters xmi:id="_avw5kDUJEeSSXtfSyCDsRw" name="found_failure">
         <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </parameters>
       <lhs xmi:id="_AeFesW8KEeOnDthNQvX9KQ" name="Lhs">
