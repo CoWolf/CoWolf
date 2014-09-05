@@ -1,2 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_H9UygDQ-EeSfCv8dLU960A"/>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_H9UygDQ-EeSfCv8dLU960A">
+  <imports href="http://FaultTree/1.0#/"/>
+  <imports href="http://ctmc/1.0#/"/>
+  <imports href="http://www.eclipse.org/emf/2011/Henshin/Trace#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_BXSTYDTSEeS5HPZTie1IYA" name="patternOne">
+    <lhs xmi:id="_BXSTZTTSEeS5HPZTie1IYA" name="Lhs">
+      <nodes xmi:id="_QfzxsDTSEeS5HPZTie1IYA">
+        <type href="http://FaultTree/1.0#//AND"/>
+      </nodes>
+      <formula xsi:type="henshin:And" xmi:id="_b_LYADTSEeS5HPZTie1IYA">
+        <left xsi:type="henshin:NestedCondition" xmi:id="_bAJj8DTSEeS5HPZTie1IYA">
+          <conclusion xmi:id="_bAJj8TTSEeS5HPZTie1IYA" name="1">
+            <nodes xmi:id="_bAJj8jTSEeS5HPZTie1IYA" outgoing="_UTvWUDTSEeS5HPZTie1IYA">
+              <type href="http://FaultTree/1.0#//AND"/>
+            </nodes>
+            <nodes xmi:id="_SGn-gDTSEeS5HPZTie1IYA" incoming="_UTvWUDTSEeS5HPZTie1IYA">
+              <type href="http://FaultTree/1.0#//Event"/>
+            </nodes>
+            <edges xmi:id="_UTvWUDTSEeS5HPZTie1IYA" source="_bAJj8jTSEeS5HPZTie1IYA" target="_SGn-gDTSEeS5HPZTie1IYA">
+              <type href="http://FaultTree/1.0#//Gate/outputEvent"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_bAJj8zTSEeS5HPZTie1IYA" origin="_QfzxsDTSEeS5HPZTie1IYA" image="_bAJj8jTSEeS5HPZTie1IYA"/>
+        </left>
+        <right xsi:type="henshin:NestedCondition" xmi:id="_b_LYATTSEeS5HPZTie1IYA">
+          <conclusion xmi:id="_b_LYAjTSEeS5HPZTie1IYA" name="2">
+            <nodes xmi:id="_b_LYAzTSEeS5HPZTie1IYA" outgoing="_UodCEDTSEeS5HPZTie1IYA">
+              <type href="http://FaultTree/1.0#//AND"/>
+            </nodes>
+            <nodes xmi:id="_S42FoDTSEeS5HPZTie1IYA" incoming="_UodCEDTSEeS5HPZTie1IYA">
+              <type href="http://FaultTree/1.0#//Gate"/>
+            </nodes>
+            <edges xmi:id="_UodCEDTSEeS5HPZTie1IYA" source="_b_LYAzTSEeS5HPZTie1IYA" target="_S42FoDTSEeS5HPZTie1IYA">
+              <type href="http://FaultTree/1.0#//Gate/outputGate"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_b_LYBDTSEeS5HPZTie1IYA" origin="_QfzxsDTSEeS5HPZTie1IYA" image="_b_LYAzTSEeS5HPZTie1IYA"/>
+        </right>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_BXSTZjTSEeS5HPZTie1IYA" name="Rhs">
+      <nodes xmi:id="_QfzxsTTSEeS5HPZTie1IYA">
+        <type href="http://FaultTree/1.0#//AND"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_QfzxsjTSEeS5HPZTie1IYA" origin="_QfzxsDTSEeS5HPZTie1IYA" image="_QfzxsTTSEeS5HPZTie1IYA"/>
+    <multiRules xmi:id="_d88sQDTSEeS5HPZTie1IYA">
+      <lhs xmi:id="_d88sQTTSEeS5HPZTie1IYA" name="Lhs">
+        <nodes xmi:id="_d88sSzTSEeS5HPZTie1IYA" outgoing="_VFEFkDTSEeS5HPZTie1IYA _Va0TIDTSEeS5HPZTie1IYA">
+          <type href="http://FaultTree/1.0#//AND"/>
+        </nodes>
+        <nodes xmi:id="_SYzToDTSEeS5HPZTie1IYA" incoming="_VFEFkDTSEeS5HPZTie1IYA">
+          <type href="http://FaultTree/1.0#//Event"/>
+        </nodes>
+        <nodes xmi:id="_TEBa4DTSEeS5HPZTie1IYA" incoming="_Va0TIDTSEeS5HPZTie1IYA">
+          <type href="http://FaultTree/1.0#//Gate"/>
+        </nodes>
+        <edges xmi:id="_VFEFkDTSEeS5HPZTie1IYA" source="_d88sSzTSEeS5HPZTie1IYA" target="_SYzToDTSEeS5HPZTie1IYA">
+          <type href="http://FaultTree/1.0#//Gate/inputEvents"/>
+        </edges>
+        <edges xmi:id="_Va0TIDTSEeS5HPZTie1IYA" source="_d88sSzTSEeS5HPZTie1IYA" target="_TEBa4DTSEeS5HPZTie1IYA">
+          <type href="http://FaultTree/1.0#//Gate/inputGates"/>
+        </edges>
+      </lhs>
+      <rhs xmi:id="_d88sQjTSEeS5HPZTie1IYA" name="Rhs">
+        <nodes xmi:id="_d88sQzTSEeS5HPZTie1IYA" outgoing="_VFEFkTTSEeS5HPZTie1IYA _Va0TITTSEeS5HPZTie1IYA">
+          <type href="http://FaultTree/1.0#//AND"/>
+        </nodes>
+        <nodes xmi:id="_SYzToTTSEeS5HPZTie1IYA" incoming="_VFEFkTTSEeS5HPZTie1IYA">
+          <type href="http://FaultTree/1.0#//Event"/>
+        </nodes>
+        <nodes xmi:id="_TEBa4TTSEeS5HPZTie1IYA" incoming="_Va0TITTSEeS5HPZTie1IYA">
+          <type href="http://FaultTree/1.0#//Gate"/>
+        </nodes>
+        <edges xmi:id="_VFEFkTTSEeS5HPZTie1IYA" source="_d88sQzTSEeS5HPZTie1IYA" target="_SYzToTTSEeS5HPZTie1IYA">
+          <type href="http://FaultTree/1.0#//Gate/inputEvents"/>
+        </edges>
+        <edges xmi:id="_Va0TITTSEeS5HPZTie1IYA" source="_d88sQzTSEeS5HPZTie1IYA" target="_TEBa4TTSEeS5HPZTie1IYA">
+          <type href="http://FaultTree/1.0#//Gate/inputGates"/>
+        </edges>
+      </rhs>
+      <mappings xmi:id="_d9F2MTTSEeS5HPZTie1IYA" origin="_d88sSzTSEeS5HPZTie1IYA" image="_d88sQzTSEeS5HPZTie1IYA"/>
+      <mappings xmi:id="_SYzTojTSEeS5HPZTie1IYA" origin="_SYzToDTSEeS5HPZTie1IYA" image="_SYzToTTSEeS5HPZTie1IYA"/>
+      <mappings xmi:id="_TEBa4jTSEeS5HPZTie1IYA" origin="_TEBa4DTSEeS5HPZTie1IYA" image="_TEBa4TTSEeS5HPZTie1IYA"/>
+      <multiMappings xmi:id="_d88sRDTSEeS5HPZTie1IYA" origin="_QfzxsTTSEeS5HPZTie1IYA" image="_d88sQzTSEeS5HPZTie1IYA"/>
+      <multiMappings xmi:id="_d88sTDTSEeS5HPZTie1IYA" origin="_QfzxsDTSEeS5HPZTie1IYA" image="_d88sSzTSEeS5HPZTie1IYA"/>
+    </multiRules>
+  </units>
+</henshin:Module>
