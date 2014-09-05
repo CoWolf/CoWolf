@@ -4,17 +4,28 @@
     nsPrefix="pCTL">
   <eClassifiers xsi:type="ecore:EClass" name="Start">
     <eStructuralFeatures xsi:type="ecore:EReference" name="start" eType="#//S" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="State" eSuperTypes="#//StateOrLabel"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Label" eSuperTypes="#//StateOrLabel"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StateOrLabel" eSuperTypes="#//S">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="S" eSuperTypes="#//P1 #//P"/>
+  <eClassifiers xsi:type="ecore:EClass" name="P1" eSuperTypes="#//Start"/>
+  <eClassifiers xsi:type="ecore:EClass" name="P" eSuperTypes="#//P1"/>
+  <eClassifiers xsi:type="ecore:EClass" name="F" eSuperTypes="#//P1 #//P">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="RIGHT" eType="#//StateOrLabel"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="G" eSuperTypes="#//P1 #//P">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="LEFT" eType="#//StateOrLabel"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="RIGHT" eType="#//P" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="U" eSuperTypes="#//P1 #//P">
     <eStructuralFeatures xsi:type="ecore:EReference" name="LEFT" eType="#//StateOrLabel"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="RIGHT" eType="#//StateOrLabel"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="State" eSuperTypes="#//StateOrLabel"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Label" eSuperTypes="#//StateOrLabel"/>
-  <eClassifiers xsi:type="ecore:EClass" name="StateOrLabel" eSuperTypes="#//S #//P">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="S"/>
-  <eClassifiers xsi:type="ecore:EClass" name="P" eSuperTypes="#//Start"/>
-  <eClassifiers xsi:type="ecore:EClass" name="PG" eSuperTypes="#//Start"/>
 </ecore:EPackage>

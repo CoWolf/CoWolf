@@ -23,14 +23,13 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Assignment cStartAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
 		private final RuleCall cStartSParserRuleCall_0_0 = (RuleCall)cStartAssignment_0.eContents().get(0);
-		private final RuleCall cPParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cPGParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cP1ParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//Start:
-		//	start=S | P | PG;
+		//	start=S | P1;
 		public ParserRule getRule() { return rule; }
 
-		//start=S | P | PG
+		//start=S | P1
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//start=S
@@ -39,11 +38,8 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 		//S
 		public RuleCall getStartSParserRuleCall_0_0() { return cStartSParserRuleCall_0_0; }
 
-		//P
-		public RuleCall getPParserRuleCall_1() { return cPParserRuleCall_1; }
-
-		//PG
-		public RuleCall getPGParserRuleCall_2() { return cPGParserRuleCall_2; }
+		//P1
+		public RuleCall getP1ParserRuleCall_1() { return cP1ParserRuleCall_1; }
 	}
 
 	public class StateElements extends AbstractParserRuleElementFinder {
@@ -202,124 +198,28 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getRightSquareBracketKeyword_4() { return cRightSquareBracketKeyword_4; }
 	}
 
-	public class PElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "P");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Keyword cPKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
-		private final RuleCall cCompareParserRuleCall_0_1 = (RuleCall)cGroup_0.eContents().get(1);
-		private final Keyword cLeftSquareBracketKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
-		private final Keyword cFKeyword_0_3 = (Keyword)cGroup_0.eContents().get(3);
-		private final RuleCall cTimeBoundParserRuleCall_0_4 = (RuleCall)cGroup_0.eContents().get(4);
-		private final RuleCall cStateOrLabelParserRuleCall_0_5 = (RuleCall)cGroup_0.eContents().get(5);
-		private final Keyword cRightSquareBracketKeyword_0_6 = (Keyword)cGroup_0.eContents().get(6);
-		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Keyword cPKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final RuleCall cCompareParserRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
-		private final Keyword cLeftSquareBracketKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
-		private final Assignment cLEFTAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
-		private final RuleCall cLEFTStateOrLabelParserRuleCall_1_3_0 = (RuleCall)cLEFTAssignment_1_3.eContents().get(0);
-		private final Keyword cUKeyword_1_4 = (Keyword)cGroup_1.eContents().get(4);
-		private final RuleCall cTimeBoundParserRuleCall_1_5 = (RuleCall)cGroup_1.eContents().get(5);
-		private final Assignment cRIGHTAssignment_1_6 = (Assignment)cGroup_1.eContents().get(6);
-		private final RuleCall cRIGHTStateOrLabelParserRuleCall_1_6_0 = (RuleCall)cRIGHTAssignment_1_6.eContents().get(0);
-		private final Keyword cRightSquareBracketKeyword_1_7 = (Keyword)cGroup_1.eContents().get(7);
-		
-		//P:
-		//	"P" Compare "[" "F" TimeBound StateOrLabel "]" | "P" Compare "[" LEFT=StateOrLabel "U" TimeBound RIGHT=StateOrLabel
-		//	"]";
-		public ParserRule getRule() { return rule; }
-
-		//"P" Compare "[" "F" TimeBound StateOrLabel "]" | "P" Compare "[" LEFT=StateOrLabel "U" TimeBound RIGHT=StateOrLabel "]"
-		public Alternatives getAlternatives() { return cAlternatives; }
-
-		//"P" Compare "[" "F" TimeBound StateOrLabel "]"
-		public Group getGroup_0() { return cGroup_0; }
-
-		//"P"
-		public Keyword getPKeyword_0_0() { return cPKeyword_0_0; }
-
-		//Compare
-		public RuleCall getCompareParserRuleCall_0_1() { return cCompareParserRuleCall_0_1; }
-
-		//"["
-		public Keyword getLeftSquareBracketKeyword_0_2() { return cLeftSquareBracketKeyword_0_2; }
-
-		//"F"
-		public Keyword getFKeyword_0_3() { return cFKeyword_0_3; }
-
-		//TimeBound
-		public RuleCall getTimeBoundParserRuleCall_0_4() { return cTimeBoundParserRuleCall_0_4; }
-
-		//StateOrLabel
-		public RuleCall getStateOrLabelParserRuleCall_0_5() { return cStateOrLabelParserRuleCall_0_5; }
-
-		//"]"
-		public Keyword getRightSquareBracketKeyword_0_6() { return cRightSquareBracketKeyword_0_6; }
-
-		//"P" Compare "[" LEFT=StateOrLabel "U" TimeBound RIGHT=StateOrLabel "]"
-		public Group getGroup_1() { return cGroup_1; }
-
-		//"P"
-		public Keyword getPKeyword_1_0() { return cPKeyword_1_0; }
-
-		//Compare
-		public RuleCall getCompareParserRuleCall_1_1() { return cCompareParserRuleCall_1_1; }
-
-		//"["
-		public Keyword getLeftSquareBracketKeyword_1_2() { return cLeftSquareBracketKeyword_1_2; }
-
-		//LEFT=StateOrLabel
-		public Assignment getLEFTAssignment_1_3() { return cLEFTAssignment_1_3; }
-
-		//StateOrLabel
-		public RuleCall getLEFTStateOrLabelParserRuleCall_1_3_0() { return cLEFTStateOrLabelParserRuleCall_1_3_0; }
-
-		//"U"
-		public Keyword getUKeyword_1_4() { return cUKeyword_1_4; }
-
-		//TimeBound
-		public RuleCall getTimeBoundParserRuleCall_1_5() { return cTimeBoundParserRuleCall_1_5; }
-
-		//RIGHT=StateOrLabel
-		public Assignment getRIGHTAssignment_1_6() { return cRIGHTAssignment_1_6; }
-
-		//StateOrLabel
-		public RuleCall getRIGHTStateOrLabelParserRuleCall_1_6_0() { return cRIGHTStateOrLabelParserRuleCall_1_6_0; }
-
-		//"]"
-		public Keyword getRightSquareBracketKeyword_1_7() { return cRightSquareBracketKeyword_1_7; }
-	}
-
-	public class PGElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PG");
+	public class P1Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "P1");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cPKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final RuleCall cCompareParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		private final Keyword cLeftSquareBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cGKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Keyword cLeftParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cLEFTAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cLEFTStateOrLabelParserRuleCall_5_0 = (RuleCall)cLEFTAssignment_5.eContents().get(0);
-		private final Keyword cEqualsSignGreaterThanSignKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Keyword cPKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final RuleCall cCompareWithoutUnknownParserRuleCall_8 = (RuleCall)cGroup.eContents().get(8);
-		private final Keyword cLeftSquareBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		private final Keyword cFKeyword_10 = (Keyword)cGroup.eContents().get(10);
-		private final RuleCall cTimeBoundParserRuleCall_11 = (RuleCall)cGroup.eContents().get(11);
-		private final Assignment cRIGHTAssignment_12 = (Assignment)cGroup.eContents().get(12);
-		private final RuleCall cRIGHTStateOrLabelParserRuleCall_12_0 = (RuleCall)cRIGHTAssignment_12.eContents().get(0);
-		private final Keyword cRightSquareBracketKeyword_13 = (Keyword)cGroup.eContents().get(13);
-		private final Keyword cRightParenthesisKeyword_14 = (Keyword)cGroup.eContents().get(14);
-		private final Keyword cRightSquareBracketKeyword_15 = (Keyword)cGroup.eContents().get(15);
+		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
+		private final RuleCall cPParserRuleCall_3_0 = (RuleCall)cAlternatives_3.eContents().get(0);
+		private final RuleCall cSParserRuleCall_3_1 = (RuleCall)cAlternatives_3.eContents().get(1);
+		private final RuleCall cFParserRuleCall_3_2 = (RuleCall)cAlternatives_3.eContents().get(2);
+		private final RuleCall cUParserRuleCall_3_3 = (RuleCall)cAlternatives_3.eContents().get(3);
+		private final RuleCall cGParserRuleCall_3_4 = (RuleCall)cAlternatives_3.eContents().get(4);
+		private final Group cGroup_3_5 = (Group)cAlternatives_3.eContents().get(5);
+		private final RuleCall cXParserRuleCall_3_5_0 = (RuleCall)cGroup_3_5.eContents().get(0);
+		private final RuleCall cStateOrLabelParserRuleCall_3_5_1 = (RuleCall)cGroup_3_5.eContents().get(1);
+		private final Keyword cRightSquareBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
-		//PG:
-		//	"P" Compare "[" "G" "(" LEFT=StateOrLabel "=>" "P" CompareWithoutUnknown "[" "F" TimeBound RIGHT=StateOrLabel "]" ")"
-		//	"]";
+		//P1:
+		//	"P" Compare "[" (P | S | F | U | G | X StateOrLabel) "]";
 		public ParserRule getRule() { return rule; }
 
-		//"P" Compare "[" "G" "(" LEFT=StateOrLabel "=>" "P" CompareWithoutUnknown "[" "F" TimeBound RIGHT=StateOrLabel "]" ")"
-		//"]"
+		//"P" Compare "[" (P | S | F | U | G | X StateOrLabel) "]"
 		public Group getGroup() { return cGroup; }
 
 		//"P"
@@ -331,50 +231,259 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 		//"["
 		public Keyword getLeftSquareBracketKeyword_2() { return cLeftSquareBracketKeyword_2; }
 
-		//"G"
-		public Keyword getGKeyword_3() { return cGKeyword_3; }
+		//P | S | F | U | G | X StateOrLabel
+		public Alternatives getAlternatives_3() { return cAlternatives_3; }
 
-		//"("
-		public Keyword getLeftParenthesisKeyword_4() { return cLeftParenthesisKeyword_4; }
+		//P
+		public RuleCall getPParserRuleCall_3_0() { return cPParserRuleCall_3_0; }
 
-		//LEFT=StateOrLabel
-		public Assignment getLEFTAssignment_5() { return cLEFTAssignment_5; }
+		//S
+		public RuleCall getSParserRuleCall_3_1() { return cSParserRuleCall_3_1; }
+
+		//F
+		public RuleCall getFParserRuleCall_3_2() { return cFParserRuleCall_3_2; }
+
+		//U
+		public RuleCall getUParserRuleCall_3_3() { return cUParserRuleCall_3_3; }
+
+		//G
+		public RuleCall getGParserRuleCall_3_4() { return cGParserRuleCall_3_4; }
+
+		//X StateOrLabel
+		public Group getGroup_3_5() { return cGroup_3_5; }
+
+		//X
+		public RuleCall getXParserRuleCall_3_5_0() { return cXParserRuleCall_3_5_0; }
 
 		//StateOrLabel
-		public RuleCall getLEFTStateOrLabelParserRuleCall_5_0() { return cLEFTStateOrLabelParserRuleCall_5_0; }
+		public RuleCall getStateOrLabelParserRuleCall_3_5_1() { return cStateOrLabelParserRuleCall_3_5_1; }
 
-		//"=>"
-		public Keyword getEqualsSignGreaterThanSignKeyword_6() { return cEqualsSignGreaterThanSignKeyword_6; }
+		//"]"
+		public Keyword getRightSquareBracketKeyword_4() { return cRightSquareBracketKeyword_4; }
+	}
+
+	public class PElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "P");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cPKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final RuleCall cCompareWithoutUnknownParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Keyword cLeftSquareBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
+		private final RuleCall cPParserRuleCall_3_0 = (RuleCall)cAlternatives_3.eContents().get(0);
+		private final RuleCall cSParserRuleCall_3_1 = (RuleCall)cAlternatives_3.eContents().get(1);
+		private final RuleCall cFParserRuleCall_3_2 = (RuleCall)cAlternatives_3.eContents().get(2);
+		private final RuleCall cUParserRuleCall_3_3 = (RuleCall)cAlternatives_3.eContents().get(3);
+		private final RuleCall cGParserRuleCall_3_4 = (RuleCall)cAlternatives_3.eContents().get(4);
+		private final Group cGroup_3_5 = (Group)cAlternatives_3.eContents().get(5);
+		private final RuleCall cXParserRuleCall_3_5_0 = (RuleCall)cGroup_3_5.eContents().get(0);
+		private final RuleCall cStateOrLabelParserRuleCall_3_5_1 = (RuleCall)cGroup_3_5.eContents().get(1);
+		private final Keyword cRightSquareBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//P:
+		//	"P" CompareWithoutUnknown "[" (P | S | F | U | G | X StateOrLabel) "]";
+		public ParserRule getRule() { return rule; }
+
+		//"P" CompareWithoutUnknown "[" (P | S | F | U | G | X StateOrLabel) "]"
+		public Group getGroup() { return cGroup; }
 
 		//"P"
-		public Keyword getPKeyword_7() { return cPKeyword_7; }
+		public Keyword getPKeyword_0() { return cPKeyword_0; }
 
 		//CompareWithoutUnknown
-		public RuleCall getCompareWithoutUnknownParserRuleCall_8() { return cCompareWithoutUnknownParserRuleCall_8; }
+		public RuleCall getCompareWithoutUnknownParserRuleCall_1() { return cCompareWithoutUnknownParserRuleCall_1; }
 
 		//"["
-		public Keyword getLeftSquareBracketKeyword_9() { return cLeftSquareBracketKeyword_9; }
+		public Keyword getLeftSquareBracketKeyword_2() { return cLeftSquareBracketKeyword_2; }
 
-		//"F"
-		public Keyword getFKeyword_10() { return cFKeyword_10; }
+		//P | S | F | U | G | X StateOrLabel
+		public Alternatives getAlternatives_3() { return cAlternatives_3; }
 
-		//TimeBound
-		public RuleCall getTimeBoundParserRuleCall_11() { return cTimeBoundParserRuleCall_11; }
+		//P
+		public RuleCall getPParserRuleCall_3_0() { return cPParserRuleCall_3_0; }
 
-		//RIGHT=StateOrLabel
-		public Assignment getRIGHTAssignment_12() { return cRIGHTAssignment_12; }
+		//S
+		public RuleCall getSParserRuleCall_3_1() { return cSParserRuleCall_3_1; }
+
+		//F
+		public RuleCall getFParserRuleCall_3_2() { return cFParserRuleCall_3_2; }
+
+		//U
+		public RuleCall getUParserRuleCall_3_3() { return cUParserRuleCall_3_3; }
+
+		//G
+		public RuleCall getGParserRuleCall_3_4() { return cGParserRuleCall_3_4; }
+
+		//X StateOrLabel
+		public Group getGroup_3_5() { return cGroup_3_5; }
+
+		//X
+		public RuleCall getXParserRuleCall_3_5_0() { return cXParserRuleCall_3_5_0; }
 
 		//StateOrLabel
-		public RuleCall getRIGHTStateOrLabelParserRuleCall_12_0() { return cRIGHTStateOrLabelParserRuleCall_12_0; }
+		public RuleCall getStateOrLabelParserRuleCall_3_5_1() { return cStateOrLabelParserRuleCall_3_5_1; }
 
 		//"]"
-		public Keyword getRightSquareBracketKeyword_13() { return cRightSquareBracketKeyword_13; }
+		public Keyword getRightSquareBracketKeyword_4() { return cRightSquareBracketKeyword_4; }
+	}
+
+	public class XElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "X");
+		private final Keyword cXKeyword = (Keyword)rule.eContents().get(1);
+		
+		//X:
+		//	"X"*;
+		public ParserRule getRule() { return rule; }
+
+		//"X"*
+		public Keyword getXKeyword() { return cXKeyword; }
+	}
+
+	public class FElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "F");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cFKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final RuleCall cTimeBoundParserRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
+		private final RuleCall cXParserRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		private final Assignment cRIGHTAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cRIGHTStateOrLabelParserRuleCall_2_0 = (RuleCall)cRIGHTAssignment_2.eContents().get(0);
+		
+		//F:
+		//	"F" (TimeBound X) RIGHT=StateOrLabel;
+		public ParserRule getRule() { return rule; }
+
+		//"F" (TimeBound X) RIGHT=StateOrLabel
+		public Group getGroup() { return cGroup; }
+
+		//"F"
+		public Keyword getFKeyword_0() { return cFKeyword_0; }
+
+		//TimeBound X
+		public Group getGroup_1() { return cGroup_1; }
+
+		//TimeBound
+		public RuleCall getTimeBoundParserRuleCall_1_0() { return cTimeBoundParserRuleCall_1_0; }
+
+		//X
+		public RuleCall getXParserRuleCall_1_1() { return cXParserRuleCall_1_1; }
+
+		//RIGHT=StateOrLabel
+		public Assignment getRIGHTAssignment_2() { return cRIGHTAssignment_2; }
+
+		//StateOrLabel
+		public RuleCall getRIGHTStateOrLabelParserRuleCall_2_0() { return cRIGHTStateOrLabelParserRuleCall_2_0; }
+	}
+
+	public class GElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "G");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cGKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final RuleCall cTimeBoundParserRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
+		private final RuleCall cXParserRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cLEFTAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cLEFTStateOrLabelParserRuleCall_3_0 = (RuleCall)cLEFTAssignment_3.eContents().get(0);
+		private final Keyword cEqualsSignGreaterThanSignKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cRIGHTAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cRIGHTPParserRuleCall_5_0 = (RuleCall)cRIGHTAssignment_5.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		
+		//G:
+		//	"G" (TimeBound X) "(" LEFT=StateOrLabel "=>" RIGHT=P ")";
+		public ParserRule getRule() { return rule; }
+
+		//"G" (TimeBound X) "(" LEFT=StateOrLabel "=>" RIGHT=P ")"
+		public Group getGroup() { return cGroup; }
+
+		//"G"
+		public Keyword getGKeyword_0() { return cGKeyword_0; }
+
+		//TimeBound X
+		public Group getGroup_1() { return cGroup_1; }
+
+		//TimeBound
+		public RuleCall getTimeBoundParserRuleCall_1_0() { return cTimeBoundParserRuleCall_1_0; }
+
+		//X
+		public RuleCall getXParserRuleCall_1_1() { return cXParserRuleCall_1_1; }
+
+		//"("
+		public Keyword getLeftParenthesisKeyword_2() { return cLeftParenthesisKeyword_2; }
+
+		//LEFT=StateOrLabel
+		public Assignment getLEFTAssignment_3() { return cLEFTAssignment_3; }
+
+		//StateOrLabel
+		public RuleCall getLEFTStateOrLabelParserRuleCall_3_0() { return cLEFTStateOrLabelParserRuleCall_3_0; }
+
+		//"=>"
+		public Keyword getEqualsSignGreaterThanSignKeyword_4() { return cEqualsSignGreaterThanSignKeyword_4; }
+
+		//RIGHT=P
+		public Assignment getRIGHTAssignment_5() { return cRIGHTAssignment_5; }
+
+		//P
+		public RuleCall getRIGHTPParserRuleCall_5_0() { return cRIGHTPParserRuleCall_5_0; }
 
 		//")"
-		public Keyword getRightParenthesisKeyword_14() { return cRightParenthesisKeyword_14; }
+		public Keyword getRightParenthesisKeyword_6() { return cRightParenthesisKeyword_6; }
+	}
 
-		//"]"
-		public Keyword getRightSquareBracketKeyword_15() { return cRightSquareBracketKeyword_15; }
+	public class UElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "U");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cLEFTAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cLEFTStateOrLabelParserRuleCall_0_0 = (RuleCall)cLEFTAssignment_0.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Keyword cUKeyword_1_0 = (Keyword)cAlternatives_1.eContents().get(0);
+		private final Keyword cWKeyword_1_1 = (Keyword)cAlternatives_1.eContents().get(1);
+		private final Keyword cRKeyword_1_2 = (Keyword)cAlternatives_1.eContents().get(2);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final RuleCall cTimeBoundParserRuleCall_2_0 = (RuleCall)cGroup_2.eContents().get(0);
+		private final RuleCall cXParserRuleCall_2_1 = (RuleCall)cGroup_2.eContents().get(1);
+		private final Assignment cRIGHTAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cRIGHTStateOrLabelParserRuleCall_3_0 = (RuleCall)cRIGHTAssignment_3.eContents().get(0);
+		
+		//U:
+		//	LEFT=StateOrLabel ("U" | "W" | "R") (TimeBound X) RIGHT=StateOrLabel;
+		public ParserRule getRule() { return rule; }
+
+		//LEFT=StateOrLabel ("U" | "W" | "R") (TimeBound X) RIGHT=StateOrLabel
+		public Group getGroup() { return cGroup; }
+
+		//LEFT=StateOrLabel
+		public Assignment getLEFTAssignment_0() { return cLEFTAssignment_0; }
+
+		//StateOrLabel
+		public RuleCall getLEFTStateOrLabelParserRuleCall_0_0() { return cLEFTStateOrLabelParserRuleCall_0_0; }
+
+		//"U" | "W" | "R"
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+
+		//"U"
+		public Keyword getUKeyword_1_0() { return cUKeyword_1_0; }
+
+		//"W"
+		public Keyword getWKeyword_1_1() { return cWKeyword_1_1; }
+
+		//"R"
+		public Keyword getRKeyword_1_2() { return cRKeyword_1_2; }
+
+		//TimeBound X
+		public Group getGroup_2() { return cGroup_2; }
+
+		//TimeBound
+		public RuleCall getTimeBoundParserRuleCall_2_0() { return cTimeBoundParserRuleCall_2_0; }
+
+		//X
+		public RuleCall getXParserRuleCall_2_1() { return cXParserRuleCall_2_1; }
+
+		//RIGHT=StateOrLabel
+		public Assignment getRIGHTAssignment_3() { return cRIGHTAssignment_3; }
+
+		//StateOrLabel
+		public RuleCall getRIGHTStateOrLabelParserRuleCall_3_0() { return cRIGHTStateOrLabelParserRuleCall_3_0; }
 	}
 
 	public class CompareElements extends AbstractParserRuleElementFinder {
@@ -467,17 +576,20 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLessThanSignEqualsSignKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final RuleCall cDECIMALParserRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
 		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
-		private final Keyword cLeftSquareBracketKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
 		private final RuleCall cDECIMALParserRuleCall_2_1 = (RuleCall)cGroup_2.eContents().get(1);
-		private final Keyword cCommaKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
-		private final RuleCall cDECIMALParserRuleCall_2_3 = (RuleCall)cGroup_2.eContents().get(3);
-		private final Keyword cRightSquareBracketKeyword_2_4 = (Keyword)cGroup_2.eContents().get(4);
+		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
+		private final Keyword cLeftSquareBracketKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final RuleCall cDECIMALParserRuleCall_3_1 = (RuleCall)cGroup_3.eContents().get(1);
+		private final Keyword cCommaKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
+		private final RuleCall cDECIMALParserRuleCall_3_3 = (RuleCall)cGroup_3.eContents().get(3);
+		private final Keyword cRightSquareBracketKeyword_3_4 = (Keyword)cGroup_3.eContents().get(4);
 		
 		//TimeBound:
-		//	(">=" DECIMAL | "<=" DECIMAL | "[" DECIMAL "," DECIMAL "]")?;
+		//	(">=" DECIMAL | "<=" DECIMAL | "=" DECIMAL | "[" DECIMAL "," DECIMAL "]")?;
 		public ParserRule getRule() { return rule; }
 
-		//(">=" DECIMAL | "<=" DECIMAL | "[" DECIMAL "," DECIMAL "]")?
+		//(">=" DECIMAL | "<=" DECIMAL | "=" DECIMAL | "[" DECIMAL "," DECIMAL "]")?
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//">=" DECIMAL
@@ -498,23 +610,32 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 		//DECIMAL
 		public RuleCall getDECIMALParserRuleCall_1_1() { return cDECIMALParserRuleCall_1_1; }
 
-		//"[" DECIMAL "," DECIMAL "]"
+		//"=" DECIMAL
 		public Group getGroup_2() { return cGroup_2; }
 
-		//"["
-		public Keyword getLeftSquareBracketKeyword_2_0() { return cLeftSquareBracketKeyword_2_0; }
+		//"="
+		public Keyword getEqualsSignKeyword_2_0() { return cEqualsSignKeyword_2_0; }
 
 		//DECIMAL
 		public RuleCall getDECIMALParserRuleCall_2_1() { return cDECIMALParserRuleCall_2_1; }
 
-		//","
-		public Keyword getCommaKeyword_2_2() { return cCommaKeyword_2_2; }
+		//"[" DECIMAL "," DECIMAL "]"
+		public Group getGroup_3() { return cGroup_3; }
+
+		//"["
+		public Keyword getLeftSquareBracketKeyword_3_0() { return cLeftSquareBracketKeyword_3_0; }
 
 		//DECIMAL
-		public RuleCall getDECIMALParserRuleCall_2_3() { return cDECIMALParserRuleCall_2_3; }
+		public RuleCall getDECIMALParserRuleCall_3_1() { return cDECIMALParserRuleCall_3_1; }
+
+		//","
+		public Keyword getCommaKeyword_3_2() { return cCommaKeyword_3_2; }
+
+		//DECIMAL
+		public RuleCall getDECIMALParserRuleCall_3_3() { return cDECIMALParserRuleCall_3_3; }
 
 		//"]"
-		public Keyword getRightSquareBracketKeyword_2_4() { return cRightSquareBracketKeyword_2_4; }
+		public Keyword getRightSquareBracketKeyword_3_4() { return cRightSquareBracketKeyword_3_4; }
 	}
 
 	public class DECIMALElements extends AbstractParserRuleElementFinder {
@@ -551,8 +672,12 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 	private LabelElements pLabel;
 	private StateOrLabelElements pStateOrLabel;
 	private SElements pS;
+	private P1Elements pP1;
 	private PElements pP;
-	private PGElements pPG;
+	private XElements pX;
+	private FElements pF;
+	private GElements pG;
+	private UElements pU;
 	private CompareElements pCompare;
 	private CompareWithoutUnknownElements pCompareWithoutUnknown;
 	private TimeBoundElements pTimeBound;
@@ -597,7 +722,7 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Start:
-	//	start=S | P | PG;
+	//	start=S | P1;
 	public StartElements getStartAccess() {
 		return (pStart != null) ? pStart : (pStart = new StartElements());
 	}
@@ -646,9 +771,18 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 		return getSAccess().getRule();
 	}
 
+	//P1:
+	//	"P" Compare "[" (P | S | F | U | G | X StateOrLabel) "]";
+	public P1Elements getP1Access() {
+		return (pP1 != null) ? pP1 : (pP1 = new P1Elements());
+	}
+	
+	public ParserRule getP1Rule() {
+		return getP1Access().getRule();
+	}
+
 	//P:
-	//	"P" Compare "[" "F" TimeBound StateOrLabel "]" | "P" Compare "[" LEFT=StateOrLabel "U" TimeBound RIGHT=StateOrLabel
-	//	"]";
+	//	"P" CompareWithoutUnknown "[" (P | S | F | U | G | X StateOrLabel) "]";
 	public PElements getPAccess() {
 		return (pP != null) ? pP : (pP = new PElements());
 	}
@@ -657,15 +791,44 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 		return getPAccess().getRule();
 	}
 
-	//PG:
-	//	"P" Compare "[" "G" "(" LEFT=StateOrLabel "=>" "P" CompareWithoutUnknown "[" "F" TimeBound RIGHT=StateOrLabel "]" ")"
-	//	"]";
-	public PGElements getPGAccess() {
-		return (pPG != null) ? pPG : (pPG = new PGElements());
+	//X:
+	//	"X"*;
+	public XElements getXAccess() {
+		return (pX != null) ? pX : (pX = new XElements());
 	}
 	
-	public ParserRule getPGRule() {
-		return getPGAccess().getRule();
+	public ParserRule getXRule() {
+		return getXAccess().getRule();
+	}
+
+	//F:
+	//	"F" (TimeBound X) RIGHT=StateOrLabel;
+	public FElements getFAccess() {
+		return (pF != null) ? pF : (pF = new FElements());
+	}
+	
+	public ParserRule getFRule() {
+		return getFAccess().getRule();
+	}
+
+	//G:
+	//	"G" (TimeBound X) "(" LEFT=StateOrLabel "=>" RIGHT=P ")";
+	public GElements getGAccess() {
+		return (pG != null) ? pG : (pG = new GElements());
+	}
+	
+	public ParserRule getGRule() {
+		return getGAccess().getRule();
+	}
+
+	//U:
+	//	LEFT=StateOrLabel ("U" | "W" | "R") (TimeBound X) RIGHT=StateOrLabel;
+	public UElements getUAccess() {
+		return (pU != null) ? pU : (pU = new UElements());
+	}
+	
+	public ParserRule getURule() {
+		return getUAccess().getRule();
 	}
 
 	//Compare:
@@ -689,7 +852,7 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//TimeBound:
-	//	(">=" DECIMAL | "<=" DECIMAL | "[" DECIMAL "," DECIMAL "]")?;
+	//	(">=" DECIMAL | "<=" DECIMAL | "=" DECIMAL | "[" DECIMAL "," DECIMAL "]")?;
 	public TimeBoundElements getTimeBoundAccess() {
 		return (pTimeBound != null) ? pTimeBound : (pTimeBound = new TimeBoundElements());
 	}

@@ -13,6 +13,6 @@ package de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL;
  * @model
  * @generated
  */
-public interface P extends Start
+public interface P extends P1
 {
 } // P

@@ -69,8 +69,11 @@ public class PCTLFactoryImpl extends EFactoryImpl implements PCTLFactory
       case PCTLPackage.LABEL: return createLabel();
       case PCTLPackage.STATE_OR_LABEL: return createStateOrLabel();
       case PCTLPackage.S: return createS();
+      case PCTLPackage.P1: return createP1();
       case PCTLPackage.P: return createP();
-      case PCTLPackage.PG: return createPG();
+      case PCTLPackage.F: return createF();
+      case PCTLPackage.G: return createG();
+      case PCTLPackage.U: return createU();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -136,6 +139,17 @@ public class PCTLFactoryImpl extends EFactoryImpl implements PCTLFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public P1 createP1()
+  {
+    P1Impl p1 = new P1Impl();
+    return p1;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public P createP()
   {
     PImpl p = new PImpl();
@@ -147,10 +161,32 @@ public class PCTLFactoryImpl extends EFactoryImpl implements PCTLFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public PG createPG()
+  public F createF()
   {
-    PGImpl pg = new PGImpl();
-    return pg;
+    FImpl f = new FImpl();
+    return f;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public G createG()
+  {
+    GImpl g = new GImpl();
+    return g;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public U createU()
+  {
+    UImpl u = new UImpl();
+    return u;
   }
 
   /**

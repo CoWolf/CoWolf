@@ -76,31 +76,41 @@ public interface PCTLPackage extends EPackage
   int START__START = 0;
 
   /**
-   * The feature id for the '<em><b>LEFT</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int START__LEFT = 1;
-
-  /**
-   * The feature id for the '<em><b>RIGHT</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int START__RIGHT = 2;
-
-  /**
    * The number of structural features of the '<em>Start</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int START_FEATURE_COUNT = 3;
+  int START_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.P1Impl <em>P1</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.P1Impl
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getP1()
+   * @generated
+   */
+  int P1 = 5;
+
+  /**
+   * The feature id for the '<em><b>Start</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int P1__START = START__START;
+
+  /**
+   * The number of structural features of the '<em>P1</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int P1_FEATURE_COUNT = START_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.SImpl <em>S</em>}' class.
@@ -113,13 +123,22 @@ public interface PCTLPackage extends EPackage
   int S = 4;
 
   /**
+   * The feature id for the '<em><b>Start</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int S__START = P1__START;
+
+  /**
    * The number of structural features of the '<em>S</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int S_FEATURE_COUNT = 0;
+  int S_FEATURE_COUNT = P1_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.StateOrLabelImpl <em>State Or Label</em>}' class.
@@ -138,25 +157,7 @@ public interface PCTLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATE_OR_LABEL__START = S_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>LEFT</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATE_OR_LABEL__LEFT = S_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>RIGHT</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATE_OR_LABEL__RIGHT = S_FEATURE_COUNT + 2;
+  int STATE_OR_LABEL__START = S__START;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -165,7 +166,7 @@ public interface PCTLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATE_OR_LABEL__NAME = S_FEATURE_COUNT + 3;
+  int STATE_OR_LABEL__NAME = S_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>State Or Label</em>' class.
@@ -174,7 +175,7 @@ public interface PCTLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATE_OR_LABEL_FEATURE_COUNT = S_FEATURE_COUNT + 4;
+  int STATE_OR_LABEL_FEATURE_COUNT = S_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.StateImpl <em>State</em>}' class.
@@ -194,24 +195,6 @@ public interface PCTLPackage extends EPackage
    * @ordered
    */
   int STATE__START = STATE_OR_LABEL__START;
-
-  /**
-   * The feature id for the '<em><b>LEFT</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATE__LEFT = STATE_OR_LABEL__LEFT;
-
-  /**
-   * The feature id for the '<em><b>RIGHT</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATE__RIGHT = STATE_OR_LABEL__RIGHT;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -251,24 +234,6 @@ public interface PCTLPackage extends EPackage
   int LABEL__START = STATE_OR_LABEL__START;
 
   /**
-   * The feature id for the '<em><b>LEFT</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LABEL__LEFT = STATE_OR_LABEL__LEFT;
-
-  /**
-   * The feature id for the '<em><b>RIGHT</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LABEL__RIGHT = STATE_OR_LABEL__RIGHT;
-
-  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -294,7 +259,7 @@ public interface PCTLPackage extends EPackage
    * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getP()
    * @generated
    */
-  int P = 5;
+  int P = 6;
 
   /**
    * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -303,25 +268,7 @@ public interface PCTLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int P__START = START__START;
-
-  /**
-   * The feature id for the '<em><b>LEFT</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int P__LEFT = START__LEFT;
-
-  /**
-   * The feature id for the '<em><b>RIGHT</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int P__RIGHT = START__RIGHT;
+  int P__START = P1__START;
 
   /**
    * The number of structural features of the '<em>P</em>' class.
@@ -330,17 +277,17 @@ public interface PCTLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int P_FEATURE_COUNT = START_FEATURE_COUNT + 0;
+  int P_FEATURE_COUNT = P1_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PGImpl <em>PG</em>}' class.
+   * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.FImpl <em>F</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PGImpl
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getPG()
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.FImpl
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getF()
    * @generated
    */
-  int PG = 6;
+  int F = 7;
 
   /**
    * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -349,16 +296,7 @@ public interface PCTLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PG__START = START__START;
-
-  /**
-   * The feature id for the '<em><b>LEFT</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PG__LEFT = START__LEFT;
+  int F__START = P1__START;
 
   /**
    * The feature id for the '<em><b>RIGHT</b></em>' containment reference.
@@ -367,16 +305,108 @@ public interface PCTLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PG__RIGHT = START__RIGHT;
+  int F__RIGHT = P1_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>PG</em>' class.
+   * The number of structural features of the '<em>F</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PG_FEATURE_COUNT = START_FEATURE_COUNT + 0;
+  int F_FEATURE_COUNT = P1_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.GImpl <em>G</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.GImpl
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getG()
+   * @generated
+   */
+  int G = 8;
+
+  /**
+   * The feature id for the '<em><b>Start</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int G__START = P1__START;
+
+  /**
+   * The feature id for the '<em><b>LEFT</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int G__LEFT = P1_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>RIGHT</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int G__RIGHT = P1_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>G</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int G_FEATURE_COUNT = P1_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.UImpl <em>U</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.UImpl
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getU()
+   * @generated
+   */
+  int U = 9;
+
+  /**
+   * The feature id for the '<em><b>Start</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int U__START = P1__START;
+
+  /**
+   * The feature id for the '<em><b>LEFT</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int U__LEFT = P1_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>RIGHT</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int U__RIGHT = P1_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>U</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int U_FEATURE_COUNT = P1_FEATURE_COUNT + 2;
 
 
   /**
@@ -399,28 +429,6 @@ public interface PCTLPackage extends EPackage
    * @generated
    */
   EReference getStart_Start();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Start#getLEFT <em>LEFT</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>LEFT</em>'.
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Start#getLEFT()
-   * @see #getStart()
-   * @generated
-   */
-  EReference getStart_LEFT();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Start#getRIGHT <em>RIGHT</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>RIGHT</em>'.
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Start#getRIGHT()
-   * @see #getStart()
-   * @generated
-   */
-  EReference getStart_RIGHT();
 
   /**
    * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.State <em>State</em>}'.
@@ -474,6 +482,16 @@ public interface PCTLPackage extends EPackage
   EClass getS();
 
   /**
+   * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.P1 <em>P1</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>P1</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.P1
+   * @generated
+   */
+  EClass getP1();
+
+  /**
    * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.P <em>P</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -484,14 +502,89 @@ public interface PCTLPackage extends EPackage
   EClass getP();
 
   /**
-   * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PG <em>PG</em>}'.
+   * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.F <em>F</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>PG</em>'.
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PG
+   * @return the meta object for class '<em>F</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.F
    * @generated
    */
-  EClass getPG();
+  EClass getF();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.F#getRIGHT <em>RIGHT</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>RIGHT</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.F#getRIGHT()
+   * @see #getF()
+   * @generated
+   */
+  EReference getF_RIGHT();
+
+  /**
+   * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.G <em>G</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>G</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.G
+   * @generated
+   */
+  EClass getG();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.G#getLEFT <em>LEFT</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>LEFT</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.G#getLEFT()
+   * @see #getG()
+   * @generated
+   */
+  EReference getG_LEFT();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.G#getRIGHT <em>RIGHT</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>RIGHT</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.G#getRIGHT()
+   * @see #getG()
+   * @generated
+   */
+  EReference getG_RIGHT();
+
+  /**
+   * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.U <em>U</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>U</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.U
+   * @generated
+   */
+  EClass getU();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.U#getLEFT <em>LEFT</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>LEFT</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.U#getLEFT()
+   * @see #getU()
+   * @generated
+   */
+  EReference getU_LEFT();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.U#getRIGHT <em>RIGHT</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>RIGHT</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.U#getRIGHT()
+   * @see #getU()
+   * @generated
+   */
+  EReference getU_RIGHT();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -533,22 +626,6 @@ public interface PCTLPackage extends EPackage
      * @generated
      */
     EReference START__START = eINSTANCE.getStart_Start();
-
-    /**
-     * The meta object literal for the '<em><b>LEFT</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference START__LEFT = eINSTANCE.getStart_LEFT();
-
-    /**
-     * The meta object literal for the '<em><b>RIGHT</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference START__RIGHT = eINSTANCE.getStart_RIGHT();
 
     /**
      * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.StateImpl <em>State</em>}' class.
@@ -599,6 +676,16 @@ public interface PCTLPackage extends EPackage
     EClass S = eINSTANCE.getS();
 
     /**
+     * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.P1Impl <em>P1</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.P1Impl
+     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getP1()
+     * @generated
+     */
+    EClass P1 = eINSTANCE.getP1();
+
+    /**
      * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PImpl <em>P</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -609,14 +696,74 @@ public interface PCTLPackage extends EPackage
     EClass P = eINSTANCE.getP();
 
     /**
-     * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PGImpl <em>PG</em>}' class.
+     * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.FImpl <em>F</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PGImpl
-     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getPG()
+     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.FImpl
+     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getF()
      * @generated
      */
-    EClass PG = eINSTANCE.getPG();
+    EClass F = eINSTANCE.getF();
+
+    /**
+     * The meta object literal for the '<em><b>RIGHT</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference F__RIGHT = eINSTANCE.getF_RIGHT();
+
+    /**
+     * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.GImpl <em>G</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.GImpl
+     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getG()
+     * @generated
+     */
+    EClass G = eINSTANCE.getG();
+
+    /**
+     * The meta object literal for the '<em><b>LEFT</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference G__LEFT = eINSTANCE.getG_LEFT();
+
+    /**
+     * The meta object literal for the '<em><b>RIGHT</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference G__RIGHT = eINSTANCE.getG_RIGHT();
+
+    /**
+     * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.UImpl <em>U</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.UImpl
+     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getU()
+     * @generated
+     */
+    EClass U = eINSTANCE.getU();
+
+    /**
+     * The meta object literal for the '<em><b>LEFT</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference U__LEFT = eINSTANCE.getU_LEFT();
+
+    /**
+     * The meta object literal for the '<em><b>RIGHT</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference U__RIGHT = eINSTANCE.getU_RIGHT();
 
   }
 

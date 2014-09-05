@@ -329,9 +329,7 @@ public class EditPropertiesWizardPage1 extends WizardPage {
 			smFile.delete();
 			if (resource.getErrors().size() > 0) {
 				this.setErrorMessage(resource.getErrors().get(0).getMessage());
-				// return false;
-				// For testing
-				return true;
+				return false;
 			}
 
 		} catch (IOException e) {

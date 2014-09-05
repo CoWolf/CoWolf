@@ -41,7 +41,9 @@ public class PCTLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getStateAccess().getAlternatives(), "rule__State__Alternatives");
 					put(grammarAccess.getLabelAccess().getAlternatives(), "rule__Label__Alternatives");
 					put(grammarAccess.getStateOrLabelAccess().getAlternatives(), "rule__StateOrLabel__Alternatives");
-					put(grammarAccess.getPAccess().getAlternatives(), "rule__P__Alternatives");
+					put(grammarAccess.getP1Access().getAlternatives_3(), "rule__P1__Alternatives_3");
+					put(grammarAccess.getPAccess().getAlternatives_3(), "rule__P__Alternatives_3");
+					put(grammarAccess.getUAccess().getAlternatives_1(), "rule__U__Alternatives_1");
 					put(grammarAccess.getCompareAccess().getAlternatives(), "rule__Compare__Alternatives");
 					put(grammarAccess.getCompareWithoutUnknownAccess().getAlternatives(), "rule__CompareWithoutUnknown__Alternatives");
 					put(grammarAccess.getTimeBoundAccess().getAlternatives(), "rule__TimeBound__Alternatives");
@@ -50,9 +52,16 @@ public class PCTLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getLabelAccess().getGroup_0(), "rule__Label__Group_0__0");
 					put(grammarAccess.getLabelAccess().getGroup_1(), "rule__Label__Group_1__0");
 					put(grammarAccess.getSAccess().getGroup(), "rule__S__Group__0");
-					put(grammarAccess.getPAccess().getGroup_0(), "rule__P__Group_0__0");
-					put(grammarAccess.getPAccess().getGroup_1(), "rule__P__Group_1__0");
-					put(grammarAccess.getPGAccess().getGroup(), "rule__PG__Group__0");
+					put(grammarAccess.getP1Access().getGroup(), "rule__P1__Group__0");
+					put(grammarAccess.getP1Access().getGroup_3_5(), "rule__P1__Group_3_5__0");
+					put(grammarAccess.getPAccess().getGroup(), "rule__P__Group__0");
+					put(grammarAccess.getPAccess().getGroup_3_5(), "rule__P__Group_3_5__0");
+					put(grammarAccess.getFAccess().getGroup(), "rule__F__Group__0");
+					put(grammarAccess.getFAccess().getGroup_1(), "rule__F__Group_1__0");
+					put(grammarAccess.getGAccess().getGroup(), "rule__G__Group__0");
+					put(grammarAccess.getGAccess().getGroup_1(), "rule__G__Group_1__0");
+					put(grammarAccess.getUAccess().getGroup(), "rule__U__Group__0");
+					put(grammarAccess.getUAccess().getGroup_2(), "rule__U__Group_2__0");
 					put(grammarAccess.getCompareWithoutUnknownAccess().getGroup_0(), "rule__CompareWithoutUnknown__Group_0__0");
 					put(grammarAccess.getCompareWithoutUnknownAccess().getGroup_1(), "rule__CompareWithoutUnknown__Group_1__0");
 					put(grammarAccess.getCompareWithoutUnknownAccess().getGroup_2(), "rule__CompareWithoutUnknown__Group_2__0");
@@ -60,6 +69,7 @@ public class PCTLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTimeBoundAccess().getGroup_0(), "rule__TimeBound__Group_0__0");
 					put(grammarAccess.getTimeBoundAccess().getGroup_1(), "rule__TimeBound__Group_1__0");
 					put(grammarAccess.getTimeBoundAccess().getGroup_2(), "rule__TimeBound__Group_2__0");
+					put(grammarAccess.getTimeBoundAccess().getGroup_3(), "rule__TimeBound__Group_3__0");
 					put(grammarAccess.getDECIMALAccess().getGroup(), "rule__DECIMAL__Group__0");
 					put(grammarAccess.getDECIMALAccess().getGroup_1(), "rule__DECIMAL__Group_1__0");
 					put(grammarAccess.getStartAccess().getStartAssignment_0(), "rule__Start__StartAssignment_0");
@@ -67,10 +77,11 @@ public class PCTLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getStateAccess().getNameAssignment_1_1(), "rule__State__NameAssignment_1_1");
 					put(grammarAccess.getLabelAccess().getNameAssignment_0_2(), "rule__Label__NameAssignment_0_2");
 					put(grammarAccess.getLabelAccess().getNameAssignment_1_1(), "rule__Label__NameAssignment_1_1");
-					put(grammarAccess.getPAccess().getLEFTAssignment_1_3(), "rule__P__LEFTAssignment_1_3");
-					put(grammarAccess.getPAccess().getRIGHTAssignment_1_6(), "rule__P__RIGHTAssignment_1_6");
-					put(grammarAccess.getPGAccess().getLEFTAssignment_5(), "rule__PG__LEFTAssignment_5");
-					put(grammarAccess.getPGAccess().getRIGHTAssignment_12(), "rule__PG__RIGHTAssignment_12");
+					put(grammarAccess.getFAccess().getRIGHTAssignment_2(), "rule__F__RIGHTAssignment_2");
+					put(grammarAccess.getGAccess().getLEFTAssignment_3(), "rule__G__LEFTAssignment_3");
+					put(grammarAccess.getGAccess().getRIGHTAssignment_5(), "rule__G__RIGHTAssignment_5");
+					put(grammarAccess.getUAccess().getLEFTAssignment_0(), "rule__U__LEFTAssignment_0");
+					put(grammarAccess.getUAccess().getRIGHTAssignment_3(), "rule__U__RIGHTAssignment_3");
 				}
 			};
 		}

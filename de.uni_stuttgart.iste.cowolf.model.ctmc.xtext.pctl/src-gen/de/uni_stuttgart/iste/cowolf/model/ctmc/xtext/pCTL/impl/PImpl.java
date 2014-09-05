@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class PImpl extends StartImpl implements P
+public class PImpl extends P1Impl implements P
 {
   /**
    * <!-- begin-user-doc -->

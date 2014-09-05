@@ -2,7 +2,6 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,6 +13,6 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface S extends EObject
+public interface S extends P1, P
 {
 } // S

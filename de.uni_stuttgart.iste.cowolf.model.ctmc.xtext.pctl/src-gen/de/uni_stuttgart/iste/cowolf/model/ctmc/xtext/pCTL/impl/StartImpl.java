@@ -5,7 +5,6 @@ package de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PCTLPackage;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.S;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Start;
-import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.StateOrLabel;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -24,8 +23,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.StartImpl#getStart <em>Start</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.StartImpl#getLEFT <em>LEFT</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.StartImpl#getRIGHT <em>RIGHT</em>}</li>
  * </ul>
  * </p>
  *
@@ -42,26 +39,6 @@ public class StartImpl extends MinimalEObjectImpl.Container implements Start
    * @ordered
    */
   protected S start;
-
-  /**
-   * The cached value of the '{@link #getLEFT() <em>LEFT</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getLEFT()
-   * @generated
-   * @ordered
-   */
-  protected StateOrLabel left;
-
-  /**
-   * The cached value of the '{@link #getRIGHT() <em>RIGHT</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getRIGHT()
-   * @generated
-   * @ordered
-   */
-  protected StateOrLabel right;
 
   /**
    * <!-- begin-user-doc -->
@@ -137,102 +114,6 @@ public class StartImpl extends MinimalEObjectImpl.Container implements Start
    * <!-- end-user-doc -->
    * @generated
    */
-  public StateOrLabel getLEFT()
-  {
-    return left;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetLEFT(StateOrLabel newLEFT, NotificationChain msgs)
-  {
-    StateOrLabel oldLEFT = left;
-    left = newLEFT;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PCTLPackage.START__LEFT, oldLEFT, newLEFT);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setLEFT(StateOrLabel newLEFT)
-  {
-    if (newLEFT != left)
-    {
-      NotificationChain msgs = null;
-      if (left != null)
-        msgs = ((InternalEObject)left).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PCTLPackage.START__LEFT, null, msgs);
-      if (newLEFT != null)
-        msgs = ((InternalEObject)newLEFT).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PCTLPackage.START__LEFT, null, msgs);
-      msgs = basicSetLEFT(newLEFT, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, PCTLPackage.START__LEFT, newLEFT, newLEFT));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public StateOrLabel getRIGHT()
-  {
-    return right;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetRIGHT(StateOrLabel newRIGHT, NotificationChain msgs)
-  {
-    StateOrLabel oldRIGHT = right;
-    right = newRIGHT;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PCTLPackage.START__RIGHT, oldRIGHT, newRIGHT);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setRIGHT(StateOrLabel newRIGHT)
-  {
-    if (newRIGHT != right)
-    {
-      NotificationChain msgs = null;
-      if (right != null)
-        msgs = ((InternalEObject)right).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PCTLPackage.START__RIGHT, null, msgs);
-      if (newRIGHT != null)
-        msgs = ((InternalEObject)newRIGHT).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PCTLPackage.START__RIGHT, null, msgs);
-      msgs = basicSetRIGHT(newRIGHT, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, PCTLPackage.START__RIGHT, newRIGHT, newRIGHT));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -240,10 +121,6 @@ public class StartImpl extends MinimalEObjectImpl.Container implements Start
     {
       case PCTLPackage.START__START:
         return basicSetStart(null, msgs);
-      case PCTLPackage.START__LEFT:
-        return basicSetLEFT(null, msgs);
-      case PCTLPackage.START__RIGHT:
-        return basicSetRIGHT(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -260,10 +137,6 @@ public class StartImpl extends MinimalEObjectImpl.Container implements Start
     {
       case PCTLPackage.START__START:
         return getStart();
-      case PCTLPackage.START__LEFT:
-        return getLEFT();
-      case PCTLPackage.START__RIGHT:
-        return getRIGHT();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -280,12 +153,6 @@ public class StartImpl extends MinimalEObjectImpl.Container implements Start
     {
       case PCTLPackage.START__START:
         setStart((S)newValue);
-        return;
-      case PCTLPackage.START__LEFT:
-        setLEFT((StateOrLabel)newValue);
-        return;
-      case PCTLPackage.START__RIGHT:
-        setRIGHT((StateOrLabel)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -304,12 +171,6 @@ public class StartImpl extends MinimalEObjectImpl.Container implements Start
       case PCTLPackage.START__START:
         setStart((S)null);
         return;
-      case PCTLPackage.START__LEFT:
-        setLEFT((StateOrLabel)null);
-        return;
-      case PCTLPackage.START__RIGHT:
-        setRIGHT((StateOrLabel)null);
-        return;
     }
     super.eUnset(featureID);
   }
@@ -326,10 +187,6 @@ public class StartImpl extends MinimalEObjectImpl.Container implements Start
     {
       case PCTLPackage.START__START:
         return start != null;
-      case PCTLPackage.START__LEFT:
-        return left != null;
-      case PCTLPackage.START__RIGHT:
-        return right != null;
     }
     return super.eIsSet(featureID);
   }

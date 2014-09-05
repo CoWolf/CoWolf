@@ -100,14 +100,29 @@ public class PCTLAdapterFactory extends AdapterFactoryImpl
         return createSAdapter();
       }
       @Override
+      public Adapter caseP1(P1 object)
+      {
+        return createP1Adapter();
+      }
+      @Override
       public Adapter caseP(P object)
       {
         return createPAdapter();
       }
       @Override
-      public Adapter casePG(PG object)
+      public Adapter caseF(F object)
       {
-        return createPGAdapter();
+        return createFAdapter();
+      }
+      @Override
+      public Adapter caseG(G object)
+      {
+        return createGAdapter();
+      }
+      @Override
+      public Adapter caseU(U object)
+      {
+        return createUAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -207,6 +222,21 @@ public class PCTLAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.P1 <em>P1</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.P1
+   * @generated
+   */
+  public Adapter createP1Adapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.P <em>P</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -222,16 +252,46 @@ public class PCTLAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PG <em>PG</em>}'.
+   * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.F <em>F</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PG
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.F
    * @generated
    */
-  public Adapter createPGAdapter()
+  public Adapter createFAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.G <em>G</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.G
+   * @generated
+   */
+  public Adapter createGAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.U <em>U</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.U
+   * @generated
+   */
+  public Adapter createUAdapter()
   {
     return null;
   }

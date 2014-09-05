@@ -13,8 +13,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Start#getStart <em>Start</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Start#getLEFT <em>LEFT</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Start#getRIGHT <em>RIGHT</em>}</li>
  * </ul>
  * </p>
  *
@@ -49,57 +47,5 @@ public interface Start extends EObject
    * @generated
    */
   void setStart(S value);
-
-  /**
-   * Returns the value of the '<em><b>LEFT</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>LEFT</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>LEFT</em>' containment reference.
-   * @see #setLEFT(StateOrLabel)
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PCTLPackage#getStart_LEFT()
-   * @model containment="true"
-   * @generated
-   */
-  StateOrLabel getLEFT();
-
-  /**
-   * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Start#getLEFT <em>LEFT</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>LEFT</em>' containment reference.
-   * @see #getLEFT()
-   * @generated
-   */
-  void setLEFT(StateOrLabel value);
-
-  /**
-   * Returns the value of the '<em><b>RIGHT</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>RIGHT</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>RIGHT</em>' containment reference.
-   * @see #setRIGHT(StateOrLabel)
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PCTLPackage#getStart_RIGHT()
-   * @model containment="true"
-   * @generated
-   */
-  StateOrLabel getRIGHT();
-
-  /**
-   * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Start#getRIGHT <em>RIGHT</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>RIGHT</em>' containment reference.
-   * @see #getRIGHT()
-   * @generated
-   */
-  void setRIGHT(StateOrLabel value);
 
 } // Start

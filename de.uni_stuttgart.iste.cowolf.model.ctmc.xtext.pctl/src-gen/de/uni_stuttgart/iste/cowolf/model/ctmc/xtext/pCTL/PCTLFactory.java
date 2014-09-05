@@ -68,6 +68,15 @@ public interface PCTLFactory extends EFactory
   S createS();
 
   /**
+   * Returns a new object of class '<em>P1</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>P1</em>'.
+   * @generated
+   */
+  P1 createP1();
+
+  /**
    * Returns a new object of class '<em>P</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -77,13 +86,31 @@ public interface PCTLFactory extends EFactory
   P createP();
 
   /**
-   * Returns a new object of class '<em>PG</em>'.
+   * Returns a new object of class '<em>F</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>PG</em>'.
+   * @return a new object of class '<em>F</em>'.
    * @generated
    */
-  PG createPG();
+  F createF();
+
+  /**
+   * Returns a new object of class '<em>G</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>G</em>'.
+   * @generated
+   */
+  G createG();
+
+  /**
+   * Returns a new object of class '<em>U</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>U</em>'.
+   * @generated
+   */
+  U createU();
 
   /**
    * Returns the package supported by this factory.

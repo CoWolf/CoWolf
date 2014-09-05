@@ -10,8 +10,6 @@
       disposableProviderFactory="true" fileExtensions="pctl" ecorePackage="PCTL.ecore#/">
     <genClasses ecoreClass="PCTL.ecore#//Start">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//Start/start"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//Start/LEFT"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//Start/RIGHT"/>
     </genClasses>
     <genClasses ecoreClass="PCTL.ecore#//State"/>
     <genClasses ecoreClass="PCTL.ecore#//Label"/>
@@ -19,7 +17,18 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PCTL.ecore#//StateOrLabel/name"/>
     </genClasses>
     <genClasses ecoreClass="PCTL.ecore#//S"/>
+    <genClasses ecoreClass="PCTL.ecore#//P1"/>
     <genClasses ecoreClass="PCTL.ecore#//P"/>
-    <genClasses ecoreClass="PCTL.ecore#//PG"/>
+    <genClasses ecoreClass="PCTL.ecore#//F">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//F/RIGHT"/>
+    </genClasses>
+    <genClasses ecoreClass="PCTL.ecore#//G">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//G/LEFT"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//G/RIGHT"/>
+    </genClasses>
+    <genClasses ecoreClass="PCTL.ecore#//U">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//U/LEFT"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//U/RIGHT"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -19,7 +19,7 @@ package de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL;
  * @model
  * @generated
  */
-public interface StateOrLabel extends S, P
+public interface StateOrLabel extends S
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.

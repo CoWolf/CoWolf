@@ -7,8 +7,6 @@ import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.S;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>S</b></em>'.
@@ -18,7 +16,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class SImpl extends MinimalEObjectImpl.Container implements S
+public class SImpl extends P1Impl implements S
 {
   /**
    * <!-- begin-user-doc -->

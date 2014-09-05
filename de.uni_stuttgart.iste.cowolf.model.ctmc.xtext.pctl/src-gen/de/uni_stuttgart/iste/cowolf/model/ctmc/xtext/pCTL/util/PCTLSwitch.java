@@ -86,6 +86,7 @@ public class PCTLSwitch<T> extends Switch<T>
         if (result == null) result = caseStateOrLabel(state);
         if (result == null) result = caseS(state);
         if (result == null) result = caseP(state);
+        if (result == null) result = caseP1(state);
         if (result == null) result = caseStart(state);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -97,6 +98,7 @@ public class PCTLSwitch<T> extends Switch<T>
         if (result == null) result = caseStateOrLabel(label);
         if (result == null) result = caseS(label);
         if (result == null) result = caseP(label);
+        if (result == null) result = caseP1(label);
         if (result == null) result = caseStart(label);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -107,6 +109,7 @@ public class PCTLSwitch<T> extends Switch<T>
         T result = caseStateOrLabel(stateOrLabel);
         if (result == null) result = caseS(stateOrLabel);
         if (result == null) result = caseP(stateOrLabel);
+        if (result == null) result = caseP1(stateOrLabel);
         if (result == null) result = caseStart(stateOrLabel);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -115,6 +118,17 @@ public class PCTLSwitch<T> extends Switch<T>
       {
         S s = (S)theEObject;
         T result = caseS(s);
+        if (result == null) result = caseP(s);
+        if (result == null) result = caseP1(s);
+        if (result == null) result = caseStart(s);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PCTLPackage.P1:
+      {
+        P1 p1 = (P1)theEObject;
+        T result = caseP1(p1);
+        if (result == null) result = caseStart(p1);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -122,15 +136,38 @@ public class PCTLSwitch<T> extends Switch<T>
       {
         P p = (P)theEObject;
         T result = caseP(p);
+        if (result == null) result = caseP1(p);
         if (result == null) result = caseStart(p);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case PCTLPackage.PG:
+      case PCTLPackage.F:
       {
-        PG pg = (PG)theEObject;
-        T result = casePG(pg);
-        if (result == null) result = caseStart(pg);
+        F f = (F)theEObject;
+        T result = caseF(f);
+        if (result == null) result = caseP(f);
+        if (result == null) result = caseP1(f);
+        if (result == null) result = caseStart(f);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PCTLPackage.G:
+      {
+        G g = (G)theEObject;
+        T result = caseG(g);
+        if (result == null) result = caseP(g);
+        if (result == null) result = caseP1(g);
+        if (result == null) result = caseStart(g);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PCTLPackage.U:
+      {
+        U u = (U)theEObject;
+        T result = caseU(u);
+        if (result == null) result = caseP(u);
+        if (result == null) result = caseP1(u);
+        if (result == null) result = caseStart(u);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -219,6 +256,22 @@ public class PCTLSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>P1</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>P1</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseP1(P1 object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>P</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -235,17 +288,49 @@ public class PCTLSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>PG</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>F</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>PG</em>'.
+   * @return the result of interpreting the object as an instance of '<em>F</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T casePG(PG object)
+  public T caseF(F object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>G</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>G</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseG(G object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>U</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>U</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseU(U object)
   {
     return null;
   }

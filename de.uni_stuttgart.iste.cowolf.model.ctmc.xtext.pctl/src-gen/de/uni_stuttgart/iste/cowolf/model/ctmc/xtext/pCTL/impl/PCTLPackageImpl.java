@@ -64,6 +64,13 @@ public class PCTLPackageImpl extends EPackageImpl implements PCTLPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass p1EClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass pEClass = null;
 
   /**
@@ -71,7 +78,21 @@ public class PCTLPackageImpl extends EPackageImpl implements PCTLPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass pgEClass = null;
+  private EClass fEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass gEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass uEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -161,26 +182,6 @@ public class PCTLPackageImpl extends EPackageImpl implements PCTLPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getStart_LEFT()
-  {
-    return (EReference)startEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getStart_RIGHT()
-  {
-    return (EReference)startEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getState()
   {
     return stateEClass;
@@ -231,6 +232,16 @@ public class PCTLPackageImpl extends EPackageImpl implements PCTLPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getP1()
+  {
+    return p1EClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getP()
   {
     return pEClass;
@@ -241,9 +252,79 @@ public class PCTLPackageImpl extends EPackageImpl implements PCTLPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getPG()
+  public EClass getF()
   {
-    return pgEClass;
+    return fEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getF_RIGHT()
+  {
+    return (EReference)fEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getG()
+  {
+    return gEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getG_LEFT()
+  {
+    return (EReference)gEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getG_RIGHT()
+  {
+    return (EReference)gEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getU()
+  {
+    return uEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getU_LEFT()
+  {
+    return (EReference)uEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getU_RIGHT()
+  {
+    return (EReference)uEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -278,8 +359,6 @@ public class PCTLPackageImpl extends EPackageImpl implements PCTLPackage
     // Create classes and their features
     startEClass = createEClass(START);
     createEReference(startEClass, START__START);
-    createEReference(startEClass, START__LEFT);
-    createEReference(startEClass, START__RIGHT);
 
     stateEClass = createEClass(STATE);
 
@@ -290,9 +369,20 @@ public class PCTLPackageImpl extends EPackageImpl implements PCTLPackage
 
     sEClass = createEClass(S);
 
+    p1EClass = createEClass(P1);
+
     pEClass = createEClass(P);
 
-    pgEClass = createEClass(PG);
+    fEClass = createEClass(F);
+    createEReference(fEClass, F__RIGHT);
+
+    gEClass = createEClass(G);
+    createEReference(gEClass, G__LEFT);
+    createEReference(gEClass, G__RIGHT);
+
+    uEClass = createEClass(U);
+    createEReference(uEClass, U__LEFT);
+    createEReference(uEClass, U__RIGHT);
   }
 
   /**
@@ -327,15 +417,20 @@ public class PCTLPackageImpl extends EPackageImpl implements PCTLPackage
     stateEClass.getESuperTypes().add(this.getStateOrLabel());
     labelEClass.getESuperTypes().add(this.getStateOrLabel());
     stateOrLabelEClass.getESuperTypes().add(this.getS());
-    stateOrLabelEClass.getESuperTypes().add(this.getP());
-    pEClass.getESuperTypes().add(this.getStart());
-    pgEClass.getESuperTypes().add(this.getStart());
+    sEClass.getESuperTypes().add(this.getP1());
+    sEClass.getESuperTypes().add(this.getP());
+    p1EClass.getESuperTypes().add(this.getStart());
+    pEClass.getESuperTypes().add(this.getP1());
+    fEClass.getESuperTypes().add(this.getP1());
+    fEClass.getESuperTypes().add(this.getP());
+    gEClass.getESuperTypes().add(this.getP1());
+    gEClass.getESuperTypes().add(this.getP());
+    uEClass.getESuperTypes().add(this.getP1());
+    uEClass.getESuperTypes().add(this.getP());
 
     // Initialize classes and features; add operations and parameters
     initEClass(startEClass, Start.class, "Start", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getStart_Start(), this.getS(), null, "start", null, 0, 1, Start.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getStart_LEFT(), this.getStateOrLabel(), null, "LEFT", null, 0, 1, Start.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getStart_RIGHT(), this.getStateOrLabel(), null, "RIGHT", null, 0, 1, Start.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -346,9 +441,20 @@ public class PCTLPackageImpl extends EPackageImpl implements PCTLPackage
 
     initEClass(sEClass, de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.S.class, "S", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+    initEClass(p1EClass, de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.P1.class, "P1", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
     initEClass(pEClass, de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.P.class, "P", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(pgEClass, de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PG.class, "PG", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(fEClass, de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.F.class, "F", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getF_RIGHT(), this.getStateOrLabel(), null, "RIGHT", null, 0, 1, de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.F.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(gEClass, de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.G.class, "G", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getG_LEFT(), this.getStateOrLabel(), null, "LEFT", null, 0, 1, de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.G.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getG_RIGHT(), this.getP(), null, "RIGHT", null, 0, 1, de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.G.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(uEClass, de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.U.class, "U", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getU_LEFT(), this.getStateOrLabel(), null, "LEFT", null, 0, 1, de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.U.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getU_RIGHT(), this.getStateOrLabel(), null, "RIGHT", null, 0, 1, de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.U.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);
