@@ -294,7 +294,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	@Override
 	public Resource getResource() {
 		ResourceSet resSet = new ResourceSetImpl();
-		URI uri = URI.createURI(this.getParent().getProject().getLocationURI().toString() + "/" + this.getModel());
+		URI uri = URI.createURI(this.getParent().getProject().getFullPath().toString() + "/" + this.getModel());
 		Resource res = resSet.createResource(uri);
 		try {
 			res.load(Collections.EMPTY_MAP);

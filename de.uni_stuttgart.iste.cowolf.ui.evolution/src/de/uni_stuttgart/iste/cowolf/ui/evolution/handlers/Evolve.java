@@ -65,14 +65,14 @@ public class Evolve extends AbstractHandler {
         if (dialog.open() == WizardDialog.CANCEL) {
         	return null;
         }
-        final ModelVersion baseVersion = wizard.getBaseVersion();
-        final ModelVersion targetVersion = wizard.getTargetVersion();
+        final Resource baseVersion = wizard.getBaseVersion();
+        final Resource targetVersion = wizard.getTargetVersion();
         
         Job job = new Job("Model Evolution") {
             @Override
             protected IStatus run(IProgressMonitor monitor) {
                 try {
-                    SymmetricDifference symmetricDifference = evoManager.evolve(baseVersion.getResource(), targetVersion.getResource());
+                    SymmetricDifference symmetricDifference = evoManager.evolve(baseVersion, targetVersion);
                     String projectRoot = iFile.getProject().getLocation()
                             .toFile().toString();
                     
