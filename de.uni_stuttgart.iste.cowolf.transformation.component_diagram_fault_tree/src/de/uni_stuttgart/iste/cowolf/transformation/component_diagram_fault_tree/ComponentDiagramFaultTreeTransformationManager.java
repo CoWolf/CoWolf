@@ -1,25 +1,20 @@
 package de.uni_stuttgart.iste.cowolf.transformation.component_diagram_fault_tree;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.henshin.interpreter.EGraph;
-import org.sidiff.difference.symmetric.AddObject;
-import org.sidiff.difference.symmetric.AddReference;
 import org.sidiff.difference.symmetric.Change;
-import org.sidiff.difference.symmetric.RemoveObject;
-import org.sidiff.difference.symmetric.RemoveReference;
 import org.sidiff.difference.symmetric.SemanticChangeSet;
 import org.sidiff.difference.symmetric.SymmetricDifference;
 
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.Architecture;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree;
 import de.uni_stuttgart.iste.cowolf.transformation.AbstractTransformationManager;
+import de.unistuttgart.ensure.transformations.util.ComponentDiagramFaultTreeTransformationHelper;
+import de.unistuttgart.ensure.transformations.util.ComponentDiagramFaultTreeTransformationHelper.ChangesFiller;
 
 /**
  * @author David K
@@ -83,41 +78,19 @@ public class ComponentDiagramFaultTreeTransformationManager extends AbstractTran
 		newSubComponentInstances = new ArrayList<String>();
 		newConnectors = new ArrayList<String>();
 		
+		ChangesFiller filler = new ChangesFiller(newComponentTypes, newPortTypes, newComponentInstances, newPortInstances, newSubComponentInstances, newConnectors);
+		
 		System.out.println(">>> Building lists of differences for ChangeTree...");
 		for(SemanticChangeSet changeSet : difference.getChangeSets()) {
-			System.out.println(changeSet.getEditRName());
-			Object name = null;
 			for (Change change : changeSet.getChanges()) {
-				name = null;
-                String changeName = change.eClass().getName();
-                System.out.println(changeName);
-                if (change instanceof AddReference) {
-                    //return result = this.handleAddReference((AddReference) change);
-                } else if (change instanceof RemoveReference) {
-                    //return this.handleRemoveReference((RemoveReference) change);
-                } else if (change instanceof AddObject) {
-                		name = ((AddObject) change).getObj().eGet(((AddObject) change).getObj().eClass().getEStructuralFeature("name"));
-                } else if (change instanceof RemoveObject) {
-                    //return this.handleRemoveObject((RemoveObject) change);
-                }
-                
-                if(name != null){
-	                System.out.println(name);
-	                switch(changeSet.getEditRName()){
-		    			case "CREATE_SoftwareComponent_IN_Architecture_(component)" : newComponentTypes.add(name.toString()); break;
-		    			case "CREATE_HardwareComponent_IN_Architecture_(component)" : newComponentTypes.add(name.toString()); break;
-		    			case "CREATE_ElectronicDevice_IN_Architecture_(component)" : newComponentTypes.add(name.toString()); break;
-		    			case "CREATE_MechanicalDevice_IN_Architecture_(component)" : newComponentTypes.add(name.toString()); break;
-		    			case "CREATE_ComponentInstance_IN_Architecture_(instances)" : newComponentInstances.add(name.toString()); break;
-		    			case "CREATE_PortType_IN_Architecture_(port_type)" : newPortTypes.add(name.toString()); break;
-		    			default : break; 
-	    			}
-                }
-                
-            }
-			
-			
+				filler.add(changeSet.getEditRName(),change);
+			}
 		}
+
+//		for(Change change : difference.getChanges()) {
+//			filler.add(change);
+//		}
+
 		System.out.println(" >>> Parameter List sizes: " + newComponentTypes.size() + " " + newPortTypes.size() + " " + newComponentInstances.size() + " " + newPortInstances.size() + " " +
 			newSubComponentInstances.size() + " " + newConnectors.size());
 		EGraph result = ChangeTree.run(source, target, newComponentTypes, newPortTypes, newComponentInstances, newPortInstances,
@@ -129,6 +102,7 @@ public class ComponentDiagramFaultTreeTransformationManager extends AbstractTran
 		this.extractResultFromGraph(result, resSet);
 		return true;
 	}
+	
 /*	
     *//**
      * Handles a single change of a change set.

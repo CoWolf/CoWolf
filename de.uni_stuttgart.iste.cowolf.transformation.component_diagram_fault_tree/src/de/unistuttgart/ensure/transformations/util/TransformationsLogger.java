@@ -54,7 +54,7 @@ public class TransformationsLogger {
 		if (ruleName != null) {
 			logRuleExecution(ruleName, new ArrayList<String>(), result);
 		} else {
-			throw new RuntimeException("Some parameters are null.");
+			//Don't throw an exception. Just do nothing.
 		}
 	}
 
@@ -75,7 +75,7 @@ public class TransformationsLogger {
 
 			logRuleExecution(ruleName, params, result);
 		} else {
-			throw new RuntimeException("Some parameters are null.");
+			//Don't throw an exception. Just do nothing.
 		}
 	}
 
@@ -107,7 +107,7 @@ public class TransformationsLogger {
 
 			log(logMessage.toString());
 		} else {
-			throw new RuntimeException("Some parameters are null.");
+			//Don't throw an exception. Just do nothing.
 		}
 	}
 	
@@ -123,7 +123,7 @@ public class TransformationsLogger {
 		if (ruleName != null) {
 			logRuleMatching(ruleName, new ArrayList<String>(), numberOfMatchings);
 		} else {
-			throw new RuntimeException("Some parameters are null.");
+			//Don't throw an exception. Just do nothing.
 		}
 	}
 
@@ -144,7 +144,7 @@ public class TransformationsLogger {
 
 			logRuleMatching(ruleName, params, numberOfMatchings);
 		} else {
-			throw new RuntimeException("Some parameters are null.");
+			//Don't throw an exception. Just do nothing.
 		}
 	}
 
@@ -176,7 +176,7 @@ public class TransformationsLogger {
 
 			log(logMessage.toString());
 		} else {
-			throw new RuntimeException("Some parameters are null.");
+			//Don't throw an exception. Just do nothing.
 		}
 	}
 
