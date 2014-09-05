@@ -6,7 +6,6 @@ import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramPackage;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.uml2.uml.internal.impl.InteractionImpl;
 
 /**
@@ -18,6 +17,7 @@ import org.eclipse.uml2.uml.internal.impl.InteractionImpl;
  *
  * @generated
  */
+@SuppressWarnings("restriction")
 public class SequenceImpl extends InteractionImpl implements Sequence {
 	/**
 	 * <!-- begin-user-doc -->
