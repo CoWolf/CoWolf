@@ -47,7 +47,7 @@ import org.xml.sax.SAXException;
  * @author Rene Trefft
  */
 @Mojo(name = "build", defaultPhase = LifecyclePhase.GENERATE_SOURCES)
-public class SiLiftRuleBaseBuilder extends AbstractMojo {
+public class RuleBaseBuilder extends AbstractMojo {
 
 	private RuleBaseWrapper ruleBaseWrapper = null;
 
