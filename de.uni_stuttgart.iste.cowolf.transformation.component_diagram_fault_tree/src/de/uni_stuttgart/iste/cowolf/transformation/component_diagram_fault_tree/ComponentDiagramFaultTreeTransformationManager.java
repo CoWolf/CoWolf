@@ -67,7 +67,7 @@ public class ComponentDiagramFaultTreeTransformationManager extends AbstractTran
 		return SECOND_MODEL;
 	}
 	
-	@Override
+	/*@Override
 	public Resource transform(Resource oldSource, Resource source, Resource target, SymmetricDifference difference, URI fileURI) {
 		ChangeTree.init(source, target);
 		// building lists of differences for ChangeTree
@@ -119,13 +119,9 @@ public class ComponentDiagramFaultTreeTransformationManager extends AbstractTran
 			newSubComponentInstances.size() + " " + newConnectors.size());
 		EGraph result = ChangeTree.run(source, target, newComponentTypes, newPortTypes, newComponentInstances, newPortInstances,
 				newSubComponentInstances, newConnectors);
-		try {
-			this.save(result, source, target, null, false);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+
 		return target;
-	}
+	}*/
 /*	
     *//**
      * Handles a single change of a change set.
