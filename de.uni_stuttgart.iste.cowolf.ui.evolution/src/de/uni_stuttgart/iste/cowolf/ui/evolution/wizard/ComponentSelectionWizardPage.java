@@ -1,24 +1,23 @@
 package de.uni_stuttgart.iste.cowolf.ui.evolution.wizard;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.graphics.Image;
-
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Model;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelVersion;
 
 import org.eclipse.jface.dialogs.DialogPage;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;
-import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.widgets.Label;
@@ -105,26 +104,32 @@ public class ComponentSelectionWizardPage extends WizardPage {
 		tableViewer2.setInput(model);
 
 		if (targetSelection.size() > 0) {
-			tableViewer2.setSelection(new StructuredSelection(tableViewer2.getElementAt(0)),true);
+			table2.setSelection(0);
 		}
 
 		if (baseSelection.size() > 0) {
 			if (baseSelection.size() == 1) {
-				tableViewer1.setSelection(new StructuredSelection(tableViewer1.getElementAt(0)),true);
+				table1.setSelection(0);
 			} else {
-				tableViewer1.setSelection(new StructuredSelection(tableViewer1.getElementAt(1)),true);
+				table1.setSelection(1);
 			}
 		}
 
 		setPageComplete();
 	}
 
-	public ModelVersion getBaseVersion() {
-		return (ModelVersion) this.table1.getSelection()[0].getData();
+	public Resource getBaseVersion() {
+		if (this.table1.getSelection()[0].getData() instanceof ModelVersion) {
+			return ((ModelVersion) this.table1.getSelection()[0].getData()).getResource();	
+		}
+		return ((Model) this.table1.getSelection()[0].getData()).getResource();
 	}
 
-	public ModelVersion getTargetVersion() {
-		return (ModelVersion) this.table2.getSelection()[0].getData();
+	public Resource getTargetVersion() {
+		if (this.table2.getSelection()[0].getData() instanceof ModelVersion) {
+			return ((ModelVersion) this.table2.getSelection()[0].getData()).getResource();	
+		}
+		return ((Model) this.table2.getSelection()[0].getData()).getResource();
 	}
 
 	public void setPageComplete() {
@@ -156,21 +161,15 @@ public class ComponentSelectionWizardPage extends WizardPage {
 			IStructuredContentProvider {
 
 		@Override
-		public void dispose() {
-		}
-
-		@Override
 		public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
 		}
 
 		@Override
 		public Object[] getElements(Object inputElement) {
-			return model.getVersions().toArray();
-		}
-
-		@Override
-		public Image getImage(Object element) {
-			return super.getImage(element);
+			ArrayList<Object> elements = new ArrayList<Object>();
+			elements.add(model);
+			elements.addAll(model.getVersions());
+			return elements.toArray();
 		}
 
 		@Override
@@ -181,6 +180,9 @@ public class ComponentSelectionWizardPage extends WizardPage {
 				DateFormat df = DateFormat.getDateTimeInstance(
 						DateFormat.SHORT, DateFormat.SHORT);
 				return df.format(date);
+			}
+			if (element instanceof Model) {
+				return "current";
 			}
 			return super.getText(element);
 		}
