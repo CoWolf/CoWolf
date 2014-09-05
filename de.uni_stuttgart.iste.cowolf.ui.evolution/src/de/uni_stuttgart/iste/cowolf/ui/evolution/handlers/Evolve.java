@@ -25,7 +25,6 @@ import org.sidiff.difference.symmetric.SymmetricDifference;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Model;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociation;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociationFactory;
-import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelVersion;
 import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
 import de.uni_stuttgart.iste.cowolf.evolution.EvolutionException;
 import de.uni_stuttgart.iste.cowolf.evolution.EvolutionRegistry;
