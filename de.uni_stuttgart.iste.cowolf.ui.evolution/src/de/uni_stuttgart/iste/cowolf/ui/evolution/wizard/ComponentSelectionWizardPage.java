@@ -2,6 +2,7 @@ package de.uni_stuttgart.iste.cowolf.ui.evolution.wizard;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 
 import org.eclipse.core.resources.IFile;
@@ -12,6 +13,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.layout.GridData;
+
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Model;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelVersion;
 
@@ -167,8 +169,9 @@ public class ComponentSelectionWizardPage extends WizardPage {
 		@Override
 		public Object[] getElements(Object inputElement) {
 			ArrayList<Object> elements = new ArrayList<Object>();
-			elements.add(model);
 			elements.addAll(model.getVersions());
+			elements.add(model);
+			Collections.reverse(elements);
 			return elements.toArray();
 		}
 
