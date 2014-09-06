@@ -3,7 +3,6 @@ package de.uni_stuttgart.iste.cowolf.silift_rulebase_maven_plugin;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,12 +23,11 @@ import org.apache.maven.project.MavenProject;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
 import org.eclipse.emf.henshin.model.Module;
 import org.eclipse.emf.henshin.model.resource.HenshinResourceSet;
-import org.sidiff.difference.rulebase.RulebaseFactory;
 import org.sidiff.difference.rulebase.extension.AbstractProjectRuleBase;
 import org.sidiff.difference.rulebase.impl.RulebaseFactoryImpl;
+import org.sidiff.difference.rulebase.nature.RuleBaseProjectNature;
 import org.sidiff.difference.rulebase.wrapper.RuleBaseWrapper;
 import org.sidiff.difference.rulebase.wrapper.util.Edit2RecognitionException;
 import org.sidiff.editrule.validation.EditRuleValidation;
@@ -52,7 +50,7 @@ public class RuleBaseBuilder extends AbstractMojo {
 	private RuleBaseWrapper ruleBaseWrapper = null;
 
 	private final String ECLIPSE_PROJECT_DESCRIPTION_FILE_NAME = ".project";
-	
+
 	/**
 	 * The project itself. This parameter is set by Maven.
 	 */
@@ -67,7 +65,8 @@ public class RuleBaseBuilder extends AbstractMojo {
 	private boolean isRulebaseProject(File projectRoot)
 			throws MojoExecutionException {
 
-		File projectDescriptionFile = new File(projectRoot,ECLIPSE_PROJECT_DESCRIPTION_FILE_NAME);
+		File projectDescriptionFile = new File(projectRoot,
+				ECLIPSE_PROJECT_DESCRIPTION_FILE_NAME);
 
 		if (projectDescriptionFile.isFile()) {
 
@@ -96,7 +95,7 @@ public class RuleBaseBuilder extends AbstractMojo {
 						Node natureNode = natureList.item(s);
 						NodeList natureChildNodes = natureNode.getChildNodes();
 
-						if ("org.sidiff.difference.rulebase.project.rulebasenature"
+						if (RuleBaseProjectNature.NATURE_ID
 								.equals(natureChildNodes.item(0).getNodeValue())) {
 							return true;
 						}
@@ -116,7 +115,9 @@ public class RuleBaseBuilder extends AbstractMojo {
 			getLog().info(
 					"Artifact \""
 							+ project.getArtifactId()
-							+ "\" is not a Eclipse project, because project description file \".project\" is missing.");
+							+ "\" is not a Eclipse project, because project description file \""
+							+ ECLIPSE_PROJECT_DESCRIPTION_FILE_NAME
+							+ "\" is missing.");
 
 		}
 
@@ -231,7 +232,8 @@ public class RuleBaseBuilder extends AbstractMojo {
 			return;
 		}
 
-		File editRulesDir = new File(projectRoot, AbstractProjectRuleBase.SOURCE_FOLDER);
+		File editRulesDir = new File(projectRoot,
+				AbstractProjectRuleBase.SOURCE_FOLDER);
 
 		if (!editRulesDir.isDirectory()) {
 			getLog().warn(
@@ -289,8 +291,9 @@ public class RuleBaseBuilder extends AbstractMojo {
 					+ File.separator + AbstractProjectRuleBase.BUILD_FOLDER);
 
 			// register rulebase factory
-			Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap( ).put("rulebase", new RulebaseFactoryImpl());
-			
+			Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(
+					"rulebase", new RulebaseFactoryImpl());
+
 			RuleBaseWrapper ruleBaseWrapper = new RuleBaseWrapper(ruleBaseURI,
 					recognitionRulesDir, editRulesDir, false);
 
