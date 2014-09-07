@@ -7,13 +7,11 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.henshin.interpreter.EGraph;
 import org.sidiff.difference.symmetric.Change;
-import org.sidiff.difference.symmetric.SemanticChangeSet;
 import org.sidiff.difference.symmetric.SymmetricDifference;
 
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.Architecture;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree;
 import de.uni_stuttgart.iste.cowolf.transformation.AbstractTransformationManager;
-import de.unistuttgart.ensure.transformations.util.ComponentDiagramFaultTreeTransformationHelper;
 import de.unistuttgart.ensure.transformations.util.ComponentDiagramFaultTreeTransformationHelper.ChangesFiller;
 
 /**
@@ -81,15 +79,15 @@ public class ComponentDiagramFaultTreeTransformationManager extends AbstractTran
 		ChangesFiller filler = new ChangesFiller(newComponentTypes, newPortTypes, newComponentInstances, newPortInstances, newSubComponentInstances, newConnectors);
 		
 		System.out.println(">>> Building lists of differences for ChangeTree...");
-		for(SemanticChangeSet changeSet : difference.getChangeSets()) {
-			for (Change change : changeSet.getChanges()) {
-				filler.add(changeSet.getEditRName(),change);
-			}
-		}
-
-//		for(Change change : difference.getChanges()) {
-//			filler.add(change);
+//		for(SemanticChangeSet changeSet : difference.getChangeSets()) {
+//			for (Change change : changeSet.getChanges()) {
+//				filler.add(changeSet.getEditRName(),change);
+//			}
 //		}
+
+		for(Change change : difference.getChanges()) {
+			filler.add(change);
+		}
 
 		System.out.println(" >>> Parameter List sizes: " + newComponentTypes.size() + " " + newPortTypes.size() + " " + newComponentInstances.size() + " " + newPortInstances.size() + " " +
 			newSubComponentInstances.size() + " " + newConnectors.size());

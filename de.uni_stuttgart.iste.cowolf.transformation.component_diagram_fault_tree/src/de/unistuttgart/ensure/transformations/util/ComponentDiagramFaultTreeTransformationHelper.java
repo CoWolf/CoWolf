@@ -68,7 +68,27 @@ public class ComponentDiagramFaultTreeTransformationHelper {
 
 		private void initChangeRules() {
 			changeRules = new HashMap<String, List<String>>();
-			//TODO Add single rules, which are not into the ChangeSets
+			
+			// New component types
+			changeRules.put("SoftwareComponenImplt",this.newComponentTypes);
+			changeRules.put("HardwareComponentImpl",this.newComponentTypes);
+			changeRules.put("ElectronicDeviceImpl",this.newComponentTypes);
+			changeRules.put("MechanicalDeviceImpl",this.newComponentTypes);
+
+			// New port types
+			changeRules.put("PortTypeImpl",this.newPortTypes);
+
+			// New component instances
+			changeRules.put("ComponentInstanceImpl",this.newComponentInstances);
+
+			// New port instances in component instance
+			changeRules.put("PortInstanceImpl",this.newPortInstances);
+
+			// New subcomponent instances
+//			changeRules.put("CREATE_PortInstance_IN_ComponentInstance_(inPorts)",this.newPortInstances);
+
+			// New connectors
+			changeRules.put("ConnectorImpl",this.newConnectors);
 		}
 
 		public void add(String changeName, Change change) {
@@ -83,91 +103,122 @@ public class ComponentDiagramFaultTreeTransformationHelper {
 		}
 
 		public void add(Change change) {
-			//TODO Implement
+			String objectName = getObjectName(change);
+			String objectType = getObjectType(change); 
+			List<String> list = changeRules.get(objectType);
+			if (list != null) {
+				list.add(objectName);
+			} else {
+				System.out.println(String.format(
+						"Change for object type %s not yet implemented", objectType));
+			}
 		}
 
 		protected String getObjectName(Change change) {
-			return ChangeNamerFactory.getChangeNamer(change).getName();
+			return ChangeHandlerFactory.getChangeHandler(change).getObjectName();
+		}
+
+		protected String getObjectType(Change change) {
+			return ChangeHandlerFactory.getChangeHandler(change).getObjectType();
 		}
 	}
 
-	public static class ChangeNamerFactory {
+	public static class ChangeHandlerFactory {
 
-		private static Map<String, ChangeNamer> poolChangeNamers = new HashMap<String, ChangeNamer>();
-		
-		private static final String PCKG = "de.unistuttgart.ensure.transformations.util.ComponentDiagramFaultTreeTransformationHelper$ChangeNamerFactory$";
+		private static final String PCKG = "de.unistuttgart.ensure.transformations.util.ComponentDiagramFaultTreeTransformationHelper$ChangeHandlerFactory$";
 
-		public static ChangeNamer getChangeNamer(Change change) {
-			ChangeNamer changeNamer = null;
-			String changeNamerName = PCKG+change.eClass().getName() + "Namer";
+		public static ChangeHandler getChangeHandler(Change change) {
+			ChangeHandler changeHandler = null;
+			String changeHandlerName = PCKG+change.eClass().getName() + "Handler";
 			try {
-				if (poolChangeNamers.get(changeNamerName) != null) {
-					return poolChangeNamers.get(changeNamerName);
-				}
-				changeNamer = (ChangeNamer) Class.forName(changeNamerName).getConstructors()[0].newInstance(null,change);
-				poolChangeNamers.put(changeNamerName, changeNamer);
+				changeHandler = (ChangeHandler) Class.forName(changeHandlerName).getConstructors()[0].newInstance(null,change);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			return changeNamer;
+			return changeHandler;
 		}
 
-		public abstract class ChangeNamer {
+		public abstract class ChangeHandler {
 			
 			protected Change change;
 			
-			public abstract String getName();
+			public abstract String getObjectName();
 			
-			public ChangeNamer(Change change){
+			public abstract String getObjectType();
+			
+			public ChangeHandler(Change change){
 				this.change = change;
 			}
 		}
 
-		public class AddReferenceNamer extends ChangeNamer {
+		public class AddReferenceHandler extends ChangeHandler {
 
-			public AddReferenceNamer(Change change) {
+			public AddReferenceHandler(Change change) {
 				super(change);
 			}
 
 			@Override
-			public String getName() {
+			public String getObjectName() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			@Override
+			public String getObjectType() {
 				// TODO Auto-generated method stub
 				return null;
 			}
 		}
 
-		public class RemoveReferenceNamer extends ChangeNamer {
+		public class RemoveReferenceHandler extends ChangeHandler {
 
-			public RemoveReferenceNamer(Change change) {
+			public RemoveReferenceHandler(Change change) {
 				super(change);
 			}
 
 			@Override
-			public String getName() {
+			public String getObjectName() {
+				return null;
+			}
+
+			@Override
+			public String getObjectType() {
+				// TODO Auto-generated method stub
 				return null;
 			}
 		}
 
-		public class AddObjectNamer extends ChangeNamer {
+		public class AddObjectHandler extends ChangeHandler {
 
-			public AddObjectNamer(Change change) {
+			public AddObjectHandler(Change change) {
 				super(change);
 			}
 
 			@Override
-			public String getName() {
+			public String getObjectName() {
 				return ((AddObject) change).getObj().eGet(((AddObject) change).getObj().eClass().getEStructuralFeature("name")).toString();
+			}
+
+			@Override
+			public String getObjectType() {
+				return ((AddObject) change).getObj().getClass().getSimpleName();
 			}
 		}
 
-		public class RemoveObjectNamer extends ChangeNamer {
+		public class RemoveObjectHandler extends ChangeHandler {
 
-			public RemoveObjectNamer(Change change) {
+			public RemoveObjectHandler(Change change) {
 				super(change);
 			}
 
 			@Override
-			public String getName() {
+			public String getObjectName() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			@Override
+			public String getObjectType() {
 				// TODO Auto-generated method stub
 				return null;
 			}

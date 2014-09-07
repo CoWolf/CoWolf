@@ -9,7 +9,6 @@ import org.eclipse.emf.henshin.interpreter.impl.EGraphImpl;
 import org.eclipse.emf.henshin.model.resource.HenshinResourceSet;
 
 import de.unistuttgart.ensure.transformations.util.HenshinTransformations;
-import de.unistuttgart.ensure.transformations.util.TransformationsConstants;
 import de.unistuttgart.ensure.transformations.util.TransformationsLogger;
 import de.unistuttgart.ensure.transformations.util.TransformationsUtil;
 
