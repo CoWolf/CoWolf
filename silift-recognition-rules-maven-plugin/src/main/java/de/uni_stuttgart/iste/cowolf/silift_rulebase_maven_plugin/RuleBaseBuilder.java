@@ -24,9 +24,9 @@ import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.henshin.model.Module;
+import org.eclipse.emf.henshin.model.resource.HenshinResourceFactory;
 import org.eclipse.emf.henshin.model.resource.HenshinResourceSet;
 import org.sidiff.difference.rulebase.extension.AbstractProjectRuleBase;
-import org.sidiff.difference.rulebase.impl.RulebaseFactoryImpl;
 import org.sidiff.difference.rulebase.nature.RuleBaseProjectNature;
 import org.sidiff.difference.rulebase.wrapper.RuleBaseWrapper;
 import org.sidiff.difference.rulebase.wrapper.util.Edit2RecognitionException;
@@ -65,6 +65,10 @@ public class RuleBaseBuilder extends AbstractMojo {
 	private boolean isRulebaseProject(File projectRoot)
 			throws MojoExecutionException {
 
+		getLog().debug(
+				"Checking if artifact \"" + project.getArtifactId()
+						+ "\" is a Rulebase project...");
+
 		File projectDescriptionFile = new File(projectRoot,
 				ECLIPSE_PROJECT_DESCRIPTION_FILE_NAME);
 
@@ -97,12 +101,21 @@ public class RuleBaseBuilder extends AbstractMojo {
 
 						if (RuleBaseProjectNature.NATURE_ID
 								.equals(natureChildNodes.item(0).getNodeValue())) {
+							getLog().info(
+									"Artifact \"" + project.getArtifactId()
+											+ "\" is a Rulebase project.");
 							return true;
 						}
 
 					}
 
 				}
+
+				getLog().debug(
+						"Rulebase nature \""
+								+ RuleBaseProjectNature.NATURE_ID
+								+ "\" does not exist in project description file \""
+								+ ECLIPSE_PROJECT_DESCRIPTION_FILE_NAME + "\".");
 
 			} catch (ParserConfigurationException | SAXException | IOException exc) {
 
@@ -112,7 +125,7 @@ public class RuleBaseBuilder extends AbstractMojo {
 
 		} else {
 
-			getLog().info(
+			getLog().debug(
 					"Artifact \""
 							+ project.getArtifactId()
 							+ "\" is not a Eclipse project, because project description file \""
@@ -129,6 +142,17 @@ public class RuleBaseBuilder extends AbstractMojo {
 
 	}
 
+
+	/**
+	 * 
+	 */
+	private void registerHenshinEcoreModel() {
+
+		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(
+				"henshin", new HenshinResourceFactory());
+		
+	};
+
 	/**
 	 * @param editRule
 	 * @return
@@ -137,10 +161,7 @@ public class RuleBaseBuilder extends AbstractMojo {
 	private boolean validateEditRule(File editRule)
 			throws MojoExecutionException {
 
-		getLog().debug(
-				"Validating editrule \"" + editRule.getPath()
-						+ "\" of artifact \"" + project.getArtifactId()
-						+ "\"...");
+		getLog().debug("Validating editrule \"" + editRule.getPath() + "\"...");
 
 		HenshinResourceSet resourceSet = new HenshinResourceSet();
 		Module editModule = resourceSet.getModule(editRule.getPath());
@@ -173,9 +194,7 @@ public class RuleBaseBuilder extends AbstractMojo {
 		}
 
 		getLog().debug(
-				"Validating editrule \"" + editRule.getPath()
-						+ "\" of artifact \"" + project.getArtifactId()
-						+ "\" completed.");
+				"Validating editrule \"" + editRule.getPath() + "\" completed.");
 
 		return noValidationErrors;
 
@@ -189,8 +208,7 @@ public class RuleBaseBuilder extends AbstractMojo {
 			throws MojoExecutionException {
 
 		getLog().info(
-				"Validating edit rules and generating recognition rules of them in artifact \""
-						+ project.getArtifactId() + "\"...");
+				"Validating edit rules and generating recognition rules of them...");
 
 		for (File editRule : editRules) {
 
@@ -215,8 +233,7 @@ public class RuleBaseBuilder extends AbstractMojo {
 		}
 
 		getLog().info(
-				"Validating edit rules and generating recognition rules of them in artifact \""
-						+ project.getArtifactId() + "\" completed.");
+				"Validating edit rules and generating recognition rules of them completed.");
 
 	}
 
@@ -254,6 +271,8 @@ public class RuleBaseBuilder extends AbstractMojo {
 			return;
 		}
 
+		registerHenshinEcoreModel();
+
 		validateAndGenerateRecognitionRules(editRules);
 
 		try {
@@ -290,11 +309,7 @@ public class RuleBaseBuilder extends AbstractMojo {
 			URI recognitionRulesDir = URI.createFileURI(project.getBasedir()
 					+ File.separator + AbstractProjectRuleBase.BUILD_FOLDER);
 
-			// register rulebase factory
-			Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(
-					"rulebase", new RulebaseFactoryImpl());
-
-			RuleBaseWrapper ruleBaseWrapper = new RuleBaseWrapper(ruleBaseURI,
+			ruleBaseWrapper = new RuleBaseWrapper(ruleBaseURI,
 					recognitionRulesDir, editRulesDir, false);
 
 			ruleBaseWrapper.setName(chooseRuleBaseName());
@@ -310,6 +325,7 @@ public class RuleBaseBuilder extends AbstractMojo {
 		getLog().debug(
 				"Generating recognition rule of edit rule \""
 						+ editRule.getPath() + "\"...");
+
 		getRuleBaseWrapper().generateItemFromFile(
 				URI.createFileURI(editRule.getPath()));
 	}
@@ -335,6 +351,7 @@ public class RuleBaseBuilder extends AbstractMojo {
 				String currentLine;
 
 				while ((currentLine = br.readLine()) != null) {
+					System.out.println("+++++++ " + currentLine);
 					bundleManifestContent.append(currentLine);
 				}
 
@@ -366,7 +383,7 @@ public class RuleBaseBuilder extends AbstractMojo {
 
 		}
 
-		getLog().debug(
+		getLog().warn(
 				"Retrieving bundle name from manifest not possible. Try to use Maven artifact name.");
 
 		String artifactName = project.getName();
@@ -378,7 +395,7 @@ public class RuleBaseBuilder extends AbstractMojo {
 			return artifactName;
 		}
 
-		getLog().debug(
+		getLog().warn(
 				"Maven artifact name is not defined. Using an empty string as rulebase name.");
 
 		return "";
