@@ -14,8 +14,8 @@ public class CTMCDTMCTransformationManager extends
 	/**
 	 * Key for extension point identification.
 	 */
-	private final static String KEY = "dtmc_ctmc";
-	private final static String REVERSE_KEY = "ctmc_dtmc";
+	private final static String KEY = "ctmc_dtmc";
+	private final static String REVERSE_KEY = "dtmc_ctmc";
 
 	@Override
 	protected String getKey() {
@@ -29,12 +29,12 @@ public class CTMCDTMCTransformationManager extends
 
 	@Override
 	public Class<?> getManagedClass1() {
-		return DTMC.class;
+		return CTMC.class;
 	}
 
 	@Override
 	public Class<?> getManagedClass2() {
-		return CTMC.class;
+		return DTMC.class;
 	}
 
 }

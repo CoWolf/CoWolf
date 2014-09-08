@@ -14,9 +14,9 @@
         <Difference>DELETE_Label_IN_State_(labels)</Difference>
         <Rule name="deletedLabelInCTMC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_ctmc.rules/rules/CTMC_DTMC.henshin">
             <Params>
-             <Param name="labelSourceState">
-                <Change name="RemoveReference" type="state">
-                		<Reference name="tgt" attribute="id"/>
+             <Param name="labelToDelete">
+                <Change name="RemoveObject">
+                		<Reference name="obj" attribute="id"/>
                 	</Change>
                 </Param>
             </Params>
@@ -65,14 +65,9 @@
         <Difference>DELETE_Transition_IN_State_(outgoing)</Difference>
         <Rule name="deleteAndUpdateTransition" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_ctmc.rules/rules/CTMC_DTMC.henshin">
             <Params>
-                <Param name="sourceID">
-                <Change name="RemoveReference" type="from">
-                		<Reference name="tgt" attribute="id"/>
-                	</Change>
-                </Param>
-                 <Param name="targetID">
-                <Change name="RemoveReference" type="to">
-                		<Reference name="tgt" attribute="id"/>
+                <Param name="transitionID">
+                	<Change name="RemoveObject">
+                		<Reference name="obj" attribute="id"/>
                 	</Change>
                 </Param>
             </Params>
@@ -90,17 +85,21 @@
     <Mapping priority="60">
         <Difference>DELETE_State_IN_CTMC_(States)</Difference>
         <Rule name="deleteStateUnit" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_ctmc.rules/rules/CTMC_DTMC.henshin">
-            <Params/>
+            <Params>
+            	<Param name="stateToDelete">
+                	<Change name="RemoveObject">
+                		<Reference name="obj" attribute="id"/>
+                	</Change>
+                </Param>
+            </Params>
         </Rule>
     </Mapping>
     <Mapping priority="9">
-        <Difference>SET_State_Name</Difference>
+        <Change>ctmc/State/name</Change> <!-- SET_State_Name: Workaround for missing Attribute value change -->
         <Rule name="changedStateNameInCTMC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_ctmc.rules/rules/CTMC_DTMC.henshin">
             <Params>
-           <Param name="changedStateID">
-                <Change name="AttributeValueChange">
-                		<Reference name="objA" attribute="id" />
-                </Change>
+           		<Param name="changedStateID">
+	                <Reference name="objA" attribute="id" />
                 </Param>
             </Params>
         </Rule>
@@ -126,9 +125,14 @@
         </Rule>
     </Mapping>
     <Mapping priority="11">
-        <Difference>SET_CTMC_(initialState)_TGT_State</Difference>
+        <Difference>SET_CTMC_(initialState)_TGT_State</Difference> <!-- SET_CTMC_(initialState)_TGT_State: -->
         <Rule name="setInitialStateInCTMC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_ctmc.rules/rules/CTMC_DTMC.henshin">
-            <Params/>
+            <Params>
+            	<!-- <Param name="changedInitalStateID"/>
+                <Change name="AddReference" type="initialState">
+                	<Reference name="tgt" attribute="id" />
+                </Change> -->
+            </Params>
         </Rule>
     </Mapping>
 </Mappings>
