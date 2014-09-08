@@ -2,14 +2,13 @@ package de.uni_stuttgart.iste.cowolf.silift_rulebase_maven_plugin;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.net.MalformedURLException;
-import java.net.URI;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.naming.event.EventDirContext;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -22,7 +21,6 @@ import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.eclipse.emf.ecore.EPackage;
-import org.sidiff.difference.rulebase.nature.RuleBaseProjectNature;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -43,7 +41,6 @@ public class RegisterECoreModel extends AbstractMojo {
 	private MavenProject project;
 
 	/**
-	 * 
 	 * @param fullClassName
 	 * @return
 	 * @throws MojoExecutionException
@@ -74,14 +71,27 @@ public class RegisterECoreModel extends AbstractMojo {
 	}
 
 	/**
-	 * 
 	 * @param modelNamespaceURI
 	 * @param modelPackage
+	 * @throws MojoExecutionException 
 	 */
 	private void registerECoreModel(String modelNamespaceURI,
-			EPackage modelPackage) {
+			EPackage modelPackage) throws MojoExecutionException {
 
-		EPackage.Registry.INSTANCE.put(modelNamespaceURI, modelPackage);
+		try {
+
+			Field eInstanceField = modelPackage.getClass().getDeclaredField(
+					"eINSTANCE");
+
+			if (eInstanceField.getType() == modelPackage.getClass()) {
+				EPackage.Registry.INSTANCE.put(modelNamespaceURI,
+						eInstanceField.get(modelPackage));
+			}
+
+		} catch (NoSuchFieldException | IllegalArgumentException
+				| IllegalAccessException exc) {
+			throw new MojoExecutionException(exc.getLocalizedMessage(), exc);
+		}
 
 	}
 
@@ -143,14 +153,14 @@ public class RegisterECoreModel extends AbstractMojo {
 							+ "\" is missing.");
 
 		}
-		
+
 		getLog().info(
-				"Artifact \"" + project.getArtifactId() + "\" is not a Ecore model.");
+				"Artifact \"" + project.getArtifactId()
+						+ "\" is not a Ecore model.");
 
 	}
 
 	/**
-	 * 
 	 * @param packageElement
 	 * @return
 	 */
@@ -161,7 +171,6 @@ public class RegisterECoreModel extends AbstractMojo {
 	}
 
 	/**
-	 * 
 	 * @param packageElement
 	 * @return
 	 */
@@ -172,7 +181,6 @@ public class RegisterECoreModel extends AbstractMojo {
 	}
 
 	/**
-	 * 
 	 * @param projectRoot
 	 * @return
 	 * @throws MojoExecutionException
@@ -206,7 +214,6 @@ public class RegisterECoreModel extends AbstractMojo {
 	}
 
 	/**
-	 * 
 	 * @param pluginDocument
 	 * @return
 	 */
