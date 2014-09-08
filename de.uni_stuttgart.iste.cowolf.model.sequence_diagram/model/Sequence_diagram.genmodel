@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
-    modelDirectory="/de.uni_stuttgart.iste.cowolf.model.sequence_diagram/src"
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.uni_stuttgart.iste.cowolf.model.sequence_diagram/src"
     editDirectory="/de.uni_stuttgart.iste.cowolf.model.sequence_diagram.emf.edit/src"
     editorDirectory="/de.uni_stuttgart.iste.cowolf.model.sequence_diagram.emf.editor/src"
     modelPluginID="de.uni_stuttgart.iste.cowolf.model.sequence_diagram" modelName="Sequence_diagram"
@@ -16,6 +16,165 @@
       resource="XML" disposableProviderFactory="true" providerPackageSuffix="emf.provider"
       presentationPackageSuffix="emf.presentation" testsPackageSuffix="emf.tests"
       ecorePackage="Sequence_diagram.ecore#/">
-    <genClasses ecoreClass="Sequence_diagram.ecore#//Sequence"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Sequence_diagram.ecore#//MessageKind">
+      <genEnumLiterals ecoreEnumLiteral="Sequence_diagram.ecore#//MessageKind/complete"/>
+      <genEnumLiterals ecoreEnumLiteral="Sequence_diagram.ecore#//MessageKind/lost"/>
+      <genEnumLiterals ecoreEnumLiteral="Sequence_diagram.ecore#//MessageKind/found"/>
+      <genEnumLiterals ecoreEnumLiteral="Sequence_diagram.ecore#//MessageKind/unknown"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Sequence_diagram.ecore#//MessageSort">
+      <genEnumLiterals ecoreEnumLiteral="Sequence_diagram.ecore#//MessageSort/synchCall"/>
+      <genEnumLiterals ecoreEnumLiteral="Sequence_diagram.ecore#//MessageSort/asynchCall"/>
+      <genEnumLiterals ecoreEnumLiteral="Sequence_diagram.ecore#//MessageSort/asynchSignal"/>
+      <genEnumLiterals ecoreEnumLiteral="Sequence_diagram.ecore#//MessageSort/createMessage"/>
+      <genEnumLiterals ecoreEnumLiteral="Sequence_diagram.ecore#//MessageSort/deleteMessage"/>
+      <genEnumLiterals ecoreEnumLiteral="Sequence_diagram.ecore#//MessageSort/reply"/>
+    </genEnums>
+    <genClasses ecoreClass="Sequence_diagram.ecore#//Interaction">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sequence_diagram.ecore#//Interaction/lifeline"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sequence_diagram.ecore#//Interaction/fragment"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sequence_diagram.ecore#//Interaction/action"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sequence_diagram.ecore#//Interaction/formalGate"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sequence_diagram.ecore#//Interaction/message"/>
+      <genOperations ecoreOperation="Sequence_diagram.ecore#//Interaction/not_contained">
+        <genParameters ecoreParameter="Sequence_diagram.ecore#//Interaction/not_contained/diagnostics"/>
+        <genParameters ecoreParameter="Sequence_diagram.ecore#//Interaction/not_contained/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="Sequence_diagram.ecore#//Message">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sequence_diagram.ecore#//Message/argument"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sequence_diagram.ecore#//Message/connector"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sequence_diagram.ecore#//Message/interaction"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Sequence_diagram.ecore#//Message/messageKind"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sequence_diagram.ecore#//Message/messageSort"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sequence_diagram.ecore#//Message/receiveEvent"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sequence_diagram.ecore#//Message/sendEvent"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sequence_diagram.ecore#//Message/signature"/>
+      <genOperations ecoreOperation="Sequence_diagram.ecore#//Message/sending_receiving_message_event">
+        <genParameters ecoreParameter="Sequence_diagram.ecore#//Message/sending_receiving_message_event/diagnostics"/>
+        <genParameters ecoreParameter="Sequence_diagram.ecore#//Message/sending_receiving_message_event/context"/>
+      </genOperations>
+      <genOperations ecoreOperation="Sequence_diagram.ecore#//Message/arguments">
+        <genParameters ecoreParameter="Sequence_diagram.ecore#//Message/arguments/diagnostics"/>
+        <genParameters ecoreParameter="Sequence_diagram.ecore#//Message/arguments/context"/>
+      </genOperations>
+      <genOperations ecoreOperation="Sequence_diagram.ecore#//Message/cannot_cross_boundaries">
+        <genParameters ecoreParameter="Sequence_diagram.ecore#//Message/cannot_cross_boundaries/diagnostics"/>
+        <genParameters ecoreParameter="Sequence_diagram.ecore#//Message/cannot_cross_boundaries/context"/>
+      </genOperations>
+      <genOperations ecoreOperation="Sequence_diagram.ecore#//Message/signature_is_signal">
+        <genParameters ecoreParameter="Sequence_diagram.ecore#//Message/signature_is_signal/diagnostics"/>
+        <genParameters ecoreParameter="Sequence_diagram.ecore#//Message/signature_is_signal/context"/>
+      </genOperations>
+      <genOperations ecoreOperation="Sequence_diagram.ecore#//Message/occurrence_specifications">
+        <genParameters ecoreParameter="Sequence_diagram.ecore#//Message/occurrence_specifications/diagnostics"/>
+        <genParameters ecoreParameter="Sequence_diagram.ecore#//Message/occurrence_specifications/context"/>
+      </genOperations>
+      <genOperations ecoreOperation="Sequence_diagram.ecore#//Message/signature_refer_to">
+        <genParameters ecoreParameter="Sequence_diagram.ecore#//Message/signature_refer_to/diagnostics"/>
+        <genParameters ecoreParameter="Sequence_diagram.ecore#//Message/signature_refer_to/context"/>
+      </genOperations>
+      <genOperations ecoreOperation="Sequence_diagram.ecore#//Message/signature_is_operation_request">
+        <genParameters ecoreParameter="Sequence_diagram.ecore#//Message/signature_is_operation_request/diagnostics"/>
+        <genParameters ecoreParameter="Sequence_diagram.ecore#//Message/signature_is_operation_request/context"/>
+      </genOperations>
+      <genOperations ecoreOperation="Sequence_diagram.ecore#//Message/signature_is_operation_reply">
+        <genParameters ecoreParameter="Sequence_diagram.ecore#//Message/signature_is_operation_reply/diagnostics"/>
+        <genParameters ecoreParameter="Sequence_diagram.ecore#//Message/signature_is_operation_reply/context"/>
+      </genOperations>
+      <genOperations ecoreOperation="Sequence_diagram.ecore#//Message/getMessageKind"/>
+    </genClasses>
+    <genClasses ecoreClass="Sequence_diagram.ecore#//Gate">
+      <genOperations ecoreOperation="Sequence_diagram.ecore#//Gate/actual_gate_matched">
+        <genParameters ecoreParameter="Sequence_diagram.ecore#//Gate/actual_gate_matched/diagnostics"/>
+        <genParameters ecoreParameter="Sequence_diagram.ecore#//Gate/actual_gate_matched/context"/>
+      </genOperations>
+      <genOperations ecoreOperation="Sequence_diagram.ecore#//Gate/inside_cf_matched">
+        <genParameters ecoreParameter="Sequence_diagram.ecore#//Gate/inside_cf_matched/diagnostics"/>
+        <genParameters ecoreParameter="Sequence_diagram.ecore#//Gate/inside_cf_matched/context"/>
+      </genOperations>
+      <genOperations ecoreOperation="Sequence_diagram.ecore#//Gate/outside_cf_matched">
+        <genParameters ecoreParameter="Sequence_diagram.ecore#//Gate/outside_cf_matched/diagnostics"/>
+        <genParameters ecoreParameter="Sequence_diagram.ecore#//Gate/outside_cf_matched/context"/>
+      </genOperations>
+      <genOperations ecoreOperation="Sequence_diagram.ecore#//Gate/formal_gate_distinguishable">
+        <genParameters ecoreParameter="Sequence_diagram.ecore#//Gate/formal_gate_distinguishable/diagnostics"/>
+        <genParameters ecoreParameter="Sequence_diagram.ecore#//Gate/formal_gate_distinguishable/context"/>
+      </genOperations>
+      <genOperations ecoreOperation="Sequence_diagram.ecore#//Gate/actual_gate_distinguishable">
+        <genParameters ecoreParameter="Sequence_diagram.ecore#//Gate/actual_gate_distinguishable/diagnostics"/>
+        <genParameters ecoreParameter="Sequence_diagram.ecore#//Gate/actual_gate_distinguishable/context"/>
+      </genOperations>
+      <genOperations ecoreOperation="Sequence_diagram.ecore#//Gate/outside_cf_gate_distinguishable">
+        <genParameters ecoreParameter="Sequence_diagram.ecore#//Gate/outside_cf_gate_distinguishable/diagnostics"/>
+        <genParameters ecoreParameter="Sequence_diagram.ecore#//Gate/outside_cf_gate_distinguishable/context"/>
+      </genOperations>
+      <genOperations ecoreOperation="Sequence_diagram.ecore#//Gate/inside_cf_gate_distinguishable">
+        <genParameters ecoreParameter="Sequence_diagram.ecore#//Gate/inside_cf_gate_distinguishable/diagnostics"/>
+        <genParameters ecoreParameter="Sequence_diagram.ecore#//Gate/inside_cf_gate_distinguishable/context"/>
+      </genOperations>
+      <genOperations ecoreOperation="Sequence_diagram.ecore#//Gate/isOutsideCF"/>
+      <genOperations ecoreOperation="Sequence_diagram.ecore#//Gate/isInsideCF"/>
+      <genOperations ecoreOperation="Sequence_diagram.ecore#//Gate/isActual"/>
+      <genOperations ecoreOperation="Sequence_diagram.ecore#//Gate/isFormal"/>
+      <genOperations ecoreOperation="Sequence_diagram.ecore#//Gate/getName"/>
+      <genOperations ecoreOperation="Sequence_diagram.ecore#//Gate/matches">
+        <genParameters ecoreParameter="Sequence_diagram.ecore#//Gate/matches/gateToMatch"/>
+      </genOperations>
+      <genOperations ecoreOperation="Sequence_diagram.ecore#//Gate/getOperand"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="Sequence_diagram.ecore#//InteractionFragment">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sequence_diagram.ecore#//InteractionFragment/covered"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sequence_diagram.ecore#//InteractionFragment/enclosingOperand"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sequence_diagram.ecore#//InteractionFragment/enclosingInteraction"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sequence_diagram.ecore#//InteractionFragment/generalOrdering"/>
+    </genClasses>
+    <genClasses ecoreClass="Sequence_diagram.ecore#//Lifeline">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sequence_diagram.ecore#//Lifeline/decomposedAs"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sequence_diagram.ecore#//Lifeline/interaction"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sequence_diagram.ecore#//Lifeline/represents"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sequence_diagram.ecore#//Lifeline/selector"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sequence_diagram.ecore#//Lifeline/coveredBy"/>
+      <genOperations ecoreOperation="Sequence_diagram.ecore#//Lifeline/selector_specified">
+        <genParameters ecoreParameter="Sequence_diagram.ecore#//Lifeline/selector_specified/diagnostics"/>
+        <genParameters ecoreParameter="Sequence_diagram.ecore#//Lifeline/selector_specified/context"/>
+      </genOperations>
+      <genOperations ecoreOperation="Sequence_diagram.ecore#//Lifeline/interaction_uses_share_lifeline">
+        <genParameters ecoreParameter="Sequence_diagram.ecore#//Lifeline/interaction_uses_share_lifeline/diagnostics"/>
+        <genParameters ecoreParameter="Sequence_diagram.ecore#//Lifeline/interaction_uses_share_lifeline/context"/>
+      </genOperations>
+      <genOperations ecoreOperation="Sequence_diagram.ecore#//Lifeline/same_classifier">
+        <genParameters ecoreParameter="Sequence_diagram.ecore#//Lifeline/same_classifier/diagnostics"/>
+        <genParameters ecoreParameter="Sequence_diagram.ecore#//Lifeline/same_classifier/context"/>
+      </genOperations>
+      <genOperations ecoreOperation="Sequence_diagram.ecore#//Lifeline/selector_int_or_string">
+        <genParameters ecoreParameter="Sequence_diagram.ecore#//Lifeline/selector_int_or_string/diagnostics"/>
+        <genParameters ecoreParameter="Sequence_diagram.ecore#//Lifeline/selector_int_or_string/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="Sequence_diagram.ecore#//ValueSpecification">
+      <genOperations ecoreOperation="Sequence_diagram.ecore#//ValueSpecification/booleanValue"/>
+      <genOperations ecoreOperation="Sequence_diagram.ecore#//ValueSpecification/integerValue"/>
+      <genOperations ecoreOperation="Sequence_diagram.ecore#//ValueSpecification/isComputable"/>
+      <genOperations ecoreOperation="Sequence_diagram.ecore#//ValueSpecification/isNull"/>
+      <genOperations ecoreOperation="Sequence_diagram.ecore#//ValueSpecification/realValue"/>
+      <genOperations ecoreOperation="Sequence_diagram.ecore#//ValueSpecification/stringValue"/>
+      <genOperations ecoreOperation="Sequence_diagram.ecore#//ValueSpecification/unlimitedValue"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="Sequence_diagram.ecore#//MessageEnd">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sequence_diagram.ecore#//MessageEnd/message"/>
+      <genOperations ecoreOperation="Sequence_diagram.ecore#//MessageEnd/oppositeEnd"/>
+      <genOperations ecoreOperation="Sequence_diagram.ecore#//MessageEnd/isSend"/>
+      <genOperations ecoreOperation="Sequence_diagram.ecore#//MessageEnd/isReceive"/>
+      <genOperations ecoreOperation="Sequence_diagram.ecore#//MessageEnd/enclosingFragment"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="Sequence_diagram.ecore#//ExecutionSpecification">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sequence_diagram.ecore#//ExecutionSpecification/finish"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sequence_diagram.ecore#//ExecutionSpecification/start"/>
+      <genOperations ecoreOperation="Sequence_diagram.ecore#//ExecutionSpecification/same_lifeline">
+        <genParameters ecoreParameter="Sequence_diagram.ecore#//ExecutionSpecification/same_lifeline/diagnostics"/>
+        <genParameters ecoreParameter="Sequence_diagram.ecore#//ExecutionSpecification/same_lifeline/context"/>
+      </genOperations>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>
