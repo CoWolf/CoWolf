@@ -1,0 +1,48 @@
+grammar de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.PCTL with org.eclipse.xtext.common.Terminals
+
+generate pCTL "http://www.uni_stuttgart.de/iste/cowolf/model/ctmc/xtext/PCTL"
+
+Start:
+	start= S | P1;
+
+State:
+	("(" "State:" name=ID ")" | "State:" name=ID);
+
+Label:
+	("(" "Label:" name=ID ")" | "Label:" name=ID);
+
+StateOrLabel:
+	(State | Label);
+
+S:
+	"S" Compare "[" StateOrLabel "]";
+
+P1:
+	("P" Compare "["  (P | S | F | U | G | X StateOrLabel) "]");
+	
+P:
+	("P" CompareWithoutUnknown "[" (P | S | F | U | G | X StateOrLabel) "]");	
+
+X:
+	("X")*;
+
+F:
+	("F") (TimeBound X) RIGHT=StateOrLabel;
+	
+G:
+	("G") (TimeBound X) "(" LEFT=StateOrLabel "=>" RIGHT=P ")";
+
+U:
+	LEFT=StateOrLabel ("U" | "W" | "R") (TimeBound X) RIGHT=StateOrLabel;
+
+Compare:
+	(CompareWithoutUnknown | "=?");
+
+CompareWithoutUnknown:
+	(">" DECIMAL | "<" DECIMAL | ">=" DECIMAL | "<=" DECIMAL);
+
+TimeBound:
+	(">=" DECIMAL | "<=" DECIMAL | "=" DECIMAL | "[" DECIMAL "," DECIMAL "]")?;
+
+DECIMAL:
+	INT ('.' INT)?;
