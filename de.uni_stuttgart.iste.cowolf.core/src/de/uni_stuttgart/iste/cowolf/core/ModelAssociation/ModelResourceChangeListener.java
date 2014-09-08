@@ -25,6 +25,8 @@ import de.uni_stuttgart.iste.cowolf.model.ModelRegistry;
 
 public class ModelResourceChangeListener implements IResourceChangeListener {
 
+	private final static String COWOLF_PROBLEM = "de.uni_stuttgart.iste.cowolf.core.cowolfproblem";
+
 	@Override
 	public void resourceChanged(IResourceChangeEvent event) {
 		if (event.getType() != IResourceChangeEvent.POST_CHANGE) {
@@ -134,6 +136,10 @@ public class ModelResourceChangeListener implements IResourceChangeListener {
 								.getProjectRelativePath().toString());
 						if (model != null) {
 
+							if (doesCowolfMarkerExist(res)) {
+								deleteCoWolfMarkers(res);
+							}
+
 							invalidateModels(res);
 
 							// model.createVersion();
@@ -169,22 +175,14 @@ public class ModelResourceChangeListener implements IResourceChangeListener {
 
 	}
 
+	/**
+	 * Gets the associated models for the changed one and sets the CoWolf-Marker
+	 * for them.
+	 * 
+	 * @param changedRes
+	 *            to get the associated models from
+	 */
 	private void invalidateModels(IResource changedRes) {
-
-		// Delete marker of this model if model was changed
-		IMarker[] markers = null;
-		try {
-			markers = changedRes.findMarkers(IMarker.PROBLEM, false,
-					IResource.DEPTH_ZERO);
-			for (IMarker marker : markers) {
-				if (marker.getAttribute("invalid") != null) {
-					marker.delete();
-				}
-			}
-		} catch (CoreException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 
 		ModelAssociation ma = ModelAssociationFactory.eINSTANCE
 				.getModelAssociation(changedRes.getProject());
@@ -200,13 +198,19 @@ public class ModelResourceChangeListener implements IResourceChangeListener {
 					setMarker(changedRes, targetModel);
 
 				}
-
 			}
-
 		}
-
 	}
 
+	/**
+	 * Sets a CoWolf-Marker to give IResource.
+	 * 
+	 * @param sourceRes
+	 *            used in the marker message to show the user which resource was
+	 *            changed.
+	 * @param targetRes
+	 *            on that the marker should be set.
+	 */
 	private void setMarker(final IResource sourceRes, final IResource targetRes) {
 
 		WorkspaceJob job = new WorkspaceJob("Set marker to invalid models") {
@@ -215,8 +219,7 @@ public class ModelResourceChangeListener implements IResourceChangeListener {
 			public IStatus runInWorkspace(IProgressMonitor monitor)
 					throws CoreException {
 
-				// TODO: CoWolf Problem
-				IMarker resMarker = targetRes.createMarker(IMarker.PROBLEM);
+				IMarker resMarker = targetRes.createMarker(COWOLF_PROBLEM);
 
 				if (resMarker.exists()) {
 
@@ -230,11 +233,6 @@ public class ModelResourceChangeListener implements IResourceChangeListener {
 							IMarker.PRIORITY_HIGH);
 					resMarker.setAttribute(IMarker.SEVERITY,
 							IMarker.SEVERITY_WARNING);
-					resMarker.setAttribute(IMarker.SOURCE_ID, sourceRes
-							.getProjectRelativePath().toString());
-					// TODO: own marker attribute
-					resMarker.setAttribute("invalid", true);
-
 				}
 
 				return Status.OK_STATUS;
@@ -246,15 +244,37 @@ public class ModelResourceChangeListener implements IResourceChangeListener {
 
 	}
 
+	/**
+	 * Deletes all CoWolf-Markers of given IResource.
+	 * 
+	 * @param changedRes
+	 */
+	private void deleteCoWolfMarkers(IResource changedRes) {
+
+		try {
+			changedRes.deleteMarkers(COWOLF_PROBLEM, false,
+					IResource.DEPTH_ZERO);
+		} catch (CoreException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	/**
+	 * Checks if CoWolf-Markers are specified for given IResource.
+	 * 
+	 * @param res
+	 *            to check
+	 * @return if CoWolf-Markers are specified
+	 */
 	private boolean doesCowolfMarkerExist(IResource res) {
 
 		IMarker[] markers = null;
 		try {
-			markers = res.findMarkers(IMarker.PROBLEM, false,
+			markers = res.findMarkers(COWOLF_PROBLEM, false,
 					IResource.DEPTH_ZERO);
-			for (IMarker marker : markers) {
-				return marker.getAttribute("invalid") != null;
-			}
+			return markers.length > 0;
 
 		} catch (CoreException e) {
 			// TODO Auto-generated catch block
