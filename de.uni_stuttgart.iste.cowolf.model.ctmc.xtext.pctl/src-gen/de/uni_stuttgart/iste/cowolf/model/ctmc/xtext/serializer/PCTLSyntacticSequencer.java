@@ -110,7 +110,7 @@ public class PCTLSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	/**
 	 * Syntax:
-	 *     (X | ('S' Compare '[')) | (('P' CompareWithoutUnknown '[')+ (X | ('S' Compare '[')))
+	 *     (('P' CompareWithoutUnknown '[')+ (('S' Compare '[') | X)) | (('S' Compare '[') | X)
 	 */
 	protected void emit_P_P1_S___XParserRuleCall_3_5_0_or___SKeyword_0_CompareParserRuleCall_1_LeftSquareBracketKeyword_2_____or_____PKeyword_0_CompareWithoutUnknownParserRuleCall_1_LeftSquareBracketKeyword_2__p___XParserRuleCall_3_5_0_or___SKeyword_0_CompareParserRuleCall_1_LeftSquareBracketKeyword_2______(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -142,7 +142,7 @@ public class PCTLSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     'W' | 'U' | 'R'
+	 *     'R' | 'U' | 'W'
 	 */
 	protected void emit_U_RKeyword_1_2_or_UKeyword_1_0_or_WKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
