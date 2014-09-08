@@ -25,14 +25,51 @@ Require-Bundle: org.eclipse.sirius.common.ui,
  org.eclipse.pde.ui,
  org.eclipse.uml2.uml.editor,
  org.eclipse.sirius.common;bundle-version="1.0.1",
+ org.eclipse.uml2.uml;bundle-version="5.0.0";visibility:=reexport,
+ org.eclipse.uml2.types;visibility:=reexport,
  org.eclipse.sirius
 Bundle-ActivationPolicy: lazy
-Export-Package: org.obeonetwork.dsl.uml2.design,
- org.obeonetwork.dsl.uml2.design.services,
- org.obeonetwork.dsl.uml2.design.services.internal,
- org.obeonetwork.dsl.uml2.design.ui.extension,
- org.obeonetwork.dsl.uml2.design.ui.extension.editor,
- org.obeonetwork.dsl.uml2.design.ui.wizards.newmodel
+Export-Package: org.obeonetwork.dsl.uml2.design;
+  uses:="org.eclipse.core.runtime,
+   org.eclipse.ui,
+   org.eclipse.core.resources,
+   org.eclipse.ui.actions,
+   org.eclipse.sirius.business.api.session,
+   org.eclipse.ui.plugin,
+   org.osgi.framework,
+   org.eclipse.sirius.viewpoint.description",
+ org.obeonetwork.dsl.uml2.design.services;
+  uses:="org.eclipse.emf.ecore.resource,
+   org.eclipse.emf.common.util,
+   org.eclipse.sirius.business.api.session,
+   org.eclipse.sirius.diagram.sequence.ordering,
+   org.eclipse.emf.common.notify,
+   org.eclipse.emf.ecore,
+   org.eclipse.emf.transaction,
+   org.eclipse.uml2.uml,
+   org.eclipse.sirius.viewpoint,
+   org.eclipse.sirius.diagram,
+   org.eclipse.sirius.ext.base",
+ org.obeonetwork.dsl.uml2.design.services.internal;
+  uses:="org.eclipse.uml2.uml.util,
+   org.eclipse.emf.ecore.util,
+   org.eclipse.emf.ecore,
+   org.obeonetwork.dsl.uml2.design.services,
+   org.eclipse.uml2.uml",
+ org.obeonetwork.dsl.uml2.design.ui.extension;uses:="org.eclipse.core.expressions",
+ org.obeonetwork.dsl.uml2.design.ui.extension.editor;uses:="org.eclipse.sirius.viewpoint.description,org.eclipse.sirius.business.api.componentization",
+ org.obeonetwork.dsl.uml2.design.ui.wizards.newmodel;
+  uses:="org.eclipse.jface.wizard,
+   org.eclipse.ui,
+   org.eclipse.ui.wizards.newresource,
+   org.eclipse.swt.events,
+   org.eclipse.sirius.business.api.session,
+   org.eclipse.osgi.util,
+   org.eclipse.core.resources,
+   org.eclipse.jface.viewers,
+   org.eclipse.ui.dialogs,
+   org.eclipse.swt.widgets,
+   org.eclipse.sirius.ext.base"
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-Localization: plugin
 Bundle-Vendor: Obeo Network

@@ -2,25 +2,18 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.sequence_diagram.emf.tests;
 
-import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Interaction;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramFactory;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramPackage;
-
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.util.Sequence_diagramResourceFactoryImpl;
-
 import java.io.File;
 import java.io.IOException;
-
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-
 import org.eclipse.emf.ecore.util.Diagnostician;
 
 /**
@@ -60,7 +53,7 @@ public class Sequence_diagramExample {
 			System.out.println("Enter a list of file paths or URIs that have content like this:");
 			try {
 				Resource resource = resourceSet.createResource(URI.createURI("http:///My.sequence_diagram"));
-				Sequence root = Sequence_diagramFactory.eINSTANCE.createSequence();
+				Interaction root = Sequence_diagramFactory.eINSTANCE.createInteraction();
 				resource.getContents().add(root);
 				resource.save(System.out, null);
 			}
