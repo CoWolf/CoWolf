@@ -3,20 +3,15 @@
 package de.uni_stuttgart.iste.cowolf.model.sequence_diagram.util;
 
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.*;
-
 import org.eclipse.emf.ecore.EModelElement;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
-
 import org.eclipse.uml2.uml.Behavior;
 import org.eclipse.uml2.uml.BehavioredClassifier;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.EncapsulatedClassifier;
-import org.eclipse.uml2.uml.Interaction;
-import org.eclipse.uml2.uml.InteractionFragment;
 import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.Namespace;
 import org.eclipse.uml2.uml.PackageableElement;
@@ -25,6 +20,7 @@ import org.eclipse.uml2.uml.RedefinableElement;
 import org.eclipse.uml2.uml.StructuredClassifier;
 import org.eclipse.uml2.uml.TemplateableElement;
 import org.eclipse.uml2.uml.Type;
+import org.eclipse.uml2.uml.TypedElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -83,26 +79,110 @@ public class Sequence_diagramSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case Sequence_diagramPackage.SEQUENCE: {
-				Sequence sequence = (Sequence)theEObject;
-				T result = caseSequence(sequence);
-				if (result == null) result = caseInteraction(sequence);
-				if (result == null) result = caseBehavior(sequence);
-				if (result == null) result = caseInteractionFragment(sequence);
-				if (result == null) result = caseClass(sequence);
-				if (result == null) result = caseEncapsulatedClassifier(sequence);
-				if (result == null) result = caseBehavioredClassifier(sequence);
-				if (result == null) result = caseStructuredClassifier(sequence);
-				if (result == null) result = caseClassifier(sequence);
-				if (result == null) result = caseNamespace(sequence);
-				if (result == null) result = caseRedefinableElement(sequence);
-				if (result == null) result = caseType(sequence);
-				if (result == null) result = caseTemplateableElement(sequence);
-				if (result == null) result = casePackageableElement(sequence);
-				if (result == null) result = caseNamedElement(sequence);
-				if (result == null) result = caseParameterableElement(sequence);
-				if (result == null) result = caseElement(sequence);
-				if (result == null) result = caseEModelElement(sequence);
+			case Sequence_diagramPackage.INTERACTION: {
+				Interaction interaction = (Interaction)theEObject;
+				T result = caseInteraction(interaction);
+				if (result == null) result = caseBehavior(interaction);
+				if (result == null) result = caseInteractionFragment(interaction);
+				if (result == null) result = caseClass(interaction);
+				if (result == null) result = caseEncapsulatedClassifier(interaction);
+				if (result == null) result = caseBehavioredClassifier(interaction);
+				if (result == null) result = caseStructuredClassifier(interaction);
+				if (result == null) result = caseClassifier(interaction);
+				if (result == null) result = caseNamespace(interaction);
+				if (result == null) result = caseRedefinableElement(interaction);
+				if (result == null) result = caseType(interaction);
+				if (result == null) result = caseTemplateableElement(interaction);
+				if (result == null) result = casePackageableElement(interaction);
+				if (result == null) result = caseNamedElement(interaction);
+				if (result == null) result = caseParameterableElement(interaction);
+				if (result == null) result = caseElement(interaction);
+				if (result == null) result = caseEModelElement(interaction);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case Sequence_diagramPackage.MESSAGE: {
+				Message message = (Message)theEObject;
+				T result = caseMessage(message);
+				if (result == null) result = caseNamedElement(message);
+				if (result == null) result = caseElement(message);
+				if (result == null) result = caseEModelElement(message);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case Sequence_diagramPackage.GATE: {
+				Gate gate = (Gate)theEObject;
+				T result = caseGate(gate);
+				if (result == null) result = caseMessageEnd(gate);
+				if (result == null) result = caseNamedElement(gate);
+				if (result == null) result = caseElement(gate);
+				if (result == null) result = caseEModelElement(gate);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case Sequence_diagramPackage.INTERACTION_FRAGMENT: {
+				InteractionFragment interactionFragment = (InteractionFragment)theEObject;
+				T result = caseInteractionFragment(interactionFragment);
+				if (result == null) result = caseNamedElement(interactionFragment);
+				if (result == null) result = caseElement(interactionFragment);
+				if (result == null) result = caseEModelElement(interactionFragment);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case Sequence_diagramPackage.LIFELINE: {
+				Lifeline lifeline = (Lifeline)theEObject;
+				T result = caseLifeline(lifeline);
+				if (result == null) result = caseNamedElement(lifeline);
+				if (result == null) result = caseElement(lifeline);
+				if (result == null) result = caseEModelElement(lifeline);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case Sequence_diagramPackage.VALUE_SPECIFICATION: {
+				ValueSpecification valueSpecification = (ValueSpecification)theEObject;
+				T result = caseValueSpecification(valueSpecification);
+				if (result == null) result = casePackageableElement(valueSpecification);
+				if (result == null) result = caseTypedElement(valueSpecification);
+				if (result == null) result = caseNamedElement(valueSpecification);
+				if (result == null) result = caseParameterableElement(valueSpecification);
+				if (result == null) result = caseElement(valueSpecification);
+				if (result == null) result = caseEModelElement(valueSpecification);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case Sequence_diagramPackage.MESSAGE_END: {
+				MessageEnd messageEnd = (MessageEnd)theEObject;
+				T result = caseMessageEnd(messageEnd);
+				if (result == null) result = caseNamedElement(messageEnd);
+				if (result == null) result = caseElement(messageEnd);
+				if (result == null) result = caseEModelElement(messageEnd);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case Sequence_diagramPackage.EXECUTION_SPECIFICATION: {
+				ExecutionSpecification executionSpecification = (ExecutionSpecification)theEObject;
+				T result = caseExecutionSpecification(executionSpecification);
+				if (result == null) result = caseInteractionFragment(executionSpecification);
+				if (result == null) result = caseNamedElement(executionSpecification);
+				if (result == null) result = caseElement(executionSpecification);
+				if (result == null) result = caseEModelElement(executionSpecification);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case Sequence_diagramPackage.ACTOR: {
+				Actor actor = (Actor)theEObject;
+				T result = caseActor(actor);
+				if (result == null) result = caseBehavioredClassifier(actor);
+				if (result == null) result = caseClassifier(actor);
+				if (result == null) result = caseNamespace(actor);
+				if (result == null) result = caseRedefinableElement(actor);
+				if (result == null) result = caseType(actor);
+				if (result == null) result = caseTemplateableElement(actor);
+				if (result == null) result = casePackageableElement(actor);
+				if (result == null) result = caseNamedElement(actor);
+				if (result == null) result = caseParameterableElement(actor);
+				if (result == null) result = caseElement(actor);
+				if (result == null) result = caseEModelElement(actor);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -111,17 +191,137 @@ public class Sequence_diagramSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Sequence</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Interaction</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Sequence</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Interaction</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSequence(Sequence object) {
+	public T caseInteraction(Interaction object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Message</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Message</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMessage(Message object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Gate</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Gate</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGate(Gate object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Interaction Fragment</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Interaction Fragment</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInteractionFragment(InteractionFragment object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Lifeline</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Lifeline</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLifeline(Lifeline object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Value Specification</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Value Specification</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseValueSpecification(ValueSpecification object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Message End</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Message End</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMessageEnd(MessageEnd object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Execution Specification</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Execution Specification</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExecutionSpecification(ExecutionSpecification object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Actor</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Actor</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseActor(Actor object) {
 		return null;
 	}
 
@@ -351,32 +551,17 @@ public class Sequence_diagramSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Interaction Fragment</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Typed Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Interaction Fragment</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Typed Element</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseInteractionFragment(InteractionFragment object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Interaction</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Interaction</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseInteraction(Interaction object) {
+	public T caseTypedElement(TypedElement object) {
 		return null;
 	}
 

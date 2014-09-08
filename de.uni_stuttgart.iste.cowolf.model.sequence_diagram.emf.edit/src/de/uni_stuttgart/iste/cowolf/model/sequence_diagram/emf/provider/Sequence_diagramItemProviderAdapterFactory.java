@@ -72,26 +72,118 @@ public class Sequence_diagramItemProviderAdapterFactory extends Sequence_diagram
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence} instances.
+	 * This keeps track of the one adapter used for all {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Interaction} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SequenceItemProvider sequenceItemProvider;
+	protected InteractionItemProvider interactionItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence}.
+	 * This creates an adapter for a {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Interaction}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createSequenceAdapter() {
-		if (sequenceItemProvider == null) {
-			sequenceItemProvider = new SequenceItemProvider(this);
+	public Adapter createInteractionAdapter() {
+		if (interactionItemProvider == null) {
+			interactionItemProvider = new InteractionItemProvider(this);
 		}
 
-		return sequenceItemProvider;
+		return interactionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Message} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MessageItemProvider messageItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Message}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMessageAdapter() {
+		if (messageItemProvider == null) {
+			messageItemProvider = new MessageItemProvider(this);
+		}
+
+		return messageItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Gate} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GateItemProvider gateItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Gate}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGateAdapter() {
+		if (gateItemProvider == null) {
+			gateItemProvider = new GateItemProvider(this);
+		}
+
+		return gateItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Lifeline} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LifelineItemProvider lifelineItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Lifeline}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLifelineAdapter() {
+		if (lifelineItemProvider == null) {
+			lifelineItemProvider = new LifelineItemProvider(this);
+		}
+
+		return lifelineItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Actor} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ActorItemProvider actorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Actor}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createActorAdapter() {
+		if (actorItemProvider == null) {
+			actorItemProvider = new ActorItemProvider(this);
+		}
+
+		return actorItemProvider;
 	}
 
 	/**
@@ -193,7 +285,11 @@ public class Sequence_diagramItemProviderAdapterFactory extends Sequence_diagram
 	 * @generated
 	 */
 	public void dispose() {
-		if (sequenceItemProvider != null) sequenceItemProvider.dispose();
+		if (interactionItemProvider != null) interactionItemProvider.dispose();
+		if (messageItemProvider != null) messageItemProvider.dispose();
+		if (gateItemProvider != null) gateItemProvider.dispose();
+		if (lifelineItemProvider != null) lifelineItemProvider.dispose();
+		if (actorItemProvider != null) actorItemProvider.dispose();
 	}
 
 }

@@ -29,7 +29,7 @@ public class UMLDesignerPlugin extends AbstractUIPlugin {
 	/**
 	 * The plug-in ID.
 	 */
-	public static final String PLUGIN_ID = "org.obeonetwork.dsl.uml2.design2";
+	public static final String PLUGIN_ID = "de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.edit";
 
 	/**
 	 * The shared instance.
