@@ -8,6 +8,7 @@ Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: de.uni_stuttgart.iste.cowolf.model.sequence_diagram,
+ de.uni_stuttgart.iste.cowolf.model.sequence_diagram.design,
  de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl,
  de.uni_stuttgart.iste.cowolf.model.sequence_diagram.util
 Require-Bundle: org.eclipse.core.runtime,
@@ -15,5 +16,28 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.uml2.types;visibility:=reexport,
  de.uni_stuttgart.iste.cowolf.model;bundle-version="1.0.0";visibility:=reexport,
- org.eclipse.uml2.uml;bundle-version="5.0.0";visibility:=reexport
+ org.eclipse.uml2.uml;bundle-version="5.0.0";visibility:=reexport,
+ org.eclipse.sirius,
+ org.eclipse.emf.transaction,
+ com.google.guava,
+ org.eclipse.gmf.runtime.notation.edit,
+ org.eclipse.sirius.ext.base,
+ org.eclipse.sirius.diagram,
+ org.eclipse.sirius.common,
+ org.eclipse.sirius.ecore.extender,
+ org.eclipse.uml2.uml.edit;bundle-version="5.0.0",
+ org.eclipse.uml2.uml.resources;bundle-version="5.0.0",
+ org.eclipse.uml2.uml.editor;bundle-version="5.0.0",
+ org.eclipse.sirius.diagram.sequence,
+ org.eclipse.sirius.common.ui,
+ org.eclipse.sirius.diagram.ui,
+ org.eclipse.gmf.runtime.diagram.ui,
+ org.eclipse.gef,
+ org.eclipse.sirius.diagram.sequence.ui,
+ org.eclipse.core.expressions,
+ org.eclipse.emf.codegen.ecore,
+ org.eclipse.emf.importer.ecore,
+ org.eclipse.jdt.core,
+ org.eclipse.pde.core
 Bundle-ActivationPolicy: lazy
+Import-Package: org.eclipse.emf.importer
