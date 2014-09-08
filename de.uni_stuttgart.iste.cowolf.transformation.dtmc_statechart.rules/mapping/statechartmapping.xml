@@ -256,4 +256,28 @@
             </Params>
         </Rule>
     </Mapping>
+    <Mapping>
+        <Difference priority="2">CREATE_Loop_Transition</Difference>
+        <Rule name="CreatedLoopTransition" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin" >
+            <Params>
+                <Param name="id">
+                    <Change name="AddObject">
+                        <Reference name="obj" attribute="id"/>
+                    </Change>
+                </Param>
+            </Params>
+        </Rule>
+    </Mapping>
+    <Mapping>
+        <Difference priority="2">DELETE_Loop_Transition</Difference>
+        <Rule name="DeletedLoopTransition" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin" >
+            <Params>
+                <Param name="id">
+                    <Change name="RemoveObject">
+                        <Reference name="obj" attribute="id"/>
+                    </Change>
+                </Param>
+            </Params>
+        </Rule>
+    </Mapping>
 </Mappings>
