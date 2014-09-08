@@ -149,15 +149,26 @@ public abstract class AbstractTransformationManager {
     		throw new InvalidParameterException("Models must be in the same project");
     	}
     	
-        Association latest = sourceModel.getLatestAssociationTo(targetModel);
+        Association latestTo = sourceModel.getLatestAssociationTo(targetModel);
+        Association latestFrom = sourceModel.getLatestAssociationFrom(targetModel);
         
         // per default, use initial version (directly after creation of file) as base.
         ModelVersion oldSourceVersion = sourceModel.getVersions().get(0);
         ModelVersion sourceVersion;
         
-        if (latest != null) {
-	        
-	        for (ModelVersion version : latest.getSource()) {
+        Association latest = null;
+        
+        if (latestTo != null && (latestFrom == null || latestTo.getTimestamp() > latestFrom.getTimestamp())) {
+    		latest = latestTo;
+	        for (ModelVersion version : latestTo.getSource()) {
+	        	if (version.getModel().equals(sourceModel)) {
+	        		oldSourceVersion = version;
+	        		break;
+	        	}
+	        }
+        } else if (latestFrom != null) {
+        	latest = latestTo;
+	        for (ModelVersion version : latestTo.getTarget()) {
 	        	if (version.getModel().equals(sourceModel)) {
 	        		oldSourceVersion = version;
 	        		break;
@@ -168,16 +179,26 @@ public abstract class AbstractTransformationManager {
         
         // Create new version if there are changes in the model, else use latest.
         if (sourceModel.hasChanges()) {
-        	sourceVersion = sourceModel.createVersion();
+        	sourceVersion = sourceModel.createVersion("Save changes for co-evolution.");
         } else {
         	sourceVersion = sourceModel.getVersions().get(sourceModel.getVersions().size()-1);
         }
         
         // Break if there are no changes since the last transformation (old == current)
         if (oldSourceVersion.equals(sourceVersion)) {
+        	System.out.println("No changes in source model.");
         	for (ModelVersion version : latest.getTarget()) {
 	        	if (version.getModel().equals(targetModel)) {
 	        		return version;
+	        	} else if (version.getModel().equals(sourceModel)) {
+	        		break;
+	        	}
+	        }
+        	for (ModelVersion version : latest.getSource()) {
+	        	if (version.getModel().equals(targetModel)) {
+	        		return version;
+	        	} else if (version.getModel().equals(sourceModel)) {
+	        		break;
 	        	}
 	        }
         	return null;
@@ -185,7 +206,7 @@ public abstract class AbstractTransformationManager {
         
         // Create backup version for target model if needed.
         if (targetModel.hasChanges()) {
-        	targetModel.createVersion();
+        	targetModel.createVersion("Backup changes before co-evolution from " + targetModel.getModel());
         }
         
         // Got all needed versions.
@@ -572,7 +593,7 @@ public abstract class AbstractTransformationManager {
 	    
 	    targetRes.unload();
 	    
-	    newTargetVersion = targetModel.createVersion();
+	    newTargetVersion = targetModel.createVersion("Co-evolution from " + targetModel.getModel());
 	    
 	    Association newAssoc = sourceModel.getParent().registerAssociation();
 	    BasicEList<Trace> tl = new BasicEList<Trace>();

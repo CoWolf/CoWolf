@@ -149,58 +149,69 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	}
 	
 	@Override
-	public ModelVersion createVersion(Resource res) {
-		
-		// Check for identical model ID
-		if (this.getModelID() != null) {
-			if (res.getContents().size() < 1 || !(res.getContents().get(0) instanceof IDBase) || !((IDBase)res.getContents().get(0)).getId().equals(this.getModelID())) {
-				throw new IllegalArgumentException("Given model version is no instance of this model (model id violation)");
-			}
-		}
-		
-		long timestamp = new Date().getTime();
-		
-		String filename = ModelAssociationPackage.VERSIONBASEDIR + this.getModel() + "/" + timestamp + ".version";
-		URI uri = URI.createURI(this.getParent().getProject().getLocationURI().toString() + "/" + filename);
-		
-		Resource newRes = new ResourceSetImpl().createResource(uri);
-		newRes.getContents().clear();
-		newRes.getContents().addAll(EcoreUtil.copyAll(res.getContents()));
-		
-		try {
-			newRes.save(Collections.EMPTY_MAP);
-			
-			ModelVersion version = ModelAssociationFactory.eINSTANCE.createModelVersion();
-			version.setManual(false);
-			version.setTimestamp(timestamp);
-			version.setModel(this);
-			
-			this.setModificationStamp(this.getFile().getModificationStamp());
-			
-			return version;
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		return null;
-	}
-	
-	@Override
-	public ModelVersion createVersion() {
-		ResourceSetImpl resSet = new ResourceSetImpl();
-		URI uri = URI.createURI(this.getParent().getProject().getLocationURI().toString() + "/" + this.getModel());
-		Resource res = resSet.createResource(uri);
-		try {
-			res.load(Collections.EMPTY_MAP);
-			
-			return this.createVersion(res);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
-	}
+    public ModelVersion createVersion(Resource res) {
+            return createVersion(res, "");
+    }
+
+    @Override
+    public ModelVersion createVersion(Resource res, String message) {
+            
+            // Check for identical model ID
+            if (this.getModelID() != null) {
+                    if (res.getContents().size() < 1 || !(res.getContents().get(0) instanceof IDBase) || !((IDBase)res.getContents().get(0)).getId().equals(this.getModelID())) {
+                            throw new IllegalArgumentException("Given model version is no instance of this model (model id violation)");
+                    }
+            }
+            
+            long timestamp = new Date().getTime();
+            
+            String filename = ModelAssociationPackage.VERSIONBASEDIR + this.getModel() + "/" + timestamp + ".version";
+            URI uri = URI.createURI(this.getParent().getProject().getLocationURI().toString() + "/" + filename);
+            
+            Resource newRes = new ResourceSetImpl().createResource(uri);
+            newRes.getContents().clear();
+            newRes.getContents().addAll(EcoreUtil.copyAll(res.getContents()));
+            
+            try {
+                    newRes.save(Collections.EMPTY_MAP);
+                    
+                    ModelVersion version = ModelAssociationFactory.eINSTANCE.createModelVersion();
+                    version.setMessage(message);
+                    version.setManual(false);
+                    version.setTimestamp(timestamp);
+                    version.setModel(this);
+                    
+                    this.setModificationStamp(this.getFile().getModificationStamp());
+                    
+                    return version;
+            } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+            }
+            
+            return null;
+    }
+    
+    @Override
+    public ModelVersion createVersion() {
+            return createVersion("");
+    }
+
+    @Override
+    public ModelVersion createVersion(String message) {
+            ResourceSetImpl resSet = new ResourceSetImpl();
+            URI uri = URI.createURI(this.getParent().getProject().getLocationURI().toString() + "/" + this.getModel());
+            Resource res = resSet.createResource(uri);
+            try {
+                    res.load(Collections.EMPTY_MAP);
+                    
+                    return this.createVersion(res, message);
+            } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+            }
+            return null;
+    }
 
 	/**
 	 * <!-- begin-user-doc -->
