@@ -193,7 +193,8 @@ public class ModelResourceChangeListener implements IResourceChangeListener {
 
 				IFile targetModel = ass.getTarget().get(0).getModel().getFile();
 
-				if (!doesCowolfMarkerExist(targetModel)) {
+				if (!changedRes.equals((IResource) (targetModel))
+						&& !doesCowolfMarkerExist(targetModel)) {
 
 					setMarker(changedRes, targetModel);
 
@@ -213,7 +214,8 @@ public class ModelResourceChangeListener implements IResourceChangeListener {
 	 */
 	private void setMarker(final IResource sourceRes, final IResource targetRes) {
 
-		WorkspaceJob job = new WorkspaceJob("Set marker to invalid models") {
+		WorkspaceJob job = new WorkspaceJob(
+				"Setting CoWolf-Marker to invalid model") {
 
 			@Override
 			public IStatus runInWorkspace(IProgressMonitor monitor)
@@ -249,15 +251,23 @@ public class ModelResourceChangeListener implements IResourceChangeListener {
 	 * 
 	 * @param changedRes
 	 */
-	private void deleteCoWolfMarkers(IResource changedRes) {
+	private void deleteCoWolfMarkers(final IResource changedRes) {
 
-		try {
-			changedRes.deleteMarkers(COWOLF_PROBLEM, false,
-					IResource.DEPTH_ZERO);
-		} catch (CoreException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		WorkspaceJob job = new WorkspaceJob("Delete CoWolf-Marker of the model") {
+
+			@Override
+			public IStatus runInWorkspace(IProgressMonitor monitor)
+					throws CoreException {
+
+				changedRes.deleteMarkers(COWOLF_PROBLEM, false,
+						IResource.DEPTH_ZERO);
+
+				return Status.OK_STATUS;
+			}
+		};
+
+		job.setRule(changedRes);
+		job.schedule();
 
 	}
 
