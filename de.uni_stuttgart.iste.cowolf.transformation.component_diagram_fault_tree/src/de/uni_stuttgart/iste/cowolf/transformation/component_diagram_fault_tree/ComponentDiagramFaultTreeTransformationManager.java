@@ -1,6 +1,7 @@
 package de.uni_stuttgart.iste.cowolf.transformation.component_diagram_fault_tree;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 import org.eclipse.emf.ecore.resource.Resource;
@@ -12,7 +13,7 @@ import org.sidiff.difference.symmetric.SymmetricDifference;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.Architecture;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree;
 import de.uni_stuttgart.iste.cowolf.transformation.AbstractTransformationManager;
-import de.unistuttgart.ensure.transformations.util.ComponentDiagramFaultTreeTransformationHelper.ChangesFiller;
+import de.uni_stuttgart.iste.cowolf.transformation.component_diagram_fault_tree.ComponentDiagramFaultTreeTransformationHelper.ChangesFiller;
 
 /**
  * @author David K
@@ -68,8 +69,26 @@ public class ComponentDiagramFaultTreeTransformationManager extends AbstractTran
 		ChangeTree.init(source, target);
 		
 		// building lists of differences for ChangeTree
+		HashSet<String> _newComponentTypes, _newPortTypes, _newComponentInstances, _newPortInstances,
+			_newSubComponentInstances, _newConnectors;
+		_newComponentTypes = new HashSet<String>();
+		_newPortTypes = new HashSet<String>();
+		_newComponentInstances = new HashSet<String>();
+		_newPortInstances = new HashSet<String>();
+		_newSubComponentInstances = new HashSet<String>();
+		_newConnectors = new HashSet<String>();
+		
+		ChangesFiller filler = new ChangesFiller(_newComponentTypes, _newPortTypes, _newComponentInstances, _newPortInstances, _newSubComponentInstances, _newConnectors);
+		
+		System.out.println(">>> Building lists of differences for ChangeTree...");
+
+		for(Change change : difference.getChanges()) {
+			filler.add(change);
+		}
+
 		List<String> newComponentTypes, newPortTypes, newComponentInstances, newPortInstances,
-			newSubComponentInstances, newConnectors;
+		newSubComponentInstances, newConnectors;
+		
 		newComponentTypes = new ArrayList<String>();
 		newPortTypes = new ArrayList<String>();
 		newComponentInstances = new ArrayList<String>();
@@ -77,13 +96,12 @@ public class ComponentDiagramFaultTreeTransformationManager extends AbstractTran
 		newSubComponentInstances = new ArrayList<String>();
 		newConnectors = new ArrayList<String>();
 		
-		ChangesFiller filler = new ChangesFiller(newComponentTypes, newPortTypes, newComponentInstances, newPortInstances, newSubComponentInstances, newConnectors);
-		
-		System.out.println(">>> Building lists of differences for ChangeTree...");
-
-		for(Change change : difference.getChanges()) {
-			filler.add(change);
-		}
+		newComponentTypes.addAll(_newComponentTypes);
+		newPortTypes.addAll(_newPortTypes);
+		newComponentInstances.addAll(_newComponentInstances);
+		newPortInstances.addAll(_newPortInstances);
+		newSubComponentInstances.addAll(_newSubComponentInstances);
+		newConnectors.addAll(_newConnectors);
 
 		System.out.println(" >>> Parameter List sizes: " + newComponentTypes.size() + " " + newPortTypes.size() + " " + newComponentInstances.size() + " " + newPortInstances.size() + " " +
 			newSubComponentInstances.size() + " " + newConnectors.size());

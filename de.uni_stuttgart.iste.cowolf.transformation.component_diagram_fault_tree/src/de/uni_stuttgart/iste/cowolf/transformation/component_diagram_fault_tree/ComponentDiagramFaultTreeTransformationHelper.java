@@ -1,28 +1,30 @@
-package de.unistuttgart.ensure.transformations.util;
+package de.uni_stuttgart.iste.cowolf.transformation.component_diagram_fault_tree;
 
 import java.util.HashMap;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import org.sidiff.difference.symmetric.AddObject;
+import org.sidiff.difference.symmetric.AddReference;
 import org.sidiff.difference.symmetric.Change;
 
 public class ComponentDiagramFaultTreeTransformationHelper {
 
 	public static class ChangesFiller {
 
-		List<String> newComponentTypes, newPortTypes, newComponentInstances,
+		HashSet<String> newComponentTypes, newPortTypes, newComponentInstances,
 				newPortInstances, newSubComponentInstances, newConnectors;
 
-		private Map<String, List<String>> changeSetRules;
+		private Map<String, Set<String>> changeSetRules;
 
-		private Map<String, List<String>> changeRules;
+		private Map<String, Set<String>> changeRules;
 
-		public ChangesFiller(List<String> newComponentTypes,
-				List<String> newPortTypes, List<String> newComponentInstances,
-				List<String> newPortInstances,
-				List<String> newSubComponentInstances,
-				List<String> newConnectors) {
+		public ChangesFiller(HashSet<String> newComponentTypes,
+				HashSet<String> newPortTypes, HashSet<String> newComponentInstances,
+				HashSet<String> newPortInstances,
+				HashSet<String> newSubComponentInstances,
+				HashSet<String> newConnectors) {
 			super();
 			this.newComponentTypes = newComponentTypes;
 			this.newPortTypes = newPortTypes;
@@ -41,7 +43,7 @@ public class ComponentDiagramFaultTreeTransformationHelper {
 		}
 
 		private void initChangeSetRules() {
-			changeSetRules = new HashMap<String, List<String>>();
+			changeSetRules = new HashMap<String, Set<String>>();
 
 			// New component types
 			changeSetRules.put("CREATE_SoftwareComponent_IN_Architecture_(component)",this.newComponentTypes);
@@ -67,7 +69,11 @@ public class ComponentDiagramFaultTreeTransformationHelper {
 		}
 
 		private void initChangeRules() {
-			changeRules = new HashMap<String, List<String>>();
+			changeRules = new HashMap<String, Set<String>>();
+
+			/**
+			 * New object changes
+			 */
 			
 			// New component types
 			changeRules.put("SoftwareComponenImplt",this.newComponentTypes);
@@ -89,28 +95,41 @@ public class ComponentDiagramFaultTreeTransformationHelper {
 
 			// New connectors
 			changeRules.put("ConnectorImpl",this.newConnectors);
+			
+			/**
+			 * New references changes
+			 */
+			
+			changeRules.put("connect", this.newPortInstances);
+			changeRules.put("port", this.newConnectors);
+			changeRules.put("connectors", this.newConnectors);
+			
 		}
 
 		public void add(String changeName, Change change) {
 			String objectName = getObjectName(change);
-			List<String> list = changeSetRules.get(changeName);
-			if (list != null) {
-				list.add(objectName);
-			} else {
-				System.out.println(String.format(
-						"ChangeSet %s not yet implemented", changeName));
+			if (objectName != null) {
+				Set<String> list = changeSetRules.get(changeName);
+				if (list != null) {
+					list.add(objectName);
+				} else {
+					System.out.println(String.format(
+							"ChangeSet %s not yet implemented", changeName));
+				}
 			}
 		}
 
 		public void add(Change change) {
 			String objectName = getObjectName(change);
-			String objectType = getObjectType(change); 
-			List<String> list = changeRules.get(objectType);
-			if (list != null) {
-				list.add(objectName);
-			} else {
-				System.out.println(String.format(
-						"Change for object type %s not yet implemented", objectType));
+			if (objectName != null && !objectName.equals("")) {
+				String objectType = getObjectType(change); 
+				Set<String> list = changeRules.get(objectType);
+				if (list != null) {
+					list.add(objectName);
+				} else {
+					System.out.println(String.format(
+							"Change for object type %s not yet implemented", objectType));
+				}
 			}
 		}
 
@@ -159,14 +178,23 @@ public class ComponentDiagramFaultTreeTransformationHelper {
 
 			@Override
 			public String getObjectName() {
-				// TODO Auto-generated method stub
-				return null;
+				Object o = ((AddReference) change).getSrc();
+				String name = "";
+				for(java.lang.reflect.Method m:o.getClass().getMethods()){
+					if (m.getName().equals("getName")) {
+						try {
+							name = (String) m.invoke(o, null);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				}
+				return name;
 			}
 
 			@Override
 			public String getObjectType() {
-				// TODO Auto-generated method stub
-				return null;
+				return ((AddReference) change).getType().getName();
 			}
 		}
 
