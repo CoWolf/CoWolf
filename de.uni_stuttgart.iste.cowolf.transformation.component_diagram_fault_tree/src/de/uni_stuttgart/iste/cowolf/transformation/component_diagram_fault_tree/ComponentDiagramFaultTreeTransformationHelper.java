@@ -144,7 +144,7 @@ public class ComponentDiagramFaultTreeTransformationHelper {
 
 	public static class ChangeHandlerFactory {
 
-		private static final String PCKG = "de.unistuttgart.ensure.transformations.util.ComponentDiagramFaultTreeTransformationHelper$ChangeHandlerFactory$";
+		private static final String PCKG = "de.uni_stuttgart.iste.cowolf.transformation.component_diagram_fault_tree.ComponentDiagramFaultTreeTransformationHelper$ChangeHandlerFactory$";
 
 		public static ChangeHandler getChangeHandler(Change change) {
 			ChangeHandler changeHandler = null;
