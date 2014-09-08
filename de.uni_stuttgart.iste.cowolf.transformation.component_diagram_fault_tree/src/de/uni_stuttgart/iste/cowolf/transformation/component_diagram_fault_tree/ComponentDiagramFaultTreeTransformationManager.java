@@ -66,6 +66,7 @@ public class ComponentDiagramFaultTreeTransformationManager extends AbstractTran
 		Resource source = resSet.getResource(this.getSourceUri(resSet), false);
 		Resource target = resSet.getResource(this.getTargetUri(resSet), false);
 		ChangeTree.init(source, target);
+		
 		// building lists of differences for ChangeTree
 		List<String> newComponentTypes, newPortTypes, newComponentInstances, newPortInstances,
 			newSubComponentInstances, newConnectors;
@@ -79,11 +80,6 @@ public class ComponentDiagramFaultTreeTransformationManager extends AbstractTran
 		ChangesFiller filler = new ChangesFiller(newComponentTypes, newPortTypes, newComponentInstances, newPortInstances, newSubComponentInstances, newConnectors);
 		
 		System.out.println(">>> Building lists of differences for ChangeTree...");
-//		for(SemanticChangeSet changeSet : difference.getChangeSets()) {
-//			for (Change change : changeSet.getChanges()) {
-//				filler.add(changeSet.getEditRName(),change);
-//			}
-//		}
 
 		for(Change change : difference.getChanges()) {
 			filler.add(change);
@@ -100,27 +96,6 @@ public class ComponentDiagramFaultTreeTransformationManager extends AbstractTran
 		this.extractResultFromGraph(result, resSet);
 		return true;
 	}
-	
-/*	
-    *//**
-     * Handles a single change of a change set.
-     * 
-     * @param change
-     * @return
-     *//*
-    private Object handleChange(Change change) {
-        Object result = null;
-        if (change instanceof AddReference) {
-            return result = this.handleAddReference((AddReference) change);
-        } else if (change instanceof RemoveReference) {
-            return this.handleRemoveReference((RemoveReference) change);
-        } else if (change instanceof AddObject) {
-            return this.handleAddObject((AddObject) change);
-        } else if (change instanceof RemoveObject) {
-            return this.handleRemoveObject((RemoveObject) change);
-        }
-        return result;
-    }*/
 
 	@Override
 	protected String getReverseKey() {

@@ -17,6 +17,8 @@ import org.eclipse.emf.henshin.model.Rule;
 import org.eclipse.emf.henshin.model.Unit;
 import org.eclipse.emf.henshin.model.resource.HenshinResourceSet;
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
+
 /**
  * Provides the methods to execute the related henshin rules.
  * 
@@ -556,17 +558,15 @@ public class HenshinTransformations {
 	 *            - determines whether the execution should be logged
 	 * @return success of execution
 	 */
-	public static boolean createBasicEvent(int event_id, String event_name, String event_description, EGraph graph, boolean logging) {
+	public static boolean createBasicEvent(String event_name, String event_description, EGraph graph, boolean logging) {
 		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), true).getUnit("CreateBasicEvent");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
-		application.setParameterValue("event_id", event_id);
 		application.setParameterValue("event_name", event_name);
 		application.setParameterValue("event_description", event_description);
 		boolean result = application.execute(null);
 
 		if (logging) {
 			ArrayList<String> param = new ArrayList<String>();
-			param.add(Integer.toString(event_id));
 			param.add(event_name);
 			param.add(event_description);
 			TransformationsLogger.logRuleExecution(unit.getName(), param, result);
@@ -873,17 +873,15 @@ public class HenshinTransformations {
 	 *            - determines whether the execution should be logged
 	 * @return success of execution
 	 */
-	public static boolean createIntermediateEvent(int event_id, String event_name, String event_description, EGraph graph, boolean logging) {
+	public static boolean createIntermediateEvent(String event_name, String event_description, EGraph graph, boolean logging) {
 		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), true).getUnit("CreateIntermediateEvent");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
-		application.setParameterValue("event_id", event_id);
 		application.setParameterValue("event_name", event_name);
 		application.setParameterValue("event_description", event_description);
 		boolean result = application.execute(null);
 
 		if (logging) {
 			ArrayList<String> param = new ArrayList<String>();
-			param.add(Integer.toString(event_id));
 			param.add(event_name);
 			param.add(event_description);
 			TransformationsLogger.logRuleExecution(unit.getName(), param, result);
@@ -2399,23 +2397,9 @@ public class HenshinTransformations {
 	 * @param logging
 	 * @return free event ID
 	 */
-	public static int getFreeEventID(EGraph graph, boolean logging) {
-		int freeID = 0;
-		boolean idAlreadyExists = true;
+	public static String getFreeEventID(IDBase object) {
 
-		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), true).getUnit("ExistsEventID");
-		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
-
-		while (idAlreadyExists) {
-			freeID++;
-			application.setParameterValue("event_id", freeID);
-			idAlreadyExists = application.execute(null);
-			if (logging) {
-				TransformationsLogger.logRuleExecution(unit.getName(), Integer.toString(freeID), idAlreadyExists);
-			}
-		}
-
-		return freeID;
+		return object.getId();
 	}
 
 	/**

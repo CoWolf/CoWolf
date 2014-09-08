@@ -116,8 +116,8 @@ public class ChangeTree {
 		String intermediateEvent = basicEvent;
 
 		// Create new intermediate event.
-		int eventID = HenshinTransformations.getFreeEventID(saGraph, false);
-		HenshinTransformations.createIntermediateEvent(eventID, intermediateEvent, description, saGraph, true);
+
+		HenshinTransformations.createIntermediateEvent(intermediateEvent, description, saGraph, true);
 
 		// Restore connections for new event.
 		if (inputGate != null) {
@@ -218,8 +218,7 @@ public class ChangeTree {
 				// If no basic event exists create one.
 				if (basicEvent == null) {
 					basicEvent = createEventName(newComponentInstance);
-					int eventID = HenshinTransformations.getFreeEventID(saGraph, false);
-					HenshinTransformations.createBasicEvent(eventID, basicEvent, "", saGraph, true);
+					HenshinTransformations.createBasicEvent(basicEvent, "", saGraph, true);
 
 					// Connect basic event with that error instance.
 					HenshinTransformations.createConnectionBetweenBasicEventAndErrorInstance(basicEvent, errorInstance, saGraph, true);
@@ -268,8 +267,7 @@ public class ChangeTree {
 				// If no intermediate event exists create one.
 				if (intermediateEvent == null) {
 					intermediateEvent = createEventName(newComponentInstance);
-					int eventID = HenshinTransformations.getFreeEventID(saGraph, false);
-					HenshinTransformations.createIntermediateEvent(eventID, intermediateEvent, "", saGraph, true);
+					HenshinTransformations.createIntermediateEvent(intermediateEvent, "", saGraph, true);
 
 					// Connect the intermediate event with that failure
 					// instance.
@@ -364,8 +362,7 @@ public class ChangeTree {
 
 				// Create IE.
 				String intermediate_event_name = "SCE+SE_Pattern_" + newORGate;
-				int eventID = HenshinTransformations.getFreeEventID(saGraph, false);
-				HenshinTransformations.createIntermediateEvent(eventID, intermediate_event_name, "", saGraph, true);
+				HenshinTransformations.createIntermediateEvent(intermediate_event_name, "", saGraph, true);
 
 				// Create connection OR to IE.
 				HenshinTransformations.createConnectionGateToEvent(newORGate, intermediate_event_name, saGraph, true);
