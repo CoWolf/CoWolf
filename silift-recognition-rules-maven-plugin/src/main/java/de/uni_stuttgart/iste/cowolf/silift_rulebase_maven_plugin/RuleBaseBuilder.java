@@ -4,8 +4,13 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -20,23 +25,44 @@ import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceFactoryImpl;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.BasicExtendedMetaData;
+import org.eclipse.emf.ecore.util.ExtendedMetaData;
+import org.eclipse.emf.ecore.xmi.XMIResource;
+import org.eclipse.emf.ecore.xmi.XMLResource;
+import org.eclipse.emf.ecore.xmi.impl.URIHandlerImpl;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.emf.henshin.model.Module;
 import org.eclipse.emf.henshin.model.resource.HenshinResourceFactory;
 import org.eclipse.emf.henshin.model.resource.HenshinResourceSet;
+import org.sidiff.difference.lifting.edit2recognition.util.Edit2RecognitionUtil;
+import org.sidiff.difference.rulebase.RecognitionRule;
+import org.sidiff.difference.rulebase.RulebasePackage;
 import org.sidiff.difference.rulebase.extension.AbstractProjectRuleBase;
 import org.sidiff.difference.rulebase.nature.RuleBaseProjectNature;
 import org.sidiff.difference.rulebase.wrapper.RuleBaseWrapper;
 import org.sidiff.difference.rulebase.wrapper.util.Edit2RecognitionException;
 import org.sidiff.editrule.validation.EditRuleValidation;
 import org.sidiff.editrule.validation.EditRuleValidator;
+import org.silift.common.util.emf.EMFStorage;
+import org.silift.common.util.emf.XMIIDResourceImpl;
+import org.silift.common.util.emf.EMFStorage.PlatformResourceDeresolve;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
+
+import de.uni_stuttgart.iste.cowolf.silift_rulebase_maven_plugin.rulebase_ext.RulebaseResourceFactory;
 
 /**
  * Builds the SiLift rulebase and generates the recognition rules that are
@@ -142,7 +168,6 @@ public class RuleBaseBuilder extends AbstractMojo {
 
 	}
 
-
 	/**
 	 * 
 	 */
@@ -150,7 +175,39 @@ public class RuleBaseBuilder extends AbstractMojo {
 
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(
 				"henshin", new HenshinResourceFactory());
-		
+
+	};
+
+	private void registerRulebaseEcoreModel() {
+
+		// ResourceSet rs = new ResourceSetImpl();
+		// // enable extended metadata
+		// final ExtendedMetaData extendedMetaData = new BasicExtendedMetaData(
+		// rs.getPackageRegistry());
+		// rs.getLoadOptions().put(XMLResource.OPTION_EXTENDED_META_DATA,
+		// extendedMetaData);
+		//
+		// Resource r = rs.getResource(
+		// URI.createFileURI(project.getBasedir() + File.separator + "model" +
+		// File.separator + "RuleBase.ecore"), true);
+		// EObject eObject = r.getContents().get(0);
+		// if (eObject instanceof EPackage) {
+		//
+		// EPackage p = (EPackage) eObject;
+		// EPackage.Registry.INSTANCE.put(p.getNsURI(), p);
+
+		// EPackage.Registry.INSTANCE.put(RulebasePackage.getNsURI(), p);
+
+		// Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(
+		// "rulebase", new
+		// XMIResourceFactoryImpl().createResource(URI.createURI(RulebasePackage.eNS_URI)));
+		//
+		// RulebasePackage.eINSTANCE.getName();
+		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(
+				"rulebase", new XMIResourceFactoryImpl());
+
+		// RulebasePackage.eINSTANCE.getEFactoryInstance();
+
 	};
 
 	/**
@@ -272,6 +329,7 @@ public class RuleBaseBuilder extends AbstractMojo {
 		}
 
 		registerHenshinEcoreModel();
+		registerRulebaseEcoreModel();
 
 		validateAndGenerateRecognitionRules(editRules);
 
@@ -285,14 +343,144 @@ public class RuleBaseBuilder extends AbstractMojo {
 
 	/**
 	 * @throws IOException
+	 * @throws MojoExecutionException
 	 */
-	private void buildRuleBase() throws IOException {
+	private void buildRuleBase() throws IOException, MojoExecutionException {
 		getLog().info(
-				"Building rulebase file \"" + project.getBasedir() + "\"...");
-		getRuleBaseWrapper().saveRuleBase();
+				"Building rulebase file \"" + project.getBasedir()
+						+ File.separator
+						+ AbstractProjectRuleBase.RULEBASE_FILE + "\"...");
+		saveRuleBase();
 		getLog().info(
 				"Building rulebase file \"" + project.getBasedir()
 						+ "\" completed.");
+	}
+
+	private void saveRuleBase() throws MojoExecutionException {
+
+		saveRecognitionModules();
+
+		if (new File(project.getBasedir() + File.separator
+				+ AbstractProjectRuleBase.RULEBASE_FILE).exists()) {
+			EMFStorage.eSave(getRuleBaseWrapper().getRuleBase());
+		} else {
+
+			Resource resource = new XMIIDResourceImpl(getRuleBaseWrapper()
+					.getRuleBaseLocation());
+			resource.getContents().add(getRuleBaseWrapper().getRuleBase());
+
+			Map<String, Object> options = new HashMap<String, Object>();
+			options.put(XMIResource.OPTION_SCHEMA_LOCATION, Boolean.TRUE);
+			options.put(XMIResource.OPTION_URI_HANDLER,
+					new PlatformResourceDeresolve());
+
+			try {
+				resource.save(options);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+		}
+
+	}
+
+	/**
+	 * Deresolve as platform resource URI.
+	 */
+	private static class PlatformResourceDeresolve extends URIHandlerImpl {
+		@Override
+		public URI deresolve(URI uri) {
+			
+				return URI.createPlatformResourceURI(uri.toFileString(), false).appendFragment(uri.fragment());
+		
+		}
+	}
+
+	/**
+	 * 
+	 * @throws MojoExecutionException
+	 */
+	private void saveRecognitionModules() throws MojoExecutionException {
+
+		try {
+
+			Field recognitionRulesField = RuleBaseWrapper.class
+					.getDeclaredField("newRecognitionRules");
+			recognitionRulesField.setAccessible(true);
+
+			Object obj = recognitionRulesField.get(getRuleBaseWrapper());
+
+			if (obj instanceof Set<?>) {
+
+				@SuppressWarnings("unchecked")
+				Set<RecognitionRule> recognitionRules = (Set<RecognitionRule>) obj;
+
+				for (RecognitionRule rrRule : recognitionRules) {
+
+					if (rrRule.getRecognitionMainUnit().eResource() != null) {
+						// Existing recognition rule:
+						EMFStorage.eSave(rrRule.getRecognitionModule());
+					} else {
+						// New recognition rule:
+						Edit2RecognitionUtil.saveRecognitionRule(rrRule
+								.getRecognitionModule(), rrRule.getEditRule()
+								.getExecuteModule(),
+								getRecognitionRuleSaveURI(rrRule.getEditRule()
+										.getExecuteModule()));
+					}
+				}
+
+			} else {
+				throw new MojoExecutionException(
+						"newRecognitionRules field is not of correct type.");
+			}
+
+		} catch (NoSuchFieldException | SecurityException
+				| IllegalArgumentException | IllegalAccessException e) {
+			throw new MojoExecutionException(e.getLocalizedMessage(), e);
+		}
+
+	}
+
+	private URI getRecognitionRuleSaveURI(Module editModule) {
+
+		// Replace Edit-Rule with Recognition-Rule to keep folder structure:
+		String editRuleFolderString = getRuleBaseWrapper().getEditRuleFolder()
+				.lastSegment();
+		String recognitionRuleFolderString = getRuleBaseWrapper()
+				.getRecognitionRuleFolder().lastSegment();
+
+		System.out.println("++++" + editModule.eResource().getURI());
+
+		// String savePath =
+		// EMFStorage.uriToPath(editModule.eResource().getURI());
+
+		String savePath = editModule.eResource().getURI().toFileString();
+
+		// Get URI without filename
+		savePath = savePath.substring(0, savePath.lastIndexOf(File.separator));
+
+		// Replace EditRuleFolder with RecognitionRuleFolder
+		savePath = savePath.replace(File.separator + editRuleFolderString,
+				File.separator + recognitionRuleFolderString);
+
+		return pathToUri(savePath);
+	}
+
+	public URI pathToUri(String path) {
+
+		return URI.createPlatformResourceURI(path, false);
+
+		// IFile[] iFiles = ResourcesPlugin.getWorkspace().getRoot()
+		// .findFilesForLocationURI(new File(path).toURI());
+		//
+		// if (iFiles.length > 0) {
+		// return URI.createPlatformResourceURI(iFiles[0].getFullPath()
+		// .toString(), true);
+		// } else {
+		// return URI.createFileURI(new File(path).getAbsolutePath());
+		// }
+
 	}
 
 	/**

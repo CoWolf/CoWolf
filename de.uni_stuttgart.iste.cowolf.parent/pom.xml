@@ -180,6 +180,12 @@
 				<version>1.0.0-SNAPSHOT</version>
 				<executions>
 					<execution>
+						<id>register-ecore-model</id>
+						<goals>
+							<goal>register-ecore-model</goal>
+						</goals>
+					</execution>
+					<execution>
 						<id>rulebase-build</id>
 						<goals>
 							<goal>build</goal>
@@ -208,6 +214,22 @@
 
 
 	<modules>
+		<module>../de.uni_stuttgart.iste.cowolf.model</module>
+		<module>
+ 			../de.uni_stuttgart.iste.cowolf.model.component_diagram
+ 		</module>
+		<module>
+ 			../de.uni_stuttgart.iste.cowolf.model.activity_diagram
+ 		</module>
+		<module>../de.uni_stuttgart.iste.cowolf.model.ctmc</module>
+		<module>../de.uni_stuttgart.iste.cowolf.model.dtmc</module>
+		<module>
+ 			../de.uni_stuttgart.iste.cowolf.model.fault_tree
+ 		</module>
+		<module>../de.uni_stuttgart.iste.cowolf.model.lqn</module>
+		<module>
+ 			../de.uni_stuttgart.iste.cowolf.model.statechart
+ 		</module>
 		<module>../de.uni_stuttgart.iste.cowolf.core</module>
 		<module>../de.uni_stuttgart.iste.cowolf.core.feature</module>
 		<module>../de.uni_stuttgart.iste.cowolf.core.tests</module>
@@ -300,10 +322,8 @@
 		<module>
  			../de.uni_stuttgart.iste.cowolf.license.feature
  		</module>
-		<module>../de.uni_stuttgart.iste.cowolf.model</module>
-		<module>
- 			../de.uni_stuttgart.iste.cowolf.model.activity_diagram
- 		</module>
+
+
 		<module>
  			../de.uni_stuttgart.iste.cowolf.model.activity_diagram.emf.edit
  		</module>
@@ -316,9 +336,7 @@
 		<module>
  			../de.uni_stuttgart.iste.cowolf.model.activity_diagram.tests
  		</module>
-		<module>
- 			../de.uni_stuttgart.iste.cowolf.model.component_diagram
- 		</module>
+
 		<module>
  			../de.uni_stuttgart.iste.cowolf.model.component_diagram.emf.edit
  		</module>
@@ -331,7 +349,7 @@
 		<module>
  			../de.uni_stuttgart.iste.cowolf.model.component_diagram.tests
  		</module>
-		<module>../de.uni_stuttgart.iste.cowolf.model.ctmc</module>
+
 		<module>
  			../de.uni_stuttgart.iste.cowolf.model.ctmc.emf.edit
  		</module>
@@ -347,7 +365,7 @@
 		<module>
  			../de.uni_stuttgart.iste.cowolf.model.ctmc.tests
  		</module>
-		<module>../de.uni_stuttgart.iste.cowolf.model.dtmc</module>
+
 		<module>
  			../de.uni_stuttgart.iste.cowolf.model.dtmc.emf.edit
  		</module>
@@ -364,9 +382,7 @@
  			../de.uni_stuttgart.iste.cowolf.model.dtmc.tests
  		</module>
 		<module>../de.uni_stuttgart.iste.cowolf.model.emf.edit</module>
-		<module>
- 			../de.uni_stuttgart.iste.cowolf.model.fault_tree
- 		</module>
+
 		<module>
  			../de.uni_stuttgart.iste.cowolf.model.fault_tree.emf.edit
  		</module>
@@ -380,7 +396,7 @@
  			../de.uni_stuttgart.iste.cowolf.model.fault_tree.tests
  		</module>
 		<module>../de.uni_stuttgart.iste.cowolf.model.feature</module>
-		<module>../de.uni_stuttgart.iste.cowolf.model.lqn</module>
+
 		<module>
  			../de.uni_stuttgart.iste.cowolf.model.lqn.emf.edit
  		</module>
@@ -392,9 +408,6 @@
  		</module>
 		<module>
  			../de.uni_stuttgart.iste.cowolf.model.lqn.tests
- 		</module>
-		<module>
- 			../de.uni_stuttgart.iste.cowolf.model.statechart
  		</module>
 		<module>
  			../de.uni_stuttgart.iste.cowolf.model.statechart.emf.edit
