@@ -44,6 +44,8 @@ import org.sidiff.difference.symmetric.SymmetricDifference;
 
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Association;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Model;
+import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociation;
+import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociationFactory;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelVersion;
 import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
 import de.uni_stuttgart.iste.cowolf.evolution.EvolutionException;
@@ -399,7 +401,8 @@ public abstract class AbstractTransformationManager {
         
 		Resource traceRes = transResSet.getResource(RESOURCE_URL_TRACES, false);
         graphSources.add(new EGraphImpl(transResSet.getResource(RESOURCE_URL_DIFF, false)));
-        if (traceRes != null && traceRes.getContents().size() > 0) {
+        
+        if (traceRes != null) {
         	graphSources.add(new EGraphImpl(transResSet.getResource(RESOURCE_URL_OLDTRACES, false)));
         	graphSources.add(new EGraphImpl(traceRes));
         } else {
@@ -571,11 +574,10 @@ public abstract class AbstractTransformationManager {
     }
     
     private ModelVersion saveTransformationResult(Model sourceModel,
-			ModelVersion sourceVersion, Model targetModel,
+			final ModelVersion sourceVersion, Model targetModel,
 			ResourceSet resSet) {
 		System.out.println("Save result");
 	    
-	    ModelVersion newTargetVersion = null;
 	    
 	    Resource targetRes = targetModel.getResource();
 	    
@@ -593,18 +595,28 @@ public abstract class AbstractTransformationManager {
 	    
 	    targetRes.unload();
 	    
-	    newTargetVersion = targetModel.createVersion("Co-evolution from " + targetModel.getModel());
+	    final ModelVersion newTargetVersion = targetModel.createVersion("Co-evolution from " + targetModel.getModel());
 	    
-	    Association newAssoc = sourceModel.getParent().registerAssociation();
-	    BasicEList<Trace> tl = new BasicEList<Trace>();
+	    final BasicEList<Trace> tl = new BasicEList<Trace>();
 	    for (EObject o : resSet.getResource(RESOURCE_URL_TRACES, false).getContents()) {
 	    	if (o instanceof Trace) {
 	    		tl.add((Trace) o);
 	    	}
 	    }
-	    newAssoc.getTraces().addAll(tl);
-	    newAssoc.getSource().add(sourceVersion);
-	    newAssoc.getTarget().add(newTargetVersion);
+	    
+	    final ModelAssociation ma = sourceModel.getParent();
+	    // Run the following steps as cluster.
+	    ma.runCluster(new Runnable() {
+			
+			@Override
+			public void run() {
+				Association newAssoc = ModelAssociationFactory.eINSTANCE.createAssociation();
+			    newAssoc.getTraces().addAll(tl);
+			    newAssoc.getSource().add(sourceVersion);
+			    newAssoc.getTarget().add(newTargetVersion);
+			    newAssoc.setParent(ma);
+			}
+		});
 	    
 	    return newTargetVersion;
 	}

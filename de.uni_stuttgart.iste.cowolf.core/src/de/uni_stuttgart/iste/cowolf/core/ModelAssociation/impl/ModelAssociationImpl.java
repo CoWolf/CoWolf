@@ -10,7 +10,9 @@ import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociationPackag
 import de.uni_stuttgart.iste.cowolf.core.utilities.EMFWolfUtil;
 import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
 
+import java.io.IOException;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
 
 import org.eclipse.core.resources.IProject;
@@ -57,6 +59,8 @@ public class ModelAssociationImpl extends MinimalEObjectImpl.Container implement
 	 * @ordered
 	 */
 	protected EList<Association> associations;
+	
+	private volatile boolean clustered;
 	
 	/**
 	 * The project, the model association manager is for.
@@ -186,6 +190,27 @@ public class ModelAssociationImpl extends MinimalEObjectImpl.Container implement
 			associations = new EObjectContainmentWithInverseEList<Association>(Association.class, this, ModelAssociationPackage.MODEL_ASSOCIATION__ASSOCIATIONS, ModelAssociationPackage.ASSOCIATION__PARENT);
 		}
 		return associations;
+	}
+	
+	@Override
+	public void runCluster(Runnable run) {
+		this.clustered = true;
+		
+		try {
+			run.run();
+		} finally {
+			this.clustered = false;
+			
+			try {
+				this.eResource().save(Collections.EMPTY_MAP);
+			} catch (IOException e) {
+			}
+		}
+	}
+
+	@Override
+	public boolean isClustered() {
+		return clustered;
 	}
 
 	/**

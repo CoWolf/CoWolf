@@ -75,4 +75,23 @@ public interface ModelAssociation extends EObject {
 
 	void removeModel(Model model);
 
+	/**
+	 * Checks, whether a clustered operation is currently running.
+	 * 
+	 * @return true, if a clustered operation is running, false otherwise.
+	 */
+	public abstract boolean isClustered();
+
+	/**
+	 * Runs a bunch of commands clustered.
+	 * 
+	 * This avoids automatic save during creation of elements
+	 * which would lead to problems with unknown references.
+	 * 
+	 * The resource is saved automatically directly after the execution of the cluster.
+	 * 
+	 * @param run the commands to run.
+	 */
+	public abstract void runCluster(Runnable run);
+
 } // ModelAssociation
