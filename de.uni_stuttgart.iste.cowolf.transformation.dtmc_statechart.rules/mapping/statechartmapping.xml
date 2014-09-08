@@ -207,15 +207,25 @@
 	</Mapping>
 	<Mapping priority="10">
 		<Difference>SET_StateMachine_(initialStates)_TGT_State</Difference>
-		<Rule name="SetInitialStateInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin" >
+		<Rule name="createdInitialStateInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin" >
 			<Params>
+			    <Param name="id">
+                    <Change name="AddReference" type="initialStates">
+                        <Reference attribute="id" name="tgt" />
+                    </Change>
+                </Param>
 			</Params>
 		</Rule>
 	</Mapping>
-	<Mapping priority="10">
+	<Mapping priority="9">
 		<Difference>UNSET_StateMachine_(initialStates)_TGT_State</Difference>
 		<Rule name="DeletedInitialStateInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin" >
 			<Params>
+			     <Param name="id">
+                    <Change name="RemoveReference" type="initialStates">
+                        <Reference attribute="id" name="tgt" />
+                    </Change>
+                </Param>
 			</Params>
 		</Rule>
 	</Mapping>
