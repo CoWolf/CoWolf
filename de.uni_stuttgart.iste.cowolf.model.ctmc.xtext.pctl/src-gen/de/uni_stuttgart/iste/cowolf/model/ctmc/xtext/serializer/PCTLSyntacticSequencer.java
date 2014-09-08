@@ -118,7 +118,7 @@ public class PCTLSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     X | ('S' Compare '[')
+	 *     ('S' Compare '[') | X
 	 */
 	protected void emit_P_S_XParserRuleCall_3_5_0_or___SKeyword_0_CompareParserRuleCall_1_LeftSquareBracketKeyword_2__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -142,7 +142,7 @@ public class PCTLSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     'W' | 'R' | 'U'
+	 *     'W' | 'U' | 'R'
 	 */
 	protected void emit_U_RKeyword_1_2_or_UKeyword_1_0_or_WKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
