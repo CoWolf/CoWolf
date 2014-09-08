@@ -6,8 +6,6 @@ import java.io.InputStream;
 import java.net.URL;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -25,10 +23,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.henshin.interpreter.EGraph;
@@ -42,10 +38,7 @@ import org.eclipse.emf.henshin.model.Unit;
 import org.eclipse.emf.henshin.model.resource.HenshinResourceSet;
 import org.eclipse.emf.henshin.trace.Trace;
 import org.eclipse.emf.henshin.trace.TracePackage;
-import org.eclipse.emf.henshin.trace.impl.TraceImpl;
 import org.sidiff.difference.symmetric.AttributeValueChange;
-import org.sidiff.difference.symmetric.Change;
-import org.sidiff.difference.symmetric.Correspondence;
 import org.sidiff.difference.symmetric.SemanticChangeSet;
 import org.sidiff.difference.symmetric.SymmetricDifference;
 
@@ -478,8 +471,16 @@ public abstract class AbstractTransformationManager {
     		if (((EList<EObject>) newTrace.eGet(field, false)).size() > 0) {
     			traceResource.getContents().add(newTrace);
     		}
-			
     	}
+		
+		if (System.getenv("COWOLF_DEBUG") != null) {
+			System.out.println("Traces (Resolved for " + against.toString() + ")");
+			for (EObject dobj : traceResource.getContents()) {
+				Trace dtrace = (Trace) dobj;
+				System.out.println("\t" + (dtrace.getSource().size()>0 ? EcoreUtil.getURI(dtrace.getSource().get(0)) : "(deleted)")
+						+ " --> " + (dtrace.getTarget().size()>0 ? EcoreUtil.getURI(dtrace.getTarget().get(0)) : "(deleted)"));
+			}
+		}
 	}
 
 	/**
