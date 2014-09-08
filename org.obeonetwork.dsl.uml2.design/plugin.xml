@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<!--
+Copyright (c) 2009, 2011 Obeo.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+
+Contributors:
+    Obeo - initial API and implementation
+-->
+<plugin>
+  <extension
+        point="org.eclipse.sirius.componentization">
+     <component
+           class="org.obeonetwork.dsl.uml2.design.UMLDesignerPlugin"
+           id="org.obeonetwork.dsl.uml2.design"
+           name="uml2">
+     </component>
+  </extension>
+
+  
+	   <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders">
+	      <editpartProvider class="org.obeonetwork.dsl.uml2.design.ui.extension.editpart.UMLEditPartProvider">
+	         <Priority name="High"/>
+	      </editpartProvider>
+	   </extension>
+  
+  
+  
+    <extension
+         point="org.eclipse.ui.commands">
+      <command
+            id="org.eclipse.sirius.ui.navigator.actions.uml.delete"
+            name="Delete UML Element">
+      </command>
+        <command
+              id="org.eclipse.sirius.ui.navigator.actions.uml.create.sequence"
+              name="Create Sequence Diagram">
+        </command>
+   </extension>
+  
+  
+  
+    <extension
+          point="org.eclipse.core.expressions.propertyTesters">
+       <propertyTester
+             class="org.obeonetwork.dsl.uml2.design.ui.extension.ViewpointEnablementPropertyTester"
+             id="org.obeonetwork.dsl.uml2.design.ViewpointEnabled"
+             namespace="org.obeonetwork.dsl.uml2.design"
+             properties="Capture,Design,Review,Extend"
+             type="org.eclipse.uml2.uml.Element">
+       </propertyTester>
+    </extension>
+
+   <extension
+         point="org.eclipse.sirius.sessionManagerListener">
+      <listener
+            class="org.obeonetwork.dsl.uml2.design.UmlDesignerSessionManagerListener">
+      </listener>
+      <listener
+            class="org.obeonetwork.dsl.uml2.design.OpenHelpContextListener">
+      </listener>
+   </extension>
+   <extension
+         point="org.eclipse.sirius.externalJavaAction">
+      <javaActions
+            actionClass="org.obeonetwork.dsl.uml2.design.ExternalJavaAction1"
+            id="org.obeonetwork.dsl.uml2.design.javaActions1">
+      </javaActions>
+   </extension>
+</plugin>
