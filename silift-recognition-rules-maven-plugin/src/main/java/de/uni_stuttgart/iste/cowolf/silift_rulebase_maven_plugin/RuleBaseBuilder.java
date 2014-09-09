@@ -35,6 +35,7 @@ import org.eclipse.emf.henshin.model.resource.HenshinResourceFactory;
 import org.eclipse.emf.henshin.model.resource.HenshinResourceSet;
 import org.sidiff.difference.lifting.edit2recognition.util.Edit2RecognitionUtil;
 import org.sidiff.difference.rulebase.RecognitionRule;
+import org.sidiff.difference.rulebase.RuleBase;
 import org.sidiff.difference.rulebase.extension.AbstractProjectRuleBase;
 import org.sidiff.difference.rulebase.nature.RuleBaseProjectNature;
 import org.sidiff.difference.rulebase.wrapper.RuleBaseWrapper;
@@ -328,6 +329,20 @@ public class RuleBaseBuilder extends AbstractMojo {
 		Resource resource = new XMIIDResourceImpl(getRuleBaseWrapper()
 				.getRuleBaseLocation());
 		// TODO editrules dir and rec. rules dir
+
+		RuleBase ruleBase = getRuleBaseWrapper().getRuleBase();
+
+		String editRuleDir = ruleBase.getEditRuleFolder();
+		String recognitionRuleDir = ruleBase.getRecognitionRuleFolder();
+
+		URI editRulesDirPlatformResourceURI = URI
+				.createPlatformResourceURI(editRuleDir.replace(project
+						.getBasedir().getParent(), ""), true);
+
+		URI recognitionRulesDirPlatformResourceURI = URI
+				.createPlatformResourceURI(recognitionRuleDir.replace(project
+						.getBasedir().getParent(), ""), true);
+
 		resource.getContents().add(getRuleBaseWrapper().getRuleBase());
 
 		Map<String, Object> options = new HashMap<String, Object>();
@@ -484,22 +499,22 @@ public class RuleBaseBuilder extends AbstractMojo {
 			URI recognitionRulesDir = URI.createFileURI(project.getBasedir()
 					+ File.separator + AbstractProjectRuleBase.BUILD_FOLDER);
 
-//			String ruleBasePath = project.getBasedir() + File.separator
-//					+ AbstractProjectRuleBase.RULEBASE_FILE;
-//			URI ruleBaseURI = URI.createPlatformResourceURI(
-//					ruleBasePath.replace(project.getBasedir().getParent(), ""),
-//					true);
-//
-//			String editRulesDirPath = project.getBasedir() + File.separator
-//					+ AbstractProjectRuleBase.SOURCE_FOLDER;
-//			URI editRulesDir = URI.createPlatformResourceURI(editRulesDirPath
-//					.replace(project.getBasedir().getParent(), ""), true);
-//
-//			String recognitionRulesDirPath = project.getBasedir()
-//					+ File.separator + AbstractProjectRuleBase.BUILD_FOLDER;
-//			URI recognitionRulesDir = URI.createPlatformResourceURI(
-//					recognitionRulesDirPath.replace(project.getBasedir()
-//							.getParent(), ""), true);
+			// String ruleBasePath = project.getBasedir() + File.separator
+			// + AbstractProjectRuleBase.RULEBASE_FILE;
+			// URI ruleBaseURI = URI.createPlatformResourceURI(
+			// ruleBasePath.replace(project.getBasedir().getParent(), ""),
+			// true);
+			//
+			// String editRulesDirPath = project.getBasedir() + File.separator
+			// + AbstractProjectRuleBase.SOURCE_FOLDER;
+			// URI editRulesDir = URI.createPlatformResourceURI(editRulesDirPath
+			// .replace(project.getBasedir().getParent(), ""), true);
+			//
+			// String recognitionRulesDirPath = project.getBasedir()
+			// + File.separator + AbstractProjectRuleBase.BUILD_FOLDER;
+			// URI recognitionRulesDir = URI.createPlatformResourceURI(
+			// recognitionRulesDirPath.replace(project.getBasedir()
+			// .getParent(), ""), true);
 
 			ruleBaseWrapper = new RuleBaseWrapper(ruleBaseURI,
 					recognitionRulesDir, editRulesDir, false);
