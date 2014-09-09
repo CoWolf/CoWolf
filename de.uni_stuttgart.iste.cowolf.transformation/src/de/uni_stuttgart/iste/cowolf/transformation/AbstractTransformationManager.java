@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.henshin.interpreter.EGraph;
+import org.eclipse.emf.henshin.interpreter.Engine;
 import org.eclipse.emf.henshin.interpreter.UnitApplication;
 import org.eclipse.emf.henshin.interpreter.impl.EGraphImpl;
 import org.eclipse.emf.henshin.interpreter.impl.EngineImpl;
@@ -248,8 +249,19 @@ public abstract class AbstractTransformationManager {
 
 	protected boolean runTransformation(ResourceSet resSet, SymmetricDifference difference) {
     	
+		EGraph graph;
 		
-    	EGraph graph = this.runMappingTransformation(resSet, difference);
+		URI henshinUri = this.getHenshinRuleFile(resSet.getResource(this.getSourceUri(resSet), false));
+		
+		if (henshinUri != null) {
+			graph = this.runDiffsetTransformation(resSet, henshinUri);
+		}
+		
+		else {
+		
+			graph = this.runMappingTransformation(resSet, difference);
+			
+		}
     	
     	if (graph == null) {
     		return false;
@@ -258,6 +270,33 @@ public abstract class AbstractTransformationManager {
 		this.extractResultFromGraph(graph, resSet);
 		
 		return true;
+	}
+
+	/**
+	 * 
+	 * @param resSet
+	 * @param difference
+	 * @return
+	 */
+	protected final EGraph runDiffsetTransformation(ResourceSet resSet, URI henshinUri) {
+		// TODO Auto-generated method stub
+		HenshinResourceSet rulesResourceSet = new HenshinResourceSet();
+        Module module = rulesResourceSet.getModule(henshinUri, true);
+        
+        // Prepare the engine:
+        Engine engine = new EngineImpl();
+         
+        // Initialize the graph:
+        EGraph graph = generateGraph(resSet);
+         
+        // Find the unit to be applied:
+        Unit unit = module.getUnit("mainUnit");
+        
+        // Apply the unit:
+        UnitApplication application = new UnitApplicationImpl(engine, graph, unit, null);
+        application.execute(new LoggingApplicationMonitor());
+        
+        return application.getEGraph();
 	}
 
 	/**
@@ -661,6 +700,25 @@ public abstract class AbstractTransformationManager {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+                }
+            }
+        }
+        return null;
+    }
+    
+    protected final URI getHenshinRuleFile(Resource source) {
+        IExtensionRegistry er = RegistryFactory.getRegistry();
+        IExtensionPoint exPoint = er
+                .getExtensionPoint("de.uni_stuttgart.iste.cowolf.transformationRuleExtension");
+        for (IExtension extension : exPoint.getExtensions()) {
+            for (IConfigurationElement element : extension
+                    .getConfigurationElements()) {
+                // select config file via extension point
+                if (element.getAttribute("key").equals(this.getKey(source))) {
+                    String platformString = extension.getNamespaceIdentifier()
+                            + File.separator + element.getAttribute("file");
+                    
+                    return URI.createPlatformPluginURI(platformString, true);
                 }
             }
         }
