@@ -12,11 +12,9 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
@@ -42,7 +40,6 @@ import org.sidiff.difference.rulebase.wrapper.RuleBaseWrapper;
 import org.sidiff.difference.rulebase.wrapper.util.Edit2RecognitionException;
 import org.sidiff.editrule.validation.EditRuleValidation;
 import org.sidiff.editrule.validation.EditRuleValidator;
-import org.silift.common.util.emf.EMFStorage;
 import org.silift.common.util.emf.XMIIDResourceImpl;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -70,8 +67,15 @@ public class RuleBaseBuilder extends AbstractMojo {
 	private MavenProject project;
 
 	/**
+	 * 
+	 * Checks if the Eclipse project {@code projectRoot} is a SiLift rulebase
+	 * project. A rulebase project contains the appropriate nature in the
+	 * project description file.
+	 * 
 	 * @param projectRoot
-	 * @return
+	 *            of the project
+	 * @return {@code true} if project is a rulebase project, otherwise
+	 *         {@code false}
 	 * @throws MojoExecutionException
 	 */
 	private boolean isRulebaseProject(File projectRoot)
@@ -155,7 +159,8 @@ public class RuleBaseBuilder extends AbstractMojo {
 	}
 
 	/**
-	 * 
+	 * Registers the Henshin Ecore model in the global EMF Resource Factory
+	 * registry.
 	 */
 	private void registerHenshinEcoreModel() {
 
@@ -164,6 +169,10 @@ public class RuleBaseBuilder extends AbstractMojo {
 
 	};
 
+	/**
+	 * Registers the SiLift rulebase Ecore model in the global EMF Resource
+	 * Factory registry.
+	 */
 	private void registerRulebaseEcoreModel() {
 
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(
@@ -172,12 +181,16 @@ public class RuleBaseBuilder extends AbstractMojo {
 	};
 
 	/**
+	 * 
+	 * Validates the edit rule {@code editRule}. Any validation information,
+	 * warning and error will be logged using the Maven logger.
+	 * 
 	 * @param editRule
-	 * @return
-	 * @throws MojoExecutionException
+	 *            to validate
+	 * @return {@code true} if no validation error occured, otherwise
+	 *         {@code false}
 	 */
-	private boolean validateEditRule(File editRule)
-			throws MojoExecutionException {
+	private boolean validateEditRule(File editRule) {
 
 		getLog().debug("Validating editrule \"" + editRule.getPath() + "\"...");
 
@@ -219,11 +232,17 @@ public class RuleBaseBuilder extends AbstractMojo {
 	}
 
 	/**
+	 * 
+	 * Validates the edit rules {@code editRules} and generates the recognition
+	 * rules.
+	 * 
 	 * @param editRules
+	 *            to validate and generate the recognition rules from.
 	 * @throws MojoExecutionException
+	 *             if generation of a recognition rule failed
 	 */
-	private void validateAndGenerateRecognitionRules(List<File> editRules)
-			throws MojoExecutionException {
+	private void validateEditRuleAndGenerateRecognitionRules(
+			List<File> editRules) throws MojoExecutionException {
 
 		getLog().info(
 				"Validating edit rules and generating recognition rules of them...");
@@ -255,9 +274,6 @@ public class RuleBaseBuilder extends AbstractMojo {
 
 	}
 
-	/**
-	 * 
-	 */
 	@Override
 	public void execute() throws MojoExecutionException, MojoFailureException {
 
@@ -292,7 +308,7 @@ public class RuleBaseBuilder extends AbstractMojo {
 		registerHenshinEcoreModel();
 		registerRulebaseEcoreModel();
 
-		validateAndGenerateRecognitionRules(editRules);
+		validateEditRuleAndGenerateRecognitionRules(editRules);
 
 		try {
 			buildRuleBase();
@@ -303,6 +319,9 @@ public class RuleBaseBuilder extends AbstractMojo {
 	}
 
 	/**
+	 * 
+	 * Builds the SiLift rulebase and stores the recognition rules.
+	 * 
 	 * @throws IOException
 	 * @throws MojoExecutionException
 	 */
@@ -310,40 +329,32 @@ public class RuleBaseBuilder extends AbstractMojo {
 		getLog().info(
 				"Building rulebase file \"" + project.getBasedir()
 						+ File.separator
-						+ AbstractProjectRuleBase.RULEBASE_FILE + "\"...");
-		saveRuleBase();
-		getLog().info(
-				"Building rulebase file \"" + project.getBasedir()
-						+ "\" completed.");
-	}
-
-	private void saveRuleBase() throws MojoExecutionException {
+						+ AbstractProjectRuleBase.RULEBASE_FILE
+						+ "\" and storing recognition rules...");
 
 		saveRecognitionModules();
 
-		// if (new File(project.getBasedir() + File.separator
-		// + AbstractProjectRuleBase.RULEBASE_FILE).exists()) {
-		// EMFStorage.eSave(getRuleBaseWrapper().getRuleBase());
-		// } else {
+		RuleBase ruleBase = getRuleBaseWrapper().getRuleBase();
+
+		URI editRuleDir = URI.createURI(ruleBase.getEditRuleFolder());
+		URI recognitionRuleDir = URI.createURI(ruleBase
+				.getRecognitionRuleFolder());
+
+		URI editRulesDirPlatformResourceURI = URI.createPlatformResourceURI(
+				editRuleDir.toFileString().replace(
+						project.getBasedir().getParent(), ""), true);
+		ruleBase.setEditRuleFolder(editRulesDirPlatformResourceURI.toString());
+
+		URI recognitionRulesDirPlatformResourceURI = URI
+				.createPlatformResourceURI(recognitionRuleDir.toFileString()
+						.replace(project.getBasedir().getParent(), ""), true);
+		ruleBase.setRecognitionRuleFolder(recognitionRulesDirPlatformResourceURI
+				.toString());
 
 		Resource resource = new XMIIDResourceImpl(getRuleBaseWrapper()
 				.getRuleBaseLocation());
-		// TODO editrules dir and rec. rules dir
 
-		RuleBase ruleBase = getRuleBaseWrapper().getRuleBase();
-
-		String editRuleDir = ruleBase.getEditRuleFolder();
-		String recognitionRuleDir = ruleBase.getRecognitionRuleFolder();
-
-		URI editRulesDirPlatformResourceURI = URI
-				.createPlatformResourceURI(editRuleDir.replace(project
-						.getBasedir().getParent(), ""), true);
-
-		URI recognitionRulesDirPlatformResourceURI = URI
-				.createPlatformResourceURI(recognitionRuleDir.replace(project
-						.getBasedir().getParent(), ""), true);
-
-		resource.getContents().add(getRuleBaseWrapper().getRuleBase());
+		resource.getContents().add(ruleBase);
 
 		Map<String, Object> options = new HashMap<String, Object>();
 
@@ -358,12 +369,19 @@ public class RuleBaseBuilder extends AbstractMojo {
 			e.printStackTrace();
 		}
 
-		// }
+		getLog().info(
+				"Building rulebase file \"" + project.getBasedir()
+						+ File.separator
+						+ AbstractProjectRuleBase.RULEBASE_FILE
+						+ "\" and storing recognition rules completed.");
 
 	}
 
 	/**
-	 * Deresolve as platform resource URI.
+	 * 
+	 * Transforms a absolute file URI to a platform resource URI. If its not a
+	 * file URI, simply the given URI will be returned.
+	 * 
 	 */
 	private static class PlatformResourceDeresolve extends URIHandlerImpl {
 
@@ -376,43 +394,37 @@ public class RuleBaseBuilder extends AbstractMojo {
 		@Override
 		public URI deresolve(URI uri) {
 
-			// System.out.println("--- " + uri.toString());
-			// System.out.println("--- " + uri.path());
-			System.out.println("-------- " + uri.toString());
 			if (!uri.isPlatformResource() && uri.isFile()) {
+				// removes the project base parent directory
 				String recognitionRuleRelPath = uri.toFileString().replace(
 						projectBaseDir.getParent(), "");
 
-				// System.out.println("****" + recognitionRuleRelPath);
-				// System.out.println("****+++" +
-				// URI.createFileURI(recognitionRuleRelPath));
-				System.out.println("****+++++"
-						+ URI.createPlatformResourceURI(recognitionRuleRelPath,
-								false).appendFragment(uri.fragment()));
 				return URI.createPlatformResourceURI(recognitionRuleRelPath,
 						false).appendFragment(uri.fragment());
 			}
 
 			return uri;
 
-			// return URI.createPlatformResourceURI(uri.toFileString(), false)
-			// .appendFragment(uri.fragment());
-
 		}
 
 	}
 
 	/**
+	 * 
+	 * Stores the generated recognition rules contained in the
+	 * {@code RuleBaseWrapper}.
+	 * 
 	 * @throws MojoExecutionException
 	 */
 	private void saveRecognitionModules() throws MojoExecutionException {
 
 		try {
 
+			// hack for getting the generated recognition rules inside the rule
+			// base wrapper
 			Field recognitionRulesField = RuleBaseWrapper.class
 					.getDeclaredField("newRecognitionRules");
 			recognitionRulesField.setAccessible(true);
-
 			Object obj = recognitionRulesField.get(getRuleBaseWrapper());
 
 			if (obj instanceof Set<?>) {
@@ -422,17 +434,12 @@ public class RuleBaseBuilder extends AbstractMojo {
 
 				for (RecognitionRule rrRule : recognitionRules) {
 
-					if (rrRule.getRecognitionMainUnit().eResource() != null) {
-						// Existing recognition rule:
-						EMFStorage.eSave(rrRule.getRecognitionModule());
-					} else {
-						// New recognition rule:
-						Edit2RecognitionUtil.saveRecognitionRule(rrRule
-								.getRecognitionModule(), rrRule.getEditRule()
-								.getExecuteModule(),
-								getRecognitionRuleSaveURI(rrRule.getEditRule()
-										.getExecuteModule()));
-					}
+					Edit2RecognitionUtil.saveRecognitionRule(rrRule
+							.getRecognitionModule(), rrRule.getEditRule()
+							.getExecuteModule(),
+							getRecognitionRuleSaveURI(rrRule.getEditRule()
+									.getExecuteModule()));
+
 				}
 
 			} else {
@@ -447,46 +454,33 @@ public class RuleBaseBuilder extends AbstractMojo {
 
 	}
 
+	/**
+	 * Builds the save URI of the recognition rule generated of the edit rule
+	 * {@code editModule}.
+	 * 
+	 * @param editModule
+	 * @return the save URI of the recognition rule
+	 */
 	private URI getRecognitionRuleSaveURI(Module editModule) {
-
-		// Replace Edit-Rule with Recognition-Rule to keep folder structure:
-		// String editRuleFolderString =
-		// getRuleBaseWrapper().getEditRuleFolder()
-		// .lastSegment();
-		// String recognitionRuleFolderString = getRuleBaseWrapper()
-		// .getRecognitionRuleFolder().lastSegment();
-		// System.out.println("editfolderstring: " + editRuleFolderString);
-		// System.out.println("recognitionRuleFolderString: " +
-		// recognitionRuleFolderString);
-		System.out.println("++++" + editModule.eResource().getURI());
-
-		// String savePath =
-		// EMFStorage.uriToPath(editModule.eResource().getURI());
 
 		String editRuleURI = editModule.eResource().getURI().toFileString();
 
 		// Get URI without filename
 		String editRuleDir = new File(editRuleURI).getParentFile().getPath();
-		// savePath = savePath.substring(0,
-		// savePath.lastIndexOf(File.separator));
 
-		// Replace EditRuleFolder with RecognitionRuleFolder
+		// Replace Edit Rule Folder with Recognition Rule Folder
 		String recognitionRuleDir = editRuleDir.replace(File.separator
 				+ AbstractProjectRuleBase.SOURCE_FOLDER, File.separator
 				+ AbstractProjectRuleBase.BUILD_FOLDER);
 
-		// String recognitionRuleDirRelToWorkspace =
-		// recognitionRuleDir.replace(project.getBasedir().getParent(), "");
-
-		// System.out.println("savePath: " + savePath);
 		return URI.createFileURI(recognitionRuleDir);
-		// return
-		// URI.createPlatformResourceURI(recognitionRuleDirRelToWorkspace,
-		// false);
+
 	}
 
 	/**
-	 * @return
+	 * @return Rule base wrapper that especially stores the rulebase and the
+	 *         generated recognition rules and provides methods for generating
+	 *         them.
 	 */
 	private RuleBaseWrapper getRuleBaseWrapper() {
 
@@ -499,23 +493,6 @@ public class RuleBaseBuilder extends AbstractMojo {
 			URI recognitionRulesDir = URI.createFileURI(project.getBasedir()
 					+ File.separator + AbstractProjectRuleBase.BUILD_FOLDER);
 
-			// String ruleBasePath = project.getBasedir() + File.separator
-			// + AbstractProjectRuleBase.RULEBASE_FILE;
-			// URI ruleBaseURI = URI.createPlatformResourceURI(
-			// ruleBasePath.replace(project.getBasedir().getParent(), ""),
-			// true);
-			//
-			// String editRulesDirPath = project.getBasedir() + File.separator
-			// + AbstractProjectRuleBase.SOURCE_FOLDER;
-			// URI editRulesDir = URI.createPlatformResourceURI(editRulesDirPath
-			// .replace(project.getBasedir().getParent(), ""), true);
-			//
-			// String recognitionRulesDirPath = project.getBasedir()
-			// + File.separator + AbstractProjectRuleBase.BUILD_FOLDER;
-			// URI recognitionRulesDir = URI.createPlatformResourceURI(
-			// recognitionRulesDirPath.replace(project.getBasedir()
-			// .getParent(), ""), true);
-
 			ruleBaseWrapper = new RuleBaseWrapper(ruleBaseURI,
 					recognitionRulesDir, editRulesDir, false);
 
@@ -527,6 +504,14 @@ public class RuleBaseBuilder extends AbstractMojo {
 
 	}
 
+	/**
+	 * 
+	 * Generates a recognition rule of the edit rule {@code editRule}.
+	 * 
+	 * @param editRule
+	 * @throws Edit2RecognitionException
+	 *             if generation failed
+	 */
 	private void generateRecognitionRule(File editRule)
 			throws Edit2RecognitionException {
 		getLog().debug(
@@ -535,9 +520,19 @@ public class RuleBaseBuilder extends AbstractMojo {
 
 		getRuleBaseWrapper().generateItemFromFile(
 				URI.createFileURI(editRule.getPath()));
+
+		getLog().debug(
+				"Generating recognition rule of edit rule \""
+						+ editRule.getPath() + "\" completed.");
+
 	}
 
 	/**
+	 * Chooses the name of the rule base. If a bundle name is specified in the
+	 * manifest, it will be used as rule base name. If not, the Maven artifact
+	 * name will be taken. If an artifact name is not specified in the POM, an
+	 * empty string will used.
+	 *
 	 * @return
 	 */
 	private String chooseRuleBaseName() {
@@ -558,7 +553,6 @@ public class RuleBaseBuilder extends AbstractMojo {
 				String currentLine;
 
 				while ((currentLine = br.readLine()) != null) {
-					System.out.println("+++++++ " + currentLine);
 					bundleManifestContent.append(currentLine);
 				}
 
@@ -610,8 +604,13 @@ public class RuleBaseBuilder extends AbstractMojo {
 	}
 
 	/**
+	 * 
+	 * Retrieves all henshin files the directory {@code dir}.
+	 * 
 	 * @param dir
+	 *            to check for henshin files.
 	 * @param henshinFiles
+	 *            contains the found henshin files
 	 */
 	private void listHenshinFilesRecursively(File dir, List<File> henshinFiles) {
 
