@@ -272,6 +272,7 @@ public class Sequence_diagramPackageImpl extends EPackageImpl implements Sequenc
 		sdInteractionEClass.getESuperTypes().add(theUMLPackage.getInteraction());
 		sdInteractionEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
 		packageEClass.getESuperTypes().add(theUMLPackage.getPackage());
+		packageEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(messageEClass, Message.class, "Message", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

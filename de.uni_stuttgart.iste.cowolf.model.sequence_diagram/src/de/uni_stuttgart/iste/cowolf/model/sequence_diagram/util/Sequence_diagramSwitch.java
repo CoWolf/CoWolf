@@ -3,6 +3,12 @@
 package de.uni_stuttgart.iste.cowolf.model.sequence_diagram.util;
 
 import commonBase.IDBase;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Actor;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ExecutionSpecification;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Lifeline;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Message;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.SdInteraction;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramPackage;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.*;
 import org.eclipse.emf.ecore.EModelElement;
 import org.eclipse.emf.ecore.EObject;
@@ -13,6 +19,7 @@ import org.eclipse.uml2.uml.BehavioredClassifier;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.EncapsulatedClassifier;
+import org.eclipse.uml2.uml.Interaction;
 import org.eclipse.uml2.uml.InteractionFragment;
 import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.Namespace;
@@ -161,6 +168,7 @@ public class Sequence_diagramSwitch<T> extends Switch<T> {
 				de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Package package_ = (de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Package)theEObject;
 				T result = casePackage(package_);
 				if (result == null) result = caseUML_Package(package_);
+				if (result == null) result = caseIDBase(package_);
 				if (result == null) result = caseNamespace(package_);
 				if (result == null) result = casePackageableElement(package_);
 				if (result == null) result = caseTemplateableElement(package_);
@@ -591,7 +599,7 @@ public class Sequence_diagramSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseInteraction(org.eclipse.uml2.uml.Interaction object) {
+	public T caseInteraction(Interaction object) {
 		return null;
 	}
 

@@ -5534,13 +5534,22 @@ public interface Sequence_diagramPackage extends EPackage {
 	int PACKAGE__PROFILE_APPLICATION = UMLPackage.PACKAGE__PROFILE_APPLICATION;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__ID = UMLPackage.PACKAGE_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Package</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE_FEATURE_COUNT = UMLPackage.PACKAGE_FEATURE_COUNT + 0;
+	int PACKAGE_FEATURE_COUNT = UMLPackage.PACKAGE_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get EAnnotation</em>' operation.
