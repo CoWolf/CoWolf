@@ -3,6 +3,8 @@
 package de.uni_stuttgart.iste.cowolf.model.sequence_diagram.emf.provider;
 
 
+import commonBase.CommonBasePackage;
+
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ExecutionSpecification;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramPackage;
 
@@ -12,8 +14,12 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ExecutionSpecification} object.
@@ -21,7 +27,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ExecutionSpecificationItemProvider extends InteractionFragmentItemProvider {
+public class ExecutionSpecificationItemProvider extends org.eclipse.uml2.uml.edit.providers.ExecutionSpecificationItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -43,52 +49,29 @@ public class ExecutionSpecificationItemProvider extends InteractionFragmentItemP
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addFinishPropertyDescriptor(object);
-			addStartPropertyDescriptor(object);
+			addIdPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Finish feature.
+	 * This adds a property descriptor for the Id feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addFinishPropertyDescriptor(Object object) {
+	protected void addIdPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ExecutionSpecification_finish_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ExecutionSpecification_finish_feature", "_UI_ExecutionSpecification_type"),
-				 Sequence_diagramPackage.Literals.EXECUTION_SPECIFICATION__FINISH,
+				 getString("_UI_IDBase_id_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_IDBase_id_feature", "_UI_IDBase_type"),
+				 CommonBasePackage.Literals.ID_BASE__ID,
 				 true,
 				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Start feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addStartPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ExecutionSpecification_start_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ExecutionSpecification_start_feature", "_UI_ExecutionSpecification_type"),
-				 Sequence_diagramPackage.Literals.EXECUTION_SPECIFICATION__START,
-				 true,
 				 false,
-				 true,
-				 null,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -118,6 +101,12 @@ public class ExecutionSpecificationItemProvider extends InteractionFragmentItemP
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(ExecutionSpecification.class)) {
+			case Sequence_diagramPackage.EXECUTION_SPECIFICATION__ID:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 
@@ -131,6 +120,17 @@ public class ExecutionSpecificationItemProvider extends InteractionFragmentItemP
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return Sequence_diagramEditPlugin.INSTANCE;
 	}
 
 }

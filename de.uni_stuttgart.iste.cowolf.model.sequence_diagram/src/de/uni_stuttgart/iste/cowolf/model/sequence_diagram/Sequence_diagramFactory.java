@@ -22,15 +22,6 @@ public interface Sequence_diagramFactory extends EFactory {
 	Sequence_diagramFactory eINSTANCE = de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.Sequence_diagramFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Interaction</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Interaction</em>'.
-	 * @generated
-	 */
-	Interaction createInteraction();
-
-	/**
 	 * Returns a new object of class '<em>Message</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -38,15 +29,6 @@ public interface Sequence_diagramFactory extends EFactory {
 	 * @generated
 	 */
 	Message createMessage();
-
-	/**
-	 * Returns a new object of class '<em>Gate</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Gate</em>'.
-	 * @generated
-	 */
-	Gate createGate();
 
 	/**
 	 * Returns a new object of class '<em>Lifeline</em>'.
@@ -65,6 +47,24 @@ public interface Sequence_diagramFactory extends EFactory {
 	 * @generated
 	 */
 	Actor createActor();
+
+	/**
+	 * Returns a new object of class '<em>Sd Interaction</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sd Interaction</em>'.
+	 * @generated
+	 */
+	SdInteraction createSdInteraction();
+
+	/**
+	 * Returns a new object of class '<em>Package</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Package</em>'.
+	 * @generated
+	 */
+	Package createPackage();
 
 	/**
 	 * Returns the package supported by this factory.
