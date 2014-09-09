@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class StateImpl extends StateOrLabelImpl implements State
+public class StateImpl extends AtomicImpl implements State
 {
   /**
    * <!-- begin-user-doc -->

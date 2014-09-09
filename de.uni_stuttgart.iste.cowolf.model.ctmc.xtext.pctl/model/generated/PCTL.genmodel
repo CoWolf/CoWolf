@@ -11,24 +11,28 @@
     <genClasses ecoreClass="PCTL.ecore#//Start">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//Start/start"/>
     </genClasses>
+    <genClasses ecoreClass="PCTL.ecore#//CommentedRule">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PCTL.ecore#//CommentedRule/comment"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//CommentedRule/rule"/>
+    </genClasses>
+    <genClasses ecoreClass="PCTL.ecore#//Pctl"/>
     <genClasses ecoreClass="PCTL.ecore#//State"/>
     <genClasses ecoreClass="PCTL.ecore#//Label"/>
-    <genClasses ecoreClass="PCTL.ecore#//StateOrLabel">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PCTL.ecore#//StateOrLabel/name"/>
+    <genClasses ecoreClass="PCTL.ecore#//Atomic">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PCTL.ecore#//Atomic/name"/>
     </genClasses>
-    <genClasses ecoreClass="PCTL.ecore#//S"/>
-    <genClasses ecoreClass="PCTL.ecore#//P1"/>
-    <genClasses ecoreClass="PCTL.ecore#//P"/>
-    <genClasses ecoreClass="PCTL.ecore#//F">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//F/RIGHT"/>
+    <genClasses ecoreClass="PCTL.ecore#//Expression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//Expression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//Expression/right"/>
     </genClasses>
-    <genClasses ecoreClass="PCTL.ecore#//G">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//G/LEFT"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//G/RIGHT"/>
-    </genClasses>
-    <genClasses ecoreClass="PCTL.ecore#//U">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//U/LEFT"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//U/RIGHT"/>
-    </genClasses>
+    <genClasses ecoreClass="PCTL.ecore#//SteadyState"/>
+    <genClasses ecoreClass="PCTL.ecore#//QuantifiedProbability"/>
+    <genClasses ecoreClass="PCTL.ecore#//Probability"/>
+    <genClasses ecoreClass="PCTL.ecore#//Until"/>
+    <genClasses ecoreClass="PCTL.ecore#//Next"/>
+    <genClasses ecoreClass="PCTL.ecore#//Future"/>
+    <genClasses ecoreClass="PCTL.ecore#//Globally"/>
+    <genClasses ecoreClass="PCTL.ecore#//Conjunction"/>
+    <genClasses ecoreClass="PCTL.ecore#//Disjunction"/>
   </genPackages>
 </genmodel:GenModel>

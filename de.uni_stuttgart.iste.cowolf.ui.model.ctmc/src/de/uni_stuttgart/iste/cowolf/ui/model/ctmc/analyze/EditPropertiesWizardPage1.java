@@ -6,11 +6,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.jface.text.DocumentEvent;
+import org.eclipse.jface.text.IDocumentListener;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CLabel;
@@ -23,20 +28,44 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.xtext.resource.IResourceFactory;
+import org.eclipse.xtext.resource.XtextResource;
+import org.eclipse.xtext.resource.XtextResourceSet;
+
+
+
+import org.eclipse.xtext.ui.editor.embedded.EmbeddedEditor;
+import org.eclipse.xtext.ui.editor.embedded.EmbeddedEditorFactory;
+import org.eclipse.xtext.ui.editor.embedded.EmbeddedEditorModelAccess;
+import org.eclipse.xtext.ui.editor.embedded.IEditedResourceProvider;
+import org.eclipse.xtext.ui.editor.model.IXtextModelListener;
+import org.eclipse.xtext.ui.editor.model.XtextDocument;
+import org.eclipse.xtext.ui.editor.validation.IValidationIssueProcessor;
+import org.eclipse.xtext.validation.Issue;
+
+import com.google.inject.Injector;
 
 import de.uni_stuttgart.iste.cowolf.model.ctmc.CTMC;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.State;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.PCTLStandaloneSetup;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.ui.internal.PCTLActivator;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.validation.PCTLValidator;
+
+import org.eclipse.swt.layout.RowLayout;
 
 public class EditPropertiesWizardPage1 extends WizardPage {
+
+	private boolean xtextValid;
 
 	private Composite container;
 
 	private Resource resource;
-	private Text text;
+	private XtextDocument pctlDoc;
+	EmbeddedEditorModelAccess partialEditorModelAccess;
 	private Text text_3;
 	private Text text_4;
 	private Text text_5;
@@ -55,6 +84,7 @@ public class EditPropertiesWizardPage1 extends WizardPage {
 	private Label lblWithin;
 	private Combo combo_4;
 	private Text text_1;
+	private Composite composite;
 
 	protected EditPropertiesWizardPage1(final String pageName,
 			final Resource res, String key, String value) {
@@ -64,8 +94,11 @@ public class EditPropertiesWizardPage1 extends WizardPage {
 		this.setDescription("Create properties to analyze.");
 		this.key = key;
 		this.value = value;
+		
+		this.xtextValid = false;
 	}
 
+	@SuppressWarnings("restriction")
 	@Override
 	public void createControl(final Composite parent) {
 		this.container = new Composite(parent, SWT.NONE);
@@ -245,34 +278,81 @@ public class EditPropertiesWizardPage1 extends WizardPage {
 		grpTexteditor.setText("Edit properties");
 
 		Label lblPropertyName = new Label(grpTexteditor, SWT.NONE);
+		lblPropertyName.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1));
 		lblPropertyName.setText("Property Name");
-
+		
+		
 		text_5 = new Text(grpTexteditor, SWT.BORDER);
-		GridData gd_text_5 = new GridData(SWT.LEFT, SWT.CENTER, false, false,
-				1, 1);
-		gd_text_5.widthHint = 759;
-		text_5.setLayoutData(gd_text_5);
+		text_5.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
 		text_5.setText(key);
 
 		Label lblProperty = new Label(grpTexteditor, SWT.NONE);
 		lblProperty.setText("Property");
 
-		text = new Text(grpTexteditor, SWT.BORDER | SWT.MULTI);
-		GridData gd_text = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1);
-		gd_text.heightHint = 200;
-		text.setLayoutData(gd_text);
-		text.setText(value);
-		text.addModifyListener(new ModifyListener() {
+		
+		composite = new Composite(grpTexteditor, SWT.BORDER);
+		composite.setLayout(new GridLayout(1, true));
+		GridData gd_composite = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1);
+		gd_composite.heightHint = 121;
+		composite.setLayoutData(gd_composite);
+		
+		IEditedResourceProvider resourceProvider = new IEditedResourceProvider() {
+		    public XtextResource createResource() {
+		    	PCTLActivator activator = PCTLActivator.getInstance();
+		        Injector injector = activator.getInjector(PCTLActivator.DE_UNI_STUTTGART_ISTE_COWOLF_MODEL_CTMC_XTEXT_PCTL);
 
-			@Override
-			public void modifyText(ModifyEvent arg0) {
-				// TODO Auto-generated method stub
-				getContainer().updateButtons();
+		        XtextResourceSet rs = injector.getInstance(XtextResourceSet.class);
+		        rs.setClasspathURIContext(getClass());
 
-			}
+		        IResourceFactory resourceFactory = injector.getInstance(IResourceFactory.class);
+		        URI uri = URI.createURI("temp.pctl");
+		        XtextResource resource = (XtextResource) resourceFactory.createResource(uri);
+		        rs.getResources().add(resource);
 
-		});
+		        EcoreUtil.resolveAll(resource);
 
+		        if (!resource.getErrors().isEmpty()) {
+		            // handle error?
+		        }
+		        return resource;
+		    }};
+
+		PCTLActivator activator = PCTLActivator.getInstance();
+		Injector injector = activator.getInjector(PCTLActivator.DE_UNI_STUTTGART_ISTE_COWOLF_MODEL_CTMC_XTEXT_PCTL);
+		@SuppressWarnings("restriction")
+		EmbeddedEditorFactory factory = injector.getInstance(EmbeddedEditorFactory.class);
+		
+		@SuppressWarnings("restriction")
+		EmbeddedEditor embeddedEditor = factory.newEditor(resourceProvider)
+			.showErrorAndWarningAnnotations()
+			.processIssuesBy(new IValidationIssueProcessor() {
+				
+				@Override
+				public void processIssues(List<Issue> issues, IProgressMonitor monitor) {
+					if (issues == null || issues.size() <= 0) {
+						EditPropertiesWizardPage1.this.xtextValid = true;
+					} else {
+						EditPropertiesWizardPage1.this.xtextValid = false;
+					}
+					
+					Display.getDefault().asyncExec(new Runnable() {
+						
+						@Override
+						public void run() {
+							EditPropertiesWizardPage1.this.getContainer().updateButtons();
+						}
+					});
+				}
+			})
+			.withParent(composite);
+		
+		this.pctlDoc = embeddedEditor.getDocument();
+		
+		this.partialEditorModelAccess = embeddedEditor.createPartialEditor(false);
+		
+		
+		this.setValue(this.value);
+	
 		if (resource != null && resource.getContents() != null
 				&& resource.getContents().get(0) != null
 				&& ((CTMC) resource.getContents().get(0)).getStates() != null) {
@@ -312,30 +392,35 @@ public class EditPropertiesWizardPage1 extends WizardPage {
 
 	@Override
 	public boolean isPageComplete() {
-		try {
-			File smFile = File.createTempFile("temp", ".pctl");
-
-			FileOutputStream out = new FileOutputStream(
-					smFile.getAbsolutePath());
-			out.write(text.getText().getBytes());
-			out.close();
-
-			PCTLStandaloneSetup.doSetup();
-
-			ResourceSet resourceSet = new ResourceSetImpl();
-			URI uri = URI.createFileURI(smFile.getCanonicalPath());
-			Resource resource = resourceSet.getResource(uri, true);
-
-			smFile.delete();
-			if (resource.getErrors().size() > 0) {
-				this.setErrorMessage(resource.getErrors().get(0).getMessage());
-				return false;
-			}
-
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if (!this.xtextValid) {
+			this.setErrorMessage("Please enter a correct PCTL expression");
+			return false;
 		}
+//		try {
+//			//File smFile = File.createTempFile("temp", ".pctl");
+//
+//			/**FileOutputStream out = new FileOutputStream(
+//					smFile.getAbsolutePath());
+//			out.write(text.getText().getBytes());
+//			out.close();
+//
+//			PCTLStandaloneSetup.doSetup();
+//
+//			ResourceSet resourceSet = new ResourceSetImpl();
+//			URI uri = URI.createFileURI(smFile.getCanonicalPath());
+//			Resource resource = resourceSet.getResource(uri, true);
+//
+//			smFile.delete();
+//			if (resource.getErrors().size() > 0) {
+//				this.setErrorMessage(resource.getErrors().get(0).getMessage());
+//				return false;
+//			}
+//			*/
+//
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		this.setErrorMessage(null);
 		return true;
 	}
@@ -345,7 +430,7 @@ public class EditPropertiesWizardPage1 extends WizardPage {
 	}
 
 	public String getValue() {
-		return text.getText();
+		return this.partialEditorModelAccess.getEditablePart();
 	}
 
 	public void setKey(String key) {
@@ -353,7 +438,7 @@ public class EditPropertiesWizardPage1 extends WizardPage {
 	}
 
 	public void setValue(String value) {
-		text.setText(value);
+		partialEditorModelAccess.updateModel("", value, "");
 	}
 
 	private void createPRISMProperty() {

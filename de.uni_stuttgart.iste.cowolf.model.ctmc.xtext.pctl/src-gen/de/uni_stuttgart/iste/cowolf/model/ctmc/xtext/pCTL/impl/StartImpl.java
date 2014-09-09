@@ -3,13 +3,13 @@
 package de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl;
 
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PCTLPackage;
-import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.S;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Start;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -38,7 +38,7 @@ public class StartImpl extends MinimalEObjectImpl.Container implements Start
    * @generated
    * @ordered
    */
-  protected S start;
+  protected EObject start;
 
   /**
    * <!-- begin-user-doc -->
@@ -66,7 +66,7 @@ public class StartImpl extends MinimalEObjectImpl.Container implements Start
    * <!-- end-user-doc -->
    * @generated
    */
-  public S getStart()
+  public EObject getStart()
   {
     return start;
   }
@@ -76,9 +76,9 @@ public class StartImpl extends MinimalEObjectImpl.Container implements Start
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetStart(S newStart, NotificationChain msgs)
+  public NotificationChain basicSetStart(EObject newStart, NotificationChain msgs)
   {
-    S oldStart = start;
+    EObject oldStart = start;
     start = newStart;
     if (eNotificationRequired())
     {
@@ -93,7 +93,7 @@ public class StartImpl extends MinimalEObjectImpl.Container implements Start
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setStart(S newStart)
+  public void setStart(EObject newStart)
   {
     if (newStart != start)
     {
@@ -152,7 +152,7 @@ public class StartImpl extends MinimalEObjectImpl.Container implements Start
     switch (featureID)
     {
       case PCTLPackage.START__START:
-        setStart((S)newValue);
+        setStart((EObject)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -169,7 +169,7 @@ public class StartImpl extends MinimalEObjectImpl.Container implements Start
     switch (featureID)
     {
       case PCTLPackage.START__START:
-        setStart((S)null);
+        setStart((EObject)null);
         return;
     }
     super.eUnset(featureID);

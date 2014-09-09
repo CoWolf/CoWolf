@@ -65,15 +65,21 @@ public class PCTLFactoryImpl extends EFactoryImpl implements PCTLFactory
     switch (eClass.getClassifierID())
     {
       case PCTLPackage.START: return createStart();
+      case PCTLPackage.COMMENTED_RULE: return createCommentedRule();
+      case PCTLPackage.PCTL: return createPctl();
       case PCTLPackage.STATE: return createState();
       case PCTLPackage.LABEL: return createLabel();
-      case PCTLPackage.STATE_OR_LABEL: return createStateOrLabel();
-      case PCTLPackage.S: return createS();
-      case PCTLPackage.P1: return createP1();
-      case PCTLPackage.P: return createP();
-      case PCTLPackage.F: return createF();
-      case PCTLPackage.G: return createG();
-      case PCTLPackage.U: return createU();
+      case PCTLPackage.ATOMIC: return createAtomic();
+      case PCTLPackage.EXPRESSION: return createExpression();
+      case PCTLPackage.STEADY_STATE: return createSteadyState();
+      case PCTLPackage.QUANTIFIED_PROBABILITY: return createQuantifiedProbability();
+      case PCTLPackage.PROBABILITY: return createProbability();
+      case PCTLPackage.UNTIL: return createUntil();
+      case PCTLPackage.NEXT: return createNext();
+      case PCTLPackage.FUTURE: return createFuture();
+      case PCTLPackage.GLOBALLY: return createGlobally();
+      case PCTLPackage.CONJUNCTION: return createConjunction();
+      case PCTLPackage.DISJUNCTION: return createDisjunction();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -88,6 +94,28 @@ public class PCTLFactoryImpl extends EFactoryImpl implements PCTLFactory
   {
     StartImpl start = new StartImpl();
     return start;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public CommentedRule createCommentedRule()
+  {
+    CommentedRuleImpl commentedRule = new CommentedRuleImpl();
+    return commentedRule;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Pctl createPctl()
+  {
+    PctlImpl pctl = new PctlImpl();
+    return pctl;
   }
 
   /**
@@ -117,10 +145,10 @@ public class PCTLFactoryImpl extends EFactoryImpl implements PCTLFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public StateOrLabel createStateOrLabel()
+  public Atomic createAtomic()
   {
-    StateOrLabelImpl stateOrLabel = new StateOrLabelImpl();
-    return stateOrLabel;
+    AtomicImpl atomic = new AtomicImpl();
+    return atomic;
   }
 
   /**
@@ -128,10 +156,10 @@ public class PCTLFactoryImpl extends EFactoryImpl implements PCTLFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public S createS()
+  public Expression createExpression()
   {
-    SImpl s = new SImpl();
-    return s;
+    ExpressionImpl expression = new ExpressionImpl();
+    return expression;
   }
 
   /**
@@ -139,10 +167,10 @@ public class PCTLFactoryImpl extends EFactoryImpl implements PCTLFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public P1 createP1()
+  public SteadyState createSteadyState()
   {
-    P1Impl p1 = new P1Impl();
-    return p1;
+    SteadyStateImpl steadyState = new SteadyStateImpl();
+    return steadyState;
   }
 
   /**
@@ -150,10 +178,10 @@ public class PCTLFactoryImpl extends EFactoryImpl implements PCTLFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public P createP()
+  public QuantifiedProbability createQuantifiedProbability()
   {
-    PImpl p = new PImpl();
-    return p;
+    QuantifiedProbabilityImpl quantifiedProbability = new QuantifiedProbabilityImpl();
+    return quantifiedProbability;
   }
 
   /**
@@ -161,10 +189,10 @@ public class PCTLFactoryImpl extends EFactoryImpl implements PCTLFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public F createF()
+  public Probability createProbability()
   {
-    FImpl f = new FImpl();
-    return f;
+    ProbabilityImpl probability = new ProbabilityImpl();
+    return probability;
   }
 
   /**
@@ -172,10 +200,10 @@ public class PCTLFactoryImpl extends EFactoryImpl implements PCTLFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public G createG()
+  public Until createUntil()
   {
-    GImpl g = new GImpl();
-    return g;
+    UntilImpl until = new UntilImpl();
+    return until;
   }
 
   /**
@@ -183,10 +211,54 @@ public class PCTLFactoryImpl extends EFactoryImpl implements PCTLFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public U createU()
+  public Next createNext()
   {
-    UImpl u = new UImpl();
-    return u;
+    NextImpl next = new NextImpl();
+    return next;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Future createFuture()
+  {
+    FutureImpl future = new FutureImpl();
+    return future;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Globally createGlobally()
+  {
+    GloballyImpl globally = new GloballyImpl();
+    return globally;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Conjunction createConjunction()
+  {
+    ConjunctionImpl conjunction = new ConjunctionImpl();
+    return conjunction;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Disjunction createDisjunction()
+  {
+    DisjunctionImpl disjunction = new DisjunctionImpl();
+    return disjunction;
   }
 
   /**

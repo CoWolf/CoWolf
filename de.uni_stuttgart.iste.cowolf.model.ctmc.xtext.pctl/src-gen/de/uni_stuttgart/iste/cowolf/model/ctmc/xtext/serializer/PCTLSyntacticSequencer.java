@@ -19,50 +19,58 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class PCTLSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected PCTLGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_P_P1_S___XParserRuleCall_3_5_0_or___SKeyword_0_CompareParserRuleCall_1_LeftSquareBracketKeyword_2_____or_____PKeyword_0_CompareWithoutUnknownParserRuleCall_1_LeftSquareBracketKeyword_2__p___XParserRuleCall_3_5_0_or___SKeyword_0_CompareParserRuleCall_1_LeftSquareBracketKeyword_2______;
-	protected AbstractElementAlias match_P_S_XParserRuleCall_3_5_0_or___SKeyword_0_CompareParserRuleCall_1_LeftSquareBracketKeyword_2__;
-	protected AbstractElementAlias match_P___PKeyword_0_CompareWithoutUnknownParserRuleCall_1_LeftSquareBracketKeyword_2__a;
-	protected AbstractElementAlias match_P___PKeyword_0_CompareWithoutUnknownParserRuleCall_1_LeftSquareBracketKeyword_2__p;
-	protected AbstractElementAlias match_U_RKeyword_1_2_or_UKeyword_1_0_or_WKeyword_1_1;
+	protected AbstractElementAlias match_Conjunction_Disjunction_AmpersandKeyword_0_or_VerticalLineKeyword_0;
+	protected AbstractElementAlias match_Future_TimeBoundParserRuleCall_1_q;
+	protected AbstractElementAlias match_Globally_TimeBoundParserRuleCall_1_q;
+	protected AbstractElementAlias match_Negation_ExclamationMarkKeyword_0_a;
+	protected AbstractElementAlias match_Negation_ExclamationMarkKeyword_0_p;
+	protected AbstractElementAlias match_Next_TimeBoundParserRuleCall_1_q;
+	protected AbstractElementAlias match_SteadyState_CompareProbabilityParserRuleCall_1_0_or_EqualsSignQuestionMarkKeyword_1_1;
+	protected AbstractElementAlias match_SteadyState___SKeyword_0___CompareProbabilityParserRuleCall_1_0_or_EqualsSignQuestionMarkKeyword_1_1___LeftSquareBracketKeyword_2__q;
+	protected AbstractElementAlias match_Until_RKeyword_1_2_or_UKeyword_1_0_or_WKeyword_1_1;
+	protected AbstractElementAlias match_Until_TimeBoundParserRuleCall_2_q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (PCTLGrammarAccess) access;
-		match_P_P1_S___XParserRuleCall_3_5_0_or___SKeyword_0_CompareParserRuleCall_1_LeftSquareBracketKeyword_2_____or_____PKeyword_0_CompareWithoutUnknownParserRuleCall_1_LeftSquareBracketKeyword_2__p___XParserRuleCall_3_5_0_or___SKeyword_0_CompareParserRuleCall_1_LeftSquareBracketKeyword_2______ = new AlternativeAlias(false, false, new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getSAccess().getSKeyword_0()), new TokenAlias(false, false, grammarAccess.getSAccess().getCompareParserRuleCall_1()), new TokenAlias(false, false, grammarAccess.getSAccess().getLeftSquareBracketKeyword_2())), new TokenAlias(false, false, grammarAccess.getP1Access().getXParserRuleCall_3_5_0())), new GroupAlias(false, false, new GroupAlias(true, false, new TokenAlias(false, false, grammarAccess.getPAccess().getPKeyword_0()), new TokenAlias(false, false, grammarAccess.getPAccess().getCompareWithoutUnknownParserRuleCall_1()), new TokenAlias(false, false, grammarAccess.getPAccess().getLeftSquareBracketKeyword_2())), new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getSAccess().getSKeyword_0()), new TokenAlias(false, false, grammarAccess.getSAccess().getCompareParserRuleCall_1()), new TokenAlias(false, false, grammarAccess.getSAccess().getLeftSquareBracketKeyword_2())), new TokenAlias(false, false, grammarAccess.getPAccess().getXParserRuleCall_3_5_0()))));
-		match_P_S_XParserRuleCall_3_5_0_or___SKeyword_0_CompareParserRuleCall_1_LeftSquareBracketKeyword_2__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getSAccess().getSKeyword_0()), new TokenAlias(false, false, grammarAccess.getSAccess().getCompareParserRuleCall_1()), new TokenAlias(false, false, grammarAccess.getSAccess().getLeftSquareBracketKeyword_2())), new TokenAlias(false, false, grammarAccess.getPAccess().getXParserRuleCall_3_5_0()));
-		match_P___PKeyword_0_CompareWithoutUnknownParserRuleCall_1_LeftSquareBracketKeyword_2__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getPAccess().getPKeyword_0()), new TokenAlias(false, false, grammarAccess.getPAccess().getCompareWithoutUnknownParserRuleCall_1()), new TokenAlias(false, false, grammarAccess.getPAccess().getLeftSquareBracketKeyword_2()));
-		match_P___PKeyword_0_CompareWithoutUnknownParserRuleCall_1_LeftSquareBracketKeyword_2__p = new GroupAlias(true, false, new TokenAlias(false, false, grammarAccess.getPAccess().getPKeyword_0()), new TokenAlias(false, false, grammarAccess.getPAccess().getCompareWithoutUnknownParserRuleCall_1()), new TokenAlias(false, false, grammarAccess.getPAccess().getLeftSquareBracketKeyword_2()));
-		match_U_RKeyword_1_2_or_UKeyword_1_0_or_WKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getUAccess().getRKeyword_1_2()), new TokenAlias(false, false, grammarAccess.getUAccess().getUKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getUAccess().getWKeyword_1_1()));
+		match_Conjunction_Disjunction_AmpersandKeyword_0_or_VerticalLineKeyword_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getConjunctionAccess().getAmpersandKeyword_0()), new TokenAlias(false, false, grammarAccess.getDisjunctionAccess().getVerticalLineKeyword_0()));
+		match_Future_TimeBoundParserRuleCall_1_q = new TokenAlias(false, true, grammarAccess.getFutureAccess().getTimeBoundParserRuleCall_1());
+		match_Globally_TimeBoundParserRuleCall_1_q = new TokenAlias(false, true, grammarAccess.getGloballyAccess().getTimeBoundParserRuleCall_1());
+		match_Negation_ExclamationMarkKeyword_0_a = new TokenAlias(true, true, grammarAccess.getNegationAccess().getExclamationMarkKeyword_0());
+		match_Negation_ExclamationMarkKeyword_0_p = new TokenAlias(true, false, grammarAccess.getNegationAccess().getExclamationMarkKeyword_0());
+		match_Next_TimeBoundParserRuleCall_1_q = new TokenAlias(false, true, grammarAccess.getNextAccess().getTimeBoundParserRuleCall_1());
+		match_SteadyState_CompareProbabilityParserRuleCall_1_0_or_EqualsSignQuestionMarkKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getSteadyStateAccess().getCompareProbabilityParserRuleCall_1_0()), new TokenAlias(false, false, grammarAccess.getSteadyStateAccess().getEqualsSignQuestionMarkKeyword_1_1()));
+		match_SteadyState___SKeyword_0___CompareProbabilityParserRuleCall_1_0_or_EqualsSignQuestionMarkKeyword_1_1___LeftSquareBracketKeyword_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getSteadyStateAccess().getSKeyword_0()), new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getSteadyStateAccess().getCompareProbabilityParserRuleCall_1_0()), new TokenAlias(false, false, grammarAccess.getSteadyStateAccess().getEqualsSignQuestionMarkKeyword_1_1())), new TokenAlias(false, false, grammarAccess.getSteadyStateAccess().getLeftSquareBracketKeyword_2()));
+		match_Until_RKeyword_1_2_or_UKeyword_1_0_or_WKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getUntilAccess().getRKeyword_1_2()), new TokenAlias(false, false, grammarAccess.getUntilAccess().getUKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getUntilAccess().getWKeyword_1_1()));
+		match_Until_TimeBoundParserRuleCall_2_q = new TokenAlias(false, true, grammarAccess.getUntilAccess().getTimeBoundParserRuleCall_2());
 	}
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if(ruleCall.getRule() == grammarAccess.getCompareRule())
-			return getCompareToken(semanticObject, ruleCall, node);
-		else if(ruleCall.getRule() == grammarAccess.getCompareWithoutUnknownRule())
-			return getCompareWithoutUnknownToken(semanticObject, ruleCall, node);
+		if(ruleCall.getRule() == grammarAccess.getBOOLRule())
+			return getBOOLToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getCompareProbabilityRule())
+			return getCompareProbabilityToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getTimeBoundRule())
 			return getTimeBoundToken(semanticObject, ruleCall, node);
-		else if(ruleCall.getRule() == grammarAccess.getXRule())
-			return getXToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
 	/**
-	 * Compare:
-	 * 	(CompareWithoutUnknown | "=?");
+	 * terminal BOOL : 'true'|'false';
 	 */
-	protected String getCompareToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+	protected String getBOOLToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
-		return ">";
+		return "true";
 	}
 	
 	/**
-	 * CompareWithoutUnknown:
-	 * 	(">" DECIMAL | "<" DECIMAL | ">=" DECIMAL | "<=" DECIMAL);
+	 * CompareProbability:
+	 *     ('>''='?|'<''='?) DECIMAL
+	 * ;
 	 */
-	protected String getCompareWithoutUnknownToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+	protected String getCompareProbabilityToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
 		return ">";
@@ -70,22 +78,12 @@ public class PCTLSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * TimeBound:
-	 * 	(">=" DECIMAL | "<=" DECIMAL | "=" DECIMAL | "[" DECIMAL "," DECIMAL "]")?;
+	 * 	(('>''='?|'<''='?|'=') DECIMAL) | ("[" DECIMAL "," DECIMAL "]");
 	 */
 	protected String getTimeBoundToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
-		return "";
-	}
-	
-	/**
-	 * X:
-	 * 	("X")*;
-	 */
-	protected String getXToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "";
+		return ">";
 	}
 	
 	@Override
@@ -94,57 +92,107 @@ public class PCTLSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if(match_P_P1_S___XParserRuleCall_3_5_0_or___SKeyword_0_CompareParserRuleCall_1_LeftSquareBracketKeyword_2_____or_____PKeyword_0_CompareWithoutUnknownParserRuleCall_1_LeftSquareBracketKeyword_2__p___XParserRuleCall_3_5_0_or___SKeyword_0_CompareParserRuleCall_1_LeftSquareBracketKeyword_2______.equals(syntax))
-				emit_P_P1_S___XParserRuleCall_3_5_0_or___SKeyword_0_CompareParserRuleCall_1_LeftSquareBracketKeyword_2_____or_____PKeyword_0_CompareWithoutUnknownParserRuleCall_1_LeftSquareBracketKeyword_2__p___XParserRuleCall_3_5_0_or___SKeyword_0_CompareParserRuleCall_1_LeftSquareBracketKeyword_2______(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_P_S_XParserRuleCall_3_5_0_or___SKeyword_0_CompareParserRuleCall_1_LeftSquareBracketKeyword_2__.equals(syntax))
-				emit_P_S_XParserRuleCall_3_5_0_or___SKeyword_0_CompareParserRuleCall_1_LeftSquareBracketKeyword_2__(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_P___PKeyword_0_CompareWithoutUnknownParserRuleCall_1_LeftSquareBracketKeyword_2__a.equals(syntax))
-				emit_P___PKeyword_0_CompareWithoutUnknownParserRuleCall_1_LeftSquareBracketKeyword_2__a(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_P___PKeyword_0_CompareWithoutUnknownParserRuleCall_1_LeftSquareBracketKeyword_2__p.equals(syntax))
-				emit_P___PKeyword_0_CompareWithoutUnknownParserRuleCall_1_LeftSquareBracketKeyword_2__p(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_U_RKeyword_1_2_or_UKeyword_1_0_or_WKeyword_1_1.equals(syntax))
-				emit_U_RKeyword_1_2_or_UKeyword_1_0_or_WKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			if(match_Conjunction_Disjunction_AmpersandKeyword_0_or_VerticalLineKeyword_0.equals(syntax))
+				emit_Conjunction_Disjunction_AmpersandKeyword_0_or_VerticalLineKeyword_0(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_Future_TimeBoundParserRuleCall_1_q.equals(syntax))
+				emit_Future_TimeBoundParserRuleCall_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_Globally_TimeBoundParserRuleCall_1_q.equals(syntax))
+				emit_Globally_TimeBoundParserRuleCall_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_Negation_ExclamationMarkKeyword_0_a.equals(syntax))
+				emit_Negation_ExclamationMarkKeyword_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_Negation_ExclamationMarkKeyword_0_p.equals(syntax))
+				emit_Negation_ExclamationMarkKeyword_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_Next_TimeBoundParserRuleCall_1_q.equals(syntax))
+				emit_Next_TimeBoundParserRuleCall_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_SteadyState_CompareProbabilityParserRuleCall_1_0_or_EqualsSignQuestionMarkKeyword_1_1.equals(syntax))
+				emit_SteadyState_CompareProbabilityParserRuleCall_1_0_or_EqualsSignQuestionMarkKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_SteadyState___SKeyword_0___CompareProbabilityParserRuleCall_1_0_or_EqualsSignQuestionMarkKeyword_1_1___LeftSquareBracketKeyword_2__q.equals(syntax))
+				emit_SteadyState___SKeyword_0___CompareProbabilityParserRuleCall_1_0_or_EqualsSignQuestionMarkKeyword_1_1___LeftSquareBracketKeyword_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_Until_RKeyword_1_2_or_UKeyword_1_0_or_WKeyword_1_1.equals(syntax))
+				emit_Until_RKeyword_1_2_or_UKeyword_1_0_or_WKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_Until_TimeBoundParserRuleCall_2_q.equals(syntax))
+				emit_Until_TimeBoundParserRuleCall_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
 	/**
 	 * Syntax:
-	 *     (('P' CompareWithoutUnknown '[')+ (X | ('S' Compare '['))) | (X | ('S' Compare '['))
+	 *     '&' | '|'
 	 */
-	protected void emit_P_P1_S___XParserRuleCall_3_5_0_or___SKeyword_0_CompareParserRuleCall_1_LeftSquareBracketKeyword_2_____or_____PKeyword_0_CompareWithoutUnknownParserRuleCall_1_LeftSquareBracketKeyword_2__p___XParserRuleCall_3_5_0_or___SKeyword_0_CompareParserRuleCall_1_LeftSquareBracketKeyword_2______(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Conjunction_Disjunction_AmpersandKeyword_0_or_VerticalLineKeyword_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Syntax:
-	 *     X | ('S' Compare '[')
+	 *     TimeBound?
 	 */
-	protected void emit_P_S_XParserRuleCall_3_5_0_or___SKeyword_0_CompareParserRuleCall_1_LeftSquareBracketKeyword_2__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Future_TimeBoundParserRuleCall_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Syntax:
-	 *     ('P' CompareWithoutUnknown '[')*
+	 *     TimeBound?
 	 */
-	protected void emit_P___PKeyword_0_CompareWithoutUnknownParserRuleCall_1_LeftSquareBracketKeyword_2__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Globally_TimeBoundParserRuleCall_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Syntax:
-	 *     ('P' CompareWithoutUnknown '[')+
+	 *     '!'*
 	 */
-	protected void emit_P___PKeyword_0_CompareWithoutUnknownParserRuleCall_1_LeftSquareBracketKeyword_2__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Negation_ExclamationMarkKeyword_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Syntax:
-	 *     'R' | 'U' | 'W'
+	 *     '!'+
 	 */
-	protected void emit_U_RKeyword_1_2_or_UKeyword_1_0_or_WKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Negation_ExclamationMarkKeyword_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     TimeBound?
+	 */
+	protected void emit_Next_TimeBoundParserRuleCall_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     CompareProbability | '=?'
+	 */
+	protected void emit_SteadyState_CompareProbabilityParserRuleCall_1_0_or_EqualsSignQuestionMarkKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     ('S' (CompareProbability | '=?') '[')?
+	 */
+	protected void emit_SteadyState___SKeyword_0___CompareProbabilityParserRuleCall_1_0_or_EqualsSignQuestionMarkKeyword_1_1___LeftSquareBracketKeyword_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     'U' | 'W' | 'R'
+	 */
+	protected void emit_Until_RKeyword_1_2_or_UKeyword_1_0_or_WKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     TimeBound?
+	 */
+	protected void emit_Until_TimeBoundParserRuleCall_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

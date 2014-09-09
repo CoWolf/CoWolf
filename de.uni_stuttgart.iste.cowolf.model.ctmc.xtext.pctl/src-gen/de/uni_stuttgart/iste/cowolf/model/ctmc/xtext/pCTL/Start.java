@@ -31,12 +31,12 @@ public interface Start extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Start</em>' containment reference.
-   * @see #setStart(S)
+   * @see #setStart(EObject)
    * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PCTLPackage#getStart_Start()
    * @model containment="true"
    * @generated
    */
-  S getStart();
+  EObject getStart();
 
   /**
    * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Start#getStart <em>Start</em>}' containment reference.
@@ -46,6 +46,6 @@ public interface Start extends EObject
    * @see #getStart()
    * @generated
    */
-  void setStart(S value);
+  void setStart(EObject value);
 
 } // Start

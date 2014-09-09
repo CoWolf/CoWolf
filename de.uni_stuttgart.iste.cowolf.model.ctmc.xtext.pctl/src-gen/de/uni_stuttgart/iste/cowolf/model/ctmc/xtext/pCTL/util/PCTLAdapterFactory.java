@@ -80,6 +80,16 @@ public class PCTLAdapterFactory extends AdapterFactoryImpl
         return createStartAdapter();
       }
       @Override
+      public Adapter caseCommentedRule(CommentedRule object)
+      {
+        return createCommentedRuleAdapter();
+      }
+      @Override
+      public Adapter casePctl(Pctl object)
+      {
+        return createPctlAdapter();
+      }
+      @Override
       public Adapter caseState(State object)
       {
         return createStateAdapter();
@@ -90,39 +100,59 @@ public class PCTLAdapterFactory extends AdapterFactoryImpl
         return createLabelAdapter();
       }
       @Override
-      public Adapter caseStateOrLabel(StateOrLabel object)
+      public Adapter caseAtomic(Atomic object)
       {
-        return createStateOrLabelAdapter();
+        return createAtomicAdapter();
       }
       @Override
-      public Adapter caseS(S object)
+      public Adapter caseExpression(Expression object)
       {
-        return createSAdapter();
+        return createExpressionAdapter();
       }
       @Override
-      public Adapter caseP1(P1 object)
+      public Adapter caseSteadyState(SteadyState object)
       {
-        return createP1Adapter();
+        return createSteadyStateAdapter();
       }
       @Override
-      public Adapter caseP(P object)
+      public Adapter caseQuantifiedProbability(QuantifiedProbability object)
       {
-        return createPAdapter();
+        return createQuantifiedProbabilityAdapter();
       }
       @Override
-      public Adapter caseF(F object)
+      public Adapter caseProbability(Probability object)
       {
-        return createFAdapter();
+        return createProbabilityAdapter();
       }
       @Override
-      public Adapter caseG(G object)
+      public Adapter caseUntil(Until object)
       {
-        return createGAdapter();
+        return createUntilAdapter();
       }
       @Override
-      public Adapter caseU(U object)
+      public Adapter caseNext(Next object)
       {
-        return createUAdapter();
+        return createNextAdapter();
+      }
+      @Override
+      public Adapter caseFuture(Future object)
+      {
+        return createFutureAdapter();
+      }
+      @Override
+      public Adapter caseGlobally(Globally object)
+      {
+        return createGloballyAdapter();
+      }
+      @Override
+      public Adapter caseConjunction(Conjunction object)
+      {
+        return createConjunctionAdapter();
+      }
+      @Override
+      public Adapter caseDisjunction(Disjunction object)
+      {
+        return createDisjunctionAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -162,6 +192,36 @@ public class PCTLAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.CommentedRule <em>Commented Rule</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.CommentedRule
+   * @generated
+   */
+  public Adapter createCommentedRuleAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Pctl <em>Pctl</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Pctl
+   * @generated
+   */
+  public Adapter createPctlAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.State <em>State</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -192,106 +252,166 @@ public class PCTLAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.StateOrLabel <em>State Or Label</em>}'.
+   * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Atomic <em>Atomic</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.StateOrLabel
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Atomic
    * @generated
    */
-  public Adapter createStateOrLabelAdapter()
+  public Adapter createAtomicAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.S <em>S</em>}'.
+   * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Expression <em>Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.S
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Expression
    * @generated
    */
-  public Adapter createSAdapter()
+  public Adapter createExpressionAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.P1 <em>P1</em>}'.
+   * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.SteadyState <em>Steady State</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.P1
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.SteadyState
    * @generated
    */
-  public Adapter createP1Adapter()
+  public Adapter createSteadyStateAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.P <em>P</em>}'.
+   * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.QuantifiedProbability <em>Quantified Probability</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.P
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.QuantifiedProbability
    * @generated
    */
-  public Adapter createPAdapter()
+  public Adapter createQuantifiedProbabilityAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.F <em>F</em>}'.
+   * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Probability <em>Probability</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.F
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Probability
    * @generated
    */
-  public Adapter createFAdapter()
+  public Adapter createProbabilityAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.G <em>G</em>}'.
+   * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Until <em>Until</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.G
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Until
    * @generated
    */
-  public Adapter createGAdapter()
+  public Adapter createUntilAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.U <em>U</em>}'.
+   * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Next <em>Next</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.U
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Next
    * @generated
    */
-  public Adapter createUAdapter()
+  public Adapter createNextAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Future <em>Future</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Future
+   * @generated
+   */
+  public Adapter createFutureAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Globally <em>Globally</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Globally
+   * @generated
+   */
+  public Adapter createGloballyAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Conjunction <em>Conjunction</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Conjunction
+   * @generated
+   */
+  public Adapter createConjunctionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Disjunction <em>Disjunction</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Disjunction
+   * @generated
+   */
+  public Adapter createDisjunctionAdapter()
   {
     return null;
   }

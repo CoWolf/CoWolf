@@ -32,6 +32,24 @@ public interface PCTLFactory extends EFactory
   Start createStart();
 
   /**
+   * Returns a new object of class '<em>Commented Rule</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Commented Rule</em>'.
+   * @generated
+   */
+  CommentedRule createCommentedRule();
+
+  /**
+   * Returns a new object of class '<em>Pctl</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Pctl</em>'.
+   * @generated
+   */
+  Pctl createPctl();
+
+  /**
    * Returns a new object of class '<em>State</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -50,67 +68,103 @@ public interface PCTLFactory extends EFactory
   Label createLabel();
 
   /**
-   * Returns a new object of class '<em>State Or Label</em>'.
+   * Returns a new object of class '<em>Atomic</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>State Or Label</em>'.
+   * @return a new object of class '<em>Atomic</em>'.
    * @generated
    */
-  StateOrLabel createStateOrLabel();
+  Atomic createAtomic();
 
   /**
-   * Returns a new object of class '<em>S</em>'.
+   * Returns a new object of class '<em>Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>S</em>'.
+   * @return a new object of class '<em>Expression</em>'.
    * @generated
    */
-  S createS();
+  Expression createExpression();
 
   /**
-   * Returns a new object of class '<em>P1</em>'.
+   * Returns a new object of class '<em>Steady State</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>P1</em>'.
+   * @return a new object of class '<em>Steady State</em>'.
    * @generated
    */
-  P1 createP1();
+  SteadyState createSteadyState();
 
   /**
-   * Returns a new object of class '<em>P</em>'.
+   * Returns a new object of class '<em>Quantified Probability</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>P</em>'.
+   * @return a new object of class '<em>Quantified Probability</em>'.
    * @generated
    */
-  P createP();
+  QuantifiedProbability createQuantifiedProbability();
 
   /**
-   * Returns a new object of class '<em>F</em>'.
+   * Returns a new object of class '<em>Probability</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>F</em>'.
+   * @return a new object of class '<em>Probability</em>'.
    * @generated
    */
-  F createF();
+  Probability createProbability();
 
   /**
-   * Returns a new object of class '<em>G</em>'.
+   * Returns a new object of class '<em>Until</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>G</em>'.
+   * @return a new object of class '<em>Until</em>'.
    * @generated
    */
-  G createG();
+  Until createUntil();
 
   /**
-   * Returns a new object of class '<em>U</em>'.
+   * Returns a new object of class '<em>Next</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>U</em>'.
+   * @return a new object of class '<em>Next</em>'.
    * @generated
    */
-  U createU();
+  Next createNext();
+
+  /**
+   * Returns a new object of class '<em>Future</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Future</em>'.
+   * @generated
+   */
+  Future createFuture();
+
+  /**
+   * Returns a new object of class '<em>Globally</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Globally</em>'.
+   * @generated
+   */
+  Globally createGlobally();
+
+  /**
+   * Returns a new object of class '<em>Conjunction</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Conjunction</em>'.
+   * @generated
+   */
+  Conjunction createConjunction();
+
+  /**
+   * Returns a new object of class '<em>Disjunction</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Disjunction</em>'.
+   * @generated
+   */
+  Disjunction createDisjunction();
 
   /**
    * Returns the package supported by this factory.

@@ -13,6 +13,6 @@ package de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL;
  * @model
  * @generated
  */
-public interface State extends StateOrLabel
+public interface State extends Atomic
 {
 } // State

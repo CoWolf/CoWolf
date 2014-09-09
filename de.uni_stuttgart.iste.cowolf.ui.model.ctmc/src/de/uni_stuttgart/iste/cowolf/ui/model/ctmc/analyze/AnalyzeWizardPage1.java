@@ -52,7 +52,7 @@ public class AnalyzeWizardPage1 extends WizardPage {
 				.getFile(new Path(resource.getURI().toPlatformString(true)));
 
 		IFile resultfile = ResourcesPlugin.getWorkspace().getRoot()
-				.getFile(modelfile.getFullPath().addFileExtension("csl"));
+				.getFile(modelfile.getFullPath().addFileExtension("pctl"));
 
 		clsFile = new File(resultfile.getLocationURI());
 
@@ -63,7 +63,7 @@ public class AnalyzeWizardPage1 extends WizardPage {
 
 				String line = null;
 				while ((line = reader.readLine()) != null) {
-					data += line;
+					data += line + "\n";
 				}
 			} catch (IOException x) {
 				System.err.format("IOException: %s%n", x);
@@ -99,7 +99,7 @@ public class AnalyzeWizardPage1 extends WizardPage {
 		try {
 			FileOutputStream out = new FileOutputStream(clsFile);
 			for (TableItem tableItem : table.getItems()) {
-				out.write((tableItem.getText(1) + "_#" + tableItem.getText(2) + "__#")
+				out.write(("// " + tableItem.getText(1) + "\n" + tableItem.getText(2) + "\n")
 						.getBytes());
 			}
 			out.close();
@@ -189,14 +189,14 @@ public class AnalyzeWizardPage1 extends WizardPage {
 			}
 		});
 
-		String[] tableData = data.split("__#");
+		String[] tableData = data.split("//");
 		for (String string : tableData) {
-			if (string.contains("_#")) {
-				String[] tableSubData = string.split("_#");
+			if (!string.isEmpty()) {
+				String[] tableSubData = string.split("\n", 2);
 				if (tableSubData.length > 1) {
-					addTableItem(tableSubData[0], tableSubData[1]);
+					addTableItem(tableSubData[0].trim(), tableSubData[1].trim());
 				} else {
-					addTableItem(tableSubData[0], "");
+					addTableItem(tableSubData[0].trim(), "");
 				}
 			}
 		}

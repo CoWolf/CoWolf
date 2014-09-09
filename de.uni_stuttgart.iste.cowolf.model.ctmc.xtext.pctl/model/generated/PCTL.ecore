@@ -3,29 +3,32 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="pCTL" nsURI="http://www.uni_stuttgart.de/iste/cowolf/model/ctmc/xtext/PCTL"
     nsPrefix="pCTL">
   <eClassifiers xsi:type="ecore:EClass" name="Start">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="start" eType="#//S" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="start" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="State" eSuperTypes="#//StateOrLabel"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Label" eSuperTypes="#//StateOrLabel"/>
-  <eClassifiers xsi:type="ecore:EClass" name="StateOrLabel" eSuperTypes="#//S">
+  <eClassifiers xsi:type="ecore:EClass" name="CommentedRule">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="comment" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rule" eType="#//Pctl" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Pctl"/>
+  <eClassifiers xsi:type="ecore:EClass" name="State" eSuperTypes="#//Atomic"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Label" eSuperTypes="#//Atomic"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Atomic" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="S" eSuperTypes="#//P1 #//P"/>
-  <eClassifiers xsi:type="ecore:EClass" name="P1" eSuperTypes="#//Start"/>
-  <eClassifiers xsi:type="ecore:EClass" name="P" eSuperTypes="#//P1"/>
-  <eClassifiers xsi:type="ecore:EClass" name="F" eSuperTypes="#//P1 #//P">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="RIGHT" eType="#//StateOrLabel"
+  <eClassifiers xsi:type="ecore:EClass" name="Expression" eSuperTypes="#//Pctl #//SteadyState #//QuantifiedProbability #//Probability">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Probability"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Expression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="G" eSuperTypes="#//P1 #//P">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="LEFT" eType="#//StateOrLabel"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="RIGHT" eType="#//P" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="U" eSuperTypes="#//P1 #//P">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="LEFT" eType="#//StateOrLabel"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="RIGHT" eType="#//StateOrLabel"
-        containment="true"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SteadyState" eSuperTypes="#//Pctl"/>
+  <eClassifiers xsi:type="ecore:EClass" name="QuantifiedProbability" eSuperTypes="#//Pctl"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Probability"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Until" eSuperTypes="#//Expression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Next" eSuperTypes="#//Expression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Future" eSuperTypes="#//Expression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Globally" eSuperTypes="#//Expression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Conjunction" eSuperTypes="#//Expression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Disjunction" eSuperTypes="#//Expression"/>
 </ecore:EPackage>
