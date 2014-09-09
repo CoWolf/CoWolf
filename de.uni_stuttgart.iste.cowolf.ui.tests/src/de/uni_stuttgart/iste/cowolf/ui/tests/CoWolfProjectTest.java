@@ -57,7 +57,7 @@ public class CoWolfProjectTest {
 	//			- DTMC
 	//			- CTMC
 	//			- Statechart
-	//			- Component_diagramemf model
+	//			- Component_diagram model
 	
 	@Test
 	public void AllProjectTypesAvailableTest() throws Exception {
@@ -89,9 +89,9 @@ public class CoWolfProjectTest {
 		SWTBotTreeItem cAD = bot.tree().getTreeItem("CoWolf").getNode("Models").getNode("Activity Diagram").select();
 		assertEquals(cAD.getText(), "Activity Diagram");
 		
-		//Check if CoWolf Component_diagramemf model is available
-		SWTBotTreeItem cCDM = bot.tree().getTreeItem("CoWolf").getNode("Models").getNode("Component_diagramemf Model").select();
-		assertEquals(cCDM.getText(), "Component_diagramemf Model");
+		//Check if CoWolf Component_diagram model is available
+		SWTBotTreeItem cCDM = bot.tree().getTreeItem("CoWolf").getNode("Models").getNode("Component_diagram Model").select();
+		assertEquals(cCDM.getText(), "Component_diagram Model");
 		
 		//Check if CoWolf CTMC model is available
 		SWTBotTreeItem cCTMC = bot.tree().getTreeItem("CoWolf").getNode("Models").getNode("Ctmc Model").select();
@@ -133,9 +133,9 @@ public class CoWolfProjectTest {
 		openProjectWizardwithContextMenu();
 		createModel("Activity Diagram");
 		
-		//Create an Component_diagramemf model
+		//Create an Component_diagram model
 		openProjectWizardwithContextMenu();
-		createModel("Component_diagramemf Model");
+		createModel("Component_diagram Model");
 		
 		//Create an Ctmc model
 		openProjectWizardwithContextMenu();
@@ -145,7 +145,7 @@ public class CoWolfProjectTest {
 		openProjectWizardwithContextMenu();
 		createModel("DTMC Model");
 		
-		//Create an Component_diagramemf model
+		//Create an Component_diagram model
 		openProjectWizardwithContextMenu();
 		createModel("FaultTree Model");
 

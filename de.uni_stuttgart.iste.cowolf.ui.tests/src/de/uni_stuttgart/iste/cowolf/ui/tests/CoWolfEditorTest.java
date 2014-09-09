@@ -134,52 +134,52 @@ public class CoWolfEditorTest {
 		// Set the Cowolf view active to open the My.Dtmc file
 		testHelper.setFocusCoWolfView(bot);
 
-		// operate on the dtmc file
-		SWTBotEditor dtmcEditor = testHelper.getFileEditor(bot, "My.ctmc");
+		// operate on the ctmc file
+		SWTBotEditor editor = testHelper.getFileEditor(bot, "My.ctmc");
 
-		// We set a refrence to the dtmc node, to extend it with States and
+		// We set a refrence to the ctmc node, to extend it with States and
 		// transitions
-		SWTBotTreeItem dtmcRootNode = getRootNode(dtmcEditor, "My.ctmc", "CTMC");
+		SWTBotTreeItem rootNode = getRootNode(editor, "My.ctmc", "CTMC");
 
-		SWTBotView propertiesView = getPropertiesView(bot, dtmcRootNode);
+		SWTBotView propertiesView = getPropertiesView(bot, rootNode);
 
 		// populate DTMC model instance
 
 		// Create states
-		createNode(dtmcRootNode, propertiesView, "State", "0");
-		createNode(dtmcRootNode, propertiesView, "State", "1");
-		createNode(dtmcRootNode, propertiesView, "State", "2");
-		createNode(dtmcRootNode, propertiesView, "State", "3");
-		createNode(dtmcRootNode, propertiesView, "State", "4");
-		createNode(dtmcRootNode, propertiesView, "State", "5");
-		createNode(dtmcRootNode, propertiesView, "State", "6");
+		createNode(rootNode, propertiesView, "State", "0");
+		createNode(rootNode, propertiesView, "State", "1");
+		createNode(rootNode, propertiesView, "State", "2");
+		createNode(rootNode, propertiesView, "State", "3");
+		createNode(rootNode, propertiesView, "State", "4");
+		createNode(rootNode, propertiesView, "State", "5");
+		createNode(rootNode, propertiesView, "State", "6");
 
-		createNode(dtmcRootNode, propertiesView, "State", "E1");
-		createNode(dtmcRootNode, propertiesView, "State", "E2");
-		createNode(dtmcRootNode, propertiesView, "State", "E3");
-		createNode(dtmcRootNode, propertiesView, "State", "E4");
-		createNode(dtmcRootNode, propertiesView, "State", "E5");
-		createNode(dtmcRootNode, propertiesView, "State", "E6");
+		createNode(rootNode, propertiesView, "State", "E1");
+		createNode(rootNode, propertiesView, "State", "E2");
+		createNode(rootNode, propertiesView, "State", "E3");
+		createNode(rootNode, propertiesView, "State", "E4");
+		createNode(rootNode, propertiesView, "State", "E5");
+		createNode(rootNode, propertiesView, "State", "E6");
 
-		dtmcEditor.bot().tree()
+		editor.bot().tree()
 				.getTreeItem("platform:/resource/CoWolf-Test-Project/My.ctmc")
 				.select();
 
-		createTransitionWithProperties(dtmcRootNode, propertiesView, "Rate",
+		createTransitionWithProperties(rootNode, propertiesView, "Rate",
 				"State 1");
-		createTransitionWithProperties(dtmcRootNode, propertiesView, "Rate",
+		createTransitionWithProperties(rootNode, propertiesView, "Rate",
 				"State 2");
-		createTransitionWithProperties(dtmcRootNode, propertiesView, "Rate",
+		createTransitionWithProperties(rootNode, propertiesView, "Rate",
 				"State 3");
-		createTransitionWithProperties(dtmcRootNode, propertiesView, "Rate",
+		createTransitionWithProperties(rootNode, propertiesView, "Rate",
 				"State 4");
-		createTransitionWithProperties(dtmcRootNode, propertiesView, "Rate",
+		createTransitionWithProperties(rootNode, propertiesView, "Rate",
 				"State 5");
-		createTransitionWithProperties(dtmcRootNode, propertiesView, "Rate",
+		createTransitionWithProperties(rootNode, propertiesView, "Rate",
 				"State 6");
 
 		// Save
-		dtmcEditor.saveAndClose();
+		editor.saveAndClose();
 	}
 
 	@Test
@@ -190,14 +190,14 @@ public class CoWolfEditorTest {
 
 		testHelper.createCoWolfProject(bot);
 
-		// Create a dtmc model
+		// Create a model
 		testHelper.openProjectWizardwithContextMenu(bot);
 		testHelper.createModel(bot, "statechartemf Model");
 
-		// Set the Cowolf view active to open the My.Dtmc file
+		// Set the Cowolf view active to open the file
 		testHelper.setFocusCoWolfView(bot);
 
-		// operate on the dtmc file
+		// operate on the file
 		SWTBotEditor editor = testHelper.getFileEditor(bot, "My.statechartemf");
 
 		// We set a refrence to the dtmc node, to extend it with States and
@@ -235,26 +235,14 @@ public class CoWolfEditorTest {
 
 		testHelper.createCoWolfProject(bot);
 
-		// Create a dtmc model
+		// Create a model
 		testHelper.openProjectWizardwithContextMenu(bot);
 		testHelper.createModel(bot, "FaultTree Model");
 
-		// Set the Cowolf view active to open the My.Dtmc file
+		// Set the Cowolf view active to open the file
 		testHelper.setFocusCoWolfView(bot);
 
-		// // operate on the dtmc file
-		// SWTBotEditor editor = testHelper.getFileEditor(bot, "My.faulttree");
-		//
-		// // We set a refrence to the dtmc node, to extend it with States and
-		// // transitions
-		// SWTBotTreeItem rootNode = getRootNode(editor, "My.faulttree",
-		// "Fault Tree");
-		//
-		// SWTBotView propertiesView = getPropertiesView(bot, rootNode);
 		SWTBotEditor editor = testHelper.getFileEditor(bot, "My.faulttree");
-
-		// We set a refrence to the dtmc node, to extend it with States and
-		// transitions
 
 		SWTBotTreeItem xml = editor
 				.bot()
@@ -314,7 +302,7 @@ public class CoWolfEditorTest {
 		SWTBotEditor editor = testHelper.getFileEditor(bot,
 				"My.activity_diagram");
 
-		// We set a refrence to the dtmc node, to extend it with States and
+		// We set a refrence to the node, to extend it with States and
 		// transitions
 
 		SWTBotTreeItem xml = editor
@@ -335,8 +323,7 @@ public class CoWolfEditorTest {
 
 		SWTBotView propertiesView = getPropertiesView(bot, rootNode);
 
-		// populate DTMC model instance
-
+		// populate model instance
 		createNode(rootNode, propertiesView, "Start", "");
 		createNode(rootNode, propertiesView, "Decision", "");
 		createNode(rootNode, propertiesView, "Action", "");
@@ -361,34 +348,34 @@ public class CoWolfEditorTest {
 
 		testHelper.createCoWolfProject(bot);
 
-		// Create a Activitiy Diagram model
+		// Create a component_diagram model
 		testHelper.openProjectWizardwithContextMenu(bot);
-		testHelper.createModel(bot, "Component_diagramemf Model");
+		testHelper.createModel(bot, "Component_diagram Model");
 
 		// Set the Cowolf view active to open the My.activity file
 		testHelper.setFocusCoWolfView(bot);
 
-		// operate on the dtmc file
+		// operate on the component_diagram file
 		SWTBotEditor editor = testHelper.getFileEditor(bot,
 				"My.component_diagram");
 
 		// We set a refrence to the node, to extend it
 		SWTBotTreeItem rootNode = getRootNode(editor, "My.component_diagram",
-				"Component Diagram");
-
+				"Architecture");
+		bot.sleep(4000);
 		SWTBotView propertiesView = getPropertiesView(bot, rootNode);
 
-		// populate DTMC model instance
+		// populate model instance
 
-		createNode(rootNode, propertiesView, "Component", "Mail Entry");
-		createNode(rootNode, propertiesView, "Component", "Mail Exit");
-		createNode(rootNode, propertiesView, "Component", "Mail Management");
+		createNode(rootNode, propertiesView, "Software Component", "Mail Entry");
+		createNode(rootNode, propertiesView, "Software Component", "Mail Exit");
+		createNode(rootNode, propertiesView, "Software Component", "Mail Management");
 
-		rootNode.getNode("Component Mail Entry").contextMenu("New Child")
-				.menu("Port").click();
+		rootNode.getNode("Software Component Mail Entry").contextMenu("New Child")
+				.menu("Port Type").click();
 		propertiesView.bot().tree().getTreeItem("Name").select().click();
 		propertiesView.bot().text().setText("Receive Mail");
-		rootNode.getNode("Component Mail Entry").select();
+		rootNode.getNode("Software Component Mail Entry").select();
 
 		editor.bot()
 				.tree()
@@ -442,7 +429,7 @@ public class CoWolfEditorTest {
 			SWTBotTreeItem rootNode) {
 		// open properties tab
 		rootNode.contextMenu("Show Properties View").click();
-		// operate on the properties view of the dtmc model file
+		// operate on the properties view of the model file
 		bot.viewByTitle("Properties").setFocus();
 
 		// we set a reference to the properties to add names and transitions
