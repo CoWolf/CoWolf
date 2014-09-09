@@ -13,13 +13,6 @@ import junit.textui.TestRunner;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Actor</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following operations are tested:
- * <ul>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Actor#associations(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Associations</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Actor#must_have_name(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Must have name</em>}</li>
- * </ul>
- * </p>
  * @generated
  */
 public class ActorTest extends TestCase {
@@ -91,32 +84,6 @@ public class ActorTest extends TestCase {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
-	}
-
-	/**
-	 * Tests the '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Actor#associations(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Associations</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Actor#associations(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-	 * @generated
-	 */
-	public void testAssociations__DiagnosticChain_Map() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Actor#must_have_name(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Must have name</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Actor#must_have_name(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-	 * @generated
-	 */
-	public void testMust_have_name__DiagnosticChain_Map() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
 	}
 
 } //ActorTest

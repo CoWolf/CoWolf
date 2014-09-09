@@ -72,26 +72,26 @@ public class Sequence_diagramItemProviderAdapterFactory extends Sequence_diagram
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Interaction} instances.
+	 * This keeps track of the one adapter used for all {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Package} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected InteractionItemProvider interactionItemProvider;
+	protected PackageItemProvider packageItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Interaction}.
+	 * This creates an adapter for a {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Package}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createInteractionAdapter() {
-		if (interactionItemProvider == null) {
-			interactionItemProvider = new InteractionItemProvider(this);
+	public Adapter createPackageAdapter() {
+		if (packageItemProvider == null) {
+			packageItemProvider = new PackageItemProvider(this);
 		}
 
-		return interactionItemProvider;
+		return packageItemProvider;
 	}
 
 	/**
@@ -115,29 +115,6 @@ public class Sequence_diagramItemProviderAdapterFactory extends Sequence_diagram
 		}
 
 		return messageItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Gate} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected GateItemProvider gateItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Gate}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createGateAdapter() {
-		if (gateItemProvider == null) {
-			gateItemProvider = new GateItemProvider(this);
-		}
-
-		return gateItemProvider;
 	}
 
 	/**
@@ -184,6 +161,29 @@ public class Sequence_diagramItemProviderAdapterFactory extends Sequence_diagram
 		}
 
 		return actorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.SdInteraction} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SdInteractionItemProvider sdInteractionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.SdInteraction}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSdInteractionAdapter() {
+		if (sdInteractionItemProvider == null) {
+			sdInteractionItemProvider = new SdInteractionItemProvider(this);
+		}
+
+		return sdInteractionItemProvider;
 	}
 
 	/**
@@ -285,11 +285,11 @@ public class Sequence_diagramItemProviderAdapterFactory extends Sequence_diagram
 	 * @generated
 	 */
 	public void dispose() {
-		if (interactionItemProvider != null) interactionItemProvider.dispose();
 		if (messageItemProvider != null) messageItemProvider.dispose();
-		if (gateItemProvider != null) gateItemProvider.dispose();
 		if (lifelineItemProvider != null) lifelineItemProvider.dispose();
 		if (actorItemProvider != null) actorItemProvider.dispose();
+		if (sdInteractionItemProvider != null) sdInteractionItemProvider.dispose();
+		if (packageItemProvider != null) packageItemProvider.dispose();
 	}
 
 }
