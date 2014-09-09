@@ -2,15 +2,16 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl;
 
-import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.*;
-
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Actor;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Lifeline;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Message;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.SdInteraction;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramFactory;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramPackage;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 /**
@@ -57,11 +58,11 @@ public class Sequence_diagramFactoryImpl extends EFactoryImpl implements Sequenc
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case Sequence_diagramPackage.INTERACTION: return createInteraction();
 			case Sequence_diagramPackage.MESSAGE: return createMessage();
-			case Sequence_diagramPackage.GATE: return createGate();
 			case Sequence_diagramPackage.LIFELINE: return createLifeline();
 			case Sequence_diagramPackage.ACTOR: return createActor();
+			case Sequence_diagramPackage.SD_INTERACTION: return createSdInteraction();
+			case Sequence_diagramPackage.PACKAGE: return createPackage();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -72,63 +73,9 @@ public class Sequence_diagramFactoryImpl extends EFactoryImpl implements Sequenc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Object createFromString(EDataType eDataType, String initialValue) {
-		switch (eDataType.getClassifierID()) {
-			case Sequence_diagramPackage.MESSAGE_KIND:
-				return createMessageKindFromString(eDataType, initialValue);
-			case Sequence_diagramPackage.MESSAGE_SORT:
-				return createMessageSortFromString(eDataType, initialValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String convertToString(EDataType eDataType, Object instanceValue) {
-		switch (eDataType.getClassifierID()) {
-			case Sequence_diagramPackage.MESSAGE_KIND:
-				return convertMessageKindToString(eDataType, instanceValue);
-			case Sequence_diagramPackage.MESSAGE_SORT:
-				return convertMessageSortToString(eDataType, instanceValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Interaction createInteraction() {
-		InteractionImpl interaction = new InteractionImpl();
-		return interaction;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Message createMessage() {
 		MessageImpl message = new MessageImpl();
 		return message;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Gate createGate() {
-		GateImpl gate = new GateImpl();
-		return gate;
 	}
 
 	/**
@@ -156,10 +103,9 @@ public class Sequence_diagramFactoryImpl extends EFactoryImpl implements Sequenc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MessageKind createMessageKindFromString(EDataType eDataType, String initialValue) {
-		MessageKind result = MessageKind.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
+	public SdInteraction createSdInteraction() {
+		SdInteractionImpl sdInteraction = new SdInteractionImpl();
+		return sdInteraction;
 	}
 
 	/**
@@ -167,28 +113,9 @@ public class Sequence_diagramFactoryImpl extends EFactoryImpl implements Sequenc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertMessageKindToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MessageSort createMessageSortFromString(EDataType eDataType, String initialValue) {
-		MessageSort result = MessageSort.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertMessageSortToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
+	public de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Package createPackage() {
+		PackageImpl package_ = new PackageImpl();
+		return package_;
 	}
 
 	/**

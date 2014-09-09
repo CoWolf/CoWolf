@@ -31,11 +31,11 @@ public class Sequence_diagramTests extends TestSuite {
 	 */
 	public static Test suite() {
 		TestSuite suite = new Sequence_diagramTests("sequence_diagram Tests");
-		suite.addTestSuite(InteractionTest.class);
 		suite.addTestSuite(MessageTest.class);
-		suite.addTestSuite(GateTest.class);
 		suite.addTestSuite(LifelineTest.class);
 		suite.addTestSuite(ActorTest.class);
+		suite.addTestSuite(SdInteractionTest.class);
+		suite.addTestSuite(PackageTest.class);
 		return suite;
 	}
 

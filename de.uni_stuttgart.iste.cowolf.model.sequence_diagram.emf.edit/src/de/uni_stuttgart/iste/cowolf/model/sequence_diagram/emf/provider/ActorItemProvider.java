@@ -3,8 +3,11 @@
 package de.uni_stuttgart.iste.cowolf.model.sequence_diagram.emf.provider;
 
 
+import commonBase.CommonBasePackage;
+
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Actor;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramFactory;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramPackage;
 
 import java.util.Collection;
 import java.util.List;
@@ -14,11 +17,12 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.eclipse.uml2.uml.UMLPackage;
-
-import org.eclipse.uml2.uml.edit.providers.BehavioredClassifierItemProvider;
 
 /**
  * This is the item provider adapter for a {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Actor} object.
@@ -26,7 +30,7 @@ import org.eclipse.uml2.uml.edit.providers.BehavioredClassifierItemProvider;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ActorItemProvider extends BehavioredClassifierItemProvider {
+public class ActorItemProvider extends org.eclipse.uml2.uml.edit.providers.ActorItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -48,8 +52,31 @@ public class ActorItemProvider extends BehavioredClassifierItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addIdPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Id feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIdPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_IDBase_id_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_IDBase_id_feature", "_UI_IDBase_type"),
+				 CommonBasePackage.Literals.ID_BASE__ID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -88,6 +115,12 @@ public class ActorItemProvider extends BehavioredClassifierItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(Actor.class)) {
+			case Sequence_diagramPackage.ACTOR__ID:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 
@@ -105,12 +138,12 @@ public class ActorItemProvider extends BehavioredClassifierItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(UMLPackage.Literals.BEHAVIORED_CLASSIFIER__CLASSIFIER_BEHAVIOR,
-				 Sequence_diagramFactory.eINSTANCE.createInteraction()));
+				 Sequence_diagramFactory.eINSTANCE.createSdInteraction()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(UMLPackage.Literals.BEHAVIORED_CLASSIFIER__OWNED_BEHAVIOR,
-				 Sequence_diagramFactory.eINSTANCE.createInteraction()));
+				 Sequence_diagramFactory.eINSTANCE.createSdInteraction()));
 	}
 
 	/**

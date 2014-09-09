@@ -4,19 +4,23 @@ package de.uni_stuttgart.iste.cowolf.model.sequence_diagram.emf.tests;
 
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ExecutionSpecification;
 
+import junit.framework.TestCase;
+
 /**
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Execution Specification</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following operations are tested:
- * <ul>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ExecutionSpecification#same_lifeline(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Same lifeline</em>}</li>
- * </ul>
- * </p>
  * @generated
  */
-public abstract class ExecutionSpecificationTest extends InteractionFragmentTest {
+public abstract class ExecutionSpecificationTest extends TestCase {
+
+	/**
+	 * The fixture for this Execution Specification test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ExecutionSpecification fixture = null;
 
 	/**
 	 * Constructs a new Execution Specification test case with the given name.
@@ -29,27 +33,23 @@ public abstract class ExecutionSpecificationTest extends InteractionFragmentTest
 	}
 
 	/**
+	 * Sets the fixture for this Execution Specification test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void setFixture(ExecutionSpecification fixture) {
+		this.fixture = fixture;
+	}
+
+	/**
 	 * Returns the fixture for this Execution Specification test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	protected ExecutionSpecification getFixture() {
-		return (ExecutionSpecification)fixture;
-	}
-
-	/**
-	 * Tests the '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ExecutionSpecification#same_lifeline(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Same lifeline</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ExecutionSpecification#same_lifeline(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-	 * @generated
-	 */
-	public void testSame_lifeline__DiagnosticChain_Map() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
+		return fixture;
 	}
 
 } //ExecutionSpecificationTest

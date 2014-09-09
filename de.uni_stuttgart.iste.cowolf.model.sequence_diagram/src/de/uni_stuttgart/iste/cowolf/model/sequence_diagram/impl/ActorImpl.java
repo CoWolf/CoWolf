@@ -2,38 +2,52 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl;
 
+import commonBase.CommonBasePackage;
+import commonBase.IDBase;
+
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Actor;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramPackage;
 
-import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.util.Sequence_diagramValidator;
-
-import java.lang.reflect.InvocationTargetException;
-
-import java.util.Map;
-
-import org.eclipse.emf.common.util.BasicDiagnostic;
-import org.eclipse.emf.common.util.Diagnostic;
-import org.eclipse.emf.common.util.DiagnosticChain;
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import org.eclipse.emf.ecore.util.EObjectValidator;
-
-import org.eclipse.uml2.uml.internal.impl.BehavioredClassifierImpl;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Actor</b></em>'.
  * <!-- end-user-doc -->
  * <p>
+ * The following features are implemented:
+ * <ul>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.ActorImpl#getId <em>Id</em>}</li>
+ * </ul>
  * </p>
  *
  * @generated
  */
-public class ActorImpl extends BehavioredClassifierImpl implements Actor {
+public class ActorImpl extends org.eclipse.uml2.uml.internal.impl.ActorImpl implements Actor {
+	/**
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ID_EDEFAULT = "";
+
+	/**
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String id = ID_EDEFAULT;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -58,24 +72,8 @@ public class ActorImpl extends BehavioredClassifierImpl implements Actor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean associations(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO: implement this method
-		// -> specify the condition that violates the invariant
-		// -> verify the details of the diagnostic, including severity and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 Sequence_diagramValidator.DIAGNOSTIC_SOURCE,
-						 Sequence_diagramValidator.ACTOR__ASSOCIATIONS,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "associations", EObjectValidator.getObjectLabel(this, context) }),
-						 new Object [] { this }));
-			}
-			return false;
-		}
-		return true;
+	public String getId() {
+		return id;
 	}
 
 	/**
@@ -83,24 +81,11 @@ public class ActorImpl extends BehavioredClassifierImpl implements Actor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean must_have_name(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO: implement this method
-		// -> specify the condition that violates the invariant
-		// -> verify the details of the diagnostic, including severity and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 Sequence_diagramValidator.DIAGNOSTIC_SOURCE,
-						 Sequence_diagramValidator.ACTOR__MUST_HAVE_NAME,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "must_have_name", EObjectValidator.getObjectLabel(this, context) }),
-						 new Object [] { this }));
-			}
-			return false;
-		}
-		return true;
+	public void setId(String newId) {
+		String oldId = id;
+		id = newId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, Sequence_diagramPackage.ACTOR__ID, oldId, id));
 	}
 
 	/**
@@ -109,15 +94,104 @@ public class ActorImpl extends BehavioredClassifierImpl implements Actor {
 	 * @generated
 	 */
 	@Override
-	@SuppressWarnings("unchecked")
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case Sequence_diagramPackage.ACTOR___ASSOCIATIONS__DIAGNOSTICCHAIN_MAP:
-				return associations((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
-			case Sequence_diagramPackage.ACTOR___MUST_HAVE_NAME__DIAGNOSTICCHAIN_MAP:
-				return must_have_name((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case Sequence_diagramPackage.ACTOR__ID:
+				return getId();
 		}
-		return super.eInvoke(operationID, arguments);
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case Sequence_diagramPackage.ACTOR__ID:
+				setId((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case Sequence_diagramPackage.ACTOR__ID:
+				setId(ID_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case Sequence_diagramPackage.ACTOR__ID:
+				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == IDBase.class) {
+			switch (derivedFeatureID) {
+				case Sequence_diagramPackage.ACTOR__ID: return CommonBasePackage.ID_BASE__ID;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == IDBase.class) {
+			switch (baseFeatureID) {
+				case CommonBasePackage.ID_BASE__ID: return Sequence_diagramPackage.ACTOR__ID;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (id: ");
+		result.append(id);
+		result.append(')');
+		return result.toString();
 	}
 
 } //ActorImpl

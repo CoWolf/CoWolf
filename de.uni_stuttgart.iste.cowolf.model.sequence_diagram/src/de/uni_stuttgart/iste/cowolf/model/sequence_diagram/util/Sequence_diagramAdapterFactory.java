@@ -2,7 +2,13 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.sequence_diagram.util;
 
-import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.*;
+import commonBase.IDBase;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Actor;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ExecutionSpecification;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Lifeline;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Message;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.SdInteraction;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramPackage;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
@@ -13,6 +19,7 @@ import org.eclipse.uml2.uml.BehavioredClassifier;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.EncapsulatedClassifier;
+import org.eclipse.uml2.uml.InteractionFragment;
 import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.Namespace;
 import org.eclipse.uml2.uml.PackageableElement;
@@ -21,7 +28,6 @@ import org.eclipse.uml2.uml.RedefinableElement;
 import org.eclipse.uml2.uml.StructuredClassifier;
 import org.eclipse.uml2.uml.TemplateableElement;
 import org.eclipse.uml2.uml.Type;
-import org.eclipse.uml2.uml.TypedElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -80,32 +86,12 @@ public class Sequence_diagramAdapterFactory extends AdapterFactoryImpl {
 	protected Sequence_diagramSwitch<Adapter> modelSwitch =
 		new Sequence_diagramSwitch<Adapter>() {
 			@Override
-			public Adapter caseInteraction(Interaction object) {
-				return createInteractionAdapter();
-			}
-			@Override
 			public Adapter caseMessage(Message object) {
 				return createMessageAdapter();
 			}
 			@Override
-			public Adapter caseGate(Gate object) {
-				return createGateAdapter();
-			}
-			@Override
-			public Adapter caseInteractionFragment(InteractionFragment object) {
-				return createInteractionFragmentAdapter();
-			}
-			@Override
 			public Adapter caseLifeline(Lifeline object) {
 				return createLifelineAdapter();
-			}
-			@Override
-			public Adapter caseValueSpecification(ValueSpecification object) {
-				return createValueSpecificationAdapter();
-			}
-			@Override
-			public Adapter caseMessageEnd(MessageEnd object) {
-				return createMessageEndAdapter();
 			}
 			@Override
 			public Adapter caseExecutionSpecification(ExecutionSpecification object) {
@@ -114,6 +100,14 @@ public class Sequence_diagramAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseActor(Actor object) {
 				return createActorAdapter();
+			}
+			@Override
+			public Adapter caseSdInteraction(SdInteraction object) {
+				return createSdInteractionAdapter();
+			}
+			@Override
+			public Adapter casePackage(de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Package object) {
+				return createPackageAdapter();
 			}
 			@Override
 			public Adapter caseEModelElement(EModelElement object) {
@@ -126,6 +120,26 @@ public class Sequence_diagramAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseNamedElement(NamedElement object) {
 				return createNamedElementAdapter();
+			}
+			@Override
+			public Adapter caseUML_Message(org.eclipse.uml2.uml.Message object) {
+				return createUML_MessageAdapter();
+			}
+			@Override
+			public Adapter caseIDBase(IDBase object) {
+				return createIDBaseAdapter();
+			}
+			@Override
+			public Adapter caseUML_Lifeline(org.eclipse.uml2.uml.Lifeline object) {
+				return createUML_LifelineAdapter();
+			}
+			@Override
+			public Adapter caseInteractionFragment(InteractionFragment object) {
+				return createInteractionFragmentAdapter();
+			}
+			@Override
+			public Adapter caseUML_ExecutionSpecification(org.eclipse.uml2.uml.ExecutionSpecification object) {
+				return createUML_ExecutionSpecificationAdapter();
 			}
 			@Override
 			public Adapter caseNamespace(Namespace object) {
@@ -156,16 +170,20 @@ public class Sequence_diagramAdapterFactory extends AdapterFactoryImpl {
 				return createClassifierAdapter();
 			}
 			@Override
+			public Adapter caseBehavioredClassifier(BehavioredClassifier object) {
+				return createBehavioredClassifierAdapter();
+			}
+			@Override
+			public Adapter caseUML_Actor(org.eclipse.uml2.uml.Actor object) {
+				return createUML_ActorAdapter();
+			}
+			@Override
 			public Adapter caseStructuredClassifier(StructuredClassifier object) {
 				return createStructuredClassifierAdapter();
 			}
 			@Override
 			public Adapter caseEncapsulatedClassifier(EncapsulatedClassifier object) {
 				return createEncapsulatedClassifierAdapter();
-			}
-			@Override
-			public Adapter caseBehavioredClassifier(BehavioredClassifier object) {
-				return createBehavioredClassifierAdapter();
 			}
 			@Override
 			public Adapter caseClass(org.eclipse.uml2.uml.Class object) {
@@ -176,8 +194,12 @@ public class Sequence_diagramAdapterFactory extends AdapterFactoryImpl {
 				return createBehaviorAdapter();
 			}
 			@Override
-			public Adapter caseTypedElement(TypedElement object) {
-				return createTypedElementAdapter();
+			public Adapter caseInteraction(org.eclipse.uml2.uml.Interaction object) {
+				return createInteractionAdapter();
+			}
+			@Override
+			public Adapter caseUML_Package(org.eclipse.uml2.uml.Package object) {
+				return createUML_PackageAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -198,6 +220,104 @@ public class Sequence_diagramAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Message <em>Message</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Message
+	 * @generated
+	 */
+	public Adapter createMessageAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Lifeline <em>Lifeline</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Lifeline
+	 * @generated
+	 */
+	public Adapter createLifelineAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ExecutionSpecification <em>Execution Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ExecutionSpecification
+	 * @generated
+	 */
+	public Adapter createExecutionSpecificationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Actor <em>Actor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Actor
+	 * @generated
+	 */
+	public Adapter createActorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.SdInteraction <em>Sd Interaction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.SdInteraction
+	 * @generated
+	 */
+	public Adapter createSdInteractionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.Interaction <em>Interaction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.uml2.uml.Interaction
+	 * @generated
+	 */
+	public Adapter createInteractionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Package <em>Package</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Package
+	 * @generated
+	 */
+	public Adapter createPackageAdapter() {
+		return null;
+	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecore.EModelElement <em>EModel Element</em>}'.
@@ -238,6 +358,76 @@ public class Sequence_diagramAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNamedElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.Message <em>Message</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.uml2.uml.Message
+	 * @generated
+	 */
+	public Adapter createUML_MessageAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link commonBase.IDBase <em>ID Base</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see commonBase.IDBase
+	 * @generated
+	 */
+	public Adapter createIDBaseAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.Lifeline <em>Lifeline</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.uml2.uml.Lifeline
+	 * @generated
+	 */
+	public Adapter createUML_LifelineAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.InteractionFragment <em>Interaction Fragment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.uml2.uml.InteractionFragment
+	 * @generated
+	 */
+	public Adapter createInteractionFragmentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.ExecutionSpecification <em>Execution Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.uml2.uml.ExecutionSpecification
+	 * @generated
+	 */
+	public Adapter createUML_ExecutionSpecificationAdapter() {
 		return null;
 	}
 
@@ -340,6 +530,34 @@ public class Sequence_diagramAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.BehavioredClassifier <em>Behaviored Classifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.uml2.uml.BehavioredClassifier
+	 * @generated
+	 */
+	public Adapter createBehavioredClassifierAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.Actor <em>Actor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.uml2.uml.Actor
+	 * @generated
+	 */
+	public Adapter createUML_ActorAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.StructuredClassifier <em>Structured Classifier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -364,20 +582,6 @@ public class Sequence_diagramAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEncapsulatedClassifierAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.BehavioredClassifier <em>Behaviored Classifier</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.uml2.uml.BehavioredClassifier
-	 * @generated
-	 */
-	public Adapter createBehavioredClassifierAdapter() {
 		return null;
 	}
 
@@ -410,142 +614,16 @@ public class Sequence_diagramAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.TypedElement <em>Typed Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.Package <em>Package</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.uml2.uml.TypedElement
+	 * @see org.eclipse.uml2.uml.Package
 	 * @generated
 	 */
-	public Adapter createTypedElementAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.InteractionFragment <em>Interaction Fragment</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.InteractionFragment
-	 * @generated
-	 */
-	public Adapter createInteractionFragmentAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Lifeline <em>Lifeline</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Lifeline
-	 * @generated
-	 */
-	public Adapter createLifelineAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ValueSpecification <em>Value Specification</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ValueSpecification
-	 * @generated
-	 */
-	public Adapter createValueSpecificationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.MessageEnd <em>Message End</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.MessageEnd
-	 * @generated
-	 */
-	public Adapter createMessageEndAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ExecutionSpecification <em>Execution Specification</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ExecutionSpecification
-	 * @generated
-	 */
-	public Adapter createExecutionSpecificationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Actor <em>Actor</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Actor
-	 * @generated
-	 */
-	public Adapter createActorAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Interaction <em>Interaction</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Interaction
-	 * @generated
-	 */
-	public Adapter createInteractionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Message <em>Message</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Message
-	 * @generated
-	 */
-	public Adapter createMessageAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Gate <em>Gate</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Gate
-	 * @generated
-	 */
-	public Adapter createGateAdapter() {
+	public Adapter createUML_PackageAdapter() {
 		return null;
 	}
 
