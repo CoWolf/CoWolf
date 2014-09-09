@@ -129,9 +129,8 @@ public class UMLServices {
 		if (PlatformUI.getWorkbench() != null && PlatformUI.getWorkbench().getActiveWorkbenchWindow() != null
 				&& PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell() != null) {
 
-			// Context ids are defined in the html/contexts.xml file in
-			// org.obeonetwork.dsl.uml2.design.doc project.
-			String contextId = "org.obeonetwork.dsl.uml2.design.doc." + contextID;
+
+			String contextId = "de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.design.doc." + contextID;
 
 			PlatformUI.getWorkbench().getHelpSystem()
 					.setHelp(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), contextId);

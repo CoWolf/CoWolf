@@ -87,8 +87,7 @@ public abstract class AbstractNewUmlModelWizard extends BasicNewProjectResourceW
 
 				// Open the contextual help
 				// Context ids are defined in the html/contexts.xml file in
-				// org.obeonetwork.dsl.uml2.design.doc project.
-				String contextId = "org.obeonetwork.dsl.uml2.design.doc.Dashboard";
+				String contextId = "de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.design.doc.Dashboard";
 				PlatformUI.getWorkbench().getHelpSystem()
 						.setHelp(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), contextId);
 				PlatformUI.getWorkbench().getHelpSystem().displayDynamicHelp();
