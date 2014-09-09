@@ -290,6 +290,10 @@ public class PRISMGenerator {
       String _replace_1 = result.replace(("Label:" + entry_1), (("\"" + entry_1) + "\""));
       result = _replace_1;
     }
+    String _replaceAll = result.replaceAll("State:\\w+", "false");
+    result = _replaceAll;
+    String _replaceAll_1 = result.replaceAll("Label:\\w+", "false");
+    result = _replaceAll_1;
     return result;
   }
   

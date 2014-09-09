@@ -112,6 +112,9 @@ class PRISMGenerator {
 		for (entry : labelsList) {
 			result = result.replace("Label:" + entry, "\"" + entry + "\"")
 		}
+		
+		result = result.replaceAll("State:\\w+", "false");
+        result = result.replaceAll("Label:\\w+", "false");
 
 		return result;
 	}
