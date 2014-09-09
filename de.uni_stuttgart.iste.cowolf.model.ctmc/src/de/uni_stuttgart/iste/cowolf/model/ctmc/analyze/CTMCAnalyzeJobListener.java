@@ -7,7 +7,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PipedInputStream;
 import java.io.PipedOutputStream;
-import java.util.Map.Entry;
 
 import javax.swing.JOptionPane;
 
@@ -20,7 +19,6 @@ import org.eclipse.core.runtime.jobs.IJobChangeListener;
 import org.eclipse.emf.ecore.resource.Resource;
 
 import de.uni_stuttgart.iste.cowolf.model.IAnalysisListener;
-import de.uni_stuttgart.iste.cowolf.model.ctmc.State;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.analyze.CTMCAnalyzeJob.Result;
 
 /**
@@ -98,27 +96,13 @@ public class CTMCAnalyzeJobListener implements IJobChangeListener {
 			// evaluated. When performing a simulation, only reachability is
 			// evaluated.
 			if (job.getAnalysis().size() > 0) {
-				if (job.getAnalysis().entrySet().iterator().next().getValue().residence == null) {
-					out.write("State,Reachability\n".getBytes());
-				} else {
-					out.write("State,Reachability,Probability\n".getBytes());
-				}
+				out.write("Property,Result\n".getBytes());
 
-				for (Entry<Object, Result> entry : job.getAnalysis().entrySet()) {
-					String key = "";
-					if (entry.getKey() instanceof State) {
-						key = ((State) entry.getKey()).getName();
-					} else if (entry.getKey() instanceof String) {
-						key = "Label: " + (String) entry.getKey();
-					}
-					out.write(key.getBytes());
+				for (Result entry : job.getAnalysis()) {
+					out.write(("\"" + entry.name.replaceAll("\"", "\"\"") + "\"")
+							.getBytes());
 					out.write(',');
-					out.write(String.valueOf(entry.getValue().reach).getBytes());
-					if (entry.getValue().residence != null) {
-						out.write(',');
-						out.write(String.valueOf(entry.getValue().residence)
-								.getBytes());
-					}
+					out.write(entry.value.getBytes());
 					out.write('\n');
 				}
 			}
@@ -135,12 +119,14 @@ public class CTMCAnalyzeJobListener implements IJobChangeListener {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block				
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (CoreException e) {
-			JOptionPane.showMessageDialog(null,
-					"Error saving result to csv. Is result csv file from previous run still open?",
-					"Error saving result", JOptionPane.ERROR_MESSAGE);
+			JOptionPane
+					.showMessageDialog(
+							null,
+							"Error saving result to csv. Is result csv file from previous run still open?",
+							"Error saving result", JOptionPane.ERROR_MESSAGE);
 		}
 
 		if (this.listener != null) {

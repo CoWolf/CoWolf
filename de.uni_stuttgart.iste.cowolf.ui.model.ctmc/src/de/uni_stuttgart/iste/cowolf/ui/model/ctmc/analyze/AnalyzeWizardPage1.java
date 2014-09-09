@@ -1,258 +1,351 @@
 package de.uni_stuttgart.iste.cowolf.ui.model.ctmc.analyze;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.Path;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.jface.viewers.ArrayContentProvider;
+import org.eclipse.jface.viewers.TableViewer;
+import org.eclipse.jface.window.Window;
+import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.ModifyEvent;
-import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.events.ControlAdapter;
+import org.eclipse.swt.events.ControlEvent;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
-import org.eclipse.swt.events.VerifyEvent;
-import org.eclipse.swt.events.VerifyListener;
+import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Control;
-import org.eclipse.swt.widgets.Group;
-import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Text;
+import org.eclipse.swt.widgets.ScrollBar;
+import org.eclipse.swt.widgets.Table;
+import org.eclipse.swt.widgets.TableColumn;
+import org.eclipse.swt.widgets.TableItem;
 
 public class AnalyzeWizardPage1 extends WizardPage {
 
 	private Composite container;
-	private Button btnSimulation;
-	private Button btnVerification;
-	private Label lblNumberOfSamples;
-	private Text txtNumberofsamples;
-	private Label lblConfidence;
-	private Text txtConfidence;
-	private Text txtPathlength;
-	private Label lblPathlength;
+	private Resource resource;
+	Table table;
+	TableViewer tableViewer;
+	String data;
+	File clsFile;
 
-	protected AnalyzeWizardPage1(final String pageName) {
+	protected AnalyzeWizardPage1(final String pageName, final Resource res) {
 		super(pageName);
+		this.resource = res;
 		this.setTitle("Analyze a ctmc model");
-		this.setDescription("Analyze a ctmc model");
+		this.setDescription("Select properties to analyze.");
+
+		IFile modelfile = ResourcesPlugin.getWorkspace().getRoot()
+				.getFile(new Path(resource.getURI().toPlatformString(true)));
+
+		IFile resultfile = ResourcesPlugin.getWorkspace().getRoot()
+				.getFile(modelfile.getFullPath().addFileExtension("pctl"));
+
+		clsFile = new File(resultfile.getLocationURI());
+
+		data = "";
+		if (clsFile.exists()) {
+			try (BufferedReader reader = new BufferedReader(new FileReader(
+					clsFile))) {
+
+				String line = null;
+				while ((line = reader.readLine()) != null) {
+					data += line + "\n";
+				}
+			} catch (IOException x) {
+				System.err.format("IOException: %s%n", x);
+			}
+		} else {
+			try {
+				clsFile.createNewFile();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public void addTableItem(String key, String value) {
+		TableItem item = new TableItem(table, SWT.NONE);
+		item.setText(new String[] { null, key, value });
+		save();
+	}
+
+	public void editTableItem(Integer index, String key, String value) {
+		TableItem item = table.getItem(index);
+		item.setText(new String[] { null, key, value });
+		save();
+	}
+
+	public void deleteTableItem(Integer index) {
+		table.remove(index);
+		save();
+	}
+
+	public void save() {
+		try {
+			FileOutputStream out = new FileOutputStream(clsFile);
+			for (TableItem tableItem : table.getItems()) {
+				out.write(("// " + tableItem.getText(1) + "\n" + tableItem.getText(2) + "\n")
+						.getBytes());
+			}
+			out.close();
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 
 	@Override
 	public void createControl(final Composite parent) {
 		this.container = new Composite(parent, SWT.NONE);
 		this.setControl(this.container);
-		this.container.setLayout(new GridLayout(1, false));
+		this.container.setLayout(new GridLayout(5, false));
+		
+				tableViewer = new TableViewer(container, SWT.CHECK | SWT.FULL_SELECTION);
+				tableViewer.setContentProvider(ArrayContentProvider.getInstance());
+				table = tableViewer.getTable();
+				GridData gd_t = new GridData(SWT.FILL, SWT.FILL, true, true, 5, 1);
+				gd_t.widthHint = 554;
+				table.setLayoutData(gd_t);
+				table.setLinesVisible(true);
+				
+						final TableColumn column1 = new TableColumn(table, SWT.CENTER);
+						column1.setResizable(false);
+						column1.setText(" ");
+						column1.setWidth(40);
+						final TableColumn column2 = new TableColumn(table, SWT.LEFT);
+						column2.setText("Name");
+						column2.setWidth(180);
+						final TableColumn column3 = new TableColumn(table, SWT.LEFT);
+						column3.setResizable(false);
+						column3.setText("Property");
+						column3.setWidth(180);
+						table.setHeaderVisible(true);
+						
+								table.addSelectionListener(new SelectionListener() {
+						
+									@Override
+									public void widgetSelected(SelectionEvent arg0) {
+										AnalyzeWizardPage1.this.getContainer().updateButtons();
+									}
+						
+									@Override
+									public void widgetDefaultSelected(SelectionEvent arg0) {
+										// TODO Auto-generated method stub
+									}
+								});
 
-		Group grpVerificationMethod = new Group(this.container, SWT.NONE);
-		grpVerificationMethod.setLayoutData(new GridData(SWT.FILL, SWT.FILL,
-				true, false, 1, 1));
-		grpVerificationMethod.setText("Verification Method");
-		grpVerificationMethod.setLayout(new GridLayout(1, false));
-
-		this.btnVerification = new Button(grpVerificationMethod, SWT.RADIO);
-		this.btnVerification.setSelection(true);
-		this.btnVerification.setText("Verification");
-
-		this.btnSimulation = new Button(grpVerificationMethod, SWT.RADIO);
-		this.btnSimulation.setText("Simulation");
-
-		ModifyListener changeListener = new ModifyListener() {
+		container.addControlListener(new ControlAdapter() {
 			@Override
-			public void modifyText(final ModifyEvent e) {
-				AnalyzeWizardPage1.this.setPageComplete();
-			}
-		};
+			public void controlResized(ControlEvent e) {
+				// TODO Auto-generated method stub
+				super.controlResized(e);
+				Rectangle area = container.getClientArea();
+				Point size = table.computeSize(SWT.DEFAULT, SWT.DEFAULT);
 
-		VerifyListener floatListener = new VerifyListener() {
-			@Override
-			public void verifyText(final VerifyEvent e) {
-				e.doit = e.text.matches("^[\\d.]*$");
-				AnalyzeWizardPage1.this.setPageComplete();
-			}
-		};
-		VerifyListener integerListener = new VerifyListener() {
-			@Override
-			public void verifyText(final VerifyEvent e) {
-				e.doit = e.text.matches("\\d*");
-			}
-		};
+				ScrollBar vBar = table.getVerticalBar();
+				int width = area.width - table.computeTrim(0, 0, 0, 0).width
+						- vBar.getSize().x;
+				if (size.y > area.height + table.getHeaderHeight()) {
+					// Subtract the scrollbar width from the total column width
+					// if a vertical scrollbar will be required
+					Point vBarSize = vBar.getSize();
+					width -= vBarSize.x;
+				}
+				Point oldSize = table.getSize();
+				if (oldSize.x > area.width) {
+					// table is getting smaller so make the columns
+					// smaller first and then resize the table to
+					// match the client area width
+					column3.setWidth(width - column1.getWidth()
+							- column2.getWidth());
 
-		final Group grpSimulationProperties = new Group(this.container, SWT.NONE);
-		grpSimulationProperties.setLayoutData(new GridData(SWT.FILL,
-				SWT.CENTER, false, false, 1, 1));
-		grpSimulationProperties.setText("Simulation properties");
-		this.recursiveSetEnabled(grpSimulationProperties, false);
-		GridLayout gl_grpSimulationProperties = new GridLayout(2, false);
-		gl_grpSimulationProperties.horizontalSpacing = 50;
-		grpSimulationProperties.setLayout(gl_grpSimulationProperties);
+					table.setSize(area.width, area.height);
+				} else {
+					// table is getting bigger so make the table
+					// bigger first and then make the columns wider
+					// to match the client area width
+					table.setSize(area.width, area.height);
+					column3.setWidth(width - column1.getWidth()
+							- column2.getWidth());
+				}
 
-		this.lblNumberOfSamples = new Label(grpSimulationProperties, SWT.NONE);
-		this.lblNumberOfSamples.setText("Number of Samples:");
-
-		this.txtNumberofsamples = new Text(grpSimulationProperties, SWT.BORDER);
-		this.txtNumberofsamples.setLayoutData(new GridData(SWT.FILL,
-				SWT.CENTER, false, false, 1, 1));
-		this.txtNumberofsamples.setText("1000");
-
-		this.lblConfidence = new Label(grpSimulationProperties, SWT.NONE);
-		this.lblConfidence.setText("Confidence:");
-
-		this.txtConfidence = new Text(grpSimulationProperties, SWT.BORDER);
-		this.txtConfidence.setLayoutData(new GridData(SWT.FILL, SWT.CENTER,
-				false, false, 1, 1));
-		this.txtConfidence.setText("0.01");
-
-		this.lblPathlength = new Label(grpSimulationProperties, SWT.NONE);
-		this.lblPathlength.setText("Maximum path length:");
-
-		this.txtPathlength = new Text(grpSimulationProperties, SWT.BORDER);
-		this.txtPathlength.setLayoutData(new GridData(SWT.FILL, SWT.CENTER,
-				false, false, 1, 1));
-		this.txtPathlength.setText("10000");
-
-		this.txtConfidence.addVerifyListener(floatListener);
-		this.txtConfidence.addModifyListener(changeListener);
-		this.txtNumberofsamples.addVerifyListener(integerListener);
-		this.txtNumberofsamples.addModifyListener(changeListener);
-		this.txtPathlength.addVerifyListener(integerListener);
-		this.txtPathlength.addModifyListener(changeListener);
-		AnalyzeWizardPage1.this.recursiveSetEnabled(grpSimulationProperties,
-				false);
-
-
-		this.btnSimulation.addSelectionListener(new SelectionListener() {
-			@Override
-			public void widgetSelected(final SelectionEvent e) {
-				AnalyzeWizardPage1.this.recursiveSetEnabled(
-						grpSimulationProperties, true);
-				AnalyzeWizardPage1.this.setPageComplete();
-			}
-
-			@Override
-			public void widgetDefaultSelected(final SelectionEvent e) {
 			}
 		});
 
-		this.btnVerification.addSelectionListener(new SelectionListener() {
+		String[] tableData = data.split("//");
+		for (String string : tableData) {
+			if (!string.isEmpty()) {
+				String[] tableSubData = string.split("\n", 2);
+				if (tableSubData.length > 1) {
+					addTableItem(tableSubData[0].trim(), tableSubData[1].trim());
+				} else {
+					addTableItem(tableSubData[0].trim(), "");
+				}
+			}
+		}
+		
+		Button btnSelectAll = new Button(container, SWT.NONE);
+		btnSelectAll.setText("Select All");
+		btnSelectAll.addSelectionListener(new SelectionListener() {
+
 			@Override
-			public void widgetSelected(final SelectionEvent e) {
-				System.out.println("Toggle verification");
-				AnalyzeWizardPage1.this.recursiveSetEnabled(
-						grpSimulationProperties, false);
-				AnalyzeWizardPage1.this.setPageComplete();
+			public void widgetSelected(SelectionEvent arg0) {
+				for (TableItem item : table.getItems()) {
+					item.setChecked(true);
+				}
+				AnalyzeWizardPage1.this.getContainer().updateButtons();
 			}
 
 			@Override
-			public void widgetDefaultSelected(final SelectionEvent e) {
+			public void widgetDefaultSelected(SelectionEvent arg0) {
+				// TODO Auto-generated method stub
+
 			}
 		});
-		this.setPageComplete();
-	}
 
-	/**
-	 * @return the txtNumberofsamples
-	 */
-	public Text getTxtNumberofsamples() {
-		return this.txtNumberofsamples;
-	}
+		
+		Button btnDeselectAll = new Button(container, SWT.NONE);
+		btnDeselectAll.setText("Deselect All");
+		btnDeselectAll.addSelectionListener(new SelectionListener() {
 
-	/**
-	 * @return the txtConfidence
-	 */
-	public Text getTxtConfidence() {
-		return this.txtConfidence;
-	}
+			@Override
+			public void widgetSelected(SelectionEvent arg0) {
+				for (TableItem item : table.getItems()) {
+					item.setChecked(false);
+				}
+				AnalyzeWizardPage1.this.getContainer().updateButtons();
+			}
 
-	/**
-	 * @return the txtPathlength
-	 */
-	public Text getTxtPathlength() {
-		return this.txtPathlength;
-	}
+			@Override
+			public void widgetDefaultSelected(SelectionEvent arg0) {
+				// TODO Auto-generated method stub
 
-	public void recursiveSetEnabled(final Control ctrl, final boolean enabled) {
-		if (ctrl instanceof Composite) {
-			Composite comp = (Composite) ctrl;
-			for (Control c : comp.getChildren())
-				this.recursiveSetEnabled(c, enabled);
-		} else {
-			ctrl.setEnabled(enabled);
-		}
-	}
+			}
+		});
 
-	private void setPageComplete() {
-		if (this.btnVerification.getSelection()) {
-			this.setErrorMessage(null);
-			this.setPageComplete(true);
-		}
 
-		if (this.btnSimulation.getSelection()) {
-			int numberSamples = -1;
-			double confidence = -1;
-			int pathlength = -1;
-			if (!this.txtConfidence.getText().isEmpty()) {
-				try {
-					confidence = Double.parseDouble(this.txtConfidence
-							.getText());
-				} catch (NumberFormatException e) {
-					confidence = -1;
+		Button btnAdd = new Button(container, SWT.NONE);
+		btnAdd.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, true, false,
+				1, 1));
+		btnAdd.setText("Add");
+		btnAdd.addSelectionListener(new SelectionListener() {
+
+			@Override
+			public void widgetSelected(SelectionEvent arg0) {
+				EditPropertiesWizard wizard = new EditPropertiesWizard(
+						resource, "", "");
+				WizardDialog wizardDialog = new WizardDialog(container
+						.getShell(), wizard);
+				wizardDialog.create();
+				wizardDialog.setBlockOnOpen(true);
+				if (wizardDialog.open() == Window.OK) {
+					addTableItem(wizard.getKey(), wizard.getValue());
 				}
 			}
 
-			if (!this.txtNumberofsamples.getText().isEmpty()) {
-				try {
-					numberSamples = Integer.parseInt(this.txtNumberofsamples
-							.getText());
-				} catch (NumberFormatException e) {
-					numberSamples = -1;
+			@Override
+			public void widgetDefaultSelected(SelectionEvent arg0) {
+				// TODO Auto-generated method stub
+
+			}
+		});
+
+		Button btnEdit = new Button(container, SWT.NONE);
+		btnEdit.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false,
+				1, 1));
+		btnEdit.setText("Edit");
+		btnEdit.addSelectionListener(new SelectionListener() {
+
+			@Override
+			public void widgetSelected(SelectionEvent arg0) {
+				if (table.getSelectionIndex() == -1) {
+					return;
+				}
+				TableItem item = table.getItem(table.getSelectionIndex());
+				EditPropertiesWizard wizard = new EditPropertiesWizard(
+						resource, item.getText(1), item.getText(2));
+				WizardDialog wizardDialog = new WizardDialog(container
+						.getShell(), wizard);
+				wizardDialog.create();
+				wizardDialog.setBlockOnOpen(true);
+				if (wizardDialog.open() == Window.OK) {
+					editTableItem(table.getSelectionIndex(), wizard.getKey(),
+							wizard.getValue());
 				}
 			}
 
-			if (!this.txtPathlength.getText().isEmpty()) {
-				try {
-					pathlength = Integer.parseInt(this.txtPathlength.getText());
-				} catch (NumberFormatException e) {
-					pathlength = -1;
+			@Override
+			public void widgetDefaultSelected(SelectionEvent arg0) {
+				// TODO Auto-generated method stub
+
+			}
+		});
+
+		Button btnDelete = new Button(container, SWT.NONE);
+		btnDelete.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false,
+				false, 1, 1));
+		btnDelete.setText("Delete");
+		btnDelete.addSelectionListener(new SelectionListener() {
+
+			@Override
+			public void widgetSelected(SelectionEvent arg0) {
+				if (table.getSelectionIndex() == -1) {
+					return;
 				}
+				deleteTableItem(table.getSelectionIndex());
+				AnalyzeWizardPage1.this.getContainer().updateButtons();
 			}
 
-			if (numberSamples <= 0) {
-				if (this.getErrorMessage() == null) {
-					this.setErrorMessage("Number of samples has to be > 0");
-				}
-				this.setPageComplete(false);
-				return;
-			}
+			@Override
+			public void widgetDefaultSelected(SelectionEvent arg0) {
+				// TODO Auto-generated method stub
 
-			if (confidence <= 0 || confidence >= 1) {
-				if (this.getErrorMessage() == null) {
-					this.setErrorMessage("Confidence has to be > 0 and < 1");
-				}
-				this.setPageComplete(false);
-				return;
 			}
-			if (pathlength <= 0) {
-				if (this.getErrorMessage() == null) {
-					this.setErrorMessage("Maximum length of path has to be > 0");
-				}
-				this.setPageComplete(false);
-				return;
-			}
-		}
-
-		this.setErrorMessage(null);
-		this.setPageComplete(true);
+		});
 	}
 
 	public void setProperties(final HashMap<String, Object> properties) {
-		if (this.btnVerification.getSelection()) {
-			properties.put("verify", "true");
+		ArrayList<String> propsNames = new ArrayList<String>();
+		ArrayList<String> props = new ArrayList<String>();
+		for (TableItem item : table.getItems()) {
+			if (item.getChecked()) {
+				propsNames.add(item.getText(1));
+				props.add(item.getText(2));
+			}
 		}
-		if (this.btnSimulation.getSelection()) {
-			properties.put("simulation", "true");
-			properties.put("samples", this.txtNumberofsamples.getText());
-			properties.put("confidence", this.txtConfidence.getText());
-			properties.put("pathlength", this.txtPathlength.getText());
-		}
+		
+		properties.put("analyzePropertyNames", propsNames);
+		properties.put("analyzeProperties", props);
 	}
+
+	@Override
+	public boolean isPageComplete() {
+		this.setErrorMessage(null);
+
+		for (TableItem tableItem : table.getItems()) {
+			if (tableItem.getChecked()) {
+				return true;
+			}
+		}
+		this.setErrorMessage("Please select at least one property.");
+		return false;
+	}
+
 }

@@ -1,0 +1,89 @@
+grammar de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.PCTL with org.eclipse.xtext.common.Terminals
+
+generate pCTL "http://www.uni_stuttgart.de/iste/cowolf/model/ctmc/xtext/PCTL"
+
+Start:
+	start=CommentedRule (start=Start)?
+;
+
+terminal BOOL : 'true'|'false';
+
+terminal DECIMAL : INT ('.' INT)? | ('.' INT);
+
+CommentedRule:
+    comment=SL_COMMENT? rule=Pctl
+;
+
+Pctl:
+    (StateFormula|SteadyState|QuantifiedProbability)
+;
+State:
+	'State:' name=ID;
+
+Label:
+	'Label:' name=ID;
+	
+
+Atomic:
+	State|Label|BOOL
+;
+
+Negation returns Expression:
+    "!" StateFormula
+;
+
+Junction returns Expression:
+    Conjunction
+    | Disjunction
+;
+
+Conjunction returns Expression:
+    '&' StateFormula ({Conjunction.left=current} '&' right=StateFormula)*
+;
+
+Disjunction returns Expression:
+    '|' StateFormula ({Disjunction.left=current} '|' right=StateFormula)*
+;
+	
+StateFormula returns Expression:
+    '(' left=StateFormula right=Junction? ')' | Negation | Atomic | left=Probability
+;
+
+PathFormula returns Expression:
+      Next
+    | Until
+    | Future
+    | Globally
+;
+
+SteadyState:
+	"S" (CompareProbability|"=?") "[" StateFormula "]";
+	
+QuantifiedProbability:
+    ("P" "=?") "[" PathFormula "]"
+;   
+	
+Probability:
+	("P" CompareProbability "[" PathFormula "]");	
+	
+Until:
+    left=StateFormula ('U' | 'W' | 'R') TimeBound? right=StateFormula
+;
+
+Next:
+    "X" TimeBound? right=StateFormula;
+
+Future:
+    'F' TimeBound? right=StateFormula
+;
+
+Globally:
+    'G' TimeBound? right=StateFormula
+;
+	
+CompareProbability:
+    ('>''='?|'<''='?) DECIMAL
+;
+
+TimeBound:
+	(('>''='?|'<''='?|'=') DECIMAL) | ("[" DECIMAL "," DECIMAL "]");

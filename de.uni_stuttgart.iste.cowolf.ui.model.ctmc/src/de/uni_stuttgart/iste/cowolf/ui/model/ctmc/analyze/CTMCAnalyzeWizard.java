@@ -1,5 +1,6 @@
 package de.uni_stuttgart.iste.cowolf.ui.model.ctmc.analyze;
 
+import java.io.File;
 import java.util.HashMap;
 
 import javax.swing.JOptionPane;
@@ -16,25 +17,27 @@ import de.uni_stuttgart.iste.cowolf.ui.model.ctmc.preference.CTMCPreferencePage;
 public class CTMCAnalyzeWizard extends AbstractQoSAnalyzeWizard {
 
 	protected AnalyzeWizardPage1 pageOne;
-	protected AnalyzeWizardPage2 pageTwo;
+	File clsFile;
 
 	public CTMCAnalyzeWizard() {
 		super();
 	}
 
 	@Override
-	public void initialize(final AbstractQoSModelManager manager, final Resource resource, final HashMap<String, Object> properties) {
+	public void initialize(final AbstractQoSModelManager manager,
+			final Resource resource, final HashMap<String, Object> properties) {
 		super.setWindowTitle("Analyze CTMC with PRISM model checker");
 		super.initialize(manager, resource, properties);
-		this.pageOne = new AnalyzeWizardPage1("Page 1");
-		this.pageTwo = new AnalyzeWizardPage2("Page 2", resource);
+
+		
+		this.pageOne = new AnalyzeWizardPage1("", resource);
 	}
 
 	@Override
 	public boolean performFinish() {
 		this.pageOne.setProperties(this.properties);
-		this.pageTwo.setProperties(this.properties);
 		this.properties.put("prismRootPath", CTMCPreferencePage.getPrismPath());
+
 		return true;
 	}
 
@@ -46,7 +49,6 @@ public class CTMCAnalyzeWizard extends AbstractQoSAnalyzeWizard {
 	@Override
 	public void addPages() {
 		this.addPage(this.pageOne);
-		this.addPage(this.pageTwo);
 	}
 
 	@Override
@@ -63,21 +65,27 @@ public class CTMCAnalyzeWizard extends AbstractQoSAnalyzeWizard {
 	public boolean checkConditions() {
 		String path = CTMCPreferencePage.getPrismPath().trim();
 		if (path.isEmpty() || path.equals("")) {
-			JOptionPane.showMessageDialog(null, "Path to PRISM is missing, please add in the preferences!", "Missing Path", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null,
+					"Path to PRISM is missing, please add in the preferences!",
+					"Missing Path", JOptionPane.ERROR_MESSAGE);
 			return false;
 		}
-		if (resource != null && resource.getContents() != null && resource.getContents().get(0) != null) {
-			Diagnostic diag = Diagnostician.INSTANCE.validate(this.resource.getContents().get(0));
+		if (resource != null && resource.getContents() != null
+				&& resource.getContents().get(0) != null) {
+			Diagnostic diag = Diagnostician.INSTANCE.validate(this.resource
+					.getContents().get(0));
 			if (diag.getChildren().size() > 0) {
-				JOptionPane.showMessageDialog(null,
-						"Errors in CTMC were found, please run Validation or enable Live Validation to display them.",
-						"Errors in CTMC", JOptionPane.ERROR_MESSAGE);	
+				JOptionPane
+						.showMessageDialog(
+								null,
+								"Errors in CTMC were found, please run Validation or enable Live Validation to display them.",
+								"Errors in CTMC", JOptionPane.ERROR_MESSAGE);
 				return false;
 			}
 		} else {
 			return false;
 		}
-	
+
 		return true;
 	}
 }
