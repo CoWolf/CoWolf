@@ -1,4 +1,4 @@
-package de.uni_stuttgart.iste.transformation.faulttree_ctmc;
+package de.uni_stuttgart.iste.cowolf.transformation.faulttree_ctmc;
 
 import de.uni_stuttgart.iste.cowolf.model.ctmc.CTMC;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree;

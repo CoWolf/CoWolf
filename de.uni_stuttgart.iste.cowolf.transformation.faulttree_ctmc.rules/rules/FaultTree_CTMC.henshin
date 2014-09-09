@@ -905,6 +905,7 @@
   <units xsi:type="henshin:Rule" xmi:id="_Yp7eIDgtEeSSGJGGg_SeaA" name="copyStateAndLinkLabels">
     <parameters xmi:id="_-f_VQDg2EeSjY-QYOfOfxQ" name="x"/>
     <parameters xmi:id="_-f_VQTg2EeSjY-QYOfOfxQ" name="y"/>
+    <parameters xmi:id="_hmu0gDhCEeSjY-QYOfOfxQ" name="z"/>
     <lhs xmi:id="_Yp9TUDgtEeSSGJGGg_SeaA" name="Lhs">
       <nodes xmi:id="_QltD0Dg_EeSjY-QYOfOfxQ" outgoing="_eI_CoDg_EeSjY-QYOfOfxQ">
         <type href="http://ctmc/1.0#//CTMC"/>
@@ -920,6 +921,9 @@
       </nodes>
       <nodes xmi:id="_UpEyoDg_EeSjY-QYOfOfxQ" outgoing="_nf-nMDg_EeSjY-QYOfOfxQ _nuN3gDg_EeSjY-QYOfOfxQ">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+        <attributes xmi:id="_XtfegDhCEeSjY-QYOfOfxQ" value="&quot;copy&quot;">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/name"/>
+        </attributes>
       </nodes>
       <edges xmi:id="_eI_CoDg_EeSjY-QYOfOfxQ" source="_QltD0Dg_EeSjY-QYOfOfxQ" target="_TG7qcDg_EeSjY-QYOfOfxQ">
         <type href="http://ctmc/1.0#//CTMC/States"/>
@@ -974,6 +978,7 @@
     <multiRules xmi:id="_1W9lIDg_EeSjY-QYOfOfxQ">
       <parameters xmi:id="_1XBPgDg_EeSjY-QYOfOfxQ" name="x"/>
       <parameters xmi:id="_1XBPgTg_EeSjY-QYOfOfxQ" name="y"/>
+      <parameters xmi:id="_hmu0gThCEeSjY-QYOfOfxQ" name="z"/>
       <lhs xmi:id="_1W9lITg_EeSjY-QYOfOfxQ" name="Lhs">
         <nodes xmi:id="_1W-zQDg_EeSjY-QYOfOfxQ" outgoing="_1W-zRjg_EeSjY-QYOfOfxQ">
           <type href="http://ctmc/1.0#//CTMC"/>
@@ -992,6 +997,9 @@
         </nodes>
         <nodes xmi:id="_zcKFUDg_EeSjY-QYOfOfxQ" incoming="_3sKh8Dg_EeSjY-QYOfOfxQ" outgoing="_2B9C4Dg_EeSjY-QYOfOfxQ">
           <type href="http://ctmc/1.0#//Label"/>
+          <attributes xmi:id="_jmE2EDhCEeSjY-QYOfOfxQ" value="z">
+            <type href="http://ctmc/1.0#//Label/name"/>
+          </attributes>
         </nodes>
         <edges xmi:id="_1W-zRjg_EeSjY-QYOfOfxQ" source="_1W-zQDg_EeSjY-QYOfOfxQ" target="_1W-zQjg_EeSjY-QYOfOfxQ">
           <type href="http://ctmc/1.0#//CTMC/States"/>
@@ -1022,7 +1030,7 @@
             <type href="http://ctmc/1.0#//State/name"/>
           </attributes>
         </nodes>
-        <nodes xmi:id="_1W-MODg_EeSjY-QYOfOfxQ" incoming="_1W-MPDg_EeSjY-QYOfOfxQ _2mlZ8Dg_EeSjY-QYOfOfxQ" outgoing="_4LN1cDg_EeSjY-QYOfOfxQ">
+        <nodes xmi:id="_1W-MODg_EeSjY-QYOfOfxQ" incoming="_1W-MPDg_EeSjY-QYOfOfxQ _ftez4DhCEeSjY-QYOfOfxQ" outgoing="_gGdUkDhCEeSjY-QYOfOfxQ">
           <type href="http://ctmc/1.0#//State"/>
           <attributes xmi:id="_1W-MOTg_EeSjY-QYOfOfxQ" value="x">
             <type href="http://ctmc/1.0#//State/exitRate"/>
@@ -1034,8 +1042,17 @@
         <nodes xmi:id="_1W-zSDg_EeSjY-QYOfOfxQ" outgoing="_1W-zSjg_EeSjY-QYOfOfxQ">
           <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
         </nodes>
-        <nodes xmi:id="_00ETcDg_EeSjY-QYOfOfxQ" incoming="_3sKh8Tg_EeSjY-QYOfOfxQ _4LN1cDg_EeSjY-QYOfOfxQ" outgoing="_2B9C4Tg_EeSjY-QYOfOfxQ _2mlZ8Dg_EeSjY-QYOfOfxQ">
+        <nodes xmi:id="_00ETcDg_EeSjY-QYOfOfxQ" incoming="_3sKh8Tg_EeSjY-QYOfOfxQ" outgoing="_2B9C4Tg_EeSjY-QYOfOfxQ">
           <type href="http://ctmc/1.0#//Label"/>
+          <attributes xmi:id="_jmE2EThCEeSjY-QYOfOfxQ" value="z">
+            <type href="http://ctmc/1.0#//Label/name"/>
+          </attributes>
+        </nodes>
+        <nodes xmi:id="_d8tZ0DhCEeSjY-QYOfOfxQ" incoming="_gGdUkDhCEeSjY-QYOfOfxQ" outgoing="_ftez4DhCEeSjY-QYOfOfxQ">
+          <type href="http://ctmc/1.0#//Label"/>
+          <attributes xmi:id="_kT7akDhCEeSjY-QYOfOfxQ" value="z">
+            <type href="http://ctmc/1.0#//Label/name"/>
+          </attributes>
         </nodes>
         <edges xmi:id="_1W-MNzg_EeSjY-QYOfOfxQ" source="_1W-MMTg_EeSjY-QYOfOfxQ" target="_1W-MMzg_EeSjY-QYOfOfxQ">
           <type href="http://ctmc/1.0#//CTMC/States"/>
@@ -1049,13 +1066,13 @@
         <edges xmi:id="_2B9C4Tg_EeSjY-QYOfOfxQ" source="_00ETcDg_EeSjY-QYOfOfxQ" target="_1W-MMzg_EeSjY-QYOfOfxQ">
           <type href="http://ctmc/1.0#//Label/state"/>
         </edges>
-        <edges xmi:id="_2mlZ8Dg_EeSjY-QYOfOfxQ" source="_00ETcDg_EeSjY-QYOfOfxQ" target="_1W-MODg_EeSjY-QYOfOfxQ">
-          <type href="http://ctmc/1.0#//Label/state"/>
-        </edges>
         <edges xmi:id="_3sKh8Tg_EeSjY-QYOfOfxQ" source="_1W-MMzg_EeSjY-QYOfOfxQ" target="_00ETcDg_EeSjY-QYOfOfxQ">
           <type href="http://ctmc/1.0#//State/labels"/>
         </edges>
-        <edges xmi:id="_4LN1cDg_EeSjY-QYOfOfxQ" source="_1W-MODg_EeSjY-QYOfOfxQ" target="_00ETcDg_EeSjY-QYOfOfxQ">
+        <edges xmi:id="_ftez4DhCEeSjY-QYOfOfxQ" source="_d8tZ0DhCEeSjY-QYOfOfxQ" target="_1W-MODg_EeSjY-QYOfOfxQ">
+          <type href="http://ctmc/1.0#//Label/state"/>
+        </edges>
+        <edges xmi:id="_gGdUkDhCEeSjY-QYOfOfxQ" source="_1W-MODg_EeSjY-QYOfOfxQ" target="_d8tZ0DhCEeSjY-QYOfOfxQ">
           <type href="http://ctmc/1.0#//State/labels"/>
         </edges>
       </rhs>
