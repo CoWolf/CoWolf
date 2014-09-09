@@ -150,6 +150,7 @@ public class ComponentDiagramFaultTreeTransformationHelper {
 			ChangeHandler changeHandler = null;
 			String changeHandlerName = PCKG+change.eClass().getName() + "Handler";
 			try {
+				System.out.println(changeHandlerName);
 				changeHandler = (ChangeHandler) Class.forName(changeHandlerName).getConstructors()[0].newInstance(null,change);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -240,6 +241,24 @@ public class ComponentDiagramFaultTreeTransformationHelper {
 		public class RemoveObjectHandler extends ChangeHandler {
 
 			public RemoveObjectHandler(Change change) {
+				super(change);
+			}
+
+			@Override
+			public String getObjectName() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			@Override
+			public String getObjectType() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+		}
+		public class AttributeValueChangeHandler extends ChangeHandler {
+
+			public AttributeValueChangeHandler(Change change) {
 				super(change);
 			}
 
