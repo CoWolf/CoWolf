@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_6pOYoDQQEeSrh9PiAm7rSQ" name="CREATE_Loop_Transition_IN_State" description="Creates one loop Transition in State">
+  <imports href="http://dtmc/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_6pO_sDQQEeSrh9PiAm7rSQ" name="createLoopTransition_IN_State" description="creates one Transition in the context: State">
+    <parameters xmi:id="_6pO_sTQQEeSrh9PiAm7rSQ" name="Selected"/>
+    <parameters xmi:id="_6pO_sjQQEeSrh9PiAm7rSQ" name="New"/>
+    <parameters xmi:id="_6pO_szQQEeSrh9PiAm7rSQ" name="Id"/>
+    <parameters xmi:id="_6pO_tDQQEeSrh9PiAm7rSQ" name="Prob"/>
+    <lhs xmi:id="_6pO_tjQQEeSrh9PiAm7rSQ" name="Lhs">
+      <nodes xmi:id="_6pO_tzQQEeSrh9PiAm7rSQ" name="Selected">
+        <type href="http://dtmc/1.0#//State"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_6pO_uTQQEeSrh9PiAm7rSQ" name="Rhs">
+      <nodes xmi:id="_6pO_ujQQEeSrh9PiAm7rSQ" name="Selected" incoming="_6pO_wDQQEeSrh9PiAm7rSQ _OQCWYDTxEeSMSfwfOsIhJg" outgoing="_6pO_vzQQEeSrh9PiAm7rSQ _N9BTwDTxEeSMSfwfOsIhJg">
+        <type href="http://dtmc/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_6pO_uzQQEeSrh9PiAm7rSQ" name="New" incoming="_6pO_vzQQEeSrh9PiAm7rSQ _N9BTwDTxEeSMSfwfOsIhJg" outgoing="_6pO_wDQQEeSrh9PiAm7rSQ _OQCWYDTxEeSMSfwfOsIhJg">
+        <type href="http://dtmc/1.0#//Transition"/>
+        <attributes xmi:id="_6pO_vDQQEeSrh9PiAm7rSQ" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_6pO_vTQQEeSrh9PiAm7rSQ" value="Prob">
+          <type href="http://dtmc/1.0#//Transition/prob"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_6pO_vzQQEeSrh9PiAm7rSQ" source="_6pO_ujQQEeSrh9PiAm7rSQ" target="_6pO_uzQQEeSrh9PiAm7rSQ">
+        <type href="http://dtmc/1.0#//State/outgoing"/>
+      </edges>
+      <edges xmi:id="_6pO_wDQQEeSrh9PiAm7rSQ" source="_6pO_uzQQEeSrh9PiAm7rSQ" target="_6pO_ujQQEeSrh9PiAm7rSQ">
+        <type href="http://dtmc/1.0#//Transition/from"/>
+      </edges>
+      <edges xmi:id="_N9BTwDTxEeSMSfwfOsIhJg" source="_6pO_ujQQEeSrh9PiAm7rSQ" target="_6pO_uzQQEeSrh9PiAm7rSQ">
+        <type href="http://dtmc/1.0#//State/incoming"/>
+      </edges>
+      <edges xmi:id="_OQCWYDTxEeSMSfwfOsIhJg" source="_6pO_uzQQEeSrh9PiAm7rSQ" target="_6pO_ujQQEeSrh9PiAm7rSQ">
+        <type href="http://dtmc/1.0#//Transition/to"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_6pO_wzQQEeSrh9PiAm7rSQ" origin="_6pO_tzQQEeSrh9PiAm7rSQ" image="_6pO_ujQQEeSrh9PiAm7rSQ"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_6pPmwTQQEeSrh9PiAm7rSQ" name="mainUnit" description="Creates one Transition depending on available contexts in model instance" subUnits="_6pO_sDQQEeSrh9PiAm7rSQ">
+    <parameters xmi:id="_6pPmwjQQEeSrh9PiAm7rSQ" name="New"/>
+    <parameters xmi:id="_6pPmwzQQEeSrh9PiAm7rSQ" name="selectedEObject"/>
+    <parameters xmi:id="_6pPmxDQQEeSrh9PiAm7rSQ" name="Id"/>
+    <parameters xmi:id="_6pPmxTQQEeSrh9PiAm7rSQ" name="Prob"/>
+    <parameterMappings xmi:id="_6pPmxzQQEeSrh9PiAm7rSQ" source="_6pPmwzQQEeSrh9PiAm7rSQ" target="_6pO_sTQQEeSrh9PiAm7rSQ"/>
+    <parameterMappings xmi:id="_6pPmyDQQEeSrh9PiAm7rSQ" source="_6pO_sjQQEeSrh9PiAm7rSQ" target="_6pPmwjQQEeSrh9PiAm7rSQ"/>
+    <parameterMappings xmi:id="_6pPmyTQQEeSrh9PiAm7rSQ" source="_6pPmxDQQEeSrh9PiAm7rSQ" target="_6pO_szQQEeSrh9PiAm7rSQ"/>
+    <parameterMappings xmi:id="_6pPmyjQQEeSrh9PiAm7rSQ" source="_6pPmxTQQEeSrh9PiAm7rSQ" target="_6pO_tDQQEeSrh9PiAm7rSQ"/>
+  </units>
+</henshin:Module>
