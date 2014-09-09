@@ -19,6 +19,7 @@ import org.eclipse.uml2.uml.BehavioredClassifier;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.EncapsulatedClassifier;
+import org.eclipse.uml2.uml.Interaction;
 import org.eclipse.uml2.uml.InteractionFragment;
 import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.Namespace;
@@ -194,7 +195,7 @@ public class Sequence_diagramAdapterFactory extends AdapterFactoryImpl {
 				return createBehaviorAdapter();
 			}
 			@Override
-			public Adapter caseInteraction(org.eclipse.uml2.uml.Interaction object) {
+			public Adapter caseInteraction(Interaction object) {
 				return createInteractionAdapter();
 			}
 			@Override
