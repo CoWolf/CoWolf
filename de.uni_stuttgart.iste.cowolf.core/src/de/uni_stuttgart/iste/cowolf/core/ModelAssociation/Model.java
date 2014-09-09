@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.resource.Resource;
  *   <li>{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Model#getModel <em>Model</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Model#getModelID <em>Model ID</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Model#getParent <em>Parent</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Model#getModificationStamp <em>Modification Stamp</em>}</li>
  * </ul>
  * </p>
  *
@@ -127,14 +128,44 @@ public interface Model extends EObject {
 	 */
 	void setParent(ModelAssociation value);
 
+	/**
+	 * Returns the value of the '<em><b>Modification Stamp</b></em>' attribute.
+	 * The default value is <code>"-1"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Modification Stamp</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Modification Stamp</em>' attribute.
+	 * @see #setModificationStamp(long)
+	 * @see de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociationPackage#getModel_ModificationStamp()
+	 * @model default="-1"
+	 * @generated
+	 */
+	long getModificationStamp();
+
+	/**
+	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Model#getModificationStamp <em>Modification Stamp</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Modification Stamp</em>' attribute.
+	 * @see #getModificationStamp()
+	 * @generated
+	 */
+	void setModificationStamp(long value);
+
 	public abstract List<Association> getAllAssociations();
 
 	public abstract List<Association> getTargetAssociations();
 
 	public abstract List<Association> getSourceAssociations();
 
-	public abstract ModelVersion createVersion(Resource res);
 
+	ModelVersion createVersion(Resource res, String message);
+	public abstract ModelVersion createVersion(Resource res);
+	
+	public abstract ModelVersion createVersion(String message);
 	public abstract ModelVersion createVersion();
 
 	public abstract boolean rename(String newPath);
@@ -150,4 +181,7 @@ public interface Model extends EObject {
 	Association getLatestAssociationFrom(Model source);
 
 	public IFile getFile();
+
+	Association getLatestAssociation(Model other);
+
 } // Model

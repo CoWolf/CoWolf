@@ -133,8 +133,15 @@ public class ModelAssociationFactoryImpl extends EFactoryImpl implements ModelAs
 				if (notification.getEventType() == Notification.SET
 						&& notification.getFeatureID(Resource.class) == Resource.RESOURCE__IS_MODIFIED
 						&& ((Resource) notification.getNotifier()).isModified()) {
+					
+					Resource res = ((Resource) notification.getNotifier());
+					if (res.getContents().size() == 0 || !(res.getContents().get(0) instanceof ModelAssociation)
+							|| ((ModelAssociation) res.getContents().get(0)).isClustered()) {
+						return;
+					}
+					
 					try {
-						((Resource) notification.getNotifier()).save(Collections.EMPTY_MAP);
+						res.save(Collections.EMPTY_MAP);
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();

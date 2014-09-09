@@ -98,12 +98,12 @@ public class ModelResourceChangeListener implements IResourceChangeListener {
 							} else {
 								// FIXME: For now, handle as new.
 								Model model = ma.registerModel(modelRes);
-								model.createVersion();
+								model.createVersion("Moved model from " + from.toString());
 								System.out.println("Created model after move.");
 							}
 						} else { // created files
 							Model model = ma.registerModel(modelRes);
-							model.createVersion();
+							model.createVersion("Created model");
 							System.out.println("Created model file.");
 						}
 						break;
@@ -114,7 +114,7 @@ public class ModelResourceChangeListener implements IResourceChangeListener {
 						if ((delta.getFlags() & IResourceDelta.CONTENT) == IResourceDelta.CONTENT) {
 							Model model = ma.getModelByPath(res.getProjectRelativePath().toString());
 							if (model != null) {
-//								model.createVersion();
+//								model.createVersion("Auto-save changed file.");
 //								System.out.println("Created version.");
 							}
 						}
