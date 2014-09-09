@@ -430,14 +430,14 @@ public class HenshinTransformations {
 	 *            - determines whether the execution should be logged
 	 * @return success of execution
 	 */
-	public static boolean createANDGate(int gate_id, EGraph graph, boolean logging) {
+	public static boolean createANDGate(String gate_id, EGraph graph, boolean logging) {
 		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), true).getUnit("CreateANDGate");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("gate_id", gate_id);
 		boolean result = application.execute(null);
 
 		if (logging) {
-			TransformationsLogger.logRuleExecution(unit.getName(), Integer.toString(gate_id), result);
+			TransformationsLogger.logRuleExecution(unit.getName(), gate_id, result);
 		}
 
 		return result;
@@ -679,7 +679,7 @@ public class HenshinTransformations {
 	 *            - determines whether the execution should be logged
 	 * @return success of execution
 	 */
-	public static boolean createConnectionGateToEvent(int gate_id, String event_name, EGraph graph, boolean logging) {
+	public static boolean createConnectionGateToEvent(String gate_id, String event_name, EGraph graph, boolean logging) {
 		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), true).getUnit("CreateConnectionGateToEvent");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("gate_id", gate_id);
@@ -688,7 +688,7 @@ public class HenshinTransformations {
 
 		if (logging) {
 			ArrayList<String> param = new ArrayList<String>();
-			param.add(Integer.toString(gate_id));
+			param.add(gate_id);
 			param.add(event_name);
 			TransformationsLogger.logRuleExecution(unit.getName(), param, result);
 		}
@@ -709,7 +709,7 @@ public class HenshinTransformations {
 	 *            - determines whether the execution should be logged
 	 * @return success of execution
 	 */
-	public static boolean createConnectionGateToGate(int gate_id1, int gate_id2, EGraph graph, boolean logging) {
+	public static boolean createConnectionGateToGate(String gate_id1, String gate_id2, EGraph graph, boolean logging) {
 		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), true).getUnit("CreateConnectionGateToGate");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("gate_id1", gate_id1);
@@ -718,8 +718,8 @@ public class HenshinTransformations {
 
 		if (logging) {
 			ArrayList<String> param = new ArrayList<String>();
-			param.add(Integer.toString(gate_id1));
-			param.add(Integer.toString(gate_id2));
+			param.add(gate_id1);
+			param.add(gate_id2);
 			TransformationsLogger.logRuleExecution(unit.getName(), param, result);
 		}
 
@@ -838,21 +838,21 @@ public class HenshinTransformations {
 	 * Executes the rule CreateINHIBITGate.
 	 * 
 	 * @param gate_id
-	 *            - int
+	 *            - String
 	 * @param graph
 	 *            - graph on which the rule is executed
 	 * @param logging
 	 *            - determines whether the execution should be logged
 	 * @return success of execution
 	 */
-	public static boolean createINHIBITGate(int gate_id, EGraph graph, boolean logging) {
+	public static boolean createINHIBITGate(String gate_id, EGraph graph, boolean logging) {
 		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), true).getUnit("CreateINHIBITGate");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("gate_id", gate_id);
 		boolean result = application.execute(null);
 
 		if (logging) {
-			TransformationsLogger.logRuleExecution(unit.getName(), Integer.toString(gate_id), result);
+			TransformationsLogger.logRuleExecution(unit.getName(), gate_id, result);
 		}
 
 		return result;
@@ -958,21 +958,21 @@ public class HenshinTransformations {
 	 * Executes the rule CreateORGate.
 	 * 
 	 * @param gate_id
-	 *            - int
+	 *            - String
 	 * @param graph
 	 *            - graph on which the rule is executed
 	 * @param logging
 	 *            - determines whether the execution should be logged
 	 * @return success of execution
 	 */
-	public static boolean createORGate(int gate_id, EGraph graph, boolean logging) {
+	public static boolean createORGate(String gate_id, EGraph graph, boolean logging) {
 		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), true).getUnit("CreateORGate");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("gate_id", gate_id);
 		boolean result = application.execute(null);
 
 		if (logging) {
-			TransformationsLogger.logRuleExecution(unit.getName(), Integer.toString(gate_id), result);
+			TransformationsLogger.logRuleExecution(unit.getName(), gate_id, result);
 		}
 
 		return result;
@@ -982,21 +982,21 @@ public class HenshinTransformations {
 	 * Executes the rule CreatePriorANDGate.
 	 * 
 	 * @param gate_id
-	 *            - int
+	 *            - String
 	 * @param graph
 	 *            - graph on which the rule is executed
 	 * @param logging
 	 *            - determines whether the execution should be logged
 	 * @return success of execution
 	 */
-	public static boolean createPriorANDGate(int gate_id, EGraph graph, boolean logging) {
+	public static boolean createPriorANDGate(String gate_id, EGraph graph, boolean logging) {
 		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), true).getUnit("CreatePriorANDGate");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("gate_id", gate_id);
 		boolean result = application.execute(null);
 
 		if (logging) {
-			TransformationsLogger.logRuleExecution(unit.getName(), Integer.toString(gate_id), result);
+			TransformationsLogger.logRuleExecution(unit.getName(), gate_id, result);
 		}
 
 		return result;
@@ -1006,21 +1006,21 @@ public class HenshinTransformations {
 	 * Executes the rule CreateXORGate.
 	 * 
 	 * @param gate_id
-	 *            - int
+	 *            - String
 	 * @param graph
 	 *            - graph on which the rule is executed
 	 * @param logging
 	 *            - determines whether the execution should be logged
 	 * @return success of execution
 	 */
-	public static boolean createXORGate(int gate_id, EGraph graph, boolean logging) {
+	public static boolean createXORGate(String gate_id, EGraph graph, boolean logging) {
 		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), true).getUnit("CreateXORGate");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("gate_id", gate_id);
 		boolean result = application.execute(null);
 
 		if (logging) {
-			TransformationsLogger.logRuleExecution(unit.getName(), Integer.toString(gate_id), result);
+			TransformationsLogger.logRuleExecution(unit.getName(), gate_id, result);
 		}
 
 		return result;
@@ -1146,7 +1146,7 @@ public class HenshinTransformations {
 	 *            - determines whether the execution should be logged
 	 * @return boolean
 	 */
-	public static boolean deleteConnectionGateToEvent(int gateID, String eventName, EGraph graph, boolean logging) {
+	public static boolean deleteConnectionGateToEvent(String gateID, String eventName, EGraph graph, boolean logging) {
 		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), true).getUnit("DeleteConnectionGateToEvent");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("gateID", gateID);
@@ -1155,7 +1155,7 @@ public class HenshinTransformations {
 
 		if (logging) {
 			ArrayList<String> param = new ArrayList<String>();
-			param.add(Integer.toString(gateID));
+			param.add(gateID);
 			param.add(eventName);
 			TransformationsLogger.logRuleExecution(unit.getName(), param, result);
 		}
@@ -1364,21 +1364,21 @@ public class HenshinTransformations {
 	 * Executes the rule DeleteGate.
 	 * 
 	 * @param gateID
-	 *            - int
+	 *            - String
 	 * @param graph
 	 *            - graph on which the rule is executed
 	 * @param logging
 	 *            - determines whether the execution should be logged
 	 * @return success of execution
 	 */
-	public static boolean deleteGate(int gateID, EGraph graph, boolean logging) {
+	public static boolean deleteGate(String gateID, EGraph graph, boolean logging) {
 		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), true).getUnit("DeleteGate");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("gateID", gateID);
 		boolean result = application.execute(null);
 
 		if (logging) {
-			TransformationsLogger.logRuleExecution(unit.getName(), Integer.toString(gateID), result);
+			TransformationsLogger.logRuleExecution(unit.getName(), gateID, result);
 		}
 
 		return result;
@@ -2432,7 +2432,9 @@ public class HenshinTransformations {
 		// Find all matches of the rule with the used graph.
 		for (Match match : new EngineImpl().findMatches(rule, graph, partialMatch)) {
 			for (Match multiMatch : match.getMultiMatches(multiRule)) {
-				componentInstances.add(multiMatch.getParameterValue(resultParameter).toString());
+				if(multiMatch.getParameterValue(resultParameter) != null) {
+					componentInstances.add(multiMatch.getParameterValue(resultParameter).toString());
+				}
 			}
 
 		}
@@ -2542,7 +2544,7 @@ public class HenshinTransformations {
 	 *            - determines whether the execution should be logged
 	 * @return List<String>
 	 */
-	public static List<String> getInputEvents(int gate, EGraph graph, boolean logging) {
+	public static List<String> getInputEvents(String gate, EGraph graph, boolean logging) {
 		List<String> events = new ArrayList<String>();
 
 		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), true).getUnit("GetInputEvents");
@@ -2560,7 +2562,7 @@ public class HenshinTransformations {
 		}
 
 		if (logging) {
-			TransformationsLogger.logRuleMatching(rule.getName(), Integer.toString(gate), events.size());
+			TransformationsLogger.logRuleMatching(rule.getName(), gate, events.size());
 		}
 
 		return events;
@@ -2575,12 +2577,12 @@ public class HenshinTransformations {
 	 *            - graph on which the rule is executed
 	 * @param logging
 	 *            - determines whether the execution should be logged
-	 * @return Integer ID of the input event, or null if the input event doesn't exist
+	 * @return String ID of the input event, or null if the input event doesn't exist
 	 * @throws RuntimeException
 	 *             If there are more than one input event, this method will throw a RuntimeException.
 	 */
-	public static Integer getInputGateForEvent(String event, EGraph graph, boolean logging) throws RuntimeException {
-		List<Integer> gates = new ArrayList<Integer>();
+	public static String getInputGateForEvent(String event, EGraph graph, boolean logging) throws RuntimeException {
+		List<String> gates = new ArrayList<String>();
 
 		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.CHANGE_TREE_HENSHIN), true).getUnit("GetInputGateForEvent");
 		Rule multiRule = rule.getMultiRule("searchGate");
@@ -2591,7 +2593,7 @@ public class HenshinTransformations {
 
 		for (Match match : new EngineImpl().findMatches(rule, graph, partialMatch)) {
 			for (Match multiMatch : match.getMultiMatches(multiRule)) {
-				gates.add(Integer.valueOf(multiMatch.getParameterValue(resultParameter).toString()));
+				gates.add(multiMatch.getParameterValue(resultParameter).toString());
 			}
 		}
 
@@ -2617,10 +2619,10 @@ public class HenshinTransformations {
 	 *            - graph on which the rule is executed
 	 * @param logging
 	 *            - determines whether the execution should be logged
-	 * @return List<Integer>
+	 * @return List<String>
 	 */
-	public static List<Integer> getInputGates(int gate, EGraph graph, boolean logging) {
-		List<Integer> gates = new ArrayList<Integer>();
+	public static List<String> getInputGates(String gate, EGraph graph, boolean logging) {
+		List<String> gates = new ArrayList<String>();
 
 		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), true).getUnit("GetInputGates");
 		Rule multiRule = rule.getMultiRule("searchGates");
@@ -2631,13 +2633,13 @@ public class HenshinTransformations {
 
 		for (Match match : new EngineImpl().findMatches(rule, graph, partialMatch)) {
 			for (Match multiMatch : match.getMultiMatches(multiRule)) {
-				gates.add(Integer.valueOf(multiMatch.getParameterValue(resultParameter).toString()));
+				gates.add(multiMatch.getParameterValue(resultParameter).toString());
 			}
 
 		}
 
 		if (logging) {
-			TransformationsLogger.logRuleMatching(rule.getName(), Integer.toString(gate), gates.size());
+			TransformationsLogger.logRuleMatching(rule.getName(), gate, gates.size());
 		}
 
 		return gates;
@@ -2786,11 +2788,11 @@ public class HenshinTransformations {
 	 *            - graph on which the rule is executed
 	 * @param logging
 	 *            - determines whether the execution should be logged
-	 * @return Integer ID of the input event, or null if the input event doesn't exist
+	 * @return String ID of the input event, or null if the input event doesn't exist
 	 * @throws RuntimeException
 	 *             If there are more than one output event, this method will throw a RuntimeException.
 	 */
-	public static String getOutputEvent(int gate, EGraph graph, boolean logging) throws RuntimeException {
+	public static String getOutputEvent(String gate, EGraph graph, boolean logging) throws RuntimeException {
 		List<String> events = new ArrayList<String>();
 
 		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), true).getUnit("GetOutputEvent");
@@ -2810,7 +2812,7 @@ public class HenshinTransformations {
 		}
 
 		if (logging) {
-			TransformationsLogger.logRuleMatching(rule.getName(), Integer.toString(gate), events.size());
+			TransformationsLogger.logRuleMatching(rule.getName(), gate, events.size());
 		}
 
 		if (events.isEmpty()) {
@@ -2910,17 +2912,17 @@ public class HenshinTransformations {
 	 * Gets the output gate for the given gate. If there is no output gate defined, this method will return null.
 	 * 
 	 * @param gate
-	 *            - int
+	 *            - String
 	 * @param graph
 	 *            - graph on which the rule is executed
 	 * @param logging
 	 *            - determines whether the execution should be logged
-	 * @return Integer ID of the input event, or null if the input event doesn't exist
+	 * @return String ID of the input event, or null if the input event doesn't exist
 	 * @throws RuntimeException
 	 *             If there are more than one output event, this method will throw a RuntimeException.
 	 */
-	public static Integer getOutputGate(int gate, EGraph graph, boolean logging) throws RuntimeException {
-		List<Integer> gates = new ArrayList<Integer>();
+	public static String getOutputGate(String gate, EGraph graph, boolean logging) throws RuntimeException {
+		List<String> gates = new ArrayList<String>();
 
 		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), true).getUnit("GetOutputGate");
 		Rule multiRule = rule.getMultiRule("searchGate");
@@ -2931,12 +2933,12 @@ public class HenshinTransformations {
 
 		for (Match match : new EngineImpl().findMatches(rule, graph, partialMatch)) {
 			for (Match multiMatch : match.getMultiMatches(multiRule)) {
-				gates.add(Integer.valueOf(multiMatch.getParameterValue(resultParameter).toString()));
+				gates.add(multiMatch.getParameterValue(resultParameter).toString());
 			}
 		}
 
 		if (logging) {
-			TransformationsLogger.logRuleMatching(rule.getName(), Integer.toString(gate), gates.size());
+			TransformationsLogger.logRuleMatching(rule.getName(), gate, gates.size());
 		}
 
 		if (gates.isEmpty()) {
@@ -2957,12 +2959,12 @@ public class HenshinTransformations {
 	 *            - graph on which the rule is executed
 	 * @param logging
 	 *            - determines whether the execution should be logged
-	 * @return Integer ID of the input event, or null if the input event doesn't exist
+	 * @return String ID of the input event, or null if the input event doesn't exist
 	 * @throws RuntimeException
 	 *             If there are more than one input event, this method will throw a RuntimeException.
 	 */
-	public static Integer getOutputGateOfEvent(String event, EGraph graph, boolean logging) throws RuntimeException {
-		List<Integer> gates = new ArrayList<Integer>();
+	public static String getOutputGateOfEvent(String event, EGraph graph, boolean logging) throws RuntimeException {
+		List<String> gates = new ArrayList<String>();
 
 		Rule rule = (Rule) new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.CHANGE_TREE_HENSHIN), true).getUnit("GetOutputGateOfEvent");
 		Rule multiRule = rule.getMultiRule("searchGate");
@@ -2973,7 +2975,7 @@ public class HenshinTransformations {
 
 		for (Match match : new EngineImpl().findMatches(rule, graph, partialMatch)) {
 			for (Match multiMatch : match.getMultiMatches(multiRule)) {
-				gates.add(Integer.valueOf(multiMatch.getParameterValue(resultParameter).toString()));
+				gates.add(multiMatch.getParameterValue(resultParameter).toString());
 			}
 		}
 
@@ -3522,14 +3524,14 @@ public class HenshinTransformations {
 	 *            - determines whether the execution should be logged
 	 * @return true if given gate ID refers to an OR gate, otherwise false
 	 */
-	public static boolean isORGate(int gate, EGraph graph, boolean logging) {
+	public static boolean isORGate(String gate, EGraph graph, boolean logging) {
 		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.CHANGE_TREE_HENSHIN), true).getUnit("IsORGate");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("gate", gate);
 		boolean result = application.execute(null);
 
 		if (logging) {
-			TransformationsLogger.logRuleExecution(unit.getName(), Integer.toString(gate), result);
+			TransformationsLogger.logRuleExecution(unit.getName(), gate, result);
 		}
 
 		return result;

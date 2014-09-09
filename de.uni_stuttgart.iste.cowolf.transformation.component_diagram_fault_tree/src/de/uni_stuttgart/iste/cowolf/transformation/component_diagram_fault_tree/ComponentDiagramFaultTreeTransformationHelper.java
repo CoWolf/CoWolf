@@ -224,7 +224,11 @@ public class ComponentDiagramFaultTreeTransformationHelper {
 
 			@Override
 			public String getObjectName() {
-				return ((AddObject) change).getObj().eGet(((AddObject) change).getObj().eClass().getEStructuralFeature("name")).toString();
+				try{
+					return ((AddObject) change).getObj().eGet(((AddObject) change).getObj().eClass().getEStructuralFeature("name")).toString();
+				}catch(Exception e){
+					return "";
+				}
 			}
 
 			@Override

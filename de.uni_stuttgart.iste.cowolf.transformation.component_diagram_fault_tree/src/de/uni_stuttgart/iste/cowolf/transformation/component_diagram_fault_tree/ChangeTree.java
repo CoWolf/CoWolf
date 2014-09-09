@@ -102,10 +102,10 @@ public class ChangeTree {
 		}
 
 		// Get input gate.
-		Integer inputGate = HenshinTransformations.getInputGateForEvent(basicEvent, saGraph, true);
+		String inputGate = HenshinTransformations.getInputGateForEvent(basicEvent, saGraph, true);
 
 		// Get output gate.
-		Integer outputGate = HenshinTransformations.getOutputGateOfEvent(basicEvent, saGraph, true);
+		String outputGate = HenshinTransformations.getOutputGateOfEvent(basicEvent, saGraph, true);
 
 		// Get out event.
 		String outEvent = HenshinTransformations.getOutputEventForBasicEvent(basicEvent, saGraph, true);
@@ -358,14 +358,14 @@ public class ChangeTree {
 			if (hasNoOutgoingConnection(sourceEvent) && hasNoOutgoingConnection(targetEvent)) {
 				// Create OR-Gate.
 				int newORGate = HenshinTransformations.getFreeGateID(saGraph, true);
-				HenshinTransformations.createORGate(newORGate, saGraph, true);
+				HenshinTransformations.createORGate(String.valueOf(newORGate), saGraph, true);
 
 				// Create IE.
 				String intermediate_event_name = "SCE+SE_Pattern_" + newORGate;
 				HenshinTransformations.createIntermediateEvent(intermediate_event_name, "", saGraph, true);
 
 				// Create connection OR to IE.
-				HenshinTransformations.createConnectionGateToEvent(newORGate, intermediate_event_name, saGraph, true);
+				HenshinTransformations.createConnectionGateToEvent(String.valueOf(newORGate), intermediate_event_name, saGraph, true);
 
 				// Connect SCE+SE to OR.
 				HenshinTransformations.createConnectionEventToGate(sourceEvent, String.valueOf(newORGate), saGraph, true);
@@ -390,8 +390,8 @@ public class ChangeTree {
 					yetNotConnectedEvent = targetEvent;
 				}
 
-				Integer gate = HenshinTransformations.getOutputGateOfEvent(alreadyConnectedEvent, saGraph, true);
-				int orGate = -1;
+				String gate = HenshinTransformations.getOutputGateOfEvent(alreadyConnectedEvent, saGraph, true);
+				String orGate = "";
 
 				String intermediate_event = "";
 
@@ -401,9 +401,9 @@ public class ChangeTree {
 					intermediate_event = HenshinTransformations.getOutputEvent(gate, saGraph, true);
 
 					if (HenshinTransformations.isORGate(gate, saGraph, true)) {
-						orGate = gate.intValue();
+						orGate = gate;
 					} else {
-						orGate = HenshinTransformations.getFreeGateID(saGraph, true);
+						orGate = String.valueOf(HenshinTransformations.getFreeGateID(saGraph, true));
 						HenshinTransformations.createORGate(orGate, saGraph, true);
 
 						// Reconnect original gate to new or gate.
@@ -423,7 +423,7 @@ public class ChangeTree {
 						TransformationsLogger.log("No intermediate event found, but this is not possible.");
 					}
 
-					orGate = HenshinTransformations.getFreeGateID(saGraph, true);
+					orGate = String.valueOf(HenshinTransformations.getFreeGateID(saGraph, true));
 					HenshinTransformations.createORGate(orGate, saGraph, true);
 
 					// Reconnect target event to OR gate.
@@ -460,13 +460,13 @@ public class ChangeTree {
 			}
 
 			if (HenshinTransformations.hasORGateAsInput(targetEvent, saGraph, true)) {
-				Integer orGateID = HenshinTransformations.getInputGateForEvent(targetEvent, saGraph, true);
+				String orGateID = HenshinTransformations.getInputGateForEvent(targetEvent, saGraph, true);
 				if (orGateID == null) {
 					return;
 				}
 				HenshinTransformations.createConnectionEventToGate(sourceEvent, String.valueOf(orGateID), saGraph, true);
 			} else if (HenshinTransformations.hasGateAsInput(targetEvent, saGraph, true)) {
-				int existingInputGate = HenshinTransformations.getInputGateForEvent(targetEvent, saGraph, true);
+				String existingInputGate = HenshinTransformations.getInputGateForEvent(targetEvent, saGraph, true);
 				if (HenshinTransformations.isORGate(existingInputGate, saGraph, true)) {
 
 					// Put source event to newORGate.
@@ -476,7 +476,7 @@ public class ChangeTree {
 
 					// Create new OR gate as parent gate, which will be connected to
 					// target component later.
-					int newORGate = HenshinTransformations.getFreeGateID(saGraph, true);
+					String newORGate = String.valueOf(HenshinTransformations.getFreeGateID(saGraph, true));
 					HenshinTransformations.createORGate(newORGate, saGraph, true);
 
 					// Delete relation existingInPutGate.
@@ -495,7 +495,7 @@ public class ChangeTree {
 			} else if (HenshinTransformations.hasEventAsInput(targetEvent, saGraph, true)) {
 				// Create OR-Gate and put existing input and source event to
 				// OR-Gate.
-				int gateID = HenshinTransformations.getFreeGateID(saGraph, true);
+				String gateID = String.valueOf(HenshinTransformations.getFreeGateID(saGraph, true));
 				HenshinTransformations.createORGate(gateID, saGraph, true);
 
 				String existingInputEvent = HenshinTransformations.getInputEventOfIntermediateEvent(targetEvent, saGraph, true);
