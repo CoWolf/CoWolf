@@ -23,23 +23,23 @@ public class UmlViewpoints {
 	}
 
 	public Viewpoint capture() {
-		return registry.getViewpoint(URI.createURI("viewpoint:/org.obeonetwork.dsl.uml2.design/Capture"));
+		return registry.getViewpoint(URI.createURI("viewpoint:/de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.design/Capture"));
 	}
 
 	public Viewpoint design() {
-		return registry.getViewpoint(URI.createURI("viewpoint:/org.obeonetwork.dsl.uml2.design/Design"));
+		return registry.getViewpoint(URI.createURI("viewpoint:/de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.design/Design"));
 	}
 
 	public Viewpoint review() {
-		return registry.getViewpoint(URI.createURI("viewpoint:/org.obeonetwork.dsl.uml2.design/Review"));
+		return registry.getViewpoint(URI.createURI("viewpoint:/de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.design/Review"));
 	}
 
 	public Viewpoint dashboard() {
-		return registry.getViewpoint(URI.createURI("viewpoint:/org.obeonetwork.dsl.uml2.design/Dashboard"));
+		return registry.getViewpoint(URI.createURI("viewpoint:/de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.design/Dashboard"));
 	}
 
 	public Viewpoint extend() {
-		return registry.getViewpoint(URI.createURI("viewpoint:/org.obeonetwork.dsl.uml2.design/Extend"));
+		return registry.getViewpoint(URI.createURI("viewpoint:/de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.design/Extend"));
 	}
 
 	public static UmlViewpoints fromViewpointRegistry() {

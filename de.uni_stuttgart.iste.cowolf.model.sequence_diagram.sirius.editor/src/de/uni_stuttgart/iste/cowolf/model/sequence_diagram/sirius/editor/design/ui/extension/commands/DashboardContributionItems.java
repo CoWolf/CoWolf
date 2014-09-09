@@ -36,9 +36,9 @@ import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.design.
  * @author Melanie Bats <a href="mailto:melanie.bats@obeo.fr">melanie.bats@obeo.fr</a>
  */
 public class DashboardContributionItems extends CompoundContributionItem {
-	public static final String OPEN_DASHBOARD_CMD_ID = "org.obeonetwork.dsl.uml2.actions.openDashboard";
+	public static final String OPEN_DASHBOARD_CMD_ID = "de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.actions.openDashboard";
 
-	public static final String OPEN_DASHBOARD_CMD_PARAM_MODEL_KEY = "org.obeonetwork.dsl.uml2.actions.openDashboard.param.model";
+	public static final String OPEN_DASHBOARD_CMD_PARAM_MODEL_KEY = "de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.actions.openDashboard.param.model";
 
 	public DashboardContributionItems() {
 	}
