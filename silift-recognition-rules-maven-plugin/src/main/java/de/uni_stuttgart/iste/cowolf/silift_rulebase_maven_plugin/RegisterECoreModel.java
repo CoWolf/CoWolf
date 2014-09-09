@@ -39,17 +39,19 @@ import org.xml.sax.SAXException;
 @Mojo(name = "register-ecore-model", defaultPhase = LifecyclePhase.GENERATE_SOURCES)
 public class RegisterECoreModel extends AbstractMojo {
 
-	private final String ECLIPSE_PLUGIN_FILE_NAME = "plugin.xml";
+	// private final String ECLIPSE_PLUGIN_FILE_NAME = "plugin.xml";
+	//
+	// private final String ECORE_GEN_PACKAGE_EXTENSION_POINT =
+	// "org.eclipse.emf.ecore.generated_package";
 
-	private final String ECORE_GEN_PACKAGE_EXTENSION_POINT = "org.eclipse.emf.ecore.generated_package";
+	private final String ECORE_FILE_EXTENSION = "ecore";
+	private final String DEFAULT_MODEL_DIR_PATH = "model";
 
 	/**
 	 * The project itself. This parameter is set by Maven.
 	 */
 	@Parameter(property = "project", readonly = true, required = true)
 	private MavenProject project;
-
-
 
 	/**
 	 * @param dir
@@ -63,7 +65,8 @@ public class RegisterECoreModel extends AbstractMojo {
 
 			if (file.isDirectory())
 				listEcoreFilesRecursively(file, ecoreFiles);
-			else if (file.getName().toLowerCase().endsWith(".ecore")) {
+			else if (file.getName().toLowerCase()
+					.endsWith("." + ECORE_FILE_EXTENSION)) {
 				ecoreFiles.add(file);
 			}
 		}
@@ -75,65 +78,68 @@ public class RegisterECoreModel extends AbstractMojo {
 	 */
 	@Override
 	public void execute() throws MojoExecutionException, MojoFailureException {
-		System.out.println("++++" + project.getBasedir() + File.separator
-				+ "model");
 
 		File ecoreModelDir = new File(project.getBasedir() + File.separator
-				+ "model");
+				+ DEFAULT_MODEL_DIR_PATH);
 
-		if (!ecoreModelDir.isDirectory()) {
+		if (ecoreModelDir.isDirectory()) {
 
-			getLog().info(
-					"Artifact \"" + project.getArtifactId()
-							+ "\" is not a Ecore model.");
-			return;
+			List<File> ecoreFiles = new ArrayList<File>();
+			listEcoreFilesRecursively(ecoreModelDir, ecoreFiles);
 
-		}
+			if (!ecoreFiles.isEmpty()) {
 
-		List<File> ecoreFiles = new ArrayList<File>();
+				// it's weird, but first of all we have to register the ecore
+				// XMI model
+				Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap()
+						.put(ECORE_FILE_EXTENSION,
+								new EcoreResourceFactoryImpl());
 
-		listEcoreFilesRecursively(ecoreModelDir, ecoreFiles);
+				ResourceSet rs = new ResourceSetImpl();
+				// enable extended metadata
+				final ExtendedMetaData extendedMetaData = new BasicExtendedMetaData(
+						rs.getPackageRegistry());
+				rs.getLoadOptions().put(XMLResource.OPTION_EXTENDED_META_DATA,
+						extendedMetaData);
 
-		if (ecoreFiles.isEmpty()) {
+				for (File ecoreFile : ecoreFiles) {
 
-			getLog().info(
-					"Artifact \"" + project.getArtifactId()
-							+ "\" is not a Ecore model.");
-			return;
-		}
+					Resource r = rs.getResource(
+							URI.createFileURI(ecoreFile.toString()), true);
+					EObject eObject = r.getContents().get(0);
+					if (eObject instanceof EPackage) {
 
-		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(
-				"ecore", new EcoreResourceFactoryImpl());
+						EPackage p = (EPackage) eObject;
+						getLog().info(
+								"Registering Ecore model with namespace \""
+										+ p.getNsURI()
+										+ "\" and package class \""
+										+ p.getClass().getCanonicalName()
+										+ "\"...");
+						EPackage.Registry.INSTANCE.put(p.getNsURI(), p);
 
-		ResourceSet rs = new ResourceSetImpl();
-		// enable extended metadata
-		final ExtendedMetaData extendedMetaData = new BasicExtendedMetaData(
-				rs.getPackageRegistry());
-		rs.getLoadOptions().put(XMLResource.OPTION_EXTENDED_META_DATA,
-				extendedMetaData);
+						getLog().info(
+								"Registering Ecore model with namespace \""
+										+ p.getNsURI()
+										+ "\" and package class \""
+										+ p.getClass().getCanonicalName()
+										+ "\" completed.");
 
-		for (File ecoreFile : ecoreFiles) {
+					}
 
-			Resource r = rs.getResource(
-					URI.createFileURI(ecoreFile.toString()), true);
-			EObject eObject = r.getContents().get(0);
-			if (eObject instanceof EPackage) {
+				}
 
-				EPackage p = (EPackage) eObject;
-				getLog().info(
-						"Registering Ecore model with namespace \""
-								+ p.getNsURI() + "\" and package class \""
-								+ p.getClass().getCanonicalName() + "\"...");
-				EPackage.Registry.INSTANCE.put(p.getNsURI(), p);
+				if (!ecoreFiles.isEmpty()) {
+					return;
+				}
 
-				getLog().info(
-						"Registering Ecore model with namespace \""
-								+ p.getNsURI() + "\" and package class \""
-								+ p.getClass().getCanonicalName()
-								+ "\" completed.");
 			}
 
 		}
+
+		getLog().info(
+				"Artifact \"" + project.getArtifactId()
+						+ "\" is not a Ecore model.");
 
 		// Document pluginDocument =
 		// getPluginFileDocument(project.getBasedir());
@@ -206,7 +212,7 @@ public class RegisterECoreModel extends AbstractMojo {
 	// return packageElement.getAttribute("uri");
 	//
 	// }
-
+	//
 	// /**
 	// * @param packageElement
 	// * @return
@@ -216,7 +222,7 @@ public class RegisterECoreModel extends AbstractMojo {
 	// return packageElement.getAttribute("class");
 	//
 	// }
-
+	//
 	// /**
 	// * @param projectRoot
 	// * @return
@@ -249,7 +255,7 @@ public class RegisterECoreModel extends AbstractMojo {
 	// return null;
 	//
 	// }
-
+	//
 	// /**
 	// * @param pluginDocument
 	// * @return
@@ -298,64 +304,64 @@ public class RegisterECoreModel extends AbstractMojo {
 	//
 	// return extensionPackages;
 	// }
-	
-//	/**
-//	 * @param fullClassName
-//	 * @return
-//	 * @throws MojoExecutionException
-//	 */
-//	private Object loadClass(String fullClassName)
-//			throws MojoExecutionException {
-//
-//		String classPath = fullClassName.replace('.', File.separatorChar);
-//
-//		try {
-//
-//			URL classDir = new File(project.getBuild().getOutputDirectory()
-//					+ File.separator + classPath).getParentFile().toURI()
-//					.toURL();
-//			System.out.println("+++" + classDir.toString());
-//			ClassLoader classLoader = RegisterECoreModel.class.getClassLoader();
-//			ClassLoader urlClassLoader = new URLClassLoader(
-//					new URL[] { classDir }, classLoader);
-//
-//			Class<?> loadedClass = urlClassLoader.loadClass(fullClassName);
-//			return loadedClass.newInstance();
-//
-//		} catch (ClassNotFoundException | InstantiationException
-//				| IllegalAccessException | MalformedURLException e) {
-//			throw new MojoExecutionException(e.getLocalizedMessage(), e);
-//		}
-//
-//	}
-//
-//	/**
-//	 * @param modelNamespaceURI
-//	 * @param modelPackage
-//	 * @throws MojoExecutionException
-//	 */
-//	private void registerECoreModel(String modelNamespaceURI,
-//			EPackage modelPackage) throws MojoExecutionException {
-//
-//		try {
-//
-//			Field eInstanceField = modelPackage.getClass().getDeclaredField(
-//					"eINSTANCE");
-//
-//			if (eInstanceField.getType() == modelPackage.getClass()) {
-//				EPackage.Registry.INSTANCE.put(modelNamespaceURI,
-//						eInstanceField.get(modelPackage));
-//			} else {
-//				throw new MojoExecutionException(
-//						"Field eINSTANCE is of the invalid type "
-//								+ eInstanceField.getType().getName());
-//			}
-//
-//		} catch (NoSuchFieldException | IllegalArgumentException
-//				| IllegalAccessException exc) {
-//			throw new MojoExecutionException(exc.getLocalizedMessage(), exc);
-//		}
-//
-//	}
+	//
+	// /**
+	// * @param fullClassName
+	// * @return
+	// * @throws MojoExecutionException
+	// */
+	// private Object loadClass(String fullClassName)
+	// throws MojoExecutionException {
+	//
+	// String classPath = fullClassName.replace('.', File.separatorChar);
+	//
+	// try {
+	//
+	// URL classDir = new File(project.getBuild().getOutputDirectory()
+	// + File.separator + classPath).getParentFile().toURI()
+	// .toURL();
+	// System.out.println("+++" + classDir.toString());
+	// ClassLoader classLoader = RegisterECoreModel.class.getClassLoader();
+	// ClassLoader urlClassLoader = new URLClassLoader(
+	// new URL[] { classDir }, classLoader);
+	//
+	// Class<?> loadedClass = urlClassLoader.loadClass(fullClassName);
+	// return loadedClass.newInstance();
+	//
+	// } catch (ClassNotFoundException | InstantiationException
+	// | IllegalAccessException | MalformedURLException e) {
+	// throw new MojoExecutionException(e.getLocalizedMessage(), e);
+	// }
+	//
+	// }
+	//
+	// /**
+	// * @param modelNamespaceURI
+	// * @param modelPackage
+	// * @throws MojoExecutionException
+	// */
+	// private void registerECoreModel(String modelNamespaceURI,
+	// EPackage modelPackage) throws MojoExecutionException {
+	//
+	// try {
+	//
+	// Field eInstanceField = modelPackage.getClass().getDeclaredField(
+	// "eINSTANCE");
+	//
+	// if (eInstanceField.getType() == modelPackage.getClass()) {
+	// EPackage.Registry.INSTANCE.put(modelNamespaceURI,
+	// eInstanceField.get(modelPackage));
+	// } else {
+	// throw new MojoExecutionException(
+	// "Field eINSTANCE is of the invalid type "
+	// + eInstanceField.getType().getName());
+	// }
+	//
+	// } catch (NoSuchFieldException | IllegalArgumentException
+	// | IllegalAccessException exc) {
+	// throw new MojoExecutionException(exc.getLocalizedMessage(), exc);
+	// }
+	//
+	// }
 
 }

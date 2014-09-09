@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -25,20 +24,10 @@ import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceFactoryImpl;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.util.BasicExtendedMetaData;
-import org.eclipse.emf.ecore.util.ExtendedMetaData;
 import org.eclipse.emf.ecore.xmi.XMIResource;
-import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.URIHandlerImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.emf.henshin.model.Module;
@@ -46,7 +35,6 @@ import org.eclipse.emf.henshin.model.resource.HenshinResourceFactory;
 import org.eclipse.emf.henshin.model.resource.HenshinResourceSet;
 import org.sidiff.difference.lifting.edit2recognition.util.Edit2RecognitionUtil;
 import org.sidiff.difference.rulebase.RecognitionRule;
-import org.sidiff.difference.rulebase.RulebasePackage;
 import org.sidiff.difference.rulebase.extension.AbstractProjectRuleBase;
 import org.sidiff.difference.rulebase.nature.RuleBaseProjectNature;
 import org.sidiff.difference.rulebase.wrapper.RuleBaseWrapper;
@@ -55,14 +43,11 @@ import org.sidiff.editrule.validation.EditRuleValidation;
 import org.sidiff.editrule.validation.EditRuleValidator;
 import org.silift.common.util.emf.EMFStorage;
 import org.silift.common.util.emf.XMIIDResourceImpl;
-import org.silift.common.util.emf.EMFStorage.PlatformResourceDeresolve;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-
-import de.uni_stuttgart.iste.cowolf.silift_rulebase_maven_plugin.rulebase_ext.RulebaseResourceFactory;
 
 /**
  * Builds the SiLift rulebase and generates the recognition rules that are
@@ -180,33 +165,8 @@ public class RuleBaseBuilder extends AbstractMojo {
 
 	private void registerRulebaseEcoreModel() {
 
-		// ResourceSet rs = new ResourceSetImpl();
-		// // enable extended metadata
-		// final ExtendedMetaData extendedMetaData = new BasicExtendedMetaData(
-		// rs.getPackageRegistry());
-		// rs.getLoadOptions().put(XMLResource.OPTION_EXTENDED_META_DATA,
-		// extendedMetaData);
-		//
-		// Resource r = rs.getResource(
-		// URI.createFileURI(project.getBasedir() + File.separator + "model" +
-		// File.separator + "RuleBase.ecore"), true);
-		// EObject eObject = r.getContents().get(0);
-		// if (eObject instanceof EPackage) {
-		//
-		// EPackage p = (EPackage) eObject;
-		// EPackage.Registry.INSTANCE.put(p.getNsURI(), p);
-
-		// EPackage.Registry.INSTANCE.put(RulebasePackage.getNsURI(), p);
-
-		// Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(
-		// "rulebase", new
-		// XMIResourceFactoryImpl().createResource(URI.createURI(RulebasePackage.eNS_URI)));
-		//
-		// RulebasePackage.eINSTANCE.getName();
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(
 				"rulebase", new XMIResourceFactoryImpl());
-
-		// RulebasePackage.eINSTANCE.getEFactoryInstance();
 
 	};
 
@@ -360,27 +320,30 @@ public class RuleBaseBuilder extends AbstractMojo {
 
 		saveRecognitionModules();
 
-		if (new File(project.getBasedir() + File.separator
-				+ AbstractProjectRuleBase.RULEBASE_FILE).exists()) {
-			EMFStorage.eSave(getRuleBaseWrapper().getRuleBase());
-		} else {
+		// if (new File(project.getBasedir() + File.separator
+		// + AbstractProjectRuleBase.RULEBASE_FILE).exists()) {
+		// EMFStorage.eSave(getRuleBaseWrapper().getRuleBase());
+		// } else {
 
-			Resource resource = new XMIIDResourceImpl(getRuleBaseWrapper()
-					.getRuleBaseLocation());
-			resource.getContents().add(getRuleBaseWrapper().getRuleBase());
+		Resource resource = new XMIIDResourceImpl(getRuleBaseWrapper()
+				.getRuleBaseLocation());
+		// TODO editrules dir and rec. rules dir
+		resource.getContents().add(getRuleBaseWrapper().getRuleBase());
 
-			Map<String, Object> options = new HashMap<String, Object>();
-			options.put(XMIResource.OPTION_SCHEMA_LOCATION, Boolean.TRUE);
-			options.put(XMIResource.OPTION_URI_HANDLER,
-					new PlatformResourceDeresolve());
+		Map<String, Object> options = new HashMap<String, Object>();
 
-			try {
-				resource.save(options);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+		options.put(XMIResource.OPTION_SCHEMA_LOCATION, Boolean.TRUE);
+		PlatformResourceDeresolve platformResourceDeResolve = new PlatformResourceDeresolve(
+				project.getBasedir());
+		options.put(XMIResource.OPTION_URI_HANDLER, platformResourceDeResolve);
 
+		try {
+			resource.save(options);
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
+
+		// }
 
 	}
 
@@ -388,16 +351,43 @@ public class RuleBaseBuilder extends AbstractMojo {
 	 * Deresolve as platform resource URI.
 	 */
 	private static class PlatformResourceDeresolve extends URIHandlerImpl {
+
+		public PlatformResourceDeresolve(File projectBaseDir) {
+			this.projectBaseDir = projectBaseDir;
+		}
+
+		File projectBaseDir;
+
 		@Override
 		public URI deresolve(URI uri) {
-			
-				return URI.createPlatformResourceURI(uri.toFileString(), false).appendFragment(uri.fragment());
-		
+
+			// System.out.println("--- " + uri.toString());
+			// System.out.println("--- " + uri.path());
+			System.out.println("-------- " + uri.toString());
+			if (!uri.isPlatformResource() && uri.isFile()) {
+				String recognitionRuleRelPath = uri.toFileString().replace(
+						projectBaseDir.getParent(), "");
+
+				// System.out.println("****" + recognitionRuleRelPath);
+				// System.out.println("****+++" +
+				// URI.createFileURI(recognitionRuleRelPath));
+				System.out.println("****+++++"
+						+ URI.createPlatformResourceURI(recognitionRuleRelPath,
+								false).appendFragment(uri.fragment()));
+				return URI.createPlatformResourceURI(recognitionRuleRelPath,
+						false).appendFragment(uri.fragment());
+			}
+
+			return uri;
+
+			// return URI.createPlatformResourceURI(uri.toFileString(), false)
+			// .appendFragment(uri.fragment());
+
 		}
+
 	}
 
 	/**
-	 * 
 	 * @throws MojoExecutionException
 	 */
 	private void saveRecognitionModules() throws MojoExecutionException {
@@ -445,42 +435,39 @@ public class RuleBaseBuilder extends AbstractMojo {
 	private URI getRecognitionRuleSaveURI(Module editModule) {
 
 		// Replace Edit-Rule with Recognition-Rule to keep folder structure:
-		String editRuleFolderString = getRuleBaseWrapper().getEditRuleFolder()
-				.lastSegment();
-		String recognitionRuleFolderString = getRuleBaseWrapper()
-				.getRecognitionRuleFolder().lastSegment();
-
+		// String editRuleFolderString =
+		// getRuleBaseWrapper().getEditRuleFolder()
+		// .lastSegment();
+		// String recognitionRuleFolderString = getRuleBaseWrapper()
+		// .getRecognitionRuleFolder().lastSegment();
+		// System.out.println("editfolderstring: " + editRuleFolderString);
+		// System.out.println("recognitionRuleFolderString: " +
+		// recognitionRuleFolderString);
 		System.out.println("++++" + editModule.eResource().getURI());
 
 		// String savePath =
 		// EMFStorage.uriToPath(editModule.eResource().getURI());
 
-		String savePath = editModule.eResource().getURI().toFileString();
+		String editRuleURI = editModule.eResource().getURI().toFileString();
 
 		// Get URI without filename
-		savePath = savePath.substring(0, savePath.lastIndexOf(File.separator));
+		String editRuleDir = new File(editRuleURI).getParentFile().getPath();
+		// savePath = savePath.substring(0,
+		// savePath.lastIndexOf(File.separator));
 
 		// Replace EditRuleFolder with RecognitionRuleFolder
-		savePath = savePath.replace(File.separator + editRuleFolderString,
-				File.separator + recognitionRuleFolderString);
+		String recognitionRuleDir = editRuleDir.replace(File.separator
+				+ AbstractProjectRuleBase.SOURCE_FOLDER, File.separator
+				+ AbstractProjectRuleBase.BUILD_FOLDER);
 
-		return pathToUri(savePath);
-	}
+		// String recognitionRuleDirRelToWorkspace =
+		// recognitionRuleDir.replace(project.getBasedir().getParent(), "");
 
-	public URI pathToUri(String path) {
-
-		return URI.createPlatformResourceURI(path, false);
-
-		// IFile[] iFiles = ResourcesPlugin.getWorkspace().getRoot()
-		// .findFilesForLocationURI(new File(path).toURI());
-		//
-		// if (iFiles.length > 0) {
-		// return URI.createPlatformResourceURI(iFiles[0].getFullPath()
-		// .toString(), true);
-		// } else {
-		// return URI.createFileURI(new File(path).getAbsolutePath());
-		// }
-
+		// System.out.println("savePath: " + savePath);
+		return URI.createFileURI(recognitionRuleDir);
+		// return
+		// URI.createPlatformResourceURI(recognitionRuleDirRelToWorkspace,
+		// false);
 	}
 
 	/**
@@ -496,6 +483,23 @@ public class RuleBaseBuilder extends AbstractMojo {
 					+ File.separator + AbstractProjectRuleBase.SOURCE_FOLDER);
 			URI recognitionRulesDir = URI.createFileURI(project.getBasedir()
 					+ File.separator + AbstractProjectRuleBase.BUILD_FOLDER);
+
+//			String ruleBasePath = project.getBasedir() + File.separator
+//					+ AbstractProjectRuleBase.RULEBASE_FILE;
+//			URI ruleBaseURI = URI.createPlatformResourceURI(
+//					ruleBasePath.replace(project.getBasedir().getParent(), ""),
+//					true);
+//
+//			String editRulesDirPath = project.getBasedir() + File.separator
+//					+ AbstractProjectRuleBase.SOURCE_FOLDER;
+//			URI editRulesDir = URI.createPlatformResourceURI(editRulesDirPath
+//					.replace(project.getBasedir().getParent(), ""), true);
+//
+//			String recognitionRulesDirPath = project.getBasedir()
+//					+ File.separator + AbstractProjectRuleBase.BUILD_FOLDER;
+//			URI recognitionRulesDir = URI.createPlatformResourceURI(
+//					recognitionRulesDirPath.replace(project.getBasedir()
+//							.getParent(), ""), true);
 
 			ruleBaseWrapper = new RuleBaseWrapper(ruleBaseURI,
 					recognitionRulesDir, editRulesDir, false);
