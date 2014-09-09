@@ -9,6 +9,7 @@ import org.eclipse.emf.henshin.interpreter.impl.EGraphImpl;
 import org.eclipse.emf.henshin.model.resource.HenshinResourceSet;
 
 import de.unistuttgart.ensure.transformations.util.HenshinTransformations;
+import de.unistuttgart.ensure.transformations.util.TransformationsConstants;
 import de.unistuttgart.ensure.transformations.util.TransformationsLogger;
 import de.unistuttgart.ensure.transformations.util.TransformationsUtil;
 
@@ -659,20 +660,13 @@ public class ChangeTree {
 	public static void init(Resource sa, Resource ft) {
 		// Add the own extension to importable instance models.
 		TransformationsUtil.registerExtensions();
-
-		// Load Packages.
-		TransformationsUtil.loadPackages();
-
-		// Create a resource set for the working directory.
-		HenshinResourceSet resourceSet = new HenshinResourceSet();
-
+		
 		// Load instance models.
 		saInstanceModel = sa;
 		faulttreeInstanceModel = ft;
-
-		// Initialize the graphs.
-		saGraph = new EGraphImpl(saInstanceModel);
-		faulttreeGraph = new EGraphImpl(faulttreeInstanceModel);
+		
+		// Load Packages.
+		TransformationsUtil.loadPackages();
 
 		handledNewConnections = new ArrayList<String>();
 	}
@@ -680,7 +674,7 @@ public class ChangeTree {
 	/**
 	 * Provides the functionality to adjust the fault tree based on the changes in SA.
 	 */
-	public static EGraph run(Resource sa, Resource ft,
+	public static EGraph run(EGraph graph,
 	/* EList<Diff> changes */List<String> newComponentTypes, List<String> newPortTypes, List<String> newComponentInstances, List<String> newPortInstances,
 			List<String> newSubComponentInstances, List<String> newConnectors) {
 		/*
@@ -697,11 +691,8 @@ public class ChangeTree {
 		TransformationsLogger.log("Preparing...");
 		System.out.println("\n\n");
 
-		// Initialize.
-		init(sa, ft);
-
 		// Merge all input models in the saGraph.
-		saGraph = TransformationsUtil.mergeInstanceModels(saGraph, faulttreeGraph);
+		saGraph = graph;
 
 		// Handle new component types.
 		handleNewComponentTypes(newComponentTypes);

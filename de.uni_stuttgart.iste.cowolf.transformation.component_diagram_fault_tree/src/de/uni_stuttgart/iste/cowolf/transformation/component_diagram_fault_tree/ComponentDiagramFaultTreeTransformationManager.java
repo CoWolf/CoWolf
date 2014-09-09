@@ -105,7 +105,7 @@ public class ComponentDiagramFaultTreeTransformationManager extends AbstractTran
 
 		System.out.println(" >>> Parameter List sizes: " + newComponentTypes.size() + " " + newPortTypes.size() + " " + newComponentInstances.size() + " " + newPortInstances.size() + " " +
 			newSubComponentInstances.size() + " " + newConnectors.size());
-		EGraph result = ChangeTree.run(source, target, newComponentTypes, newPortTypes, newComponentInstances, newPortInstances,
+		EGraph result = ChangeTree.run(generateGraph(resSet), newComponentTypes, newPortTypes, newComponentInstances, newPortInstances,
 				newSubComponentInstances, newConnectors);
 		if (result == null) {
 			return false;

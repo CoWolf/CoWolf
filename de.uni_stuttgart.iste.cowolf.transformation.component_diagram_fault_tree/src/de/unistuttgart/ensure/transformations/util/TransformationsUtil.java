@@ -273,8 +273,7 @@ public class TransformationsUtil {
 					.equals(TransformationsConstants.SA_PACKAGE)) {
 				// Do nothing.
 			} else {
-				throw new RuntimeException("Unknown model class: "
-						+ object.getClass());
+				// Do nothing.
 			}
 		}
 
@@ -382,10 +381,9 @@ public class TransformationsUtil {
 				// Do nothing.
 			} else if (object.getClass().getPackage().getName()
 					.equals(TransformationsConstants.TRACE_PACKAGE)) {
-				// Do noting.
+				// Do nothing.
 			} else {
-				throw new RuntimeException("Unknown model class: "
-						+ object.getClass() + " | " + object.toString());
+				// Do nothing.
 			}
 		}
 
