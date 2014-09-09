@@ -53,11 +53,10 @@ public class OpenHelpContextListener implements IPartListener2 {
 			if (!preferenceStore.getBoolean(representationId)) {
 				preferenceStore.setValue(representationId, Boolean.TRUE);
 
-				// Context ids are defined in the html/contexts.xml file in
-				// org.obeonetwork.dsl.uml2.design.doc project.
+
 				// The representationId is equal to the id defined in the uml.odesign
 				// description.
-				String contextId = "org.obeonetwork.dsl.uml2.design.doc." + representationId;
+				String contextId = "de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.design.doc." + representationId;
 
 				PlatformUI.getWorkbench().getHelpSystem()
 						.setHelp(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), contextId);

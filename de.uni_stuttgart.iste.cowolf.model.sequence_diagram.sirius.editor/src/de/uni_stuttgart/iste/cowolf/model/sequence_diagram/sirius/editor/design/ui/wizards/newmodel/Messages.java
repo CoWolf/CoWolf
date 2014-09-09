@@ -14,7 +14,7 @@ import org.eclipse.osgi.util.NLS;
 
 // CHECKSTYLE:OFF
 public class Messages extends NLS {
-	private static final String BUNDLE_NAME = "org.obeonetwork.dsl.uml2.design.ui.wizards.newmodel.messages"; //$NON-NLS-1$
+	private static final String BUNDLE_NAME = "de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.design.ui.wizards.newmodel.messages"; //$NON-NLS-1$
 
 	public static String UIServices_UI_Error_PastingElement;
 
