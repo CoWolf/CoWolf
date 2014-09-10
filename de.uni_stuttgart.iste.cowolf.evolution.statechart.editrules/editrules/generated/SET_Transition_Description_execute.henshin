@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_Qi4pADjyEeSVapYW30PJuQ" name="SET_Transition_Description" description="Sets Transition Description">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_Qi4pATjyEeSVapYW30PJuQ" name="setTransitionDescription" description="Sets the EAttribute description">
+    <parameters xmi:id="_Qi4pAjjyEeSVapYW30PJuQ" name="Selected"/>
+    <parameters xmi:id="_Qi4pAzjyEeSVapYW30PJuQ" name="Description"/>
+    <lhs xmi:id="_Qi4pBDjyEeSVapYW30PJuQ" name="Lhs">
+      <nodes xmi:id="_Qi4pBTjyEeSVapYW30PJuQ" name="Selected">
+        <type href="http://Statemachine/1.0#//Transition"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_Qi4pBjjyEeSVapYW30PJuQ" name="Rhs">
+      <nodes xmi:id="_Qi4pBzjyEeSVapYW30PJuQ" name="Selected">
+        <type href="http://Statemachine/1.0#//Transition"/>
+        <attributes xmi:id="_Qi4pCDjyEeSVapYW30PJuQ" value="Description">
+          <type href="http://Statemachine/1.0#//Transition/description"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_Qi4pCTjyEeSVapYW30PJuQ" origin="_Qi4pBTjyEeSVapYW30PJuQ" image="_Qi4pBzjyEeSVapYW30PJuQ"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_Qi4pCjjyEeSVapYW30PJuQ" name="mainUnit" subUnits="_Qi4pATjyEeSVapYW30PJuQ">
+    <parameters xmi:id="_Qi4pCzjyEeSVapYW30PJuQ" name="selectedEObject"/>
+    <parameters xmi:id="_Qi4pDDjyEeSVapYW30PJuQ" name="Description"/>
+    <parameterMappings xmi:id="_Qi4pDTjyEeSVapYW30PJuQ" source="_Qi4pCzjyEeSVapYW30PJuQ" target="_Qi4pAjjyEeSVapYW30PJuQ"/>
+    <parameterMappings xmi:id="_Qi4pDjjyEeSVapYW30PJuQ" source="_Qi4pDDjyEeSVapYW30PJuQ" target="_Qi4pAzjyEeSVapYW30PJuQ"/>
+  </units>
+</henshin:Module>

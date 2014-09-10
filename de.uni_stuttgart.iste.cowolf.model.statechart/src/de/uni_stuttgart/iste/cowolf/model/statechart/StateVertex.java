@@ -4,6 +4,7 @@ package de.uni_stuttgart.iste.cowolf.model.statechart;
 
 import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
 import de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase;
+
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -20,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  * </p>
  *
- * @see de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage#getStateVertex()
+ * @see de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage#getStateVertex()
  * @model
  * @generated
  */
@@ -36,7 +37,7 @@ public interface StateVertex extends IDBase, NameBase {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sv container</em>' container reference.
 	 * @see #setSv_container(CompositeState)
-	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage#getStateVertex_Sv_container()
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage#getStateVertex_Sv_container()
 	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.CompositeState#getSubVertexes
 	 * @model opposite="subVertexes" transient="false" ordered="false"
 	 * @generated
@@ -64,7 +65,7 @@ public interface StateVertex extends IDBase, NameBase {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Outgoing</em>' reference list.
-	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage#getStateVertex_Outgoing()
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage#getStateVertex_Outgoing()
 	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.Transition#getSource
 	 * @model opposite="source" ordered="false"
 	 * @generated
@@ -82,7 +83,7 @@ public interface StateVertex extends IDBase, NameBase {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Incoming</em>' reference list.
-	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage#getStateVertex_Incoming()
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage#getStateVertex_Incoming()
 	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.Transition#getTarget
 	 * @model opposite="target" ordered="false"
 	 * @generated

@@ -2,22 +2,21 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.statechart.impl;
 
-import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
-import de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase;
 import de.uni_stuttgart.iste.cowolf.model.commonBase.impl.IDBaseImpl;
+
 import de.uni_stuttgart.iste.cowolf.model.statechart.Event;
-import de.uni_stuttgart.iste.cowolf.model.statechart.State;
+import de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage;
 import de.uni_stuttgart.iste.cowolf.model.statechart.Transition;
-import de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage;
-import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +27,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.EventImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.EventImpl#getEvt_container <em>Evt container</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.EventImpl#getTargets <em>Targets</em>}</li>
  * </ul>
  * </p>
  *
@@ -56,26 +54,6 @@ public class EventImpl extends IDBaseImpl implements Event {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getEvt_container() <em>Evt container</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEvt_container()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Transition> evt_container;
-
-	/**
-	 * The cached value of the '{@link #getTargets() <em>Targets</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTargets()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<State> targets;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -91,7 +69,7 @@ public class EventImpl extends IDBaseImpl implements Event {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return statechartemfPackage.Literals.EVENT;
+		return StatemachinePackage.Literals.EVENT;
 	}
 
 	/**
@@ -112,7 +90,7 @@ public class EventImpl extends IDBaseImpl implements Event {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, statechartemfPackage.EVENT__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, StatemachinePackage.EVENT__NAME, oldName, name));
 	}
 
 	/**
@@ -120,11 +98,40 @@ public class EventImpl extends IDBaseImpl implements Event {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Transition> getEvt_container() {
-		if (evt_container == null) {
-			evt_container = new EObjectWithInverseResolvingEList<Transition>(Transition.class, this, statechartemfPackage.EVENT__EVT_CONTAINER, statechartemfPackage.TRANSITION__TRIGGER);
+	public Transition getEvt_container() {
+		if (eContainerFeatureID() != StatemachinePackage.EVENT__EVT_CONTAINER) return null;
+		return (Transition)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetEvt_container(Transition newEvt_container, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newEvt_container, StatemachinePackage.EVENT__EVT_CONTAINER, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEvt_container(Transition newEvt_container) {
+		if (newEvt_container != eInternalContainer() || (eContainerFeatureID() != StatemachinePackage.EVENT__EVT_CONTAINER && newEvt_container != null)) {
+			if (EcoreUtil.isAncestor(this, newEvt_container))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newEvt_container != null)
+				msgs = ((InternalEObject)newEvt_container).eInverseAdd(this, StatemachinePackage.TRANSITION__TRIGGER, Transition.class, msgs);
+			msgs = basicSetEvt_container(newEvt_container, msgs);
+			if (msgs != null) msgs.dispatch();
 		}
-		return evt_container;
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, StatemachinePackage.EVENT__EVT_CONTAINER, newEvt_container, newEvt_container));
 	}
 
 	/**
@@ -132,26 +139,13 @@ public class EventImpl extends IDBaseImpl implements Event {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<State> getTargets() {
-		if (targets == null) {
-			targets = new EObjectWithInverseResolvingEList.ManyInverse<State>(State.class, this, statechartemfPackage.EVENT__TARGETS, statechartemfPackage.STATE__DEFERRABLE_EVENTS);
-		}
-		return targets;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case statechartemfPackage.EVENT__EVT_CONTAINER:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getEvt_container()).basicAdd(otherEnd, msgs);
-			case statechartemfPackage.EVENT__TARGETS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getTargets()).basicAdd(otherEnd, msgs);
+			case StatemachinePackage.EVENT__EVT_CONTAINER:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetEvt_container((Transition)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -164,10 +158,8 @@ public class EventImpl extends IDBaseImpl implements Event {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case statechartemfPackage.EVENT__EVT_CONTAINER:
-				return ((InternalEList<?>)getEvt_container()).basicRemove(otherEnd, msgs);
-			case statechartemfPackage.EVENT__TARGETS:
-				return ((InternalEList<?>)getTargets()).basicRemove(otherEnd, msgs);
+			case StatemachinePackage.EVENT__EVT_CONTAINER:
+				return basicSetEvt_container(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -178,14 +170,26 @@ public class EventImpl extends IDBaseImpl implements Event {
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case StatemachinePackage.EVENT__EVT_CONTAINER:
+				return eInternalContainer().eInverseRemove(this, StatemachinePackage.TRANSITION__TRIGGER, Transition.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case statechartemfPackage.EVENT__NAME:
+			case StatemachinePackage.EVENT__NAME:
 				return getName();
-			case statechartemfPackage.EVENT__EVT_CONTAINER:
+			case StatemachinePackage.EVENT__EVT_CONTAINER:
 				return getEvt_container();
-			case statechartemfPackage.EVENT__TARGETS:
-				return getTargets();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -195,20 +199,14 @@ public class EventImpl extends IDBaseImpl implements Event {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case statechartemfPackage.EVENT__NAME:
+			case StatemachinePackage.EVENT__NAME:
 				setName((String)newValue);
 				return;
-			case statechartemfPackage.EVENT__EVT_CONTAINER:
-				getEvt_container().clear();
-				getEvt_container().addAll((Collection<? extends Transition>)newValue);
-				return;
-			case statechartemfPackage.EVENT__TARGETS:
-				getTargets().clear();
-				getTargets().addAll((Collection<? extends State>)newValue);
+			case StatemachinePackage.EVENT__EVT_CONTAINER:
+				setEvt_container((Transition)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -222,14 +220,11 @@ public class EventImpl extends IDBaseImpl implements Event {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case statechartemfPackage.EVENT__NAME:
+			case StatemachinePackage.EVENT__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case statechartemfPackage.EVENT__EVT_CONTAINER:
-				getEvt_container().clear();
-				return;
-			case statechartemfPackage.EVENT__TARGETS:
-				getTargets().clear();
+			case StatemachinePackage.EVENT__EVT_CONTAINER:
+				setEvt_container((Transition)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -243,46 +238,12 @@ public class EventImpl extends IDBaseImpl implements Event {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case statechartemfPackage.EVENT__NAME:
+			case StatemachinePackage.EVENT__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case statechartemfPackage.EVENT__EVT_CONTAINER:
-				return evt_container != null && !evt_container.isEmpty();
-			case statechartemfPackage.EVENT__TARGETS:
-				return targets != null && !targets.isEmpty();
+			case StatemachinePackage.EVENT__EVT_CONTAINER:
+				return getEvt_container() != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == NameBase.class) {
-			switch (derivedFeatureID) {
-				case statechartemfPackage.EVENT__NAME: return CommonBasePackage.NAME_BASE__NAME;
-				default: return -1;
-			}
-		}
-		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == NameBase.class) {
-			switch (baseFeatureID) {
-				case CommonBasePackage.NAME_BASE__NAME: return statechartemfPackage.EVENT__NAME;
-				default: return -1;
-			}
-		}
-		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**
