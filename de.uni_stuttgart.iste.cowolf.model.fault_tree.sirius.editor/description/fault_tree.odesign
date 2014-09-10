@@ -4,8 +4,8 @@
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="fault tree diagram" initialisation="true" domainClass="fault_tree.FaultTree" enablePopupBars="true">
       <layout xsi:type="description_1:OrderedTreeLayout" childrenExpression="[eContents()->filter(FaultTree)/]" nodeMapping="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='IntermediateEventNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='AndNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='ErrorInstanceNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='FailureInstanceNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='HazardNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='InhibitNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='OrNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='PriorAndNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='XorNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='BasicEventNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='UndevelopedEventNode']"/>
       <defaultLayer name="Default">
-        <nodeMappings name="IntermediateEventNode" domainClass="fault_tree.IntermediateEvent">
-          <style xsi:type="style:SquareDescription" showIcon="false" resizeKind="NSEW">
+        <nodeMappings name="IntermediateEventNode" labelDirectEdit="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='EditLabelEvent']" domainClass="fault_tree.IntermediateEvent">
+          <style xsi:type="style:SquareDescription" showIcon="false" tooltipExpression="Intermediate Event">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
@@ -41,120 +41,120 @@
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="HazardNode" domainClass="fault_tree.Hazard">
+        <nodeMappings name="HazardNode" labelDirectEdit="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='EditLabelEvent']" domainClass="fault_tree.Hazard">
           <style xsi:type="style:WorkspaceImageDescription" showIcon="false" tooltipExpression="Hazard" workspacePath="de.uni_stuttgart.iste.cowolf.model.fault_tree.sirius.editor/icons/hazard.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="FailureInstanceNode" domainClass="fault_tree.FailureInstance">
-          <borderedNodeMappings name="FailureTypeNode" semanticCandidatesExpression="feature:type" domainClass="fault_tree.FailureType">
-            <style xsi:type="style:LozengeNodeDescription" showIcon="false" sizeComputationExpression="1">
+        <nodeMappings name="FailureInstanceNode" labelDirectEdit="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='EditLabelEvent']" domainClass="fault_tree.FailureInstance">
+          <borderedNodeMappings name="FailureTypeNode" labelDirectEdit="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='EditLabelEvent']" semanticCandidatesExpression="feature:type" domainClass="fault_tree.FailureType">
+            <style xsi:type="style:LozengeNodeDescription" showIcon="false" tooltipExpression="Failure Type" sizeComputationExpression="1">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
             </style>
           </borderedNodeMappings>
-          <style xsi:type="style:SquareDescription" showIcon="false">
+          <style xsi:type="style:SquareDescription" showIcon="false" tooltipExpression="Failure Instance">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="ErrorInstanceNode" domainClass="fault_tree.ErrorInstance">
-          <borderedNodeMappings name="ErrorTypeNode" semanticCandidatesExpression="feature:type" domainClass="fault_tree.ErrorType">
-            <style xsi:type="style:LozengeNodeDescription" showIcon="false" sizeComputationExpression="1">
+        <nodeMappings name="ErrorInstanceNode" labelDirectEdit="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='EditLabelEvent']" domainClass="fault_tree.ErrorInstance">
+          <borderedNodeMappings name="ErrorTypeNode" labelDirectEdit="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='EditLabelEvent']" semanticCandidatesExpression="feature:type" domainClass="fault_tree.ErrorType">
+            <style xsi:type="style:LozengeNodeDescription" showIcon="false" tooltipExpression="Error Type" sizeComputationExpression="1">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
             </style>
           </borderedNodeMappings>
-          <style xsi:type="style:DotDescription" showIcon="false">
+          <style xsi:type="style:DotDescription" showIcon="false" tooltipExpression="Error Instance">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="BasicEventNode" domainClass="fault_tree.BasicEvent">
-          <style xsi:type="style:DotDescription" showIcon="false">
+        <nodeMappings name="BasicEventNode" labelDirectEdit="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='EditLabelEvent']" domainClass="fault_tree.BasicEvent">
+          <style xsi:type="style:DotDescription" showIcon="false" tooltipExpression="Basic Event">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="UndevelopedEventNode" domainClass="fault_tree.UndevelopedEvent">
-          <style xsi:type="style:LozengeNodeDescription" showIcon="false">
+        <nodeMappings name="UndevelopedEventNode" labelDirectEdit="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='EditLabelEvent']" domainClass="fault_tree.UndevelopedEvent">
+          <style xsi:type="style:LozengeNodeDescription" showIcon="false" tooltipExpression="Undeveloped Event">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
           </style>
         </nodeMappings>
-        <edgeMappings name="EventToGateEdge" sourceMapping="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='IntermediateEventNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='FailureInstanceNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='HazardNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='ErrorInstanceNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='BasicEventNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='UndevelopedEventNode']" targetMapping="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='AndNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='InhibitNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='OrNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='PriorAndNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='XorNode']" targetFinderExpression="feature:outputGate">
-          <style sizeComputationExpression="2">
+        <edgeMappings name="EventToGateEdge" deletionDescription="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='Edge']" sourceMapping="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='IntermediateEventNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='FailureInstanceNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='HazardNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='ErrorInstanceNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='BasicEventNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='UndevelopedEventNode']" targetMapping="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='AndNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='InhibitNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='OrNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='PriorAndNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='XorNode']" targetFinderExpression="feature:outputGate" reconnections="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='ReconnectEventToGateTarget'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='ReconnectEventToGateSource']">
+          <style targetArrow="NoDecoration" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="GateToEventEdge" sourceMapping="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='AndNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='InhibitNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='OrNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='PriorAndNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='XorNode']" targetMapping="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='HazardNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='IntermediateEventNode']" targetFinderExpression="feature:outputEvent">
-          <style sizeComputationExpression="2">
+        <edgeMappings name="GateToEventEdge" deletionDescription="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='Edge']" sourceMapping="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='AndNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='InhibitNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='OrNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='PriorAndNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='XorNode']" targetMapping="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='HazardNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='IntermediateEventNode']" targetFinderExpression="feature:outputEvent" reconnections="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='ReconnectGateToEventTarget'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='ReconnectGateToEventSource']">
+          <style targetArrow="NoDecoration" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="GateToGateEdge" sourceMapping="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='AndNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='InhibitNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='OrNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='PriorAndNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='XorNode']" targetMapping="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='InhibitNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='OrNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='PriorAndNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='XorNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='AndNode']" targetFinderExpression="feature:outputGate">
-          <style sizeComputationExpression="2">
+        <edgeMappings name="GateToGateEdge" deletionDescription="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='Edge']" sourceMapping="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='AndNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='InhibitNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='OrNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='PriorAndNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='XorNode']" targetMapping="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='InhibitNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='OrNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='PriorAndNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='XorNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='AndNode']" targetFinderExpression="feature:outputGate" reconnections="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='ReconnectGateToGatetTarget']">
+          <style targetArrow="NoDecoration" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="IntermEventToIntermEventEdge" sourceMapping="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='IntermediateEventNode']" targetMapping="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='IntermediateEventNode']" targetFinderExpression="feature:outEvent">
-          <style sizeComputationExpression="2">
+        <edgeMappings name="IntermEventToIntermEventEdge" deletionDescription="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='Edge']" sourceMapping="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='IntermediateEventNode']" targetMapping="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='IntermediateEventNode']" targetFinderExpression="feature:outEvent" reconnections="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='IntermEventToIntermEventTarget']">
+          <style targetArrow="NoDecoration" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="BasicEventToIntermEventEdge" sourceMapping="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='BasicEventNode']" targetMapping="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='IntermediateEventNode']" targetFinderExpression="feature:outEvent">
-          <style sizeComputationExpression="2">
+        <edgeMappings name="BasicEventToIntermEventEdge" deletionDescription="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='Edge']" sourceMapping="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='BasicEventNode']" targetMapping="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='IntermediateEventNode']" targetFinderExpression="feature:outEvent" reconnections="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='BasicEventToIntermEventTarget']">
+          <style targetArrow="NoDecoration" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="BasicEventToErrorInstanceEdge" sourceMapping="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='BasicEventNode']" targetMapping="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='ErrorInstanceNode']" targetFinderExpression="feature:instance">
-          <style sourceArrow="InputArrow" targetArrow="NoDecoration" sizeComputationExpression="2">
+        <edgeMappings name="BasicEventToErrorInstanceEdge" deletionDescription="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='Edge']" sourceMapping="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='BasicEventNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='ErrorInstanceNode']" targetMapping="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='ErrorInstanceNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='BasicEventNode']" targetFinderExpression="feature:instance" reconnections="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='BasicEventToErrorInstanceSource']">
+          <style targetArrow="NoDecoration" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="FailureInstanceToFailureInstanceEdge" sourceMapping="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='FailureInstanceNode']" targetMapping="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='FailureInstanceNode']" targetFinderExpression="feature:previousFailure">
-          <style sourceArrow="InputArrow" targetArrow="NoDecoration" sizeComputationExpression="2">
+        <edgeMappings name="FailureInstanceToFailureInstanceEdge" deletionDescription="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='Edge']" sourceMapping="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='FailureInstanceNode']" targetMapping="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='FailureInstanceNode']" targetFinderExpression="feature:previousFailure" reconnections="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='FailureInstanceToFailureInstanceSource']">
+          <style targetArrow="NoDecoration" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="FailureInstanceToErrorInstanceEdge" sourceMapping="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='FailureInstanceNode']" targetMapping="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='ErrorInstanceNode']" targetFinderExpression="feature:previousError">
-          <style sourceArrow="InputArrow" targetArrow="NoDecoration" sizeComputationExpression="2">
+        <edgeMappings name="FailureInstanceToErrorInstanceEdge" deletionDescription="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='Edge']" sourceMapping="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='FailureInstanceNode']" targetMapping="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='ErrorInstanceNode']" targetFinderExpression="feature:previousError" reconnections="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='FailureInstanceToErrorInstanceTarget']">
+          <style targetArrow="NoDecoration" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="IntermEventToFailureInstanceEdge" sourceMapping="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='IntermediateEventNode']" targetMapping="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='FailureInstanceNode']" targetFinderExpression="feature:instance">
-          <style sourceArrow="InputArrow" targetArrow="NoDecoration" sizeComputationExpression="2">
+        <edgeMappings name="IntermEventToFailureInstanceEdge" deletionDescription="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='Edge']" sourceMapping="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='IntermediateEventNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='FailureInstanceNode']" targetMapping="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='FailureInstanceNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='IntermediateEventNode']" targetFinderExpression="feature:instance" reconnections="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='IntermEventToFailureInstanceTarget']">
+          <style targetArrow="NoDecoration" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -162,7 +162,7 @@
           </style>
         </edgeMappings>
         <toolSections name="Create Connections">
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Edge" edgeMappings="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@edgeMappings[name='GateToGateEdge'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@edgeMappings[name='EventToGateEdge'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@edgeMappings[name='GateToEventEdge'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@edgeMappings[name='BasicEventToErrorInstanceEdge'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@edgeMappings[name='BasicEventToIntermEventEdge'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@edgeMappings[name='FailureInstanceToFailureInstanceEdge'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@edgeMappings[name='IntermEventToIntermEventEdge'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@edgeMappings[name='FailureInstanceToErrorInstanceEdge']" iconPath="de.uni_stuttgart.iste.cowolf.model.fault_tree.sirius.editor/icons/edge.png">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Edge" edgeMappings="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@edgeMappings[name='GateToGateEdge'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@edgeMappings[name='EventToGateEdge'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@edgeMappings[name='GateToEventEdge'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@edgeMappings[name='BasicEventToErrorInstanceEdge'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@edgeMappings[name='BasicEventToIntermEventEdge'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@edgeMappings[name='FailureInstanceToFailureInstanceEdge'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@edgeMappings[name='IntermEventToIntermEventEdge'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@edgeMappings[name='FailureInstanceToErrorInstanceEdge'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@edgeMappings[name='IntermEventToFailureInstanceEdge']" iconPath="de.uni_stuttgart.iste.cowolf.model.fault_tree.sirius.editor/icons/edge.png">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -211,6 +211,11 @@
                     <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="previousError" valueExpression="var:source"/>
                     </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[source.oclIsTypeOf(IntermediateEvent)/]">
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="[target.oclIsTypeOf(FailureInstance)/]">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="instance" valueExpression="var:target"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
@@ -357,7 +362,11 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self.eContainer()/]">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="fault_tree.FailureType" referenceName="failure_type">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="instance" valueExpression="var:container"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="instance" valueExpression="var:container">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self.getProperty('type')/]">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New Failure Type"/>
+                    </subModelOperations>
+                  </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -368,7 +377,194 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self.eContainer()/]">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="fault_tree.ErrorType" referenceName="error_type">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="error" valueExpression="var:container"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="error" valueExpression="var:container">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self.getProperty('type')/]">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New Error Type"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Change">
+          <ownedTools xsi:type="tool:DirectEditLabel" name="EditLabelEvent">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="ReconnectEventToGateTarget">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="outputGate" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="ReconnectEventToGateSource" reconnectionKind="RECONNECT_SOURCE">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="outputGate" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="ReconnectGateToEventTarget">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="outputEvent" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="ReconnectGateToEventSource" reconnectionKind="RECONNECT_SOURCE">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="outputEvent" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="ReconnectGateToGatetTarget">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="outputGate" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="IntermEventToIntermEventTarget">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="outEvent" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="BasicEventToIntermEventTarget">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="outEvent" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="BasicEventToErrorInstanceSource" reconnectionKind="RECONNECT_SOURCE">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="instance" valueExpression="var:source"/>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="FailureInstanceToFailureInstanceSource" reconnectionKind="RECONNECT_SOURCE">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="previousFailure" valueExpression="[source.previousFailure/]">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="previousFailure" valueExpression="[source.previousFailure/]">
+                      <subModelOperations xsi:type="tool_1:Unset" featureName="previousFailure"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="FailureInstanceToErrorInstanceTarget">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="previousError" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="IntermEventToFailureInstanceTarget">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="instance" valueExpression="var:target">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                    <subModelOperations xsi:type="tool_1:Unset" featureName="event" elementExpression="var:source"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Delete">
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="Edge">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[element.oclIsKindOf(Gate)/]">
+                  <subModelOperations xsi:type="tool_1:Unset" featureName="outputGate"/>
+                  <subModelOperations xsi:type="tool_1:Unset" featureName="outputEvent"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[element.oclIsKindOf(IntermediateEvent)/]">
+                  <subModelOperations xsi:type="tool_1:Unset" featureName="outputGate"/>
+                  <subModelOperations xsi:type="tool_1:Unset" featureName="outEvent"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[element.oclIsKindOf(FailureInstance)/]">
+                  <subModelOperations xsi:type="tool_1:Unset" featureName="previousFailure"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
