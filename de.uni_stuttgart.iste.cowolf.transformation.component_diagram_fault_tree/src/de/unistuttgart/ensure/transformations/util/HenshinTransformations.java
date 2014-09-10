@@ -2380,7 +2380,7 @@ public class HenshinTransformations {
 
 		while (idAlreadyExists) {
 			freeID++;
-			application.setParameterValue("gateID", freeID);
+			application.setParameterValue("gateID", String.valueOf(freeID));
 			idAlreadyExists = application.execute(null);
 			if (logging) {
 				TransformationsLogger.logRuleExecution(unit.getName(), Integer.toString(freeID), idAlreadyExists);

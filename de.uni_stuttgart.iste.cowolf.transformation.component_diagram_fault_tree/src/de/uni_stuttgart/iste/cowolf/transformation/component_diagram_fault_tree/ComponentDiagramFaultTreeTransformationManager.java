@@ -7,6 +7,7 @@ import java.util.List;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.henshin.interpreter.EGraph;
+import org.eclipse.emf.henshin.interpreter.impl.EGraphImpl;
 import org.sidiff.difference.symmetric.Change;
 import org.sidiff.difference.symmetric.SymmetricDifference;
 
@@ -105,7 +106,7 @@ public class ComponentDiagramFaultTreeTransformationManager extends AbstractTran
 
 		System.out.println(" >>> Parameter List sizes: " + newComponentTypes.size() + " " + newPortTypes.size() + " " + newComponentInstances.size() + " " + newPortInstances.size() + " " +
 			newSubComponentInstances.size() + " " + newConnectors.size());
-		EGraph result = ChangeTree.run(generateGraph(resSet), newComponentTypes, newPortTypes, newComponentInstances, newPortInstances,
+		EGraph result = ChangeTree.run(mergeResources(resSet), newComponentTypes, newPortTypes, newComponentInstances, newPortInstances,
 				newSubComponentInstances, newConnectors);
 		if (result == null) {
 			return false;
@@ -118,5 +119,25 @@ public class ComponentDiagramFaultTreeTransformationManager extends AbstractTran
 	@Override
 	protected String getReverseKey() {
 		return REVERSE_KEY;
+	}
+	
+	private EGraph mergeResources(ResourceSet transResSet){
+		ArrayList<EGraph> graphSources = new ArrayList<EGraph>(4);
+        
+		Resource traceRes = transResSet.getResource(RESOURCE_URL_TRACES, false);
+        //graphSources.add(new EGraphImpl(transResSet.getResource(RESOURCE_URL_DIFF, false)));
+        if (traceRes != null && traceRes.getContents().size() > 0) {
+        	//graphSources.add(new EGraphImpl(transResSet.getResource(RESOURCE_URL_OLDTRACES, false)));
+        	graphSources.add(new EGraphImpl(traceRes));
+        } else {
+        	graphSources.add(new EGraphImpl(transResSet.getResource(RESOURCE_URL_SOURCE, false)));
+        	graphSources.add(new EGraphImpl(transResSet.getResource(RESOURCE_URL_TARGET, false)));
+        }
+        
+        EGraph graph = mergeInstanceModels(graphSources);
+        
+        System.out.println("Finished merging graphs.");
+		return graph;
+
 	}
 }
