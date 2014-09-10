@@ -25,6 +25,8 @@ import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
  * Registers all Ecore Models in the directory "model" relative to the project
  * base directory.
  * 
+ * @TODO make directory to search for models configurable
+ * 
  * @author Rene Trefft
  */
 @Mojo(name = "register-ecore-model", defaultPhase = LifecyclePhase.GENERATE_SOURCES)
