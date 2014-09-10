@@ -21,14 +21,20 @@ import org.eclipse.emf.ecore.util.ExtendedMetaData;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
 
+/**
+ * Registers all Ecore Models in the directory "model" relative to the project
+ * base directory.
+ * 
+ * @author Rene Trefft
+ */
 @Mojo(name = "register-ecore-model", defaultPhase = LifecyclePhase.GENERATE_SOURCES)
 public class RegisterECoreModel extends AbstractMojo {
 
 	private final String ECORE_FILE_EXTENSION = "ecore";
 
 	/**
-	 * Directory relative to the project base directory containing the Ecore
-	 * Model.
+	 * Path relative to the project base directory containing the Ecore Models
+	 * to register.
 	 */
 	private final String DEFAULT_MODEL_DIR_PATH = "model";
 
@@ -39,7 +45,6 @@ public class RegisterECoreModel extends AbstractMojo {
 	private MavenProject project;
 
 	/**
-	 * 
 	 * Retrieves all ecore files the directory {@code dir}.
 	 * 
 	 * @param dir
@@ -106,14 +111,18 @@ public class RegisterECoreModel extends AbstractMojo {
 						resource.setURI(URI.createURI(ePackage.getNsURI()));
 
 						getLog().info(
-								"Registering Ecore model with namespace \""
+								"Registering Ecore model \""
+										+ ecoreFile.getPath()
+										+ "\" with namespace \""
 										+ ePackage.getNsURI() + "\"...");
 
 						EPackage.Registry.INSTANCE.put(ePackage.getNsURI(),
 								ePackage);
 
 						getLog().info(
-								"Registering Ecore model with namespace \""
+								"Registering Ecore model \""
+										+ ecoreFile.getPath()
+										+ "\" with namespace \""
 										+ ePackage.getNsURI() + "\" completed.");
 
 					}
@@ -130,7 +139,7 @@ public class RegisterECoreModel extends AbstractMojo {
 
 		getLog().info(
 				"Artifact \"" + project.getArtifactId()
-						+ "\" is not a Ecore model.");
+						+ "\" is not an Ecore model.");
 
 	}
 

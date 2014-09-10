@@ -12,9 +12,11 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
@@ -24,16 +26,19 @@ import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.xmi.XMIResource;
 import org.eclipse.emf.ecore.xmi.impl.URIHandlerImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.eclipse.emf.henshin.model.HenshinPackage;
 import org.eclipse.emf.henshin.model.Module;
 import org.eclipse.emf.henshin.model.resource.HenshinResourceFactory;
 import org.eclipse.emf.henshin.model.resource.HenshinResourceSet;
 import org.sidiff.difference.lifting.edit2recognition.util.Edit2RecognitionUtil;
 import org.sidiff.difference.rulebase.RecognitionRule;
 import org.sidiff.difference.rulebase.RuleBase;
+import org.sidiff.difference.rulebase.RulebasePackage;
 import org.sidiff.difference.rulebase.extension.AbstractProjectRuleBase;
 import org.sidiff.difference.rulebase.nature.RuleBaseProjectNature;
 import org.sidiff.difference.rulebase.wrapper.RuleBaseWrapper;
@@ -67,7 +72,6 @@ public class RuleBaseBuilder extends AbstractMojo {
 	private MavenProject project;
 
 	/**
-	 * 
 	 * Checks if the Eclipse project {@code projectRoot} is a SiLift rulebase
 	 * project. A rulebase project contains the appropriate nature in the
 	 * project description file.
@@ -159,29 +163,35 @@ public class RuleBaseBuilder extends AbstractMojo {
 	}
 
 	/**
-	 * Registers the Henshin Ecore model in the global EMF Resource Factory
-	 * registry.
+	 * Registers the Henshin Ecore model in the global EMF Resource Factory and
+	 * EPackage registries.
 	 */
 	private void registerHenshinEcoreModel() {
 
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(
 				"henshin", new HenshinResourceFactory());
 
+		HenshinPackage henshinPackage = HenshinPackage.eINSTANCE;
+		EPackage.Registry.INSTANCE.put(HenshinPackage.eNS_URI, henshinPackage);
+
 	};
 
 	/**
 	 * Registers the SiLift rulebase Ecore model in the global EMF Resource
-	 * Factory registry.
+	 * Factory and EPackage registries.
 	 */
 	private void registerRulebaseEcoreModel() {
 
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(
 				"rulebase", new XMIResourceFactoryImpl());
 
+		RulebasePackage rulebasePackage = RulebasePackage.eINSTANCE;
+		EPackage.Registry.INSTANCE
+				.put(RulebasePackage.eNS_URI, rulebasePackage);
+
 	};
 
 	/**
-	 * 
 	 * Validates the edit rule {@code editRule}. Any validation information,
 	 * warning and error will be logged using the Maven logger.
 	 * 
@@ -232,7 +242,6 @@ public class RuleBaseBuilder extends AbstractMojo {
 	}
 
 	/**
-	 * 
 	 * Validates the edit rules {@code editRules} and generates the recognition
 	 * rules.
 	 * 
@@ -319,7 +328,6 @@ public class RuleBaseBuilder extends AbstractMojo {
 	}
 
 	/**
-	 * 
 	 * Builds the SiLift rulebase and stores the recognition rules.
 	 * 
 	 * @throws IOException
@@ -351,9 +359,11 @@ public class RuleBaseBuilder extends AbstractMojo {
 		ruleBase.setRecognitionRuleFolder(recognitionRulesDirPlatformResourceURI
 				.toString());
 
+		// creates a new resource
 		Resource resource = new XMIIDResourceImpl(getRuleBaseWrapper()
 				.getRuleBaseLocation());
 
+		// adds the rulebase to the resource
 		resource.getContents().add(ruleBase);
 
 		Map<String, Object> options = new HashMap<String, Object>();
@@ -378,10 +388,8 @@ public class RuleBaseBuilder extends AbstractMojo {
 	}
 
 	/**
-	 * 
 	 * Transforms a absolute file URI to a platform resource URI. If its not a
 	 * file URI, simply the given URI will be returned.
-	 * 
 	 */
 	private static class PlatformResourceDeresolve extends URIHandlerImpl {
 
@@ -410,7 +418,6 @@ public class RuleBaseBuilder extends AbstractMojo {
 	}
 
 	/**
-	 * 
 	 * Stores the generated recognition rules contained in the
 	 * {@code RuleBaseWrapper}.
 	 * 
@@ -481,20 +488,34 @@ public class RuleBaseBuilder extends AbstractMojo {
 	 * @return Rule base wrapper that especially stores the rulebase and the
 	 *         generated recognition rules and provides methods for generating
 	 *         them.
+	 * @throws MojoExecutionException
+	 *             if deletion of a already existent rulebase file failed
 	 */
-	private RuleBaseWrapper getRuleBaseWrapper() {
+	private RuleBaseWrapper getRuleBaseWrapper() throws MojoExecutionException {
 
 		if (ruleBaseWrapper == null) {
 
-			URI ruleBaseURI = URI.createFileURI(project.getBasedir()
-					+ File.separator + AbstractProjectRuleBase.RULEBASE_FILE);
-			URI editRulesDir = URI.createFileURI(project.getBasedir()
+			String ruleBase = project.getBasedir() + File.separator
+					+ AbstractProjectRuleBase.RULEBASE_FILE;
+			File ruleBaseFile = new File(ruleBase);
+			URI ruleBaseURI = URI.createFileURI(ruleBase);
+
+			URI editRulesDirURI = URI.createFileURI(project.getBasedir()
 					+ File.separator + AbstractProjectRuleBase.SOURCE_FOLDER);
-			URI recognitionRulesDir = URI.createFileURI(project.getBasedir()
+
+			URI recognitionRulesDirURI = URI.createFileURI(project.getBasedir()
 					+ File.separator + AbstractProjectRuleBase.BUILD_FOLDER);
 
+			if (ruleBaseFile.isFile()) {
+				if (!ruleBaseFile.delete()) {
+					throw new MojoExecutionException(
+							"Deletion of already existent rulebase file \""
+									+ ruleBase + "\" failed.");
+				}
+			}
+
 			ruleBaseWrapper = new RuleBaseWrapper(ruleBaseURI,
-					recognitionRulesDir, editRulesDir, false);
+					recognitionRulesDirURI, editRulesDirURI, false);
 
 			ruleBaseWrapper.setName(chooseRuleBaseName());
 
@@ -505,15 +526,15 @@ public class RuleBaseBuilder extends AbstractMojo {
 	}
 
 	/**
-	 * 
 	 * Generates a recognition rule of the edit rule {@code editRule}.
 	 * 
 	 * @param editRule
 	 * @throws Edit2RecognitionException
 	 *             if generation failed
+	 * @throws MojoExecutionException
 	 */
 	private void generateRecognitionRule(File editRule)
-			throws Edit2RecognitionException {
+			throws Edit2RecognitionException, MojoExecutionException {
 		getLog().debug(
 				"Generating recognition rule of edit rule \""
 						+ editRule.getPath() + "\"...");
@@ -604,7 +625,6 @@ public class RuleBaseBuilder extends AbstractMojo {
 	}
 
 	/**
-	 * 
 	 * Retrieves all henshin files the directory {@code dir}.
 	 * 
 	 * @param dir
