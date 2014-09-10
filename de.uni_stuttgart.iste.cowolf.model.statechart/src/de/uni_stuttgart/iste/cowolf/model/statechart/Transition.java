@@ -3,8 +3,6 @@
 package de.uni_stuttgart.iste.cowolf.model.statechart;
 
 import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
-import de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase;
-
 
 /**
  * <!-- begin-user-doc -->
@@ -18,16 +16,18 @@ import de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase;
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.Transition#getTransS_container <em>Trans Scontainer</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.Transition#getTrigger <em>Trigger</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.Transition#getGuard <em>Guard</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.Transition#getAction <em>Action</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.Transition#getSource <em>Source</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.Transition#getTarget <em>Target</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.Transition#getDescription <em>Description</em>}</li>
  * </ul>
  * </p>
  *
- * @see de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage#getTransition()
+ * @see de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage#getTransition()
  * @model
  * @generated
  */
-public interface Transition extends IDBase, NameBase {
+public interface Transition extends IDBase {
 	/**
 	 * Returns the value of the '<em><b>Trans SM container</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine#getTransitions <em>Transitions</em>}'.
@@ -39,7 +39,7 @@ public interface Transition extends IDBase, NameBase {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Trans SM container</em>' container reference.
 	 * @see #setTransSM_container(StateMachine)
-	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage#getTransition_TransSM_container()
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage#getTransition_TransSM_container()
 	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine#getTransitions
 	 * @model opposite="transitions" transient="false" ordered="false"
 	 * @generated
@@ -67,7 +67,7 @@ public interface Transition extends IDBase, NameBase {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Trans Scontainer</em>' container reference.
 	 * @see #setTransS_container(State)
-	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage#getTransition_TransS_container()
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage#getTransition_TransS_container()
 	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.State#getInternalTransitions
 	 * @model opposite="internalTransitions" transient="false" ordered="false"
 	 * @generated
@@ -85,28 +85,28 @@ public interface Transition extends IDBase, NameBase {
 	void setTransS_container(State value);
 
 	/**
-	 * Returns the value of the '<em><b>Trigger</b></em>' reference.
+	 * Returns the value of the '<em><b>Trigger</b></em>' containment reference.
 	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.model.statechart.Event#getEvt_container <em>Evt container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Trigger</em>' reference isn't clear,
+	 * If the meaning of the '<em>Trigger</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Trigger</em>' reference.
+	 * @return the value of the '<em>Trigger</em>' containment reference.
 	 * @see #setTrigger(Event)
-	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage#getTransition_Trigger()
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage#getTransition_Trigger()
 	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.Event#getEvt_container
-	 * @model opposite="evt_container" ordered="false"
+	 * @model opposite="evt_container" containment="true" ordered="false"
 	 * @generated
 	 */
 	Event getTrigger();
 
 	/**
-	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.statechart.Transition#getTrigger <em>Trigger</em>}' reference.
+	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.statechart.Transition#getTrigger <em>Trigger</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Trigger</em>' reference.
+	 * @param value the new value of the '<em>Trigger</em>' containment reference.
 	 * @see #getTrigger()
 	 * @generated
 	 */
@@ -123,7 +123,7 @@ public interface Transition extends IDBase, NameBase {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Guard</em>' containment reference.
 	 * @see #setGuard(Guard)
-	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage#getTransition_Guard()
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage#getTransition_Guard()
 	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.Guard#getGua_container
 	 * @model opposite="gua_container" containment="true" ordered="false"
 	 * @generated
@@ -141,6 +141,34 @@ public interface Transition extends IDBase, NameBase {
 	void setGuard(Guard value);
 
 	/**
+	 * Returns the value of the '<em><b>Action</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.model.statechart.TransitionAction#getAct_container <em>Act container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Action</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Action</em>' containment reference.
+	 * @see #setAction(TransitionAction)
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage#getTransition_Action()
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.TransitionAction#getAct_container
+	 * @model opposite="act_container" containment="true"
+	 * @generated
+	 */
+	TransitionAction getAction();
+
+	/**
+	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.statechart.Transition#getAction <em>Action</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Action</em>' containment reference.
+	 * @see #getAction()
+	 * @generated
+	 */
+	void setAction(TransitionAction value);
+
+	/**
 	 * Returns the value of the '<em><b>Source</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.model.statechart.StateVertex#getOutgoing <em>Outgoing</em>}'.
 	 * <!-- begin-user-doc -->
@@ -151,7 +179,7 @@ public interface Transition extends IDBase, NameBase {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Source</em>' reference.
 	 * @see #setSource(StateVertex)
-	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage#getTransition_Source()
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage#getTransition_Source()
 	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.StateVertex#getOutgoing
 	 * @model opposite="outgoing" required="true" ordered="false"
 	 * @generated
@@ -179,7 +207,7 @@ public interface Transition extends IDBase, NameBase {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Target</em>' reference.
 	 * @see #setTarget(StateVertex)
-	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage#getTransition_Target()
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage#getTransition_Target()
 	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.StateVertex#getIncoming
 	 * @model opposite="incoming" required="true" ordered="false"
 	 * @generated
@@ -195,5 +223,31 @@ public interface Transition extends IDBase, NameBase {
 	 * @generated
 	 */
 	void setTarget(StateVertex value);
+
+	/**
+	 * Returns the value of the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Description</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Description</em>' attribute.
+	 * @see #setDescription(String)
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage#getTransition_Description()
+	 * @model
+	 * @generated
+	 */
+	String getDescription();
+
+	/**
+	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.statechart.Transition#getDescription <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Description</em>' attribute.
+	 * @see #getDescription()
+	 * @generated
+	 */
+	void setDescription(String value);
 
 } // Transition

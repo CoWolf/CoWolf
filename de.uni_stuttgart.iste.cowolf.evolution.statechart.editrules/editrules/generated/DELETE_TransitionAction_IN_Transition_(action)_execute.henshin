@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_QkWooDjyEeSVapYW30PJuQ" name="DELETE_TransitionAction_IN_Transition_(action)" description="Deletes one TransitionAction in Transition">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_QkWooTjyEeSVapYW30PJuQ" name="deleteTransitionAction_IN_Transition" description="deletes one TransitionAction in the context: Transition">
+    <parameters xmi:id="_QkWoojjyEeSVapYW30PJuQ" name="Selected"/>
+    <parameters xmi:id="_QkWoozjyEeSVapYW30PJuQ" name="ToBeDeleted"/>
+    <lhs xmi:id="_QkWopDjyEeSVapYW30PJuQ" name="LHS">
+      <nodes xmi:id="_QkWopTjyEeSVapYW30PJuQ" name="Selected" incoming="_QkWoqDjyEeSVapYW30PJuQ" outgoing="_QkWopzjyEeSVapYW30PJuQ">
+        <type href="http://Statemachine/1.0#//Transition"/>
+      </nodes>
+      <nodes xmi:id="_QkWopjjyEeSVapYW30PJuQ" name="ToBeDeleted" incoming="_QkWopzjyEeSVapYW30PJuQ" outgoing="_QkWoqDjyEeSVapYW30PJuQ">
+        <type href="http://Statemachine/1.0#//TransitionAction"/>
+      </nodes>
+      <edges xmi:id="_QkWopzjyEeSVapYW30PJuQ" source="_QkWopTjyEeSVapYW30PJuQ" target="_QkWopjjyEeSVapYW30PJuQ">
+        <type href="http://Statemachine/1.0#//Transition/action"/>
+      </edges>
+      <edges xmi:id="_QkWoqDjyEeSVapYW30PJuQ" source="_QkWopjjyEeSVapYW30PJuQ" target="_QkWopTjyEeSVapYW30PJuQ">
+        <type href="http://Statemachine/1.0#//TransitionAction/act_container"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_QkWoqTjyEeSVapYW30PJuQ" name="RHS">
+      <nodes xmi:id="_QkWoqjjyEeSVapYW30PJuQ" name="Selected">
+        <type href="http://Statemachine/1.0#//Transition"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_QkWoqzjyEeSVapYW30PJuQ">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_QkWorDjyEeSVapYW30PJuQ">
+          <conclusion xmi:id="_QkWorTjyEeSVapYW30PJuQ" name="doNotExceedUpperBound">
+            <nodes xmi:id="_QkWorjjyEeSVapYW30PJuQ" name="Selected" outgoing="_QkWoszjyEeSVapYW30PJuQ">
+              <type href="http://Statemachine/1.0#//Transition"/>
+            </nodes>
+            <nodes xmi:id="_QkWorzjyEeSVapYW30PJuQ" name="New">
+              <type href="http://Statemachine/1.0#//TransitionAction"/>
+              <attributes xmi:id="_QkWosDjyEeSVapYW30PJuQ" value="Id">
+                <type href="http://CommonBase/1.0#//IDBase/id"/>
+              </attributes>
+              <attributes xmi:id="_QkWosTjyEeSVapYW30PJuQ" value="Value">
+                <type href="http://Statemachine/1.0#//Action/value"/>
+              </attributes>
+            </nodes>
+            <nodes xmi:id="_QkWosjjyEeSVapYW30PJuQ" incoming="_QkWoszjyEeSVapYW30PJuQ">
+              <type href="http://Statemachine/1.0#//TransitionAction"/>
+            </nodes>
+            <edges xmi:id="_QkWoszjyEeSVapYW30PJuQ" source="_QkWorjjyEeSVapYW30PJuQ" target="_QkWosjjyEeSVapYW30PJuQ">
+              <type href="http://Statemachine/1.0#//Transition/action"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_QkWotDjyEeSVapYW30PJuQ" origin="_QkWopTjyEeSVapYW30PJuQ" image="_QkWorjjyEeSVapYW30PJuQ"/>
+          <mappings xmi:id="_QkWotTjyEeSVapYW30PJuQ" origin="_QkWopjjyEeSVapYW30PJuQ" image="_QkWorzjyEeSVapYW30PJuQ"/>
+        </child>
+      </formula>
+    </rhs>
+    <mappings xmi:id="_QkWotjjyEeSVapYW30PJuQ" origin="_QkWopTjyEeSVapYW30PJuQ" image="_QkWoqjjyEeSVapYW30PJuQ"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_QkWotzjyEeSVapYW30PJuQ" name="mainUnit" description="Deletes one TransitionAction depending on available contexts in model instance" subUnits="_QkWooTjyEeSVapYW30PJuQ">
+    <parameters xmi:id="_QkWouDjyEeSVapYW30PJuQ" name="ToBeDeleted"/>
+    <parameters xmi:id="_QkWouTjyEeSVapYW30PJuQ" name="selectedEObject"/>
+    <parameterMappings xmi:id="_QkWoujjyEeSVapYW30PJuQ" source="_QkWouTjyEeSVapYW30PJuQ" target="_QkWoojjyEeSVapYW30PJuQ"/>
+    <parameterMappings xmi:id="_QkWouzjyEeSVapYW30PJuQ" source="_QkWouDjyEeSVapYW30PJuQ" target="_QkWoozjyEeSVapYW30PJuQ"/>
+  </units>
+</henshin:Module>

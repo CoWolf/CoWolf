@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_QmAOcDjyEeSVapYW30PJuQ" name="CREATE_EXIT_IN_State_(actions)" description="Creates one EXIT in State">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_QmAOcTjyEeSVapYW30PJuQ" name="createEXIT_IN_State" description="creates one EXIT in the context: State">
+    <parameters xmi:id="_QmAOcjjyEeSVapYW30PJuQ" name="Selected"/>
+    <parameters xmi:id="_QmAOczjyEeSVapYW30PJuQ" name="New"/>
+    <parameters xmi:id="_QmAOdDjyEeSVapYW30PJuQ" name="Id"/>
+    <parameters xmi:id="_QmAOdTjyEeSVapYW30PJuQ" name="Value"/>
+    <lhs xmi:id="_QmAOdjjyEeSVapYW30PJuQ" name="Lhs">
+      <nodes xmi:id="_QmAOdzjyEeSVapYW30PJuQ" name="Selected">
+        <type href="http://Statemachine/1.0#//State"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_QmAOeDjyEeSVapYW30PJuQ" name="Rhs">
+      <nodes xmi:id="_QmAOeTjyEeSVapYW30PJuQ" name="Selected" incoming="_QmAOfjjyEeSVapYW30PJuQ" outgoing="_QmAOfTjyEeSVapYW30PJuQ">
+        <type href="http://Statemachine/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_QmAOejjyEeSVapYW30PJuQ" name="New" incoming="_QmAOfTjyEeSVapYW30PJuQ" outgoing="_QmAOfjjyEeSVapYW30PJuQ">
+        <type href="http://Statemachine/1.0#//EXIT"/>
+        <attributes xmi:id="_QmAOezjyEeSVapYW30PJuQ" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_QmAOfDjyEeSVapYW30PJuQ" value="Value">
+          <type href="http://Statemachine/1.0#//Action/value"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_QmAOfTjyEeSVapYW30PJuQ" source="_QmAOeTjyEeSVapYW30PJuQ" target="_QmAOejjyEeSVapYW30PJuQ">
+        <type href="http://Statemachine/1.0#//State/actions"/>
+      </edges>
+      <edges xmi:id="_QmAOfjjyEeSVapYW30PJuQ" source="_QmAOejjyEeSVapYW30PJuQ" target="_QmAOeTjyEeSVapYW30PJuQ">
+        <type href="http://Statemachine/1.0#//StateAction/action_container"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_QmAOfzjyEeSVapYW30PJuQ" origin="_QmAOdzjyEeSVapYW30PJuQ" image="_QmAOeTjyEeSVapYW30PJuQ"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_QmAOgDjyEeSVapYW30PJuQ" name="mainUnit" description="Creates one EXIT depending on available contexts in model instance" subUnits="_QmAOcTjyEeSVapYW30PJuQ">
+    <parameters xmi:id="_QmAOgTjyEeSVapYW30PJuQ" name="New"/>
+    <parameters xmi:id="_QmAOgjjyEeSVapYW30PJuQ" name="selectedEObject"/>
+    <parameters xmi:id="_QmAOgzjyEeSVapYW30PJuQ" name="Id"/>
+    <parameters xmi:id="_QmAOhDjyEeSVapYW30PJuQ" name="Value"/>
+    <parameterMappings xmi:id="_QmAOhTjyEeSVapYW30PJuQ" source="_QmAOgjjyEeSVapYW30PJuQ" target="_QmAOcjjyEeSVapYW30PJuQ"/>
+    <parameterMappings xmi:id="_QmAOhjjyEeSVapYW30PJuQ" source="_QmAOczjyEeSVapYW30PJuQ" target="_QmAOgTjyEeSVapYW30PJuQ"/>
+    <parameterMappings xmi:id="_QmAOhzjyEeSVapYW30PJuQ" source="_QmAOgzjyEeSVapYW30PJuQ" target="_QmAOdDjyEeSVapYW30PJuQ"/>
+    <parameterMappings xmi:id="_QmAOiDjyEeSVapYW30PJuQ" source="_QmAOhDjyEeSVapYW30PJuQ" target="_QmAOdTjyEeSVapYW30PJuQ"/>
+  </units>
+</henshin:Module>

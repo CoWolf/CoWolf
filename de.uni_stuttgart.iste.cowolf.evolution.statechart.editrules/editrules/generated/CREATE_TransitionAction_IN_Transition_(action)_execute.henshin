@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_QkP68DjyEeSVapYW30PJuQ" name="CREATE_TransitionAction_IN_Transition_(action)" description="Creates one TransitionAction in Transition">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_QkQiADjyEeSVapYW30PJuQ" name="createTransitionAction_IN_Transition" description="creates one TransitionAction in the context: Transition">
+    <parameters xmi:id="_QkQiATjyEeSVapYW30PJuQ" name="Selected"/>
+    <parameters xmi:id="_QkQiAjjyEeSVapYW30PJuQ" name="New"/>
+    <parameters xmi:id="_QkQiAzjyEeSVapYW30PJuQ" name="Id"/>
+    <parameters xmi:id="_QkQiBDjyEeSVapYW30PJuQ" name="Value"/>
+    <lhs xmi:id="_QkQiBTjyEeSVapYW30PJuQ" name="Lhs">
+      <nodes xmi:id="_QkQiBjjyEeSVapYW30PJuQ" name="Selected">
+        <type href="http://Statemachine/1.0#//Transition"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_QkQiBzjyEeSVapYW30PJuQ">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_QkQiCDjyEeSVapYW30PJuQ">
+          <conclusion xmi:id="_QkQiCTjyEeSVapYW30PJuQ" name="doNotExceedUpperBound">
+            <nodes xmi:id="_QkQiCjjyEeSVapYW30PJuQ" name="Selected" outgoing="_QkQiDzjyEeSVapYW30PJuQ">
+              <type href="http://Statemachine/1.0#//Transition"/>
+            </nodes>
+            <nodes xmi:id="_QkQiCzjyEeSVapYW30PJuQ" name="New">
+              <type href="http://Statemachine/1.0#//TransitionAction"/>
+              <attributes xmi:id="_QkQiDDjyEeSVapYW30PJuQ" value="Id">
+                <type href="http://CommonBase/1.0#//IDBase/id"/>
+              </attributes>
+              <attributes xmi:id="_QkQiDTjyEeSVapYW30PJuQ" value="Value">
+                <type href="http://Statemachine/1.0#//Action/value"/>
+              </attributes>
+            </nodes>
+            <nodes xmi:id="_QkQiDjjyEeSVapYW30PJuQ" incoming="_QkQiDzjyEeSVapYW30PJuQ">
+              <type href="http://Statemachine/1.0#//TransitionAction"/>
+            </nodes>
+            <edges xmi:id="_QkQiDzjyEeSVapYW30PJuQ" source="_QkQiCjjyEeSVapYW30PJuQ" target="_QkQiDjjyEeSVapYW30PJuQ">
+              <type href="http://Statemachine/1.0#//Transition/action"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_QkQiEDjyEeSVapYW30PJuQ" origin="_QkQiEzjyEeSVapYW30PJuQ" image="_QkQiCjjyEeSVapYW30PJuQ"/>
+          <mappings xmi:id="_QkQiETjyEeSVapYW30PJuQ" origin="_QkQiFDjyEeSVapYW30PJuQ" image="_QkQiCzjyEeSVapYW30PJuQ"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_QkQiEjjyEeSVapYW30PJuQ" name="Rhs">
+      <nodes xmi:id="_QkQiEzjyEeSVapYW30PJuQ" name="Selected" incoming="_QkQiGDjyEeSVapYW30PJuQ" outgoing="_QkQiFzjyEeSVapYW30PJuQ">
+        <type href="http://Statemachine/1.0#//Transition"/>
+      </nodes>
+      <nodes xmi:id="_QkQiFDjyEeSVapYW30PJuQ" name="New" incoming="_QkQiFzjyEeSVapYW30PJuQ" outgoing="_QkQiGDjyEeSVapYW30PJuQ">
+        <type href="http://Statemachine/1.0#//TransitionAction"/>
+        <attributes xmi:id="_QkQiFTjyEeSVapYW30PJuQ" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_QkQiFjjyEeSVapYW30PJuQ" value="Value">
+          <type href="http://Statemachine/1.0#//Action/value"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_QkQiFzjyEeSVapYW30PJuQ" source="_QkQiEzjyEeSVapYW30PJuQ" target="_QkQiFDjyEeSVapYW30PJuQ">
+        <type href="http://Statemachine/1.0#//Transition/action"/>
+      </edges>
+      <edges xmi:id="_QkQiGDjyEeSVapYW30PJuQ" source="_QkQiFDjyEeSVapYW30PJuQ" target="_QkQiEzjyEeSVapYW30PJuQ">
+        <type href="http://Statemachine/1.0#//TransitionAction/act_container"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_QkQiGTjyEeSVapYW30PJuQ" origin="_QkQiBjjyEeSVapYW30PJuQ" image="_QkQiEzjyEeSVapYW30PJuQ"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_QkQiGjjyEeSVapYW30PJuQ" name="mainUnit" description="Creates one TransitionAction depending on available contexts in model instance" subUnits="_QkQiADjyEeSVapYW30PJuQ">
+    <parameters xmi:id="_QkQiGzjyEeSVapYW30PJuQ" name="New"/>
+    <parameters xmi:id="_QkQiHDjyEeSVapYW30PJuQ" name="selectedEObject"/>
+    <parameters xmi:id="_QkQiHTjyEeSVapYW30PJuQ" name="Id"/>
+    <parameters xmi:id="_QkQiHjjyEeSVapYW30PJuQ" name="Value"/>
+    <parameterMappings xmi:id="_QkQiHzjyEeSVapYW30PJuQ" source="_QkQiHDjyEeSVapYW30PJuQ" target="_QkQiATjyEeSVapYW30PJuQ"/>
+    <parameterMappings xmi:id="_QkQiIDjyEeSVapYW30PJuQ" source="_QkQiAjjyEeSVapYW30PJuQ" target="_QkQiGzjyEeSVapYW30PJuQ"/>
+    <parameterMappings xmi:id="_QkQiITjyEeSVapYW30PJuQ" source="_QkQiHTjyEeSVapYW30PJuQ" target="_QkQiAzjyEeSVapYW30PJuQ"/>
+    <parameterMappings xmi:id="_QkQiIjjyEeSVapYW30PJuQ" source="_QkQiHjjyEeSVapYW30PJuQ" target="_QkQiBDjyEeSVapYW30PJuQ"/>
+  </units>
+</henshin:Module>

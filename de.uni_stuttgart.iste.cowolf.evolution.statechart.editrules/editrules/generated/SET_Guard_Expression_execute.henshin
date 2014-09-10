@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_Qj_cQDjyEeSVapYW30PJuQ" name="SET_Guard_Expression" description="Sets Guard Expression">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_Qj_cQTjyEeSVapYW30PJuQ" name="setGuardExpression" description="Sets the EAttribute expression">
+    <parameters xmi:id="_Qj_cQjjyEeSVapYW30PJuQ" name="Selected"/>
+    <parameters xmi:id="_Qj_cQzjyEeSVapYW30PJuQ" name="Expression"/>
+    <lhs xmi:id="_Qj_cRDjyEeSVapYW30PJuQ" name="Lhs">
+      <nodes xmi:id="_Qj_cRTjyEeSVapYW30PJuQ" name="Selected">
+        <type href="http://Statemachine/1.0#//Guard"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_Qj_cRjjyEeSVapYW30PJuQ" name="Rhs">
+      <nodes xmi:id="_Qj_cRzjyEeSVapYW30PJuQ" name="Selected">
+        <type href="http://Statemachine/1.0#//Guard"/>
+        <attributes xmi:id="_Qj_cSDjyEeSVapYW30PJuQ" value="Expression">
+          <type href="http://Statemachine/1.0#//Guard/expression"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_Qj_cSTjyEeSVapYW30PJuQ" origin="_Qj_cRTjyEeSVapYW30PJuQ" image="_Qj_cRzjyEeSVapYW30PJuQ"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_Qj_cSjjyEeSVapYW30PJuQ" name="mainUnit" subUnits="_Qj_cQTjyEeSVapYW30PJuQ">
+    <parameters xmi:id="_Qj_cSzjyEeSVapYW30PJuQ" name="selectedEObject"/>
+    <parameters xmi:id="_Qj_cTDjyEeSVapYW30PJuQ" name="Expression"/>
+    <parameterMappings xmi:id="_Qj_cTTjyEeSVapYW30PJuQ" source="_Qj_cSzjyEeSVapYW30PJuQ" target="_Qj_cQjjyEeSVapYW30PJuQ"/>
+    <parameterMappings xmi:id="_QkADUDjyEeSVapYW30PJuQ" source="_Qj_cTDjyEeSVapYW30PJuQ" target="_Qj_cQzjyEeSVapYW30PJuQ"/>
+  </units>
+</henshin:Module>

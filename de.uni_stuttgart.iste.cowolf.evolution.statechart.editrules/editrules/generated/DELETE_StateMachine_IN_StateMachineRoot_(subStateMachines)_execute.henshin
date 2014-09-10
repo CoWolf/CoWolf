@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_QfVlwDjyEeSVapYW30PJuQ" name="DELETE_StateMachine_IN_StateMachineRoot_(subStateMachines)" description="Deletes one StateMachine in StateMachineRoot">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_QfVlwTjyEeSVapYW30PJuQ" name="deleteStateMachine_IN_StateMachineRoot" description="deletes one StateMachine in the context: StateMachineRoot">
+    <parameters xmi:id="_QfVlwjjyEeSVapYW30PJuQ" name="Selected"/>
+    <parameters xmi:id="_QfVlwzjyEeSVapYW30PJuQ" name="ToBeDeleted"/>
+    <lhs xmi:id="_QfVlxDjyEeSVapYW30PJuQ" name="LHS">
+      <nodes xmi:id="_QfVlxTjyEeSVapYW30PJuQ" name="Selected" incoming="_QfVlyDjyEeSVapYW30PJuQ" outgoing="_QfVlxzjyEeSVapYW30PJuQ">
+        <type href="http://Statemachine/1.0#//StateMachineRoot"/>
+      </nodes>
+      <nodes xmi:id="_QfVlxjjyEeSVapYW30PJuQ" name="ToBeDeleted" incoming="_QfVlxzjyEeSVapYW30PJuQ" outgoing="_QfVlyDjyEeSVapYW30PJuQ">
+        <type href="http://Statemachine/1.0#//StateMachine"/>
+      </nodes>
+      <edges xmi:id="_QfVlxzjyEeSVapYW30PJuQ" source="_QfVlxTjyEeSVapYW30PJuQ" target="_QfVlxjjyEeSVapYW30PJuQ">
+        <type href="http://Statemachine/1.0#//StateMachineRoot/subStateMachines"/>
+      </edges>
+      <edges xmi:id="_QfVlyDjyEeSVapYW30PJuQ" source="_QfVlxjjyEeSVapYW30PJuQ" target="_QfVlxTjyEeSVapYW30PJuQ">
+        <type href="http://Statemachine/1.0#//StateMachine/statemachine_container"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_QfVlyTjyEeSVapYW30PJuQ" name="RHS">
+      <nodes xmi:id="_QfVlyjjyEeSVapYW30PJuQ" name="Selected">
+        <type href="http://Statemachine/1.0#//StateMachineRoot"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_QfVlyzjyEeSVapYW30PJuQ" origin="_QfVlxTjyEeSVapYW30PJuQ" image="_QfVlyjjyEeSVapYW30PJuQ"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_QfVlzDjyEeSVapYW30PJuQ" name="mainUnit" description="Deletes one StateMachine depending on available contexts in model instance" subUnits="_QfVlwTjyEeSVapYW30PJuQ">
+    <parameters xmi:id="_QfVlzTjyEeSVapYW30PJuQ" name="ToBeDeleted"/>
+    <parameters xmi:id="_QfVlzjjyEeSVapYW30PJuQ" name="selectedEObject"/>
+    <parameterMappings xmi:id="_QfVlzzjyEeSVapYW30PJuQ" source="_QfVlzjjyEeSVapYW30PJuQ" target="_QfVlwjjyEeSVapYW30PJuQ"/>
+    <parameterMappings xmi:id="_QfVl0DjyEeSVapYW30PJuQ" source="_QfVlzTjyEeSVapYW30PJuQ" target="_QfVlwzjyEeSVapYW30PJuQ"/>
+  </units>
+</henshin:Module>
