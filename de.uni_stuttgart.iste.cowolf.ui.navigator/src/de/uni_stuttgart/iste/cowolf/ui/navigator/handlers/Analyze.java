@@ -40,6 +40,11 @@ public class Analyze implements IHandler {
 
 	@Override
 	public Object execute(final ExecutionEvent event) throws ExecutionException {
+
+    	if (!PlatformUI.getWorkbench().saveAllEditors(true)) {
+    		return null;
+    	}
+		
 		System.out.println("Doing Analyze");
 		IWorkbenchWindow window = PlatformUI.getWorkbench()
 				.getActiveWorkbenchWindow();

@@ -41,6 +41,11 @@ public class Evolve extends AbstractHandler {
     @Override
     public Object execute(ExecutionEvent event) throws ExecutionException {
 
+
+    	if (!PlatformUI.getWorkbench().saveAllEditors(true)) {
+    		return null;
+    	}
+    	
         // initialize variables
 
         final IWorkbenchWindow window = PlatformUI.getWorkbench()

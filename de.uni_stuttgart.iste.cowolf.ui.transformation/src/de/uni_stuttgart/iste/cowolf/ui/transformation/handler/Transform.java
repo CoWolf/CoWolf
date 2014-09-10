@@ -42,6 +42,10 @@ public class Transform extends AbstractHandler {
     public Object execute(ExecutionEvent event) throws ExecutionException {
         // initialize variables
 
+    	if (!PlatformUI.getWorkbench().saveAllEditors(true)) {
+    		return null;
+    	}
+    	
         final IWorkbenchWindow window = PlatformUI.getWorkbench()
                 .getActiveWorkbenchWindow();
 
