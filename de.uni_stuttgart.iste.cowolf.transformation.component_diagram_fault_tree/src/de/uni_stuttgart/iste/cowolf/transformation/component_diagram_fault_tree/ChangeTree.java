@@ -5,11 +5,8 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.henshin.interpreter.EGraph;
-import org.eclipse.emf.henshin.interpreter.impl.EGraphImpl;
-import org.eclipse.emf.henshin.model.resource.HenshinResourceSet;
 
 import de.unistuttgart.ensure.transformations.util.HenshinTransformations;
-import de.unistuttgart.ensure.transformations.util.TransformationsConstants;
 import de.unistuttgart.ensure.transformations.util.TransformationsLogger;
 import de.unistuttgart.ensure.transformations.util.TransformationsUtil;
 
@@ -25,7 +22,6 @@ public class ChangeTree {
 	private static Resource saInstanceModel;
 	private static Resource faulttreeInstanceModel;
 	private static EGraph saGraph;
-	private static EGraph faulttreeGraph;
 
 	private static List<String> handledNewConnections;
 

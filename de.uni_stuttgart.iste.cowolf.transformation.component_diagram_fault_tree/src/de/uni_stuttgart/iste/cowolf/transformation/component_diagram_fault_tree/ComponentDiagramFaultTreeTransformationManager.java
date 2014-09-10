@@ -19,6 +19,9 @@ import de.uni_stuttgart.iste.cowolf.transformation.component_diagram_fault_tree.
 /**
  * @author David K
  *
+ * ComponentDiagramFaultTreeTransformationManager overrides runTransformation in order to
+ * perform transformations in code. All transformations are run by ChangeTree, which 
+ * uses small henshin rules to acquire graph information and perform changes.
  */
 public class ComponentDiagramFaultTreeTransformationManager extends AbstractTransformationManager {
 
@@ -106,6 +109,8 @@ public class ComponentDiagramFaultTreeTransformationManager extends AbstractTran
 
 		System.out.println(" >>> Parameter List sizes: " + newComponentTypes.size() + " " + newPortTypes.size() + " " + newComponentInstances.size() + " " + newPortInstances.size() + " " +
 			newSubComponentInstances.size() + " " + newConnectors.size());
+		
+		// execute all change operations on the merged graph
 		EGraph result = ChangeTree.run(mergeResources(resSet), newComponentTypes, newPortTypes, newComponentInstances, newPortInstances,
 				newSubComponentInstances, newConnectors);
 		if (result == null) {
@@ -121,13 +126,16 @@ public class ComponentDiagramFaultTreeTransformationManager extends AbstractTran
 		return REVERSE_KEY;
 	}
 	
+	/**
+	 * 
+	 * @param transResSet resourceSet of the resources to be loaded.
+	 * @return the merged EGraph object
+	 */
 	private EGraph mergeResources(ResourceSet transResSet){
 		ArrayList<EGraph> graphSources = new ArrayList<EGraph>(4);
         
 		Resource traceRes = transResSet.getResource(RESOURCE_URL_TRACES, false);
-        //graphSources.add(new EGraphImpl(transResSet.getResource(RESOURCE_URL_DIFF, false)));
         if (traceRes != null && traceRes.getContents().size() > 0) {
-        	//graphSources.add(new EGraphImpl(transResSet.getResource(RESOURCE_URL_OLDTRACES, false)));
         	graphSources.add(new EGraphImpl(traceRes));
         } else {
         	graphSources.add(new EGraphImpl(transResSet.getResource(RESOURCE_URL_SOURCE, false)));

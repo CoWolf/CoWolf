@@ -3,7 +3,6 @@ package de.uni_stuttgart.iste.cowolf.transformation.component_diagram_fault_tree
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.henshin.interpreter.EGraph;
 import org.eclipse.emf.henshin.interpreter.impl.EGraphImpl;
-import org.eclipse.emf.henshin.model.resource.HenshinResourceSet;
 
 import de.unistuttgart.ensure.transformations.util.HenshinTransformations;
 import de.unistuttgart.ensure.transformations.util.TransformationsLogger;
