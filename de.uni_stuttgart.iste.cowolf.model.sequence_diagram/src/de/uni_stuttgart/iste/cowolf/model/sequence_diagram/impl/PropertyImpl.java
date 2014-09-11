@@ -4,25 +4,30 @@ package de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl;
 
 import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
 import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
+
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Property;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramPackage;
+
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Package</b></em>'.
+ * An implementation of the model object '<em><b>Property</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.PackageImpl#getId <em>Id</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.PropertyImpl#getId <em>Id</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class PackageImpl extends org.eclipse.uml2.uml.internal.impl.PackageImpl implements de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Package {
+public class PropertyImpl extends org.eclipse.uml2.uml.internal.impl.PropertyImpl implements Property {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -48,7 +53,7 @@ public class PackageImpl extends org.eclipse.uml2.uml.internal.impl.PackageImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PackageImpl() {
+	protected PropertyImpl() {
 		super();
 	}
 
@@ -59,7 +64,7 @@ public class PackageImpl extends org.eclipse.uml2.uml.internal.impl.PackageImpl 
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return Sequence_diagramPackage.Literals.PACKAGE;
+		return Sequence_diagramPackage.Literals.PROPERTY;
 	}
 
 	/**
@@ -80,7 +85,7 @@ public class PackageImpl extends org.eclipse.uml2.uml.internal.impl.PackageImpl 
 		String oldId = id;
 		id = newId;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Sequence_diagramPackage.PACKAGE__ID, oldId, id));
+			eNotify(new ENotificationImpl(this, Notification.SET, Sequence_diagramPackage.PROPERTY__ID, oldId, id));
 	}
 
 	/**
@@ -91,7 +96,7 @@ public class PackageImpl extends org.eclipse.uml2.uml.internal.impl.PackageImpl 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case Sequence_diagramPackage.PACKAGE__ID:
+			case Sequence_diagramPackage.PROPERTY__ID:
 				return getId();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -105,7 +110,7 @@ public class PackageImpl extends org.eclipse.uml2.uml.internal.impl.PackageImpl 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case Sequence_diagramPackage.PACKAGE__ID:
+			case Sequence_diagramPackage.PROPERTY__ID:
 				setId((String)newValue);
 				return;
 		}
@@ -120,7 +125,7 @@ public class PackageImpl extends org.eclipse.uml2.uml.internal.impl.PackageImpl 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case Sequence_diagramPackage.PACKAGE__ID:
+			case Sequence_diagramPackage.PROPERTY__ID:
 				setId(ID_EDEFAULT);
 				return;
 		}
@@ -135,7 +140,7 @@ public class PackageImpl extends org.eclipse.uml2.uml.internal.impl.PackageImpl 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case Sequence_diagramPackage.PACKAGE__ID:
+			case Sequence_diagramPackage.PROPERTY__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 		}
 		return super.eIsSet(featureID);
@@ -150,7 +155,7 @@ public class PackageImpl extends org.eclipse.uml2.uml.internal.impl.PackageImpl 
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == IDBase.class) {
 			switch (derivedFeatureID) {
-				case Sequence_diagramPackage.PACKAGE__ID: return CommonBasePackage.ID_BASE__ID;
+				case Sequence_diagramPackage.PROPERTY__ID: return CommonBasePackage.ID_BASE__ID;
 				default: return -1;
 			}
 		}
@@ -166,7 +171,7 @@ public class PackageImpl extends org.eclipse.uml2.uml.internal.impl.PackageImpl 
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == IDBase.class) {
 			switch (baseFeatureID) {
-				case CommonBasePackage.ID_BASE__ID: return Sequence_diagramPackage.PACKAGE__ID;
+				case CommonBasePackage.ID_BASE__ID: return Sequence_diagramPackage.PROPERTY__ID;
 				default: return -1;
 			}
 		}
@@ -189,4 +194,4 @@ public class PackageImpl extends org.eclipse.uml2.uml.internal.impl.PackageImpl 
 		return result.toString();
 	}
 
-} //PackageImpl
+} //PropertyImpl

@@ -3,20 +3,18 @@
 package de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl;
 
 import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
-
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Actor;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ActorLifeline;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ExecutionSpecification;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Interaction;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Lifeline;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Message;
-import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.SdInteraction;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Property;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramFactory;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramPackage;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.eclipse.uml2.uml.UMLPackage;
 
 /**
@@ -59,7 +57,7 @@ public class Sequence_diagramPackageImpl extends EPackageImpl implements Sequenc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sdInteractionEClass = null;
+	private EClass interactionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -67,6 +65,27 @@ public class Sequence_diagramPackageImpl extends EPackageImpl implements Sequenc
 	 * @generated
 	 */
 	private EClass packageEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass classEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass propertyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass actorLifelineEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -174,8 +193,8 @@ public class Sequence_diagramPackageImpl extends EPackageImpl implements Sequenc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSdInteraction() {
-		return sdInteractionEClass;
+	public EClass getInteraction() {
+		return interactionEClass;
 	}
 
 	/**
@@ -185,6 +204,33 @@ public class Sequence_diagramPackageImpl extends EPackageImpl implements Sequenc
 	 */
 	public EClass getPackage() {
 		return packageEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getClass_() {
+		return classEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getProperty() {
+		return propertyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getActorLifeline() {
+		return actorLifelineEClass;
 	}
 
 	/**
@@ -223,9 +269,15 @@ public class Sequence_diagramPackageImpl extends EPackageImpl implements Sequenc
 
 		actorEClass = createEClass(ACTOR);
 
-		sdInteractionEClass = createEClass(SD_INTERACTION);
+		interactionEClass = createEClass(INTERACTION);
 
 		packageEClass = createEClass(PACKAGE);
+
+		classEClass = createEClass(CLASS);
+
+		propertyEClass = createEClass(PROPERTY);
+
+		actorLifelineEClass = createEClass(ACTOR_LIFELINE);
 	}
 
 	/**
@@ -268,10 +320,16 @@ public class Sequence_diagramPackageImpl extends EPackageImpl implements Sequenc
 		executionSpecificationEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
 		actorEClass.getESuperTypes().add(theUMLPackage.getActor());
 		actorEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
-		sdInteractionEClass.getESuperTypes().add(theUMLPackage.getInteraction());
-		sdInteractionEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
+		interactionEClass.getESuperTypes().add(theUMLPackage.getInteraction());
+		interactionEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
 		packageEClass.getESuperTypes().add(theUMLPackage.getPackage());
 		packageEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
+		classEClass.getESuperTypes().add(theUMLPackage.getClass_());
+		classEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
+		propertyEClass.getESuperTypes().add(theUMLPackage.getProperty());
+		propertyEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
+		actorLifelineEClass.getESuperTypes().add(theUMLPackage.getLifeline());
+		actorLifelineEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(messageEClass, Message.class, "Message", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -282,9 +340,15 @@ public class Sequence_diagramPackageImpl extends EPackageImpl implements Sequenc
 
 		initEClass(actorEClass, Actor.class, "Actor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(sdInteractionEClass, SdInteraction.class, "SdInteraction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(interactionEClass, Interaction.class, "Interaction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(packageEClass, de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Package.class, "Package", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(classEClass, de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Class.class, "Class", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(actorLifelineEClass, ActorLifeline.class, "ActorLifeline", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

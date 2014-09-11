@@ -147,7 +147,12 @@ public class PackageItemProvider extends org.eclipse.uml2.uml.edit.providers.Pac
 		newChildDescriptors.add
 			(createChildParameter
 				(UMLPackage.Literals.PACKAGE__OWNED_TYPE,
-				 Sequence_diagramFactory.eINSTANCE.createSdInteraction()));
+				 Sequence_diagramFactory.eINSTANCE.createInteraction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(UMLPackage.Literals.PACKAGE__OWNED_TYPE,
+				 Sequence_diagramFactory.eINSTANCE.createClass()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -157,12 +162,17 @@ public class PackageItemProvider extends org.eclipse.uml2.uml.edit.providers.Pac
 		newChildDescriptors.add
 			(createChildParameter
 				(UMLPackage.Literals.PACKAGE__PACKAGED_ELEMENT,
-				 Sequence_diagramFactory.eINSTANCE.createSdInteraction()));
+				 Sequence_diagramFactory.eINSTANCE.createInteraction()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(UMLPackage.Literals.PACKAGE__PACKAGED_ELEMENT,
 				 Sequence_diagramFactory.eINSTANCE.createPackage()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(UMLPackage.Literals.PACKAGE__PACKAGED_ELEMENT,
+				 Sequence_diagramFactory.eINSTANCE.createClass()));
 	}
 
 	/**

@@ -77,6 +77,7 @@ import org.eclipse.uml2.uml.UMLFactory;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
 
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramFactory;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.design.services.internal.NamedElementServices;
 
 /**
@@ -636,7 +637,7 @@ public class SequenceServices {
 		final UMLFactory factory = UMLFactory.eINSTANCE;
 		final EList<InteractionFragment> fragments = interaction.getFragments();
 
-		Message message = createSynchronousMessage(interaction, sourceFragment, targetFragment,
+		de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Message message = createSynchronousMessage(interaction, sourceFragment, targetFragment,
 				startingEndPredecessor, finishingEndPredecessor, operation);
 		interaction.getMessages().add(message);
 
@@ -801,7 +802,7 @@ public class SequenceServices {
 	 *            operation associated with the message
 	 * @return a synchronous message
 	 */
-	public Message createSynchronousMessage(Interaction interaction, NamedElement sourceFragment,
+	public de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Message createSynchronousMessage(Interaction interaction, NamedElement sourceFragment,
 			NamedElement targetFragment, Element startingEndPredecessor, Element finishingEndPredecessor,
 			Operation operation) {
 
@@ -817,7 +818,7 @@ public class SequenceServices {
 			messageName = operation.getName();
 		}
 
-		final Message message = factory.createMessage();
+		final de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Message message = Sequence_diagramFactory.eINSTANCE.createMessage();
 		message.setName(messageName);
 		message.setMessageSort(MessageSort.SYNCH_CALL_LITERAL);
 

@@ -3,37 +3,39 @@
 package de.uni_stuttgart.iste.cowolf.model.sequence_diagram.util;
 
 import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
-
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Actor;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ActorLifeline;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ExecutionSpecification;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Lifeline;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Message;
-import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.SdInteraction;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Property;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramPackage;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EModelElement;
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.uml2.uml.Behavior;
 import org.eclipse.uml2.uml.BehavioredClassifier;
 import org.eclipse.uml2.uml.Classifier;
+import org.eclipse.uml2.uml.ConnectableElement;
+import org.eclipse.uml2.uml.DeploymentTarget;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.EncapsulatedClassifier;
+import org.eclipse.uml2.uml.Feature;
 import org.eclipse.uml2.uml.Interaction;
 import org.eclipse.uml2.uml.InteractionFragment;
+import org.eclipse.uml2.uml.MultiplicityElement;
 import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.Namespace;
 import org.eclipse.uml2.uml.PackageableElement;
 import org.eclipse.uml2.uml.ParameterableElement;
 import org.eclipse.uml2.uml.RedefinableElement;
+import org.eclipse.uml2.uml.StructuralFeature;
 import org.eclipse.uml2.uml.StructuredClassifier;
 import org.eclipse.uml2.uml.TemplateableElement;
 import org.eclipse.uml2.uml.Type;
+import org.eclipse.uml2.uml.TypedElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -108,12 +110,24 @@ public class Sequence_diagramAdapterFactory extends AdapterFactoryImpl {
 				return createActorAdapter();
 			}
 			@Override
-			public Adapter caseSdInteraction(SdInteraction object) {
-				return createSdInteractionAdapter();
+			public Adapter caseInteraction(de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Interaction object) {
+				return createInteractionAdapter();
 			}
 			@Override
 			public Adapter casePackage(de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Package object) {
 				return createPackageAdapter();
+			}
+			@Override
+			public Adapter caseClass(de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Class object) {
+				return createClassAdapter();
+			}
+			@Override
+			public Adapter caseProperty(Property object) {
+				return createPropertyAdapter();
+			}
+			@Override
+			public Adapter caseActorLifeline(ActorLifeline object) {
+				return createActorLifelineAdapter();
 			}
 			@Override
 			public Adapter caseEModelElement(EModelElement object) {
@@ -192,20 +206,48 @@ public class Sequence_diagramAdapterFactory extends AdapterFactoryImpl {
 				return createEncapsulatedClassifierAdapter();
 			}
 			@Override
-			public Adapter caseClass(org.eclipse.uml2.uml.Class object) {
-				return createClassAdapter();
+			public Adapter caseUML_Class(org.eclipse.uml2.uml.Class object) {
+				return createUML_ClassAdapter();
 			}
 			@Override
 			public Adapter caseBehavior(Behavior object) {
 				return createBehaviorAdapter();
 			}
 			@Override
-			public Adapter caseInteraction(Interaction object) {
-				return createInteractionAdapter();
+			public Adapter caseUML_Interaction(Interaction object) {
+				return createUML_InteractionAdapter();
 			}
 			@Override
 			public Adapter caseUML_Package(org.eclipse.uml2.uml.Package object) {
 				return createUML_PackageAdapter();
+			}
+			@Override
+			public Adapter caseFeature(Feature object) {
+				return createFeatureAdapter();
+			}
+			@Override
+			public Adapter caseTypedElement(TypedElement object) {
+				return createTypedElementAdapter();
+			}
+			@Override
+			public Adapter caseMultiplicityElement(MultiplicityElement object) {
+				return createMultiplicityElementAdapter();
+			}
+			@Override
+			public Adapter caseStructuralFeature(StructuralFeature object) {
+				return createStructuralFeatureAdapter();
+			}
+			@Override
+			public Adapter caseConnectableElement(ConnectableElement object) {
+				return createConnectableElementAdapter();
+			}
+			@Override
+			public Adapter caseDeploymentTarget(DeploymentTarget object) {
+				return createDeploymentTargetAdapter();
+			}
+			@Override
+			public Adapter caseUML_Property(org.eclipse.uml2.uml.Property object) {
+				return createUML_PropertyAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -280,20 +322,6 @@ public class Sequence_diagramAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createActorAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.SdInteraction <em>Sd Interaction</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.SdInteraction
-	 * @generated
-	 */
-	public Adapter createSdInteractionAdapter() {
 		return null;
 	}
 
@@ -587,7 +615,49 @@ public class Sequence_diagramAdapterFactory extends AdapterFactoryImpl {
 	 * @see org.eclipse.uml2.uml.Class
 	 * @generated
 	 */
+	public Adapter createUML_ClassAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Class <em>Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Class
+	 * @generated
+	 */
 	public Adapter createClassAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Property <em>Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Property
+	 * @generated
+	 */
+	public Adapter createPropertyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ActorLifeline <em>Actor Lifeline</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ActorLifeline
+	 * @generated
+	 */
+	public Adapter createActorLifelineAdapter() {
 		return null;
 	}
 
@@ -615,6 +685,20 @@ public class Sequence_diagramAdapterFactory extends AdapterFactoryImpl {
 	 * @see org.eclipse.uml2.uml.Interaction
 	 * @generated
 	 */
+	public Adapter createUML_InteractionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Interaction <em>Interaction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Interaction
+	 * @generated
+	 */
 	public Adapter createInteractionAdapter() {
 		return null;
 	}
@@ -630,6 +714,104 @@ public class Sequence_diagramAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUML_PackageAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.Feature <em>Feature</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.uml2.uml.Feature
+	 * @generated
+	 */
+	public Adapter createFeatureAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.TypedElement <em>Typed Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.uml2.uml.TypedElement
+	 * @generated
+	 */
+	public Adapter createTypedElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.MultiplicityElement <em>Multiplicity Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.uml2.uml.MultiplicityElement
+	 * @generated
+	 */
+	public Adapter createMultiplicityElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.StructuralFeature <em>Structural Feature</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.uml2.uml.StructuralFeature
+	 * @generated
+	 */
+	public Adapter createStructuralFeatureAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.ConnectableElement <em>Connectable Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.uml2.uml.ConnectableElement
+	 * @generated
+	 */
+	public Adapter createConnectableElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.DeploymentTarget <em>Deployment Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.uml2.uml.DeploymentTarget
+	 * @generated
+	 */
+	public Adapter createDeploymentTargetAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.Property <em>Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.uml2.uml.Property
+	 * @generated
+	 */
+	public Adapter createUML_PropertyAdapter() {
 		return null;
 	}
 

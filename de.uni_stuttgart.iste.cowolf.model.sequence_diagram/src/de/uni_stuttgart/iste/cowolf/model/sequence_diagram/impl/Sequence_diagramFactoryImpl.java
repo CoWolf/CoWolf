@@ -3,12 +3,13 @@
 package de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl;
 
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Actor;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ActorLifeline;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Interaction;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Lifeline;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Message;
-import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.SdInteraction;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Property;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramFactory;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramPackage;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -62,8 +63,11 @@ public class Sequence_diagramFactoryImpl extends EFactoryImpl implements Sequenc
 			case Sequence_diagramPackage.MESSAGE: return createMessage();
 			case Sequence_diagramPackage.LIFELINE: return createLifeline();
 			case Sequence_diagramPackage.ACTOR: return createActor();
-			case Sequence_diagramPackage.SD_INTERACTION: return createSdInteraction();
+			case Sequence_diagramPackage.INTERACTION: return createInteraction();
 			case Sequence_diagramPackage.PACKAGE: return createPackage();
+			case Sequence_diagramPackage.CLASS: return createClass();
+			case Sequence_diagramPackage.PROPERTY: return createProperty();
+			case Sequence_diagramPackage.ACTOR_LIFELINE: return createActorLifeline();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -104,9 +108,9 @@ public class Sequence_diagramFactoryImpl extends EFactoryImpl implements Sequenc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SdInteraction createSdInteraction() {
-		SdInteractionImpl sdInteraction = new SdInteractionImpl();
-		return sdInteraction;
+	public Interaction createInteraction() {
+		InteractionImpl interaction = new InteractionImpl();
+		return interaction;
 	}
 
 	/**
@@ -117,6 +121,36 @@ public class Sequence_diagramFactoryImpl extends EFactoryImpl implements Sequenc
 	public de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Package createPackage() {
 		PackageImpl package_ = new PackageImpl();
 		return package_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Class createClass() {
+		ClassImpl class_ = new ClassImpl();
+		return class_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Property createProperty() {
+		PropertyImpl property = new PropertyImpl();
+		return property;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ActorLifeline createActorLifeline() {
+		ActorLifelineImpl actorLifeline = new ActorLifelineImpl();
+		return actorLifeline;
 	}
 
 	/**
