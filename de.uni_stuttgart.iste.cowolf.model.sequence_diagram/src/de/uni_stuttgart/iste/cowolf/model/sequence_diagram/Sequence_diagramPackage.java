@@ -3,6 +3,7 @@
 package de.uni_stuttgart.iste.cowolf.model.sequence_diagram;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.uml2.uml.UMLPackage;
@@ -21,6 +22,8 @@ import org.eclipse.uml2.uml.UMLPackage;
  * <!-- end-user-doc -->
  * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramFactory
  * @model kind="package"
+ *        annotation="http://www.eclipse.org/OCL/Import commonBase='../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#/' uml='../../org.eclipse.uml2.uml/model/UML.ecore#/'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'"
  * @generated
  */
 public interface Sequence_diagramPackage extends EPackage {
@@ -7799,15 +7802,6 @@ public interface Sequence_diagramPackage extends EPackage {
 	int MESSAGE___ALL_OWNING_PACKAGES = UMLPackage.MESSAGE___ALL_OWNING_PACKAGES;
 
 	/**
-	 * The operation id for the '<em>Is Distinguishable From</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MESSAGE___IS_DISTINGUISHABLE_FROM__NAMEDELEMENT_NAMESPACE = UMLPackage.MESSAGE___IS_DISTINGUISHABLE_FROM__NAMEDELEMENT_NAMESPACE;
-
-	/**
 	 * The operation id for the '<em>Get Qualified Name</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7916,13 +7910,22 @@ public interface Sequence_diagramPackage extends EPackage {
 	int MESSAGE___GET_MESSAGE_KIND = UMLPackage.MESSAGE___GET_MESSAGE_KIND;
 
 	/**
+	 * The operation id for the '<em>Is Distinguishable From</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MESSAGE___IS_DISTINGUISHABLE_FROM__NAMEDELEMENT_NAMESPACE = UMLPackage.MESSAGE_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Message</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MESSAGE_OPERATION_COUNT = UMLPackage.MESSAGE_OPERATION_COUNT + 0;
+	int MESSAGE_OPERATION_COUNT = UMLPackage.MESSAGE_OPERATION_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list.
@@ -14339,6 +14342,16 @@ public interface Sequence_diagramPackage extends EPackage {
 	EClass getMessage();
 
 	/**
+	 * Returns the meta object for the '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Message#isDistinguishableFrom(org.eclipse.uml2.uml.NamedElement, org.eclipse.uml2.uml.Namespace) <em>Is Distinguishable From</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Distinguishable From</em>' operation.
+	 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Message#isDistinguishableFrom(org.eclipse.uml2.uml.NamedElement, org.eclipse.uml2.uml.Namespace)
+	 * @generated
+	 */
+	EOperation getMessage__IsDistinguishableFrom__NamedElement_Namespace();
+
+	/**
 	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.MessageOccurenceSpecification <em>Message Occurence Specification</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -14490,6 +14503,14 @@ public interface Sequence_diagramPackage extends EPackage {
 		 * @generated
 		 */
 		EClass MESSAGE = eINSTANCE.getMessage();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Distinguishable From</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MESSAGE___IS_DISTINGUISHABLE_FROM__NAMEDELEMENT_NAMESPACE = eINSTANCE.getMessage__IsDistinguishableFrom__NamedElement_Namespace();
 
 		/**
 		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.MessageOccurenceSpecificationImpl <em>Message Occurence Specification</em>}' class.

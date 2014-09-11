@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="sequence_diagram" nsURI="http://sequence_diagram/1.0" nsPrefix="sequence_diagram">
-  <eClassifiers xsi:type="ecore:EClass" name="Package" eSuperTypes="../../org.eclipse.uml2.uml/model/UML.ecore#//Package ../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase"/>
+  <eAnnotations source="http://www.eclipse.org/OCL/Import">
+    <details key="commonBase" value="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#/"/>
+    <details key="uml" value="../../org.eclipse.uml2.uml/model/UML.ecore#/"/>
+  </eAnnotations>
+  <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+    <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="Package" eSuperTypes="../../org.eclipse.uml2.uml/model/UML.ecore#//Package ../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="onlyOneInteraction"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="onlyOneInteraction" value="self.packagedElement -> size() = 1"/>
+    </eAnnotations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Class" eSuperTypes="../../org.eclipse.uml2.uml/model/UML.ecore#//Class ../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase"/>
   <eClassifiers xsi:type="ecore:EClass" name="Interaction" eSuperTypes="../../org.eclipse.uml2.uml/model/UML.ecore#//Interaction ../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -18,17 +34,13 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A Message defines a particular communication between Lifelines of an Interaction.&#xA;&lt;p>From package UML::Interactions.&lt;/p>"/>
     </eAnnotations>
-    <eAnnotations source="duplicates">
-      <contents xsi:type="ecore:EOperation" name="isDistinguishableFrom" ordered="false"
-          lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//Boolean">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="The query isDistinguishableFrom() specifies that any two Messages may coexist in the same Namespace, regardless of their names.&#xA;result = (true)&#xA;&lt;p>From package UML::Interactions.&lt;/p>"/>
-        </eAnnotations>
-        <eAnnotations source="redefines" references="../../org.eclipse.uml2.uml/model/UML.ecore#//NamedElement/isDistinguishableFrom"/>
-        <eParameters name="n" ordered="false" lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//NamedElement"/>
-        <eParameters name="ns" ordered="false" lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Namespace"/>
-      </contents>
-    </eAnnotations>
+    <eOperations name="isDistinguishableFrom" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The query isDistinguishableFrom() specifies that any two Messages may coexist in the same Namespace, regardless of their names.&#xA;result = (true)&#xA;&lt;p>From package UML::Interactions.&lt;/p>"/>
+      </eAnnotations>
+      <eParameters name="n" lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//NamedElement"/>
+      <eParameters name="ns" lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Namespace"/>
+    </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MessageOccurenceSpecification" eSuperTypes="../../org.eclipse.uml2.uml/model/UML.ecore#//MessageOccurrenceSpecification ../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase"/>
   <eClassifiers xsi:type="ecore:EClass" name="BehaviorExecutionSpecification" eSuperTypes="../../org.eclipse.uml2.uml/model/UML.ecore#//BehaviorExecutionSpecification ../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase"/>

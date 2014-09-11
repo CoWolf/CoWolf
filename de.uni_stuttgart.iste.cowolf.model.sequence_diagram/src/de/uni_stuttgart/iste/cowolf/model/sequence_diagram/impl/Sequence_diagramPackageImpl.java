@@ -16,8 +16,11 @@ import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Operation;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Property;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramFactory;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramPackage;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.util.Sequence_diagramValidator;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.uml2.uml.UMLPackage;
 
@@ -175,6 +178,15 @@ public class Sequence_diagramPackageImpl extends EPackageImpl implements Sequenc
 		// Initialize created meta-data
 		theSequence_diagramPackage.initializePackageContents();
 
+		// Register package validator
+		EValidator.Registry.INSTANCE.put
+			(theSequence_diagramPackage, 
+			 new EValidator.Descriptor() {
+				 public EValidator getEValidator() {
+					 return Sequence_diagramValidator.INSTANCE;
+				 }
+			 });
+
 		// Mark meta-data to indicate it can't be changed
 		theSequence_diagramPackage.freeze();
 
@@ -191,6 +203,15 @@ public class Sequence_diagramPackageImpl extends EPackageImpl implements Sequenc
 	 */
 	public EClass getMessage() {
 		return messageEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getMessage__IsDistinguishableFrom__NamedElement_Namespace() {
+		return messageEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -340,6 +361,7 @@ public class Sequence_diagramPackageImpl extends EPackageImpl implements Sequenc
 		operationEClass = createEClass(OPERATION);
 
 		messageEClass = createEClass(MESSAGE);
+		createEOperation(messageEClass, MESSAGE___IS_DISTINGUISHABLE_FROM__NAMEDELEMENT_NAMESPACE);
 
 		messageOccurenceSpecificationEClass = createEClass(MESSAGE_OCCURENCE_SPECIFICATION);
 
@@ -428,6 +450,10 @@ public class Sequence_diagramPackageImpl extends EPackageImpl implements Sequenc
 
 		initEClass(messageEClass, Message.class, "Message", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		EOperation op = initEOperation(getMessage__IsDistinguishableFrom__NamedElement_Namespace(), ecorePackage.getEBoolean(), "isDistinguishableFrom", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theUMLPackage.getNamedElement(), "n", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theUMLPackage.getNamespace(), "ns", 1, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(messageOccurenceSpecificationEClass, MessageOccurenceSpecification.class, "MessageOccurenceSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(behaviorExecutionSpecificationEClass, BehaviorExecutionSpecification.class, "BehaviorExecutionSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -446,22 +472,68 @@ public class Sequence_diagramPackageImpl extends EPackageImpl implements Sequenc
 		createResource(eNS_URI);
 
 		// Create annotations
-		// duplicates
-		createDuplicatesAnnotations();
+		// http://www.eclipse.org/OCL/Import
+		createImportAnnotations();
+		// http://www.eclipse.org/emf/2002/Ecore
+		createEcoreAnnotations();
+		// http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot
+		createPivotAnnotations();
 	}
 
 	/**
-	 * Initializes the annotations for <b>duplicates</b>.
+	 * Initializes the annotations for <b>http://www.eclipse.org/OCL/Import</b>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void createDuplicatesAnnotations() {
-		String source = "duplicates";	
+	protected void createImportAnnotations() {
+		String source = "http://www.eclipse.org/OCL/Import";	
 		addAnnotation
-		  (messageEClass, 
+		  (this, 
 		   source, 
 		   new String[] {
+			 "commonBase", "../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#/",
+			 "uml", "../../org.eclipse.uml2.uml/model/UML.ecore#/"
+		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createEcoreAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/Ecore";	
+		addAnnotation
+		  (this, 
+		   source, 
+		   new String[] {
+			 "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+			 "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"
+		   });	
+		addAnnotation
+		  (packageEClass, 
+		   source, 
+		   new String[] {
+			 "constraints", "onlyOneInteraction"
+		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createPivotAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";	
+		addAnnotation
+		  (packageEClass, 
+		   source, 
+		   new String[] {
+			 "onlyOneInteraction", "self.packagedElement -> size() = 1"
 		   });
 	}
 
