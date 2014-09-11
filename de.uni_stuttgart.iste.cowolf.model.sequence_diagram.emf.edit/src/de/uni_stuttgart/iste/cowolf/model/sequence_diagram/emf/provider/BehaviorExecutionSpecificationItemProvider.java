@@ -5,8 +5,7 @@ package de.uni_stuttgart.iste.cowolf.model.sequence_diagram.emf.provider;
 
 import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
 
-import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Actor;
-import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramFactory;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.BehaviorExecutionSpecification;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramPackage;
 
 import java.util.Collection;
@@ -22,22 +21,20 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.eclipse.uml2.uml.UMLPackage;
-
 /**
- * This is the item provider adapter for a {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Actor} object.
+ * This is the item provider adapter for a {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.BehaviorExecutionSpecification} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ActorItemProvider extends org.eclipse.uml2.uml.edit.providers.ActorItemProvider {
+public class BehaviorExecutionSpecificationItemProvider extends org.eclipse.uml2.uml.edit.providers.BehaviorExecutionSpecificationItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ActorItemProvider(AdapterFactory adapterFactory) {
+	public BehaviorExecutionSpecificationItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -80,14 +77,14 @@ public class ActorItemProvider extends org.eclipse.uml2.uml.edit.providers.Actor
 	}
 
 	/**
-	 * This returns Actor.gif.
+	 * This returns BehaviorExecutionSpecification.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Actor"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BehaviorExecutionSpecification"));
 	}
 
 	/**
@@ -98,10 +95,10 @@ public class ActorItemProvider extends org.eclipse.uml2.uml.edit.providers.Actor
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Actor)object).getName();
+		String label = ((BehaviorExecutionSpecification)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Actor_type") :
-			getString("_UI_Actor_type") + " " + label;
+			getString("_UI_BehaviorExecutionSpecification_type") :
+			getString("_UI_BehaviorExecutionSpecification_type") + " " + label;
 	}
 	
 
@@ -116,8 +113,8 @@ public class ActorItemProvider extends org.eclipse.uml2.uml.edit.providers.Actor
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Actor.class)) {
-			case Sequence_diagramPackage.ACTOR__ID:
+		switch (notification.getFeatureID(BehaviorExecutionSpecification.class)) {
+			case Sequence_diagramPackage.BEHAVIOR_EXECUTION_SPECIFICATION__ID:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -134,51 +131,6 @@ public class ActorItemProvider extends org.eclipse.uml2.uml.edit.providers.Actor
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(UMLPackage.Literals.BEHAVIORED_CLASSIFIER__CLASSIFIER_BEHAVIOR,
-				 Sequence_diagramFactory.eINSTANCE.createInteraction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(UMLPackage.Literals.BEHAVIORED_CLASSIFIER__CLASSIFIER_BEHAVIOR,
-				 Sequence_diagramFactory.eINSTANCE.createOpaqueBehavior()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(UMLPackage.Literals.BEHAVIORED_CLASSIFIER__OWNED_BEHAVIOR,
-				 Sequence_diagramFactory.eINSTANCE.createInteraction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(UMLPackage.Literals.BEHAVIORED_CLASSIFIER__OWNED_BEHAVIOR,
-				 Sequence_diagramFactory.eINSTANCE.createOpaqueBehavior()));
-	}
-
-	/**
-	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
-		Object childFeature = feature;
-		Object childObject = child;
-
-		boolean qualify =
-			childFeature == UMLPackage.Literals.CLASSIFIER__COLLABORATION_USE ||
-			childFeature == UMLPackage.Literals.CLASSIFIER__REPRESENTATION ||
-			childFeature == UMLPackage.Literals.BEHAVIORED_CLASSIFIER__CLASSIFIER_BEHAVIOR ||
-			childFeature == UMLPackage.Literals.BEHAVIORED_CLASSIFIER__OWNED_BEHAVIOR;
-
-		if (qualify) {
-			return getString
-				("_UI_CreateChild_text2",
-				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-		}
-		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**

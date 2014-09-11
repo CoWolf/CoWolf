@@ -5,6 +5,7 @@ package de.uni_stuttgart.iste.cowolf.model.sequence_diagram.emf.provider;
 
 import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
 
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.OpaqueBehavior;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramFactory;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramPackage;
 
@@ -24,19 +25,19 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.uml2.uml.UMLPackage;
 
 /**
- * This is the item provider adapter for a {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Class} object.
+ * This is the item provider adapter for a {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.OpaqueBehavior} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ClassItemProvider extends org.eclipse.uml2.uml.edit.providers.ClassItemProvider {
+public class OpaqueBehaviorItemProvider extends org.eclipse.uml2.uml.edit.providers.OpaqueBehaviorItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ClassItemProvider(AdapterFactory adapterFactory) {
+	public OpaqueBehaviorItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -79,14 +80,14 @@ public class ClassItemProvider extends org.eclipse.uml2.uml.edit.providers.Class
 	}
 
 	/**
-	 * This returns Class.gif.
+	 * This returns OpaqueBehavior.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Class"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/OpaqueBehavior"));
 	}
 
 	/**
@@ -97,10 +98,10 @@ public class ClassItemProvider extends org.eclipse.uml2.uml.edit.providers.Class
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Class)object).getName();
+		String label = ((OpaqueBehavior)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Class_type") :
-			getString("_UI_Class_type") + " " + label;
+			getString("_UI_OpaqueBehavior_type") :
+			getString("_UI_OpaqueBehavior_type") + " " + label;
 	}
 	
 
@@ -115,8 +116,8 @@ public class ClassItemProvider extends org.eclipse.uml2.uml.edit.providers.Class
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Class.class)) {
-			case Sequence_diagramPackage.CLASS__ID:
+		switch (notification.getFeatureID(OpaqueBehavior.class)) {
+			case Sequence_diagramPackage.OPAQUE_BEHAVIOR__ID:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -197,6 +198,9 @@ public class ClassItemProvider extends org.eclipse.uml2.uml.edit.providers.Class
 		Object childObject = child;
 
 		boolean qualify =
+			childFeature == UMLPackage.Literals.NAMESPACE__OWNED_RULE ||
+			childFeature == UMLPackage.Literals.BEHAVIOR__POSTCONDITION ||
+			childFeature == UMLPackage.Literals.BEHAVIOR__PRECONDITION ||
 			childFeature == UMLPackage.Literals.CLASSIFIER__COLLABORATION_USE ||
 			childFeature == UMLPackage.Literals.CLASSIFIER__REPRESENTATION ||
 			childFeature == UMLPackage.Literals.CLASSIFIER__OWNED_USE_CASE ||

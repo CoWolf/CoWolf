@@ -5,7 +5,7 @@ package de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl;
 import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
 import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
 
-import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ExecutionSpecification;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Operation;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -16,18 +16,18 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Execution Specification</b></em>'.
+ * An implementation of the model object '<em><b>Operation</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.ExecutionSpecificationImpl#getId <em>Id</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.OperationImpl#getId <em>Id</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public abstract class ExecutionSpecificationImpl extends org.eclipse.uml2.uml.internal.impl.ExecutionSpecificationImpl implements ExecutionSpecification {
+public class OperationImpl extends org.eclipse.uml2.uml.internal.impl.OperationImpl implements Operation {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -53,7 +53,7 @@ public abstract class ExecutionSpecificationImpl extends org.eclipse.uml2.uml.in
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ExecutionSpecificationImpl() {
+	protected OperationImpl() {
 		super();
 	}
 
@@ -64,7 +64,7 @@ public abstract class ExecutionSpecificationImpl extends org.eclipse.uml2.uml.in
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return Sequence_diagramPackage.Literals.EXECUTION_SPECIFICATION;
+		return Sequence_diagramPackage.Literals.OPERATION;
 	}
 
 	/**
@@ -85,7 +85,7 @@ public abstract class ExecutionSpecificationImpl extends org.eclipse.uml2.uml.in
 		String oldId = id;
 		id = newId;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Sequence_diagramPackage.EXECUTION_SPECIFICATION__ID, oldId, id));
+			eNotify(new ENotificationImpl(this, Notification.SET, Sequence_diagramPackage.OPERATION__ID, oldId, id));
 	}
 
 	/**
@@ -96,7 +96,7 @@ public abstract class ExecutionSpecificationImpl extends org.eclipse.uml2.uml.in
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case Sequence_diagramPackage.EXECUTION_SPECIFICATION__ID:
+			case Sequence_diagramPackage.OPERATION__ID:
 				return getId();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -110,7 +110,7 @@ public abstract class ExecutionSpecificationImpl extends org.eclipse.uml2.uml.in
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case Sequence_diagramPackage.EXECUTION_SPECIFICATION__ID:
+			case Sequence_diagramPackage.OPERATION__ID:
 				setId((String)newValue);
 				return;
 		}
@@ -125,7 +125,7 @@ public abstract class ExecutionSpecificationImpl extends org.eclipse.uml2.uml.in
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case Sequence_diagramPackage.EXECUTION_SPECIFICATION__ID:
+			case Sequence_diagramPackage.OPERATION__ID:
 				setId(ID_EDEFAULT);
 				return;
 		}
@@ -140,7 +140,7 @@ public abstract class ExecutionSpecificationImpl extends org.eclipse.uml2.uml.in
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case Sequence_diagramPackage.EXECUTION_SPECIFICATION__ID:
+			case Sequence_diagramPackage.OPERATION__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 		}
 		return super.eIsSet(featureID);
@@ -155,7 +155,7 @@ public abstract class ExecutionSpecificationImpl extends org.eclipse.uml2.uml.in
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == IDBase.class) {
 			switch (derivedFeatureID) {
-				case Sequence_diagramPackage.EXECUTION_SPECIFICATION__ID: return CommonBasePackage.ID_BASE__ID;
+				case Sequence_diagramPackage.OPERATION__ID: return CommonBasePackage.ID_BASE__ID;
 				default: return -1;
 			}
 		}
@@ -171,7 +171,7 @@ public abstract class ExecutionSpecificationImpl extends org.eclipse.uml2.uml.in
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == IDBase.class) {
 			switch (baseFeatureID) {
-				case CommonBasePackage.ID_BASE__ID: return Sequence_diagramPackage.EXECUTION_SPECIFICATION__ID;
+				case CommonBasePackage.ID_BASE__ID: return Sequence_diagramPackage.OPERATION__ID;
 				default: return -1;
 			}
 		}
@@ -194,4 +194,4 @@ public abstract class ExecutionSpecificationImpl extends org.eclipse.uml2.uml.in
 		return result.toString();
 	}
 
-} //ExecutionSpecificationImpl
+} //OperationImpl

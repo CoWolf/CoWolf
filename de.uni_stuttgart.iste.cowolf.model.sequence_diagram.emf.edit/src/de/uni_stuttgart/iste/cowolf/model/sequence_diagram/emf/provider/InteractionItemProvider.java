@@ -147,7 +147,32 @@ public class InteractionItemProvider extends org.eclipse.uml2.uml.edit.providers
 
 		newChildDescriptors.add
 			(createChildParameter
+				(UMLPackage.Literals.BEHAVIORED_CLASSIFIER__CLASSIFIER_BEHAVIOR,
+				 Sequence_diagramFactory.eINSTANCE.createOpaqueBehavior()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(UMLPackage.Literals.BEHAVIORED_CLASSIFIER__OWNED_BEHAVIOR,
+				 Sequence_diagramFactory.eINSTANCE.createInteraction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(UMLPackage.Literals.BEHAVIORED_CLASSIFIER__OWNED_BEHAVIOR,
+				 Sequence_diagramFactory.eINSTANCE.createOpaqueBehavior()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(UMLPackage.Literals.CLASS__OWNED_OPERATION,
+				 Sequence_diagramFactory.eINSTANCE.createOperation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(UMLPackage.Literals.CLASS__NESTED_CLASSIFIER,
+				 Sequence_diagramFactory.eINSTANCE.createClass()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(UMLPackage.Literals.CLASS__NESTED_CLASSIFIER,
 				 Sequence_diagramFactory.eINSTANCE.createInteraction()));
 
 		newChildDescriptors.add
@@ -158,17 +183,7 @@ public class InteractionItemProvider extends org.eclipse.uml2.uml.edit.providers
 		newChildDescriptors.add
 			(createChildParameter
 				(UMLPackage.Literals.CLASS__NESTED_CLASSIFIER,
-				 Sequence_diagramFactory.eINSTANCE.createInteraction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(UMLPackage.Literals.CLASS__NESTED_CLASSIFIER,
-				 Sequence_diagramFactory.eINSTANCE.createClass()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(UMLPackage.Literals.INTERACTION__LIFELINE,
-				 Sequence_diagramFactory.eINSTANCE.createLifeline()));
+				 Sequence_diagramFactory.eINSTANCE.createOpaqueBehavior()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -177,8 +192,23 @@ public class InteractionItemProvider extends org.eclipse.uml2.uml.edit.providers
 
 		newChildDescriptors.add
 			(createChildParameter
+				(UMLPackage.Literals.INTERACTION__LIFELINE,
+				 Sequence_diagramFactory.eINSTANCE.createLifeline()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(UMLPackage.Literals.INTERACTION__FRAGMENT,
 				 Sequence_diagramFactory.eINSTANCE.createInteraction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(UMLPackage.Literals.INTERACTION__FRAGMENT,
+				 Sequence_diagramFactory.eINSTANCE.createMessageOccurenceSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(UMLPackage.Literals.INTERACTION__FRAGMENT,
+				 Sequence_diagramFactory.eINSTANCE.createBehaviorExecutionSpecification()));
 
 		newChildDescriptors.add
 			(createChildParameter
