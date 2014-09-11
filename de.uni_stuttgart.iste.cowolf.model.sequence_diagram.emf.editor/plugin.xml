@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated Sequence_diagram -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="de.uni_stuttgart.iste.cowolf.model.sequence_diagram.emf.presentation.Sequence_diagramModelWizardID"
+            name="%_UI_Sequence_diagramModelWizard_label"
+            class="de.uni_stuttgart.iste.cowolf.model.sequence_diagram.emf.presentation.Sequence_diagramModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/Sequence_diagramModelFile.gif">
+         <description>%_UI_Sequence_diagramModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated Sequence_diagram -->
+      <editor
+            id="de.uni_stuttgart.iste.cowolf.model.sequence_diagram.emf.presentation.Sequence_diagramEditorID"
+            name="%_UI_Sequence_diagramEditor_label"
+            icon="icons/full/obj16/Sequence_diagramModelFile.gif"
+            extensions="sequence_diagram"
+            class="de.uni_stuttgart.iste.cowolf.model.sequence_diagram.emf.presentation.Sequence_diagramEditor"
+            contributorClass="de.uni_stuttgart.iste.cowolf.model.sequence_diagram.emf.presentation.Sequence_diagramActionBarContributor">
+      </editor>
+   </extension>
+
+null
+</plugin>
