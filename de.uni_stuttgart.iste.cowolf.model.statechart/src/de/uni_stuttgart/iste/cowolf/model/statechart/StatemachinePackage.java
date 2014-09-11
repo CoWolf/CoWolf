@@ -87,13 +87,22 @@ public interface StatemachinePackage extends EPackage {
 	int STATE_MACHINE_ROOT__SUB_STATE_MACHINES = CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Initial State Machine</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATE_MACHINE_ROOT__INITIAL_STATE_MACHINE = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>State Machine Root</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATE_MACHINE_ROOT_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
+	int STATE_MACHINE_ROOT_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>State Machine Root</em>' class.
@@ -1139,6 +1148,17 @@ public interface StatemachinePackage extends EPackage {
 	EReference getStateMachineRoot_SubStateMachines();
 
 	/**
+	 * Returns the meta object for the reference '{@link de.uni_stuttgart.iste.cowolf.model.statechart.StateMachineRoot#getInitialStateMachine <em>Initial State Machine</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Initial State Machine</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.StateMachineRoot#getInitialStateMachine()
+	 * @see #getStateMachineRoot()
+	 * @generated
+	 */
+	EReference getStateMachineRoot_InitialStateMachine();
+
+	/**
 	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine <em>State Machine</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1660,6 +1680,14 @@ public interface StatemachinePackage extends EPackage {
 		 * @generated
 		 */
 		EReference STATE_MACHINE_ROOT__SUB_STATE_MACHINES = eINSTANCE.getStateMachineRoot_SubStateMachines();
+
+		/**
+		 * The meta object literal for the '<em><b>Initial State Machine</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STATE_MACHINE_ROOT__INITIAL_STATE_MACHINE = eINSTANCE.getStateMachineRoot_InitialStateMachine();
 
 		/**
 		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateMachineImpl <em>State Machine</em>}' class.

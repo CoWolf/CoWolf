@@ -10,12 +10,15 @@ import de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -28,6 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateMachineRootImpl#getSubStateMachines <em>Sub State Machines</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateMachineRootImpl#getInitialStateMachine <em>Initial State Machine</em>}</li>
  * </ul>
  * </p>
  *
@@ -43,6 +47,16 @@ public class StateMachineRootImpl extends IDBaseImpl implements StateMachineRoot
 	 * @ordered
 	 */
 	protected EList<StateMachine> subStateMachines;
+
+	/**
+	 * The cached value of the '{@link #getInitialStateMachine() <em>Initial State Machine</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInitialStateMachine()
+	 * @generated
+	 * @ordered
+	 */
+	protected StateMachine initialStateMachine;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -73,6 +87,44 @@ public class StateMachineRootImpl extends IDBaseImpl implements StateMachineRoot
 			subStateMachines = new EObjectContainmentWithInverseEList<StateMachine>(StateMachine.class, this, StatemachinePackage.STATE_MACHINE_ROOT__SUB_STATE_MACHINES, StatemachinePackage.STATE_MACHINE__STATEMACHINE_CONTAINER);
 		}
 		return subStateMachines;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StateMachine getInitialStateMachine() {
+		if (initialStateMachine != null && initialStateMachine.eIsProxy()) {
+			InternalEObject oldInitialStateMachine = (InternalEObject)initialStateMachine;
+			initialStateMachine = (StateMachine)eResolveProxy(oldInitialStateMachine);
+			if (initialStateMachine != oldInitialStateMachine) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StatemachinePackage.STATE_MACHINE_ROOT__INITIAL_STATE_MACHINE, oldInitialStateMachine, initialStateMachine));
+			}
+		}
+		return initialStateMachine;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StateMachine basicGetInitialStateMachine() {
+		return initialStateMachine;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInitialStateMachine(StateMachine newInitialStateMachine) {
+		StateMachine oldInitialStateMachine = initialStateMachine;
+		initialStateMachine = newInitialStateMachine;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, StatemachinePackage.STATE_MACHINE_ROOT__INITIAL_STATE_MACHINE, oldInitialStateMachine, initialStateMachine));
 	}
 
 	/**
@@ -114,6 +166,9 @@ public class StateMachineRootImpl extends IDBaseImpl implements StateMachineRoot
 		switch (featureID) {
 			case StatemachinePackage.STATE_MACHINE_ROOT__SUB_STATE_MACHINES:
 				return getSubStateMachines();
+			case StatemachinePackage.STATE_MACHINE_ROOT__INITIAL_STATE_MACHINE:
+				if (resolve) return getInitialStateMachine();
+				return basicGetInitialStateMachine();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -131,6 +186,9 @@ public class StateMachineRootImpl extends IDBaseImpl implements StateMachineRoot
 				getSubStateMachines().clear();
 				getSubStateMachines().addAll((Collection<? extends StateMachine>)newValue);
 				return;
+			case StatemachinePackage.STATE_MACHINE_ROOT__INITIAL_STATE_MACHINE:
+				setInitialStateMachine((StateMachine)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -146,6 +204,9 @@ public class StateMachineRootImpl extends IDBaseImpl implements StateMachineRoot
 			case StatemachinePackage.STATE_MACHINE_ROOT__SUB_STATE_MACHINES:
 				getSubStateMachines().clear();
 				return;
+			case StatemachinePackage.STATE_MACHINE_ROOT__INITIAL_STATE_MACHINE:
+				setInitialStateMachine((StateMachine)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -160,6 +221,8 @@ public class StateMachineRootImpl extends IDBaseImpl implements StateMachineRoot
 		switch (featureID) {
 			case StatemachinePackage.STATE_MACHINE_ROOT__SUB_STATE_MACHINES:
 				return subStateMachines != null && !subStateMachines.isEmpty();
+			case StatemachinePackage.STATE_MACHINE_ROOT__INITIAL_STATE_MACHINE:
+				return initialStateMachine != null;
 		}
 		return super.eIsSet(featureID);
 	}
