@@ -4,7 +4,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.uni-stuttgart.iste.co.wolf.org/TransformationMapping Mapping.xsd ">
 	<Mapping priority="0">
-		<Difference>CREATE_State_IN_StateMachine_(states)</Difference>
+		<Difference>CREATE_State_IN_StateMachine_(top)</Difference>
 		<Rule name="CreatedStateInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
 			<Params>
 				<Param name="id">
@@ -16,7 +16,7 @@
 		</Rule>
 	</Mapping>
 	<Mapping priority="0">
-        <Difference>MOVE_CompositeState_FROM_CompositeState_(subVertexes)_TO_StateMachine_(states)</Difference>
+        <Difference>MOVE_CompositeState_FROM_CompositeState_(subVertexes)_TO_StateMachine_(top)</Difference>
         <Rule name="CreatedStateInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
             <Params>
                 <Param name="id">
@@ -28,7 +28,7 @@
         </Rule>
     </Mapping>
 	<Mapping priority="0">
-        <Difference>MOVE_State_FROM_CompositeState_(subVertexes)_TO_StateMachine_(states)</Difference>
+        <Difference>MOVE_State_FROM_CompositeState_(subVertexes)_TO_StateMachine_(top)</Difference>
         <Rule name="CreatedStateInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
             <Params>
                 <Param name="id">
@@ -40,7 +40,7 @@
         </Rule>
     </Mapping>
 	<Mapping priority="0">
-		<Difference>CREATE_CompositeState_IN_StateMachine_(states)</Difference>
+		<Difference>CREATE_CompositeState_IN_StateMachine_(top)</Difference>
 		<Rule name="CreatedStateInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
 			<Params>
 				<Param name="id">
@@ -52,7 +52,7 @@
 		</Rule>
 	</Mapping>
 	<Mapping priority="21">
-        <Difference>MOVE_CompositeState_FROM_StateMachine_(states)_TO_CompositeState_(subVertexes)</Difference>
+        <Difference>MOVE_CompositeState_FROM_StateMachine_(top)_TO_CompositeState_(subVertexes)</Difference>
         <Rule name="DeletedStateInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
             <Params>
                 <Param name="id">
@@ -64,7 +64,7 @@
         </Rule>
     </Mapping>
 	<Mapping priority="21">
-        <Difference>MOVE_State_FROM_StateMachine_(states)_TO_CompositeState_(subVertexes)</Difference>
+        <Difference>MOVE_State_FROM_StateMachine_(top)_TO_CompositeState_(subVertexes)</Difference>
         <Rule name="DeletedStateInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
             <Params>
                 <Param name="id">
@@ -76,7 +76,7 @@
         </Rule>
     </Mapping>
  	<Mapping priority="21">
- 		<Difference>DELETE_State_IN_StateMachine_(states)</Difference>
+ 		<Difference>DELETE_State_IN_StateMachine_(top)</Difference>
  		<Rule name="DeletedStateInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
 			<Params>
 				<Param name="id">
@@ -88,7 +88,7 @@
 		</Rule>
  	</Mapping>
  	<Mapping priority="21">
- 		<Difference>DELETE_CompositeState_IN_StateMachine_(states)</Difference>
+ 		<Difference>DELETE_CompositeState_IN_StateMachine_(top)</Difference>
  		<Rule name="DeletedStateInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
 			<Params>
 				<Param name="id">
@@ -270,6 +270,55 @@
                 <Param name="id">
                     <Change name="RemoveObject">
                         <Reference name="obj" attribute="id"/>
+                    </Change>
+                </Param>
+            </Params>
+        </Rule>
+    </Mapping>
+    <Mapping>
+        <Change>Statemachine/State/label</Change>
+        <Rule name="ChangedLabelInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
+            <Params>
+                <Param name="labelId">
+                    <Reference name="objB" attribute="id" />
+                </Param>
+            </Params>
+        </Rule>
+    </Mapping>
+    <Mapping>
+        <Change>Statemachine/CompositeState/label</Change>
+        <Rule name="ChangedLabelInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
+            <Params>
+                <Param name="id">
+                    <Reference name="objB" attribute="id" />
+                </Param>
+            </Params>
+        </Rule>
+    </Mapping>
+    <Mapping priority="5">
+        <Difference>CREATE_DO_IN_State_(actions)</Difference>
+        <Rule name="CreatedActionInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
+            <Params>
+                <Param name="actionId">
+                    <Change name="AddReference" type="actions">
+                        <Reference name="tgt" attribute="id" />
+                    </Change>
+                </Param>
+                <Param name="stateId">
+                    <Change name="AddReference" type="actions">
+                        <Reference name="src" attribute="id" />
+                    </Change>
+                </Param>
+            </Params>
+        </Rule>
+    </Mapping>
+    <Mapping priority="15">
+        <Difference>DELETE_DO_IN_State_(actions)</Difference>
+        <Rule name="DeletedActionInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
+            <Params>
+                <Param name="id">
+                    <Change name="RemoveObject">
+                        <Reference name="obj" attribute="id" />
                     </Change>
                 </Param>
             </Params>
