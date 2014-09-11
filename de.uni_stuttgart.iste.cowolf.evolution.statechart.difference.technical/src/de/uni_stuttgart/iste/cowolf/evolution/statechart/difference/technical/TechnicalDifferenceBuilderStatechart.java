@@ -10,9 +10,8 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.henshin.trace.impl.TracePackageImpl;
 import org.sidiff.difference.technical.TechnicalDifferenceBuilder;
-import org.silift.common.util.access.EMFModelAccessEx;
+import de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage;
 
-import de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage;
 
 /**
  * 
@@ -59,7 +58,7 @@ public class TechnicalDifferenceBuilderStatechart extends
 
 	@Override
 	public String getDocumentType() {
-		return statechartemfPackage.eNS_URI;
+		return StatemachinePackage.eNS_URI;
 	}
 
 	@Override
