@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_Dvzr8DmeEeSHnOsQ7rpwZA" name="REMOVE_State_(deferrableEvents)_TGT_Event" description="Removes State's reference deferrableEvents the target Event">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_Dvzr8TmeEeSHnOsQ7rpwZA" name="removeFromState_deferrableEvents_Event" description="Removes from State's reference deferrableEvents the target Event">
+    <parameters xmi:id="_Dvzr8jmeEeSHnOsQ7rpwZA" name="Selected"/>
+    <parameters xmi:id="_Dvzr8zmeEeSHnOsQ7rpwZA" name="OldTarget"/>
+    <lhs xmi:id="_Dvzr9DmeEeSHnOsQ7rpwZA" name="LHS">
+      <nodes xmi:id="_Dvzr9TmeEeSHnOsQ7rpwZA" name="Selected" outgoing="_Dvzr9zmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_Dvzr9jmeEeSHnOsQ7rpwZA" name="OldTarget" incoming="_Dvzr9zmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//Event"/>
+      </nodes>
+      <edges xmi:id="_Dvzr9zmeEeSHnOsQ7rpwZA" source="_Dvzr9TmeEeSHnOsQ7rpwZA" target="_Dvzr9jmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//State/deferrableEvents"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_Dvzr-DmeEeSHnOsQ7rpwZA" name="RHS">
+      <nodes xmi:id="_Dvzr-TmeEeSHnOsQ7rpwZA" name="Selected">
+        <type href="http://Statemachine/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_Dvzr-jmeEeSHnOsQ7rpwZA" name="OldTarget">
+        <type href="http://Statemachine/1.0#//Event"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_Dvzr-zmeEeSHnOsQ7rpwZA" origin="_Dvzr9TmeEeSHnOsQ7rpwZA" image="_Dvzr-TmeEeSHnOsQ7rpwZA"/>
+    <mappings xmi:id="_Dvzr_DmeEeSHnOsQ7rpwZA" origin="_Dvzr9jmeEeSHnOsQ7rpwZA" image="_Dvzr-jmeEeSHnOsQ7rpwZA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_Dvzr_TmeEeSHnOsQ7rpwZA" name="mainUnit" subUnits="_Dvzr8TmeEeSHnOsQ7rpwZA">
+    <parameters xmi:id="_Dvzr_jmeEeSHnOsQ7rpwZA" name="selectedEObject"/>
+    <parameters xmi:id="_Dvzr_zmeEeSHnOsQ7rpwZA" name="OldTarget"/>
+    <parameterMappings xmi:id="_DvzsADmeEeSHnOsQ7rpwZA" source="_Dvzr_jmeEeSHnOsQ7rpwZA" target="_Dvzr8jmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_DvzsATmeEeSHnOsQ7rpwZA" source="_Dvzr_zmeEeSHnOsQ7rpwZA" target="_Dvzr8zmeEeSHnOsQ7rpwZA"/>
+  </units>
+</henshin:Module>

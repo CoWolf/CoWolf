@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_DxtJYDmeEeSHnOsQ7rpwZA" name="UNSET_Action_(stateMachineCall)_TGT_StateMachine" description="Unsets Action's reference stateMachineCall the target StateMachine">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_DxtJYTmeEeSHnOsQ7rpwZA" name="unsetAction_stateMachineCall_TO_StateMachine" description="UnsetActionRefstateMachineCallToStateMachine">
+    <parameters xmi:id="_DxtJYjmeEeSHnOsQ7rpwZA" name="Selected"/>
+    <parameters xmi:id="_DxtJYzmeEeSHnOsQ7rpwZA" name="OldTarget"/>
+    <lhs xmi:id="_DxtJZDmeEeSHnOsQ7rpwZA" name="LHS">
+      <nodes xmi:id="_DxtJZTmeEeSHnOsQ7rpwZA" name="Selected" incoming="_DxtJaDmeEeSHnOsQ7rpwZA" outgoing="_DxtJZzmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//Action"/>
+      </nodes>
+      <nodes xmi:id="_DxtJZjmeEeSHnOsQ7rpwZA" name="OldTarget" incoming="_DxtJZzmeEeSHnOsQ7rpwZA" outgoing="_DxtJaDmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//StateMachine"/>
+      </nodes>
+      <edges xmi:id="_DxtJZzmeEeSHnOsQ7rpwZA" source="_DxtJZTmeEeSHnOsQ7rpwZA" target="_DxtJZjmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//Action/stateMachineCall"/>
+      </edges>
+      <edges xmi:id="_DxtJaDmeEeSHnOsQ7rpwZA" source="_DxtJZjmeEeSHnOsQ7rpwZA" target="_DxtJZTmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//StateMachine/calledByAction"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_DxtJaTmeEeSHnOsQ7rpwZA" name="RHS">
+      <nodes xmi:id="_DxtJajmeEeSHnOsQ7rpwZA" name="Selected">
+        <type href="http://Statemachine/1.0#//Action"/>
+      </nodes>
+      <nodes xmi:id="_DxtJazmeEeSHnOsQ7rpwZA" name="OldTarget">
+        <type href="http://Statemachine/1.0#//StateMachine"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_DxtJbDmeEeSHnOsQ7rpwZA" origin="_DxtJZTmeEeSHnOsQ7rpwZA" image="_DxtJajmeEeSHnOsQ7rpwZA"/>
+    <mappings xmi:id="_DxtJbTmeEeSHnOsQ7rpwZA" origin="_DxtJZjmeEeSHnOsQ7rpwZA" image="_DxtJazmeEeSHnOsQ7rpwZA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_DxtJbjmeEeSHnOsQ7rpwZA" name="mainUnit" subUnits="_DxtJYTmeEeSHnOsQ7rpwZA">
+    <parameters xmi:id="_DxtJbzmeEeSHnOsQ7rpwZA" name="selectedEObject"/>
+    <parameters xmi:id="_DxtJcDmeEeSHnOsQ7rpwZA" name="OldTarget"/>
+    <parameterMappings xmi:id="_DxtJcTmeEeSHnOsQ7rpwZA" source="_DxtJbzmeEeSHnOsQ7rpwZA" target="_DxtJYjmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_DxtJcjmeEeSHnOsQ7rpwZA" source="_DxtJcDmeEeSHnOsQ7rpwZA" target="_DxtJYzmeEeSHnOsQ7rpwZA"/>
+  </units>
+</henshin:Module>

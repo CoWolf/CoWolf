@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_DtAPkTmeEeSHnOsQ7rpwZA" name="CREATE_StateMachine_IN_StateMachineRoot_(subStateMachines)" description="Creates one StateMachine in StateMachineRoot">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_DtYqEDmeEeSHnOsQ7rpwZA" name="createStateMachine_IN_StateMachineRoot" description="creates one StateMachine in the context: StateMachineRoot">
+    <parameters xmi:id="_DtYqETmeEeSHnOsQ7rpwZA" name="Selected"/>
+    <parameters xmi:id="_DtYqEjmeEeSHnOsQ7rpwZA" name="New"/>
+    <parameters xmi:id="_DtYqEzmeEeSHnOsQ7rpwZA" name="Id"/>
+    <parameters xmi:id="_DtYqFDmeEeSHnOsQ7rpwZA" name="Name"/>
+    <lhs xmi:id="_DtYqFTmeEeSHnOsQ7rpwZA" name="Lhs">
+      <nodes xmi:id="_DtYqFjmeEeSHnOsQ7rpwZA" name="Selected">
+        <type href="http://Statemachine/1.0#//StateMachineRoot"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_DtYqFzmeEeSHnOsQ7rpwZA" name="Rhs">
+      <nodes xmi:id="_DtYqGDmeEeSHnOsQ7rpwZA" name="Selected" incoming="_DtYqHTmeEeSHnOsQ7rpwZA" outgoing="_DtYqHDmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//StateMachineRoot"/>
+      </nodes>
+      <nodes xmi:id="_DtYqGTmeEeSHnOsQ7rpwZA" name="New" incoming="_DtYqHDmeEeSHnOsQ7rpwZA" outgoing="_DtYqHTmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//StateMachine"/>
+        <attributes xmi:id="_DtYqGjmeEeSHnOsQ7rpwZA" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_DtYqGzmeEeSHnOsQ7rpwZA" value="Name">
+          <type href="http://Statemachine/1.0#//StateMachine/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_DtYqHDmeEeSHnOsQ7rpwZA" source="_DtYqGDmeEeSHnOsQ7rpwZA" target="_DtYqGTmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//StateMachineRoot/subStateMachines"/>
+      </edges>
+      <edges xmi:id="_DtYqHTmeEeSHnOsQ7rpwZA" source="_DtYqGTmeEeSHnOsQ7rpwZA" target="_DtYqGDmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//StateMachine/statemachine_container"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_DtYqHjmeEeSHnOsQ7rpwZA" origin="_DtYqFjmeEeSHnOsQ7rpwZA" image="_DtYqGDmeEeSHnOsQ7rpwZA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_DtYqHzmeEeSHnOsQ7rpwZA" name="mainUnit" description="Creates one StateMachine depending on available contexts in model instance" subUnits="_DtYqEDmeEeSHnOsQ7rpwZA">
+    <parameters xmi:id="_DtYqIDmeEeSHnOsQ7rpwZA" name="New"/>
+    <parameters xmi:id="_DtYqITmeEeSHnOsQ7rpwZA" name="selectedEObject"/>
+    <parameters xmi:id="_DtYqIjmeEeSHnOsQ7rpwZA" name="Id"/>
+    <parameters xmi:id="_DtYqIzmeEeSHnOsQ7rpwZA" name="Name"/>
+    <parameterMappings xmi:id="_DtYqJDmeEeSHnOsQ7rpwZA" source="_DtYqITmeEeSHnOsQ7rpwZA" target="_DtYqETmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_DtYqJTmeEeSHnOsQ7rpwZA" source="_DtYqEjmeEeSHnOsQ7rpwZA" target="_DtYqIDmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_DtYqJjmeEeSHnOsQ7rpwZA" source="_DtYqIjmeEeSHnOsQ7rpwZA" target="_DtYqEzmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_DtYqJzmeEeSHnOsQ7rpwZA" source="_DtYqIzmeEeSHnOsQ7rpwZA" target="_DtYqFDmeEeSHnOsQ7rpwZA"/>
+  </units>
+</henshin:Module>

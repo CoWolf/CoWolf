@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_Dz9zMDmeEeSHnOsQ7rpwZA" name="REMOVE_StateVertex_(incoming)_TGT_Transition" description="Removes StateVertex's reference incoming the target Transition">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_Dz-aQDmeEeSHnOsQ7rpwZA" name="removeFromStateVertex_incoming_Transition" description="Removes from StateVertex's reference incoming the target Transition">
+    <parameters xmi:id="_Dz-aQTmeEeSHnOsQ7rpwZA" name="Selected"/>
+    <parameters xmi:id="_Dz-aQjmeEeSHnOsQ7rpwZA" name="OldTarget"/>
+    <lhs xmi:id="_Dz-aQzmeEeSHnOsQ7rpwZA" name="LHS">
+      <nodes xmi:id="_Dz-aRDmeEeSHnOsQ7rpwZA" name="Selected" incoming="_Dz-aRzmeEeSHnOsQ7rpwZA" outgoing="_Dz-aRjmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//StateVertex"/>
+      </nodes>
+      <nodes xmi:id="_Dz-aRTmeEeSHnOsQ7rpwZA" name="OldTarget" incoming="_Dz-aRjmeEeSHnOsQ7rpwZA" outgoing="_Dz-aRzmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//Transition"/>
+      </nodes>
+      <edges xmi:id="_Dz-aRjmeEeSHnOsQ7rpwZA" source="_Dz-aRDmeEeSHnOsQ7rpwZA" target="_Dz-aRTmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//StateVertex/incoming"/>
+      </edges>
+      <edges xmi:id="_Dz-aRzmeEeSHnOsQ7rpwZA" source="_Dz-aRTmeEeSHnOsQ7rpwZA" target="_Dz-aRDmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//Transition/target"/>
+      </edges>
+      <formula xsi:type="henshin:NestedCondition" xmi:id="_Dz-aSDmeEeSHnOsQ7rpwZA">
+        <conclusion xmi:id="_Dz-aSTmeEeSHnOsQ7rpwZA" name="sufficientElementsMustExist">
+          <nodes xmi:id="_Dz-aSjmeEeSHnOsQ7rpwZA" name="OldTarget" outgoing="_Dz-aTjmeEeSHnOsQ7rpwZA _Dz-aTzmeEeSHnOsQ7rpwZA">
+            <type href="http://Statemachine/1.0#//Transition"/>
+          </nodes>
+          <nodes xmi:id="_Dz-aSzmeEeSHnOsQ7rpwZA" name="Selected">
+            <type href="http://Statemachine/1.0#//StateVertex"/>
+          </nodes>
+          <nodes xmi:id="_Dz-aTDmeEeSHnOsQ7rpwZA" incoming="_Dz-aTjmeEeSHnOsQ7rpwZA">
+            <type href="http://Statemachine/1.0#//StateVertex"/>
+          </nodes>
+          <nodes xmi:id="_Dz-aTTmeEeSHnOsQ7rpwZA" incoming="_Dz-aTzmeEeSHnOsQ7rpwZA">
+            <type href="http://Statemachine/1.0#//StateVertex"/>
+          </nodes>
+          <edges xmi:id="_Dz-aTjmeEeSHnOsQ7rpwZA" source="_Dz-aSjmeEeSHnOsQ7rpwZA" target="_Dz-aTDmeEeSHnOsQ7rpwZA">
+            <type href="http://Statemachine/1.0#//Transition/target"/>
+          </edges>
+          <edges xmi:id="_Dz-aTzmeEeSHnOsQ7rpwZA" source="_Dz-aSjmeEeSHnOsQ7rpwZA" target="_Dz-aTTmeEeSHnOsQ7rpwZA">
+            <type href="http://Statemachine/1.0#//Transition/target"/>
+          </edges>
+        </conclusion>
+        <mappings xmi:id="_Dz-aUDmeEeSHnOsQ7rpwZA" origin="_Dz-aRTmeEeSHnOsQ7rpwZA" image="_Dz-aSjmeEeSHnOsQ7rpwZA"/>
+        <mappings xmi:id="_Dz-aUTmeEeSHnOsQ7rpwZA" origin="_Dz-aRDmeEeSHnOsQ7rpwZA" image="_Dz-aSzmeEeSHnOsQ7rpwZA"/>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_Dz-aUjmeEeSHnOsQ7rpwZA" name="RHS">
+      <nodes xmi:id="_Dz-aUzmeEeSHnOsQ7rpwZA" name="Selected">
+        <type href="http://Statemachine/1.0#//StateVertex"/>
+      </nodes>
+      <nodes xmi:id="_Dz-aVDmeEeSHnOsQ7rpwZA" name="OldTarget">
+        <type href="http://Statemachine/1.0#//Transition"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_Dz-aVTmeEeSHnOsQ7rpwZA" origin="_Dz-aRDmeEeSHnOsQ7rpwZA" image="_Dz-aUzmeEeSHnOsQ7rpwZA"/>
+    <mappings xmi:id="_Dz-aVjmeEeSHnOsQ7rpwZA" origin="_Dz-aRTmeEeSHnOsQ7rpwZA" image="_Dz-aVDmeEeSHnOsQ7rpwZA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_Dz-aVzmeEeSHnOsQ7rpwZA" name="mainUnit" subUnits="_Dz-aQDmeEeSHnOsQ7rpwZA">
+    <parameters xmi:id="_Dz-aWDmeEeSHnOsQ7rpwZA" name="selectedEObject"/>
+    <parameters xmi:id="_Dz-aWTmeEeSHnOsQ7rpwZA" name="OldTarget"/>
+    <parameterMappings xmi:id="_Dz-aWjmeEeSHnOsQ7rpwZA" source="_Dz-aWDmeEeSHnOsQ7rpwZA" target="_Dz-aQTmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_Dz-aWzmeEeSHnOsQ7rpwZA" source="_Dz-aWTmeEeSHnOsQ7rpwZA" target="_Dz-aQjmeEeSHnOsQ7rpwZA"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_Dzq4QDmeEeSHnOsQ7rpwZA" name="CREATE_StateVertex_IN_CompositeState_(subVertexes)" description="Creates one StateVertex in CompositeState">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_Dzq4QTmeEeSHnOsQ7rpwZA" name="createStateVertex_IN_CompositeState" description="creates one StateVertex in the context: CompositeState">
+    <parameters xmi:id="_Dzq4QjmeEeSHnOsQ7rpwZA" name="Selected"/>
+    <parameters xmi:id="_Dzq4QzmeEeSHnOsQ7rpwZA" name="New"/>
+    <parameters xmi:id="_Dzq4RDmeEeSHnOsQ7rpwZA" name="Id"/>
+    <parameters xmi:id="_Dzq4RTmeEeSHnOsQ7rpwZA" name="Name"/>
+    <lhs xmi:id="_Dzq4RjmeEeSHnOsQ7rpwZA" name="Lhs">
+      <nodes xmi:id="_Dzq4RzmeEeSHnOsQ7rpwZA" name="Selected">
+        <type href="http://Statemachine/1.0#//CompositeState"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_Dzq4SDmeEeSHnOsQ7rpwZA" name="Rhs">
+      <nodes xmi:id="_Dzq4STmeEeSHnOsQ7rpwZA" name="Selected" incoming="_Dzq4TjmeEeSHnOsQ7rpwZA" outgoing="_Dzq4TTmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//CompositeState"/>
+      </nodes>
+      <nodes xmi:id="_Dzq4SjmeEeSHnOsQ7rpwZA" name="New" incoming="_Dzq4TTmeEeSHnOsQ7rpwZA" outgoing="_Dzq4TjmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//StateVertex"/>
+        <attributes xmi:id="_Dzq4SzmeEeSHnOsQ7rpwZA" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_Dzq4TDmeEeSHnOsQ7rpwZA" value="Name">
+          <type href="http://CommonBase/1.0#//NameBase/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_Dzq4TTmeEeSHnOsQ7rpwZA" source="_Dzq4STmeEeSHnOsQ7rpwZA" target="_Dzq4SjmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//CompositeState/subVertexes"/>
+      </edges>
+      <edges xmi:id="_Dzq4TjmeEeSHnOsQ7rpwZA" source="_Dzq4SjmeEeSHnOsQ7rpwZA" target="_Dzq4STmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//StateVertex/sv_container"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_Dzq4TzmeEeSHnOsQ7rpwZA" origin="_Dzq4RzmeEeSHnOsQ7rpwZA" image="_Dzq4STmeEeSHnOsQ7rpwZA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_Dzq4UDmeEeSHnOsQ7rpwZA" name="mainUnit" description="Creates one StateVertex depending on available contexts in model instance" subUnits="_Dzq4QTmeEeSHnOsQ7rpwZA">
+    <parameters xmi:id="_Dzq4UTmeEeSHnOsQ7rpwZA" name="New"/>
+    <parameters xmi:id="_Dzq4UjmeEeSHnOsQ7rpwZA" name="selectedEObject"/>
+    <parameters xmi:id="_Dzq4UzmeEeSHnOsQ7rpwZA" name="Id"/>
+    <parameters xmi:id="_Dzq4VDmeEeSHnOsQ7rpwZA" name="Name"/>
+    <parameterMappings xmi:id="_Dzq4VTmeEeSHnOsQ7rpwZA" source="_Dzq4UjmeEeSHnOsQ7rpwZA" target="_Dzq4QjmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_Dzq4VjmeEeSHnOsQ7rpwZA" source="_Dzq4QzmeEeSHnOsQ7rpwZA" target="_Dzq4UTmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_Dzq4VzmeEeSHnOsQ7rpwZA" source="_Dzq4UzmeEeSHnOsQ7rpwZA" target="_Dzq4RDmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_Dzq4WDmeEeSHnOsQ7rpwZA" source="_Dzq4VDmeEeSHnOsQ7rpwZA" target="_Dzq4RTmeEeSHnOsQ7rpwZA"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_Dw8UYDmeEeSHnOsQ7rpwZA" name="SET_CompositeState_IsConcurrent" description="Sets CompositeState IsConcurrent">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_Dw8UYTmeEeSHnOsQ7rpwZA" name="setCompositeStateIsConcurrent" description="Sets the EAttribute isConcurrent">
+    <parameters xmi:id="_Dw8UYjmeEeSHnOsQ7rpwZA" name="Selected"/>
+    <parameters xmi:id="_Dw8UYzmeEeSHnOsQ7rpwZA" name="IsConcurrent"/>
+    <lhs xmi:id="_Dw8UZDmeEeSHnOsQ7rpwZA" name="Lhs">
+      <nodes xmi:id="_Dw8UZTmeEeSHnOsQ7rpwZA" name="Selected">
+        <type href="http://Statemachine/1.0#//CompositeState"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_Dw8UZjmeEeSHnOsQ7rpwZA" name="Rhs">
+      <nodes xmi:id="_Dw8UZzmeEeSHnOsQ7rpwZA" name="Selected">
+        <type href="http://Statemachine/1.0#//CompositeState"/>
+        <attributes xmi:id="_Dw8UaDmeEeSHnOsQ7rpwZA" value="IsConcurrent">
+          <type href="http://Statemachine/1.0#//CompositeState/isConcurrent"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_Dw8UaTmeEeSHnOsQ7rpwZA" origin="_Dw8UZTmeEeSHnOsQ7rpwZA" image="_Dw8UZzmeEeSHnOsQ7rpwZA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_Dw8UajmeEeSHnOsQ7rpwZA" name="mainUnit" subUnits="_Dw8UYTmeEeSHnOsQ7rpwZA">
+    <parameters xmi:id="_Dw8UazmeEeSHnOsQ7rpwZA" name="selectedEObject"/>
+    <parameters xmi:id="_Dw8UbDmeEeSHnOsQ7rpwZA" name="IsConcurrent"/>
+    <parameterMappings xmi:id="_Dw8UbTmeEeSHnOsQ7rpwZA" source="_Dw8UazmeEeSHnOsQ7rpwZA" target="_Dw8UYjmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_Dw8UbjmeEeSHnOsQ7rpwZA" source="_Dw8UbDmeEeSHnOsQ7rpwZA" target="_Dw8UYzmeEeSHnOsQ7rpwZA"/>
+  </units>
+</henshin:Module>

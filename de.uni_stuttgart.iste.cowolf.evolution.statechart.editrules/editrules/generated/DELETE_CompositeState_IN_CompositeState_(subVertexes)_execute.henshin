@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_Dw4qADmeEeSHnOsQ7rpwZA" name="DELETE_CompositeState_IN_CompositeState_(subVertexes)" description="Deletes one CompositeState in CompositeState">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_Dw4qATmeEeSHnOsQ7rpwZA" name="deleteCompositeState_IN_CompositeState" description="deletes one CompositeState in the context: CompositeState">
+    <parameters xmi:id="_Dw4qAjmeEeSHnOsQ7rpwZA" name="Selected"/>
+    <parameters xmi:id="_Dw4qAzmeEeSHnOsQ7rpwZA" name="ToBeDeleted"/>
+    <lhs xmi:id="_Dw4qBDmeEeSHnOsQ7rpwZA" name="LHS">
+      <nodes xmi:id="_Dw4qBTmeEeSHnOsQ7rpwZA" name="Selected" incoming="_Dw4qCDmeEeSHnOsQ7rpwZA" outgoing="_Dw4qBzmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//CompositeState"/>
+      </nodes>
+      <nodes xmi:id="_Dw4qBjmeEeSHnOsQ7rpwZA" name="ToBeDeleted" incoming="_Dw4qBzmeEeSHnOsQ7rpwZA" outgoing="_Dw4qCDmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//CompositeState"/>
+      </nodes>
+      <edges xmi:id="_Dw4qBzmeEeSHnOsQ7rpwZA" source="_Dw4qBTmeEeSHnOsQ7rpwZA" target="_Dw4qBjmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//CompositeState/subVertexes"/>
+      </edges>
+      <edges xmi:id="_Dw4qCDmeEeSHnOsQ7rpwZA" source="_Dw4qBjmeEeSHnOsQ7rpwZA" target="_Dw4qBTmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//StateVertex/sv_container"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_Dw4qCTmeEeSHnOsQ7rpwZA" name="RHS">
+      <nodes xmi:id="_Dw4qCjmeEeSHnOsQ7rpwZA" name="Selected">
+        <type href="http://Statemachine/1.0#//CompositeState"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_Dw4qCzmeEeSHnOsQ7rpwZA" origin="_Dw4qBTmeEeSHnOsQ7rpwZA" image="_Dw4qCjmeEeSHnOsQ7rpwZA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_Dw4qDDmeEeSHnOsQ7rpwZA" name="mainUnit" description="Deletes one CompositeState depending on available contexts in model instance" subUnits="_Dw4qATmeEeSHnOsQ7rpwZA">
+    <parameters xmi:id="_Dw4qDTmeEeSHnOsQ7rpwZA" name="ToBeDeleted"/>
+    <parameters xmi:id="_Dw4qDjmeEeSHnOsQ7rpwZA" name="selectedEObject"/>
+    <parameterMappings xmi:id="_Dw4qDzmeEeSHnOsQ7rpwZA" source="_Dw4qDjmeEeSHnOsQ7rpwZA" target="_Dw4qAjmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_Dw4qEDmeEeSHnOsQ7rpwZA" source="_Dw4qDTmeEeSHnOsQ7rpwZA" target="_Dw4qAzmeEeSHnOsQ7rpwZA"/>
+  </units>
+</henshin:Module>

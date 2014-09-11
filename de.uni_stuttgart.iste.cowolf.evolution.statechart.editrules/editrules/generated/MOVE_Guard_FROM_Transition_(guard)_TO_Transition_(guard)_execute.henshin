@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_DzQokDmeEeSHnOsQ7rpwZA" name="MOVE_Guard_FROM_Transition_(guard)_TO_Transition_(guard)" description="MOVEs Guard from Transition(Reference:guard) to Transition(Reference:guard">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_DzQokTmeEeSHnOsQ7rpwZA" name="moveGuard_FROM_Transition_guard_TO_Transition_Transition" description="Moves Guard from Transition(Reference:guard) toTransition(Reference:Transition)">
+    <parameters xmi:id="_DzQokjmeEeSHnOsQ7rpwZA" name="Selected"/>
+    <parameters xmi:id="_DzQokzmeEeSHnOsQ7rpwZA" name="OldSource"/>
+    <parameters xmi:id="_DzQolDmeEeSHnOsQ7rpwZA" name="NewSource"/>
+    <lhs xmi:id="_DzQolTmeEeSHnOsQ7rpwZA" name="Lhs">
+      <nodes xmi:id="_DzQoljmeEeSHnOsQ7rpwZA" name="Selected" incoming="_DzQomTmeEeSHnOsQ7rpwZA" outgoing="_DzQomjmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//Guard"/>
+      </nodes>
+      <nodes xmi:id="_DzQolzmeEeSHnOsQ7rpwZA" name="OldSource" incoming="_DzQomjmeEeSHnOsQ7rpwZA" outgoing="_DzQomTmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//Transition"/>
+      </nodes>
+      <nodes xmi:id="_DzQomDmeEeSHnOsQ7rpwZA" name="NewSource">
+        <type href="http://Statemachine/1.0#//Transition"/>
+      </nodes>
+      <edges xmi:id="_DzQomTmeEeSHnOsQ7rpwZA" source="_DzQolzmeEeSHnOsQ7rpwZA" target="_DzQoljmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//Transition/guard"/>
+      </edges>
+      <edges xmi:id="_DzQomjmeEeSHnOsQ7rpwZA" source="_DzQoljmeEeSHnOsQ7rpwZA" target="_DzQolzmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//Guard/gua_container"/>
+      </edges>
+      <formula xsi:type="henshin:Not" xmi:id="_DzQomzmeEeSHnOsQ7rpwZA">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_DzQonDmeEeSHnOsQ7rpwZA">
+          <conclusion xmi:id="_DzQonTmeEeSHnOsQ7rpwZA" name="doNotExceedUpperBound">
+            <nodes xmi:id="_DzQonjmeEeSHnOsQ7rpwZA" name="NewSource" outgoing="_DzQooTmeEeSHnOsQ7rpwZA">
+              <type href="http://Statemachine/1.0#//Transition"/>
+            </nodes>
+            <nodes xmi:id="_DzQonzmeEeSHnOsQ7rpwZA" name="Selected">
+              <type href="http://Statemachine/1.0#//Guard"/>
+            </nodes>
+            <nodes xmi:id="_DzQooDmeEeSHnOsQ7rpwZA" incoming="_DzQooTmeEeSHnOsQ7rpwZA">
+              <type href="http://Statemachine/1.0#//Guard"/>
+            </nodes>
+            <edges xmi:id="_DzQooTmeEeSHnOsQ7rpwZA" source="_DzQonjmeEeSHnOsQ7rpwZA" target="_DzQooDmeEeSHnOsQ7rpwZA">
+              <type href="http://Statemachine/1.0#//Transition/guard"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_DzQoojmeEeSHnOsQ7rpwZA" origin="_DzQomDmeEeSHnOsQ7rpwZA" image="_DzQonjmeEeSHnOsQ7rpwZA"/>
+          <mappings xmi:id="_DzQoozmeEeSHnOsQ7rpwZA" origin="_DzQoljmeEeSHnOsQ7rpwZA" image="_DzQonzmeEeSHnOsQ7rpwZA"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_DzQopDmeEeSHnOsQ7rpwZA" name="Rhs">
+      <nodes xmi:id="_DzQopTmeEeSHnOsQ7rpwZA" name="Selected" incoming="_DzQoqDmeEeSHnOsQ7rpwZA" outgoing="_DzQoqTmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//Guard"/>
+      </nodes>
+      <nodes xmi:id="_DzQopjmeEeSHnOsQ7rpwZA" name="OldSource">
+        <type href="http://Statemachine/1.0#//Transition"/>
+      </nodes>
+      <nodes xmi:id="_DzQopzmeEeSHnOsQ7rpwZA" name="NewSource" incoming="_DzQoqTmeEeSHnOsQ7rpwZA" outgoing="_DzQoqDmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//Transition"/>
+      </nodes>
+      <edges xmi:id="_DzQoqDmeEeSHnOsQ7rpwZA" source="_DzQopzmeEeSHnOsQ7rpwZA" target="_DzQopTmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//Transition/guard"/>
+      </edges>
+      <edges xmi:id="_DzQoqTmeEeSHnOsQ7rpwZA" source="_DzQopTmeEeSHnOsQ7rpwZA" target="_DzQopzmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//Guard/gua_container"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_DzQoqjmeEeSHnOsQ7rpwZA" origin="_DzQoljmeEeSHnOsQ7rpwZA" image="_DzQopTmeEeSHnOsQ7rpwZA"/>
+    <mappings xmi:id="_DzQoqzmeEeSHnOsQ7rpwZA" origin="_DzQolzmeEeSHnOsQ7rpwZA" image="_DzQopjmeEeSHnOsQ7rpwZA"/>
+    <mappings xmi:id="_DzQorDmeEeSHnOsQ7rpwZA" origin="_DzQomDmeEeSHnOsQ7rpwZA" image="_DzQopzmeEeSHnOsQ7rpwZA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_DzQorTmeEeSHnOsQ7rpwZA" name="mainUnit" subUnits="_DzQokTmeEeSHnOsQ7rpwZA">
+    <parameters xmi:id="_DzQorjmeEeSHnOsQ7rpwZA" name="selectedEObject"/>
+    <parameters xmi:id="_DzQorzmeEeSHnOsQ7rpwZA" name="OldSource"/>
+    <parameters xmi:id="_DzQosDmeEeSHnOsQ7rpwZA" name="NewSource"/>
+    <parameterMappings xmi:id="_DzQosTmeEeSHnOsQ7rpwZA" source="_DzQorjmeEeSHnOsQ7rpwZA" target="_DzQokjmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_DzQosjmeEeSHnOsQ7rpwZA" source="_DzQorzmeEeSHnOsQ7rpwZA" target="_DzQokzmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_DzQoszmeEeSHnOsQ7rpwZA" source="_DzQosDmeEeSHnOsQ7rpwZA" target="_DzQolDmeEeSHnOsQ7rpwZA"/>
+  </units>
+</henshin:Module>

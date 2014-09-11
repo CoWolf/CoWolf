@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_DyaUADmeEeSHnOsQ7rpwZA" name="MOVE_Transition_FROM_StateMachine_(transitions)_TO_State_(internalTransitions)" description="MOVEs Transition from StateMachine(Reference:transitions) to State(Reference:internalTransitions">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_Dya7EDmeEeSHnOsQ7rpwZA" name="moveTransition_FROM_StateMachine_transitions_TO_State_State" description="Moves Transition from StateMachine(Reference:transitions) toState(Reference:State)">
+    <parameters xmi:id="_Dya7ETmeEeSHnOsQ7rpwZA" name="Selected"/>
+    <parameters xmi:id="_Dya7EjmeEeSHnOsQ7rpwZA" name="OldSource"/>
+    <parameters xmi:id="_Dya7EzmeEeSHnOsQ7rpwZA" name="NewSource"/>
+    <lhs xmi:id="_Dya7FDmeEeSHnOsQ7rpwZA" name="Lhs">
+      <nodes xmi:id="_Dya7FTmeEeSHnOsQ7rpwZA" name="Selected" incoming="_Dya7GDmeEeSHnOsQ7rpwZA" outgoing="_Dya7GTmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//Transition"/>
+      </nodes>
+      <nodes xmi:id="_Dya7FjmeEeSHnOsQ7rpwZA" name="OldSource" incoming="_Dya7GTmeEeSHnOsQ7rpwZA" outgoing="_Dya7GDmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//StateMachine"/>
+      </nodes>
+      <nodes xmi:id="_Dya7FzmeEeSHnOsQ7rpwZA" name="NewSource">
+        <type href="http://Statemachine/1.0#//State"/>
+      </nodes>
+      <edges xmi:id="_Dya7GDmeEeSHnOsQ7rpwZA" source="_Dya7FjmeEeSHnOsQ7rpwZA" target="_Dya7FTmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//StateMachine/transitions"/>
+      </edges>
+      <edges xmi:id="_Dya7GTmeEeSHnOsQ7rpwZA" source="_Dya7FTmeEeSHnOsQ7rpwZA" target="_Dya7FjmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//Transition/transSM_container"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_Dya7GjmeEeSHnOsQ7rpwZA" name="Rhs">
+      <nodes xmi:id="_Dya7GzmeEeSHnOsQ7rpwZA" name="Selected" incoming="_Dya7HjmeEeSHnOsQ7rpwZA" outgoing="_Dya7HzmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//Transition"/>
+      </nodes>
+      <nodes xmi:id="_Dya7HDmeEeSHnOsQ7rpwZA" name="OldSource">
+        <type href="http://Statemachine/1.0#//StateMachine"/>
+      </nodes>
+      <nodes xmi:id="_Dya7HTmeEeSHnOsQ7rpwZA" name="NewSource" incoming="_Dya7HzmeEeSHnOsQ7rpwZA" outgoing="_Dya7HjmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//State"/>
+      </nodes>
+      <edges xmi:id="_Dya7HjmeEeSHnOsQ7rpwZA" source="_Dya7HTmeEeSHnOsQ7rpwZA" target="_Dya7GzmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//State/internalTransitions"/>
+      </edges>
+      <edges xmi:id="_Dya7HzmeEeSHnOsQ7rpwZA" source="_Dya7GzmeEeSHnOsQ7rpwZA" target="_Dya7HTmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//Transition/transS_container"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_Dya7IDmeEeSHnOsQ7rpwZA" origin="_Dya7FTmeEeSHnOsQ7rpwZA" image="_Dya7GzmeEeSHnOsQ7rpwZA"/>
+    <mappings xmi:id="_Dya7ITmeEeSHnOsQ7rpwZA" origin="_Dya7FjmeEeSHnOsQ7rpwZA" image="_Dya7HDmeEeSHnOsQ7rpwZA"/>
+    <mappings xmi:id="_Dya7IjmeEeSHnOsQ7rpwZA" origin="_Dya7FzmeEeSHnOsQ7rpwZA" image="_Dya7HTmeEeSHnOsQ7rpwZA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_Dya7IzmeEeSHnOsQ7rpwZA" name="mainUnit" subUnits="_Dya7EDmeEeSHnOsQ7rpwZA">
+    <parameters xmi:id="_Dya7JDmeEeSHnOsQ7rpwZA" name="selectedEObject"/>
+    <parameters xmi:id="_Dya7JTmeEeSHnOsQ7rpwZA" name="OldSource"/>
+    <parameters xmi:id="_Dya7JjmeEeSHnOsQ7rpwZA" name="NewSource"/>
+    <parameterMappings xmi:id="_Dya7JzmeEeSHnOsQ7rpwZA" source="_Dya7JDmeEeSHnOsQ7rpwZA" target="_Dya7ETmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_Dya7KDmeEeSHnOsQ7rpwZA" source="_Dya7JTmeEeSHnOsQ7rpwZA" target="_Dya7EjmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_Dya7KTmeEeSHnOsQ7rpwZA" source="_Dya7JjmeEeSHnOsQ7rpwZA" target="_Dya7EzmeEeSHnOsQ7rpwZA"/>
+  </units>
+</henshin:Module>

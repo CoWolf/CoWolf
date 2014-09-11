@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_Dxz3EDmeEeSHnOsQ7rpwZA" name="DELETE_Transition_IN_State_(internalTransitions)" description="Deletes one Transition in State">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_Dxz3ETmeEeSHnOsQ7rpwZA" name="deleteTransition_IN_State" description="deletes one Transition in the context: State">
+    <parameters xmi:id="_Dxz3EjmeEeSHnOsQ7rpwZA" name="Existing"/>
+    <parameters xmi:id="_Dxz3EzmeEeSHnOsQ7rpwZA" name="Existing1"/>
+    <parameters xmi:id="_Dxz3FDmeEeSHnOsQ7rpwZA" name="Selected"/>
+    <parameters xmi:id="_Dxz3FTmeEeSHnOsQ7rpwZA" name="ToBeDeleted"/>
+    <lhs xmi:id="_Dxz3FjmeEeSHnOsQ7rpwZA" name="LHS">
+      <nodes xmi:id="_Dxz3FzmeEeSHnOsQ7rpwZA" name="Selected" incoming="_Dxz3HDmeEeSHnOsQ7rpwZA" outgoing="_Dxz3GzmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_Dxz3GDmeEeSHnOsQ7rpwZA" name="ToBeDeleted" incoming="_Dxz3GzmeEeSHnOsQ7rpwZA _Dxz3HjmeEeSHnOsQ7rpwZA _Dxz3IDmeEeSHnOsQ7rpwZA" outgoing="_Dxz3HDmeEeSHnOsQ7rpwZA _Dxz3HTmeEeSHnOsQ7rpwZA _Dxz3HzmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//Transition"/>
+      </nodes>
+      <nodes xmi:id="_Dxz3GTmeEeSHnOsQ7rpwZA" name="Existing" incoming="_Dxz3HTmeEeSHnOsQ7rpwZA" outgoing="_Dxz3HjmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//StateVertex"/>
+      </nodes>
+      <nodes xmi:id="_Dxz3GjmeEeSHnOsQ7rpwZA" name="Existing1" incoming="_Dxz3HzmeEeSHnOsQ7rpwZA" outgoing="_Dxz3IDmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//StateVertex"/>
+      </nodes>
+      <edges xmi:id="_Dxz3GzmeEeSHnOsQ7rpwZA" source="_Dxz3FzmeEeSHnOsQ7rpwZA" target="_Dxz3GDmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//State/internalTransitions"/>
+      </edges>
+      <edges xmi:id="_Dxz3HDmeEeSHnOsQ7rpwZA" source="_Dxz3GDmeEeSHnOsQ7rpwZA" target="_Dxz3FzmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//Transition/transS_container"/>
+      </edges>
+      <edges xmi:id="_Dxz3HTmeEeSHnOsQ7rpwZA" source="_Dxz3GDmeEeSHnOsQ7rpwZA" target="_Dxz3GTmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//Transition/source"/>
+      </edges>
+      <edges xmi:id="_Dxz3HjmeEeSHnOsQ7rpwZA" source="_Dxz3GTmeEeSHnOsQ7rpwZA" target="_Dxz3GDmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//StateVertex/outgoing"/>
+      </edges>
+      <edges xmi:id="_Dxz3HzmeEeSHnOsQ7rpwZA" source="_Dxz3GDmeEeSHnOsQ7rpwZA" target="_Dxz3GjmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//Transition/target"/>
+      </edges>
+      <edges xmi:id="_Dxz3IDmeEeSHnOsQ7rpwZA" source="_Dxz3GjmeEeSHnOsQ7rpwZA" target="_Dxz3GDmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//StateVertex/incoming"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_Dxz3ITmeEeSHnOsQ7rpwZA" name="RHS">
+      <nodes xmi:id="_Dxz3IjmeEeSHnOsQ7rpwZA" name="Selected">
+        <type href="http://Statemachine/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_Dxz3IzmeEeSHnOsQ7rpwZA" name="Existing">
+        <type href="http://Statemachine/1.0#//StateVertex"/>
+      </nodes>
+      <nodes xmi:id="_Dxz3JDmeEeSHnOsQ7rpwZA" name="Existing1">
+        <type href="http://Statemachine/1.0#//StateVertex"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_Dxz3JTmeEeSHnOsQ7rpwZA" origin="_Dxz3FzmeEeSHnOsQ7rpwZA" image="_Dxz3IjmeEeSHnOsQ7rpwZA"/>
+    <mappings xmi:id="_Dxz3JjmeEeSHnOsQ7rpwZA" origin="_Dxz3GTmeEeSHnOsQ7rpwZA" image="_Dxz3IzmeEeSHnOsQ7rpwZA"/>
+    <mappings xmi:id="_Dxz3JzmeEeSHnOsQ7rpwZA" origin="_Dxz3GjmeEeSHnOsQ7rpwZA" image="_Dxz3JDmeEeSHnOsQ7rpwZA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_Dxz3KDmeEeSHnOsQ7rpwZA" name="mainUnit" description="Deletes one Transition depending on available contexts in model instance" subUnits="_Dxz3ETmeEeSHnOsQ7rpwZA">
+    <parameters xmi:id="_Dxz3KTmeEeSHnOsQ7rpwZA" name="Existing"/>
+    <parameters xmi:id="_Dxz3KjmeEeSHnOsQ7rpwZA" name="Existing1"/>
+    <parameters xmi:id="_Dxz3KzmeEeSHnOsQ7rpwZA" name="ToBeDeleted"/>
+    <parameters xmi:id="_Dxz3LDmeEeSHnOsQ7rpwZA" name="selectedEObject"/>
+    <parameterMappings xmi:id="_Dxz3LTmeEeSHnOsQ7rpwZA" source="_Dxz3KTmeEeSHnOsQ7rpwZA" target="_Dxz3EjmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_Dxz3LjmeEeSHnOsQ7rpwZA" source="_Dxz3KjmeEeSHnOsQ7rpwZA" target="_Dxz3EzmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_Dxz3LzmeEeSHnOsQ7rpwZA" source="_Dxz3LDmeEeSHnOsQ7rpwZA" target="_Dxz3FDmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_Dxz3MDmeEeSHnOsQ7rpwZA" source="_Dxz3KzmeEeSHnOsQ7rpwZA" target="_Dxz3FTmeEeSHnOsQ7rpwZA"/>
+  </units>
+</henshin:Module>

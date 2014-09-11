@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_Dx59sDmeEeSHnOsQ7rpwZA" name="CREATE_Transition_IN_StateMachine_(transitions)" description="Creates one Transition in StateMachine">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_Dx59sTmeEeSHnOsQ7rpwZA" name="createTransition_IN_StateMachine" description="creates one Transition in the context: StateMachine">
+    <parameters xmi:id="_Dx59sjmeEeSHnOsQ7rpwZA" name="Selected"/>
+    <parameters xmi:id="_Dx59szmeEeSHnOsQ7rpwZA" name="New"/>
+    <parameters xmi:id="_Dx59tDmeEeSHnOsQ7rpwZA" name="Id"/>
+    <parameters xmi:id="_Dx59tTmeEeSHnOsQ7rpwZA" name="Description"/>
+    <parameters xmi:id="_Dx59tjmeEeSHnOsQ7rpwZA" name="Existing"/>
+    <parameters xmi:id="_Dx59tzmeEeSHnOsQ7rpwZA" name="Existing1"/>
+    <lhs xmi:id="_Dx59uDmeEeSHnOsQ7rpwZA" name="Lhs">
+      <nodes xmi:id="_Dx59uTmeEeSHnOsQ7rpwZA" name="Selected">
+        <type href="http://Statemachine/1.0#//StateMachine"/>
+      </nodes>
+      <nodes xmi:id="_Dx59ujmeEeSHnOsQ7rpwZA" name="Existing">
+        <type href="http://Statemachine/1.0#//StateVertex"/>
+      </nodes>
+      <nodes xmi:id="_Dx59uzmeEeSHnOsQ7rpwZA" name="Existing1">
+        <type href="http://Statemachine/1.0#//StateVertex"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_Dx59vDmeEeSHnOsQ7rpwZA" name="Rhs">
+      <nodes xmi:id="_Dx59vTmeEeSHnOsQ7rpwZA" name="Selected" incoming="_Dx59xDmeEeSHnOsQ7rpwZA" outgoing="_Dx59wzmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//StateMachine"/>
+      </nodes>
+      <nodes xmi:id="_Dx59vjmeEeSHnOsQ7rpwZA" name="New" incoming="_Dx59wzmeEeSHnOsQ7rpwZA _Dx59xjmeEeSHnOsQ7rpwZA _Dx59yDmeEeSHnOsQ7rpwZA" outgoing="_Dx59xDmeEeSHnOsQ7rpwZA _Dx59xTmeEeSHnOsQ7rpwZA _Dx59xzmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//Transition"/>
+        <attributes xmi:id="_Dx59vzmeEeSHnOsQ7rpwZA" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_Dx59wDmeEeSHnOsQ7rpwZA" value="Description">
+          <type href="http://Statemachine/1.0#//Transition/description"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_Dx59wTmeEeSHnOsQ7rpwZA" name="Existing" incoming="_Dx59xTmeEeSHnOsQ7rpwZA" outgoing="_Dx59xjmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//StateVertex"/>
+      </nodes>
+      <nodes xmi:id="_Dx59wjmeEeSHnOsQ7rpwZA" name="Existing1" incoming="_Dx59xzmeEeSHnOsQ7rpwZA" outgoing="_Dx59yDmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//StateVertex"/>
+      </nodes>
+      <edges xmi:id="_Dx59wzmeEeSHnOsQ7rpwZA" source="_Dx59vTmeEeSHnOsQ7rpwZA" target="_Dx59vjmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//StateMachine/transitions"/>
+      </edges>
+      <edges xmi:id="_Dx59xDmeEeSHnOsQ7rpwZA" source="_Dx59vjmeEeSHnOsQ7rpwZA" target="_Dx59vTmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//Transition/transSM_container"/>
+      </edges>
+      <edges xmi:id="_Dx59xTmeEeSHnOsQ7rpwZA" source="_Dx59vjmeEeSHnOsQ7rpwZA" target="_Dx59wTmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//Transition/source"/>
+      </edges>
+      <edges xmi:id="_Dx59xjmeEeSHnOsQ7rpwZA" source="_Dx59wTmeEeSHnOsQ7rpwZA" target="_Dx59vjmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//StateVertex/outgoing"/>
+      </edges>
+      <edges xmi:id="_Dx59xzmeEeSHnOsQ7rpwZA" source="_Dx59vjmeEeSHnOsQ7rpwZA" target="_Dx59wjmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//Transition/target"/>
+      </edges>
+      <edges xmi:id="_Dx59yDmeEeSHnOsQ7rpwZA" source="_Dx59wjmeEeSHnOsQ7rpwZA" target="_Dx59vjmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//StateVertex/incoming"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_Dx59yTmeEeSHnOsQ7rpwZA" origin="_Dx59uTmeEeSHnOsQ7rpwZA" image="_Dx59vTmeEeSHnOsQ7rpwZA"/>
+    <mappings xmi:id="_Dx59yjmeEeSHnOsQ7rpwZA" origin="_Dx59ujmeEeSHnOsQ7rpwZA" image="_Dx59wTmeEeSHnOsQ7rpwZA"/>
+    <mappings xmi:id="_Dx59yzmeEeSHnOsQ7rpwZA" origin="_Dx59uzmeEeSHnOsQ7rpwZA" image="_Dx59wjmeEeSHnOsQ7rpwZA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_Dx59zDmeEeSHnOsQ7rpwZA" name="mainUnit" description="Creates one Transition depending on available contexts in model instance" subUnits="_Dx59sTmeEeSHnOsQ7rpwZA">
+    <parameters xmi:id="_Dx59zTmeEeSHnOsQ7rpwZA" name="New"/>
+    <parameters xmi:id="_Dx59zjmeEeSHnOsQ7rpwZA" name="selectedEObject"/>
+    <parameters xmi:id="_Dx59zzmeEeSHnOsQ7rpwZA" name="Id"/>
+    <parameters xmi:id="_Dx590DmeEeSHnOsQ7rpwZA" name="Description"/>
+    <parameters xmi:id="_Dx590TmeEeSHnOsQ7rpwZA" name="Existing"/>
+    <parameters xmi:id="_Dx590jmeEeSHnOsQ7rpwZA" name="Existing1"/>
+    <parameterMappings xmi:id="_Dx590zmeEeSHnOsQ7rpwZA" source="_Dx59zjmeEeSHnOsQ7rpwZA" target="_Dx59sjmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_Dx591DmeEeSHnOsQ7rpwZA" source="_Dx59szmeEeSHnOsQ7rpwZA" target="_Dx59zTmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_Dx591TmeEeSHnOsQ7rpwZA" source="_Dx59zzmeEeSHnOsQ7rpwZA" target="_Dx59tDmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_Dx591jmeEeSHnOsQ7rpwZA" source="_Dx590DmeEeSHnOsQ7rpwZA" target="_Dx59tTmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_Dx591zmeEeSHnOsQ7rpwZA" source="_Dx590TmeEeSHnOsQ7rpwZA" target="_Dx59tjmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_Dx592DmeEeSHnOsQ7rpwZA" source="_Dx590jmeEeSHnOsQ7rpwZA" target="_Dx59tzmeEeSHnOsQ7rpwZA"/>
+  </units>
+</henshin:Module>

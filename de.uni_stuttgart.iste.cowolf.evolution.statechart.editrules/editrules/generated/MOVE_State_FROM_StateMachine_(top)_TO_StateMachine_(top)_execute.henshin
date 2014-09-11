@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_DwgPgDmeEeSHnOsQ7rpwZA" name="MOVE_State_FROM_StateMachine_(top)_TO_StateMachine_(top)" description="MOVEs State from StateMachine(Reference:top) to StateMachine(Reference:top">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_Dwg2kDmeEeSHnOsQ7rpwZA" name="moveState_FROM_StateMachine_top_TO_StateMachine_StateMachine" description="Moves State from StateMachine(Reference:top) toStateMachine(Reference:StateMachine)">
+    <parameters xmi:id="_Dwg2kTmeEeSHnOsQ7rpwZA" name="Selected"/>
+    <parameters xmi:id="_Dwg2kjmeEeSHnOsQ7rpwZA" name="OldSource"/>
+    <parameters xmi:id="_Dwg2kzmeEeSHnOsQ7rpwZA" name="NewSource"/>
+    <lhs xmi:id="_Dwg2lDmeEeSHnOsQ7rpwZA" name="Lhs">
+      <nodes xmi:id="_Dwg2lTmeEeSHnOsQ7rpwZA" name="Selected" incoming="_Dwg2mDmeEeSHnOsQ7rpwZA" outgoing="_Dwg2mTmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_Dwg2ljmeEeSHnOsQ7rpwZA" name="OldSource" incoming="_Dwg2mTmeEeSHnOsQ7rpwZA" outgoing="_Dwg2mDmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//StateMachine"/>
+      </nodes>
+      <nodes xmi:id="_Dwg2lzmeEeSHnOsQ7rpwZA" name="NewSource">
+        <type href="http://Statemachine/1.0#//StateMachine"/>
+      </nodes>
+      <edges xmi:id="_Dwg2mDmeEeSHnOsQ7rpwZA" source="_Dwg2ljmeEeSHnOsQ7rpwZA" target="_Dwg2lTmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//StateMachine/top"/>
+      </edges>
+      <edges xmi:id="_Dwg2mTmeEeSHnOsQ7rpwZA" source="_Dwg2lTmeEeSHnOsQ7rpwZA" target="_Dwg2ljmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//State/state_container"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_Dwg2mjmeEeSHnOsQ7rpwZA" name="Rhs">
+      <nodes xmi:id="_Dwg2mzmeEeSHnOsQ7rpwZA" name="Selected" incoming="_Dwg2njmeEeSHnOsQ7rpwZA" outgoing="_Dwg2nzmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_Dwg2nDmeEeSHnOsQ7rpwZA" name="OldSource">
+        <type href="http://Statemachine/1.0#//StateMachine"/>
+      </nodes>
+      <nodes xmi:id="_Dwg2nTmeEeSHnOsQ7rpwZA" name="NewSource" incoming="_Dwg2nzmeEeSHnOsQ7rpwZA" outgoing="_Dwg2njmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//StateMachine"/>
+      </nodes>
+      <edges xmi:id="_Dwg2njmeEeSHnOsQ7rpwZA" source="_Dwg2nTmeEeSHnOsQ7rpwZA" target="_Dwg2mzmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//StateMachine/top"/>
+      </edges>
+      <edges xmi:id="_Dwg2nzmeEeSHnOsQ7rpwZA" source="_Dwg2mzmeEeSHnOsQ7rpwZA" target="_Dwg2nTmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//State/state_container"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_Dwg2oDmeEeSHnOsQ7rpwZA" origin="_Dwg2lTmeEeSHnOsQ7rpwZA" image="_Dwg2mzmeEeSHnOsQ7rpwZA"/>
+    <mappings xmi:id="_Dwg2oTmeEeSHnOsQ7rpwZA" origin="_Dwg2ljmeEeSHnOsQ7rpwZA" image="_Dwg2nDmeEeSHnOsQ7rpwZA"/>
+    <mappings xmi:id="_Dwg2ojmeEeSHnOsQ7rpwZA" origin="_Dwg2lzmeEeSHnOsQ7rpwZA" image="_Dwg2nTmeEeSHnOsQ7rpwZA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_Dwg2ozmeEeSHnOsQ7rpwZA" name="mainUnit" subUnits="_Dwg2kDmeEeSHnOsQ7rpwZA">
+    <parameters xmi:id="_Dwg2pDmeEeSHnOsQ7rpwZA" name="selectedEObject"/>
+    <parameters xmi:id="_Dwg2pTmeEeSHnOsQ7rpwZA" name="OldSource"/>
+    <parameters xmi:id="_Dwg2pjmeEeSHnOsQ7rpwZA" name="NewSource"/>
+    <parameterMappings xmi:id="_DwjS0DmeEeSHnOsQ7rpwZA" source="_Dwg2pDmeEeSHnOsQ7rpwZA" target="_Dwg2kTmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_DwjS0TmeEeSHnOsQ7rpwZA" source="_Dwg2pTmeEeSHnOsQ7rpwZA" target="_Dwg2kjmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_DwjS0jmeEeSHnOsQ7rpwZA" source="_Dwg2pjmeEeSHnOsQ7rpwZA" target="_Dwg2kzmeEeSHnOsQ7rpwZA"/>
+  </units>
+</henshin:Module>

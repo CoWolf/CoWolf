@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_Dxnp0DmeEeSHnOsQ7rpwZA" name="SET_Action_Value" description="Sets Action Value">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_Dxnp0TmeEeSHnOsQ7rpwZA" name="setActionValue" description="Sets the EAttribute value">
+    <parameters xmi:id="_Dxnp0jmeEeSHnOsQ7rpwZA" name="Selected"/>
+    <parameters xmi:id="_Dxnp0zmeEeSHnOsQ7rpwZA" name="Value"/>
+    <lhs xmi:id="_DxoQ4DmeEeSHnOsQ7rpwZA" name="Lhs">
+      <nodes xmi:id="_DxoQ4TmeEeSHnOsQ7rpwZA" name="Selected">
+        <type href="http://Statemachine/1.0#//Action"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_DxoQ4jmeEeSHnOsQ7rpwZA" name="Rhs">
+      <nodes xmi:id="_DxoQ4zmeEeSHnOsQ7rpwZA" name="Selected">
+        <type href="http://Statemachine/1.0#//Action"/>
+        <attributes xmi:id="_DxoQ5DmeEeSHnOsQ7rpwZA" value="Value">
+          <type href="http://Statemachine/1.0#//Action/value"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_DxoQ5TmeEeSHnOsQ7rpwZA" origin="_DxoQ4TmeEeSHnOsQ7rpwZA" image="_DxoQ4zmeEeSHnOsQ7rpwZA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_DxoQ5jmeEeSHnOsQ7rpwZA" name="mainUnit" subUnits="_Dxnp0TmeEeSHnOsQ7rpwZA">
+    <parameters xmi:id="_DxoQ5zmeEeSHnOsQ7rpwZA" name="selectedEObject"/>
+    <parameters xmi:id="_DxoQ6DmeEeSHnOsQ7rpwZA" name="Value"/>
+    <parameterMappings xmi:id="_DxoQ6TmeEeSHnOsQ7rpwZA" source="_DxoQ5zmeEeSHnOsQ7rpwZA" target="_Dxnp0jmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_DxoQ6jmeEeSHnOsQ7rpwZA" source="_DxoQ6DmeEeSHnOsQ7rpwZA" target="_Dxnp0zmeEeSHnOsQ7rpwZA"/>
+  </units>
+</henshin:Module>

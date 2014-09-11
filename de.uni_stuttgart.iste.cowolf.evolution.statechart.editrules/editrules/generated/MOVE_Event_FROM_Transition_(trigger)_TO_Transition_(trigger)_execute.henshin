@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_Dy-UsDmeEeSHnOsQ7rpwZA" name="MOVE_Event_FROM_Transition_(trigger)_TO_Transition_(trigger)" description="MOVEs Event from Transition(Reference:trigger) to Transition(Reference:trigger">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_Dy-UsTmeEeSHnOsQ7rpwZA" name="moveEvent_FROM_Transition_trigger_TO_Transition_Transition" description="Moves Event from Transition(Reference:trigger) toTransition(Reference:Transition)">
+    <parameters xmi:id="_Dy-UsjmeEeSHnOsQ7rpwZA" name="Selected"/>
+    <parameters xmi:id="_Dy-UszmeEeSHnOsQ7rpwZA" name="OldSource"/>
+    <parameters xmi:id="_Dy-UtDmeEeSHnOsQ7rpwZA" name="NewSource"/>
+    <lhs xmi:id="_Dy-UtTmeEeSHnOsQ7rpwZA" name="Lhs">
+      <nodes xmi:id="_Dy-UtjmeEeSHnOsQ7rpwZA" name="Selected" incoming="_Dy-UuTmeEeSHnOsQ7rpwZA" outgoing="_Dy-UujmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//Event"/>
+      </nodes>
+      <nodes xmi:id="_Dy-UtzmeEeSHnOsQ7rpwZA" name="OldSource" incoming="_Dy-UujmeEeSHnOsQ7rpwZA" outgoing="_Dy-UuTmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//Transition"/>
+      </nodes>
+      <nodes xmi:id="_Dy-UuDmeEeSHnOsQ7rpwZA" name="NewSource">
+        <type href="http://Statemachine/1.0#//Transition"/>
+      </nodes>
+      <edges xmi:id="_Dy-UuTmeEeSHnOsQ7rpwZA" source="_Dy-UtzmeEeSHnOsQ7rpwZA" target="_Dy-UtjmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//Transition/trigger"/>
+      </edges>
+      <edges xmi:id="_Dy-UujmeEeSHnOsQ7rpwZA" source="_Dy-UtjmeEeSHnOsQ7rpwZA" target="_Dy-UtzmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//Event/evt_container"/>
+      </edges>
+      <formula xsi:type="henshin:Not" xmi:id="_Dy-UuzmeEeSHnOsQ7rpwZA">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_Dy-UvDmeEeSHnOsQ7rpwZA">
+          <conclusion xmi:id="_Dy-UvTmeEeSHnOsQ7rpwZA" name="doNotExceedUpperBound">
+            <nodes xmi:id="_Dy-UvjmeEeSHnOsQ7rpwZA" name="NewSource" outgoing="_Dy-UwTmeEeSHnOsQ7rpwZA">
+              <type href="http://Statemachine/1.0#//Transition"/>
+            </nodes>
+            <nodes xmi:id="_Dy-UvzmeEeSHnOsQ7rpwZA" name="Selected">
+              <type href="http://Statemachine/1.0#//Event"/>
+            </nodes>
+            <nodes xmi:id="_Dy-UwDmeEeSHnOsQ7rpwZA" incoming="_Dy-UwTmeEeSHnOsQ7rpwZA">
+              <type href="http://Statemachine/1.0#//Event"/>
+            </nodes>
+            <edges xmi:id="_Dy-UwTmeEeSHnOsQ7rpwZA" source="_Dy-UvjmeEeSHnOsQ7rpwZA" target="_Dy-UwDmeEeSHnOsQ7rpwZA">
+              <type href="http://Statemachine/1.0#//Transition/trigger"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_Dy-UwjmeEeSHnOsQ7rpwZA" origin="_Dy-UuDmeEeSHnOsQ7rpwZA" image="_Dy-UvjmeEeSHnOsQ7rpwZA"/>
+          <mappings xmi:id="_Dy-UwzmeEeSHnOsQ7rpwZA" origin="_Dy-UtjmeEeSHnOsQ7rpwZA" image="_Dy-UvzmeEeSHnOsQ7rpwZA"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_Dy-UxDmeEeSHnOsQ7rpwZA" name="Rhs">
+      <nodes xmi:id="_Dy-UxTmeEeSHnOsQ7rpwZA" name="Selected" incoming="_Dy-UyDmeEeSHnOsQ7rpwZA" outgoing="_Dy-UyTmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//Event"/>
+      </nodes>
+      <nodes xmi:id="_Dy-UxjmeEeSHnOsQ7rpwZA" name="OldSource">
+        <type href="http://Statemachine/1.0#//Transition"/>
+      </nodes>
+      <nodes xmi:id="_Dy-UxzmeEeSHnOsQ7rpwZA" name="NewSource" incoming="_Dy-UyTmeEeSHnOsQ7rpwZA" outgoing="_Dy-UyDmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//Transition"/>
+      </nodes>
+      <edges xmi:id="_Dy-UyDmeEeSHnOsQ7rpwZA" source="_Dy-UxzmeEeSHnOsQ7rpwZA" target="_Dy-UxTmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//Transition/trigger"/>
+      </edges>
+      <edges xmi:id="_Dy-UyTmeEeSHnOsQ7rpwZA" source="_Dy-UxTmeEeSHnOsQ7rpwZA" target="_Dy-UxzmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//Event/evt_container"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_Dy-UyjmeEeSHnOsQ7rpwZA" origin="_Dy-UtjmeEeSHnOsQ7rpwZA" image="_Dy-UxTmeEeSHnOsQ7rpwZA"/>
+    <mappings xmi:id="_Dy-UyzmeEeSHnOsQ7rpwZA" origin="_Dy-UtzmeEeSHnOsQ7rpwZA" image="_Dy-UxjmeEeSHnOsQ7rpwZA"/>
+    <mappings xmi:id="_Dy-UzDmeEeSHnOsQ7rpwZA" origin="_Dy-UuDmeEeSHnOsQ7rpwZA" image="_Dy-UxzmeEeSHnOsQ7rpwZA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_Dy-UzTmeEeSHnOsQ7rpwZA" name="mainUnit" subUnits="_Dy-UsTmeEeSHnOsQ7rpwZA">
+    <parameters xmi:id="_Dy-UzjmeEeSHnOsQ7rpwZA" name="selectedEObject"/>
+    <parameters xmi:id="_Dy-UzzmeEeSHnOsQ7rpwZA" name="OldSource"/>
+    <parameters xmi:id="_Dy-U0DmeEeSHnOsQ7rpwZA" name="NewSource"/>
+    <parameterMappings xmi:id="_Dy-U0TmeEeSHnOsQ7rpwZA" source="_Dy-UzjmeEeSHnOsQ7rpwZA" target="_Dy-UsjmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_Dy-U0jmeEeSHnOsQ7rpwZA" source="_Dy-UzzmeEeSHnOsQ7rpwZA" target="_Dy-UszmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_Dy-U0zmeEeSHnOsQ7rpwZA" source="_Dy-U0DmeEeSHnOsQ7rpwZA" target="_Dy-UtDmeEeSHnOsQ7rpwZA"/>
+  </units>
+</henshin:Module>
