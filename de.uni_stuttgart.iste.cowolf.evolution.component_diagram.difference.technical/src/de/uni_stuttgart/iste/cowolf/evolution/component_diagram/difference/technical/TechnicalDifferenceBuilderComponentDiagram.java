@@ -49,12 +49,6 @@ public class TechnicalDifferenceBuilderComponentDiagram extends
 		return unconsideredAttributeTypes;
 	}
 
-	protected void checkDocumentType(Resource model) {
-		String docType = EMFModelAccessEx.getCharacteristicDocumentType(model);
-		assert (docType == Component_diagramPackage.eNS_URI) : "Wrong document type: Expected "
-				+ Component_diagramPackage.eNS_URI + " but got " + docType;
-	}
-
 	@Override
 	protected String getObjectName(EObject obj) {
 		return obj.toString();
