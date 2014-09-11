@@ -121,7 +121,7 @@ public class CtmcPrismExportPage1 extends WizardPage {
 		
 		btnExportCslFile = new Button(grpOutputPath, SWT.CHECK);
 		btnExportCslFile.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 3, 1));
-		btnExportCslFile.setText("Export csl file");
+		btnExportCslFile.setText("Export stored PCTL properties as CSL file");
 		
 		tree.setCheckedElements(selection.toArray());
 		

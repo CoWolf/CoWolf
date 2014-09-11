@@ -87,7 +87,7 @@ public class CTMCExportPRISMJob extends Job {
 							.getFile(new Path(res.getURI().toPlatformString(true)));
 
 					IFile resultfile = ResourcesPlugin.getWorkspace().getRoot()
-							.getFile(modelfile.getFullPath().addFileExtension("csl"));
+							.getFile(modelfile.getFullPath().addFileExtension("pctl"));
 
 					File clsFile = new File(resultfile.getLocationURI());
 
@@ -98,7 +98,7 @@ public class CTMCExportPRISMJob extends Job {
 
 							String line = null;
 							while ((line = reader.readLine()) != null) {
-								data += line;
+								data += line + "\n";
 							}
 						} catch (IOException x) {
 							System.err.format("IOException: %s%n", x);
@@ -115,13 +115,15 @@ public class CTMCExportPRISMJob extends Job {
 					ArrayList<String> properties = new ArrayList<String>();
 					ArrayList<String> propertyNames = new ArrayList<String>();
 					
-					String[] tableData = data.split("__#");
+					String[] tableData = data.split("//");
 					for (String string : tableData) {
-						if (string.contains("_#")) {
-							String[] tableSubData = string.split("_#");
+						if (!string.isEmpty()) {
+							String[] tableSubData = string.split("\n", 2);
 							if (tableSubData.length > 1) {
-								propertyNames.add(tableSubData[0]);
-								properties.add(tableSubData[1]);
+								propertyNames.add(tableSubData[0].trim());
+								properties.add(tableSubData[1].trim());
+							} else {
+								propertyNames.add(tableSubData[0].trim());
 							}
 						}
 					}

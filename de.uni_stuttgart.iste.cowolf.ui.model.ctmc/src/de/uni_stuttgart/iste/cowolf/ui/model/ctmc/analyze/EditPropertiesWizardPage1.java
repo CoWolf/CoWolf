@@ -1,8 +1,5 @@
 package de.uni_stuttgart.iste.cowolf.ui.model.ctmc.analyze;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -11,16 +8,10 @@ import java.util.List;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.jface.text.DocumentEvent;
-import org.eclipse.jface.text.IDocumentListener;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CLabel;
-import org.eclipse.swt.events.ModifyEvent;
-import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.GridData;
@@ -42,8 +33,6 @@ import org.eclipse.xtext.ui.editor.embedded.EmbeddedEditor;
 import org.eclipse.xtext.ui.editor.embedded.EmbeddedEditorFactory;
 import org.eclipse.xtext.ui.editor.embedded.EmbeddedEditorModelAccess;
 import org.eclipse.xtext.ui.editor.embedded.IEditedResourceProvider;
-import org.eclipse.xtext.ui.editor.model.IXtextModelListener;
-import org.eclipse.xtext.ui.editor.model.XtextDocument;
 import org.eclipse.xtext.ui.editor.validation.IValidationIssueProcessor;
 import org.eclipse.xtext.validation.Issue;
 
@@ -51,12 +40,9 @@ import com.google.inject.Injector;
 
 import de.uni_stuttgart.iste.cowolf.model.ctmc.CTMC;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.State;
-import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.PCTLStandaloneSetup;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.ui.internal.PCTLActivator;
-import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.validation.PCTLValidator;
 
-import org.eclipse.swt.layout.RowLayout;
-
+@SuppressWarnings("restriction")
 public class EditPropertiesWizardPage1 extends WizardPage {
 
 	private boolean xtextValid;
@@ -64,7 +50,6 @@ public class EditPropertiesWizardPage1 extends WizardPage {
 	private Composite container;
 
 	private Resource resource;
-	private XtextDocument pctlDoc;
 	EmbeddedEditorModelAccess partialEditorModelAccess;
 	private Text text_3;
 	private Text text_4;
@@ -98,7 +83,6 @@ public class EditPropertiesWizardPage1 extends WizardPage {
 		this.xtextValid = false;
 	}
 
-	@SuppressWarnings("restriction")
 	@Override
 	public void createControl(final Composite parent) {
 		this.container = new Composite(parent, SWT.NONE);
@@ -319,10 +303,8 @@ public class EditPropertiesWizardPage1 extends WizardPage {
 
 		PCTLActivator activator = PCTLActivator.getInstance();
 		Injector injector = activator.getInjector(PCTLActivator.DE_UNI_STUTTGART_ISTE_COWOLF_MODEL_CTMC_XTEXT_PCTL);
-		@SuppressWarnings("restriction")
 		EmbeddedEditorFactory factory = injector.getInstance(EmbeddedEditorFactory.class);
 		
-		@SuppressWarnings("restriction")
 		EmbeddedEditor embeddedEditor = factory.newEditor(resourceProvider)
 			.showErrorAndWarningAnnotations()
 			.processIssuesBy(new IValidationIssueProcessor() {
@@ -345,8 +327,6 @@ public class EditPropertiesWizardPage1 extends WizardPage {
 				}
 			})
 			.withParent(composite);
-		
-		this.pctlDoc = embeddedEditor.getDocument();
 		
 		this.partialEditorModelAccess = embeddedEditor.createPartialEditor(false);
 		
@@ -428,7 +408,7 @@ public class EditPropertiesWizardPage1 extends WizardPage {
 	public String getKey() {
 		return text_5.getText();
 	}
-
+	
 	public String getValue() {
 		return this.partialEditorModelAccess.getEditablePart();
 	}
