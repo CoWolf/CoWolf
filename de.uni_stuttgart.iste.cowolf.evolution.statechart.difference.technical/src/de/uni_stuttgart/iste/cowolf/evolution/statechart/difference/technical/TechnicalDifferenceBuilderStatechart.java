@@ -7,11 +7,8 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.henshin.trace.impl.TracePackageImpl;
 import org.sidiff.difference.technical.TechnicalDifferenceBuilder;
-import org.silift.common.util.access.EMFModelAccessEx;
-
 import de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage;
 
 /**
@@ -50,13 +47,6 @@ public class TechnicalDifferenceBuilderStatechart extends
 				.getTrace_Name());
 
 		return unconsideredAttributeTypes;
-	}
-
-	@Override
-	protected void checkDocumentType(Resource model) {
-		String docType = EMFModelAccessEx.getCharacteristicDocumentType(model);
-		assert (docType == statechartemfPackage.eNS_URI) : "Wrong document type: Expected "
-				+ statechartemfPackage.eNS_URI + " but got " + docType;
 	}
 
 	@Override
