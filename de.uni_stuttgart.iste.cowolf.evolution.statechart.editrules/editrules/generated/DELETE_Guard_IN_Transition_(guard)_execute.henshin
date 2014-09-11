@@ -1,60 +1,60 @@
 <?xml version="1.0" encoding="ASCII"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_DzEbUDmeEeSHnOsQ7rpwZA" name="DELETE_Guard_IN_Transition_(guard)" description="Deletes one Guard in Transition">
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_JFzOgDnFEeS_dtX5aPkmvA" name="DELETE_Guard_IN_Transition_(guard)" description="Deletes one Guard in Transition">
   <imports href="http://Statemachine/1.0#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="_DzEbUTmeEeSHnOsQ7rpwZA" name="deleteGuard_IN_Transition" description="deletes one Guard in the context: Transition">
-    <parameters xmi:id="_DzEbUjmeEeSHnOsQ7rpwZA" name="Selected"/>
-    <parameters xmi:id="_DzEbUzmeEeSHnOsQ7rpwZA" name="ToBeDeleted"/>
-    <lhs xmi:id="_DzEbVDmeEeSHnOsQ7rpwZA" name="LHS">
-      <nodes xmi:id="_DzEbVTmeEeSHnOsQ7rpwZA" name="Selected" incoming="_DzEbWDmeEeSHnOsQ7rpwZA" outgoing="_DzEbVzmeEeSHnOsQ7rpwZA">
+  <units xsi:type="henshin:Rule" xmi:id="_JFzOgTnFEeS_dtX5aPkmvA" name="deleteGuard_IN_Transition" description="deletes one Guard in the context: Transition">
+    <parameters xmi:id="_JFzOgjnFEeS_dtX5aPkmvA" name="Selected"/>
+    <parameters xmi:id="_JFzOgznFEeS_dtX5aPkmvA" name="ToBeDeleted"/>
+    <lhs xmi:id="_JFzOhDnFEeS_dtX5aPkmvA" name="LHS">
+      <nodes xmi:id="_JFzOhTnFEeS_dtX5aPkmvA" name="Selected" incoming="_JFzOiDnFEeS_dtX5aPkmvA" outgoing="_JFzOhznFEeS_dtX5aPkmvA">
         <type href="http://Statemachine/1.0#//Transition"/>
       </nodes>
-      <nodes xmi:id="_DzEbVjmeEeSHnOsQ7rpwZA" name="ToBeDeleted" incoming="_DzEbVzmeEeSHnOsQ7rpwZA" outgoing="_DzEbWDmeEeSHnOsQ7rpwZA">
+      <nodes xmi:id="_JFzOhjnFEeS_dtX5aPkmvA" name="ToBeDeleted" incoming="_JFzOhznFEeS_dtX5aPkmvA" outgoing="_JFzOiDnFEeS_dtX5aPkmvA">
         <type href="http://Statemachine/1.0#//Guard"/>
       </nodes>
-      <edges xmi:id="_DzEbVzmeEeSHnOsQ7rpwZA" source="_DzEbVTmeEeSHnOsQ7rpwZA" target="_DzEbVjmeEeSHnOsQ7rpwZA">
+      <edges xmi:id="_JFzOhznFEeS_dtX5aPkmvA" source="_JFzOhTnFEeS_dtX5aPkmvA" target="_JFzOhjnFEeS_dtX5aPkmvA">
         <type href="http://Statemachine/1.0#//Transition/guard"/>
       </edges>
-      <edges xmi:id="_DzEbWDmeEeSHnOsQ7rpwZA" source="_DzEbVjmeEeSHnOsQ7rpwZA" target="_DzEbVTmeEeSHnOsQ7rpwZA">
+      <edges xmi:id="_JFzOiDnFEeS_dtX5aPkmvA" source="_JFzOhjnFEeS_dtX5aPkmvA" target="_JFzOhTnFEeS_dtX5aPkmvA">
         <type href="http://Statemachine/1.0#//Guard/gua_container"/>
       </edges>
     </lhs>
-    <rhs xmi:id="_DzEbWTmeEeSHnOsQ7rpwZA" name="RHS">
-      <nodes xmi:id="_DzEbWjmeEeSHnOsQ7rpwZA" name="Selected">
+    <rhs xmi:id="_JFzOiTnFEeS_dtX5aPkmvA" name="RHS">
+      <nodes xmi:id="_JFzOijnFEeS_dtX5aPkmvA" name="Selected">
         <type href="http://Statemachine/1.0#//Transition"/>
       </nodes>
-      <formula xsi:type="henshin:Not" xmi:id="_DzEbWzmeEeSHnOsQ7rpwZA">
-        <child xsi:type="henshin:NestedCondition" xmi:id="_DzEbXDmeEeSHnOsQ7rpwZA">
-          <conclusion xmi:id="_DzEbXTmeEeSHnOsQ7rpwZA" name="doNotExceedUpperBound">
-            <nodes xmi:id="_DzEbXjmeEeSHnOsQ7rpwZA" name="Selected" outgoing="_DzEbYzmeEeSHnOsQ7rpwZA">
+      <formula xsi:type="henshin:Not" xmi:id="_JFzOiznFEeS_dtX5aPkmvA">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_JFzOjDnFEeS_dtX5aPkmvA">
+          <conclusion xmi:id="_JFzOjTnFEeS_dtX5aPkmvA" name="doNotExceedUpperBound">
+            <nodes xmi:id="_JFzOjjnFEeS_dtX5aPkmvA" name="Selected" outgoing="_JFzOkznFEeS_dtX5aPkmvA">
               <type href="http://Statemachine/1.0#//Transition"/>
             </nodes>
-            <nodes xmi:id="_DzEbXzmeEeSHnOsQ7rpwZA" name="New">
+            <nodes xmi:id="_JFzOjznFEeS_dtX5aPkmvA" name="New">
               <type href="http://Statemachine/1.0#//Guard"/>
-              <attributes xmi:id="_DzEbYDmeEeSHnOsQ7rpwZA" value="Id">
+              <attributes xmi:id="_JFzOkDnFEeS_dtX5aPkmvA" value="Id">
                 <type href="http://CommonBase/1.0#//IDBase/id"/>
               </attributes>
-              <attributes xmi:id="_DzEbYTmeEeSHnOsQ7rpwZA" value="Expression">
+              <attributes xmi:id="_JFzOkTnFEeS_dtX5aPkmvA" value="Expression">
                 <type href="http://Statemachine/1.0#//Guard/expression"/>
               </attributes>
             </nodes>
-            <nodes xmi:id="_DzEbYjmeEeSHnOsQ7rpwZA" incoming="_DzEbYzmeEeSHnOsQ7rpwZA">
+            <nodes xmi:id="_JFzOkjnFEeS_dtX5aPkmvA" incoming="_JFzOkznFEeS_dtX5aPkmvA">
               <type href="http://Statemachine/1.0#//Guard"/>
             </nodes>
-            <edges xmi:id="_DzEbYzmeEeSHnOsQ7rpwZA" source="_DzEbXjmeEeSHnOsQ7rpwZA" target="_DzEbYjmeEeSHnOsQ7rpwZA">
+            <edges xmi:id="_JFzOkznFEeS_dtX5aPkmvA" source="_JFzOjjnFEeS_dtX5aPkmvA" target="_JFzOkjnFEeS_dtX5aPkmvA">
               <type href="http://Statemachine/1.0#//Transition/guard"/>
             </edges>
           </conclusion>
-          <mappings xmi:id="_DzEbZDmeEeSHnOsQ7rpwZA" origin="_DzEbVTmeEeSHnOsQ7rpwZA" image="_DzEbXjmeEeSHnOsQ7rpwZA"/>
-          <mappings xmi:id="_DzEbZTmeEeSHnOsQ7rpwZA" origin="_DzEbVjmeEeSHnOsQ7rpwZA" image="_DzEbXzmeEeSHnOsQ7rpwZA"/>
+          <mappings xmi:id="_JFzOlDnFEeS_dtX5aPkmvA" origin="_JFzOhTnFEeS_dtX5aPkmvA" image="_JFzOjjnFEeS_dtX5aPkmvA"/>
+          <mappings xmi:id="_JFzOlTnFEeS_dtX5aPkmvA" origin="_JFzOhjnFEeS_dtX5aPkmvA" image="_JFzOjznFEeS_dtX5aPkmvA"/>
         </child>
       </formula>
     </rhs>
-    <mappings xmi:id="_DzEbZjmeEeSHnOsQ7rpwZA" origin="_DzEbVTmeEeSHnOsQ7rpwZA" image="_DzEbWjmeEeSHnOsQ7rpwZA"/>
+    <mappings xmi:id="_JFzOljnFEeS_dtX5aPkmvA" origin="_JFzOhTnFEeS_dtX5aPkmvA" image="_JFzOijnFEeS_dtX5aPkmvA"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="_DzEbZzmeEeSHnOsQ7rpwZA" name="mainUnit" description="Deletes one Guard depending on available contexts in model instance" subUnits="_DzEbUTmeEeSHnOsQ7rpwZA">
-    <parameters xmi:id="_DzEbaDmeEeSHnOsQ7rpwZA" name="ToBeDeleted"/>
-    <parameters xmi:id="_DzEbaTmeEeSHnOsQ7rpwZA" name="selectedEObject"/>
-    <parameterMappings xmi:id="_DzEbajmeEeSHnOsQ7rpwZA" source="_DzEbaTmeEeSHnOsQ7rpwZA" target="_DzEbUjmeEeSHnOsQ7rpwZA"/>
-    <parameterMappings xmi:id="_DzEbazmeEeSHnOsQ7rpwZA" source="_DzEbaDmeEeSHnOsQ7rpwZA" target="_DzEbUzmeEeSHnOsQ7rpwZA"/>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_JFzOlznFEeS_dtX5aPkmvA" name="mainUnit" description="Deletes one Guard depending on available contexts in model instance" subUnits="_JFzOgTnFEeS_dtX5aPkmvA">
+    <parameters xmi:id="_JFzOmDnFEeS_dtX5aPkmvA" name="ToBeDeleted"/>
+    <parameters xmi:id="_JFz1kDnFEeS_dtX5aPkmvA" name="selectedEObject"/>
+    <parameterMappings xmi:id="_JFz1kTnFEeS_dtX5aPkmvA" source="_JFz1kDnFEeS_dtX5aPkmvA" target="_JFzOgjnFEeS_dtX5aPkmvA"/>
+    <parameterMappings xmi:id="_JFz1kjnFEeS_dtX5aPkmvA" source="_JFzOmDnFEeS_dtX5aPkmvA" target="_JFzOgznFEeS_dtX5aPkmvA"/>
   </units>
 </henshin:Module>

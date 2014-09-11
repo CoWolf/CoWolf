@@ -217,6 +217,15 @@ public class StatemachinePackageImpl extends EPackageImpl implements Statemachin
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getStateMachineRoot_InitialStateMachine() {
+		return (EReference)stateMachineRootEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getStateMachine() {
 		return stateMachineEClass;
 	}
@@ -647,6 +656,7 @@ public class StatemachinePackageImpl extends EPackageImpl implements Statemachin
 		// Create classes and their features
 		stateMachineRootEClass = createEClass(STATE_MACHINE_ROOT);
 		createEReference(stateMachineRootEClass, STATE_MACHINE_ROOT__SUB_STATE_MACHINES);
+		createEReference(stateMachineRootEClass, STATE_MACHINE_ROOT__INITIAL_STATE_MACHINE);
 
 		stateMachineEClass = createEClass(STATE_MACHINE);
 		createEReference(stateMachineEClass, STATE_MACHINE__TRANSITIONS);
@@ -757,6 +767,7 @@ public class StatemachinePackageImpl extends EPackageImpl implements Statemachin
 		// Initialize classes, features, and operations; add parameters
 		initEClass(stateMachineRootEClass, StateMachineRoot.class, "StateMachineRoot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getStateMachineRoot_SubStateMachines(), this.getStateMachine(), this.getStateMachine_Statemachine_container(), "subStateMachines", null, 0, -1, StateMachineRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStateMachineRoot_InitialStateMachine(), this.getStateMachine(), null, "InitialStateMachine", null, 0, 1, StateMachineRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stateMachineEClass, StateMachine.class, "StateMachine", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getStateMachine_Transitions(), this.getTransition(), this.getTransition_TransSM_container(), "transitions", null, 0, -1, StateMachine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

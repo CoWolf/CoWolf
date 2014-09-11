@@ -18,4 +18,5 @@ public interface StateMachineRootValidator {
 	boolean validate();
 
 	boolean validateSubStateMachines(EList<StateMachine> value);
+	boolean validateInitialStateMachine(StateMachine value);
 }

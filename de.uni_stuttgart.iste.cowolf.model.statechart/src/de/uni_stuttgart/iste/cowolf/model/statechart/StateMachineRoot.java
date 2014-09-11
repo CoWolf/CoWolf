@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.StateMachineRoot#getSubStateMachines <em>Sub State Machines</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.StateMachineRoot#getInitialStateMachine <em>Initial State Machine</em>}</li>
  * </ul>
  * </p>
  *
@@ -40,5 +41,31 @@ public interface StateMachineRoot extends IDBase {
 	 * @generated
 	 */
 	EList<StateMachine> getSubStateMachines();
+
+	/**
+	 * Returns the value of the '<em><b>Initial State Machine</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Initial State Machine</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Initial State Machine</em>' reference.
+	 * @see #setInitialStateMachine(StateMachine)
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage#getStateMachineRoot_InitialStateMachine()
+	 * @model
+	 * @generated
+	 */
+	StateMachine getInitialStateMachine();
+
+	/**
+	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.statechart.StateMachineRoot#getInitialStateMachine <em>Initial State Machine</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Initial State Machine</em>' reference.
+	 * @see #getInitialStateMachine()
+	 * @generated
+	 */
+	void setInitialStateMachine(StateMachine value);
 
 } // StateMachineRoot
