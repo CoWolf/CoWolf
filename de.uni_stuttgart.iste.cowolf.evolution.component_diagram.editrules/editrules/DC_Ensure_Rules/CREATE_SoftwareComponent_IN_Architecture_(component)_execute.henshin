@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_1P1_wDN5EeSNuISj7DMDOA" name="CREATE_SoftwareComponent_IN_Architecture_(component)" description="Creates one SoftwareComponent in Architecture">
+  <imports href="http://component_diagram/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_1P1_wTN5EeSNuISj7DMDOA" name="createSoftwareComponent_IN_Architecture" description="creates one SoftwareComponent in the context: Architecture">
+    <parameters xmi:id="_1P1_wjN5EeSNuISj7DMDOA" name="Selected"/>
+    <parameters xmi:id="_1P1_wzN5EeSNuISj7DMDOA" name="New"/>
+    <parameters xmi:id="_1P1_xDN5EeSNuISj7DMDOA" name="Name"/>
+    <lhs xmi:id="_1P1_xTN5EeSNuISj7DMDOA" name="Lhs">
+      <nodes xmi:id="_1P1_xjN5EeSNuISj7DMDOA" name="Selected">
+        <type href="http://component_diagram/1.0#//Architecture"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_1P2m0DN5EeSNuISj7DMDOA" name="Rhs">
+      <nodes xmi:id="_1P2m0TN5EeSNuISj7DMDOA" name="Selected" outgoing="_1P2m1DN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//Architecture"/>
+      </nodes>
+      <nodes xmi:id="_1P2m0jN5EeSNuISj7DMDOA" name="New" incoming="_1P2m1DN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//SoftwareComponent"/>
+        <attributes xmi:id="_1P2m0zN5EeSNuISj7DMDOA" value="Name">
+          <type href="http://component_diagram/1.0#//ComponentType/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_1P2m1DN5EeSNuISj7DMDOA" source="_1P2m0TN5EeSNuISj7DMDOA" target="_1P2m0jN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//Architecture/component"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_1P2m1TN5EeSNuISj7DMDOA" origin="_1P1_xjN5EeSNuISj7DMDOA" image="_1P2m0TN5EeSNuISj7DMDOA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_1P2m1jN5EeSNuISj7DMDOA" name="mainUnit" description="Creates one SoftwareComponent depending on available contexts in model instance" subUnits="_1P1_wTN5EeSNuISj7DMDOA">
+    <parameters xmi:id="_1P2m1zN5EeSNuISj7DMDOA" name="New"/>
+    <parameters xmi:id="_1P2m2DN5EeSNuISj7DMDOA" name="selectedEObject"/>
+    <parameters xmi:id="_1P2m2TN5EeSNuISj7DMDOA" name="Name"/>
+    <parameterMappings xmi:id="_1P2m2jN5EeSNuISj7DMDOA" source="_1P2m2DN5EeSNuISj7DMDOA" target="_1P1_wjN5EeSNuISj7DMDOA"/>
+    <parameterMappings xmi:id="_1P2m2zN5EeSNuISj7DMDOA" source="_1P1_wzN5EeSNuISj7DMDOA" target="_1P2m1zN5EeSNuISj7DMDOA"/>
+    <parameterMappings xmi:id="_1P2m3DN5EeSNuISj7DMDOA" source="_1P2m2TN5EeSNuISj7DMDOA" target="_1P1_xDN5EeSNuISj7DMDOA"/>
+  </units>
+</henshin:Module>

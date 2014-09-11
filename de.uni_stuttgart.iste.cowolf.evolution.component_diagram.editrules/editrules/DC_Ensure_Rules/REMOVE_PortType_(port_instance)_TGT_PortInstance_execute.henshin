@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_1TQgIDN5EeSNuISj7DMDOA" name="REMOVE_PortType_(port_instance)_TGT_PortInstance" description="Removes PortType's reference port_instance the target PortInstance">
+  <imports href="http://component_diagram/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_1TQgITN5EeSNuISj7DMDOA" name="removeFromPortType_port_instance_PortInstance" description="Removes from PortType's reference port_instance the target PortInstance">
+    <parameters xmi:id="_1TQgIjN5EeSNuISj7DMDOA" name="Selected"/>
+    <parameters xmi:id="_1TQgIzN5EeSNuISj7DMDOA" name="OldTarget"/>
+    <lhs xmi:id="_1TQgJDN5EeSNuISj7DMDOA" name="LHS">
+      <nodes xmi:id="_1TQgJTN5EeSNuISj7DMDOA" name="Selected" incoming="_1TQgKDN5EeSNuISj7DMDOA" outgoing="_1TQgJzN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//PortType"/>
+      </nodes>
+      <nodes xmi:id="_1TQgJjN5EeSNuISj7DMDOA" name="OldTarget" incoming="_1TQgJzN5EeSNuISj7DMDOA" outgoing="_1TQgKDN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//PortInstance"/>
+      </nodes>
+      <edges xmi:id="_1TQgJzN5EeSNuISj7DMDOA" source="_1TQgJTN5EeSNuISj7DMDOA" target="_1TQgJjN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//PortType/port_instance"/>
+      </edges>
+      <edges xmi:id="_1TQgKDN5EeSNuISj7DMDOA" source="_1TQgJjN5EeSNuISj7DMDOA" target="_1TQgJTN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//PortInstance/type"/>
+      </edges>
+      <formula xsi:type="henshin:NestedCondition" xmi:id="_1TQgKTN5EeSNuISj7DMDOA">
+        <conclusion xmi:id="_1TQgKjN5EeSNuISj7DMDOA" name="sufficientElementsMustExist">
+          <nodes xmi:id="_1TQgKzN5EeSNuISj7DMDOA" name="OldTarget" outgoing="_1TQgLzN5EeSNuISj7DMDOA _1TRHMDN5EeSNuISj7DMDOA">
+            <type href="http://component_diagram/1.0#//PortInstance"/>
+          </nodes>
+          <nodes xmi:id="_1TQgLTN5EeSNuISj7DMDOA" incoming="_1TQgLzN5EeSNuISj7DMDOA">
+            <type href="http://component_diagram/1.0#//PortType"/>
+          </nodes>
+          <nodes xmi:id="_1TQgLjN5EeSNuISj7DMDOA" incoming="_1TRHMDN5EeSNuISj7DMDOA">
+            <type href="http://component_diagram/1.0#//PortType"/>
+          </nodes>
+          <edges xmi:id="_1TQgLzN5EeSNuISj7DMDOA" source="_1TQgKzN5EeSNuISj7DMDOA" target="_1TQgLTN5EeSNuISj7DMDOA">
+            <type href="http://component_diagram/1.0#//PortInstance/type"/>
+          </edges>
+          <edges xmi:id="_1TRHMDN5EeSNuISj7DMDOA" source="_1TQgKzN5EeSNuISj7DMDOA" target="_1TQgLjN5EeSNuISj7DMDOA">
+            <type href="http://component_diagram/1.0#//PortInstance/type"/>
+          </edges>
+        </conclusion>
+        <mappings xmi:id="_1TRHMTN5EeSNuISj7DMDOA" origin="_1TQgJjN5EeSNuISj7DMDOA" image="_1TQgKzN5EeSNuISj7DMDOA"/>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_1TRHMzN5EeSNuISj7DMDOA" name="RHS">
+      <nodes xmi:id="_1TRHNDN5EeSNuISj7DMDOA" name="Selected">
+        <type href="http://component_diagram/1.0#//PortType"/>
+      </nodes>
+      <nodes xmi:id="_1TRHNTN5EeSNuISj7DMDOA" name="OldTarget">
+        <type href="http://component_diagram/1.0#//PortInstance"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_1TRHNjN5EeSNuISj7DMDOA" origin="_1TQgJTN5EeSNuISj7DMDOA" image="_1TRHNDN5EeSNuISj7DMDOA"/>
+    <mappings xmi:id="_1TRHNzN5EeSNuISj7DMDOA" origin="_1TQgJjN5EeSNuISj7DMDOA" image="_1TRHNTN5EeSNuISj7DMDOA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_1TRHODN5EeSNuISj7DMDOA" name="mainUnit" subUnits="_1TQgITN5EeSNuISj7DMDOA">
+    <parameters xmi:id="_1TRHOTN5EeSNuISj7DMDOA" name="selectedEObject"/>
+    <parameters xmi:id="_1TRHOjN5EeSNuISj7DMDOA" name="OldTarget"/>
+    <parameterMappings xmi:id="_1TRHOzN5EeSNuISj7DMDOA" source="_1TRHOTN5EeSNuISj7DMDOA" target="_1TQgIjN5EeSNuISj7DMDOA"/>
+    <parameterMappings xmi:id="_1TRHPDN5EeSNuISj7DMDOA" source="_1TRHOjN5EeSNuISj7DMDOA" target="_1TQgIzN5EeSNuISj7DMDOA"/>
+  </units>
+</henshin:Module>

@@ -2,7 +2,6 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.component_diagram.impl;
 
-import de.uni_stuttgart.iste.cowolf.model.commonBase.impl.IDBaseImpl;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.Architecture;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentInstance;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentType;
@@ -10,9 +9,7 @@ import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPac
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.Connector;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.PortInstance;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.PortType;
-
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -38,7 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ArchitectureImpl extends IDBaseImpl implements Architecture {
+public class ArchitectureImpl extends MinimalEObjectImpl.Container implements Architecture {
 	/**
 	 * The cached value of the '{@link #getComponent() <em>Component</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

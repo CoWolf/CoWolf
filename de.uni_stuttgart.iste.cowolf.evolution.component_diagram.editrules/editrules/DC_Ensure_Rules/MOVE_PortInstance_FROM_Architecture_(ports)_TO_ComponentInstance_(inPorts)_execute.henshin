@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_1O0FADN5EeSNuISj7DMDOA" name="MOVE_PortInstance_FROM_Architecture_(ports)_TO_ComponentInstance_(inPorts)" description="MOVEs PortInstance from Architecture(Reference:ports) to ComponentInstance(Reference:inPorts">
+  <imports href="http://component_diagram/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_1O0FATN5EeSNuISj7DMDOA" name="movePortInstance_FROM_Architecture_ports_TO_ComponentInstance_ComponentInstance" description="Moves PortInstance from Architecture(Reference:ports) toComponentInstance(Reference:ComponentInstance)">
+    <parameters xmi:id="_1O0FAjN5EeSNuISj7DMDOA" name="Selected"/>
+    <parameters xmi:id="_1O0FAzN5EeSNuISj7DMDOA" name="OldSource"/>
+    <parameters xmi:id="_1O0FBDN5EeSNuISj7DMDOA" name="NewSource"/>
+    <lhs xmi:id="_1O0FBTN5EeSNuISj7DMDOA" name="Lhs">
+      <nodes xmi:id="_1O0FBjN5EeSNuISj7DMDOA" name="Selected" incoming="_1O0FCTN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//PortInstance"/>
+      </nodes>
+      <nodes xmi:id="_1O0FBzN5EeSNuISj7DMDOA" name="OldSource" outgoing="_1O0FCTN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//Architecture"/>
+      </nodes>
+      <nodes xmi:id="_1O0FCDN5EeSNuISj7DMDOA" name="NewSource">
+        <type href="http://component_diagram/1.0#//ComponentInstance"/>
+      </nodes>
+      <edges xmi:id="_1O0FCTN5EeSNuISj7DMDOA" source="_1O0FBzN5EeSNuISj7DMDOA" target="_1O0FBjN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//Architecture/ports"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_1O0FCjN5EeSNuISj7DMDOA" name="Rhs">
+      <nodes xmi:id="_1O0FCzN5EeSNuISj7DMDOA" name="Selected" incoming="_1O0FDjN5EeSNuISj7DMDOA" outgoing="_1O0FDzN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//PortInstance"/>
+      </nodes>
+      <nodes xmi:id="_1O0FDDN5EeSNuISj7DMDOA" name="OldSource">
+        <type href="http://component_diagram/1.0#//Architecture"/>
+      </nodes>
+      <nodes xmi:id="_1O0FDTN5EeSNuISj7DMDOA" name="NewSource" incoming="_1O0FDzN5EeSNuISj7DMDOA" outgoing="_1O0FDjN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//ComponentInstance"/>
+      </nodes>
+      <edges xmi:id="_1O0FDjN5EeSNuISj7DMDOA" source="_1O0FDTN5EeSNuISj7DMDOA" target="_1O0FCzN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//ComponentInstance/inPorts"/>
+      </edges>
+      <edges xmi:id="_1O0FDzN5EeSNuISj7DMDOA" source="_1O0FCzN5EeSNuISj7DMDOA" target="_1O0FDTN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//PortInstance/inComponent"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_1O0FEDN5EeSNuISj7DMDOA" origin="_1O0FBjN5EeSNuISj7DMDOA" image="_1O0FCzN5EeSNuISj7DMDOA"/>
+    <mappings xmi:id="_1O0FETN5EeSNuISj7DMDOA" origin="_1O0FBzN5EeSNuISj7DMDOA" image="_1O0FDDN5EeSNuISj7DMDOA"/>
+    <mappings xmi:id="_1O0FEjN5EeSNuISj7DMDOA" origin="_1O0FCDN5EeSNuISj7DMDOA" image="_1O0FDTN5EeSNuISj7DMDOA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_1O0FEzN5EeSNuISj7DMDOA" name="mainUnit" subUnits="_1O0FATN5EeSNuISj7DMDOA">
+    <parameters xmi:id="_1O0FFDN5EeSNuISj7DMDOA" name="selectedEObject"/>
+    <parameters xmi:id="_1O0FFTN5EeSNuISj7DMDOA" name="OldSource"/>
+    <parameters xmi:id="_1O0FFjN5EeSNuISj7DMDOA" name="NewSource"/>
+    <parameterMappings xmi:id="_1O0FFzN5EeSNuISj7DMDOA" source="_1O0FFDN5EeSNuISj7DMDOA" target="_1O0FAjN5EeSNuISj7DMDOA"/>
+    <parameterMappings xmi:id="_1O0FGDN5EeSNuISj7DMDOA" source="_1O0FFTN5EeSNuISj7DMDOA" target="_1O0FAzN5EeSNuISj7DMDOA"/>
+    <parameterMappings xmi:id="_1O0FGTN5EeSNuISj7DMDOA" source="_1O0FFjN5EeSNuISj7DMDOA" target="_1O0FBDN5EeSNuISj7DMDOA"/>
+  </units>
+</henshin:Module>

@@ -2,14 +2,11 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.component_diagram.impl;
 
-import de.uni_stuttgart.iste.cowolf.model.commonBase.impl.IDBaseImpl;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentInstance;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentType;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.PortType;
-
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -36,7 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public abstract class ComponentTypeImpl extends IDBaseImpl implements ComponentType {
+public abstract class ComponentTypeImpl extends MinimalEObjectImpl.Container implements ComponentType {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->

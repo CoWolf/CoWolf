@@ -698,7 +698,7 @@ public abstract class AbstractTransformationManager {
      *            to be merged
      * @return EGraph with all Roots of the provided models
      */
-    private EGraph mergeInstanceModels(List<EGraph> models) {
+    protected EGraph mergeInstanceModels(List<EGraph> models) {
         if (models.size() > 0) {
             EGraph mergedGraph = models.get(0);
             models.remove(0);

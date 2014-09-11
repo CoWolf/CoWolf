@@ -2,13 +2,10 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.component_diagram.impl;
 
-import de.uni_stuttgart.iste.cowolf.model.commonBase.impl.IDBaseImpl;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.Connector;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.PortInstance;
-
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -33,7 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ConnectorImpl extends IDBaseImpl implements Connector {
+public class ConnectorImpl extends MinimalEObjectImpl.Container implements Connector {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->

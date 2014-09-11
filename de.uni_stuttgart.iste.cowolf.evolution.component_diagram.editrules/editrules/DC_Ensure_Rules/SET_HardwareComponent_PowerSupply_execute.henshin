@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_1PpygDN5EeSNuISj7DMDOA" name="SET_HardwareComponent_PowerSupply" description="Sets HardwareComponent PowerSupply">
+  <imports href="http://component_diagram/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_1PpygTN5EeSNuISj7DMDOA" name="setHardwareComponentPowerSupply" description="Sets the EAttribute powerSupply">
+    <parameters xmi:id="_1PpygjN5EeSNuISj7DMDOA" name="Selected"/>
+    <parameters xmi:id="_1PpygzN5EeSNuISj7DMDOA" name="PowerSupply"/>
+    <lhs xmi:id="_1PpyhDN5EeSNuISj7DMDOA" name="Lhs">
+      <nodes xmi:id="_1PpyhTN5EeSNuISj7DMDOA" name="Selected">
+        <type href="http://component_diagram/1.0#//HardwareComponent"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_1PpyhjN5EeSNuISj7DMDOA" name="Rhs">
+      <nodes xmi:id="_1PpyhzN5EeSNuISj7DMDOA" name="Selected">
+        <type href="http://component_diagram/1.0#//HardwareComponent"/>
+        <attributes xmi:id="_1PpyiDN5EeSNuISj7DMDOA" value="PowerSupply">
+          <type href="http://component_diagram/1.0#//HardwareComponent/powerSupply"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_1PpyiTN5EeSNuISj7DMDOA" origin="_1PpyhTN5EeSNuISj7DMDOA" image="_1PpyhzN5EeSNuISj7DMDOA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_1PpyijN5EeSNuISj7DMDOA" name="mainUnit" subUnits="_1PpygTN5EeSNuISj7DMDOA">
+    <parameters xmi:id="_1PpyizN5EeSNuISj7DMDOA" name="selectedEObject"/>
+    <parameters xmi:id="_1PpyjDN5EeSNuISj7DMDOA" name="PowerSupply"/>
+    <parameterMappings xmi:id="_1PpyjTN5EeSNuISj7DMDOA" source="_1PpyizN5EeSNuISj7DMDOA" target="_1PpygjN5EeSNuISj7DMDOA"/>
+    <parameterMappings xmi:id="_1PpyjjN5EeSNuISj7DMDOA" source="_1PpyjDN5EeSNuISj7DMDOA" target="_1PpygzN5EeSNuISj7DMDOA"/>
+  </units>
+</henshin:Module>

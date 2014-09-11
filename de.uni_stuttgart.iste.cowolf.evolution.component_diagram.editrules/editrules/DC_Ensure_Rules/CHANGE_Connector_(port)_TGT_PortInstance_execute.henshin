@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_1NB8UDN5EeSNuISj7DMDOA" name="CHANGE_Connector_(port)_TGT_PortInstance" description="CHANGEs Connector's reference port the target PortInstance">
+  <imports href="http://component_diagram/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_1NB8UTN5EeSNuISj7DMDOA" name="changeConnector_port_TO_PortInstance" description="Change the EReference port">
+    <parameters xmi:id="_1NB8UjN5EeSNuISj7DMDOA" name="Selected"/>
+    <parameters xmi:id="_1NB8UzN5EeSNuISj7DMDOA" name="OldTarget"/>
+    <parameters xmi:id="_1NB8VDN5EeSNuISj7DMDOA" name="NewTarget"/>
+    <lhs xmi:id="_1NB8VTN5EeSNuISj7DMDOA" name="Lhs">
+      <nodes xmi:id="_1NB8VjN5EeSNuISj7DMDOA" name="Selected" incoming="_1NB8WjN5EeSNuISj7DMDOA" outgoing="_1NB8WTN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//Connector"/>
+      </nodes>
+      <nodes xmi:id="_1NB8VzN5EeSNuISj7DMDOA" name="OldTarget" incoming="_1NB8WTN5EeSNuISj7DMDOA" outgoing="_1NB8WjN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//PortInstance"/>
+      </nodes>
+      <nodes xmi:id="_1NB8WDN5EeSNuISj7DMDOA" name="NewTarget">
+        <type href="http://component_diagram/1.0#//PortInstance"/>
+      </nodes>
+      <edges xmi:id="_1NB8WTN5EeSNuISj7DMDOA" source="_1NB8VjN5EeSNuISj7DMDOA" target="_1NB8VzN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//Connector/port"/>
+      </edges>
+      <edges xmi:id="_1NB8WjN5EeSNuISj7DMDOA" source="_1NB8VzN5EeSNuISj7DMDOA" target="_1NB8VjN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//PortInstance/connect"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_1NB8WzN5EeSNuISj7DMDOA" name="Rhs">
+      <nodes xmi:id="_1NB8XDN5EeSNuISj7DMDOA" name="Selected" incoming="_1NB8YDN5EeSNuISj7DMDOA" outgoing="_1NB8XzN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//Connector"/>
+      </nodes>
+      <nodes xmi:id="_1NB8XTN5EeSNuISj7DMDOA" name="OldTarget">
+        <type href="http://component_diagram/1.0#//PortInstance"/>
+      </nodes>
+      <nodes xmi:id="_1NB8XjN5EeSNuISj7DMDOA" name="NewTarget" incoming="_1NB8XzN5EeSNuISj7DMDOA" outgoing="_1NB8YDN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//PortInstance"/>
+      </nodes>
+      <edges xmi:id="_1NB8XzN5EeSNuISj7DMDOA" source="_1NB8XDN5EeSNuISj7DMDOA" target="_1NB8XjN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//Connector/port"/>
+      </edges>
+      <edges xmi:id="_1NB8YDN5EeSNuISj7DMDOA" source="_1NB8XjN5EeSNuISj7DMDOA" target="_1NB8XDN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//PortInstance/connect"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_1NB8YTN5EeSNuISj7DMDOA" origin="_1NB8VjN5EeSNuISj7DMDOA" image="_1NB8XDN5EeSNuISj7DMDOA"/>
+    <mappings xmi:id="_1NB8YjN5EeSNuISj7DMDOA" origin="_1NB8VzN5EeSNuISj7DMDOA" image="_1NB8XTN5EeSNuISj7DMDOA"/>
+    <mappings xmi:id="_1NB8YzN5EeSNuISj7DMDOA" origin="_1NB8WDN5EeSNuISj7DMDOA" image="_1NB8XjN5EeSNuISj7DMDOA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_1NB8ZDN5EeSNuISj7DMDOA" name="mainUnit" subUnits="_1NB8UTN5EeSNuISj7DMDOA">
+    <parameters xmi:id="_1NB8ZTN5EeSNuISj7DMDOA" name="selectedEObject"/>
+    <parameters xmi:id="_1NB8ZjN5EeSNuISj7DMDOA" name="OldTarget"/>
+    <parameters xmi:id="_1NB8ZzN5EeSNuISj7DMDOA" name="NewTarget"/>
+    <parameterMappings xmi:id="_1NB8aDN5EeSNuISj7DMDOA" source="_1NB8ZTN5EeSNuISj7DMDOA" target="_1NB8UjN5EeSNuISj7DMDOA"/>
+    <parameterMappings xmi:id="_1NB8aTN5EeSNuISj7DMDOA" source="_1NB8ZjN5EeSNuISj7DMDOA" target="_1NB8UzN5EeSNuISj7DMDOA"/>
+    <parameterMappings xmi:id="_1NB8ajN5EeSNuISj7DMDOA" source="_1NB8ZzN5EeSNuISj7DMDOA" target="_1NB8VDN5EeSNuISj7DMDOA"/>
+  </units>
+</henshin:Module>

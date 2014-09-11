@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_1RmTQDN5EeSNuISj7DMDOA" name="DELETE_ComponentInstance_IN_Architecture_(instances)" description="Deletes one ComponentInstance in Architecture">
+  <imports href="http://component_diagram/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_1RmTQTN5EeSNuISj7DMDOA" name="deleteComponentInstance_IN_Architecture" description="deletes one ComponentInstance in the context: Architecture">
+    <parameters xmi:id="_1RmTQjN5EeSNuISj7DMDOA" name="Existing"/>
+    <parameters xmi:id="_1RmTQzN5EeSNuISj7DMDOA" name="Selected"/>
+    <parameters xmi:id="_1RmTRDN5EeSNuISj7DMDOA" name="ToBeDeleted"/>
+    <lhs xmi:id="_1Rm6UDN5EeSNuISj7DMDOA" name="LHS">
+      <nodes xmi:id="_1Rm6UTN5EeSNuISj7DMDOA" name="Selected" outgoing="_1Rm6VDN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//Architecture"/>
+      </nodes>
+      <nodes xmi:id="_1Rm6UjN5EeSNuISj7DMDOA" name="ToBeDeleted" incoming="_1Rm6VDN5EeSNuISj7DMDOA _1Rm6VjN5EeSNuISj7DMDOA" outgoing="_1Rm6VTN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//ComponentInstance"/>
+      </nodes>
+      <nodes xmi:id="_1Rm6UzN5EeSNuISj7DMDOA" name="Existing" incoming="_1Rm6VTN5EeSNuISj7DMDOA" outgoing="_1Rm6VjN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//ComponentType"/>
+      </nodes>
+      <edges xmi:id="_1Rm6VDN5EeSNuISj7DMDOA" source="_1Rm6UTN5EeSNuISj7DMDOA" target="_1Rm6UjN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//Architecture/instances"/>
+      </edges>
+      <edges xmi:id="_1Rm6VTN5EeSNuISj7DMDOA" source="_1Rm6UjN5EeSNuISj7DMDOA" target="_1Rm6UzN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//ComponentInstance/type"/>
+      </edges>
+      <edges xmi:id="_1Rm6VjN5EeSNuISj7DMDOA" source="_1Rm6UzN5EeSNuISj7DMDOA" target="_1Rm6UjN5EeSNuISj7DMDOA">
+        <type href="http://component_diagram/1.0#//ComponentType/instance"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_1Rm6VzN5EeSNuISj7DMDOA" name="RHS">
+      <nodes xmi:id="_1Rm6WDN5EeSNuISj7DMDOA" name="Selected">
+        <type href="http://component_diagram/1.0#//Architecture"/>
+      </nodes>
+      <nodes xmi:id="_1Rm6WTN5EeSNuISj7DMDOA" name="Existing">
+        <type href="http://component_diagram/1.0#//ComponentType"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_1Rm6WjN5EeSNuISj7DMDOA" origin="_1Rm6UTN5EeSNuISj7DMDOA" image="_1Rm6WDN5EeSNuISj7DMDOA"/>
+    <mappings xmi:id="_1Rm6WzN5EeSNuISj7DMDOA" origin="_1Rm6UzN5EeSNuISj7DMDOA" image="_1Rm6WTN5EeSNuISj7DMDOA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_1Rm6XDN5EeSNuISj7DMDOA" name="mainUnit" description="Deletes one ComponentInstance depending on available contexts in model instance" subUnits="_1RmTQTN5EeSNuISj7DMDOA">
+    <parameters xmi:id="_1Rm6XTN5EeSNuISj7DMDOA" name="Existing"/>
+    <parameters xmi:id="_1Rm6XjN5EeSNuISj7DMDOA" name="ToBeDeleted"/>
+    <parameters xmi:id="_1Rm6XzN5EeSNuISj7DMDOA" name="selectedEObject"/>
+    <parameterMappings xmi:id="_1Rm6YDN5EeSNuISj7DMDOA" source="_1Rm6XTN5EeSNuISj7DMDOA" target="_1RmTQjN5EeSNuISj7DMDOA"/>
+    <parameterMappings xmi:id="_1Rm6YTN5EeSNuISj7DMDOA" source="_1Rm6XzN5EeSNuISj7DMDOA" target="_1RmTQzN5EeSNuISj7DMDOA"/>
+    <parameterMappings xmi:id="_1Rm6YjN5EeSNuISj7DMDOA" source="_1Rm6XjN5EeSNuISj7DMDOA" target="_1RmTRDN5EeSNuISj7DMDOA"/>
+  </units>
+</henshin:Module>
