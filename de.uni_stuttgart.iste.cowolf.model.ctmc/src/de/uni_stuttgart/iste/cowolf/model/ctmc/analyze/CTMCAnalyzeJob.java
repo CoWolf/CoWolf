@@ -144,7 +144,7 @@ public class CTMCAnalyzeJob extends Job {
 							this.prismRootPath, "prism " + this.prismSMPath
 									+ " " + this.prismCSLPath
 									+ " -exportresults " + this.prismResultPath
-									+ this.prismParameters));
+									+ this.prismParameters, "Analyze CTMC with Prism"));
 			BufferedReader in = new BufferedReader(r);
 			String line;
 			while ((line = in.readLine()) != null) {
