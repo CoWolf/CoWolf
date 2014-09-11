@@ -4,9 +4,13 @@ package de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl;
 
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Actor;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ActorLifeline;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.BehaviorExecutionSpecification;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Interaction;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Lifeline;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Message;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.MessageOccurenceSpecification;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.OpaqueBehavior;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Operation;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Property;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramFactory;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramPackage;
@@ -60,14 +64,18 @@ public class Sequence_diagramFactoryImpl extends EFactoryImpl implements Sequenc
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case Sequence_diagramPackage.MESSAGE: return createMessage();
-			case Sequence_diagramPackage.LIFELINE: return createLifeline();
-			case Sequence_diagramPackage.ACTOR: return createActor();
-			case Sequence_diagramPackage.INTERACTION: return createInteraction();
 			case Sequence_diagramPackage.PACKAGE: return createPackage();
 			case Sequence_diagramPackage.CLASS: return createClass();
-			case Sequence_diagramPackage.PROPERTY: return createProperty();
+			case Sequence_diagramPackage.INTERACTION: return createInteraction();
+			case Sequence_diagramPackage.ACTOR: return createActor();
+			case Sequence_diagramPackage.OPERATION: return createOperation();
+			case Sequence_diagramPackage.MESSAGE: return createMessage();
+			case Sequence_diagramPackage.MESSAGE_OCCURENCE_SPECIFICATION: return createMessageOccurenceSpecification();
+			case Sequence_diagramPackage.BEHAVIOR_EXECUTION_SPECIFICATION: return createBehaviorExecutionSpecification();
+			case Sequence_diagramPackage.OPAQUE_BEHAVIOR: return createOpaqueBehavior();
 			case Sequence_diagramPackage.ACTOR_LIFELINE: return createActorLifeline();
+			case Sequence_diagramPackage.LIFELINE: return createLifeline();
+			case Sequence_diagramPackage.PROPERTY: return createProperty();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -88,6 +96,36 @@ public class Sequence_diagramFactoryImpl extends EFactoryImpl implements Sequenc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public MessageOccurenceSpecification createMessageOccurenceSpecification() {
+		MessageOccurenceSpecificationImpl messageOccurenceSpecification = new MessageOccurenceSpecificationImpl();
+		return messageOccurenceSpecification;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BehaviorExecutionSpecification createBehaviorExecutionSpecification() {
+		BehaviorExecutionSpecificationImpl behaviorExecutionSpecification = new BehaviorExecutionSpecificationImpl();
+		return behaviorExecutionSpecification;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OpaqueBehavior createOpaqueBehavior() {
+		OpaqueBehaviorImpl opaqueBehavior = new OpaqueBehaviorImpl();
+		return opaqueBehavior;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Lifeline createLifeline() {
 		LifelineImpl lifeline = new LifelineImpl();
 		return lifeline;
@@ -101,6 +139,16 @@ public class Sequence_diagramFactoryImpl extends EFactoryImpl implements Sequenc
 	public Actor createActor() {
 		ActorImpl actor = new ActorImpl();
 		return actor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Operation createOperation() {
+		OperationImpl operation = new OperationImpl();
+		return operation;
 	}
 
 	/**

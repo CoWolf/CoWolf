@@ -95,6 +95,75 @@ public class Sequence_diagramItemProviderAdapterFactory extends Sequence_diagram
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.MessageOccurenceSpecification} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MessageOccurenceSpecificationItemProvider messageOccurenceSpecificationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.MessageOccurenceSpecification}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMessageOccurenceSpecificationAdapter() {
+		if (messageOccurenceSpecificationItemProvider == null) {
+			messageOccurenceSpecificationItemProvider = new MessageOccurenceSpecificationItemProvider(this);
+		}
+
+		return messageOccurenceSpecificationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.BehaviorExecutionSpecification} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BehaviorExecutionSpecificationItemProvider behaviorExecutionSpecificationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.BehaviorExecutionSpecification}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBehaviorExecutionSpecificationAdapter() {
+		if (behaviorExecutionSpecificationItemProvider == null) {
+			behaviorExecutionSpecificationItemProvider = new BehaviorExecutionSpecificationItemProvider(this);
+		}
+
+		return behaviorExecutionSpecificationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.OpaqueBehavior} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OpaqueBehaviorItemProvider opaqueBehaviorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.OpaqueBehavior}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOpaqueBehaviorAdapter() {
+		if (opaqueBehaviorItemProvider == null) {
+			opaqueBehaviorItemProvider = new OpaqueBehaviorItemProvider(this);
+		}
+
+		return opaqueBehaviorItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Lifeline} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -138,6 +207,29 @@ public class Sequence_diagramItemProviderAdapterFactory extends Sequence_diagram
 		}
 
 		return actorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Operation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OperationItemProvider operationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Operation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOperationAdapter() {
+		if (operationItemProvider == null) {
+			operationItemProvider = new OperationItemProvider(this);
+		}
+
+		return operationItemProvider;
 	}
 
 	/**
@@ -354,14 +446,18 @@ public class Sequence_diagramItemProviderAdapterFactory extends Sequence_diagram
 	 * @generated
 	 */
 	public void dispose() {
-		if (messageItemProvider != null) messageItemProvider.dispose();
-		if (lifelineItemProvider != null) lifelineItemProvider.dispose();
-		if (actorItemProvider != null) actorItemProvider.dispose();
-		if (interactionItemProvider != null) interactionItemProvider.dispose();
 		if (packageItemProvider != null) packageItemProvider.dispose();
 		if (classItemProvider != null) classItemProvider.dispose();
-		if (propertyItemProvider != null) propertyItemProvider.dispose();
+		if (interactionItemProvider != null) interactionItemProvider.dispose();
+		if (actorItemProvider != null) actorItemProvider.dispose();
+		if (operationItemProvider != null) operationItemProvider.dispose();
+		if (messageItemProvider != null) messageItemProvider.dispose();
+		if (messageOccurenceSpecificationItemProvider != null) messageOccurenceSpecificationItemProvider.dispose();
+		if (behaviorExecutionSpecificationItemProvider != null) behaviorExecutionSpecificationItemProvider.dispose();
+		if (opaqueBehaviorItemProvider != null) opaqueBehaviorItemProvider.dispose();
 		if (actorLifelineItemProvider != null) actorLifelineItemProvider.dispose();
+		if (lifelineItemProvider != null) lifelineItemProvider.dispose();
+		if (propertyItemProvider != null) propertyItemProvider.dispose();
 	}
 
 }

@@ -31,6 +31,33 @@ public interface Sequence_diagramFactory extends EFactory {
 	Message createMessage();
 
 	/**
+	 * Returns a new object of class '<em>Message Occurence Specification</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Message Occurence Specification</em>'.
+	 * @generated
+	 */
+	MessageOccurenceSpecification createMessageOccurenceSpecification();
+
+	/**
+	 * Returns a new object of class '<em>Behavior Execution Specification</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Behavior Execution Specification</em>'.
+	 * @generated
+	 */
+	BehaviorExecutionSpecification createBehaviorExecutionSpecification();
+
+	/**
+	 * Returns a new object of class '<em>Opaque Behavior</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Opaque Behavior</em>'.
+	 * @generated
+	 */
+	OpaqueBehavior createOpaqueBehavior();
+
+	/**
 	 * Returns a new object of class '<em>Lifeline</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -47,6 +74,15 @@ public interface Sequence_diagramFactory extends EFactory {
 	 * @generated
 	 */
 	Actor createActor();
+
+	/**
+	 * Returns a new object of class '<em>Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Operation</em>'.
+	 * @generated
+	 */
+	Operation createOperation();
 
 	/**
 	 * Returns a new object of class '<em>Interaction</em>'.
