@@ -5,6 +5,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
 import de.uni_stuttgart.iste.cowolf.evolution.EvolutionTypeInfo;
 import de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine;
+import de.uni_stuttgart.iste.cowolf.model.statechart.StateMachineRoot;
 
 /**
  * This class handles evolution of a statechart model.
@@ -20,7 +21,7 @@ public class StatechartEvolutionManager extends AbstractEvolutionManager {
             return false;
         }
 
-        return model.getContents().get(0) instanceof StateMachine;
+        return model.getContents().get(0) instanceof StateMachineRoot;
     }
 
     @Override
@@ -32,6 +33,6 @@ public class StatechartEvolutionManager extends AbstractEvolutionManager {
 
 	@Override
 	protected Class<?> getManagedClass() {
-		return StateMachine.class;
+		return StateMachineRoot.class;
 	}
 }
