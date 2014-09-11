@@ -57,12 +57,7 @@ import de.uni_stuttgart.iste.cowolf.transformation.model.Rule;
 import de.uni_stuttgart.iste.cowolf.transformation.model.util.XMLMappingLoader;
 
 /**
- * @author Michael Zimmermann
- * @TODO: How to get the right transformation rules (simple look up table?) and
- *        needed parameter.
- * @TODO: Decide where traces should be stored (source or target model file or
- *        separate trace file)
- * @TODO: Should the transformation be done in place or not?
+ * 
  */
 public abstract class AbstractTransformationManager {
     protected static final URI RESOURCE_URL_OLDTRACES 	= URI.createURI("transform:oldtraces");
@@ -400,13 +395,21 @@ public abstract class AbstractTransformationManager {
 		ArrayList<EGraph> graphSources = new ArrayList<EGraph>(4);
         
 		Resource traceRes = transResSet.getResource(RESOURCE_URL_TRACES, false);
+		Resource traceOldRes = transResSet.getResource(RESOURCE_URL_OLDTRACES, false);
         graphSources.add(new EGraphImpl(transResSet.getResource(RESOURCE_URL_DIFF, false)));
         
-        if (traceRes != null) {
-        	graphSources.add(new EGraphImpl(transResSet.getResource(RESOURCE_URL_OLDTRACES, false)));
-        	graphSources.add(new EGraphImpl(traceRes));
-        } else {
+        if (traceRes == null || traceRes.getContents().size() == 0) {
         	graphSources.add(new EGraphImpl(transResSet.getResource(RESOURCE_URL_SOURCE, false)));
+        } else {
+        	graphSources.add(new EGraphImpl(traceRes));
+        }
+        
+        if (traceOldRes != null) {
+        	graphSources.add(new EGraphImpl(traceOldRes));
+        }
+	
+		if ((traceRes == null && traceOldRes == null)
+				|| (traceRes.getContents().size() == 0 && traceOldRes.getContents().size() == 0)) {
         	graphSources.add(new EGraphImpl(transResSet.getResource(RESOURCE_URL_TARGET, false)));
         }
         
