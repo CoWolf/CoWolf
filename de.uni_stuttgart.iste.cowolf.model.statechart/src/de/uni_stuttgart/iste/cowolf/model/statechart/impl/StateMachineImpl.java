@@ -40,6 +40,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateMachineImpl#getStatemachine_container <em>Statemachine container</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateMachineImpl#getCalledByAction <em>Called By Action</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateMachineImpl#getName <em>Name</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateMachineImpl#getInitialState <em>Initial State</em>}</li>
  * </ul>
  * </p>
  *
@@ -95,6 +96,16 @@ public class StateMachineImpl extends IDBaseImpl implements StateMachine {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getInitialState() <em>Initial State</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInitialState()
+	 * @generated
+	 * @ordered
+	 */
+	protected State initialState;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -218,6 +229,44 @@ public class StateMachineImpl extends IDBaseImpl implements StateMachine {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public State getInitialState() {
+		if (initialState != null && initialState.eIsProxy()) {
+			InternalEObject oldInitialState = (InternalEObject)initialState;
+			initialState = (State)eResolveProxy(oldInitialState);
+			if (initialState != oldInitialState) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StatemachinePackage.STATE_MACHINE__INITIAL_STATE, oldInitialState, initialState));
+			}
+		}
+		return initialState;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public State basicGetInitialState() {
+		return initialState;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInitialState(State newInitialState) {
+		State oldInitialState = initialState;
+		initialState = newInitialState;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, StatemachinePackage.STATE_MACHINE__INITIAL_STATE, oldInitialState, initialState));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -288,6 +337,9 @@ public class StateMachineImpl extends IDBaseImpl implements StateMachine {
 				return getCalledByAction();
 			case StatemachinePackage.STATE_MACHINE__NAME:
 				return getName();
+			case StatemachinePackage.STATE_MACHINE__INITIAL_STATE:
+				if (resolve) return getInitialState();
+				return basicGetInitialState();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -319,6 +371,9 @@ public class StateMachineImpl extends IDBaseImpl implements StateMachine {
 			case StatemachinePackage.STATE_MACHINE__NAME:
 				setName((String)newValue);
 				return;
+			case StatemachinePackage.STATE_MACHINE__INITIAL_STATE:
+				setInitialState((State)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -346,6 +401,9 @@ public class StateMachineImpl extends IDBaseImpl implements StateMachine {
 			case StatemachinePackage.STATE_MACHINE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case StatemachinePackage.STATE_MACHINE__INITIAL_STATE:
+				setInitialState((State)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -368,6 +426,8 @@ public class StateMachineImpl extends IDBaseImpl implements StateMachine {
 				return calledByAction != null && !calledByAction.isEmpty();
 			case StatemachinePackage.STATE_MACHINE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case StatemachinePackage.STATE_MACHINE__INITIAL_STATE:
+				return initialState != null;
 		}
 		return super.eIsSet(featureID);
 	}
