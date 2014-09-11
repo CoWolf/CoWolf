@@ -8,11 +8,16 @@ import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Message;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramPackage;
 
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.uml2.uml.NamedElement;
+import org.eclipse.uml2.uml.Namespace;
+import org.eclipse.uml2.uml.UMLPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -86,6 +91,17 @@ public class MessageImpl extends org.eclipse.uml2.uml.internal.impl.MessageImpl 
 		id = newId;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, Sequence_diagramPackage.MESSAGE__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isDistinguishableFrom(NamedElement n, Namespace ns) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -176,6 +192,46 @@ public class MessageImpl extends org.eclipse.uml2.uml.internal.impl.MessageImpl 
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
+		if (baseClass == NamedElement.class) {
+			switch (baseOperationID) {
+				case UMLPackage.NAMED_ELEMENT___IS_DISTINGUISHABLE_FROM__NAMEDELEMENT_NAMESPACE: return Sequence_diagramPackage.MESSAGE___IS_DISTINGUISHABLE_FROM__NAMEDELEMENT_NAMESPACE;
+				default: return super.eDerivedOperationID(baseOperationID, baseClass);
+			}
+		}
+		if (baseClass == org.eclipse.uml2.uml.Message.class) {
+			switch (baseOperationID) {
+				default: return super.eDerivedOperationID(baseOperationID, baseClass);
+			}
+		}
+		if (baseClass == IDBase.class) {
+			switch (baseOperationID) {
+				default: return -1;
+			}
+		}
+		return super.eDerivedOperationID(baseOperationID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case Sequence_diagramPackage.MESSAGE___IS_DISTINGUISHABLE_FROM__NAMEDELEMENT_NAMESPACE:
+				return isDistinguishableFrom((NamedElement)arguments.get(0), (Namespace)arguments.get(1));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
