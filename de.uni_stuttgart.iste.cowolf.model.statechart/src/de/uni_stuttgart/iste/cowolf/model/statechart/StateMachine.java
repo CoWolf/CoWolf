@@ -19,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine#getStatemachine_container <em>Statemachine container</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine#getCalledByAction <em>Called By Action</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine#getName <em>Name</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine#getInitialState <em>Initial State</em>}</li>
  * </ul>
  * </p>
  *
@@ -134,5 +135,31 @@ public interface StateMachine extends IDBase {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Initial State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Initial State</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Initial State</em>' reference.
+	 * @see #setInitialState(State)
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage#getStateMachine_InitialState()
+	 * @model
+	 * @generated
+	 */
+	State getInitialState();
+
+	/**
+	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine#getInitialState <em>Initial State</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Initial State</em>' reference.
+	 * @see #getInitialState()
+	 * @generated
+	 */
+	void setInitialState(State value);
 
 } // StateMachine

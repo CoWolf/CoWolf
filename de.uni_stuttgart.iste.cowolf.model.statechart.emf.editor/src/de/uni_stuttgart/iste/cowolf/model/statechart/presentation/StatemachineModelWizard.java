@@ -185,7 +185,7 @@ public class StatemachineModelWizard extends Wizard implements INewWizard {
 	 * Returns the names of the types that can be created as the root object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	protected Collection<String> getInitialObjectNames() {
 		if (initialObjectNames == null) {
