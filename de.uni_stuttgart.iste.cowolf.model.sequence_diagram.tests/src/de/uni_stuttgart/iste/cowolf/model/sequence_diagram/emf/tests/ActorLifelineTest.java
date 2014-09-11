@@ -2,7 +2,7 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.sequence_diagram.emf.tests;
 
-import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.SdInteraction;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ActorLifeline;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramFactory;
 
 import junit.framework.TestCase;
@@ -11,19 +11,19 @@ import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Sd Interaction</b></em>'.
+ * A test case for the model object '<em><b>Actor Lifeline</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class SdInteractionTest extends TestCase {
+public class ActorLifelineTest extends TestCase {
 
 	/**
-	 * The fixture for this Sd Interaction test case.
+	 * The fixture for this Actor Lifeline test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SdInteraction fixture = null;
+	protected ActorLifeline fixture = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -31,36 +31,36 @@ public class SdInteractionTest extends TestCase {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(SdInteractionTest.class);
+		TestRunner.run(ActorLifelineTest.class);
 	}
 
 	/**
-	 * Constructs a new Sd Interaction test case with the given name.
+	 * Constructs a new Actor Lifeline test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SdInteractionTest(String name) {
+	public ActorLifelineTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Sets the fixture for this Sd Interaction test case.
+	 * Sets the fixture for this Actor Lifeline test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void setFixture(SdInteraction fixture) {
+	protected void setFixture(ActorLifeline fixture) {
 		this.fixture = fixture;
 	}
 
 	/**
-	 * Returns the fixture for this Sd Interaction test case.
+	 * Returns the fixture for this Actor Lifeline test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SdInteraction getFixture() {
+	protected ActorLifeline getFixture() {
 		return fixture;
 	}
 
@@ -72,7 +72,7 @@ public class SdInteractionTest extends TestCase {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(Sequence_diagramFactory.eINSTANCE.createSdInteraction());
+		setFixture(Sequence_diagramFactory.eINSTANCE.createActorLifeline());
 	}
 
 	/**
@@ -86,4 +86,4 @@ public class SdInteractionTest extends TestCase {
 		setFixture(null);
 	}
 
-} //SdInteractionTest
+} //ActorLifelineTest

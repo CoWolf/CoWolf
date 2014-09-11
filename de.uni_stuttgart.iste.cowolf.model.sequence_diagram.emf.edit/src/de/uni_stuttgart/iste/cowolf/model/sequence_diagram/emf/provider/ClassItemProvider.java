@@ -5,7 +5,6 @@ package de.uni_stuttgart.iste.cowolf.model.sequence_diagram.emf.provider;
 
 import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
 
-import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Actor;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramFactory;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramPackage;
 
@@ -25,19 +24,19 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.uml2.uml.UMLPackage;
 
 /**
- * This is the item provider adapter for a {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Actor} object.
+ * This is the item provider adapter for a {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Class} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ActorItemProvider extends org.eclipse.uml2.uml.edit.providers.ActorItemProvider {
+public class ClassItemProvider extends org.eclipse.uml2.uml.edit.providers.ClassItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ActorItemProvider(AdapterFactory adapterFactory) {
+	public ClassItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -80,14 +79,14 @@ public class ActorItemProvider extends org.eclipse.uml2.uml.edit.providers.Actor
 	}
 
 	/**
-	 * This returns Actor.gif.
+	 * This returns Class.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Actor"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Class"));
 	}
 
 	/**
@@ -98,10 +97,10 @@ public class ActorItemProvider extends org.eclipse.uml2.uml.edit.providers.Actor
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Actor)object).getName();
+		String label = ((de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Class)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Actor_type") :
-			getString("_UI_Actor_type") + " " + label;
+			getString("_UI_Class_type") :
+			getString("_UI_Class_type") + " " + label;
 	}
 	
 
@@ -116,8 +115,8 @@ public class ActorItemProvider extends org.eclipse.uml2.uml.edit.providers.Actor
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Actor.class)) {
-			case Sequence_diagramPackage.ACTOR__ID:
+		switch (notification.getFeatureID(de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Class.class)) {
+			case Sequence_diagramPackage.CLASS__ID:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -137,6 +136,11 @@ public class ActorItemProvider extends org.eclipse.uml2.uml.edit.providers.Actor
 
 		newChildDescriptors.add
 			(createChildParameter
+				(UMLPackage.Literals.STRUCTURED_CLASSIFIER__OWNED_ATTRIBUTE,
+				 Sequence_diagramFactory.eINSTANCE.createProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(UMLPackage.Literals.BEHAVIORED_CLASSIFIER__CLASSIFIER_BEHAVIOR,
 				 Sequence_diagramFactory.eINSTANCE.createInteraction()));
 
@@ -144,6 +148,21 @@ public class ActorItemProvider extends org.eclipse.uml2.uml.edit.providers.Actor
 			(createChildParameter
 				(UMLPackage.Literals.BEHAVIORED_CLASSIFIER__OWNED_BEHAVIOR,
 				 Sequence_diagramFactory.eINSTANCE.createInteraction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(UMLPackage.Literals.CLASS__NESTED_CLASSIFIER,
+				 Sequence_diagramFactory.eINSTANCE.createActor()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(UMLPackage.Literals.CLASS__NESTED_CLASSIFIER,
+				 Sequence_diagramFactory.eINSTANCE.createInteraction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(UMLPackage.Literals.CLASS__NESTED_CLASSIFIER,
+				 Sequence_diagramFactory.eINSTANCE.createClass()));
 	}
 
 	/**
@@ -160,6 +179,10 @@ public class ActorItemProvider extends org.eclipse.uml2.uml.edit.providers.Actor
 		boolean qualify =
 			childFeature == UMLPackage.Literals.CLASSIFIER__COLLABORATION_USE ||
 			childFeature == UMLPackage.Literals.CLASSIFIER__REPRESENTATION ||
+			childFeature == UMLPackage.Literals.CLASSIFIER__OWNED_USE_CASE ||
+			childFeature == UMLPackage.Literals.CLASS__NESTED_CLASSIFIER ||
+			childFeature == UMLPackage.Literals.STRUCTURED_CLASSIFIER__OWNED_ATTRIBUTE ||
+			childFeature == UMLPackage.Literals.ENCAPSULATED_CLASSIFIER__OWNED_PORT ||
 			childFeature == UMLPackage.Literals.BEHAVIORED_CLASSIFIER__CLASSIFIER_BEHAVIOR ||
 			childFeature == UMLPackage.Literals.BEHAVIORED_CLASSIFIER__OWNED_BEHAVIOR;
 

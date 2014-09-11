@@ -5,7 +5,6 @@ package de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl;
 import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
 import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
 
-import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.SdInteraction;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -14,22 +13,20 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.uml2.uml.internal.impl.InteractionImpl;
-
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Sd Interaction</b></em>'.
+ * An implementation of the model object '<em><b>Class</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.SdInteractionImpl#getId <em>Id</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.ClassImpl#getId <em>Id</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class SdInteractionImpl extends InteractionImpl implements SdInteraction {
+public class ClassImpl extends org.eclipse.uml2.uml.internal.impl.ClassImpl implements de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Class {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -55,7 +52,7 @@ public class SdInteractionImpl extends InteractionImpl implements SdInteraction 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SdInteractionImpl() {
+	protected ClassImpl() {
 		super();
 	}
 
@@ -66,7 +63,7 @@ public class SdInteractionImpl extends InteractionImpl implements SdInteraction 
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return Sequence_diagramPackage.Literals.SD_INTERACTION;
+		return Sequence_diagramPackage.Literals.CLASS;
 	}
 
 	/**
@@ -87,7 +84,7 @@ public class SdInteractionImpl extends InteractionImpl implements SdInteraction 
 		String oldId = id;
 		id = newId;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Sequence_diagramPackage.SD_INTERACTION__ID, oldId, id));
+			eNotify(new ENotificationImpl(this, Notification.SET, Sequence_diagramPackage.CLASS__ID, oldId, id));
 	}
 
 	/**
@@ -98,7 +95,7 @@ public class SdInteractionImpl extends InteractionImpl implements SdInteraction 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case Sequence_diagramPackage.SD_INTERACTION__ID:
+			case Sequence_diagramPackage.CLASS__ID:
 				return getId();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -112,7 +109,7 @@ public class SdInteractionImpl extends InteractionImpl implements SdInteraction 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case Sequence_diagramPackage.SD_INTERACTION__ID:
+			case Sequence_diagramPackage.CLASS__ID:
 				setId((String)newValue);
 				return;
 		}
@@ -127,7 +124,7 @@ public class SdInteractionImpl extends InteractionImpl implements SdInteraction 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case Sequence_diagramPackage.SD_INTERACTION__ID:
+			case Sequence_diagramPackage.CLASS__ID:
 				setId(ID_EDEFAULT);
 				return;
 		}
@@ -142,7 +139,7 @@ public class SdInteractionImpl extends InteractionImpl implements SdInteraction 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case Sequence_diagramPackage.SD_INTERACTION__ID:
+			case Sequence_diagramPackage.CLASS__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 		}
 		return super.eIsSet(featureID);
@@ -157,7 +154,7 @@ public class SdInteractionImpl extends InteractionImpl implements SdInteraction 
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == IDBase.class) {
 			switch (derivedFeatureID) {
-				case Sequence_diagramPackage.SD_INTERACTION__ID: return CommonBasePackage.ID_BASE__ID;
+				case Sequence_diagramPackage.CLASS__ID: return CommonBasePackage.ID_BASE__ID;
 				default: return -1;
 			}
 		}
@@ -173,7 +170,7 @@ public class SdInteractionImpl extends InteractionImpl implements SdInteraction 
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == IDBase.class) {
 			switch (baseFeatureID) {
-				case CommonBasePackage.ID_BASE__ID: return Sequence_diagramPackage.SD_INTERACTION__ID;
+				case CommonBasePackage.ID_BASE__ID: return Sequence_diagramPackage.CLASS__ID;
 				default: return -1;
 			}
 		}
@@ -196,4 +193,4 @@ public class SdInteractionImpl extends InteractionImpl implements SdInteraction 
 		return result.toString();
 	}
 
-} //SdInteractionImpl
+} //ClassImpl
