@@ -31,14 +31,18 @@ public class Sequence_diagramTests extends TestSuite {
 	 */
 	public static Test suite() {
 		TestSuite suite = new Sequence_diagramTests("sequence_diagram Tests");
-		suite.addTestSuite(MessageTest.class);
-		suite.addTestSuite(LifelineTest.class);
-		suite.addTestSuite(ActorTest.class);
-		suite.addTestSuite(InteractionTest.class);
 		suite.addTestSuite(PackageTest.class);
 		suite.addTestSuite(ClassTest.class);
-		suite.addTestSuite(PropertyTest.class);
+		suite.addTestSuite(InteractionTest.class);
+		suite.addTestSuite(ActorTest.class);
+		suite.addTestSuite(OperationTest.class);
+		suite.addTestSuite(MessageTest.class);
+		suite.addTestSuite(MessageOccurenceSpecificationTest.class);
+		suite.addTestSuite(BehaviorExecutionSpecificationTest.class);
+		suite.addTestSuite(OpaqueBehaviorTest.class);
 		suite.addTestSuite(ActorLifelineTest.class);
+		suite.addTestSuite(LifelineTest.class);
+		suite.addTestSuite(PropertyTest.class);
 		return suite;
 	}
 

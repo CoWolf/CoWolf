@@ -5,10 +5,13 @@ package de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl;
 import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Actor;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ActorLifeline;
-import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ExecutionSpecification;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.BehaviorExecutionSpecification;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Interaction;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Lifeline;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Message;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.MessageOccurenceSpecification;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.OpaqueBehavior;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Operation;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Property;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramFactory;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramPackage;
@@ -36,6 +39,27 @@ public class Sequence_diagramPackageImpl extends EPackageImpl implements Sequenc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass messageOccurenceSpecificationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass behaviorExecutionSpecificationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass opaqueBehaviorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass lifelineEClass = null;
 
 	/**
@@ -43,14 +67,14 @@ public class Sequence_diagramPackageImpl extends EPackageImpl implements Sequenc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass executionSpecificationEClass = null;
+	private EClass actorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass actorEClass = null;
+	private EClass operationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -166,6 +190,33 @@ public class Sequence_diagramPackageImpl extends EPackageImpl implements Sequenc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getMessageOccurenceSpecification() {
+		return messageOccurenceSpecificationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBehaviorExecutionSpecification() {
+		return behaviorExecutionSpecificationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getOpaqueBehavior() {
+		return opaqueBehaviorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getLifeline() {
 		return lifelineEClass;
 	}
@@ -175,8 +226,8 @@ public class Sequence_diagramPackageImpl extends EPackageImpl implements Sequenc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getExecutionSpecification() {
-		return executionSpecificationEClass;
+	public EClass getActor() {
+		return actorEClass;
 	}
 
 	/**
@@ -184,8 +235,8 @@ public class Sequence_diagramPackageImpl extends EPackageImpl implements Sequenc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getActor() {
-		return actorEClass;
+	public EClass getOperation() {
+		return operationEClass;
 	}
 
 	/**
@@ -261,23 +312,29 @@ public class Sequence_diagramPackageImpl extends EPackageImpl implements Sequenc
 		isCreated = true;
 
 		// Create classes and their features
-		messageEClass = createEClass(MESSAGE);
-
-		lifelineEClass = createEClass(LIFELINE);
-
-		executionSpecificationEClass = createEClass(EXECUTION_SPECIFICATION);
-
-		actorEClass = createEClass(ACTOR);
-
-		interactionEClass = createEClass(INTERACTION);
-
 		packageEClass = createEClass(PACKAGE);
 
 		classEClass = createEClass(CLASS);
 
-		propertyEClass = createEClass(PROPERTY);
+		interactionEClass = createEClass(INTERACTION);
+
+		actorEClass = createEClass(ACTOR);
+
+		operationEClass = createEClass(OPERATION);
+
+		messageEClass = createEClass(MESSAGE);
+
+		messageOccurenceSpecificationEClass = createEClass(MESSAGE_OCCURENCE_SPECIFICATION);
+
+		behaviorExecutionSpecificationEClass = createEClass(BEHAVIOR_EXECUTION_SPECIFICATION);
+
+		opaqueBehaviorEClass = createEClass(OPAQUE_BEHAVIOR);
 
 		actorLifelineEClass = createEClass(ACTOR_LIFELINE);
+
+		lifelineEClass = createEClass(LIFELINE);
+
+		propertyEClass = createEClass(PROPERTY);
 	}
 
 	/**
@@ -312,43 +369,55 @@ public class Sequence_diagramPackageImpl extends EPackageImpl implements Sequenc
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		messageEClass.getESuperTypes().add(theUMLPackage.getMessage());
-		messageEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
-		lifelineEClass.getESuperTypes().add(theUMLPackage.getLifeline());
-		lifelineEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
-		executionSpecificationEClass.getESuperTypes().add(theUMLPackage.getExecutionSpecification());
-		executionSpecificationEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
-		actorEClass.getESuperTypes().add(theUMLPackage.getActor());
-		actorEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
-		interactionEClass.getESuperTypes().add(theUMLPackage.getInteraction());
-		interactionEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
 		packageEClass.getESuperTypes().add(theUMLPackage.getPackage());
 		packageEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
 		classEClass.getESuperTypes().add(theUMLPackage.getClass_());
 		classEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
-		propertyEClass.getESuperTypes().add(theUMLPackage.getProperty());
-		propertyEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
+		interactionEClass.getESuperTypes().add(theUMLPackage.getInteraction());
+		interactionEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
+		actorEClass.getESuperTypes().add(theUMLPackage.getActor());
+		actorEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
+		operationEClass.getESuperTypes().add(theUMLPackage.getOperation());
+		operationEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
+		messageEClass.getESuperTypes().add(theUMLPackage.getMessage());
+		messageEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
+		messageOccurenceSpecificationEClass.getESuperTypes().add(theUMLPackage.getMessageOccurrenceSpecification());
+		messageOccurenceSpecificationEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
+		behaviorExecutionSpecificationEClass.getESuperTypes().add(theUMLPackage.getBehaviorExecutionSpecification());
+		behaviorExecutionSpecificationEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
+		opaqueBehaviorEClass.getESuperTypes().add(theUMLPackage.getOpaqueBehavior());
+		opaqueBehaviorEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
 		actorLifelineEClass.getESuperTypes().add(theUMLPackage.getLifeline());
 		actorLifelineEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
+		lifelineEClass.getESuperTypes().add(theUMLPackage.getLifeline());
+		lifelineEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
+		propertyEClass.getESuperTypes().add(theUMLPackage.getProperty());
+		propertyEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(messageEClass, Message.class, "Message", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(lifelineEClass, Lifeline.class, "Lifeline", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(executionSpecificationEClass, ExecutionSpecification.class, "ExecutionSpecification", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(actorEClass, Actor.class, "Actor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(interactionEClass, Interaction.class, "Interaction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(packageEClass, de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Package.class, "Package", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(classEClass, de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Class.class, "Class", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(interactionEClass, Interaction.class, "Interaction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(actorEClass, Actor.class, "Actor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(operationEClass, Operation.class, "Operation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(messageEClass, Message.class, "Message", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(messageOccurenceSpecificationEClass, MessageOccurenceSpecification.class, "MessageOccurenceSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(behaviorExecutionSpecificationEClass, BehaviorExecutionSpecification.class, "BehaviorExecutionSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(opaqueBehaviorEClass, OpaqueBehavior.class, "OpaqueBehavior", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(actorLifelineEClass, ActorLifeline.class, "ActorLifeline", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(lifelineEClass, Lifeline.class, "Lifeline", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
