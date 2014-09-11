@@ -2091,6 +2091,10 @@ public class SequenceServices {
 		if (preTarget == null) {
 			return false;
 		}
+		
+		if(preTarget instanceof de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ActorLifeline){
+			return false;
+		}
 
 		if (preTarget instanceof Lifeline) {
 			return isValidMessageEndForLifeline(preTarget);
@@ -2107,6 +2111,26 @@ public class SequenceServices {
 		return false;
 	}
 
+	public boolean isValidMessageStart(EObject preSource) {
+		if (preSource == null) {
+			return false;
+		}
+
+		if (preSource instanceof de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Lifeline) {
+			return false;
+		}
+		if (preSource instanceof de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ActorLifeline) {
+			return true;
+
+		} else if (preSource instanceof ExecutionSpecification) {
+			return true;
+		}
+
+		return false;
+	}
+
+	
+	
 	private boolean isValidMessageEndForLifeline(EObject preTarget) {
 		ConnectableElement element = ((Lifeline)preTarget).getRepresents();
 		if (element != null && element.getType() != null) {
