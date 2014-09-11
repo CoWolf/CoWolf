@@ -325,6 +325,29 @@ public class Sequence_diagramItemProviderAdapterFactory extends Sequence_diagram
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ExecutionSpecifiaction} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ExecutionSpecifiactionItemProvider executionSpecifiactionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ExecutionSpecifiaction}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createExecutionSpecifiactionAdapter() {
+		if (executionSpecifiactionItemProvider == null) {
+			executionSpecifiactionItemProvider = new ExecutionSpecifiactionItemProvider(this);
+		}
+
+		return executionSpecifiactionItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ActorLifeline} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -458,6 +481,7 @@ public class Sequence_diagramItemProviderAdapterFactory extends Sequence_diagram
 		if (actorLifelineItemProvider != null) actorLifelineItemProvider.dispose();
 		if (lifelineItemProvider != null) lifelineItemProvider.dispose();
 		if (propertyItemProvider != null) propertyItemProvider.dispose();
+		if (executionSpecifiactionItemProvider != null) executionSpecifiactionItemProvider.dispose();
 	}
 
 }

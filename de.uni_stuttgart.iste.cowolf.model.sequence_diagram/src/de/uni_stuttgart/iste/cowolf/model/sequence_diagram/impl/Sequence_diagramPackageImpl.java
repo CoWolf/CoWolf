@@ -6,6 +6,7 @@ import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Actor;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ActorLifeline;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.BehaviorExecutionSpecification;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ExecutionSpecifiaction;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Interaction;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Lifeline;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Message;
@@ -103,6 +104,13 @@ public class Sequence_diagramPackageImpl extends EPackageImpl implements Sequenc
 	 * @generated
 	 */
 	private EClass propertyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass executionSpecifiactionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -280,6 +288,15 @@ public class Sequence_diagramPackageImpl extends EPackageImpl implements Sequenc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getExecutionSpecifiaction() {
+		return executionSpecifiactionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getActorLifeline() {
 		return actorLifelineEClass;
 	}
@@ -335,6 +352,8 @@ public class Sequence_diagramPackageImpl extends EPackageImpl implements Sequenc
 		lifelineEClass = createEClass(LIFELINE);
 
 		propertyEClass = createEClass(PROPERTY);
+
+		executionSpecifiactionEClass = createEClass(EXECUTION_SPECIFIACTION);
 	}
 
 	/**
@@ -393,6 +412,8 @@ public class Sequence_diagramPackageImpl extends EPackageImpl implements Sequenc
 		lifelineEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
 		propertyEClass.getESuperTypes().add(theUMLPackage.getProperty());
 		propertyEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
+		executionSpecifiactionEClass.getESuperTypes().add(theUMLPackage.getExecutionSpecification());
+		executionSpecifiactionEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(packageEClass, de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Package.class, "Package", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -418,6 +439,8 @@ public class Sequence_diagramPackageImpl extends EPackageImpl implements Sequenc
 		initEClass(lifelineEClass, Lifeline.class, "Lifeline", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(executionSpecifiactionEClass, ExecutionSpecifiaction.class, "ExecutionSpecifiaction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
