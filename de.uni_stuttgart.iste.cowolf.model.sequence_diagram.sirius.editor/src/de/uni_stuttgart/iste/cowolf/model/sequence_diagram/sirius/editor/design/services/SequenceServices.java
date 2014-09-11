@@ -808,7 +808,7 @@ public class SequenceServices {
 			Interaction interaction, NamedElement sourceFragment, NamedElement targetFragment,
 			Element startingEndPredecessor, Element finishingEndPredecessor, Operation operation) {
 
-		final UMLFactory factory = UMLFactory.eINSTANCE;
+		final Sequence_diagramFactory factory = de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramFactory.eINSTANCE;
 
 		final Lifeline source = getLifeline(sourceFragment);
 		final Lifeline target = getLifeline(targetFragment);
@@ -827,14 +827,14 @@ public class SequenceServices {
 
 		// Create message send event
 		final MessageOccurrenceSpecification senderEventMessage = factory
-				.createMessageOccurrenceSpecification();
+				.createMessageOccurenceSpecification();
 		senderEventMessage.setName(message.getName() + SENDER_MESSAGE_SUFFIX);
 		senderEventMessage.getCovereds().add(source);
 		senderEventMessage.setMessage(message);
 
 		// Create message receive event
 		final MessageOccurrenceSpecification receiverEventMessage = factory
-				.createMessageOccurrenceSpecification();
+				.createMessageOccurenceSpecification();
 		receiverEventMessage.setName(message.getName() + RECEIVER_MESSAGE_SUFFIX);
 		receiverEventMessage.getCovereds().add(target);
 		receiverEventMessage.setMessage(message);
@@ -867,7 +867,7 @@ public class SequenceServices {
 			NamedElement targetFragment, Element startingEndPredecessor, Element finishingEndPredecessor,
 			Message message) {
 
-		final UMLFactory factory = UMLFactory.eINSTANCE;
+		final Sequence_diagramFactory factory = de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramFactory.eINSTANCE;
 
 		final Lifeline source = getLifeline(sourceFragment);
 		final Lifeline target = getLifeline(targetFragment);
@@ -880,14 +880,14 @@ public class SequenceServices {
 
 		// Create reply message send event
 		final MessageOccurrenceSpecification senderEventReplyMessage = factory
-				.createMessageOccurrenceSpecification();
+				.createMessageOccurenceSpecification();
 		senderEventReplyMessage.setName(replyMessage.getName() + SENDER_MESSAGE_SUFFIX);
 		senderEventReplyMessage.getCovereds().add(target);
 		senderEventReplyMessage.setMessage(replyMessage);
 
 		// Create reply message receive event
 		final MessageOccurrenceSpecification receiverEventReplyMessage = factory
-				.createMessageOccurrenceSpecification();
+				.createMessageOccurenceSpecification();
 		receiverEventReplyMessage.setName(replyMessage.getName() + RECEIVER_MESSAGE_SUFFIX);
 		receiverEventReplyMessage.getCovereds().add(source);
 		receiverEventReplyMessage.setMessage(replyMessage);
@@ -1764,7 +1764,7 @@ public class SequenceServices {
 
 	private BehaviorExecutionSpecification createExecution(/* Operation operation, */
 	final Lifeline covered, final Message message) {
-		final UMLFactory factory = UMLFactory.eINSTANCE;
+		final Sequence_diagramFactory factory = de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramFactory.eINSTANCE;
 		final OpaqueBehavior behavior = factory.createOpaqueBehavior();
 
 		behavior.setName(message.getName());
@@ -1780,7 +1780,7 @@ public class SequenceServices {
 
 	private Message createAsynchronousMessage(Interaction interaction, boolean createOperation,
 			NamedElement sourceFragment, NamedElement targetFragment, Operation operation) {
-		final UMLFactory factory = UMLFactory.eINSTANCE;
+		final Sequence_diagramFactory factory = de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramFactory.eINSTANCE;
 		final Message message = factory.createMessage();
 
 		final Lifeline source = getLifeline(sourceFragment);
@@ -1798,14 +1798,14 @@ public class SequenceServices {
 
 		// Create message send event
 		final MessageOccurrenceSpecification senderEventMessage = factory
-				.createMessageOccurrenceSpecification();
+				.createMessageOccurenceSpecification();
 		senderEventMessage.setName(message.getName() + SENDER_MESSAGE_SUFFIX);
 		senderEventMessage.getCovereds().add(source);
 		senderEventMessage.setMessage(message);
 
 		// Create message receive event
 		final MessageOccurrenceSpecification receiverEventMessage = factory
-				.createMessageOccurrenceSpecification();
+				.createMessageOccurenceSpecification();
 		receiverEventMessage.setName(message.getName() + RECEIVER_MESSAGE_SUFFIX);
 		receiverEventMessage.getCovereds().add(target);
 		receiverEventMessage.setMessage(message);
