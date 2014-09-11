@@ -68,7 +68,7 @@ point="org.eclipse.ui.handlers">
 point="org.eclipse.ui.menus">
 <menuContribution
 allPopups="false"
-            locationURI="popup:org.eclipse.ui.navigator.ProjectExplorer#PopupMenu?before=additions">
+            locationURI="popup:org.eclipse.ui.popup.any?before=additions">
          <menu
                icon="icons/logo_wulf_15x15.png"
                label="%menu.label">
@@ -94,6 +94,12 @@ allPopups="false"
                   name="de.uni_stuttgart.iste.cowolf.ui.navigator.separator"
                   visible="true">
             </separator>
+            <visibleWhen
+                  checkEnabled="false">
+               <reference
+                     definitionId="de.uni_stuttgart.iste.cowolf.ui.navigator.definition.visibility">
+               </reference>
+            </visibleWhen>
          </menu>
 </menuContribution>
    </extension>
@@ -121,6 +127,20 @@ allPopups="false"
       <startup
             class="de.uni_stuttgart.iste.cowolf.ui.navigator.trigger.StartTrigger">
       </startup>
+   </extension>
+   <extension
+         point="org.eclipse.core.expressions.definitions">
+      <definition
+            id="de.uni_stuttgart.iste.cowolf.ui.navigator.definition.visibility">
+                    <with
+               variable="selection">
+            <iterate>
+               <instanceof
+                     value="org.eclipse.core.resources.IFile">
+               </instanceof>
+            </iterate>
+         </with>
+      </definition>
    </extension>
 </plugin>
 
