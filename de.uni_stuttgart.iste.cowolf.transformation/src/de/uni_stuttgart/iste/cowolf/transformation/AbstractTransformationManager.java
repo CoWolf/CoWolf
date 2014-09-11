@@ -164,8 +164,8 @@ public abstract class AbstractTransformationManager {
 	        	}
 	        }
         } else if (latestFrom != null) {
-        	latest = latestTo;
-	        for (ModelVersion version : latestTo.getTarget()) {
+        	latest = latestFrom;
+	        for (ModelVersion version : latestFrom.getTarget()) {
 	        	if (version.getModel().equals(sourceModel)) {
 	        		oldSourceVersion = version;
 	        		break;
