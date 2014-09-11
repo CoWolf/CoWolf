@@ -43,6 +43,7 @@ public class Sequence_diagramTests extends TestSuite {
 		suite.addTestSuite(ActorLifelineTest.class);
 		suite.addTestSuite(LifelineTest.class);
 		suite.addTestSuite(PropertyTest.class);
+		suite.addTestSuite(ExecutionSpecifiactionTest.class);
 		return suite;
 	}
 

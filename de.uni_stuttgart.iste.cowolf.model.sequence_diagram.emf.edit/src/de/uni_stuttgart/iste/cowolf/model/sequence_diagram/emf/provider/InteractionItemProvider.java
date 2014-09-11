@@ -212,6 +212,11 @@ public class InteractionItemProvider extends org.eclipse.uml2.uml.edit.providers
 
 		newChildDescriptors.add
 			(createChildParameter
+				(UMLPackage.Literals.INTERACTION__FRAGMENT,
+				 Sequence_diagramFactory.eINSTANCE.createExecutionSpecifiaction()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(UMLPackage.Literals.INTERACTION__MESSAGE,
 				 Sequence_diagramFactory.eINSTANCE.createMessage()));
 	}

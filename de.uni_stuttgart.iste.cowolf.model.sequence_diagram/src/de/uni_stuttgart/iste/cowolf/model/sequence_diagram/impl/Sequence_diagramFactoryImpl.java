@@ -5,6 +5,7 @@ package de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Actor;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ActorLifeline;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.BehaviorExecutionSpecification;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ExecutionSpecifiaction;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Interaction;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Lifeline;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Message;
@@ -76,6 +77,7 @@ public class Sequence_diagramFactoryImpl extends EFactoryImpl implements Sequenc
 			case Sequence_diagramPackage.ACTOR_LIFELINE: return createActorLifeline();
 			case Sequence_diagramPackage.LIFELINE: return createLifeline();
 			case Sequence_diagramPackage.PROPERTY: return createProperty();
+			case Sequence_diagramPackage.EXECUTION_SPECIFIACTION: return createExecutionSpecifiaction();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -189,6 +191,16 @@ public class Sequence_diagramFactoryImpl extends EFactoryImpl implements Sequenc
 	public Property createProperty() {
 		PropertyImpl property = new PropertyImpl();
 		return property;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExecutionSpecifiaction createExecutionSpecifiaction() {
+		ExecutionSpecifiactionImpl executionSpecifiaction = new ExecutionSpecifiactionImpl();
+		return executionSpecifiaction;
 	}
 
 	/**

@@ -6,6 +6,7 @@ import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Actor;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ActorLifeline;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.BehaviorExecutionSpecification;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ExecutionSpecifiaction;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Lifeline;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Message;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.MessageOccurenceSpecification;
@@ -25,6 +26,7 @@ import org.eclipse.uml2.uml.ConnectableElement;
 import org.eclipse.uml2.uml.DeploymentTarget;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.EncapsulatedClassifier;
+import org.eclipse.uml2.uml.ExecutionSpecification;
 import org.eclipse.uml2.uml.Feature;
 import org.eclipse.uml2.uml.Interaction;
 import org.eclipse.uml2.uml.InteractionFragment;
@@ -298,6 +300,18 @@ public class Sequence_diagramSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case Sequence_diagramPackage.EXECUTION_SPECIFIACTION: {
+				ExecutionSpecifiaction executionSpecifiaction = (ExecutionSpecifiaction)theEObject;
+				T result = caseExecutionSpecifiaction(executionSpecifiaction);
+				if (result == null) result = caseExecutionSpecification(executionSpecifiaction);
+				if (result == null) result = caseIDBase(executionSpecifiaction);
+				if (result == null) result = caseInteractionFragment(executionSpecifiaction);
+				if (result == null) result = caseNamedElement(executionSpecifiaction);
+				if (result == null) result = caseElement(executionSpecifiaction);
+				if (result == null) result = caseEModelElement(executionSpecifiaction);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -468,6 +482,21 @@ public class Sequence_diagramSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Execution Specifiaction</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Execution Specifiaction</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExecutionSpecifiaction(ExecutionSpecifiaction object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Actor Lifeline</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -598,7 +627,7 @@ public class Sequence_diagramSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseExecutionSpecification(org.eclipse.uml2.uml.ExecutionSpecification object) {
+	public T caseExecutionSpecification(ExecutionSpecification object) {
 		return null;
 	}
 

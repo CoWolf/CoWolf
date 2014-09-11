@@ -13679,6 +13679,656 @@ public interface Sequence_diagramPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.ExecutionSpecifiactionImpl <em>Execution Specifiaction</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.ExecutionSpecifiactionImpl
+	 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.Sequence_diagramPackageImpl#getExecutionSpecifiaction()
+	 * @generated
+	 */
+	int EXECUTION_SPECIFIACTION = 12;
+
+	/**
+	 * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION__EANNOTATIONS = UMLPackage.EXECUTION_SPECIFICATION__EANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Owned Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION__OWNED_COMMENT = UMLPackage.EXECUTION_SPECIFICATION__OWNED_COMMENT;
+
+	/**
+	 * The feature id for the '<em><b>Owned Element</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION__OWNED_ELEMENT = UMLPackage.EXECUTION_SPECIFICATION__OWNED_ELEMENT;
+
+	/**
+	 * The feature id for the '<em><b>Owner</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION__OWNER = UMLPackage.EXECUTION_SPECIFICATION__OWNER;
+
+	/**
+	 * The feature id for the '<em><b>Client Dependency</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION__CLIENT_DEPENDENCY = UMLPackage.EXECUTION_SPECIFICATION__CLIENT_DEPENDENCY;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION__NAME = UMLPackage.EXECUTION_SPECIFICATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Name Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION__NAME_EXPRESSION = UMLPackage.EXECUTION_SPECIFICATION__NAME_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Namespace</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION__NAMESPACE = UMLPackage.EXECUTION_SPECIFICATION__NAMESPACE;
+
+	/**
+	 * The feature id for the '<em><b>Qualified Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION__QUALIFIED_NAME = UMLPackage.EXECUTION_SPECIFICATION__QUALIFIED_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Visibility</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION__VISIBILITY = UMLPackage.EXECUTION_SPECIFICATION__VISIBILITY;
+
+	/**
+	 * The feature id for the '<em><b>Covered</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION__COVERED = UMLPackage.EXECUTION_SPECIFICATION__COVERED;
+
+	/**
+	 * The feature id for the '<em><b>Enclosing Operand</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION__ENCLOSING_OPERAND = UMLPackage.EXECUTION_SPECIFICATION__ENCLOSING_OPERAND;
+
+	/**
+	 * The feature id for the '<em><b>Enclosing Interaction</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION__ENCLOSING_INTERACTION = UMLPackage.EXECUTION_SPECIFICATION__ENCLOSING_INTERACTION;
+
+	/**
+	 * The feature id for the '<em><b>General Ordering</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION__GENERAL_ORDERING = UMLPackage.EXECUTION_SPECIFICATION__GENERAL_ORDERING;
+
+	/**
+	 * The feature id for the '<em><b>Finish</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION__FINISH = UMLPackage.EXECUTION_SPECIFICATION__FINISH;
+
+	/**
+	 * The feature id for the '<em><b>Start</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION__START = UMLPackage.EXECUTION_SPECIFICATION__START;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION__ID = UMLPackage.EXECUTION_SPECIFICATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Execution Specifiaction</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION_FEATURE_COUNT = UMLPackage.EXECUTION_SPECIFICATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get EAnnotation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___GET_EANNOTATION__STRING = UMLPackage.EXECUTION_SPECIFICATION___GET_EANNOTATION__STRING;
+
+	/**
+	 * The operation id for the '<em>Validate Has Owner</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___VALIDATE_HAS_OWNER__DIAGNOSTICCHAIN_MAP = UMLPackage.EXECUTION_SPECIFICATION___VALIDATE_HAS_OWNER__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Validate Not Own Self</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___VALIDATE_NOT_OWN_SELF__DIAGNOSTICCHAIN_MAP = UMLPackage.EXECUTION_SPECIFICATION___VALIDATE_NOT_OWN_SELF__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Add Keyword</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___ADD_KEYWORD__STRING = UMLPackage.EXECUTION_SPECIFICATION___ADD_KEYWORD__STRING;
+
+	/**
+	 * The operation id for the '<em>Apply Stereotype</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___APPLY_STEREOTYPE__STEREOTYPE = UMLPackage.EXECUTION_SPECIFICATION___APPLY_STEREOTYPE__STEREOTYPE;
+
+	/**
+	 * The operation id for the '<em>Create EAnnotation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___CREATE_EANNOTATION__STRING = UMLPackage.EXECUTION_SPECIFICATION___CREATE_EANNOTATION__STRING;
+
+	/**
+	 * The operation id for the '<em>Destroy</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___DESTROY = UMLPackage.EXECUTION_SPECIFICATION___DESTROY;
+
+	/**
+	 * The operation id for the '<em>Get Keywords</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___GET_KEYWORDS = UMLPackage.EXECUTION_SPECIFICATION___GET_KEYWORDS;
+
+	/**
+	 * The operation id for the '<em>Get Applicable Stereotype</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___GET_APPLICABLE_STEREOTYPE__STRING = UMLPackage.EXECUTION_SPECIFICATION___GET_APPLICABLE_STEREOTYPE__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Applicable Stereotypes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___GET_APPLICABLE_STEREOTYPES = UMLPackage.EXECUTION_SPECIFICATION___GET_APPLICABLE_STEREOTYPES;
+
+	/**
+	 * The operation id for the '<em>Get Applied Stereotype</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___GET_APPLIED_STEREOTYPE__STRING = UMLPackage.EXECUTION_SPECIFICATION___GET_APPLIED_STEREOTYPE__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Applied Stereotypes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___GET_APPLIED_STEREOTYPES = UMLPackage.EXECUTION_SPECIFICATION___GET_APPLIED_STEREOTYPES;
+
+	/**
+	 * The operation id for the '<em>Get Applied Substereotype</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___GET_APPLIED_SUBSTEREOTYPE__STEREOTYPE_STRING = UMLPackage.EXECUTION_SPECIFICATION___GET_APPLIED_SUBSTEREOTYPE__STEREOTYPE_STRING;
+
+	/**
+	 * The operation id for the '<em>Get Applied Substereotypes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___GET_APPLIED_SUBSTEREOTYPES__STEREOTYPE = UMLPackage.EXECUTION_SPECIFICATION___GET_APPLIED_SUBSTEREOTYPES__STEREOTYPE;
+
+	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___GET_MODEL = UMLPackage.EXECUTION_SPECIFICATION___GET_MODEL;
+
+	/**
+	 * The operation id for the '<em>Get Nearest Package</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___GET_NEAREST_PACKAGE = UMLPackage.EXECUTION_SPECIFICATION___GET_NEAREST_PACKAGE;
+
+	/**
+	 * The operation id for the '<em>Get Relationships</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___GET_RELATIONSHIPS = UMLPackage.EXECUTION_SPECIFICATION___GET_RELATIONSHIPS;
+
+	/**
+	 * The operation id for the '<em>Get Relationships</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___GET_RELATIONSHIPS__ECLASS = UMLPackage.EXECUTION_SPECIFICATION___GET_RELATIONSHIPS__ECLASS;
+
+	/**
+	 * The operation id for the '<em>Get Required Stereotype</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___GET_REQUIRED_STEREOTYPE__STRING = UMLPackage.EXECUTION_SPECIFICATION___GET_REQUIRED_STEREOTYPE__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Required Stereotypes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___GET_REQUIRED_STEREOTYPES = UMLPackage.EXECUTION_SPECIFICATION___GET_REQUIRED_STEREOTYPES;
+
+	/**
+	 * The operation id for the '<em>Get Source Directed Relationships</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___GET_SOURCE_DIRECTED_RELATIONSHIPS = UMLPackage.EXECUTION_SPECIFICATION___GET_SOURCE_DIRECTED_RELATIONSHIPS;
+
+	/**
+	 * The operation id for the '<em>Get Source Directed Relationships</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___GET_SOURCE_DIRECTED_RELATIONSHIPS__ECLASS = UMLPackage.EXECUTION_SPECIFICATION___GET_SOURCE_DIRECTED_RELATIONSHIPS__ECLASS;
+
+	/**
+	 * The operation id for the '<em>Get Stereotype Application</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___GET_STEREOTYPE_APPLICATION__STEREOTYPE = UMLPackage.EXECUTION_SPECIFICATION___GET_STEREOTYPE_APPLICATION__STEREOTYPE;
+
+	/**
+	 * The operation id for the '<em>Get Stereotype Applications</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___GET_STEREOTYPE_APPLICATIONS = UMLPackage.EXECUTION_SPECIFICATION___GET_STEREOTYPE_APPLICATIONS;
+
+	/**
+	 * The operation id for the '<em>Get Target Directed Relationships</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___GET_TARGET_DIRECTED_RELATIONSHIPS = UMLPackage.EXECUTION_SPECIFICATION___GET_TARGET_DIRECTED_RELATIONSHIPS;
+
+	/**
+	 * The operation id for the '<em>Get Target Directed Relationships</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___GET_TARGET_DIRECTED_RELATIONSHIPS__ECLASS = UMLPackage.EXECUTION_SPECIFICATION___GET_TARGET_DIRECTED_RELATIONSHIPS__ECLASS;
+
+	/**
+	 * The operation id for the '<em>Get Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___GET_VALUE__STEREOTYPE_STRING = UMLPackage.EXECUTION_SPECIFICATION___GET_VALUE__STEREOTYPE_STRING;
+
+	/**
+	 * The operation id for the '<em>Has Keyword</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___HAS_KEYWORD__STRING = UMLPackage.EXECUTION_SPECIFICATION___HAS_KEYWORD__STRING;
+
+	/**
+	 * The operation id for the '<em>Has Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___HAS_VALUE__STEREOTYPE_STRING = UMLPackage.EXECUTION_SPECIFICATION___HAS_VALUE__STEREOTYPE_STRING;
+
+	/**
+	 * The operation id for the '<em>Is Stereotype Applicable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___IS_STEREOTYPE_APPLICABLE__STEREOTYPE = UMLPackage.EXECUTION_SPECIFICATION___IS_STEREOTYPE_APPLICABLE__STEREOTYPE;
+
+	/**
+	 * The operation id for the '<em>Is Stereotype Applied</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___IS_STEREOTYPE_APPLIED__STEREOTYPE = UMLPackage.EXECUTION_SPECIFICATION___IS_STEREOTYPE_APPLIED__STEREOTYPE;
+
+	/**
+	 * The operation id for the '<em>Is Stereotype Required</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___IS_STEREOTYPE_REQUIRED__STEREOTYPE = UMLPackage.EXECUTION_SPECIFICATION___IS_STEREOTYPE_REQUIRED__STEREOTYPE;
+
+	/**
+	 * The operation id for the '<em>Remove Keyword</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___REMOVE_KEYWORD__STRING = UMLPackage.EXECUTION_SPECIFICATION___REMOVE_KEYWORD__STRING;
+
+	/**
+	 * The operation id for the '<em>Set Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___SET_VALUE__STEREOTYPE_STRING_OBJECT = UMLPackage.EXECUTION_SPECIFICATION___SET_VALUE__STEREOTYPE_STRING_OBJECT;
+
+	/**
+	 * The operation id for the '<em>Unapply Stereotype</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___UNAPPLY_STEREOTYPE__STEREOTYPE = UMLPackage.EXECUTION_SPECIFICATION___UNAPPLY_STEREOTYPE__STEREOTYPE;
+
+	/**
+	 * The operation id for the '<em>All Owned Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___ALL_OWNED_ELEMENTS = UMLPackage.EXECUTION_SPECIFICATION___ALL_OWNED_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Must Be Owned</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___MUST_BE_OWNED = UMLPackage.EXECUTION_SPECIFICATION___MUST_BE_OWNED;
+
+	/**
+	 * The operation id for the '<em>Validate Visibility Needs Ownership</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___VALIDATE_VISIBILITY_NEEDS_OWNERSHIP__DIAGNOSTICCHAIN_MAP = UMLPackage.EXECUTION_SPECIFICATION___VALIDATE_VISIBILITY_NEEDS_OWNERSHIP__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Validate Has Qualified Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___VALIDATE_HAS_QUALIFIED_NAME__DIAGNOSTICCHAIN_MAP = UMLPackage.EXECUTION_SPECIFICATION___VALIDATE_HAS_QUALIFIED_NAME__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Validate Has No Qualified Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___VALIDATE_HAS_NO_QUALIFIED_NAME__DIAGNOSTICCHAIN_MAP = UMLPackage.EXECUTION_SPECIFICATION___VALIDATE_HAS_NO_QUALIFIED_NAME__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Create Dependency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___CREATE_DEPENDENCY__NAMEDELEMENT = UMLPackage.EXECUTION_SPECIFICATION___CREATE_DEPENDENCY__NAMEDELEMENT;
+
+	/**
+	 * The operation id for the '<em>Create Usage</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___CREATE_USAGE__NAMEDELEMENT = UMLPackage.EXECUTION_SPECIFICATION___CREATE_USAGE__NAMEDELEMENT;
+
+	/**
+	 * The operation id for the '<em>Get Label</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___GET_LABEL = UMLPackage.EXECUTION_SPECIFICATION___GET_LABEL;
+
+	/**
+	 * The operation id for the '<em>Get Label</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___GET_LABEL__BOOLEAN = UMLPackage.EXECUTION_SPECIFICATION___GET_LABEL__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Get Namespace</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___GET_NAMESPACE = UMLPackage.EXECUTION_SPECIFICATION___GET_NAMESPACE;
+
+	/**
+	 * The operation id for the '<em>All Namespaces</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___ALL_NAMESPACES = UMLPackage.EXECUTION_SPECIFICATION___ALL_NAMESPACES;
+
+	/**
+	 * The operation id for the '<em>All Owning Packages</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___ALL_OWNING_PACKAGES = UMLPackage.EXECUTION_SPECIFICATION___ALL_OWNING_PACKAGES;
+
+	/**
+	 * The operation id for the '<em>Is Distinguishable From</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___IS_DISTINGUISHABLE_FROM__NAMEDELEMENT_NAMESPACE = UMLPackage.EXECUTION_SPECIFICATION___IS_DISTINGUISHABLE_FROM__NAMEDELEMENT_NAMESPACE;
+
+	/**
+	 * The operation id for the '<em>Get Qualified Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___GET_QUALIFIED_NAME = UMLPackage.EXECUTION_SPECIFICATION___GET_QUALIFIED_NAME;
+
+	/**
+	 * The operation id for the '<em>Separator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___SEPARATOR = UMLPackage.EXECUTION_SPECIFICATION___SEPARATOR;
+
+	/**
+	 * The operation id for the '<em>Get Client Dependencies</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___GET_CLIENT_DEPENDENCIES = UMLPackage.EXECUTION_SPECIFICATION___GET_CLIENT_DEPENDENCIES;
+
+	/**
+	 * The operation id for the '<em>Validate Same Lifeline</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION___VALIDATE_SAME_LIFELINE__DIAGNOSTICCHAIN_MAP = UMLPackage.EXECUTION_SPECIFICATION___VALIDATE_SAME_LIFELINE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Execution Specifiaction</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFIACTION_OPERATION_COUNT = UMLPackage.EXECUTION_SPECIFICATION_OPERATION_COUNT + 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Message <em>Message</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13787,6 +14437,16 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getProperty();
+
+	/**
+	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ExecutionSpecifiaction <em>Execution Specifiaction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Execution Specifiaction</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ExecutionSpecifiaction
+	 * @generated
+	 */
+	EClass getExecutionSpecifiaction();
 
 	/**
 	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ActorLifeline <em>Actor Lifeline</em>}'.
@@ -13930,6 +14590,16 @@ public interface Sequence_diagramPackage extends EPackage {
 		 * @generated
 		 */
 		EClass PROPERTY = eINSTANCE.getProperty();
+
+		/**
+		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.ExecutionSpecifiactionImpl <em>Execution Specifiaction</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.ExecutionSpecifiactionImpl
+		 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.Sequence_diagramPackageImpl#getExecutionSpecifiaction()
+		 * @generated
+		 */
+		EClass EXECUTION_SPECIFIACTION = eINSTANCE.getExecutionSpecifiaction();
 
 		/**
 		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.ActorLifelineImpl <em>Actor Lifeline</em>}' class.
