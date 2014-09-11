@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_Dy4OEDmeEeSHnOsQ7rpwZA" name="SET_Event_Name" description="Sets Event Name">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_Dy4OETmeEeSHnOsQ7rpwZA" name="setEventName" description="Sets the EAttribute name">
+    <parameters xmi:id="_Dy4OEjmeEeSHnOsQ7rpwZA" name="Selected"/>
+    <parameters xmi:id="_Dy4OEzmeEeSHnOsQ7rpwZA" name="Name"/>
+    <lhs xmi:id="_Dy4OFDmeEeSHnOsQ7rpwZA" name="Lhs">
+      <nodes xmi:id="_Dy4OFTmeEeSHnOsQ7rpwZA" name="Selected">
+        <type href="http://Statemachine/1.0#//Event"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_Dy4OFjmeEeSHnOsQ7rpwZA" name="Rhs">
+      <nodes xmi:id="_Dy4OFzmeEeSHnOsQ7rpwZA" name="Selected">
+        <type href="http://Statemachine/1.0#//Event"/>
+        <attributes xmi:id="_Dy4OGDmeEeSHnOsQ7rpwZA" value="Name">
+          <type href="http://Statemachine/1.0#//Event/name"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_Dy4OGTmeEeSHnOsQ7rpwZA" origin="_Dy4OFTmeEeSHnOsQ7rpwZA" image="_Dy4OFzmeEeSHnOsQ7rpwZA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_Dy4OGjmeEeSHnOsQ7rpwZA" name="mainUnit" subUnits="_Dy4OETmeEeSHnOsQ7rpwZA">
+    <parameters xmi:id="_Dy4OGzmeEeSHnOsQ7rpwZA" name="selectedEObject"/>
+    <parameters xmi:id="_Dy4OHDmeEeSHnOsQ7rpwZA" name="Name"/>
+    <parameterMappings xmi:id="_Dy4OHTmeEeSHnOsQ7rpwZA" source="_Dy4OGzmeEeSHnOsQ7rpwZA" target="_Dy4OEjmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_Dy4OHjmeEeSHnOsQ7rpwZA" source="_Dy4OHDmeEeSHnOsQ7rpwZA" target="_Dy4OEzmeEeSHnOsQ7rpwZA"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_DvoFwDmeEeSHnOsQ7rpwZA" name="CREATE_State_IN_CompositeState_(subVertexes)" description="Creates one State in CompositeState">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_DvoFwTmeEeSHnOsQ7rpwZA" name="createState_IN_CompositeState" description="creates one State in the context: CompositeState">
+    <parameters xmi:id="_DvoFwjmeEeSHnOsQ7rpwZA" name="Selected"/>
+    <parameters xmi:id="_DvoFwzmeEeSHnOsQ7rpwZA" name="New"/>
+    <parameters xmi:id="_DvoFxDmeEeSHnOsQ7rpwZA" name="Id"/>
+    <parameters xmi:id="_Dvos0DmeEeSHnOsQ7rpwZA" name="Name"/>
+    <parameters xmi:id="_Dvos0TmeEeSHnOsQ7rpwZA" name="Label"/>
+    <lhs xmi:id="_Dvos0jmeEeSHnOsQ7rpwZA" name="Lhs">
+      <nodes xmi:id="_Dvos0zmeEeSHnOsQ7rpwZA" name="Selected">
+        <type href="http://Statemachine/1.0#//CompositeState"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_Dvos1DmeEeSHnOsQ7rpwZA" name="Rhs">
+      <nodes xmi:id="_Dvos1TmeEeSHnOsQ7rpwZA" name="Selected" incoming="_Dvos2zmeEeSHnOsQ7rpwZA" outgoing="_Dvos2jmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//CompositeState"/>
+      </nodes>
+      <nodes xmi:id="_Dvos1jmeEeSHnOsQ7rpwZA" name="New" incoming="_Dvos2jmeEeSHnOsQ7rpwZA" outgoing="_Dvos2zmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//State"/>
+        <attributes xmi:id="_Dvos1zmeEeSHnOsQ7rpwZA" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_Dvos2DmeEeSHnOsQ7rpwZA" value="Name">
+          <type href="http://CommonBase/1.0#//NameBase/name"/>
+        </attributes>
+        <attributes xmi:id="_Dvos2TmeEeSHnOsQ7rpwZA" value="Label">
+          <type href="http://Statemachine/1.0#//State/label"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_Dvos2jmeEeSHnOsQ7rpwZA" source="_Dvos1TmeEeSHnOsQ7rpwZA" target="_Dvos1jmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//CompositeState/subVertexes"/>
+      </edges>
+      <edges xmi:id="_Dvos2zmeEeSHnOsQ7rpwZA" source="_Dvos1jmeEeSHnOsQ7rpwZA" target="_Dvos1TmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//StateVertex/sv_container"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_Dvos3DmeEeSHnOsQ7rpwZA" origin="_Dvos0zmeEeSHnOsQ7rpwZA" image="_Dvos1TmeEeSHnOsQ7rpwZA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_Dvos3TmeEeSHnOsQ7rpwZA" name="mainUnit" description="Creates one State depending on available contexts in model instance" subUnits="_DvoFwTmeEeSHnOsQ7rpwZA">
+    <parameters xmi:id="_Dvos3jmeEeSHnOsQ7rpwZA" name="New"/>
+    <parameters xmi:id="_Dvos3zmeEeSHnOsQ7rpwZA" name="selectedEObject"/>
+    <parameters xmi:id="_Dvos4DmeEeSHnOsQ7rpwZA" name="Id"/>
+    <parameters xmi:id="_Dvos4TmeEeSHnOsQ7rpwZA" name="Name"/>
+    <parameters xmi:id="_Dvos4jmeEeSHnOsQ7rpwZA" name="Label"/>
+    <parameterMappings xmi:id="_Dvos4zmeEeSHnOsQ7rpwZA" source="_Dvos3zmeEeSHnOsQ7rpwZA" target="_DvoFwjmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_Dvos5DmeEeSHnOsQ7rpwZA" source="_DvoFwzmeEeSHnOsQ7rpwZA" target="_Dvos3jmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_Dvos5TmeEeSHnOsQ7rpwZA" source="_Dvos4DmeEeSHnOsQ7rpwZA" target="_DvoFxDmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_Dvos5jmeEeSHnOsQ7rpwZA" source="_Dvos4TmeEeSHnOsQ7rpwZA" target="_Dvos0DmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_Dvos5zmeEeSHnOsQ7rpwZA" source="_Dvos4jmeEeSHnOsQ7rpwZA" target="_Dvos0TmeEeSHnOsQ7rpwZA"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_DzvwwDmeEeSHnOsQ7rpwZA" name="DELETE_StateVertex_IN_CompositeState_(subVertexes)" description="Deletes one StateVertex in CompositeState">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_DzvwwTmeEeSHnOsQ7rpwZA" name="deleteStateVertex_IN_CompositeState" description="deletes one StateVertex in the context: CompositeState">
+    <parameters xmi:id="_DzvwwjmeEeSHnOsQ7rpwZA" name="Selected"/>
+    <parameters xmi:id="_DzvwwzmeEeSHnOsQ7rpwZA" name="ToBeDeleted"/>
+    <lhs xmi:id="_DzvwxDmeEeSHnOsQ7rpwZA" name="LHS">
+      <nodes xmi:id="_DzvwxTmeEeSHnOsQ7rpwZA" name="Selected" incoming="_DzvwyDmeEeSHnOsQ7rpwZA" outgoing="_DzvwxzmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//CompositeState"/>
+      </nodes>
+      <nodes xmi:id="_DzvwxjmeEeSHnOsQ7rpwZA" name="ToBeDeleted" incoming="_DzvwxzmeEeSHnOsQ7rpwZA" outgoing="_DzvwyDmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//StateVertex"/>
+      </nodes>
+      <edges xmi:id="_DzvwxzmeEeSHnOsQ7rpwZA" source="_DzvwxTmeEeSHnOsQ7rpwZA" target="_DzvwxjmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//CompositeState/subVertexes"/>
+      </edges>
+      <edges xmi:id="_DzvwyDmeEeSHnOsQ7rpwZA" source="_DzvwxjmeEeSHnOsQ7rpwZA" target="_DzvwxTmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//StateVertex/sv_container"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_DzvwyTmeEeSHnOsQ7rpwZA" name="RHS">
+      <nodes xmi:id="_DzvwyjmeEeSHnOsQ7rpwZA" name="Selected">
+        <type href="http://Statemachine/1.0#//CompositeState"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_DzvwyzmeEeSHnOsQ7rpwZA" origin="_DzvwxTmeEeSHnOsQ7rpwZA" image="_DzvwyjmeEeSHnOsQ7rpwZA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_DzvwzDmeEeSHnOsQ7rpwZA" name="mainUnit" description="Deletes one StateVertex depending on available contexts in model instance" subUnits="_DzvwwTmeEeSHnOsQ7rpwZA">
+    <parameters xmi:id="_DzvwzTmeEeSHnOsQ7rpwZA" name="ToBeDeleted"/>
+    <parameters xmi:id="_DzvwzjmeEeSHnOsQ7rpwZA" name="selectedEObject"/>
+    <parameterMappings xmi:id="_DzvwzzmeEeSHnOsQ7rpwZA" source="_DzvwzjmeEeSHnOsQ7rpwZA" target="_DzvwwjmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_Dzvw0DmeEeSHnOsQ7rpwZA" source="_DzvwzTmeEeSHnOsQ7rpwZA" target="_DzvwwzmeEeSHnOsQ7rpwZA"/>
+  </units>
+</henshin:Module>

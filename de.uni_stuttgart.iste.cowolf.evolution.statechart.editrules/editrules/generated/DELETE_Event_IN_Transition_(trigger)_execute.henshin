@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_Dy0jsDmeEeSHnOsQ7rpwZA" name="DELETE_Event_IN_Transition_(trigger)" description="Deletes one Event in Transition">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_Dy0jsTmeEeSHnOsQ7rpwZA" name="deleteEvent_IN_Transition" description="deletes one Event in the context: Transition">
+    <parameters xmi:id="_Dy0jsjmeEeSHnOsQ7rpwZA" name="Selected"/>
+    <parameters xmi:id="_Dy0jszmeEeSHnOsQ7rpwZA" name="ToBeDeleted"/>
+    <lhs xmi:id="_Dy0jtDmeEeSHnOsQ7rpwZA" name="LHS">
+      <nodes xmi:id="_Dy0jtTmeEeSHnOsQ7rpwZA" name="Selected" incoming="_Dy0juDmeEeSHnOsQ7rpwZA" outgoing="_Dy0jtzmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//Transition"/>
+      </nodes>
+      <nodes xmi:id="_Dy0jtjmeEeSHnOsQ7rpwZA" name="ToBeDeleted" incoming="_Dy0jtzmeEeSHnOsQ7rpwZA" outgoing="_Dy0juDmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//Event"/>
+      </nodes>
+      <edges xmi:id="_Dy0jtzmeEeSHnOsQ7rpwZA" source="_Dy0jtTmeEeSHnOsQ7rpwZA" target="_Dy0jtjmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//Transition/trigger"/>
+      </edges>
+      <edges xmi:id="_Dy0juDmeEeSHnOsQ7rpwZA" source="_Dy0jtjmeEeSHnOsQ7rpwZA" target="_Dy0jtTmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//Event/evt_container"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_Dy0juTmeEeSHnOsQ7rpwZA" name="RHS">
+      <nodes xmi:id="_Dy0jujmeEeSHnOsQ7rpwZA" name="Selected">
+        <type href="http://Statemachine/1.0#//Transition"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_Dy0juzmeEeSHnOsQ7rpwZA">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_Dy0jvDmeEeSHnOsQ7rpwZA">
+          <conclusion xmi:id="_Dy0jvTmeEeSHnOsQ7rpwZA" name="doNotExceedUpperBound">
+            <nodes xmi:id="_Dy0jvjmeEeSHnOsQ7rpwZA" name="Selected" outgoing="_Dy0jwzmeEeSHnOsQ7rpwZA">
+              <type href="http://Statemachine/1.0#//Transition"/>
+            </nodes>
+            <nodes xmi:id="_Dy0jvzmeEeSHnOsQ7rpwZA" name="New">
+              <type href="http://Statemachine/1.0#//Event"/>
+              <attributes xmi:id="_Dy0jwDmeEeSHnOsQ7rpwZA" value="Id">
+                <type href="http://CommonBase/1.0#//IDBase/id"/>
+              </attributes>
+              <attributes xmi:id="_Dy0jwTmeEeSHnOsQ7rpwZA" value="Name">
+                <type href="http://Statemachine/1.0#//Event/name"/>
+              </attributes>
+            </nodes>
+            <nodes xmi:id="_Dy0jwjmeEeSHnOsQ7rpwZA" incoming="_Dy0jwzmeEeSHnOsQ7rpwZA">
+              <type href="http://Statemachine/1.0#//Event"/>
+            </nodes>
+            <edges xmi:id="_Dy0jwzmeEeSHnOsQ7rpwZA" source="_Dy0jvjmeEeSHnOsQ7rpwZA" target="_Dy0jwjmeEeSHnOsQ7rpwZA">
+              <type href="http://Statemachine/1.0#//Transition/trigger"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_Dy0jxDmeEeSHnOsQ7rpwZA" origin="_Dy0jtTmeEeSHnOsQ7rpwZA" image="_Dy0jvjmeEeSHnOsQ7rpwZA"/>
+          <mappings xmi:id="_Dy0jxTmeEeSHnOsQ7rpwZA" origin="_Dy0jtjmeEeSHnOsQ7rpwZA" image="_Dy0jvzmeEeSHnOsQ7rpwZA"/>
+        </child>
+      </formula>
+    </rhs>
+    <mappings xmi:id="_Dy0jxjmeEeSHnOsQ7rpwZA" origin="_Dy0jtTmeEeSHnOsQ7rpwZA" image="_Dy0jujmeEeSHnOsQ7rpwZA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_Dy0jxzmeEeSHnOsQ7rpwZA" name="mainUnit" description="Deletes one Event depending on available contexts in model instance" subUnits="_Dy0jsTmeEeSHnOsQ7rpwZA">
+    <parameters xmi:id="_Dy0jyDmeEeSHnOsQ7rpwZA" name="ToBeDeleted"/>
+    <parameters xmi:id="_Dy0jyTmeEeSHnOsQ7rpwZA" name="selectedEObject"/>
+    <parameterMappings xmi:id="_Dy0jyjmeEeSHnOsQ7rpwZA" source="_Dy0jyTmeEeSHnOsQ7rpwZA" target="_Dy0jsjmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_Dy0jyzmeEeSHnOsQ7rpwZA" source="_Dy0jyDmeEeSHnOsQ7rpwZA" target="_Dy0jszmeEeSHnOsQ7rpwZA"/>
+  </units>
+</henshin:Module>

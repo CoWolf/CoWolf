@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_D0leQDmeEeSHnOsQ7rpwZA" name="CREATE_ENTRY_IN_State_(actions)" description="Creates one ENTRY in State">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_D0leQTmeEeSHnOsQ7rpwZA" name="createENTRY_IN_State" description="creates one ENTRY in the context: State">
+    <parameters xmi:id="_D0leQjmeEeSHnOsQ7rpwZA" name="Selected"/>
+    <parameters xmi:id="_D0leQzmeEeSHnOsQ7rpwZA" name="New"/>
+    <parameters xmi:id="_D0leRDmeEeSHnOsQ7rpwZA" name="Id"/>
+    <parameters xmi:id="_D0leRTmeEeSHnOsQ7rpwZA" name="Value"/>
+    <lhs xmi:id="_D0leRjmeEeSHnOsQ7rpwZA" name="Lhs">
+      <nodes xmi:id="_D0leRzmeEeSHnOsQ7rpwZA" name="Selected">
+        <type href="http://Statemachine/1.0#//State"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_D0leSDmeEeSHnOsQ7rpwZA" name="Rhs">
+      <nodes xmi:id="_D0leSTmeEeSHnOsQ7rpwZA" name="Selected" incoming="_D0leTjmeEeSHnOsQ7rpwZA" outgoing="_D0leTTmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_D0leSjmeEeSHnOsQ7rpwZA" name="New" incoming="_D0leTTmeEeSHnOsQ7rpwZA" outgoing="_D0leTjmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//ENTRY"/>
+        <attributes xmi:id="_D0leSzmeEeSHnOsQ7rpwZA" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_D0leTDmeEeSHnOsQ7rpwZA" value="Value">
+          <type href="http://Statemachine/1.0#//Action/value"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_D0leTTmeEeSHnOsQ7rpwZA" source="_D0leSTmeEeSHnOsQ7rpwZA" target="_D0leSjmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//State/actions"/>
+      </edges>
+      <edges xmi:id="_D0leTjmeEeSHnOsQ7rpwZA" source="_D0leSjmeEeSHnOsQ7rpwZA" target="_D0leSTmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//StateAction/action_container"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_D0leTzmeEeSHnOsQ7rpwZA" origin="_D0leRzmeEeSHnOsQ7rpwZA" image="_D0leSTmeEeSHnOsQ7rpwZA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_D0leUDmeEeSHnOsQ7rpwZA" name="mainUnit" description="Creates one ENTRY depending on available contexts in model instance" subUnits="_D0leQTmeEeSHnOsQ7rpwZA">
+    <parameters xmi:id="_D0leUTmeEeSHnOsQ7rpwZA" name="New"/>
+    <parameters xmi:id="_D0leUjmeEeSHnOsQ7rpwZA" name="selectedEObject"/>
+    <parameters xmi:id="_D0leUzmeEeSHnOsQ7rpwZA" name="Id"/>
+    <parameters xmi:id="_D0leVDmeEeSHnOsQ7rpwZA" name="Value"/>
+    <parameterMappings xmi:id="_D0leVTmeEeSHnOsQ7rpwZA" source="_D0leUjmeEeSHnOsQ7rpwZA" target="_D0leQjmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_D0leVjmeEeSHnOsQ7rpwZA" source="_D0leQzmeEeSHnOsQ7rpwZA" target="_D0leUTmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_D0leVzmeEeSHnOsQ7rpwZA" source="_D0leUzmeEeSHnOsQ7rpwZA" target="_D0leRDmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_D0leWDmeEeSHnOsQ7rpwZA" source="_D0leVDmeEeSHnOsQ7rpwZA" target="_D0leRTmeEeSHnOsQ7rpwZA"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_DwzKcDmeEeSHnOsQ7rpwZA" name="CREATE_CompositeState_IN_CompositeState_(subVertexes)" description="Creates one CompositeState in CompositeState">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_DwzKcTmeEeSHnOsQ7rpwZA" name="createCompositeState_IN_CompositeState" description="creates one CompositeState in the context: CompositeState">
+    <parameters xmi:id="_DwzKcjmeEeSHnOsQ7rpwZA" name="Selected"/>
+    <parameters xmi:id="_DwzKczmeEeSHnOsQ7rpwZA" name="New"/>
+    <parameters xmi:id="_DwzKdDmeEeSHnOsQ7rpwZA" name="Id"/>
+    <parameters xmi:id="_DwzKdTmeEeSHnOsQ7rpwZA" name="Name"/>
+    <parameters xmi:id="_DwzKdjmeEeSHnOsQ7rpwZA" name="Label"/>
+    <parameters xmi:id="_DwzKdzmeEeSHnOsQ7rpwZA" name="IsConcurrent"/>
+    <lhs xmi:id="_DwzKeDmeEeSHnOsQ7rpwZA" name="Lhs">
+      <nodes xmi:id="_DwzKeTmeEeSHnOsQ7rpwZA" name="Selected">
+        <type href="http://Statemachine/1.0#//CompositeState"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_DwzKejmeEeSHnOsQ7rpwZA" name="Rhs">
+      <nodes xmi:id="_DwzKezmeEeSHnOsQ7rpwZA" name="Selected" incoming="_DwzKgjmeEeSHnOsQ7rpwZA" outgoing="_DwzKgTmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//CompositeState"/>
+      </nodes>
+      <nodes xmi:id="_DwzKfDmeEeSHnOsQ7rpwZA" name="New" incoming="_DwzKgTmeEeSHnOsQ7rpwZA" outgoing="_DwzKgjmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//CompositeState"/>
+        <attributes xmi:id="_DwzKfTmeEeSHnOsQ7rpwZA" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_DwzKfjmeEeSHnOsQ7rpwZA" value="Name">
+          <type href="http://CommonBase/1.0#//NameBase/name"/>
+        </attributes>
+        <attributes xmi:id="_DwzKfzmeEeSHnOsQ7rpwZA" value="Label">
+          <type href="http://Statemachine/1.0#//State/label"/>
+        </attributes>
+        <attributes xmi:id="_DwzKgDmeEeSHnOsQ7rpwZA" value="IsConcurrent">
+          <type href="http://Statemachine/1.0#//CompositeState/isConcurrent"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_DwzKgTmeEeSHnOsQ7rpwZA" source="_DwzKezmeEeSHnOsQ7rpwZA" target="_DwzKfDmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//CompositeState/subVertexes"/>
+      </edges>
+      <edges xmi:id="_DwzKgjmeEeSHnOsQ7rpwZA" source="_DwzKfDmeEeSHnOsQ7rpwZA" target="_DwzKezmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//StateVertex/sv_container"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_DwzKgzmeEeSHnOsQ7rpwZA" origin="_DwzKeTmeEeSHnOsQ7rpwZA" image="_DwzKezmeEeSHnOsQ7rpwZA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_DwzKhDmeEeSHnOsQ7rpwZA" name="mainUnit" description="Creates one CompositeState depending on available contexts in model instance" subUnits="_DwzKcTmeEeSHnOsQ7rpwZA">
+    <parameters xmi:id="_DwzKhTmeEeSHnOsQ7rpwZA" name="New"/>
+    <parameters xmi:id="_DwzKhjmeEeSHnOsQ7rpwZA" name="selectedEObject"/>
+    <parameters xmi:id="_DwzxgDmeEeSHnOsQ7rpwZA" name="Id"/>
+    <parameters xmi:id="_DwzxgTmeEeSHnOsQ7rpwZA" name="Name"/>
+    <parameters xmi:id="_DwzxgjmeEeSHnOsQ7rpwZA" name="Label"/>
+    <parameters xmi:id="_DwzxgzmeEeSHnOsQ7rpwZA" name="IsConcurrent"/>
+    <parameterMappings xmi:id="_DwzxhDmeEeSHnOsQ7rpwZA" source="_DwzKhjmeEeSHnOsQ7rpwZA" target="_DwzKcjmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_DwzxhTmeEeSHnOsQ7rpwZA" source="_DwzKczmeEeSHnOsQ7rpwZA" target="_DwzKhTmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_DwzxhjmeEeSHnOsQ7rpwZA" source="_DwzxgDmeEeSHnOsQ7rpwZA" target="_DwzKdDmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_DwzxhzmeEeSHnOsQ7rpwZA" source="_DwzxgTmeEeSHnOsQ7rpwZA" target="_DwzKdTmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_DwzxiDmeEeSHnOsQ7rpwZA" source="_DwzxgjmeEeSHnOsQ7rpwZA" target="_DwzKdjmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_DwzxiTmeEeSHnOsQ7rpwZA" source="_DwzxgzmeEeSHnOsQ7rpwZA" target="_DwzKdzmeEeSHnOsQ7rpwZA"/>
+  </units>
+</henshin:Module>

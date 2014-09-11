@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_Du6UIjmeEeSHnOsQ7rpwZA" name="REMOVE_StateMachine_(calledByAction)_TGT_Action" description="Removes StateMachine's reference calledByAction the target Action">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_Du6UIzmeEeSHnOsQ7rpwZA" name="removeFromStateMachine_calledByAction_Action" description="Removes from StateMachine's reference calledByAction the target Action">
+    <parameters xmi:id="_Du6UJDmeEeSHnOsQ7rpwZA" name="Selected"/>
+    <parameters xmi:id="_Du6UJTmeEeSHnOsQ7rpwZA" name="OldTarget"/>
+    <lhs xmi:id="_Du6UJjmeEeSHnOsQ7rpwZA" name="LHS">
+      <nodes xmi:id="_Du6UJzmeEeSHnOsQ7rpwZA" name="Selected" incoming="_Du6UKjmeEeSHnOsQ7rpwZA" outgoing="_Du6UKTmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//StateMachine"/>
+      </nodes>
+      <nodes xmi:id="_Du6UKDmeEeSHnOsQ7rpwZA" name="OldTarget" incoming="_Du6UKTmeEeSHnOsQ7rpwZA" outgoing="_Du6UKjmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//Action"/>
+      </nodes>
+      <edges xmi:id="_Du6UKTmeEeSHnOsQ7rpwZA" source="_Du6UJzmeEeSHnOsQ7rpwZA" target="_Du6UKDmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//StateMachine/calledByAction"/>
+      </edges>
+      <edges xmi:id="_Du6UKjmeEeSHnOsQ7rpwZA" source="_Du6UKDmeEeSHnOsQ7rpwZA" target="_Du6UJzmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//Action/stateMachineCall"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_Du6UKzmeEeSHnOsQ7rpwZA" name="RHS">
+      <nodes xmi:id="_Du6ULDmeEeSHnOsQ7rpwZA" name="Selected">
+        <type href="http://Statemachine/1.0#//StateMachine"/>
+      </nodes>
+      <nodes xmi:id="_Du6ULTmeEeSHnOsQ7rpwZA" name="OldTarget">
+        <type href="http://Statemachine/1.0#//Action"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_Du6ULjmeEeSHnOsQ7rpwZA" origin="_Du6UJzmeEeSHnOsQ7rpwZA" image="_Du6ULDmeEeSHnOsQ7rpwZA"/>
+    <mappings xmi:id="_Du6ULzmeEeSHnOsQ7rpwZA" origin="_Du6UKDmeEeSHnOsQ7rpwZA" image="_Du6ULTmeEeSHnOsQ7rpwZA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_Du6UMDmeEeSHnOsQ7rpwZA" name="mainUnit" subUnits="_Du6UIzmeEeSHnOsQ7rpwZA">
+    <parameters xmi:id="_Du6UMTmeEeSHnOsQ7rpwZA" name="selectedEObject"/>
+    <parameters xmi:id="_Du6UMjmeEeSHnOsQ7rpwZA" name="OldTarget"/>
+    <parameterMappings xmi:id="_Du6UMzmeEeSHnOsQ7rpwZA" source="_Du6UMTmeEeSHnOsQ7rpwZA" target="_Du6UJDmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_Du6UNDmeEeSHnOsQ7rpwZA" source="_Du6UMjmeEeSHnOsQ7rpwZA" target="_Du6UJTmeEeSHnOsQ7rpwZA"/>
+  </units>
+</henshin:Module>

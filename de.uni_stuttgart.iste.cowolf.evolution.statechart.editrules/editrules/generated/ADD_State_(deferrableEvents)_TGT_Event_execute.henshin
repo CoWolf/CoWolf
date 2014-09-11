@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_DwExsDmeEeSHnOsQ7rpwZA" name="ADD_State_(deferrableEvents)_TGT_Event" description="Adds to State's reference deferrableEvents the target Event">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_DwExsTmeEeSHnOsQ7rpwZA" name="addToState_deferrableEvents_Event" description="Adds to State's reference deferrableEvents the target Event">
+    <parameters xmi:id="_DwExsjmeEeSHnOsQ7rpwZA" name="Selected"/>
+    <parameters xmi:id="_DwExszmeEeSHnOsQ7rpwZA" name="NewTarget"/>
+    <lhs xmi:id="_DwExtDmeEeSHnOsQ7rpwZA" name="Lhs">
+      <nodes xmi:id="_DwExtTmeEeSHnOsQ7rpwZA" name="Selected">
+        <type href="http://Statemachine/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_DwExtjmeEeSHnOsQ7rpwZA" name="NewTarget">
+        <type href="http://Statemachine/1.0#//Event"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_DwExtzmeEeSHnOsQ7rpwZA" name="Rhs">
+      <nodes xmi:id="_DwExuDmeEeSHnOsQ7rpwZA" name="Selected" outgoing="_DwExujmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_DwExuTmeEeSHnOsQ7rpwZA" name="NewTarget" incoming="_DwExujmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//Event"/>
+      </nodes>
+      <edges xmi:id="_DwExujmeEeSHnOsQ7rpwZA" source="_DwExuDmeEeSHnOsQ7rpwZA" target="_DwExuTmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//State/deferrableEvents"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_DwExuzmeEeSHnOsQ7rpwZA" origin="_DwExtTmeEeSHnOsQ7rpwZA" image="_DwExuDmeEeSHnOsQ7rpwZA"/>
+    <mappings xmi:id="_DwExvDmeEeSHnOsQ7rpwZA" origin="_DwExtjmeEeSHnOsQ7rpwZA" image="_DwExuTmeEeSHnOsQ7rpwZA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_DwExvTmeEeSHnOsQ7rpwZA" name="mainUnit" subUnits="_DwExsTmeEeSHnOsQ7rpwZA">
+    <parameters xmi:id="_DwExvjmeEeSHnOsQ7rpwZA" name="selectedEObject"/>
+    <parameters xmi:id="_DwExvzmeEeSHnOsQ7rpwZA" name="NewTarget"/>
+    <parameterMappings xmi:id="_DwExwDmeEeSHnOsQ7rpwZA" source="_DwExvjmeEeSHnOsQ7rpwZA" target="_DwExsjmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_DwExwTmeEeSHnOsQ7rpwZA" source="_DwExvzmeEeSHnOsQ7rpwZA" target="_DwExszmeEeSHnOsQ7rpwZA"/>
+  </units>
+</henshin:Module>

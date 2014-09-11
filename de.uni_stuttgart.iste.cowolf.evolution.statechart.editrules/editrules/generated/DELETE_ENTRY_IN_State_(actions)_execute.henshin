@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_D0pIoDmeEeSHnOsQ7rpwZA" name="DELETE_ENTRY_IN_State_(actions)" description="Deletes one ENTRY in State">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_D0pIoTmeEeSHnOsQ7rpwZA" name="deleteENTRY_IN_State" description="deletes one ENTRY in the context: State">
+    <parameters xmi:id="_D0pIojmeEeSHnOsQ7rpwZA" name="Selected"/>
+    <parameters xmi:id="_D0pIozmeEeSHnOsQ7rpwZA" name="ToBeDeleted"/>
+    <lhs xmi:id="_D0pIpDmeEeSHnOsQ7rpwZA" name="LHS">
+      <nodes xmi:id="_D0pIpTmeEeSHnOsQ7rpwZA" name="Selected" incoming="_D0pIqDmeEeSHnOsQ7rpwZA" outgoing="_D0pIpzmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_D0pIpjmeEeSHnOsQ7rpwZA" name="ToBeDeleted" incoming="_D0pIpzmeEeSHnOsQ7rpwZA" outgoing="_D0pIqDmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//ENTRY"/>
+      </nodes>
+      <edges xmi:id="_D0pIpzmeEeSHnOsQ7rpwZA" source="_D0pIpTmeEeSHnOsQ7rpwZA" target="_D0pIpjmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//State/actions"/>
+      </edges>
+      <edges xmi:id="_D0pIqDmeEeSHnOsQ7rpwZA" source="_D0pIpjmeEeSHnOsQ7rpwZA" target="_D0pIpTmeEeSHnOsQ7rpwZA">
+        <type href="http://Statemachine/1.0#//StateAction/action_container"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_D0pIqTmeEeSHnOsQ7rpwZA" name="RHS">
+      <nodes xmi:id="_D0pIqjmeEeSHnOsQ7rpwZA" name="Selected">
+        <type href="http://Statemachine/1.0#//State"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_D0pIqzmeEeSHnOsQ7rpwZA" origin="_D0pIpTmeEeSHnOsQ7rpwZA" image="_D0pIqjmeEeSHnOsQ7rpwZA"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_D0pIrDmeEeSHnOsQ7rpwZA" name="mainUnit" description="Deletes one ENTRY depending on available contexts in model instance" subUnits="_D0pIoTmeEeSHnOsQ7rpwZA">
+    <parameters xmi:id="_D0pIrTmeEeSHnOsQ7rpwZA" name="ToBeDeleted"/>
+    <parameters xmi:id="_D0pIrjmeEeSHnOsQ7rpwZA" name="selectedEObject"/>
+    <parameterMappings xmi:id="_D0pIrzmeEeSHnOsQ7rpwZA" source="_D0pIrjmeEeSHnOsQ7rpwZA" target="_D0pIojmeEeSHnOsQ7rpwZA"/>
+    <parameterMappings xmi:id="_D0pIsDmeEeSHnOsQ7rpwZA" source="_D0pIrTmeEeSHnOsQ7rpwZA" target="_D0pIozmeEeSHnOsQ7rpwZA"/>
+  </units>
+</henshin:Module>
