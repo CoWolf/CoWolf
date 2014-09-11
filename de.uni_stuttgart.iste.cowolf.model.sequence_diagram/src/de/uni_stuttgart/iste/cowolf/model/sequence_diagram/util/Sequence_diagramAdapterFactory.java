@@ -6,6 +6,7 @@ import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Actor;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ActorLifeline;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.BehaviorExecutionSpecification;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ExecutionSpecifiaction;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Lifeline;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Message;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.MessageOccurenceSpecification;
@@ -26,6 +27,7 @@ import org.eclipse.uml2.uml.ConnectableElement;
 import org.eclipse.uml2.uml.DeploymentTarget;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.EncapsulatedClassifier;
+import org.eclipse.uml2.uml.ExecutionSpecification;
 import org.eclipse.uml2.uml.Feature;
 import org.eclipse.uml2.uml.Interaction;
 import org.eclipse.uml2.uml.InteractionFragment;
@@ -149,6 +151,10 @@ public class Sequence_diagramAdapterFactory extends AdapterFactoryImpl {
 				return createPropertyAdapter();
 			}
 			@Override
+			public Adapter caseExecutionSpecifiaction(ExecutionSpecifiaction object) {
+				return createExecutionSpecifiactionAdapter();
+			}
+			@Override
 			public Adapter caseEModelElement(EModelElement object) {
 				return createEModelElementAdapter();
 			}
@@ -257,7 +263,7 @@ public class Sequence_diagramAdapterFactory extends AdapterFactoryImpl {
 				return createMessageOccurrenceSpecificationAdapter();
 			}
 			@Override
-			public Adapter caseExecutionSpecification(org.eclipse.uml2.uml.ExecutionSpecification object) {
+			public Adapter caseExecutionSpecification(ExecutionSpecification object) {
 				return createExecutionSpecificationAdapter();
 			}
 			@Override
@@ -803,6 +809,20 @@ public class Sequence_diagramAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPropertyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ExecutionSpecifiaction <em>Execution Specifiaction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ExecutionSpecifiaction
+	 * @generated
+	 */
+	public Adapter createExecutionSpecifiactionAdapter() {
 		return null;
 	}
 

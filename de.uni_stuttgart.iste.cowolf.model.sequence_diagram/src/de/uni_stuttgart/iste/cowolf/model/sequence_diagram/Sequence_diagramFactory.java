@@ -121,6 +121,15 @@ public interface Sequence_diagramFactory extends EFactory {
 	Property createProperty();
 
 	/**
+	 * Returns a new object of class '<em>Execution Specifiaction</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Execution Specifiaction</em>'.
+	 * @generated
+	 */
+	ExecutionSpecifiaction createExecutionSpecifiaction();
+
+	/**
 	 * Returns a new object of class '<em>Actor Lifeline</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
