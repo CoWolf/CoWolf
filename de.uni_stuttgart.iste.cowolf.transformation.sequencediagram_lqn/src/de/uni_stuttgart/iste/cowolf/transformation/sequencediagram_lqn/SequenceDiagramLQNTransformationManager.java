@@ -12,8 +12,8 @@ public class SequenceDiagramLQNTransformationManager extends AbstractTransformat
 
 	@Override
 	public Class<?> getManagedClass1() {
-		// TODO Auto-generated method stub
-		return null;
+		// FIXME change to sequence diagram
+		return String.class;
 	}
 
 	@Override
@@ -29,6 +29,16 @@ public class SequenceDiagramLQNTransformationManager extends AbstractTransformat
 	@Override
 	protected String getReverseKey() {
 		return "lqn_sequencediagram";
+	}
+	
+	@Override
+	public boolean isManaged(Class<?> source, Class<?> target) {
+		
+		if (source.isAssignableFrom(getManagedClass1())) {
+			return super.isManaged(source, target);
+		}
+		
+		return false;
 	}
 
 }
