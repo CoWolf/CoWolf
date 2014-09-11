@@ -204,6 +204,7 @@ public class CTMCAnalyzeJob extends Job {
 			while ((line = br.readLine()) != null) {
 				if (getNext) {
 					Result result = new Result();
+					result.property = analyzeProperties.get(counter);
 					result.name = analyzePropertyNames.get(counter);
 					result.value = line;
 					this.prismResult.add(result);
@@ -224,6 +225,7 @@ public class CTMCAnalyzeJob extends Job {
 	}
 
 	class Result {
+		public String property;
 		public String name;
 		public String value;
 	}

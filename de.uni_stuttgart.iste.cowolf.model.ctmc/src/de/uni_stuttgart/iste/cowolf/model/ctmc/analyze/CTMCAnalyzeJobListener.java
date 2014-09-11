@@ -96,9 +96,10 @@ public class CTMCAnalyzeJobListener implements IJobChangeListener {
 			// evaluated. When performing a simulation, only reachability is
 			// evaluated.
 			if (job.getAnalysis().size() > 0) {
-				out.write("Property,Result\n".getBytes());
+				out.write("Property,Description,Result\n".getBytes());
 
 				for (Result entry : job.getAnalysis()) {
+					out.write(("\"" + entry.property.replaceAll("\"", "\"\"") + "\",").getBytes());
 					out.write(("\"" + entry.name.replaceAll("\"", "\"\"") + "\"")
 							.getBytes());
 					out.write(',');
