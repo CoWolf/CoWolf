@@ -2,21 +2,8 @@
 <?eclipse version="3.4"?>
 <plugin>
 <extension
-point="org.eclipse.ui.views">
-<category
-id="de.uni_stuttgart.iste.cowolf.ui.navigator.category"
-            name="%category.name.0"/>
-<view
-allowMultiple="false"
-category="de.uni_stuttgart.iste.cowolf.ui.navigator.category"
-class="org.eclipse.ui.navigator.CommonNavigator"
-            icon="icons/logo_wulf_15x15.png"
-            id="de.uni_stuttgart.iste.cowolf.ui.navigator.view"
-            name="%view.name.0"/>
-</extension>
-<extension
 point="org.eclipse.ui.navigator.viewer">
-      <viewerContentBinding viewerId="de.uni_stuttgart.iste.cowolf.ui.navigator.view">
+      <viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
          <includes>
             <contentExtension pattern="org.eclipse.ui.navigator.resources.filters.*"/> 
             <contentExtension
@@ -27,61 +14,11 @@ point="org.eclipse.ui.navigator.viewer">
             </contentExtension>
          </includes>
       </viewerContentBinding>
-      <viewerActionBinding viewerId="de.uni_stuttgart.iste.cowolf.ui.navigator.view">
+      <viewerActionBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
          <includes>
             <actionExtension pattern="org.eclipse.ui.navigator.resources.*"/>
          </includes>
       </viewerActionBinding>
-<viewer
-            viewerId="de.uni_stuttgart.iste.cowolf.ui.navigator.view">
-<popupMenu
-               id="de.uni_stuttgart.iste.cowolf.ui.navigator.view#PopupMenu">
-<insertionPoint
-name="group.new"
-separator="true">
-</insertionPoint>
-<insertionPoint
-                  name="group.open"
-                  separator="true">
-            </insertionPoint>
-            <insertionPoint
-                  name="group.openWith"
-                  separator="true">
-            </insertionPoint>
-            <insertionPoint
-                  name="group.edit"
-                  separator="true">
-            </insertionPoint>
-            <insertionPoint
-                  name="group.reorganize"
-                  separator="true">
-            </insertionPoint>
-            <insertionPoint
-name="group.port"
-separator="true">
-</insertionPoint>
-<insertionPoint
-name="group.build"
-separator="true">
-</insertionPoint>
-            <insertionPoint
-                  name="group.generate"
-                  separator="true">
-            </insertionPoint>
-            <insertionPoint
-                  name="group.search"
-                  separator="true">
-            </insertionPoint>
-            <insertionPoint
-                  name="group.additions"
-                  separator="true">
-            </insertionPoint>
-            <insertionPoint
-                  name="group.properties"
-                  separator="true">
-            </insertionPoint>
-</popupMenu>
-</viewer>
 </extension>
 <extension
 point="org.eclipse.ui.navigator.navigatorContent">
@@ -131,7 +68,7 @@ point="org.eclipse.ui.handlers">
 point="org.eclipse.ui.menus">
 <menuContribution
 allPopups="false"
-            locationURI="popup:de.uni_stuttgart.iste.cowolf.ui.navigator.view#PopupMenu?before=additions">
+            locationURI="popup:org.eclipse.ui.popup.any?before=additions">
          <menu
                icon="icons/logo_wulf_15x15.png"
                label="%menu.label">
@@ -157,6 +94,12 @@ allPopups="false"
                   name="de.uni_stuttgart.iste.cowolf.ui.navigator.separator"
                   visible="true">
             </separator>
+            <visibleWhen
+                  checkEnabled="false">
+               <reference
+                     definitionId="de.uni_stuttgart.iste.cowolf.ui.navigator.definition.visibility">
+               </reference>
+            </visibleWhen>
          </menu>
 </menuContribution>
    </extension>
@@ -184,6 +127,20 @@ allPopups="false"
       <startup
             class="de.uni_stuttgart.iste.cowolf.ui.navigator.trigger.StartTrigger">
       </startup>
+   </extension>
+   <extension
+         point="org.eclipse.core.expressions.definitions">
+      <definition
+            id="de.uni_stuttgart.iste.cowolf.ui.navigator.definition.visibility">
+                    <with
+               variable="selection">
+            <iterate>
+               <instanceof
+                     value="org.eclipse.core.resources.IFile">
+               </instanceof>
+            </iterate>
+         </with>
+      </definition>
    </extension>
 </plugin>
 
