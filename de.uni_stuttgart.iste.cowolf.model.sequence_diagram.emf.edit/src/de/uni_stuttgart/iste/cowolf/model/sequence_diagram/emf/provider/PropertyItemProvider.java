@@ -5,7 +5,7 @@ package de.uni_stuttgart.iste.cowolf.model.sequence_diagram.emf.provider;
 
 import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
 
-import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Actor;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Property;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramFactory;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramPackage;
 
@@ -25,19 +25,19 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.uml2.uml.UMLPackage;
 
 /**
- * This is the item provider adapter for a {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Actor} object.
+ * This is the item provider adapter for a {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Property} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ActorItemProvider extends org.eclipse.uml2.uml.edit.providers.ActorItemProvider {
+public class PropertyItemProvider extends org.eclipse.uml2.uml.edit.providers.PropertyItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ActorItemProvider(AdapterFactory adapterFactory) {
+	public PropertyItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -80,14 +80,14 @@ public class ActorItemProvider extends org.eclipse.uml2.uml.edit.providers.Actor
 	}
 
 	/**
-	 * This returns Actor.gif.
+	 * This returns Property.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Actor"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Property"));
 	}
 
 	/**
@@ -98,10 +98,10 @@ public class ActorItemProvider extends org.eclipse.uml2.uml.edit.providers.Actor
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Actor)object).getName();
+		String label = ((Property)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Actor_type") :
-			getString("_UI_Actor_type") + " " + label;
+			getString("_UI_Property_type") :
+			getString("_UI_Property_type") + " " + label;
 	}
 	
 
@@ -116,8 +116,8 @@ public class ActorItemProvider extends org.eclipse.uml2.uml.edit.providers.Actor
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Actor.class)) {
-			case Sequence_diagramPackage.ACTOR__ID:
+		switch (notification.getFeatureID(Property.class)) {
+			case Sequence_diagramPackage.PROPERTY__ID:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -137,13 +137,8 @@ public class ActorItemProvider extends org.eclipse.uml2.uml.edit.providers.Actor
 
 		newChildDescriptors.add
 			(createChildParameter
-				(UMLPackage.Literals.BEHAVIORED_CLASSIFIER__CLASSIFIER_BEHAVIOR,
-				 Sequence_diagramFactory.eINSTANCE.createInteraction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(UMLPackage.Literals.BEHAVIORED_CLASSIFIER__OWNED_BEHAVIOR,
-				 Sequence_diagramFactory.eINSTANCE.createInteraction()));
+				(UMLPackage.Literals.PROPERTY__QUALIFIER,
+				 Sequence_diagramFactory.eINSTANCE.createProperty()));
 	}
 
 	/**
@@ -158,10 +153,10 @@ public class ActorItemProvider extends org.eclipse.uml2.uml.edit.providers.Actor
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == UMLPackage.Literals.CLASSIFIER__COLLABORATION_USE ||
-			childFeature == UMLPackage.Literals.CLASSIFIER__REPRESENTATION ||
-			childFeature == UMLPackage.Literals.BEHAVIORED_CLASSIFIER__CLASSIFIER_BEHAVIOR ||
-			childFeature == UMLPackage.Literals.BEHAVIORED_CLASSIFIER__OWNED_BEHAVIOR;
+			childFeature == UMLPackage.Literals.NAMED_ELEMENT__NAME_EXPRESSION ||
+			childFeature == UMLPackage.Literals.MULTIPLICITY_ELEMENT__LOWER_VALUE ||
+			childFeature == UMLPackage.Literals.MULTIPLICITY_ELEMENT__UPPER_VALUE ||
+			childFeature == UMLPackage.Literals.PROPERTY__DEFAULT_VALUE;
 
 		if (qualify) {
 			return getString

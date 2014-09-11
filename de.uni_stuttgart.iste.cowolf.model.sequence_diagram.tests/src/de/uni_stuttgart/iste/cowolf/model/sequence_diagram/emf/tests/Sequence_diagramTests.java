@@ -34,8 +34,11 @@ public class Sequence_diagramTests extends TestSuite {
 		suite.addTestSuite(MessageTest.class);
 		suite.addTestSuite(LifelineTest.class);
 		suite.addTestSuite(ActorTest.class);
-		suite.addTestSuite(SdInteractionTest.class);
+		suite.addTestSuite(InteractionTest.class);
 		suite.addTestSuite(PackageTest.class);
+		suite.addTestSuite(ClassTest.class);
+		suite.addTestSuite(PropertyTest.class);
+		suite.addTestSuite(ActorLifelineTest.class);
 		return suite;
 	}
 

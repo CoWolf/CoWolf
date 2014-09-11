@@ -49,13 +49,13 @@ public interface Sequence_diagramFactory extends EFactory {
 	Actor createActor();
 
 	/**
-	 * Returns a new object of class '<em>Sd Interaction</em>'.
+	 * Returns a new object of class '<em>Interaction</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Sd Interaction</em>'.
+	 * @return a new object of class '<em>Interaction</em>'.
 	 * @generated
 	 */
-	SdInteraction createSdInteraction();
+	Interaction createInteraction();
 
 	/**
 	 * Returns a new object of class '<em>Package</em>'.
@@ -65,6 +65,33 @@ public interface Sequence_diagramFactory extends EFactory {
 	 * @generated
 	 */
 	Package createPackage();
+
+	/**
+	 * Returns a new object of class '<em>Class</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Class</em>'.
+	 * @generated
+	 */
+	Class createClass();
+
+	/**
+	 * Returns a new object of class '<em>Property</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Property</em>'.
+	 * @generated
+	 */
+	Property createProperty();
+
+	/**
+	 * Returns a new object of class '<em>Actor Lifeline</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Actor Lifeline</em>'.
+	 * @generated
+	 */
+	ActorLifeline createActorLifeline();
 
 	/**
 	 * Returns the package supported by this factory.

@@ -5,7 +5,7 @@ package de.uni_stuttgart.iste.cowolf.model.sequence_diagram.emf.provider;
 
 import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
 
-import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.SdInteraction;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Interaction;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramFactory;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramPackage;
 
@@ -24,22 +24,20 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.eclipse.uml2.uml.UMLPackage;
 
-import org.eclipse.uml2.uml.edit.providers.InteractionItemProvider;
-
 /**
- * This is the item provider adapter for a {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.SdInteraction} object.
+ * This is the item provider adapter for a {@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Interaction} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class SdInteractionItemProvider extends InteractionItemProvider {
+public class InteractionItemProvider extends org.eclipse.uml2.uml.edit.providers.InteractionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SdInteractionItemProvider(AdapterFactory adapterFactory) {
+	public InteractionItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -82,14 +80,14 @@ public class SdInteractionItemProvider extends InteractionItemProvider {
 	}
 
 	/**
-	 * This returns SdInteraction.gif.
+	 * This returns Interaction.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SdInteraction"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Interaction"));
 	}
 
 	/**
@@ -100,10 +98,10 @@ public class SdInteractionItemProvider extends InteractionItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((SdInteraction)object).getName();
+		String label = ((Interaction)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_SdInteraction_type") :
-			getString("_UI_SdInteraction_type") + " " + label;
+			getString("_UI_Interaction_type") :
+			getString("_UI_Interaction_type") + " " + label;
 	}
 	
 
@@ -118,8 +116,8 @@ public class SdInteractionItemProvider extends InteractionItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(SdInteraction.class)) {
-			case Sequence_diagramPackage.SD_INTERACTION__ID:
+		switch (notification.getFeatureID(Interaction.class)) {
+			case Sequence_diagramPackage.INTERACTION__ID:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -139,13 +137,18 @@ public class SdInteractionItemProvider extends InteractionItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(UMLPackage.Literals.STRUCTURED_CLASSIFIER__OWNED_ATTRIBUTE,
+				 Sequence_diagramFactory.eINSTANCE.createProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(UMLPackage.Literals.BEHAVIORED_CLASSIFIER__CLASSIFIER_BEHAVIOR,
-				 Sequence_diagramFactory.eINSTANCE.createSdInteraction()));
+				 Sequence_diagramFactory.eINSTANCE.createInteraction()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(UMLPackage.Literals.BEHAVIORED_CLASSIFIER__OWNED_BEHAVIOR,
-				 Sequence_diagramFactory.eINSTANCE.createSdInteraction()));
+				 Sequence_diagramFactory.eINSTANCE.createInteraction()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -155,7 +158,12 @@ public class SdInteractionItemProvider extends InteractionItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(UMLPackage.Literals.CLASS__NESTED_CLASSIFIER,
-				 Sequence_diagramFactory.eINSTANCE.createSdInteraction()));
+				 Sequence_diagramFactory.eINSTANCE.createInteraction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(UMLPackage.Literals.CLASS__NESTED_CLASSIFIER,
+				 Sequence_diagramFactory.eINSTANCE.createClass()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -164,8 +172,13 @@ public class SdInteractionItemProvider extends InteractionItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(UMLPackage.Literals.INTERACTION__LIFELINE,
+				 Sequence_diagramFactory.eINSTANCE.createActorLifeline()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(UMLPackage.Literals.INTERACTION__FRAGMENT,
-				 Sequence_diagramFactory.eINSTANCE.createSdInteraction()));
+				 Sequence_diagramFactory.eINSTANCE.createInteraction()));
 
 		newChildDescriptors.add
 			(createChildParameter

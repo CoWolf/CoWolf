@@ -1450,6 +1450,9 @@ public class UMLServices {
 	 *         the same type.
 	 */
 	public String computeDefaultName(final EObject element) {
+		
+		
+		
 		Predicate<EObject> predicate = null;
 		String name = element.getClass().getSimpleName();
 		name = name.substring(0, name.indexOf("Impl"));

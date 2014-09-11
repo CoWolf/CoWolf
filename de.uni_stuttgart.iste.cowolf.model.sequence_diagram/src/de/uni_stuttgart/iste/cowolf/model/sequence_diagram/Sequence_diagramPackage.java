@@ -3499,14 +3499,14 @@ public interface Sequence_diagramPackage extends EPackage {
 	int ACTOR_OPERATION_COUNT = UMLPackage.ACTOR_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.SdInteractionImpl <em>Sd Interaction</em>}' class.
+	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.InteractionImpl <em>Interaction</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.SdInteractionImpl
-	 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.Sequence_diagramPackageImpl#getSdInteraction()
+	 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.InteractionImpl
+	 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.Sequence_diagramPackageImpl#getInteraction()
 	 * @generated
 	 */
-	int SD_INTERACTION = 4;
+	int INTERACTION = 4;
 
 	/**
 	 * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list.
@@ -3515,7 +3515,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__EANNOTATIONS = UMLPackage.INTERACTION__EANNOTATIONS;
+	int INTERACTION__EANNOTATIONS = UMLPackage.INTERACTION__EANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Owned Comment</b></em>' containment reference list.
@@ -3524,7 +3524,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__OWNED_COMMENT = UMLPackage.INTERACTION__OWNED_COMMENT;
+	int INTERACTION__OWNED_COMMENT = UMLPackage.INTERACTION__OWNED_COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -3533,7 +3533,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__OWNED_ELEMENT = UMLPackage.INTERACTION__OWNED_ELEMENT;
+	int INTERACTION__OWNED_ELEMENT = UMLPackage.INTERACTION__OWNED_ELEMENT;
 
 	/**
 	 * The feature id for the '<em><b>Owner</b></em>' reference.
@@ -3542,7 +3542,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__OWNER = UMLPackage.INTERACTION__OWNER;
+	int INTERACTION__OWNER = UMLPackage.INTERACTION__OWNER;
 
 	/**
 	 * The feature id for the '<em><b>Client Dependency</b></em>' reference list.
@@ -3551,7 +3551,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__CLIENT_DEPENDENCY = UMLPackage.INTERACTION__CLIENT_DEPENDENCY;
+	int INTERACTION__CLIENT_DEPENDENCY = UMLPackage.INTERACTION__CLIENT_DEPENDENCY;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3560,7 +3560,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__NAME = UMLPackage.INTERACTION__NAME;
+	int INTERACTION__NAME = UMLPackage.INTERACTION__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Name Expression</b></em>' containment reference.
@@ -3569,7 +3569,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__NAME_EXPRESSION = UMLPackage.INTERACTION__NAME_EXPRESSION;
+	int INTERACTION__NAME_EXPRESSION = UMLPackage.INTERACTION__NAME_EXPRESSION;
 
 	/**
 	 * The feature id for the '<em><b>Namespace</b></em>' reference.
@@ -3578,7 +3578,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__NAMESPACE = UMLPackage.INTERACTION__NAMESPACE;
+	int INTERACTION__NAMESPACE = UMLPackage.INTERACTION__NAMESPACE;
 
 	/**
 	 * The feature id for the '<em><b>Qualified Name</b></em>' attribute.
@@ -3587,7 +3587,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__QUALIFIED_NAME = UMLPackage.INTERACTION__QUALIFIED_NAME;
+	int INTERACTION__QUALIFIED_NAME = UMLPackage.INTERACTION__QUALIFIED_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Visibility</b></em>' attribute.
@@ -3596,7 +3596,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__VISIBILITY = UMLPackage.INTERACTION__VISIBILITY;
+	int INTERACTION__VISIBILITY = UMLPackage.INTERACTION__VISIBILITY;
 
 	/**
 	 * The feature id for the '<em><b>Owned Rule</b></em>' containment reference list.
@@ -3605,7 +3605,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__OWNED_RULE = UMLPackage.INTERACTION__OWNED_RULE;
+	int INTERACTION__OWNED_RULE = UMLPackage.INTERACTION__OWNED_RULE;
 
 	/**
 	 * The feature id for the '<em><b>Element Import</b></em>' containment reference list.
@@ -3614,7 +3614,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__ELEMENT_IMPORT = UMLPackage.INTERACTION__ELEMENT_IMPORT;
+	int INTERACTION__ELEMENT_IMPORT = UMLPackage.INTERACTION__ELEMENT_IMPORT;
 
 	/**
 	 * The feature id for the '<em><b>Package Import</b></em>' containment reference list.
@@ -3623,7 +3623,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__PACKAGE_IMPORT = UMLPackage.INTERACTION__PACKAGE_IMPORT;
+	int INTERACTION__PACKAGE_IMPORT = UMLPackage.INTERACTION__PACKAGE_IMPORT;
 
 	/**
 	 * The feature id for the '<em><b>Owned Member</b></em>' reference list.
@@ -3632,7 +3632,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__OWNED_MEMBER = UMLPackage.INTERACTION__OWNED_MEMBER;
+	int INTERACTION__OWNED_MEMBER = UMLPackage.INTERACTION__OWNED_MEMBER;
 
 	/**
 	 * The feature id for the '<em><b>Imported Member</b></em>' reference list.
@@ -3641,7 +3641,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__IMPORTED_MEMBER = UMLPackage.INTERACTION__IMPORTED_MEMBER;
+	int INTERACTION__IMPORTED_MEMBER = UMLPackage.INTERACTION__IMPORTED_MEMBER;
 
 	/**
 	 * The feature id for the '<em><b>Member</b></em>' reference list.
@@ -3650,7 +3650,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__MEMBER = UMLPackage.INTERACTION__MEMBER;
+	int INTERACTION__MEMBER = UMLPackage.INTERACTION__MEMBER;
 
 	/**
 	 * The feature id for the '<em><b>Is Leaf</b></em>' attribute.
@@ -3659,7 +3659,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__IS_LEAF = UMLPackage.INTERACTION__IS_LEAF;
+	int INTERACTION__IS_LEAF = UMLPackage.INTERACTION__IS_LEAF;
 
 	/**
 	 * The feature id for the '<em><b>Redefined Element</b></em>' reference list.
@@ -3668,7 +3668,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__REDEFINED_ELEMENT = UMLPackage.INTERACTION__REDEFINED_ELEMENT;
+	int INTERACTION__REDEFINED_ELEMENT = UMLPackage.INTERACTION__REDEFINED_ELEMENT;
 
 	/**
 	 * The feature id for the '<em><b>Redefinition Context</b></em>' reference list.
@@ -3677,7 +3677,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__REDEFINITION_CONTEXT = UMLPackage.INTERACTION__REDEFINITION_CONTEXT;
+	int INTERACTION__REDEFINITION_CONTEXT = UMLPackage.INTERACTION__REDEFINITION_CONTEXT;
 
 	/**
 	 * The feature id for the '<em><b>Owning Template Parameter</b></em>' container reference.
@@ -3686,7 +3686,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__OWNING_TEMPLATE_PARAMETER = UMLPackage.INTERACTION__OWNING_TEMPLATE_PARAMETER;
+	int INTERACTION__OWNING_TEMPLATE_PARAMETER = UMLPackage.INTERACTION__OWNING_TEMPLATE_PARAMETER;
 
 	/**
 	 * The feature id for the '<em><b>Template Parameter</b></em>' reference.
@@ -3695,7 +3695,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__TEMPLATE_PARAMETER = UMLPackage.INTERACTION__TEMPLATE_PARAMETER;
+	int INTERACTION__TEMPLATE_PARAMETER = UMLPackage.INTERACTION__TEMPLATE_PARAMETER;
 
 	/**
 	 * The feature id for the '<em><b>Package</b></em>' reference.
@@ -3704,7 +3704,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__PACKAGE = UMLPackage.INTERACTION__PACKAGE;
+	int INTERACTION__PACKAGE = UMLPackage.INTERACTION__PACKAGE;
 
 	/**
 	 * The feature id for the '<em><b>Template Binding</b></em>' containment reference list.
@@ -3713,7 +3713,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__TEMPLATE_BINDING = UMLPackage.INTERACTION__TEMPLATE_BINDING;
+	int INTERACTION__TEMPLATE_BINDING = UMLPackage.INTERACTION__TEMPLATE_BINDING;
 
 	/**
 	 * The feature id for the '<em><b>Owned Template Signature</b></em>' containment reference.
@@ -3722,7 +3722,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__OWNED_TEMPLATE_SIGNATURE = UMLPackage.INTERACTION__OWNED_TEMPLATE_SIGNATURE;
+	int INTERACTION__OWNED_TEMPLATE_SIGNATURE = UMLPackage.INTERACTION__OWNED_TEMPLATE_SIGNATURE;
 
 	/**
 	 * The feature id for the '<em><b>Feature</b></em>' reference list.
@@ -3731,7 +3731,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__FEATURE = UMLPackage.INTERACTION__FEATURE;
+	int INTERACTION__FEATURE = UMLPackage.INTERACTION__FEATURE;
 
 	/**
 	 * The feature id for the '<em><b>Attribute</b></em>' reference list.
@@ -3740,7 +3740,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__ATTRIBUTE = UMLPackage.INTERACTION__ATTRIBUTE;
+	int INTERACTION__ATTRIBUTE = UMLPackage.INTERACTION__ATTRIBUTE;
 
 	/**
 	 * The feature id for the '<em><b>Collaboration Use</b></em>' containment reference list.
@@ -3749,7 +3749,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__COLLABORATION_USE = UMLPackage.INTERACTION__COLLABORATION_USE;
+	int INTERACTION__COLLABORATION_USE = UMLPackage.INTERACTION__COLLABORATION_USE;
 
 	/**
 	 * The feature id for the '<em><b>General</b></em>' reference list.
@@ -3758,7 +3758,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__GENERAL = UMLPackage.INTERACTION__GENERAL;
+	int INTERACTION__GENERAL = UMLPackage.INTERACTION__GENERAL;
 
 	/**
 	 * The feature id for the '<em><b>Generalization</b></em>' containment reference list.
@@ -3767,7 +3767,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__GENERALIZATION = UMLPackage.INTERACTION__GENERALIZATION;
+	int INTERACTION__GENERALIZATION = UMLPackage.INTERACTION__GENERALIZATION;
 
 	/**
 	 * The feature id for the '<em><b>Powertype Extent</b></em>' reference list.
@@ -3776,7 +3776,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__POWERTYPE_EXTENT = UMLPackage.INTERACTION__POWERTYPE_EXTENT;
+	int INTERACTION__POWERTYPE_EXTENT = UMLPackage.INTERACTION__POWERTYPE_EXTENT;
 
 	/**
 	 * The feature id for the '<em><b>Inherited Member</b></em>' reference list.
@@ -3785,7 +3785,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__INHERITED_MEMBER = UMLPackage.INTERACTION__INHERITED_MEMBER;
+	int INTERACTION__INHERITED_MEMBER = UMLPackage.INTERACTION__INHERITED_MEMBER;
 
 	/**
 	 * The feature id for the '<em><b>Is Abstract</b></em>' attribute.
@@ -3794,7 +3794,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__IS_ABSTRACT = UMLPackage.INTERACTION__IS_ABSTRACT;
+	int INTERACTION__IS_ABSTRACT = UMLPackage.INTERACTION__IS_ABSTRACT;
 
 	/**
 	 * The feature id for the '<em><b>Is Final Specialization</b></em>' attribute.
@@ -3803,7 +3803,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__IS_FINAL_SPECIALIZATION = UMLPackage.INTERACTION__IS_FINAL_SPECIALIZATION;
+	int INTERACTION__IS_FINAL_SPECIALIZATION = UMLPackage.INTERACTION__IS_FINAL_SPECIALIZATION;
 
 	/**
 	 * The feature id for the '<em><b>Owned Use Case</b></em>' containment reference list.
@@ -3812,7 +3812,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__OWNED_USE_CASE = UMLPackage.INTERACTION__OWNED_USE_CASE;
+	int INTERACTION__OWNED_USE_CASE = UMLPackage.INTERACTION__OWNED_USE_CASE;
 
 	/**
 	 * The feature id for the '<em><b>Use Case</b></em>' reference list.
@@ -3821,7 +3821,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__USE_CASE = UMLPackage.INTERACTION__USE_CASE;
+	int INTERACTION__USE_CASE = UMLPackage.INTERACTION__USE_CASE;
 
 	/**
 	 * The feature id for the '<em><b>Redefined Classifier</b></em>' reference list.
@@ -3830,7 +3830,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__REDEFINED_CLASSIFIER = UMLPackage.INTERACTION__REDEFINED_CLASSIFIER;
+	int INTERACTION__REDEFINED_CLASSIFIER = UMLPackage.INTERACTION__REDEFINED_CLASSIFIER;
 
 	/**
 	 * The feature id for the '<em><b>Representation</b></em>' reference.
@@ -3839,7 +3839,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__REPRESENTATION = UMLPackage.INTERACTION__REPRESENTATION;
+	int INTERACTION__REPRESENTATION = UMLPackage.INTERACTION__REPRESENTATION;
 
 	/**
 	 * The feature id for the '<em><b>Substitution</b></em>' containment reference list.
@@ -3848,7 +3848,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__SUBSTITUTION = UMLPackage.INTERACTION__SUBSTITUTION;
+	int INTERACTION__SUBSTITUTION = UMLPackage.INTERACTION__SUBSTITUTION;
 
 	/**
 	 * The feature id for the '<em><b>Owned Attribute</b></em>' containment reference list.
@@ -3857,7 +3857,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__OWNED_ATTRIBUTE = UMLPackage.INTERACTION__OWNED_ATTRIBUTE;
+	int INTERACTION__OWNED_ATTRIBUTE = UMLPackage.INTERACTION__OWNED_ATTRIBUTE;
 
 	/**
 	 * The feature id for the '<em><b>Owned Connector</b></em>' containment reference list.
@@ -3866,7 +3866,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__OWNED_CONNECTOR = UMLPackage.INTERACTION__OWNED_CONNECTOR;
+	int INTERACTION__OWNED_CONNECTOR = UMLPackage.INTERACTION__OWNED_CONNECTOR;
 
 	/**
 	 * The feature id for the '<em><b>Part</b></em>' reference list.
@@ -3875,7 +3875,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__PART = UMLPackage.INTERACTION__PART;
+	int INTERACTION__PART = UMLPackage.INTERACTION__PART;
 
 	/**
 	 * The feature id for the '<em><b>Role</b></em>' reference list.
@@ -3884,7 +3884,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__ROLE = UMLPackage.INTERACTION__ROLE;
+	int INTERACTION__ROLE = UMLPackage.INTERACTION__ROLE;
 
 	/**
 	 * The feature id for the '<em><b>Owned Port</b></em>' reference list.
@@ -3893,7 +3893,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__OWNED_PORT = UMLPackage.INTERACTION__OWNED_PORT;
+	int INTERACTION__OWNED_PORT = UMLPackage.INTERACTION__OWNED_PORT;
 
 	/**
 	 * The feature id for the '<em><b>Classifier Behavior</b></em>' reference.
@@ -3902,7 +3902,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__CLASSIFIER_BEHAVIOR = UMLPackage.INTERACTION__CLASSIFIER_BEHAVIOR;
+	int INTERACTION__CLASSIFIER_BEHAVIOR = UMLPackage.INTERACTION__CLASSIFIER_BEHAVIOR;
 
 	/**
 	 * The feature id for the '<em><b>Interface Realization</b></em>' containment reference list.
@@ -3911,7 +3911,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__INTERFACE_REALIZATION = UMLPackage.INTERACTION__INTERFACE_REALIZATION;
+	int INTERACTION__INTERFACE_REALIZATION = UMLPackage.INTERACTION__INTERFACE_REALIZATION;
 
 	/**
 	 * The feature id for the '<em><b>Owned Behavior</b></em>' containment reference list.
@@ -3920,7 +3920,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__OWNED_BEHAVIOR = UMLPackage.INTERACTION__OWNED_BEHAVIOR;
+	int INTERACTION__OWNED_BEHAVIOR = UMLPackage.INTERACTION__OWNED_BEHAVIOR;
 
 	/**
 	 * The feature id for the '<em><b>Owned Operation</b></em>' containment reference list.
@@ -3929,7 +3929,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__OWNED_OPERATION = UMLPackage.INTERACTION__OWNED_OPERATION;
+	int INTERACTION__OWNED_OPERATION = UMLPackage.INTERACTION__OWNED_OPERATION;
 
 	/**
 	 * The feature id for the '<em><b>Extension</b></em>' reference list.
@@ -3938,7 +3938,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__EXTENSION = UMLPackage.INTERACTION__EXTENSION;
+	int INTERACTION__EXTENSION = UMLPackage.INTERACTION__EXTENSION;
 
 	/**
 	 * The feature id for the '<em><b>Is Active</b></em>' attribute.
@@ -3947,7 +3947,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__IS_ACTIVE = UMLPackage.INTERACTION__IS_ACTIVE;
+	int INTERACTION__IS_ACTIVE = UMLPackage.INTERACTION__IS_ACTIVE;
 
 	/**
 	 * The feature id for the '<em><b>Nested Classifier</b></em>' containment reference list.
@@ -3956,7 +3956,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__NESTED_CLASSIFIER = UMLPackage.INTERACTION__NESTED_CLASSIFIER;
+	int INTERACTION__NESTED_CLASSIFIER = UMLPackage.INTERACTION__NESTED_CLASSIFIER;
 
 	/**
 	 * The feature id for the '<em><b>Owned Reception</b></em>' containment reference list.
@@ -3965,7 +3965,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__OWNED_RECEPTION = UMLPackage.INTERACTION__OWNED_RECEPTION;
+	int INTERACTION__OWNED_RECEPTION = UMLPackage.INTERACTION__OWNED_RECEPTION;
 
 	/**
 	 * The feature id for the '<em><b>Super Class</b></em>' reference list.
@@ -3974,7 +3974,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__SUPER_CLASS = UMLPackage.INTERACTION__SUPER_CLASS;
+	int INTERACTION__SUPER_CLASS = UMLPackage.INTERACTION__SUPER_CLASS;
 
 	/**
 	 * The feature id for the '<em><b>Specification</b></em>' reference.
@@ -3983,7 +3983,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__SPECIFICATION = UMLPackage.INTERACTION__SPECIFICATION;
+	int INTERACTION__SPECIFICATION = UMLPackage.INTERACTION__SPECIFICATION;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
@@ -3992,7 +3992,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__CONTEXT = UMLPackage.INTERACTION__CONTEXT;
+	int INTERACTION__CONTEXT = UMLPackage.INTERACTION__CONTEXT;
 
 	/**
 	 * The feature id for the '<em><b>Is Reentrant</b></em>' attribute.
@@ -4001,7 +4001,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__IS_REENTRANT = UMLPackage.INTERACTION__IS_REENTRANT;
+	int INTERACTION__IS_REENTRANT = UMLPackage.INTERACTION__IS_REENTRANT;
 
 	/**
 	 * The feature id for the '<em><b>Owned Parameter</b></em>' containment reference list.
@@ -4010,7 +4010,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__OWNED_PARAMETER = UMLPackage.INTERACTION__OWNED_PARAMETER;
+	int INTERACTION__OWNED_PARAMETER = UMLPackage.INTERACTION__OWNED_PARAMETER;
 
 	/**
 	 * The feature id for the '<em><b>Owned Parameter Set</b></em>' containment reference list.
@@ -4019,7 +4019,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__OWNED_PARAMETER_SET = UMLPackage.INTERACTION__OWNED_PARAMETER_SET;
+	int INTERACTION__OWNED_PARAMETER_SET = UMLPackage.INTERACTION__OWNED_PARAMETER_SET;
 
 	/**
 	 * The feature id for the '<em><b>Postcondition</b></em>' reference list.
@@ -4028,7 +4028,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__POSTCONDITION = UMLPackage.INTERACTION__POSTCONDITION;
+	int INTERACTION__POSTCONDITION = UMLPackage.INTERACTION__POSTCONDITION;
 
 	/**
 	 * The feature id for the '<em><b>Precondition</b></em>' reference list.
@@ -4037,7 +4037,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__PRECONDITION = UMLPackage.INTERACTION__PRECONDITION;
+	int INTERACTION__PRECONDITION = UMLPackage.INTERACTION__PRECONDITION;
 
 	/**
 	 * The feature id for the '<em><b>Redefined Behavior</b></em>' reference list.
@@ -4046,7 +4046,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__REDEFINED_BEHAVIOR = UMLPackage.INTERACTION__REDEFINED_BEHAVIOR;
+	int INTERACTION__REDEFINED_BEHAVIOR = UMLPackage.INTERACTION__REDEFINED_BEHAVIOR;
 
 	/**
 	 * The feature id for the '<em><b>Covered</b></em>' reference list.
@@ -4055,7 +4055,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__COVERED = UMLPackage.INTERACTION__COVERED;
+	int INTERACTION__COVERED = UMLPackage.INTERACTION__COVERED;
 
 	/**
 	 * The feature id for the '<em><b>Enclosing Operand</b></em>' container reference.
@@ -4064,7 +4064,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__ENCLOSING_OPERAND = UMLPackage.INTERACTION__ENCLOSING_OPERAND;
+	int INTERACTION__ENCLOSING_OPERAND = UMLPackage.INTERACTION__ENCLOSING_OPERAND;
 
 	/**
 	 * The feature id for the '<em><b>Enclosing Interaction</b></em>' container reference.
@@ -4073,7 +4073,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__ENCLOSING_INTERACTION = UMLPackage.INTERACTION__ENCLOSING_INTERACTION;
+	int INTERACTION__ENCLOSING_INTERACTION = UMLPackage.INTERACTION__ENCLOSING_INTERACTION;
 
 	/**
 	 * The feature id for the '<em><b>General Ordering</b></em>' containment reference list.
@@ -4082,7 +4082,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__GENERAL_ORDERING = UMLPackage.INTERACTION__GENERAL_ORDERING;
+	int INTERACTION__GENERAL_ORDERING = UMLPackage.INTERACTION__GENERAL_ORDERING;
 
 	/**
 	 * The feature id for the '<em><b>Lifeline</b></em>' containment reference list.
@@ -4091,7 +4091,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__LIFELINE = UMLPackage.INTERACTION__LIFELINE;
+	int INTERACTION__LIFELINE = UMLPackage.INTERACTION__LIFELINE;
 
 	/**
 	 * The feature id for the '<em><b>Fragment</b></em>' containment reference list.
@@ -4100,7 +4100,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__FRAGMENT = UMLPackage.INTERACTION__FRAGMENT;
+	int INTERACTION__FRAGMENT = UMLPackage.INTERACTION__FRAGMENT;
 
 	/**
 	 * The feature id for the '<em><b>Action</b></em>' containment reference list.
@@ -4109,7 +4109,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__ACTION = UMLPackage.INTERACTION__ACTION;
+	int INTERACTION__ACTION = UMLPackage.INTERACTION__ACTION;
 
 	/**
 	 * The feature id for the '<em><b>Formal Gate</b></em>' containment reference list.
@@ -4118,7 +4118,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__FORMAL_GATE = UMLPackage.INTERACTION__FORMAL_GATE;
+	int INTERACTION__FORMAL_GATE = UMLPackage.INTERACTION__FORMAL_GATE;
 
 	/**
 	 * The feature id for the '<em><b>Message</b></em>' containment reference list.
@@ -4127,7 +4127,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__MESSAGE = UMLPackage.INTERACTION__MESSAGE;
+	int INTERACTION__MESSAGE = UMLPackage.INTERACTION__MESSAGE;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4136,16 +4136,16 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION__ID = UMLPackage.INTERACTION_FEATURE_COUNT + 0;
+	int INTERACTION__ID = UMLPackage.INTERACTION_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Sd Interaction</em>' class.
+	 * The number of structural features of the '<em>Interaction</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION_FEATURE_COUNT = UMLPackage.INTERACTION_FEATURE_COUNT + 1;
+	int INTERACTION_FEATURE_COUNT = UMLPackage.INTERACTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get EAnnotation</em>' operation.
@@ -4154,7 +4154,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_EANNOTATION__STRING = UMLPackage.INTERACTION___GET_EANNOTATION__STRING;
+	int INTERACTION___GET_EANNOTATION__STRING = UMLPackage.INTERACTION___GET_EANNOTATION__STRING;
 
 	/**
 	 * The operation id for the '<em>Validate Has Owner</em>' operation.
@@ -4163,7 +4163,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___VALIDATE_HAS_OWNER__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_HAS_OWNER__DIAGNOSTICCHAIN_MAP;
+	int INTERACTION___VALIDATE_HAS_OWNER__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_HAS_OWNER__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Validate Not Own Self</em>' operation.
@@ -4172,7 +4172,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___VALIDATE_NOT_OWN_SELF__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_NOT_OWN_SELF__DIAGNOSTICCHAIN_MAP;
+	int INTERACTION___VALIDATE_NOT_OWN_SELF__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_NOT_OWN_SELF__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Add Keyword</em>' operation.
@@ -4181,7 +4181,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___ADD_KEYWORD__STRING = UMLPackage.INTERACTION___ADD_KEYWORD__STRING;
+	int INTERACTION___ADD_KEYWORD__STRING = UMLPackage.INTERACTION___ADD_KEYWORD__STRING;
 
 	/**
 	 * The operation id for the '<em>Apply Stereotype</em>' operation.
@@ -4190,7 +4190,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___APPLY_STEREOTYPE__STEREOTYPE = UMLPackage.INTERACTION___APPLY_STEREOTYPE__STEREOTYPE;
+	int INTERACTION___APPLY_STEREOTYPE__STEREOTYPE = UMLPackage.INTERACTION___APPLY_STEREOTYPE__STEREOTYPE;
 
 	/**
 	 * The operation id for the '<em>Create EAnnotation</em>' operation.
@@ -4199,7 +4199,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___CREATE_EANNOTATION__STRING = UMLPackage.INTERACTION___CREATE_EANNOTATION__STRING;
+	int INTERACTION___CREATE_EANNOTATION__STRING = UMLPackage.INTERACTION___CREATE_EANNOTATION__STRING;
 
 	/**
 	 * The operation id for the '<em>Destroy</em>' operation.
@@ -4208,7 +4208,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___DESTROY = UMLPackage.INTERACTION___DESTROY;
+	int INTERACTION___DESTROY = UMLPackage.INTERACTION___DESTROY;
 
 	/**
 	 * The operation id for the '<em>Get Keywords</em>' operation.
@@ -4217,7 +4217,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_KEYWORDS = UMLPackage.INTERACTION___GET_KEYWORDS;
+	int INTERACTION___GET_KEYWORDS = UMLPackage.INTERACTION___GET_KEYWORDS;
 
 	/**
 	 * The operation id for the '<em>Get Applicable Stereotype</em>' operation.
@@ -4226,7 +4226,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_APPLICABLE_STEREOTYPE__STRING = UMLPackage.INTERACTION___GET_APPLICABLE_STEREOTYPE__STRING;
+	int INTERACTION___GET_APPLICABLE_STEREOTYPE__STRING = UMLPackage.INTERACTION___GET_APPLICABLE_STEREOTYPE__STRING;
 
 	/**
 	 * The operation id for the '<em>Get Applicable Stereotypes</em>' operation.
@@ -4235,7 +4235,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_APPLICABLE_STEREOTYPES = UMLPackage.INTERACTION___GET_APPLICABLE_STEREOTYPES;
+	int INTERACTION___GET_APPLICABLE_STEREOTYPES = UMLPackage.INTERACTION___GET_APPLICABLE_STEREOTYPES;
 
 	/**
 	 * The operation id for the '<em>Get Applied Stereotype</em>' operation.
@@ -4244,7 +4244,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_APPLIED_STEREOTYPE__STRING = UMLPackage.INTERACTION___GET_APPLIED_STEREOTYPE__STRING;
+	int INTERACTION___GET_APPLIED_STEREOTYPE__STRING = UMLPackage.INTERACTION___GET_APPLIED_STEREOTYPE__STRING;
 
 	/**
 	 * The operation id for the '<em>Get Applied Stereotypes</em>' operation.
@@ -4253,7 +4253,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_APPLIED_STEREOTYPES = UMLPackage.INTERACTION___GET_APPLIED_STEREOTYPES;
+	int INTERACTION___GET_APPLIED_STEREOTYPES = UMLPackage.INTERACTION___GET_APPLIED_STEREOTYPES;
 
 	/**
 	 * The operation id for the '<em>Get Applied Substereotype</em>' operation.
@@ -4262,7 +4262,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_APPLIED_SUBSTEREOTYPE__STEREOTYPE_STRING = UMLPackage.INTERACTION___GET_APPLIED_SUBSTEREOTYPE__STEREOTYPE_STRING;
+	int INTERACTION___GET_APPLIED_SUBSTEREOTYPE__STEREOTYPE_STRING = UMLPackage.INTERACTION___GET_APPLIED_SUBSTEREOTYPE__STEREOTYPE_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Applied Substereotypes</em>' operation.
@@ -4271,7 +4271,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_APPLIED_SUBSTEREOTYPES__STEREOTYPE = UMLPackage.INTERACTION___GET_APPLIED_SUBSTEREOTYPES__STEREOTYPE;
+	int INTERACTION___GET_APPLIED_SUBSTEREOTYPES__STEREOTYPE = UMLPackage.INTERACTION___GET_APPLIED_SUBSTEREOTYPES__STEREOTYPE;
 
 	/**
 	 * The operation id for the '<em>Get Model</em>' operation.
@@ -4280,7 +4280,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_MODEL = UMLPackage.INTERACTION___GET_MODEL;
+	int INTERACTION___GET_MODEL = UMLPackage.INTERACTION___GET_MODEL;
 
 	/**
 	 * The operation id for the '<em>Get Nearest Package</em>' operation.
@@ -4289,7 +4289,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_NEAREST_PACKAGE = UMLPackage.INTERACTION___GET_NEAREST_PACKAGE;
+	int INTERACTION___GET_NEAREST_PACKAGE = UMLPackage.INTERACTION___GET_NEAREST_PACKAGE;
 
 	/**
 	 * The operation id for the '<em>Get Relationships</em>' operation.
@@ -4298,7 +4298,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_RELATIONSHIPS = UMLPackage.INTERACTION___GET_RELATIONSHIPS;
+	int INTERACTION___GET_RELATIONSHIPS = UMLPackage.INTERACTION___GET_RELATIONSHIPS;
 
 	/**
 	 * The operation id for the '<em>Get Relationships</em>' operation.
@@ -4307,7 +4307,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_RELATIONSHIPS__ECLASS = UMLPackage.INTERACTION___GET_RELATIONSHIPS__ECLASS;
+	int INTERACTION___GET_RELATIONSHIPS__ECLASS = UMLPackage.INTERACTION___GET_RELATIONSHIPS__ECLASS;
 
 	/**
 	 * The operation id for the '<em>Get Required Stereotype</em>' operation.
@@ -4316,7 +4316,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_REQUIRED_STEREOTYPE__STRING = UMLPackage.INTERACTION___GET_REQUIRED_STEREOTYPE__STRING;
+	int INTERACTION___GET_REQUIRED_STEREOTYPE__STRING = UMLPackage.INTERACTION___GET_REQUIRED_STEREOTYPE__STRING;
 
 	/**
 	 * The operation id for the '<em>Get Required Stereotypes</em>' operation.
@@ -4325,7 +4325,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_REQUIRED_STEREOTYPES = UMLPackage.INTERACTION___GET_REQUIRED_STEREOTYPES;
+	int INTERACTION___GET_REQUIRED_STEREOTYPES = UMLPackage.INTERACTION___GET_REQUIRED_STEREOTYPES;
 
 	/**
 	 * The operation id for the '<em>Get Source Directed Relationships</em>' operation.
@@ -4334,7 +4334,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_SOURCE_DIRECTED_RELATIONSHIPS = UMLPackage.INTERACTION___GET_SOURCE_DIRECTED_RELATIONSHIPS;
+	int INTERACTION___GET_SOURCE_DIRECTED_RELATIONSHIPS = UMLPackage.INTERACTION___GET_SOURCE_DIRECTED_RELATIONSHIPS;
 
 	/**
 	 * The operation id for the '<em>Get Source Directed Relationships</em>' operation.
@@ -4343,7 +4343,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_SOURCE_DIRECTED_RELATIONSHIPS__ECLASS = UMLPackage.INTERACTION___GET_SOURCE_DIRECTED_RELATIONSHIPS__ECLASS;
+	int INTERACTION___GET_SOURCE_DIRECTED_RELATIONSHIPS__ECLASS = UMLPackage.INTERACTION___GET_SOURCE_DIRECTED_RELATIONSHIPS__ECLASS;
 
 	/**
 	 * The operation id for the '<em>Get Stereotype Application</em>' operation.
@@ -4352,7 +4352,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_STEREOTYPE_APPLICATION__STEREOTYPE = UMLPackage.INTERACTION___GET_STEREOTYPE_APPLICATION__STEREOTYPE;
+	int INTERACTION___GET_STEREOTYPE_APPLICATION__STEREOTYPE = UMLPackage.INTERACTION___GET_STEREOTYPE_APPLICATION__STEREOTYPE;
 
 	/**
 	 * The operation id for the '<em>Get Stereotype Applications</em>' operation.
@@ -4361,7 +4361,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_STEREOTYPE_APPLICATIONS = UMLPackage.INTERACTION___GET_STEREOTYPE_APPLICATIONS;
+	int INTERACTION___GET_STEREOTYPE_APPLICATIONS = UMLPackage.INTERACTION___GET_STEREOTYPE_APPLICATIONS;
 
 	/**
 	 * The operation id for the '<em>Get Target Directed Relationships</em>' operation.
@@ -4370,7 +4370,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_TARGET_DIRECTED_RELATIONSHIPS = UMLPackage.INTERACTION___GET_TARGET_DIRECTED_RELATIONSHIPS;
+	int INTERACTION___GET_TARGET_DIRECTED_RELATIONSHIPS = UMLPackage.INTERACTION___GET_TARGET_DIRECTED_RELATIONSHIPS;
 
 	/**
 	 * The operation id for the '<em>Get Target Directed Relationships</em>' operation.
@@ -4379,7 +4379,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_TARGET_DIRECTED_RELATIONSHIPS__ECLASS = UMLPackage.INTERACTION___GET_TARGET_DIRECTED_RELATIONSHIPS__ECLASS;
+	int INTERACTION___GET_TARGET_DIRECTED_RELATIONSHIPS__ECLASS = UMLPackage.INTERACTION___GET_TARGET_DIRECTED_RELATIONSHIPS__ECLASS;
 
 	/**
 	 * The operation id for the '<em>Get Value</em>' operation.
@@ -4388,7 +4388,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_VALUE__STEREOTYPE_STRING = UMLPackage.INTERACTION___GET_VALUE__STEREOTYPE_STRING;
+	int INTERACTION___GET_VALUE__STEREOTYPE_STRING = UMLPackage.INTERACTION___GET_VALUE__STEREOTYPE_STRING;
 
 	/**
 	 * The operation id for the '<em>Has Keyword</em>' operation.
@@ -4397,7 +4397,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___HAS_KEYWORD__STRING = UMLPackage.INTERACTION___HAS_KEYWORD__STRING;
+	int INTERACTION___HAS_KEYWORD__STRING = UMLPackage.INTERACTION___HAS_KEYWORD__STRING;
 
 	/**
 	 * The operation id for the '<em>Has Value</em>' operation.
@@ -4406,7 +4406,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___HAS_VALUE__STEREOTYPE_STRING = UMLPackage.INTERACTION___HAS_VALUE__STEREOTYPE_STRING;
+	int INTERACTION___HAS_VALUE__STEREOTYPE_STRING = UMLPackage.INTERACTION___HAS_VALUE__STEREOTYPE_STRING;
 
 	/**
 	 * The operation id for the '<em>Is Stereotype Applicable</em>' operation.
@@ -4415,7 +4415,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___IS_STEREOTYPE_APPLICABLE__STEREOTYPE = UMLPackage.INTERACTION___IS_STEREOTYPE_APPLICABLE__STEREOTYPE;
+	int INTERACTION___IS_STEREOTYPE_APPLICABLE__STEREOTYPE = UMLPackage.INTERACTION___IS_STEREOTYPE_APPLICABLE__STEREOTYPE;
 
 	/**
 	 * The operation id for the '<em>Is Stereotype Applied</em>' operation.
@@ -4424,7 +4424,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___IS_STEREOTYPE_APPLIED__STEREOTYPE = UMLPackage.INTERACTION___IS_STEREOTYPE_APPLIED__STEREOTYPE;
+	int INTERACTION___IS_STEREOTYPE_APPLIED__STEREOTYPE = UMLPackage.INTERACTION___IS_STEREOTYPE_APPLIED__STEREOTYPE;
 
 	/**
 	 * The operation id for the '<em>Is Stereotype Required</em>' operation.
@@ -4433,7 +4433,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___IS_STEREOTYPE_REQUIRED__STEREOTYPE = UMLPackage.INTERACTION___IS_STEREOTYPE_REQUIRED__STEREOTYPE;
+	int INTERACTION___IS_STEREOTYPE_REQUIRED__STEREOTYPE = UMLPackage.INTERACTION___IS_STEREOTYPE_REQUIRED__STEREOTYPE;
 
 	/**
 	 * The operation id for the '<em>Remove Keyword</em>' operation.
@@ -4442,7 +4442,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___REMOVE_KEYWORD__STRING = UMLPackage.INTERACTION___REMOVE_KEYWORD__STRING;
+	int INTERACTION___REMOVE_KEYWORD__STRING = UMLPackage.INTERACTION___REMOVE_KEYWORD__STRING;
 
 	/**
 	 * The operation id for the '<em>Set Value</em>' operation.
@@ -4451,7 +4451,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___SET_VALUE__STEREOTYPE_STRING_OBJECT = UMLPackage.INTERACTION___SET_VALUE__STEREOTYPE_STRING_OBJECT;
+	int INTERACTION___SET_VALUE__STEREOTYPE_STRING_OBJECT = UMLPackage.INTERACTION___SET_VALUE__STEREOTYPE_STRING_OBJECT;
 
 	/**
 	 * The operation id for the '<em>Unapply Stereotype</em>' operation.
@@ -4460,7 +4460,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___UNAPPLY_STEREOTYPE__STEREOTYPE = UMLPackage.INTERACTION___UNAPPLY_STEREOTYPE__STEREOTYPE;
+	int INTERACTION___UNAPPLY_STEREOTYPE__STEREOTYPE = UMLPackage.INTERACTION___UNAPPLY_STEREOTYPE__STEREOTYPE;
 
 	/**
 	 * The operation id for the '<em>All Owned Elements</em>' operation.
@@ -4469,7 +4469,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___ALL_OWNED_ELEMENTS = UMLPackage.INTERACTION___ALL_OWNED_ELEMENTS;
+	int INTERACTION___ALL_OWNED_ELEMENTS = UMLPackage.INTERACTION___ALL_OWNED_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Must Be Owned</em>' operation.
@@ -4478,7 +4478,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___MUST_BE_OWNED = UMLPackage.INTERACTION___MUST_BE_OWNED;
+	int INTERACTION___MUST_BE_OWNED = UMLPackage.INTERACTION___MUST_BE_OWNED;
 
 	/**
 	 * The operation id for the '<em>Validate Visibility Needs Ownership</em>' operation.
@@ -4487,7 +4487,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___VALIDATE_VISIBILITY_NEEDS_OWNERSHIP__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_VISIBILITY_NEEDS_OWNERSHIP__DIAGNOSTICCHAIN_MAP;
+	int INTERACTION___VALIDATE_VISIBILITY_NEEDS_OWNERSHIP__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_VISIBILITY_NEEDS_OWNERSHIP__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Validate Has Qualified Name</em>' operation.
@@ -4496,7 +4496,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___VALIDATE_HAS_QUALIFIED_NAME__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_HAS_QUALIFIED_NAME__DIAGNOSTICCHAIN_MAP;
+	int INTERACTION___VALIDATE_HAS_QUALIFIED_NAME__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_HAS_QUALIFIED_NAME__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Validate Has No Qualified Name</em>' operation.
@@ -4505,7 +4505,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___VALIDATE_HAS_NO_QUALIFIED_NAME__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_HAS_NO_QUALIFIED_NAME__DIAGNOSTICCHAIN_MAP;
+	int INTERACTION___VALIDATE_HAS_NO_QUALIFIED_NAME__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_HAS_NO_QUALIFIED_NAME__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Create Dependency</em>' operation.
@@ -4514,7 +4514,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___CREATE_DEPENDENCY__NAMEDELEMENT = UMLPackage.INTERACTION___CREATE_DEPENDENCY__NAMEDELEMENT;
+	int INTERACTION___CREATE_DEPENDENCY__NAMEDELEMENT = UMLPackage.INTERACTION___CREATE_DEPENDENCY__NAMEDELEMENT;
 
 	/**
 	 * The operation id for the '<em>Create Usage</em>' operation.
@@ -4523,7 +4523,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___CREATE_USAGE__NAMEDELEMENT = UMLPackage.INTERACTION___CREATE_USAGE__NAMEDELEMENT;
+	int INTERACTION___CREATE_USAGE__NAMEDELEMENT = UMLPackage.INTERACTION___CREATE_USAGE__NAMEDELEMENT;
 
 	/**
 	 * The operation id for the '<em>Get Label</em>' operation.
@@ -4532,7 +4532,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_LABEL = UMLPackage.INTERACTION___GET_LABEL;
+	int INTERACTION___GET_LABEL = UMLPackage.INTERACTION___GET_LABEL;
 
 	/**
 	 * The operation id for the '<em>Get Label</em>' operation.
@@ -4541,7 +4541,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_LABEL__BOOLEAN = UMLPackage.INTERACTION___GET_LABEL__BOOLEAN;
+	int INTERACTION___GET_LABEL__BOOLEAN = UMLPackage.INTERACTION___GET_LABEL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Namespace</em>' operation.
@@ -4550,7 +4550,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_NAMESPACE = UMLPackage.INTERACTION___GET_NAMESPACE;
+	int INTERACTION___GET_NAMESPACE = UMLPackage.INTERACTION___GET_NAMESPACE;
 
 	/**
 	 * The operation id for the '<em>All Namespaces</em>' operation.
@@ -4559,7 +4559,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___ALL_NAMESPACES = UMLPackage.INTERACTION___ALL_NAMESPACES;
+	int INTERACTION___ALL_NAMESPACES = UMLPackage.INTERACTION___ALL_NAMESPACES;
 
 	/**
 	 * The operation id for the '<em>All Owning Packages</em>' operation.
@@ -4568,7 +4568,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___ALL_OWNING_PACKAGES = UMLPackage.INTERACTION___ALL_OWNING_PACKAGES;
+	int INTERACTION___ALL_OWNING_PACKAGES = UMLPackage.INTERACTION___ALL_OWNING_PACKAGES;
 
 	/**
 	 * The operation id for the '<em>Is Distinguishable From</em>' operation.
@@ -4577,7 +4577,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___IS_DISTINGUISHABLE_FROM__NAMEDELEMENT_NAMESPACE = UMLPackage.INTERACTION___IS_DISTINGUISHABLE_FROM__NAMEDELEMENT_NAMESPACE;
+	int INTERACTION___IS_DISTINGUISHABLE_FROM__NAMEDELEMENT_NAMESPACE = UMLPackage.INTERACTION___IS_DISTINGUISHABLE_FROM__NAMEDELEMENT_NAMESPACE;
 
 	/**
 	 * The operation id for the '<em>Get Qualified Name</em>' operation.
@@ -4586,7 +4586,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_QUALIFIED_NAME = UMLPackage.INTERACTION___GET_QUALIFIED_NAME;
+	int INTERACTION___GET_QUALIFIED_NAME = UMLPackage.INTERACTION___GET_QUALIFIED_NAME;
 
 	/**
 	 * The operation id for the '<em>Separator</em>' operation.
@@ -4595,7 +4595,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___SEPARATOR = UMLPackage.INTERACTION___SEPARATOR;
+	int INTERACTION___SEPARATOR = UMLPackage.INTERACTION___SEPARATOR;
 
 	/**
 	 * The operation id for the '<em>Get Client Dependencies</em>' operation.
@@ -4604,7 +4604,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_CLIENT_DEPENDENCIES = UMLPackage.INTERACTION___GET_CLIENT_DEPENDENCIES;
+	int INTERACTION___GET_CLIENT_DEPENDENCIES = UMLPackage.INTERACTION___GET_CLIENT_DEPENDENCIES;
 
 	/**
 	 * The operation id for the '<em>Validate Members Distinguishable</em>' operation.
@@ -4613,7 +4613,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___VALIDATE_MEMBERS_DISTINGUISHABLE__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_MEMBERS_DISTINGUISHABLE__DIAGNOSTICCHAIN_MAP;
+	int INTERACTION___VALIDATE_MEMBERS_DISTINGUISHABLE__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_MEMBERS_DISTINGUISHABLE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Validate Cannot Import Self</em>' operation.
@@ -4622,7 +4622,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___VALIDATE_CANNOT_IMPORT_SELF__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_CANNOT_IMPORT_SELF__DIAGNOSTICCHAIN_MAP;
+	int INTERACTION___VALIDATE_CANNOT_IMPORT_SELF__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_CANNOT_IMPORT_SELF__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Validate Cannot Import Owned Members</em>' operation.
@@ -4631,7 +4631,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___VALIDATE_CANNOT_IMPORT_OWNED_MEMBERS__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_CANNOT_IMPORT_OWNED_MEMBERS__DIAGNOSTICCHAIN_MAP;
+	int INTERACTION___VALIDATE_CANNOT_IMPORT_OWNED_MEMBERS__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_CANNOT_IMPORT_OWNED_MEMBERS__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Create Element Import</em>' operation.
@@ -4640,7 +4640,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___CREATE_ELEMENT_IMPORT__PACKAGEABLEELEMENT_VISIBILITYKIND = UMLPackage.INTERACTION___CREATE_ELEMENT_IMPORT__PACKAGEABLEELEMENT_VISIBILITYKIND;
+	int INTERACTION___CREATE_ELEMENT_IMPORT__PACKAGEABLEELEMENT_VISIBILITYKIND = UMLPackage.INTERACTION___CREATE_ELEMENT_IMPORT__PACKAGEABLEELEMENT_VISIBILITYKIND;
 
 	/**
 	 * The operation id for the '<em>Create Package Import</em>' operation.
@@ -4649,7 +4649,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___CREATE_PACKAGE_IMPORT__PACKAGE_VISIBILITYKIND = UMLPackage.INTERACTION___CREATE_PACKAGE_IMPORT__PACKAGE_VISIBILITYKIND;
+	int INTERACTION___CREATE_PACKAGE_IMPORT__PACKAGE_VISIBILITYKIND = UMLPackage.INTERACTION___CREATE_PACKAGE_IMPORT__PACKAGE_VISIBILITYKIND;
 
 	/**
 	 * The operation id for the '<em>Get Imported Elements</em>' operation.
@@ -4658,7 +4658,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_IMPORTED_ELEMENTS = UMLPackage.INTERACTION___GET_IMPORTED_ELEMENTS;
+	int INTERACTION___GET_IMPORTED_ELEMENTS = UMLPackage.INTERACTION___GET_IMPORTED_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Get Imported Packages</em>' operation.
@@ -4667,7 +4667,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_IMPORTED_PACKAGES = UMLPackage.INTERACTION___GET_IMPORTED_PACKAGES;
+	int INTERACTION___GET_IMPORTED_PACKAGES = UMLPackage.INTERACTION___GET_IMPORTED_PACKAGES;
 
 	/**
 	 * The operation id for the '<em>Get Owned Members</em>' operation.
@@ -4676,7 +4676,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_OWNED_MEMBERS = UMLPackage.INTERACTION___GET_OWNED_MEMBERS;
+	int INTERACTION___GET_OWNED_MEMBERS = UMLPackage.INTERACTION___GET_OWNED_MEMBERS;
 
 	/**
 	 * The operation id for the '<em>Exclude Collisions</em>' operation.
@@ -4685,7 +4685,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___EXCLUDE_COLLISIONS__ELIST = UMLPackage.INTERACTION___EXCLUDE_COLLISIONS__ELIST;
+	int INTERACTION___EXCLUDE_COLLISIONS__ELIST = UMLPackage.INTERACTION___EXCLUDE_COLLISIONS__ELIST;
 
 	/**
 	 * The operation id for the '<em>Get Names Of Member</em>' operation.
@@ -4694,7 +4694,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_NAMES_OF_MEMBER__NAMEDELEMENT = UMLPackage.INTERACTION___GET_NAMES_OF_MEMBER__NAMEDELEMENT;
+	int INTERACTION___GET_NAMES_OF_MEMBER__NAMEDELEMENT = UMLPackage.INTERACTION___GET_NAMES_OF_MEMBER__NAMEDELEMENT;
 
 	/**
 	 * The operation id for the '<em>Import Members</em>' operation.
@@ -4703,7 +4703,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___IMPORT_MEMBERS__ELIST = UMLPackage.INTERACTION___IMPORT_MEMBERS__ELIST;
+	int INTERACTION___IMPORT_MEMBERS__ELIST = UMLPackage.INTERACTION___IMPORT_MEMBERS__ELIST;
 
 	/**
 	 * The operation id for the '<em>Get Imported Members</em>' operation.
@@ -4712,7 +4712,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_IMPORTED_MEMBERS = UMLPackage.INTERACTION___GET_IMPORTED_MEMBERS;
+	int INTERACTION___GET_IMPORTED_MEMBERS = UMLPackage.INTERACTION___GET_IMPORTED_MEMBERS;
 
 	/**
 	 * The operation id for the '<em>Members Are Distinguishable</em>' operation.
@@ -4721,7 +4721,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___MEMBERS_ARE_DISTINGUISHABLE = UMLPackage.INTERACTION___MEMBERS_ARE_DISTINGUISHABLE;
+	int INTERACTION___MEMBERS_ARE_DISTINGUISHABLE = UMLPackage.INTERACTION___MEMBERS_ARE_DISTINGUISHABLE;
 
 	/**
 	 * The operation id for the '<em>Validate Redefinition Consistent</em>' operation.
@@ -4730,7 +4730,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___VALIDATE_REDEFINITION_CONSISTENT__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_REDEFINITION_CONSISTENT__DIAGNOSTICCHAIN_MAP;
+	int INTERACTION___VALIDATE_REDEFINITION_CONSISTENT__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_REDEFINITION_CONSISTENT__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Validate Non Leaf Redefinition</em>' operation.
@@ -4739,7 +4739,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___VALIDATE_NON_LEAF_REDEFINITION__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_NON_LEAF_REDEFINITION__DIAGNOSTICCHAIN_MAP;
+	int INTERACTION___VALIDATE_NON_LEAF_REDEFINITION__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_NON_LEAF_REDEFINITION__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Validate Redefinition Context Valid</em>' operation.
@@ -4748,7 +4748,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___VALIDATE_REDEFINITION_CONTEXT_VALID__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_REDEFINITION_CONTEXT_VALID__DIAGNOSTICCHAIN_MAP;
+	int INTERACTION___VALIDATE_REDEFINITION_CONTEXT_VALID__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_REDEFINITION_CONTEXT_VALID__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Is Consistent With</em>' operation.
@@ -4757,7 +4757,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___IS_CONSISTENT_WITH__REDEFINABLEELEMENT = UMLPackage.INTERACTION___IS_CONSISTENT_WITH__REDEFINABLEELEMENT;
+	int INTERACTION___IS_CONSISTENT_WITH__REDEFINABLEELEMENT = UMLPackage.INTERACTION___IS_CONSISTENT_WITH__REDEFINABLEELEMENT;
 
 	/**
 	 * The operation id for the '<em>Is Redefinition Context Valid</em>' operation.
@@ -4766,7 +4766,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___IS_REDEFINITION_CONTEXT_VALID__REDEFINABLEELEMENT = UMLPackage.INTERACTION___IS_REDEFINITION_CONTEXT_VALID__REDEFINABLEELEMENT;
+	int INTERACTION___IS_REDEFINITION_CONTEXT_VALID__REDEFINABLEELEMENT = UMLPackage.INTERACTION___IS_REDEFINITION_CONTEXT_VALID__REDEFINABLEELEMENT;
 
 	/**
 	 * The operation id for the '<em>Is Compatible With</em>' operation.
@@ -4775,7 +4775,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___IS_COMPATIBLE_WITH__PARAMETERABLEELEMENT = UMLPackage.INTERACTION___IS_COMPATIBLE_WITH__PARAMETERABLEELEMENT;
+	int INTERACTION___IS_COMPATIBLE_WITH__PARAMETERABLEELEMENT = UMLPackage.INTERACTION___IS_COMPATIBLE_WITH__PARAMETERABLEELEMENT;
 
 	/**
 	 * The operation id for the '<em>Is Template Parameter</em>' operation.
@@ -4784,7 +4784,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___IS_TEMPLATE_PARAMETER = UMLPackage.INTERACTION___IS_TEMPLATE_PARAMETER;
+	int INTERACTION___IS_TEMPLATE_PARAMETER = UMLPackage.INTERACTION___IS_TEMPLATE_PARAMETER;
 
 	/**
 	 * The operation id for the '<em>Validate Namespace Needs Visibility</em>' operation.
@@ -4793,7 +4793,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___VALIDATE_NAMESPACE_NEEDS_VISIBILITY__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_NAMESPACE_NEEDS_VISIBILITY__DIAGNOSTICCHAIN_MAP;
+	int INTERACTION___VALIDATE_NAMESPACE_NEEDS_VISIBILITY__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_NAMESPACE_NEEDS_VISIBILITY__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Create Association</em>' operation.
@@ -4802,7 +4802,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___CREATE_ASSOCIATION__BOOLEAN_AGGREGATIONKIND_STRING_INT_INT_TYPE_BOOLEAN_AGGREGATIONKIND_STRING_INT_INT = UMLPackage.INTERACTION___CREATE_ASSOCIATION__BOOLEAN_AGGREGATIONKIND_STRING_INT_INT_TYPE_BOOLEAN_AGGREGATIONKIND_STRING_INT_INT;
+	int INTERACTION___CREATE_ASSOCIATION__BOOLEAN_AGGREGATIONKIND_STRING_INT_INT_TYPE_BOOLEAN_AGGREGATIONKIND_STRING_INT_INT = UMLPackage.INTERACTION___CREATE_ASSOCIATION__BOOLEAN_AGGREGATIONKIND_STRING_INT_INT_TYPE_BOOLEAN_AGGREGATIONKIND_STRING_INT_INT;
 
 	/**
 	 * The operation id for the '<em>Get Associations</em>' operation.
@@ -4811,7 +4811,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_ASSOCIATIONS = UMLPackage.INTERACTION___GET_ASSOCIATIONS;
+	int INTERACTION___GET_ASSOCIATIONS = UMLPackage.INTERACTION___GET_ASSOCIATIONS;
 
 	/**
 	 * The operation id for the '<em>Conforms To</em>' operation.
@@ -4820,7 +4820,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___CONFORMS_TO__TYPE = UMLPackage.INTERACTION___CONFORMS_TO__TYPE;
+	int INTERACTION___CONFORMS_TO__TYPE = UMLPackage.INTERACTION___CONFORMS_TO__TYPE;
 
 	/**
 	 * The operation id for the '<em>Is Template</em>' operation.
@@ -4829,7 +4829,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___IS_TEMPLATE = UMLPackage.INTERACTION___IS_TEMPLATE;
+	int INTERACTION___IS_TEMPLATE = UMLPackage.INTERACTION___IS_TEMPLATE;
 
 	/**
 	 * The operation id for the '<em>Parameterable Elements</em>' operation.
@@ -4838,7 +4838,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___PARAMETERABLE_ELEMENTS = UMLPackage.INTERACTION___PARAMETERABLE_ELEMENTS;
+	int INTERACTION___PARAMETERABLE_ELEMENTS = UMLPackage.INTERACTION___PARAMETERABLE_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Validate Specialize Type</em>' operation.
@@ -4847,7 +4847,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___VALIDATE_SPECIALIZE_TYPE__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_SPECIALIZE_TYPE__DIAGNOSTICCHAIN_MAP;
+	int INTERACTION___VALIDATE_SPECIALIZE_TYPE__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_SPECIALIZE_TYPE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Validate Maps To Generalization Set</em>' operation.
@@ -4856,7 +4856,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___VALIDATE_MAPS_TO_GENERALIZATION_SET__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_MAPS_TO_GENERALIZATION_SET__DIAGNOSTICCHAIN_MAP;
+	int INTERACTION___VALIDATE_MAPS_TO_GENERALIZATION_SET__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_MAPS_TO_GENERALIZATION_SET__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Validate Non Final Parents</em>' operation.
@@ -4865,7 +4865,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___VALIDATE_NON_FINAL_PARENTS__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_NON_FINAL_PARENTS__DIAGNOSTICCHAIN_MAP;
+	int INTERACTION___VALIDATE_NON_FINAL_PARENTS__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_NON_FINAL_PARENTS__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Validate No Cycles In Generalization</em>' operation.
@@ -4874,7 +4874,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___VALIDATE_NO_CYCLES_IN_GENERALIZATION__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_NO_CYCLES_IN_GENERALIZATION__DIAGNOSTICCHAIN_MAP;
+	int INTERACTION___VALIDATE_NO_CYCLES_IN_GENERALIZATION__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_NO_CYCLES_IN_GENERALIZATION__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Get All Attributes</em>' operation.
@@ -4883,7 +4883,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_ALL_ATTRIBUTES = UMLPackage.INTERACTION___GET_ALL_ATTRIBUTES;
+	int INTERACTION___GET_ALL_ATTRIBUTES = UMLPackage.INTERACTION___GET_ALL_ATTRIBUTES;
 
 	/**
 	 * The operation id for the '<em>Get All Operations</em>' operation.
@@ -4892,7 +4892,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_ALL_OPERATIONS = UMLPackage.INTERACTION___GET_ALL_OPERATIONS;
+	int INTERACTION___GET_ALL_OPERATIONS = UMLPackage.INTERACTION___GET_ALL_OPERATIONS;
 
 	/**
 	 * The operation id for the '<em>Get All Used Interfaces</em>' operation.
@@ -4901,7 +4901,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_ALL_USED_INTERFACES = UMLPackage.INTERACTION___GET_ALL_USED_INTERFACES;
+	int INTERACTION___GET_ALL_USED_INTERFACES = UMLPackage.INTERACTION___GET_ALL_USED_INTERFACES;
 
 	/**
 	 * The operation id for the '<em>Get Operation</em>' operation.
@@ -4910,7 +4910,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_OPERATION__STRING_ELIST_ELIST = UMLPackage.INTERACTION___GET_OPERATION__STRING_ELIST_ELIST;
+	int INTERACTION___GET_OPERATION__STRING_ELIST_ELIST = UMLPackage.INTERACTION___GET_OPERATION__STRING_ELIST_ELIST;
 
 	/**
 	 * The operation id for the '<em>Get Operation</em>' operation.
@@ -4919,7 +4919,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_OPERATION__STRING_ELIST_ELIST_BOOLEAN = UMLPackage.INTERACTION___GET_OPERATION__STRING_ELIST_ELIST_BOOLEAN;
+	int INTERACTION___GET_OPERATION__STRING_ELIST_ELIST_BOOLEAN = UMLPackage.INTERACTION___GET_OPERATION__STRING_ELIST_ELIST_BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Operations</em>' operation.
@@ -4928,7 +4928,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_OPERATIONS = UMLPackage.INTERACTION___GET_OPERATIONS;
+	int INTERACTION___GET_OPERATIONS = UMLPackage.INTERACTION___GET_OPERATIONS;
 
 	/**
 	 * The operation id for the '<em>Get Used Interfaces</em>' operation.
@@ -4937,7 +4937,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_USED_INTERFACES = UMLPackage.INTERACTION___GET_USED_INTERFACES;
+	int INTERACTION___GET_USED_INTERFACES = UMLPackage.INTERACTION___GET_USED_INTERFACES;
 
 	/**
 	 * The operation id for the '<em>All Features</em>' operation.
@@ -4946,7 +4946,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___ALL_FEATURES = UMLPackage.INTERACTION___ALL_FEATURES;
+	int INTERACTION___ALL_FEATURES = UMLPackage.INTERACTION___ALL_FEATURES;
 
 	/**
 	 * The operation id for the '<em>All Parents</em>' operation.
@@ -4955,7 +4955,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___ALL_PARENTS = UMLPackage.INTERACTION___ALL_PARENTS;
+	int INTERACTION___ALL_PARENTS = UMLPackage.INTERACTION___ALL_PARENTS;
 
 	/**
 	 * The operation id for the '<em>Get Generals</em>' operation.
@@ -4964,7 +4964,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_GENERALS = UMLPackage.INTERACTION___GET_GENERALS;
+	int INTERACTION___GET_GENERALS = UMLPackage.INTERACTION___GET_GENERALS;
 
 	/**
 	 * The operation id for the '<em>Has Visibility Of</em>' operation.
@@ -4973,7 +4973,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___HAS_VISIBILITY_OF__NAMEDELEMENT = UMLPackage.INTERACTION___HAS_VISIBILITY_OF__NAMEDELEMENT;
+	int INTERACTION___HAS_VISIBILITY_OF__NAMEDELEMENT = UMLPackage.INTERACTION___HAS_VISIBILITY_OF__NAMEDELEMENT;
 
 	/**
 	 * The operation id for the '<em>Inherit</em>' operation.
@@ -4982,7 +4982,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___INHERIT__ELIST = UMLPackage.INTERACTION___INHERIT__ELIST;
+	int INTERACTION___INHERIT__ELIST = UMLPackage.INTERACTION___INHERIT__ELIST;
 
 	/**
 	 * The operation id for the '<em>Inheritable Members</em>' operation.
@@ -4991,7 +4991,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___INHERITABLE_MEMBERS__CLASSIFIER = UMLPackage.INTERACTION___INHERITABLE_MEMBERS__CLASSIFIER;
+	int INTERACTION___INHERITABLE_MEMBERS__CLASSIFIER = UMLPackage.INTERACTION___INHERITABLE_MEMBERS__CLASSIFIER;
 
 	/**
 	 * The operation id for the '<em>Get Inherited Members</em>' operation.
@@ -5000,7 +5000,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_INHERITED_MEMBERS = UMLPackage.INTERACTION___GET_INHERITED_MEMBERS;
+	int INTERACTION___GET_INHERITED_MEMBERS = UMLPackage.INTERACTION___GET_INHERITED_MEMBERS;
 
 	/**
 	 * The operation id for the '<em>May Specialize Type</em>' operation.
@@ -5009,7 +5009,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___MAY_SPECIALIZE_TYPE__CLASSIFIER = UMLPackage.INTERACTION___MAY_SPECIALIZE_TYPE__CLASSIFIER;
+	int INTERACTION___MAY_SPECIALIZE_TYPE__CLASSIFIER = UMLPackage.INTERACTION___MAY_SPECIALIZE_TYPE__CLASSIFIER;
 
 	/**
 	 * The operation id for the '<em>Parents</em>' operation.
@@ -5018,7 +5018,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___PARENTS = UMLPackage.INTERACTION___PARENTS;
+	int INTERACTION___PARENTS = UMLPackage.INTERACTION___PARENTS;
 
 	/**
 	 * The operation id for the '<em>Directly Realized Interfaces</em>' operation.
@@ -5027,7 +5027,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___DIRECTLY_REALIZED_INTERFACES = UMLPackage.INTERACTION___DIRECTLY_REALIZED_INTERFACES;
+	int INTERACTION___DIRECTLY_REALIZED_INTERFACES = UMLPackage.INTERACTION___DIRECTLY_REALIZED_INTERFACES;
 
 	/**
 	 * The operation id for the '<em>Directly Used Interfaces</em>' operation.
@@ -5036,7 +5036,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___DIRECTLY_USED_INTERFACES = UMLPackage.INTERACTION___DIRECTLY_USED_INTERFACES;
+	int INTERACTION___DIRECTLY_USED_INTERFACES = UMLPackage.INTERACTION___DIRECTLY_USED_INTERFACES;
 
 	/**
 	 * The operation id for the '<em>All Realized Interfaces</em>' operation.
@@ -5045,7 +5045,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___ALL_REALIZED_INTERFACES = UMLPackage.INTERACTION___ALL_REALIZED_INTERFACES;
+	int INTERACTION___ALL_REALIZED_INTERFACES = UMLPackage.INTERACTION___ALL_REALIZED_INTERFACES;
 
 	/**
 	 * The operation id for the '<em>All Used Interfaces</em>' operation.
@@ -5054,7 +5054,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___ALL_USED_INTERFACES = UMLPackage.INTERACTION___ALL_USED_INTERFACES;
+	int INTERACTION___ALL_USED_INTERFACES = UMLPackage.INTERACTION___ALL_USED_INTERFACES;
 
 	/**
 	 * The operation id for the '<em>Is Substitutable For</em>' operation.
@@ -5063,7 +5063,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___IS_SUBSTITUTABLE_FOR__CLASSIFIER = UMLPackage.INTERACTION___IS_SUBSTITUTABLE_FOR__CLASSIFIER;
+	int INTERACTION___IS_SUBSTITUTABLE_FOR__CLASSIFIER = UMLPackage.INTERACTION___IS_SUBSTITUTABLE_FOR__CLASSIFIER;
 
 	/**
 	 * The operation id for the '<em>All Attributes</em>' operation.
@@ -5072,7 +5072,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___ALL_ATTRIBUTES = UMLPackage.INTERACTION___ALL_ATTRIBUTES;
+	int INTERACTION___ALL_ATTRIBUTES = UMLPackage.INTERACTION___ALL_ATTRIBUTES;
 
 	/**
 	 * The operation id for the '<em>All Slottable Features</em>' operation.
@@ -5081,7 +5081,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___ALL_SLOTTABLE_FEATURES = UMLPackage.INTERACTION___ALL_SLOTTABLE_FEATURES;
+	int INTERACTION___ALL_SLOTTABLE_FEATURES = UMLPackage.INTERACTION___ALL_SLOTTABLE_FEATURES;
 
 	/**
 	 * The operation id for the '<em>Create Owned Attribute</em>' operation.
@@ -5090,7 +5090,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___CREATE_OWNED_ATTRIBUTE__STRING_TYPE_INT_INT = UMLPackage.INTERACTION___CREATE_OWNED_ATTRIBUTE__STRING_TYPE_INT_INT;
+	int INTERACTION___CREATE_OWNED_ATTRIBUTE__STRING_TYPE_INT_INT = UMLPackage.INTERACTION___CREATE_OWNED_ATTRIBUTE__STRING_TYPE_INT_INT;
 
 	/**
 	 * The operation id for the '<em>Get Parts</em>' operation.
@@ -5099,7 +5099,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_PARTS = UMLPackage.INTERACTION___GET_PARTS;
+	int INTERACTION___GET_PARTS = UMLPackage.INTERACTION___GET_PARTS;
 
 	/**
 	 * The operation id for the '<em>All Roles</em>' operation.
@@ -5108,7 +5108,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___ALL_ROLES = UMLPackage.INTERACTION___ALL_ROLES;
+	int INTERACTION___ALL_ROLES = UMLPackage.INTERACTION___ALL_ROLES;
 
 	/**
 	 * The operation id for the '<em>Get Owned Ports</em>' operation.
@@ -5117,7 +5117,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_OWNED_PORTS = UMLPackage.INTERACTION___GET_OWNED_PORTS;
+	int INTERACTION___GET_OWNED_PORTS = UMLPackage.INTERACTION___GET_OWNED_PORTS;
 
 	/**
 	 * The operation id for the '<em>Validate Class Behavior</em>' operation.
@@ -5126,7 +5126,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___VALIDATE_CLASS_BEHAVIOR__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_CLASS_BEHAVIOR__DIAGNOSTICCHAIN_MAP;
+	int INTERACTION___VALIDATE_CLASS_BEHAVIOR__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_CLASS_BEHAVIOR__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Get All Implemented Interfaces</em>' operation.
@@ -5135,7 +5135,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_ALL_IMPLEMENTED_INTERFACES = UMLPackage.INTERACTION___GET_ALL_IMPLEMENTED_INTERFACES;
+	int INTERACTION___GET_ALL_IMPLEMENTED_INTERFACES = UMLPackage.INTERACTION___GET_ALL_IMPLEMENTED_INTERFACES;
 
 	/**
 	 * The operation id for the '<em>Get Implemented Interfaces</em>' operation.
@@ -5144,7 +5144,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_IMPLEMENTED_INTERFACES = UMLPackage.INTERACTION___GET_IMPLEMENTED_INTERFACES;
+	int INTERACTION___GET_IMPLEMENTED_INTERFACES = UMLPackage.INTERACTION___GET_IMPLEMENTED_INTERFACES;
 
 	/**
 	 * The operation id for the '<em>Validate Passive Class</em>' operation.
@@ -5153,7 +5153,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___VALIDATE_PASSIVE_CLASS__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_PASSIVE_CLASS__DIAGNOSTICCHAIN_MAP;
+	int INTERACTION___VALIDATE_PASSIVE_CLASS__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_PASSIVE_CLASS__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Create Owned Operation</em>' operation.
@@ -5162,7 +5162,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___CREATE_OWNED_OPERATION__STRING_ELIST_ELIST_TYPE = UMLPackage.INTERACTION___CREATE_OWNED_OPERATION__STRING_ELIST_ELIST_TYPE;
+	int INTERACTION___CREATE_OWNED_OPERATION__STRING_ELIST_ELIST_TYPE = UMLPackage.INTERACTION___CREATE_OWNED_OPERATION__STRING_ELIST_ELIST_TYPE;
 
 	/**
 	 * The operation id for the '<em>Is Metaclass</em>' operation.
@@ -5171,7 +5171,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___IS_METACLASS = UMLPackage.INTERACTION___IS_METACLASS;
+	int INTERACTION___IS_METACLASS = UMLPackage.INTERACTION___IS_METACLASS;
 
 	/**
 	 * The operation id for the '<em>Get Extensions</em>' operation.
@@ -5180,7 +5180,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_EXTENSIONS = UMLPackage.INTERACTION___GET_EXTENSIONS;
+	int INTERACTION___GET_EXTENSIONS = UMLPackage.INTERACTION___GET_EXTENSIONS;
 
 	/**
 	 * The operation id for the '<em>Get Super Classes</em>' operation.
@@ -5189,7 +5189,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_SUPER_CLASSES = UMLPackage.INTERACTION___GET_SUPER_CLASSES;
+	int INTERACTION___GET_SUPER_CLASSES = UMLPackage.INTERACTION___GET_SUPER_CLASSES;
 
 	/**
 	 * The operation id for the '<em>Validate Most One Behavior</em>' operation.
@@ -5198,7 +5198,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___VALIDATE_MOST_ONE_BEHAVIOR__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_MOST_ONE_BEHAVIOR__DIAGNOSTICCHAIN_MAP;
+	int INTERACTION___VALIDATE_MOST_ONE_BEHAVIOR__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_MOST_ONE_BEHAVIOR__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Validate Parameters Match</em>' operation.
@@ -5207,7 +5207,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___VALIDATE_PARAMETERS_MATCH__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_PARAMETERS_MATCH__DIAGNOSTICCHAIN_MAP;
+	int INTERACTION___VALIDATE_PARAMETERS_MATCH__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_PARAMETERS_MATCH__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Validate Feature Of Context Classifier</em>' operation.
@@ -5216,7 +5216,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___VALIDATE_FEATURE_OF_CONTEXT_CLASSIFIER__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_FEATURE_OF_CONTEXT_CLASSIFIER__DIAGNOSTICCHAIN_MAP;
+	int INTERACTION___VALIDATE_FEATURE_OF_CONTEXT_CLASSIFIER__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_FEATURE_OF_CONTEXT_CLASSIFIER__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Get Context</em>' operation.
@@ -5225,7 +5225,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___GET_CONTEXT = UMLPackage.INTERACTION___GET_CONTEXT;
+	int INTERACTION___GET_CONTEXT = UMLPackage.INTERACTION___GET_CONTEXT;
 
 	/**
 	 * The operation id for the '<em>Behaviored Classifier</em>' operation.
@@ -5234,7 +5234,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___BEHAVIORED_CLASSIFIER__ELEMENT = UMLPackage.INTERACTION___BEHAVIORED_CLASSIFIER__ELEMENT;
+	int INTERACTION___BEHAVIORED_CLASSIFIER__ELEMENT = UMLPackage.INTERACTION___BEHAVIORED_CLASSIFIER__ELEMENT;
 
 	/**
 	 * The operation id for the '<em>Input Parameters</em>' operation.
@@ -5243,7 +5243,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___INPUT_PARAMETERS = UMLPackage.INTERACTION___INPUT_PARAMETERS;
+	int INTERACTION___INPUT_PARAMETERS = UMLPackage.INTERACTION___INPUT_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Output Parameters</em>' operation.
@@ -5252,7 +5252,7 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___OUTPUT_PARAMETERS = UMLPackage.INTERACTION___OUTPUT_PARAMETERS;
+	int INTERACTION___OUTPUT_PARAMETERS = UMLPackage.INTERACTION___OUTPUT_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Validate Not Contained</em>' operation.
@@ -5261,16 +5261,16 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION___VALIDATE_NOT_CONTAINED__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_NOT_CONTAINED__DIAGNOSTICCHAIN_MAP;
+	int INTERACTION___VALIDATE_NOT_CONTAINED__DIAGNOSTICCHAIN_MAP = UMLPackage.INTERACTION___VALIDATE_NOT_CONTAINED__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The number of operations of the '<em>Sd Interaction</em>' class.
+	 * The number of operations of the '<em>Interaction</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SD_INTERACTION_OPERATION_COUNT = UMLPackage.INTERACTION_OPERATION_COUNT + 0;
+	int INTERACTION_OPERATION_COUNT = UMLPackage.INTERACTION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.PackageImpl <em>Package</em>}' class.
@@ -6400,6 +6400,3620 @@ public interface Sequence_diagramPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.ClassImpl <em>Class</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.ClassImpl
+	 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.Sequence_diagramPackageImpl#getClass_()
+	 * @generated
+	 */
+	int CLASS = 6;
+
+	/**
+	 * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__EANNOTATIONS = UMLPackage.CLASS__EANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Owned Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__OWNED_COMMENT = UMLPackage.CLASS__OWNED_COMMENT;
+
+	/**
+	 * The feature id for the '<em><b>Owned Element</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__OWNED_ELEMENT = UMLPackage.CLASS__OWNED_ELEMENT;
+
+	/**
+	 * The feature id for the '<em><b>Owner</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__OWNER = UMLPackage.CLASS__OWNER;
+
+	/**
+	 * The feature id for the '<em><b>Client Dependency</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__CLIENT_DEPENDENCY = UMLPackage.CLASS__CLIENT_DEPENDENCY;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__NAME = UMLPackage.CLASS__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Name Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__NAME_EXPRESSION = UMLPackage.CLASS__NAME_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Namespace</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__NAMESPACE = UMLPackage.CLASS__NAMESPACE;
+
+	/**
+	 * The feature id for the '<em><b>Qualified Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__QUALIFIED_NAME = UMLPackage.CLASS__QUALIFIED_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Visibility</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__VISIBILITY = UMLPackage.CLASS__VISIBILITY;
+
+	/**
+	 * The feature id for the '<em><b>Owned Rule</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__OWNED_RULE = UMLPackage.CLASS__OWNED_RULE;
+
+	/**
+	 * The feature id for the '<em><b>Element Import</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__ELEMENT_IMPORT = UMLPackage.CLASS__ELEMENT_IMPORT;
+
+	/**
+	 * The feature id for the '<em><b>Package Import</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__PACKAGE_IMPORT = UMLPackage.CLASS__PACKAGE_IMPORT;
+
+	/**
+	 * The feature id for the '<em><b>Owned Member</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__OWNED_MEMBER = UMLPackage.CLASS__OWNED_MEMBER;
+
+	/**
+	 * The feature id for the '<em><b>Imported Member</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__IMPORTED_MEMBER = UMLPackage.CLASS__IMPORTED_MEMBER;
+
+	/**
+	 * The feature id for the '<em><b>Member</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__MEMBER = UMLPackage.CLASS__MEMBER;
+
+	/**
+	 * The feature id for the '<em><b>Is Leaf</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__IS_LEAF = UMLPackage.CLASS__IS_LEAF;
+
+	/**
+	 * The feature id for the '<em><b>Redefined Element</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__REDEFINED_ELEMENT = UMLPackage.CLASS__REDEFINED_ELEMENT;
+
+	/**
+	 * The feature id for the '<em><b>Redefinition Context</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__REDEFINITION_CONTEXT = UMLPackage.CLASS__REDEFINITION_CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Owning Template Parameter</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__OWNING_TEMPLATE_PARAMETER = UMLPackage.CLASS__OWNING_TEMPLATE_PARAMETER;
+
+	/**
+	 * The feature id for the '<em><b>Template Parameter</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__TEMPLATE_PARAMETER = UMLPackage.CLASS__TEMPLATE_PARAMETER;
+
+	/**
+	 * The feature id for the '<em><b>Package</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__PACKAGE = UMLPackage.CLASS__PACKAGE;
+
+	/**
+	 * The feature id for the '<em><b>Template Binding</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__TEMPLATE_BINDING = UMLPackage.CLASS__TEMPLATE_BINDING;
+
+	/**
+	 * The feature id for the '<em><b>Owned Template Signature</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__OWNED_TEMPLATE_SIGNATURE = UMLPackage.CLASS__OWNED_TEMPLATE_SIGNATURE;
+
+	/**
+	 * The feature id for the '<em><b>Feature</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__FEATURE = UMLPackage.CLASS__FEATURE;
+
+	/**
+	 * The feature id for the '<em><b>Attribute</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__ATTRIBUTE = UMLPackage.CLASS__ATTRIBUTE;
+
+	/**
+	 * The feature id for the '<em><b>Collaboration Use</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__COLLABORATION_USE = UMLPackage.CLASS__COLLABORATION_USE;
+
+	/**
+	 * The feature id for the '<em><b>General</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__GENERAL = UMLPackage.CLASS__GENERAL;
+
+	/**
+	 * The feature id for the '<em><b>Generalization</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__GENERALIZATION = UMLPackage.CLASS__GENERALIZATION;
+
+	/**
+	 * The feature id for the '<em><b>Powertype Extent</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__POWERTYPE_EXTENT = UMLPackage.CLASS__POWERTYPE_EXTENT;
+
+	/**
+	 * The feature id for the '<em><b>Inherited Member</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__INHERITED_MEMBER = UMLPackage.CLASS__INHERITED_MEMBER;
+
+	/**
+	 * The feature id for the '<em><b>Is Abstract</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__IS_ABSTRACT = UMLPackage.CLASS__IS_ABSTRACT;
+
+	/**
+	 * The feature id for the '<em><b>Is Final Specialization</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__IS_FINAL_SPECIALIZATION = UMLPackage.CLASS__IS_FINAL_SPECIALIZATION;
+
+	/**
+	 * The feature id for the '<em><b>Owned Use Case</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__OWNED_USE_CASE = UMLPackage.CLASS__OWNED_USE_CASE;
+
+	/**
+	 * The feature id for the '<em><b>Use Case</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__USE_CASE = UMLPackage.CLASS__USE_CASE;
+
+	/**
+	 * The feature id for the '<em><b>Redefined Classifier</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__REDEFINED_CLASSIFIER = UMLPackage.CLASS__REDEFINED_CLASSIFIER;
+
+	/**
+	 * The feature id for the '<em><b>Representation</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__REPRESENTATION = UMLPackage.CLASS__REPRESENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Substitution</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__SUBSTITUTION = UMLPackage.CLASS__SUBSTITUTION;
+
+	/**
+	 * The feature id for the '<em><b>Owned Attribute</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__OWNED_ATTRIBUTE = UMLPackage.CLASS__OWNED_ATTRIBUTE;
+
+	/**
+	 * The feature id for the '<em><b>Owned Connector</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__OWNED_CONNECTOR = UMLPackage.CLASS__OWNED_CONNECTOR;
+
+	/**
+	 * The feature id for the '<em><b>Part</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__PART = UMLPackage.CLASS__PART;
+
+	/**
+	 * The feature id for the '<em><b>Role</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__ROLE = UMLPackage.CLASS__ROLE;
+
+	/**
+	 * The feature id for the '<em><b>Owned Port</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__OWNED_PORT = UMLPackage.CLASS__OWNED_PORT;
+
+	/**
+	 * The feature id for the '<em><b>Classifier Behavior</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__CLASSIFIER_BEHAVIOR = UMLPackage.CLASS__CLASSIFIER_BEHAVIOR;
+
+	/**
+	 * The feature id for the '<em><b>Interface Realization</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__INTERFACE_REALIZATION = UMLPackage.CLASS__INTERFACE_REALIZATION;
+
+	/**
+	 * The feature id for the '<em><b>Owned Behavior</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__OWNED_BEHAVIOR = UMLPackage.CLASS__OWNED_BEHAVIOR;
+
+	/**
+	 * The feature id for the '<em><b>Owned Operation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__OWNED_OPERATION = UMLPackage.CLASS__OWNED_OPERATION;
+
+	/**
+	 * The feature id for the '<em><b>Extension</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__EXTENSION = UMLPackage.CLASS__EXTENSION;
+
+	/**
+	 * The feature id for the '<em><b>Is Active</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__IS_ACTIVE = UMLPackage.CLASS__IS_ACTIVE;
+
+	/**
+	 * The feature id for the '<em><b>Nested Classifier</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__NESTED_CLASSIFIER = UMLPackage.CLASS__NESTED_CLASSIFIER;
+
+	/**
+	 * The feature id for the '<em><b>Owned Reception</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__OWNED_RECEPTION = UMLPackage.CLASS__OWNED_RECEPTION;
+
+	/**
+	 * The feature id for the '<em><b>Super Class</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__SUPER_CLASS = UMLPackage.CLASS__SUPER_CLASS;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__ID = UMLPackage.CLASS_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Class</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_FEATURE_COUNT = UMLPackage.CLASS_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get EAnnotation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_EANNOTATION__STRING = UMLPackage.CLASS___GET_EANNOTATION__STRING;
+
+	/**
+	 * The operation id for the '<em>Validate Has Owner</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___VALIDATE_HAS_OWNER__DIAGNOSTICCHAIN_MAP = UMLPackage.CLASS___VALIDATE_HAS_OWNER__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Validate Not Own Self</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___VALIDATE_NOT_OWN_SELF__DIAGNOSTICCHAIN_MAP = UMLPackage.CLASS___VALIDATE_NOT_OWN_SELF__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Add Keyword</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___ADD_KEYWORD__STRING = UMLPackage.CLASS___ADD_KEYWORD__STRING;
+
+	/**
+	 * The operation id for the '<em>Apply Stereotype</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___APPLY_STEREOTYPE__STEREOTYPE = UMLPackage.CLASS___APPLY_STEREOTYPE__STEREOTYPE;
+
+	/**
+	 * The operation id for the '<em>Create EAnnotation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___CREATE_EANNOTATION__STRING = UMLPackage.CLASS___CREATE_EANNOTATION__STRING;
+
+	/**
+	 * The operation id for the '<em>Destroy</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___DESTROY = UMLPackage.CLASS___DESTROY;
+
+	/**
+	 * The operation id for the '<em>Get Keywords</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_KEYWORDS = UMLPackage.CLASS___GET_KEYWORDS;
+
+	/**
+	 * The operation id for the '<em>Get Applicable Stereotype</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_APPLICABLE_STEREOTYPE__STRING = UMLPackage.CLASS___GET_APPLICABLE_STEREOTYPE__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Applicable Stereotypes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_APPLICABLE_STEREOTYPES = UMLPackage.CLASS___GET_APPLICABLE_STEREOTYPES;
+
+	/**
+	 * The operation id for the '<em>Get Applied Stereotype</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_APPLIED_STEREOTYPE__STRING = UMLPackage.CLASS___GET_APPLIED_STEREOTYPE__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Applied Stereotypes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_APPLIED_STEREOTYPES = UMLPackage.CLASS___GET_APPLIED_STEREOTYPES;
+
+	/**
+	 * The operation id for the '<em>Get Applied Substereotype</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_APPLIED_SUBSTEREOTYPE__STEREOTYPE_STRING = UMLPackage.CLASS___GET_APPLIED_SUBSTEREOTYPE__STEREOTYPE_STRING;
+
+	/**
+	 * The operation id for the '<em>Get Applied Substereotypes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_APPLIED_SUBSTEREOTYPES__STEREOTYPE = UMLPackage.CLASS___GET_APPLIED_SUBSTEREOTYPES__STEREOTYPE;
+
+	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_MODEL = UMLPackage.CLASS___GET_MODEL;
+
+	/**
+	 * The operation id for the '<em>Get Nearest Package</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_NEAREST_PACKAGE = UMLPackage.CLASS___GET_NEAREST_PACKAGE;
+
+	/**
+	 * The operation id for the '<em>Get Relationships</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_RELATIONSHIPS = UMLPackage.CLASS___GET_RELATIONSHIPS;
+
+	/**
+	 * The operation id for the '<em>Get Relationships</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_RELATIONSHIPS__ECLASS = UMLPackage.CLASS___GET_RELATIONSHIPS__ECLASS;
+
+	/**
+	 * The operation id for the '<em>Get Required Stereotype</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_REQUIRED_STEREOTYPE__STRING = UMLPackage.CLASS___GET_REQUIRED_STEREOTYPE__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Required Stereotypes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_REQUIRED_STEREOTYPES = UMLPackage.CLASS___GET_REQUIRED_STEREOTYPES;
+
+	/**
+	 * The operation id for the '<em>Get Source Directed Relationships</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_SOURCE_DIRECTED_RELATIONSHIPS = UMLPackage.CLASS___GET_SOURCE_DIRECTED_RELATIONSHIPS;
+
+	/**
+	 * The operation id for the '<em>Get Source Directed Relationships</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_SOURCE_DIRECTED_RELATIONSHIPS__ECLASS = UMLPackage.CLASS___GET_SOURCE_DIRECTED_RELATIONSHIPS__ECLASS;
+
+	/**
+	 * The operation id for the '<em>Get Stereotype Application</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_STEREOTYPE_APPLICATION__STEREOTYPE = UMLPackage.CLASS___GET_STEREOTYPE_APPLICATION__STEREOTYPE;
+
+	/**
+	 * The operation id for the '<em>Get Stereotype Applications</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_STEREOTYPE_APPLICATIONS = UMLPackage.CLASS___GET_STEREOTYPE_APPLICATIONS;
+
+	/**
+	 * The operation id for the '<em>Get Target Directed Relationships</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_TARGET_DIRECTED_RELATIONSHIPS = UMLPackage.CLASS___GET_TARGET_DIRECTED_RELATIONSHIPS;
+
+	/**
+	 * The operation id for the '<em>Get Target Directed Relationships</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_TARGET_DIRECTED_RELATIONSHIPS__ECLASS = UMLPackage.CLASS___GET_TARGET_DIRECTED_RELATIONSHIPS__ECLASS;
+
+	/**
+	 * The operation id for the '<em>Get Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_VALUE__STEREOTYPE_STRING = UMLPackage.CLASS___GET_VALUE__STEREOTYPE_STRING;
+
+	/**
+	 * The operation id for the '<em>Has Keyword</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___HAS_KEYWORD__STRING = UMLPackage.CLASS___HAS_KEYWORD__STRING;
+
+	/**
+	 * The operation id for the '<em>Has Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___HAS_VALUE__STEREOTYPE_STRING = UMLPackage.CLASS___HAS_VALUE__STEREOTYPE_STRING;
+
+	/**
+	 * The operation id for the '<em>Is Stereotype Applicable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___IS_STEREOTYPE_APPLICABLE__STEREOTYPE = UMLPackage.CLASS___IS_STEREOTYPE_APPLICABLE__STEREOTYPE;
+
+	/**
+	 * The operation id for the '<em>Is Stereotype Applied</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___IS_STEREOTYPE_APPLIED__STEREOTYPE = UMLPackage.CLASS___IS_STEREOTYPE_APPLIED__STEREOTYPE;
+
+	/**
+	 * The operation id for the '<em>Is Stereotype Required</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___IS_STEREOTYPE_REQUIRED__STEREOTYPE = UMLPackage.CLASS___IS_STEREOTYPE_REQUIRED__STEREOTYPE;
+
+	/**
+	 * The operation id for the '<em>Remove Keyword</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___REMOVE_KEYWORD__STRING = UMLPackage.CLASS___REMOVE_KEYWORD__STRING;
+
+	/**
+	 * The operation id for the '<em>Set Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___SET_VALUE__STEREOTYPE_STRING_OBJECT = UMLPackage.CLASS___SET_VALUE__STEREOTYPE_STRING_OBJECT;
+
+	/**
+	 * The operation id for the '<em>Unapply Stereotype</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___UNAPPLY_STEREOTYPE__STEREOTYPE = UMLPackage.CLASS___UNAPPLY_STEREOTYPE__STEREOTYPE;
+
+	/**
+	 * The operation id for the '<em>All Owned Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___ALL_OWNED_ELEMENTS = UMLPackage.CLASS___ALL_OWNED_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Must Be Owned</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___MUST_BE_OWNED = UMLPackage.CLASS___MUST_BE_OWNED;
+
+	/**
+	 * The operation id for the '<em>Validate Visibility Needs Ownership</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___VALIDATE_VISIBILITY_NEEDS_OWNERSHIP__DIAGNOSTICCHAIN_MAP = UMLPackage.CLASS___VALIDATE_VISIBILITY_NEEDS_OWNERSHIP__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Validate Has Qualified Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___VALIDATE_HAS_QUALIFIED_NAME__DIAGNOSTICCHAIN_MAP = UMLPackage.CLASS___VALIDATE_HAS_QUALIFIED_NAME__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Validate Has No Qualified Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___VALIDATE_HAS_NO_QUALIFIED_NAME__DIAGNOSTICCHAIN_MAP = UMLPackage.CLASS___VALIDATE_HAS_NO_QUALIFIED_NAME__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Create Dependency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___CREATE_DEPENDENCY__NAMEDELEMENT = UMLPackage.CLASS___CREATE_DEPENDENCY__NAMEDELEMENT;
+
+	/**
+	 * The operation id for the '<em>Create Usage</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___CREATE_USAGE__NAMEDELEMENT = UMLPackage.CLASS___CREATE_USAGE__NAMEDELEMENT;
+
+	/**
+	 * The operation id for the '<em>Get Label</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_LABEL = UMLPackage.CLASS___GET_LABEL;
+
+	/**
+	 * The operation id for the '<em>Get Label</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_LABEL__BOOLEAN = UMLPackage.CLASS___GET_LABEL__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Get Namespace</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_NAMESPACE = UMLPackage.CLASS___GET_NAMESPACE;
+
+	/**
+	 * The operation id for the '<em>All Namespaces</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___ALL_NAMESPACES = UMLPackage.CLASS___ALL_NAMESPACES;
+
+	/**
+	 * The operation id for the '<em>All Owning Packages</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___ALL_OWNING_PACKAGES = UMLPackage.CLASS___ALL_OWNING_PACKAGES;
+
+	/**
+	 * The operation id for the '<em>Is Distinguishable From</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___IS_DISTINGUISHABLE_FROM__NAMEDELEMENT_NAMESPACE = UMLPackage.CLASS___IS_DISTINGUISHABLE_FROM__NAMEDELEMENT_NAMESPACE;
+
+	/**
+	 * The operation id for the '<em>Get Qualified Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_QUALIFIED_NAME = UMLPackage.CLASS___GET_QUALIFIED_NAME;
+
+	/**
+	 * The operation id for the '<em>Separator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___SEPARATOR = UMLPackage.CLASS___SEPARATOR;
+
+	/**
+	 * The operation id for the '<em>Get Client Dependencies</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_CLIENT_DEPENDENCIES = UMLPackage.CLASS___GET_CLIENT_DEPENDENCIES;
+
+	/**
+	 * The operation id for the '<em>Validate Members Distinguishable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___VALIDATE_MEMBERS_DISTINGUISHABLE__DIAGNOSTICCHAIN_MAP = UMLPackage.CLASS___VALIDATE_MEMBERS_DISTINGUISHABLE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Validate Cannot Import Self</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___VALIDATE_CANNOT_IMPORT_SELF__DIAGNOSTICCHAIN_MAP = UMLPackage.CLASS___VALIDATE_CANNOT_IMPORT_SELF__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Validate Cannot Import Owned Members</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___VALIDATE_CANNOT_IMPORT_OWNED_MEMBERS__DIAGNOSTICCHAIN_MAP = UMLPackage.CLASS___VALIDATE_CANNOT_IMPORT_OWNED_MEMBERS__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Create Element Import</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___CREATE_ELEMENT_IMPORT__PACKAGEABLEELEMENT_VISIBILITYKIND = UMLPackage.CLASS___CREATE_ELEMENT_IMPORT__PACKAGEABLEELEMENT_VISIBILITYKIND;
+
+	/**
+	 * The operation id for the '<em>Create Package Import</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___CREATE_PACKAGE_IMPORT__PACKAGE_VISIBILITYKIND = UMLPackage.CLASS___CREATE_PACKAGE_IMPORT__PACKAGE_VISIBILITYKIND;
+
+	/**
+	 * The operation id for the '<em>Get Imported Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_IMPORTED_ELEMENTS = UMLPackage.CLASS___GET_IMPORTED_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Get Imported Packages</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_IMPORTED_PACKAGES = UMLPackage.CLASS___GET_IMPORTED_PACKAGES;
+
+	/**
+	 * The operation id for the '<em>Get Owned Members</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_OWNED_MEMBERS = UMLPackage.CLASS___GET_OWNED_MEMBERS;
+
+	/**
+	 * The operation id for the '<em>Exclude Collisions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___EXCLUDE_COLLISIONS__ELIST = UMLPackage.CLASS___EXCLUDE_COLLISIONS__ELIST;
+
+	/**
+	 * The operation id for the '<em>Get Names Of Member</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_NAMES_OF_MEMBER__NAMEDELEMENT = UMLPackage.CLASS___GET_NAMES_OF_MEMBER__NAMEDELEMENT;
+
+	/**
+	 * The operation id for the '<em>Import Members</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___IMPORT_MEMBERS__ELIST = UMLPackage.CLASS___IMPORT_MEMBERS__ELIST;
+
+	/**
+	 * The operation id for the '<em>Get Imported Members</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_IMPORTED_MEMBERS = UMLPackage.CLASS___GET_IMPORTED_MEMBERS;
+
+	/**
+	 * The operation id for the '<em>Members Are Distinguishable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___MEMBERS_ARE_DISTINGUISHABLE = UMLPackage.CLASS___MEMBERS_ARE_DISTINGUISHABLE;
+
+	/**
+	 * The operation id for the '<em>Validate Redefinition Consistent</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___VALIDATE_REDEFINITION_CONSISTENT__DIAGNOSTICCHAIN_MAP = UMLPackage.CLASS___VALIDATE_REDEFINITION_CONSISTENT__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Validate Non Leaf Redefinition</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___VALIDATE_NON_LEAF_REDEFINITION__DIAGNOSTICCHAIN_MAP = UMLPackage.CLASS___VALIDATE_NON_LEAF_REDEFINITION__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Validate Redefinition Context Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___VALIDATE_REDEFINITION_CONTEXT_VALID__DIAGNOSTICCHAIN_MAP = UMLPackage.CLASS___VALIDATE_REDEFINITION_CONTEXT_VALID__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Is Consistent With</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___IS_CONSISTENT_WITH__REDEFINABLEELEMENT = UMLPackage.CLASS___IS_CONSISTENT_WITH__REDEFINABLEELEMENT;
+
+	/**
+	 * The operation id for the '<em>Is Redefinition Context Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___IS_REDEFINITION_CONTEXT_VALID__REDEFINABLEELEMENT = UMLPackage.CLASS___IS_REDEFINITION_CONTEXT_VALID__REDEFINABLEELEMENT;
+
+	/**
+	 * The operation id for the '<em>Is Compatible With</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___IS_COMPATIBLE_WITH__PARAMETERABLEELEMENT = UMLPackage.CLASS___IS_COMPATIBLE_WITH__PARAMETERABLEELEMENT;
+
+	/**
+	 * The operation id for the '<em>Is Template Parameter</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___IS_TEMPLATE_PARAMETER = UMLPackage.CLASS___IS_TEMPLATE_PARAMETER;
+
+	/**
+	 * The operation id for the '<em>Validate Namespace Needs Visibility</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___VALIDATE_NAMESPACE_NEEDS_VISIBILITY__DIAGNOSTICCHAIN_MAP = UMLPackage.CLASS___VALIDATE_NAMESPACE_NEEDS_VISIBILITY__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Create Association</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___CREATE_ASSOCIATION__BOOLEAN_AGGREGATIONKIND_STRING_INT_INT_TYPE_BOOLEAN_AGGREGATIONKIND_STRING_INT_INT = UMLPackage.CLASS___CREATE_ASSOCIATION__BOOLEAN_AGGREGATIONKIND_STRING_INT_INT_TYPE_BOOLEAN_AGGREGATIONKIND_STRING_INT_INT;
+
+	/**
+	 * The operation id for the '<em>Get Associations</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_ASSOCIATIONS = UMLPackage.CLASS___GET_ASSOCIATIONS;
+
+	/**
+	 * The operation id for the '<em>Conforms To</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___CONFORMS_TO__TYPE = UMLPackage.CLASS___CONFORMS_TO__TYPE;
+
+	/**
+	 * The operation id for the '<em>Is Template</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___IS_TEMPLATE = UMLPackage.CLASS___IS_TEMPLATE;
+
+	/**
+	 * The operation id for the '<em>Parameterable Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___PARAMETERABLE_ELEMENTS = UMLPackage.CLASS___PARAMETERABLE_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Validate Specialize Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___VALIDATE_SPECIALIZE_TYPE__DIAGNOSTICCHAIN_MAP = UMLPackage.CLASS___VALIDATE_SPECIALIZE_TYPE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Validate Maps To Generalization Set</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___VALIDATE_MAPS_TO_GENERALIZATION_SET__DIAGNOSTICCHAIN_MAP = UMLPackage.CLASS___VALIDATE_MAPS_TO_GENERALIZATION_SET__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Validate Non Final Parents</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___VALIDATE_NON_FINAL_PARENTS__DIAGNOSTICCHAIN_MAP = UMLPackage.CLASS___VALIDATE_NON_FINAL_PARENTS__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Validate No Cycles In Generalization</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___VALIDATE_NO_CYCLES_IN_GENERALIZATION__DIAGNOSTICCHAIN_MAP = UMLPackage.CLASS___VALIDATE_NO_CYCLES_IN_GENERALIZATION__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get All Attributes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_ALL_ATTRIBUTES = UMLPackage.CLASS___GET_ALL_ATTRIBUTES;
+
+	/**
+	 * The operation id for the '<em>Get All Operations</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_ALL_OPERATIONS = UMLPackage.CLASS___GET_ALL_OPERATIONS;
+
+	/**
+	 * The operation id for the '<em>Get All Used Interfaces</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_ALL_USED_INTERFACES = UMLPackage.CLASS___GET_ALL_USED_INTERFACES;
+
+	/**
+	 * The operation id for the '<em>Get Operation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_OPERATION__STRING_ELIST_ELIST = UMLPackage.CLASS___GET_OPERATION__STRING_ELIST_ELIST;
+
+	/**
+	 * The operation id for the '<em>Get Operation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_OPERATION__STRING_ELIST_ELIST_BOOLEAN = UMLPackage.CLASS___GET_OPERATION__STRING_ELIST_ELIST_BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Get Operations</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_OPERATIONS = UMLPackage.CLASS___GET_OPERATIONS;
+
+	/**
+	 * The operation id for the '<em>Get Used Interfaces</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_USED_INTERFACES = UMLPackage.CLASS___GET_USED_INTERFACES;
+
+	/**
+	 * The operation id for the '<em>All Features</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___ALL_FEATURES = UMLPackage.CLASS___ALL_FEATURES;
+
+	/**
+	 * The operation id for the '<em>All Parents</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___ALL_PARENTS = UMLPackage.CLASS___ALL_PARENTS;
+
+	/**
+	 * The operation id for the '<em>Get Generals</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_GENERALS = UMLPackage.CLASS___GET_GENERALS;
+
+	/**
+	 * The operation id for the '<em>Has Visibility Of</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___HAS_VISIBILITY_OF__NAMEDELEMENT = UMLPackage.CLASS___HAS_VISIBILITY_OF__NAMEDELEMENT;
+
+	/**
+	 * The operation id for the '<em>Inherit</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___INHERIT__ELIST = UMLPackage.CLASS___INHERIT__ELIST;
+
+	/**
+	 * The operation id for the '<em>Inheritable Members</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___INHERITABLE_MEMBERS__CLASSIFIER = UMLPackage.CLASS___INHERITABLE_MEMBERS__CLASSIFIER;
+
+	/**
+	 * The operation id for the '<em>Get Inherited Members</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_INHERITED_MEMBERS = UMLPackage.CLASS___GET_INHERITED_MEMBERS;
+
+	/**
+	 * The operation id for the '<em>May Specialize Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___MAY_SPECIALIZE_TYPE__CLASSIFIER = UMLPackage.CLASS___MAY_SPECIALIZE_TYPE__CLASSIFIER;
+
+	/**
+	 * The operation id for the '<em>Parents</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___PARENTS = UMLPackage.CLASS___PARENTS;
+
+	/**
+	 * The operation id for the '<em>Directly Realized Interfaces</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___DIRECTLY_REALIZED_INTERFACES = UMLPackage.CLASS___DIRECTLY_REALIZED_INTERFACES;
+
+	/**
+	 * The operation id for the '<em>Directly Used Interfaces</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___DIRECTLY_USED_INTERFACES = UMLPackage.CLASS___DIRECTLY_USED_INTERFACES;
+
+	/**
+	 * The operation id for the '<em>All Realized Interfaces</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___ALL_REALIZED_INTERFACES = UMLPackage.CLASS___ALL_REALIZED_INTERFACES;
+
+	/**
+	 * The operation id for the '<em>All Used Interfaces</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___ALL_USED_INTERFACES = UMLPackage.CLASS___ALL_USED_INTERFACES;
+
+	/**
+	 * The operation id for the '<em>Is Substitutable For</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___IS_SUBSTITUTABLE_FOR__CLASSIFIER = UMLPackage.CLASS___IS_SUBSTITUTABLE_FOR__CLASSIFIER;
+
+	/**
+	 * The operation id for the '<em>All Attributes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___ALL_ATTRIBUTES = UMLPackage.CLASS___ALL_ATTRIBUTES;
+
+	/**
+	 * The operation id for the '<em>All Slottable Features</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___ALL_SLOTTABLE_FEATURES = UMLPackage.CLASS___ALL_SLOTTABLE_FEATURES;
+
+	/**
+	 * The operation id for the '<em>Create Owned Attribute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___CREATE_OWNED_ATTRIBUTE__STRING_TYPE_INT_INT = UMLPackage.CLASS___CREATE_OWNED_ATTRIBUTE__STRING_TYPE_INT_INT;
+
+	/**
+	 * The operation id for the '<em>Get Parts</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_PARTS = UMLPackage.CLASS___GET_PARTS;
+
+	/**
+	 * The operation id for the '<em>All Roles</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___ALL_ROLES = UMLPackage.CLASS___ALL_ROLES;
+
+	/**
+	 * The operation id for the '<em>Get Owned Ports</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_OWNED_PORTS = UMLPackage.CLASS___GET_OWNED_PORTS;
+
+	/**
+	 * The operation id for the '<em>Validate Class Behavior</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___VALIDATE_CLASS_BEHAVIOR__DIAGNOSTICCHAIN_MAP = UMLPackage.CLASS___VALIDATE_CLASS_BEHAVIOR__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get All Implemented Interfaces</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_ALL_IMPLEMENTED_INTERFACES = UMLPackage.CLASS___GET_ALL_IMPLEMENTED_INTERFACES;
+
+	/**
+	 * The operation id for the '<em>Get Implemented Interfaces</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_IMPLEMENTED_INTERFACES = UMLPackage.CLASS___GET_IMPLEMENTED_INTERFACES;
+
+	/**
+	 * The operation id for the '<em>Validate Passive Class</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___VALIDATE_PASSIVE_CLASS__DIAGNOSTICCHAIN_MAP = UMLPackage.CLASS___VALIDATE_PASSIVE_CLASS__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Create Owned Operation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___CREATE_OWNED_OPERATION__STRING_ELIST_ELIST_TYPE = UMLPackage.CLASS___CREATE_OWNED_OPERATION__STRING_ELIST_ELIST_TYPE;
+
+	/**
+	 * The operation id for the '<em>Is Metaclass</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___IS_METACLASS = UMLPackage.CLASS___IS_METACLASS;
+
+	/**
+	 * The operation id for the '<em>Get Extensions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_EXTENSIONS = UMLPackage.CLASS___GET_EXTENSIONS;
+
+	/**
+	 * The operation id for the '<em>Get Super Classes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS___GET_SUPER_CLASSES = UMLPackage.CLASS___GET_SUPER_CLASSES;
+
+	/**
+	 * The number of operations of the '<em>Class</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_OPERATION_COUNT = UMLPackage.CLASS_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.PropertyImpl <em>Property</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.PropertyImpl
+	 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.Sequence_diagramPackageImpl#getProperty()
+	 * @generated
+	 */
+	int PROPERTY = 7;
+
+	/**
+	 * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__EANNOTATIONS = UMLPackage.PROPERTY__EANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Owned Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__OWNED_COMMENT = UMLPackage.PROPERTY__OWNED_COMMENT;
+
+	/**
+	 * The feature id for the '<em><b>Owned Element</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__OWNED_ELEMENT = UMLPackage.PROPERTY__OWNED_ELEMENT;
+
+	/**
+	 * The feature id for the '<em><b>Owner</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__OWNER = UMLPackage.PROPERTY__OWNER;
+
+	/**
+	 * The feature id for the '<em><b>Client Dependency</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__CLIENT_DEPENDENCY = UMLPackage.PROPERTY__CLIENT_DEPENDENCY;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__NAME = UMLPackage.PROPERTY__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Name Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__NAME_EXPRESSION = UMLPackage.PROPERTY__NAME_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Namespace</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__NAMESPACE = UMLPackage.PROPERTY__NAMESPACE;
+
+	/**
+	 * The feature id for the '<em><b>Qualified Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__QUALIFIED_NAME = UMLPackage.PROPERTY__QUALIFIED_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Visibility</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__VISIBILITY = UMLPackage.PROPERTY__VISIBILITY;
+
+	/**
+	 * The feature id for the '<em><b>Is Leaf</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__IS_LEAF = UMLPackage.PROPERTY__IS_LEAF;
+
+	/**
+	 * The feature id for the '<em><b>Redefined Element</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__REDEFINED_ELEMENT = UMLPackage.PROPERTY__REDEFINED_ELEMENT;
+
+	/**
+	 * The feature id for the '<em><b>Redefinition Context</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__REDEFINITION_CONTEXT = UMLPackage.PROPERTY__REDEFINITION_CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Featuring Classifier</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__FEATURING_CLASSIFIER = UMLPackage.PROPERTY__FEATURING_CLASSIFIER;
+
+	/**
+	 * The feature id for the '<em><b>Is Static</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__IS_STATIC = UMLPackage.PROPERTY__IS_STATIC;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__TYPE = UMLPackage.PROPERTY__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Is Ordered</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__IS_ORDERED = UMLPackage.PROPERTY__IS_ORDERED;
+
+	/**
+	 * The feature id for the '<em><b>Is Unique</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__IS_UNIQUE = UMLPackage.PROPERTY__IS_UNIQUE;
+
+	/**
+	 * The feature id for the '<em><b>Lower</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__LOWER = UMLPackage.PROPERTY__LOWER;
+
+	/**
+	 * The feature id for the '<em><b>Lower Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__LOWER_VALUE = UMLPackage.PROPERTY__LOWER_VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Upper</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__UPPER = UMLPackage.PROPERTY__UPPER;
+
+	/**
+	 * The feature id for the '<em><b>Upper Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__UPPER_VALUE = UMLPackage.PROPERTY__UPPER_VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Is Read Only</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__IS_READ_ONLY = UMLPackage.PROPERTY__IS_READ_ONLY;
+
+	/**
+	 * The feature id for the '<em><b>Owning Template Parameter</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__OWNING_TEMPLATE_PARAMETER = UMLPackage.PROPERTY__OWNING_TEMPLATE_PARAMETER;
+
+	/**
+	 * The feature id for the '<em><b>Template Parameter</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__TEMPLATE_PARAMETER = UMLPackage.PROPERTY__TEMPLATE_PARAMETER;
+
+	/**
+	 * The feature id for the '<em><b>End</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__END = UMLPackage.PROPERTY__END;
+
+	/**
+	 * The feature id for the '<em><b>Deployed Element</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__DEPLOYED_ELEMENT = UMLPackage.PROPERTY__DEPLOYED_ELEMENT;
+
+	/**
+	 * The feature id for the '<em><b>Deployment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__DEPLOYMENT = UMLPackage.PROPERTY__DEPLOYMENT;
+
+	/**
+	 * The feature id for the '<em><b>Datatype</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__DATATYPE = UMLPackage.PROPERTY__DATATYPE;
+
+	/**
+	 * The feature id for the '<em><b>Interface</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__INTERFACE = UMLPackage.PROPERTY__INTERFACE;
+
+	/**
+	 * The feature id for the '<em><b>Default</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__DEFAULT = UMLPackage.PROPERTY__DEFAULT;
+
+	/**
+	 * The feature id for the '<em><b>Aggregation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__AGGREGATION = UMLPackage.PROPERTY__AGGREGATION;
+
+	/**
+	 * The feature id for the '<em><b>Association End</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__ASSOCIATION_END = UMLPackage.PROPERTY__ASSOCIATION_END;
+
+	/**
+	 * The feature id for the '<em><b>Qualifier</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__QUALIFIER = UMLPackage.PROPERTY__QUALIFIER;
+
+	/**
+	 * The feature id for the '<em><b>Class</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__CLASS = UMLPackage.PROPERTY__CLASS;
+
+	/**
+	 * The feature id for the '<em><b>Default Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__DEFAULT_VALUE = UMLPackage.PROPERTY__DEFAULT_VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Is Composite</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__IS_COMPOSITE = UMLPackage.PROPERTY__IS_COMPOSITE;
+
+	/**
+	 * The feature id for the '<em><b>Is Derived</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__IS_DERIVED = UMLPackage.PROPERTY__IS_DERIVED;
+
+	/**
+	 * The feature id for the '<em><b>Is Derived Union</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__IS_DERIVED_UNION = UMLPackage.PROPERTY__IS_DERIVED_UNION;
+
+	/**
+	 * The feature id for the '<em><b>Is ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__IS_ID = UMLPackage.PROPERTY__IS_ID;
+
+	/**
+	 * The feature id for the '<em><b>Opposite</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__OPPOSITE = UMLPackage.PROPERTY__OPPOSITE;
+
+	/**
+	 * The feature id for the '<em><b>Owning Association</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__OWNING_ASSOCIATION = UMLPackage.PROPERTY__OWNING_ASSOCIATION;
+
+	/**
+	 * The feature id for the '<em><b>Redefined Property</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__REDEFINED_PROPERTY = UMLPackage.PROPERTY__REDEFINED_PROPERTY;
+
+	/**
+	 * The feature id for the '<em><b>Subsetted Property</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__SUBSETTED_PROPERTY = UMLPackage.PROPERTY__SUBSETTED_PROPERTY;
+
+	/**
+	 * The feature id for the '<em><b>Association</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__ASSOCIATION = UMLPackage.PROPERTY__ASSOCIATION;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__ID = UMLPackage.PROPERTY_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Property</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_FEATURE_COUNT = UMLPackage.PROPERTY_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get EAnnotation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_EANNOTATION__STRING = UMLPackage.PROPERTY___GET_EANNOTATION__STRING;
+
+	/**
+	 * The operation id for the '<em>Validate Has Owner</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___VALIDATE_HAS_OWNER__DIAGNOSTICCHAIN_MAP = UMLPackage.PROPERTY___VALIDATE_HAS_OWNER__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Validate Not Own Self</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___VALIDATE_NOT_OWN_SELF__DIAGNOSTICCHAIN_MAP = UMLPackage.PROPERTY___VALIDATE_NOT_OWN_SELF__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Add Keyword</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___ADD_KEYWORD__STRING = UMLPackage.PROPERTY___ADD_KEYWORD__STRING;
+
+	/**
+	 * The operation id for the '<em>Apply Stereotype</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___APPLY_STEREOTYPE__STEREOTYPE = UMLPackage.PROPERTY___APPLY_STEREOTYPE__STEREOTYPE;
+
+	/**
+	 * The operation id for the '<em>Create EAnnotation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___CREATE_EANNOTATION__STRING = UMLPackage.PROPERTY___CREATE_EANNOTATION__STRING;
+
+	/**
+	 * The operation id for the '<em>Destroy</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___DESTROY = UMLPackage.PROPERTY___DESTROY;
+
+	/**
+	 * The operation id for the '<em>Get Keywords</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_KEYWORDS = UMLPackage.PROPERTY___GET_KEYWORDS;
+
+	/**
+	 * The operation id for the '<em>Get Applicable Stereotype</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_APPLICABLE_STEREOTYPE__STRING = UMLPackage.PROPERTY___GET_APPLICABLE_STEREOTYPE__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Applicable Stereotypes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_APPLICABLE_STEREOTYPES = UMLPackage.PROPERTY___GET_APPLICABLE_STEREOTYPES;
+
+	/**
+	 * The operation id for the '<em>Get Applied Stereotype</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_APPLIED_STEREOTYPE__STRING = UMLPackage.PROPERTY___GET_APPLIED_STEREOTYPE__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Applied Stereotypes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_APPLIED_STEREOTYPES = UMLPackage.PROPERTY___GET_APPLIED_STEREOTYPES;
+
+	/**
+	 * The operation id for the '<em>Get Applied Substereotype</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_APPLIED_SUBSTEREOTYPE__STEREOTYPE_STRING = UMLPackage.PROPERTY___GET_APPLIED_SUBSTEREOTYPE__STEREOTYPE_STRING;
+
+	/**
+	 * The operation id for the '<em>Get Applied Substereotypes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_APPLIED_SUBSTEREOTYPES__STEREOTYPE = UMLPackage.PROPERTY___GET_APPLIED_SUBSTEREOTYPES__STEREOTYPE;
+
+	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_MODEL = UMLPackage.PROPERTY___GET_MODEL;
+
+	/**
+	 * The operation id for the '<em>Get Nearest Package</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_NEAREST_PACKAGE = UMLPackage.PROPERTY___GET_NEAREST_PACKAGE;
+
+	/**
+	 * The operation id for the '<em>Get Relationships</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_RELATIONSHIPS = UMLPackage.PROPERTY___GET_RELATIONSHIPS;
+
+	/**
+	 * The operation id for the '<em>Get Relationships</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_RELATIONSHIPS__ECLASS = UMLPackage.PROPERTY___GET_RELATIONSHIPS__ECLASS;
+
+	/**
+	 * The operation id for the '<em>Get Required Stereotype</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_REQUIRED_STEREOTYPE__STRING = UMLPackage.PROPERTY___GET_REQUIRED_STEREOTYPE__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Required Stereotypes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_REQUIRED_STEREOTYPES = UMLPackage.PROPERTY___GET_REQUIRED_STEREOTYPES;
+
+	/**
+	 * The operation id for the '<em>Get Source Directed Relationships</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_SOURCE_DIRECTED_RELATIONSHIPS = UMLPackage.PROPERTY___GET_SOURCE_DIRECTED_RELATIONSHIPS;
+
+	/**
+	 * The operation id for the '<em>Get Source Directed Relationships</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_SOURCE_DIRECTED_RELATIONSHIPS__ECLASS = UMLPackage.PROPERTY___GET_SOURCE_DIRECTED_RELATIONSHIPS__ECLASS;
+
+	/**
+	 * The operation id for the '<em>Get Stereotype Application</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_STEREOTYPE_APPLICATION__STEREOTYPE = UMLPackage.PROPERTY___GET_STEREOTYPE_APPLICATION__STEREOTYPE;
+
+	/**
+	 * The operation id for the '<em>Get Stereotype Applications</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_STEREOTYPE_APPLICATIONS = UMLPackage.PROPERTY___GET_STEREOTYPE_APPLICATIONS;
+
+	/**
+	 * The operation id for the '<em>Get Target Directed Relationships</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_TARGET_DIRECTED_RELATIONSHIPS = UMLPackage.PROPERTY___GET_TARGET_DIRECTED_RELATIONSHIPS;
+
+	/**
+	 * The operation id for the '<em>Get Target Directed Relationships</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_TARGET_DIRECTED_RELATIONSHIPS__ECLASS = UMLPackage.PROPERTY___GET_TARGET_DIRECTED_RELATIONSHIPS__ECLASS;
+
+	/**
+	 * The operation id for the '<em>Get Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_VALUE__STEREOTYPE_STRING = UMLPackage.PROPERTY___GET_VALUE__STEREOTYPE_STRING;
+
+	/**
+	 * The operation id for the '<em>Has Keyword</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___HAS_KEYWORD__STRING = UMLPackage.PROPERTY___HAS_KEYWORD__STRING;
+
+	/**
+	 * The operation id for the '<em>Has Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___HAS_VALUE__STEREOTYPE_STRING = UMLPackage.PROPERTY___HAS_VALUE__STEREOTYPE_STRING;
+
+	/**
+	 * The operation id for the '<em>Is Stereotype Applicable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___IS_STEREOTYPE_APPLICABLE__STEREOTYPE = UMLPackage.PROPERTY___IS_STEREOTYPE_APPLICABLE__STEREOTYPE;
+
+	/**
+	 * The operation id for the '<em>Is Stereotype Applied</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___IS_STEREOTYPE_APPLIED__STEREOTYPE = UMLPackage.PROPERTY___IS_STEREOTYPE_APPLIED__STEREOTYPE;
+
+	/**
+	 * The operation id for the '<em>Is Stereotype Required</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___IS_STEREOTYPE_REQUIRED__STEREOTYPE = UMLPackage.PROPERTY___IS_STEREOTYPE_REQUIRED__STEREOTYPE;
+
+	/**
+	 * The operation id for the '<em>Remove Keyword</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___REMOVE_KEYWORD__STRING = UMLPackage.PROPERTY___REMOVE_KEYWORD__STRING;
+
+	/**
+	 * The operation id for the '<em>Set Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___SET_VALUE__STEREOTYPE_STRING_OBJECT = UMLPackage.PROPERTY___SET_VALUE__STEREOTYPE_STRING_OBJECT;
+
+	/**
+	 * The operation id for the '<em>Unapply Stereotype</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___UNAPPLY_STEREOTYPE__STEREOTYPE = UMLPackage.PROPERTY___UNAPPLY_STEREOTYPE__STEREOTYPE;
+
+	/**
+	 * The operation id for the '<em>All Owned Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___ALL_OWNED_ELEMENTS = UMLPackage.PROPERTY___ALL_OWNED_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Must Be Owned</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___MUST_BE_OWNED = UMLPackage.PROPERTY___MUST_BE_OWNED;
+
+	/**
+	 * The operation id for the '<em>Validate Visibility Needs Ownership</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___VALIDATE_VISIBILITY_NEEDS_OWNERSHIP__DIAGNOSTICCHAIN_MAP = UMLPackage.PROPERTY___VALIDATE_VISIBILITY_NEEDS_OWNERSHIP__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Validate Has Qualified Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___VALIDATE_HAS_QUALIFIED_NAME__DIAGNOSTICCHAIN_MAP = UMLPackage.PROPERTY___VALIDATE_HAS_QUALIFIED_NAME__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Validate Has No Qualified Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___VALIDATE_HAS_NO_QUALIFIED_NAME__DIAGNOSTICCHAIN_MAP = UMLPackage.PROPERTY___VALIDATE_HAS_NO_QUALIFIED_NAME__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Create Dependency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___CREATE_DEPENDENCY__NAMEDELEMENT = UMLPackage.PROPERTY___CREATE_DEPENDENCY__NAMEDELEMENT;
+
+	/**
+	 * The operation id for the '<em>Create Usage</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___CREATE_USAGE__NAMEDELEMENT = UMLPackage.PROPERTY___CREATE_USAGE__NAMEDELEMENT;
+
+	/**
+	 * The operation id for the '<em>Get Label</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_LABEL = UMLPackage.PROPERTY___GET_LABEL;
+
+	/**
+	 * The operation id for the '<em>Get Label</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_LABEL__BOOLEAN = UMLPackage.PROPERTY___GET_LABEL__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Get Namespace</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_NAMESPACE = UMLPackage.PROPERTY___GET_NAMESPACE;
+
+	/**
+	 * The operation id for the '<em>All Namespaces</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___ALL_NAMESPACES = UMLPackage.PROPERTY___ALL_NAMESPACES;
+
+	/**
+	 * The operation id for the '<em>All Owning Packages</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___ALL_OWNING_PACKAGES = UMLPackage.PROPERTY___ALL_OWNING_PACKAGES;
+
+	/**
+	 * The operation id for the '<em>Is Distinguishable From</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___IS_DISTINGUISHABLE_FROM__NAMEDELEMENT_NAMESPACE = UMLPackage.PROPERTY___IS_DISTINGUISHABLE_FROM__NAMEDELEMENT_NAMESPACE;
+
+	/**
+	 * The operation id for the '<em>Get Qualified Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_QUALIFIED_NAME = UMLPackage.PROPERTY___GET_QUALIFIED_NAME;
+
+	/**
+	 * The operation id for the '<em>Separator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___SEPARATOR = UMLPackage.PROPERTY___SEPARATOR;
+
+	/**
+	 * The operation id for the '<em>Get Client Dependencies</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_CLIENT_DEPENDENCIES = UMLPackage.PROPERTY___GET_CLIENT_DEPENDENCIES;
+
+	/**
+	 * The operation id for the '<em>Validate Redefinition Consistent</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___VALIDATE_REDEFINITION_CONSISTENT__DIAGNOSTICCHAIN_MAP = UMLPackage.PROPERTY___VALIDATE_REDEFINITION_CONSISTENT__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Validate Non Leaf Redefinition</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___VALIDATE_NON_LEAF_REDEFINITION__DIAGNOSTICCHAIN_MAP = UMLPackage.PROPERTY___VALIDATE_NON_LEAF_REDEFINITION__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Validate Redefinition Context Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___VALIDATE_REDEFINITION_CONTEXT_VALID__DIAGNOSTICCHAIN_MAP = UMLPackage.PROPERTY___VALIDATE_REDEFINITION_CONTEXT_VALID__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Is Consistent With</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___IS_CONSISTENT_WITH__REDEFINABLEELEMENT = UMLPackage.PROPERTY___IS_CONSISTENT_WITH__REDEFINABLEELEMENT;
+
+	/**
+	 * The operation id for the '<em>Is Redefinition Context Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___IS_REDEFINITION_CONTEXT_VALID__REDEFINABLEELEMENT = UMLPackage.PROPERTY___IS_REDEFINITION_CONTEXT_VALID__REDEFINABLEELEMENT;
+
+	/**
+	 * The operation id for the '<em>Validate Upper Ge Lower</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___VALIDATE_UPPER_GE_LOWER__DIAGNOSTICCHAIN_MAP = UMLPackage.PROPERTY___VALIDATE_UPPER_GE_LOWER__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Validate Lower Ge0</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___VALIDATE_LOWER_GE0__DIAGNOSTICCHAIN_MAP = UMLPackage.PROPERTY___VALIDATE_LOWER_GE0__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Validate Value Specification No Side Effects</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___VALIDATE_VALUE_SPECIFICATION_NO_SIDE_EFFECTS__DIAGNOSTICCHAIN_MAP = UMLPackage.PROPERTY___VALIDATE_VALUE_SPECIFICATION_NO_SIDE_EFFECTS__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Validate Value Specification Constant</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___VALIDATE_VALUE_SPECIFICATION_CONSTANT__DIAGNOSTICCHAIN_MAP = UMLPackage.PROPERTY___VALIDATE_VALUE_SPECIFICATION_CONSTANT__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Validate Lower Is Integer</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___VALIDATE_LOWER_IS_INTEGER__DIAGNOSTICCHAIN_MAP = UMLPackage.PROPERTY___VALIDATE_LOWER_IS_INTEGER__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Validate Upper Is Unlimited Natural</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___VALIDATE_UPPER_IS_UNLIMITED_NATURAL__DIAGNOSTICCHAIN_MAP = UMLPackage.PROPERTY___VALIDATE_UPPER_IS_UNLIMITED_NATURAL__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Set Lower</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___SET_LOWER__INT = UMLPackage.PROPERTY___SET_LOWER__INT;
+
+	/**
+	 * The operation id for the '<em>Set Upper</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___SET_UPPER__INT = UMLPackage.PROPERTY___SET_UPPER__INT;
+
+	/**
+	 * The operation id for the '<em>Compatible With</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___COMPATIBLE_WITH__MULTIPLICITYELEMENT = UMLPackage.PROPERTY___COMPATIBLE_WITH__MULTIPLICITYELEMENT;
+
+	/**
+	 * The operation id for the '<em>Includes Multiplicity</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___INCLUDES_MULTIPLICITY__MULTIPLICITYELEMENT = UMLPackage.PROPERTY___INCLUDES_MULTIPLICITY__MULTIPLICITYELEMENT;
+
+	/**
+	 * The operation id for the '<em>Is</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___IS__INT_INT = UMLPackage.PROPERTY___IS__INT_INT;
+
+	/**
+	 * The operation id for the '<em>Is Multivalued</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___IS_MULTIVALUED = UMLPackage.PROPERTY___IS_MULTIVALUED;
+
+	/**
+	 * The operation id for the '<em>Get Lower</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_LOWER = UMLPackage.PROPERTY___GET_LOWER;
+
+	/**
+	 * The operation id for the '<em>Lower Bound</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___LOWER_BOUND = UMLPackage.PROPERTY___LOWER_BOUND;
+
+	/**
+	 * The operation id for the '<em>Get Upper</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_UPPER = UMLPackage.PROPERTY___GET_UPPER;
+
+	/**
+	 * The operation id for the '<em>Upper Bound</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___UPPER_BOUND = UMLPackage.PROPERTY___UPPER_BOUND;
+
+	/**
+	 * The operation id for the '<em>Is Compatible With</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___IS_COMPATIBLE_WITH__PARAMETERABLEELEMENT = UMLPackage.PROPERTY___IS_COMPATIBLE_WITH__PARAMETERABLEELEMENT;
+
+	/**
+	 * The operation id for the '<em>Is Template Parameter</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___IS_TEMPLATE_PARAMETER = UMLPackage.PROPERTY___IS_TEMPLATE_PARAMETER;
+
+	/**
+	 * The operation id for the '<em>Get Ends</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_ENDS = UMLPackage.PROPERTY___GET_ENDS;
+
+	/**
+	 * The operation id for the '<em>Get Deployed Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_DEPLOYED_ELEMENTS = UMLPackage.PROPERTY___GET_DEPLOYED_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Validate Subsetting Context Conforms</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___VALIDATE_SUBSETTING_CONTEXT_CONFORMS__DIAGNOSTICCHAIN_MAP = UMLPackage.PROPERTY___VALIDATE_SUBSETTING_CONTEXT_CONFORMS__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Validate Derived Union Is Read Only</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___VALIDATE_DERIVED_UNION_IS_READ_ONLY__DIAGNOSTICCHAIN_MAP = UMLPackage.PROPERTY___VALIDATE_DERIVED_UNION_IS_READ_ONLY__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Validate Multiplicity Of Composite</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___VALIDATE_MULTIPLICITY_OF_COMPOSITE__DIAGNOSTICCHAIN_MAP = UMLPackage.PROPERTY___VALIDATE_MULTIPLICITY_OF_COMPOSITE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Validate Redefined Property Inherited</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___VALIDATE_REDEFINED_PROPERTY_INHERITED__DIAGNOSTICCHAIN_MAP = UMLPackage.PROPERTY___VALIDATE_REDEFINED_PROPERTY_INHERITED__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Validate Subsetting Rules</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___VALIDATE_SUBSETTING_RULES__DIAGNOSTICCHAIN_MAP = UMLPackage.PROPERTY___VALIDATE_SUBSETTING_RULES__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Validate Binding To Attribute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___VALIDATE_BINDING_TO_ATTRIBUTE__DIAGNOSTICCHAIN_MAP = UMLPackage.PROPERTY___VALIDATE_BINDING_TO_ATTRIBUTE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Validate Derived Union Is Derived</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___VALIDATE_DERIVED_UNION_IS_DERIVED__DIAGNOSTICCHAIN_MAP = UMLPackage.PROPERTY___VALIDATE_DERIVED_UNION_IS_DERIVED__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Validate Deployment Target</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___VALIDATE_DEPLOYMENT_TARGET__DIAGNOSTICCHAIN_MAP = UMLPackage.PROPERTY___VALIDATE_DEPLOYMENT_TARGET__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Validate Subsetted Property Names</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___VALIDATE_SUBSETTED_PROPERTY_NAMES__DIAGNOSTICCHAIN_MAP = UMLPackage.PROPERTY___VALIDATE_SUBSETTED_PROPERTY_NAMES__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Validate Type Of Opposite End</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___VALIDATE_TYPE_OF_OPPOSITE_END__DIAGNOSTICCHAIN_MAP = UMLPackage.PROPERTY___VALIDATE_TYPE_OF_OPPOSITE_END__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Validate Qualified Is Association End</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___VALIDATE_QUALIFIED_IS_ASSOCIATION_END__DIAGNOSTICCHAIN_MAP = UMLPackage.PROPERTY___VALIDATE_QUALIFIED_IS_ASSOCIATION_END__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Default</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_DEFAULT = UMLPackage.PROPERTY___GET_DEFAULT;
+
+	/**
+	 * The operation id for the '<em>Get Other End</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_OTHER_END = UMLPackage.PROPERTY___GET_OTHER_END;
+
+	/**
+	 * The operation id for the '<em>Is Set Default</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___IS_SET_DEFAULT = UMLPackage.PROPERTY___IS_SET_DEFAULT;
+
+	/**
+	 * The operation id for the '<em>Set Boolean Default Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___SET_BOOLEAN_DEFAULT_VALUE__BOOLEAN = UMLPackage.PROPERTY___SET_BOOLEAN_DEFAULT_VALUE__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Set Default</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___SET_DEFAULT__STRING = UMLPackage.PROPERTY___SET_DEFAULT__STRING;
+
+	/**
+	 * The operation id for the '<em>Set Integer Default Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___SET_INTEGER_DEFAULT_VALUE__INT = UMLPackage.PROPERTY___SET_INTEGER_DEFAULT_VALUE__INT;
+
+	/**
+	 * The operation id for the '<em>Set Is Composite</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___SET_IS_COMPOSITE__BOOLEAN = UMLPackage.PROPERTY___SET_IS_COMPOSITE__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Set Is Navigable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___SET_IS_NAVIGABLE__BOOLEAN = UMLPackage.PROPERTY___SET_IS_NAVIGABLE__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Set Null Default Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___SET_NULL_DEFAULT_VALUE = UMLPackage.PROPERTY___SET_NULL_DEFAULT_VALUE;
+
+	/**
+	 * The operation id for the '<em>Set Opposite</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___SET_OPPOSITE__PROPERTY = UMLPackage.PROPERTY___SET_OPPOSITE__PROPERTY;
+
+	/**
+	 * The operation id for the '<em>Set Real Default Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___SET_REAL_DEFAULT_VALUE__DOUBLE = UMLPackage.PROPERTY___SET_REAL_DEFAULT_VALUE__DOUBLE;
+
+	/**
+	 * The operation id for the '<em>Set String Default Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___SET_STRING_DEFAULT_VALUE__STRING = UMLPackage.PROPERTY___SET_STRING_DEFAULT_VALUE__STRING;
+
+	/**
+	 * The operation id for the '<em>Set Unlimited Natural Default Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___SET_UNLIMITED_NATURAL_DEFAULT_VALUE__INT = UMLPackage.PROPERTY___SET_UNLIMITED_NATURAL_DEFAULT_VALUE__INT;
+
+	/**
+	 * The operation id for the '<em>Unset Default</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___UNSET_DEFAULT = UMLPackage.PROPERTY___UNSET_DEFAULT;
+
+	/**
+	 * The operation id for the '<em>Is Attribute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___IS_ATTRIBUTE = UMLPackage.PROPERTY___IS_ATTRIBUTE;
+
+	/**
+	 * The operation id for the '<em>Is Composite</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___IS_COMPOSITE = UMLPackage.PROPERTY___IS_COMPOSITE;
+
+	/**
+	 * The operation id for the '<em>Is Navigable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___IS_NAVIGABLE = UMLPackage.PROPERTY___IS_NAVIGABLE;
+
+	/**
+	 * The operation id for the '<em>Get Opposite</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_OPPOSITE = UMLPackage.PROPERTY___GET_OPPOSITE;
+
+	/**
+	 * The operation id for the '<em>Subsetting Context</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___SUBSETTING_CONTEXT = UMLPackage.PROPERTY___SUBSETTING_CONTEXT;
+
+	/**
+	 * The number of operations of the '<em>Property</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPERATION_COUNT = UMLPackage.PROPERTY_OPERATION_COUNT + 0;
+
+
+	/**
+	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.ActorLifelineImpl <em>Actor Lifeline</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.ActorLifelineImpl
+	 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.Sequence_diagramPackageImpl#getActorLifeline()
+	 * @generated
+	 */
+	int ACTOR_LIFELINE = 8;
+
+	/**
+	 * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE__EANNOTATIONS = UMLPackage.LIFELINE__EANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Owned Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE__OWNED_COMMENT = UMLPackage.LIFELINE__OWNED_COMMENT;
+
+	/**
+	 * The feature id for the '<em><b>Owned Element</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE__OWNED_ELEMENT = UMLPackage.LIFELINE__OWNED_ELEMENT;
+
+	/**
+	 * The feature id for the '<em><b>Owner</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE__OWNER = UMLPackage.LIFELINE__OWNER;
+
+	/**
+	 * The feature id for the '<em><b>Client Dependency</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE__CLIENT_DEPENDENCY = UMLPackage.LIFELINE__CLIENT_DEPENDENCY;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE__NAME = UMLPackage.LIFELINE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Name Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE__NAME_EXPRESSION = UMLPackage.LIFELINE__NAME_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Namespace</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE__NAMESPACE = UMLPackage.LIFELINE__NAMESPACE;
+
+	/**
+	 * The feature id for the '<em><b>Qualified Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE__QUALIFIED_NAME = UMLPackage.LIFELINE__QUALIFIED_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Visibility</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE__VISIBILITY = UMLPackage.LIFELINE__VISIBILITY;
+
+	/**
+	 * The feature id for the '<em><b>Decomposed As</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE__DECOMPOSED_AS = UMLPackage.LIFELINE__DECOMPOSED_AS;
+
+	/**
+	 * The feature id for the '<em><b>Interaction</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE__INTERACTION = UMLPackage.LIFELINE__INTERACTION;
+
+	/**
+	 * The feature id for the '<em><b>Represents</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE__REPRESENTS = UMLPackage.LIFELINE__REPRESENTS;
+
+	/**
+	 * The feature id for the '<em><b>Selector</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE__SELECTOR = UMLPackage.LIFELINE__SELECTOR;
+
+	/**
+	 * The feature id for the '<em><b>Covered By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE__COVERED_BY = UMLPackage.LIFELINE__COVERED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE__ID = UMLPackage.LIFELINE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Actor Lifeline</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE_FEATURE_COUNT = UMLPackage.LIFELINE_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get EAnnotation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___GET_EANNOTATION__STRING = UMLPackage.LIFELINE___GET_EANNOTATION__STRING;
+
+	/**
+	 * The operation id for the '<em>Validate Has Owner</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___VALIDATE_HAS_OWNER__DIAGNOSTICCHAIN_MAP = UMLPackage.LIFELINE___VALIDATE_HAS_OWNER__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Validate Not Own Self</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___VALIDATE_NOT_OWN_SELF__DIAGNOSTICCHAIN_MAP = UMLPackage.LIFELINE___VALIDATE_NOT_OWN_SELF__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Add Keyword</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___ADD_KEYWORD__STRING = UMLPackage.LIFELINE___ADD_KEYWORD__STRING;
+
+	/**
+	 * The operation id for the '<em>Apply Stereotype</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___APPLY_STEREOTYPE__STEREOTYPE = UMLPackage.LIFELINE___APPLY_STEREOTYPE__STEREOTYPE;
+
+	/**
+	 * The operation id for the '<em>Create EAnnotation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___CREATE_EANNOTATION__STRING = UMLPackage.LIFELINE___CREATE_EANNOTATION__STRING;
+
+	/**
+	 * The operation id for the '<em>Destroy</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___DESTROY = UMLPackage.LIFELINE___DESTROY;
+
+	/**
+	 * The operation id for the '<em>Get Keywords</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___GET_KEYWORDS = UMLPackage.LIFELINE___GET_KEYWORDS;
+
+	/**
+	 * The operation id for the '<em>Get Applicable Stereotype</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___GET_APPLICABLE_STEREOTYPE__STRING = UMLPackage.LIFELINE___GET_APPLICABLE_STEREOTYPE__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Applicable Stereotypes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___GET_APPLICABLE_STEREOTYPES = UMLPackage.LIFELINE___GET_APPLICABLE_STEREOTYPES;
+
+	/**
+	 * The operation id for the '<em>Get Applied Stereotype</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___GET_APPLIED_STEREOTYPE__STRING = UMLPackage.LIFELINE___GET_APPLIED_STEREOTYPE__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Applied Stereotypes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___GET_APPLIED_STEREOTYPES = UMLPackage.LIFELINE___GET_APPLIED_STEREOTYPES;
+
+	/**
+	 * The operation id for the '<em>Get Applied Substereotype</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___GET_APPLIED_SUBSTEREOTYPE__STEREOTYPE_STRING = UMLPackage.LIFELINE___GET_APPLIED_SUBSTEREOTYPE__STEREOTYPE_STRING;
+
+	/**
+	 * The operation id for the '<em>Get Applied Substereotypes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___GET_APPLIED_SUBSTEREOTYPES__STEREOTYPE = UMLPackage.LIFELINE___GET_APPLIED_SUBSTEREOTYPES__STEREOTYPE;
+
+	/**
+	 * The operation id for the '<em>Get Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___GET_MODEL = UMLPackage.LIFELINE___GET_MODEL;
+
+	/**
+	 * The operation id for the '<em>Get Nearest Package</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___GET_NEAREST_PACKAGE = UMLPackage.LIFELINE___GET_NEAREST_PACKAGE;
+
+	/**
+	 * The operation id for the '<em>Get Relationships</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___GET_RELATIONSHIPS = UMLPackage.LIFELINE___GET_RELATIONSHIPS;
+
+	/**
+	 * The operation id for the '<em>Get Relationships</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___GET_RELATIONSHIPS__ECLASS = UMLPackage.LIFELINE___GET_RELATIONSHIPS__ECLASS;
+
+	/**
+	 * The operation id for the '<em>Get Required Stereotype</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___GET_REQUIRED_STEREOTYPE__STRING = UMLPackage.LIFELINE___GET_REQUIRED_STEREOTYPE__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Required Stereotypes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___GET_REQUIRED_STEREOTYPES = UMLPackage.LIFELINE___GET_REQUIRED_STEREOTYPES;
+
+	/**
+	 * The operation id for the '<em>Get Source Directed Relationships</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___GET_SOURCE_DIRECTED_RELATIONSHIPS = UMLPackage.LIFELINE___GET_SOURCE_DIRECTED_RELATIONSHIPS;
+
+	/**
+	 * The operation id for the '<em>Get Source Directed Relationships</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___GET_SOURCE_DIRECTED_RELATIONSHIPS__ECLASS = UMLPackage.LIFELINE___GET_SOURCE_DIRECTED_RELATIONSHIPS__ECLASS;
+
+	/**
+	 * The operation id for the '<em>Get Stereotype Application</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___GET_STEREOTYPE_APPLICATION__STEREOTYPE = UMLPackage.LIFELINE___GET_STEREOTYPE_APPLICATION__STEREOTYPE;
+
+	/**
+	 * The operation id for the '<em>Get Stereotype Applications</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___GET_STEREOTYPE_APPLICATIONS = UMLPackage.LIFELINE___GET_STEREOTYPE_APPLICATIONS;
+
+	/**
+	 * The operation id for the '<em>Get Target Directed Relationships</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___GET_TARGET_DIRECTED_RELATIONSHIPS = UMLPackage.LIFELINE___GET_TARGET_DIRECTED_RELATIONSHIPS;
+
+	/**
+	 * The operation id for the '<em>Get Target Directed Relationships</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___GET_TARGET_DIRECTED_RELATIONSHIPS__ECLASS = UMLPackage.LIFELINE___GET_TARGET_DIRECTED_RELATIONSHIPS__ECLASS;
+
+	/**
+	 * The operation id for the '<em>Get Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___GET_VALUE__STEREOTYPE_STRING = UMLPackage.LIFELINE___GET_VALUE__STEREOTYPE_STRING;
+
+	/**
+	 * The operation id for the '<em>Has Keyword</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___HAS_KEYWORD__STRING = UMLPackage.LIFELINE___HAS_KEYWORD__STRING;
+
+	/**
+	 * The operation id for the '<em>Has Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___HAS_VALUE__STEREOTYPE_STRING = UMLPackage.LIFELINE___HAS_VALUE__STEREOTYPE_STRING;
+
+	/**
+	 * The operation id for the '<em>Is Stereotype Applicable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___IS_STEREOTYPE_APPLICABLE__STEREOTYPE = UMLPackage.LIFELINE___IS_STEREOTYPE_APPLICABLE__STEREOTYPE;
+
+	/**
+	 * The operation id for the '<em>Is Stereotype Applied</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___IS_STEREOTYPE_APPLIED__STEREOTYPE = UMLPackage.LIFELINE___IS_STEREOTYPE_APPLIED__STEREOTYPE;
+
+	/**
+	 * The operation id for the '<em>Is Stereotype Required</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___IS_STEREOTYPE_REQUIRED__STEREOTYPE = UMLPackage.LIFELINE___IS_STEREOTYPE_REQUIRED__STEREOTYPE;
+
+	/**
+	 * The operation id for the '<em>Remove Keyword</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___REMOVE_KEYWORD__STRING = UMLPackage.LIFELINE___REMOVE_KEYWORD__STRING;
+
+	/**
+	 * The operation id for the '<em>Set Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___SET_VALUE__STEREOTYPE_STRING_OBJECT = UMLPackage.LIFELINE___SET_VALUE__STEREOTYPE_STRING_OBJECT;
+
+	/**
+	 * The operation id for the '<em>Unapply Stereotype</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___UNAPPLY_STEREOTYPE__STEREOTYPE = UMLPackage.LIFELINE___UNAPPLY_STEREOTYPE__STEREOTYPE;
+
+	/**
+	 * The operation id for the '<em>All Owned Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___ALL_OWNED_ELEMENTS = UMLPackage.LIFELINE___ALL_OWNED_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Must Be Owned</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___MUST_BE_OWNED = UMLPackage.LIFELINE___MUST_BE_OWNED;
+
+	/**
+	 * The operation id for the '<em>Validate Visibility Needs Ownership</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___VALIDATE_VISIBILITY_NEEDS_OWNERSHIP__DIAGNOSTICCHAIN_MAP = UMLPackage.LIFELINE___VALIDATE_VISIBILITY_NEEDS_OWNERSHIP__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Validate Has Qualified Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___VALIDATE_HAS_QUALIFIED_NAME__DIAGNOSTICCHAIN_MAP = UMLPackage.LIFELINE___VALIDATE_HAS_QUALIFIED_NAME__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Validate Has No Qualified Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___VALIDATE_HAS_NO_QUALIFIED_NAME__DIAGNOSTICCHAIN_MAP = UMLPackage.LIFELINE___VALIDATE_HAS_NO_QUALIFIED_NAME__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Create Dependency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___CREATE_DEPENDENCY__NAMEDELEMENT = UMLPackage.LIFELINE___CREATE_DEPENDENCY__NAMEDELEMENT;
+
+	/**
+	 * The operation id for the '<em>Create Usage</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___CREATE_USAGE__NAMEDELEMENT = UMLPackage.LIFELINE___CREATE_USAGE__NAMEDELEMENT;
+
+	/**
+	 * The operation id for the '<em>Get Label</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___GET_LABEL = UMLPackage.LIFELINE___GET_LABEL;
+
+	/**
+	 * The operation id for the '<em>Get Label</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___GET_LABEL__BOOLEAN = UMLPackage.LIFELINE___GET_LABEL__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Get Namespace</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___GET_NAMESPACE = UMLPackage.LIFELINE___GET_NAMESPACE;
+
+	/**
+	 * The operation id for the '<em>All Namespaces</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___ALL_NAMESPACES = UMLPackage.LIFELINE___ALL_NAMESPACES;
+
+	/**
+	 * The operation id for the '<em>All Owning Packages</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___ALL_OWNING_PACKAGES = UMLPackage.LIFELINE___ALL_OWNING_PACKAGES;
+
+	/**
+	 * The operation id for the '<em>Is Distinguishable From</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___IS_DISTINGUISHABLE_FROM__NAMEDELEMENT_NAMESPACE = UMLPackage.LIFELINE___IS_DISTINGUISHABLE_FROM__NAMEDELEMENT_NAMESPACE;
+
+	/**
+	 * The operation id for the '<em>Get Qualified Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___GET_QUALIFIED_NAME = UMLPackage.LIFELINE___GET_QUALIFIED_NAME;
+
+	/**
+	 * The operation id for the '<em>Separator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___SEPARATOR = UMLPackage.LIFELINE___SEPARATOR;
+
+	/**
+	 * The operation id for the '<em>Get Client Dependencies</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___GET_CLIENT_DEPENDENCIES = UMLPackage.LIFELINE___GET_CLIENT_DEPENDENCIES;
+
+	/**
+	 * The operation id for the '<em>Validate Selector Specified</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___VALIDATE_SELECTOR_SPECIFIED__DIAGNOSTICCHAIN_MAP = UMLPackage.LIFELINE___VALIDATE_SELECTOR_SPECIFIED__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Validate Interaction Uses Share Lifeline</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___VALIDATE_INTERACTION_USES_SHARE_LIFELINE__DIAGNOSTICCHAIN_MAP = UMLPackage.LIFELINE___VALIDATE_INTERACTION_USES_SHARE_LIFELINE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Validate Same Classifier</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___VALIDATE_SAME_CLASSIFIER__DIAGNOSTICCHAIN_MAP = UMLPackage.LIFELINE___VALIDATE_SAME_CLASSIFIER__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Validate Selector Int Or String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE___VALIDATE_SELECTOR_INT_OR_STRING__DIAGNOSTICCHAIN_MAP = UMLPackage.LIFELINE___VALIDATE_SELECTOR_INT_OR_STRING__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Actor Lifeline</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_LIFELINE_OPERATION_COUNT = UMLPackage.LIFELINE_OPERATION_COUNT + 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Message <em>Message</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6440,14 +10054,14 @@ public interface Sequence_diagramPackage extends EPackage {
 	EClass getActor();
 
 	/**
-	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.SdInteraction <em>Sd Interaction</em>}'.
+	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Interaction <em>Interaction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Sd Interaction</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.SdInteraction
+	 * @return the meta object for class '<em>Interaction</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Interaction
 	 * @generated
 	 */
-	EClass getSdInteraction();
+	EClass getInteraction();
 
 	/**
 	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Package <em>Package</em>}'.
@@ -6458,6 +10072,36 @@ public interface Sequence_diagramPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getPackage();
+
+	/**
+	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Class <em>Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Class</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Class
+	 * @generated
+	 */
+	EClass getClass_();
+
+	/**
+	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Property <em>Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Property</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Property
+	 * @generated
+	 */
+	EClass getProperty();
+
+	/**
+	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ActorLifeline <em>Actor Lifeline</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Actor Lifeline</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ActorLifeline
+	 * @generated
+	 */
+	EClass getActorLifeline();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -6523,14 +10167,14 @@ public interface Sequence_diagramPackage extends EPackage {
 		EClass ACTOR = eINSTANCE.getActor();
 
 		/**
-		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.SdInteractionImpl <em>Sd Interaction</em>}' class.
+		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.InteractionImpl <em>Interaction</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.SdInteractionImpl
-		 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.Sequence_diagramPackageImpl#getSdInteraction()
+		 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.InteractionImpl
+		 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.Sequence_diagramPackageImpl#getInteraction()
 		 * @generated
 		 */
-		EClass SD_INTERACTION = eINSTANCE.getSdInteraction();
+		EClass INTERACTION = eINSTANCE.getInteraction();
 
 		/**
 		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.PackageImpl <em>Package</em>}' class.
@@ -6541,6 +10185,36 @@ public interface Sequence_diagramPackage extends EPackage {
 		 * @generated
 		 */
 		EClass PACKAGE = eINSTANCE.getPackage();
+
+		/**
+		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.ClassImpl <em>Class</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.ClassImpl
+		 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.Sequence_diagramPackageImpl#getClass_()
+		 * @generated
+		 */
+		EClass CLASS = eINSTANCE.getClass_();
+
+		/**
+		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.PropertyImpl <em>Property</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.PropertyImpl
+		 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.Sequence_diagramPackageImpl#getProperty()
+		 * @generated
+		 */
+		EClass PROPERTY = eINSTANCE.getProperty();
+
+		/**
+		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.ActorLifelineImpl <em>Actor Lifeline</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.ActorLifelineImpl
+		 * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl.Sequence_diagramPackageImpl#getActorLifeline()
+		 * @generated
+		 */
+		EClass ACTOR_LIFELINE = eINSTANCE.getActorLifeline();
 
 	}
 
