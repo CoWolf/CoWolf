@@ -1,4 +1,4 @@
-package de.uni_stuttgart.iste.cowolf.model.statechart.emf.presentation;
+package de.uni_stuttgart.iste.cowolf.model.commonBase.editing;
 
 import java.util.Map;
 

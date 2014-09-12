@@ -118,6 +118,7 @@ import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.editing.CustomAdapterFactoryEditingDomain;
 import de.uni_stuttgart.iste.cowolf.model.commonBase.emf.provider.CommonBaseItemProviderAdapterFactory;
 import de.uni_stuttgart.iste.cowolf.model.statechart.emf.provider.statechartemfItemProviderAdapterFactory;
 
@@ -655,8 +656,10 @@ public class statechartemfEditor
 	/**
 	 * This sets up the editing domain for the model editor.
 	 * <!-- begin-user-doc -->
+	 * AdapterFactoryEditingDomainchanged manually changed to CustomAdapterFactoryEditingDomain in 
+	 * order to generate new IDs when copying an element in the tree view.
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void initializeEditingDomain() {
 		// Create an adapter factory that yields item providers.
@@ -703,7 +706,7 @@ public class statechartemfEditor
 			 });
 
 		// Create the editing domain with a special command stack.
-		//
+		// CustomAdapterFactoryEditingDomain used here to generate new IDs when copying elements in the tree view. 
 		editingDomain = new CustomAdapterFactoryEditingDomain(adapterFactory, commandStack, new HashMap<Resource, Boolean>());
 	}
 
