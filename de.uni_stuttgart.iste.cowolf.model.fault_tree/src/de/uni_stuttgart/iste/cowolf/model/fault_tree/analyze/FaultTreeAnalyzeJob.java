@@ -101,7 +101,7 @@ public class FaultTreeAnalyzeJob extends Job {
 			// 3. Use CommandLineExecutor to execute xFTA.
 			final String xFTACommand = xFTABasicCommand
 					+ xFTAScriptFile.getAbsolutePath();
-			CommandLineExecutor.execCommand(pathToXFTA, xFTACommand, "Analyze Faulttree with xFTA");
+			CommandLineExecutor.execCommand(pathToXFTA, xFTACommand);
 			monitor.worked(1);
 
 			// 4. Parse the results from generated file
