@@ -1,11 +1,17 @@
 package de.uni_stuttgart.iste.cowolf.ui.console;
 
+import java.net.URL;
+
+import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.console.ConsolePlugin;
 import org.eclipse.ui.console.IConsole;
 import org.eclipse.ui.console.IConsoleManager;
 import org.eclipse.ui.console.MessageConsole;
 import org.eclipse.ui.console.MessageConsoleStream;
+import org.osgi.framework.Bundle;
+import org.osgi.framework.FrameworkUtil;
 
 /**
  * 
@@ -78,16 +84,18 @@ public class ConsolePrinter extends MessageConsoleStream {
 				}
 			}
 		}
-
-		// Bundle bundle = FrameworkUtil.getBundle(ConsolePrinter.class);
-		// URL coWolfIconURL = FileLocator.find(bundle, new Path(
-		// "icons/logo_wulf_15x15.png"), null);
-		// ImageDescriptor coWolfIconImageDescriptor = ImageDescriptor
-		// .createFromURL(coWolfIconURL);
-
+		
 		// no console found, so create a new one
+
+		Bundle bundle = FrameworkUtil.getBundle(ConsolePrinter.class);
+		URL coWolfIconURL = FileLocator.find(bundle, new Path(
+				"icons/logo_wulf_15x15.png"), null);
+		ImageDescriptor coWolfIconImageDescriptor = ImageDescriptor
+				.createFromURL(coWolfIconURL);
+
+
 		MessageConsole newConsole = new MessageConsole(name,
-				ImageDescriptor.getMissingImageDescriptor());
+				coWolfIconImageDescriptor);
 		conMan.addConsoles(new IConsole[] { newConsole });
 		return newConsole;
 
