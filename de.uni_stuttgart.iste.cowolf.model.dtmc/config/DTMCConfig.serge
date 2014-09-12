@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Config SYSTEM "http://pi.informatik.uni-siegen.de/SiDiff/Editrulesgeneratorconfig.dtd" >
+<Config>
+	<GeneralSettings>
+		<preventInconsistency value="true" />
+		<multiplicityPreconditions integrated="true"
+			separately="false" />
+		<reduceToSuperType
+			ADD_REMOVE="true"
+			CHANGE_LITERAL="true"
+			CHANGE_REFERENCE="true"
+			CREATE_DELETE="true"
+			MOVE="true"
+			MOVE_DOWN="true"
+			MOVE_UP="true"
+			SET_UNSET_ATTRIBUTE="true"
+			SET_UNSET_REFERENCE="true" />
+		<disableVariantsWithSupertypeReplacement value="false" />
+		<modelUsesProfileMechanism value="false" />
+		<createAllAttributes value="true" />
+	</GeneralSettings>
+	
+	<MetaModelSettings>
+		<MainModel nsUri="http://dtmc/1.0" />	
+
+		 		<MaskedClassifiers>	
+		</MaskedClassifiers>
+	</MetaModelSettings>
+	
+	<Transformations>
+		<Creates allow="true" />
+		<Deletes allow="true" />
+		<Moves allow="true" allowReferenceSwitching="true" allowReferenceCombinations="true" />
+		<MoveUps allow="true"/>
+		<MoveDowns allow="true"/>
+		<SetAttributes allow="true" />
+		<UnsetAttributes allow="true" />
+		<SetReferences allow="true" />
+		<UnsetReferences allow="true" />
+		<Adds allow="true" />
+		<Removes allow="true" />
+		<ChangeLiterals allow="true" allowLiteralSwitching="true" />
+		<ChangeReferences allow="true" />
+	</Transformations>
+
+	<!-- nested=true: means the root element can also appear
+	somewhere in its lower containments (eg. (Sub-)StateMachine)-->
+	<Root name="DTMC" nested="false"/>
+	
+	<WhiteList>			
+		<EClassifier name="DTMC" />		
+		<EClassifier name="Label" />		
+		<EClassifier name="State" />		
+		<EClassifier name="Transition" />		
+	
+ 	</WhiteList>
+	
+	<BlackList>
+		<!--  Using "Constraint" is not adviced when MOVEs, which include switching of references, are enabled -->
+		<!--  <EClassifier name="Constraint" /> -->
+	</BlackList>
+	
+</Config>
