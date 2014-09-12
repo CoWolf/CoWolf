@@ -41,6 +41,7 @@ public class PCTLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAtomicAccess().getAlternatives(), "rule__Atomic__Alternatives");
 					put(grammarAccess.getJunctionAccess().getAlternatives(), "rule__Junction__Alternatives");
 					put(grammarAccess.getStateFormulaAccess().getAlternatives(), "rule__StateFormula__Alternatives");
+					put(grammarAccess.getStateFormulaAccess().getAlternatives_0_2(), "rule__StateFormula__Alternatives_0_2");
 					put(grammarAccess.getPathFormulaAccess().getAlternatives(), "rule__PathFormula__Alternatives");
 					put(grammarAccess.getSteadyStateAccess().getAlternatives_1(), "rule__SteadyState__Alternatives_1");
 					put(grammarAccess.getUntilAccess().getAlternatives_1(), "rule__Until__Alternatives_1");
@@ -65,6 +66,7 @@ public class PCTLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getNextAccess().getGroup(), "rule__Next__Group__0");
 					put(grammarAccess.getFutureAccess().getGroup(), "rule__Future__Group__0");
 					put(grammarAccess.getGloballyAccess().getGroup(), "rule__Globally__Group__0");
+					put(grammarAccess.getImplicationAccess().getGroup(), "rule__Implication__Group__0");
 					put(grammarAccess.getCompareProbabilityAccess().getGroup(), "rule__CompareProbability__Group__0");
 					put(grammarAccess.getCompareProbabilityAccess().getGroup_0_0(), "rule__CompareProbability__Group_0_0__0");
 					put(grammarAccess.getCompareProbabilityAccess().getGroup_0_1(), "rule__CompareProbability__Group_0_1__0");
@@ -81,13 +83,15 @@ public class PCTLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getConjunctionAccess().getRightAssignment_2_2(), "rule__Conjunction__RightAssignment_2_2");
 					put(grammarAccess.getDisjunctionAccess().getRightAssignment_2_2(), "rule__Disjunction__RightAssignment_2_2");
 					put(grammarAccess.getStateFormulaAccess().getLeftAssignment_0_1(), "rule__StateFormula__LeftAssignment_0_1");
-					put(grammarAccess.getStateFormulaAccess().getRightAssignment_0_2(), "rule__StateFormula__RightAssignment_0_2");
+					put(grammarAccess.getStateFormulaAccess().getRightAssignment_0_2_0(), "rule__StateFormula__RightAssignment_0_2_0");
+					put(grammarAccess.getStateFormulaAccess().getRightAssignment_0_2_1(), "rule__StateFormula__RightAssignment_0_2_1");
 					put(grammarAccess.getStateFormulaAccess().getLeftAssignment_3(), "rule__StateFormula__LeftAssignment_3");
 					put(grammarAccess.getUntilAccess().getLeftAssignment_0(), "rule__Until__LeftAssignment_0");
 					put(grammarAccess.getUntilAccess().getRightAssignment_3(), "rule__Until__RightAssignment_3");
 					put(grammarAccess.getNextAccess().getRightAssignment_2(), "rule__Next__RightAssignment_2");
 					put(grammarAccess.getFutureAccess().getRightAssignment_2(), "rule__Future__RightAssignment_2");
 					put(grammarAccess.getGloballyAccess().getRightAssignment_2(), "rule__Globally__RightAssignment_2");
+					put(grammarAccess.getImplicationAccess().getRightAssignment_1(), "rule__Implication__RightAssignment_1");
 				}
 			};
 		}

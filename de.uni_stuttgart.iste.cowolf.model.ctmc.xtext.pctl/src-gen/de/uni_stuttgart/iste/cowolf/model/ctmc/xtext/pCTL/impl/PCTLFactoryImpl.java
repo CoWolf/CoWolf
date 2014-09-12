@@ -78,6 +78,7 @@ public class PCTLFactoryImpl extends EFactoryImpl implements PCTLFactory
       case PCTLPackage.NEXT: return createNext();
       case PCTLPackage.FUTURE: return createFuture();
       case PCTLPackage.GLOBALLY: return createGlobally();
+      case PCTLPackage.IMPLICATION: return createImplication();
       case PCTLPackage.CONJUNCTION: return createConjunction();
       case PCTLPackage.DISJUNCTION: return createDisjunction();
       default:
@@ -237,6 +238,17 @@ public class PCTLFactoryImpl extends EFactoryImpl implements PCTLFactory
   {
     GloballyImpl globally = new GloballyImpl();
     return globally;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Implication createImplication()
+  {
+    ImplicationImpl implication = new ImplicationImpl();
+    return implication;
   }
 
   /**

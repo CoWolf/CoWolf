@@ -8,6 +8,7 @@ import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Disjunction;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Expression;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Future;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Globally;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Implication;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Label;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Next;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PCTLPackage;
@@ -88,6 +89,12 @@ public class PCTLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				   context == grammarAccess.getProbabilityRule() ||
 				   context == grammarAccess.getQuantifiedProbabilityRule()) {
 					sequence_Globally(context, (Globally) semanticObject); 
+					return; 
+				}
+				else break;
+			case PCTLPackage.IMPLICATION:
+				if(context == grammarAccess.getImplicationRule()) {
+					sequence_Implication(context, (Implication) semanticObject); 
 					return; 
 				}
 				else break;
@@ -220,6 +227,22 @@ public class PCTLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     right=StateFormula
+	 */
+	protected void sequence_Implication(EObject context, Implication semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, PCTLPackage.Literals.IMPLICATION__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PCTLPackage.Literals.IMPLICATION__RIGHT));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getImplicationAccess().getRightStateFormulaParserRuleCall_1_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     name=ID
 	 */
 	protected void sequence_Label(EObject context, Label semanticObject) {
@@ -247,7 +270,7 @@ public class PCTLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     ((left=StateFormula right=Junction?) | left=Probability)
+	 *     ((left=StateFormula (right=Junction | right=Implication)?) | left=Probability)
 	 */
 	protected void sequence_StateFormula(EObject context, Expression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -149,6 +149,15 @@ public interface PCTLFactory extends EFactory
   Globally createGlobally();
 
   /**
+   * Returns a new object of class '<em>Implication</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Implication</em>'.
+   * @generated
+   */
+  Implication createImplication();
+
+  /**
    * Returns a new object of class '<em>Conjunction</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -297,8 +297,11 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftParenthesisKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
 		private final Assignment cLeftAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
 		private final RuleCall cLeftStateFormulaParserRuleCall_0_1_0 = (RuleCall)cLeftAssignment_0_1.eContents().get(0);
-		private final Assignment cRightAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
-		private final RuleCall cRightJunctionParserRuleCall_0_2_0 = (RuleCall)cRightAssignment_0_2.eContents().get(0);
+		private final Alternatives cAlternatives_0_2 = (Alternatives)cGroup_0.eContents().get(2);
+		private final Assignment cRightAssignment_0_2_0 = (Assignment)cAlternatives_0_2.eContents().get(0);
+		private final RuleCall cRightJunctionParserRuleCall_0_2_0_0 = (RuleCall)cRightAssignment_0_2_0.eContents().get(0);
+		private final Assignment cRightAssignment_0_2_1 = (Assignment)cAlternatives_0_2.eContents().get(1);
+		private final RuleCall cRightImplicationParserRuleCall_0_2_1_0 = (RuleCall)cRightAssignment_0_2_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_0_3 = (Keyword)cGroup_0.eContents().get(3);
 		private final RuleCall cNegationParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cAtomicParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
@@ -306,13 +309,13 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cLeftProbabilityParserRuleCall_3_0 = (RuleCall)cLeftAssignment_3.eContents().get(0);
 		
 		//StateFormula returns Expression:
-		//	"(" left=StateFormula right=Junction? ")" | Negation | Atomic | left=Probability;
+		//	"(" left=StateFormula (right=Junction | right=Implication)? ")" | Negation | Atomic | left=Probability;
 		public ParserRule getRule() { return rule; }
 
-		//"(" left=StateFormula right=Junction? ")" | Negation | Atomic | left=Probability
+		//"(" left=StateFormula (right=Junction | right=Implication)? ")" | Negation | Atomic | left=Probability
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//"(" left=StateFormula right=Junction? ")"
+		//"(" left=StateFormula (right=Junction | right=Implication)? ")"
 		public Group getGroup_0() { return cGroup_0; }
 
 		//"("
@@ -324,11 +327,20 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 		//StateFormula
 		public RuleCall getLeftStateFormulaParserRuleCall_0_1_0() { return cLeftStateFormulaParserRuleCall_0_1_0; }
 
-		//right=Junction?
-		public Assignment getRightAssignment_0_2() { return cRightAssignment_0_2; }
+		//(right=Junction | right=Implication)?
+		public Alternatives getAlternatives_0_2() { return cAlternatives_0_2; }
+
+		//right=Junction
+		public Assignment getRightAssignment_0_2_0() { return cRightAssignment_0_2_0; }
 
 		//Junction
-		public RuleCall getRightJunctionParserRuleCall_0_2_0() { return cRightJunctionParserRuleCall_0_2_0; }
+		public RuleCall getRightJunctionParserRuleCall_0_2_0_0() { return cRightJunctionParserRuleCall_0_2_0_0; }
+
+		//right=Implication
+		public Assignment getRightAssignment_0_2_1() { return cRightAssignment_0_2_1; }
+
+		//Implication
+		public RuleCall getRightImplicationParserRuleCall_0_2_1_0() { return cRightImplicationParserRuleCall_0_2_1_0; }
 
 		//")"
 		public Keyword getRightParenthesisKeyword_0_3() { return cRightParenthesisKeyword_0_3; }
@@ -614,6 +626,30 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getRightStateFormulaParserRuleCall_2_0() { return cRightStateFormulaParserRuleCall_2_0; }
 	}
 
+	public class ImplicationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Implication");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cEqualsSignGreaterThanSignKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cRightAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cRightStateFormulaParserRuleCall_1_0 = (RuleCall)cRightAssignment_1.eContents().get(0);
+		
+		//Implication:
+		//	"=>" right=StateFormula;
+		public ParserRule getRule() { return rule; }
+
+		//"=>" right=StateFormula
+		public Group getGroup() { return cGroup; }
+
+		//"=>"
+		public Keyword getEqualsSignGreaterThanSignKeyword_0() { return cEqualsSignGreaterThanSignKeyword_0; }
+
+		//right=StateFormula
+		public Assignment getRightAssignment_1() { return cRightAssignment_1; }
+
+		//StateFormula
+		public RuleCall getRightStateFormulaParserRuleCall_1_0() { return cRightStateFormulaParserRuleCall_1_0; }
+	}
+
 	public class CompareProbabilityElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "CompareProbability");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -756,6 +792,7 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 	private NextElements pNext;
 	private FutureElements pFuture;
 	private GloballyElements pGlobally;
+	private ImplicationElements pImplication;
 	private CompareProbabilityElements pCompareProbability;
 	private TimeBoundElements pTimeBound;
 	
@@ -910,7 +947,7 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//StateFormula returns Expression:
-	//	"(" left=StateFormula right=Junction? ")" | Negation | Atomic | left=Probability;
+	//	"(" left=StateFormula (right=Junction | right=Implication)? ")" | Negation | Atomic | left=Probability;
 	public StateFormulaElements getStateFormulaAccess() {
 		return (pStateFormula != null) ? pStateFormula : (pStateFormula = new StateFormulaElements());
 	}
@@ -997,6 +1034,16 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getGloballyRule() {
 		return getGloballyAccess().getRule();
+	}
+
+	//Implication:
+	//	"=>" right=StateFormula;
+	public ImplicationElements getImplicationAccess() {
+		return (pImplication != null) ? pImplication : (pImplication = new ImplicationElements());
+	}
+	
+	public ParserRule getImplicationRule() {
+		return getImplicationAccess().getRule();
 	}
 
 	//CompareProbability:

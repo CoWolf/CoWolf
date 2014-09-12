@@ -19,7 +19,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Expression" eSuperTypes="#//Pctl #//SteadyState #//QuantifiedProbability #//Probability">
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Probability"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Expression"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SteadyState" eSuperTypes="#//Pctl"/>
@@ -29,6 +29,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="Next" eSuperTypes="#//Expression"/>
   <eClassifiers xsi:type="ecore:EClass" name="Future" eSuperTypes="#//Expression"/>
   <eClassifiers xsi:type="ecore:EClass" name="Globally" eSuperTypes="#//Expression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Implication">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Expression"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Conjunction" eSuperTypes="#//Expression"/>
   <eClassifiers xsi:type="ecore:EClass" name="Disjunction" eSuperTypes="#//Expression"/>
 </ecore:EPackage>

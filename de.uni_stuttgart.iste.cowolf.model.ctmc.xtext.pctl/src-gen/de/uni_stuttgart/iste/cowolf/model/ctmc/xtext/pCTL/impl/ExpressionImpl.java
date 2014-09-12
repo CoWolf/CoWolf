@@ -10,6 +10,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -48,7 +49,7 @@ public class ExpressionImpl extends PctlImpl implements Expression
    * @generated
    * @ordered
    */
-  protected Expression right;
+  protected EObject right;
 
   /**
    * <!-- begin-user-doc -->
@@ -124,7 +125,7 @@ public class ExpressionImpl extends PctlImpl implements Expression
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expression getRight()
+  public EObject getRight()
   {
     return right;
   }
@@ -134,9 +135,9 @@ public class ExpressionImpl extends PctlImpl implements Expression
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetRight(Expression newRight, NotificationChain msgs)
+  public NotificationChain basicSetRight(EObject newRight, NotificationChain msgs)
   {
-    Expression oldRight = right;
+    EObject oldRight = right;
     right = newRight;
     if (eNotificationRequired())
     {
@@ -151,7 +152,7 @@ public class ExpressionImpl extends PctlImpl implements Expression
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRight(Expression newRight)
+  public void setRight(EObject newRight)
   {
     if (newRight != right)
     {
@@ -217,7 +218,7 @@ public class ExpressionImpl extends PctlImpl implements Expression
         setLeft((Probability)newValue);
         return;
       case PCTLPackage.EXPRESSION__RIGHT:
-        setRight((Expression)newValue);
+        setRight((EObject)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -237,7 +238,7 @@ public class ExpressionImpl extends PctlImpl implements Expression
         setLeft((Probability)null);
         return;
       case PCTLPackage.EXPRESSION__RIGHT:
-        setRight((Expression)null);
+        setRight((EObject)null);
         return;
     }
     super.eUnset(featureID);

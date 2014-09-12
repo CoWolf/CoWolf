@@ -521,6 +521,34 @@ public interface PCTLPackage extends EPackage
   int GLOBALLY_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
+   * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.ImplicationImpl <em>Implication</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.ImplicationImpl
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getImplication()
+   * @generated
+   */
+  int IMPLICATION = 14;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMPLICATION__RIGHT = 0;
+
+  /**
+   * The number of structural features of the '<em>Implication</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMPLICATION_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.ConjunctionImpl <em>Conjunction</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -528,7 +556,7 @@ public interface PCTLPackage extends EPackage
    * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getConjunction()
    * @generated
    */
-  int CONJUNCTION = 14;
+  int CONJUNCTION = 15;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -565,7 +593,7 @@ public interface PCTLPackage extends EPackage
    * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getDisjunction()
    * @generated
    */
-  int DISJUNCTION = 15;
+  int DISJUNCTION = 16;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -802,6 +830,27 @@ public interface PCTLPackage extends EPackage
   EClass getGlobally();
 
   /**
+   * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Implication <em>Implication</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Implication</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Implication
+   * @generated
+   */
+  EClass getImplication();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Implication#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Implication#getRight()
+   * @see #getImplication()
+   * @generated
+   */
+  EReference getImplication_Right();
+
+  /**
    * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Conjunction <em>Conjunction</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1031,6 +1080,24 @@ public interface PCTLPackage extends EPackage
      * @generated
      */
     EClass GLOBALLY = eINSTANCE.getGlobally();
+
+    /**
+     * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.ImplicationImpl <em>Implication</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.ImplicationImpl
+     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getImplication()
+     * @generated
+     */
+    EClass IMPLICATION = eINSTANCE.getImplication();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IMPLICATION__RIGHT = eINSTANCE.getImplication_Right();
 
     /**
      * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.ConjunctionImpl <em>Conjunction</em>}' class.

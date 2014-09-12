@@ -46,7 +46,7 @@ Disjunction returns Expression:
 ;
 	
 StateFormula returns Expression:
-    '(' left=StateFormula right=Junction? ')' | Negation | Atomic | left=Probability
+    '(' left=StateFormula (right=Junction|right=Implication)? ')' | Negation | Atomic | left=Probability
 ;
 
 PathFormula returns Expression:
@@ -59,9 +59,10 @@ PathFormula returns Expression:
 SteadyState:
 	"S" (CompareProbability|"=?") "[" StateFormula "]";
 	
+
 QuantifiedProbability:
     ("P" "=?") "[" PathFormula "]"
-;   
+;
 	
 Probability:
 	("P" CompareProbability "[" PathFormula "]");	
@@ -80,6 +81,10 @@ Future:
 Globally:
     'G' TimeBound? right=StateFormula
 ;
+
+Implication:
+    "=>" right=StateFormula
+;   
 	
 CompareProbability:
     ('>''='?|'<''='?) DECIMAL

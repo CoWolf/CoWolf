@@ -166,7 +166,7 @@ public class PCTLSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     CompareProbability | '=?'
+	 *     '=?' | CompareProbability
 	 */
 	protected void emit_SteadyState_CompareProbabilityParserRuleCall_1_0_or_EqualsSignQuestionMarkKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -174,7 +174,7 @@ public class PCTLSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     ('S' (CompareProbability | '=?') '[')?
+	 *     ('S' ('=?' | CompareProbability) '[')?
 	 */
 	protected void emit_SteadyState___SKeyword_0___CompareProbabilityParserRuleCall_1_0_or_EqualsSignQuestionMarkKeyword_1_1___LeftSquareBracketKeyword_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -182,7 +182,7 @@ public class PCTLSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     'U' | 'W' | 'R'
+	 *     'U' | 'R' | 'W'
 	 */
 	protected void emit_Until_RKeyword_1_2_or_UKeyword_1_0_or_WKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

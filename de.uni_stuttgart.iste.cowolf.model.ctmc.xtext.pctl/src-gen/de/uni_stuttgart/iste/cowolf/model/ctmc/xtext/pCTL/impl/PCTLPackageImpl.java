@@ -9,6 +9,7 @@ import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Disjunction;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Expression;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Future;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Globally;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Implication;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Label;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Next;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PCTLFactory;
@@ -133,6 +134,13 @@ public class PCTLPackageImpl extends EPackageImpl implements PCTLPackage
    * @generated
    */
   private EClass globallyEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass implicationEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -416,6 +424,26 @@ public class PCTLPackageImpl extends EPackageImpl implements PCTLPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getImplication()
+  {
+    return implicationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getImplication_Right()
+  {
+    return (EReference)implicationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getConjunction()
   {
     return conjunctionEClass;
@@ -495,6 +523,9 @@ public class PCTLPackageImpl extends EPackageImpl implements PCTLPackage
 
     globallyEClass = createEClass(GLOBALLY);
 
+    implicationEClass = createEClass(IMPLICATION);
+    createEReference(implicationEClass, IMPLICATION__RIGHT);
+
     conjunctionEClass = createEClass(CONJUNCTION);
 
     disjunctionEClass = createEClass(DISJUNCTION);
@@ -564,7 +595,7 @@ public class PCTLPackageImpl extends EPackageImpl implements PCTLPackage
 
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getExpression_Left(), this.getProbability(), null, "left", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getExpression_Right(), this.getExpression(), null, "right", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExpression_Right(), ecorePackage.getEObject(), null, "right", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(steadyStateEClass, SteadyState.class, "SteadyState", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -579,6 +610,9 @@ public class PCTLPackageImpl extends EPackageImpl implements PCTLPackage
     initEClass(futureEClass, Future.class, "Future", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(globallyEClass, Globally.class, "Globally", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(implicationEClass, Implication.class, "Implication", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getImplication_Right(), this.getExpression(), null, "right", null, 0, 1, Implication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(conjunctionEClass, Conjunction.class, "Conjunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

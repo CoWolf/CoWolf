@@ -145,6 +145,11 @@ public class PCTLAdapterFactory extends AdapterFactoryImpl
         return createGloballyAdapter();
       }
       @Override
+      public Adapter caseImplication(Implication object)
+      {
+        return createImplicationAdapter();
+      }
+      @Override
       public Adapter caseConjunction(Conjunction object)
       {
         return createConjunctionAdapter();
@@ -382,6 +387,21 @@ public class PCTLAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createGloballyAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Implication <em>Implication</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Implication
+   * @generated
+   */
+  public Adapter createImplicationAdapter()
   {
     return null;
   }

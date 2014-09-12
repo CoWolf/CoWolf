@@ -2,6 +2,7 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -57,12 +58,12 @@ public interface Expression extends Pctl, SteadyState, QuantifiedProbability, Pr
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Right</em>' containment reference.
-   * @see #setRight(Expression)
+   * @see #setRight(EObject)
    * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PCTLPackage#getExpression_Right()
    * @model containment="true"
    * @generated
    */
-  Expression getRight();
+  EObject getRight();
 
   /**
    * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Expression#getRight <em>Right</em>}' containment reference.
@@ -72,6 +73,6 @@ public interface Expression extends Pctl, SteadyState, QuantifiedProbability, Pr
    * @see #getRight()
    * @generated
    */
-  void setRight(Expression value);
+  void setRight(EObject value);
 
 } // Expression

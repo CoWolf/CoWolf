@@ -592,10 +592,10 @@ ruleStateFormula returns [EObject current=null]
 	    }
 
 )
-)(
+)((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getStateFormulaAccess().getRightJunctionParserRuleCall_0_2_0()); 
+	        newCompositeNode(grammarAccess.getStateFormulaAccess().getRightJunctionParserRuleCall_0_2_0_0()); 
 	    }
 		lv_right_2_0=ruleJunction		{
 	        if ($current==null) {
@@ -610,18 +610,37 @@ ruleStateFormula returns [EObject current=null]
 	    }
 
 )
-)?	otherlv_3=')' 
+)
+    |(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getStateFormulaAccess().getRightImplicationParserRuleCall_0_2_1_0()); 
+	    }
+		lv_right_3_0=ruleImplication		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getStateFormulaRule());
+	        }
+       		set(
+       			$current, 
+       			"right",
+        		lv_right_3_0, 
+        		"Implication");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))?	otherlv_4=')' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getStateFormulaAccess().getRightParenthesisKeyword_0_3());
+    	newLeafNode(otherlv_4, grammarAccess.getStateFormulaAccess().getRightParenthesisKeyword_0_3());
     }
 )
     |
     { 
         newCompositeNode(grammarAccess.getStateFormulaAccess().getNegationParserRuleCall_1()); 
     }
-    this_Negation_4=ruleNegation
+    this_Negation_5=ruleNegation
     { 
-        $current = $this_Negation_4.current; 
+        $current = $this_Negation_5.current; 
         afterParserOrEnumRuleCall();
     }
 
@@ -629,9 +648,9 @@ ruleStateFormula returns [EObject current=null]
     { 
         newCompositeNode(grammarAccess.getStateFormulaAccess().getAtomicParserRuleCall_2()); 
     }
-    this_Atomic_5=ruleAtomic
+    this_Atomic_6=ruleAtomic
     { 
-        $current = $this_Atomic_5.current; 
+        $current = $this_Atomic_6.current; 
         afterParserOrEnumRuleCall();
     }
 
@@ -640,14 +659,14 @@ ruleStateFormula returns [EObject current=null]
 		{ 
 	        newCompositeNode(grammarAccess.getStateFormulaAccess().getLeftProbabilityParserRuleCall_3_0()); 
 	    }
-		lv_left_6_0=ruleProbability		{
+		lv_left_7_0=ruleProbability		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getStateFormulaRule());
 	        }
        		set(
        			$current, 
        			"left",
-        		lv_left_6_0, 
+        		lv_left_7_0, 
         		"Probability");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -1091,6 +1110,49 @@ ruleTimeBound
        			$current, 
        			"right",
         		lv_right_2_0, 
+        		"StateFormula");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))
+;
+
+
+
+
+
+// Entry rule entryRuleImplication
+entryRuleImplication returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getImplicationRule()); }
+	 iv_ruleImplication=ruleImplication 
+	 { $current=$iv_ruleImplication.current; } 
+	 EOF 
+;
+
+// Rule Implication
+ruleImplication returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='=>' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getImplicationAccess().getEqualsSignGreaterThanSignKeyword_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getImplicationAccess().getRightStateFormulaParserRuleCall_1_0()); 
+	    }
+		lv_right_1_0=ruleStateFormula		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getImplicationRule());
+	        }
+       		set(
+       			$current, 
+       			"right",
+        		lv_right_1_0, 
         		"StateFormula");
 	        afterParserOrEnumRuleCall();
 	    }
