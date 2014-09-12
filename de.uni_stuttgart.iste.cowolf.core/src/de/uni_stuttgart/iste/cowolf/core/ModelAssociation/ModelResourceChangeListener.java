@@ -36,6 +36,10 @@ public class ModelResourceChangeListener implements IResourceChangeListener {
 				
 				// Don't go into non-CoWolf projects.
 				if (res.getType() == IResource.PROJECT) {
+					if (delta.getKind() == IResourceDelta.REMOVED) {
+						ModelAssociationFactory.eINSTANCE.removeModelAssociation(res.getProject());
+						return false;
+					}
 					if (!res.getProject().isOpen()) {
 						return false;
 					}

@@ -79,4 +79,6 @@ public interface ModelAssociationFactory extends EFactory {
 
 	public abstract Model copyModel(Model source, IFile target, Runnable onFinish) throws UnexpectedException;
 
+	void removeModelAssociation(IProject project);
+
 } //ModelAssociationFactory

@@ -18,7 +18,6 @@ import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.WorkspaceJob;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
@@ -93,6 +92,25 @@ public class ModelAssociationFactoryImpl extends EFactoryImpl implements ModelAs
 		}
 	}
 
+	@Override
+	public void removeModelAssociation(IProject project) {
+		if (!this.resources.containsKey(project)) {
+			if (getModelAssociation(project) == null) {
+				return;
+			}
+		}
+		
+		this.resources.get(project).unload();
+		this.resources.remove(project);
+		
+		if (project.getFile(ModelAssociationPackage.PROJECT_FILENAME).exists()) {
+			try {
+				project.getFile(ModelAssociationPackage.PROJECT_FILENAME).delete(true, null);
+			} catch (CoreException e) {
+				System.out.println("Could not delete .modelassociation file");
+			}
+		}
+	}
 	
 	@Override
 	public ModelAssociation getModelAssociation(IProject project) {
