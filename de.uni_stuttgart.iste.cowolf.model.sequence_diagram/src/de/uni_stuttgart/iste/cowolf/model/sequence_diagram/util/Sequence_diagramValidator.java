@@ -189,7 +189,7 @@ public class Sequence_diagramValidator extends EObjectValidator {
 				 package_,
 				 diagnostics,
 				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
 				 "onlyOneInteraction",
 				 PACKAGE__ONLY_ONE_INTERACTION__EEXPRESSION,
 				 Diagnostic.ERROR,
