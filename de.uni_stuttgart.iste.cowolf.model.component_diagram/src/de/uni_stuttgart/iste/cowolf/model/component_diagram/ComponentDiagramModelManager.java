@@ -1,7 +1,5 @@
 package de.uni_stuttgart.iste.cowolf.model.component_diagram;
 
-import org.eclipse.emf.ecore.resource.Resource;
-
 import de.uni_stuttgart.iste.cowolf.model.AbstractArchitectureModelManager;
 
 /**

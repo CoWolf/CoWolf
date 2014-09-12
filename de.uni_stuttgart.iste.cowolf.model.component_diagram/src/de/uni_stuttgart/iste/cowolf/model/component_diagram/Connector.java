@@ -2,8 +2,8 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.component_diagram;
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,10 +20,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage#getConnector()
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='TwoPorts TwoDifferentPorts'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot TwoPorts='self.port->size() = 2' TwoDifferentPorts='self.port->forAll(p1, p2 | p1<>p2 implies (p1.outComponent->size() + p2.outComponent->size() = 1 and p1.inComponent->size() + p2.inComponent->size() = 1))'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL TwoPorts='self.port->size() = 2' TwoDifferentPorts='self.port->forAll(p1, p2 | p1<>p2 implies (p1.outComponent->size() + p2.outComponent->size() = 1 and p1.inComponent->size() + p2.inComponent->size() = 1))'"
  * @generated
  */
-public interface Connector extends EObject {
+public interface Connector extends IDBase {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->

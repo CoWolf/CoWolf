@@ -2,6 +2,7 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.component_diagram.impl;
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.Actuator;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.Architecture;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentInstance;
@@ -163,6 +164,9 @@ public class Component_diagramPackageImpl extends EPackageImpl implements Compon
 		Component_diagramPackageImpl theComponent_diagramPackage = (Component_diagramPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof Component_diagramPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new Component_diagramPackageImpl());
 
 		isInited = true;
+
+		// Initialize simple dependencies
+		CommonBasePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theComponent_diagramPackage.createPackageContents();
@@ -642,17 +646,26 @@ public class Component_diagramPackageImpl extends EPackageImpl implements Compon
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		CommonBasePackage theCommonBasePackage = (CommonBasePackage)EPackage.Registry.INSTANCE.getEPackage(CommonBasePackage.eNS_URI);
+
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		componentTypeEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
+		connectorEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
+		portInstanceEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
 		hardwareComponentEClass.getESuperTypes().add(this.getComponentType());
 		softwareComponentEClass.getESuperTypes().add(this.getComponentType());
 		electronicDeviceEClass.getESuperTypes().add(this.getHardwareComponent());
 		mechanicalDeviceEClass.getESuperTypes().add(this.getHardwareComponent());
 		actuatorEClass.getESuperTypes().add(this.getMechanicalDevice());
 		sensorEClass.getESuperTypes().add(this.getElectronicDevice());
+		architectureEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
+		componentInstanceEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
+		portTypeEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(componentTypeEClass, ComponentType.class, "ComponentType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -712,8 +725,8 @@ public class Component_diagramPackageImpl extends EPackageImpl implements Compon
 		// Create annotations
 		// http://www.eclipse.org/emf/2002/Ecore
 		createEcoreAnnotations();
-		// http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot
-		createPivotAnnotations();
+		// http://www.eclipse.org/emf/2002/Ecore/OCL
+		createOCLAnnotations();
 	}
 
 	/**
@@ -728,9 +741,9 @@ public class Component_diagramPackageImpl extends EPackageImpl implements Compon
 		  (this, 
 		   source, 
 		   new String[] {
-			 "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-			 "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"
+			 "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL",
+			 "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL",
+			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL"
 		   });	
 		addAnnotation
 		  (connectorEClass, 
@@ -747,13 +760,13 @@ public class Component_diagramPackageImpl extends EPackageImpl implements Compon
 	}
 
 	/**
-	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot</b>.
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore/OCL</b>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void createPivotAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";	
+	protected void createOCLAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL";	
 		addAnnotation
 		  (connectorEClass, 
 		   source, 

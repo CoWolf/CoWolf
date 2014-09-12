@@ -2,7 +2,7 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.component_diagram;
 
-import org.eclipse.emf.ecore.EObject;
+import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,10 +22,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage#getPortInstance()
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='ExactlyOneConnector ExactlyOneComponent'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot ExactlyOneConnector='self.connect->size() = 1' ExactlyOneComponent='self.outComponent->size() + self.inComponent->size() = 1'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL ExactlyOneConnector='self.connect->size() = 1' ExactlyOneComponent='self.outComponent->size() + self.inComponent->size() = 1'"
  * @generated
  */
-public interface PortInstance extends EObject {
+public interface PortInstance extends IDBase {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->

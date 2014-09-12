@@ -2,8 +2,8 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.component_diagram;
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Architecture extends EObject {
+public interface Architecture extends IDBase {
 	/**
 	 * Returns the value of the '<em><b>Component</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentType}.

@@ -2,6 +2,7 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.component_diagram;
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -21,7 +22,7 @@ import org.eclipse.emf.ecore.EReference;
  * <!-- end-user-doc -->
  * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramFactory
  * @model kind="package"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL' settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL' validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL'"
  * @generated
  */
 public interface Component_diagramPackage extends EPackage {
@@ -68,13 +69,22 @@ public interface Component_diagramPackage extends EPackage {
 	int COMPONENT_TYPE = 0;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT_TYPE__ID = CommonBasePackage.ID_BASE__ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_TYPE__NAME = 0;
+	int COMPONENT_TYPE__NAME = CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Port types</b></em>' containment reference list.
@@ -83,7 +93,7 @@ public interface Component_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_TYPE__PORT_TYPES = 1;
+	int COMPONENT_TYPE__PORT_TYPES = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Instance</b></em>' reference list.
@@ -92,7 +102,7 @@ public interface Component_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_TYPE__INSTANCE = 2;
+	int COMPONENT_TYPE__INSTANCE = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Component Type</em>' class.
@@ -101,7 +111,7 @@ public interface Component_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_TYPE_FEATURE_COUNT = 3;
+	int COMPONENT_TYPE_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Component Type</em>' class.
@@ -110,7 +120,7 @@ public interface Component_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_TYPE_OPERATION_COUNT = 0;
+	int COMPONENT_TYPE_OPERATION_COUNT = CommonBasePackage.ID_BASE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.ConnectorImpl <em>Connector</em>}' class.
@@ -123,13 +133,22 @@ public interface Component_diagramPackage extends EPackage {
 	int CONNECTOR = 1;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__ID = CommonBasePackage.ID_BASE__ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__NAME = 0;
+	int CONNECTOR__NAME = CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Port</b></em>' reference list.
@@ -138,7 +157,7 @@ public interface Component_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__PORT = 1;
+	int CONNECTOR__PORT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Connector</em>' class.
@@ -147,7 +166,7 @@ public interface Component_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR_FEATURE_COUNT = 2;
+	int CONNECTOR_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Connector</em>' class.
@@ -156,7 +175,7 @@ public interface Component_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR_OPERATION_COUNT = 0;
+	int CONNECTOR_OPERATION_COUNT = CommonBasePackage.ID_BASE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.PortInstanceImpl <em>Port Instance</em>}' class.
@@ -169,13 +188,22 @@ public interface Component_diagramPackage extends EPackage {
 	int PORT_INSTANCE = 2;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PORT_INSTANCE__ID = CommonBasePackage.ID_BASE__ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PORT_INSTANCE__NAME = 0;
+	int PORT_INSTANCE__NAME = CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Connect</b></em>' reference.
@@ -184,7 +212,7 @@ public interface Component_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PORT_INSTANCE__CONNECT = 1;
+	int PORT_INSTANCE__CONNECT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Out Component</b></em>' container reference.
@@ -193,7 +221,7 @@ public interface Component_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PORT_INSTANCE__OUT_COMPONENT = 2;
+	int PORT_INSTANCE__OUT_COMPONENT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>In Component</b></em>' container reference.
@@ -202,7 +230,7 @@ public interface Component_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PORT_INSTANCE__IN_COMPONENT = 3;
+	int PORT_INSTANCE__IN_COMPONENT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -211,7 +239,7 @@ public interface Component_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PORT_INSTANCE__TYPE = 4;
+	int PORT_INSTANCE__TYPE = CommonBasePackage.ID_BASE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Port Instance</em>' class.
@@ -220,7 +248,7 @@ public interface Component_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PORT_INSTANCE_FEATURE_COUNT = 5;
+	int PORT_INSTANCE_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Port Instance</em>' class.
@@ -229,7 +257,7 @@ public interface Component_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PORT_INSTANCE_OPERATION_COUNT = 0;
+	int PORT_INSTANCE_OPERATION_COUNT = CommonBasePackage.ID_BASE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.HardwareComponentImpl <em>Hardware Component</em>}' class.
@@ -240,6 +268,15 @@ public interface Component_diagramPackage extends EPackage {
 	 * @generated
 	 */
 	int HARDWARE_COMPONENT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HARDWARE_COMPONENT__ID = COMPONENT_TYPE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -306,6 +343,15 @@ public interface Component_diagramPackage extends EPackage {
 	int SOFTWARE_COMPONENT = 4;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTWARE_COMPONENT__ID = COMPONENT_TYPE__ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -359,6 +405,15 @@ public interface Component_diagramPackage extends EPackage {
 	 * @generated
 	 */
 	int ELECTRONIC_DEVICE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELECTRONIC_DEVICE__ID = HARDWARE_COMPONENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -425,6 +480,15 @@ public interface Component_diagramPackage extends EPackage {
 	int MECHANICAL_DEVICE = 6;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MECHANICAL_DEVICE__ID = HARDWARE_COMPONENT__ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -489,6 +553,15 @@ public interface Component_diagramPackage extends EPackage {
 	int ACTUATOR = 7;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTUATOR__ID = MECHANICAL_DEVICE__ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -551,6 +624,15 @@ public interface Component_diagramPackage extends EPackage {
 	 * @generated
 	 */
 	int SENSOR = 8;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSOR__ID = ELECTRONIC_DEVICE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -626,13 +708,22 @@ public interface Component_diagramPackage extends EPackage {
 	int ARCHITECTURE = 9;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARCHITECTURE__ID = CommonBasePackage.ID_BASE__ID;
+
+	/**
 	 * The feature id for the '<em><b>Component</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ARCHITECTURE__COMPONENT = 0;
+	int ARCHITECTURE__COMPONENT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Connectors</b></em>' containment reference list.
@@ -641,7 +732,7 @@ public interface Component_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARCHITECTURE__CONNECTORS = 1;
+	int ARCHITECTURE__CONNECTORS = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Ports</b></em>' containment reference list.
@@ -650,7 +741,7 @@ public interface Component_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARCHITECTURE__PORTS = 2;
+	int ARCHITECTURE__PORTS = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Instances</b></em>' containment reference list.
@@ -659,7 +750,7 @@ public interface Component_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARCHITECTURE__INSTANCES = 3;
+	int ARCHITECTURE__INSTANCES = CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Port type</b></em>' containment reference list.
@@ -668,7 +759,7 @@ public interface Component_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARCHITECTURE__PORT_TYPE = 4;
+	int ARCHITECTURE__PORT_TYPE = CommonBasePackage.ID_BASE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Architecture</em>' class.
@@ -677,7 +768,7 @@ public interface Component_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARCHITECTURE_FEATURE_COUNT = 5;
+	int ARCHITECTURE_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Architecture</em>' class.
@@ -686,7 +777,7 @@ public interface Component_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARCHITECTURE_OPERATION_COUNT = 0;
+	int ARCHITECTURE_OPERATION_COUNT = CommonBasePackage.ID_BASE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.ComponentInstanceImpl <em>Component Instance</em>}' class.
@@ -699,13 +790,22 @@ public interface Component_diagramPackage extends EPackage {
 	int COMPONENT_INSTANCE = 10;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT_INSTANCE__ID = CommonBasePackage.ID_BASE__ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_INSTANCE__NAME = 0;
+	int COMPONENT_INSTANCE__NAME = CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Subcomponent</b></em>' containment reference list.
@@ -714,7 +814,7 @@ public interface Component_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_INSTANCE__SUBCOMPONENT = 1;
+	int COMPONENT_INSTANCE__SUBCOMPONENT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Parentcomponent</b></em>' container reference.
@@ -723,7 +823,7 @@ public interface Component_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_INSTANCE__PARENTCOMPONENT = 2;
+	int COMPONENT_INSTANCE__PARENTCOMPONENT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>In Ports</b></em>' containment reference list.
@@ -732,7 +832,7 @@ public interface Component_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_INSTANCE__IN_PORTS = 3;
+	int COMPONENT_INSTANCE__IN_PORTS = CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Out Ports</b></em>' containment reference list.
@@ -741,7 +841,7 @@ public interface Component_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_INSTANCE__OUT_PORTS = 4;
+	int COMPONENT_INSTANCE__OUT_PORTS = CommonBasePackage.ID_BASE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -750,7 +850,7 @@ public interface Component_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_INSTANCE__TYPE = 5;
+	int COMPONENT_INSTANCE__TYPE = CommonBasePackage.ID_BASE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -759,7 +859,7 @@ public interface Component_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_INSTANCE__VERSION = 6;
+	int COMPONENT_INSTANCE__VERSION = CommonBasePackage.ID_BASE_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Component Instance</em>' class.
@@ -768,7 +868,7 @@ public interface Component_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_INSTANCE_FEATURE_COUNT = 7;
+	int COMPONENT_INSTANCE_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of operations of the '<em>Component Instance</em>' class.
@@ -777,7 +877,7 @@ public interface Component_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_INSTANCE_OPERATION_COUNT = 0;
+	int COMPONENT_INSTANCE_OPERATION_COUNT = CommonBasePackage.ID_BASE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.PortTypeImpl <em>Port Type</em>}' class.
@@ -790,13 +890,22 @@ public interface Component_diagramPackage extends EPackage {
 	int PORT_TYPE = 11;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PORT_TYPE__ID = CommonBasePackage.ID_BASE__ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PORT_TYPE__NAME = 0;
+	int PORT_TYPE__NAME = CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Component type</b></em>' container reference.
@@ -805,7 +914,7 @@ public interface Component_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PORT_TYPE__COMPONENT_TYPE = 1;
+	int PORT_TYPE__COMPONENT_TYPE = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Port instance</b></em>' reference list.
@@ -814,7 +923,7 @@ public interface Component_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PORT_TYPE__PORT_INSTANCE = 2;
+	int PORT_TYPE__PORT_INSTANCE = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Port Type</em>' class.
@@ -823,7 +932,7 @@ public interface Component_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PORT_TYPE_FEATURE_COUNT = 3;
+	int PORT_TYPE_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Port Type</em>' class.
@@ -832,7 +941,7 @@ public interface Component_diagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PORT_TYPE_OPERATION_COUNT = 0;
+	int PORT_TYPE_OPERATION_COUNT = CommonBasePackage.ID_BASE_OPERATION_COUNT + 0;
 
 
 	/**

@@ -2,22 +2,22 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="component_diagram" nsURI="http://component_diagram/1.0" nsPrefix="component_diagram">
   <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-    <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
-    <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
-    <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL"/>
+    <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL"/>
+    <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL"/>
   </eAnnotations>
-  <eClassifiers xsi:type="ecore:EClass" name="ComponentType" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="ComponentType" abstract="true" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="port_types" upperBound="-1"
         eType="#//PortType" containment="true" eOpposite="#//PortType/component_type"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="instance" upperBound="-1"
         eType="#//ComponentInstance" eOpposite="#//ComponentInstance/type"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Connector">
+  <eClassifiers xsi:type="ecore:EClass" name="Connector" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="TwoPorts TwoDifferentPorts"/>
     </eAnnotations>
-    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
       <details key="TwoPorts" value="self.port->size() = 2"/>
       <details key="TwoDifferentPorts" value="self.port->forAll(p1, p2 | p1&lt;>p2 implies (p1.outComponent->size() + p2.outComponent->size() = 1 and p1.inComponent->size() + p2.inComponent->size() = 1))"/>
     </eAnnotations>
@@ -25,11 +25,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="port" lowerBound="2" upperBound="2"
         eType="#//PortInstance" eOpposite="#//PortInstance/connect"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PortInstance">
+  <eClassifiers xsi:type="ecore:EClass" name="PortInstance" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="ExactlyOneConnector ExactlyOneComponent"/>
     </eAnnotations>
-    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
       <details key="ExactlyOneConnector" value="self.connect->size() = 1"/>
       <details key="ExactlyOneComponent" value="self.outComponent->size() + self.inComponent->size() = 1"/>
     </eAnnotations>
@@ -53,7 +53,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Sensor" eSuperTypes="#//ElectronicDevice">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Architecture">
+  <eClassifiers xsi:type="ecore:EClass" name="Architecture" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
     <eStructuralFeatures xsi:type="ecore:EReference" name="component" upperBound="-1"
         eType="#//ComponentType" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="connectors" upperBound="-1"
@@ -65,7 +65,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="port_type" upperBound="-1"
         eType="#//PortType" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ComponentInstance">
+  <eClassifiers xsi:type="ecore:EClass" name="ComponentInstance" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="subcomponent" upperBound="-1"
         eType="#//ComponentInstance" containment="true" eOpposite="#//ComponentInstance/parentcomponent"/>
@@ -80,7 +80,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="0"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PortType">
+  <eClassifiers xsi:type="ecore:EClass" name="PortType" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="component_type" eType="#//ComponentType"
         eOpposite="#//ComponentType/port_types"/>

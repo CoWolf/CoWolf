@@ -2,6 +2,7 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.component_diagram.util;
 
+import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.*;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -114,6 +115,10 @@ public class Component_diagramAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter casePortType(PortType object) {
 				return createPortTypeAdapter();
+			}
+			@Override
+			public Adapter caseIDBase(IDBase object) {
+				return createIDBaseAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -300,6 +305,20 @@ public class Component_diagramAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPortTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase <em>ID Base</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase
+	 * @generated
+	 */
+	public Adapter createIDBaseAdapter() {
 		return null;
 	}
 
