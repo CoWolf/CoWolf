@@ -201,7 +201,8 @@ public class PRISMGenerator {
   public CharSequence addStatesToMap(final CTMC e) {
     StringConcatenation _builder = new StringConcatenation();
     HashMap<Object, Object> _newHashMap = CollectionLiterals.<Object, Object>newHashMap();
-    _builder.append(this.idToIntMap = _newHashMap, "");
+    HashMap<Object, Object> _idToIntMap = this.idToIntMap = _newHashMap;
+    _builder.append(_idToIntMap, "");
     _builder.newLineIfNotEmpty();
     {
       EList<State> _states = e.getStates();
@@ -224,7 +225,8 @@ public class PRISMGenerator {
   public CharSequence addStatesNamesToMap(final CTMC e) {
     StringConcatenation _builder = new StringConcatenation();
     HashMap<Object, Object> _newHashMap = CollectionLiterals.<Object, Object>newHashMap();
-    _builder.append(this.nameToIntMap = _newHashMap, "");
+    HashMap<Object, Object> _nameToIntMap = this.nameToIntMap = _newHashMap;
+    _builder.append(_nameToIntMap, "");
     _builder.newLineIfNotEmpty();
     {
       EList<State> _states = e.getStates();
@@ -247,7 +249,8 @@ public class PRISMGenerator {
   public CharSequence addLabelNamesToMap(final CTMC e) {
     StringConcatenation _builder = new StringConcatenation();
     ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList();
-    _builder.append(this.labelsList = _newArrayList, "");
+    ArrayList<Object> _labelsList = this.labelsList = _newArrayList;
+    _builder.append(_labelsList, "");
     _builder.newLineIfNotEmpty();
     {
       EList<State> _states = e.getStates();
