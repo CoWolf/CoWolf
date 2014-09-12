@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<!--
+Copyright (c) 2009, 2011 Obeo.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+
+Contributors:
+    Obeo - initial API and implementation
+-->
+<plugin>
+  <extension
+        point="org.eclipse.sirius.componentization">
+     <component
+           class="de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.design.UMLDesignerPlugin"
+           id="de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor"
+           name="uml2">
+     </component>
+  </extension>
+
+  
+	   <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders">
+	      <editpartProvider class="de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.design.ui.extension.editpart.UMLEditPartProvider">
+	         <Priority name="High"/>
+	      </editpartProvider>
+	   </extension>
+  
+  
+  
+    <extension
+         point="org.eclipse.ui.commands">
+      <command
+            id="org.eclipse.sirius.ui.navigator.actions.uml.delete"
+            name="Delete UML Element">
+      </command>
+        <command
+            id="org.eclipse.sirius.ui.navigator.actions.uml.scenario.create"
+            name="Create Scenario">
+      </command>
+        <command
+              id="org.eclipse.sirius.ui.navigator.actions.uml.create.sequence"
+              name="Create Sequence Diagram">
+        </command>
+        <command
+              id="de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.actions.newUmlProject"
+              name="New UML Project">
+        </command>
+        <command
+              id="de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.actions.newUmlModel"
+              name="New UML Model">
+        </command>
+        <commandParameterType
+              converter="de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.design.ui.extension.commands.UmlElementConverter"
+              id="de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.actions.openDashboard.param.modelType"
+              type="org.eclipse.uml2.uml.Model">
+        </commandParameterType>
+   </extension>
+  
+   <extension
+         point="org.eclipse.ui.handlers">
+        <handler
+              class="de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.design.ui.extension.commands.DeleteUMLElement"
+              commandId="org.eclipse.sirius.ui.navigator.actions.uml.delete">
+           <enabledWhen>
+            <with variable="selection">
+		           <iterate
+                   ifEmpty="false"
+                   operator="and">
+		                <instanceof value="org.eclipse.uml2.uml.Element"/>
+		           </iterate>
+       		</with>
+           </enabledWhen>
+        </handler>
+         <handler
+              class="de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.design.ui.extension.commands.CreateScenario"
+              commandId="org.eclipse.sirius.ui.navigator.actions.uml.scenario.create">
+           <enabledWhen>
+            <with variable="selection">
+                 <iterate
+                       ifEmpty="false"
+                       operator="and">
+                  <instanceof
+                        value="org.eclipse.uml2.uml.Package">
+                  </instanceof>
+		          <test
+                     forcePluginActivation="true"
+                     property="de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.design.Design">
+                  </test>
+               </iterate>		           
+       		</with>
+           </enabledWhen>
+        </handler>
+         <handler
+               class="de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.design.ui.extension.commands.CreateSequenceDiagram"
+               commandId="org.eclipse.sirius.ui.navigator.actions.uml.create.sequence">
+            <enabledWhen>
+               <with
+                     variable="selection">
+                  <iterate
+                        ifEmpty="false"
+                        operator="and">
+                     <instanceof
+                           value="org.eclipse.uml2.uml.Package">
+                     </instanceof>
+                     <test
+                           forcePluginActivation="true"
+                           property="de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.design.Design">
+                     </test>
+                  </iterate>
+               </with>
+            </enabledWhen>
+         </handler>
+   </extension>
+  
+  
+    <extension
+          point="org.eclipse.core.expressions.propertyTesters">
+       <propertyTester
+             class="de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.design.ui.extension.ViewpointEnablementPropertyTester"
+             id="de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.design.ViewpointEnabled"
+             namespace="de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.design"
+             properties="Capture,Design,Review,Extend"
+             type="org.eclipse.uml2.uml.Element">
+       </propertyTester>
+       <propertyTester
+             class="de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.design.ui.extension.DashboardPropertyTester"
+             id="de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.design.DashboardsExist"
+             namespace="de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.design"
+             properties="dashboardsExist"
+             type="java.lang.Object">
+       </propertyTester>
+    </extension>
+
+
+   <extension
+         point="org.eclipse.core.expressions.definitions">
+      <definition
+            id="de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.design.DashboardsExistDefinition">
+         <test
+               forcePluginActivation="true"
+               property="de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.design.dashboardsExist">
+         </test>
+      </definition>
+   </extension>
+   <extension
+        point="org.eclipse.emf.validation.constraintProviders">
+     <category
+           id="de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.profile.design.constraint.stereotype.extension"
+           name="Stereotype extension constraint">
+     </category>
+     <constraintProvider
+           cache="true">
+        <package
+              namespaceUri="http://www.eclipse.org/uml2/5.0.0/UML">
+        </package>
+        <constraints
+              categories="http://www.eclipse.org/uml2/5.0.0/UML/Stereotype">
+           <constraint
+                 class="de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.profile.design.constraints.CheckStereotypeExtension"
+                 id="de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.profile.design.stereotype.constraint1"
+                 isEnabledByDefault="true"
+                 lang="Java"
+                 mode="Batch"
+                 name="No extension for the Stereotype"
+                 severity="WARNING"
+                 statusCode="1">
+              <message>
+                 The stereotype {0} must extend a meta class or another stereotype
+              </message>
+              <description>
+                 All Stereotypes, should extend a meta class or another stereotype
+              </description>
+              <target
+                    class="Stereotype">
+              </target>
+           </constraint>
+        </constraints>
+     </constraintProvider>
+  </extension>
+   <extension
+         point="org.eclipse.sirius.sessionManagerListener">
+      <listener
+            class="de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.design.UmlDesignerSessionManagerListener">
+      </listener>
+      <listener
+            class="de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.design.OpenHelpContextListener">
+      </listener>
+   </extension>
+</plugin>
