@@ -8,7 +8,8 @@ import java.io.Reader;
 
 public class CommandLineExecutor {
 
-	public static void execCommand(String directory, String command) throws Exception {
+	public static void execCommand(String directory, String command)
+			throws Exception {
 		Reader r = new InputStreamReader(execCommandAndGetStream(directory,
 				command));
 		BufferedReader in = new BufferedReader(r);
@@ -17,8 +18,8 @@ public class CommandLineExecutor {
 		in.close();
 	}
 
-	public static InputStream execCommandAndGetStream(String directory, String command)
-			throws Exception {
+	public static InputStream execCommandAndGetStream(String directory,
+			String command) throws Exception {
 		File dir = new File(directory);
 		Process process;
 		if (isWindowsSystem()) {
@@ -26,18 +27,22 @@ public class CommandLineExecutor {
 		} else if (isLinuxSystem()) {
 			process = Runtime.getRuntime().exec("./" + command, null, dir);
 		} else {
-			throw new Exception(Messages.commandLineExecutor_unknown_operating_system);
+			throw new Exception(
+					Messages.commandLineExecutor_unknown_operating_system);
 		}
+
 		return process.getInputStream();
+
 	}
 
-	static boolean isWindowsSystem() {
+	private static boolean isWindowsSystem() {
 		String osName = System.getProperty("os.name").toLowerCase(); //$NON-NLS-1$
 		return osName.indexOf("windows") >= 0; //$NON-NLS-1$
 	}
 
-	static boolean isLinuxSystem() {
+	private static boolean isLinuxSystem() {
 		String osName = System.getProperty("os.name").toLowerCase(); //$NON-NLS-1$
 		return osName.indexOf("linux") >= 0; //$NON-NLS-1$
 	}
+
 }
