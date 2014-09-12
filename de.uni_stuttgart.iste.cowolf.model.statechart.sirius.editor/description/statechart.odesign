@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" name="statechart" version="8.1.0">
+  <ownedViewpoints name="statechart" modelFileExtension="statemachine">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="statechart diagram" domainClass="statechart.StateMachineRoot" enablePopupBars="true">
+      <layout xsi:type="description_1:CompositeLayout" padding="50" direction="LeftToRight"/>
+      <defaultLayer name="Default">
+        <edgeMappings name="StateToStateTransitionEdge" sourceMapping="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@containerMappings[name='StateMachineContainer']/@subContainerMappings[name='StateContainer'] //@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@containerMappings[name='StateMachineContainer']/@subContainerMappings[name='CompositeStateContainer']" targetMapping="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@containerMappings[name='StateMachineContainer']/@subContainerMappings[name='CompositeStateContainer'] //@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@containerMappings[name='StateMachineContainer']/@subContainerMappings[name='StateContainer']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" domainClass="statechart.Transition" useDomainElement="true">
+          <conditionnalStyles predicateExpression="[not self.eGet('guard').oclIsUndefined()/]">
+            <style sizeComputationExpression="2">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              <beginLabelStyleDescription showIcon="false" labelExpression="['[' + self.guard.name + ']'/]">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </beginLabelStyleDescription>
+              <centerLabelStyleDescription>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="[self.eGet('guard').oclIsUndefined()/]">
+            <style sizeComputationExpression="2">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              <beginLabelStyleDescription showIcon="false">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </beginLabelStyleDescription>
+              <centerLabelStyleDescription>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+        </edgeMappings>
+        <containerMappings xsi:type="description_1:ContainerMappingImport" name="StateMachineContainer" semanticCandidatesExpression="feature:eAllContents" domainClass="statechart.StateMachine">
+          <subContainerMappings xsi:type="description_1:ContainerMappingImport" name="StateContainer" semanticCandidatesExpression="[eContents()->selectByType(State)/]" domainClass="statechart.State" childrenPresentation="List">
+            <subNodeMappings name="DONode" semanticCandidatesExpression="feature:eContents" domainClass="statechart.DO">
+              <style xsi:type="style:SquareDescription" labelExpression="feature:value" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              </style>
+            </subNodeMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="20" arcHeight="20" roundedCorner="true">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </subContainerMappings>
+          <subContainerMappings xsi:type="description_1:ContainerMappingImport" name="CompositeStateContainer" semanticCandidatesExpression="[eContents()->selectByType(CompositeState)/]" domainClass="statechart.CompositeState" reusedContainerMappings="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@containerMappings[name='StateMachineContainer']/@subContainerMappings[name='StateContainer'] //@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@containerMappings[name='StateMachineContainer']/@subContainerMappings[name='CompositeStateContainer']">
+            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="40" arcHeight="40" roundedCorner="true" backgroundStyle="Liquid">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+            </style>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+      </defaultLayer>
+    </ownedRepresentations>
+  </ownedViewpoints>
+</description:Group>
