@@ -21,7 +21,7 @@
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
           </style>
           <conditionnalStyles predicateExpression="[container.eGet('initialState').toString().equalsIgnoreCase(self.toString())/]">
-            <style xsi:type="style:DotDescription" borderSizeComputationExpression="4" showIcon="false" tooltipExpression="Initial State" sizeComputationExpression="5" labelPosition="node" resizeKind="NSEW">
+            <style xsi:type="style:DotDescription" borderSizeComputationExpression="4" showIcon="false" labelExpression="[self.name + '\n(' + self.exitRate + ')'/]" tooltipExpression="Initial State" sizeComputationExpression="5" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
