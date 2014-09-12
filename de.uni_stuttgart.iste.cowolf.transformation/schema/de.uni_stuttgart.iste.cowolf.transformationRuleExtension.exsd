@@ -18,7 +18,8 @@
       </annotation>
       <complexType>
          <sequence>
-            <element ref="henshinMapping"/>
+            <element ref="direction"/>
+            <element ref="henshinMapping" minOccurs="1" maxOccurs="unbounded"/>
          </sequence>
          <attribute name="point" type="string" use="required">
             <annotation>
@@ -52,13 +53,25 @@
          <attribute name="file" type="string" use="required">
             <annotation>
                <documentation>
-                  
+                  The plugin relative henshin file path.
                </documentation>
                <appinfo>
                   <meta.attribute kind="resource"/>
                </appinfo>
             </annotation>
          </attribute>
+         <attribute name="main" type="string" use="default" value="mainUnit">
+            <annotation>
+               <documentation>
+                  The henshin rule/unit name that should be called in this file
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="direction">
+      <complexType>
          <attribute name="key" type="string" use="required">
             <annotation>
                <documentation>

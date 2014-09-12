@@ -8,6 +8,7 @@ import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -251,10 +252,10 @@ public abstract class AbstractTransformationManager {
     	
 		EGraph graph;
 		
-		URI henshinUri = this.getHenshinRuleFile(resSet.getResource(this.getSourceUri(resSet), false));
+		List<HenshinFile> henshinFiles = this.getHenshinRuleFile(resSet.getResource(this.getSourceUri(resSet), false));
 		
-		if (henshinUri != null) {
-			graph = this.runDiffsetTransformation(resSet, henshinUri);
+		if (henshinFiles != null) {
+			graph = this.runDiffsetTransformation(resSet, henshinFiles);
 		}
 		
 		else {
@@ -278,25 +279,51 @@ public abstract class AbstractTransformationManager {
 	 * @param difference
 	 * @return
 	 */
-	protected final EGraph runDiffsetTransformation(ResourceSet resSet, URI henshinUri) {
-		// TODO Auto-generated method stub
-		HenshinResourceSet rulesResourceSet = new HenshinResourceSet();
-        Module module = rulesResourceSet.getModule(henshinUri, true);
-        
-        // Prepare the engine:
-        Engine engine = new EngineImpl();
-         
+	protected final EGraph runDiffsetTransformation(ResourceSet resSet, List<HenshinFile> henshinFiles) {
+		
+		if (henshinFiles == null) {
+			return null;
+		}
+		
         // Initialize the graph:
         EGraph graph = generateGraph(resSet);
-         
-        // Find the unit to be applied:
-        Unit unit = module.getUnit("mainUnit");
         
-        // Apply the unit:
-        UnitApplication application = new UnitApplicationImpl(engine, graph, unit, null);
-        application.execute(new LoggingApplicationMonitor());
+		// TODO Auto-generated method stub
+		HenshinResourceSet rulesResourceSet = new HenshinResourceSet();
         
-        return application.getEGraph();
+        for (HenshinFile henshinFile : henshinFiles) {
+        	
+	        
+	        Module module = rulesResourceSet.getModule(henshinFile.file, true);
+	        
+	        if (module == null) {
+	        	System.out.println("Skip henshin file " + henshinFile.file.toString() + ": Module invalid.");
+	        	continue;
+	        }
+	        
+	        // Prepare the engine:
+	        Engine engine = new EngineImpl();
+	        
+	        String main = henshinFile.main != null ? henshinFile.main : "mainUnit";
+	         
+	        // Find the unit to be applied:
+	        Unit unit = module.getUnit(main);
+	        
+	        if (unit == null) {
+		        	System.out.println("Skip henshin file " + henshinFile.file.toString() + ": Unknown unit \"" + main + "\".");
+		        	continue;
+	        }
+	        
+	        System.out.println("Execute unit " + main + " in henshin file " + henshinFile.file.toString() + ".");
+	        
+	        // Apply the unit:
+	        UnitApplication application = new UnitApplicationImpl(engine, graph, unit, null);
+	        application.execute(new LoggingApplicationMonitor());
+	        
+	        graph = application.getEGraph();
+        }
+        
+        return graph;
 	}
 
 	/**
@@ -706,23 +733,32 @@ public abstract class AbstractTransformationManager {
         return null;
     }
     
-    protected final URI getHenshinRuleFile(Resource source) {
+    protected final List<HenshinFile> getHenshinRuleFile(Resource source) {
         IExtensionRegistry er = RegistryFactory.getRegistry();
-        IExtensionPoint exPoint = er
-                .getExtensionPoint("de.uni_stuttgart.iste.cowolf.transformationRuleExtension");
+        IExtensionPoint exPoint = er.getExtensionPoint("de.uni_stuttgart.iste.cowolf.transformationRuleExtension");
+        
+        List<HenshinFile> files = new LinkedList<HenshinFile>();
         for (IExtension extension : exPoint.getExtensions()) {
-            for (IConfigurationElement element : extension
-                    .getConfigurationElements()) {
+        	boolean ok = false;
+            for (IConfigurationElement element : extension.getConfigurationElements()) {
+            	if (element.getName().equals("direction") && element.getAttribute("key").equals(this.getKey(source))) {
+            			ok = true;
+            	}
                 // select config file via extension point
-                if (element.getAttribute("key").equals(this.getKey(source))) {
-                    String platformString = extension.getNamespaceIdentifier()
-                            + File.separator + element.getAttribute("file");
-                    
-                    return URI.createPlatformPluginURI(platformString, true);
+            	if (element.getName().equals("henshinMapping")) {
+            		URI platformString = URI.createPlatformPluginURI(extension.getNamespaceIdentifier()
+                            + File.separator + element.getAttribute("file"), true);
+            		
+            		files.add(new HenshinFile(platformString, element.getAttribute("main")));
                 }
             }
+            if (ok && files.size() > 0) {
+            	return files;
+            } else {
+            	files.clear();
+            }
         }
-        return null;
+        return files;
     }
 
     protected abstract String getKey();
@@ -789,5 +825,15 @@ public abstract class AbstractTransformationManager {
             }
         }
         return units;
+    }
+    
+    protected class HenshinFile {
+    	public URI file;
+    	public String main;
+    	
+    	public HenshinFile(URI file, String main) {
+    		this.file = file;
+    		this.main = main;
+    	}
     }
 }
