@@ -51,9 +51,11 @@ import org.eclipse.uml2.uml.CombinedFragment;
 import org.eclipse.uml2.uml.Comment;
 import org.eclipse.uml2.uml.ConnectableElement;
 import org.eclipse.uml2.uml.Dependency;
+import org.eclipse.uml2.uml.DirectedRelationship;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.ExecutionOccurrenceSpecification;
 import org.eclipse.uml2.uml.ExecutionSpecification;
+import org.eclipse.uml2.uml.GeneralOrdering;
 import org.eclipse.uml2.uml.InstanceSpecification;
 import org.eclipse.uml2.uml.Interaction;
 import org.eclipse.uml2.uml.InteractionFragment;
@@ -61,6 +63,7 @@ import org.eclipse.uml2.uml.InteractionOperand;
 import org.eclipse.uml2.uml.InterfaceRealization;
 import org.eclipse.uml2.uml.Lifeline;
 import org.eclipse.uml2.uml.Message;
+import org.eclipse.uml2.uml.MessageEnd;
 import org.eclipse.uml2.uml.MessageOccurrenceSpecification;
 import org.eclipse.uml2.uml.MessageSort;
 import org.eclipse.uml2.uml.NamedElement;
@@ -70,6 +73,7 @@ import org.eclipse.uml2.uml.Operation;
 import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.PackageableElement;
 import org.eclipse.uml2.uml.Property;
+import org.eclipse.uml2.uml.Relationship;
 import org.eclipse.uml2.uml.Signal;
 import org.eclipse.uml2.uml.Type;
 import org.eclipse.uml2.uml.UMLFactory;
@@ -78,6 +82,7 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
 
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ActorLifeline;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.MessageOccurenceSpecification;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramFactory;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.design.services.internal.NamedElementServices;
 
@@ -292,13 +297,16 @@ public class SequenceServices {
 	 * @return the {@link ExecutionSpecification} semantic candidates.
 	 */
 	public List<ExecutionSpecification> executionSemanticCandidates(ExecutionSpecification execution) {
-		final List<InteractionFragment> fragments = execution.getEnclosingInteraction().getFragments();
+		if (execution != null) {
+			final List<InteractionFragment> fragments = execution.getEnclosingInteraction().getFragments();
 
-		final int startIndex = fragments.indexOf(execution.getStart());
-		final int finishIndex = fragments.indexOf(execution.getFinish());
-		final List<InteractionFragment> candidateFragments = new ArrayList<InteractionFragment>(
-				fragments.subList(startIndex + 2, finishIndex));
-		return getFirstLevelExecutions(execution.getCovereds().get(0), candidateFragments);
+			final int startIndex = fragments.indexOf(execution.getStart());
+			final int finishIndex = fragments.indexOf(execution.getFinish());
+			final List<InteractionFragment> candidateFragments = new ArrayList<InteractionFragment>(
+					fragments.subList(startIndex + 2, finishIndex));
+			return getFirstLevelExecutions(execution.getCovereds().get(0), candidateFragments);
+		}
+		return new ArrayList<ExecutionSpecification>();
 	}
 
 	/**
@@ -907,8 +915,15 @@ public class SequenceServices {
 	public void delete(Lifeline lifeline) {
 		if (lifeline == null)
 			return;
-		// Delete dependency
+
 		deleteContext(lifeline);
+
+		// Delete dependency and class/actor
+		ConnectableElement property = lifeline.getRepresents();
+		Type representedType = property.getType();
+
+		EcoreUtil.delete(property);
+		EcoreUtil.delete(representedType);
 
 		// Delete all executions
 		for (ExecutionSpecification execution : executionSemanticCandidates(lifeline)) {
@@ -980,6 +995,17 @@ public class SequenceServices {
 		if (behavior != null)
 			interaction.getOwnedBehaviors().remove(behavior);
 
+		// delete incoming message
+		MessageOccurrenceSpecification incomingMessageSpecification = (MessageOccurrenceSpecification)execution
+				.getStart();
+		Message incomingMessage = (incomingMessageSpecification).getMessage();
+		MessageOccurrenceSpecification messageStart = (MessageOccurrenceSpecification)incomingMessage
+				.getSendEvent();
+
+		EcoreUtil.delete(incomingMessageSpecification);
+		EcoreUtil.delete(incomingMessage);
+		EcoreUtil.delete(messageStart);
+
 		// Delete start and finish behavior
 		final List<InteractionFragment> fragments = interaction.getFragments();
 		final OccurrenceSpecification start = execution.getStart();
@@ -992,6 +1018,7 @@ public class SequenceServices {
 		}
 		// Delete execution
 		fragments.remove(execution);
+		execution.destroy();
 	}
 
 	/**
@@ -1003,6 +1030,12 @@ public class SequenceServices {
 	public void delete(Message message) {
 		if (message == null)
 			return;
+
+		// delete signature
+		NamedElement signature = message.getSignature();
+		if (signature instanceof Operation) {
+			EcoreUtil.delete(signature);
+		}
 
 		// Get fragments
 		final Interaction interaction = (Interaction)message.eContainer();
@@ -2091,8 +2124,8 @@ public class SequenceServices {
 		if (preTarget == null) {
 			return false;
 		}
-		
-		if(preTarget instanceof de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ActorLifeline){
+
+		if (preTarget instanceof de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ActorLifeline) {
 			return false;
 		}
 
@@ -2129,8 +2162,6 @@ public class SequenceServices {
 		return false;
 	}
 
-	
-	
 	private boolean isValidMessageEndForLifeline(EObject preTarget) {
 		ConnectableElement element = ((Lifeline)preTarget).getRepresents();
 		if (element != null && element.getType() != null) {
