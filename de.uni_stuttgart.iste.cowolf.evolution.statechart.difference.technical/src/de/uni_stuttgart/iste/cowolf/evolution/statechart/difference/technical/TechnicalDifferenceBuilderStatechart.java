@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.henshin.trace.impl.TracePackageImpl;
 import org.sidiff.difference.technical.TechnicalDifferenceBuilder;
+
 import de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage;
 
 

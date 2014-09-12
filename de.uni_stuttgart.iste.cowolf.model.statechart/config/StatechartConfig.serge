@@ -3,49 +3,39 @@
 <Config>
 	<GeneralSettings>
 		<preventInconsistency value="true" />
-		<multiplicityPreconditions integrated="true"
-			separately="false" />
-		<reduceToSuperType
-			ADD_REMOVE="true"
-			CHANGE_LITERAL="true"
-			CHANGE_REFERENCE="true"
-			CREATE_DELETE="true"
-			MOVE="true"
-			MOVE_DOWN="true"
-			MOVE_UP="true"
-			SET_UNSET_ATTRIBUTE="true"
-			SET_UNSET_REFERENCE="true" />
-		<disableVariantsWithSupertypeReplacement value="false" />
-		<modelUsesProfileMechanism value="false" />
-		<createAllAttributes value="true" />
+		<multiplicityPreconditions integrated="true" separately="false" />
+		<reduceToSuperType  CREATE_DELETE="true" MOVE="true" SET_UNSET="true" ADD_REMOVE="true" CHANGE="true" />
+   		<disableVariantsWithSupertypeReplacement value="true" />
+        <modelUsesProfileMechanism value="false" />
+        <createAllAttributes value="true" />
 	</GeneralSettings>
 	
 	<MetaModelSettings>
-		<MainModel nsUri="http://Statechart/1.0" />		
+		<MainModel nsUri="http://Statemachine/1.0" />		
 
 		<MaskedClassifiers>	
 		</MaskedClassifiers>
 	</MetaModelSettings>
 	
 	<Transformations>
-		<Creates allow="true" />
-		<Deletes allow="true" />
-		<Moves allow="true" allowReferenceSwitching="true" allowReferenceCombinations="true" />
-		<MoveUps allow="true"/>
-		<MoveDowns allow="true"/>
-		<SetAttributes allow="true" />
-		<UnsetAttributes allow="true" />
-		<SetReferences allow="true" />
-		<UnsetReferences allow="true" />
-		<Adds allow="true" />
-		<Removes allow="true" />
-		<ChangeLiterals allow="true" allowLiteralSwitching="true" />
-		<ChangeReferences allow="true" />
-	</Transformations>
+        <Creates allow="true" />
+        <Deletes allow="true" />
+        <Moves allow="true" allowReferenceSwitching="false" allowReferenceCombinations="false" />
+        <MoveUps allow="true"/>
+        <MoveDowns allow="true"/>
+        <SetAttributes allow="true" />
+        <UnsetAttributes allow="true" />
+        <SetReferences allow="true" />
+        <UnsetReferences allow="true" />
+        <Adds allow="true" />
+        <Removes allow="true" />
+        <ChangeLiterals allow="true" allowLiteralSwitching="true" />
+        <ChangeReferences allow="true" />
+    </Transformations>
 
 	<!-- nested=true: means the root element can also appear
 	somewhere in its lower containments (eg. (Sub-)StateMachine)-->
-	<Root name="StateMachine" nested="false"/>
+	<Root name="StateMachineRoot" nested="false"/>
 	
 	<WhiteList>			
 
