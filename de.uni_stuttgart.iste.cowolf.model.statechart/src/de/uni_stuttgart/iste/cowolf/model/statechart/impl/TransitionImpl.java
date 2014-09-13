@@ -3,7 +3,6 @@
 package de.uni_stuttgart.iste.cowolf.model.statechart.impl;
 
 import de.uni_stuttgart.iste.cowolf.model.commonBase.impl.IDBaseImpl;
-
 import de.uni_stuttgart.iste.cowolf.model.statechart.Event;
 import de.uni_stuttgart.iste.cowolf.model.statechart.Guard;
 import de.uni_stuttgart.iste.cowolf.model.statechart.State;
@@ -15,12 +14,11 @@ import de.uni_stuttgart.iste.cowolf.model.statechart.TransitionAction;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
@@ -132,6 +130,8 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	protected EClass eStaticClass() {
 		return StatemachinePackage.Literals.TRANSITION;
 	}
+	
+	
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -142,7 +142,32 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 		if (eContainerFeatureID() != StatemachinePackage.TRANSITION__TRANS_SM_CONTAINER) return null;
 		return (StateMachine)eInternalContainer();
 	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	public EList<StateVertex> getTransStates() {
+		
+		if(  this.eContainer instanceof CompositeStateImpl){
+			return ((CompositeStateImpl) this.eContainer).getSubVertexes();
+		}
+		else if(this.eContainer instanceof StateMachineImpl){
+			return (EList<StateVertex>)(EList<?>)((StateMachineImpl) this.eContainer).getTop();
+		}
+		else {
+			return null;
+		}
 
+//		
+//		
+//		if (eContainerFeatureID() != StatemachinePackage.TRANSITION__TRANS_SM_CONTAINER) return null;
+//		return ((StateMachine)eInternalContainer()).getTop();
+		
+		
+	}
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

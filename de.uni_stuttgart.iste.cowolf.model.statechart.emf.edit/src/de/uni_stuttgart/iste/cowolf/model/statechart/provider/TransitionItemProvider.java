@@ -4,6 +4,7 @@ package de.uni_stuttgart.iste.cowolf.model.statechart.provider;
 
 import de.uni_stuttgart.iste.cowolf.model.commonBase.emf.provider.IDBaseItemProvider;
 import de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine;
+import de.uni_stuttgart.iste.cowolf.model.statechart.StateVertex;
 import de.uni_stuttgart.iste.cowolf.model.statechart.StatemachineFactory;
 import de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage;
 import de.uni_stuttgart.iste.cowolf.model.statechart.Transition;
@@ -19,6 +20,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -78,9 +80,9 @@ public class TransitionItemProvider extends IDBaseItemProvider {
 		  protected Collection getComboBoxObjects(Object object) {
 		  
 			TransitionImpl transition = (TransitionImpl)object;
-			StateMachine sMachine = transition.getTransSM_container(); 	  
+			EList<StateVertex> states = transition.getTransStates();
 			ArrayList result = new ArrayList();
-			result.addAll(sMachine.getTop());
+			result.addAll(states);
 			result.remove(transition);
 	        return result;
 
@@ -106,12 +108,12 @@ public class TransitionItemProvider extends IDBaseItemProvider {
 		    {
 			  protected Collection getComboBoxObjects(Object object) {
 			  
-				TransitionImpl transition = (TransitionImpl)object;
-				StateMachine sMachine = transition.getTransSM_container(); 	  
-				ArrayList result = new ArrayList();
-				result.addAll(sMachine.getTop());
-				result.remove(transition);
-		        return result;
+					TransitionImpl transition = (TransitionImpl)object;
+					EList<StateVertex> states = transition.getTransStates();
+					ArrayList result = new ArrayList();
+					result.addAll(states);
+					result.remove(transition);
+			        return result;
 
 		    }});
 		}
