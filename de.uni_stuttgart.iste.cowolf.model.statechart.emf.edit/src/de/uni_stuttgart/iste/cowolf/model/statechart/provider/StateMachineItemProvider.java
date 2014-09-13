@@ -4,23 +4,23 @@ package de.uni_stuttgart.iste.cowolf.model.statechart.provider;
 
 
 import de.uni_stuttgart.iste.cowolf.model.commonBase.emf.provider.IDBaseItemProvider;
-
 import de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine;
+import de.uni_stuttgart.iste.cowolf.model.statechart.StateVertex;
 import de.uni_stuttgart.iste.cowolf.model.statechart.StatemachineFactory;
 import de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage;
-
 import de.uni_stuttgart.iste.cowolf.model.statechart.emf.provider.StatemachineEditPlugin;
+import de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateMachineImpl;
+import de.uni_stuttgart.iste.cowolf.model.statechart.impl.TransitionImpl;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -111,20 +111,43 @@ public class StateMachineItemProvider extends IDBaseItemProvider {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+//	protected void addInitialStatePropertyDescriptor(Object object) {
+//		itemPropertyDescriptors.add
+//			(createItemPropertyDescriptor
+//				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+//				 getResourceLocator(),
+//				 getString("_UI_StateMachine_InitialState_feature"),
+//				 getString("_UI_PropertyDescriptor_description", "_UI_StateMachine_InitialState_feature", "_UI_StateMachine_type"),
+//				 StatemachinePackage.Literals.STATE_MACHINE__INITIAL_STATE,
+//				 true,
+//				 false,
+//				 true,
+//				 null,
+//				 null,
+//				 null));
+//	}
+	
+	/**
+	 * @generated NOT
+	 */
 	protected void addInitialStatePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_StateMachine_InitialState_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_StateMachine_InitialState_feature", "_UI_StateMachine_type"),
-				 StatemachinePackage.Literals.STATE_MACHINE__INITIAL_STATE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+	  itemPropertyDescriptors.add(
+	    new ItemPropertyDescriptor(
+	    		((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+	    		getString("_UI_StateMachine_InitialState_feature"),
+	    		getString("_UI_PropertyDescriptor_description", "_UI_StateMachine_InitialState_feature", "_UI_StateMachine_type"),
+	    		StatemachinePackage.Literals.STATE_MACHINE__INITIAL_STATE,
+	      true)
+	    {
+		  protected Collection getComboBoxObjects(Object object) {
+		  
+			StateMachineImpl sMachine = (StateMachineImpl)object;
+			ArrayList result = new ArrayList();
+			result.addAll(sMachine.getTop());
+			result.remove(sMachine);
+	        return result;
+
+	    }});
 	}
 
 	/**
