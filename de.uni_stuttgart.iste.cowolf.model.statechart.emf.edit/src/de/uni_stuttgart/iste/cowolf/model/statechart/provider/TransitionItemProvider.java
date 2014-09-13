@@ -63,48 +63,6 @@ public class TransitionItemProvider extends IDBaseItemProvider {
 		return itemPropertyDescriptors;
 	}
 
-	// /**
-	// * This adds a property descriptor for the Source feature.
-	// * <!-- begin-user-doc -->
-	// * <!-- end-user-doc -->
-	// * @generated
-	// */
-	// protected void addSourcePropertyDescriptor(Object object) {
-	// itemPropertyDescriptors.add
-	// (createItemPropertyDescriptor
-	// (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-	// getResourceLocator(),
-	// getString("_UI_Transition_source_feature"),
-	// getString("_UI_PropertyDescriptor_description",
-	// "_UI_Transition_source_feature", "_UI_Transition_type"),
-	// StatemachinePackage.Literals.TRANSITION__SOURCE,
-	// true,
-	// false,
-	// true,
-	// null,
-	// null,
-	// null));
-	// }
-
-	// /**
-	// * This adds a property descriptor for the Source feature.
-	// * <!-- begin-user-doc -->
-	// * <!-- end-user-doc -->
-	// * @generated
-	// */
-	// protected void addSourcePropertyDescriptor(Object object) {
-	// itemPropertyDescriptors.add (
-	// new ItemPropertyDescriptor(
-	// ((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-	// getRootAdapterFactory(),
-	// getString("_UI_Transition_source_feature"),
-	// getString("_UI_PropertyDescriptor_description",
-	// "_UI_Transition_source_feature", "_UI_Transition_type"),
-	// StatemachinePackage.eINSTANCE.getTransition_TransSM_container()){
-	//
-	// });
-	// }
-
 	/**
 	 * @generated NOT
 	 */
@@ -133,7 +91,7 @@ public class TransitionItemProvider extends IDBaseItemProvider {
 	 * This adds a property descriptor for the Target feature. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addTargetPropertyDescriptor(Object object) {
 		  itemPropertyDescriptors.add(
