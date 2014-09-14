@@ -26,6 +26,8 @@ import org.eclipse.emf.ecore.EReference;
  * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNFactory
  * @model kind="package"
  *        extendedMetaData="qualified='false'"
+ *        annotation="http://www.eclipse.org/OCL/Import commonBase='../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#/' ecore='http://www.eclipse.org/emf/2002/Ecore' ecore.xml.type='http://www.eclipse.org/emf/2003/XMLType'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'"
  * @generated
  */
 public interface LQNPackage extends EPackage {
@@ -1275,7 +1277,7 @@ public interface LQNPackage extends EPackage {
 	int DOCUMENT_ROOT__XSI_SCHEMA_LOCATION = 2;
 
 	/**
-	 * The feature id for the '<em><b>Lqn Core</b></em>' containment reference.
+	 * The feature id for the '<em><b>Lqn Core</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1284,7 +1286,7 @@ public interface LQNPackage extends EPackage {
 	int DOCUMENT_ROOT__LQN_CORE = 3;
 
 	/**
-	 * The feature id for the '<em><b>Lqn Model</b></em>' containment reference.
+	 * The feature id for the '<em><b>Lqn Model</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -5894,10 +5896,10 @@ public interface LQNPackage extends EPackage {
 	EReference getDocumentRoot_XSISchemaLocation();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.DocumentRoot#getLqnCore <em>Lqn Core</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.DocumentRoot#getLqnCore <em>Lqn Core</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Lqn Core</em>'.
+	 * @return the meta object for the containment reference list '<em>Lqn Core</em>'.
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.DocumentRoot#getLqnCore()
 	 * @see #getDocumentRoot()
 	 * @generated
@@ -5905,10 +5907,10 @@ public interface LQNPackage extends EPackage {
 	EReference getDocumentRoot_LqnCore();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.DocumentRoot#getLqnModel <em>Lqn Model</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.DocumentRoot#getLqnModel <em>Lqn Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Lqn Model</em>'.
+	 * @return the meta object for the containment reference list '<em>Lqn Model</em>'.
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.DocumentRoot#getLqnModel()
 	 * @see #getDocumentRoot()
 	 * @generated
@@ -9523,7 +9525,7 @@ public interface LQNPackage extends EPackage {
 		EReference DOCUMENT_ROOT__XSI_SCHEMA_LOCATION = eINSTANCE.getDocumentRoot_XSISchemaLocation();
 
 		/**
-		 * The meta object literal for the '<em><b>Lqn Core</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Lqn Core</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -9531,7 +9533,7 @@ public interface LQNPackage extends EPackage {
 		EReference DOCUMENT_ROOT__LQN_CORE = eINSTANCE.getDocumentRoot_LqnCore();
 
 		/**
-		 * The meta object literal for the '<em><b>Lqn Model</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Lqn Model</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

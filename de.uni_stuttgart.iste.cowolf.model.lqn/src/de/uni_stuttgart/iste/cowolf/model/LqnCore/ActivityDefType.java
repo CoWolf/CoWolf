@@ -106,8 +106,7 @@ public interface ActivityDefType extends ActivityDefBase {
 	 * @return the value of the '<em>Bound To Entry</em>' attribute.
 	 * @see #setBoundToEntry(String)
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage#getActivityDefType_BoundToEntry()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='attribute' name='bound-to-entry' namespace='##targetNamespace'"
+	 * @model extendedMetaData="kind='attribute' name='bound-to-entry' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getBoundToEntry();

@@ -34,7 +34,7 @@ public interface AsynchCallType extends IDBase {
 	 * @return the value of the '<em>Dest</em>' attribute.
 	 * @see #setDest(String)
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage#getAsynchCallType_Dest()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
+	 * @model required="true"
 	 *        extendedMetaData="kind='attribute' name='dest' namespace='##targetNamespace'"
 	 * @generated
 	 */

@@ -277,7 +277,46 @@ public class LQNValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateActivityDefBase(ActivityDefBase activityDefBase, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(activityDefBase, diagnostics, context);
+		if (!validate_NoCircularContainment(activityDefBase, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(activityDefBase, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(activityDefBase, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(activityDefBase, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(activityDefBase, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(activityDefBase, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(activityDefBase, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(activityDefBase, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(activityDefBase, diagnostics, context);
+		if (result || diagnostics != null) result &= validateActivityDefBase_test(activityDefBase, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * The cached validation expression for the test constraint of '<em>Activity Def Base</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String ACTIVITY_DEF_BASE__TEST__EEXPRESSION = "true";
+
+	/**
+	 * Validates the test constraint of '<em>Activity Def Base</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateActivityDefBase_test(ActivityDefBase activityDefBase, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(LQNPackage.Literals.ACTIVITY_DEF_BASE,
+				 activityDefBase,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "test",
+				 ACTIVITY_DEF_BASE__TEST__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
 
 	/**
@@ -286,7 +325,17 @@ public class LQNValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateActivityDefType(ActivityDefType activityDefType, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(activityDefType, diagnostics, context);
+		if (!validate_NoCircularContainment(activityDefType, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(activityDefType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(activityDefType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(activityDefType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(activityDefType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(activityDefType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(activityDefType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(activityDefType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(activityDefType, diagnostics, context);
+		if (result || diagnostics != null) result &= validateActivityDefBase_test(activityDefType, diagnostics, context);
+		return result;
 	}
 
 	/**
@@ -349,7 +398,17 @@ public class LQNValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateActivityPhasesType(ActivityPhasesType activityPhasesType, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(activityPhasesType, diagnostics, context);
+		if (!validate_NoCircularContainment(activityPhasesType, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(activityPhasesType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(activityPhasesType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(activityPhasesType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(activityPhasesType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(activityPhasesType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(activityPhasesType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(activityPhasesType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(activityPhasesType, diagnostics, context);
+		if (result || diagnostics != null) result &= validateActivityDefBase_test(activityPhasesType, diagnostics, context);
+		return result;
 	}
 
 	/**
@@ -412,7 +471,17 @@ public class LQNValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateEntryActivityDefType(EntryActivityDefType entryActivityDefType, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(entryActivityDefType, diagnostics, context);
+		if (!validate_NoCircularContainment(entryActivityDefType, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(entryActivityDefType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(entryActivityDefType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(entryActivityDefType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(entryActivityDefType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(entryActivityDefType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(entryActivityDefType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(entryActivityDefType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(entryActivityDefType, diagnostics, context);
+		if (result || diagnostics != null) result &= validateActivityDefBase_test(entryActivityDefType, diagnostics, context);
+		return result;
 	}
 
 	/**

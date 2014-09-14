@@ -2,6 +2,7 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.LqnCore;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.FeatureMap;
@@ -81,57 +82,37 @@ public interface DocumentRoot extends EObject {
 	EMap<String, String> getXSISchemaLocation();
 
 	/**
-	 * Returns the value of the '<em><b>Lqn Core</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Lqn Core</b></em>' containment reference list.
+	 * The list contents are of type {@link de.uni_stuttgart.iste.cowolf.model.LqnCore.LqnCoreType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Lqn Core</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Lqn Core</em>' containment reference.
-	 * @see #setLqnCore(LqnCoreType)
+	 * @return the value of the '<em>Lqn Core</em>' containment reference list.
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage#getDocumentRoot_LqnCore()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 * @model containment="true" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='lqn-core' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	LqnCoreType getLqnCore();
+	EList<LqnCoreType> getLqnCore();
 
 	/**
-	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.DocumentRoot#getLqnCore <em>Lqn Core</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Lqn Core</em>' containment reference.
-	 * @see #getLqnCore()
-	 * @generated
-	 */
-	void setLqnCore(LqnCoreType value);
-
-	/**
-	 * Returns the value of the '<em><b>Lqn Model</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Lqn Model</b></em>' containment reference list.
+	 * The list contents are of type {@link de.uni_stuttgart.iste.cowolf.model.LqnCore.LqnModelType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Lqn Model</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Lqn Model</em>' containment reference.
-	 * @see #setLqnModel(LqnModelType)
+	 * @return the value of the '<em>Lqn Model</em>' containment reference list.
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage#getDocumentRoot_LqnModel()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 * @model containment="true" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='lqn-model' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	LqnModelType getLqnModel();
-
-	/**
-	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.DocumentRoot#getLqnModel <em>Lqn Model</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Lqn Model</em>' containment reference.
-	 * @see #getLqnModel()
-	 * @generated
-	 */
-	void setLqnModel(LqnModelType value);
+	EList<LqnModelType> getLqnModel();
 
 } // DocumentRoot

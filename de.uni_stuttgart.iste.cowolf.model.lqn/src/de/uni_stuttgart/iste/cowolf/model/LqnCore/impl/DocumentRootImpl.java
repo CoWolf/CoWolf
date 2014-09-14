@@ -6,7 +6,9 @@ import de.uni_stuttgart.iste.cowolf.model.LqnCore.DocumentRoot;
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage;
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.LqnCoreType;
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.LqnModelType;
+import java.util.Collection;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -127,8 +129,8 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public LqnCoreType getLqnCore() {
-		return (LqnCoreType)getMixed().get(LQNPackage.Literals.DOCUMENT_ROOT__LQN_CORE, true);
+	public EList<LqnCoreType> getLqnCore() {
+		return getMixed().list(LQNPackage.Literals.DOCUMENT_ROOT__LQN_CORE);
 	}
 
 	/**
@@ -136,44 +138,8 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetLqnCore(LqnCoreType newLqnCore, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(LQNPackage.Literals.DOCUMENT_ROOT__LQN_CORE, newLqnCore, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setLqnCore(LqnCoreType newLqnCore) {
-		((FeatureMap.Internal)getMixed()).set(LQNPackage.Literals.DOCUMENT_ROOT__LQN_CORE, newLqnCore);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public LqnModelType getLqnModel() {
-		return (LqnModelType)getMixed().get(LQNPackage.Literals.DOCUMENT_ROOT__LQN_MODEL, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetLqnModel(LqnModelType newLqnModel, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(LQNPackage.Literals.DOCUMENT_ROOT__LQN_MODEL, newLqnModel, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setLqnModel(LqnModelType newLqnModel) {
-		((FeatureMap.Internal)getMixed()).set(LQNPackage.Literals.DOCUMENT_ROOT__LQN_MODEL, newLqnModel);
+	public EList<LqnModelType> getLqnModel() {
+		return getMixed().list(LQNPackage.Literals.DOCUMENT_ROOT__LQN_MODEL);
 	}
 
 	/**
@@ -191,9 +157,9 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 			case LQNPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
 				return ((InternalEList<?>)getXSISchemaLocation()).basicRemove(otherEnd, msgs);
 			case LQNPackage.DOCUMENT_ROOT__LQN_CORE:
-				return basicSetLqnCore(null, msgs);
+				return ((InternalEList<?>)getLqnCore()).basicRemove(otherEnd, msgs);
 			case LQNPackage.DOCUMENT_ROOT__LQN_MODEL:
-				return basicSetLqnModel(null, msgs);
+				return ((InternalEList<?>)getLqnModel()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -242,10 +208,12 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				((EStructuralFeature.Setting)getXSISchemaLocation()).set(newValue);
 				return;
 			case LQNPackage.DOCUMENT_ROOT__LQN_CORE:
-				setLqnCore((LqnCoreType)newValue);
+				getLqnCore().clear();
+				getLqnCore().addAll((Collection<? extends LqnCoreType>)newValue);
 				return;
 			case LQNPackage.DOCUMENT_ROOT__LQN_MODEL:
-				setLqnModel((LqnModelType)newValue);
+				getLqnModel().clear();
+				getLqnModel().addAll((Collection<? extends LqnModelType>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -269,10 +237,10 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 				getXSISchemaLocation().clear();
 				return;
 			case LQNPackage.DOCUMENT_ROOT__LQN_CORE:
-				setLqnCore((LqnCoreType)null);
+				getLqnCore().clear();
 				return;
 			case LQNPackage.DOCUMENT_ROOT__LQN_MODEL:
-				setLqnModel((LqnModelType)null);
+				getLqnModel().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -293,9 +261,9 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 			case LQNPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
 				return xSISchemaLocation != null && !xSISchemaLocation.isEmpty();
 			case LQNPackage.DOCUMENT_ROOT__LQN_CORE:
-				return getLqnCore() != null;
+				return !getLqnCore().isEmpty();
 			case LQNPackage.DOCUMENT_ROOT__LQN_MODEL:
-				return getLqnModel() != null;
+				return !getLqnModel().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

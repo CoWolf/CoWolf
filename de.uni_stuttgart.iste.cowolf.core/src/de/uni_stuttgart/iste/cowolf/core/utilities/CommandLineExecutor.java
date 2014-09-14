@@ -17,6 +17,14 @@ public class CommandLineExecutor {
 		in.close();
 	}
 
+	public static void execCommand(String command) throws Exception {
+		Reader r = new InputStreamReader(execCommandAndGetStream(command));
+		BufferedReader in = new BufferedReader(r);
+		while ((in.readLine()) != null) { /* Read output until process finished. */
+		}
+		in.close();
+	}
+
 	public static InputStream execCommandAndGetStream(String directory, String command)
 			throws Exception {
 		File dir = new File(directory);
@@ -25,6 +33,19 @@ public class CommandLineExecutor {
 			process = Runtime.getRuntime().exec("cmd /c " + command, null, dir); //$NON-NLS-1$
 		} else if (isLinuxSystem()) {
 			process = Runtime.getRuntime().exec("./" + command, null, dir);
+		} else {
+			throw new Exception(Messages.commandLineExecutor_unknown_operating_system);
+		}
+		return process.getInputStream();
+	}
+
+	public static InputStream execCommandAndGetStream(String command)
+			throws Exception {
+		Process process;
+		if (isWindowsSystem()) {
+			process = Runtime.getRuntime().exec("cmd /c " + command, null);
+		} else if (isLinuxSystem()) {
+			process = Runtime.getRuntime().exec("./" + command, null);
 		} else {
 			throw new Exception(Messages.commandLineExecutor_unknown_operating_system);
 		}

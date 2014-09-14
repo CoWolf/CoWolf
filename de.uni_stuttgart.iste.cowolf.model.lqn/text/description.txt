@@ -16,7 +16,7 @@ Package LqnCore <http://LQN/1.0>
     Attribute hostDemandCvsq : SrvnFloat
     Attribute hostDemandMean : SrvnFloat<<1..1>>
     Attribute maxServiceTime : SrvnFloat
-    Attribute name : String<<1..1>>
+    Attribute name : EString<<1..1>>
     Attribute thinkTime : SrvnFloat
 
   Class ActivityDefType -> ActivityDefBase
@@ -24,7 +24,7 @@ Package LqnCore <http://LQN/1.0>
     Attribute group : EFeatureMapEntry<<0..*>>
     Reference /synchCall : ActivityMakingCallType<<0..*>>
     Reference /asynchCall : ActivityMakingCallType<<0..*>>
-    Attribute boundToEntry : String
+    Attribute boundToEntry : EString
 
   Class ActivityGraphBase -> IDBase
     Reference activity : ActivityDefType<<1..*>>
@@ -35,7 +35,7 @@ Package LqnCore <http://LQN/1.0>
 
   Class ActivityLoopListType -> IDBase
     Reference activity : ActivityLoopType<<1..*>>
-    Attribute end : String
+    Attribute end : EString
 
   Class ActivityLoopType -> ActivityType
     Attribute count : SrvnFloat<<1..1>>
@@ -44,7 +44,7 @@ Package LqnCore <http://LQN/1.0>
     Attribute callsMean : SrvnFloat<<1..1>>
 
   Class ActivityOrType -> ActivityType
-    Attribute prob : String
+    Attribute prob : EString
 
   Class ActivityPhasesType -> ActivityDefBase
     Reference callList : CallListType<<0..*>>
@@ -54,14 +54,14 @@ Package LqnCore <http://LQN/1.0>
     Attribute phase : PhaseType<<1..1>>
 
   Class ActivityType -> IDBase
-    Attribute name : String<<1..1>>
+    Attribute name : EString<<1..1>>
 
   Class AndJoinListType -> IDBase
     Reference activity : ActivityType<<1..*>>
     Attribute quorum : NonNegativeInteger
 
   Class AsynchCallType -> IDBase
-    Attribute dest : String<<1..1>>
+    Attribute dest : EString<<1..1>>
     Attribute fanin : Int
     Attribute fanout : Int
 
@@ -78,8 +78,8 @@ Package LqnCore <http://LQN/1.0>
     Attribute mixed : EFeatureMapEntry<<0..*>>
     Reference xMLNSPrefixMap : EStringToStringMapEntry<<0..*>>
     Reference xSISchemaLocation : EStringToStringMapEntry<<0..*>>
-    Reference /lqnCore : LqnCoreType<<0..?>>
-    Reference /lqnModel : LqnModelType<<0..?>>
+    Reference /lqnCore : LqnCoreType<<0..*>>
+    Reference /lqnModel : LqnModelType<<0..*>>
 
   Class LqnCoreType -> IDBase
     Reference processor : ProcessorType<<1..*>>
@@ -91,10 +91,10 @@ Package LqnCore <http://LQN/1.0>
     Reference solverParams : SolverParamsType<<1..1>>
     Reference processor : ProcessorType<<1..*>>
     Reference slot : SlotType<<0..*>>
-    Attribute description : String
+    Attribute description : EString
     Attribute lqncoreSchemaVersion : Decimal
     Attribute lqnSchemaVersion : Decimal
-    Attribute name : String
+    Attribute name : EString
     Attribute xmlDebug : XmlDebugType
 
   Class EntryActivityDefType -> ActivityDefBase
@@ -102,7 +102,7 @@ Package LqnCore <http://LQN/1.0>
     Attribute group : EFeatureMapEntry<<0..*>>
     Reference /synchCall : ActivityMakingCallType<<0..*>>
     Reference /asynchCall : ActivityMakingCallType<<0..*>>
-    Attribute firstActivity : String
+    Attribute firstActivity : EString
 
   Class EntryActivityGraph -> ActivityGraphBase
     Reference replyActivity : ReplyActivityType<<1..*>>
@@ -116,14 +116,14 @@ Package LqnCore <http://LQN/1.0>
     Reference forwarding : EntryMakingCallType<<0..*>>
     Reference entryActivityGraph : EntryActivityGraph
     Reference entryPhaseActivities : PhaseActivities
-    Attribute name : String<<1..1>>
+    Attribute name : EString<<1..1>>
     Attribute openArrivalRate : SrvnFloat
     Attribute priority : Int
     Attribute semaphore : SemaphoreType
     Attribute type : TypeType<<1..1>>
 
   Class FirstPlotType -> IDBase
-    Attribute variable : String
+    Attribute variable : EString
 
   Class HistogramBinType -> IDBase
     Attribute begin : SrvnFloat<<1..1>>
@@ -134,8 +134,8 @@ Package LqnCore <http://LQN/1.0>
 
   Class InPortType -> IDBase
     Attribute connectFrom : ConnectFromType
-    Attribute description : String
-    Attribute name : String<<1..1>>
+    Attribute description : EString
+    Attribute name : EString<<1..1>>
 
   Class InterfaceType -> IDBase
     Reference inPort : InPortType<<0..*>>
@@ -143,7 +143,7 @@ Package LqnCore <http://LQN/1.0>
 
   Class MakingCallType -> IDBase
     Reference resultCall : OutputResultType<<0..*>>
-    Attribute dest : String<<1..1>>
+    Attribute dest : EString<<1..1>>
     Attribute fanin : Int
     Attribute fanout : Int
 
@@ -152,8 +152,8 @@ Package LqnCore <http://LQN/1.0>
 
   Class OutPortType -> IDBase
     Attribute connectTo : ConnectToType
-    Attribute description : String
-    Attribute name : String<<1..1>>
+    Attribute description : EString
+    Attribute name : EString<<1..1>>
 
   Class OutputDistributionType -> IDBase
     Reference underflowBin : HistogramBinType
@@ -176,7 +176,7 @@ Package LqnCore <http://LQN/1.0>
   Class OutputResultForwardingANDJoinDelay -> IDBase
     Reference resultConf95 : ResultConf95Type<<0..*>>
     Reference resultConf99 : ResultConf99Type<<0..*>>
-    Attribute dest : String<<1..1>>
+    Attribute dest : EString<<1..1>>
     Attribute joinVariance : SrvnFloat
     Attribute joinWaiting : SrvnFloat
     Attribute waiting : SrvnFloat
@@ -210,8 +210,8 @@ Package LqnCore <http://LQN/1.0>
     Attribute waitingVariance : SrvnFloat
 
   Class ParameterType -> IDBase
-    Attribute name : String<<1..1>>
-    Attribute value : String<<1..1>>
+    Attribute name : EString<<1..1>>
+    Attribute value : EString<<1..1>>
 
   Class ParaType -> IDBase
     Attribute startValue : Int
@@ -227,15 +227,15 @@ Package LqnCore <http://LQN/1.0>
     Reference plot : PlotType<<1..*>>
 
   Class PlotType -> IDBase
-    Attribute variable : String
+    Attribute variable : EString
 
   Class PortBindingType -> IDBase
-    Attribute source : String<<1..1>>
-    Attribute target : String<<1..1>>
+    Attribute source : EString<<1..1>>
+    Attribute target : EString<<1..1>>
 
   Class PragmaType -> IDBase
-    Attribute param : String<<1..1>>
-    Attribute value : String<<1..1>>
+    Attribute param : EString<<1..1>>
+    Attribute value : EString<<1..1>>
 
   Class PrecedenceType -> IDBase
     Reference pre : SingleActivityListType
@@ -247,25 +247,25 @@ Package LqnCore <http://LQN/1.0>
     Reference postLOOP : ActivityLoopListType
 
   Class ProcessorBindingType -> IDBase
-    Attribute source : String<<1..1>>
-    Attribute target : String<<1..1>>
+    Attribute source : EString<<1..1>>
+    Attribute target : EString<<1..1>>
 
   Class ProcessorType -> IDBase
     Reference resultProcessor : OutputResultType<<0..*>>
     Reference task : TaskType<<1..*>>
     Attribute multiplicity : NonNegativeInteger
-    Attribute name : String<<1..1>>
+    Attribute name : EString<<1..1>>
     Attribute quantum : SrvnFloat
     Attribute replication : NonNegativeInteger
     Attribute scheduling : SchedulingType
     Attribute speedFactor : SrvnFloat
 
   Class ReplyActivityType -> IDBase
-    Attribute name : String<<1..1>>
+    Attribute name : EString<<1..1>>
 
   Class ReplyEntryType -> IDBase
     Reference replyActivity : ReplyActivityType<<1..*>>
-    Attribute name : String<<1..1>>
+    Attribute name : EString<<1..1>>
 
   Class ResultConf95Type -> IDBase
     Attribute joinVariance : SrvnFloat
@@ -331,19 +331,19 @@ Package LqnCore <http://LQN/1.0>
 
   Class ResultGeneralType -> IDBase
     Attribute convVal : SrvnFloat<<1..1>>
-    Attribute elapsedTime : String
+    Attribute elapsedTime : EString
     Attribute iterations : SrvnFloat
-    Attribute platformInfo : String
-    Attribute solverInfo : String
-    Attribute systemCpuTime : String
-    Attribute userCpuTime : String
+    Attribute platformInfo : EString
+    Attribute solverInfo : EString
+    Attribute systemCpuTime : EString
+    Attribute userCpuTime : EString
     Attribute valid : ValidType<<1..1>>
 
   Class RunControlType -> IDBase
     Reference para : ParaType<<0..*>>
 
   Class ServiceType -> IDBase
-    Attribute name : String<<1..1>>
+    Attribute name : EString<<1..1>>
 
   Class SingleActivityListType -> IDBase
     Reference activity : ActivityType<<1..1>>
@@ -351,20 +351,20 @@ Package LqnCore <http://LQN/1.0>
   Class SlotType -> IDBase
     Reference interface : InterfaceType<<1..1>>
     Reference binding : BindType<<1..*>>
-    Attribute bindTarget : String<<1..1>>
+    Attribute bindTarget : EString<<1..1>>
     Attribute replicNum : Int
 
   Class SolverParamsType -> IDBase
     Reference resultGeneral : ResultGeneralType
     Reference pragma : PragmaType<<0..*>>
-    Attribute comment : String
+    Attribute comment : EString
     Attribute convVal : SrvnFloat
     Attribute itLimit : Int
     Attribute printInt : Int
     Attribute underrelaxCoeff : SrvnFloat
 
   Class SynchCallType -> IDBase
-    Attribute dest : String<<1..1>>
+    Attribute dest : EString<<1..1>>
     Attribute fanin : Int
     Attribute fanout : Int
 
@@ -378,7 +378,7 @@ Package LqnCore <http://LQN/1.0>
     Reference taskActivities : TaskActivityGraph
     Attribute activityGraph : TaskOptionType
     Attribute multiplicity : NonNegativeInteger
-    Attribute name : String<<1..1>>
+    Attribute name : EString<<1..1>>
     Attribute priority : NonNegativeInteger
     Attribute queueLength : NonNegativeInteger
     Attribute replication : NonNegativeInteger
