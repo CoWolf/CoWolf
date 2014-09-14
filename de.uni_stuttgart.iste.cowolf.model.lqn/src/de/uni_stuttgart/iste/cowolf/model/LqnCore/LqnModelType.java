@@ -160,8 +160,7 @@ public interface LqnModelType extends IDBase {
 	 * @return the value of the '<em>Description</em>' attribute.
 	 * @see #setDescription(String)
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage#getLqnModelType_Description()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='attribute' name='description' namespace='##targetNamespace'"
+	 * @model extendedMetaData="kind='attribute' name='description' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getDescription();
@@ -297,8 +296,7 @@ public interface LqnModelType extends IDBase {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage#getLqnModelType_Name()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='attribute' name='name' namespace='##targetNamespace'"
+	 * @model extendedMetaData="kind='attribute' name='name' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getName();

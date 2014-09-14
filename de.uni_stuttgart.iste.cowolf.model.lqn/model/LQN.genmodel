@@ -8,7 +8,7 @@
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
     editPluginID="de.uni_stuttgart.iste.cowolf.model.lqn.emf.edit" editorPluginID="de.uni_stuttgart.iste.cowolf.model.lqn.emf.editor"
     usedGenPackages="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.genmodel#//commonBase"
-    operationReflection="true" importOrganizing="true">
+    operationReflection="true" importOrganizing="true" decoration="Live">
   <foreignModel>LQN.ecore</foreignModel>
   <genPackages prefix="LQN" basePackage="de.uni_stuttgart.iste.cowolf.model" resource="XML"
       disposableProviderFactory="true" providerPackageSuffix="emf.provider" presentationPackageSuffix="emf.presentation"
@@ -150,6 +150,22 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//DocumentRoot/lqnCore"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//DocumentRoot/lqnModel"/>
     </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//LqnCoreType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//LqnCoreType/processor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//LqnCoreType/slot"/>
+    </genClasses>
+    <genClasses ecoreClass="LQN.ecore#//LqnModelType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//LqnModelType/runControl"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//LqnModelType/plotControl"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//LqnModelType/solverParams"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//LqnModelType/processor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//LqnModelType/slot"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//LqnModelType/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//LqnModelType/lqncoreSchemaVersion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//LqnModelType/lqnSchemaVersion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//LqnModelType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//LqnModelType/xmlDebug"/>
+    </genClasses>
     <genClasses ecoreClass="LQN.ecore#//EntryActivityDefType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//EntryActivityDefType/callList"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute LQN.ecore#//EntryActivityDefType/group"/>
@@ -193,22 +209,6 @@
     <genClasses ecoreClass="LQN.ecore#//InterfaceType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//InterfaceType/inPort"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//InterfaceType/outPort"/>
-    </genClasses>
-    <genClasses ecoreClass="LQN.ecore#//LqnCoreType">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//LqnCoreType/processor"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//LqnCoreType/slot"/>
-    </genClasses>
-    <genClasses ecoreClass="LQN.ecore#//LqnModelType">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//LqnModelType/runControl"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//LqnModelType/plotControl"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//LqnModelType/solverParams"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//LqnModelType/processor"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//LqnModelType/slot"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//LqnModelType/description"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//LqnModelType/lqncoreSchemaVersion"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//LqnModelType/lqnSchemaVersion"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//LqnModelType/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LQN.ecore#//LqnModelType/xmlDebug"/>
     </genClasses>
     <genClasses ecoreClass="LQN.ecore#//MakingCallType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LQN.ecore#//MakingCallType/resultCall"/>
