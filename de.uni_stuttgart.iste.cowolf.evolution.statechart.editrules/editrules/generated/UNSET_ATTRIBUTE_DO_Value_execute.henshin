@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_MteDUDw3EeSjqZPwpeMRMg" name="UNSET_ATTRIBUTE_DO_Value" description="Sets DO Value">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_MteDUTw3EeSjqZPwpeMRMg" name="setDOValue" description="Sets the EAttribute value">
+    <parameters xmi:id="_MteDUjw3EeSjqZPwpeMRMg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//DO"/>
+    </parameters>
+    <parameters xmi:id="_MteDUzw3EeSjqZPwpeMRMg" name="Value">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_MteDVDw3EeSjqZPwpeMRMg" name="LHS">
+      <nodes xmi:id="_MteDVTw3EeSjqZPwpeMRMg" name="Selected">
+        <type href="http://Statemachine/1.0#//DO"/>
+        <attributes xmi:id="_MteDVjw3EeSjqZPwpeMRMg" value="Value">
+          <type href="http://Statemachine/1.0#//Action/value"/>
+        </attributes>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_MteDVzw3EeSjqZPwpeMRMg" name="RHS">
+      <nodes xmi:id="_MteDWDw3EeSjqZPwpeMRMg" name="Selected">
+        <type href="http://Statemachine/1.0#//DO"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_MteDWTw3EeSjqZPwpeMRMg" origin="_MteDVTw3EeSjqZPwpeMRMg" image="_MteDWDw3EeSjqZPwpeMRMg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_MteDWjw3EeSjqZPwpeMRMg" name="mainUnit" subUnits="_MteDUTw3EeSjqZPwpeMRMg">
+    <parameters xmi:id="_MteDWzw3EeSjqZPwpeMRMg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//DO"/>
+    </parameters>
+    <parameters xmi:id="_MteDXDw3EeSjqZPwpeMRMg" name="Value">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_MteDXTw3EeSjqZPwpeMRMg" source="_MteDWzw3EeSjqZPwpeMRMg" target="_MteDUjw3EeSjqZPwpeMRMg"/>
+    <parameterMappings xmi:id="_MteDXjw3EeSjqZPwpeMRMg" source="_MteDXDw3EeSjqZPwpeMRMg" target="_MteDUzw3EeSjqZPwpeMRMg"/>
+  </units>
+</henshin:Module>

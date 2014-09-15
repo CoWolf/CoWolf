@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_MtTEMDw3EeSjqZPwpeMRMg" name="UNSET_ATTRIBUTE_EXIT_Value" description="Sets EXIT Value">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_MtTEMTw3EeSjqZPwpeMRMg" name="setEXITValue" description="Sets the EAttribute value">
+    <parameters xmi:id="_MtTEMjw3EeSjqZPwpeMRMg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//EXIT"/>
+    </parameters>
+    <parameters xmi:id="_MtTEMzw3EeSjqZPwpeMRMg" name="Value">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_MtTENDw3EeSjqZPwpeMRMg" name="LHS">
+      <nodes xmi:id="_MtTENTw3EeSjqZPwpeMRMg" name="Selected">
+        <type href="http://Statemachine/1.0#//EXIT"/>
+        <attributes xmi:id="_MtTENjw3EeSjqZPwpeMRMg" value="Value">
+          <type href="http://Statemachine/1.0#//Action/value"/>
+        </attributes>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_MtTENzw3EeSjqZPwpeMRMg" name="RHS">
+      <nodes xmi:id="_MtTEODw3EeSjqZPwpeMRMg" name="Selected">
+        <type href="http://Statemachine/1.0#//EXIT"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_MtTEOTw3EeSjqZPwpeMRMg" origin="_MtTENTw3EeSjqZPwpeMRMg" image="_MtTEODw3EeSjqZPwpeMRMg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_MtTEOjw3EeSjqZPwpeMRMg" name="mainUnit" subUnits="_MtTEMTw3EeSjqZPwpeMRMg">
+    <parameters xmi:id="_MtTEOzw3EeSjqZPwpeMRMg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//EXIT"/>
+    </parameters>
+    <parameters xmi:id="_MtTEPDw3EeSjqZPwpeMRMg" name="Value">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_MtTEPTw3EeSjqZPwpeMRMg" source="_MtTEOzw3EeSjqZPwpeMRMg" target="_MtTEMjw3EeSjqZPwpeMRMg"/>
+    <parameterMappings xmi:id="_MtTEPjw3EeSjqZPwpeMRMg" source="_MtTEPDw3EeSjqZPwpeMRMg" target="_MtTEMzw3EeSjqZPwpeMRMg"/>
+  </units>
+</henshin:Module>

@@ -1,60 +1,42 @@
 <?xml version="1.0" encoding="ASCII"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_JFd3UDnFEeS_dtX5aPkmvA" name="DELETE_Event_IN_Transition_(trigger)" description="Deletes one Event in Transition">
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_MsQiYDw3EeSjqZPwpeMRMg" name="DELETE_Event_IN_Transition_(trigger)" description="Deletes one Event in Transition">
   <imports href="http://Statemachine/1.0#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="_JFeeYDnFEeS_dtX5aPkmvA" name="deleteEvent_IN_Transition" description="deletes one Event in the context: Transition">
-    <parameters xmi:id="_JFeeYTnFEeS_dtX5aPkmvA" name="Selected"/>
-    <parameters xmi:id="_JFeeYjnFEeS_dtX5aPkmvA" name="ToBeDeleted"/>
-    <lhs xmi:id="_JFeeYznFEeS_dtX5aPkmvA" name="LHS">
-      <nodes xmi:id="_JFeeZDnFEeS_dtX5aPkmvA" name="Selected" incoming="_JFeeZznFEeS_dtX5aPkmvA" outgoing="_JFeeZjnFEeS_dtX5aPkmvA">
+  <units xsi:type="henshin:Rule" xmi:id="_MsQiYTw3EeSjqZPwpeMRMg" name="deleteEvent_IN_Transition" description="deletes one Event in the context: Transition">
+    <parameters xmi:id="_MsQiYjw3EeSjqZPwpeMRMg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//Transition"/>
+    </parameters>
+    <parameters xmi:id="_MsQiYzw3EeSjqZPwpeMRMg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//Event"/>
+    </parameters>
+    <lhs xmi:id="_MsQiZDw3EeSjqZPwpeMRMg" name="LHS">
+      <nodes xmi:id="_MsQiZTw3EeSjqZPwpeMRMg" name="Selected" incoming="_MsQiaDw3EeSjqZPwpeMRMg" outgoing="_MsQiZzw3EeSjqZPwpeMRMg">
         <type href="http://Statemachine/1.0#//Transition"/>
       </nodes>
-      <nodes xmi:id="_JFeeZTnFEeS_dtX5aPkmvA" name="ToBeDeleted" incoming="_JFeeZjnFEeS_dtX5aPkmvA" outgoing="_JFeeZznFEeS_dtX5aPkmvA">
+      <nodes xmi:id="_MsQiZjw3EeSjqZPwpeMRMg" name="ToBeDeleted" incoming="_MsQiZzw3EeSjqZPwpeMRMg" outgoing="_MsQiaDw3EeSjqZPwpeMRMg">
         <type href="http://Statemachine/1.0#//Event"/>
       </nodes>
-      <edges xmi:id="_JFeeZjnFEeS_dtX5aPkmvA" source="_JFeeZDnFEeS_dtX5aPkmvA" target="_JFeeZTnFEeS_dtX5aPkmvA">
+      <edges xmi:id="_MsQiZzw3EeSjqZPwpeMRMg" source="_MsQiZTw3EeSjqZPwpeMRMg" target="_MsQiZjw3EeSjqZPwpeMRMg">
         <type href="http://Statemachine/1.0#//Transition/trigger"/>
       </edges>
-      <edges xmi:id="_JFeeZznFEeS_dtX5aPkmvA" source="_JFeeZTnFEeS_dtX5aPkmvA" target="_JFeeZDnFEeS_dtX5aPkmvA">
+      <edges xmi:id="_MsQiaDw3EeSjqZPwpeMRMg" source="_MsQiZjw3EeSjqZPwpeMRMg" target="_MsQiZTw3EeSjqZPwpeMRMg">
         <type href="http://Statemachine/1.0#//Event/evt_container"/>
       </edges>
     </lhs>
-    <rhs xmi:id="_JFeeaDnFEeS_dtX5aPkmvA" name="RHS">
-      <nodes xmi:id="_JFeeaTnFEeS_dtX5aPkmvA" name="Selected">
+    <rhs xmi:id="_MsQiaTw3EeSjqZPwpeMRMg" name="RHS">
+      <nodes xmi:id="_MsQiajw3EeSjqZPwpeMRMg" name="Selected">
         <type href="http://Statemachine/1.0#//Transition"/>
       </nodes>
-      <formula xsi:type="henshin:Not" xmi:id="_JFeeajnFEeS_dtX5aPkmvA">
-        <child xsi:type="henshin:NestedCondition" xmi:id="_JFeeaznFEeS_dtX5aPkmvA">
-          <conclusion xmi:id="_JFeebDnFEeS_dtX5aPkmvA" name="doNotExceedUpperBound">
-            <nodes xmi:id="_JFeebTnFEeS_dtX5aPkmvA" name="Selected" outgoing="_JFeecjnFEeS_dtX5aPkmvA">
-              <type href="http://Statemachine/1.0#//Transition"/>
-            </nodes>
-            <nodes xmi:id="_JFeebjnFEeS_dtX5aPkmvA" name="New">
-              <type href="http://Statemachine/1.0#//Event"/>
-              <attributes xmi:id="_JFeebznFEeS_dtX5aPkmvA" value="Id">
-                <type href="http://CommonBase/1.0#//IDBase/id"/>
-              </attributes>
-              <attributes xmi:id="_JFeecDnFEeS_dtX5aPkmvA" value="Name">
-                <type href="http://Statemachine/1.0#//Event/name"/>
-              </attributes>
-            </nodes>
-            <nodes xmi:id="_JFeecTnFEeS_dtX5aPkmvA" incoming="_JFeecjnFEeS_dtX5aPkmvA">
-              <type href="http://Statemachine/1.0#//Event"/>
-            </nodes>
-            <edges xmi:id="_JFeecjnFEeS_dtX5aPkmvA" source="_JFeebTnFEeS_dtX5aPkmvA" target="_JFeecTnFEeS_dtX5aPkmvA">
-              <type href="http://Statemachine/1.0#//Transition/trigger"/>
-            </edges>
-          </conclusion>
-          <mappings xmi:id="_JFeecznFEeS_dtX5aPkmvA" origin="_JFeeZDnFEeS_dtX5aPkmvA" image="_JFeebTnFEeS_dtX5aPkmvA"/>
-          <mappings xmi:id="_JFeedDnFEeS_dtX5aPkmvA" origin="_JFeeZTnFEeS_dtX5aPkmvA" image="_JFeebjnFEeS_dtX5aPkmvA"/>
-        </child>
-      </formula>
     </rhs>
-    <mappings xmi:id="_JFeedTnFEeS_dtX5aPkmvA" origin="_JFeeZDnFEeS_dtX5aPkmvA" image="_JFeeaTnFEeS_dtX5aPkmvA"/>
+    <mappings xmi:id="_MsQiazw3EeSjqZPwpeMRMg" origin="_MsQiZTw3EeSjqZPwpeMRMg" image="_MsQiajw3EeSjqZPwpeMRMg"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="_JFeedjnFEeS_dtX5aPkmvA" name="mainUnit" description="Deletes one Event depending on available contexts in model instance" subUnits="_JFeeYDnFEeS_dtX5aPkmvA">
-    <parameters xmi:id="_JFeedznFEeS_dtX5aPkmvA" name="ToBeDeleted"/>
-    <parameters xmi:id="_JFeeeDnFEeS_dtX5aPkmvA" name="selectedEObject"/>
-    <parameterMappings xmi:id="_JFeeeTnFEeS_dtX5aPkmvA" source="_JFeeeDnFEeS_dtX5aPkmvA" target="_JFeeYTnFEeS_dtX5aPkmvA"/>
-    <parameterMappings xmi:id="_JFeeejnFEeS_dtX5aPkmvA" source="_JFeedznFEeS_dtX5aPkmvA" target="_JFeeYjnFEeS_dtX5aPkmvA"/>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_MsQibDw3EeSjqZPwpeMRMg" name="mainUnit" subUnits="_MsQiYTw3EeSjqZPwpeMRMg">
+    <parameters xmi:id="_MsQibTw3EeSjqZPwpeMRMg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//Transition"/>
+    </parameters>
+    <parameters xmi:id="_MsQibjw3EeSjqZPwpeMRMg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//Event"/>
+    </parameters>
+    <parameterMappings xmi:id="_MsQibzw3EeSjqZPwpeMRMg" source="_MsQibTw3EeSjqZPwpeMRMg" target="_MsQiYjw3EeSjqZPwpeMRMg"/>
+    <parameterMappings xmi:id="_MsQicDw3EeSjqZPwpeMRMg" source="_MsQibjw3EeSjqZPwpeMRMg" target="_MsQiYzw3EeSjqZPwpeMRMg"/>
   </units>
 </henshin:Module>

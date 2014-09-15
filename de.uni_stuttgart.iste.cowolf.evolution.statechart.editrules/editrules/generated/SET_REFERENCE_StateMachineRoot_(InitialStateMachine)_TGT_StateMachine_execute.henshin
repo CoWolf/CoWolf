@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_MtvwIDw3EeSjqZPwpeMRMg" name="SET_REFERENCE_StateMachineRoot_(InitialStateMachine)_TGT_StateMachine" description="Sets StateMachineRoot's reference InitialStateMachine the target StateMachine">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_MtvwITw3EeSjqZPwpeMRMg" name="setStateMachineRoot_InitialStateMachine_TO_StateMachine" description="SetStateMachineRootRefInitialStateMachineToStateMachine">
+    <parameters xmi:id="_MtvwIjw3EeSjqZPwpeMRMg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//StateMachineRoot"/>
+    </parameters>
+    <parameters xmi:id="_MtvwIzw3EeSjqZPwpeMRMg" name="NewTarget">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//StateMachine"/>
+    </parameters>
+    <lhs xmi:id="_MtvwJDw3EeSjqZPwpeMRMg" name="Lhs">
+      <nodes xmi:id="_MtvwJTw3EeSjqZPwpeMRMg" name="Selected">
+        <type href="http://Statemachine/1.0#//StateMachineRoot"/>
+      </nodes>
+      <nodes xmi:id="_MtvwJjw3EeSjqZPwpeMRMg" name="NewTarget">
+        <type href="http://Statemachine/1.0#//StateMachine"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_MtvwJzw3EeSjqZPwpeMRMg">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_MtvwKDw3EeSjqZPwpeMRMg">
+          <conclusion xmi:id="_MtvwKTw3EeSjqZPwpeMRMg" name="ub0">
+            <nodes xmi:id="_MtvwKjw3EeSjqZPwpeMRMg" outgoing="_MtvwLDw3EeSjqZPwpeMRMg">
+              <type href="http://Statemachine/1.0#//StateMachineRoot"/>
+            </nodes>
+            <nodes xmi:id="_MtvwKzw3EeSjqZPwpeMRMg" incoming="_MtvwLDw3EeSjqZPwpeMRMg">
+              <type href="http://Statemachine/1.0#//StateMachine"/>
+            </nodes>
+            <edges xmi:id="_MtvwLDw3EeSjqZPwpeMRMg" source="_MtvwKjw3EeSjqZPwpeMRMg" target="_MtvwKzw3EeSjqZPwpeMRMg">
+              <type href="http://Statemachine/1.0#//StateMachineRoot/InitialStateMachine"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_MtvwLTw3EeSjqZPwpeMRMg" origin="_MtvwJTw3EeSjqZPwpeMRMg" image="_MtvwKjw3EeSjqZPwpeMRMg"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_MtvwLjw3EeSjqZPwpeMRMg" name="Rhs">
+      <nodes xmi:id="_MtwXMDw3EeSjqZPwpeMRMg" name="Selected" outgoing="_MtwXMjw3EeSjqZPwpeMRMg">
+        <type href="http://Statemachine/1.0#//StateMachineRoot"/>
+      </nodes>
+      <nodes xmi:id="_MtwXMTw3EeSjqZPwpeMRMg" name="NewTarget" incoming="_MtwXMjw3EeSjqZPwpeMRMg">
+        <type href="http://Statemachine/1.0#//StateMachine"/>
+      </nodes>
+      <edges xmi:id="_MtwXMjw3EeSjqZPwpeMRMg" source="_MtwXMDw3EeSjqZPwpeMRMg" target="_MtwXMTw3EeSjqZPwpeMRMg">
+        <type href="http://Statemachine/1.0#//StateMachineRoot/InitialStateMachine"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_MtwXMzw3EeSjqZPwpeMRMg" origin="_MtvwJTw3EeSjqZPwpeMRMg" image="_MtwXMDw3EeSjqZPwpeMRMg"/>
+    <mappings xmi:id="_MtwXNDw3EeSjqZPwpeMRMg" origin="_MtvwJjw3EeSjqZPwpeMRMg" image="_MtwXMTw3EeSjqZPwpeMRMg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_MtwXNTw3EeSjqZPwpeMRMg" name="mainUnit" subUnits="_MtvwITw3EeSjqZPwpeMRMg">
+    <parameters xmi:id="_MtwXNjw3EeSjqZPwpeMRMg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//StateMachineRoot"/>
+    </parameters>
+    <parameters xmi:id="_MtwXNzw3EeSjqZPwpeMRMg" name="NewTarget">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//StateMachine"/>
+    </parameters>
+    <parameterMappings xmi:id="_MtwXODw3EeSjqZPwpeMRMg" source="_MtwXNjw3EeSjqZPwpeMRMg" target="_MtvwIjw3EeSjqZPwpeMRMg"/>
+    <parameterMappings xmi:id="_MtwXOTw3EeSjqZPwpeMRMg" source="_MtwXNzw3EeSjqZPwpeMRMg" target="_MtvwIzw3EeSjqZPwpeMRMg"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_MsfL4Dw3EeSjqZPwpeMRMg" name="SET_REFERENCE_DO_(stateMachineCall)_TGT_StateMachine" description="Sets DO's reference stateMachineCall the target StateMachine">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_MsfL4Tw3EeSjqZPwpeMRMg" name="setDO_stateMachineCall_TO_StateMachine" description="SetDORefstateMachineCallToStateMachine">
+    <parameters xmi:id="_MsfL4jw3EeSjqZPwpeMRMg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//DO"/>
+    </parameters>
+    <parameters xmi:id="_MsfL4zw3EeSjqZPwpeMRMg" name="NewTarget">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//StateMachine"/>
+    </parameters>
+    <lhs xmi:id="_MsfL5Dw3EeSjqZPwpeMRMg" name="Lhs">
+      <nodes xmi:id="_MsfL5Tw3EeSjqZPwpeMRMg" name="Selected">
+        <type href="http://Statemachine/1.0#//DO"/>
+      </nodes>
+      <nodes xmi:id="_MsfL5jw3EeSjqZPwpeMRMg" name="NewTarget">
+        <type href="http://Statemachine/1.0#//StateMachine"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_MsfL5zw3EeSjqZPwpeMRMg">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_MsfL6Dw3EeSjqZPwpeMRMg">
+          <conclusion xmi:id="_MsfL6Tw3EeSjqZPwpeMRMg" name="ub0">
+            <nodes xmi:id="_MsfL6jw3EeSjqZPwpeMRMg" outgoing="_MsfL7Dw3EeSjqZPwpeMRMg">
+              <type href="http://Statemachine/1.0#//DO"/>
+            </nodes>
+            <nodes xmi:id="_MsfL6zw3EeSjqZPwpeMRMg" incoming="_MsfL7Dw3EeSjqZPwpeMRMg">
+              <type href="http://Statemachine/1.0#//StateMachine"/>
+            </nodes>
+            <edges xmi:id="_MsfL7Dw3EeSjqZPwpeMRMg" source="_MsfL6jw3EeSjqZPwpeMRMg" target="_MsfL6zw3EeSjqZPwpeMRMg">
+              <type href="http://Statemachine/1.0#//Action/stateMachineCall"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_MsfL7Tw3EeSjqZPwpeMRMg" origin="_MsfL5Tw3EeSjqZPwpeMRMg" image="_MsfL6jw3EeSjqZPwpeMRMg"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_MsfL7jw3EeSjqZPwpeMRMg" name="Rhs">
+      <nodes xmi:id="_MsfL7zw3EeSjqZPwpeMRMg" name="Selected" incoming="_MsfL8jw3EeSjqZPwpeMRMg" outgoing="_MsfL8Tw3EeSjqZPwpeMRMg">
+        <type href="http://Statemachine/1.0#//DO"/>
+      </nodes>
+      <nodes xmi:id="_MsfL8Dw3EeSjqZPwpeMRMg" name="NewTarget" incoming="_MsfL8Tw3EeSjqZPwpeMRMg" outgoing="_MsfL8jw3EeSjqZPwpeMRMg">
+        <type href="http://Statemachine/1.0#//StateMachine"/>
+      </nodes>
+      <edges xmi:id="_MsfL8Tw3EeSjqZPwpeMRMg" source="_MsfL7zw3EeSjqZPwpeMRMg" target="_MsfL8Dw3EeSjqZPwpeMRMg">
+        <type href="http://Statemachine/1.0#//Action/stateMachineCall"/>
+      </edges>
+      <edges xmi:id="_MsfL8jw3EeSjqZPwpeMRMg" source="_MsfL8Dw3EeSjqZPwpeMRMg" target="_MsfL7zw3EeSjqZPwpeMRMg">
+        <type href="http://Statemachine/1.0#//StateMachine/calledByAction"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_MsfL8zw3EeSjqZPwpeMRMg" origin="_MsfL5Tw3EeSjqZPwpeMRMg" image="_MsfL7zw3EeSjqZPwpeMRMg"/>
+    <mappings xmi:id="_MsfL9Dw3EeSjqZPwpeMRMg" origin="_MsfL5jw3EeSjqZPwpeMRMg" image="_MsfL8Dw3EeSjqZPwpeMRMg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_MsfL9Tw3EeSjqZPwpeMRMg" name="mainUnit" subUnits="_MsfL4Tw3EeSjqZPwpeMRMg">
+    <parameters xmi:id="_MsfL9jw3EeSjqZPwpeMRMg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//DO"/>
+    </parameters>
+    <parameters xmi:id="_MsfL9zw3EeSjqZPwpeMRMg" name="NewTarget">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//StateMachine"/>
+    </parameters>
+    <parameterMappings xmi:id="_MsfL-Dw3EeSjqZPwpeMRMg" source="_MsfL9jw3EeSjqZPwpeMRMg" target="_MsfL4jw3EeSjqZPwpeMRMg"/>
+    <parameterMappings xmi:id="_MsfL-Tw3EeSjqZPwpeMRMg" source="_MsfL9zw3EeSjqZPwpeMRMg" target="_MsfL4zw3EeSjqZPwpeMRMg"/>
+  </units>
+</henshin:Module>

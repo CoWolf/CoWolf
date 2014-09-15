@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_MsP7UDw3EeSjqZPwpeMRMg" name="UNSET_ATTRIBUTE_TransitionAction_Value" description="Sets TransitionAction Value">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_MsP7UTw3EeSjqZPwpeMRMg" name="setTransitionActionValue" description="Sets the EAttribute value">
+    <parameters xmi:id="_MsP7Ujw3EeSjqZPwpeMRMg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//TransitionAction"/>
+    </parameters>
+    <parameters xmi:id="_MsP7Uzw3EeSjqZPwpeMRMg" name="Value">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_MsP7VDw3EeSjqZPwpeMRMg" name="LHS">
+      <nodes xmi:id="_MsP7VTw3EeSjqZPwpeMRMg" name="Selected">
+        <type href="http://Statemachine/1.0#//TransitionAction"/>
+        <attributes xmi:id="_MsP7Vjw3EeSjqZPwpeMRMg" value="Value">
+          <type href="http://Statemachine/1.0#//Action/value"/>
+        </attributes>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_MsP7Vzw3EeSjqZPwpeMRMg" name="RHS">
+      <nodes xmi:id="_MsP7WDw3EeSjqZPwpeMRMg" name="Selected">
+        <type href="http://Statemachine/1.0#//TransitionAction"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_MsP7WTw3EeSjqZPwpeMRMg" origin="_MsP7VTw3EeSjqZPwpeMRMg" image="_MsP7WDw3EeSjqZPwpeMRMg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_MsP7Wjw3EeSjqZPwpeMRMg" name="mainUnit" subUnits="_MsP7UTw3EeSjqZPwpeMRMg">
+    <parameters xmi:id="_MsP7Wzw3EeSjqZPwpeMRMg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//TransitionAction"/>
+    </parameters>
+    <parameters xmi:id="_MsP7XDw3EeSjqZPwpeMRMg" name="Value">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_MsP7XTw3EeSjqZPwpeMRMg" source="_MsP7Wzw3EeSjqZPwpeMRMg" target="_MsP7Ujw3EeSjqZPwpeMRMg"/>
+    <parameterMappings xmi:id="_MsP7Xjw3EeSjqZPwpeMRMg" source="_MsP7XDw3EeSjqZPwpeMRMg" target="_MsP7Uzw3EeSjqZPwpeMRMg"/>
+  </units>
+</henshin:Module>

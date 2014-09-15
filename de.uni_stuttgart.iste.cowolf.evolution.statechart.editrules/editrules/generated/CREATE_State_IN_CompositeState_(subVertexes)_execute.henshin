@@ -1,52 +1,72 @@
 <?xml version="1.0" encoding="ASCII"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_JBZ2sDnFEeS_dtX5aPkmvA" name="CREATE_State_IN_CompositeState_(subVertexes)" description="Creates one State in CompositeState">
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_MrvlADw3EeSjqZPwpeMRMg" name="CREATE_State_IN_CompositeState_(subVertexes)" description="Creates one State in CompositeState">
   <imports href="http://Statemachine/1.0#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="_JBadwDnFEeS_dtX5aPkmvA" name="createState_IN_CompositeState" description="creates one State in the context: CompositeState">
-    <parameters xmi:id="_JBadwTnFEeS_dtX5aPkmvA" name="Selected"/>
-    <parameters xmi:id="_JBadwjnFEeS_dtX5aPkmvA" name="New"/>
-    <parameters xmi:id="_JBadwznFEeS_dtX5aPkmvA" name="Id"/>
-    <parameters xmi:id="_JBadxDnFEeS_dtX5aPkmvA" name="Name"/>
-    <parameters xmi:id="_JBadxTnFEeS_dtX5aPkmvA" name="Label"/>
-    <lhs xmi:id="_JBadxjnFEeS_dtX5aPkmvA" name="Lhs">
-      <nodes xmi:id="_JBadxznFEeS_dtX5aPkmvA" name="Selected">
+  <units xsi:type="henshin:Rule" xmi:id="_MrvlATw3EeSjqZPwpeMRMg" name="createState_IN_CompositeState" description="creates one State in the context: CompositeState">
+    <parameters xmi:id="_MrvlAjw3EeSjqZPwpeMRMg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//CompositeState"/>
+    </parameters>
+    <parameters xmi:id="_MrvlAzw3EeSjqZPwpeMRMg" name="New">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//State"/>
+    </parameters>
+    <parameters xmi:id="_MrvlBDw3EeSjqZPwpeMRMg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_MrvlBTw3EeSjqZPwpeMRMg" name="Name">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_MrvlBjw3EeSjqZPwpeMRMg" name="Label">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_MrvlBzw3EeSjqZPwpeMRMg" name="Lhs">
+      <nodes xmi:id="_MrvlCDw3EeSjqZPwpeMRMg" name="Selected">
         <type href="http://Statemachine/1.0#//CompositeState"/>
       </nodes>
     </lhs>
-    <rhs xmi:id="_JBadyDnFEeS_dtX5aPkmvA" name="Rhs">
-      <nodes xmi:id="_JBadyTnFEeS_dtX5aPkmvA" name="Selected" incoming="_JBadzznFEeS_dtX5aPkmvA" outgoing="_JBadzjnFEeS_dtX5aPkmvA">
+    <rhs xmi:id="_MrvlCTw3EeSjqZPwpeMRMg" name="Rhs">
+      <nodes xmi:id="_MrvlCjw3EeSjqZPwpeMRMg" name="Selected" incoming="_MrvlEDw3EeSjqZPwpeMRMg" outgoing="_MrvlDzw3EeSjqZPwpeMRMg">
         <type href="http://Statemachine/1.0#//CompositeState"/>
       </nodes>
-      <nodes xmi:id="_JBadyjnFEeS_dtX5aPkmvA" name="New" incoming="_JBadzjnFEeS_dtX5aPkmvA" outgoing="_JBadzznFEeS_dtX5aPkmvA">
+      <nodes xmi:id="_MrvlCzw3EeSjqZPwpeMRMg" name="New" incoming="_MrvlDzw3EeSjqZPwpeMRMg" outgoing="_MrvlEDw3EeSjqZPwpeMRMg">
         <type href="http://Statemachine/1.0#//State"/>
-        <attributes xmi:id="_JBadyznFEeS_dtX5aPkmvA" value="Id">
+        <attributes xmi:id="_MrvlDDw3EeSjqZPwpeMRMg" value="Id">
           <type href="http://CommonBase/1.0#//IDBase/id"/>
         </attributes>
-        <attributes xmi:id="_JBadzDnFEeS_dtX5aPkmvA" value="Name">
+        <attributes xmi:id="_MrvlDTw3EeSjqZPwpeMRMg" value="Name">
           <type href="http://CommonBase/1.0#//NameBase/name"/>
         </attributes>
-        <attributes xmi:id="_JBadzTnFEeS_dtX5aPkmvA" value="Label">
+        <attributes xmi:id="_MrvlDjw3EeSjqZPwpeMRMg" value="Label">
           <type href="http://Statemachine/1.0#//State/label"/>
         </attributes>
       </nodes>
-      <edges xmi:id="_JBadzjnFEeS_dtX5aPkmvA" source="_JBadyTnFEeS_dtX5aPkmvA" target="_JBadyjnFEeS_dtX5aPkmvA">
+      <edges xmi:id="_MrvlDzw3EeSjqZPwpeMRMg" source="_MrvlCjw3EeSjqZPwpeMRMg" target="_MrvlCzw3EeSjqZPwpeMRMg">
         <type href="http://Statemachine/1.0#//CompositeState/subVertexes"/>
       </edges>
-      <edges xmi:id="_JBadzznFEeS_dtX5aPkmvA" source="_JBadyjnFEeS_dtX5aPkmvA" target="_JBadyTnFEeS_dtX5aPkmvA">
+      <edges xmi:id="_MrvlEDw3EeSjqZPwpeMRMg" source="_MrvlCzw3EeSjqZPwpeMRMg" target="_MrvlCjw3EeSjqZPwpeMRMg">
         <type href="http://Statemachine/1.0#//StateVertex/sv_container"/>
       </edges>
     </rhs>
-    <mappings xmi:id="_JBad0DnFEeS_dtX5aPkmvA" origin="_JBadxznFEeS_dtX5aPkmvA" image="_JBadyTnFEeS_dtX5aPkmvA"/>
+    <mappings xmi:id="_MrvlETw3EeSjqZPwpeMRMg" origin="_MrvlCDw3EeSjqZPwpeMRMg" image="_MrvlCjw3EeSjqZPwpeMRMg"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="_JBad0TnFEeS_dtX5aPkmvA" name="mainUnit" description="Creates one State depending on available contexts in model instance" subUnits="_JBadwDnFEeS_dtX5aPkmvA">
-    <parameters xmi:id="_JBad0jnFEeS_dtX5aPkmvA" name="New"/>
-    <parameters xmi:id="_JBad0znFEeS_dtX5aPkmvA" name="selectedEObject"/>
-    <parameters xmi:id="_JBad1DnFEeS_dtX5aPkmvA" name="Id"/>
-    <parameters xmi:id="_JBad1TnFEeS_dtX5aPkmvA" name="Name"/>
-    <parameters xmi:id="_JBad1jnFEeS_dtX5aPkmvA" name="Label"/>
-    <parameterMappings xmi:id="_JBad1znFEeS_dtX5aPkmvA" source="_JBad0znFEeS_dtX5aPkmvA" target="_JBadwTnFEeS_dtX5aPkmvA"/>
-    <parameterMappings xmi:id="_JBad2DnFEeS_dtX5aPkmvA" source="_JBadwjnFEeS_dtX5aPkmvA" target="_JBad0jnFEeS_dtX5aPkmvA"/>
-    <parameterMappings xmi:id="_JBad2TnFEeS_dtX5aPkmvA" source="_JBad1DnFEeS_dtX5aPkmvA" target="_JBadwznFEeS_dtX5aPkmvA"/>
-    <parameterMappings xmi:id="_JBad2jnFEeS_dtX5aPkmvA" source="_JBad1TnFEeS_dtX5aPkmvA" target="_JBadxDnFEeS_dtX5aPkmvA"/>
-    <parameterMappings xmi:id="_JBad2znFEeS_dtX5aPkmvA" source="_JBad1jnFEeS_dtX5aPkmvA" target="_JBadxTnFEeS_dtX5aPkmvA"/>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_MrvlEjw3EeSjqZPwpeMRMg" name="mainUnit" subUnits="_MrvlATw3EeSjqZPwpeMRMg">
+    <parameters xmi:id="_MrvlEzw3EeSjqZPwpeMRMg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//CompositeState"/>
+    </parameters>
+    <parameters xmi:id="_MrvlFDw3EeSjqZPwpeMRMg" name="New">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//State"/>
+    </parameters>
+    <parameters xmi:id="_MrvlFTw3EeSjqZPwpeMRMg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_MrvlFjw3EeSjqZPwpeMRMg" name="Name">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_MrvlFzw3EeSjqZPwpeMRMg" name="Label">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_MrvlGDw3EeSjqZPwpeMRMg" source="_MrvlEzw3EeSjqZPwpeMRMg" target="_MrvlAjw3EeSjqZPwpeMRMg"/>
+    <parameterMappings xmi:id="_MrvlGTw3EeSjqZPwpeMRMg" source="_MrvlAzw3EeSjqZPwpeMRMg" target="_MrvlFDw3EeSjqZPwpeMRMg"/>
+    <parameterMappings xmi:id="_MrvlGjw3EeSjqZPwpeMRMg" source="_MrvlFTw3EeSjqZPwpeMRMg" target="_MrvlBDw3EeSjqZPwpeMRMg"/>
+    <parameterMappings xmi:id="_MrvlGzw3EeSjqZPwpeMRMg" source="_MrvlFjw3EeSjqZPwpeMRMg" target="_MrvlBTw3EeSjqZPwpeMRMg"/>
+    <parameterMappings xmi:id="_MrvlHDw3EeSjqZPwpeMRMg" source="_MrvlFzw3EeSjqZPwpeMRMg" target="_MrvlBjw3EeSjqZPwpeMRMg"/>
   </units>
 </henshin:Module>
