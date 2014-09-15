@@ -374,8 +374,10 @@
     <mappings xmi:id="_vfpTcTpjEeSNzMAlwCTU8A" origin="_gW1hQDpjEeSNzMAlwCTU8A" image="_vfpTcDpjEeSNzMAlwCTU8A"/>
   </units>
   <units xsi:type="henshin:PriorityUnit" xmi:id="_yNajcDpyEeSNzMAlwCTU8A" name="mainUnit2" subUnits="_lH0O4DphEeSNzMAlwCTU8A"/>
-  <units xsi:type="henshin:LoopUnit" xmi:id="_6zkK0Dp7EeSNzMAlwCTU8A" name="mainUnit" subUnit="_lH0O4DphEeSNzMAlwCTU8A"/>
+  <units xsi:type="henshin:LoopUnit" xmi:id="_6zkK0Dp7EeSNzMAlwCTU8A" name="mainUnit" subUnit="__vHwwDzqEeSa1_RwEDyMUg"/>
   <units xsi:type="henshin:Rule" xmi:id="_B5WhwDp8EeSNzMAlwCTU8A" name="addPAndGate">
+    <parameters xmi:id="_YcsJcDy5EeSa1_RwEDyMUg" name="gateID"/>
+    <parameters xmi:id="_T7PjQDzUEeSa1_RwEDyMUg" name="i"/>
     <lhs xmi:id="_B5YW8Dp8EeSNzMAlwCTU8A" name="Lhs">
       <nodes xmi:id="_XOR38Dp8EeSNzMAlwCTU8A" outgoing="_ZmL4kDp-EeSNzMAlwCTU8A">
         <type href="http://FaultTree/1.0#//FaultTree"/>
@@ -388,6 +390,9 @@
       </nodes>
       <nodes xmi:id="_Wugg0Dp-EeSNzMAlwCTU8A" incoming="_ZK1ZUDp-EeSNzMAlwCTU8A _ZmL4kDp-EeSNzMAlwCTU8A">
         <type href="http://FaultTree/1.0#//PriorAND"/>
+        <attributes xmi:id="_WfYIMDy5EeSa1_RwEDyMUg" value="gateID">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
       </nodes>
       <edges xmi:id="_ZK1ZUDp-EeSNzMAlwCTU8A" source="_eluxMDp9EeSNzMAlwCTU8A" target="_Wugg0Dp-EeSNzMAlwCTU8A">
         <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddObject/obj"/>
@@ -403,6 +408,9 @@
             </nodes>
             <nodes xmi:id="_2Fpi0jp-EeSNzMAlwCTU8A" incoming="_2Fpi1Dp-EeSNzMAlwCTU8A _2Fpi1zp-EeSNzMAlwCTU8A _bJKHMDp-EeSNzMAlwCTU8A">
               <type href="http://FaultTree/1.0#//PriorAND"/>
+              <attributes xmi:id="_WfYvQTy5EeSa1_RwEDyMUg" value="gateID">
+                <type href="http://CommonBase/1.0#//IDBase/id"/>
+              </attributes>
             </nodes>
             <nodes xmi:id="_2Fpi1Tp-EeSNzMAlwCTU8A" outgoing="_2Fpi1zp-EeSNzMAlwCTU8A">
               <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddObject"/>
@@ -457,6 +465,9 @@
         <attributes xmi:id="_UVEu0Dp_EeSNzMAlwCTU8A" value="1.0">
           <type href="http://ctmc/1.0#//Transition/rate"/>
         </attributes>
+        <attributes xmi:id="_dRQ3cDzUEeSa1_RwEDyMUg" value="i -1">
+          <type href="http://ctmc/1.0#//Transition/rate"/>
+        </attributes>
       </nodes>
       <nodes xmi:id="_CGKj0Dp-EeSNzMAlwCTU8A" outgoing="_fZTGsDp-EeSNzMAlwCTU8A _imolYDp-EeSNzMAlwCTU8A">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
@@ -466,6 +477,9 @@
       </nodes>
       <nodes xmi:id="_Wugg0Tp-EeSNzMAlwCTU8A" incoming="_ZK1ZUTp-EeSNzMAlwCTU8A _ZmL4kTp-EeSNzMAlwCTU8A _fZTGsDp-EeSNzMAlwCTU8A _fAsZcDp-EeSNzMAlwCTU8A">
         <type href="http://FaultTree/1.0#//PriorAND"/>
+        <attributes xmi:id="_WfYvQDy5EeSa1_RwEDyMUg" value="gateID">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
       </nodes>
       <nodes xmi:id="_d-i_8Dp-EeSNzMAlwCTU8A" outgoing="_fAsZcDp-EeSNzMAlwCTU8A _h_JHkDp-EeSNzMAlwCTU8A">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
@@ -515,5 +529,357 @@
     <mappings xmi:id="_hYFkEjp9EeSNzMAlwCTU8A" origin="_hYFkEDp9EeSNzMAlwCTU8A" image="_hYFkETp9EeSNzMAlwCTU8A"/>
     <mappings xmi:id="_Wugg0jp-EeSNzMAlwCTU8A" origin="_Wugg0Dp-EeSNzMAlwCTU8A" image="_Wugg0Tp-EeSNzMAlwCTU8A"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="_EmEigDqDEeSNzMAlwCTU8A" name="mainInteration"/>
+  <units xsi:type="henshin:Rule" xmi:id="_sHn4cDy4EeSa1_RwEDyMUg">
+    <lhs xmi:id="_sWeMwDy4EeSa1_RwEDyMUg" name="Lhs"/>
+    <rhs xmi:id="_sWeMwTy4EeSa1_RwEDyMUg" name="Rhs"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_Ni-08Dy5EeSa1_RwEDyMUg" name="addBEToPAndGate1">
+    <parameters xmi:id="_V7G9gDy5EeSa1_RwEDyMUg" name="gateID"/>
+    <parameters xmi:id="_ZoMWcDy9EeSa1_RwEDyMUg" name="probability"/>
+    <parameters xmi:id="_zwet8Dy9EeSa1_RwEDyMUg" name="name"/>
+    <parameters xmi:id="_TbYukDzAEeSa1_RwEDyMUg" name="i"/>
+    <lhs xmi:id="_NjADEDy5EeSa1_RwEDyMUg" name="Lhs">
+      <nodes xmi:id="_ifENUDy5EeSa1_RwEDyMUg" outgoing="_EniSADy7EeSa1_RwEDyMUg _vzZE8DzLEeSa1_RwEDyMUg">
+        <type href="http://FaultTree/1.0#//FaultTree"/>
+      </nodes>
+      <nodes xmi:id="_qRtqQDy5EeSa1_RwEDyMUg" incoming="_EniSADy7EeSa1_RwEDyMUg _5biWADzuEeSa1_RwEDyMUg" outgoing="_Yh2rYDy7EeSa1_RwEDyMUg">
+        <type href="http://FaultTree/1.0#//PriorAND"/>
+        <attributes xmi:id="_4WJ1YDy5EeSa1_RwEDyMUg" value="gateID">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_1raGYDy5EeSa1_RwEDyMUg" outgoing="_pMrNcDy8EeSa1_RwEDyMUg">
+        <type href="http://ctmc/1.0#//CTMC"/>
+      </nodes>
+      <nodes xmi:id="_XIZlIDy7EeSa1_RwEDyMUg" incoming="_Yh2rYDy7EeSa1_RwEDyMUg _vzZE8DzLEeSa1_RwEDyMUg">
+        <type href="http://FaultTree/1.0#//BasicEvent"/>
+        <attributes xmi:id="_Xaqu8Dy9EeSa1_RwEDyMUg" value="probability">
+          <type href="http://FaultTree/1.0#//BasicEvent/probability"/>
+        </attributes>
+        <attributes xmi:id="_xUGyIDy9EeSa1_RwEDyMUg" value="name">
+          <type href="http://FaultTree/1.0#//Event/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_iInU0Dy8EeSa1_RwEDyMUg" incoming="_JNYbwDy7EeSa1_RwEDyMUg _pMrNcDy8EeSa1_RwEDyMUg _G_hLIDy9EeSa1_RwEDyMUg" outgoing="_ECLQQDy9EeSa1_RwEDyMUg">
+        <type href="http://ctmc/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_E3RzoDy6EeSa1_RwEDyMUg" outgoing="_JNYbwDy7EeSa1_RwEDyMUg _5biWADzuEeSa1_RwEDyMUg">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+        <attributes xmi:id="_mtdZADy8EeSa1_RwEDyMUg" value="&quot;start&quot;">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_CQrdcDy9EeSa1_RwEDyMUg" incoming="_ECLQQDy9EeSa1_RwEDyMUg" outgoing="_G_hLIDy9EeSa1_RwEDyMUg">
+        <type href="http://ctmc/1.0#//Transition"/>
+      </nodes>
+      <edges xmi:id="_EniSADy7EeSa1_RwEDyMUg" source="_ifENUDy5EeSa1_RwEDyMUg" target="_qRtqQDy5EeSa1_RwEDyMUg">
+        <type href="http://FaultTree/1.0#//FaultTree/gate"/>
+      </edges>
+      <edges xmi:id="_Yh2rYDy7EeSa1_RwEDyMUg" source="_qRtqQDy5EeSa1_RwEDyMUg" target="_XIZlIDy7EeSa1_RwEDyMUg" index="i &lt;- i + 1">
+        <type href="http://FaultTree/1.0#//Gate/inputEvents"/>
+      </edges>
+      <edges xmi:id="_JNYbwDy7EeSa1_RwEDyMUg" source="_E3RzoDy6EeSa1_RwEDyMUg" target="_iInU0Dy8EeSa1_RwEDyMUg">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+      </edges>
+      <edges xmi:id="_pMrNcDy8EeSa1_RwEDyMUg" source="_1raGYDy5EeSa1_RwEDyMUg" target="_iInU0Dy8EeSa1_RwEDyMUg">
+        <type href="http://ctmc/1.0#//CTMC/States"/>
+      </edges>
+      <edges xmi:id="_ECLQQDy9EeSa1_RwEDyMUg" source="_iInU0Dy8EeSa1_RwEDyMUg" target="_CQrdcDy9EeSa1_RwEDyMUg">
+        <type href="http://ctmc/1.0#//State/outgoing"/>
+      </edges>
+      <edges xmi:id="_G_hLIDy9EeSa1_RwEDyMUg" source="_CQrdcDy9EeSa1_RwEDyMUg" target="_iInU0Dy8EeSa1_RwEDyMUg">
+        <type href="http://ctmc/1.0#//Transition/from"/>
+      </edges>
+      <edges xmi:id="_vzZE8DzLEeSa1_RwEDyMUg" source="_ifENUDy5EeSa1_RwEDyMUg" target="_XIZlIDy7EeSa1_RwEDyMUg">
+        <type href="http://FaultTree/1.0#//FaultTree/event"/>
+      </edges>
+      <edges xmi:id="_5biWADzuEeSa1_RwEDyMUg" source="_E3RzoDy6EeSa1_RwEDyMUg" target="_qRtqQDy5EeSa1_RwEDyMUg">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_NjADETy5EeSa1_RwEDyMUg" name="Rhs">
+      <nodes xmi:id="_ifENUTy5EeSa1_RwEDyMUg" outgoing="_Eni5EDy7EeSa1_RwEDyMUg _vzZE8TzLEeSa1_RwEDyMUg">
+        <type href="http://FaultTree/1.0#//FaultTree"/>
+      </nodes>
+      <nodes xmi:id="_qRtqQTy5EeSa1_RwEDyMUg" incoming="_Eni5EDy7EeSa1_RwEDyMUg _GA_YQDy7EeSa1_RwEDyMUg _5biWATzuEeSa1_RwEDyMUg" outgoing="_Yh2rYTy7EeSa1_RwEDyMUg">
+        <type href="http://FaultTree/1.0#//PriorAND"/>
+        <attributes xmi:id="_4WJ1YTy5EeSa1_RwEDyMUg" value="gateID">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_1raGYTy5EeSa1_RwEDyMUg" outgoing="_pMrNcTy8EeSa1_RwEDyMUg">
+        <type href="http://ctmc/1.0#//CTMC"/>
+      </nodes>
+      <nodes xmi:id="_CyWugDy6EeSa1_RwEDyMUg" outgoing="_GA_YQDy7EeSa1_RwEDyMUg _GzkrwDy7EeSa1_RwEDyMUg">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+      </nodes>
+      <nodes xmi:id="_oqZRsDy6EeSa1_RwEDyMUg" incoming="_wg-W8Dy7EeSa1_RwEDyMUg _iIn74zy8EeSa1_RwEDyMUg _pMrNcTy8EeSa1_RwEDyMUg" outgoing="_v2vuMDy7EeSa1_RwEDyMUg">
+        <type href="http://ctmc/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_24WlMDy6EeSa1_RwEDyMUg" incoming="_GzkrwDy7EeSa1_RwEDyMUg _xPaxUDy7EeSa1_RwEDyMUg _RimvYDy9EeSa1_RwEDyMUg" outgoing="_xmnJUDy7EeSa1_RwEDyMUg _Q-9PwDy9EeSa1_RwEDyMUg">
+        <type href="http://ctmc/1.0#//State"/>
+        <attributes xmi:id="_qxFxEDy9EeSa1_RwEDyMUg" value="name + &quot; has failed&quot;">
+          <type href="http://ctmc/1.0#//State/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_LkdA0Dy7EeSa1_RwEDyMUg" incoming="_v2vuMDy7EeSa1_RwEDyMUg _xmnJUDy7EeSa1_RwEDyMUg _n0ERMDy7EeSa1_RwEDyMUg" outgoing="_wg-W8Dy7EeSa1_RwEDyMUg _xPaxUDy7EeSa1_RwEDyMUg">
+        <type href="http://ctmc/1.0#//Transition"/>
+        <attributes xmi:id="_FHCKEDy-EeSa1_RwEDyMUg" value="probability">
+          <type href="http://ctmc/1.0#//Transition/rate"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_XIZlITy7EeSa1_RwEDyMUg" incoming="_Yh2rYTy7EeSa1_RwEDyMUg _nU63EDy7EeSa1_RwEDyMUg _vzZE8TzLEeSa1_RwEDyMUg">
+        <type href="http://FaultTree/1.0#//BasicEvent"/>
+        <attributes xmi:id="_XarWADy9EeSa1_RwEDyMUg" value="probability">
+          <type href="http://FaultTree/1.0#//BasicEvent/probability"/>
+        </attributes>
+        <attributes xmi:id="_xUHZMDy9EeSa1_RwEDyMUg" value="name">
+          <type href="http://FaultTree/1.0#//Event/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_lnPNQDy7EeSa1_RwEDyMUg" outgoing="_nU63EDy7EeSa1_RwEDyMUg _n0ERMDy7EeSa1_RwEDyMUg">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+      </nodes>
+      <nodes xmi:id="_iIn74Dy8EeSa1_RwEDyMUg" outgoing="_iIn74zy8EeSa1_RwEDyMUg _5biWATzuEeSa1_RwEDyMUg">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+        <attributes xmi:id="_mteAEDy8EeSa1_RwEDyMUg" value="&quot;start&quot;">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_DLoCwDy9EeSa1_RwEDyMUg" incoming="_Q-9PwDy9EeSa1_RwEDyMUg" outgoing="_RimvYDy9EeSa1_RwEDyMUg">
+        <type href="http://ctmc/1.0#//Transition"/>
+      </nodes>
+      <edges xmi:id="_Eni5EDy7EeSa1_RwEDyMUg" source="_ifENUTy5EeSa1_RwEDyMUg" target="_qRtqQTy5EeSa1_RwEDyMUg">
+        <type href="http://FaultTree/1.0#//FaultTree/gate"/>
+      </edges>
+      <edges xmi:id="_Yh2rYTy7EeSa1_RwEDyMUg" source="_qRtqQTy5EeSa1_RwEDyMUg" target="_XIZlITy7EeSa1_RwEDyMUg" index="i &lt;- i + 1">
+        <type href="http://FaultTree/1.0#//Gate/inputEvents"/>
+      </edges>
+      <edges xmi:id="_nU63EDy7EeSa1_RwEDyMUg" source="_lnPNQDy7EeSa1_RwEDyMUg" target="_XIZlITy7EeSa1_RwEDyMUg">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+      <edges xmi:id="_n0ERMDy7EeSa1_RwEDyMUg" source="_lnPNQDy7EeSa1_RwEDyMUg" target="_LkdA0Dy7EeSa1_RwEDyMUg">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+      </edges>
+      <edges xmi:id="_v2vuMDy7EeSa1_RwEDyMUg" source="_oqZRsDy6EeSa1_RwEDyMUg" target="_LkdA0Dy7EeSa1_RwEDyMUg">
+        <type href="http://ctmc/1.0#//State/outgoing"/>
+      </edges>
+      <edges xmi:id="_xmnJUDy7EeSa1_RwEDyMUg" source="_24WlMDy6EeSa1_RwEDyMUg" target="_LkdA0Dy7EeSa1_RwEDyMUg">
+        <type href="http://ctmc/1.0#//State/incoming"/>
+      </edges>
+      <edges xmi:id="_wg-W8Dy7EeSa1_RwEDyMUg" source="_LkdA0Dy7EeSa1_RwEDyMUg" target="_oqZRsDy6EeSa1_RwEDyMUg">
+        <type href="http://ctmc/1.0#//Transition/from"/>
+      </edges>
+      <edges xmi:id="_xPaxUDy7EeSa1_RwEDyMUg" source="_LkdA0Dy7EeSa1_RwEDyMUg" target="_24WlMDy6EeSa1_RwEDyMUg">
+        <type href="http://ctmc/1.0#//Transition/to"/>
+      </edges>
+      <edges xmi:id="_iIn74zy8EeSa1_RwEDyMUg" source="_iIn74Dy8EeSa1_RwEDyMUg" target="_oqZRsDy6EeSa1_RwEDyMUg">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+      </edges>
+      <edges xmi:id="_pMrNcTy8EeSa1_RwEDyMUg" source="_1raGYTy5EeSa1_RwEDyMUg" target="_oqZRsDy6EeSa1_RwEDyMUg">
+        <type href="http://ctmc/1.0#//CTMC/States"/>
+      </edges>
+      <edges xmi:id="_GzkrwDy7EeSa1_RwEDyMUg" source="_CyWugDy6EeSa1_RwEDyMUg" target="_24WlMDy6EeSa1_RwEDyMUg">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+      </edges>
+      <edges xmi:id="_GA_YQDy7EeSa1_RwEDyMUg" source="_CyWugDy6EeSa1_RwEDyMUg" target="_qRtqQTy5EeSa1_RwEDyMUg">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+      <edges xmi:id="_Q-9PwDy9EeSa1_RwEDyMUg" source="_24WlMDy6EeSa1_RwEDyMUg" target="_DLoCwDy9EeSa1_RwEDyMUg">
+        <type href="http://ctmc/1.0#//State/outgoing"/>
+      </edges>
+      <edges xmi:id="_RimvYDy9EeSa1_RwEDyMUg" source="_DLoCwDy9EeSa1_RwEDyMUg" target="_24WlMDy6EeSa1_RwEDyMUg">
+        <type href="http://ctmc/1.0#//Transition/from"/>
+      </edges>
+      <edges xmi:id="_vzZE8TzLEeSa1_RwEDyMUg" source="_ifENUTy5EeSa1_RwEDyMUg" target="_XIZlITy7EeSa1_RwEDyMUg">
+        <type href="http://FaultTree/1.0#//FaultTree/event"/>
+      </edges>
+      <edges xmi:id="_5biWATzuEeSa1_RwEDyMUg" source="_iIn74Dy8EeSa1_RwEDyMUg" target="_qRtqQTy5EeSa1_RwEDyMUg">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_ifENUjy5EeSa1_RwEDyMUg" origin="_ifENUDy5EeSa1_RwEDyMUg" image="_ifENUTy5EeSa1_RwEDyMUg"/>
+    <mappings xmi:id="_qRtqQjy5EeSa1_RwEDyMUg" origin="_qRtqQDy5EeSa1_RwEDyMUg" image="_qRtqQTy5EeSa1_RwEDyMUg"/>
+    <mappings xmi:id="_1raGYjy5EeSa1_RwEDyMUg" origin="_1raGYDy5EeSa1_RwEDyMUg" image="_1raGYTy5EeSa1_RwEDyMUg"/>
+    <mappings xmi:id="_XIZlIjy7EeSa1_RwEDyMUg" origin="_XIZlIDy7EeSa1_RwEDyMUg" image="_XIZlITy7EeSa1_RwEDyMUg"/>
+    <mappings xmi:id="_iInU0Ty8EeSa1_RwEDyMUg" origin="_iInU0Dy8EeSa1_RwEDyMUg" image="_oqZRsDy6EeSa1_RwEDyMUg"/>
+    <mappings xmi:id="_iIn74Ty8EeSa1_RwEDyMUg" origin="_E3RzoDy6EeSa1_RwEDyMUg" image="_iIn74Dy8EeSa1_RwEDyMUg"/>
+    <mappings xmi:id="_DLoCwTy9EeSa1_RwEDyMUg" origin="_CQrdcDy9EeSa1_RwEDyMUg" image="_DLoCwDy9EeSa1_RwEDyMUg"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_rEKMIDy_EeSa1_RwEDyMUg" name="addBEToPAndGate2">
+    <parameters xmi:id="_wvsyoDy_EeSa1_RwEDyMUg" name="gateID"/>
+    <parameters xmi:id="_lrzx8DzAEeSa1_RwEDyMUg" name="i"/>
+    <parameters xmi:id="_CSb9sDzNEeSa1_RwEDyMUg" name="name"/>
+    <parameters xmi:id="_LMo4kDzNEeSa1_RwEDyMUg" name="probability"/>
+    <lhs xmi:id="_rEVLQDy_EeSa1_RwEDyMUg" name="Lhs">
+      <nodes xmi:id="_EL1bMDzAEeSa1_RwEDyMUg" outgoing="_ui5tcDzLEeSa1_RwEDyMUg _w25JUDzLEeSa1_RwEDyMUg">
+        <type href="http://FaultTree/1.0#//FaultTree"/>
+      </nodes>
+      <nodes xmi:id="_HAPcgDzAEeSa1_RwEDyMUg" incoming="_ui5tcDzLEeSa1_RwEDyMUg _xq6nQDzLEeSa1_RwEDyMUg" outgoing="_7oPzEDzLEeSa1_RwEDyMUg">
+        <type href="http://FaultTree/1.0#//PriorAND"/>
+      </nodes>
+      <nodes xmi:id="_JuPT0DzAEeSa1_RwEDyMUg" incoming="_w25JUDzLEeSa1_RwEDyMUg _7oPzEDzLEeSa1_RwEDyMUg">
+        <type href="http://FaultTree/1.0#//BasicEvent"/>
+        <attributes xmi:id="_AROT4DzNEeSa1_RwEDyMUg" value="name">
+          <type href="http://FaultTree/1.0#//Event/name"/>
+        </attributes>
+        <attributes xmi:id="_LyEg4DzNEeSa1_RwEDyMUg" value="probability">
+          <type href="http://FaultTree/1.0#//BasicEvent/probability"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_LIx_MDzAEeSa1_RwEDyMUg" outgoing="_ypd6MDzLEeSa1_RwEDyMUg">
+        <type href="http://ctmc/1.0#//CTMC"/>
+      </nodes>
+      <nodes xmi:id="_2JlzADzAEeSa1_RwEDyMUg" incoming="_yMV5UDzLEeSa1_RwEDyMUg _ypd6MDzLEeSa1_RwEDyMUg">
+        <type href="http://ctmc/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_3ZXY0DzAEeSa1_RwEDyMUg" outgoing="_xq6nQDzLEeSa1_RwEDyMUg _yMV5UDzLEeSa1_RwEDyMUg">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+        <attributes xmi:id="_mZpuYDzLEeSa1_RwEDyMUg" value="&quot;start&quot;">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_ui5tcDzLEeSa1_RwEDyMUg" source="_EL1bMDzAEeSa1_RwEDyMUg" target="_HAPcgDzAEeSa1_RwEDyMUg">
+        <type href="http://FaultTree/1.0#//FaultTree/gate"/>
+      </edges>
+      <edges xmi:id="_w25JUDzLEeSa1_RwEDyMUg" source="_EL1bMDzAEeSa1_RwEDyMUg" target="_JuPT0DzAEeSa1_RwEDyMUg">
+        <type href="http://FaultTree/1.0#//FaultTree/event"/>
+      </edges>
+      <edges xmi:id="_xq6nQDzLEeSa1_RwEDyMUg" source="_3ZXY0DzAEeSa1_RwEDyMUg" target="_HAPcgDzAEeSa1_RwEDyMUg">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+      <edges xmi:id="_yMV5UDzLEeSa1_RwEDyMUg" source="_3ZXY0DzAEeSa1_RwEDyMUg" target="_2JlzADzAEeSa1_RwEDyMUg">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+      </edges>
+      <edges xmi:id="_ypd6MDzLEeSa1_RwEDyMUg" source="_LIx_MDzAEeSa1_RwEDyMUg" target="_2JlzADzAEeSa1_RwEDyMUg">
+        <type href="http://ctmc/1.0#//CTMC/States"/>
+      </edges>
+      <edges xmi:id="_7oPzEDzLEeSa1_RwEDyMUg" source="_HAPcgDzAEeSa1_RwEDyMUg" target="_JuPT0DzAEeSa1_RwEDyMUg" index="i">
+        <type href="http://FaultTree/1.0#//Gate/inputEvents"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_rEVLQTy_EeSa1_RwEDyMUg" name="Rhs">
+      <nodes xmi:id="_EL1bMTzAEeSa1_RwEDyMUg" outgoing="_ui5tcTzLEeSa1_RwEDyMUg _w25wYDzLEeSa1_RwEDyMUg">
+        <type href="http://FaultTree/1.0#//FaultTree"/>
+      </nodes>
+      <nodes xmi:id="_HAPcgTzAEeSa1_RwEDyMUg" incoming="_ui5tcTzLEeSa1_RwEDyMUg _xq6nQTzLEeSa1_RwEDyMUg _21KpIDzMEeSa1_RwEDyMUg" outgoing="_7oPzETzLEeSa1_RwEDyMUg">
+        <type href="http://FaultTree/1.0#//PriorAND"/>
+      </nodes>
+      <nodes xmi:id="_JuPT0TzAEeSa1_RwEDyMUg" incoming="_w25wYDzLEeSa1_RwEDyMUg _7oPzETzLEeSa1_RwEDyMUg _0Dw4gDzMEeSa1_RwEDyMUg">
+        <type href="http://FaultTree/1.0#//BasicEvent"/>
+        <attributes xmi:id="_ARO68DzNEeSa1_RwEDyMUg" value="name">
+          <type href="http://FaultTree/1.0#//Event/name"/>
+        </attributes>
+        <attributes xmi:id="_LyEg4TzNEeSa1_RwEDyMUg" value="probability">
+          <type href="http://FaultTree/1.0#//BasicEvent/probability"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_LIx_MTzAEeSa1_RwEDyMUg" outgoing="_ypehQDzLEeSa1_RwEDyMUg">
+        <type href="http://ctmc/1.0#//CTMC"/>
+      </nodes>
+      <nodes xmi:id="_2JmaEDzAEeSa1_RwEDyMUg" incoming="_yMV5UTzLEeSa1_RwEDyMUg _ypehQDzLEeSa1_RwEDyMUg _qPydADzMEeSa1_RwEDyMUg" outgoing="_pqLOgDzMEeSa1_RwEDyMUg">
+        <type href="http://ctmc/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_3ZXY0TzAEeSa1_RwEDyMUg" outgoing="_xq6nQTzLEeSa1_RwEDyMUg _yMV5UTzLEeSa1_RwEDyMUg">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+        <attributes xmi:id="_mZpuYTzLEeSa1_RwEDyMUg" value="&quot;start&quot;">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_Ohi0UDzMEeSa1_RwEDyMUg" incoming="_pqLOgDzMEeSa1_RwEDyMUg _rbZUgDzMEeSa1_RwEDyMUg _06SQ0DzMEeSa1_RwEDyMUg" outgoing="_qPydADzMEeSa1_RwEDyMUg _qs7E8DzMEeSa1_RwEDyMUg">
+        <type href="http://ctmc/1.0#//Transition"/>
+        <attributes xmi:id="_NayyMDzNEeSa1_RwEDyMUg" value="probability">
+          <type href="http://ctmc/1.0#//Transition/rate"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_QoLwsDzMEeSa1_RwEDyMUg" incoming="_4MscwDzMEeSa1_RwEDyMUg _qs7E8DzMEeSa1_RwEDyMUg" outgoing="_rbZUgDzMEeSa1_RwEDyMUg">
+        <type href="http://ctmc/1.0#//State"/>
+        <attributes xmi:id="_FpjDcDzNEeSa1_RwEDyMUg" value="name + &quot; has failed&quot;">
+          <type href="http://ctmc/1.0#//State/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_twqiwDzMEeSa1_RwEDyMUg" outgoing="_0Dw4gDzMEeSa1_RwEDyMUg _06SQ0DzMEeSa1_RwEDyMUg">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+      </nodes>
+      <nodes xmi:id="_u9SG4DzMEeSa1_RwEDyMUg" outgoing="_21KpIDzMEeSa1_RwEDyMUg _4MscwDzMEeSa1_RwEDyMUg">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+      </nodes>
+      <edges xmi:id="_ui5tcTzLEeSa1_RwEDyMUg" source="_EL1bMTzAEeSa1_RwEDyMUg" target="_HAPcgTzAEeSa1_RwEDyMUg">
+        <type href="http://FaultTree/1.0#//FaultTree/gate"/>
+      </edges>
+      <edges xmi:id="_w25wYDzLEeSa1_RwEDyMUg" source="_EL1bMTzAEeSa1_RwEDyMUg" target="_JuPT0TzAEeSa1_RwEDyMUg">
+        <type href="http://FaultTree/1.0#//FaultTree/event"/>
+      </edges>
+      <edges xmi:id="_xq6nQTzLEeSa1_RwEDyMUg" source="_3ZXY0TzAEeSa1_RwEDyMUg" target="_HAPcgTzAEeSa1_RwEDyMUg">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+      <edges xmi:id="_yMV5UTzLEeSa1_RwEDyMUg" source="_3ZXY0TzAEeSa1_RwEDyMUg" target="_2JmaEDzAEeSa1_RwEDyMUg">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+      </edges>
+      <edges xmi:id="_ypehQDzLEeSa1_RwEDyMUg" source="_LIx_MTzAEeSa1_RwEDyMUg" target="_2JmaEDzAEeSa1_RwEDyMUg">
+        <type href="http://ctmc/1.0#//CTMC/States"/>
+      </edges>
+      <edges xmi:id="_7oPzETzLEeSa1_RwEDyMUg" source="_HAPcgTzAEeSa1_RwEDyMUg" target="_JuPT0TzAEeSa1_RwEDyMUg" index="i">
+        <type href="http://FaultTree/1.0#//Gate/inputEvents"/>
+      </edges>
+      <edges xmi:id="_pqLOgDzMEeSa1_RwEDyMUg" source="_2JmaEDzAEeSa1_RwEDyMUg" target="_Ohi0UDzMEeSa1_RwEDyMUg">
+        <type href="http://ctmc/1.0#//State/outgoing"/>
+      </edges>
+      <edges xmi:id="_rbZUgDzMEeSa1_RwEDyMUg" source="_QoLwsDzMEeSa1_RwEDyMUg" target="_Ohi0UDzMEeSa1_RwEDyMUg">
+        <type href="http://ctmc/1.0#//State/incoming"/>
+      </edges>
+      <edges xmi:id="_06SQ0DzMEeSa1_RwEDyMUg" source="_twqiwDzMEeSa1_RwEDyMUg" target="_Ohi0UDzMEeSa1_RwEDyMUg">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+      </edges>
+      <edges xmi:id="_qPydADzMEeSa1_RwEDyMUg" source="_Ohi0UDzMEeSa1_RwEDyMUg" target="_2JmaEDzAEeSa1_RwEDyMUg">
+        <type href="http://ctmc/1.0#//Transition/from"/>
+      </edges>
+      <edges xmi:id="_qs7E8DzMEeSa1_RwEDyMUg" source="_Ohi0UDzMEeSa1_RwEDyMUg" target="_QoLwsDzMEeSa1_RwEDyMUg">
+        <type href="http://ctmc/1.0#//Transition/to"/>
+      </edges>
+      <edges xmi:id="_4MscwDzMEeSa1_RwEDyMUg" source="_u9SG4DzMEeSa1_RwEDyMUg" target="_QoLwsDzMEeSa1_RwEDyMUg">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+      </edges>
+      <edges xmi:id="_21KpIDzMEeSa1_RwEDyMUg" source="_u9SG4DzMEeSa1_RwEDyMUg" target="_HAPcgTzAEeSa1_RwEDyMUg">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+      <edges xmi:id="_0Dw4gDzMEeSa1_RwEDyMUg" source="_twqiwDzMEeSa1_RwEDyMUg" target="_JuPT0TzAEeSa1_RwEDyMUg">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_EL1bMjzAEeSa1_RwEDyMUg" origin="_EL1bMDzAEeSa1_RwEDyMUg" image="_EL1bMTzAEeSa1_RwEDyMUg"/>
+    <mappings xmi:id="_HAPcgjzAEeSa1_RwEDyMUg" origin="_HAPcgDzAEeSa1_RwEDyMUg" image="_HAPcgTzAEeSa1_RwEDyMUg"/>
+    <mappings xmi:id="_JuPT0jzAEeSa1_RwEDyMUg" origin="_JuPT0DzAEeSa1_RwEDyMUg" image="_JuPT0TzAEeSa1_RwEDyMUg"/>
+    <mappings xmi:id="_LIx_MjzAEeSa1_RwEDyMUg" origin="_LIx_MDzAEeSa1_RwEDyMUg" image="_LIx_MTzAEeSa1_RwEDyMUg"/>
+    <mappings xmi:id="_2JmaETzAEeSa1_RwEDyMUg" origin="_2JlzADzAEeSa1_RwEDyMUg" image="_2JmaEDzAEeSa1_RwEDyMUg"/>
+    <mappings xmi:id="_3ZXY0jzAEeSa1_RwEDyMUg" origin="_3ZXY0DzAEeSa1_RwEDyMUg" image="_3ZXY0TzAEeSa1_RwEDyMUg"/>
+  </units>
+  <units xsi:type="henshin:LoopUnit" xmi:id="_Cv1O4DzOEeSa1_RwEDyMUg" name="addBELoop" subUnit="_SNRuIDzrEeSa1_RwEDyMUg">
+    <parameters xmi:id="_d1so8DzOEeSa1_RwEDyMUg" name="gateID"/>
+    <parameters xmi:id="_4FL0oDzOEeSa1_RwEDyMUg" name="i"/>
+    <parameterMappings xmi:id="_msgLYDzrEeSa1_RwEDyMUg" source="_d1so8DzOEeSa1_RwEDyMUg" target="_XlESMDzrEeSa1_RwEDyMUg"/>
+    <parameterMappings xmi:id="_msgycDzrEeSa1_RwEDyMUg" source="_XlESMDzrEeSa1_RwEDyMUg" target="_d1so8DzOEeSa1_RwEDyMUg"/>
+    <parameterMappings xmi:id="_msgycTzrEeSa1_RwEDyMUg" source="_4FL0oDzOEeSa1_RwEDyMUg" target="_XlESMTzrEeSa1_RwEDyMUg"/>
+    <parameterMappings xmi:id="_msgycjzrEeSa1_RwEDyMUg" source="_XlESMTzrEeSa1_RwEDyMUg" target="_4FL0oDzOEeSa1_RwEDyMUg"/>
+  </units>
+  <units xsi:type="henshin:SequentialUnit" xmi:id="__vHwwDzqEeSa1_RwEDyMUg" name="mainIteration" subUnits="_B5WhwDp8EeSNzMAlwCTU8A _Cv1O4DzOEeSa1_RwEDyMUg">
+    <parameters xmi:id="_CEBLkDzrEeSa1_RwEDyMUg" name="gateID"/>
+    <parameters xmi:id="_CEBLkTzrEeSa1_RwEDyMUg" name="i"/>
+    <parameterMappings xmi:id="_qK1TcDzrEeSa1_RwEDyMUg" source="_CEBLkDzrEeSa1_RwEDyMUg" target="_d1so8DzOEeSa1_RwEDyMUg"/>
+    <parameterMappings xmi:id="_qK1TcTzrEeSa1_RwEDyMUg" source="_d1so8DzOEeSa1_RwEDyMUg" target="_CEBLkDzrEeSa1_RwEDyMUg"/>
+    <parameterMappings xmi:id="_qK1TcjzrEeSa1_RwEDyMUg" source="_CEBLkTzrEeSa1_RwEDyMUg" target="_4FL0oDzOEeSa1_RwEDyMUg"/>
+    <parameterMappings xmi:id="_qK1TczzrEeSa1_RwEDyMUg" source="_4FL0oDzOEeSa1_RwEDyMUg" target="_CEBLkTzrEeSa1_RwEDyMUg"/>
+  </units>
+  <units xsi:type="henshin:SequentialUnit" xmi:id="_SNRuIDzrEeSa1_RwEDyMUg" name="addBESequence" subUnits="_Ni-08Dy5EeSa1_RwEDyMUg _rEKMIDy_EeSa1_RwEDyMUg">
+    <parameters xmi:id="_XlESMDzrEeSa1_RwEDyMUg" name="gateID"/>
+    <parameters xmi:id="_XlESMTzrEeSa1_RwEDyMUg" name="i"/>
+    <parameterMappings xmi:id="_edzEkDzrEeSa1_RwEDyMUg" source="_XlESMDzrEeSa1_RwEDyMUg" target="_V7G9gDy5EeSa1_RwEDyMUg"/>
+    <parameterMappings xmi:id="_edzroDzrEeSa1_RwEDyMUg" source="_V7G9gDy5EeSa1_RwEDyMUg" target="_XlESMDzrEeSa1_RwEDyMUg"/>
+    <parameterMappings xmi:id="_edzroTzrEeSa1_RwEDyMUg" source="_XlESMTzrEeSa1_RwEDyMUg" target="_TbYukDzAEeSa1_RwEDyMUg"/>
+    <parameterMappings xmi:id="_edzrojzrEeSa1_RwEDyMUg" source="_TbYukDzAEeSa1_RwEDyMUg" target="_XlESMTzrEeSa1_RwEDyMUg"/>
+    <parameterMappings xmi:id="_iwQ_UDzrEeSa1_RwEDyMUg" source="_XlESMDzrEeSa1_RwEDyMUg" target="_wvsyoDy_EeSa1_RwEDyMUg"/>
+    <parameterMappings xmi:id="_iwQ_UTzrEeSa1_RwEDyMUg" source="_wvsyoDy_EeSa1_RwEDyMUg" target="_XlESMDzrEeSa1_RwEDyMUg"/>
+    <parameterMappings xmi:id="_iwQ_UjzrEeSa1_RwEDyMUg" source="_XlESMTzrEeSa1_RwEDyMUg" target="_lrzx8DzAEeSa1_RwEDyMUg"/>
+    <parameterMappings xmi:id="_iwRmYDzrEeSa1_RwEDyMUg" source="_lrzx8DzAEeSa1_RwEDyMUg" target="_XlESMTzrEeSa1_RwEDyMUg"/>
+  </units>
 </henshin:Module>
