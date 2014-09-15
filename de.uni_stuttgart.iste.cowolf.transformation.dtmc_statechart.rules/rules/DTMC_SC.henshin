@@ -41,6 +41,9 @@
       </nodes>
       <nodes xmi:id="_Z39EADytEeS1JYikfv1TuA" incoming="_eQGI8DytEeS1JYikfv1TuA _eunQ8DytEeS1JYikfv1TuA">
         <type href="http://Statemachine/1.0#//State"/>
+        <attributes xmi:id="_kfepEDy9EeSpppgirRP3Yw" value="name">
+          <type href="http://CommonBase/1.0#//NameBase/name"/>
+        </attributes>
       </nodes>
       <nodes xmi:id="_aRj20TytEeS1JYikfv1TuA" outgoing="_duFoEDytEeS1JYikfv1TuA">
         <type href="http://Statemachine/1.0#//StateMachineRoot"/>
@@ -68,75 +71,70 @@
   <units xsi:type="henshin:Rule" xmi:id="_k0mXwDytEeS1JYikfv1TuA" name="DeletedStateInDTMC" checkDangling="false">
     <parameters xmi:id="_rHQr0DyxEeS1JYikfv1TuA" name="id"/>
     <lhs xmi:id="_k0qpMDytEeS1JYikfv1TuA" name="Lhs">
-      <nodes xmi:id="_mv1VYDytEeS1JYikfv1TuA" incoming="_oi5OcDytEeS1JYikfv1TuA">
-        <type href="http://Statemachine/1.0#//State"/>
-      </nodes>
-      <nodes xmi:id="_nFT2IDytEeS1JYikfv1TuA" incoming="_n-NNADytEeS1JYikfv1TuA">
-        <type href="http://Statemachine/1.0#//State"/>
-        <attributes xmi:id="_r3ufcDyxEeS1JYikfv1TuA" value="id">
-          <type href="http://CommonBase/1.0#//IDBase/id"/>
-        </attributes>
-      </nodes>
-      <nodes xmi:id="_ncUA4DytEeS1JYikfv1TuA" outgoing="_n-NNADytEeS1JYikfv1TuA _oi5OcDytEeS1JYikfv1TuA">
+      <nodes xmi:id="_ncUA4DytEeS1JYikfv1TuA" outgoing="_U7hQIDy2EeS1JYikfv1TuA _XjC2kDy3EeSpppgirRP3Yw">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
       </nodes>
-      <edges xmi:id="_n-NNADytEeS1JYikfv1TuA" source="_ncUA4DytEeS1JYikfv1TuA" target="_nFT2IDytEeS1JYikfv1TuA">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
-      </edges>
-      <edges xmi:id="_oi5OcDytEeS1JYikfv1TuA" source="_ncUA4DytEeS1JYikfv1TuA" target="_mv1VYDytEeS1JYikfv1TuA">
+      <nodes xmi:id="_UfbKADy2EeS1JYikfv1TuA" incoming="_U7hQIDy2EeS1JYikfv1TuA _EpOQ4Dy3EeSpppgirRP3Yw">
+        <type href="http://Statemachine/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_DHVnYDy3EeSpppgirRP3Yw" outgoing="_EpOQ4Dy3EeSpppgirRP3Yw">
+        <type href="http://Statemachine/1.0#//StateMachine"/>
+      </nodes>
+      <nodes xmi:id="_XHCQADy3EeSpppgirRP3Yw" incoming="_XjC2kDy3EeSpppgirRP3Yw">
+        <type href="http://dtmc/1.0#//State"/>
+      </nodes>
+      <edges xmi:id="_U7hQIDy2EeS1JYikfv1TuA" source="_ncUA4DytEeS1JYikfv1TuA" target="_UfbKADy2EeS1JYikfv1TuA">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+      </edges>
+      <edges xmi:id="_EpOQ4Dy3EeSpppgirRP3Yw" source="_DHVnYDy3EeSpppgirRP3Yw" target="_UfbKADy2EeS1JYikfv1TuA">
+        <type href="http://Statemachine/1.0#//StateMachine/top"/>
+      </edges>
+      <edges xmi:id="_XjC2kDy3EeSpppgirRP3Yw" source="_ncUA4DytEeS1JYikfv1TuA" target="_XHCQADy3EeSpppgirRP3Yw">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
       </edges>
     </lhs>
     <rhs xmi:id="_k0qpMTytEeS1JYikfv1TuA" name="Rhs">
-      <nodes xmi:id="_nFT2ITytEeS1JYikfv1TuA">
-        <type href="http://Statemachine/1.0#//State"/>
-        <attributes xmi:id="_r3wUoDyxEeS1JYikfv1TuA" value="id">
-          <type href="http://CommonBase/1.0#//IDBase/id"/>
-        </attributes>
+      <nodes xmi:id="_D2iPsDy3EeSpppgirRP3Yw">
+        <type href="http://Statemachine/1.0#//StateMachine"/>
+      </nodes>
+      <nodes xmi:id="_XHC3EDy3EeSpppgirRP3Yw">
+        <type href="http://dtmc/1.0#//State"/>
       </nodes>
     </rhs>
-    <mappings xmi:id="_nFT2IjytEeS1JYikfv1TuA" origin="_nFT2IDytEeS1JYikfv1TuA" image="_nFT2ITytEeS1JYikfv1TuA"/>
+    <mappings xmi:id="_D2iPsTy3EeSpppgirRP3Yw" origin="_DHVnYDy3EeSpppgirRP3Yw" image="_D2iPsDy3EeSpppgirRP3Yw"/>
+    <mappings xmi:id="_XHC3ETy3EeSpppgirRP3Yw" origin="_XHCQADy3EeSpppgirRP3Yw" image="_XHC3EDy3EeSpppgirRP3Yw"/>
   </units>
-  <units xsi:type="henshin:Rule" xmi:id="_swkIwDytEeS1JYikfv1TuA" name="CreatedTransitionInDTMC">
+  <units xsi:type="henshin:Rule" xmi:id="_swkIwDytEeS1JYikfv1TuA" name="CreatedTransitionInDTMC" checkDangling="false">
     <parameters xmi:id="_uYJxoDytEeS1JYikfv1TuA" name="id"/>
     <lhs xmi:id="_swnzIDytEeS1JYikfv1TuA" name="Lhs">
-      <nodes xmi:id="_vuw_QDytEeS1JYikfv1TuA" outgoing="_xkvpcDytEeS1JYikfv1TuA _x30WcDytEeS1JYikfv1TuA">
+      <nodes xmi:id="_vuw_QDytEeS1JYikfv1TuA" incoming="_QECfoDy9EeSpppgirRP3Yw" outgoing="_ObqzoDy9EeSpppgirRP3Yw">
         <type href="http://dtmc/1.0#//Transition"/>
         <attributes xmi:id="_yiTd4DytEeS1JYikfv1TuA" value="id">
           <type href="http://CommonBase/1.0#//IDBase/id"/>
         </attributes>
       </nodes>
-      <nodes xmi:id="_w2Qy0DytEeS1JYikfv1TuA" incoming="_x30WcDytEeS1JYikfv1TuA _0RjN8DytEeS1JYikfv1TuA">
+      <nodes xmi:id="_w99WQDytEeS1JYikfv1TuA" incoming="_ztUfgDytEeS1JYikfv1TuA" outgoing="_QECfoDy9EeSpppgirRP3Yw">
         <type href="http://dtmc/1.0#//State"/>
       </nodes>
-      <nodes xmi:id="_w99WQDytEeS1JYikfv1TuA" incoming="_xkvpcDytEeS1JYikfv1TuA _ztUfgDytEeS1JYikfv1TuA">
-        <type href="http://dtmc/1.0#//State"/>
-      </nodes>
-      <nodes xmi:id="_zA4QQDytEeS1JYikfv1TuA" outgoing="_0RjN8DytEeS1JYikfv1TuA _3MGTgDytEeS1JYikfv1TuA">
+      <nodes xmi:id="_zA4QQDytEeS1JYikfv1TuA" outgoing="_3MGTgDytEeS1JYikfv1TuA _O1dMoDy9EeSpppgirRP3Yw">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
       </nodes>
       <nodes xmi:id="_zNkBYDytEeS1JYikfv1TuA" outgoing="_ztUfgDytEeS1JYikfv1TuA _3gsqgDytEeS1JYikfv1TuA">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
       </nodes>
-      <nodes xmi:id="_1wa_sDytEeS1JYikfv1TuA" incoming="_3MGTgDytEeS1JYikfv1TuA _7XJXoDytEeS1JYikfv1TuA">
+      <nodes xmi:id="_1wa_sDytEeS1JYikfv1TuA" incoming="_3MGTgDytEeS1JYikfv1TuA">
         <type href="http://Statemachine/1.0#//State"/>
       </nodes>
       <nodes xmi:id="_142i8DytEeS1JYikfv1TuA" incoming="_3gsqgDytEeS1JYikfv1TuA">
         <type href="http://Statemachine/1.0#//State"/>
       </nodes>
-      <nodes xmi:id="_58FH0DytEeS1JYikfv1TuA" outgoing="_7XJXoDytEeS1JYikfv1TuA">
+      <nodes xmi:id="_58FH0DytEeS1JYikfv1TuA">
         <type href="http://Statemachine/1.0#//StateMachine"/>
       </nodes>
-      <edges xmi:id="_xkvpcDytEeS1JYikfv1TuA" source="_vuw_QDytEeS1JYikfv1TuA" target="_w99WQDytEeS1JYikfv1TuA">
-        <type href="http://dtmc/1.0#//Transition/from"/>
-      </edges>
-      <edges xmi:id="_x30WcDytEeS1JYikfv1TuA" source="_vuw_QDytEeS1JYikfv1TuA" target="_w2Qy0DytEeS1JYikfv1TuA">
-        <type href="http://dtmc/1.0#//Transition/to"/>
-      </edges>
+      <nodes xmi:id="_Nz63IDy9EeSpppgirRP3Yw" incoming="_ObqzoDy9EeSpppgirRP3Yw _O1dMoDy9EeSpppgirRP3Yw">
+        <type href="http://dtmc/1.0#//State"/>
+      </nodes>
       <edges xmi:id="_ztUfgDytEeS1JYikfv1TuA" source="_zNkBYDytEeS1JYikfv1TuA" target="_w99WQDytEeS1JYikfv1TuA">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
-      </edges>
-      <edges xmi:id="_0RjN8DytEeS1JYikfv1TuA" source="_zA4QQDytEeS1JYikfv1TuA" target="_w2Qy0DytEeS1JYikfv1TuA">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
       </edges>
       <edges xmi:id="_3MGTgDytEeS1JYikfv1TuA" source="_zA4QQDytEeS1JYikfv1TuA" target="_1wa_sDytEeS1JYikfv1TuA">
@@ -145,24 +143,27 @@
       <edges xmi:id="_3gsqgDytEeS1JYikfv1TuA" source="_zNkBYDytEeS1JYikfv1TuA" target="_142i8DytEeS1JYikfv1TuA">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
       </edges>
-      <edges xmi:id="_7XJXoDytEeS1JYikfv1TuA" source="_58FH0DytEeS1JYikfv1TuA" target="_1wa_sDytEeS1JYikfv1TuA">
-        <type href="http://Statemachine/1.0#//StateMachine/top"/>
+      <edges xmi:id="_ObqzoDy9EeSpppgirRP3Yw" source="_vuw_QDytEeS1JYikfv1TuA" target="_Nz63IDy9EeSpppgirRP3Yw">
+        <type href="http://dtmc/1.0#//Transition/to"/>
+      </edges>
+      <edges xmi:id="_O1dMoDy9EeSpppgirRP3Yw" source="_zA4QQDytEeS1JYikfv1TuA" target="_Nz63IDy9EeSpppgirRP3Yw">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+      <edges xmi:id="_QECfoDy9EeSpppgirRP3Yw" source="_w99WQDytEeS1JYikfv1TuA" target="_vuw_QDytEeS1JYikfv1TuA">
+        <type href="http://dtmc/1.0#//State/outgoing"/>
       </edges>
     </lhs>
     <rhs xmi:id="_swnzITytEeS1JYikfv1TuA" name="Rhs">
-      <nodes xmi:id="_vuw_QTytEeS1JYikfv1TuA" incoming="_z9Gn8DytEeS1JYikfv1TuA" outgoing="_xkwQgDytEeS1JYikfv1TuA _x309gDytEeS1JYikfv1TuA">
+      <nodes xmi:id="_vuw_QTytEeS1JYikfv1TuA" incoming="_z9Gn8DytEeS1JYikfv1TuA _QECfoTy9EeSpppgirRP3Yw" outgoing="_ObqzoTy9EeSpppgirRP3Yw">
         <type href="http://dtmc/1.0#//Transition"/>
         <attributes xmi:id="_yiTd4TytEeS1JYikfv1TuA" value="id">
           <type href="http://CommonBase/1.0#//IDBase/id"/>
         </attributes>
       </nodes>
-      <nodes xmi:id="_w2Qy0TytEeS1JYikfv1TuA" incoming="_x309gDytEeS1JYikfv1TuA _0Rj1ADytEeS1JYikfv1TuA">
+      <nodes xmi:id="_w99WQTytEeS1JYikfv1TuA" incoming="_ztVGkDytEeS1JYikfv1TuA" outgoing="_QECfoTy9EeSpppgirRP3Yw">
         <type href="http://dtmc/1.0#//State"/>
       </nodes>
-      <nodes xmi:id="_w99WQTytEeS1JYikfv1TuA" incoming="_xkwQgDytEeS1JYikfv1TuA _ztVGkDytEeS1JYikfv1TuA">
-        <type href="http://dtmc/1.0#//State"/>
-      </nodes>
-      <nodes xmi:id="_zA4QQTytEeS1JYikfv1TuA" outgoing="_0Rj1ADytEeS1JYikfv1TuA _3MGTgTytEeS1JYikfv1TuA">
+      <nodes xmi:id="_zA4QQTytEeS1JYikfv1TuA" outgoing="_3MGTgTytEeS1JYikfv1TuA _O1dzsDy9EeSpppgirRP3Yw">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
       </nodes>
       <nodes xmi:id="_zGyD8DytEeS1JYikfv1TuA" outgoing="_z9Gn8DytEeS1JYikfv1TuA _2rW98DytEeS1JYikfv1TuA">
@@ -171,28 +172,22 @@
       <nodes xmi:id="_zNkBYTytEeS1JYikfv1TuA" outgoing="_ztVGkDytEeS1JYikfv1TuA _3gsqgTytEeS1JYikfv1TuA">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
       </nodes>
-      <nodes xmi:id="_0kNEMDytEeS1JYikfv1TuA" incoming="_2rW98DytEeS1JYikfv1TuA _8nnhADytEeS1JYikfv1TuA">
+      <nodes xmi:id="_0kNEMDytEeS1JYikfv1TuA" incoming="_2rW98DytEeS1JYikfv1TuA _8nnhADytEeS1JYikfv1TuA" outgoing="_7hHOIDy8EeSpppgirRP3Yw _7yvJoDy8EeSpppgirRP3Yw">
         <type href="http://Statemachine/1.0#//Transition"/>
       </nodes>
-      <nodes xmi:id="_1wa_sTytEeS1JYikfv1TuA" incoming="_3MGTgTytEeS1JYikfv1TuA _7XJ-sDytEeS1JYikfv1TuA">
+      <nodes xmi:id="_1wa_sTytEeS1JYikfv1TuA" incoming="_3MGTgTytEeS1JYikfv1TuA _7yvJoDy8EeSpppgirRP3Yw">
         <type href="http://Statemachine/1.0#//State"/>
       </nodes>
-      <nodes xmi:id="_143KADytEeS1JYikfv1TuA" incoming="_3gsqgTytEeS1JYikfv1TuA">
+      <nodes xmi:id="_143KADytEeS1JYikfv1TuA" incoming="_3gsqgTytEeS1JYikfv1TuA _7hHOIDy8EeSpppgirRP3Yw">
         <type href="http://Statemachine/1.0#//State"/>
       </nodes>
-      <nodes xmi:id="_6n_LkDytEeS1JYikfv1TuA" outgoing="_7XJ-sDytEeS1JYikfv1TuA _8nnhADytEeS1JYikfv1TuA">
+      <nodes xmi:id="_6n_LkDytEeS1JYikfv1TuA" outgoing="_8nnhADytEeS1JYikfv1TuA">
         <type href="http://Statemachine/1.0#//StateMachine"/>
       </nodes>
-      <edges xmi:id="_xkwQgDytEeS1JYikfv1TuA" source="_vuw_QTytEeS1JYikfv1TuA" target="_w99WQTytEeS1JYikfv1TuA">
-        <type href="http://dtmc/1.0#//Transition/from"/>
-      </edges>
-      <edges xmi:id="_x309gDytEeS1JYikfv1TuA" source="_vuw_QTytEeS1JYikfv1TuA" target="_w2Qy0TytEeS1JYikfv1TuA">
-        <type href="http://dtmc/1.0#//Transition/to"/>
-      </edges>
+      <nodes xmi:id="_Nz63ITy9EeSpppgirRP3Yw" incoming="_ObqzoTy9EeSpppgirRP3Yw _O1dzsDy9EeSpppgirRP3Yw">
+        <type href="http://dtmc/1.0#//State"/>
+      </nodes>
       <edges xmi:id="_ztVGkDytEeS1JYikfv1TuA" source="_zNkBYTytEeS1JYikfv1TuA" target="_w99WQTytEeS1JYikfv1TuA">
-        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
-      </edges>
-      <edges xmi:id="_0Rj1ADytEeS1JYikfv1TuA" source="_zA4QQTytEeS1JYikfv1TuA" target="_w2Qy0TytEeS1JYikfv1TuA">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
       </edges>
       <edges xmi:id="_3MGTgTytEeS1JYikfv1TuA" source="_zA4QQTytEeS1JYikfv1TuA" target="_1wa_sTytEeS1JYikfv1TuA">
@@ -207,47 +202,79 @@
       <edges xmi:id="_2rW98DytEeS1JYikfv1TuA" source="_zGyD8DytEeS1JYikfv1TuA" target="_0kNEMDytEeS1JYikfv1TuA">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
       </edges>
-      <edges xmi:id="_7XJ-sDytEeS1JYikfv1TuA" source="_6n_LkDytEeS1JYikfv1TuA" target="_1wa_sTytEeS1JYikfv1TuA">
-        <type href="http://Statemachine/1.0#//StateMachine/top"/>
-      </edges>
       <edges xmi:id="_8nnhADytEeS1JYikfv1TuA" source="_6n_LkDytEeS1JYikfv1TuA" target="_0kNEMDytEeS1JYikfv1TuA">
         <type href="http://Statemachine/1.0#//StateMachine/transitions"/>
       </edges>
+      <edges xmi:id="_7hHOIDy8EeSpppgirRP3Yw" source="_0kNEMDytEeS1JYikfv1TuA" target="_143KADytEeS1JYikfv1TuA">
+        <type href="http://Statemachine/1.0#//Transition/source"/>
+      </edges>
+      <edges xmi:id="_7yvJoDy8EeSpppgirRP3Yw" source="_0kNEMDytEeS1JYikfv1TuA" target="_1wa_sTytEeS1JYikfv1TuA">
+        <type href="http://Statemachine/1.0#//Transition/target"/>
+      </edges>
+      <edges xmi:id="_ObqzoTy9EeSpppgirRP3Yw" source="_vuw_QTytEeS1JYikfv1TuA" target="_Nz63ITy9EeSpppgirRP3Yw">
+        <type href="http://dtmc/1.0#//Transition/to"/>
+      </edges>
+      <edges xmi:id="_O1dzsDy9EeSpppgirRP3Yw" source="_zA4QQTytEeS1JYikfv1TuA" target="_Nz63ITy9EeSpppgirRP3Yw">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+      <edges xmi:id="_QECfoTy9EeSpppgirRP3Yw" source="_w99WQTytEeS1JYikfv1TuA" target="_vuw_QTytEeS1JYikfv1TuA">
+        <type href="http://dtmc/1.0#//State/outgoing"/>
+      </edges>
     </rhs>
     <mappings xmi:id="_vuw_QjytEeS1JYikfv1TuA" origin="_vuw_QDytEeS1JYikfv1TuA" image="_vuw_QTytEeS1JYikfv1TuA"/>
-    <mappings xmi:id="_w2Qy0jytEeS1JYikfv1TuA" origin="_w2Qy0DytEeS1JYikfv1TuA" image="_w2Qy0TytEeS1JYikfv1TuA"/>
     <mappings xmi:id="_w99WQjytEeS1JYikfv1TuA" origin="_w99WQDytEeS1JYikfv1TuA" image="_w99WQTytEeS1JYikfv1TuA"/>
     <mappings xmi:id="_zA4QQjytEeS1JYikfv1TuA" origin="_zA4QQDytEeS1JYikfv1TuA" image="_zA4QQTytEeS1JYikfv1TuA"/>
     <mappings xmi:id="_zNkBYjytEeS1JYikfv1TuA" origin="_zNkBYDytEeS1JYikfv1TuA" image="_zNkBYTytEeS1JYikfv1TuA"/>
     <mappings xmi:id="_1wa_sjytEeS1JYikfv1TuA" origin="_1wa_sDytEeS1JYikfv1TuA" image="_1wa_sTytEeS1JYikfv1TuA"/>
     <mappings xmi:id="_143KATytEeS1JYikfv1TuA" origin="_142i8DytEeS1JYikfv1TuA" image="_143KADytEeS1JYikfv1TuA"/>
     <mappings xmi:id="_6n_yoDytEeS1JYikfv1TuA" origin="_58FH0DytEeS1JYikfv1TuA" image="_6n_LkDytEeS1JYikfv1TuA"/>
+    <mappings xmi:id="_Nz7eMDy9EeSpppgirRP3Yw" origin="_Nz63IDy9EeSpppgirRP3Yw" image="_Nz63ITy9EeSpppgirRP3Yw"/>
   </units>
-  <units xsi:type="henshin:Rule" xmi:id="__DftkDytEeS1JYikfv1TuA" name="DeletedTransitionInDTMC" checkDangling="false">
+  <units xsi:type="henshin:Rule" xmi:id="__DftkDytEeS1JYikfv1TuA" name="DeletedTransitionInDTMC1" checkDangling="false">
     <parameters xmi:id="_BImY4DyuEeS1JYikfv1TuA" name="id"/>
     <lhs xmi:id="__DjX8DytEeS1JYikfv1TuA" name="Lhs">
       <nodes xmi:id="_I8QicDyuEeS1JYikfv1TuA" incoming="_KAF-ADyuEeS1JYikfv1TuA">
         <type href="http://dtmc/1.0#//Transition"/>
+        <attributes xmi:id="_-Pmm8Dy3EeSpppgirRP3Yw" value="id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_09WtkDy5EeSpppgirRP3Yw" incoming="_KPMxADyuEeS1JYikfv1TuA">
+        <type href="http://Statemachine/1.0#//Transition"/>
       </nodes>
       <nodes xmi:id="_JVL_0DyuEeS1JYikfv1TuA" outgoing="_KAF-ADyuEeS1JYikfv1TuA _KPMxADyuEeS1JYikfv1TuA">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
       </nodes>
-      <nodes xmi:id="_JpHBYDyuEeS1JYikfv1TuA" incoming="_KPMxADyuEeS1JYikfv1TuA">
-        <type href="http://Statemachine/1.0#//Transition"/>
-      </nodes>
       <edges xmi:id="_KAF-ADyuEeS1JYikfv1TuA" source="_JVL_0DyuEeS1JYikfv1TuA" target="_I8QicDyuEeS1JYikfv1TuA">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
       </edges>
-      <edges xmi:id="_KPMxADyuEeS1JYikfv1TuA" source="_JVL_0DyuEeS1JYikfv1TuA" target="_JpHBYDyuEeS1JYikfv1TuA">
+      <edges xmi:id="_KPMxADyuEeS1JYikfv1TuA" source="_JVL_0DyuEeS1JYikfv1TuA" target="_09WtkDy5EeSpppgirRP3Yw">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
       </edges>
     </lhs>
     <rhs xmi:id="__DjX8TytEeS1JYikfv1TuA" name="Rhs">
-      <nodes xmi:id="_I8QicTyuEeS1JYikfv1TuA">
+      <nodes xmi:id="_I8QicTyuEeS1JYikfv1TuA" incoming="_oPGc0Dy6EeSpppgirRP3Yw">
         <type href="http://dtmc/1.0#//Transition"/>
+        <attributes xmi:id="_-PpDMDy3EeSpppgirRP3Yw" value="id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
       </nodes>
+      <nodes xmi:id="_oPDZgDy6EeSpppgirRP3Yw" outgoing="_oPGc0Dy6EeSpppgirRP3Yw _oPHD4Dy6EeSpppgirRP3Yw">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+      </nodes>
+      <nodes xmi:id="_oPGc0Ty6EeSpppgirRP3Yw" incoming="_oPHD4Dy6EeSpppgirRP3Yw">
+        <type href="http://Statemachine/1.0#//Transition"/>
+      </nodes>
+      <edges xmi:id="_oPGc0Dy6EeSpppgirRP3Yw" source="_oPDZgDy6EeSpppgirRP3Yw" target="_I8QicTyuEeS1JYikfv1TuA">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+      <edges xmi:id="_oPHD4Dy6EeSpppgirRP3Yw" source="_oPDZgDy6EeSpppgirRP3Yw" target="_oPGc0Ty6EeSpppgirRP3Yw">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+      </edges>
     </rhs>
     <mappings xmi:id="_I8QicjyuEeS1JYikfv1TuA" origin="_I8QicDyuEeS1JYikfv1TuA" image="_I8QicTyuEeS1JYikfv1TuA"/>
+    <mappings xmi:id="_oPF1wDy6EeSpppgirRP3Yw" origin="_JVL_0DyuEeS1JYikfv1TuA" image="_oPDZgDy6EeSpppgirRP3Yw"/>
+    <mappings xmi:id="_oPGc0jy6EeSpppgirRP3Yw" origin="_09WtkDy5EeSpppgirRP3Yw" image="_oPGc0Ty6EeSpppgirRP3Yw"/>
   </units>
   <units xsi:type="henshin:Rule" xmi:id="_PW_xQDyuEeS1JYikfv1TuA" name="ChangedTransitionTargetInDTMC">
     <parameters xmi:id="_SXu-YDyuEeS1JYikfv1TuA" name="transitionId"/>
@@ -360,8 +387,11 @@
     <lhs xmi:id="_oytWoDyuEeS1JYikfv1TuA" name="Lhs">
       <nodes xmi:id="_r1a5sDyuEeS1JYikfv1TuA" incoming="_s7qJADyuEeS1JYikfv1TuA" outgoing="_v1Cw8DyuEeS1JYikfv1TuA">
         <type href="http://dtmc/1.0#//Transition"/>
+        <attributes xmi:id="_66maADy3EeSpppgirRP3Yw" value="transitionId">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
       </nodes>
-      <nodes xmi:id="_sJTfADyuEeS1JYikfv1TuA" incoming="_tIiucDyuEeS1JYikfv1TuA" outgoing="_yiiR8DyuEeS1JYikfv1TuA">
+      <nodes xmi:id="_sJTfADyuEeS1JYikfv1TuA" incoming="_tIiucDyuEeS1JYikfv1TuA">
         <type href="http://Statemachine/1.0#//Transition"/>
       </nodes>
       <nodes xmi:id="_sb2AgDyuEeS1JYikfv1TuA" outgoing="_s7qJADyuEeS1JYikfv1TuA _tIiucDyuEeS1JYikfv1TuA">
@@ -369,15 +399,15 @@
       </nodes>
       <nodes xmi:id="_tqWbADyuEeS1JYikfv1TuA" incoming="_uujqADyuEeS1JYikfv1TuA _v1Cw8DyuEeS1JYikfv1TuA">
         <type href="http://dtmc/1.0#//State"/>
+        <attributes xmi:id="_7ZpGcDy3EeSpppgirRP3Yw" value="stateId">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
       </nodes>
       <nodes xmi:id="_t56hADyuEeS1JYikfv1TuA" incoming="_u_oy8DyuEeS1JYikfv1TuA">
         <type href="http://Statemachine/1.0#//State"/>
       </nodes>
       <nodes xmi:id="_uUyfIDyuEeS1JYikfv1TuA" outgoing="_uujqADyuEeS1JYikfv1TuA _u_oy8DyuEeS1JYikfv1TuA">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
-      </nodes>
-      <nodes xmi:id="_xiCeQDyuEeS1JYikfv1TuA" incoming="_yiiR8DyuEeS1JYikfv1TuA">
-        <type href="http://Statemachine/1.0#//State"/>
       </nodes>
       <edges xmi:id="_s7qJADyuEeS1JYikfv1TuA" source="_sb2AgDyuEeS1JYikfv1TuA" target="_r1a5sDyuEeS1JYikfv1TuA">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
@@ -394,13 +424,13 @@
       <edges xmi:id="_v1Cw8DyuEeS1JYikfv1TuA" source="_r1a5sDyuEeS1JYikfv1TuA" target="_tqWbADyuEeS1JYikfv1TuA">
         <type href="http://dtmc/1.0#//Transition/from"/>
       </edges>
-      <edges xmi:id="_yiiR8DyuEeS1JYikfv1TuA" source="_sJTfADyuEeS1JYikfv1TuA" target="_xiCeQDyuEeS1JYikfv1TuA">
-        <type href="http://Statemachine/1.0#//Transition/source"/>
-      </edges>
     </lhs>
     <rhs xmi:id="_oytWoTyuEeS1JYikfv1TuA" name="Rhs">
       <nodes xmi:id="_r1cu4DyuEeS1JYikfv1TuA" incoming="_s7qJATyuEeS1JYikfv1TuA" outgoing="_v1Cw8TyuEeS1JYikfv1TuA">
         <type href="http://dtmc/1.0#//Transition"/>
+        <attributes xmi:id="_66o2QDy3EeSpppgirRP3Yw" value="transitionId">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
       </nodes>
       <nodes xmi:id="_sJTfATyuEeS1JYikfv1TuA" incoming="_tIjVgDyuEeS1JYikfv1TuA" outgoing="_vf1V8DyuEeS1JYikfv1TuA">
         <type href="http://Statemachine/1.0#//Transition"/>
@@ -410,15 +440,15 @@
       </nodes>
       <nodes xmi:id="_tqWbATyuEeS1JYikfv1TuA" incoming="_uujqATyuEeS1JYikfv1TuA _v1Cw8TyuEeS1JYikfv1TuA">
         <type href="http://dtmc/1.0#//State"/>
+        <attributes xmi:id="_7ZptgDy3EeSpppgirRP3Yw" value="stateId">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
       </nodes>
       <nodes xmi:id="_t56hATyuEeS1JYikfv1TuA" incoming="_u_paADyuEeS1JYikfv1TuA _vf1V8DyuEeS1JYikfv1TuA">
         <type href="http://Statemachine/1.0#//State"/>
       </nodes>
       <nodes xmi:id="_uUyfITyuEeS1JYikfv1TuA" outgoing="_uujqATyuEeS1JYikfv1TuA _u_paADyuEeS1JYikfv1TuA">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
-      </nodes>
-      <nodes xmi:id="_xiDsYDyuEeS1JYikfv1TuA">
-        <type href="http://Statemachine/1.0#//State"/>
       </nodes>
       <edges xmi:id="_s7qJATyuEeS1JYikfv1TuA" source="_sb2AgTyuEeS1JYikfv1TuA" target="_r1cu4DyuEeS1JYikfv1TuA">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
@@ -445,7 +475,6 @@
     <mappings xmi:id="_tqWbAjyuEeS1JYikfv1TuA" origin="_tqWbADyuEeS1JYikfv1TuA" image="_tqWbATyuEeS1JYikfv1TuA"/>
     <mappings xmi:id="_t57IEDyuEeS1JYikfv1TuA" origin="_t56hADyuEeS1JYikfv1TuA" image="_t56hATyuEeS1JYikfv1TuA"/>
     <mappings xmi:id="_uUzGMDyuEeS1JYikfv1TuA" origin="_uUyfIDyuEeS1JYikfv1TuA" image="_uUyfITyuEeS1JYikfv1TuA"/>
-    <mappings xmi:id="_xiDsYTyuEeS1JYikfv1TuA" origin="_xiCeQDyuEeS1JYikfv1TuA" image="_xiDsYDyuEeS1JYikfv1TuA"/>
   </units>
   <units xsi:type="henshin:Rule" xmi:id="_3CDxQDyuEeS1JYikfv1TuA" name="ChangedNameInDTMC">
     <parameters xmi:id="_4yzWIDyuEeS1JYikfv1TuA" name="stateId"/>
@@ -506,6 +535,9 @@
         <attributes xmi:id="_jLPiYDyvEeS1JYikfv1TuA" value="name">
           <type href="http://dtmc/1.0#//Label/name"/>
         </attributes>
+        <attributes xmi:id="_AJPpIDy4EeSpppgirRP3Yw" value="id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
       </nodes>
       <nodes xmi:id="_O5NzoDyvEeS1JYikfv1TuA" incoming="_REIMADyvEeS1JYikfv1TuA" outgoing="_QkAhgDyvEeS1JYikfv1TuA">
         <type href="http://dtmc/1.0#//State"/>
@@ -534,6 +566,9 @@
         <type href="http://dtmc/1.0#//Label"/>
         <attributes xmi:id="_jLQJcDyvEeS1JYikfv1TuA" value="name">
           <type href="http://dtmc/1.0#//Label/name"/>
+        </attributes>
+        <attributes xmi:id="_AJPpITy4EeSpppgirRP3Yw" value="id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
         </attributes>
       </nodes>
       <nodes xmi:id="_O5NzoTyvEeS1JYikfv1TuA" incoming="_REIMATyvEeS1JYikfv1TuA" outgoing="_QkBIkDyvEeS1JYikfv1TuA">
@@ -768,6 +803,9 @@
       </nodes>
       <nodes xmi:id="_f2ohkDywEeS1JYikfv1TuA" incoming="_g42MgDywEeS1JYikfv1TuA">
         <type href="http://dtmc/1.0#//State"/>
+        <attributes xmi:id="_DdoLADy4EeSpppgirRP3Yw" value="stateId">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
       </nodes>
       <nodes xmi:id="_gI9AoDywEeS1JYikfv1TuA" outgoing="_g42MgDywEeS1JYikfv1TuA _hJeCcDywEeS1JYikfv1TuA">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
@@ -797,6 +835,9 @@
       </nodes>
       <nodes xmi:id="_f2pvsDywEeS1JYikfv1TuA" incoming="_g42MgTywEeS1JYikfv1TuA">
         <type href="http://dtmc/1.0#//State"/>
+        <attributes xmi:id="_DdoLATy4EeSpppgirRP3Yw" value="stateId">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
       </nodes>
       <nodes xmi:id="_gI9nsDywEeS1JYikfv1TuA" outgoing="_g42MgTywEeS1JYikfv1TuA _hJepgDywEeS1JYikfv1TuA">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
@@ -817,60 +858,282 @@
     <mappings xmi:id="_f2pvsTywEeS1JYikfv1TuA" origin="_f2ohkDywEeS1JYikfv1TuA" image="_f2pvsDywEeS1JYikfv1TuA"/>
     <mappings xmi:id="_gI9nsTywEeS1JYikfv1TuA" origin="_gI9AoDywEeS1JYikfv1TuA" image="_gI9nsDywEeS1JYikfv1TuA"/>
   </units>
-  <units xsi:type="henshin:Rule" xmi:id="_i8EogDywEeS1JYikfv1TuA" name="CreateInitialStateMachine">
-    <lhs xmi:id="_i8Hr0DywEeS1JYikfv1TuA" name="Lhs">
-      <nodes xmi:id="_lgMyIDywEeS1JYikfv1TuA">
-        <type href="http://Statemachine/1.0#//StateMachineRoot"/>
-      </nodes>
-      <nodes xmi:id="_l1POADywEeS1JYikfv1TuA">
-        <type href="http://Statemachine/1.0#//StateMachine"/>
-      </nodes>
-      <formula xsi:type="henshin:Not" xmi:id="_poBjIDywEeS1JYikfv1TuA">
-        <child xsi:type="henshin:NestedCondition" xmi:id="_poBjITywEeS1JYikfv1TuA">
-          <conclusion xmi:id="_poBjIjywEeS1JYikfv1TuA">
-            <nodes xmi:id="_poBjIzywEeS1JYikfv1TuA" outgoing="_pE5n8DywEeS1JYikfv1TuA">
-              <type href="http://Statemachine/1.0#//StateMachineRoot"/>
-            </nodes>
-            <nodes xmi:id="_olr8YDywEeS1JYikfv1TuA" incoming="_pE5n8DywEeS1JYikfv1TuA">
-              <type href="http://Statemachine/1.0#//StateMachine"/>
-            </nodes>
-            <nodes xmi:id="_poCKMTywEeS1JYikfv1TuA">
-              <type href="http://Statemachine/1.0#//StateMachine"/>
-            </nodes>
-            <edges xmi:id="_pE5n8DywEeS1JYikfv1TuA" source="_poBjIzywEeS1JYikfv1TuA" target="_olr8YDywEeS1JYikfv1TuA">
-              <type href="http://Statemachine/1.0#//StateMachineRoot/InitialStateMachine"/>
-            </edges>
-          </conclusion>
-          <mappings xmi:id="_poBjJDywEeS1JYikfv1TuA" origin="_lgMyIDywEeS1JYikfv1TuA" image="_poBjIzywEeS1JYikfv1TuA"/>
-          <mappings xmi:id="_poCKMjywEeS1JYikfv1TuA" origin="_l1POADywEeS1JYikfv1TuA" image="_poCKMTywEeS1JYikfv1TuA"/>
-        </child>
-      </formula>
-    </lhs>
-    <rhs xmi:id="_i8Hr0TywEeS1JYikfv1TuA" name="Rhs">
-      <nodes xmi:id="_lgMyITywEeS1JYikfv1TuA" outgoing="_mVRY8DywEeS1JYikfv1TuA">
-        <type href="http://Statemachine/1.0#//StateMachineRoot"/>
-      </nodes>
-      <nodes xmi:id="_l1POATywEeS1JYikfv1TuA" incoming="_mVRY8DywEeS1JYikfv1TuA">
-        <type href="http://Statemachine/1.0#//StateMachine"/>
-      </nodes>
-      <edges xmi:id="_mVRY8DywEeS1JYikfv1TuA" source="_lgMyITywEeS1JYikfv1TuA" target="_l1POATywEeS1JYikfv1TuA">
-        <type href="http://Statemachine/1.0#//StateMachineRoot/InitialStateMachine"/>
-      </edges>
-    </rhs>
-    <mappings xmi:id="_lgNZMDywEeS1JYikfv1TuA" origin="_lgMyIDywEeS1JYikfv1TuA" image="_lgMyITywEeS1JYikfv1TuA"/>
-    <mappings xmi:id="_l1POAjywEeS1JYikfv1TuA" origin="_l1POADywEeS1JYikfv1TuA" image="_l1POATywEeS1JYikfv1TuA"/>
-  </units>
-  <units xsi:type="henshin:SequentialUnit" xmi:id="_rEAY8DywEeS1JYikfv1TuA" name="SetInitialStateInDTMC" subUnits="_i8EogDywEeS1JYikfv1TuA _MzGmQDywEeS1JYikfv1TuA">
+  <units xsi:type="henshin:SequentialUnit" xmi:id="_rEAY8DywEeS1JYikfv1TuA" name="SetInitialStateInDTMC" subUnits="_VJTo8DzAEeSpppgirRP3Yw _MzGmQDywEeS1JYikfv1TuA" strict="false">
     <parameters xmi:id="_uMWp8DywEeS1JYikfv1TuA" name="stateId"/>
     <parameterMappings xmi:id="_9uosEDywEeS1JYikfv1TuA" source="_uMWp8DywEeS1JYikfv1TuA" target="_OJKaQDywEeS1JYikfv1TuA"/>
     <parameterMappings xmi:id="_9uosETywEeS1JYikfv1TuA" source="_OJKaQDywEeS1JYikfv1TuA" target="_uMWp8DywEeS1JYikfv1TuA"/>
+    <parameterMappings xmi:id="_dGDdEDzAEeSpppgirRP3Yw" source="_uMWp8DywEeS1JYikfv1TuA" target="_WY3zYDzAEeSpppgirRP3Yw"/>
+    <parameterMappings xmi:id="_dGEEIDzAEeSpppgirRP3Yw" source="_WY3zYDzAEeSpppgirRP3Yw" target="_uMWp8DywEeS1JYikfv1TuA"/>
   </units>
-  <units xsi:type="henshin:SequentialUnit" xmi:id="_CQnCcDyxEeS1JYikfv1TuA" name="CreatedStateInDTMC" subUnits="_i8EogDywEeS1JYikfv1TuA _Umkp8DytEeS1JYikfv1TuA">
-    <parameters xmi:id="_Dz8dcDyxEeS1JYikfv1TuA" name="id"/>
-    <parameters xmi:id="_Dz8dcTyxEeS1JYikfv1TuA" name="name"/>
-    <parameterMappings xmi:id="_KDyq4DyxEeS1JYikfv1TuA" source="_Dz8dcDyxEeS1JYikfv1TuA" target="_XrkE8DytEeS1JYikfv1TuA"/>
-    <parameterMappings xmi:id="_KDyq4TyxEeS1JYikfv1TuA" source="_XrkE8DytEeS1JYikfv1TuA" target="_Dz8dcDyxEeS1JYikfv1TuA"/>
-    <parameterMappings xmi:id="_KDzR8DyxEeS1JYikfv1TuA" source="_Dz8dcTyxEeS1JYikfv1TuA" target="_XrkE8TytEeS1JYikfv1TuA"/>
-    <parameterMappings xmi:id="_KDzR8TyxEeS1JYikfv1TuA" source="_XrkE8TytEeS1JYikfv1TuA" target="_Dz8dcTyxEeS1JYikfv1TuA"/>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_4ImhkDy5EeSpppgirRP3Yw" name="DeletedTransitionInDTMC" subUnits="__DftkDytEeS1JYikfv1TuA _EhwPkDy6EeSpppgirRP3Yw">
+    <parameters xmi:id="_5NGEcDy5EeSpppgirRP3Yw" name="id"/>
+    <parameterMappings xmi:id="_-IBtYDy5EeSpppgirRP3Yw" source="_5NGEcDy5EeSpppgirRP3Yw" target="_BImY4DyuEeS1JYikfv1TuA"/>
+    <parameterMappings xmi:id="_-IBtYTy5EeSpppgirRP3Yw" source="_BImY4DyuEeS1JYikfv1TuA" target="_5NGEcDy5EeSpppgirRP3Yw"/>
+    <parameterMappings xmi:id="_LRHDgDy6EeSpppgirRP3Yw" source="_5NGEcDy5EeSpppgirRP3Yw" target="_FjVBUDy6EeSpppgirRP3Yw"/>
+    <parameterMappings xmi:id="_LRHDgTy6EeSpppgirRP3Yw" source="_FjVBUDy6EeSpppgirRP3Yw" target="_5NGEcDy5EeSpppgirRP3Yw"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_EhwPkDy6EeSpppgirRP3Yw" name="DeletedTransitionInDTMC2" checkDangling="false">
+    <parameters xmi:id="_FjVBUDy6EeSpppgirRP3Yw" name="id"/>
+    <lhs xmi:id="_EhzS4Dy6EeSpppgirRP3Yw" name="Lhs">
+      <nodes xmi:id="_GbhNkDy6EeSpppgirRP3Yw" incoming="_IskDIDy6EeSpppgirRP3Yw">
+        <type href="http://dtmc/1.0#//Transition"/>
+        <attributes xmi:id="_G3ILgDy6EeSpppgirRP3Yw" value="id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_HYVbIDy6EeSpppgirRP3Yw" outgoing="_IskDIDy6EeSpppgirRP3Yw _slE-kDy6EeSpppgirRP3Yw">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+      </nodes>
+      <nodes xmi:id="_sMKIQDy6EeSpppgirRP3Yw" incoming="_slE-kDy6EeSpppgirRP3Yw">
+        <type href="http://Statemachine/1.0#//Action"/>
+      </nodes>
+      <edges xmi:id="_IskDIDy6EeSpppgirRP3Yw" source="_HYVbIDy6EeSpppgirRP3Yw" target="_GbhNkDy6EeSpppgirRP3Yw">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+      <edges xmi:id="_slE-kDy6EeSpppgirRP3Yw" source="_HYVbIDy6EeSpppgirRP3Yw" target="_sMKIQDy6EeSpppgirRP3Yw">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_EhzS4Ty6EeSpppgirRP3Yw" name="Rhs">
+      <nodes xmi:id="_GbjCwDy6EeSpppgirRP3Yw" incoming="_ozT9IDy6EeSpppgirRP3Yw">
+        <type href="http://dtmc/1.0#//Transition"/>
+        <attributes xmi:id="_G3ILgTy6EeSpppgirRP3Yw" value="id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_ozSvADy6EeSpppgirRP3Yw" outgoing="_ozT9IDy6EeSpppgirRP3Yw _slFloDy6EeSpppgirRP3Yw">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+      </nodes>
+      <nodes xmi:id="_sML9cDy6EeSpppgirRP3Yw" incoming="_slFloDy6EeSpppgirRP3Yw">
+        <type href="http://Statemachine/1.0#//Action"/>
+      </nodes>
+      <edges xmi:id="_ozT9IDy6EeSpppgirRP3Yw" source="_ozSvADy6EeSpppgirRP3Yw" target="_GbjCwDy6EeSpppgirRP3Yw">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+      <edges xmi:id="_slFloDy6EeSpppgirRP3Yw" source="_ozSvADy6EeSpppgirRP3Yw" target="_sML9cDy6EeSpppgirRP3Yw">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_GbjCwTy6EeSpppgirRP3Yw" origin="_GbhNkDy6EeSpppgirRP3Yw" image="_GbjCwDy6EeSpppgirRP3Yw"/>
+    <mappings xmi:id="_ozSvATy6EeSpppgirRP3Yw" origin="_HYVbIDy6EeSpppgirRP3Yw" image="_ozSvADy6EeSpppgirRP3Yw"/>
+    <mappings xmi:id="_sML9cTy6EeSpppgirRP3Yw" origin="_sMKIQDy6EeSpppgirRP3Yw" image="_sML9cDy6EeSpppgirRP3Yw"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_wJIXUDy-EeSpppgirRP3Yw" name="CreatedStateInDTMC1">
+    <parameters xmi:id="_wYBH4Dy-EeSpppgirRP3Yw" name="id"/>
+    <parameters xmi:id="_wYBH4Ty-EeSpppgirRP3Yw" name="name"/>
+    <lhs xmi:id="_wJKzkDy-EeSpppgirRP3Yw" name="Lhs">
+      <nodes xmi:id="_w4D54Dy-EeSpppgirRP3Yw">
+        <type href="http://dtmc/1.0#//State"/>
+        <attributes xmi:id="_xNTKEDy-EeSpppgirRP3Yw" value="id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_xsNToDy-EeSpppgirRP3Yw" value="name">
+          <type href="http://dtmc/1.0#//State/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_2N-1sDy-EeSpppgirRP3Yw">
+        <type href="http://Statemachine/1.0#//StateMachineRoot"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_6VkWIDy-EeSpppgirRP3Yw">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_6VkWITy-EeSpppgirRP3Yw">
+          <conclusion xmi:id="_6VkWIjy-EeSpppgirRP3Yw">
+            <nodes xmi:id="_6Vk9MDy-EeSpppgirRP3Yw">
+              <type href="http://dtmc/1.0#//State"/>
+              <attributes xmi:id="_6Vk9MTy-EeSpppgirRP3Yw" value="id">
+                <type href="http://CommonBase/1.0#//IDBase/id"/>
+              </attributes>
+              <attributes xmi:id="_6Vk9Mjy-EeSpppgirRP3Yw" value="name">
+                <type href="http://dtmc/1.0#//State/name"/>
+              </attributes>
+            </nodes>
+            <nodes xmi:id="_6VlkQzy-EeSpppgirRP3Yw" outgoing="_7g4SsDy-EeSpppgirRP3Yw">
+              <type href="http://Statemachine/1.0#//StateMachineRoot"/>
+            </nodes>
+            <nodes xmi:id="_5rdpMDy-EeSpppgirRP3Yw" incoming="_7g4SsDy-EeSpppgirRP3Yw">
+              <type href="http://Statemachine/1.0#//StateMachine"/>
+            </nodes>
+            <edges xmi:id="_7g4SsDy-EeSpppgirRP3Yw" source="_6VlkQzy-EeSpppgirRP3Yw" target="_5rdpMDy-EeSpppgirRP3Yw">
+              <type href="http://Statemachine/1.0#//StateMachineRoot/InitialStateMachine"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_6Vk9Mzy-EeSpppgirRP3Yw" origin="_w4D54Dy-EeSpppgirRP3Yw" image="_6Vk9MDy-EeSpppgirRP3Yw"/>
+          <mappings xmi:id="_6VlkRDy-EeSpppgirRP3Yw" origin="_2N-1sDy-EeSpppgirRP3Yw" image="_6VlkQzy-EeSpppgirRP3Yw"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_wJKzkTy-EeSpppgirRP3Yw" name="Rhs">
+      <nodes xmi:id="_w4D54Ty-EeSpppgirRP3Yw" incoming="_0RxAoDy-EeSpppgirRP3Yw">
+        <type href="http://dtmc/1.0#//State"/>
+        <attributes xmi:id="_xNTKETy-EeSpppgirRP3Yw" value="id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_xsNToTy-EeSpppgirRP3Yw" value="name">
+          <type href="http://dtmc/1.0#//State/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_ztqOADy-EeSpppgirRP3Yw" outgoing="_0RxAoDy-EeSpppgirRP3Yw _1W9uIDy-EeSpppgirRP3Yw">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+      </nodes>
+      <nodes xmi:id="_06NgsDy-EeSpppgirRP3Yw" incoming="_1W9uIDy-EeSpppgirRP3Yw _4q1SoDy-EeSpppgirRP3Yw">
+        <type href="http://Statemachine/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_13UCIDy-EeSpppgirRP3Yw" incoming="_5HI0IDy-EeSpppgirRP3Yw" outgoing="_4q1SoDy-EeSpppgirRP3Yw">
+        <type href="http://Statemachine/1.0#//StateMachine"/>
+      </nodes>
+      <nodes xmi:id="_2N-1sTy-EeSpppgirRP3Yw" outgoing="_5HI0IDy-EeSpppgirRP3Yw">
+        <type href="http://Statemachine/1.0#//StateMachineRoot"/>
+      </nodes>
+      <edges xmi:id="_5HI0IDy-EeSpppgirRP3Yw" source="_2N-1sTy-EeSpppgirRP3Yw" target="_13UCIDy-EeSpppgirRP3Yw">
+        <type href="http://Statemachine/1.0#//StateMachineRoot/InitialStateMachine"/>
+      </edges>
+      <edges xmi:id="_4q1SoDy-EeSpppgirRP3Yw" source="_13UCIDy-EeSpppgirRP3Yw" target="_06NgsDy-EeSpppgirRP3Yw">
+        <type href="http://Statemachine/1.0#//StateMachine/top"/>
+      </edges>
+      <edges xmi:id="_1W9uIDy-EeSpppgirRP3Yw" source="_ztqOADy-EeSpppgirRP3Yw" target="_06NgsDy-EeSpppgirRP3Yw">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+      </edges>
+      <edges xmi:id="_0RxAoDy-EeSpppgirRP3Yw" source="_ztqOADy-EeSpppgirRP3Yw" target="_w4D54Ty-EeSpppgirRP3Yw">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_w4D54jy-EeSpppgirRP3Yw" origin="_w4D54Dy-EeSpppgirRP3Yw" image="_w4D54Ty-EeSpppgirRP3Yw"/>
+    <mappings xmi:id="_2N-1sjy-EeSpppgirRP3Yw" origin="_2N-1sDy-EeSpppgirRP3Yw" image="_2N-1sTy-EeSpppgirRP3Yw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_HLs7EDy_EeSpppgirRP3Yw" name="CreatedStateInDTMC" subUnits="_wJIXUDy-EeSpppgirRP3Yw _Umkp8DytEeS1JYikfv1TuA">
+    <parameters xmi:id="_IshNkDy_EeSpppgirRP3Yw" name="id"/>
+    <parameters xmi:id="_Ish0oDy_EeSpppgirRP3Yw" name="name"/>
+    <parameterMappings xmi:id="_K0ql0Dy_EeSpppgirRP3Yw" source="_IshNkDy_EeSpppgirRP3Yw" target="_wYBH4Dy-EeSpppgirRP3Yw"/>
+    <parameterMappings xmi:id="_K0rM4Dy_EeSpppgirRP3Yw" source="_wYBH4Dy-EeSpppgirRP3Yw" target="_IshNkDy_EeSpppgirRP3Yw"/>
+    <parameterMappings xmi:id="_K0rM4Ty_EeSpppgirRP3Yw" source="_Ish0oDy_EeSpppgirRP3Yw" target="_wYBH4Ty-EeSpppgirRP3Yw"/>
+    <parameterMappings xmi:id="_K0rM4jy_EeSpppgirRP3Yw" source="_wYBH4Ty-EeSpppgirRP3Yw" target="_Ish0oDy_EeSpppgirRP3Yw"/>
+    <parameterMappings xmi:id="_McbN0Dy_EeSpppgirRP3Yw" source="_IshNkDy_EeSpppgirRP3Yw" target="_XrkE8DytEeS1JYikfv1TuA"/>
+    <parameterMappings xmi:id="_McbN0Ty_EeSpppgirRP3Yw" source="_XrkE8DytEeS1JYikfv1TuA" target="_IshNkDy_EeSpppgirRP3Yw"/>
+    <parameterMappings xmi:id="_McbN0jy_EeSpppgirRP3Yw" source="_Ish0oDy_EeSpppgirRP3Yw" target="_XrkE8TytEeS1JYikfv1TuA"/>
+    <parameterMappings xmi:id="_McbN0zy_EeSpppgirRP3Yw" source="_XrkE8TytEeS1JYikfv1TuA" target="_Ish0oDy_EeSpppgirRP3Yw"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_VJTo8DzAEeSpppgirRP3Yw" name="SetInitialStateInDTMC1">
+    <parameters xmi:id="_WY3zYDzAEeSpppgirRP3Yw" name="stateId"/>
+    <lhs xmi:id="_VJWFMDzAEeSpppgirRP3Yw" name="Lhs">
+      <nodes xmi:id="_fpAiADzAEeSpppgirRP3Yw" outgoing="_gYooIDzAEeSpppgirRP3Yw">
+        <type href="http://dtmc/1.0#//DTMC"/>
+      </nodes>
+      <nodes xmi:id="_f8jJEDzAEeSpppgirRP3Yw" incoming="_gYooIDzAEeSpppgirRP3Yw _o4KZMDzAEeSpppgirRP3Yw">
+        <type href="http://dtmc/1.0#//State"/>
+        <attributes xmi:id="_pWDPEDzAEeSpppgirRP3Yw" value="stateId">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_g8Q5oDzAEeSpppgirRP3Yw" outgoing="_lWykMDzAEeSpppgirRP3Yw _o4KZMDzAEeSpppgirRP3Yw">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+      </nodes>
+      <nodes xmi:id="_hUiPsDzAEeSpppgirRP3Yw" incoming="_lWykMDzAEeSpppgirRP3Yw">
+        <type href="http://Statemachine/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_iedsMDzAEeSpppgirRP3Yw">
+        <type href="http://Statemachine/1.0#//StateMachineRoot"/>
+      </nodes>
+      <edges xmi:id="_gYooIDzAEeSpppgirRP3Yw" source="_fpAiADzAEeSpppgirRP3Yw" target="_f8jJEDzAEeSpppgirRP3Yw">
+        <type href="http://dtmc/1.0#//DTMC/initialState"/>
+      </edges>
+      <edges xmi:id="_lWykMDzAEeSpppgirRP3Yw" source="_g8Q5oDzAEeSpppgirRP3Yw" target="_hUiPsDzAEeSpppgirRP3Yw">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+      </edges>
+      <edges xmi:id="_o4KZMDzAEeSpppgirRP3Yw" source="_g8Q5oDzAEeSpppgirRP3Yw" target="_f8jJEDzAEeSpppgirRP3Yw">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+      <formula xsi:type="henshin:Not" xmi:id="_t4rFsDzAEeSpppgirRP3Yw">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_t4rFsTzAEeSpppgirRP3Yw">
+          <conclusion xmi:id="_t4rFsjzAEeSpppgirRP3Yw">
+            <nodes xmi:id="_t4rFszzAEeSpppgirRP3Yw" outgoing="_t4rswTzAEeSpppgirRP3Yw">
+              <type href="http://dtmc/1.0#//DTMC"/>
+            </nodes>
+            <nodes xmi:id="_t4rFtTzAEeSpppgirRP3Yw" incoming="_t4rswTzAEeSpppgirRP3Yw _t4sT0DzAEeSpppgirRP3Yw">
+              <type href="http://dtmc/1.0#//State"/>
+              <attributes xmi:id="_t4rFtjzAEeSpppgirRP3Yw" value="stateId">
+                <type href="http://CommonBase/1.0#//IDBase/id"/>
+              </attributes>
+            </nodes>
+            <nodes xmi:id="_t4rswjzAEeSpppgirRP3Yw" outgoing="_t4sT0DzAEeSpppgirRP3Yw _t4sT0zzAEeSpppgirRP3Yw">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+            </nodes>
+            <nodes xmi:id="_t4sT0TzAEeSpppgirRP3Yw" incoming="_t4sT0zzAEeSpppgirRP3Yw">
+              <type href="http://Statemachine/1.0#//State"/>
+            </nodes>
+            <nodes xmi:id="_t4s64DzAEeSpppgirRP3Yw" outgoing="_tWV0sDzAEeSpppgirRP3Yw">
+              <type href="http://Statemachine/1.0#//StateMachineRoot"/>
+            </nodes>
+            <nodes xmi:id="_ss1ksDzAEeSpppgirRP3Yw" incoming="_tWV0sDzAEeSpppgirRP3Yw">
+              <type href="http://Statemachine/1.0#//StateMachine"/>
+            </nodes>
+            <edges xmi:id="_t4rswTzAEeSpppgirRP3Yw" source="_t4rFszzAEeSpppgirRP3Yw" target="_t4rFtTzAEeSpppgirRP3Yw">
+              <type href="http://dtmc/1.0#//DTMC/initialState"/>
+            </edges>
+            <edges xmi:id="_t4sT0DzAEeSpppgirRP3Yw" source="_t4rswjzAEeSpppgirRP3Yw" target="_t4rFtTzAEeSpppgirRP3Yw">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+            </edges>
+            <edges xmi:id="_t4sT0zzAEeSpppgirRP3Yw" source="_t4rswjzAEeSpppgirRP3Yw" target="_t4sT0TzAEeSpppgirRP3Yw">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+            </edges>
+            <edges xmi:id="_tWV0sDzAEeSpppgirRP3Yw" source="_t4s64DzAEeSpppgirRP3Yw" target="_ss1ksDzAEeSpppgirRP3Yw">
+              <type href="http://Statemachine/1.0#//StateMachineRoot/InitialStateMachine"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_t4rFtDzAEeSpppgirRP3Yw" origin="_fpAiADzAEeSpppgirRP3Yw" image="_t4rFszzAEeSpppgirRP3Yw"/>
+          <mappings xmi:id="_t4rswDzAEeSpppgirRP3Yw" origin="_f8jJEDzAEeSpppgirRP3Yw" image="_t4rFtTzAEeSpppgirRP3Yw"/>
+          <mappings xmi:id="_t4rswzzAEeSpppgirRP3Yw" origin="_g8Q5oDzAEeSpppgirRP3Yw" image="_t4rswjzAEeSpppgirRP3Yw"/>
+          <mappings xmi:id="_t4sT0jzAEeSpppgirRP3Yw" origin="_hUiPsDzAEeSpppgirRP3Yw" image="_t4sT0TzAEeSpppgirRP3Yw"/>
+          <mappings xmi:id="_t4s64TzAEeSpppgirRP3Yw" origin="_iedsMDzAEeSpppgirRP3Yw" image="_t4s64DzAEeSpppgirRP3Yw"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_VJWFMTzAEeSpppgirRP3Yw" name="Rhs">
+      <nodes xmi:id="_fpAiATzAEeSpppgirRP3Yw" outgoing="_gYpPMDzAEeSpppgirRP3Yw">
+        <type href="http://dtmc/1.0#//DTMC"/>
+      </nodes>
+      <nodes xmi:id="_f8jJETzAEeSpppgirRP3Yw" incoming="_gYpPMDzAEeSpppgirRP3Yw _o4LAQDzAEeSpppgirRP3Yw">
+        <type href="http://dtmc/1.0#//State"/>
+        <attributes xmi:id="_pWD2IDzAEeSpppgirRP3Yw" value="stateId">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_g8Q5oTzAEeSpppgirRP3Yw" outgoing="_lWykMTzAEeSpppgirRP3Yw _o4LAQDzAEeSpppgirRP3Yw">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+      </nodes>
+      <nodes xmi:id="_hUiPsTzAEeSpppgirRP3Yw" incoming="_lWykMTzAEeSpppgirRP3Yw _kIqkMDzAEeSpppgirRP3Yw _khAywDzAEeSpppgirRP3Yw">
+        <type href="http://Statemachine/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_ht3VsDzAEeSpppgirRP3Yw" incoming="_jpsJMDzAEeSpppgirRP3Yw _k6-K4DzAEeSpppgirRP3Yw" outgoing="_kIqkMDzAEeSpppgirRP3Yw _khAywDzAEeSpppgirRP3Yw">
+        <type href="http://Statemachine/1.0#//StateMachine"/>
+      </nodes>
+      <nodes xmi:id="_iedsMTzAEeSpppgirRP3Yw" outgoing="_jpsJMDzAEeSpppgirRP3Yw _k6-K4DzAEeSpppgirRP3Yw">
+        <type href="http://Statemachine/1.0#//StateMachineRoot"/>
+      </nodes>
+      <edges xmi:id="_gYpPMDzAEeSpppgirRP3Yw" source="_fpAiATzAEeSpppgirRP3Yw" target="_f8jJETzAEeSpppgirRP3Yw">
+        <type href="http://dtmc/1.0#//DTMC/initialState"/>
+      </edges>
+      <edges xmi:id="_lWykMTzAEeSpppgirRP3Yw" source="_g8Q5oTzAEeSpppgirRP3Yw" target="_hUiPsTzAEeSpppgirRP3Yw">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+      </edges>
+      <edges xmi:id="_o4LAQDzAEeSpppgirRP3Yw" source="_g8Q5oTzAEeSpppgirRP3Yw" target="_f8jJETzAEeSpppgirRP3Yw">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+      <edges xmi:id="_jpsJMDzAEeSpppgirRP3Yw" source="_iedsMTzAEeSpppgirRP3Yw" target="_ht3VsDzAEeSpppgirRP3Yw">
+        <type href="http://Statemachine/1.0#//StateMachineRoot/InitialStateMachine"/>
+      </edges>
+      <edges xmi:id="_k6-K4DzAEeSpppgirRP3Yw" source="_iedsMTzAEeSpppgirRP3Yw" target="_ht3VsDzAEeSpppgirRP3Yw">
+        <type href="http://Statemachine/1.0#//StateMachineRoot/subStateMachines"/>
+      </edges>
+      <edges xmi:id="_kIqkMDzAEeSpppgirRP3Yw" source="_ht3VsDzAEeSpppgirRP3Yw" target="_hUiPsTzAEeSpppgirRP3Yw">
+        <type href="http://Statemachine/1.0#//StateMachine/top"/>
+      </edges>
+      <edges xmi:id="_khAywDzAEeSpppgirRP3Yw" source="_ht3VsDzAEeSpppgirRP3Yw" target="_hUiPsTzAEeSpppgirRP3Yw">
+        <type href="http://Statemachine/1.0#//StateMachine/InitialState"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_fpAiAjzAEeSpppgirRP3Yw" origin="_fpAiADzAEeSpppgirRP3Yw" image="_fpAiATzAEeSpppgirRP3Yw"/>
+    <mappings xmi:id="_f8jJEjzAEeSpppgirRP3Yw" origin="_f8jJEDzAEeSpppgirRP3Yw" image="_f8jJETzAEeSpppgirRP3Yw"/>
+    <mappings xmi:id="_g8RgsDzAEeSpppgirRP3Yw" origin="_g8Q5oDzAEeSpppgirRP3Yw" image="_g8Q5oTzAEeSpppgirRP3Yw"/>
+    <mappings xmi:id="_hUiPsjzAEeSpppgirRP3Yw" origin="_hUiPsDzAEeSpppgirRP3Yw" image="_hUiPsTzAEeSpppgirRP3Yw"/>
+    <mappings xmi:id="_iedsMjzAEeSpppgirRP3Yw" origin="_iedsMDzAEeSpppgirRP3Yw" image="_iedsMTzAEeSpppgirRP3Yw"/>
   </units>
 </henshin:Module>
