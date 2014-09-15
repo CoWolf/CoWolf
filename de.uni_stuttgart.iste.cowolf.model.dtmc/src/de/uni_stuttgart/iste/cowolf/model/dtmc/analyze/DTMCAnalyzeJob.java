@@ -28,7 +28,6 @@ import de.uni_stuttgart.iste.cowolf.core.utilities.CommandLineExecutor;
 import de.uni_stuttgart.iste.cowolf.core.utilities.PrinterRegistry;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.State;
-import de.uni_stuttgart.iste.cowolf.ui.console.ConsolePrinter;
 
 public class DTMCAnalyzeJob extends Job {
 

@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.resource.Resource;
 import de.uni_stuttgart.iste.cowolf.core.utilities.CommandLineExecutor;
 import de.uni_stuttgart.iste.cowolf.core.utilities.PrinterRegistry;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.CTMC;
-import de.uni_stuttgart.iste.cowolf.ui.console.ConsolePrinter;
 
 public class CTMCAnalyzeJob extends Job {
 
