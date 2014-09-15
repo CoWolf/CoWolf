@@ -254,7 +254,7 @@ public abstract class AbstractTransformationManager {
 		
 		List<HenshinFile> henshinFiles = this.getHenshinRuleFile(resSet.getResource(this.getSourceUri(resSet), false));
 		
-		if (henshinFiles != null) {
+		if (henshinFiles.size() > 0) {
 			graph = this.runDiffsetTransformation(resSet, henshinFiles);
 		}
 		
