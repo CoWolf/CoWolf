@@ -25,6 +25,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
 
 import de.uni_stuttgart.iste.cowolf.core.utilities.CommandLineExecutor;
+import de.uni_stuttgart.iste.cowolf.core.utilities.PrinterRegistry;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.State;
 import de.uni_stuttgart.iste.cowolf.ui.console.ConsolePrinter;
@@ -149,24 +150,22 @@ public class DTMCAnalyzeJob extends Job {
 
 			// 4. Use CommandLineExecutor to execute PRISM.
 			Reader r = new InputStreamReader(
-					CommandLineExecutor.execCommandAndGetStream(
+					CommandLineExecutor.execCommandAndGetOutput(
 							this.prismRootPath, "prism " + this.prismPMPath
 									+ " " + this.prismPCTLPath
 									+ " -exportresults " + this.prismResultPath
 									+ this.prismParameters));
 			BufferedReader in = new BufferedReader(r);
 			String line;
-			ConsolePrinter consolePrinter = new ConsolePrinter("DTMC Analysis");
 			while ((line = in.readLine()) != null) {
 				// Every time a PRISM test run finishes, a line of dashes is
 				// printed. We look for them and increment the progress bar.
-				consolePrinter.println(line);
+				PrinterRegistry.getInstance().println("DTMC Analysis", line);
 				if (line.contains("-------------------------------------------------------------------")) {
 					monitor.worked(1);
 				}
 			}
 			in.close();
-			consolePrinter.close();
 			monitor.done();
 
 			this.parseResultFile(this.prismResultPath);

@@ -18,6 +18,7 @@ import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.ecore.resource.Resource;
 
 import de.uni_stuttgart.iste.cowolf.core.utilities.CommandLineExecutor;
+import de.uni_stuttgart.iste.cowolf.core.utilities.PrinterRegistry;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.CTMC;
 import de.uni_stuttgart.iste.cowolf.ui.console.ConsolePrinter;
 
@@ -141,24 +142,24 @@ public class CTMCAnalyzeJob extends Job {
 
 			// 4. Use CommandLineExecutor to execute PRISM.
 			Reader r = new InputStreamReader(
-					CommandLineExecutor.execCommandAndGetStream(
+					CommandLineExecutor.execCommandAndGetOutput(
 							this.prismRootPath, "prism " + this.prismSMPath
 									+ " " + this.prismCSLPath
 									+ " -exportresults " + this.prismResultPath
 									+ this.prismParameters));
 			BufferedReader in = new BufferedReader(r);
 			String line;
-			ConsolePrinter consolePrinter = new ConsolePrinter("CTMC Analysis");
+		
 			while ((line = in.readLine()) != null) {
 				// Every time a PRISM test run finishes, a line of dashes is
 				// printed. We look for them and increment the progress bar.
-				consolePrinter.println(line);
+				PrinterRegistry.getInstance().println("CTMC Analysis", line
+						);
 				if (line.contains("-------------------------------------------------------------------")) {
 					monitor.worked(1);
 				}
 			}
 			in.close();
-			consolePrinter.close();
 			monitor.done();
 
 			this.parseResultFile(this.prismResultPath);

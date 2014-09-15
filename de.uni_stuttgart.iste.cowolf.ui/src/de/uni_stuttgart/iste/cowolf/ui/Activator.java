@@ -1,7 +1,12 @@
 package de.uni_stuttgart.iste.cowolf.ui;
 
+import java.io.PrintWriter;
+
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
+
+import de.uni_stuttgart.iste.cowolf.core.utilities.PrinterRegistry;
+import de.uni_stuttgart.iste.cowolf.ui.console.ConsolePrinter;
 
 /**
  * The activator class controls the plug-in life cycle
@@ -32,7 +37,7 @@ public class Activator extends AbstractUIPlugin {
 	 */
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
-		plugin = this;
+		plugin = this;	
 	}
 
 	/*
