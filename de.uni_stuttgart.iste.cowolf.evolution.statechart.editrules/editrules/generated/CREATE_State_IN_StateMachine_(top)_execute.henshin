@@ -1,72 +1,62 @@
 <?xml version="1.0" encoding="ASCII"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_MskrcDw3EeSjqZPwpeMRMg" name="CREATE_State_IN_StateMachine_(top)" description="Creates one State in StateMachine">
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_vLPuwDzqEeS0Et0zBBezDw" name="CREATE_State_IN_StateMachine_(top)" description="Creates one State in StateMachine">
   <imports href="http://Statemachine/1.0#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="_MskrcTw3EeSjqZPwpeMRMg" name="createState_IN_StateMachine" description="creates one State in the context: StateMachine">
-    <parameters xmi:id="_Mskrcjw3EeSjqZPwpeMRMg" name="Selected">
+  <units xsi:type="henshin:Rule" xmi:id="_vLPuwTzqEeS0Et0zBBezDw" name="createState_IN_StateMachine" description="creates one State in the context: StateMachine">
+    <parameters xmi:id="_vLPuwjzqEeS0Et0zBBezDw" name="Selected">
       <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//StateMachine"/>
     </parameters>
-    <parameters xmi:id="_Mskrczw3EeSjqZPwpeMRMg" name="New">
+    <parameters xmi:id="_vLPuwzzqEeS0Et0zBBezDw" name="New">
       <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//State"/>
     </parameters>
-    <parameters xmi:id="_MskrdDw3EeSjqZPwpeMRMg" name="Id">
+    <parameters xmi:id="_vLPuxDzqEeS0Et0zBBezDw" name="Id">
       <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
-    <parameters xmi:id="_MskrdTw3EeSjqZPwpeMRMg" name="Name">
+    <parameters xmi:id="_vLPuxTzqEeS0Et0zBBezDw" name="Name">
       <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
-    <parameters xmi:id="_Mskrdjw3EeSjqZPwpeMRMg" name="Label">
-      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </parameters>
-    <lhs xmi:id="_Mskrdzw3EeSjqZPwpeMRMg" name="Lhs">
-      <nodes xmi:id="_MskreDw3EeSjqZPwpeMRMg" name="Selected">
+    <lhs xmi:id="_vLPuxjzqEeS0Et0zBBezDw" name="Lhs">
+      <nodes xmi:id="_vLPuxzzqEeS0Et0zBBezDw" name="Selected">
         <type href="http://Statemachine/1.0#//StateMachine"/>
       </nodes>
     </lhs>
-    <rhs xmi:id="_MskreTw3EeSjqZPwpeMRMg" name="Rhs">
-      <nodes xmi:id="_Mskrejw3EeSjqZPwpeMRMg" name="Selected" incoming="_MskrgDw3EeSjqZPwpeMRMg" outgoing="_Mskrfzw3EeSjqZPwpeMRMg">
+    <rhs xmi:id="_vLPuyDzqEeS0Et0zBBezDw" name="Rhs">
+      <nodes xmi:id="_vLPuyTzqEeS0Et0zBBezDw" name="Selected" incoming="_vLPuzjzqEeS0Et0zBBezDw" outgoing="_vLPuzTzqEeS0Et0zBBezDw">
         <type href="http://Statemachine/1.0#//StateMachine"/>
       </nodes>
-      <nodes xmi:id="_Mskrezw3EeSjqZPwpeMRMg" name="New" incoming="_Mskrfzw3EeSjqZPwpeMRMg" outgoing="_MskrgDw3EeSjqZPwpeMRMg">
+      <nodes xmi:id="_vLPuyjzqEeS0Et0zBBezDw" name="New" incoming="_vLPuzTzqEeS0Et0zBBezDw" outgoing="_vLPuzjzqEeS0Et0zBBezDw">
         <type href="http://Statemachine/1.0#//State"/>
-        <attributes xmi:id="_MskrfDw3EeSjqZPwpeMRMg" value="Id">
+        <attributes xmi:id="_vLPuyzzqEeS0Et0zBBezDw" value="Id">
           <type href="http://CommonBase/1.0#//IDBase/id"/>
         </attributes>
-        <attributes xmi:id="_MskrfTw3EeSjqZPwpeMRMg" value="Name">
+        <attributes xmi:id="_vLPuzDzqEeS0Et0zBBezDw" value="Name">
           <type href="http://CommonBase/1.0#//NameBase/name"/>
         </attributes>
-        <attributes xmi:id="_Mskrfjw3EeSjqZPwpeMRMg" value="Label">
-          <type href="http://Statemachine/1.0#//State/label"/>
-        </attributes>
       </nodes>
-      <edges xmi:id="_Mskrfzw3EeSjqZPwpeMRMg" source="_Mskrejw3EeSjqZPwpeMRMg" target="_Mskrezw3EeSjqZPwpeMRMg">
+      <edges xmi:id="_vLPuzTzqEeS0Et0zBBezDw" source="_vLPuyTzqEeS0Et0zBBezDw" target="_vLPuyjzqEeS0Et0zBBezDw">
         <type href="http://Statemachine/1.0#//StateMachine/top"/>
       </edges>
-      <edges xmi:id="_MskrgDw3EeSjqZPwpeMRMg" source="_Mskrezw3EeSjqZPwpeMRMg" target="_Mskrejw3EeSjqZPwpeMRMg">
+      <edges xmi:id="_vLPuzjzqEeS0Et0zBBezDw" source="_vLPuyjzqEeS0Et0zBBezDw" target="_vLPuyTzqEeS0Et0zBBezDw">
         <type href="http://Statemachine/1.0#//State/state_container"/>
       </edges>
     </rhs>
-    <mappings xmi:id="_MskrgTw3EeSjqZPwpeMRMg" origin="_MskreDw3EeSjqZPwpeMRMg" image="_Mskrejw3EeSjqZPwpeMRMg"/>
+    <mappings xmi:id="_vLPuzzzqEeS0Et0zBBezDw" origin="_vLPuxzzqEeS0Et0zBBezDw" image="_vLPuyTzqEeS0Et0zBBezDw"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="_Mskrgjw3EeSjqZPwpeMRMg" name="mainUnit" subUnits="_MskrcTw3EeSjqZPwpeMRMg">
-    <parameters xmi:id="_Mskrgzw3EeSjqZPwpeMRMg" name="selectedEObject">
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_vLPu0DzqEeS0Et0zBBezDw" name="mainUnit" subUnits="_vLPuwTzqEeS0Et0zBBezDw">
+    <parameters xmi:id="_vLPu0TzqEeS0Et0zBBezDw" name="selectedEObject">
       <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//StateMachine"/>
     </parameters>
-    <parameters xmi:id="_MskrhDw3EeSjqZPwpeMRMg" name="New">
+    <parameters xmi:id="_vLPu0jzqEeS0Et0zBBezDw" name="New">
       <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//State"/>
     </parameters>
-    <parameters xmi:id="_MskrhTw3EeSjqZPwpeMRMg" name="Id">
+    <parameters xmi:id="_vLPu0zzqEeS0Et0zBBezDw" name="Id">
       <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
-    <parameters xmi:id="_Mskrhjw3EeSjqZPwpeMRMg" name="Name">
+    <parameters xmi:id="_vLPu1DzqEeS0Et0zBBezDw" name="Name">
       <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
-    <parameters xmi:id="_Mskrhzw3EeSjqZPwpeMRMg" name="Label">
-      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </parameters>
-    <parameterMappings xmi:id="_MskriDw3EeSjqZPwpeMRMg" source="_Mskrgzw3EeSjqZPwpeMRMg" target="_Mskrcjw3EeSjqZPwpeMRMg"/>
-    <parameterMappings xmi:id="_MskriTw3EeSjqZPwpeMRMg" source="_Mskrczw3EeSjqZPwpeMRMg" target="_MskrhDw3EeSjqZPwpeMRMg"/>
-    <parameterMappings xmi:id="_Mskrijw3EeSjqZPwpeMRMg" source="_MskrhTw3EeSjqZPwpeMRMg" target="_MskrdDw3EeSjqZPwpeMRMg"/>
-    <parameterMappings xmi:id="_Mskrizw3EeSjqZPwpeMRMg" source="_Mskrhjw3EeSjqZPwpeMRMg" target="_MskrdTw3EeSjqZPwpeMRMg"/>
-    <parameterMappings xmi:id="_MskrjDw3EeSjqZPwpeMRMg" source="_Mskrhzw3EeSjqZPwpeMRMg" target="_Mskrdjw3EeSjqZPwpeMRMg"/>
+    <parameterMappings xmi:id="_vLPu1TzqEeS0Et0zBBezDw" source="_vLPu0TzqEeS0Et0zBBezDw" target="_vLPuwjzqEeS0Et0zBBezDw"/>
+    <parameterMappings xmi:id="_vLPu1jzqEeS0Et0zBBezDw" source="_vLPuwzzqEeS0Et0zBBezDw" target="_vLPu0jzqEeS0Et0zBBezDw"/>
+    <parameterMappings xmi:id="_vLPu1zzqEeS0Et0zBBezDw" source="_vLPu0zzqEeS0Et0zBBezDw" target="_vLPuxDzqEeS0Et0zBBezDw"/>
+    <parameterMappings xmi:id="_vLPu2DzqEeS0Et0zBBezDw" source="_vLPu1DzqEeS0Et0zBBezDw" target="_vLPuxTzqEeS0Et0zBBezDw"/>
   </units>
 </henshin:Module>

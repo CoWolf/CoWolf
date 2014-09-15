@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_vGP6ADzqEeS0Et0zBBezDw" name="DELETE_Label_IN_StateVertex_(label)" description="Deletes one Label in StateVertex">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_vGP6ATzqEeS0Et0zBBezDw" name="deleteLabel_IN_StateVertex" description="deletes one Label in the context: StateVertex">
+    <parameters xmi:id="_vGP6AjzqEeS0Et0zBBezDw" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//StateVertex"/>
+    </parameters>
+    <parameters xmi:id="_vGP6AzzqEeS0Et0zBBezDw" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//Label"/>
+    </parameters>
+    <lhs xmi:id="_vGP6BDzqEeS0Et0zBBezDw" name="LHS">
+      <nodes xmi:id="_vGP6BTzqEeS0Et0zBBezDw" name="Selected" outgoing="_vGP6BzzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//StateVertex"/>
+      </nodes>
+      <nodes xmi:id="_vGP6BjzqEeS0Et0zBBezDw" name="ToBeDeleted" incoming="_vGP6BzzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//Label"/>
+      </nodes>
+      <edges xmi:id="_vGP6BzzqEeS0Et0zBBezDw" source="_vGP6BTzqEeS0Et0zBBezDw" target="_vGP6BjzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//StateVertex/label"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_vGP6CDzqEeS0Et0zBBezDw" name="RHS">
+      <nodes xmi:id="_vGP6CTzqEeS0Et0zBBezDw" name="Selected">
+        <type href="http://Statemachine/1.0#//StateVertex"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_vGP6CjzqEeS0Et0zBBezDw" origin="_vGP6BTzqEeS0Et0zBBezDw" image="_vGP6CTzqEeS0Et0zBBezDw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_vGP6CzzqEeS0Et0zBBezDw" name="mainUnit" subUnits="_vGP6ATzqEeS0Et0zBBezDw">
+    <parameters xmi:id="_vGP6DDzqEeS0Et0zBBezDw" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//StateVertex"/>
+    </parameters>
+    <parameters xmi:id="_vGP6DTzqEeS0Et0zBBezDw" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//Label"/>
+    </parameters>
+    <parameterMappings xmi:id="_vGP6DjzqEeS0Et0zBBezDw" source="_vGP6DDzqEeS0Et0zBBezDw" target="_vGP6AjzqEeS0Et0zBBezDw"/>
+    <parameterMappings xmi:id="_vGP6DzzqEeS0Et0zBBezDw" source="_vGP6DTzqEeS0Et0zBBezDw" target="_vGP6AzzqEeS0Et0zBBezDw"/>
+  </units>
+</henshin:Module>
