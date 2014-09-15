@@ -16,12 +16,10 @@ import org.osgi.framework.FrameworkUtil;
 import de.uni_stuttgart.iste.cowolf.core.utilities.IPrinter;
 
 /**
- * 
  * Prints text on a console of CoWolf. If necessary, the console with a passed
  * name will be created.
  * 
  * @author Rene Trefft
- *
  */
 public class ConsolePrinter implements IPrinter {
 
@@ -87,7 +85,7 @@ public class ConsolePrinter implements IPrinter {
 
 		// if no print was executed before or new print name (= console name)
 		// was passed, create a new console
-		if (printName == null || !printName.equals(this.printName)) {
+		if (!printName.equals(this.printName)) {
 			MessageConsole messageConsole = initConsole(printName);
 			consoleOutputStream = messageConsole.newOutputStream();
 		}
@@ -102,14 +100,11 @@ public class ConsolePrinter implements IPrinter {
 
 	@Override
 	public void close() {
-		if (consoleOutputStream != null) {
-			try {
-				consoleOutputStream.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+		try {
+			consoleOutputStream.close();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-
 	}
 
 }

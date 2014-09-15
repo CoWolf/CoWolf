@@ -164,6 +164,7 @@ public class DTMCAnalyzeJob extends Job {
 					monitor.worked(1);
 				}
 			}
+			PrinterRegistry.getInstance().close();
 			in.close();
 			monitor.done();
 
