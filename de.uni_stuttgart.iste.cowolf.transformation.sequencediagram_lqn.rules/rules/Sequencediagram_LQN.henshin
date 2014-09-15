@@ -3,7 +3,7 @@
   <imports href="http://LQN/1.0#/"/>
   <imports href="http://www.sidiff.org/difference/symmetric/1.0#/"/>
   <imports href="http://www.eclipse.org/emf/2011/Henshin/Trace#/"/>
-  <imports href="Sequence_diagram.ecore#/"/>
+  <imports href="http://sequence_diagram/1.0#/"/>
   <units xsi:type="henshin:PriorityUnit" xmi:id="_He_H8DjkEeSQnYvQNQPx6w" name="mainUnitIteration" subUnits="_xaBF0DjsEeSQnYvQNQPx6w _wJfAIDjuEeSQnYvQNQPx6w"/>
   <units xsi:type="henshin:LoopUnit" xmi:id="_XGqncDjkEeSQnYvQNQPx6w" name="mainUnit" subUnit="_He_H8DjkEeSQnYvQNQPx6w"/>
   <units xsi:type="henshin:Rule" xmi:id="_xaBF0DjsEeSQnYvQNQPx6w" name="checkDokumentRoot">
@@ -50,7 +50,7 @@
         <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddObject"/>
       </nodes>
       <nodes xmi:id="_rBVqcDnGEeS0upU0mhxEBw" incoming="_uoTKEDnGEeS0upU0mhxEBw">
-        <type href="Sequence_diagram.ecore#//Lifeline"/>
+        <type href="http://sequence_diagram/1.0#//Lifeline"/>
       </nodes>
       <nodes xmi:id="_S8O-YDmUEeSqBqHb2bNzow">
         <type href="http://LQN/1.0#//ProcessorType"/>
@@ -85,7 +85,7 @@
         <type href="http://LQN/1.0#//ActivityPhasesType"/>
       </nodes>
       <nodes xmi:id="_sE1u0DnGEeS0upU0mhxEBw" incoming="_vT6S4DnGEeS0upU0mhxEBw">
-        <type href="Sequence_diagram.ecore#//Lifeline"/>
+        <type href="http://sequence_diagram/1.0#//Lifeline"/>
       </nodes>
       <nodes xmi:id="_UPJXwDmUEeSqBqHb2bNzow" outgoing="_Hvw9wDnHEeS0upU0mhxEBw">
         <type href="http://LQN/1.0#//ProcessorType"/>
@@ -133,20 +133,47 @@
       <nodes xmi:id="_3byzUDjyEeSQnYvQNQPx6w" outgoing="_eB7yoDjzEeSQnYvQNQPx6w">
         <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddObject"/>
       </nodes>
-      <nodes xmi:id="_-BqUEDjyEeSQnYvQNQPx6w" incoming="_eB7yoDjzEeSQnYvQNQPx6w">
-        <type href="Sequence_diagram.ecore#//Message"/>
+      <nodes xmi:id="_-BqUEDjyEeSQnYvQNQPx6w" incoming="_eB7yoDjzEeSQnYvQNQPx6w" outgoing="__NYVoDzqEeSBEevTr8G_GQ _-5IugDzrEeSBEevTr8G_GQ">
+        <type href="http://sequence_diagram/1.0#//Message"/>
+        <attributes xmi:id="_ATdwwDznEeSBEevTr8G_GQ" value="synchCall">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Message/messageSort"/>
+        </attributes>
       </nodes>
-      <nodes xmi:id="_ltZhEDnFEeS0upU0mhxEBw" outgoing="_oO0U8DnFEeS0upU0mhxEBw">
+      <nodes xmi:id="_ltZhEDnFEeS0upU0mhxEBw" outgoing="_oO0U8DnFEeS0upU0mhxEBw _GU-1ADzsEeSBEevTr8G_GQ _HYcdIDzsEeSBEevTr8G_GQ">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
       </nodes>
       <nodes xmi:id="_nFANMDnFEeS0upU0mhxEBw" incoming="_oO0U8DnFEeS0upU0mhxEBw">
         <type href="http://LQN/1.0#//CallListType"/>
       </nodes>
-      <nodes xmi:id="_sZprwDnHEeS0upU0mhxEBw" outgoing="_wUl3UDnHEeS0upU0mhxEBw">
+      <nodes xmi:id="_sZprwDnHEeS0upU0mhxEBw" outgoing="_wUl3UDnHEeS0upU0mhxEBw _sWn1kDzrEeSBEevTr8G_GQ _IEiuIDzsEeSBEevTr8G_GQ">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
       </nodes>
       <nodes xmi:id="_vm2AgDnHEeS0upU0mhxEBw" incoming="_wUl3UDnHEeS0upU0mhxEBw">
         <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+      <nodes xmi:id="_rqUQkDzoEeSBEevTr8G_GQ" incoming="_BPnTIDzrEeSBEevTr8G_GQ _IEiuIDzsEeSBEevTr8G_GQ" outgoing="_39J7MDzoEeSBEevTr8G_GQ">
+        <type href="http://sequence_diagram/1.0#//Lifeline"/>
+      </nodes>
+      <nodes xmi:id="_0GYd8DzoEeSBEevTr8G_GQ" incoming="_Ev6cADzpEeSBEevTr8G_GQ _sWn1kDzrEeSBEevTr8G_GQ">
+        <type href="http://sequence_diagram/1.0#//Class"/>
+      </nodes>
+      <nodes xmi:id="_2ccWYDzoEeSBEevTr8G_GQ" incoming="_39J7MDzoEeSBEevTr8G_GQ" outgoing="_Ev6cADzpEeSBEevTr8G_GQ">
+        <type href="http://sequence_diagram/1.0#//Property"/>
+      </nodes>
+      <nodes xmi:id="_9xoJUDzqEeSBEevTr8G_GQ" incoming="__NYVoDzqEeSBEevTr8G_GQ" outgoing="_BPnTIDzrEeSBEevTr8G_GQ">
+        <type href="http://sequence_diagram/1.0#//MessageOccurenceSpecification"/>
+      </nodes>
+      <nodes xmi:id="_xbZ-EDzrEeSBEevTr8G_GQ" incoming="_-5IugDzrEeSBEevTr8G_GQ" outgoing="__f-FADzrEeSBEevTr8G_GQ">
+        <type href="http://sequence_diagram/1.0#//MessageOccurenceSpecification"/>
+      </nodes>
+      <nodes xmi:id="_yRt7ADzrEeSBEevTr8G_GQ" incoming="__8XGEDzrEeSBEevTr8G_GQ" outgoing="_Bb3xADzsEeSBEevTr8G_GQ">
+        <type href="http://sequence_diagram/1.0#//Property"/>
+      </nodes>
+      <nodes xmi:id="_zNxTkDzrEeSBEevTr8G_GQ" incoming="__f-FADzrEeSBEevTr8G_GQ _HYcdIDzsEeSBEevTr8G_GQ" outgoing="__8XGEDzrEeSBEevTr8G_GQ">
+        <type href="http://sequence_diagram/1.0#//Lifeline"/>
+      </nodes>
+      <nodes xmi:id="_0EZZkDzrEeSBEevTr8G_GQ" incoming="_Bb3xADzsEeSBEevTr8G_GQ _GU-1ADzsEeSBEevTr8G_GQ">
+        <type href="http://sequence_diagram/1.0#//Class"/>
       </nodes>
       <edges xmi:id="_eB7yoDjzEeSQnYvQNQPx6w" source="_3byzUDjyEeSQnYvQNQPx6w" target="_-BqUEDjyEeSQnYvQNQPx6w">
         <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddObject/obj"/>
@@ -157,10 +184,49 @@
       <edges xmi:id="_wUl3UDnHEeS0upU0mhxEBw" source="_sZprwDnHEeS0upU0mhxEBw" target="_vm2AgDnHEeS0upU0mhxEBw">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
       </edges>
+      <edges xmi:id="_39J7MDzoEeSBEevTr8G_GQ" source="_rqUQkDzoEeSBEevTr8G_GQ" target="_2ccWYDzoEeSBEevTr8G_GQ">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Lifeline/represents"/>
+      </edges>
+      <edges xmi:id="_Ev6cADzpEeSBEevTr8G_GQ" source="_2ccWYDzoEeSBEevTr8G_GQ" target="_0GYd8DzoEeSBEevTr8G_GQ">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//TypedElement/type"/>
+      </edges>
+      <edges xmi:id="__NYVoDzqEeSBEevTr8G_GQ" source="_-BqUEDjyEeSQnYvQNQPx6w" target="_9xoJUDzqEeSBEevTr8G_GQ">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Message/receiveEvent"/>
+      </edges>
+      <edges xmi:id="_BPnTIDzrEeSBEevTr8G_GQ" source="_9xoJUDzqEeSBEevTr8G_GQ" target="_rqUQkDzoEeSBEevTr8G_GQ">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//InteractionFragment/covered"/>
+      </edges>
+      <edges xmi:id="_sWn1kDzrEeSBEevTr8G_GQ" source="_sZprwDnHEeS0upU0mhxEBw" target="_0GYd8DzoEeSBEevTr8G_GQ">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+      <edges xmi:id="_-5IugDzrEeSBEevTr8G_GQ" source="_-BqUEDjyEeSQnYvQNQPx6w" target="_xbZ-EDzrEeSBEevTr8G_GQ">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Message/sendEvent"/>
+      </edges>
+      <edges xmi:id="__f-FADzrEeSBEevTr8G_GQ" source="_xbZ-EDzrEeSBEevTr8G_GQ" target="_zNxTkDzrEeSBEevTr8G_GQ">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//InteractionFragment/covered"/>
+      </edges>
+      <edges xmi:id="__8XGEDzrEeSBEevTr8G_GQ" source="_zNxTkDzrEeSBEevTr8G_GQ" target="_yRt7ADzrEeSBEevTr8G_GQ">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Lifeline/represents"/>
+      </edges>
+      <edges xmi:id="_Bb3xADzsEeSBEevTr8G_GQ" source="_yRt7ADzrEeSBEevTr8G_GQ" target="_0EZZkDzrEeSBEevTr8G_GQ">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//TypedElement/type"/>
+      </edges>
+      <edges xmi:id="_GU-1ADzsEeSBEevTr8G_GQ" source="_ltZhEDnFEeS0upU0mhxEBw" target="_0EZZkDzrEeSBEevTr8G_GQ">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+      <edges xmi:id="_HYcdIDzsEeSBEevTr8G_GQ" source="_ltZhEDnFEeS0upU0mhxEBw" target="_zNxTkDzrEeSBEevTr8G_GQ">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+      <edges xmi:id="_IEiuIDzsEeSBEevTr8G_GQ" source="_sZprwDnHEeS0upU0mhxEBw" target="_rqUQkDzoEeSBEevTr8G_GQ">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
     </lhs>
     <rhs xmi:id="_1rcQATjyEeSQnYvQNQPx6w" name="Rhs">
-      <nodes xmi:id="_-BqUETjyEeSQnYvQNQPx6w" incoming="_dr5RMDjzEeSQnYvQNQPx6w">
-        <type href="Sequence_diagram.ecore#//Message"/>
+      <nodes xmi:id="_-BqUETjyEeSQnYvQNQPx6w" incoming="_dr5RMDjzEeSQnYvQNQPx6w" outgoing="__NYVoTzqEeSBEevTr8G_GQ _-5IugTzrEeSBEevTr8G_GQ">
+        <type href="http://sequence_diagram/1.0#//Message"/>
+        <attributes xmi:id="_ATdwwTznEeSBEevTr8G_GQ" value="synchCall">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Message/messageSort"/>
+        </attributes>
       </nodes>
       <nodes xmi:id="_-vhfoDjyEeSQnYvQNQPx6w" outgoing="_dZqRsDjzEeSQnYvQNQPx6w _dr5RMDjzEeSQnYvQNQPx6w">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
@@ -168,17 +234,41 @@
       <nodes xmi:id="_D_rKoDjzEeSQnYvQNQPx6w" incoming="_dZqRsDjzEeSQnYvQNQPx6w _oto-8DnFEeS0upU0mhxEBw">
         <type href="http://LQN/1.0#//SynchCallType"/>
       </nodes>
-      <nodes xmi:id="_ltZhETnFEeS0upU0mhxEBw" outgoing="_oO0U8TnFEeS0upU0mhxEBw">
+      <nodes xmi:id="_ltZhETnFEeS0upU0mhxEBw" outgoing="_oO0U8TnFEeS0upU0mhxEBw _GU-1ATzsEeSBEevTr8G_GQ _HYcdITzsEeSBEevTr8G_GQ">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
       </nodes>
       <nodes xmi:id="_nFANMTnFEeS0upU0mhxEBw" incoming="_oO0U8TnFEeS0upU0mhxEBw" outgoing="_oto-8DnFEeS0upU0mhxEBw">
         <type href="http://LQN/1.0#//CallListType"/>
       </nodes>
-      <nodes xmi:id="_sZprwTnHEeS0upU0mhxEBw" outgoing="_wUl3UTnHEeS0upU0mhxEBw">
+      <nodes xmi:id="_sZprwTnHEeS0upU0mhxEBw" outgoing="_wUl3UTnHEeS0upU0mhxEBw _sWn1kTzrEeSBEevTr8G_GQ _IEiuITzsEeSBEevTr8G_GQ">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
       </nodes>
       <nodes xmi:id="_vm2AgTnHEeS0upU0mhxEBw" incoming="_wUl3UTnHEeS0upU0mhxEBw">
         <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+      <nodes xmi:id="_rqUQkTzoEeSBEevTr8G_GQ" incoming="_BPnTITzrEeSBEevTr8G_GQ _IEiuITzsEeSBEevTr8G_GQ" outgoing="_39J7MTzoEeSBEevTr8G_GQ">
+        <type href="http://sequence_diagram/1.0#//Lifeline"/>
+      </nodes>
+      <nodes xmi:id="_0GYd8TzoEeSBEevTr8G_GQ" incoming="_Ev6cATzpEeSBEevTr8G_GQ _sWn1kTzrEeSBEevTr8G_GQ">
+        <type href="http://sequence_diagram/1.0#//Class"/>
+      </nodes>
+      <nodes xmi:id="_2ccWYTzoEeSBEevTr8G_GQ" incoming="_39J7MTzoEeSBEevTr8G_GQ" outgoing="_Ev6cATzpEeSBEevTr8G_GQ">
+        <type href="http://sequence_diagram/1.0#//Property"/>
+      </nodes>
+      <nodes xmi:id="_9xpXcDzqEeSBEevTr8G_GQ" incoming="__NYVoTzqEeSBEevTr8G_GQ" outgoing="_BPnTITzrEeSBEevTr8G_GQ">
+        <type href="http://sequence_diagram/1.0#//MessageOccurenceSpecification"/>
+      </nodes>
+      <nodes xmi:id="_xbZ-ETzrEeSBEevTr8G_GQ" incoming="_-5IugTzrEeSBEevTr8G_GQ" outgoing="__f-FATzrEeSBEevTr8G_GQ">
+        <type href="http://sequence_diagram/1.0#//MessageOccurenceSpecification"/>
+      </nodes>
+      <nodes xmi:id="_yRt7ATzrEeSBEevTr8G_GQ" incoming="__8XGETzrEeSBEevTr8G_GQ" outgoing="_Bb3xATzsEeSBEevTr8G_GQ">
+        <type href="http://sequence_diagram/1.0#//Property"/>
+      </nodes>
+      <nodes xmi:id="_zNx6oDzrEeSBEevTr8G_GQ" incoming="__f-FATzrEeSBEevTr8G_GQ _HYcdITzsEeSBEevTr8G_GQ" outgoing="__8XGETzrEeSBEevTr8G_GQ">
+        <type href="http://sequence_diagram/1.0#//Lifeline"/>
+      </nodes>
+      <nodes xmi:id="_0EZZkTzrEeSBEevTr8G_GQ" incoming="_Bb3xATzsEeSBEevTr8G_GQ _GU-1ATzsEeSBEevTr8G_GQ">
+        <type href="http://sequence_diagram/1.0#//Class"/>
       </nodes>
       <edges xmi:id="_dZqRsDjzEeSQnYvQNQPx6w" source="_-vhfoDjyEeSQnYvQNQPx6w" target="_D_rKoDjzEeSQnYvQNQPx6w">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
@@ -195,12 +285,56 @@
       <edges xmi:id="_wUl3UTnHEeS0upU0mhxEBw" source="_sZprwTnHEeS0upU0mhxEBw" target="_vm2AgTnHEeS0upU0mhxEBw">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
       </edges>
+      <edges xmi:id="_39J7MTzoEeSBEevTr8G_GQ" source="_rqUQkTzoEeSBEevTr8G_GQ" target="_2ccWYTzoEeSBEevTr8G_GQ">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Lifeline/represents"/>
+      </edges>
+      <edges xmi:id="_Ev6cATzpEeSBEevTr8G_GQ" source="_2ccWYTzoEeSBEevTr8G_GQ" target="_0GYd8TzoEeSBEevTr8G_GQ">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//TypedElement/type"/>
+      </edges>
+      <edges xmi:id="__NYVoTzqEeSBEevTr8G_GQ" source="_-BqUETjyEeSQnYvQNQPx6w" target="_9xpXcDzqEeSBEevTr8G_GQ">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Message/receiveEvent"/>
+      </edges>
+      <edges xmi:id="_BPnTITzrEeSBEevTr8G_GQ" source="_9xpXcDzqEeSBEevTr8G_GQ" target="_rqUQkTzoEeSBEevTr8G_GQ">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//InteractionFragment/covered"/>
+      </edges>
+      <edges xmi:id="_sWn1kTzrEeSBEevTr8G_GQ" source="_sZprwTnHEeS0upU0mhxEBw" target="_0GYd8TzoEeSBEevTr8G_GQ">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+      <edges xmi:id="_-5IugTzrEeSBEevTr8G_GQ" source="_-BqUETjyEeSQnYvQNQPx6w" target="_xbZ-ETzrEeSBEevTr8G_GQ">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Message/sendEvent"/>
+      </edges>
+      <edges xmi:id="__f-FATzrEeSBEevTr8G_GQ" source="_xbZ-ETzrEeSBEevTr8G_GQ" target="_zNx6oDzrEeSBEevTr8G_GQ">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//InteractionFragment/covered"/>
+      </edges>
+      <edges xmi:id="__8XGETzrEeSBEevTr8G_GQ" source="_zNx6oDzrEeSBEevTr8G_GQ" target="_yRt7ATzrEeSBEevTr8G_GQ">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Lifeline/represents"/>
+      </edges>
+      <edges xmi:id="_Bb3xATzsEeSBEevTr8G_GQ" source="_yRt7ATzrEeSBEevTr8G_GQ" target="_0EZZkTzrEeSBEevTr8G_GQ">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//TypedElement/type"/>
+      </edges>
+      <edges xmi:id="_GU-1ATzsEeSBEevTr8G_GQ" source="_ltZhETnFEeS0upU0mhxEBw" target="_0EZZkTzrEeSBEevTr8G_GQ">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+      <edges xmi:id="_HYcdITzsEeSBEevTr8G_GQ" source="_ltZhETnFEeS0upU0mhxEBw" target="_zNx6oDzrEeSBEevTr8G_GQ">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+      <edges xmi:id="_IEiuITzsEeSBEevTr8G_GQ" source="_sZprwTnHEeS0upU0mhxEBw" target="_rqUQkTzoEeSBEevTr8G_GQ">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
     </rhs>
     <mappings xmi:id="_-BqUEjjyEeSQnYvQNQPx6w" origin="_-BqUEDjyEeSQnYvQNQPx6w" image="_-BqUETjyEeSQnYvQNQPx6w"/>
     <mappings xmi:id="_ltZhEjnFEeS0upU0mhxEBw" origin="_ltZhEDnFEeS0upU0mhxEBw" image="_ltZhETnFEeS0upU0mhxEBw"/>
     <mappings xmi:id="_nFANMjnFEeS0upU0mhxEBw" origin="_nFANMDnFEeS0upU0mhxEBw" image="_nFANMTnFEeS0upU0mhxEBw"/>
     <mappings xmi:id="_sZprwjnHEeS0upU0mhxEBw" origin="_sZprwDnHEeS0upU0mhxEBw" image="_sZprwTnHEeS0upU0mhxEBw"/>
     <mappings xmi:id="_vm2AgjnHEeS0upU0mhxEBw" origin="_vm2AgDnHEeS0upU0mhxEBw" image="_vm2AgTnHEeS0upU0mhxEBw"/>
+    <mappings xmi:id="_rqUQkjzoEeSBEevTr8G_GQ" origin="_rqUQkDzoEeSBEevTr8G_GQ" image="_rqUQkTzoEeSBEevTr8G_GQ"/>
+    <mappings xmi:id="_0GYd8jzoEeSBEevTr8G_GQ" origin="_0GYd8DzoEeSBEevTr8G_GQ" image="_0GYd8TzoEeSBEevTr8G_GQ"/>
+    <mappings xmi:id="_2ccWYjzoEeSBEevTr8G_GQ" origin="_2ccWYDzoEeSBEevTr8G_GQ" image="_2ccWYTzoEeSBEevTr8G_GQ"/>
+    <mappings xmi:id="_9xpXcTzqEeSBEevTr8G_GQ" origin="_9xoJUDzqEeSBEevTr8G_GQ" image="_9xpXcDzqEeSBEevTr8G_GQ"/>
+    <mappings xmi:id="_xbalIDzrEeSBEevTr8G_GQ" origin="_xbZ-EDzrEeSBEevTr8G_GQ" image="_xbZ-ETzrEeSBEevTr8G_GQ"/>
+    <mappings xmi:id="_yRt7AjzrEeSBEevTr8G_GQ" origin="_yRt7ADzrEeSBEevTr8G_GQ" image="_yRt7ATzrEeSBEevTr8G_GQ"/>
+    <mappings xmi:id="_zNx6oTzrEeSBEevTr8G_GQ" origin="_zNxTkDzrEeSBEevTr8G_GQ" image="_zNx6oDzrEeSBEevTr8G_GQ"/>
+    <mappings xmi:id="_0EZZkjzrEeSBEevTr8G_GQ" origin="_0EZZkDzrEeSBEevTr8G_GQ" image="_0EZZkTzrEeSBEevTr8G_GQ"/>
   </units>
   <units xsi:type="henshin:Rule" xmi:id="_v5Zs8DnDEeS0upU0mhxEBw" name="checkInitalProcessor">
     <lhs xmi:id="_v5i25DnDEeS0upU0mhxEBw" name="Lhs">
@@ -269,7 +403,7 @@
         <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveObject"/>
       </nodes>
       <nodes xmi:id="_3DecEDnFEeS0upU0mhxEBw" incoming="_6V4A8DnFEeS0upU0mhxEBw _68UV4DnFEeS0upU0mhxEBw">
-        <type href="Sequence_diagram.ecore#//Lifeline"/>
+        <type href="http://sequence_diagram/1.0#//Lifeline"/>
       </nodes>
       <nodes xmi:id="_3wCAEDnFEeS0upU0mhxEBw" outgoing="_68UV4DnFEeS0upU0mhxEBw _MuJYwDnGEeS0upU0mhxEBw _faUHgDnHEeS0upU0mhxEBw _f2LkIDnHEeS0upU0mhxEBw">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
@@ -331,7 +465,7 @@
         <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet"/>
       </nodes>
       <nodes xmi:id="_3DecETnFEeS0upU0mhxEBw" incoming="_68UV4TnFEeS0upU0mhxEBw">
-        <type href="Sequence_diagram.ecore#//Lifeline"/>
+        <type href="http://sequence_diagram/1.0#//Lifeline"/>
       </nodes>
       <nodes xmi:id="_3wCAETnFEeS0upU0mhxEBw" outgoing="_68UV4TnFEeS0upU0mhxEBw">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
@@ -361,7 +495,7 @@
         <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveObject"/>
       </nodes>
       <nodes xmi:id="_bhN5kDnIEeS0upU0mhxEBw" incoming="_r7XX0DnIEeS0upU0mhxEBw _sbtEwDnIEeS0upU0mhxEBw">
-        <type href="Sequence_diagram.ecore#//Message"/>
+        <type href="http://sequence_diagram/1.0#//Message"/>
       </nodes>
       <nodes xmi:id="_cfDa0DnIEeS0upU0mhxEBw" outgoing="_sbtEwDnIEeS0upU0mhxEBw _srf0QDnIEeS0upU0mhxEBw">
         <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
@@ -399,7 +533,7 @@
         <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveObject"/>
       </nodes>
       <nodes xmi:id="_bhN5kTnIEeS0upU0mhxEBw" incoming="_r7XX0TnIEeS0upU0mhxEBw">
-        <type href="Sequence_diagram.ecore#//Message"/>
+        <type href="http://sequence_diagram/1.0#//Message"/>
       </nodes>
       <nodes xmi:id="_fpQtATnIEeS0upU0mhxEBw">
         <type href="http://LQN/1.0#//CallListType"/>
