@@ -1,7 +1,7 @@
 package de.uni_stuttgart.iste.cowolf.ui.creationFunctions;
 
 import java.net.URI;
-
+import javax.swing.JOptionPane;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
@@ -10,10 +10,6 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
-import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.PlatformUI;
-
 import de.uni_stuttgart.iste.cowolf.core.natures.ProjectNature;
 import de.uni_stuttgart.iste.cowolf.model.ModelRegistry;
 import de.uni_stuttgart.iste.cowolf.ui.externalizedStrings.Messages;
@@ -90,10 +86,8 @@ public class CreationFunctions {
 					newIProject.open(null);
 				}
 			} catch (CoreException e) {
-				IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
-				MessageDialog.openError(window.getShell(), "",
-						"Could not create project " + newIProject.getName() +":\n"
-								+ e.getLocalizedMessage());
+				JOptionPane.showMessageDialog(null, "Could not create project"
+						+ e.getLocalizedMessage());
 			}
 		}
 
@@ -117,10 +111,8 @@ public class CreationFunctions {
 			try {
 				iFolder.create(false, true, null);
 			} catch (CoreException e) {
-				IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
-				MessageDialog.openError(window.getShell(), "",
-						"Could not create folder " + iFolder.getName() +":\n"
-								+ e.getLocalizedMessage());
+				JOptionPane.showMessageDialog(null, "Could not create folder"
+						+ e.getLocalizedMessage());
 			}
 		}
 		return iFolder;
@@ -146,10 +138,8 @@ public class CreationFunctions {
 				iProject.setDescription(description, monitor);
 			}
 		} catch (CoreException e) {
-			IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
-			MessageDialog.openError(window.getShell(), "",
-					"Could not add nature to project " + iProject.getName() +":\n"
-							+ e.getLocalizedMessage());
+			JOptionPane.showMessageDialog(null,
+					"Could not add nature" + e.getLocalizedMessage());
 		}
 	}
 }
