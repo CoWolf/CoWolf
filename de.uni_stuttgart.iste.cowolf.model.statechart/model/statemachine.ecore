@@ -28,8 +28,6 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="InitialState" eType="#/1/State"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="State" eSuperTypes="#/1/StateVertex">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" upperBound="-1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="state_container" ordered="false"
           eType="#/1/StateMachine" eOpposite="#/1/StateMachine/top"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="internalTransitions"
@@ -90,6 +88,8 @@
           upperBound="-1" eType="#/1/Transition" eOpposite="#/1/Transition/source"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="incoming" ordered="false"
           upperBound="-1" eType="#/1/Transition" eOpposite="#/1/Transition/target"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="label" upperBound="-1"
+          eType="#/1/Label" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="StateAction" abstract="true" eSuperTypes="#/1/Action">
       <eStructuralFeatures xsi:type="ecore:EReference" name="action_container" eType="#/1/State"
@@ -98,5 +98,8 @@
     <eClassifiers xsi:type="ecore:EClass" name="DO" eSuperTypes="#/1/StateAction"/>
     <eClassifiers xsi:type="ecore:EClass" name="ENTRY" eSuperTypes="#/1/StateAction"/>
     <eClassifiers xsi:type="ecore:EClass" name="EXIT" eSuperTypes="#/1/StateAction"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Label" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
   </ecore:EPackage>
 </xmi:XMI>

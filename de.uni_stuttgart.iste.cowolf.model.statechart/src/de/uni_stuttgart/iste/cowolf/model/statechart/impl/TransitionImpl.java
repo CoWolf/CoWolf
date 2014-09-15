@@ -11,14 +11,12 @@ import de.uni_stuttgart.iste.cowolf.model.statechart.StateVertex;
 import de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage;
 import de.uni_stuttgart.iste.cowolf.model.statechart.Transition;
 import de.uni_stuttgart.iste.cowolf.model.statechart.TransitionAction;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
@@ -146,7 +144,7 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<StateVertex> getTransStates() {

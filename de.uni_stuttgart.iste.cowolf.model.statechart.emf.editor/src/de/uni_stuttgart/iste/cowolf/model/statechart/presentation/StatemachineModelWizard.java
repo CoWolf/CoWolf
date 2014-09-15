@@ -194,8 +194,8 @@ public class StatemachineModelWizard extends Wizard implements INewWizard {
 				if (eClassifier instanceof EClass) {
 					EClass eClass = (EClass)eClassifier;
 					if (!eClass.isAbstract() && eClass.getName().equalsIgnoreCase("StateMachineRoot")) {
-						initialObjectNames.add(eClass.getName());
-					}
+					      initialObjectNames.add(eClass.getName());
+					     }
 				}
 			}
 			Collections.sort(initialObjectNames, CommonPlugin.INSTANCE.getComparator());
@@ -397,8 +397,7 @@ public class StatemachineModelWizard extends Wizard implements INewWizard {
 		 * @generated
 		 */
 		public void createControl(Composite parent) {
-			Composite composite = new Composite(parent, SWT.NONE);
-			{
+			Composite composite = new Composite(parent, SWT.NONE); {
 				GridLayout layout = new GridLayout();
 				layout.numColumns = 1;
 				layout.verticalSpacing = 12;

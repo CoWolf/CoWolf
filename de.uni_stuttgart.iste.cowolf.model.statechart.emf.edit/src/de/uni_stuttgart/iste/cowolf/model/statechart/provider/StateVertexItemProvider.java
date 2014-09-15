@@ -8,6 +8,7 @@ import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
 import de.uni_stuttgart.iste.cowolf.model.commonBase.emf.provider.IDBaseItemProvider;
 
 import de.uni_stuttgart.iste.cowolf.model.statechart.StateVertex;
+import de.uni_stuttgart.iste.cowolf.model.statechart.StatemachineFactory;
 import de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage;
 
 import de.uni_stuttgart.iste.cowolf.model.statechart.emf.provider.StatemachineEditPlugin;
@@ -20,6 +21,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -127,6 +129,36 @@ public class StateVertexItemProvider extends IDBaseItemProvider {
 	}
 
 	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(StatemachinePackage.Literals.STATE_VERTEX__LABEL);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
+	}
+
+	/**
 	 * This returns StateVertex.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -167,6 +199,9 @@ public class StateVertexItemProvider extends IDBaseItemProvider {
 			case StatemachinePackage.STATE_VERTEX__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case StatemachinePackage.STATE_VERTEX__LABEL:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -181,6 +216,11 @@ public class StateVertexItemProvider extends IDBaseItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StatemachinePackage.Literals.STATE_VERTEX__LABEL,
+				 StatemachineFactory.eINSTANCE.createLabel()));
 	}
 
 	/**

@@ -260,13 +260,22 @@ public interface StatemachinePackage extends EPackage {
 	int STATE_VERTEX__INCOMING = CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Label</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATE_VERTEX__LABEL = CommonBasePackage.ID_BASE_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>State Vertex</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATE_VERTEX_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 4;
+	int STATE_VERTEX_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>State Vertex</em>' class.
@@ -333,13 +342,13 @@ public interface StatemachinePackage extends EPackage {
 	int STATE__INCOMING = STATE_VERTEX__INCOMING;
 
 	/**
-	 * The feature id for the '<em><b>Label</b></em>' attribute list.
+	 * The feature id for the '<em><b>Label</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATE__LABEL = STATE_VERTEX_FEATURE_COUNT + 0;
+	int STATE__LABEL = STATE_VERTEX__LABEL;
 
 	/**
 	 * The feature id for the '<em><b>State container</b></em>' container reference.
@@ -348,7 +357,7 @@ public interface StatemachinePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATE__STATE_CONTAINER = STATE_VERTEX_FEATURE_COUNT + 1;
+	int STATE__STATE_CONTAINER = STATE_VERTEX_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Internal Transitions</b></em>' containment reference list.
@@ -357,7 +366,7 @@ public interface StatemachinePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATE__INTERNAL_TRANSITIONS = STATE_VERTEX_FEATURE_COUNT + 2;
+	int STATE__INTERNAL_TRANSITIONS = STATE_VERTEX_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Deferrable Events</b></em>' reference list.
@@ -366,7 +375,7 @@ public interface StatemachinePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATE__DEFERRABLE_EVENTS = STATE_VERTEX_FEATURE_COUNT + 3;
+	int STATE__DEFERRABLE_EVENTS = STATE_VERTEX_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Actions</b></em>' containment reference list.
@@ -375,7 +384,7 @@ public interface StatemachinePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATE__ACTIONS = STATE_VERTEX_FEATURE_COUNT + 4;
+	int STATE__ACTIONS = STATE_VERTEX_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>State</em>' class.
@@ -384,7 +393,7 @@ public interface StatemachinePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATE_FEATURE_COUNT = STATE_VERTEX_FEATURE_COUNT + 5;
+	int STATE_FEATURE_COUNT = STATE_VERTEX_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>State</em>' class.
@@ -451,7 +460,7 @@ public interface StatemachinePackage extends EPackage {
 	int COMPOSITE_STATE__INCOMING = STATE__INCOMING;
 
 	/**
-	 * The feature id for the '<em><b>Label</b></em>' attribute list.
+	 * The feature id for the '<em><b>Label</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1127,6 +1136,53 @@ public interface StatemachinePackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.LabelImpl <em>Label</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.impl.LabelImpl
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.impl.StatemachinePackageImpl#getLabel()
+	 * @generated
+	 */
+	int LABEL = 14;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL__ID = CommonBasePackage.ID_BASE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL__NAME = CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Label</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Label</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL_OPERATION_COUNT = CommonBasePackage.ID_BASE_OPERATION_COUNT + 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.statechart.StateMachineRoot <em>State Machine Root</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1243,17 +1299,6 @@ public interface StatemachinePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getState();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link de.uni_stuttgart.iste.cowolf.model.statechart.State#getLabel <em>Label</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Label</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.State#getLabel()
-	 * @see #getState()
-	 * @generated
-	 */
-	EAttribute getState_Label();
 
 	/**
 	 * Returns the meta object for the container reference '{@link de.uni_stuttgart.iste.cowolf.model.statechart.State#getState_container <em>State container</em>}'.
@@ -1590,6 +1635,17 @@ public interface StatemachinePackage extends EPackage {
 	EReference getStateVertex_Incoming();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.model.statechart.StateVertex#getLabel <em>Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Label</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.StateVertex#getLabel()
+	 * @see #getStateVertex()
+	 * @generated
+	 */
+	EReference getStateVertex_Label();
+
+	/**
 	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.statechart.StateAction <em>State Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1639,6 +1695,27 @@ public interface StatemachinePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getEXIT();
+
+	/**
+	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.statechart.Label <em>Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Label</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.Label
+	 * @generated
+	 */
+	EClass getLabel();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.statechart.Label#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.Label#getName()
+	 * @see #getLabel()
+	 * @generated
+	 */
+	EAttribute getLabel_Name();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1756,14 +1833,6 @@ public interface StatemachinePackage extends EPackage {
 		 * @generated
 		 */
 		EClass STATE = eINSTANCE.getState();
-
-		/**
-		 * The meta object literal for the '<em><b>Label</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute STATE__LABEL = eINSTANCE.getState_Label();
 
 		/**
 		 * The meta object literal for the '<em><b>State container</b></em>' container reference feature.
@@ -2028,6 +2097,14 @@ public interface StatemachinePackage extends EPackage {
 		EReference STATE_VERTEX__INCOMING = eINSTANCE.getStateVertex_Incoming();
 
 		/**
+		 * The meta object literal for the '<em><b>Label</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STATE_VERTEX__LABEL = eINSTANCE.getStateVertex_Label();
+
+		/**
 		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateActionImpl <em>State Action</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2074,6 +2151,24 @@ public interface StatemachinePackage extends EPackage {
 		 * @generated
 		 */
 		EClass EXIT = eINSTANCE.getEXIT();
+
+		/**
+		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.LabelImpl <em>Label</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uni_stuttgart.iste.cowolf.model.statechart.impl.LabelImpl
+		 * @see de.uni_stuttgart.iste.cowolf.model.statechart.impl.StatemachinePackageImpl#getLabel()
+		 * @generated
+		 */
+		EClass LABEL = eINSTANCE.getLabel();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LABEL__NAME = eINSTANCE.getLabel_Name();
 
 	}
 

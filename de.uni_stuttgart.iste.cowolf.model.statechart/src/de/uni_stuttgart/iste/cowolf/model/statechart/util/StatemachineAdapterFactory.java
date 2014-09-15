@@ -127,6 +127,10 @@ public class StatemachineAdapterFactory extends AdapterFactoryImpl {
 				return createEXITAdapter();
 			}
 			@Override
+			public Adapter caseLabel(Label object) {
+				return createLabelAdapter();
+			}
+			@Override
 			public Adapter caseIDBase(IDBase object) {
 				return createIDBaseAdapter();
 			}
@@ -347,6 +351,20 @@ public class StatemachineAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEXITAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.statechart.Label <em>Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.Label
+	 * @generated
+	 */
+	public Adapter createLabelAdapter() {
 		return null;
 	}
 

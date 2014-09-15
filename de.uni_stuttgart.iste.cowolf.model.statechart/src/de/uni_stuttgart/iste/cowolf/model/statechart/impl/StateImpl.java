@@ -8,20 +8,13 @@ import de.uni_stuttgart.iste.cowolf.model.statechart.StateAction;
 import de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine;
 import de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage;
 import de.uni_stuttgart.iste.cowolf.model.statechart.Transition;
-
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -34,7 +27,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateImpl#getState_container <em>State container</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateImpl#getInternalTransitions <em>Internal Transitions</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateImpl#getDeferrableEvents <em>Deferrable Events</em>}</li>
@@ -45,16 +37,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class StateImpl extends StateVertexImpl implements State {
-	/**
-	 * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLabel()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<String> label;
-
 	/**
 	 * The cached value of the '{@link #getInternalTransitions() <em>Internal Transitions</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -102,18 +84,6 @@ public class StateImpl extends StateVertexImpl implements State {
 	@Override
 	protected EClass eStaticClass() {
 		return StatemachinePackage.Literals.STATE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<String> getLabel() {
-		if (label == null) {
-			label = new EDataTypeUniqueEList<String>(String.class, this, StatemachinePackage.STATE__LABEL);
-		}
-		return label;
 	}
 
 	/**
@@ -254,8 +224,6 @@ public class StateImpl extends StateVertexImpl implements State {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case StatemachinePackage.STATE__LABEL:
-				return getLabel();
 			case StatemachinePackage.STATE__STATE_CONTAINER:
 				return getState_container();
 			case StatemachinePackage.STATE__INTERNAL_TRANSITIONS:
@@ -277,10 +245,6 @@ public class StateImpl extends StateVertexImpl implements State {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case StatemachinePackage.STATE__LABEL:
-				getLabel().clear();
-				getLabel().addAll((Collection<? extends String>)newValue);
-				return;
 			case StatemachinePackage.STATE__STATE_CONTAINER:
 				setState_container((StateMachine)newValue);
 				return;
@@ -308,9 +272,6 @@ public class StateImpl extends StateVertexImpl implements State {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case StatemachinePackage.STATE__LABEL:
-				getLabel().clear();
-				return;
 			case StatemachinePackage.STATE__STATE_CONTAINER:
 				setState_container((StateMachine)null);
 				return;
@@ -335,8 +296,6 @@ public class StateImpl extends StateVertexImpl implements State {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case StatemachinePackage.STATE__LABEL:
-				return label != null && !label.isEmpty();
 			case StatemachinePackage.STATE__STATE_CONTAINER:
 				return getState_container() != null;
 			case StatemachinePackage.STATE__INTERNAL_TRANSITIONS:
@@ -347,22 +306,6 @@ public class StateImpl extends StateVertexImpl implements State {
 				return actions != null && !actions.isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (label: ");
-		result.append(label);
-		result.append(')');
-		return result.toString();
 	}
 
 } //StateImpl
