@@ -8,6 +8,7 @@ import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -28,6 +29,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.henshin.interpreter.EGraph;
+import org.eclipse.emf.henshin.interpreter.Engine;
 import org.eclipse.emf.henshin.interpreter.UnitApplication;
 import org.eclipse.emf.henshin.interpreter.impl.EGraphImpl;
 import org.eclipse.emf.henshin.interpreter.impl.EngineImpl;
@@ -248,8 +250,19 @@ public abstract class AbstractTransformationManager {
 
 	protected boolean runTransformation(ResourceSet resSet, SymmetricDifference difference) {
     	
+		EGraph graph;
 		
-    	EGraph graph = this.runMappingTransformation(resSet, difference);
+		List<HenshinFile> henshinFiles = this.getHenshinRuleFile(resSet.getResource(this.getSourceUri(resSet), false));
+		
+		if (henshinFiles != null) {
+			graph = this.runDiffsetTransformation(resSet, henshinFiles);
+		}
+		
+		else {
+		
+			graph = this.runMappingTransformation(resSet, difference);
+			
+		}
     	
     	if (graph == null) {
     		return false;
@@ -258,6 +271,59 @@ public abstract class AbstractTransformationManager {
 		this.extractResultFromGraph(graph, resSet);
 		
 		return true;
+	}
+
+	/**
+	 * 
+	 * @param resSet
+	 * @param difference
+	 * @return
+	 */
+	protected final EGraph runDiffsetTransformation(ResourceSet resSet, List<HenshinFile> henshinFiles) {
+		
+		if (henshinFiles == null) {
+			return null;
+		}
+		
+        // Initialize the graph:
+        EGraph graph = generateGraph(resSet);
+        
+		// TODO Auto-generated method stub
+		HenshinResourceSet rulesResourceSet = new HenshinResourceSet();
+        
+        for (HenshinFile henshinFile : henshinFiles) {
+        	
+	        
+	        Module module = rulesResourceSet.getModule(henshinFile.file, true);
+	        
+	        if (module == null) {
+	        	System.out.println("Skip henshin file " + henshinFile.file.toString() + ": Module invalid.");
+	        	continue;
+	        }
+	        
+	        // Prepare the engine:
+	        Engine engine = new EngineImpl();
+	        
+	        String main = henshinFile.main != null ? henshinFile.main : "mainUnit";
+	         
+	        // Find the unit to be applied:
+	        Unit unit = module.getUnit(main);
+	        
+	        if (unit == null) {
+		        	System.out.println("Skip henshin file " + henshinFile.file.toString() + ": Unknown unit \"" + main + "\".");
+		        	continue;
+	        }
+	        
+	        System.out.println("Execute unit " + main + " in henshin file " + henshinFile.file.toString() + ".");
+	        
+	        // Apply the unit:
+	        UnitApplication application = new UnitApplicationImpl(engine, graph, unit, null);
+	        application.execute(new LoggingApplicationMonitor());
+	        
+	        graph = application.getEGraph();
+        }
+        
+        return graph;
 	}
 
 	/**
@@ -666,6 +732,34 @@ public abstract class AbstractTransformationManager {
         }
         return null;
     }
+    
+    protected final List<HenshinFile> getHenshinRuleFile(Resource source) {
+        IExtensionRegistry er = RegistryFactory.getRegistry();
+        IExtensionPoint exPoint = er.getExtensionPoint("de.uni_stuttgart.iste.cowolf.transformationRuleExtension");
+        
+        List<HenshinFile> files = new LinkedList<HenshinFile>();
+        for (IExtension extension : exPoint.getExtensions()) {
+        	boolean ok = false;
+            for (IConfigurationElement element : extension.getConfigurationElements()) {
+            	if (element.getName().equals("direction") && element.getAttribute("key").equals(this.getKey(source))) {
+            			ok = true;
+            	}
+                // select config file via extension point
+            	if (element.getName().equals("henshinMapping")) {
+            		URI platformString = URI.createPlatformPluginURI(extension.getNamespaceIdentifier()
+                            + File.separator + element.getAttribute("file"), true);
+            		
+            		files.add(new HenshinFile(platformString, element.getAttribute("main")));
+                }
+            }
+            if (ok && files.size() > 0) {
+            	return files;
+            } else {
+            	files.clear();
+            }
+        }
+        return files;
+    }
 
     protected abstract String getKey();
 
@@ -731,5 +825,15 @@ public abstract class AbstractTransformationManager {
             }
         }
         return units;
+    }
+    
+    protected class HenshinFile {
+    	public URI file;
+    	public String main;
+    	
+    	public HenshinFile(URI file, String main) {
+    		this.file = file;
+    		this.main = main;
+    	}
     }
 }
