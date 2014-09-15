@@ -196,7 +196,7 @@
 	</Mapping>
 	
 	<Mapping priority="5">
-		<Difference>SET_StateMachine_(InitialState)_TGT_State</Difference>
+		<Difference>SET_REFERENCE_StateMachine_(InitialState)_TGT_State</Difference>
 		<Rule name="SetInitialState" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin" >
 			<Params>
 			    <Param name="id">
@@ -208,7 +208,7 @@
 		</Rule>
 	</Mapping>
 	<Mapping priority="4">
-		<Difference>UNSET_StateMachine_(InitialState)_TGT_State</Difference>
+		<Difference>UNSET_REFERENCE_StateMachine_(InitialState)_TGT_State</Difference>
 		<Rule name="UnsetInitialStateInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin" >
 			<Params>
 			     <Param name="id">
@@ -300,7 +300,7 @@
         </Rule>
     </Mapping>
     <Mapping priority="9">
-        <Difference>SET_Action_(stateMachineCall)_TGT_StateMachine</Difference>
+        <Difference>SET_REFERENCE_DO_(stateMachineCall)_TGT_StateMachine</Difference>
         <Rule name="CreatedActionInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
             <Params>
                 <Param name="actionId">
@@ -312,7 +312,7 @@
         </Rule>
     </Mapping>
     <Mapping priority="15">
-        <Difference>UNSET_Action_(stateMachineCall)_TGT_StateMachine</Difference>
+        <Difference>UNSET_REFERENCE_DO_(stateMachineCall)_TGT_StateMachine</Difference>
         <Rule name="DeletedActionInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
             <Params>
                 <Param name="id">
@@ -404,7 +404,7 @@
         </Rule>
     </Mapping>
     <Mapping priority="8">
-        <Difference>SET_StateMachineRoot_(InitialStateMachine)_TGT_StateMachine</Difference>
+        <Difference>SET_REFERENCE_StateMachineRoot_(InitialStateMachine)_TGT_StateMachine</Difference>
         <Rule name="SetInitialStateMachine" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
             <Params>
                 <Param name="id">
@@ -416,7 +416,7 @@
         </Rule>
     </Mapping>
     <Mapping priority="8">
-        <Difference>UNSET_StateMachineRoot_(InitialStateMachine)_TGT_StateMachine</Difference>
+        <Difference>UNSET_REFERENCE_StateMachineRoot_(InitialStateMachine)_TGT_StateMachine</Difference>
         <Rule name="UnsetInitialStateMachine" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
             <Params>
                 <Param name="id">

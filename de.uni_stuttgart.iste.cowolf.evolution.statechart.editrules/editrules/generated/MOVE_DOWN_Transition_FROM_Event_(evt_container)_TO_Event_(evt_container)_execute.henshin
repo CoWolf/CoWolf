@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_MtbnEDw3EeSjqZPwpeMRMg" name="MOVE_DOWN_Transition_FROM_Event_(evt_container)_TO_Event_(evt_container)" description="MOVE DOWNWARDs Transition from Event(Reference:evt_container) to Event(Reference:evt_container">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_MtbnETw3EeSjqZPwpeMRMg" name="moveDownTransition_FROM_Event_evt_container_TO_Event_Event" description="Moves down Transition from Event(Reference:evt_container) toEvent(Reference:Event)">
+    <parameters xmi:id="_MtbnEjw3EeSjqZPwpeMRMg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//Transition"/>
+    </parameters>
+    <parameters xmi:id="_MtbnEzw3EeSjqZPwpeMRMg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//Event"/>
+    </parameters>
+    <parameters xmi:id="_MtbnFDw3EeSjqZPwpeMRMg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//Event"/>
+    </parameters>
+    <lhs xmi:id="_MtbnFTw3EeSjqZPwpeMRMg" name="Lhs">
+      <nodes xmi:id="_MtbnFjw3EeSjqZPwpeMRMg" name="Selected" incoming="_MtbnGTw3EeSjqZPwpeMRMg" outgoing="_MtbnGjw3EeSjqZPwpeMRMg">
+        <type href="http://Statemachine/1.0#//Transition"/>
+      </nodes>
+      <nodes xmi:id="_MtbnFzw3EeSjqZPwpeMRMg" name="OldSource" incoming="_MtbnGjw3EeSjqZPwpeMRMg" outgoing="_MtbnGTw3EeSjqZPwpeMRMg">
+        <type href="http://Statemachine/1.0#//Event"/>
+      </nodes>
+      <nodes xmi:id="_MtbnGDw3EeSjqZPwpeMRMg" name="NewSource">
+        <type href="http://Statemachine/1.0#//Event"/>
+      </nodes>
+      <edges xmi:id="_MtbnGTw3EeSjqZPwpeMRMg" source="_MtbnFzw3EeSjqZPwpeMRMg" target="_MtbnFjw3EeSjqZPwpeMRMg">
+        <type href="http://Statemachine/1.0#//Event/evt_container"/>
+      </edges>
+      <edges xmi:id="_MtbnGjw3EeSjqZPwpeMRMg" source="_MtbnFjw3EeSjqZPwpeMRMg" target="_MtbnFzw3EeSjqZPwpeMRMg">
+        <type href="http://Statemachine/1.0#//Transition/trigger"/>
+      </edges>
+      <formula xsi:type="henshin:And" xmi:id="_MtbnGzw3EeSjqZPwpeMRMg">
+        <left xsi:type="henshin:NestedCondition" xmi:id="_MtbnHDw3EeSjqZPwpeMRMg">
+          <conclusion xmi:id="_MtbnHTw3EeSjqZPwpeMRMg" name="cyclePath"/>
+        </left>
+        <right xsi:type="henshin:Not" xmi:id="_MtbnIzw3EeSjqZPwpeMRMg">
+          <child xsi:type="henshin:NestedCondition" xmi:id="_MtbnJDw3EeSjqZPwpeMRMg">
+            <conclusion xmi:id="_MtbnJTw3EeSjqZPwpeMRMg" name="ub0">
+              <nodes xmi:id="_MtbnJjw3EeSjqZPwpeMRMg" outgoing="_MtbnKDw3EeSjqZPwpeMRMg">
+                <type href="http://Statemachine/1.0#//Event"/>
+              </nodes>
+              <nodes xmi:id="_MtbnJzw3EeSjqZPwpeMRMg" incoming="_MtbnKDw3EeSjqZPwpeMRMg">
+                <type href="http://Statemachine/1.0#//Transition"/>
+              </nodes>
+              <edges xmi:id="_MtbnKDw3EeSjqZPwpeMRMg" source="_MtbnJjw3EeSjqZPwpeMRMg" target="_MtbnJzw3EeSjqZPwpeMRMg">
+                <type href="http://Statemachine/1.0#//Event/evt_container"/>
+              </edges>
+            </conclusion>
+            <mappings xmi:id="_MtbnKTw3EeSjqZPwpeMRMg" origin="_MtbnGDw3EeSjqZPwpeMRMg" image="_MtbnJjw3EeSjqZPwpeMRMg"/>
+          </child>
+        </right>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_MtbnKjw3EeSjqZPwpeMRMg" name="Rhs">
+      <nodes xmi:id="_MtbnKzw3EeSjqZPwpeMRMg" name="Selected" incoming="_MtbnLjw3EeSjqZPwpeMRMg" outgoing="_MtbnLzw3EeSjqZPwpeMRMg">
+        <type href="http://Statemachine/1.0#//Transition"/>
+      </nodes>
+      <nodes xmi:id="_MtbnLDw3EeSjqZPwpeMRMg" name="OldSource">
+        <type href="http://Statemachine/1.0#//Event"/>
+      </nodes>
+      <nodes xmi:id="_MtbnLTw3EeSjqZPwpeMRMg" name="NewSource" incoming="_MtbnLzw3EeSjqZPwpeMRMg" outgoing="_MtbnLjw3EeSjqZPwpeMRMg">
+        <type href="http://Statemachine/1.0#//Event"/>
+      </nodes>
+      <edges xmi:id="_MtbnLjw3EeSjqZPwpeMRMg" source="_MtbnLTw3EeSjqZPwpeMRMg" target="_MtbnKzw3EeSjqZPwpeMRMg">
+        <type href="http://Statemachine/1.0#//Event/evt_container"/>
+      </edges>
+      <edges xmi:id="_MtbnLzw3EeSjqZPwpeMRMg" source="_MtbnKzw3EeSjqZPwpeMRMg" target="_MtbnLTw3EeSjqZPwpeMRMg">
+        <type href="http://Statemachine/1.0#//Transition/trigger"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_MtbnMDw3EeSjqZPwpeMRMg" origin="_MtbnFjw3EeSjqZPwpeMRMg" image="_MtbnKzw3EeSjqZPwpeMRMg"/>
+    <mappings xmi:id="_MtbnMTw3EeSjqZPwpeMRMg" origin="_MtbnFzw3EeSjqZPwpeMRMg" image="_MtbnLDw3EeSjqZPwpeMRMg"/>
+    <mappings xmi:id="_MtbnMjw3EeSjqZPwpeMRMg" origin="_MtbnGDw3EeSjqZPwpeMRMg" image="_MtbnLTw3EeSjqZPwpeMRMg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_MtbnMzw3EeSjqZPwpeMRMg" name="mainUnit" subUnits="_MtbnETw3EeSjqZPwpeMRMg">
+    <parameters xmi:id="_MtbnNDw3EeSjqZPwpeMRMg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//Transition"/>
+    </parameters>
+    <parameters xmi:id="_MtbnNTw3EeSjqZPwpeMRMg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//Event"/>
+    </parameters>
+    <parameters xmi:id="_MtbnNjw3EeSjqZPwpeMRMg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//Event"/>
+    </parameters>
+    <parameterMappings xmi:id="_MtbnNzw3EeSjqZPwpeMRMg" source="_MtbnNDw3EeSjqZPwpeMRMg" target="_MtbnEjw3EeSjqZPwpeMRMg"/>
+    <parameterMappings xmi:id="_MtbnODw3EeSjqZPwpeMRMg" source="_MtbnNTw3EeSjqZPwpeMRMg" target="_MtbnEzw3EeSjqZPwpeMRMg"/>
+    <parameterMappings xmi:id="_MtbnOTw3EeSjqZPwpeMRMg" source="_MtbnNjw3EeSjqZPwpeMRMg" target="_MtbnFDw3EeSjqZPwpeMRMg"/>
+  </units>
+</henshin:Module>

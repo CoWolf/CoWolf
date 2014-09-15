@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_Mtss0Dw3EeSjqZPwpeMRMg" name="UNSET_ATTRIBUTE_Transition_Id" description="Sets Transition Id">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_Mtss0Tw3EeSjqZPwpeMRMg" name="setTransitionId" description="Sets the EAttribute id">
+    <parameters xmi:id="_Mtss0jw3EeSjqZPwpeMRMg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//Transition"/>
+    </parameters>
+    <parameters xmi:id="_Mtss0zw3EeSjqZPwpeMRMg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_Mtss1Dw3EeSjqZPwpeMRMg" name="LHS">
+      <nodes xmi:id="_Mtss1Tw3EeSjqZPwpeMRMg" name="Selected">
+        <type href="http://Statemachine/1.0#//Transition"/>
+        <attributes xmi:id="_Mtss1jw3EeSjqZPwpeMRMg" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_Mtss1zw3EeSjqZPwpeMRMg" name="RHS">
+      <nodes xmi:id="_Mtss2Dw3EeSjqZPwpeMRMg" name="Selected">
+        <type href="http://Statemachine/1.0#//Transition"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_Mtss2Tw3EeSjqZPwpeMRMg" origin="_Mtss1Tw3EeSjqZPwpeMRMg" image="_Mtss2Dw3EeSjqZPwpeMRMg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_Mtss2jw3EeSjqZPwpeMRMg" name="mainUnit" subUnits="_Mtss0Tw3EeSjqZPwpeMRMg">
+    <parameters xmi:id="_Mtss2zw3EeSjqZPwpeMRMg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//Transition"/>
+    </parameters>
+    <parameters xmi:id="_Mtss3Dw3EeSjqZPwpeMRMg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_Mtss3Tw3EeSjqZPwpeMRMg" source="_Mtss2zw3EeSjqZPwpeMRMg" target="_Mtss0jw3EeSjqZPwpeMRMg"/>
+    <parameterMappings xmi:id="_Mtss3jw3EeSjqZPwpeMRMg" source="_Mtss3Dw3EeSjqZPwpeMRMg" target="_Mtss0zw3EeSjqZPwpeMRMg"/>
+  </units>
+</henshin:Module>

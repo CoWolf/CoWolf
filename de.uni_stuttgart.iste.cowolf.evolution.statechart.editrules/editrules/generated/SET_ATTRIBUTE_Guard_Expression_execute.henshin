@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_MsuccDw3EeSjqZPwpeMRMg" name="SET_ATTRIBUTE_Guard_Expression" description="Sets Guard Expression">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_MsuccTw3EeSjqZPwpeMRMg" name="setGuardExpression" description="Sets the EAttribute expression">
+    <parameters xmi:id="_Msuccjw3EeSjqZPwpeMRMg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//Guard"/>
+    </parameters>
+    <parameters xmi:id="_Msucczw3EeSjqZPwpeMRMg" name="Expression">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_MsucdDw3EeSjqZPwpeMRMg" name="Lhs">
+      <nodes xmi:id="_MsucdTw3EeSjqZPwpeMRMg" name="Selected">
+        <type href="http://Statemachine/1.0#//Guard"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_Msucdjw3EeSjqZPwpeMRMg" name="Rhs">
+      <nodes xmi:id="_Msucdzw3EeSjqZPwpeMRMg" name="Selected">
+        <type href="http://Statemachine/1.0#//Guard"/>
+        <attributes xmi:id="_MsuceDw3EeSjqZPwpeMRMg" value="Expression">
+          <type href="http://Statemachine/1.0#//Guard/expression"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_MsuceTw3EeSjqZPwpeMRMg" origin="_MsucdTw3EeSjqZPwpeMRMg" image="_Msucdzw3EeSjqZPwpeMRMg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_Msucejw3EeSjqZPwpeMRMg" name="mainUnit" subUnits="_MsuccTw3EeSjqZPwpeMRMg">
+    <parameters xmi:id="_Msucezw3EeSjqZPwpeMRMg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//Guard"/>
+    </parameters>
+    <parameters xmi:id="_MsucfDw3EeSjqZPwpeMRMg" name="Expression">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_MsucfTw3EeSjqZPwpeMRMg" source="_Msucezw3EeSjqZPwpeMRMg" target="_Msuccjw3EeSjqZPwpeMRMg"/>
+    <parameterMappings xmi:id="_Msucfjw3EeSjqZPwpeMRMg" source="_MsucfDw3EeSjqZPwpeMRMg" target="_Msucczw3EeSjqZPwpeMRMg"/>
+  </units>
+</henshin:Module>

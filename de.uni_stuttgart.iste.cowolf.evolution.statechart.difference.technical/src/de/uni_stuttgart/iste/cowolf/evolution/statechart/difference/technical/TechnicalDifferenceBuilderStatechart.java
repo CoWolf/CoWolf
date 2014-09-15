@@ -9,13 +9,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.henshin.trace.impl.TracePackageImpl;
 import org.sidiff.difference.technical.TechnicalDifferenceBuilder;
-
 import de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage;
-<<<<<<< HEAD
-=======
-
->>>>>>> fixing references
-
+ 
 /**
  * 
  * To filter not needed stuff.
