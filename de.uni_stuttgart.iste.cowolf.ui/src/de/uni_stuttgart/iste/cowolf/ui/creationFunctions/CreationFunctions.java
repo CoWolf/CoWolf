@@ -1,6 +1,9 @@
 package de.uni_stuttgart.iste.cowolf.ui.creationFunctions;
 
+import java.io.IOException;
 import java.net.URI;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JOptionPane;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFolder;
@@ -10,8 +13,15 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.xmi.XMLResource;
+import org.eclipse.sirius.ui.tools.api.project.ModelingProjectManager;
 import de.uni_stuttgart.iste.cowolf.core.natures.ProjectNature;
 import de.uni_stuttgart.iste.cowolf.model.ModelRegistry;
+import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCFactory;
 import de.uni_stuttgart.iste.cowolf.ui.externalizedStrings.Messages;
 import de.uni_stuttgart.iste.cowolf.ui.model.preference.ModelPreferencePage;
 
@@ -34,6 +44,15 @@ public class CreationFunctions {
 
 		IProject iProject = createBasicProject(projectName, location);
 		addNature(iProject);
+
+		// create a resource file
+		try {
+			ModelingProjectManager.INSTANCE.createLocalRepresentationsFile(iProject,
+					null);
+		} catch (CoreException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		// our basic folder structure
 
