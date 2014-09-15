@@ -148,7 +148,7 @@
         </Rule>
     </Mapping>
 	<Mapping priority="10">
-		<Difference>CHANGE_Transition_(target)_TGT_StateVertex</Difference>
+		<Difference>CHANGE_REFERENCE_Transition_(target)_TGT_StateVertex</Difference>
 		<Rule name="ChangedTransitionTarget" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
 			<Params>
 				<Param name="transId">
@@ -165,7 +165,7 @@
 		</Rule>
 	</Mapping>
 	<Mapping priority="10">
-		<Difference>CHANGE_Transition_(source)_TGT_StateVertex</Difference>
+		<Difference>CHANGE_REFERENCE_Transition_(source)_TGT_StateVertex</Difference>
 		<Rule name="ChangedTransitionSource" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
 			<Params>
 				<Param name="transId">
@@ -182,19 +182,73 @@
 		</Rule>
 	</Mapping>
 	<Mapping priority="10">
-		<Change>Statemachine/State/name</Change>
+		<Difference>SET_ATTRIBUTE_State_Name</Difference>
 		<Rule name="ChangedNameInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
 			<Params>
 				<Param name="id">
-					<Reference name="objB" attribute="id" />
-				</Param>
-				<Param name="name">
-                    <Reference name="objB" attribute="name" />
+                    <Change name="AttributeValueChange" type="id">
+                        <Reference name="objB" attribute="id" />
+                    </Change>    
+                </Param>
+                <Param name="name">
+                    <Change name="AttributeValueChange" type="name">
+                        <Reference name="objB" attribute="name" />
+                    </Change>    
                 </Param>
 			</Params>
 		</Rule>
 	</Mapping>
-	
+	<Mapping priority="10">
+        <Difference>UNSET_ATTRIBUTE_State_Name</Difference>
+        <Rule name="ChangedNameInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
+            <Params>
+                <Param name="id">
+                    <Change name="AttributeValueChange" >
+                        <Reference name="objB" attribute="id" />
+                    </Change>    
+                </Param>
+                <Param name="name">
+                    <Change name="AttributeValueChange" >
+                        <Reference name="objB" attribute="name" />
+                    </Change>    
+                </Param>
+            </Params>
+        </Rule>
+    </Mapping>
+    <Mapping priority="10">
+        <Difference>SET_ATTRIBUTE_CompositeState_Name</Difference>
+        <Rule name="ChangedNameInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
+            <Params>
+                <Param name="id">
+                    <Change name="AttributeValueChange" >
+                        <Reference name="objB" attribute="id" />
+                    </Change>    
+                </Param>
+                <Param name="name">
+                    <Change name="AttributeValueChange" >
+                        <Reference name="objB" attribute="name" />
+                    </Change>    
+                </Param>
+            </Params>
+        </Rule>
+    </Mapping>
+    <Mapping priority="10">
+        <Difference>UNSET_ATTRIBUTE_CompositeState_Name</Difference>
+        <Rule name="ChangedNameInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
+            <Params>
+                <Param name="id">
+                    <Change name="AttributeValueChange" >
+                        <Reference name="objB" attribute="id" />
+                    </Change>    
+                </Param>
+                <Param name="name">
+                    <Change name="AttributeValueChange" >
+                        <Reference name="objB" attribute="name" />
+                    </Change>    
+                </Param>
+            </Params>
+        </Rule>
+    </Mapping>
 	<Mapping priority="5">
 		<Difference>SET_REFERENCE_StateMachine_(InitialState)_TGT_State</Difference>
 		<Rule name="SetInitialState" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin" >
