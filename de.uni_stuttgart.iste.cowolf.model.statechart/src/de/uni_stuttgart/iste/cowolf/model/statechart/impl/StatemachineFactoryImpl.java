@@ -69,6 +69,7 @@ public class StatemachineFactoryImpl extends EFactoryImpl implements Statemachin
 			case StatemachinePackage.DO: return createDO();
 			case StatemachinePackage.ENTRY: return createENTRY();
 			case StatemachinePackage.EXIT: return createEXIT();
+			case StatemachinePackage.LABEL: return createLabel();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -202,6 +203,16 @@ public class StatemachineFactoryImpl extends EFactoryImpl implements Statemachin
 	public EXIT createEXIT() {
 		EXITImpl exit = new EXITImpl();
 		return exit;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Label createLabel() {
+		LabelImpl label = new LabelImpl();
+		return label;
 	}
 
 	/**

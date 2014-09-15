@@ -18,6 +18,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.StateVertex#getSv_container <em>Sv container</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.StateVertex#getOutgoing <em>Outgoing</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.StateVertex#getIncoming <em>Incoming</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.StateVertex#getLabel <em>Label</em>}</li>
  * </ul>
  * </p>
  *
@@ -89,5 +90,21 @@ public interface StateVertex extends IDBase, NameBase {
 	 * @generated
 	 */
 	EList<Transition> getIncoming();
+
+	/**
+	 * Returns the value of the '<em><b>Label</b></em>' containment reference list.
+	 * The list contents are of type {@link de.uni_stuttgart.iste.cowolf.model.statechart.Label}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Label</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Label</em>' containment reference list.
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage#getStateVertex_Label()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Label> getLabel();
 
 } // StateVertex

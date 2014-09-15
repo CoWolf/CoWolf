@@ -371,6 +371,29 @@ public class StatemachineItemProviderAdapterFactory extends StatemachineAdapterF
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uni_stuttgart.iste.cowolf.model.statechart.Label} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LabelItemProvider labelItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uni_stuttgart.iste.cowolf.model.statechart.Label}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLabelAdapter() {
+		if (labelItemProvider == null) {
+			labelItemProvider = new LabelItemProvider(this);
+		}
+
+		return labelItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -482,6 +505,7 @@ public class StatemachineItemProviderAdapterFactory extends StatemachineAdapterF
 		if (doItemProvider != null) doItemProvider.dispose();
 		if (entryItemProvider != null) entryItemProvider.dispose();
 		if (exitItemProvider != null) exitItemProvider.dispose();
+		if (labelItemProvider != null) labelItemProvider.dispose();
 	}
 
 }

@@ -8,6 +8,7 @@ import de.uni_stuttgart.iste.cowolf.model.statechart.Action;
 import de.uni_stuttgart.iste.cowolf.model.statechart.CompositeState;
 import de.uni_stuttgart.iste.cowolf.model.statechart.Event;
 import de.uni_stuttgart.iste.cowolf.model.statechart.Guard;
+import de.uni_stuttgart.iste.cowolf.model.statechart.Label;
 import de.uni_stuttgart.iste.cowolf.model.statechart.State;
 import de.uni_stuttgart.iste.cowolf.model.statechart.StateAction;
 import de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine;
@@ -129,6 +130,13 @@ public class StatemachinePackageImpl extends EPackageImpl implements Statemachin
 	 * @generated
 	 */
 	private EClass exitEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass labelEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -298,17 +306,8 @@ public class StatemachinePackageImpl extends EPackageImpl implements Statemachin
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getState_Label() {
-		return (EAttribute)stateEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getState_State_container() {
-		return (EReference)stateEClass.getEStructuralFeatures().get(1);
+		return (EReference)stateEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -317,7 +316,7 @@ public class StatemachinePackageImpl extends EPackageImpl implements Statemachin
 	 * @generated
 	 */
 	public EReference getState_InternalTransitions() {
-		return (EReference)stateEClass.getEStructuralFeatures().get(2);
+		return (EReference)stateEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -326,7 +325,7 @@ public class StatemachinePackageImpl extends EPackageImpl implements Statemachin
 	 * @generated
 	 */
 	public EReference getState_DeferrableEvents() {
-		return (EReference)stateEClass.getEStructuralFeatures().get(3);
+		return (EReference)stateEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -335,7 +334,7 @@ public class StatemachinePackageImpl extends EPackageImpl implements Statemachin
 	 * @generated
 	 */
 	public EReference getState_Actions() {
-		return (EReference)stateEClass.getEStructuralFeatures().get(4);
+		return (EReference)stateEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -586,6 +585,15 @@ public class StatemachinePackageImpl extends EPackageImpl implements Statemachin
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getStateVertex_Label() {
+		return (EReference)stateVertexEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getStateAction() {
 		return stateActionEClass;
 	}
@@ -631,6 +639,24 @@ public class StatemachinePackageImpl extends EPackageImpl implements Statemachin
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getLabel() {
+		return labelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLabel_Name() {
+		return (EAttribute)labelEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public StatemachineFactory getStatemachineFactory() {
 		return (StatemachineFactory)getEFactoryInstance();
 	}
@@ -667,7 +693,6 @@ public class StatemachinePackageImpl extends EPackageImpl implements Statemachin
 		createEReference(stateMachineEClass, STATE_MACHINE__INITIAL_STATE);
 
 		stateEClass = createEClass(STATE);
-		createEAttribute(stateEClass, STATE__LABEL);
 		createEReference(stateEClass, STATE__STATE_CONTAINER);
 		createEReference(stateEClass, STATE__INTERNAL_TRANSITIONS);
 		createEReference(stateEClass, STATE__DEFERRABLE_EVENTS);
@@ -706,6 +731,7 @@ public class StatemachinePackageImpl extends EPackageImpl implements Statemachin
 		createEReference(stateVertexEClass, STATE_VERTEX__SV_CONTAINER);
 		createEReference(stateVertexEClass, STATE_VERTEX__OUTGOING);
 		createEReference(stateVertexEClass, STATE_VERTEX__INCOMING);
+		createEReference(stateVertexEClass, STATE_VERTEX__LABEL);
 
 		stateActionEClass = createEClass(STATE_ACTION);
 		createEReference(stateActionEClass, STATE_ACTION__ACTION_CONTAINER);
@@ -715,6 +741,9 @@ public class StatemachinePackageImpl extends EPackageImpl implements Statemachin
 		entryEClass = createEClass(ENTRY);
 
 		exitEClass = createEClass(EXIT);
+
+		labelEClass = createEClass(LABEL);
+		createEAttribute(labelEClass, LABEL__NAME);
 	}
 
 	/**
@@ -763,6 +792,7 @@ public class StatemachinePackageImpl extends EPackageImpl implements Statemachin
 		doEClass.getESuperTypes().add(this.getStateAction());
 		entryEClass.getESuperTypes().add(this.getStateAction());
 		exitEClass.getESuperTypes().add(this.getStateAction());
+		labelEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(stateMachineRootEClass, StateMachineRoot.class, "StateMachineRoot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -778,7 +808,6 @@ public class StatemachinePackageImpl extends EPackageImpl implements Statemachin
 		initEReference(getStateMachine_InitialState(), this.getState(), null, "InitialState", null, 0, 1, StateMachine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getState_Label(), ecorePackage.getEString(), "label", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getState_State_container(), this.getStateMachine(), this.getStateMachine_Top(), "state_container", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getState_InternalTransitions(), this.getTransition(), this.getTransition_TransS_container(), "internalTransitions", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getState_DeferrableEvents(), this.getEvent(), null, "deferrableEvents", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -817,6 +846,7 @@ public class StatemachinePackageImpl extends EPackageImpl implements Statemachin
 		initEReference(getStateVertex_Sv_container(), this.getCompositeState(), this.getCompositeState_SubVertexes(), "sv_container", null, 0, 1, StateVertex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getStateVertex_Outgoing(), this.getTransition(), this.getTransition_Source(), "outgoing", null, 0, -1, StateVertex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getStateVertex_Incoming(), this.getTransition(), this.getTransition_Target(), "incoming", null, 0, -1, StateVertex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getStateVertex_Label(), this.getLabel(), null, "label", null, 0, -1, StateVertex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stateActionEClass, StateAction.class, "StateAction", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getStateAction_Action_container(), this.getState(), this.getState_Actions(), "action_container", null, 0, 1, StateAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -826,6 +856,9 @@ public class StatemachinePackageImpl extends EPackageImpl implements Statemachin
 		initEClass(entryEClass, de.uni_stuttgart.iste.cowolf.model.statechart.ENTRY.class, "ENTRY", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(exitEClass, de.uni_stuttgart.iste.cowolf.model.statechart.EXIT.class, "EXIT", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(labelEClass, Label.class, "Label", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLabel_Name(), ecorePackage.getEString(), "name", null, 0, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

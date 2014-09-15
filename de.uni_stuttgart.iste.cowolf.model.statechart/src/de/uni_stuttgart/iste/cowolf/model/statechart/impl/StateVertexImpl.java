@@ -8,6 +8,7 @@ import de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase;
 import de.uni_stuttgart.iste.cowolf.model.commonBase.impl.IDBaseImpl;
 
 import de.uni_stuttgart.iste.cowolf.model.statechart.CompositeState;
+import de.uni_stuttgart.iste.cowolf.model.statechart.Label;
 import de.uni_stuttgart.iste.cowolf.model.statechart.StateVertex;
 import de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage;
 import de.uni_stuttgart.iste.cowolf.model.statechart.Transition;
@@ -24,6 +25,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -39,6 +41,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateVertexImpl#getSv_container <em>Sv container</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateVertexImpl#getOutgoing <em>Outgoing</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateVertexImpl#getIncoming <em>Incoming</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateVertexImpl#getLabel <em>Label</em>}</li>
  * </ul>
  * </p>
  *
@@ -84,6 +87,16 @@ public class StateVertexImpl extends IDBaseImpl implements StateVertex {
 	 * @ordered
 	 */
 	protected EList<Transition> incoming;
+
+	/**
+	 * The cached value of the '{@link #getLabel() <em>Label</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Label> label;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -195,6 +208,18 @@ public class StateVertexImpl extends IDBaseImpl implements StateVertex {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Label> getLabel() {
+		if (label == null) {
+			label = new EObjectContainmentEList<Label>(Label.class, this, StatemachinePackage.STATE_VERTEX__LABEL);
+		}
+		return label;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -225,6 +250,8 @@ public class StateVertexImpl extends IDBaseImpl implements StateVertex {
 				return ((InternalEList<?>)getOutgoing()).basicRemove(otherEnd, msgs);
 			case StatemachinePackage.STATE_VERTEX__INCOMING:
 				return ((InternalEList<?>)getIncoming()).basicRemove(otherEnd, msgs);
+			case StatemachinePackage.STATE_VERTEX__LABEL:
+				return ((InternalEList<?>)getLabel()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -259,6 +286,8 @@ public class StateVertexImpl extends IDBaseImpl implements StateVertex {
 				return getOutgoing();
 			case StatemachinePackage.STATE_VERTEX__INCOMING:
 				return getIncoming();
+			case StatemachinePackage.STATE_VERTEX__LABEL:
+				return getLabel();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -286,6 +315,10 @@ public class StateVertexImpl extends IDBaseImpl implements StateVertex {
 				getIncoming().clear();
 				getIncoming().addAll((Collection<? extends Transition>)newValue);
 				return;
+			case StatemachinePackage.STATE_VERTEX__LABEL:
+				getLabel().clear();
+				getLabel().addAll((Collection<? extends Label>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -310,6 +343,9 @@ public class StateVertexImpl extends IDBaseImpl implements StateVertex {
 			case StatemachinePackage.STATE_VERTEX__INCOMING:
 				getIncoming().clear();
 				return;
+			case StatemachinePackage.STATE_VERTEX__LABEL:
+				getLabel().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -330,6 +366,8 @@ public class StateVertexImpl extends IDBaseImpl implements StateVertex {
 				return outgoing != null && !outgoing.isEmpty();
 			case StatemachinePackage.STATE_VERTEX__INCOMING:
 				return incoming != null && !incoming.isEmpty();
+			case StatemachinePackage.STATE_VERTEX__LABEL:
+				return label != null && !label.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
