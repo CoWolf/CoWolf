@@ -394,26 +394,26 @@ public class LQNItemProviderAdapterFactory extends LQNAdapterFactory implements 
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uni_stuttgart.iste.cowolf.model.LqnCore.DocumentRoot} instances.
+	 * This keeps track of the one adapter used for all {@link de.uni_stuttgart.iste.cowolf.model.LqnCore.LQN} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DocumentRootItemProvider documentRootItemProvider;
+	protected LQNItemProvider lqnItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uni_stuttgart.iste.cowolf.model.LqnCore.DocumentRoot}.
+	 * This creates an adapter for a {@link de.uni_stuttgart.iste.cowolf.model.LqnCore.LQN}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createDocumentRootAdapter() {
-		if (documentRootItemProvider == null) {
-			documentRootItemProvider = new DocumentRootItemProvider(this);
+	public Adapter createLQNAdapter() {
+		if (lqnItemProvider == null) {
+			lqnItemProvider = new LQNItemProvider(this);
 		}
 
-		return documentRootItemProvider;
+		return lqnItemProvider;
 	}
 
 	/**
@@ -1492,10 +1492,9 @@ public class LQNItemProviderAdapterFactory extends LQNAdapterFactory implements 
 		if (activityPhasesTypeItemProvider != null) activityPhasesTypeItemProvider.dispose();
 		if (activityTypeItemProvider != null) activityTypeItemProvider.dispose();
 		if (andJoinListTypeItemProvider != null) andJoinListTypeItemProvider.dispose();
-		if (asynchCallTypeItemProvider != null) asynchCallTypeItemProvider.dispose();
 		if (bindTypeItemProvider != null) bindTypeItemProvider.dispose();
 		if (callListTypeItemProvider != null) callListTypeItemProvider.dispose();
-		if (documentRootItemProvider != null) documentRootItemProvider.dispose();
+		if (lqnItemProvider != null) lqnItemProvider.dispose();
 		if (lqnCoreTypeItemProvider != null) lqnCoreTypeItemProvider.dispose();
 		if (lqnModelTypeItemProvider != null) lqnModelTypeItemProvider.dispose();
 		if (entryActivityDefTypeItemProvider != null) entryActivityDefTypeItemProvider.dispose();
@@ -1536,6 +1535,7 @@ public class LQNItemProviderAdapterFactory extends LQNAdapterFactory implements 
 		if (slotTypeItemProvider != null) slotTypeItemProvider.dispose();
 		if (solverParamsTypeItemProvider != null) solverParamsTypeItemProvider.dispose();
 		if (synchCallTypeItemProvider != null) synchCallTypeItemProvider.dispose();
+		if (asynchCallTypeItemProvider != null) asynchCallTypeItemProvider.dispose();
 		if (taskActivityGraphItemProvider != null) taskActivityGraphItemProvider.dispose();
 		if (taskTypeItemProvider != null) taskTypeItemProvider.dispose();
 	}

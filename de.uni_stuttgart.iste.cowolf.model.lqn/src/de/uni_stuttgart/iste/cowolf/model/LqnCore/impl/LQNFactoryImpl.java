@@ -78,10 +78,9 @@ public class LQNFactoryImpl extends EFactoryImpl implements LQNFactory {
 			case LQNPackage.ACTIVITY_PHASES_TYPE: return createActivityPhasesType();
 			case LQNPackage.ACTIVITY_TYPE: return createActivityType();
 			case LQNPackage.AND_JOIN_LIST_TYPE: return createAndJoinListType();
-			case LQNPackage.ASYNCH_CALL_TYPE: return createAsynchCallType();
 			case LQNPackage.BIND_TYPE: return createBindType();
 			case LQNPackage.CALL_LIST_TYPE: return createCallListType();
-			case LQNPackage.DOCUMENT_ROOT: return createDocumentRoot();
+			case LQNPackage.LQN: return createLQN();
 			case LQNPackage.LQN_CORE_TYPE: return createLqnCoreType();
 			case LQNPackage.LQN_MODEL_TYPE: return createLqnModelType();
 			case LQNPackage.ENTRY_ACTIVITY_DEF_TYPE: return createEntryActivityDefType();
@@ -122,6 +121,7 @@ public class LQNFactoryImpl extends EFactoryImpl implements LQNFactory {
 			case LQNPackage.SLOT_TYPE: return createSlotType();
 			case LQNPackage.SOLVER_PARAMS_TYPE: return createSolverParamsType();
 			case LQNPackage.SYNCH_CALL_TYPE: return createSynchCallType();
+			case LQNPackage.ASYNCH_CALL_TYPE: return createAsynchCallType();
 			case LQNPackage.TASK_ACTIVITY_GRAPH: return createTaskActivityGraph();
 			case LQNPackage.TASK_TYPE: return createTaskType();
 			default:
@@ -392,9 +392,9 @@ public class LQNFactoryImpl extends EFactoryImpl implements LQNFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DocumentRoot createDocumentRoot() {
-		DocumentRootImpl documentRoot = new DocumentRootImpl();
-		return documentRoot;
+	public LQN createLQN() {
+		LQNImpl lqn = new LQNImpl();
+		return lqn;
 	}
 
 	/**

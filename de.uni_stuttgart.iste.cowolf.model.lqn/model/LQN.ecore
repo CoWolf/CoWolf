@@ -315,35 +315,6 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AsynchCallType" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
-    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="asynch-call_._type"/>
-      <details key="kind" value="empty"/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dest" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="dest"/>
-        <details key="namespace" value="##targetNamespace"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fanin" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="fanin"/>
-        <details key="namespace" value="##targetNamespace"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fanout" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"
-        unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
-        <details key="name" value="fanout"/>
-        <details key="namespace" value="##targetNamespace"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="AxisType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="AxisType"/>
@@ -435,7 +406,7 @@
       <details key="itemType" value="http://www.eclipse.org/emf/2003/XMLType#string"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DocumentRoot">
+  <eClassifiers xsi:type="ecore:EClass" name="LQN">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value=""/>
       <details key="kind" value="mixed"/>
@@ -2292,20 +2263,10 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="SrvnFloat" instanceClassName="java.lang.Object">
-    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="SrvnFloat"/>
-      <details key="memberTypes" value="SciNotation http://www.eclipse.org/emf/2003/XMLType#decimal"/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SynchCallType" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
-    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="synch-call_._type"/>
-      <details key="kind" value="empty"/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dest" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+  <eClassifiers xsi:type="ecore:EClass" name="CallType" abstract="true" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dest" eType="#//EntryType">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="attribute"/>
+        <details key="kind" value="element"/>
         <details key="name" value="dest"/>
         <details key="namespace" value="##targetNamespace"/>
       </eAnnotations>
@@ -2326,6 +2287,24 @@
         <details key="namespace" value="##targetNamespace"/>
       </eAnnotations>
     </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SynchCallType" eSuperTypes="#//CallType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="synch-call_._type"/>
+      <details key="kind" value="empty"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AsynchCallType" eSuperTypes="#//CallType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="asynch-call_._type"/>
+      <details key="kind" value="empty"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="SrvnFloat" instanceClassName="java.lang.Object">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="SrvnFloat"/>
+      <details key="memberTypes" value="SciNotation http://www.eclipse.org/emf/2003/XMLType#decimal"/>
+    </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TaskActivityGraph" eSuperTypes="#//ActivityGraphBase">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">

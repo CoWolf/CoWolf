@@ -114,10 +114,6 @@ public class LQNAdapterFactory extends AdapterFactoryImpl {
 				return createAndJoinListTypeAdapter();
 			}
 			@Override
-			public Adapter caseAsynchCallType(AsynchCallType object) {
-				return createAsynchCallTypeAdapter();
-			}
-			@Override
 			public Adapter caseBindType(BindType object) {
 				return createBindTypeAdapter();
 			}
@@ -126,8 +122,8 @@ public class LQNAdapterFactory extends AdapterFactoryImpl {
 				return createCallListTypeAdapter();
 			}
 			@Override
-			public Adapter caseDocumentRoot(DocumentRoot object) {
-				return createDocumentRootAdapter();
+			public Adapter caseLQN(LQN object) {
+				return createLQNAdapter();
 			}
 			@Override
 			public Adapter caseLqnCoreType(LqnCoreType object) {
@@ -286,8 +282,16 @@ public class LQNAdapterFactory extends AdapterFactoryImpl {
 				return createSolverParamsTypeAdapter();
 			}
 			@Override
+			public Adapter caseCallType(CallType object) {
+				return createCallTypeAdapter();
+			}
+			@Override
 			public Adapter caseSynchCallType(SynchCallType object) {
 				return createSynchCallTypeAdapter();
+			}
+			@Override
+			public Adapter caseAsynchCallType(AsynchCallType object) {
+				return createAsynchCallTypeAdapter();
 			}
 			@Override
 			public Adapter caseTaskActivityGraph(TaskActivityGraph object) {
@@ -518,16 +522,16 @@ public class LQNAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.DocumentRoot <em>Document Root</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.LQN <em>LQN</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.DocumentRoot
+	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQN
 	 * @generated
 	 */
-	public Adapter createDocumentRootAdapter() {
+	public Adapter createLQNAdapter() {
 		return null;
 	}
 
@@ -1074,6 +1078,20 @@ public class LQNAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSolverParamsTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.CallType <em>Call Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.CallType
+	 * @generated
+	 */
+	public Adapter createCallTypeAdapter() {
 		return null;
 	}
 

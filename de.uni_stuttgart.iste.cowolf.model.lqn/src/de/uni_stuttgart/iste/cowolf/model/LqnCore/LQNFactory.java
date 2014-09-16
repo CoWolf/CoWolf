@@ -148,13 +148,13 @@ public interface LQNFactory extends EFactory {
 	CallListType createCallListType();
 
 	/**
-	 * Returns a new object of class '<em>Document Root</em>'.
+	 * Returns a new object of class '<em>LQN</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Document Root</em>'.
+	 * @return a new object of class '<em>LQN</em>'.
 	 * @generated
 	 */
-	DocumentRoot createDocumentRoot();
+	LQN createLQN();
 
 	/**
 	 * Returns a new object of class '<em>Entry Activity Def Type</em>'.
