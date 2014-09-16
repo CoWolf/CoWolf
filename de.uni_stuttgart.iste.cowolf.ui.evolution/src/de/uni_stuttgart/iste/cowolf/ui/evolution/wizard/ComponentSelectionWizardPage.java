@@ -51,7 +51,7 @@ public class ComponentSelectionWizardPage extends WizardPage {
 	 */
 	protected ComponentSelectionWizardPage(ComponentSelectionWizard wizard,
 			IFile sourceFile, Model model) {
-		super("Model Evolution");
+		super("Model Difference");
 		this.setDescription("Compare two versions of a model with SiLift.");
 		this.setTitle("Compare models with each other.");
 		baseSelection = new ModelVersionProvider();
@@ -182,7 +182,12 @@ public class ComponentSelectionWizardPage extends WizardPage {
 				Date date = new Date(version.getTimestamp());
 				DateFormat df = DateFormat.getDateTimeInstance(
 						DateFormat.SHORT, DateFormat.SHORT);
-				return df.format(date);
+				String label = df.format(date);
+				
+				if (!version.getMessage().isEmpty()) {
+					label += " (" + version.getMessage() + ")";
+				}
+				return label;
 			}
 			if (element instanceof Model) {
 				return "current";

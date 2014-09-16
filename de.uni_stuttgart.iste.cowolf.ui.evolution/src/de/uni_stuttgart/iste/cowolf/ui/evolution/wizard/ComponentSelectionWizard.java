@@ -35,7 +35,7 @@ public class ComponentSelectionWizard extends Wizard {
      * @param modelB
      */
     public ComponentSelectionWizard(IFile source, Model sourceModel) {
-        this.setWindowTitle("Model Evolution Wizard");
+        this.setWindowTitle("Model Difference Wizard");
         this.source = source;
         this.sourceModel = sourceModel;
     }
