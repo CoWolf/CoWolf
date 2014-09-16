@@ -8,6 +8,7 @@ import org.eclipse.ui.ISelectionService;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 
+import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociation;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociationFactory;
 
 public class MAPropertyTester extends PropertyTester {
@@ -52,8 +53,13 @@ public class MAPropertyTester extends PropertyTester {
 				return false;
 			}
 			
-			if (ModelAssociationFactory.eINSTANCE.getModelAssociation(iFile.getProject())
-					.getModelByPath(iFile.getProjectRelativePath().toString()) != null) {
+			ModelAssociation ma = ModelAssociationFactory.eINSTANCE.getModelAssociation(iFile.getProject());
+			
+			if (ma == null) {
+				return false;
+			}
+			
+			if (ma.getModelByPath(iFile.getProjectRelativePath().toString()) != null) {
 				return true;
 			}
 			
