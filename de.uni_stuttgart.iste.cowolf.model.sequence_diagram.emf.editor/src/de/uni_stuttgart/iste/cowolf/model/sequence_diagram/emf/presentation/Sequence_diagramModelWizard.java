@@ -2,7 +2,6 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.sequence_diagram.emf.presentation;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -17,6 +16,7 @@ import java.util.StringTokenizer;
 
 import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
@@ -36,11 +36,7 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.jface.dialogs.IInputValidator;
-import org.eclipse.jface.dialogs.InputDialog;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.jface.window.Window;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.sirius.business.api.dialect.DialectManager;
@@ -48,16 +44,11 @@ import org.eclipse.sirius.business.api.dialect.command.CreateRepresentationComma
 import org.eclipse.sirius.business.api.helper.SiriusResourceHelper;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
-import org.eclipse.sirius.diagram.sequence.description.SequenceDiagramDescription;
 import org.eclipse.sirius.tools.api.command.semantic.AddSemanticResourceCommand;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelection;
 import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelectionCallbackWithConfimation;
 import org.eclipse.sirius.ui.business.internal.commands.ChangeViewpointSelectionCommand;
-import org.eclipse.sirius.ui.tools.api.Messages;
-import org.eclipse.sirius.ui.tools.api.views.ViewHelper;
-import org.eclipse.sirius.ui.tools.internal.actions.creation.CreateRepresentationAction;
-import org.eclipse.sirius.ui.tools.internal.views.common.SessionLabelProvider;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
@@ -68,16 +59,13 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
-import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
 
-import de.uni_stuttgart.iste.cowolf.model.LqnCore.DocumentRoot;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Interaction;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramFactory;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramPackage;
@@ -89,8 +77,6 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.PartInitException;
-import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.PackageableElement;
 import org.eclipse.uml2.uml.internal.impl.PackageImpl;
 
@@ -101,8 +87,9 @@ import org.eclipse.uml2.uml.internal.impl.PackageImpl;
  * @generated
  */
 public class Sequence_diagramModelWizard extends Wizard implements INewWizard {
-	
-	private PackageableElement interaction;
+
+
+	private EObject root;
 	/**
 	 * The supported extensions for created files. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -227,7 +214,7 @@ public class Sequence_diagramModelWizard extends Wizard implements INewWizard {
 				.getEClassifier(initialObjectCreationPage
 						.getInitialObjectName());
 		EObject rootObject = sequence_diagramFactory.create(eClass);
-		 interaction = sequence_diagramFactory.createInteraction();
+		Interaction interaction = sequence_diagramFactory.createInteraction();
 
 		((org.eclipse.uml2.uml.internal.impl.PackageImpl) rootObject)
 				.getPackagedElements().add(interaction);
@@ -269,6 +256,7 @@ public class Sequence_diagramModelWizard extends Wizard implements INewWizard {
 						// Add the initial model object to the contents.
 						//
 						EObject rootObject = createInitialModel();
+						setRoot(rootObject);
 						if (rootObject != null) {
 							resource.getContents().add(rootObject);
 						}
@@ -306,48 +294,37 @@ public class Sequence_diagramModelWizard extends Wizard implements INewWizard {
 				});
 			}
 
-			// Open an editor on the new file.
-			//
-			// try {
-			// page.openEditor
-			// (new FileEditorInput(modelFile),
-			// workbench.getEditorRegistry().getDefaultEditor(modelFile.getFullPath().toString()).getId());
-			// }
-			// catch (PartInitException exception) {
-			// MessageDialog.openError(workbenchWindow.getShell(),
-			// Sequence_diagramEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"),
-			// exception.getMessage());
-			// return false;
-			// }
-
 			// create viewpoint
 			IFile airdFile = modelFile.getProject().getFile(
 					"representations.aird");
 			if (!airdFile.exists())
-				throw new Exception("could not find file:"
+				throw new Exception("could not found file:"
 						+ airdFile.getLocationURI());
 			URI airdFileURI = URI.createPlatformResourceURI(airdFile
 					.getFullPath().toOSString(), true);
-			URI semanticFileURI = URI.createPlatformResourceURI(modelFile
-					.getFullPath().toOSString(), true);
 			Session session = SessionManager.INSTANCE.getSession(airdFileURI,
 					new NullProgressMonitor());
+			String sessionResourceURI = session.getSessionResource().getURI()
+					.toPlatformString(true);
+			URI fileURI = URI.createPlatformResourceURI(
+					sessionResourceURI.split("/")[1] + "/"
+							+ modelFile.getName(), true);
 
-			
 			// adding the resource also to Sirius session
 			AddSemanticResourceCommand addCommandToSession = new AddSemanticResourceCommand(
-					session, semanticFileURI, new NullProgressMonitor());
+					session, fileURI, new NullProgressMonitor());
 			session.getTransactionalEditingDomain().getCommandStack()
 					.execute(addCommandToSession);
 			session.save(new NullProgressMonitor());
 
-			
+;
+
 			// find and add viewpoint
 			Set<Viewpoint> availableViewpoints = ViewpointSelection
 					.getViewpoints(FILE_EXTENSION);
 			if (availableViewpoints.isEmpty())
 				throw new Exception(
-						"Could not find viewport for file extension "
+						"Could not find viewport for fileextension "
 								+ FILE_EXTENSION);
 
 			Set<Viewpoint> viewpoints = new HashSet<Viewpoint>();
@@ -365,61 +342,54 @@ public class Sequence_diagramModelWizard extends Wizard implements INewWizard {
 			domain.getCommandStack().execute(command);
 
 			
-			EObject semanticObject = interaction;
-			
-			
-			
-//					// create representation 
-//			Collection<RepresentationDescription> descriptions = DialectManager.INSTANCE
-//					.getAvailableRepresentationDescriptions(
-//							session.getSelectedViewpoints(false), semanticObject);
-//			if (descriptions.isEmpty()) {
-//				throw new Exception(
-//						"Could not find representation description for object: "
-//								+ semanticObject);
-//			}
-//			RepresentationDescription description = descriptions.iterator()
-//					.next();
-//
-//			DialectManager viewpointDialectManager = DialectManager.INSTANCE;
-//			
-//			//TODO error
-//			Command createRepresentationCommand = new CreateRepresentationCommand(
-//					session, description, semanticObject,  modelFile.getName(),
-//					new NullProgressMonitor());
-//
-//			session.getTransactionalEditingDomain().getCommandStack()
-//					.execute(createRepresentationCommand);
-//
-//			SessionManager.INSTANCE.notifyRepresentationCreated(session);
-			
-			final RepresentationDescription description = getDiagramDescription(session,
-					(Interaction) semanticObject);
-			
-			String representationName = getRepresentationName(description,
-					interaction.getName() + " " + "Sequence Diagram");
-			final DRepresentation representation = DialectManager.INSTANCE
-					.createRepresentation(representationName, semanticObject, description,
-							session, new NullProgressMonitor());
+			// create representation
+			Interaction interaction = null;
+			EList<PackageableElement> elements = ((PackageImpl) session
+					.getSemanticResources().iterator().next().getContents()
+					.get(0)).getPackagedElements();
+			for (PackageableElement element : elements) {
+				if (element instanceof Interaction) {
+					interaction = (Interaction) element;
+				}
+			}
 
-			DialectUIManager.INSTANCE.openEditor(session, representation, new NullProgressMonitor());
-//	        
+
+
+			EObject rootObject = interaction;
+			Collection<RepresentationDescription> descriptions = DialectManager.INSTANCE
+					.getAvailableRepresentationDescriptions(
+							session.getSelectedViewpoints(false), rootObject);
+			if (descriptions.isEmpty())
+				throw new Exception(
+						"Could not find representation description for object: "
+								+ rootObject);
+			RepresentationDescription description = descriptions.iterator()
+					.next();
+
+			DialectManager viewpointDialectManager = DialectManager.INSTANCE;
+			Command createViewCommand = new CreateRepresentationCommand(
+					session, description, rootObject, modelFile.getName(),
+					new NullProgressMonitor());
+
+			session.getTransactionalEditingDomain().getCommandStack()
+					.execute(createViewCommand);
+
+			SessionManager.INSTANCE.notifyRepresentationCreated(session);
 
 			// open editor
-//			Collection<DRepresentation> representations = viewpointDialectManager
-//					.getRepresentations(description, session);
-//			DRepresentation myDiagramRepresentation = representations
-//					.iterator().next();
-//
-//			DialectUIManager dialectUIManager = DialectUIManager.INSTANCE;
-//			dialectUIManager.openEditor(session, myDiagramRepresentation,
-//					new NullProgressMonitor());
-//
-//			// save session and refresh workspace
-//			session.save(new NullProgressMonitor());
-//			modelFile.getProject().refreshLocal(IResource.DEPTH_INFINITE,
-//					new NullProgressMonitor());
+			Collection<DRepresentation> representations = viewpointDialectManager
+					.getRepresentations(description, session);
+			DRepresentation myDiagramRepresentation = representations
+					.iterator().next();
 
+			DialectUIManager dialectUIManager = DialectUIManager.INSTANCE;
+			dialectUIManager.openEditor(session, myDiagramRepresentation,
+					new NullProgressMonitor());
+
+			// save session and refresh workspace
+			session.save(new NullProgressMonitor());
+			modelFile.getProject().refreshLocal(IResource.DEPTH_INFINITE,
+					new NullProgressMonitor());
 
 			return true;
 		} catch (Exception exception) {
@@ -772,49 +742,12 @@ public class Sequence_diagramModelWizard extends Wizard implements INewWizard {
 	public IFile getModelFile() {
 		return newFileCreationPage.getModelFile();
 	}
-	
-	protected RepresentationDescription getDiagramDescription(Session session, Interaction interaction) {
-		for (RepresentationDescription representation : DialectManager.INSTANCE
-				.getAvailableRepresentationDescriptions(session.getSelectedViewpoints(false), interaction)) {
-			if ("Sequence Diagram".equals(representation.getName())
-					&& representation instanceof SequenceDiagramDescription)
-				return representation;
-		}
-		return null;
+
+	public EObject getRoot() {
+		return root;
 	}
-	
-	/**
-	 * Get the representation name for the created representation. The default implementation open a dialog,
-	 * subclass if needed.
-	 * 
-	 * @param description
-	 *            the description
-	 * @param defaultName
-	 *            the default name
-	 * @return the representation, <code>null</code> if it could not be chosen or the creation is cancelled.
-	 */
-	protected String getRepresentationName(RepresentationDescription description, String defaultName) {
-		String descriptionLabel = null;
-		if (description.getEndUserDocumentation() != null
-				&& description.getEndUserDocumentation().trim().length() > 0) {
-			descriptionLabel = Messages.createRepresentationInputDialog_RepresentationDescriptionLabel
-					+ description.getEndUserDocumentation();
-		}
-		if (descriptionLabel == null) {
-			descriptionLabel = ""; //$NON-NLS-1$
-		} else {
-			descriptionLabel += "\n\n"; //$NON-NLS-1$
-		}
-		descriptionLabel += Messages.createRepresentationInputDialog_NewRepresentationNameLabel;
-		final InputDialog askViewPointName = new InputDialog(Display.getDefault().getActiveShell(),
-				Messages.createRepresentationInputDialog_Title, descriptionLabel, defaultName,
-				new IInputValidator() {
-					public String isValid(final String newText) {
-						return null;
-					}
-				});
-		if (askViewPointName.open() == Window.OK)
-			return askViewPointName.getValue();
-		return null;
+
+	public void setRoot(EObject rootObject) {
+		this.root = rootObject;
 	}
 }
