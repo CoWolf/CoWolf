@@ -2,18 +2,23 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.LqnCore.impl;
 
-import de.uni_stuttgart.iste.cowolf.model.LqnCore.DocumentRoot;
+import de.uni_stuttgart.iste.cowolf.model.LqnCore.LQN;
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage;
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.LqnCoreType;
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.LqnModelType;
+
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EMap;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.EStringToStringMapEntryImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.BasicFeatureMap;
 import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.FeatureMap;
@@ -21,22 +26,22 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Document Root</b></em>'.
+ * An implementation of the model object '<em><b>LQN</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.DocumentRootImpl#getMixed <em>Mixed</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.DocumentRootImpl#getXMLNSPrefixMap <em>XMLNS Prefix Map</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.DocumentRootImpl#getXSISchemaLocation <em>XSI Schema Location</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.DocumentRootImpl#getLqnCore <em>Lqn Core</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.DocumentRootImpl#getLqnModel <em>Lqn Model</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNImpl#getMixed <em>Mixed</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNImpl#getXMLNSPrefixMap <em>XMLNS Prefix Map</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNImpl#getXSISchemaLocation <em>XSI Schema Location</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNImpl#getLqnCore <em>Lqn Core</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNImpl#getLqnModel <em>Lqn Model</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class DocumentRootImpl extends MinimalEObjectImpl.Container implements DocumentRoot {
+public class LQNImpl extends MinimalEObjectImpl.Container implements LQN {
 	/**
 	 * The cached value of the '{@link #getMixed() <em>Mixed</em>}' attribute list.
 	 * <!-- begin-user-doc -->
@@ -72,7 +77,7 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DocumentRootImpl() {
+	protected LQNImpl() {
 		super();
 	}
 
@@ -83,7 +88,7 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return LQNPackage.Literals.DOCUMENT_ROOT;
+		return LQNPackage.Literals.LQN;
 	}
 
 	/**
@@ -93,7 +98,7 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 */
 	public FeatureMap getMixed() {
 		if (mixed == null) {
-			mixed = new BasicFeatureMap(this, LQNPackage.DOCUMENT_ROOT__MIXED);
+			mixed = new BasicFeatureMap(this, LQNPackage.LQN__MIXED);
 		}
 		return mixed;
 	}
@@ -105,7 +110,7 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 */
 	public EMap<String, String> getXMLNSPrefixMap() {
 		if (xMLNSPrefixMap == null) {
-			xMLNSPrefixMap = new EcoreEMap<String,String>(EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY, EStringToStringMapEntryImpl.class, this, LQNPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP);
+			xMLNSPrefixMap = new EcoreEMap<String,String>(EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY, EStringToStringMapEntryImpl.class, this, LQNPackage.LQN__XMLNS_PREFIX_MAP);
 		}
 		return xMLNSPrefixMap;
 	}
@@ -117,7 +122,7 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 */
 	public EMap<String, String> getXSISchemaLocation() {
 		if (xSISchemaLocation == null) {
-			xSISchemaLocation = new EcoreEMap<String,String>(EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY, EStringToStringMapEntryImpl.class, this, LQNPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION);
+			xSISchemaLocation = new EcoreEMap<String,String>(EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY, EStringToStringMapEntryImpl.class, this, LQNPackage.LQN__XSI_SCHEMA_LOCATION);
 		}
 		return xSISchemaLocation;
 	}
@@ -128,7 +133,7 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * @generated
 	 */
 	public LqnCoreType getLqnCore() {
-		return (LqnCoreType)getMixed().get(LQNPackage.Literals.DOCUMENT_ROOT__LQN_CORE, true);
+		return (LqnCoreType)getMixed().get(LQNPackage.Literals.LQN__LQN_CORE, true);
 	}
 
 	/**
@@ -137,7 +142,7 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * @generated
 	 */
 	public NotificationChain basicSetLqnCore(LqnCoreType newLqnCore, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(LQNPackage.Literals.DOCUMENT_ROOT__LQN_CORE, newLqnCore, msgs);
+		return ((FeatureMap.Internal)getMixed()).basicAdd(LQNPackage.Literals.LQN__LQN_CORE, newLqnCore, msgs);
 	}
 
 	/**
@@ -146,7 +151,7 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * @generated
 	 */
 	public void setLqnCore(LqnCoreType newLqnCore) {
-		((FeatureMap.Internal)getMixed()).set(LQNPackage.Literals.DOCUMENT_ROOT__LQN_CORE, newLqnCore);
+		((FeatureMap.Internal)getMixed()).set(LQNPackage.Literals.LQN__LQN_CORE, newLqnCore);
 	}
 
 	/**
@@ -155,7 +160,7 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * @generated
 	 */
 	public LqnModelType getLqnModel() {
-		return (LqnModelType)getMixed().get(LQNPackage.Literals.DOCUMENT_ROOT__LQN_MODEL, true);
+		return (LqnModelType)getMixed().get(LQNPackage.Literals.LQN__LQN_MODEL, true);
 	}
 
 	/**
@@ -164,7 +169,7 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * @generated
 	 */
 	public NotificationChain basicSetLqnModel(LqnModelType newLqnModel, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(LQNPackage.Literals.DOCUMENT_ROOT__LQN_MODEL, newLqnModel, msgs);
+		return ((FeatureMap.Internal)getMixed()).basicAdd(LQNPackage.Literals.LQN__LQN_MODEL, newLqnModel, msgs);
 	}
 
 	/**
@@ -173,7 +178,7 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * @generated
 	 */
 	public void setLqnModel(LqnModelType newLqnModel) {
-		((FeatureMap.Internal)getMixed()).set(LQNPackage.Literals.DOCUMENT_ROOT__LQN_MODEL, newLqnModel);
+		((FeatureMap.Internal)getMixed()).set(LQNPackage.Literals.LQN__LQN_MODEL, newLqnModel);
 	}
 
 	/**
@@ -184,15 +189,15 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case LQNPackage.DOCUMENT_ROOT__MIXED:
+			case LQNPackage.LQN__MIXED:
 				return ((InternalEList<?>)getMixed()).basicRemove(otherEnd, msgs);
-			case LQNPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
+			case LQNPackage.LQN__XMLNS_PREFIX_MAP:
 				return ((InternalEList<?>)getXMLNSPrefixMap()).basicRemove(otherEnd, msgs);
-			case LQNPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
+			case LQNPackage.LQN__XSI_SCHEMA_LOCATION:
 				return ((InternalEList<?>)getXSISchemaLocation()).basicRemove(otherEnd, msgs);
-			case LQNPackage.DOCUMENT_ROOT__LQN_CORE:
+			case LQNPackage.LQN__LQN_CORE:
 				return basicSetLqnCore(null, msgs);
-			case LQNPackage.DOCUMENT_ROOT__LQN_MODEL:
+			case LQNPackage.LQN__LQN_MODEL:
 				return basicSetLqnModel(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -206,18 +211,18 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case LQNPackage.DOCUMENT_ROOT__MIXED:
+			case LQNPackage.LQN__MIXED:
 				if (coreType) return getMixed();
 				return ((FeatureMap.Internal)getMixed()).getWrapper();
-			case LQNPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
+			case LQNPackage.LQN__XMLNS_PREFIX_MAP:
 				if (coreType) return getXMLNSPrefixMap();
 				else return getXMLNSPrefixMap().map();
-			case LQNPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
+			case LQNPackage.LQN__XSI_SCHEMA_LOCATION:
 				if (coreType) return getXSISchemaLocation();
 				else return getXSISchemaLocation().map();
-			case LQNPackage.DOCUMENT_ROOT__LQN_CORE:
+			case LQNPackage.LQN__LQN_CORE:
 				return getLqnCore();
-			case LQNPackage.DOCUMENT_ROOT__LQN_MODEL:
+			case LQNPackage.LQN__LQN_MODEL:
 				return getLqnModel();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -228,23 +233,22 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case LQNPackage.DOCUMENT_ROOT__MIXED:
+			case LQNPackage.LQN__MIXED:
 				((FeatureMap.Internal)getMixed()).set(newValue);
 				return;
-			case LQNPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
+			case LQNPackage.LQN__XMLNS_PREFIX_MAP:
 				((EStructuralFeature.Setting)getXMLNSPrefixMap()).set(newValue);
 				return;
-			case LQNPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
+			case LQNPackage.LQN__XSI_SCHEMA_LOCATION:
 				((EStructuralFeature.Setting)getXSISchemaLocation()).set(newValue);
 				return;
-			case LQNPackage.DOCUMENT_ROOT__LQN_CORE:
+			case LQNPackage.LQN__LQN_CORE:
 				setLqnCore((LqnCoreType)newValue);
 				return;
-			case LQNPackage.DOCUMENT_ROOT__LQN_MODEL:
+			case LQNPackage.LQN__LQN_MODEL:
 				setLqnModel((LqnModelType)newValue);
 				return;
 		}
@@ -259,19 +263,19 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case LQNPackage.DOCUMENT_ROOT__MIXED:
+			case LQNPackage.LQN__MIXED:
 				getMixed().clear();
 				return;
-			case LQNPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
+			case LQNPackage.LQN__XMLNS_PREFIX_MAP:
 				getXMLNSPrefixMap().clear();
 				return;
-			case LQNPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
+			case LQNPackage.LQN__XSI_SCHEMA_LOCATION:
 				getXSISchemaLocation().clear();
 				return;
-			case LQNPackage.DOCUMENT_ROOT__LQN_CORE:
+			case LQNPackage.LQN__LQN_CORE:
 				setLqnCore((LqnCoreType)null);
 				return;
-			case LQNPackage.DOCUMENT_ROOT__LQN_MODEL:
+			case LQNPackage.LQN__LQN_MODEL:
 				setLqnModel((LqnModelType)null);
 				return;
 		}
@@ -286,15 +290,15 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case LQNPackage.DOCUMENT_ROOT__MIXED:
+			case LQNPackage.LQN__MIXED:
 				return mixed != null && !mixed.isEmpty();
-			case LQNPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
+			case LQNPackage.LQN__XMLNS_PREFIX_MAP:
 				return xMLNSPrefixMap != null && !xMLNSPrefixMap.isEmpty();
-			case LQNPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
+			case LQNPackage.LQN__XSI_SCHEMA_LOCATION:
 				return xSISchemaLocation != null && !xSISchemaLocation.isEmpty();
-			case LQNPackage.DOCUMENT_ROOT__LQN_CORE:
+			case LQNPackage.LQN__LQN_CORE:
 				return getLqnCore() != null;
-			case LQNPackage.DOCUMENT_ROOT__LQN_MODEL:
+			case LQNPackage.LQN__LQN_MODEL:
 				return getLqnModel() != null;
 		}
 		return super.eIsSet(featureID);
@@ -316,4 +320,4 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 		return result.toString();
 	}
 
-} //DocumentRootImpl
+} //LQNImpl

@@ -128,14 +128,12 @@ public class LQNValidator extends EObjectValidator {
 				return validateActivityType((ActivityType)value, diagnostics, context);
 			case LQNPackage.AND_JOIN_LIST_TYPE:
 				return validateAndJoinListType((AndJoinListType)value, diagnostics, context);
-			case LQNPackage.ASYNCH_CALL_TYPE:
-				return validateAsynchCallType((AsynchCallType)value, diagnostics, context);
 			case LQNPackage.BIND_TYPE:
 				return validateBindType((BindType)value, diagnostics, context);
 			case LQNPackage.CALL_LIST_TYPE:
 				return validateCallListType((CallListType)value, diagnostics, context);
-			case LQNPackage.DOCUMENT_ROOT:
-				return validateDocumentRoot((DocumentRoot)value, diagnostics, context);
+			case LQNPackage.LQN:
+				return validateLQN((LQN)value, diagnostics, context);
 			case LQNPackage.LQN_CORE_TYPE:
 				return validateLqnCoreType((LqnCoreType)value, diagnostics, context);
 			case LQNPackage.LQN_MODEL_TYPE:
@@ -214,8 +212,12 @@ public class LQNValidator extends EObjectValidator {
 				return validateSlotType((SlotType)value, diagnostics, context);
 			case LQNPackage.SOLVER_PARAMS_TYPE:
 				return validateSolverParamsType((SolverParamsType)value, diagnostics, context);
+			case LQNPackage.CALL_TYPE:
+				return validateCallType((CallType)value, diagnostics, context);
 			case LQNPackage.SYNCH_CALL_TYPE:
 				return validateSynchCallType((SynchCallType)value, diagnostics, context);
+			case LQNPackage.ASYNCH_CALL_TYPE:
+				return validateAsynchCallType((AsynchCallType)value, diagnostics, context);
 			case LQNPackage.TASK_ACTIVITY_GRAPH:
 				return validateTaskActivityGraph((TaskActivityGraph)value, diagnostics, context);
 			case LQNPackage.TASK_TYPE:
@@ -402,8 +404,8 @@ public class LQNValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateDocumentRoot(DocumentRoot documentRoot, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(documentRoot, diagnostics, context);
+	public boolean validateLQN(LQN lqn, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(lqn, diagnostics, context);
 	}
 
 	/**
@@ -755,6 +757,15 @@ public class LQNValidator extends EObjectValidator {
 	 */
 	public boolean validateSolverParamsType(SolverParamsType solverParamsType, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(solverParamsType, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateCallType(CallType callType, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(callType, diagnostics, context);
 	}
 
 	/**
