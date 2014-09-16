@@ -305,11 +305,9 @@ public class Sequence_diagramModelWizard extends Wizard implements INewWizard {
 					.getFullPath().toOSString(), true);
 			Session session = SessionManager.INSTANCE.getSession(airdFileURI,
 					new NullProgressMonitor());
-			String sessionResourceURI = session.getSessionResource().getURI()
-					.toPlatformString(true);
+
 			URI fileURI = URI.createPlatformResourceURI(
-					sessionResourceURI.split("/")[1] + "/"
-							+ modelFile.getName(), true);
+					modelFile.getFullPath().toString() , true);
 
 			// adding the resource also to Sirius session
 			AddSemanticResourceCommand addCommandToSession = new AddSemanticResourceCommand(
@@ -341,13 +339,17 @@ public class Sequence_diagramModelWizard extends Wizard implements INewWizard {
 			TransactionalEditingDomain domain = session
 					.getTransactionalEditingDomain();
 			domain.getCommandStack().execute(command);
+			
 
 			// create representation
 			Interaction interaction = null;
-			EList<PackageableElement> elements = ((PackageImpl) session
-					.getSemanticResources().iterator().next().getContents()
+			Object[] elements1 = session
+					.getSemanticResources().toArray();
+			Resource resource = (Resource) elements1[elements1.length-1];
+					
+			EList<PackageableElement> pack =((PackageImpl) resource.getContents()
 					.get(0)).getPackagedElements();
-			for (PackageableElement element : elements) {
+			for (PackageableElement element : pack) {
 				if (element instanceof Interaction) {
 					interaction = (Interaction) element;
 				}
