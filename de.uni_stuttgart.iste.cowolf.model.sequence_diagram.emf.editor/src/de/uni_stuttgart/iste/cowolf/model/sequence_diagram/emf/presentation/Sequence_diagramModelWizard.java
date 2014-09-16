@@ -49,7 +49,9 @@ import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelection;
 import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelectionCallbackWithConfimation;
 import org.eclipse.sirius.ui.business.internal.commands.ChangeViewpointSelectionCommand;
+import org.eclipse.sirius.viewpoint.DAnalysis;
 import org.eclipse.sirius.viewpoint.DRepresentation;
+import org.eclipse.sirius.viewpoint.DView;
 import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
 import org.eclipse.swt.SWT;
@@ -87,7 +89,6 @@ import org.eclipse.uml2.uml.internal.impl.PackageImpl;
  * @generated
  */
 public class Sequence_diagramModelWizard extends Wizard implements INewWizard {
-
 
 	private EObject root;
 	/**
@@ -317,7 +318,7 @@ public class Sequence_diagramModelWizard extends Wizard implements INewWizard {
 					.execute(addCommandToSession);
 			session.save(new NullProgressMonitor());
 
-;
+			;
 
 			// find and add viewpoint
 			Set<Viewpoint> availableViewpoints = ViewpointSelection
@@ -341,7 +342,6 @@ public class Sequence_diagramModelWizard extends Wizard implements INewWizard {
 					.getTransactionalEditingDomain();
 			domain.getCommandStack().execute(command);
 
-			
 			// create representation
 			Interaction interaction = null;
 			EList<PackageableElement> elements = ((PackageImpl) session
@@ -352,8 +352,6 @@ public class Sequence_diagramModelWizard extends Wizard implements INewWizard {
 					interaction = (Interaction) element;
 				}
 			}
-
-
 
 			EObject rootObject = interaction;
 			Collection<RepresentationDescription> descriptions = DialectManager.INSTANCE
@@ -376,12 +374,12 @@ public class Sequence_diagramModelWizard extends Wizard implements INewWizard {
 
 			SessionManager.INSTANCE.notifyRepresentationCreated(session);
 
-			// open editor
+			// open editor for last representation
 			Collection<DRepresentation> representations = viewpointDialectManager
 					.getRepresentations(description, session);
-			DRepresentation myDiagramRepresentation = representations
-					.iterator().next();
-
+			Object[] arrayRep =  representations
+					.toArray();
+			DRepresentation myDiagramRepresentation = (DRepresentation) arrayRep[arrayRep.length - 1];
 			DialectUIManager dialectUIManager = DialectUIManager.INSTANCE;
 			dialectUIManager.openEditor(session, myDiagramRepresentation,
 					new NullProgressMonitor());
