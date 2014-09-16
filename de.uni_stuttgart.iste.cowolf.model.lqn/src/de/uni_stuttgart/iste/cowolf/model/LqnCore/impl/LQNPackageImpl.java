@@ -18,7 +18,7 @@ import de.uni_stuttgart.iste.cowolf.model.LqnCore.AxisType;
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.BindType;
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.CallListType;
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.CallOrderType;
-import de.uni_stuttgart.iste.cowolf.model.LqnCore.DocumentRoot;
+import de.uni_stuttgart.iste.cowolf.model.LqnCore.CallType;
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.EntryActivityDefType;
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.EntryActivityGraph;
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.EntryMakingCallType;
@@ -70,15 +70,10 @@ import de.uni_stuttgart.iste.cowolf.model.LqnCore.TaskType;
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.TypeType;
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.ValidType;
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.XmlDebugType;
-
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.util.LQNValidator;
-
 import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
-
 import java.math.BigInteger;
-
 import java.util.List;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -86,9 +81,7 @@ import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EValidator;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 
 /**
@@ -201,7 +194,7 @@ public class LQNPackageImpl extends EPackageImpl implements LQNPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass documentRootEClass = null;
+	private EClass lqnEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -475,6 +468,13 @@ public class LQNPackageImpl extends EPackageImpl implements LQNPackage {
 	 * @generated
 	 */
 	private EClass solverParamsTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass callTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1124,33 +1124,6 @@ public class LQNPackageImpl extends EPackageImpl implements LQNPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAsynchCallType_Dest() {
-		return (EAttribute)asynchCallTypeEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAsynchCallType_Fanin() {
-		return (EAttribute)asynchCallTypeEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAsynchCallType_Fanout() {
-		return (EAttribute)asynchCallTypeEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getBindType() {
 		return bindTypeEClass;
 	}
@@ -1214,8 +1187,8 @@ public class LQNPackageImpl extends EPackageImpl implements LQNPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getDocumentRoot() {
-		return documentRootEClass;
+	public EClass getLQN() {
+		return lqnEClass;
 	}
 
 	/**
@@ -1223,8 +1196,8 @@ public class LQNPackageImpl extends EPackageImpl implements LQNPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDocumentRoot_Mixed() {
-		return (EAttribute)documentRootEClass.getEStructuralFeatures().get(0);
+	public EAttribute getLQN_Mixed() {
+		return (EAttribute)lqnEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1232,8 +1205,8 @@ public class LQNPackageImpl extends EPackageImpl implements LQNPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_XMLNSPrefixMap() {
-		return (EReference)documentRootEClass.getEStructuralFeatures().get(1);
+	public EReference getLQN_XMLNSPrefixMap() {
+		return (EReference)lqnEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1241,8 +1214,8 @@ public class LQNPackageImpl extends EPackageImpl implements LQNPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_XSISchemaLocation() {
-		return (EReference)documentRootEClass.getEStructuralFeatures().get(2);
+	public EReference getLQN_XSISchemaLocation() {
+		return (EReference)lqnEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1250,8 +1223,8 @@ public class LQNPackageImpl extends EPackageImpl implements LQNPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_LqnCore() {
-		return (EReference)documentRootEClass.getEStructuralFeatures().get(3);
+	public EReference getLQN_LqnCore() {
+		return (EReference)lqnEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1259,8 +1232,8 @@ public class LQNPackageImpl extends EPackageImpl implements LQNPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentRoot_LqnModel() {
-		return (EReference)documentRootEClass.getEStructuralFeatures().get(4);
+	public EReference getLQN_LqnModel() {
+		return (EReference)lqnEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -3455,35 +3428,44 @@ public class LQNPackageImpl extends EPackageImpl implements LQNPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getCallType() {
+		return callTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCallType_Dest() {
+		return (EReference)callTypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCallType_Fanin() {
+		return (EAttribute)callTypeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCallType_Fanout() {
+		return (EAttribute)callTypeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSynchCallType() {
 		return synchCallTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSynchCallType_Dest() {
-		return (EAttribute)synchCallTypeEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSynchCallType_Fanin() {
-		return (EAttribute)synchCallTypeEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSynchCallType_Fanout() {
-		return (EAttribute)synchCallTypeEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -3909,11 +3891,6 @@ public class LQNPackageImpl extends EPackageImpl implements LQNPackage {
 		createEReference(andJoinListTypeEClass, AND_JOIN_LIST_TYPE__ACTIVITY);
 		createEAttribute(andJoinListTypeEClass, AND_JOIN_LIST_TYPE__QUORUM);
 
-		asynchCallTypeEClass = createEClass(ASYNCH_CALL_TYPE);
-		createEAttribute(asynchCallTypeEClass, ASYNCH_CALL_TYPE__DEST);
-		createEAttribute(asynchCallTypeEClass, ASYNCH_CALL_TYPE__FANIN);
-		createEAttribute(asynchCallTypeEClass, ASYNCH_CALL_TYPE__FANOUT);
-
 		bindTypeEClass = createEClass(BIND_TYPE);
 		createEReference(bindTypeEClass, BIND_TYPE__PARAMETER);
 		createEReference(bindTypeEClass, BIND_TYPE__PROCESSOR_BINDING);
@@ -3923,12 +3900,12 @@ public class LQNPackageImpl extends EPackageImpl implements LQNPackage {
 		createEReference(callListTypeEClass, CALL_LIST_TYPE__SYNCH_CALL);
 		createEReference(callListTypeEClass, CALL_LIST_TYPE__ASYNCH_CALL);
 
-		documentRootEClass = createEClass(DOCUMENT_ROOT);
-		createEAttribute(documentRootEClass, DOCUMENT_ROOT__MIXED);
-		createEReference(documentRootEClass, DOCUMENT_ROOT__XMLNS_PREFIX_MAP);
-		createEReference(documentRootEClass, DOCUMENT_ROOT__XSI_SCHEMA_LOCATION);
-		createEReference(documentRootEClass, DOCUMENT_ROOT__LQN_CORE);
-		createEReference(documentRootEClass, DOCUMENT_ROOT__LQN_MODEL);
+		lqnEClass = createEClass(LQN);
+		createEAttribute(lqnEClass, LQN__MIXED);
+		createEReference(lqnEClass, LQN__XMLNS_PREFIX_MAP);
+		createEReference(lqnEClass, LQN__XSI_SCHEMA_LOCATION);
+		createEReference(lqnEClass, LQN__LQN_CORE);
+		createEReference(lqnEClass, LQN__LQN_MODEL);
 
 		lqnCoreTypeEClass = createEClass(LQN_CORE_TYPE);
 		createEReference(lqnCoreTypeEClass, LQN_CORE_TYPE__PROCESSOR);
@@ -4212,10 +4189,14 @@ public class LQNPackageImpl extends EPackageImpl implements LQNPackage {
 		createEAttribute(solverParamsTypeEClass, SOLVER_PARAMS_TYPE__PRINT_INT);
 		createEAttribute(solverParamsTypeEClass, SOLVER_PARAMS_TYPE__UNDERRELAX_COEFF);
 
+		callTypeEClass = createEClass(CALL_TYPE);
+		createEReference(callTypeEClass, CALL_TYPE__DEST);
+		createEAttribute(callTypeEClass, CALL_TYPE__FANIN);
+		createEAttribute(callTypeEClass, CALL_TYPE__FANOUT);
+
 		synchCallTypeEClass = createEClass(SYNCH_CALL_TYPE);
-		createEAttribute(synchCallTypeEClass, SYNCH_CALL_TYPE__DEST);
-		createEAttribute(synchCallTypeEClass, SYNCH_CALL_TYPE__FANIN);
-		createEAttribute(synchCallTypeEClass, SYNCH_CALL_TYPE__FANOUT);
+
+		asynchCallTypeEClass = createEClass(ASYNCH_CALL_TYPE);
 
 		taskActivityGraphEClass = createEClass(TASK_ACTIVITY_GRAPH);
 		createEReference(taskActivityGraphEClass, TASK_ACTIVITY_GRAPH__REPLY_ENTRY);
@@ -4305,7 +4286,6 @@ public class LQNPackageImpl extends EPackageImpl implements LQNPackage {
 		activityPhasesTypeEClass.getESuperTypes().add(this.getActivityDefBase());
 		activityTypeEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
 		andJoinListTypeEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
-		asynchCallTypeEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
 		bindTypeEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
 		callListTypeEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
 		lqnCoreTypeEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
@@ -4347,7 +4327,9 @@ public class LQNPackageImpl extends EPackageImpl implements LQNPackage {
 		singleActivityListTypeEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
 		slotTypeEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
 		solverParamsTypeEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
-		synchCallTypeEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
+		callTypeEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
+		synchCallTypeEClass.getESuperTypes().add(this.getCallType());
+		asynchCallTypeEClass.getESuperTypes().add(this.getCallType());
 		taskActivityGraphEClass.getESuperTypes().add(this.getActivityGraphBase());
 		taskTypeEClass.getESuperTypes().add(theCommonBasePackage.getIDBase());
 
@@ -4405,11 +4387,6 @@ public class LQNPackageImpl extends EPackageImpl implements LQNPackage {
 		initEReference(getAndJoinListType_Activity(), this.getActivityType(), null, "activity", null, 1, -1, AndJoinListType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAndJoinListType_Quorum(), theXMLTypePackage.getNonNegativeInteger(), "quorum", "0", 0, 1, AndJoinListType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(asynchCallTypeEClass, AsynchCallType.class, "AsynchCallType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAsynchCallType_Dest(), theXMLTypePackage.getString(), "dest", null, 1, 1, AsynchCallType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAsynchCallType_Fanin(), theXMLTypePackage.getInt(), "fanin", null, 0, 1, AsynchCallType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAsynchCallType_Fanout(), theXMLTypePackage.getInt(), "fanout", null, 0, 1, AsynchCallType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(bindTypeEClass, BindType.class, "BindType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBindType_Parameter(), this.getParameterType(), null, "parameter", null, 0, -1, BindType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBindType_ProcessorBinding(), this.getProcessorBindingType(), null, "processorBinding", null, 0, -1, BindType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4419,12 +4396,12 @@ public class LQNPackageImpl extends EPackageImpl implements LQNPackage {
 		initEReference(getCallListType_SynchCall(), this.getSynchCallType(), null, "synchCall", null, 0, -1, CallListType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCallListType_AsynchCall(), this.getAsynchCallType(), null, "asynchCall", null, 0, -1, CallListType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(documentRootEClass, DocumentRoot.class, "DocumentRoot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDocumentRoot_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1, null, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDocumentRoot_XMLNSPrefixMap(), ecorePackage.getEStringToStringMapEntry(), null, "xMLNSPrefixMap", null, 0, -1, null, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDocumentRoot_XSISchemaLocation(), ecorePackage.getEStringToStringMapEntry(), null, "xSISchemaLocation", null, 0, -1, null, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDocumentRoot_LqnCore(), this.getLqnCoreType(), null, "lqnCore", null, 0, -2, null, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getDocumentRoot_LqnModel(), this.getLqnModelType(), null, "lqnModel", null, 0, -2, null, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEClass(lqnEClass, de.uni_stuttgart.iste.cowolf.model.LqnCore.LQN.class, "LQN", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLQN_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1, null, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLQN_XMLNSPrefixMap(), ecorePackage.getEStringToStringMapEntry(), null, "xMLNSPrefixMap", null, 0, -1, null, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLQN_XSISchemaLocation(), ecorePackage.getEStringToStringMapEntry(), null, "xSISchemaLocation", null, 0, -1, null, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLQN_LqnCore(), this.getLqnCoreType(), null, "lqnCore", null, 0, -2, null, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getLQN_LqnModel(), this.getLqnModelType(), null, "lqnModel", null, 0, -2, null, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(lqnCoreTypeEClass, LqnCoreType.class, "LqnCoreType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getLqnCoreType_Processor(), this.getProcessorType(), null, "processor", null, 1, -1, LqnCoreType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4708,10 +4685,14 @@ public class LQNPackageImpl extends EPackageImpl implements LQNPackage {
 		initEAttribute(getSolverParamsType_PrintInt(), theXMLTypePackage.getInt(), "printInt", "0", 0, 1, SolverParamsType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSolverParamsType_UnderrelaxCoeff(), this.getSrvnFloat(), "underrelaxCoeff", "1", 0, 1, SolverParamsType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(callTypeEClass, CallType.class, "CallType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCallType_Dest(), this.getEntryType(), null, "dest", null, 0, 1, CallType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCallType_Fanin(), theXMLTypePackage.getInt(), "fanin", null, 0, 1, CallType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCallType_Fanout(), theXMLTypePackage.getInt(), "fanout", null, 0, 1, CallType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(synchCallTypeEClass, SynchCallType.class, "SynchCallType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSynchCallType_Dest(), theXMLTypePackage.getString(), "dest", null, 1, 1, SynchCallType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSynchCallType_Fanin(), theXMLTypePackage.getInt(), "fanin", null, 0, 1, SynchCallType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSynchCallType_Fanout(), theXMLTypePackage.getInt(), "fanout", null, 0, 1, SynchCallType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(asynchCallTypeEClass, AsynchCallType.class, "AsynchCallType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(taskActivityGraphEClass, TaskActivityGraph.class, "TaskActivityGraph", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTaskActivityGraph_ReplyEntry(), this.getReplyEntryType(), null, "replyEntry", null, 0, -1, TaskActivityGraph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5146,37 +5127,6 @@ public class LQNPackageImpl extends EPackageImpl implements LQNPackage {
 			 "namespace", "##targetNamespace"
 		   });	
 		addAnnotation
-		  (asynchCallTypeEClass, 
-		   source, 
-		   new String[] {
-			 "name", "asynch-call_._type",
-			 "kind", "empty"
-		   });	
-		addAnnotation
-		  (getAsynchCallType_Dest(), 
-		   source, 
-		   new String[] {
-			 "kind", "attribute",
-			 "name", "dest",
-			 "namespace", "##targetNamespace"
-		   });	
-		addAnnotation
-		  (getAsynchCallType_Fanin(), 
-		   source, 
-		   new String[] {
-			 "kind", "attribute",
-			 "name", "fanin",
-			 "namespace", "##targetNamespace"
-		   });	
-		addAnnotation
-		  (getAsynchCallType_Fanout(), 
-		   source, 
-		   new String[] {
-			 "kind", "attribute",
-			 "name", "fanout",
-			 "namespace", "##targetNamespace"
-		   });	
-		addAnnotation
 		  (axisTypeEEnum, 
 		   source, 
 		   new String[] {
@@ -5271,35 +5221,35 @@ public class LQNPackageImpl extends EPackageImpl implements LQNPackage {
 			 "itemType", "http://www.eclipse.org/emf/2003/XMLType#string"
 		   });	
 		addAnnotation
-		  (documentRootEClass, 
+		  (lqnEClass, 
 		   source, 
 		   new String[] {
 			 "name", "",
 			 "kind", "mixed"
 		   });	
 		addAnnotation
-		  (getDocumentRoot_Mixed(), 
+		  (getLQN_Mixed(), 
 		   source, 
 		   new String[] {
 			 "kind", "elementWildcard",
 			 "name", ":mixed"
 		   });	
 		addAnnotation
-		  (getDocumentRoot_XMLNSPrefixMap(), 
+		  (getLQN_XMLNSPrefixMap(), 
 		   source, 
 		   new String[] {
 			 "kind", "attribute",
 			 "name", "xmlns:prefix"
 		   });	
 		addAnnotation
-		  (getDocumentRoot_XSISchemaLocation(), 
+		  (getLQN_XSISchemaLocation(), 
 		   source, 
 		   new String[] {
 			 "kind", "attribute",
 			 "name", "xsi:schemaLocation"
 		   });	
 		addAnnotation
-		  (getDocumentRoot_LqnCore(), 
+		  (getLQN_LqnCore(), 
 		   source, 
 		   new String[] {
 			 "kind", "element",
@@ -5307,7 +5257,7 @@ public class LQNPackageImpl extends EPackageImpl implements LQNPackage {
 			 "namespace", "##targetNamespace"
 		   });	
 		addAnnotation
-		  (getDocumentRoot_LqnModel(), 
+		  (getLQN_LqnModel(), 
 		   source, 
 		   new String[] {
 			 "kind", "element",
@@ -7264,11 +7214,28 @@ public class LQNPackageImpl extends EPackageImpl implements LQNPackage {
 			 "namespace", "##targetNamespace"
 		   });	
 		addAnnotation
-		  (srvnFloatEDataType, 
+		  (getCallType_Dest(), 
 		   source, 
 		   new String[] {
-			 "name", "SrvnFloat",
-			 "memberTypes", "SciNotation http://www.eclipse.org/emf/2003/XMLType#decimal"
+			 "kind", "element",
+			 "name", "dest",
+			 "namespace", "##targetNamespace"
+		   });	
+		addAnnotation
+		  (getCallType_Fanin(), 
+		   source, 
+		   new String[] {
+			 "kind", "attribute",
+			 "name", "fanin",
+			 "namespace", "##targetNamespace"
+		   });	
+		addAnnotation
+		  (getCallType_Fanout(), 
+		   source, 
+		   new String[] {
+			 "kind", "attribute",
+			 "name", "fanout",
+			 "namespace", "##targetNamespace"
 		   });	
 		addAnnotation
 		  (synchCallTypeEClass, 
@@ -7278,28 +7245,18 @@ public class LQNPackageImpl extends EPackageImpl implements LQNPackage {
 			 "kind", "empty"
 		   });	
 		addAnnotation
-		  (getSynchCallType_Dest(), 
+		  (asynchCallTypeEClass, 
 		   source, 
 		   new String[] {
-			 "kind", "attribute",
-			 "name", "dest",
-			 "namespace", "##targetNamespace"
+			 "name", "asynch-call_._type",
+			 "kind", "empty"
 		   });	
 		addAnnotation
-		  (getSynchCallType_Fanin(), 
+		  (srvnFloatEDataType, 
 		   source, 
 		   new String[] {
-			 "kind", "attribute",
-			 "name", "fanin",
-			 "namespace", "##targetNamespace"
-		   });	
-		addAnnotation
-		  (getSynchCallType_Fanout(), 
-		   source, 
-		   new String[] {
-			 "kind", "attribute",
-			 "name", "fanout",
-			 "namespace", "##targetNamespace"
+			 "name", "SrvnFloat",
+			 "memberTypes", "SciNotation http://www.eclipse.org/emf/2003/XMLType#decimal"
 		   });	
 		addAnnotation
 		  (taskActivityGraphEClass, 
