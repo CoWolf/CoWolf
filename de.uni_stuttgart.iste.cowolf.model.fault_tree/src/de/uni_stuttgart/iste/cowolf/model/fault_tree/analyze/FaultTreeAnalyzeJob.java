@@ -6,7 +6,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.io.Reader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -24,6 +26,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 
 import de.uni_stuttgart.iste.cowolf.core.utilities.CommandLineExecutor;
+import de.uni_stuttgart.iste.cowolf.core.utilities.PrinterRegistry;
 import de.uni_stuttgart.iste.cowolf.model.IAnalysisListener;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreeModelManager;
@@ -40,7 +43,7 @@ public class FaultTreeAnalyzeJob extends Job {
 	private final Map<String, Object> parameters;
 	private List<String> results;
 	private final IAnalysisListener listener;
-	private Map<String,String> mapIdName;
+	private Map<String, String> mapIdName;
 
 	public FaultTreeAnalyzeJob(final Resource model,
 			final Map<String, Object> parameters, IAnalysisListener listener) {
@@ -57,16 +60,18 @@ public class FaultTreeAnalyzeJob extends Job {
 				new XFTAProbailityTopEventScriptGenerator());
 		XFTAScriptGenerators.put("minimalCutSets",
 				new XFTAMinimalCutsetsScriptGenerator());
-		
+
 		resultFileTitles = new HashMap<String, String>();
 		StringBuilder pteTitle = new StringBuilder();
 		pteTitle.append("Probability of The Top Event").append(CRLF);
-		pteTitle.append("Id Top Evenet").append(TAB).append("Mission Time").append(TAB).append("Probability");
+		pteTitle.append("Id Top Evenet").append(TAB).append("Mission Time")
+				.append(TAB).append("Probability");
 		resultFileTitles.put("probabilityTopEvent", pteTitle.toString());
-		
+
 		StringBuilder mcsTitle = new StringBuilder();
 		mcsTitle.append("Minimal cutsets").append(CRLF);
-		mcsTitle.append("Rank").append(TAB).append("Probability").append(TAB).append("Contribution").append(TAB).append("Cut-Set");
+		mcsTitle.append("Rank").append(TAB).append("Probability").append(TAB)
+				.append("Contribution").append(TAB).append("Cut-Set");
 		resultFileTitles.put("minimalCutSets", mcsTitle.toString());
 	}
 
@@ -80,7 +85,9 @@ public class FaultTreeAnalyzeJob extends Job {
 			final String pathToXFTA = (String) parameters
 					.get(FaultTreeModelManager.PARAM_PATH_TO_XFTA);
 			final String xFTABasicCommand = "xftar ";
-			final String pathToOutputXFTAFile = System.getProperty("java.io.tmpdir") + "/"
+			final String pathToOutputXFTAFile = System
+					.getProperty("java.io.tmpdir")
+					+ "/"
 					+ outputFaultTreeFileName;
 
 			monitor.beginTask("Analyse Fault Tree", 3);
@@ -91,7 +98,8 @@ public class FaultTreeAnalyzeJob extends Job {
 			monitor.worked(1);
 
 			// 2. Generate xFTA script
-			parameters.put("pathToInputXFTAFile", xFTAFaultTreeFile.getAbsoluteFile());
+			parameters.put("pathToInputXFTAFile",
+					xFTAFaultTreeFile.getAbsoluteFile());
 			parameters.put("pathToOutputXFTAFile", pathToOutputXFTAFile);
 			File xFTAScriptFile = writeTempFileFromGenerator(
 					scriptFileName,
@@ -101,7 +109,16 @@ public class FaultTreeAnalyzeJob extends Job {
 			// 3. Use CommandLineExecutor to execute xFTA.
 			final String xFTACommand = xFTABasicCommand
 					+ xFTAScriptFile.getAbsolutePath();
-			CommandLineExecutor.execCommand(pathToXFTA, xFTACommand);
+			Reader r = new InputStreamReader(
+					CommandLineExecutor.execCommandAndGetOutput(pathToXFTA,
+							xFTACommand));
+			BufferedReader in = new BufferedReader(r);
+			String line;
+			while ((line = in.readLine()) != null) {
+				PrinterRegistry.getInstance().println("FaultTree Analysis",
+						line);
+			}
+			PrinterRegistry.getInstance().close();
 			monitor.worked(1);
 
 			// 4. Parse the results from generated file
@@ -175,7 +192,8 @@ public class FaultTreeAnalyzeJob extends Job {
 	private File writeTempFileFromGenerator(String name, XFTAGenerator generator)
 			throws Exception {
 		String fileNameParts[] = name.split("\\.");
-		File xftaFile = File.createTempFile(fileNameParts[0], "."+fileNameParts[1]);
+		File xftaFile = File.createTempFile(fileNameParts[0], "."
+				+ fileNameParts[1]);
 
 		OutputStreamWriter out = new FileWriter(xftaFile.getAbsolutePath());
 		out.write(generator.doGenerateXFTAFile(
@@ -184,11 +202,11 @@ public class FaultTreeAnalyzeJob extends Job {
 
 		return xftaFile;
 	}
-	
-	private void generateModelIdNameMap(){
-		mapIdName = new HashMap<String,String>();
-		
-		for ( Iterator<EObject> iter = model.getAllContents();iter.hasNext();) {
+
+	private void generateModelIdNameMap() {
+		mapIdName = new HashMap<String, String>();
+
+		for (Iterator<EObject> iter = model.getAllContents(); iter.hasNext();) {
 			EObject o = iter.next();
 			if (o instanceof EventImpl) {
 				EventImpl e = (EventImpl) o;
@@ -196,8 +214,8 @@ public class FaultTreeAnalyzeJob extends Job {
 			}
 		}
 	}
-	
-	private String transformIdToNames(String source){
+
+	private String transformIdToNames(String source) {
 		String target = source;
 		for (String key : mapIdName.keySet()) {
 			String value = mapIdName.get(key);
