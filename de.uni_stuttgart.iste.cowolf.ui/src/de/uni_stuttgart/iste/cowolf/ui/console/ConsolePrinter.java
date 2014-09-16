@@ -83,9 +83,10 @@ public class ConsolePrinter implements IPrinter {
 	@Override
 	public void println(String printName, String printLine) {
 
-		// if no print was executed before or new print name (= console name)
-		// was passed, create a new console
+		// if no print was executed before, last print closed or new print name
+		// (= console name) passed, create a new console and output stream
 		if (!printName.equals(this.printName)) {
+			this.printName = printName;
 			MessageConsole messageConsole = initConsole(printName);
 			consoleOutputStream = messageConsole.newOutputStream();
 		}
@@ -102,6 +103,7 @@ public class ConsolePrinter implements IPrinter {
 	public void close() {
 		try {
 			consoleOutputStream.close();
+			this.printName = null;
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

@@ -118,7 +118,7 @@ public class FaultTreeAnalyzeJob extends Job {
 				PrinterRegistry.getInstance().println("FaultTree Analysis",
 						line);
 			}
-
+			PrinterRegistry.getInstance().close();
 			monitor.worked(1);
 
 			// 4. Parse the results from generated file
