@@ -12,42 +12,81 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.reficio</groupId>
-				<artifactId>p2-maven-plugin</artifactId>
-				<version>1.1.1-SNAPSHOT</version>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.8</version>
 				<executions>
 					<execution>
-						<id>default-cli</id>
+						<id>copy-bundles-for-publishing</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
 						<configuration>
-							<artifacts>
-								<!-- specify your dependencies here -->
-								<artifact>
-									<id>org.slf4j:slf4j-api:1.7.7</id>
-								</artifact>
-								<artifact>
-									<id>org.slf4j:osgi-over-slf4j:1.7.7</id>
-								</artifact>
-								<artifact>
-									<id>ch.qos.logback:logback-classic:1.1.2</id>
-								</artifact>
-								<artifact>
-									<id>ch.qos.logback:logback-core:1.1.2</id>
-								</artifact>
-							</artifacts>
+							<artifactItems>
+								<!-- maven artifacts to add to P2 repository; must be already OSGi 
+									bundles -->
+								<artifactItem>
+									<groupId>ch.qos.logback</groupId>
+									<artifactId>logback-classic</artifactId>
+									<version>1.1.2</version>
+								</artifactItem>
+								<artifactItem>
+									<groupId>ch.qos.logback</groupId>
+									<artifactId>logback-core</artifactId>
+									<version>1.1.2</version>
+								</artifactItem>
+								<artifactItem>
+									<groupId>org.slf4j</groupId>
+									<artifactId>slf4j-api</artifactId>
+									<version>1.7.7</version>
+								</artifactItem>
+								<artifactItem>
+									<groupId>org.slf4j</groupId>
+									<artifactId>osgi-over-slf4j</artifactId>
+									<version>1.7.7</version>
+								</artifactItem>
+							</artifactItems>
+							<outputDirectory>${project.build.directory}/source/plugins</outputDirectory>
 						</configuration>
 					</execution>
 				</executions>
 			</plugin>
-
+			<plugin>
+				<groupId>org.eclipse.tycho.extras</groupId>
+				<artifactId>tycho-p2-extras-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<executions>
+					<execution>
+						<id>generate-full-metadata</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>publish-features-and-bundles</goal>
+						</goals>
+						<configuration>
+							<sourceLocation>${project.build.directory}/source</sourceLocation>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-p2-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>category-p2-metadata</goal>
+						</goals>
+						<configuration>
+							<target>${project.build.directory}/repository</target>
+							<categoryDefinition>${project.basedir}/category.xml</categoryDefinition>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
-
-
-	<pluginRepositories>
-		<pluginRepository>
-			<id>reficio</id>
-			<url>http://repo.reficio.org/maven/</url>
-		</pluginRepository>
-	</pluginRepositories>
 
 </project>
