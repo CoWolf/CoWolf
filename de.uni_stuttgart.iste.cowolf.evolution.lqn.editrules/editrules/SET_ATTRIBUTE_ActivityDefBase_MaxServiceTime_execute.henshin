@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_k3Ba8D2wEeS7S4jHGG4AsQ" name="SET_ATTRIBUTE_ActivityDefBase_MaxServiceTime" description="Sets ActivityDefBase MaxServiceTime">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_k3Ba8T2wEeS7S4jHGG4AsQ" name="setActivityDefBaseMaxServiceTime" description="Sets the EAttribute maxServiceTime">
+    <parameters xmi:id="_k3Ba8j2wEeS7S4jHGG4AsQ" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityDefBase"/>
+    </parameters>
+    <parameters xmi:id="_k3Ba8z2wEeS7S4jHGG4AsQ" name="MaxServiceTime">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <lhs xmi:id="_k3Ba9D2wEeS7S4jHGG4AsQ" name="Lhs">
+      <nodes xmi:id="_k3Ba9T2wEeS7S4jHGG4AsQ" name="Selected">
+        <type href="http://LQN/1.0#//ActivityDefBase"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_k3Ba9j2wEeS7S4jHGG4AsQ" name="Rhs">
+      <nodes xmi:id="_k3Ba9z2wEeS7S4jHGG4AsQ" name="Selected">
+        <type href="http://LQN/1.0#//ActivityDefBase"/>
+        <attributes xmi:id="_k3Ba-D2wEeS7S4jHGG4AsQ" value="MaxServiceTime">
+          <type href="http://LQN/1.0#//ActivityDefBase/maxServiceTime"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_k3Ba-T2wEeS7S4jHGG4AsQ" origin="_k3Ba9T2wEeS7S4jHGG4AsQ" image="_k3Ba9z2wEeS7S4jHGG4AsQ"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_k3Ba-j2wEeS7S4jHGG4AsQ" name="mainUnit" subUnits="_k3Ba8T2wEeS7S4jHGG4AsQ">
+    <parameters xmi:id="_k3Ba-z2wEeS7S4jHGG4AsQ" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityDefBase"/>
+    </parameters>
+    <parameters xmi:id="_k3Ba_D2wEeS7S4jHGG4AsQ" name="MaxServiceTime">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameterMappings xmi:id="_k3Ba_T2wEeS7S4jHGG4AsQ" source="_k3Ba-z2wEeS7S4jHGG4AsQ" target="_k3Ba8j2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_k3Ba_j2wEeS7S4jHGG4AsQ" source="_k3Ba_D2wEeS7S4jHGG4AsQ" target="_k3Ba8z2wEeS7S4jHGG4AsQ"/>
+  </units>
+</henshin:Module>

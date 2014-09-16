@@ -1,78 +1,39 @@
 <?xml version="1.0" encoding="ASCII"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mWIaYDKFEeS-2ouOJu-Wmw" name="DELETE_ResultGeneralType_IN_SolverParamsType_(resultGeneral)" description="Deletes one ResultGeneralType in SolverParamsType">
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_kiGT0D2wEeS7S4jHGG4AsQ" name="DELETE_ResultGeneralType_IN_SolverParamsType_(resultGeneral)" description="Deletes one ResultGeneralType in SolverParamsType">
   <imports href="http://LQN/1.0#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="_mWIaYTKFEeS-2ouOJu-Wmw" name="deleteResultGeneralType_IN_SolverParamsType" description="deletes one ResultGeneralType in the context: SolverParamsType">
-    <parameters xmi:id="_mWIaYjKFEeS-2ouOJu-Wmw" name="Selected"/>
-    <parameters xmi:id="_mWIaYzKFEeS-2ouOJu-Wmw" name="ToBeDeleted"/>
-    <lhs xmi:id="_mWIaZDKFEeS-2ouOJu-Wmw" name="LHS">
-      <nodes xmi:id="_mWIaZTKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mWIaZzKFEeS-2ouOJu-Wmw">
+  <units xsi:type="henshin:Rule" xmi:id="_kiGT0T2wEeS7S4jHGG4AsQ" name="deleteResultGeneralType_IN_SolverParamsType" description="deletes one ResultGeneralType in the context: SolverParamsType">
+    <parameters xmi:id="_kiGT0j2wEeS7S4jHGG4AsQ" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SolverParamsType"/>
+    </parameters>
+    <parameters xmi:id="_kiGT0z2wEeS7S4jHGG4AsQ" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ResultGeneralType"/>
+    </parameters>
+    <lhs xmi:id="_kiGT1D2wEeS7S4jHGG4AsQ" name="LHS">
+      <nodes xmi:id="_kiGT1T2wEeS7S4jHGG4AsQ" name="Selected" outgoing="_kiGT1z2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//SolverParamsType"/>
       </nodes>
-      <nodes xmi:id="_mWIaZjKFEeS-2ouOJu-Wmw" name="ToBeDeleted" incoming="_mWIaZzKFEeS-2ouOJu-Wmw">
+      <nodes xmi:id="_kiGT1j2wEeS7S4jHGG4AsQ" name="ToBeDeleted" incoming="_kiGT1z2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//ResultGeneralType"/>
       </nodes>
-      <edges xmi:id="_mWIaZzKFEeS-2ouOJu-Wmw" source="_mWIaZTKFEeS-2ouOJu-Wmw" target="_mWIaZjKFEeS-2ouOJu-Wmw">
+      <edges xmi:id="_kiGT1z2wEeS7S4jHGG4AsQ" source="_kiGT1T2wEeS7S4jHGG4AsQ" target="_kiGT1j2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//SolverParamsType/resultGeneral"/>
       </edges>
     </lhs>
-    <rhs xmi:id="_mWIaaDKFEeS-2ouOJu-Wmw" name="RHS">
-      <nodes xmi:id="_mWIaaTKFEeS-2ouOJu-Wmw" name="Selected">
+    <rhs xmi:id="_kiGT2D2wEeS7S4jHGG4AsQ" name="RHS">
+      <nodes xmi:id="_kiGT2T2wEeS7S4jHGG4AsQ" name="Selected">
         <type href="http://LQN/1.0#//SolverParamsType"/>
       </nodes>
-      <formula xsi:type="henshin:Not" xmi:id="_mWIaajKFEeS-2ouOJu-Wmw">
-        <child xsi:type="henshin:NestedCondition" xmi:id="_mWIaazKFEeS-2ouOJu-Wmw">
-          <conclusion xmi:id="_mWIabDKFEeS-2ouOJu-Wmw" name="doNotExceedUpperBound">
-            <nodes xmi:id="_mWIabTKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mWIaeTKFEeS-2ouOJu-Wmw">
-              <type href="http://LQN/1.0#//SolverParamsType"/>
-            </nodes>
-            <nodes xmi:id="_mWIabjKFEeS-2ouOJu-Wmw" name="New">
-              <type href="http://LQN/1.0#//ResultGeneralType"/>
-              <attributes xmi:id="_mWIabzKFEeS-2ouOJu-Wmw" value="Id">
-                <type href="http://CommonBase/1.0#//IDBase/id"/>
-              </attributes>
-              <attributes xmi:id="_mWIacDKFEeS-2ouOJu-Wmw" value="ConvVal">
-                <type href="http://LQN/1.0#//ResultGeneralType/convVal"/>
-              </attributes>
-              <attributes xmi:id="_mWIacTKFEeS-2ouOJu-Wmw" value="ElapsedTime">
-                <type href="http://LQN/1.0#//ResultGeneralType/elapsedTime"/>
-              </attributes>
-              <attributes xmi:id="_mWIacjKFEeS-2ouOJu-Wmw" value="Iterations">
-                <type href="http://LQN/1.0#//ResultGeneralType/iterations"/>
-              </attributes>
-              <attributes xmi:id="_mWIaczKFEeS-2ouOJu-Wmw" value="PlatformInfo">
-                <type href="http://LQN/1.0#//ResultGeneralType/platformInfo"/>
-              </attributes>
-              <attributes xmi:id="_mWIadDKFEeS-2ouOJu-Wmw" value="SolverInfo">
-                <type href="http://LQN/1.0#//ResultGeneralType/solverInfo"/>
-              </attributes>
-              <attributes xmi:id="_mWIadTKFEeS-2ouOJu-Wmw" value="SystemCpuTime">
-                <type href="http://LQN/1.0#//ResultGeneralType/systemCpuTime"/>
-              </attributes>
-              <attributes xmi:id="_mWIadjKFEeS-2ouOJu-Wmw" value="UserCpuTime">
-                <type href="http://LQN/1.0#//ResultGeneralType/userCpuTime"/>
-              </attributes>
-              <attributes xmi:id="_mWIadzKFEeS-2ouOJu-Wmw" value="Valid">
-                <type href="http://LQN/1.0#//ResultGeneralType/valid"/>
-              </attributes>
-            </nodes>
-            <nodes xmi:id="_mWIaeDKFEeS-2ouOJu-Wmw" incoming="_mWIaeTKFEeS-2ouOJu-Wmw">
-              <type href="http://LQN/1.0#//ResultGeneralType"/>
-            </nodes>
-            <edges xmi:id="_mWIaeTKFEeS-2ouOJu-Wmw" source="_mWIabTKFEeS-2ouOJu-Wmw" target="_mWIaeDKFEeS-2ouOJu-Wmw">
-              <type href="http://LQN/1.0#//SolverParamsType/resultGeneral"/>
-            </edges>
-          </conclusion>
-          <mappings xmi:id="_mWIaejKFEeS-2ouOJu-Wmw" origin="_mWIaZTKFEeS-2ouOJu-Wmw" image="_mWIabTKFEeS-2ouOJu-Wmw"/>
-          <mappings xmi:id="_mWIaezKFEeS-2ouOJu-Wmw" origin="_mWIaZjKFEeS-2ouOJu-Wmw" image="_mWIabjKFEeS-2ouOJu-Wmw"/>
-        </child>
-      </formula>
     </rhs>
-    <mappings xmi:id="_mWIafDKFEeS-2ouOJu-Wmw" origin="_mWIaZTKFEeS-2ouOJu-Wmw" image="_mWIaaTKFEeS-2ouOJu-Wmw"/>
+    <mappings xmi:id="_kiGT2j2wEeS7S4jHGG4AsQ" origin="_kiGT1T2wEeS7S4jHGG4AsQ" image="_kiGT2T2wEeS7S4jHGG4AsQ"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="_mWIafTKFEeS-2ouOJu-Wmw" name="mainUnit" description="Deletes one ResultGeneralType depending on available contexts in model instance" subUnits="_mWIaYTKFEeS-2ouOJu-Wmw">
-    <parameters xmi:id="_mWIafjKFEeS-2ouOJu-Wmw" name="ToBeDeleted"/>
-    <parameters xmi:id="_mWIafzKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
-    <parameterMappings xmi:id="_mWIagDKFEeS-2ouOJu-Wmw" source="_mWIafzKFEeS-2ouOJu-Wmw" target="_mWIaYjKFEeS-2ouOJu-Wmw"/>
-    <parameterMappings xmi:id="_mWIagTKFEeS-2ouOJu-Wmw" source="_mWIafjKFEeS-2ouOJu-Wmw" target="_mWIaYzKFEeS-2ouOJu-Wmw"/>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_kiGT2z2wEeS7S4jHGG4AsQ" name="mainUnit" subUnits="_kiGT0T2wEeS7S4jHGG4AsQ">
+    <parameters xmi:id="_kiGT3D2wEeS7S4jHGG4AsQ" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SolverParamsType"/>
+    </parameters>
+    <parameters xmi:id="_kiGT3T2wEeS7S4jHGG4AsQ" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ResultGeneralType"/>
+    </parameters>
+    <parameterMappings xmi:id="_kiGT3j2wEeS7S4jHGG4AsQ" source="_kiGT3D2wEeS7S4jHGG4AsQ" target="_kiGT0j2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kiGT3z2wEeS7S4jHGG4AsQ" source="_kiGT3T2wEeS7S4jHGG4AsQ" target="_kiGT0z2wEeS7S4jHGG4AsQ"/>
   </units>
 </henshin:Module>

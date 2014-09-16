@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_kMsrkD2wEeS7S4jHGG4AsQ" name="SET_ATTRIBUTE_SlotType_ReplicNum" description="Sets SlotType ReplicNum">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_kMsrkT2wEeS7S4jHGG4AsQ" name="setSlotTypeReplicNum" description="Sets the EAttribute replicNum">
+    <parameters xmi:id="_kMsrkj2wEeS7S4jHGG4AsQ" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SlotType"/>
+    </parameters>
+    <parameters xmi:id="_kMsrkz2wEeS7S4jHGG4AsQ" name="ReplicNum">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    </parameters>
+    <lhs xmi:id="_kMsrlD2wEeS7S4jHGG4AsQ" name="Lhs">
+      <nodes xmi:id="_kMsrlT2wEeS7S4jHGG4AsQ" name="Selected">
+        <type href="http://LQN/1.0#//SlotType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_kMsrlj2wEeS7S4jHGG4AsQ" name="Rhs">
+      <nodes xmi:id="_kMsrlz2wEeS7S4jHGG4AsQ" name="Selected">
+        <type href="http://LQN/1.0#//SlotType"/>
+        <attributes xmi:id="_kMsrmD2wEeS7S4jHGG4AsQ" value="ReplicNum">
+          <type href="http://LQN/1.0#//SlotType/replicNum"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_kMsrmT2wEeS7S4jHGG4AsQ" origin="_kMsrlT2wEeS7S4jHGG4AsQ" image="_kMsrlz2wEeS7S4jHGG4AsQ"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_kMsrmj2wEeS7S4jHGG4AsQ" name="mainUnit" subUnits="_kMsrkT2wEeS7S4jHGG4AsQ">
+    <parameters xmi:id="_kMsrmz2wEeS7S4jHGG4AsQ" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SlotType"/>
+    </parameters>
+    <parameters xmi:id="_kMsrnD2wEeS7S4jHGG4AsQ" name="ReplicNum">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    </parameters>
+    <parameterMappings xmi:id="_kMsrnT2wEeS7S4jHGG4AsQ" source="_kMsrmz2wEeS7S4jHGG4AsQ" target="_kMsrkj2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kMsrnj2wEeS7S4jHGG4AsQ" source="_kMsrnD2wEeS7S4jHGG4AsQ" target="_kMsrkz2wEeS7S4jHGG4AsQ"/>
+  </units>
+</henshin:Module>

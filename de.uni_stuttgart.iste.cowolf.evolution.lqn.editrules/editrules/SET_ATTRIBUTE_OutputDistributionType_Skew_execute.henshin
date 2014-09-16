@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_k1jbUD2wEeS7S4jHGG4AsQ" name="SET_ATTRIBUTE_OutputDistributionType_Skew" description="Sets OutputDistributionType Skew">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_k1jbUT2wEeS7S4jHGG4AsQ" name="setOutputDistributionTypeSkew" description="Sets the EAttribute skew">
+    <parameters xmi:id="_k1jbUj2wEeS7S4jHGG4AsQ" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutputDistributionType"/>
+    </parameters>
+    <parameters xmi:id="_k1jbUz2wEeS7S4jHGG4AsQ" name="Skew">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <lhs xmi:id="_k1jbVD2wEeS7S4jHGG4AsQ" name="Lhs">
+      <nodes xmi:id="_k1jbVT2wEeS7S4jHGG4AsQ" name="Selected">
+        <type href="http://LQN/1.0#//OutputDistributionType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_k1jbVj2wEeS7S4jHGG4AsQ" name="Rhs">
+      <nodes xmi:id="_k1jbVz2wEeS7S4jHGG4AsQ" name="Selected">
+        <type href="http://LQN/1.0#//OutputDistributionType"/>
+        <attributes xmi:id="_k1jbWD2wEeS7S4jHGG4AsQ" value="Skew">
+          <type href="http://LQN/1.0#//OutputDistributionType/skew"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_k1jbWT2wEeS7S4jHGG4AsQ" origin="_k1jbVT2wEeS7S4jHGG4AsQ" image="_k1jbVz2wEeS7S4jHGG4AsQ"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_k1jbWj2wEeS7S4jHGG4AsQ" name="mainUnit" subUnits="_k1jbUT2wEeS7S4jHGG4AsQ">
+    <parameters xmi:id="_k1jbWz2wEeS7S4jHGG4AsQ" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutputDistributionType"/>
+    </parameters>
+    <parameters xmi:id="_k1jbXD2wEeS7S4jHGG4AsQ" name="Skew">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameterMappings xmi:id="_k1jbXT2wEeS7S4jHGG4AsQ" source="_k1jbWz2wEeS7S4jHGG4AsQ" target="_k1jbUj2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_k1jbXj2wEeS7S4jHGG4AsQ" source="_k1jbXD2wEeS7S4jHGG4AsQ" target="_k1jbUz2wEeS7S4jHGG4AsQ"/>
+  </units>
+</henshin:Module>

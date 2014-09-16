@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_kZGI0D2wEeS7S4jHGG4AsQ" name="SET_ATTRIBUTE_OutputResultType_Phase1ServiceTime" description="Sets OutputResultType Phase1ServiceTime">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_kZGI0T2wEeS7S4jHGG4AsQ" name="setOutputResultTypePhase1ServiceTime" description="Sets the EAttribute phase1ServiceTime">
+    <parameters xmi:id="_kZGI0j2wEeS7S4jHGG4AsQ" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutputResultType"/>
+    </parameters>
+    <parameters xmi:id="_kZGI0z2wEeS7S4jHGG4AsQ" name="Phase1ServiceTime">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <lhs xmi:id="_kZGI1D2wEeS7S4jHGG4AsQ" name="Lhs">
+      <nodes xmi:id="_kZGI1T2wEeS7S4jHGG4AsQ" name="Selected">
+        <type href="http://LQN/1.0#//OutputResultType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_kZGI1j2wEeS7S4jHGG4AsQ" name="Rhs">
+      <nodes xmi:id="_kZGI1z2wEeS7S4jHGG4AsQ" name="Selected">
+        <type href="http://LQN/1.0#//OutputResultType"/>
+        <attributes xmi:id="_kZGI2D2wEeS7S4jHGG4AsQ" value="Phase1ServiceTime">
+          <type href="http://LQN/1.0#//OutputResultType/phase1ServiceTime"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_kZGI2T2wEeS7S4jHGG4AsQ" origin="_kZGI1T2wEeS7S4jHGG4AsQ" image="_kZGI1z2wEeS7S4jHGG4AsQ"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_kZGI2j2wEeS7S4jHGG4AsQ" name="mainUnit" subUnits="_kZGI0T2wEeS7S4jHGG4AsQ">
+    <parameters xmi:id="_kZGI2z2wEeS7S4jHGG4AsQ" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutputResultType"/>
+    </parameters>
+    <parameters xmi:id="_kZGI3D2wEeS7S4jHGG4AsQ" name="Phase1ServiceTime">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameterMappings xmi:id="_kZGI3T2wEeS7S4jHGG4AsQ" source="_kZGI2z2wEeS7S4jHGG4AsQ" target="_kZGI0j2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kZGI3j2wEeS7S4jHGG4AsQ" source="_kZGI3D2wEeS7S4jHGG4AsQ" target="_kZGI0z2wEeS7S4jHGG4AsQ"/>
+  </units>
+</henshin:Module>

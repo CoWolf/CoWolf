@@ -1,64 +1,76 @@
 <?xml version="1.0" encoding="ASCII"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mPF-QDKFEeS-2ouOJu-Wmw" name="MOVE_PlotControlType_FROM_LqnModelType_(plotControl)_TO_LqnModelType_(plotControl)" description="MOVEs PlotControlType from LqnModelType(Reference:plotControl) to LqnModelType(Reference:plotControl">
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_kc9VID2wEeS7S4jHGG4AsQ" name="MOVE_PlotControlType_FROM_LqnModelType_(plotControl)_TO_LqnModelType_(plotControl)" description="MOVEs PlotControlType from LqnModelType(Reference:plotControl) to LqnModelType(Reference:plotControl">
   <imports href="http://LQN/1.0#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="_mPF-QTKFEeS-2ouOJu-Wmw" name="movePlotControlType_FROM_LqnModelType_plotControl_TO_LqnModelType_LqnModelType" description="Moves PlotControlType from LqnModelType(Reference:plotControl) toLqnModelType(Reference:LqnModelType)">
-    <parameters xmi:id="_mPF-QjKFEeS-2ouOJu-Wmw" name="Selected"/>
-    <parameters xmi:id="_mPF-QzKFEeS-2ouOJu-Wmw" name="OldSource"/>
-    <parameters xmi:id="_mPF-RDKFEeS-2ouOJu-Wmw" name="NewSource"/>
-    <lhs xmi:id="_mPF-RTKFEeS-2ouOJu-Wmw" name="Lhs">
-      <nodes xmi:id="_mPF-RjKFEeS-2ouOJu-Wmw" name="Selected" incoming="_mPF-STKFEeS-2ouOJu-Wmw">
+  <units xsi:type="henshin:Rule" xmi:id="_kc9VIT2wEeS7S4jHGG4AsQ" name="movePlotControlType_FROM_LqnModelType_plotControl_TO_LqnModelType_LqnModelType" description="Moves PlotControlType from LqnModelType(Reference:plotControl) toLqnModelType(Reference:LqnModelType)">
+    <parameters xmi:id="_kc9VIj2wEeS7S4jHGG4AsQ" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PlotControlType"/>
+    </parameters>
+    <parameters xmi:id="_kc9VIz2wEeS7S4jHGG4AsQ" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//LqnModelType"/>
+    </parameters>
+    <parameters xmi:id="_kc9VJD2wEeS7S4jHGG4AsQ" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//LqnModelType"/>
+    </parameters>
+    <lhs xmi:id="_kc9VJT2wEeS7S4jHGG4AsQ" name="Lhs">
+      <nodes xmi:id="_kc9VJj2wEeS7S4jHGG4AsQ" name="Selected" incoming="_kc9VKT2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//PlotControlType"/>
       </nodes>
-      <nodes xmi:id="_mPF-RzKFEeS-2ouOJu-Wmw" name="OldSource" outgoing="_mPF-STKFEeS-2ouOJu-Wmw">
+      <nodes xmi:id="_kc9VJz2wEeS7S4jHGG4AsQ" name="OldSource" outgoing="_kc9VKT2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//LqnModelType"/>
       </nodes>
-      <nodes xmi:id="_mPF-SDKFEeS-2ouOJu-Wmw" name="NewSource">
+      <nodes xmi:id="_kc9VKD2wEeS7S4jHGG4AsQ" name="NewSource">
         <type href="http://LQN/1.0#//LqnModelType"/>
       </nodes>
-      <edges xmi:id="_mPF-STKFEeS-2ouOJu-Wmw" source="_mPF-RzKFEeS-2ouOJu-Wmw" target="_mPF-RjKFEeS-2ouOJu-Wmw">
+      <edges xmi:id="_kc9VKT2wEeS7S4jHGG4AsQ" source="_kc9VJz2wEeS7S4jHGG4AsQ" target="_kc9VJj2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//LqnModelType/plotControl"/>
       </edges>
-      <formula xsi:type="henshin:Not" xmi:id="_mPF-SjKFEeS-2ouOJu-Wmw">
-        <child xsi:type="henshin:NestedCondition" xmi:id="_mPF-SzKFEeS-2ouOJu-Wmw">
-          <conclusion xmi:id="_mPF-TDKFEeS-2ouOJu-Wmw" name="doNotExceedUpperBound">
-            <nodes xmi:id="_mPF-TTKFEeS-2ouOJu-Wmw" name="NewSource" outgoing="_mPF-UDKFEeS-2ouOJu-Wmw">
+      <formula xsi:type="henshin:Not" xmi:id="_kc9VKj2wEeS7S4jHGG4AsQ">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_kc9VKz2wEeS7S4jHGG4AsQ">
+          <conclusion xmi:id="_kc9VLD2wEeS7S4jHGG4AsQ" name="ub0">
+            <nodes xmi:id="_kc9VLT2wEeS7S4jHGG4AsQ" outgoing="_kc9VLz2wEeS7S4jHGG4AsQ">
               <type href="http://LQN/1.0#//LqnModelType"/>
             </nodes>
-            <nodes xmi:id="_mPF-TzKFEeS-2ouOJu-Wmw" incoming="_mPF-UDKFEeS-2ouOJu-Wmw">
+            <nodes xmi:id="_kc9VLj2wEeS7S4jHGG4AsQ" incoming="_kc9VLz2wEeS7S4jHGG4AsQ">
               <type href="http://LQN/1.0#//PlotControlType"/>
             </nodes>
-            <edges xmi:id="_mPF-UDKFEeS-2ouOJu-Wmw" source="_mPF-TTKFEeS-2ouOJu-Wmw" target="_mPF-TzKFEeS-2ouOJu-Wmw">
+            <edges xmi:id="_kc9VLz2wEeS7S4jHGG4AsQ" source="_kc9VLT2wEeS7S4jHGG4AsQ" target="_kc9VLj2wEeS7S4jHGG4AsQ">
               <type href="http://LQN/1.0#//LqnModelType/plotControl"/>
             </edges>
           </conclusion>
-          <mappings xmi:id="_mPF-UTKFEeS-2ouOJu-Wmw" origin="_mPF-SDKFEeS-2ouOJu-Wmw" image="_mPF-TTKFEeS-2ouOJu-Wmw"/>
+          <mappings xmi:id="_kc9VMD2wEeS7S4jHGG4AsQ" origin="_kc9VKD2wEeS7S4jHGG4AsQ" image="_kc9VLT2wEeS7S4jHGG4AsQ"/>
         </child>
       </formula>
     </lhs>
-    <rhs xmi:id="_mPF-UzKFEeS-2ouOJu-Wmw" name="Rhs">
-      <nodes xmi:id="_mPF-VDKFEeS-2ouOJu-Wmw" name="Selected" incoming="_mPF-VzKFEeS-2ouOJu-Wmw">
+    <rhs xmi:id="_kc9VMT2wEeS7S4jHGG4AsQ" name="Rhs">
+      <nodes xmi:id="_kc9VMj2wEeS7S4jHGG4AsQ" name="Selected" incoming="_kc9VNT2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//PlotControlType"/>
       </nodes>
-      <nodes xmi:id="_mPF-VTKFEeS-2ouOJu-Wmw" name="OldSource">
+      <nodes xmi:id="_kc9VMz2wEeS7S4jHGG4AsQ" name="OldSource">
         <type href="http://LQN/1.0#//LqnModelType"/>
       </nodes>
-      <nodes xmi:id="_mPF-VjKFEeS-2ouOJu-Wmw" name="NewSource" outgoing="_mPF-VzKFEeS-2ouOJu-Wmw">
+      <nodes xmi:id="_kc9VND2wEeS7S4jHGG4AsQ" name="NewSource" outgoing="_kc9VNT2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//LqnModelType"/>
       </nodes>
-      <edges xmi:id="_mPF-VzKFEeS-2ouOJu-Wmw" source="_mPF-VjKFEeS-2ouOJu-Wmw" target="_mPF-VDKFEeS-2ouOJu-Wmw">
+      <edges xmi:id="_kc9VNT2wEeS7S4jHGG4AsQ" source="_kc9VND2wEeS7S4jHGG4AsQ" target="_kc9VMj2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//LqnModelType/plotControl"/>
       </edges>
     </rhs>
-    <mappings xmi:id="_mPF-WDKFEeS-2ouOJu-Wmw" origin="_mPF-RjKFEeS-2ouOJu-Wmw" image="_mPF-VDKFEeS-2ouOJu-Wmw"/>
-    <mappings xmi:id="_mPF-WTKFEeS-2ouOJu-Wmw" origin="_mPF-RzKFEeS-2ouOJu-Wmw" image="_mPF-VTKFEeS-2ouOJu-Wmw"/>
-    <mappings xmi:id="_mPF-WjKFEeS-2ouOJu-Wmw" origin="_mPF-SDKFEeS-2ouOJu-Wmw" image="_mPF-VjKFEeS-2ouOJu-Wmw"/>
+    <mappings xmi:id="_kc9VNj2wEeS7S4jHGG4AsQ" origin="_kc9VJj2wEeS7S4jHGG4AsQ" image="_kc9VMj2wEeS7S4jHGG4AsQ"/>
+    <mappings xmi:id="_kc9VNz2wEeS7S4jHGG4AsQ" origin="_kc9VJz2wEeS7S4jHGG4AsQ" image="_kc9VMz2wEeS7S4jHGG4AsQ"/>
+    <mappings xmi:id="_kc9VOD2wEeS7S4jHGG4AsQ" origin="_kc9VKD2wEeS7S4jHGG4AsQ" image="_kc9VND2wEeS7S4jHGG4AsQ"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="_mPF-WzKFEeS-2ouOJu-Wmw" name="mainUnit" subUnits="_mPF-QTKFEeS-2ouOJu-Wmw">
-    <parameters xmi:id="_mPF-XDKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
-    <parameters xmi:id="_mPF-XTKFEeS-2ouOJu-Wmw" name="OldSource"/>
-    <parameters xmi:id="_mPF-XjKFEeS-2ouOJu-Wmw" name="NewSource"/>
-    <parameterMappings xmi:id="_mPF-XzKFEeS-2ouOJu-Wmw" source="_mPF-XDKFEeS-2ouOJu-Wmw" target="_mPF-QjKFEeS-2ouOJu-Wmw"/>
-    <parameterMappings xmi:id="_mPF-YDKFEeS-2ouOJu-Wmw" source="_mPF-XTKFEeS-2ouOJu-Wmw" target="_mPF-QzKFEeS-2ouOJu-Wmw"/>
-    <parameterMappings xmi:id="_mPF-YTKFEeS-2ouOJu-Wmw" source="_mPF-XjKFEeS-2ouOJu-Wmw" target="_mPF-RDKFEeS-2ouOJu-Wmw"/>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_kc9VOT2wEeS7S4jHGG4AsQ" name="mainUnit" subUnits="_kc9VIT2wEeS7S4jHGG4AsQ">
+    <parameters xmi:id="_kc9VOj2wEeS7S4jHGG4AsQ" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PlotControlType"/>
+    </parameters>
+    <parameters xmi:id="_kc9VOz2wEeS7S4jHGG4AsQ" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//LqnModelType"/>
+    </parameters>
+    <parameters xmi:id="_kc9VPD2wEeS7S4jHGG4AsQ" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//LqnModelType"/>
+    </parameters>
+    <parameterMappings xmi:id="_kc9VPT2wEeS7S4jHGG4AsQ" source="_kc9VOj2wEeS7S4jHGG4AsQ" target="_kc9VIj2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kc9VPj2wEeS7S4jHGG4AsQ" source="_kc9VOz2wEeS7S4jHGG4AsQ" target="_kc9VIz2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kc9VPz2wEeS7S4jHGG4AsQ" source="_kc9VPD2wEeS7S4jHGG4AsQ" target="_kc9VJD2wEeS7S4jHGG4AsQ"/>
   </units>
 </henshin:Module>

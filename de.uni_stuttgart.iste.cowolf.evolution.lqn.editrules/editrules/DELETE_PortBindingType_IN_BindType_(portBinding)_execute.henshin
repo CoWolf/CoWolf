@@ -1,31 +1,39 @@
 <?xml version="1.0" encoding="ASCII"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mPmUkDKFEeS-2ouOJu-Wmw" name="DELETE_PortBindingType_IN_BindType_(portBinding)" description="Deletes one PortBindingType in BindType">
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_kaP_YD2wEeS7S4jHGG4AsQ" name="DELETE_PortBindingType_IN_BindType_(portBinding)" description="Deletes one PortBindingType in BindType">
   <imports href="http://LQN/1.0#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="_mPmUkTKFEeS-2ouOJu-Wmw" name="deletePortBindingType_IN_BindType" description="deletes one PortBindingType in the context: BindType">
-    <parameters xmi:id="_mPmUkjKFEeS-2ouOJu-Wmw" name="Selected"/>
-    <parameters xmi:id="_mPmUkzKFEeS-2ouOJu-Wmw" name="ToBeDeleted"/>
-    <lhs xmi:id="_mPmUlDKFEeS-2ouOJu-Wmw" name="LHS">
-      <nodes xmi:id="_mPmUlTKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mPmUlzKFEeS-2ouOJu-Wmw">
+  <units xsi:type="henshin:Rule" xmi:id="_kaP_YT2wEeS7S4jHGG4AsQ" name="deletePortBindingType_IN_BindType" description="deletes one PortBindingType in the context: BindType">
+    <parameters xmi:id="_kaP_Yj2wEeS7S4jHGG4AsQ" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//BindType"/>
+    </parameters>
+    <parameters xmi:id="_kaP_Yz2wEeS7S4jHGG4AsQ" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PortBindingType"/>
+    </parameters>
+    <lhs xmi:id="_kaP_ZD2wEeS7S4jHGG4AsQ" name="LHS">
+      <nodes xmi:id="_kaP_ZT2wEeS7S4jHGG4AsQ" name="Selected" outgoing="_kaP_Zz2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//BindType"/>
       </nodes>
-      <nodes xmi:id="_mPmUljKFEeS-2ouOJu-Wmw" name="ToBeDeleted" incoming="_mPmUlzKFEeS-2ouOJu-Wmw">
+      <nodes xmi:id="_kaP_Zj2wEeS7S4jHGG4AsQ" name="ToBeDeleted" incoming="_kaP_Zz2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//PortBindingType"/>
       </nodes>
-      <edges xmi:id="_mPmUlzKFEeS-2ouOJu-Wmw" source="_mPmUlTKFEeS-2ouOJu-Wmw" target="_mPmUljKFEeS-2ouOJu-Wmw">
+      <edges xmi:id="_kaP_Zz2wEeS7S4jHGG4AsQ" source="_kaP_ZT2wEeS7S4jHGG4AsQ" target="_kaP_Zj2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//BindType/portBinding"/>
       </edges>
     </lhs>
-    <rhs xmi:id="_mPmUmDKFEeS-2ouOJu-Wmw" name="RHS">
-      <nodes xmi:id="_mPmUmTKFEeS-2ouOJu-Wmw" name="Selected">
+    <rhs xmi:id="_kaP_aD2wEeS7S4jHGG4AsQ" name="RHS">
+      <nodes xmi:id="_kaP_aT2wEeS7S4jHGG4AsQ" name="Selected">
         <type href="http://LQN/1.0#//BindType"/>
       </nodes>
     </rhs>
-    <mappings xmi:id="_mPmUmjKFEeS-2ouOJu-Wmw" origin="_mPmUlTKFEeS-2ouOJu-Wmw" image="_mPmUmTKFEeS-2ouOJu-Wmw"/>
+    <mappings xmi:id="_kaP_aj2wEeS7S4jHGG4AsQ" origin="_kaP_ZT2wEeS7S4jHGG4AsQ" image="_kaP_aT2wEeS7S4jHGG4AsQ"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="_mPmUmzKFEeS-2ouOJu-Wmw" name="mainUnit" description="Deletes one PortBindingType depending on available contexts in model instance" subUnits="_mPmUkTKFEeS-2ouOJu-Wmw">
-    <parameters xmi:id="_mPmUnDKFEeS-2ouOJu-Wmw" name="ToBeDeleted"/>
-    <parameters xmi:id="_mPmUnTKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
-    <parameterMappings xmi:id="_mPmUnjKFEeS-2ouOJu-Wmw" source="_mPmUnTKFEeS-2ouOJu-Wmw" target="_mPmUkjKFEeS-2ouOJu-Wmw"/>
-    <parameterMappings xmi:id="_mPmUnzKFEeS-2ouOJu-Wmw" source="_mPmUnDKFEeS-2ouOJu-Wmw" target="_mPmUkzKFEeS-2ouOJu-Wmw"/>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_kaP_az2wEeS7S4jHGG4AsQ" name="mainUnit" subUnits="_kaP_YT2wEeS7S4jHGG4AsQ">
+    <parameters xmi:id="_kaP_bD2wEeS7S4jHGG4AsQ" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//BindType"/>
+    </parameters>
+    <parameters xmi:id="_kaP_bT2wEeS7S4jHGG4AsQ" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PortBindingType"/>
+    </parameters>
+    <parameterMappings xmi:id="_kaP_bj2wEeS7S4jHGG4AsQ" source="_kaP_bD2wEeS7S4jHGG4AsQ" target="_kaP_Yj2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kaP_bz2wEeS7S4jHGG4AsQ" source="_kaP_bT2wEeS7S4jHGG4AsQ" target="_kaP_Yz2wEeS7S4jHGG4AsQ"/>
   </units>
 </henshin:Module>

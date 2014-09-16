@@ -1,48 +1,60 @@
 <?xml version="1.0" encoding="ASCII"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_maHigDKFEeS-2ouOJu-Wmw" name="MOVE_SynchCallType_FROM_CallListType_(synchCall)_TO_CallListType_(synchCall)" description="MOVEs SynchCallType from CallListType(Reference:synchCall) to CallListType(Reference:synchCall">
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_kLkqMD2wEeS7S4jHGG4AsQ" name="MOVE_SynchCallType_FROM_CallListType_(synchCall)_TO_CallListType_(synchCall)" description="MOVEs SynchCallType from CallListType(Reference:synchCall) to CallListType(Reference:synchCall">
   <imports href="http://LQN/1.0#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="_maHigTKFEeS-2ouOJu-Wmw" name="moveSynchCallType_FROM_CallListType_synchCall_TO_CallListType_CallListType" description="Moves SynchCallType from CallListType(Reference:synchCall) toCallListType(Reference:CallListType)">
-    <parameters xmi:id="_maHigjKFEeS-2ouOJu-Wmw" name="Selected"/>
-    <parameters xmi:id="_maHigzKFEeS-2ouOJu-Wmw" name="OldSource"/>
-    <parameters xmi:id="_maHihDKFEeS-2ouOJu-Wmw" name="NewSource"/>
-    <lhs xmi:id="_maHihTKFEeS-2ouOJu-Wmw" name="Lhs">
-      <nodes xmi:id="_maHihjKFEeS-2ouOJu-Wmw" name="Selected" incoming="_maHiiTKFEeS-2ouOJu-Wmw">
+  <units xsi:type="henshin:Rule" xmi:id="_kLkqMT2wEeS7S4jHGG4AsQ" name="moveSynchCallType_FROM_CallListType_synchCall_TO_CallListType_CallListType" description="Moves SynchCallType from CallListType(Reference:synchCall) toCallListType(Reference:CallListType)">
+    <parameters xmi:id="_kLkqMj2wEeS7S4jHGG4AsQ" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SynchCallType"/>
+    </parameters>
+    <parameters xmi:id="_kLkqMz2wEeS7S4jHGG4AsQ" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//CallListType"/>
+    </parameters>
+    <parameters xmi:id="_kLkqND2wEeS7S4jHGG4AsQ" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//CallListType"/>
+    </parameters>
+    <lhs xmi:id="_kLkqNT2wEeS7S4jHGG4AsQ" name="Lhs">
+      <nodes xmi:id="_kLkqNj2wEeS7S4jHGG4AsQ" name="Selected" incoming="_kLkqOT2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//SynchCallType"/>
       </nodes>
-      <nodes xmi:id="_maHihzKFEeS-2ouOJu-Wmw" name="OldSource" outgoing="_maHiiTKFEeS-2ouOJu-Wmw">
+      <nodes xmi:id="_kLkqNz2wEeS7S4jHGG4AsQ" name="OldSource" outgoing="_kLkqOT2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//CallListType"/>
       </nodes>
-      <nodes xmi:id="_maHiiDKFEeS-2ouOJu-Wmw" name="NewSource">
+      <nodes xmi:id="_kLkqOD2wEeS7S4jHGG4AsQ" name="NewSource">
         <type href="http://LQN/1.0#//CallListType"/>
       </nodes>
-      <edges xmi:id="_maHiiTKFEeS-2ouOJu-Wmw" source="_maHihzKFEeS-2ouOJu-Wmw" target="_maHihjKFEeS-2ouOJu-Wmw">
+      <edges xmi:id="_kLkqOT2wEeS7S4jHGG4AsQ" source="_kLkqNz2wEeS7S4jHGG4AsQ" target="_kLkqNj2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//CallListType/synchCall"/>
       </edges>
     </lhs>
-    <rhs xmi:id="_maHiijKFEeS-2ouOJu-Wmw" name="Rhs">
-      <nodes xmi:id="_maHiizKFEeS-2ouOJu-Wmw" name="Selected" incoming="_maHijjKFEeS-2ouOJu-Wmw">
+    <rhs xmi:id="_kLkqOj2wEeS7S4jHGG4AsQ" name="Rhs">
+      <nodes xmi:id="_kLkqOz2wEeS7S4jHGG4AsQ" name="Selected" incoming="_kLkqPj2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//SynchCallType"/>
       </nodes>
-      <nodes xmi:id="_maHijDKFEeS-2ouOJu-Wmw" name="OldSource">
+      <nodes xmi:id="_kLkqPD2wEeS7S4jHGG4AsQ" name="OldSource">
         <type href="http://LQN/1.0#//CallListType"/>
       </nodes>
-      <nodes xmi:id="_maHijTKFEeS-2ouOJu-Wmw" name="NewSource" outgoing="_maHijjKFEeS-2ouOJu-Wmw">
+      <nodes xmi:id="_kLkqPT2wEeS7S4jHGG4AsQ" name="NewSource" outgoing="_kLkqPj2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//CallListType"/>
       </nodes>
-      <edges xmi:id="_maHijjKFEeS-2ouOJu-Wmw" source="_maHijTKFEeS-2ouOJu-Wmw" target="_maHiizKFEeS-2ouOJu-Wmw">
+      <edges xmi:id="_kLkqPj2wEeS7S4jHGG4AsQ" source="_kLkqPT2wEeS7S4jHGG4AsQ" target="_kLkqOz2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//CallListType/synchCall"/>
       </edges>
     </rhs>
-    <mappings xmi:id="_maHijzKFEeS-2ouOJu-Wmw" origin="_maHihjKFEeS-2ouOJu-Wmw" image="_maHiizKFEeS-2ouOJu-Wmw"/>
-    <mappings xmi:id="_maHikDKFEeS-2ouOJu-Wmw" origin="_maHihzKFEeS-2ouOJu-Wmw" image="_maHijDKFEeS-2ouOJu-Wmw"/>
-    <mappings xmi:id="_maHikTKFEeS-2ouOJu-Wmw" origin="_maHiiDKFEeS-2ouOJu-Wmw" image="_maHijTKFEeS-2ouOJu-Wmw"/>
+    <mappings xmi:id="_kLkqPz2wEeS7S4jHGG4AsQ" origin="_kLkqNj2wEeS7S4jHGG4AsQ" image="_kLkqOz2wEeS7S4jHGG4AsQ"/>
+    <mappings xmi:id="_kLkqQD2wEeS7S4jHGG4AsQ" origin="_kLkqNz2wEeS7S4jHGG4AsQ" image="_kLkqPD2wEeS7S4jHGG4AsQ"/>
+    <mappings xmi:id="_kLkqQT2wEeS7S4jHGG4AsQ" origin="_kLkqOD2wEeS7S4jHGG4AsQ" image="_kLkqPT2wEeS7S4jHGG4AsQ"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="_maHikjKFEeS-2ouOJu-Wmw" name="mainUnit" subUnits="_maHigTKFEeS-2ouOJu-Wmw">
-    <parameters xmi:id="_maHikzKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
-    <parameters xmi:id="_maHilDKFEeS-2ouOJu-Wmw" name="OldSource"/>
-    <parameters xmi:id="_maHilTKFEeS-2ouOJu-Wmw" name="NewSource"/>
-    <parameterMappings xmi:id="_maHiljKFEeS-2ouOJu-Wmw" source="_maHikzKFEeS-2ouOJu-Wmw" target="_maHigjKFEeS-2ouOJu-Wmw"/>
-    <parameterMappings xmi:id="_maHilzKFEeS-2ouOJu-Wmw" source="_maHilDKFEeS-2ouOJu-Wmw" target="_maHigzKFEeS-2ouOJu-Wmw"/>
-    <parameterMappings xmi:id="_maHimDKFEeS-2ouOJu-Wmw" source="_maHilTKFEeS-2ouOJu-Wmw" target="_maHihDKFEeS-2ouOJu-Wmw"/>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_kLkqQj2wEeS7S4jHGG4AsQ" name="mainUnit" subUnits="_kLkqMT2wEeS7S4jHGG4AsQ">
+    <parameters xmi:id="_kLkqQz2wEeS7S4jHGG4AsQ" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SynchCallType"/>
+    </parameters>
+    <parameters xmi:id="_kLkqRD2wEeS7S4jHGG4AsQ" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//CallListType"/>
+    </parameters>
+    <parameters xmi:id="_kLkqRT2wEeS7S4jHGG4AsQ" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//CallListType"/>
+    </parameters>
+    <parameterMappings xmi:id="_kLkqRj2wEeS7S4jHGG4AsQ" source="_kLkqQz2wEeS7S4jHGG4AsQ" target="_kLkqMj2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kLkqRz2wEeS7S4jHGG4AsQ" source="_kLkqRD2wEeS7S4jHGG4AsQ" target="_kLkqMz2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kLkqSD2wEeS7S4jHGG4AsQ" source="_kLkqRT2wEeS7S4jHGG4AsQ" target="_kLkqND2wEeS7S4jHGG4AsQ"/>
   </units>
 </henshin:Module>

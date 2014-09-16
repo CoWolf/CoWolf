@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_kJjQ8D2wEeS7S4jHGG4AsQ" name="SET_ATTRIBUTE_ActivityDefBase_ThinkTime" description="Sets ActivityDefBase ThinkTime">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_kJjQ8T2wEeS7S4jHGG4AsQ" name="setActivityDefBaseThinkTime" description="Sets the EAttribute thinkTime">
+    <parameters xmi:id="_kJjQ8j2wEeS7S4jHGG4AsQ" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityDefBase"/>
+    </parameters>
+    <parameters xmi:id="_kJjQ8z2wEeS7S4jHGG4AsQ" name="ThinkTime">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <lhs xmi:id="_kJjQ9D2wEeS7S4jHGG4AsQ" name="Lhs">
+      <nodes xmi:id="_kJjQ9T2wEeS7S4jHGG4AsQ" name="Selected">
+        <type href="http://LQN/1.0#//ActivityDefBase"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_kJjQ9j2wEeS7S4jHGG4AsQ" name="Rhs">
+      <nodes xmi:id="_kJjQ9z2wEeS7S4jHGG4AsQ" name="Selected">
+        <type href="http://LQN/1.0#//ActivityDefBase"/>
+        <attributes xmi:id="_kJjQ-D2wEeS7S4jHGG4AsQ" value="ThinkTime">
+          <type href="http://LQN/1.0#//ActivityDefBase/thinkTime"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_kJjQ-T2wEeS7S4jHGG4AsQ" origin="_kJjQ9T2wEeS7S4jHGG4AsQ" image="_kJjQ9z2wEeS7S4jHGG4AsQ"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_kJjQ-j2wEeS7S4jHGG4AsQ" name="mainUnit" subUnits="_kJjQ8T2wEeS7S4jHGG4AsQ">
+    <parameters xmi:id="_kJjQ-z2wEeS7S4jHGG4AsQ" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityDefBase"/>
+    </parameters>
+    <parameters xmi:id="_kJjQ_D2wEeS7S4jHGG4AsQ" name="ThinkTime">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameterMappings xmi:id="_kJjQ_T2wEeS7S4jHGG4AsQ" source="_kJjQ-z2wEeS7S4jHGG4AsQ" target="_kJjQ8j2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kJjQ_j2wEeS7S4jHGG4AsQ" source="_kJjQ_D2wEeS7S4jHGG4AsQ" target="_kJjQ8z2wEeS7S4jHGG4AsQ"/>
+  </units>
+</henshin:Module>

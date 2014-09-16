@@ -1,69 +1,39 @@
 <?xml version="1.0" encoding="ASCII"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mF3JwDKFEeS-2ouOJu-Wmw" name="DELETE_HistogramBinType_IN_OutputDistributionType_(overflowBin)" description="Deletes one HistogramBinType in OutputDistributionType">
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_kToaAD2wEeS7S4jHGG4AsQ" name="DELETE_HistogramBinType_IN_OutputDistributionType_(overflowBin)" description="Deletes one HistogramBinType in OutputDistributionType">
   <imports href="http://LQN/1.0#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="_mF3JwTKFEeS-2ouOJu-Wmw" name="deleteHistogramBinType_IN_OutputDistributionType" description="deletes one HistogramBinType in the context: OutputDistributionType">
-    <parameters xmi:id="_mF3JwjKFEeS-2ouOJu-Wmw" name="Selected"/>
-    <parameters xmi:id="_mF3JwzKFEeS-2ouOJu-Wmw" name="ToBeDeleted"/>
-    <lhs xmi:id="_mF3JxDKFEeS-2ouOJu-Wmw" name="LHS">
-      <nodes xmi:id="_mF3JxTKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mF3JxzKFEeS-2ouOJu-Wmw">
+  <units xsi:type="henshin:Rule" xmi:id="_kToaAT2wEeS7S4jHGG4AsQ" name="deleteHistogramBinType_IN_OutputDistributionType" description="deletes one HistogramBinType in the context: OutputDistributionType">
+    <parameters xmi:id="_kToaAj2wEeS7S4jHGG4AsQ" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutputDistributionType"/>
+    </parameters>
+    <parameters xmi:id="_kToaAz2wEeS7S4jHGG4AsQ" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//HistogramBinType"/>
+    </parameters>
+    <lhs xmi:id="_kToaBD2wEeS7S4jHGG4AsQ" name="LHS">
+      <nodes xmi:id="_kToaBT2wEeS7S4jHGG4AsQ" name="Selected" outgoing="_kToaBz2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//OutputDistributionType"/>
       </nodes>
-      <nodes xmi:id="_mF3JxjKFEeS-2ouOJu-Wmw" name="ToBeDeleted" incoming="_mF3JxzKFEeS-2ouOJu-Wmw">
+      <nodes xmi:id="_kToaBj2wEeS7S4jHGG4AsQ" name="ToBeDeleted" incoming="_kToaBz2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//HistogramBinType"/>
       </nodes>
-      <edges xmi:id="_mF3JxzKFEeS-2ouOJu-Wmw" source="_mF3JxTKFEeS-2ouOJu-Wmw" target="_mF3JxjKFEeS-2ouOJu-Wmw">
+      <edges xmi:id="_kToaBz2wEeS7S4jHGG4AsQ" source="_kToaBT2wEeS7S4jHGG4AsQ" target="_kToaBj2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//OutputDistributionType/overflowBin"/>
       </edges>
     </lhs>
-    <rhs xmi:id="_mF3JyDKFEeS-2ouOJu-Wmw" name="RHS">
-      <nodes xmi:id="_mF3JyTKFEeS-2ouOJu-Wmw" name="Selected">
+    <rhs xmi:id="_kToaCD2wEeS7S4jHGG4AsQ" name="RHS">
+      <nodes xmi:id="_kToaCT2wEeS7S4jHGG4AsQ" name="Selected">
         <type href="http://LQN/1.0#//OutputDistributionType"/>
       </nodes>
-      <formula xsi:type="henshin:Not" xmi:id="_mF3JyjKFEeS-2ouOJu-Wmw">
-        <child xsi:type="henshin:NestedCondition" xmi:id="_mF3JyzKFEeS-2ouOJu-Wmw">
-          <conclusion xmi:id="_mF3JzDKFEeS-2ouOJu-Wmw" name="doNotExceedUpperBound">
-            <nodes xmi:id="_mF3JzTKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mF3J1jKFEeS-2ouOJu-Wmw">
-              <type href="http://LQN/1.0#//OutputDistributionType"/>
-            </nodes>
-            <nodes xmi:id="_mF3JzjKFEeS-2ouOJu-Wmw" name="New">
-              <type href="http://LQN/1.0#//HistogramBinType"/>
-              <attributes xmi:id="_mF3JzzKFEeS-2ouOJu-Wmw" value="Id">
-                <type href="http://CommonBase/1.0#//IDBase/id"/>
-              </attributes>
-              <attributes xmi:id="_mF3J0DKFEeS-2ouOJu-Wmw" value="Begin">
-                <type href="http://LQN/1.0#//HistogramBinType/begin"/>
-              </attributes>
-              <attributes xmi:id="_mF3J0TKFEeS-2ouOJu-Wmw" value="Conf95">
-                <type href="http://LQN/1.0#//HistogramBinType/conf95"/>
-              </attributes>
-              <attributes xmi:id="_mF3J0jKFEeS-2ouOJu-Wmw" value="Conf99">
-                <type href="http://LQN/1.0#//HistogramBinType/conf99"/>
-              </attributes>
-              <attributes xmi:id="_mF3J0zKFEeS-2ouOJu-Wmw" value="End">
-                <type href="http://LQN/1.0#//HistogramBinType/end"/>
-              </attributes>
-              <attributes xmi:id="_mF3J1DKFEeS-2ouOJu-Wmw" value="Prob">
-                <type href="http://LQN/1.0#//HistogramBinType/prob"/>
-              </attributes>
-            </nodes>
-            <nodes xmi:id="_mF3J1TKFEeS-2ouOJu-Wmw" incoming="_mF3J1jKFEeS-2ouOJu-Wmw">
-              <type href="http://LQN/1.0#//HistogramBinType"/>
-            </nodes>
-            <edges xmi:id="_mF3J1jKFEeS-2ouOJu-Wmw" source="_mF3JzTKFEeS-2ouOJu-Wmw" target="_mF3J1TKFEeS-2ouOJu-Wmw">
-              <type href="http://LQN/1.0#//OutputDistributionType/overflowBin"/>
-            </edges>
-          </conclusion>
-          <mappings xmi:id="_mF3J1zKFEeS-2ouOJu-Wmw" origin="_mF3JxTKFEeS-2ouOJu-Wmw" image="_mF3JzTKFEeS-2ouOJu-Wmw"/>
-          <mappings xmi:id="_mF3J2DKFEeS-2ouOJu-Wmw" origin="_mF3JxjKFEeS-2ouOJu-Wmw" image="_mF3JzjKFEeS-2ouOJu-Wmw"/>
-        </child>
-      </formula>
     </rhs>
-    <mappings xmi:id="_mF3J2TKFEeS-2ouOJu-Wmw" origin="_mF3JxTKFEeS-2ouOJu-Wmw" image="_mF3JyTKFEeS-2ouOJu-Wmw"/>
+    <mappings xmi:id="_kToaCj2wEeS7S4jHGG4AsQ" origin="_kToaBT2wEeS7S4jHGG4AsQ" image="_kToaCT2wEeS7S4jHGG4AsQ"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="_mF3J2jKFEeS-2ouOJu-Wmw" name="mainUnit" description="Deletes one HistogramBinType depending on available contexts in model instance" subUnits="_mF3JwTKFEeS-2ouOJu-Wmw">
-    <parameters xmi:id="_mF3J2zKFEeS-2ouOJu-Wmw" name="ToBeDeleted"/>
-    <parameters xmi:id="_mF3J3DKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
-    <parameterMappings xmi:id="_mF3J3TKFEeS-2ouOJu-Wmw" source="_mF3J3DKFEeS-2ouOJu-Wmw" target="_mF3JwjKFEeS-2ouOJu-Wmw"/>
-    <parameterMappings xmi:id="_mF3J3jKFEeS-2ouOJu-Wmw" source="_mF3J2zKFEeS-2ouOJu-Wmw" target="_mF3JwzKFEeS-2ouOJu-Wmw"/>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_kToaCz2wEeS7S4jHGG4AsQ" name="mainUnit" subUnits="_kToaAT2wEeS7S4jHGG4AsQ">
+    <parameters xmi:id="_kToaDD2wEeS7S4jHGG4AsQ" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutputDistributionType"/>
+    </parameters>
+    <parameters xmi:id="_kToaDT2wEeS7S4jHGG4AsQ" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//HistogramBinType"/>
+    </parameters>
+    <parameterMappings xmi:id="_kToaDj2wEeS7S4jHGG4AsQ" source="_kToaDD2wEeS7S4jHGG4AsQ" target="_kToaAj2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kToaDz2wEeS7S4jHGG4AsQ" source="_kToaDT2wEeS7S4jHGG4AsQ" target="_kToaAz2wEeS7S4jHGG4AsQ"/>
   </units>
 </henshin:Module>

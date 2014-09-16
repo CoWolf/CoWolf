@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_kyPBkD2wEeS7S4jHGG4AsQ" name="MOVE_REF_COMBI_OutputResultType_FROM_EntryType_(resultEntry)_TO_ProcessorType_(resultProcessor)" description="MOVEs OutputResultType from EntryType(Reference:resultEntry) to ProcessorType(Reference:resultProcessor">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_kyPBkT2wEeS7S4jHGG4AsQ" name="moveOutputResultType_FROM_EntryType_resultEntry_TO_ProcessorType_ProcessorType" description="Moves OutputResultType from EntryType(Reference:resultEntry) toProcessorType(Reference:ProcessorType)">
+    <parameters xmi:id="_kyPBkj2wEeS7S4jHGG4AsQ" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutputResultType"/>
+    </parameters>
+    <parameters xmi:id="_kyPBkz2wEeS7S4jHGG4AsQ" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <parameters xmi:id="_kyPBlD2wEeS7S4jHGG4AsQ" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ProcessorType"/>
+    </parameters>
+    <lhs xmi:id="_kyPBlT2wEeS7S4jHGG4AsQ" name="Lhs">
+      <nodes xmi:id="_kyPBlj2wEeS7S4jHGG4AsQ" name="Selected" incoming="_kyPBmT2wEeS7S4jHGG4AsQ">
+        <type href="http://LQN/1.0#//OutputResultType"/>
+      </nodes>
+      <nodes xmi:id="_kyPBlz2wEeS7S4jHGG4AsQ" name="OldSource" outgoing="_kyPBmT2wEeS7S4jHGG4AsQ">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+      <nodes xmi:id="_kyPBmD2wEeS7S4jHGG4AsQ" name="NewSource">
+        <type href="http://LQN/1.0#//ProcessorType"/>
+      </nodes>
+      <edges xmi:id="_kyPBmT2wEeS7S4jHGG4AsQ" source="_kyPBlz2wEeS7S4jHGG4AsQ" target="_kyPBlj2wEeS7S4jHGG4AsQ">
+        <type href="http://LQN/1.0#//EntryType/resultEntry"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_kyPBmj2wEeS7S4jHGG4AsQ" name="Rhs">
+      <nodes xmi:id="_kyPBmz2wEeS7S4jHGG4AsQ" name="Selected" incoming="_kyPBnj2wEeS7S4jHGG4AsQ">
+        <type href="http://LQN/1.0#//OutputResultType"/>
+      </nodes>
+      <nodes xmi:id="_kyPBnD2wEeS7S4jHGG4AsQ" name="OldSource">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+      <nodes xmi:id="_kyPBnT2wEeS7S4jHGG4AsQ" name="NewSource" outgoing="_kyPBnj2wEeS7S4jHGG4AsQ">
+        <type href="http://LQN/1.0#//ProcessorType"/>
+      </nodes>
+      <edges xmi:id="_kyPBnj2wEeS7S4jHGG4AsQ" source="_kyPBnT2wEeS7S4jHGG4AsQ" target="_kyPBmz2wEeS7S4jHGG4AsQ">
+        <type href="http://LQN/1.0#//ProcessorType/resultProcessor"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_kyPBnz2wEeS7S4jHGG4AsQ" origin="_kyPBlj2wEeS7S4jHGG4AsQ" image="_kyPBmz2wEeS7S4jHGG4AsQ"/>
+    <mappings xmi:id="_kyPBoD2wEeS7S4jHGG4AsQ" origin="_kyPBlz2wEeS7S4jHGG4AsQ" image="_kyPBnD2wEeS7S4jHGG4AsQ"/>
+    <mappings xmi:id="_kyPBoT2wEeS7S4jHGG4AsQ" origin="_kyPBmD2wEeS7S4jHGG4AsQ" image="_kyPBnT2wEeS7S4jHGG4AsQ"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_kyPBoj2wEeS7S4jHGG4AsQ" name="mainUnit" subUnits="_kyPBkT2wEeS7S4jHGG4AsQ">
+    <parameters xmi:id="_kyPBoz2wEeS7S4jHGG4AsQ" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutputResultType"/>
+    </parameters>
+    <parameters xmi:id="_kyPBpD2wEeS7S4jHGG4AsQ" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <parameters xmi:id="_kyPBpT2wEeS7S4jHGG4AsQ" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ProcessorType"/>
+    </parameters>
+    <parameterMappings xmi:id="_kyPBpj2wEeS7S4jHGG4AsQ" source="_kyPBoz2wEeS7S4jHGG4AsQ" target="_kyPBkj2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kyPBpz2wEeS7S4jHGG4AsQ" source="_kyPBpD2wEeS7S4jHGG4AsQ" target="_kyPBkz2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kyPBqD2wEeS7S4jHGG4AsQ" source="_kyPBpT2wEeS7S4jHGG4AsQ" target="_kyPBlD2wEeS7S4jHGG4AsQ"/>
+  </units>
+</henshin:Module>

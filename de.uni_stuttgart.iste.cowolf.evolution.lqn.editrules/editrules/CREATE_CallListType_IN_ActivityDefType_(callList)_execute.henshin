@@ -1,37 +1,49 @@
 <?xml version="1.0" encoding="ASCII"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mC3gQzKFEeS-2ouOJu-Wmw" name="CREATE_CallListType_IN_ActivityDefType_(callList)" description="Creates one CallListType in ActivityDefType">
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_kl0WMD2wEeS7S4jHGG4AsQ" name="CREATE_CallListType_IN_ActivityDefType_(callList)" description="Creates one CallListType in ActivityDefType">
   <imports href="http://LQN/1.0#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="_mC3gRDKFEeS-2ouOJu-Wmw" name="createCallListType_IN_ActivityDefType" description="creates one CallListType in the context: ActivityDefType">
-    <parameters xmi:id="_mC3gRTKFEeS-2ouOJu-Wmw" name="Selected"/>
-    <parameters xmi:id="_mC3gRjKFEeS-2ouOJu-Wmw" name="New"/>
-    <parameters xmi:id="_mC3gRzKFEeS-2ouOJu-Wmw" name="Id"/>
-    <lhs xmi:id="_mC3gSDKFEeS-2ouOJu-Wmw" name="Lhs">
-      <nodes xmi:id="_mC3gSTKFEeS-2ouOJu-Wmw" name="Selected">
+  <units xsi:type="henshin:Rule" xmi:id="_kl0WMT2wEeS7S4jHGG4AsQ" name="createCallListType_IN_ActivityDefType" description="creates one CallListType in the context: ActivityDefType">
+    <parameters xmi:id="_kl0WMj2wEeS7S4jHGG4AsQ" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityDefType"/>
+    </parameters>
+    <parameters xmi:id="_kl0WMz2wEeS7S4jHGG4AsQ" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//CallListType"/>
+    </parameters>
+    <parameters xmi:id="_kl0WND2wEeS7S4jHGG4AsQ" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_kl0WNT2wEeS7S4jHGG4AsQ" name="Lhs">
+      <nodes xmi:id="_kl0WNj2wEeS7S4jHGG4AsQ" name="Selected">
         <type href="http://LQN/1.0#//ActivityDefType"/>
       </nodes>
     </lhs>
-    <rhs xmi:id="_mC3gSjKFEeS-2ouOJu-Wmw" name="Rhs">
-      <nodes xmi:id="_mC3gSzKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mC3gTjKFEeS-2ouOJu-Wmw">
+    <rhs xmi:id="_kl0WNz2wEeS7S4jHGG4AsQ" name="Rhs">
+      <nodes xmi:id="_kl0WOD2wEeS7S4jHGG4AsQ" name="Selected" outgoing="_kl0WOz2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//ActivityDefType"/>
       </nodes>
-      <nodes xmi:id="_mC3gTDKFEeS-2ouOJu-Wmw" name="New" incoming="_mC3gTjKFEeS-2ouOJu-Wmw">
+      <nodes xmi:id="_kl0WOT2wEeS7S4jHGG4AsQ" name="New" incoming="_kl0WOz2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//CallListType"/>
-        <attributes xmi:id="_mC3gTTKFEeS-2ouOJu-Wmw" value="Id">
+        <attributes xmi:id="_kl0WOj2wEeS7S4jHGG4AsQ" value="Id">
           <type href="http://CommonBase/1.0#//IDBase/id"/>
         </attributes>
       </nodes>
-      <edges xmi:id="_mC3gTjKFEeS-2ouOJu-Wmw" source="_mC3gSzKFEeS-2ouOJu-Wmw" target="_mC3gTDKFEeS-2ouOJu-Wmw">
+      <edges xmi:id="_kl0WOz2wEeS7S4jHGG4AsQ" source="_kl0WOD2wEeS7S4jHGG4AsQ" target="_kl0WOT2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//ActivityDefType/callList"/>
       </edges>
     </rhs>
-    <mappings xmi:id="_mC3gTzKFEeS-2ouOJu-Wmw" origin="_mC3gSTKFEeS-2ouOJu-Wmw" image="_mC3gSzKFEeS-2ouOJu-Wmw"/>
+    <mappings xmi:id="_kl0WPD2wEeS7S4jHGG4AsQ" origin="_kl0WNj2wEeS7S4jHGG4AsQ" image="_kl0WOD2wEeS7S4jHGG4AsQ"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="_mC3gUDKFEeS-2ouOJu-Wmw" name="mainUnit" description="Creates one CallListType depending on available contexts in model instance" subUnits="_mC3gRDKFEeS-2ouOJu-Wmw">
-    <parameters xmi:id="_mC3gUTKFEeS-2ouOJu-Wmw" name="New"/>
-    <parameters xmi:id="_mC3gUjKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
-    <parameters xmi:id="_mC3gUzKFEeS-2ouOJu-Wmw" name="Id"/>
-    <parameterMappings xmi:id="_mC3gVDKFEeS-2ouOJu-Wmw" source="_mC3gUjKFEeS-2ouOJu-Wmw" target="_mC3gRTKFEeS-2ouOJu-Wmw"/>
-    <parameterMappings xmi:id="_mC3gVTKFEeS-2ouOJu-Wmw" source="_mC3gRjKFEeS-2ouOJu-Wmw" target="_mC3gUTKFEeS-2ouOJu-Wmw"/>
-    <parameterMappings xmi:id="_mC3gVjKFEeS-2ouOJu-Wmw" source="_mC3gUzKFEeS-2ouOJu-Wmw" target="_mC3gRzKFEeS-2ouOJu-Wmw"/>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_kl0WPT2wEeS7S4jHGG4AsQ" name="mainUnit" subUnits="_kl0WMT2wEeS7S4jHGG4AsQ">
+    <parameters xmi:id="_kl0WPj2wEeS7S4jHGG4AsQ" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityDefType"/>
+    </parameters>
+    <parameters xmi:id="_kl0WPz2wEeS7S4jHGG4AsQ" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//CallListType"/>
+    </parameters>
+    <parameters xmi:id="_kl0WQD2wEeS7S4jHGG4AsQ" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_kl0WQT2wEeS7S4jHGG4AsQ" source="_kl0WPj2wEeS7S4jHGG4AsQ" target="_kl0WMj2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kl0WQj2wEeS7S4jHGG4AsQ" source="_kl0WMz2wEeS7S4jHGG4AsQ" target="_kl0WPz2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kl0WQz2wEeS7S4jHGG4AsQ" source="_kl0WQD2wEeS7S4jHGG4AsQ" target="_kl0WND2wEeS7S4jHGG4AsQ"/>
   </units>
 </henshin:Module>

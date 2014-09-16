@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_kkT6UD2wEeS7S4jHGG4AsQ" name="MOVE_REF_COMBI_EntryActivityGraph_FROM_EntryType_(entryActivityGraph)_TO_EntryType_(entryActivityGraph)" description="MOVEs EntryActivityGraph from EntryType(Reference:entryActivityGraph) to EntryType(Reference:entryActivityGraph">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_kkT6UT2wEeS7S4jHGG4AsQ" name="moveEntryActivityGraph_FROM_EntryType_entryActivityGraph_TO_EntryType_EntryType" description="Moves EntryActivityGraph from EntryType(Reference:entryActivityGraph) toEntryType(Reference:EntryType)">
+    <parameters xmi:id="_kkT6Uj2wEeS7S4jHGG4AsQ" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryActivityGraph"/>
+    </parameters>
+    <parameters xmi:id="_kkT6Uz2wEeS7S4jHGG4AsQ" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <parameters xmi:id="_kkT6VD2wEeS7S4jHGG4AsQ" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <lhs xmi:id="_kkT6VT2wEeS7S4jHGG4AsQ" name="Lhs">
+      <nodes xmi:id="_kkT6Vj2wEeS7S4jHGG4AsQ" name="Selected" incoming="_kkT6WT2wEeS7S4jHGG4AsQ">
+        <type href="http://LQN/1.0#//EntryActivityGraph"/>
+      </nodes>
+      <nodes xmi:id="_kkT6Vz2wEeS7S4jHGG4AsQ" name="OldSource" outgoing="_kkT6WT2wEeS7S4jHGG4AsQ">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+      <nodes xmi:id="_kkT6WD2wEeS7S4jHGG4AsQ" name="NewSource">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+      <edges xmi:id="_kkT6WT2wEeS7S4jHGG4AsQ" source="_kkT6Vz2wEeS7S4jHGG4AsQ" target="_kkT6Vj2wEeS7S4jHGG4AsQ">
+        <type href="http://LQN/1.0#//EntryType/entryActivityGraph"/>
+      </edges>
+      <formula xsi:type="henshin:Not" xmi:id="_kkT6Wj2wEeS7S4jHGG4AsQ">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_kkT6Wz2wEeS7S4jHGG4AsQ">
+          <conclusion xmi:id="_kkT6XD2wEeS7S4jHGG4AsQ" name="ub0">
+            <nodes xmi:id="_kkT6XT2wEeS7S4jHGG4AsQ" outgoing="_kkT6Xz2wEeS7S4jHGG4AsQ">
+              <type href="http://LQN/1.0#//EntryType"/>
+            </nodes>
+            <nodes xmi:id="_kkT6Xj2wEeS7S4jHGG4AsQ" incoming="_kkT6Xz2wEeS7S4jHGG4AsQ">
+              <type href="http://LQN/1.0#//EntryActivityGraph"/>
+            </nodes>
+            <edges xmi:id="_kkT6Xz2wEeS7S4jHGG4AsQ" source="_kkT6XT2wEeS7S4jHGG4AsQ" target="_kkT6Xj2wEeS7S4jHGG4AsQ">
+              <type href="http://LQN/1.0#//EntryType/entryActivityGraph"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_kkT6YD2wEeS7S4jHGG4AsQ" origin="_kkT6WD2wEeS7S4jHGG4AsQ" image="_kkT6XT2wEeS7S4jHGG4AsQ"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_kkT6YT2wEeS7S4jHGG4AsQ" name="Rhs">
+      <nodes xmi:id="_kkT6Yj2wEeS7S4jHGG4AsQ" name="Selected" incoming="_kkT6ZT2wEeS7S4jHGG4AsQ">
+        <type href="http://LQN/1.0#//EntryActivityGraph"/>
+      </nodes>
+      <nodes xmi:id="_kkT6Yz2wEeS7S4jHGG4AsQ" name="OldSource">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+      <nodes xmi:id="_kkT6ZD2wEeS7S4jHGG4AsQ" name="NewSource" outgoing="_kkT6ZT2wEeS7S4jHGG4AsQ">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+      <edges xmi:id="_kkT6ZT2wEeS7S4jHGG4AsQ" source="_kkT6ZD2wEeS7S4jHGG4AsQ" target="_kkT6Yj2wEeS7S4jHGG4AsQ">
+        <type href="http://LQN/1.0#//EntryType/entryActivityGraph"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_kkT6Zj2wEeS7S4jHGG4AsQ" origin="_kkT6Vj2wEeS7S4jHGG4AsQ" image="_kkT6Yj2wEeS7S4jHGG4AsQ"/>
+    <mappings xmi:id="_kkT6Zz2wEeS7S4jHGG4AsQ" origin="_kkT6Vz2wEeS7S4jHGG4AsQ" image="_kkT6Yz2wEeS7S4jHGG4AsQ"/>
+    <mappings xmi:id="_kkT6aD2wEeS7S4jHGG4AsQ" origin="_kkT6WD2wEeS7S4jHGG4AsQ" image="_kkT6ZD2wEeS7S4jHGG4AsQ"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_kkT6aT2wEeS7S4jHGG4AsQ" name="mainUnit" subUnits="_kkT6UT2wEeS7S4jHGG4AsQ">
+    <parameters xmi:id="_kkT6aj2wEeS7S4jHGG4AsQ" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryActivityGraph"/>
+    </parameters>
+    <parameters xmi:id="_kkT6az2wEeS7S4jHGG4AsQ" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <parameters xmi:id="_kkT6bD2wEeS7S4jHGG4AsQ" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <parameterMappings xmi:id="_kkT6bT2wEeS7S4jHGG4AsQ" source="_kkT6aj2wEeS7S4jHGG4AsQ" target="_kkT6Uj2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kkT6bj2wEeS7S4jHGG4AsQ" source="_kkT6az2wEeS7S4jHGG4AsQ" target="_kkT6Uz2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kkT6bz2wEeS7S4jHGG4AsQ" source="_kkT6bD2wEeS7S4jHGG4AsQ" target="_kkT6VD2wEeS7S4jHGG4AsQ"/>
+  </units>
+</henshin:Module>

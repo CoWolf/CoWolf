@@ -1,55 +1,69 @@
 <?xml version="1.0" encoding="ASCII"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mB86IDKFEeS-2ouOJu-Wmw" name="CREATE_AsynchCallType_IN_CallListType_(asynchCall)" description="Creates one AsynchCallType in CallListType">
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_kLz6wD2wEeS7S4jHGG4AsQ" name="CREATE_AsynchCallType_IN_CallListType_(asynchCall)" description="Creates one AsynchCallType in CallListType">
   <imports href="http://LQN/1.0#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="_mB86ITKFEeS-2ouOJu-Wmw" name="createAsynchCallType_IN_CallListType" description="creates one AsynchCallType in the context: CallListType">
-    <parameters xmi:id="_mB9hMDKFEeS-2ouOJu-Wmw" name="Selected"/>
-    <parameters xmi:id="_mB9hMTKFEeS-2ouOJu-Wmw" name="New"/>
-    <parameters xmi:id="_mB9hMjKFEeS-2ouOJu-Wmw" name="Id"/>
-    <parameters xmi:id="_mB9hMzKFEeS-2ouOJu-Wmw" name="Dest"/>
-    <parameters xmi:id="_mB9hNDKFEeS-2ouOJu-Wmw" name="Fanin"/>
-    <parameters xmi:id="_mB9hNTKFEeS-2ouOJu-Wmw" name="Fanout"/>
-    <lhs xmi:id="_mB9hNjKFEeS-2ouOJu-Wmw" name="Lhs">
-      <nodes xmi:id="_mB9hNzKFEeS-2ouOJu-Wmw" name="Selected">
+  <units xsi:type="henshin:Rule" xmi:id="_kLz6wT2wEeS7S4jHGG4AsQ" name="createAsynchCallType_IN_CallListType" description="creates one AsynchCallType in the context: CallListType">
+    <parameters xmi:id="_kLz6wj2wEeS7S4jHGG4AsQ" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//CallListType"/>
+    </parameters>
+    <parameters xmi:id="_kLz6wz2wEeS7S4jHGG4AsQ" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//AsynchCallType"/>
+    </parameters>
+    <parameters xmi:id="_kLz6xD2wEeS7S4jHGG4AsQ" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_kLz6xT2wEeS7S4jHGG4AsQ" name="Fanin">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    </parameters>
+    <parameters xmi:id="_kLz6xj2wEeS7S4jHGG4AsQ" name="Fanout">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    </parameters>
+    <lhs xmi:id="_kLz6xz2wEeS7S4jHGG4AsQ" name="Lhs">
+      <nodes xmi:id="_kLz6yD2wEeS7S4jHGG4AsQ" name="Selected">
         <type href="http://LQN/1.0#//CallListType"/>
       </nodes>
     </lhs>
-    <rhs xmi:id="_mB9hODKFEeS-2ouOJu-Wmw" name="Rhs">
-      <nodes xmi:id="_mB9hOTKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mB9hPzKFEeS-2ouOJu-Wmw">
+    <rhs xmi:id="_kLz6yT2wEeS7S4jHGG4AsQ" name="Rhs">
+      <nodes xmi:id="_kLz6yj2wEeS7S4jHGG4AsQ" name="Selected" outgoing="_kLz6zz2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//CallListType"/>
       </nodes>
-      <nodes xmi:id="_mB9hOjKFEeS-2ouOJu-Wmw" name="New" incoming="_mB9hPzKFEeS-2ouOJu-Wmw">
+      <nodes xmi:id="_kLz6yz2wEeS7S4jHGG4AsQ" name="New" incoming="_kLz6zz2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//AsynchCallType"/>
-        <attributes xmi:id="_mB9hOzKFEeS-2ouOJu-Wmw" value="Id">
+        <attributes xmi:id="_kLz6zD2wEeS7S4jHGG4AsQ" value="Id">
           <type href="http://CommonBase/1.0#//IDBase/id"/>
         </attributes>
-        <attributes xmi:id="_mB9hPDKFEeS-2ouOJu-Wmw" value="Dest">
-          <type href="http://LQN/1.0#//AsynchCallType/dest"/>
+        <attributes xmi:id="_kLz6zT2wEeS7S4jHGG4AsQ" value="Fanin">
+          <type href="http://LQN/1.0#//CallType/fanin"/>
         </attributes>
-        <attributes xmi:id="_mB9hPTKFEeS-2ouOJu-Wmw" value="Fanin">
-          <type href="http://LQN/1.0#//AsynchCallType/fanin"/>
-        </attributes>
-        <attributes xmi:id="_mB9hPjKFEeS-2ouOJu-Wmw" value="Fanout">
-          <type href="http://LQN/1.0#//AsynchCallType/fanout"/>
+        <attributes xmi:id="_kLz6zj2wEeS7S4jHGG4AsQ" value="Fanout">
+          <type href="http://LQN/1.0#//CallType/fanout"/>
         </attributes>
       </nodes>
-      <edges xmi:id="_mB9hPzKFEeS-2ouOJu-Wmw" source="_mB9hOTKFEeS-2ouOJu-Wmw" target="_mB9hOjKFEeS-2ouOJu-Wmw">
+      <edges xmi:id="_kLz6zz2wEeS7S4jHGG4AsQ" source="_kLz6yj2wEeS7S4jHGG4AsQ" target="_kLz6yz2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//CallListType/asynchCall"/>
       </edges>
     </rhs>
-    <mappings xmi:id="_mB9hQDKFEeS-2ouOJu-Wmw" origin="_mB9hNzKFEeS-2ouOJu-Wmw" image="_mB9hOTKFEeS-2ouOJu-Wmw"/>
+    <mappings xmi:id="_kLz60D2wEeS7S4jHGG4AsQ" origin="_kLz6yD2wEeS7S4jHGG4AsQ" image="_kLz6yj2wEeS7S4jHGG4AsQ"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="_mB9hQTKFEeS-2ouOJu-Wmw" name="mainUnit" description="Creates one AsynchCallType depending on available contexts in model instance" subUnits="_mB86ITKFEeS-2ouOJu-Wmw">
-    <parameters xmi:id="_mB9hQjKFEeS-2ouOJu-Wmw" name="New"/>
-    <parameters xmi:id="_mB9hQzKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
-    <parameters xmi:id="_mB9hRDKFEeS-2ouOJu-Wmw" name="Id"/>
-    <parameters xmi:id="_mB9hRTKFEeS-2ouOJu-Wmw" name="Dest"/>
-    <parameters xmi:id="_mB9hRjKFEeS-2ouOJu-Wmw" name="Fanin"/>
-    <parameters xmi:id="_mB9hRzKFEeS-2ouOJu-Wmw" name="Fanout"/>
-    <parameterMappings xmi:id="_mB9hSDKFEeS-2ouOJu-Wmw" source="_mB9hQzKFEeS-2ouOJu-Wmw" target="_mB9hMDKFEeS-2ouOJu-Wmw"/>
-    <parameterMappings xmi:id="_mB9hSTKFEeS-2ouOJu-Wmw" source="_mB9hMTKFEeS-2ouOJu-Wmw" target="_mB9hQjKFEeS-2ouOJu-Wmw"/>
-    <parameterMappings xmi:id="_mB9hSjKFEeS-2ouOJu-Wmw" source="_mB9hRDKFEeS-2ouOJu-Wmw" target="_mB9hMjKFEeS-2ouOJu-Wmw"/>
-    <parameterMappings xmi:id="_mB9hSzKFEeS-2ouOJu-Wmw" source="_mB9hRTKFEeS-2ouOJu-Wmw" target="_mB9hMzKFEeS-2ouOJu-Wmw"/>
-    <parameterMappings xmi:id="_mB9hTDKFEeS-2ouOJu-Wmw" source="_mB9hRjKFEeS-2ouOJu-Wmw" target="_mB9hNDKFEeS-2ouOJu-Wmw"/>
-    <parameterMappings xmi:id="_mB9hTTKFEeS-2ouOJu-Wmw" source="_mB9hRzKFEeS-2ouOJu-Wmw" target="_mB9hNTKFEeS-2ouOJu-Wmw"/>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_kLz60T2wEeS7S4jHGG4AsQ" name="mainUnit" subUnits="_kLz6wT2wEeS7S4jHGG4AsQ">
+    <parameters xmi:id="_kLz60j2wEeS7S4jHGG4AsQ" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//CallListType"/>
+    </parameters>
+    <parameters xmi:id="_kLz60z2wEeS7S4jHGG4AsQ" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//AsynchCallType"/>
+    </parameters>
+    <parameters xmi:id="_kLz61D2wEeS7S4jHGG4AsQ" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_kLz61T2wEeS7S4jHGG4AsQ" name="Fanin">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    </parameters>
+    <parameters xmi:id="_kLz61j2wEeS7S4jHGG4AsQ" name="Fanout">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    </parameters>
+    <parameterMappings xmi:id="_kLz61z2wEeS7S4jHGG4AsQ" source="_kLz60j2wEeS7S4jHGG4AsQ" target="_kLz6wj2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kLz62D2wEeS7S4jHGG4AsQ" source="_kLz6wz2wEeS7S4jHGG4AsQ" target="_kLz60z2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kLz62T2wEeS7S4jHGG4AsQ" source="_kLz61D2wEeS7S4jHGG4AsQ" target="_kLz6xD2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kLz62j2wEeS7S4jHGG4AsQ" source="_kLz61T2wEeS7S4jHGG4AsQ" target="_kLz6xT2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kLz62z2wEeS7S4jHGG4AsQ" source="_kLz61j2wEeS7S4jHGG4AsQ" target="_kLz6xj2wEeS7S4jHGG4AsQ"/>
   </units>
 </henshin:Module>

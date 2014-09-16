@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_kdAYcD2wEeS7S4jHGG4AsQ" name="SET_ATTRIBUTE_MakingCallType_Fanout" description="Sets MakingCallType Fanout">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_kdAYcT2wEeS7S4jHGG4AsQ" name="setMakingCallTypeFanout" description="Sets the EAttribute fanout">
+    <parameters xmi:id="_kdAYcj2wEeS7S4jHGG4AsQ" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//MakingCallType"/>
+    </parameters>
+    <parameters xmi:id="_kdAYcz2wEeS7S4jHGG4AsQ" name="Fanout">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    </parameters>
+    <lhs xmi:id="_kdAYdD2wEeS7S4jHGG4AsQ" name="Lhs">
+      <nodes xmi:id="_kdAYdT2wEeS7S4jHGG4AsQ" name="Selected">
+        <type href="http://LQN/1.0#//MakingCallType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_kdAYdj2wEeS7S4jHGG4AsQ" name="Rhs">
+      <nodes xmi:id="_kdAYdz2wEeS7S4jHGG4AsQ" name="Selected">
+        <type href="http://LQN/1.0#//MakingCallType"/>
+        <attributes xmi:id="_kdAYeD2wEeS7S4jHGG4AsQ" value="Fanout">
+          <type href="http://LQN/1.0#//MakingCallType/fanout"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_kdAYeT2wEeS7S4jHGG4AsQ" origin="_kdAYdT2wEeS7S4jHGG4AsQ" image="_kdAYdz2wEeS7S4jHGG4AsQ"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_kdAYej2wEeS7S4jHGG4AsQ" name="mainUnit" subUnits="_kdAYcT2wEeS7S4jHGG4AsQ">
+    <parameters xmi:id="_kdAYez2wEeS7S4jHGG4AsQ" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//MakingCallType"/>
+    </parameters>
+    <parameters xmi:id="_kdAYfD2wEeS7S4jHGG4AsQ" name="Fanout">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    </parameters>
+    <parameterMappings xmi:id="_kdAYfT2wEeS7S4jHGG4AsQ" source="_kdAYez2wEeS7S4jHGG4AsQ" target="_kdAYcj2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kdAYfj2wEeS7S4jHGG4AsQ" source="_kdAYfD2wEeS7S4jHGG4AsQ" target="_kdAYcz2wEeS7S4jHGG4AsQ"/>
+  </units>
+</henshin:Module>

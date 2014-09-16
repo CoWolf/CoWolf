@@ -1,31 +1,39 @@
 <?xml version="1.0" encoding="ASCII"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mDJ0ADKFEeS-2ouOJu-Wmw" name="DELETE_CallListType_IN_ActivityPhasesType_(callList)" description="Deletes one CallListType in ActivityPhasesType">
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_kjok4D2wEeS7S4jHGG4AsQ" name="DELETE_CallListType_IN_ActivityPhasesType_(callList)" description="Deletes one CallListType in ActivityPhasesType">
   <imports href="http://LQN/1.0#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="_mDJ0ATKFEeS-2ouOJu-Wmw" name="deleteCallListType_IN_ActivityPhasesType" description="deletes one CallListType in the context: ActivityPhasesType">
-    <parameters xmi:id="_mDJ0AjKFEeS-2ouOJu-Wmw" name="Selected"/>
-    <parameters xmi:id="_mDJ0AzKFEeS-2ouOJu-Wmw" name="ToBeDeleted"/>
-    <lhs xmi:id="_mDJ0BDKFEeS-2ouOJu-Wmw" name="LHS">
-      <nodes xmi:id="_mDJ0BTKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mDJ0BzKFEeS-2ouOJu-Wmw">
+  <units xsi:type="henshin:Rule" xmi:id="_kjok4T2wEeS7S4jHGG4AsQ" name="deleteCallListType_IN_ActivityPhasesType" description="deletes one CallListType in the context: ActivityPhasesType">
+    <parameters xmi:id="_kjok4j2wEeS7S4jHGG4AsQ" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityPhasesType"/>
+    </parameters>
+    <parameters xmi:id="_kjok4z2wEeS7S4jHGG4AsQ" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//CallListType"/>
+    </parameters>
+    <lhs xmi:id="_kjok5D2wEeS7S4jHGG4AsQ" name="LHS">
+      <nodes xmi:id="_kjok5T2wEeS7S4jHGG4AsQ" name="Selected" outgoing="_kjok5z2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//ActivityPhasesType"/>
       </nodes>
-      <nodes xmi:id="_mDJ0BjKFEeS-2ouOJu-Wmw" name="ToBeDeleted" incoming="_mDJ0BzKFEeS-2ouOJu-Wmw">
+      <nodes xmi:id="_kjok5j2wEeS7S4jHGG4AsQ" name="ToBeDeleted" incoming="_kjok5z2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//CallListType"/>
       </nodes>
-      <edges xmi:id="_mDJ0BzKFEeS-2ouOJu-Wmw" source="_mDJ0BTKFEeS-2ouOJu-Wmw" target="_mDJ0BjKFEeS-2ouOJu-Wmw">
+      <edges xmi:id="_kjok5z2wEeS7S4jHGG4AsQ" source="_kjok5T2wEeS7S4jHGG4AsQ" target="_kjok5j2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//ActivityPhasesType/callList"/>
       </edges>
     </lhs>
-    <rhs xmi:id="_mDJ0CDKFEeS-2ouOJu-Wmw" name="RHS">
-      <nodes xmi:id="_mDJ0CTKFEeS-2ouOJu-Wmw" name="Selected">
+    <rhs xmi:id="_kjok6D2wEeS7S4jHGG4AsQ" name="RHS">
+      <nodes xmi:id="_kjok6T2wEeS7S4jHGG4AsQ" name="Selected">
         <type href="http://LQN/1.0#//ActivityPhasesType"/>
       </nodes>
     </rhs>
-    <mappings xmi:id="_mDJ0CjKFEeS-2ouOJu-Wmw" origin="_mDJ0BTKFEeS-2ouOJu-Wmw" image="_mDJ0CTKFEeS-2ouOJu-Wmw"/>
+    <mappings xmi:id="_kjok6j2wEeS7S4jHGG4AsQ" origin="_kjok5T2wEeS7S4jHGG4AsQ" image="_kjok6T2wEeS7S4jHGG4AsQ"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="_mDJ0CzKFEeS-2ouOJu-Wmw" name="mainUnit" description="Deletes one CallListType depending on available contexts in model instance" subUnits="_mDJ0ATKFEeS-2ouOJu-Wmw">
-    <parameters xmi:id="_mDJ0DDKFEeS-2ouOJu-Wmw" name="ToBeDeleted"/>
-    <parameters xmi:id="_mDJ0DTKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
-    <parameterMappings xmi:id="_mDJ0DjKFEeS-2ouOJu-Wmw" source="_mDJ0DTKFEeS-2ouOJu-Wmw" target="_mDJ0AjKFEeS-2ouOJu-Wmw"/>
-    <parameterMappings xmi:id="_mDJ0DzKFEeS-2ouOJu-Wmw" source="_mDJ0DDKFEeS-2ouOJu-Wmw" target="_mDJ0AzKFEeS-2ouOJu-Wmw"/>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_kjok6z2wEeS7S4jHGG4AsQ" name="mainUnit" subUnits="_kjok4T2wEeS7S4jHGG4AsQ">
+    <parameters xmi:id="_kjok7D2wEeS7S4jHGG4AsQ" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityPhasesType"/>
+    </parameters>
+    <parameters xmi:id="_kjok7T2wEeS7S4jHGG4AsQ" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//CallListType"/>
+    </parameters>
+    <parameterMappings xmi:id="_kjok7j2wEeS7S4jHGG4AsQ" source="_kjok7D2wEeS7S4jHGG4AsQ" target="_kjok4j2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kjok7z2wEeS7S4jHGG4AsQ" source="_kjok7T2wEeS7S4jHGG4AsQ" target="_kjok4z2wEeS7S4jHGG4AsQ"/>
   </units>
 </henshin:Module>

@@ -1,37 +1,49 @@
 <?xml version="1.0" encoding="ASCII"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mCvkUDKFEeS-2ouOJu-Wmw" name="CREATE_BindType_IN_SlotType_(binding)" description="Creates one BindType in SlotType">
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_kyTTAD2wEeS7S4jHGG4AsQ" name="CREATE_BindType_IN_SlotType_(binding)" description="Creates one BindType in SlotType">
   <imports href="http://LQN/1.0#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="_mCvkUTKFEeS-2ouOJu-Wmw" name="createBindType_IN_SlotType" description="creates one BindType in the context: SlotType">
-    <parameters xmi:id="_mCvkUjKFEeS-2ouOJu-Wmw" name="Selected"/>
-    <parameters xmi:id="_mCvkUzKFEeS-2ouOJu-Wmw" name="New"/>
-    <parameters xmi:id="_mCvkVDKFEeS-2ouOJu-Wmw" name="Id"/>
-    <lhs xmi:id="_mCvkVTKFEeS-2ouOJu-Wmw" name="Lhs">
-      <nodes xmi:id="_mCvkVjKFEeS-2ouOJu-Wmw" name="Selected">
+  <units xsi:type="henshin:Rule" xmi:id="_kyTTAT2wEeS7S4jHGG4AsQ" name="createBindType_IN_SlotType" description="creates one BindType in the context: SlotType">
+    <parameters xmi:id="_kyTTAj2wEeS7S4jHGG4AsQ" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SlotType"/>
+    </parameters>
+    <parameters xmi:id="_kyTTAz2wEeS7S4jHGG4AsQ" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//BindType"/>
+    </parameters>
+    <parameters xmi:id="_kyTTBD2wEeS7S4jHGG4AsQ" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_kyTTBT2wEeS7S4jHGG4AsQ" name="Lhs">
+      <nodes xmi:id="_kyTTBj2wEeS7S4jHGG4AsQ" name="Selected">
         <type href="http://LQN/1.0#//SlotType"/>
       </nodes>
     </lhs>
-    <rhs xmi:id="_mCvkVzKFEeS-2ouOJu-Wmw" name="Rhs">
-      <nodes xmi:id="_mCvkWDKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mCvkWzKFEeS-2ouOJu-Wmw">
+    <rhs xmi:id="_kyTTBz2wEeS7S4jHGG4AsQ" name="Rhs">
+      <nodes xmi:id="_kyTTCD2wEeS7S4jHGG4AsQ" name="Selected" outgoing="_kyTTCz2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//SlotType"/>
       </nodes>
-      <nodes xmi:id="_mCvkWTKFEeS-2ouOJu-Wmw" name="New" incoming="_mCvkWzKFEeS-2ouOJu-Wmw">
+      <nodes xmi:id="_kyTTCT2wEeS7S4jHGG4AsQ" name="New" incoming="_kyTTCz2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//BindType"/>
-        <attributes xmi:id="_mCvkWjKFEeS-2ouOJu-Wmw" value="Id">
+        <attributes xmi:id="_kyTTCj2wEeS7S4jHGG4AsQ" value="Id">
           <type href="http://CommonBase/1.0#//IDBase/id"/>
         </attributes>
       </nodes>
-      <edges xmi:id="_mCvkWzKFEeS-2ouOJu-Wmw" source="_mCvkWDKFEeS-2ouOJu-Wmw" target="_mCvkWTKFEeS-2ouOJu-Wmw">
+      <edges xmi:id="_kyTTCz2wEeS7S4jHGG4AsQ" source="_kyTTCD2wEeS7S4jHGG4AsQ" target="_kyTTCT2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//SlotType/binding"/>
       </edges>
     </rhs>
-    <mappings xmi:id="_mCvkXDKFEeS-2ouOJu-Wmw" origin="_mCvkVjKFEeS-2ouOJu-Wmw" image="_mCvkWDKFEeS-2ouOJu-Wmw"/>
+    <mappings xmi:id="_kyTTDD2wEeS7S4jHGG4AsQ" origin="_kyTTBj2wEeS7S4jHGG4AsQ" image="_kyTTCD2wEeS7S4jHGG4AsQ"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="_mCvkXTKFEeS-2ouOJu-Wmw" name="mainUnit" description="Creates one BindType depending on available contexts in model instance" subUnits="_mCvkUTKFEeS-2ouOJu-Wmw">
-    <parameters xmi:id="_mCvkXjKFEeS-2ouOJu-Wmw" name="New"/>
-    <parameters xmi:id="_mCvkXzKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
-    <parameters xmi:id="_mCvkYDKFEeS-2ouOJu-Wmw" name="Id"/>
-    <parameterMappings xmi:id="_mCvkYTKFEeS-2ouOJu-Wmw" source="_mCvkXzKFEeS-2ouOJu-Wmw" target="_mCvkUjKFEeS-2ouOJu-Wmw"/>
-    <parameterMappings xmi:id="_mCvkYjKFEeS-2ouOJu-Wmw" source="_mCvkUzKFEeS-2ouOJu-Wmw" target="_mCvkXjKFEeS-2ouOJu-Wmw"/>
-    <parameterMappings xmi:id="_mCvkYzKFEeS-2ouOJu-Wmw" source="_mCvkYDKFEeS-2ouOJu-Wmw" target="_mCvkVDKFEeS-2ouOJu-Wmw"/>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_kyTTDT2wEeS7S4jHGG4AsQ" name="mainUnit" subUnits="_kyTTAT2wEeS7S4jHGG4AsQ">
+    <parameters xmi:id="_kyTTDj2wEeS7S4jHGG4AsQ" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SlotType"/>
+    </parameters>
+    <parameters xmi:id="_kyTTDz2wEeS7S4jHGG4AsQ" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//BindType"/>
+    </parameters>
+    <parameters xmi:id="_kyTTED2wEeS7S4jHGG4AsQ" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_kyTTET2wEeS7S4jHGG4AsQ" source="_kyTTDj2wEeS7S4jHGG4AsQ" target="_kyTTAj2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kyTTEj2wEeS7S4jHGG4AsQ" source="_kyTTAz2wEeS7S4jHGG4AsQ" target="_kyTTDz2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kyTTEz2wEeS7S4jHGG4AsQ" source="_kyTTED2wEeS7S4jHGG4AsQ" target="_kyTTBD2wEeS7S4jHGG4AsQ"/>
   </units>
 </henshin:Module>

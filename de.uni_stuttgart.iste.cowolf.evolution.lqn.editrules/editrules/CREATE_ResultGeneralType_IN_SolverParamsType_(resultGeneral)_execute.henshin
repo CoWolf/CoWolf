@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_kNFtID2wEeS7S4jHGG4AsQ" name="CREATE_ResultGeneralType_IN_SolverParamsType_(resultGeneral)" description="Creates one ResultGeneralType in SolverParamsType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_kNFtIT2wEeS7S4jHGG4AsQ" name="createResultGeneralType_IN_SolverParamsType" description="creates one ResultGeneralType in the context: SolverParamsType">
+    <parameters xmi:id="_kNFtIj2wEeS7S4jHGG4AsQ" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SolverParamsType"/>
+    </parameters>
+    <parameters xmi:id="_kNFtIz2wEeS7S4jHGG4AsQ" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ResultGeneralType"/>
+    </parameters>
+    <parameters xmi:id="_kNFtJD2wEeS7S4jHGG4AsQ" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_kNFtJT2wEeS7S4jHGG4AsQ" name="ConvVal">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameters xmi:id="_kNFtJj2wEeS7S4jHGG4AsQ" name="ElapsedTime">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    </parameters>
+    <parameters xmi:id="_kNFtJz2wEeS7S4jHGG4AsQ" name="Iterations">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameters xmi:id="_kNFtKD2wEeS7S4jHGG4AsQ" name="PlatformInfo">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    </parameters>
+    <parameters xmi:id="_kNFtKT2wEeS7S4jHGG4AsQ" name="SolverInfo">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    </parameters>
+    <parameters xmi:id="_kNFtKj2wEeS7S4jHGG4AsQ" name="SystemCpuTime">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    </parameters>
+    <parameters xmi:id="_kNFtKz2wEeS7S4jHGG4AsQ" name="UserCpuTime">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    </parameters>
+    <parameters xmi:id="_kNFtLD2wEeS7S4jHGG4AsQ" name="Valid">
+      <type xsi:type="ecore:EEnum" href="http://LQN/1.0#//ValidType"/>
+    </parameters>
+    <lhs xmi:id="_kNFtLT2wEeS7S4jHGG4AsQ" name="Lhs">
+      <nodes xmi:id="_kNFtLj2wEeS7S4jHGG4AsQ" name="Selected">
+        <type href="http://LQN/1.0#//SolverParamsType"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_kNFtLz2wEeS7S4jHGG4AsQ">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_kNFtMD2wEeS7S4jHGG4AsQ">
+          <conclusion xmi:id="_kNFtMT2wEeS7S4jHGG4AsQ" name="ub0">
+            <nodes xmi:id="_kNFtMj2wEeS7S4jHGG4AsQ" outgoing="_kNFtND2wEeS7S4jHGG4AsQ">
+              <type href="http://LQN/1.0#//SolverParamsType"/>
+            </nodes>
+            <nodes xmi:id="_kNFtMz2wEeS7S4jHGG4AsQ" incoming="_kNFtND2wEeS7S4jHGG4AsQ">
+              <type href="http://LQN/1.0#//ResultGeneralType"/>
+            </nodes>
+            <edges xmi:id="_kNFtND2wEeS7S4jHGG4AsQ" source="_kNFtMj2wEeS7S4jHGG4AsQ" target="_kNFtMz2wEeS7S4jHGG4AsQ">
+              <type href="http://LQN/1.0#//SolverParamsType/resultGeneral"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_kNFtNT2wEeS7S4jHGG4AsQ" origin="_kNFtLj2wEeS7S4jHGG4AsQ" image="_kNFtMj2wEeS7S4jHGG4AsQ"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_kNFtNj2wEeS7S4jHGG4AsQ" name="Rhs">
+      <nodes xmi:id="_kNFtNz2wEeS7S4jHGG4AsQ" name="Selected" outgoing="_kNFtQj2wEeS7S4jHGG4AsQ">
+        <type href="http://LQN/1.0#//SolverParamsType"/>
+      </nodes>
+      <nodes xmi:id="_kNFtOD2wEeS7S4jHGG4AsQ" name="New" incoming="_kNFtQj2wEeS7S4jHGG4AsQ">
+        <type href="http://LQN/1.0#//ResultGeneralType"/>
+        <attributes xmi:id="_kNFtOT2wEeS7S4jHGG4AsQ" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_kNFtOj2wEeS7S4jHGG4AsQ" value="ConvVal">
+          <type href="http://LQN/1.0#//ResultGeneralType/convVal"/>
+        </attributes>
+        <attributes xmi:id="_kNFtOz2wEeS7S4jHGG4AsQ" value="ElapsedTime">
+          <type href="http://LQN/1.0#//ResultGeneralType/elapsedTime"/>
+        </attributes>
+        <attributes xmi:id="_kNFtPD2wEeS7S4jHGG4AsQ" value="Iterations">
+          <type href="http://LQN/1.0#//ResultGeneralType/iterations"/>
+        </attributes>
+        <attributes xmi:id="_kNFtPT2wEeS7S4jHGG4AsQ" value="PlatformInfo">
+          <type href="http://LQN/1.0#//ResultGeneralType/platformInfo"/>
+        </attributes>
+        <attributes xmi:id="_kNFtPj2wEeS7S4jHGG4AsQ" value="SolverInfo">
+          <type href="http://LQN/1.0#//ResultGeneralType/solverInfo"/>
+        </attributes>
+        <attributes xmi:id="_kNFtPz2wEeS7S4jHGG4AsQ" value="SystemCpuTime">
+          <type href="http://LQN/1.0#//ResultGeneralType/systemCpuTime"/>
+        </attributes>
+        <attributes xmi:id="_kNFtQD2wEeS7S4jHGG4AsQ" value="UserCpuTime">
+          <type href="http://LQN/1.0#//ResultGeneralType/userCpuTime"/>
+        </attributes>
+        <attributes xmi:id="_kNFtQT2wEeS7S4jHGG4AsQ" value="Valid">
+          <type href="http://LQN/1.0#//ResultGeneralType/valid"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_kNFtQj2wEeS7S4jHGG4AsQ" source="_kNFtNz2wEeS7S4jHGG4AsQ" target="_kNFtOD2wEeS7S4jHGG4AsQ">
+        <type href="http://LQN/1.0#//SolverParamsType/resultGeneral"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_kNFtQz2wEeS7S4jHGG4AsQ" origin="_kNFtLj2wEeS7S4jHGG4AsQ" image="_kNFtNz2wEeS7S4jHGG4AsQ"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_kNFtRD2wEeS7S4jHGG4AsQ" name="mainUnit" subUnits="_kNFtIT2wEeS7S4jHGG4AsQ">
+    <parameters xmi:id="_kNFtRT2wEeS7S4jHGG4AsQ" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SolverParamsType"/>
+    </parameters>
+    <parameters xmi:id="_kNFtRj2wEeS7S4jHGG4AsQ" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ResultGeneralType"/>
+    </parameters>
+    <parameters xmi:id="_kNFtRz2wEeS7S4jHGG4AsQ" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_kNFtSD2wEeS7S4jHGG4AsQ" name="ConvVal">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameters xmi:id="_kNFtST2wEeS7S4jHGG4AsQ" name="ElapsedTime">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    </parameters>
+    <parameters xmi:id="_kNFtSj2wEeS7S4jHGG4AsQ" name="Iterations">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameters xmi:id="_kNFtSz2wEeS7S4jHGG4AsQ" name="PlatformInfo">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    </parameters>
+    <parameters xmi:id="_kNFtTD2wEeS7S4jHGG4AsQ" name="SolverInfo">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    </parameters>
+    <parameters xmi:id="_kNFtTT2wEeS7S4jHGG4AsQ" name="SystemCpuTime">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    </parameters>
+    <parameters xmi:id="_kNFtTj2wEeS7S4jHGG4AsQ" name="UserCpuTime">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    </parameters>
+    <parameters xmi:id="_kNFtTz2wEeS7S4jHGG4AsQ" name="Valid">
+      <type xsi:type="ecore:EEnum" href="http://LQN/1.0#//ValidType"/>
+    </parameters>
+    <parameterMappings xmi:id="_kNFtUD2wEeS7S4jHGG4AsQ" source="_kNFtRT2wEeS7S4jHGG4AsQ" target="_kNFtIj2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kNFtUT2wEeS7S4jHGG4AsQ" source="_kNFtIz2wEeS7S4jHGG4AsQ" target="_kNFtRj2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kNFtUj2wEeS7S4jHGG4AsQ" source="_kNFtRz2wEeS7S4jHGG4AsQ" target="_kNFtJD2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kNFtUz2wEeS7S4jHGG4AsQ" source="_kNFtSD2wEeS7S4jHGG4AsQ" target="_kNFtJT2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kNFtVD2wEeS7S4jHGG4AsQ" source="_kNFtST2wEeS7S4jHGG4AsQ" target="_kNFtJj2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kNFtVT2wEeS7S4jHGG4AsQ" source="_kNFtSj2wEeS7S4jHGG4AsQ" target="_kNFtJz2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kNFtVj2wEeS7S4jHGG4AsQ" source="_kNFtSz2wEeS7S4jHGG4AsQ" target="_kNFtKD2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kNFtVz2wEeS7S4jHGG4AsQ" source="_kNFtTD2wEeS7S4jHGG4AsQ" target="_kNFtKT2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kNFtWD2wEeS7S4jHGG4AsQ" source="_kNFtTT2wEeS7S4jHGG4AsQ" target="_kNFtKj2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kNFtWT2wEeS7S4jHGG4AsQ" source="_kNFtTj2wEeS7S4jHGG4AsQ" target="_kNFtKz2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kNFtWj2wEeS7S4jHGG4AsQ" source="_kNFtTz2wEeS7S4jHGG4AsQ" target="_kNFtLD2wEeS7S4jHGG4AsQ"/>
+  </units>
+</henshin:Module>

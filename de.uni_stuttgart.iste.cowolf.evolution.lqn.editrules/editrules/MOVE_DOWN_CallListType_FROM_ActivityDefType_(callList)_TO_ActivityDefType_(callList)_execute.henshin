@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_kM440D2wEeS7S4jHGG4AsQ" name="MOVE_DOWN_CallListType_FROM_ActivityDefType_(callList)_TO_ActivityDefType_(callList)" description="MOVE DOWNWARDs CallListType from ActivityDefType(Reference:callList) to ActivityDefType(Reference:callList">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_kM440T2wEeS7S4jHGG4AsQ" name="moveDownCallListType_FROM_ActivityDefType_callList_TO_ActivityDefType_ActivityDefType" description="Moves down CallListType from ActivityDefType(Reference:callList) toActivityDefType(Reference:ActivityDefType)">
+    <parameters xmi:id="_kM440j2wEeS7S4jHGG4AsQ" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//CallListType"/>
+    </parameters>
+    <parameters xmi:id="_kM440z2wEeS7S4jHGG4AsQ" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityDefType"/>
+    </parameters>
+    <parameters xmi:id="_kM441D2wEeS7S4jHGG4AsQ" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityDefType"/>
+    </parameters>
+    <lhs xmi:id="_kM441T2wEeS7S4jHGG4AsQ" name="Lhs">
+      <nodes xmi:id="_kM441j2wEeS7S4jHGG4AsQ" name="Selected" incoming="_kM442T2wEeS7S4jHGG4AsQ">
+        <type href="http://LQN/1.0#//CallListType"/>
+      </nodes>
+      <nodes xmi:id="_kM441z2wEeS7S4jHGG4AsQ" name="OldSource" outgoing="_kM442T2wEeS7S4jHGG4AsQ">
+        <type href="http://LQN/1.0#//ActivityDefType"/>
+      </nodes>
+      <nodes xmi:id="_kM442D2wEeS7S4jHGG4AsQ" name="NewSource">
+        <type href="http://LQN/1.0#//ActivityDefType"/>
+      </nodes>
+      <edges xmi:id="_kM442T2wEeS7S4jHGG4AsQ" source="_kM441z2wEeS7S4jHGG4AsQ" target="_kM441j2wEeS7S4jHGG4AsQ">
+        <type href="http://LQN/1.0#//ActivityDefType/callList"/>
+      </edges>
+      <formula xsi:type="henshin:NestedCondition" xmi:id="_kM442j2wEeS7S4jHGG4AsQ">
+        <conclusion xmi:id="_kM442z2wEeS7S4jHGG4AsQ" name="cyclePath">
+          <nodes xmi:id="_kM443D2wEeS7S4jHGG4AsQ" name="OldSource" outgoing="_kM444T2wEeS7S4jHGG4AsQ">
+            <type href="http://LQN/1.0#//ActivityDefType"/>
+          </nodes>
+          <nodes xmi:id="_kM443T2wEeS7S4jHGG4AsQ" name="NewSource" incoming="_kM445D2wEeS7S4jHGG4AsQ">
+            <type href="http://LQN/1.0#//ActivityDefType"/>
+          </nodes>
+          <nodes xmi:id="_kM443j2wEeS7S4jHGG4AsQ" incoming="_kM444T2wEeS7S4jHGG4AsQ" outgoing="_kM444j2wEeS7S4jHGG4AsQ">
+            <type href="http://LQN/1.0#//AsynchCallType"/>
+          </nodes>
+          <nodes xmi:id="_kM443z2wEeS7S4jHGG4AsQ" incoming="_kM444j2wEeS7S4jHGG4AsQ" outgoing="_kM444z2wEeS7S4jHGG4AsQ">
+            <type href="http://LQN/1.0#//EntryType"/>
+          </nodes>
+          <nodes xmi:id="_kM444D2wEeS7S4jHGG4AsQ" incoming="_kM444z2wEeS7S4jHGG4AsQ" outgoing="_kM445D2wEeS7S4jHGG4AsQ">
+            <type href="http://LQN/1.0#//EntryActivityGraph"/>
+          </nodes>
+          <edges xmi:id="_kM444T2wEeS7S4jHGG4AsQ" source="_kM443D2wEeS7S4jHGG4AsQ" target="_kM443j2wEeS7S4jHGG4AsQ">
+            <type href="http://LQN/1.0#//CallListType/asynchCall"/>
+          </edges>
+          <edges xmi:id="_kM444j2wEeS7S4jHGG4AsQ" source="_kM443j2wEeS7S4jHGG4AsQ" target="_kM443z2wEeS7S4jHGG4AsQ">
+            <type href="http://LQN/1.0#//CallType/dest"/>
+          </edges>
+          <edges xmi:id="_kM444z2wEeS7S4jHGG4AsQ" source="_kM443z2wEeS7S4jHGG4AsQ" target="_kM444D2wEeS7S4jHGG4AsQ">
+            <type href="http://LQN/1.0#//EntryType/entryActivityGraph"/>
+          </edges>
+          <edges xmi:id="_kM445D2wEeS7S4jHGG4AsQ" source="_kM444D2wEeS7S4jHGG4AsQ" target="_kM443T2wEeS7S4jHGG4AsQ">
+            <type href="http://LQN/1.0#//ActivityGraphBase/activity"/>
+          </edges>
+        </conclusion>
+        <mappings xmi:id="_kM445T2wEeS7S4jHGG4AsQ" origin="_kM442D2wEeS7S4jHGG4AsQ" image="_kM443T2wEeS7S4jHGG4AsQ"/>
+        <mappings xmi:id="_kM445j2wEeS7S4jHGG4AsQ" origin="_kM441z2wEeS7S4jHGG4AsQ" image="_kM443D2wEeS7S4jHGG4AsQ"/>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_kM445z2wEeS7S4jHGG4AsQ" name="Rhs">
+      <nodes xmi:id="_kM446D2wEeS7S4jHGG4AsQ" name="Selected" incoming="_kM446z2wEeS7S4jHGG4AsQ">
+        <type href="http://LQN/1.0#//CallListType"/>
+      </nodes>
+      <nodes xmi:id="_kM446T2wEeS7S4jHGG4AsQ" name="OldSource">
+        <type href="http://LQN/1.0#//ActivityDefType"/>
+      </nodes>
+      <nodes xmi:id="_kM446j2wEeS7S4jHGG4AsQ" name="NewSource" outgoing="_kM446z2wEeS7S4jHGG4AsQ">
+        <type href="http://LQN/1.0#//ActivityDefType"/>
+      </nodes>
+      <edges xmi:id="_kM446z2wEeS7S4jHGG4AsQ" source="_kM446j2wEeS7S4jHGG4AsQ" target="_kM446D2wEeS7S4jHGG4AsQ">
+        <type href="http://LQN/1.0#//ActivityDefType/callList"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_kM447D2wEeS7S4jHGG4AsQ" origin="_kM441j2wEeS7S4jHGG4AsQ" image="_kM446D2wEeS7S4jHGG4AsQ"/>
+    <mappings xmi:id="_kM447T2wEeS7S4jHGG4AsQ" origin="_kM441z2wEeS7S4jHGG4AsQ" image="_kM446T2wEeS7S4jHGG4AsQ"/>
+    <mappings xmi:id="_kM447j2wEeS7S4jHGG4AsQ" origin="_kM442D2wEeS7S4jHGG4AsQ" image="_kM446j2wEeS7S4jHGG4AsQ"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_kM447z2wEeS7S4jHGG4AsQ" name="mainUnit" subUnits="_kM440T2wEeS7S4jHGG4AsQ">
+    <parameters xmi:id="_kM448D2wEeS7S4jHGG4AsQ" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//CallListType"/>
+    </parameters>
+    <parameters xmi:id="_kM448T2wEeS7S4jHGG4AsQ" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityDefType"/>
+    </parameters>
+    <parameters xmi:id="_kM448j2wEeS7S4jHGG4AsQ" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityDefType"/>
+    </parameters>
+    <parameterMappings xmi:id="_kM448z2wEeS7S4jHGG4AsQ" source="_kM448D2wEeS7S4jHGG4AsQ" target="_kM440j2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kM449D2wEeS7S4jHGG4AsQ" source="_kM448T2wEeS7S4jHGG4AsQ" target="_kM440z2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kM449T2wEeS7S4jHGG4AsQ" source="_kM448j2wEeS7S4jHGG4AsQ" target="_kM441D2wEeS7S4jHGG4AsQ"/>
+  </units>
+</henshin:Module>

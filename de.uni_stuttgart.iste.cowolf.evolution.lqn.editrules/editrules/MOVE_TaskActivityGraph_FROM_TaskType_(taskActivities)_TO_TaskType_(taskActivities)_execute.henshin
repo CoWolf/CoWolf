@@ -1,64 +1,76 @@
 <?xml version="1.0" encoding="ASCII"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_maZ2YDKFEeS-2ouOJu-Wmw" name="MOVE_TaskActivityGraph_FROM_TaskType_(taskActivities)_TO_TaskType_(taskActivities)" description="MOVEs TaskActivityGraph from TaskType(Reference:taskActivities) to TaskType(Reference:taskActivities">
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_kLKagD2wEeS7S4jHGG4AsQ" name="MOVE_TaskActivityGraph_FROM_TaskType_(taskActivities)_TO_TaskType_(taskActivities)" description="MOVEs TaskActivityGraph from TaskType(Reference:taskActivities) to TaskType(Reference:taskActivities">
   <imports href="http://LQN/1.0#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="_maZ2YTKFEeS-2ouOJu-Wmw" name="moveTaskActivityGraph_FROM_TaskType_taskActivities_TO_TaskType_TaskType" description="Moves TaskActivityGraph from TaskType(Reference:taskActivities) toTaskType(Reference:TaskType)">
-    <parameters xmi:id="_maZ2YjKFEeS-2ouOJu-Wmw" name="Selected"/>
-    <parameters xmi:id="_maZ2YzKFEeS-2ouOJu-Wmw" name="OldSource"/>
-    <parameters xmi:id="_maZ2ZDKFEeS-2ouOJu-Wmw" name="NewSource"/>
-    <lhs xmi:id="_maZ2ZTKFEeS-2ouOJu-Wmw" name="Lhs">
-      <nodes xmi:id="_maZ2ZjKFEeS-2ouOJu-Wmw" name="Selected" incoming="_maZ2aTKFEeS-2ouOJu-Wmw">
+  <units xsi:type="henshin:Rule" xmi:id="_kLKagT2wEeS7S4jHGG4AsQ" name="moveTaskActivityGraph_FROM_TaskType_taskActivities_TO_TaskType_TaskType" description="Moves TaskActivityGraph from TaskType(Reference:taskActivities) toTaskType(Reference:TaskType)">
+    <parameters xmi:id="_kLKagj2wEeS7S4jHGG4AsQ" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskActivityGraph"/>
+    </parameters>
+    <parameters xmi:id="_kLKagz2wEeS7S4jHGG4AsQ" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskType"/>
+    </parameters>
+    <parameters xmi:id="_kLKahD2wEeS7S4jHGG4AsQ" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskType"/>
+    </parameters>
+    <lhs xmi:id="_kLKahT2wEeS7S4jHGG4AsQ" name="Lhs">
+      <nodes xmi:id="_kLKahj2wEeS7S4jHGG4AsQ" name="Selected" incoming="_kLKaiT2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//TaskActivityGraph"/>
       </nodes>
-      <nodes xmi:id="_maZ2ZzKFEeS-2ouOJu-Wmw" name="OldSource" outgoing="_maZ2aTKFEeS-2ouOJu-Wmw">
+      <nodes xmi:id="_kLKahz2wEeS7S4jHGG4AsQ" name="OldSource" outgoing="_kLKaiT2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//TaskType"/>
       </nodes>
-      <nodes xmi:id="_maZ2aDKFEeS-2ouOJu-Wmw" name="NewSource">
+      <nodes xmi:id="_kLKaiD2wEeS7S4jHGG4AsQ" name="NewSource">
         <type href="http://LQN/1.0#//TaskType"/>
       </nodes>
-      <edges xmi:id="_maZ2aTKFEeS-2ouOJu-Wmw" source="_maZ2ZzKFEeS-2ouOJu-Wmw" target="_maZ2ZjKFEeS-2ouOJu-Wmw">
+      <edges xmi:id="_kLKaiT2wEeS7S4jHGG4AsQ" source="_kLKahz2wEeS7S4jHGG4AsQ" target="_kLKahj2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//TaskType/taskActivities"/>
       </edges>
-      <formula xsi:type="henshin:Not" xmi:id="_maZ2ajKFEeS-2ouOJu-Wmw">
-        <child xsi:type="henshin:NestedCondition" xmi:id="_maZ2azKFEeS-2ouOJu-Wmw">
-          <conclusion xmi:id="_maZ2bDKFEeS-2ouOJu-Wmw" name="doNotExceedUpperBound">
-            <nodes xmi:id="_maZ2bTKFEeS-2ouOJu-Wmw" name="NewSource" outgoing="_maZ2cDKFEeS-2ouOJu-Wmw">
+      <formula xsi:type="henshin:Not" xmi:id="_kLKaij2wEeS7S4jHGG4AsQ">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_kLKaiz2wEeS7S4jHGG4AsQ">
+          <conclusion xmi:id="_kLKajD2wEeS7S4jHGG4AsQ" name="ub0">
+            <nodes xmi:id="_kLKajT2wEeS7S4jHGG4AsQ" outgoing="_kLKajz2wEeS7S4jHGG4AsQ">
               <type href="http://LQN/1.0#//TaskType"/>
             </nodes>
-            <nodes xmi:id="_maZ2bzKFEeS-2ouOJu-Wmw" incoming="_maZ2cDKFEeS-2ouOJu-Wmw">
+            <nodes xmi:id="_kLKajj2wEeS7S4jHGG4AsQ" incoming="_kLKajz2wEeS7S4jHGG4AsQ">
               <type href="http://LQN/1.0#//TaskActivityGraph"/>
             </nodes>
-            <edges xmi:id="_maZ2cDKFEeS-2ouOJu-Wmw" source="_maZ2bTKFEeS-2ouOJu-Wmw" target="_maZ2bzKFEeS-2ouOJu-Wmw">
+            <edges xmi:id="_kLKajz2wEeS7S4jHGG4AsQ" source="_kLKajT2wEeS7S4jHGG4AsQ" target="_kLKajj2wEeS7S4jHGG4AsQ">
               <type href="http://LQN/1.0#//TaskType/taskActivities"/>
             </edges>
           </conclusion>
-          <mappings xmi:id="_maZ2cTKFEeS-2ouOJu-Wmw" origin="_maZ2aDKFEeS-2ouOJu-Wmw" image="_maZ2bTKFEeS-2ouOJu-Wmw"/>
+          <mappings xmi:id="_kLKakD2wEeS7S4jHGG4AsQ" origin="_kLKaiD2wEeS7S4jHGG4AsQ" image="_kLKajT2wEeS7S4jHGG4AsQ"/>
         </child>
       </formula>
     </lhs>
-    <rhs xmi:id="_maZ2czKFEeS-2ouOJu-Wmw" name="Rhs">
-      <nodes xmi:id="_maZ2dDKFEeS-2ouOJu-Wmw" name="Selected" incoming="_maZ2dzKFEeS-2ouOJu-Wmw">
+    <rhs xmi:id="_kLKakT2wEeS7S4jHGG4AsQ" name="Rhs">
+      <nodes xmi:id="_kLKakj2wEeS7S4jHGG4AsQ" name="Selected" incoming="_kLKalT2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//TaskActivityGraph"/>
       </nodes>
-      <nodes xmi:id="_maZ2dTKFEeS-2ouOJu-Wmw" name="OldSource">
+      <nodes xmi:id="_kLKakz2wEeS7S4jHGG4AsQ" name="OldSource">
         <type href="http://LQN/1.0#//TaskType"/>
       </nodes>
-      <nodes xmi:id="_maZ2djKFEeS-2ouOJu-Wmw" name="NewSource" outgoing="_maZ2dzKFEeS-2ouOJu-Wmw">
+      <nodes xmi:id="_kLKalD2wEeS7S4jHGG4AsQ" name="NewSource" outgoing="_kLKalT2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//TaskType"/>
       </nodes>
-      <edges xmi:id="_maZ2dzKFEeS-2ouOJu-Wmw" source="_maZ2djKFEeS-2ouOJu-Wmw" target="_maZ2dDKFEeS-2ouOJu-Wmw">
+      <edges xmi:id="_kLKalT2wEeS7S4jHGG4AsQ" source="_kLKalD2wEeS7S4jHGG4AsQ" target="_kLKakj2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//TaskType/taskActivities"/>
       </edges>
     </rhs>
-    <mappings xmi:id="_maZ2eDKFEeS-2ouOJu-Wmw" origin="_maZ2ZjKFEeS-2ouOJu-Wmw" image="_maZ2dDKFEeS-2ouOJu-Wmw"/>
-    <mappings xmi:id="_maZ2eTKFEeS-2ouOJu-Wmw" origin="_maZ2ZzKFEeS-2ouOJu-Wmw" image="_maZ2dTKFEeS-2ouOJu-Wmw"/>
-    <mappings xmi:id="_maZ2ejKFEeS-2ouOJu-Wmw" origin="_maZ2aDKFEeS-2ouOJu-Wmw" image="_maZ2djKFEeS-2ouOJu-Wmw"/>
+    <mappings xmi:id="_kLKalj2wEeS7S4jHGG4AsQ" origin="_kLKahj2wEeS7S4jHGG4AsQ" image="_kLKakj2wEeS7S4jHGG4AsQ"/>
+    <mappings xmi:id="_kLKalz2wEeS7S4jHGG4AsQ" origin="_kLKahz2wEeS7S4jHGG4AsQ" image="_kLKakz2wEeS7S4jHGG4AsQ"/>
+    <mappings xmi:id="_kLKamD2wEeS7S4jHGG4AsQ" origin="_kLKaiD2wEeS7S4jHGG4AsQ" image="_kLKalD2wEeS7S4jHGG4AsQ"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="_maZ2ezKFEeS-2ouOJu-Wmw" name="mainUnit" subUnits="_maZ2YTKFEeS-2ouOJu-Wmw">
-    <parameters xmi:id="_maZ2fDKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
-    <parameters xmi:id="_maZ2fTKFEeS-2ouOJu-Wmw" name="OldSource"/>
-    <parameters xmi:id="_maZ2fjKFEeS-2ouOJu-Wmw" name="NewSource"/>
-    <parameterMappings xmi:id="_maZ2fzKFEeS-2ouOJu-Wmw" source="_maZ2fDKFEeS-2ouOJu-Wmw" target="_maZ2YjKFEeS-2ouOJu-Wmw"/>
-    <parameterMappings xmi:id="_maZ2gDKFEeS-2ouOJu-Wmw" source="_maZ2fTKFEeS-2ouOJu-Wmw" target="_maZ2YzKFEeS-2ouOJu-Wmw"/>
-    <parameterMappings xmi:id="_maZ2gTKFEeS-2ouOJu-Wmw" source="_maZ2fjKFEeS-2ouOJu-Wmw" target="_maZ2ZDKFEeS-2ouOJu-Wmw"/>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_kLKamT2wEeS7S4jHGG4AsQ" name="mainUnit" subUnits="_kLKagT2wEeS7S4jHGG4AsQ">
+    <parameters xmi:id="_kLKamj2wEeS7S4jHGG4AsQ" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskActivityGraph"/>
+    </parameters>
+    <parameters xmi:id="_kLKamz2wEeS7S4jHGG4AsQ" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskType"/>
+    </parameters>
+    <parameters xmi:id="_kLKanD2wEeS7S4jHGG4AsQ" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskType"/>
+    </parameters>
+    <parameterMappings xmi:id="_kLKanT2wEeS7S4jHGG4AsQ" source="_kLKamj2wEeS7S4jHGG4AsQ" target="_kLKagj2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kLKanj2wEeS7S4jHGG4AsQ" source="_kLKamz2wEeS7S4jHGG4AsQ" target="_kLKagz2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kLKanz2wEeS7S4jHGG4AsQ" source="_kLKanD2wEeS7S4jHGG4AsQ" target="_kLKahD2wEeS7S4jHGG4AsQ"/>
   </units>
 </henshin:Module>

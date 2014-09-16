@@ -1,31 +1,39 @@
 <?xml version="1.0" encoding="ASCII"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mLuhMDKFEeS-2ouOJu-Wmw" name="DELETE_OutputResultType_IN_ProcessorType_(resultProcessor)" description="Deletes one OutputResultType in ProcessorType">
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_kejQkD2wEeS7S4jHGG4AsQ" name="DELETE_OutputResultType_IN_ProcessorType_(resultProcessor)" description="Deletes one OutputResultType in ProcessorType">
   <imports href="http://LQN/1.0#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="_mLuhMTKFEeS-2ouOJu-Wmw" name="deleteOutputResultType_IN_ProcessorType" description="deletes one OutputResultType in the context: ProcessorType">
-    <parameters xmi:id="_mLuhMjKFEeS-2ouOJu-Wmw" name="Selected"/>
-    <parameters xmi:id="_mLuhMzKFEeS-2ouOJu-Wmw" name="ToBeDeleted"/>
-    <lhs xmi:id="_mLuhNDKFEeS-2ouOJu-Wmw" name="LHS">
-      <nodes xmi:id="_mLuhNTKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mLuhNzKFEeS-2ouOJu-Wmw">
+  <units xsi:type="henshin:Rule" xmi:id="_kejQkT2wEeS7S4jHGG4AsQ" name="deleteOutputResultType_IN_ProcessorType" description="deletes one OutputResultType in the context: ProcessorType">
+    <parameters xmi:id="_kejQkj2wEeS7S4jHGG4AsQ" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ProcessorType"/>
+    </parameters>
+    <parameters xmi:id="_kejQkz2wEeS7S4jHGG4AsQ" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutputResultType"/>
+    </parameters>
+    <lhs xmi:id="_kejQlD2wEeS7S4jHGG4AsQ" name="LHS">
+      <nodes xmi:id="_kejQlT2wEeS7S4jHGG4AsQ" name="Selected" outgoing="_kejQlz2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//ProcessorType"/>
       </nodes>
-      <nodes xmi:id="_mLuhNjKFEeS-2ouOJu-Wmw" name="ToBeDeleted" incoming="_mLuhNzKFEeS-2ouOJu-Wmw">
+      <nodes xmi:id="_kejQlj2wEeS7S4jHGG4AsQ" name="ToBeDeleted" incoming="_kejQlz2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//OutputResultType"/>
       </nodes>
-      <edges xmi:id="_mLuhNzKFEeS-2ouOJu-Wmw" source="_mLuhNTKFEeS-2ouOJu-Wmw" target="_mLuhNjKFEeS-2ouOJu-Wmw">
+      <edges xmi:id="_kejQlz2wEeS7S4jHGG4AsQ" source="_kejQlT2wEeS7S4jHGG4AsQ" target="_kejQlj2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//ProcessorType/resultProcessor"/>
       </edges>
     </lhs>
-    <rhs xmi:id="_mLuhODKFEeS-2ouOJu-Wmw" name="RHS">
-      <nodes xmi:id="_mLuhOTKFEeS-2ouOJu-Wmw" name="Selected">
+    <rhs xmi:id="_kejQmD2wEeS7S4jHGG4AsQ" name="RHS">
+      <nodes xmi:id="_kejQmT2wEeS7S4jHGG4AsQ" name="Selected">
         <type href="http://LQN/1.0#//ProcessorType"/>
       </nodes>
     </rhs>
-    <mappings xmi:id="_mLuhOjKFEeS-2ouOJu-Wmw" origin="_mLuhNTKFEeS-2ouOJu-Wmw" image="_mLuhOTKFEeS-2ouOJu-Wmw"/>
+    <mappings xmi:id="_kejQmj2wEeS7S4jHGG4AsQ" origin="_kejQlT2wEeS7S4jHGG4AsQ" image="_kejQmT2wEeS7S4jHGG4AsQ"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="_mLuhOzKFEeS-2ouOJu-Wmw" name="mainUnit" description="Deletes one OutputResultType depending on available contexts in model instance" subUnits="_mLuhMTKFEeS-2ouOJu-Wmw">
-    <parameters xmi:id="_mLuhPDKFEeS-2ouOJu-Wmw" name="ToBeDeleted"/>
-    <parameters xmi:id="_mLuhPTKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
-    <parameterMappings xmi:id="_mLuhPjKFEeS-2ouOJu-Wmw" source="_mLuhPTKFEeS-2ouOJu-Wmw" target="_mLuhMjKFEeS-2ouOJu-Wmw"/>
-    <parameterMappings xmi:id="_mLvIQDKFEeS-2ouOJu-Wmw" source="_mLuhPDKFEeS-2ouOJu-Wmw" target="_mLuhMzKFEeS-2ouOJu-Wmw"/>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_kejQmz2wEeS7S4jHGG4AsQ" name="mainUnit" subUnits="_kejQkT2wEeS7S4jHGG4AsQ">
+    <parameters xmi:id="_kejQnD2wEeS7S4jHGG4AsQ" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ProcessorType"/>
+    </parameters>
+    <parameters xmi:id="_kejQnT2wEeS7S4jHGG4AsQ" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutputResultType"/>
+    </parameters>
+    <parameterMappings xmi:id="_kejQnj2wEeS7S4jHGG4AsQ" source="_kejQnD2wEeS7S4jHGG4AsQ" target="_kejQkj2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kejQnz2wEeS7S4jHGG4AsQ" source="_kejQnT2wEeS7S4jHGG4AsQ" target="_kejQkz2wEeS7S4jHGG4AsQ"/>
   </units>
 </henshin:Module>

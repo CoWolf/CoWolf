@@ -1,55 +1,79 @@
 <?xml version="1.0" encoding="ASCII"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mHe6gjKFEeS-2ouOJu-Wmw" name="CREATE_OutPortType_IN_InterfaceType_(outPort)" description="Creates one OutPortType in InterfaceType">
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_kcDWMD2wEeS7S4jHGG4AsQ" name="CREATE_OutPortType_IN_InterfaceType_(outPort)" description="Creates one OutPortType in InterfaceType">
   <imports href="http://LQN/1.0#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="_mHe6gzKFEeS-2ouOJu-Wmw" name="createOutPortType_IN_InterfaceType" description="creates one OutPortType in the context: InterfaceType">
-    <parameters xmi:id="_mHe6hDKFEeS-2ouOJu-Wmw" name="Selected"/>
-    <parameters xmi:id="_mHe6hTKFEeS-2ouOJu-Wmw" name="New"/>
-    <parameters xmi:id="_mHe6hjKFEeS-2ouOJu-Wmw" name="Id"/>
-    <parameters xmi:id="_mHe6hzKFEeS-2ouOJu-Wmw" name="ConnectTo"/>
-    <parameters xmi:id="_mHe6iDKFEeS-2ouOJu-Wmw" name="Description"/>
-    <parameters xmi:id="_mHe6iTKFEeS-2ouOJu-Wmw" name="Name"/>
-    <lhs xmi:id="_mHe6ijKFEeS-2ouOJu-Wmw" name="Lhs">
-      <nodes xmi:id="_mHe6izKFEeS-2ouOJu-Wmw" name="Selected">
+  <units xsi:type="henshin:Rule" xmi:id="_kcDWMT2wEeS7S4jHGG4AsQ" name="createOutPortType_IN_InterfaceType" description="creates one OutPortType in the context: InterfaceType">
+    <parameters xmi:id="_kcDWMj2wEeS7S4jHGG4AsQ" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//InterfaceType"/>
+    </parameters>
+    <parameters xmi:id="_kcDWMz2wEeS7S4jHGG4AsQ" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutPortType"/>
+    </parameters>
+    <parameters xmi:id="_kcDWND2wEeS7S4jHGG4AsQ" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_kcDWNT2wEeS7S4jHGG4AsQ" name="ConnectTo">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//ConnectToType"/>
+    </parameters>
+    <parameters xmi:id="_kcDWNj2wEeS7S4jHGG4AsQ" name="Description">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    </parameters>
+    <parameters xmi:id="_kcDWNz2wEeS7S4jHGG4AsQ" name="Name">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    </parameters>
+    <lhs xmi:id="_kcDWOD2wEeS7S4jHGG4AsQ" name="Lhs">
+      <nodes xmi:id="_kcDWOT2wEeS7S4jHGG4AsQ" name="Selected">
         <type href="http://LQN/1.0#//InterfaceType"/>
       </nodes>
     </lhs>
-    <rhs xmi:id="_mHe6jDKFEeS-2ouOJu-Wmw" name="Rhs">
-      <nodes xmi:id="_mHe6jTKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mHe6kzKFEeS-2ouOJu-Wmw">
+    <rhs xmi:id="_kcDWOj2wEeS7S4jHGG4AsQ" name="Rhs">
+      <nodes xmi:id="_kcDWOz2wEeS7S4jHGG4AsQ" name="Selected" outgoing="_kcDWQT2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//InterfaceType"/>
       </nodes>
-      <nodes xmi:id="_mHe6jjKFEeS-2ouOJu-Wmw" name="New" incoming="_mHe6kzKFEeS-2ouOJu-Wmw">
+      <nodes xmi:id="_kcDWPD2wEeS7S4jHGG4AsQ" name="New" incoming="_kcDWQT2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//OutPortType"/>
-        <attributes xmi:id="_mHe6jzKFEeS-2ouOJu-Wmw" value="Id">
+        <attributes xmi:id="_kcDWPT2wEeS7S4jHGG4AsQ" value="Id">
           <type href="http://CommonBase/1.0#//IDBase/id"/>
         </attributes>
-        <attributes xmi:id="_mHe6kDKFEeS-2ouOJu-Wmw" value="ConnectTo">
+        <attributes xmi:id="_kcDWPj2wEeS7S4jHGG4AsQ" value="ConnectTo">
           <type href="http://LQN/1.0#//OutPortType/connectTo"/>
         </attributes>
-        <attributes xmi:id="_mHe6kTKFEeS-2ouOJu-Wmw" value="Description">
+        <attributes xmi:id="_kcDWPz2wEeS7S4jHGG4AsQ" value="Description">
           <type href="http://LQN/1.0#//OutPortType/description"/>
         </attributes>
-        <attributes xmi:id="_mHe6kjKFEeS-2ouOJu-Wmw" value="Name">
+        <attributes xmi:id="_kcDWQD2wEeS7S4jHGG4AsQ" value="Name">
           <type href="http://LQN/1.0#//OutPortType/name"/>
         </attributes>
       </nodes>
-      <edges xmi:id="_mHe6kzKFEeS-2ouOJu-Wmw" source="_mHe6jTKFEeS-2ouOJu-Wmw" target="_mHe6jjKFEeS-2ouOJu-Wmw">
+      <edges xmi:id="_kcDWQT2wEeS7S4jHGG4AsQ" source="_kcDWOz2wEeS7S4jHGG4AsQ" target="_kcDWPD2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//InterfaceType/outPort"/>
       </edges>
     </rhs>
-    <mappings xmi:id="_mHe6lDKFEeS-2ouOJu-Wmw" origin="_mHe6izKFEeS-2ouOJu-Wmw" image="_mHe6jTKFEeS-2ouOJu-Wmw"/>
+    <mappings xmi:id="_kcDWQj2wEeS7S4jHGG4AsQ" origin="_kcDWOT2wEeS7S4jHGG4AsQ" image="_kcDWOz2wEeS7S4jHGG4AsQ"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="_mHe6lTKFEeS-2ouOJu-Wmw" name="mainUnit" description="Creates one OutPortType depending on available contexts in model instance" subUnits="_mHe6gzKFEeS-2ouOJu-Wmw">
-    <parameters xmi:id="_mHe6ljKFEeS-2ouOJu-Wmw" name="New"/>
-    <parameters xmi:id="_mHe6lzKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
-    <parameters xmi:id="_mHe6mDKFEeS-2ouOJu-Wmw" name="Id"/>
-    <parameters xmi:id="_mHe6mTKFEeS-2ouOJu-Wmw" name="ConnectTo"/>
-    <parameters xmi:id="_mHe6mjKFEeS-2ouOJu-Wmw" name="Description"/>
-    <parameters xmi:id="_mHe6mzKFEeS-2ouOJu-Wmw" name="Name"/>
-    <parameterMappings xmi:id="_mHe6nDKFEeS-2ouOJu-Wmw" source="_mHe6lzKFEeS-2ouOJu-Wmw" target="_mHe6hDKFEeS-2ouOJu-Wmw"/>
-    <parameterMappings xmi:id="_mHe6nTKFEeS-2ouOJu-Wmw" source="_mHe6hTKFEeS-2ouOJu-Wmw" target="_mHe6ljKFEeS-2ouOJu-Wmw"/>
-    <parameterMappings xmi:id="_mHe6njKFEeS-2ouOJu-Wmw" source="_mHe6mDKFEeS-2ouOJu-Wmw" target="_mHe6hjKFEeS-2ouOJu-Wmw"/>
-    <parameterMappings xmi:id="_mHe6nzKFEeS-2ouOJu-Wmw" source="_mHe6mTKFEeS-2ouOJu-Wmw" target="_mHe6hzKFEeS-2ouOJu-Wmw"/>
-    <parameterMappings xmi:id="_mHe6oDKFEeS-2ouOJu-Wmw" source="_mHe6mjKFEeS-2ouOJu-Wmw" target="_mHe6iDKFEeS-2ouOJu-Wmw"/>
-    <parameterMappings xmi:id="_mHe6oTKFEeS-2ouOJu-Wmw" source="_mHe6mzKFEeS-2ouOJu-Wmw" target="_mHe6iTKFEeS-2ouOJu-Wmw"/>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_kcDWQz2wEeS7S4jHGG4AsQ" name="mainUnit" subUnits="_kcDWMT2wEeS7S4jHGG4AsQ">
+    <parameters xmi:id="_kcDWRD2wEeS7S4jHGG4AsQ" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//InterfaceType"/>
+    </parameters>
+    <parameters xmi:id="_kcDWRT2wEeS7S4jHGG4AsQ" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutPortType"/>
+    </parameters>
+    <parameters xmi:id="_kcDWRj2wEeS7S4jHGG4AsQ" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_kcDWRz2wEeS7S4jHGG4AsQ" name="ConnectTo">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//ConnectToType"/>
+    </parameters>
+    <parameters xmi:id="_kcDWSD2wEeS7S4jHGG4AsQ" name="Description">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    </parameters>
+    <parameters xmi:id="_kcDWST2wEeS7S4jHGG4AsQ" name="Name">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    </parameters>
+    <parameterMappings xmi:id="_kcDWSj2wEeS7S4jHGG4AsQ" source="_kcDWRD2wEeS7S4jHGG4AsQ" target="_kcDWMj2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kcDWSz2wEeS7S4jHGG4AsQ" source="_kcDWMz2wEeS7S4jHGG4AsQ" target="_kcDWRT2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kcDWTD2wEeS7S4jHGG4AsQ" source="_kcDWRj2wEeS7S4jHGG4AsQ" target="_kcDWND2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kcDWTT2wEeS7S4jHGG4AsQ" source="_kcDWRz2wEeS7S4jHGG4AsQ" target="_kcDWNT2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kcDWTj2wEeS7S4jHGG4AsQ" source="_kcDWSD2wEeS7S4jHGG4AsQ" target="_kcDWNj2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kcDWTz2wEeS7S4jHGG4AsQ" source="_kcDWST2wEeS7S4jHGG4AsQ" target="_kcDWNz2wEeS7S4jHGG4AsQ"/>
   </units>
 </henshin:Module>

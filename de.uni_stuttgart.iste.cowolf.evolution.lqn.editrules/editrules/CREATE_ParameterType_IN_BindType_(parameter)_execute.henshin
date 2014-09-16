@@ -1,49 +1,69 @@
 <?xml version="1.0" encoding="ASCII"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mOBnQDKFEeS-2ouOJu-Wmw" name="CREATE_ParameterType_IN_BindType_(parameter)" description="Creates one ParameterType in BindType">
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_kGjnUD2wEeS7S4jHGG4AsQ" name="CREATE_ParameterType_IN_BindType_(parameter)" description="Creates one ParameterType in BindType">
   <imports href="http://LQN/1.0#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="_mOBnQTKFEeS-2ouOJu-Wmw" name="createParameterType_IN_BindType" description="creates one ParameterType in the context: BindType">
-    <parameters xmi:id="_mOBnQjKFEeS-2ouOJu-Wmw" name="Selected"/>
-    <parameters xmi:id="_mOBnQzKFEeS-2ouOJu-Wmw" name="New"/>
-    <parameters xmi:id="_mOBnRDKFEeS-2ouOJu-Wmw" name="Id"/>
-    <parameters xmi:id="_mOBnRTKFEeS-2ouOJu-Wmw" name="Name"/>
-    <parameters xmi:id="_mOBnRjKFEeS-2ouOJu-Wmw" name="Value"/>
-    <lhs xmi:id="_mOBnRzKFEeS-2ouOJu-Wmw" name="Lhs">
-      <nodes xmi:id="_mOBnSDKFEeS-2ouOJu-Wmw" name="Selected">
+  <units xsi:type="henshin:Rule" xmi:id="_kGjnUT2wEeS7S4jHGG4AsQ" name="createParameterType_IN_BindType" description="creates one ParameterType in the context: BindType">
+    <parameters xmi:id="_kGjnUj2wEeS7S4jHGG4AsQ" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//BindType"/>
+    </parameters>
+    <parameters xmi:id="_kGjnUz2wEeS7S4jHGG4AsQ" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ParameterType"/>
+    </parameters>
+    <parameters xmi:id="_kGjnVD2wEeS7S4jHGG4AsQ" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_kGjnVT2wEeS7S4jHGG4AsQ" name="Name">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    </parameters>
+    <parameters xmi:id="_kGjnVj2wEeS7S4jHGG4AsQ" name="Value">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    </parameters>
+    <lhs xmi:id="_kGjnVz2wEeS7S4jHGG4AsQ" name="Lhs">
+      <nodes xmi:id="_kGjnWD2wEeS7S4jHGG4AsQ" name="Selected">
         <type href="http://LQN/1.0#//BindType"/>
       </nodes>
     </lhs>
-    <rhs xmi:id="_mOBnSTKFEeS-2ouOJu-Wmw" name="Rhs">
-      <nodes xmi:id="_mOBnSjKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mOBnTzKFEeS-2ouOJu-Wmw">
+    <rhs xmi:id="_kGjnWT2wEeS7S4jHGG4AsQ" name="Rhs">
+      <nodes xmi:id="_kGjnWj2wEeS7S4jHGG4AsQ" name="Selected" outgoing="_kGjnXz2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//BindType"/>
       </nodes>
-      <nodes xmi:id="_mOBnSzKFEeS-2ouOJu-Wmw" name="New" incoming="_mOBnTzKFEeS-2ouOJu-Wmw">
+      <nodes xmi:id="_kGjnWz2wEeS7S4jHGG4AsQ" name="New" incoming="_kGjnXz2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//ParameterType"/>
-        <attributes xmi:id="_mOBnTDKFEeS-2ouOJu-Wmw" value="Id">
+        <attributes xmi:id="_kGjnXD2wEeS7S4jHGG4AsQ" value="Id">
           <type href="http://CommonBase/1.0#//IDBase/id"/>
         </attributes>
-        <attributes xmi:id="_mOBnTTKFEeS-2ouOJu-Wmw" value="Name">
+        <attributes xmi:id="_kGjnXT2wEeS7S4jHGG4AsQ" value="Name">
           <type href="http://LQN/1.0#//ParameterType/name"/>
         </attributes>
-        <attributes xmi:id="_mOBnTjKFEeS-2ouOJu-Wmw" value="Value">
+        <attributes xmi:id="_kGjnXj2wEeS7S4jHGG4AsQ" value="Value">
           <type href="http://LQN/1.0#//ParameterType/value"/>
         </attributes>
       </nodes>
-      <edges xmi:id="_mOBnTzKFEeS-2ouOJu-Wmw" source="_mOBnSjKFEeS-2ouOJu-Wmw" target="_mOBnSzKFEeS-2ouOJu-Wmw">
+      <edges xmi:id="_kGjnXz2wEeS7S4jHGG4AsQ" source="_kGjnWj2wEeS7S4jHGG4AsQ" target="_kGjnWz2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//BindType/parameter"/>
       </edges>
     </rhs>
-    <mappings xmi:id="_mOBnUDKFEeS-2ouOJu-Wmw" origin="_mOBnSDKFEeS-2ouOJu-Wmw" image="_mOBnSjKFEeS-2ouOJu-Wmw"/>
+    <mappings xmi:id="_kGjnYD2wEeS7S4jHGG4AsQ" origin="_kGjnWD2wEeS7S4jHGG4AsQ" image="_kGjnWj2wEeS7S4jHGG4AsQ"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="_mOBnUTKFEeS-2ouOJu-Wmw" name="mainUnit" description="Creates one ParameterType depending on available contexts in model instance" subUnits="_mOBnQTKFEeS-2ouOJu-Wmw">
-    <parameters xmi:id="_mOBnUjKFEeS-2ouOJu-Wmw" name="New"/>
-    <parameters xmi:id="_mOBnUzKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
-    <parameters xmi:id="_mOBnVDKFEeS-2ouOJu-Wmw" name="Id"/>
-    <parameters xmi:id="_mOBnVTKFEeS-2ouOJu-Wmw" name="Name"/>
-    <parameters xmi:id="_mOBnVjKFEeS-2ouOJu-Wmw" name="Value"/>
-    <parameterMappings xmi:id="_mOBnVzKFEeS-2ouOJu-Wmw" source="_mOBnUzKFEeS-2ouOJu-Wmw" target="_mOBnQjKFEeS-2ouOJu-Wmw"/>
-    <parameterMappings xmi:id="_mOBnWDKFEeS-2ouOJu-Wmw" source="_mOBnQzKFEeS-2ouOJu-Wmw" target="_mOBnUjKFEeS-2ouOJu-Wmw"/>
-    <parameterMappings xmi:id="_mOBnWTKFEeS-2ouOJu-Wmw" source="_mOBnVDKFEeS-2ouOJu-Wmw" target="_mOBnRDKFEeS-2ouOJu-Wmw"/>
-    <parameterMappings xmi:id="_mOBnWjKFEeS-2ouOJu-Wmw" source="_mOBnVTKFEeS-2ouOJu-Wmw" target="_mOBnRTKFEeS-2ouOJu-Wmw"/>
-    <parameterMappings xmi:id="_mOBnWzKFEeS-2ouOJu-Wmw" source="_mOBnVjKFEeS-2ouOJu-Wmw" target="_mOBnRjKFEeS-2ouOJu-Wmw"/>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_kGjnYT2wEeS7S4jHGG4AsQ" name="mainUnit" subUnits="_kGjnUT2wEeS7S4jHGG4AsQ">
+    <parameters xmi:id="_kGjnYj2wEeS7S4jHGG4AsQ" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//BindType"/>
+    </parameters>
+    <parameters xmi:id="_kGjnYz2wEeS7S4jHGG4AsQ" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ParameterType"/>
+    </parameters>
+    <parameters xmi:id="_kGjnZD2wEeS7S4jHGG4AsQ" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_kGjnZT2wEeS7S4jHGG4AsQ" name="Name">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    </parameters>
+    <parameters xmi:id="_kGjnZj2wEeS7S4jHGG4AsQ" name="Value">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    </parameters>
+    <parameterMappings xmi:id="_kGjnZz2wEeS7S4jHGG4AsQ" source="_kGjnYj2wEeS7S4jHGG4AsQ" target="_kGjnUj2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kGjnaD2wEeS7S4jHGG4AsQ" source="_kGjnUz2wEeS7S4jHGG4AsQ" target="_kGjnYz2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kGjnaT2wEeS7S4jHGG4AsQ" source="_kGjnZD2wEeS7S4jHGG4AsQ" target="_kGjnVD2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kGjnaj2wEeS7S4jHGG4AsQ" source="_kGjnZT2wEeS7S4jHGG4AsQ" target="_kGjnVT2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kGjnaz2wEeS7S4jHGG4AsQ" source="_kGjnZj2wEeS7S4jHGG4AsQ" target="_kGjnVj2wEeS7S4jHGG4AsQ"/>
   </units>
 </henshin:Module>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_ktRpED2wEeS7S4jHGG4AsQ" name="CREATE_HistogramBinType_IN_OutputDistributionType_(underflowBin)" description="Creates one HistogramBinType in OutputDistributionType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_ktRpET2wEeS7S4jHGG4AsQ" name="createHistogramBinType_IN_OutputDistributionType" description="creates one HistogramBinType in the context: OutputDistributionType">
+    <parameters xmi:id="_ktRpEj2wEeS7S4jHGG4AsQ" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutputDistributionType"/>
+    </parameters>
+    <parameters xmi:id="_ktRpEz2wEeS7S4jHGG4AsQ" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//HistogramBinType"/>
+    </parameters>
+    <parameters xmi:id="_ktRpFD2wEeS7S4jHGG4AsQ" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_ktRpFT2wEeS7S4jHGG4AsQ" name="Begin">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameters xmi:id="_ktRpFj2wEeS7S4jHGG4AsQ" name="Conf95">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameters xmi:id="_ktRpFz2wEeS7S4jHGG4AsQ" name="Conf99">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameters xmi:id="_ktRpGD2wEeS7S4jHGG4AsQ" name="End">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameters xmi:id="_ktRpGT2wEeS7S4jHGG4AsQ" name="Prob">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <lhs xmi:id="_ktRpGj2wEeS7S4jHGG4AsQ" name="Lhs">
+      <nodes xmi:id="_ktRpGz2wEeS7S4jHGG4AsQ" name="Selected">
+        <type href="http://LQN/1.0#//OutputDistributionType"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_ktRpHD2wEeS7S4jHGG4AsQ">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_ktRpHT2wEeS7S4jHGG4AsQ">
+          <conclusion xmi:id="_ktRpHj2wEeS7S4jHGG4AsQ" name="ub0">
+            <nodes xmi:id="_ktRpHz2wEeS7S4jHGG4AsQ" outgoing="_ktRpIT2wEeS7S4jHGG4AsQ">
+              <type href="http://LQN/1.0#//OutputDistributionType"/>
+            </nodes>
+            <nodes xmi:id="_ktRpID2wEeS7S4jHGG4AsQ" incoming="_ktRpIT2wEeS7S4jHGG4AsQ">
+              <type href="http://LQN/1.0#//HistogramBinType"/>
+            </nodes>
+            <edges xmi:id="_ktRpIT2wEeS7S4jHGG4AsQ" source="_ktRpHz2wEeS7S4jHGG4AsQ" target="_ktRpID2wEeS7S4jHGG4AsQ">
+              <type href="http://LQN/1.0#//OutputDistributionType/underflowBin"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_ktRpIj2wEeS7S4jHGG4AsQ" origin="_ktRpGz2wEeS7S4jHGG4AsQ" image="_ktRpHz2wEeS7S4jHGG4AsQ"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_ktRpIz2wEeS7S4jHGG4AsQ" name="Rhs">
+      <nodes xmi:id="_ktRpJD2wEeS7S4jHGG4AsQ" name="Selected" outgoing="_ktRpLD2wEeS7S4jHGG4AsQ">
+        <type href="http://LQN/1.0#//OutputDistributionType"/>
+      </nodes>
+      <nodes xmi:id="_ktRpJT2wEeS7S4jHGG4AsQ" name="New" incoming="_ktRpLD2wEeS7S4jHGG4AsQ">
+        <type href="http://LQN/1.0#//HistogramBinType"/>
+        <attributes xmi:id="_ktRpJj2wEeS7S4jHGG4AsQ" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_ktRpJz2wEeS7S4jHGG4AsQ" value="Begin">
+          <type href="http://LQN/1.0#//HistogramBinType/begin"/>
+        </attributes>
+        <attributes xmi:id="_ktRpKD2wEeS7S4jHGG4AsQ" value="Conf95">
+          <type href="http://LQN/1.0#//HistogramBinType/conf95"/>
+        </attributes>
+        <attributes xmi:id="_ktRpKT2wEeS7S4jHGG4AsQ" value="Conf99">
+          <type href="http://LQN/1.0#//HistogramBinType/conf99"/>
+        </attributes>
+        <attributes xmi:id="_ktRpKj2wEeS7S4jHGG4AsQ" value="End">
+          <type href="http://LQN/1.0#//HistogramBinType/end"/>
+        </attributes>
+        <attributes xmi:id="_ktRpKz2wEeS7S4jHGG4AsQ" value="Prob">
+          <type href="http://LQN/1.0#//HistogramBinType/prob"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_ktRpLD2wEeS7S4jHGG4AsQ" source="_ktRpJD2wEeS7S4jHGG4AsQ" target="_ktRpJT2wEeS7S4jHGG4AsQ">
+        <type href="http://LQN/1.0#//OutputDistributionType/underflowBin"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_ktRpLT2wEeS7S4jHGG4AsQ" origin="_ktRpGz2wEeS7S4jHGG4AsQ" image="_ktRpJD2wEeS7S4jHGG4AsQ"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_ktRpLj2wEeS7S4jHGG4AsQ" name="mainUnit" subUnits="_ktRpET2wEeS7S4jHGG4AsQ">
+    <parameters xmi:id="_ktRpLz2wEeS7S4jHGG4AsQ" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutputDistributionType"/>
+    </parameters>
+    <parameters xmi:id="_ktRpMD2wEeS7S4jHGG4AsQ" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//HistogramBinType"/>
+    </parameters>
+    <parameters xmi:id="_ktRpMT2wEeS7S4jHGG4AsQ" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_ktRpMj2wEeS7S4jHGG4AsQ" name="Begin">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameters xmi:id="_ktRpMz2wEeS7S4jHGG4AsQ" name="Conf95">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameters xmi:id="_ktRpND2wEeS7S4jHGG4AsQ" name="Conf99">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameters xmi:id="_ktRpNT2wEeS7S4jHGG4AsQ" name="End">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameters xmi:id="_ktRpNj2wEeS7S4jHGG4AsQ" name="Prob">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameterMappings xmi:id="_ktRpNz2wEeS7S4jHGG4AsQ" source="_ktRpLz2wEeS7S4jHGG4AsQ" target="_ktRpEj2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_ktRpOD2wEeS7S4jHGG4AsQ" source="_ktRpEz2wEeS7S4jHGG4AsQ" target="_ktRpMD2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_ktRpOT2wEeS7S4jHGG4AsQ" source="_ktRpMT2wEeS7S4jHGG4AsQ" target="_ktRpFD2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_ktRpOj2wEeS7S4jHGG4AsQ" source="_ktRpMj2wEeS7S4jHGG4AsQ" target="_ktRpFT2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_ktRpOz2wEeS7S4jHGG4AsQ" source="_ktRpMz2wEeS7S4jHGG4AsQ" target="_ktRpFj2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_ktRpPD2wEeS7S4jHGG4AsQ" source="_ktRpND2wEeS7S4jHGG4AsQ" target="_ktRpFz2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_ktRpPT2wEeS7S4jHGG4AsQ" source="_ktRpNT2wEeS7S4jHGG4AsQ" target="_ktRpGD2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_ktRpPj2wEeS7S4jHGG4AsQ" source="_ktRpNj2wEeS7S4jHGG4AsQ" target="_ktRpGT2wEeS7S4jHGG4AsQ"/>
+  </units>
+</henshin:Module>

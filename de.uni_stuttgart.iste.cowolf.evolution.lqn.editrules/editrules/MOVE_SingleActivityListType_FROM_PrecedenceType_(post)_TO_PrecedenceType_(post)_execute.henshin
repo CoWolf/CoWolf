@@ -1,64 +1,76 @@
 <?xml version="1.0" encoding="ASCII"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mYw3oDKFEeS-2ouOJu-Wmw" name="MOVE_SingleActivityListType_FROM_PrecedenceType_(post)_TO_PrecedenceType_(post)" description="MOVEs SingleActivityListType from PrecedenceType(Reference:post) to PrecedenceType(Reference:post">
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_kHbxED2wEeS7S4jHGG4AsQ" name="MOVE_SingleActivityListType_FROM_PrecedenceType_(post)_TO_PrecedenceType_(post)" description="MOVEs SingleActivityListType from PrecedenceType(Reference:post) to PrecedenceType(Reference:post">
   <imports href="http://LQN/1.0#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="_mYw3oTKFEeS-2ouOJu-Wmw" name="moveSingleActivityListType_FROM_PrecedenceType_post_TO_PrecedenceType_PrecedenceType" description="Moves SingleActivityListType from PrecedenceType(Reference:post) toPrecedenceType(Reference:PrecedenceType)">
-    <parameters xmi:id="_mYw3ojKFEeS-2ouOJu-Wmw" name="Selected"/>
-    <parameters xmi:id="_mYw3ozKFEeS-2ouOJu-Wmw" name="OldSource"/>
-    <parameters xmi:id="_mYw3pDKFEeS-2ouOJu-Wmw" name="NewSource"/>
-    <lhs xmi:id="_mYw3pTKFEeS-2ouOJu-Wmw" name="Lhs">
-      <nodes xmi:id="_mYw3pjKFEeS-2ouOJu-Wmw" name="Selected" incoming="_mYw3qTKFEeS-2ouOJu-Wmw">
+  <units xsi:type="henshin:Rule" xmi:id="_kHbxET2wEeS7S4jHGG4AsQ" name="moveSingleActivityListType_FROM_PrecedenceType_post_TO_PrecedenceType_PrecedenceType" description="Moves SingleActivityListType from PrecedenceType(Reference:post) toPrecedenceType(Reference:PrecedenceType)">
+    <parameters xmi:id="_kHbxEj2wEeS7S4jHGG4AsQ" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SingleActivityListType"/>
+    </parameters>
+    <parameters xmi:id="_kHbxEz2wEeS7S4jHGG4AsQ" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PrecedenceType"/>
+    </parameters>
+    <parameters xmi:id="_kHbxFD2wEeS7S4jHGG4AsQ" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PrecedenceType"/>
+    </parameters>
+    <lhs xmi:id="_kHbxFT2wEeS7S4jHGG4AsQ" name="Lhs">
+      <nodes xmi:id="_kHbxFj2wEeS7S4jHGG4AsQ" name="Selected" incoming="_kHbxGT2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//SingleActivityListType"/>
       </nodes>
-      <nodes xmi:id="_mYw3pzKFEeS-2ouOJu-Wmw" name="OldSource" outgoing="_mYw3qTKFEeS-2ouOJu-Wmw">
+      <nodes xmi:id="_kHbxFz2wEeS7S4jHGG4AsQ" name="OldSource" outgoing="_kHbxGT2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//PrecedenceType"/>
       </nodes>
-      <nodes xmi:id="_mYw3qDKFEeS-2ouOJu-Wmw" name="NewSource">
+      <nodes xmi:id="_kHbxGD2wEeS7S4jHGG4AsQ" name="NewSource">
         <type href="http://LQN/1.0#//PrecedenceType"/>
       </nodes>
-      <edges xmi:id="_mYw3qTKFEeS-2ouOJu-Wmw" source="_mYw3pzKFEeS-2ouOJu-Wmw" target="_mYw3pjKFEeS-2ouOJu-Wmw">
+      <edges xmi:id="_kHbxGT2wEeS7S4jHGG4AsQ" source="_kHbxFz2wEeS7S4jHGG4AsQ" target="_kHbxFj2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//PrecedenceType/post"/>
       </edges>
-      <formula xsi:type="henshin:Not" xmi:id="_mYw3qjKFEeS-2ouOJu-Wmw">
-        <child xsi:type="henshin:NestedCondition" xmi:id="_mYw3qzKFEeS-2ouOJu-Wmw">
-          <conclusion xmi:id="_mYw3rDKFEeS-2ouOJu-Wmw" name="doNotExceedUpperBound">
-            <nodes xmi:id="_mYw3rTKFEeS-2ouOJu-Wmw" name="NewSource" outgoing="_mYw3sDKFEeS-2ouOJu-Wmw">
+      <formula xsi:type="henshin:Not" xmi:id="_kHbxGj2wEeS7S4jHGG4AsQ">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_kHbxGz2wEeS7S4jHGG4AsQ">
+          <conclusion xmi:id="_kHbxHD2wEeS7S4jHGG4AsQ" name="ub0">
+            <nodes xmi:id="_kHbxHT2wEeS7S4jHGG4AsQ" outgoing="_kHbxHz2wEeS7S4jHGG4AsQ">
               <type href="http://LQN/1.0#//PrecedenceType"/>
             </nodes>
-            <nodes xmi:id="_mYw3rzKFEeS-2ouOJu-Wmw" incoming="_mYw3sDKFEeS-2ouOJu-Wmw">
+            <nodes xmi:id="_kHbxHj2wEeS7S4jHGG4AsQ" incoming="_kHbxHz2wEeS7S4jHGG4AsQ">
               <type href="http://LQN/1.0#//SingleActivityListType"/>
             </nodes>
-            <edges xmi:id="_mYw3sDKFEeS-2ouOJu-Wmw" source="_mYw3rTKFEeS-2ouOJu-Wmw" target="_mYw3rzKFEeS-2ouOJu-Wmw">
+            <edges xmi:id="_kHbxHz2wEeS7S4jHGG4AsQ" source="_kHbxHT2wEeS7S4jHGG4AsQ" target="_kHbxHj2wEeS7S4jHGG4AsQ">
               <type href="http://LQN/1.0#//PrecedenceType/post"/>
             </edges>
           </conclusion>
-          <mappings xmi:id="_mYw3sTKFEeS-2ouOJu-Wmw" origin="_mYw3qDKFEeS-2ouOJu-Wmw" image="_mYw3rTKFEeS-2ouOJu-Wmw"/>
+          <mappings xmi:id="_kHbxID2wEeS7S4jHGG4AsQ" origin="_kHbxGD2wEeS7S4jHGG4AsQ" image="_kHbxHT2wEeS7S4jHGG4AsQ"/>
         </child>
       </formula>
     </lhs>
-    <rhs xmi:id="_mYw3szKFEeS-2ouOJu-Wmw" name="Rhs">
-      <nodes xmi:id="_mYw3tDKFEeS-2ouOJu-Wmw" name="Selected" incoming="_mYw3tzKFEeS-2ouOJu-Wmw">
+    <rhs xmi:id="_kHbxIT2wEeS7S4jHGG4AsQ" name="Rhs">
+      <nodes xmi:id="_kHbxIj2wEeS7S4jHGG4AsQ" name="Selected" incoming="_kHbxJT2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//SingleActivityListType"/>
       </nodes>
-      <nodes xmi:id="_mYw3tTKFEeS-2ouOJu-Wmw" name="OldSource">
+      <nodes xmi:id="_kHbxIz2wEeS7S4jHGG4AsQ" name="OldSource">
         <type href="http://LQN/1.0#//PrecedenceType"/>
       </nodes>
-      <nodes xmi:id="_mYw3tjKFEeS-2ouOJu-Wmw" name="NewSource" outgoing="_mYw3tzKFEeS-2ouOJu-Wmw">
+      <nodes xmi:id="_kHbxJD2wEeS7S4jHGG4AsQ" name="NewSource" outgoing="_kHbxJT2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//PrecedenceType"/>
       </nodes>
-      <edges xmi:id="_mYw3tzKFEeS-2ouOJu-Wmw" source="_mYw3tjKFEeS-2ouOJu-Wmw" target="_mYw3tDKFEeS-2ouOJu-Wmw">
+      <edges xmi:id="_kHbxJT2wEeS7S4jHGG4AsQ" source="_kHbxJD2wEeS7S4jHGG4AsQ" target="_kHbxIj2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//PrecedenceType/post"/>
       </edges>
     </rhs>
-    <mappings xmi:id="_mYw3uDKFEeS-2ouOJu-Wmw" origin="_mYw3pjKFEeS-2ouOJu-Wmw" image="_mYw3tDKFEeS-2ouOJu-Wmw"/>
-    <mappings xmi:id="_mYw3uTKFEeS-2ouOJu-Wmw" origin="_mYw3pzKFEeS-2ouOJu-Wmw" image="_mYw3tTKFEeS-2ouOJu-Wmw"/>
-    <mappings xmi:id="_mYw3ujKFEeS-2ouOJu-Wmw" origin="_mYw3qDKFEeS-2ouOJu-Wmw" image="_mYw3tjKFEeS-2ouOJu-Wmw"/>
+    <mappings xmi:id="_kHbxJj2wEeS7S4jHGG4AsQ" origin="_kHbxFj2wEeS7S4jHGG4AsQ" image="_kHbxIj2wEeS7S4jHGG4AsQ"/>
+    <mappings xmi:id="_kHbxJz2wEeS7S4jHGG4AsQ" origin="_kHbxFz2wEeS7S4jHGG4AsQ" image="_kHbxIz2wEeS7S4jHGG4AsQ"/>
+    <mappings xmi:id="_kHbxKD2wEeS7S4jHGG4AsQ" origin="_kHbxGD2wEeS7S4jHGG4AsQ" image="_kHbxJD2wEeS7S4jHGG4AsQ"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="_mYw3uzKFEeS-2ouOJu-Wmw" name="mainUnit" subUnits="_mYw3oTKFEeS-2ouOJu-Wmw">
-    <parameters xmi:id="_mYw3vDKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
-    <parameters xmi:id="_mYw3vTKFEeS-2ouOJu-Wmw" name="OldSource"/>
-    <parameters xmi:id="_mYw3vjKFEeS-2ouOJu-Wmw" name="NewSource"/>
-    <parameterMappings xmi:id="_mYw3vzKFEeS-2ouOJu-Wmw" source="_mYw3vDKFEeS-2ouOJu-Wmw" target="_mYw3ojKFEeS-2ouOJu-Wmw"/>
-    <parameterMappings xmi:id="_mYw3wDKFEeS-2ouOJu-Wmw" source="_mYw3vTKFEeS-2ouOJu-Wmw" target="_mYw3ozKFEeS-2ouOJu-Wmw"/>
-    <parameterMappings xmi:id="_mYw3wTKFEeS-2ouOJu-Wmw" source="_mYw3vjKFEeS-2ouOJu-Wmw" target="_mYw3pDKFEeS-2ouOJu-Wmw"/>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_kHbxKT2wEeS7S4jHGG4AsQ" name="mainUnit" subUnits="_kHbxET2wEeS7S4jHGG4AsQ">
+    <parameters xmi:id="_kHbxKj2wEeS7S4jHGG4AsQ" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SingleActivityListType"/>
+    </parameters>
+    <parameters xmi:id="_kHbxKz2wEeS7S4jHGG4AsQ" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PrecedenceType"/>
+    </parameters>
+    <parameters xmi:id="_kHbxLD2wEeS7S4jHGG4AsQ" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PrecedenceType"/>
+    </parameters>
+    <parameterMappings xmi:id="_kHbxLT2wEeS7S4jHGG4AsQ" source="_kHbxKj2wEeS7S4jHGG4AsQ" target="_kHbxEj2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kHbxLj2wEeS7S4jHGG4AsQ" source="_kHbxKz2wEeS7S4jHGG4AsQ" target="_kHbxEz2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kHbxLz2wEeS7S4jHGG4AsQ" source="_kHbxLD2wEeS7S4jHGG4AsQ" target="_kHbxFD2wEeS7S4jHGG4AsQ"/>
   </units>
 </henshin:Module>

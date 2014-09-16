@@ -1,51 +1,53 @@
 <?xml version="1.0" encoding="ASCII"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mE5gcDKFEeS-2ouOJu-Wmw" name="DELETE_EntryType_IN_TaskType_(entry)" description="Deletes one EntryType in TaskType">
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_kL8doD2wEeS7S4jHGG4AsQ" name="DELETE_EntryType_IN_TaskType_(entry)" description="Deletes one EntryType in TaskType">
   <imports href="http://LQN/1.0#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="_mE5gcTKFEeS-2ouOJu-Wmw" name="deleteEntryType_IN_TaskType" description="deletes one EntryType in the context: TaskType">
-    <parameters xmi:id="_mE5gcjKFEeS-2ouOJu-Wmw" name="Selected"/>
-    <parameters xmi:id="_mE5gczKFEeS-2ouOJu-Wmw" name="ToBeDeleted"/>
-    <lhs xmi:id="_mE5gdDKFEeS-2ouOJu-Wmw" name="LHS">
-      <nodes xmi:id="_mE5gdTKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mE5gdzKFEeS-2ouOJu-Wmw">
+  <units xsi:type="henshin:Rule" xmi:id="_kL8doT2wEeS7S4jHGG4AsQ" name="deleteEntryType_IN_TaskType" description="deletes one EntryType in the context: TaskType">
+    <parameters xmi:id="_kL8doj2wEeS7S4jHGG4AsQ" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskType"/>
+    </parameters>
+    <parameters xmi:id="_kL8doz2wEeS7S4jHGG4AsQ" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <lhs xmi:id="_kL8dpD2wEeS7S4jHGG4AsQ" name="LHS">
+      <nodes xmi:id="_kL8dpT2wEeS7S4jHGG4AsQ" name="Selected" outgoing="_kL8dpz2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//TaskType"/>
       </nodes>
-      <nodes xmi:id="_mE5gdjKFEeS-2ouOJu-Wmw" name="ToBeDeleted" incoming="_mE5gdzKFEeS-2ouOJu-Wmw">
+      <nodes xmi:id="_kL8dpj2wEeS7S4jHGG4AsQ" name="ToBeDeleted" incoming="_kL8dpz2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//EntryType"/>
       </nodes>
-      <edges xmi:id="_mE5gdzKFEeS-2ouOJu-Wmw" source="_mE5gdTKFEeS-2ouOJu-Wmw" target="_mE5gdjKFEeS-2ouOJu-Wmw">
+      <edges xmi:id="_kL8dpz2wEeS7S4jHGG4AsQ" source="_kL8dpT2wEeS7S4jHGG4AsQ" target="_kL8dpj2wEeS7S4jHGG4AsQ">
         <type href="http://LQN/1.0#//TaskType/entry"/>
       </edges>
-      <formula xsi:type="henshin:NestedCondition" xmi:id="_mE5geDKFEeS-2ouOJu-Wmw">
-        <conclusion xmi:id="_mE5geTKFEeS-2ouOJu-Wmw" name="sufficientElementsMustExist">
-          <nodes xmi:id="_mE5gejKFEeS-2ouOJu-Wmw" name="Selected" outgoing="_mE5gfjKFEeS-2ouOJu-Wmw _mE5gfzKFEeS-2ouOJu-Wmw">
+      <formula xsi:type="henshin:NestedCondition" xmi:id="_kL8dqD2wEeS7S4jHGG4AsQ">
+        <conclusion xmi:id="_kL8dqT2wEeS7S4jHGG4AsQ" name="lb0">
+          <nodes xmi:id="_kL8dqj2wEeS7S4jHGG4AsQ" outgoing="_kL8drD2wEeS7S4jHGG4AsQ">
             <type href="http://LQN/1.0#//TaskType"/>
           </nodes>
-          <nodes xmi:id="_mE5gfDKFEeS-2ouOJu-Wmw" incoming="_mE5gfjKFEeS-2ouOJu-Wmw">
+          <nodes xmi:id="_kL8dqz2wEeS7S4jHGG4AsQ" incoming="_kL8drD2wEeS7S4jHGG4AsQ">
             <type href="http://LQN/1.0#//EntryType"/>
           </nodes>
-          <nodes xmi:id="_mE5gfTKFEeS-2ouOJu-Wmw" incoming="_mE5gfzKFEeS-2ouOJu-Wmw">
-            <type href="http://LQN/1.0#//EntryType"/>
-          </nodes>
-          <edges xmi:id="_mE5gfjKFEeS-2ouOJu-Wmw" source="_mE5gejKFEeS-2ouOJu-Wmw" target="_mE5gfDKFEeS-2ouOJu-Wmw">
-            <type href="http://LQN/1.0#//TaskType/entry"/>
-          </edges>
-          <edges xmi:id="_mE5gfzKFEeS-2ouOJu-Wmw" source="_mE5gejKFEeS-2ouOJu-Wmw" target="_mE5gfTKFEeS-2ouOJu-Wmw">
+          <edges xmi:id="_kL8drD2wEeS7S4jHGG4AsQ" source="_kL8dqj2wEeS7S4jHGG4AsQ" target="_kL8dqz2wEeS7S4jHGG4AsQ">
             <type href="http://LQN/1.0#//TaskType/entry"/>
           </edges>
         </conclusion>
-        <mappings xmi:id="_mE5ggDKFEeS-2ouOJu-Wmw" origin="_mE5gdTKFEeS-2ouOJu-Wmw" image="_mE5gejKFEeS-2ouOJu-Wmw"/>
+        <mappings xmi:id="_kL9EsD2wEeS7S4jHGG4AsQ" origin="_kL8dpT2wEeS7S4jHGG4AsQ" image="_kL8dqj2wEeS7S4jHGG4AsQ"/>
       </formula>
     </lhs>
-    <rhs xmi:id="_mE5ggjKFEeS-2ouOJu-Wmw" name="RHS">
-      <nodes xmi:id="_mE5ggzKFEeS-2ouOJu-Wmw" name="Selected">
+    <rhs xmi:id="_kL9EsT2wEeS7S4jHGG4AsQ" name="RHS">
+      <nodes xmi:id="_kL9Esj2wEeS7S4jHGG4AsQ" name="Selected">
         <type href="http://LQN/1.0#//TaskType"/>
       </nodes>
     </rhs>
-    <mappings xmi:id="_mE5ghDKFEeS-2ouOJu-Wmw" origin="_mE5gdTKFEeS-2ouOJu-Wmw" image="_mE5ggzKFEeS-2ouOJu-Wmw"/>
+    <mappings xmi:id="_kL9Esz2wEeS7S4jHGG4AsQ" origin="_kL8dpT2wEeS7S4jHGG4AsQ" image="_kL9Esj2wEeS7S4jHGG4AsQ"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="_mE5ghTKFEeS-2ouOJu-Wmw" name="mainUnit" description="Deletes one EntryType depending on available contexts in model instance" subUnits="_mE5gcTKFEeS-2ouOJu-Wmw">
-    <parameters xmi:id="_mE5ghjKFEeS-2ouOJu-Wmw" name="ToBeDeleted"/>
-    <parameters xmi:id="_mE5ghzKFEeS-2ouOJu-Wmw" name="selectedEObject"/>
-    <parameterMappings xmi:id="_mE5giDKFEeS-2ouOJu-Wmw" source="_mE5ghzKFEeS-2ouOJu-Wmw" target="_mE5gcjKFEeS-2ouOJu-Wmw"/>
-    <parameterMappings xmi:id="_mE5giTKFEeS-2ouOJu-Wmw" source="_mE5ghjKFEeS-2ouOJu-Wmw" target="_mE5gczKFEeS-2ouOJu-Wmw"/>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_kL9EtD2wEeS7S4jHGG4AsQ" name="mainUnit" subUnits="_kL8doT2wEeS7S4jHGG4AsQ">
+    <parameters xmi:id="_kL9EtT2wEeS7S4jHGG4AsQ" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskType"/>
+    </parameters>
+    <parameters xmi:id="_kL9Etj2wEeS7S4jHGG4AsQ" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <parameterMappings xmi:id="_kL9Etz2wEeS7S4jHGG4AsQ" source="_kL9EtT2wEeS7S4jHGG4AsQ" target="_kL8doj2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kL9EuD2wEeS7S4jHGG4AsQ" source="_kL9Etj2wEeS7S4jHGG4AsQ" target="_kL8doz2wEeS7S4jHGG4AsQ"/>
   </units>
 </henshin:Module>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_kGf88D2wEeS7S4jHGG4AsQ" name="SET_ATTRIBUTE_OutputResultType_WaitingVariance" description="Sets OutputResultType WaitingVariance">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_kGf88T2wEeS7S4jHGG4AsQ" name="setOutputResultTypeWaitingVariance" description="Sets the EAttribute waitingVariance">
+    <parameters xmi:id="_kGf88j2wEeS7S4jHGG4AsQ" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutputResultType"/>
+    </parameters>
+    <parameters xmi:id="_kGf88z2wEeS7S4jHGG4AsQ" name="WaitingVariance">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <lhs xmi:id="_kGf89D2wEeS7S4jHGG4AsQ" name="Lhs">
+      <nodes xmi:id="_kGf89T2wEeS7S4jHGG4AsQ" name="Selected">
+        <type href="http://LQN/1.0#//OutputResultType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_kGf89j2wEeS7S4jHGG4AsQ" name="Rhs">
+      <nodes xmi:id="_kGf89z2wEeS7S4jHGG4AsQ" name="Selected">
+        <type href="http://LQN/1.0#//OutputResultType"/>
+        <attributes xmi:id="_kGf8-D2wEeS7S4jHGG4AsQ" value="WaitingVariance">
+          <type href="http://LQN/1.0#//OutputResultType/waitingVariance"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_kGf8-T2wEeS7S4jHGG4AsQ" origin="_kGf89T2wEeS7S4jHGG4AsQ" image="_kGf89z2wEeS7S4jHGG4AsQ"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_kGf8-j2wEeS7S4jHGG4AsQ" name="mainUnit" subUnits="_kGf88T2wEeS7S4jHGG4AsQ">
+    <parameters xmi:id="_kGf8-z2wEeS7S4jHGG4AsQ" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutputResultType"/>
+    </parameters>
+    <parameters xmi:id="_kGf8_D2wEeS7S4jHGG4AsQ" name="WaitingVariance">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameterMappings xmi:id="_kGf8_T2wEeS7S4jHGG4AsQ" source="_kGf8-z2wEeS7S4jHGG4AsQ" target="_kGf88j2wEeS7S4jHGG4AsQ"/>
+    <parameterMappings xmi:id="_kGf8_j2wEeS7S4jHGG4AsQ" source="_kGf8_D2wEeS7S4jHGG4AsQ" target="_kGf88z2wEeS7S4jHGG4AsQ"/>
+  </units>
+</henshin:Module>
