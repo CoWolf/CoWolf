@@ -321,22 +321,43 @@
             </Params>
         </Rule>
     </Mapping>
-    <Mapping priority="10">
-        <Change>Statemachine/State/label</Change>
-        <Rule name="ChangedLabelInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
+    <Mapping priority="20">
+        <Difference>CREATE_Label_IN_StateVertex_(label)</Difference>
+        <Rule name="CreatedLabelInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
             <Params>
                 <Param name="id">
-                    <Reference name="objB" attribute="id" />
+                    <Change name="AddObject">
+                        <Reference name="obj" attribute="id" />
+                    </Change>
+                </Param>
+            </Params>
+        </Rule>
+    </Mapping>
+    <Mapping priority="20">
+         <Difference>DELETE_Label_IN_StateVertex_(label)</Difference>
+        <Rule name="DeletedLabelInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
+            <Params>
+                <Param name="id">
+                    <Change name="RemoveObject">
+                        <Reference name="obj" attribute="id" />
+                    </Change>
                 </Param>
             </Params>
         </Rule>
     </Mapping>
     <Mapping priority="10">
-        <Change>Statemachine/CompositeState/label</Change>
+        <Difference>SET_ATTRIBUTE_Label_Name</Difference>
         <Rule name="ChangedLabelInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
             <Params>
                 <Param name="id">
-                    <Reference name="objB" attribute="id" />
+                    <Change name="AttributeValueChange">
+                        <Reference name="objB" attribute="id" />
+                    </Change>
+                </Param>
+                <Param name="label">
+                    <Change name="AttributeValueChange">
+                        <Reference name="objB" attribute="name" />
+                    </Change>
                 </Param>
             </Params>
         </Rule>
@@ -505,6 +526,23 @@
                 <Param name="transId">
                     <Change name="RemoveReference" type="incoming">
                         <Reference name="tgt" attribute="id" />
+                    </Change>
+                </Param>
+            </Params>
+        </Rule>
+    </Mapping>
+    <Mapping priority="13">
+        <Difference>MOVE_Label_FROM_StateVertex_(label)_TO_StateVertex_(label)</Difference>
+        <Rule name="MovedLabelInSC" path="platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules/rules/SC_DTMC.henshin">
+            <Params>
+                <Param name="labelId">
+                    <Change name="AddReference" type="label">
+                        <Reference name="tgt" attribute="id" />
+                    </Change>
+                </Param>
+                <Param name="stateId">
+                    <Change name="AddReference" type="label">
+                        <Reference name="src" attribute="id" />
                     </Change>
                 </Param>
             </Params>
