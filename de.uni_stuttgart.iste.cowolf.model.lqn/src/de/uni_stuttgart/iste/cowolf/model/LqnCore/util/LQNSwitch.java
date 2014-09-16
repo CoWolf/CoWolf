@@ -150,13 +150,6 @@ public class LQNSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case LQNPackage.ASYNCH_CALL_TYPE: {
-				AsynchCallType asynchCallType = (AsynchCallType)theEObject;
-				T result = caseAsynchCallType(asynchCallType);
-				if (result == null) result = caseIDBase(asynchCallType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case LQNPackage.BIND_TYPE: {
 				BindType bindType = (BindType)theEObject;
 				T result = caseBindType(bindType);
@@ -171,9 +164,9 @@ public class LQNSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case LQNPackage.DOCUMENT_ROOT: {
-				DocumentRoot documentRoot = (DocumentRoot)theEObject;
-				T result = caseDocumentRoot(documentRoot);
+			case LQNPackage.LQN: {
+				LQN lqn = (LQN)theEObject;
+				T result = caseLQN(lqn);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -454,10 +447,26 @@ public class LQNSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case LQNPackage.CALL_TYPE: {
+				CallType callType = (CallType)theEObject;
+				T result = caseCallType(callType);
+				if (result == null) result = caseIDBase(callType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case LQNPackage.SYNCH_CALL_TYPE: {
 				SynchCallType synchCallType = (SynchCallType)theEObject;
 				T result = caseSynchCallType(synchCallType);
+				if (result == null) result = caseCallType(synchCallType);
 				if (result == null) result = caseIDBase(synchCallType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case LQNPackage.ASYNCH_CALL_TYPE: {
+				AsynchCallType asynchCallType = (AsynchCallType)theEObject;
+				T result = caseAsynchCallType(asynchCallType);
+				if (result == null) result = caseCallType(asynchCallType);
+				if (result == null) result = caseIDBase(asynchCallType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -691,17 +700,17 @@ public class LQNSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Document Root</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>LQN</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Document Root</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>LQN</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDocumentRoot(DocumentRoot object) {
+	public T caseLQN(LQN object) {
 		return null;
 	}
 
@@ -1287,6 +1296,21 @@ public class LQNSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSolverParamsType(SolverParamsType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Call Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Call Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCallType(CallType object) {
 		return null;
 	}
 

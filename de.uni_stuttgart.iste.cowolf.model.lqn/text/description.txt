@@ -60,11 +60,6 @@ Package LqnCore <http://LQN/1.0>
     Reference activity : ActivityType<<1..*>>
     Attribute quorum : NonNegativeInteger
 
-  Class AsynchCallType -> IDBase
-    Attribute dest : String<<1..1>>
-    Attribute fanin : Int
-    Attribute fanout : Int
-
   Class BindType -> IDBase
     Reference parameter : ParameterType<<0..*>>
     Reference processorBinding : ProcessorBindingType<<0..*>>
@@ -74,7 +69,7 @@ Package LqnCore <http://LQN/1.0>
     Reference synchCall : SynchCallType<<0..*>>
     Reference asynchCall : AsynchCallType<<0..*>>
 
-  Class DocumentRoot
+  Class LQN
     Attribute mixed : EFeatureMapEntry<<0..*>>
     Reference xMLNSPrefixMap : EStringToStringMapEntry<<0..*>>
     Reference xSISchemaLocation : EStringToStringMapEntry<<0..*>>
@@ -363,10 +358,14 @@ Package LqnCore <http://LQN/1.0>
     Attribute printInt : Int
     Attribute underrelaxCoeff : SrvnFloat
 
-  Class SynchCallType -> IDBase
-    Attribute dest : String<<1..1>>
+  Class CallType -> IDBase
+    Reference dest : EntryType
     Attribute fanin : Int
     Attribute fanout : Int
+
+  Class SynchCallType -> CallType
+
+  Class AsynchCallType -> CallType
 
   Class TaskActivityGraph -> ActivityGraphBase
     Reference replyEntry : ReplyEntryType<<0..*>>

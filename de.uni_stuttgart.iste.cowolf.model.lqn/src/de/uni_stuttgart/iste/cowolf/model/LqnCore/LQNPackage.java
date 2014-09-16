@@ -625,7 +625,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getMakingCallType()
 	 * @generated
 	 */
-	int MAKING_CALL_TYPE = 25;
+	int MAKING_CALL_TYPE = 24;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1062,61 +1062,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getAsynchCallType()
 	 * @generated
 	 */
-	int ASYNCH_CALL_TYPE = 11;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASYNCH_CALL_TYPE__ID = CommonBasePackage.ID_BASE__ID;
-
-	/**
-	 * The feature id for the '<em><b>Dest</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASYNCH_CALL_TYPE__DEST = CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Fanin</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASYNCH_CALL_TYPE__FANIN = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Fanout</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASYNCH_CALL_TYPE__FANOUT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>Asynch Call Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASYNCH_CALL_TYPE_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
-
-	/**
-	 * The number of operations of the '<em>Asynch Call Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASYNCH_CALL_TYPE_OPERATION_COUNT = CommonBasePackage.ID_BASE_OPERATION_COUNT + 0;
+	int ASYNCH_CALL_TYPE = 55;
 
 	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.BindTypeImpl <em>Bind Type</em>}' class.
@@ -1126,7 +1072,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getBindType()
 	 * @generated
 	 */
-	int BIND_TYPE = 12;
+	int BIND_TYPE = 11;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1190,7 +1136,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getCallListType()
 	 * @generated
 	 */
-	int CALL_LIST_TYPE = 13;
+	int CALL_LIST_TYPE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1238,14 +1184,14 @@ public interface LQNPackage extends EPackage {
 	int CALL_LIST_TYPE_OPERATION_COUNT = CommonBasePackage.ID_BASE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.DocumentRootImpl <em>Document Root</em>}' class.
+	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNImpl <em>LQN</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.DocumentRootImpl
-	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getDocumentRoot()
+	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNImpl
+	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getLQN()
 	 * @generated
 	 */
-	int DOCUMENT_ROOT = 14;
+	int LQN = 13;
 
 	/**
 	 * The feature id for the '<em><b>Mixed</b></em>' attribute list.
@@ -1254,7 +1200,7 @@ public interface LQNPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__MIXED = 0;
+	int LQN__MIXED = 0;
 
 	/**
 	 * The feature id for the '<em><b>XMLNS Prefix Map</b></em>' map.
@@ -1263,7 +1209,7 @@ public interface LQNPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__XMLNS_PREFIX_MAP = 1;
+	int LQN__XMLNS_PREFIX_MAP = 1;
 
 	/**
 	 * The feature id for the '<em><b>XSI Schema Location</b></em>' map.
@@ -1272,7 +1218,7 @@ public interface LQNPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__XSI_SCHEMA_LOCATION = 2;
+	int LQN__XSI_SCHEMA_LOCATION = 2;
 
 	/**
 	 * The feature id for the '<em><b>Lqn Core</b></em>' containment reference.
@@ -1281,7 +1227,7 @@ public interface LQNPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__LQN_CORE = 3;
+	int LQN__LQN_CORE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Lqn Model</b></em>' containment reference.
@@ -1290,25 +1236,25 @@ public interface LQNPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__LQN_MODEL = 4;
+	int LQN__LQN_MODEL = 4;
 
 	/**
-	 * The number of structural features of the '<em>Document Root</em>' class.
+	 * The number of structural features of the '<em>LQN</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT_FEATURE_COUNT = 5;
+	int LQN_FEATURE_COUNT = 5;
 
 	/**
-	 * The number of operations of the '<em>Document Root</em>' class.
+	 * The number of operations of the '<em>LQN</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT_OPERATION_COUNT = 0;
+	int LQN_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.EntryActivityDefTypeImpl <em>Entry Activity Def Type</em>}' class.
@@ -1318,7 +1264,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getEntryActivityDefType()
 	 * @generated
 	 */
-	int ENTRY_ACTIVITY_DEF_TYPE = 17;
+	int ENTRY_ACTIVITY_DEF_TYPE = 16;
 
 	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.EntryActivityGraphImpl <em>Entry Activity Graph</em>}' class.
@@ -1328,7 +1274,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getEntryActivityGraph()
 	 * @generated
 	 */
-	int ENTRY_ACTIVITY_GRAPH = 18;
+	int ENTRY_ACTIVITY_GRAPH = 17;
 
 	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.EntryMakingCallTypeImpl <em>Entry Making Call Type</em>}' class.
@@ -1338,7 +1284,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getEntryMakingCallType()
 	 * @generated
 	 */
-	int ENTRY_MAKING_CALL_TYPE = 19;
+	int ENTRY_MAKING_CALL_TYPE = 18;
 
 	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.EntryTypeImpl <em>Entry Type</em>}' class.
@@ -1348,7 +1294,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getEntryType()
 	 * @generated
 	 */
-	int ENTRY_TYPE = 20;
+	int ENTRY_TYPE = 19;
 
 	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.FirstPlotTypeImpl <em>First Plot Type</em>}' class.
@@ -1358,7 +1304,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getFirstPlotType()
 	 * @generated
 	 */
-	int FIRST_PLOT_TYPE = 21;
+	int FIRST_PLOT_TYPE = 20;
 
 	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.HistogramBinTypeImpl <em>Histogram Bin Type</em>}' class.
@@ -1368,7 +1314,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getHistogramBinType()
 	 * @generated
 	 */
-	int HISTOGRAM_BIN_TYPE = 22;
+	int HISTOGRAM_BIN_TYPE = 21;
 
 	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.InPortTypeImpl <em>In Port Type</em>}' class.
@@ -1378,7 +1324,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getInPortType()
 	 * @generated
 	 */
-	int IN_PORT_TYPE = 23;
+	int IN_PORT_TYPE = 22;
 
 	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.InterfaceTypeImpl <em>Interface Type</em>}' class.
@@ -1388,7 +1334,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getInterfaceType()
 	 * @generated
 	 */
-	int INTERFACE_TYPE = 24;
+	int INTERFACE_TYPE = 23;
 
 	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LqnCoreTypeImpl <em>Lqn Core Type</em>}' class.
@@ -1398,7 +1344,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getLqnCoreType()
 	 * @generated
 	 */
-	int LQN_CORE_TYPE = 15;
+	int LQN_CORE_TYPE = 14;
 
 	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LqnModelTypeImpl <em>Lqn Model Type</em>}' class.
@@ -1408,7 +1354,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getLqnModelType()
 	 * @generated
 	 */
-	int LQN_MODEL_TYPE = 16;
+	int LQN_MODEL_TYPE = 15;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2192,7 +2138,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getOrListType()
 	 * @generated
 	 */
-	int OR_LIST_TYPE = 26;
+	int OR_LIST_TYPE = 25;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2238,7 +2184,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getOutPortType()
 	 * @generated
 	 */
-	int OUT_PORT_TYPE = 27;
+	int OUT_PORT_TYPE = 26;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2302,7 +2248,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getOutputDistributionType()
 	 * @generated
 	 */
-	int OUTPUT_DISTRIBUTION_TYPE = 28;
+	int OUTPUT_DISTRIBUTION_TYPE = 27;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2456,7 +2402,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getOutputEntryDistributionType()
 	 * @generated
 	 */
-	int OUTPUT_ENTRY_DISTRIBUTION_TYPE = 29;
+	int OUTPUT_ENTRY_DISTRIBUTION_TYPE = 28;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2619,7 +2565,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getOutputResultForwardingANDJoinDelay()
 	 * @generated
 	 */
-	int OUTPUT_RESULT_FORWARDING_AND_JOIN_DELAY = 30;
+	int OUTPUT_RESULT_FORWARDING_AND_JOIN_DELAY = 29;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2710,7 +2656,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getOutputResultType()
 	 * @generated
 	 */
-	int OUTPUT_RESULT_TYPE = 31;
+	int OUTPUT_RESULT_TYPE = 30;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2981,7 +2927,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getParameterType()
 	 * @generated
 	 */
-	int PARAMETER_TYPE = 32;
+	int PARAMETER_TYPE = 31;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3036,7 +2982,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getParaType()
 	 * @generated
 	 */
-	int PARA_TYPE = 33;
+	int PARA_TYPE = 32;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3109,7 +3055,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getPhaseActivities()
 	 * @generated
 	 */
-	int PHASE_ACTIVITIES = 34;
+	int PHASE_ACTIVITIES = 33;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3155,7 +3101,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getPlotControlType()
 	 * @generated
 	 */
-	int PLOT_CONTROL_TYPE = 35;
+	int PLOT_CONTROL_TYPE = 34;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3210,7 +3156,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getPlotType()
 	 * @generated
 	 */
-	int PLOT_TYPE = 36;
+	int PLOT_TYPE = 35;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3256,7 +3202,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getPortBindingType()
 	 * @generated
 	 */
-	int PORT_BINDING_TYPE = 37;
+	int PORT_BINDING_TYPE = 36;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3311,7 +3257,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getPragmaType()
 	 * @generated
 	 */
-	int PRAGMA_TYPE = 38;
+	int PRAGMA_TYPE = 37;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3366,7 +3312,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getPrecedenceType()
 	 * @generated
 	 */
-	int PRECEDENCE_TYPE = 39;
+	int PRECEDENCE_TYPE = 38;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3466,7 +3412,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getProcessorBindingType()
 	 * @generated
 	 */
-	int PROCESSOR_BINDING_TYPE = 40;
+	int PROCESSOR_BINDING_TYPE = 39;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3521,7 +3467,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getProcessorType()
 	 * @generated
 	 */
-	int PROCESSOR_TYPE = 41;
+	int PROCESSOR_TYPE = 40;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3630,7 +3576,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getReplyActivityType()
 	 * @generated
 	 */
-	int REPLY_ACTIVITY_TYPE = 42;
+	int REPLY_ACTIVITY_TYPE = 41;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3676,7 +3622,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getReplyEntryType()
 	 * @generated
 	 */
-	int REPLY_ENTRY_TYPE = 43;
+	int REPLY_ENTRY_TYPE = 42;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3731,7 +3677,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getResultConf95Type()
 	 * @generated
 	 */
-	int RESULT_CONF95_TYPE = 44;
+	int RESULT_CONF95_TYPE = 43;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3795,7 +3741,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getResultConf95Type1()
 	 * @generated
 	 */
-	int RESULT_CONF95_TYPE1 = 45;
+	int RESULT_CONF95_TYPE1 = 44;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4048,7 +3994,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getResultConf99Type()
 	 * @generated
 	 */
-	int RESULT_CONF99_TYPE = 46;
+	int RESULT_CONF99_TYPE = 45;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4112,7 +4058,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getResultConf99Type1()
 	 * @generated
 	 */
-	int RESULT_CONF99_TYPE1 = 47;
+	int RESULT_CONF99_TYPE1 = 46;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4365,7 +4311,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getResultGeneralType()
 	 * @generated
 	 */
-	int RESULT_GENERAL_TYPE = 48;
+	int RESULT_GENERAL_TYPE = 47;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4474,7 +4420,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getRunControlType()
 	 * @generated
 	 */
-	int RUN_CONTROL_TYPE = 49;
+	int RUN_CONTROL_TYPE = 48;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4520,7 +4466,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getServiceType()
 	 * @generated
 	 */
-	int SERVICE_TYPE = 50;
+	int SERVICE_TYPE = 49;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4566,7 +4512,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getSingleActivityListType()
 	 * @generated
 	 */
-	int SINGLE_ACTIVITY_LIST_TYPE = 51;
+	int SINGLE_ACTIVITY_LIST_TYPE = 50;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4612,7 +4558,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getSlotType()
 	 * @generated
 	 */
-	int SLOT_TYPE = 52;
+	int SLOT_TYPE = 51;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4685,7 +4631,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getSolverParamsType()
 	 * @generated
 	 */
-	int SOLVER_PARAMS_TYPE = 53;
+	int SOLVER_PARAMS_TYPE = 52;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4778,6 +4724,70 @@ public interface LQNPackage extends EPackage {
 	int SOLVER_PARAMS_TYPE_OPERATION_COUNT = CommonBasePackage.ID_BASE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.CallTypeImpl <em>Call Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.CallTypeImpl
+	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getCallType()
+	 * @generated
+	 */
+	int CALL_TYPE = 53;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALL_TYPE__ID = CommonBasePackage.ID_BASE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Dest</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALL_TYPE__DEST = CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Fanin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALL_TYPE__FANIN = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Fanout</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALL_TYPE__FANOUT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Call Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALL_TYPE_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>Call Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALL_TYPE_OPERATION_COUNT = CommonBasePackage.ID_BASE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.SynchCallTypeImpl <em>Synch Call Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4794,16 +4804,16 @@ public interface LQNPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYNCH_CALL_TYPE__ID = CommonBasePackage.ID_BASE__ID;
+	int SYNCH_CALL_TYPE__ID = CALL_TYPE__ID;
 
 	/**
-	 * The feature id for the '<em><b>Dest</b></em>' attribute.
+	 * The feature id for the '<em><b>Dest</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYNCH_CALL_TYPE__DEST = CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
+	int SYNCH_CALL_TYPE__DEST = CALL_TYPE__DEST;
 
 	/**
 	 * The feature id for the '<em><b>Fanin</b></em>' attribute.
@@ -4812,7 +4822,7 @@ public interface LQNPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYNCH_CALL_TYPE__FANIN = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
+	int SYNCH_CALL_TYPE__FANIN = CALL_TYPE__FANIN;
 
 	/**
 	 * The feature id for the '<em><b>Fanout</b></em>' attribute.
@@ -4821,7 +4831,7 @@ public interface LQNPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYNCH_CALL_TYPE__FANOUT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
+	int SYNCH_CALL_TYPE__FANOUT = CALL_TYPE__FANOUT;
 
 	/**
 	 * The number of structural features of the '<em>Synch Call Type</em>' class.
@@ -4830,7 +4840,7 @@ public interface LQNPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYNCH_CALL_TYPE_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
+	int SYNCH_CALL_TYPE_FEATURE_COUNT = CALL_TYPE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Synch Call Type</em>' class.
@@ -4839,7 +4849,61 @@ public interface LQNPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYNCH_CALL_TYPE_OPERATION_COUNT = CommonBasePackage.ID_BASE_OPERATION_COUNT + 0;
+	int SYNCH_CALL_TYPE_OPERATION_COUNT = CALL_TYPE_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASYNCH_CALL_TYPE__ID = CALL_TYPE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Dest</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASYNCH_CALL_TYPE__DEST = CALL_TYPE__DEST;
+
+	/**
+	 * The feature id for the '<em><b>Fanin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASYNCH_CALL_TYPE__FANIN = CALL_TYPE__FANIN;
+
+	/**
+	 * The feature id for the '<em><b>Fanout</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASYNCH_CALL_TYPE__FANOUT = CALL_TYPE__FANOUT;
+
+	/**
+	 * The number of structural features of the '<em>Asynch Call Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASYNCH_CALL_TYPE_FEATURE_COUNT = CALL_TYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Asynch Call Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASYNCH_CALL_TYPE_OPERATION_COUNT = CALL_TYPE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.TaskActivityGraphImpl <em>Task Activity Graph</em>}' class.
@@ -4849,7 +4913,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getTaskActivityGraph()
 	 * @generated
 	 */
-	int TASK_ACTIVITY_GRAPH = 55;
+	int TASK_ACTIVITY_GRAPH = 56;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4913,7 +4977,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getTaskType()
 	 * @generated
 	 */
-	int TASK_TYPE = 56;
+	int TASK_TYPE = 57;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -5058,7 +5122,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getAxisType()
 	 * @generated
 	 */
-	int AXIS_TYPE = 57;
+	int AXIS_TYPE = 58;
 
 	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.CallOrderType <em>Call Order Type</em>}' enum.
@@ -5068,7 +5132,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getCallOrderType()
 	 * @generated
 	 */
-	int CALL_ORDER_TYPE = 58;
+	int CALL_ORDER_TYPE = 59;
 
 	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.SchedulingType <em>Scheduling Type</em>}' enum.
@@ -5078,7 +5142,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getSchedulingType()
 	 * @generated
 	 */
-	int SCHEDULING_TYPE = 59;
+	int SCHEDULING_TYPE = 60;
 
 	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.SemaphoreType <em>Semaphore Type</em>}' enum.
@@ -5088,7 +5152,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getSemaphoreType()
 	 * @generated
 	 */
-	int SEMAPHORE_TYPE = 60;
+	int SEMAPHORE_TYPE = 61;
 
 	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.TaskOptionType <em>Task Option Type</em>}' enum.
@@ -5098,7 +5162,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getTaskOptionType()
 	 * @generated
 	 */
-	int TASK_OPTION_TYPE = 61;
+	int TASK_OPTION_TYPE = 62;
 
 	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.TaskSchedulingType <em>Task Scheduling Type</em>}' enum.
@@ -5108,7 +5172,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getTaskSchedulingType()
 	 * @generated
 	 */
-	int TASK_SCHEDULING_TYPE = 62;
+	int TASK_SCHEDULING_TYPE = 63;
 
 	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.TypeType <em>Type Type</em>}' enum.
@@ -5118,7 +5182,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getTypeType()
 	 * @generated
 	 */
-	int TYPE_TYPE = 63;
+	int TYPE_TYPE = 64;
 
 	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.ValidType <em>Valid Type</em>}' enum.
@@ -5128,7 +5192,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getValidType()
 	 * @generated
 	 */
-	int VALID_TYPE = 64;
+	int VALID_TYPE = 65;
 
 	/**
 	 * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.XmlDebugType <em>Xml Debug Type</em>}' enum.
@@ -5138,7 +5202,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getXmlDebugType()
 	 * @generated
 	 */
-	int XML_DEBUG_TYPE = 65;
+	int XML_DEBUG_TYPE = 66;
 
 	/**
 	 * The meta object id for the '<em>Axis Type Object</em>' data type.
@@ -5148,7 +5212,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getAxisTypeObject()
 	 * @generated
 	 */
-	int AXIS_TYPE_OBJECT = 66;
+	int AXIS_TYPE_OBJECT = 67;
 
 	/**
 	 * The meta object id for the '<em>Call Order Type Object</em>' data type.
@@ -5158,7 +5222,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getCallOrderTypeObject()
 	 * @generated
 	 */
-	int CALL_ORDER_TYPE_OBJECT = 67;
+	int CALL_ORDER_TYPE_OBJECT = 68;
 
 	/**
 	 * The meta object id for the '<em>Connect From Type</em>' data type.
@@ -5168,7 +5232,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getConnectFromType()
 	 * @generated
 	 */
-	int CONNECT_FROM_TYPE = 68;
+	int CONNECT_FROM_TYPE = 69;
 
 	/**
 	 * The meta object id for the '<em>Connect To Type</em>' data type.
@@ -5178,7 +5242,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getConnectToType()
 	 * @generated
 	 */
-	int CONNECT_TO_TYPE = 69;
+	int CONNECT_TO_TYPE = 70;
 
 	/**
 	 * The meta object id for the '<em>Phase Type</em>' data type.
@@ -5188,7 +5252,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getPhaseType()
 	 * @generated
 	 */
-	int PHASE_TYPE = 70;
+	int PHASE_TYPE = 71;
 
 	/**
 	 * The meta object id for the '<em>Scheduling Type Object</em>' data type.
@@ -5198,7 +5262,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getSchedulingTypeObject()
 	 * @generated
 	 */
-	int SCHEDULING_TYPE_OBJECT = 71;
+	int SCHEDULING_TYPE_OBJECT = 72;
 
 	/**
 	 * The meta object id for the '<em>Sci Notation</em>' data type.
@@ -5208,7 +5272,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getSciNotation()
 	 * @generated
 	 */
-	int SCI_NOTATION = 72;
+	int SCI_NOTATION = 73;
 
 	/**
 	 * The meta object id for the '<em>Semaphore Type Object</em>' data type.
@@ -5218,7 +5282,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getSemaphoreTypeObject()
 	 * @generated
 	 */
-	int SEMAPHORE_TYPE_OBJECT = 73;
+	int SEMAPHORE_TYPE_OBJECT = 74;
 
 	/**
 	 * The meta object id for the '<em>Srvn Float</em>' data type.
@@ -5228,7 +5292,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getSrvnFloat()
 	 * @generated
 	 */
-	int SRVN_FLOAT = 74;
+	int SRVN_FLOAT = 75;
 
 	/**
 	 * The meta object id for the '<em>Task Option Type Object</em>' data type.
@@ -5238,7 +5302,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getTaskOptionTypeObject()
 	 * @generated
 	 */
-	int TASK_OPTION_TYPE_OBJECT = 75;
+	int TASK_OPTION_TYPE_OBJECT = 76;
 
 	/**
 	 * The meta object id for the '<em>Task Scheduling Type Object</em>' data type.
@@ -5248,7 +5312,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getTaskSchedulingTypeObject()
 	 * @generated
 	 */
-	int TASK_SCHEDULING_TYPE_OBJECT = 76;
+	int TASK_SCHEDULING_TYPE_OBJECT = 77;
 
 	/**
 	 * The meta object id for the '<em>Type Type Object</em>' data type.
@@ -5258,7 +5322,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getTypeTypeObject()
 	 * @generated
 	 */
-	int TYPE_TYPE_OBJECT = 77;
+	int TYPE_TYPE_OBJECT = 78;
 
 	/**
 	 * The meta object id for the '<em>Valid Type Object</em>' data type.
@@ -5268,7 +5332,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getValidTypeObject()
 	 * @generated
 	 */
-	int VALID_TYPE_OBJECT = 78;
+	int VALID_TYPE_OBJECT = 79;
 
 	/**
 	 * The meta object id for the '<em>Xml Debug Type Object</em>' data type.
@@ -5278,7 +5342,7 @@ public interface LQNPackage extends EPackage {
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getXmlDebugTypeObject()
 	 * @generated
 	 */
-	int XML_DEBUG_TYPE_OBJECT = 79;
+	int XML_DEBUG_TYPE_OBJECT = 80;
 
 
 	/**
@@ -5743,39 +5807,6 @@ public interface LQNPackage extends EPackage {
 	EClass getAsynchCallType();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.AsynchCallType#getDest <em>Dest</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Dest</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.AsynchCallType#getDest()
-	 * @see #getAsynchCallType()
-	 * @generated
-	 */
-	EAttribute getAsynchCallType_Dest();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.AsynchCallType#getFanin <em>Fanin</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Fanin</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.AsynchCallType#getFanin()
-	 * @see #getAsynchCallType()
-	 * @generated
-	 */
-	EAttribute getAsynchCallType_Fanin();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.AsynchCallType#getFanout <em>Fanout</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Fanout</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.AsynchCallType#getFanout()
-	 * @see #getAsynchCallType()
-	 * @generated
-	 */
-	EAttribute getAsynchCallType_Fanout();
-
-	/**
 	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.BindType <em>Bind Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5851,69 +5882,69 @@ public interface LQNPackage extends EPackage {
 	EReference getCallListType_AsynchCall();
 
 	/**
-	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.DocumentRoot <em>Document Root</em>}'.
+	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.LQN <em>LQN</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Document Root</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.DocumentRoot
+	 * @return the meta object for class '<em>LQN</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQN
 	 * @generated
 	 */
-	EClass getDocumentRoot();
+	EClass getLQN();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.DocumentRoot#getMixed <em>Mixed</em>}'.
+	 * Returns the meta object for the attribute list '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.LQN#getMixed <em>Mixed</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute list '<em>Mixed</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.DocumentRoot#getMixed()
-	 * @see #getDocumentRoot()
+	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQN#getMixed()
+	 * @see #getLQN()
 	 * @generated
 	 */
-	EAttribute getDocumentRoot_Mixed();
+	EAttribute getLQN_Mixed();
 
 	/**
-	 * Returns the meta object for the map '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.DocumentRoot#getXMLNSPrefixMap <em>XMLNS Prefix Map</em>}'.
+	 * Returns the meta object for the map '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.LQN#getXMLNSPrefixMap <em>XMLNS Prefix Map</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the map '<em>XMLNS Prefix Map</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.DocumentRoot#getXMLNSPrefixMap()
-	 * @see #getDocumentRoot()
+	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQN#getXMLNSPrefixMap()
+	 * @see #getLQN()
 	 * @generated
 	 */
-	EReference getDocumentRoot_XMLNSPrefixMap();
+	EReference getLQN_XMLNSPrefixMap();
 
 	/**
-	 * Returns the meta object for the map '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.DocumentRoot#getXSISchemaLocation <em>XSI Schema Location</em>}'.
+	 * Returns the meta object for the map '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.LQN#getXSISchemaLocation <em>XSI Schema Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the map '<em>XSI Schema Location</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.DocumentRoot#getXSISchemaLocation()
-	 * @see #getDocumentRoot()
+	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQN#getXSISchemaLocation()
+	 * @see #getLQN()
 	 * @generated
 	 */
-	EReference getDocumentRoot_XSISchemaLocation();
+	EReference getLQN_XSISchemaLocation();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.DocumentRoot#getLqnCore <em>Lqn Core</em>}'.
+	 * Returns the meta object for the containment reference '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.LQN#getLqnCore <em>Lqn Core</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Lqn Core</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.DocumentRoot#getLqnCore()
-	 * @see #getDocumentRoot()
+	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQN#getLqnCore()
+	 * @see #getLQN()
 	 * @generated
 	 */
-	EReference getDocumentRoot_LqnCore();
+	EReference getLQN_LqnCore();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.DocumentRoot#getLqnModel <em>Lqn Model</em>}'.
+	 * Returns the meta object for the containment reference '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.LQN#getLqnModel <em>Lqn Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Lqn Model</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.DocumentRoot#getLqnModel()
-	 * @see #getDocumentRoot()
+	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQN#getLqnModel()
+	 * @see #getLQN()
 	 * @generated
 	 */
-	EReference getDocumentRoot_LqnModel();
+	EReference getLQN_LqnModel();
 
 	/**
 	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.EntryActivityDefType <em>Entry Activity Def Type</em>}'.
@@ -8550,6 +8581,49 @@ public interface LQNPackage extends EPackage {
 	EAttribute getSolverParamsType_UnderrelaxCoeff();
 
 	/**
+	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.CallType <em>Call Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Call Type</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.CallType
+	 * @generated
+	 */
+	EClass getCallType();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.CallType#getDest <em>Dest</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Dest</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.CallType#getDest()
+	 * @see #getCallType()
+	 * @generated
+	 */
+	EReference getCallType_Dest();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.CallType#getFanin <em>Fanin</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Fanin</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.CallType#getFanin()
+	 * @see #getCallType()
+	 * @generated
+	 */
+	EAttribute getCallType_Fanin();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.CallType#getFanout <em>Fanout</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Fanout</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.CallType#getFanout()
+	 * @see #getCallType()
+	 * @generated
+	 */
+	EAttribute getCallType_Fanout();
+
+	/**
 	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.SynchCallType <em>Synch Call Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8558,39 +8632,6 @@ public interface LQNPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getSynchCallType();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.SynchCallType#getDest <em>Dest</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Dest</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.SynchCallType#getDest()
-	 * @see #getSynchCallType()
-	 * @generated
-	 */
-	EAttribute getSynchCallType_Dest();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.SynchCallType#getFanin <em>Fanin</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Fanin</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.SynchCallType#getFanin()
-	 * @see #getSynchCallType()
-	 * @generated
-	 */
-	EAttribute getSynchCallType_Fanin();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.SynchCallType#getFanout <em>Fanout</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Fanout</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.SynchCallType#getFanout()
-	 * @see #getSynchCallType()
-	 * @generated
-	 */
-	EAttribute getSynchCallType_Fanout();
 
 	/**
 	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.TaskActivityGraph <em>Task Activity Graph</em>}'.
@@ -9405,30 +9446,6 @@ public interface LQNPackage extends EPackage {
 		EClass ASYNCH_CALL_TYPE = eINSTANCE.getAsynchCallType();
 
 		/**
-		 * The meta object literal for the '<em><b>Dest</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ASYNCH_CALL_TYPE__DEST = eINSTANCE.getAsynchCallType_Dest();
-
-		/**
-		 * The meta object literal for the '<em><b>Fanin</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ASYNCH_CALL_TYPE__FANIN = eINSTANCE.getAsynchCallType_Fanin();
-
-		/**
-		 * The meta object literal for the '<em><b>Fanout</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ASYNCH_CALL_TYPE__FANOUT = eINSTANCE.getAsynchCallType_Fanout();
-
-		/**
 		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.BindTypeImpl <em>Bind Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -9489,14 +9506,14 @@ public interface LQNPackage extends EPackage {
 		EReference CALL_LIST_TYPE__ASYNCH_CALL = eINSTANCE.getCallListType_AsynchCall();
 
 		/**
-		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.DocumentRootImpl <em>Document Root</em>}' class.
+		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNImpl <em>LQN</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.DocumentRootImpl
-		 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getDocumentRoot()
+		 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNImpl
+		 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getLQN()
 		 * @generated
 		 */
-		EClass DOCUMENT_ROOT = eINSTANCE.getDocumentRoot();
+		EClass LQN = eINSTANCE.getLQN();
 
 		/**
 		 * The meta object literal for the '<em><b>Mixed</b></em>' attribute list feature.
@@ -9504,7 +9521,7 @@ public interface LQNPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DOCUMENT_ROOT__MIXED = eINSTANCE.getDocumentRoot_Mixed();
+		EAttribute LQN__MIXED = eINSTANCE.getLQN_Mixed();
 
 		/**
 		 * The meta object literal for the '<em><b>XMLNS Prefix Map</b></em>' map feature.
@@ -9512,7 +9529,7 @@ public interface LQNPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DOCUMENT_ROOT__XMLNS_PREFIX_MAP = eINSTANCE.getDocumentRoot_XMLNSPrefixMap();
+		EReference LQN__XMLNS_PREFIX_MAP = eINSTANCE.getLQN_XMLNSPrefixMap();
 
 		/**
 		 * The meta object literal for the '<em><b>XSI Schema Location</b></em>' map feature.
@@ -9520,7 +9537,7 @@ public interface LQNPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DOCUMENT_ROOT__XSI_SCHEMA_LOCATION = eINSTANCE.getDocumentRoot_XSISchemaLocation();
+		EReference LQN__XSI_SCHEMA_LOCATION = eINSTANCE.getLQN_XSISchemaLocation();
 
 		/**
 		 * The meta object literal for the '<em><b>Lqn Core</b></em>' containment reference feature.
@@ -9528,7 +9545,7 @@ public interface LQNPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DOCUMENT_ROOT__LQN_CORE = eINSTANCE.getDocumentRoot_LqnCore();
+		EReference LQN__LQN_CORE = eINSTANCE.getLQN_LqnCore();
 
 		/**
 		 * The meta object literal for the '<em><b>Lqn Model</b></em>' containment reference feature.
@@ -9536,7 +9553,7 @@ public interface LQNPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DOCUMENT_ROOT__LQN_MODEL = eINSTANCE.getDocumentRoot_LqnModel();
+		EReference LQN__LQN_MODEL = eINSTANCE.getLQN_LqnModel();
 
 		/**
 		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.EntryActivityDefTypeImpl <em>Entry Activity Def Type</em>}' class.
@@ -11561,6 +11578,40 @@ public interface LQNPackage extends EPackage {
 		EAttribute SOLVER_PARAMS_TYPE__UNDERRELAX_COEFF = eINSTANCE.getSolverParamsType_UnderrelaxCoeff();
 
 		/**
+		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.CallTypeImpl <em>Call Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.CallTypeImpl
+		 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.LQNPackageImpl#getCallType()
+		 * @generated
+		 */
+		EClass CALL_TYPE = eINSTANCE.getCallType();
+
+		/**
+		 * The meta object literal for the '<em><b>Dest</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CALL_TYPE__DEST = eINSTANCE.getCallType_Dest();
+
+		/**
+		 * The meta object literal for the '<em><b>Fanin</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CALL_TYPE__FANIN = eINSTANCE.getCallType_Fanin();
+
+		/**
+		 * The meta object literal for the '<em><b>Fanout</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CALL_TYPE__FANOUT = eINSTANCE.getCallType_Fanout();
+
+		/**
 		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.SynchCallTypeImpl <em>Synch Call Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -11569,30 +11620,6 @@ public interface LQNPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SYNCH_CALL_TYPE = eINSTANCE.getSynchCallType();
-
-		/**
-		 * The meta object literal for the '<em><b>Dest</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SYNCH_CALL_TYPE__DEST = eINSTANCE.getSynchCallType_Dest();
-
-		/**
-		 * The meta object literal for the '<em><b>Fanin</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SYNCH_CALL_TYPE__FANIN = eINSTANCE.getSynchCallType_Fanin();
-
-		/**
-		 * The meta object literal for the '<em><b>Fanout</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SYNCH_CALL_TYPE__FANOUT = eINSTANCE.getSynchCallType_Fanout();
 
 		/**
 		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.TaskActivityGraphImpl <em>Task Activity Graph</em>}' class.

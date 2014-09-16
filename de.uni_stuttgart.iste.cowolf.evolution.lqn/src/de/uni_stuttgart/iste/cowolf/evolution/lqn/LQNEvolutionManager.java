@@ -2,7 +2,7 @@ package de.uni_stuttgart.iste.cowolf.evolution.lqn;
 
 import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
 import de.uni_stuttgart.iste.cowolf.evolution.EvolutionTypeInfo;
-import de.uni_stuttgart.iste.cowolf.model.LqnCore.DocumentRoot;
+import de.uni_stuttgart.iste.cowolf.model.LqnCore.LQN;
 
 public class LQNEvolutionManager extends AbstractEvolutionManager {
 	@Override
@@ -14,6 +14,6 @@ public class LQNEvolutionManager extends AbstractEvolutionManager {
 
 	@Override
 	protected Class<?> getManagedClass() {
-		return DocumentRoot.class;
+		return LQN.class;
 	}
 }

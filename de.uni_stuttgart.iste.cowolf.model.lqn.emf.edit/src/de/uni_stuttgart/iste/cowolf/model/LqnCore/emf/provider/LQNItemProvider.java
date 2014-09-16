@@ -3,16 +3,22 @@
 package de.uni_stuttgart.iste.cowolf.model.LqnCore.emf.provider;
 
 
-import de.uni_stuttgart.iste.cowolf.model.LqnCore.DocumentRoot;
+import de.uni_stuttgart.iste.cowolf.model.LqnCore.LQN;
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNFactory;
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage;
+
 import de.uni_stuttgart.iste.cowolf.model.lqn.emf.provider.LQNEditPlugin;
+
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -23,19 +29,26 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.uni_stuttgart.iste.cowolf.model.LqnCore.DocumentRoot} object.
+ * This is the item provider adapter for a {@link de.uni_stuttgart.iste.cowolf.model.LqnCore.LQN} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class DocumentRootItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class LQNItemProvider 
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DocumentRootItemProvider(AdapterFactory adapterFactory) {
+	public LQNItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -66,8 +79,8 @@ public class DocumentRootItemProvider extends ItemProviderAdapter implements IEd
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(LQNPackage.Literals.DOCUMENT_ROOT__LQN_CORE);
-			childrenFeatures.add(LQNPackage.Literals.DOCUMENT_ROOT__LQN_MODEL);
+			childrenFeatures.add(LQNPackage.Literals.LQN__LQN_CORE);
+			childrenFeatures.add(LQNPackage.Literals.LQN__LQN_MODEL);
 		}
 		return childrenFeatures;
 	}
@@ -86,14 +99,14 @@ public class DocumentRootItemProvider extends ItemProviderAdapter implements IEd
 	}
 
 	/**
-	 * This returns DocumentRoot.gif.
+	 * This returns LQN.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/DocumentRoot"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/LQN"));
 	}
 
 	/**
@@ -104,7 +117,7 @@ public class DocumentRootItemProvider extends ItemProviderAdapter implements IEd
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_DocumentRoot_type");
+		return getString("_UI_LQN_type");
 	}
 	
 
@@ -119,9 +132,9 @@ public class DocumentRootItemProvider extends ItemProviderAdapter implements IEd
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(DocumentRoot.class)) {
-			case LQNPackage.DOCUMENT_ROOT__LQN_CORE:
-			case LQNPackage.DOCUMENT_ROOT__LQN_MODEL:
+		switch (notification.getFeatureID(LQN.class)) {
+			case LQNPackage.LQN__LQN_CORE:
+			case LQNPackage.LQN__LQN_MODEL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -141,12 +154,12 @@ public class DocumentRootItemProvider extends ItemProviderAdapter implements IEd
 
 		newChildDescriptors.add
 			(createChildParameter
-				(LQNPackage.Literals.DOCUMENT_ROOT__LQN_CORE,
+				(LQNPackage.Literals.LQN__LQN_CORE,
 				 LQNFactory.eINSTANCE.createLqnCoreType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(LQNPackage.Literals.DOCUMENT_ROOT__LQN_MODEL,
+				(LQNPackage.Literals.LQN__LQN_MODEL,
 				 LQNFactory.eINSTANCE.createLqnModelType()));
 	}
 
