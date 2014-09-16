@@ -36,8 +36,11 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.jface.dialogs.IInputValidator;
+import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.window.Window;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.sirius.business.api.dialect.DialectManager;
@@ -45,11 +48,16 @@ import org.eclipse.sirius.business.api.dialect.command.CreateRepresentationComma
 import org.eclipse.sirius.business.api.helper.SiriusResourceHelper;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.diagram.sequence.description.SequenceDiagramDescription;
 import org.eclipse.sirius.tools.api.command.semantic.AddSemanticResourceCommand;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelection;
 import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelectionCallbackWithConfimation;
 import org.eclipse.sirius.ui.business.internal.commands.ChangeViewpointSelectionCommand;
+import org.eclipse.sirius.ui.tools.api.Messages;
+import org.eclipse.sirius.ui.tools.api.views.ViewHelper;
+import org.eclipse.sirius.ui.tools.internal.actions.creation.CreateRepresentationAction;
+import org.eclipse.sirius.ui.tools.internal.views.common.SessionLabelProvider;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
@@ -60,6 +68,7 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
@@ -81,6 +90,7 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
+import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.PackageableElement;
 import org.eclipse.uml2.uml.internal.impl.PackageImpl;
 
@@ -314,7 +324,7 @@ public class Sequence_diagramModelWizard extends Wizard implements INewWizard {
 			IFile airdFile = modelFile.getProject().getFile(
 					"representations.aird");
 			if (!airdFile.exists())
-				throw new Exception("could not found file:"
+				throw new Exception("could not find file:"
 						+ airdFile.getLocationURI());
 			URI airdFileURI = URI.createPlatformResourceURI(airdFile
 					.getFullPath().toOSString(), true);
@@ -323,6 +333,7 @@ public class Sequence_diagramModelWizard extends Wizard implements INewWizard {
 			Session session = SessionManager.INSTANCE.getSession(airdFileURI,
 					new NullProgressMonitor());
 
+			
 			// adding the resource also to Sirius session
 			AddSemanticResourceCommand addCommandToSession = new AddSemanticResourceCommand(
 					session, semanticFileURI, new NullProgressMonitor());
@@ -330,6 +341,7 @@ public class Sequence_diagramModelWizard extends Wizard implements INewWizard {
 					.execute(addCommandToSession);
 			session.save(new NullProgressMonitor());
 
+			
 			// find and add viewpoint
 			Set<Viewpoint> availableViewpoints = ViewpointSelection
 					.getViewpoints(FILE_EXTENSION);
@@ -357,7 +369,7 @@ public class Sequence_diagramModelWizard extends Wizard implements INewWizard {
 			
 			
 			
-					// create representation //TODO error
+//					// create representation 
 //			Collection<RepresentationDescription> descriptions = DialectManager.INSTANCE
 //					.getAvailableRepresentationDescriptions(
 //							session.getSelectedViewpoints(false), semanticObject);
@@ -370,14 +382,28 @@ public class Sequence_diagramModelWizard extends Wizard implements INewWizard {
 //					.next();
 //
 //			DialectManager viewpointDialectManager = DialectManager.INSTANCE;
-//			Command createViewCommand = new CreateRepresentationCommand(
-//					session, description, semanticObject, modelFile.getName(),
+//			
+//			//TODO error
+//			Command createRepresentationCommand = new CreateRepresentationCommand(
+//					session, description, semanticObject,  modelFile.getName(),
 //					new NullProgressMonitor());
 //
 //			session.getTransactionalEditingDomain().getCommandStack()
-//					.execute(createViewCommand);
+//					.execute(createRepresentationCommand);
 //
 //			SessionManager.INSTANCE.notifyRepresentationCreated(session);
+			
+			final RepresentationDescription description = getDiagramDescription(session,
+					(Interaction) semanticObject);
+			
+			String representationName = getRepresentationName(description,
+					interaction.getName() + " " + "Sequence Diagram");
+			final DRepresentation representation = DialectManager.INSTANCE
+					.createRepresentation(representationName, semanticObject, description,
+							session, new NullProgressMonitor());
+
+			DialectUIManager.INSTANCE.openEditor(session, representation, new NullProgressMonitor());
+//	        
 
 			// open editor
 //			Collection<DRepresentation> representations = viewpointDialectManager
@@ -745,5 +771,50 @@ public class Sequence_diagramModelWizard extends Wizard implements INewWizard {
 	 */
 	public IFile getModelFile() {
 		return newFileCreationPage.getModelFile();
+	}
+	
+	protected RepresentationDescription getDiagramDescription(Session session, Interaction interaction) {
+		for (RepresentationDescription representation : DialectManager.INSTANCE
+				.getAvailableRepresentationDescriptions(session.getSelectedViewpoints(false), interaction)) {
+			if ("Sequence Diagram".equals(representation.getName())
+					&& representation instanceof SequenceDiagramDescription)
+				return representation;
+		}
+		return null;
+	}
+	
+	/**
+	 * Get the representation name for the created representation. The default implementation open a dialog,
+	 * subclass if needed.
+	 * 
+	 * @param description
+	 *            the description
+	 * @param defaultName
+	 *            the default name
+	 * @return the representation, <code>null</code> if it could not be chosen or the creation is cancelled.
+	 */
+	protected String getRepresentationName(RepresentationDescription description, String defaultName) {
+		String descriptionLabel = null;
+		if (description.getEndUserDocumentation() != null
+				&& description.getEndUserDocumentation().trim().length() > 0) {
+			descriptionLabel = Messages.createRepresentationInputDialog_RepresentationDescriptionLabel
+					+ description.getEndUserDocumentation();
+		}
+		if (descriptionLabel == null) {
+			descriptionLabel = ""; //$NON-NLS-1$
+		} else {
+			descriptionLabel += "\n\n"; //$NON-NLS-1$
+		}
+		descriptionLabel += Messages.createRepresentationInputDialog_NewRepresentationNameLabel;
+		final InputDialog askViewPointName = new InputDialog(Display.getDefault().getActiveShell(),
+				Messages.createRepresentationInputDialog_Title, descriptionLabel, defaultName,
+				new IInputValidator() {
+					public String isValid(final String newText) {
+						return null;
+					}
+				});
+		if (askViewPointName.open() == Window.OK)
+			return askViewPointName.getValue();
+		return null;
 	}
 }
