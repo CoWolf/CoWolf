@@ -2,21 +2,37 @@
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="statechart" version="8.1.0">
   <ownedViewpoints name="statechart" modelFileExtension="statemachine">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="statechart diagram" domainClass="statechart.StateMachineRoot" enablePopupBars="true">
-      <layout xsi:type="description_1:CompositeLayout" padding="50" direction="LeftToRight"/>
+      <layout xsi:type="description_1:CompositeLayout" padding="80" direction="LeftToRight"/>
       <defaultLayer name="Default">
         <edgeMappings name="StateToStateTransitionEdge" labelDirectEdit="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='EditGuard']" sourceMapping="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@containerMappings[name='StateMachineContainer']/@subContainerMappings[name='StateContainer'] //@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@containerMappings[name='StateMachineContainer']/@subContainerMappings[name='CompositeStateContainer']" targetMapping="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@containerMappings[name='StateMachineContainer']/@subContainerMappings[name='CompositeStateContainer'] //@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@containerMappings[name='StateMachineContainer']/@subContainerMappings[name='StateContainer']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" domainClass="statechart.Transition" useDomainElement="true">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription showIcon="false">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
           </style>
-          <conditionnalStyles predicateExpression="[not self.eGet('trigger').oclIsUndefined()/]">
+          <conditionnalStyles predicateExpression="[not self.eGet('guard').oclIsUndefined() and not self.eGet('trigger').oclIsUndefined()/]">
             <style sizeComputationExpression="2">
               <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-              <centerLabelStyleDescription showIcon="false" labelExpression="[self.trigger.name/]">
+              <beginLabelStyleDescription labelFormat="italic" showIcon="false" labelExpression="[self.trigger.name/]">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </beginLabelStyleDescription>
+              <centerLabelStyleDescription showIcon="false" labelExpression="[self.guard.expression/]">
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </centerLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="[not self.eGet('guard').oclIsUndefined() and self.eGet('trigger').oclIsUndefined()/]">
+            <style sizeComputationExpression="2">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              <centerLabelStyleDescription showIcon="false" labelExpression="[self.guard.expression/]">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="[self.eGet('guard').oclIsUndefined() and not self.eGet('trigger').oclIsUndefined()/]">
+            <style sizeComputationExpression="2">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              <beginLabelStyleDescription labelFormat="italic" showIcon="false" labelExpression="[self.trigger.name/]">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </beginLabelStyleDescription>
             </style>
           </conditionnalStyles>
         </edgeMappings>
@@ -39,18 +55,21 @@
         <edgeMappings name="MachineCalltoStateMachine" sourceMapping="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@containerMappings[name='StateMachineContainer']/@subContainerMappings[name='StateContainer']" targetMapping="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@containerMappings[name='StateMachineContainer']" targetFinderExpression="[actions.stateMachineCall/]">
           <style sizeComputationExpression="2" routingStyle="manhattan">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
           </style>
         </edgeMappings>
         <containerMappings xsi:type="description_1:ContainerMappingImport" name="StateMachineContainer" labelDirectEdit="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='EditStateName']" semanticCandidatesExpression="feature:eAllContents" domainClass="statechart.StateMachine">
           <subContainerMappings xsi:type="description_1:ContainerMappingImport" name="StateContainer" labelDirectEdit="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='EditStateName']" semanticCandidatesExpression="[eContents()->selectByType(State)/]" domainClass="statechart.State" childrenPresentation="List">
-            <borderedNodeMappings xsi:type="description_1:NodeMappingImport" name="GuardBorderedNode" semanticCandidatesExpression="[self.outgoing.guard/]" domainClass="statechart.Guard">
-              <style xsi:type="style:LozengeNodeDescription" showIcon="false" labelExpression="feature:expression" sizeComputationExpression="1">
+            <borderedNodeMappings name="EntryStateBorderedNode" labelDirectEdit="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='EditEntry']" semanticCandidatesExpression="feature:eContents" domainClass="statechart.ENTRY">
+              <style xsi:type="style:DotDescription" showIcon="false" labelExpression="feature:value" sizeComputationExpression="1">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </borderedNodeMappings>
+            <borderedNodeMappings name="ExitStateBorderedNode" labelDirectEdit="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='EditExit']" semanticCandidatesExpression="feature:eContents" domainClass="statechart.EXIT">
+              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="feature:value" sizeComputationExpression="1" workspacePath="de.uni_stuttgart.iste.cowolf.model.statechart.sirius.editor/icons/finalstate.svg">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </borderedNodeMappings>
             <subNodeMappings name="DONode" labelDirectEdit="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='EditDoActionName']" semanticCandidatesExpression="feature:eContents" domainClass="statechart.DO">
@@ -60,7 +79,7 @@
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
               </style>
             </subNodeMappings>
-            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="20" arcHeight="20" showIcon="false" roundedCorner="true">
+            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="20" arcHeight="20" labelFormat="bold" showIcon="false" roundedCorner="true">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -68,27 +87,27 @@
             </style>
           </subContainerMappings>
           <subContainerMappings xsi:type="description_1:ContainerMappingImport" name="CompositeStateContainer" labelDirectEdit="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='EditStateName']" semanticCandidatesExpression="[eContents()->selectByType(CompositeState)/]" domainClass="statechart.CompositeState" reusedContainerMappings="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@containerMappings[name='StateMachineContainer']/@subContainerMappings[name='StateContainer'] //@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@containerMappings[name='StateMachineContainer']/@subContainerMappings[name='CompositeStateContainer']">
-            <borderedNodeMappings name="EntryBorderedNode" semanticCandidatesExpression="feature:eContents" domainClass="statechart.ENTRY">
+            <borderedNodeMappings name="EntryBorderedNode" labelDirectEdit="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='EditEntry']" semanticCandidatesExpression="feature:eContents" domainClass="statechart.ENTRY">
               <style xsi:type="style:DotDescription" showIcon="false" labelExpression="feature:value">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </borderedNodeMappings>
-            <borderedNodeMappings name="ExitBorderedNode" semanticCandidatesExpression="feature:eContents" domainClass="statechart.EXIT">
+            <borderedNodeMappings name="ExitBorderedNode" labelDirectEdit="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='EditExit']" semanticCandidatesExpression="feature:eContents" domainClass="statechart.EXIT">
               <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="feature:value" workspacePath="de.uni_stuttgart.iste.cowolf.model.statechart.sirius.editor/icons/finalstate.svg">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </borderedNodeMappings>
-            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="40" arcHeight="40" showIcon="false" roundedCorner="true" backgroundStyle="Liquid">
+            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="40" arcHeight="40" labelFormat="bold" showIcon="false" roundedCorner="true" backgroundStyle="Liquid">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
             </style>
           </subContainerMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" showIcon="false" backgroundStyle="Liquid">
+          <style xsi:type="style:FlatContainerStyleDescription" labelFormat="bold" showIcon="false" backgroundStyle="Liquid">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -163,6 +182,11 @@
                     <subModelOperations xsi:type="tool_1:CreateInstance" typeName="statechart.Transition" referenceName="transitions">
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="target" valueExpression="var:target"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="source" valueExpression="var:source"/>
+                      <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self/]">
+                        <subModelOperations xsi:type="tool_1:CreateInstance" typeName="statechart.Guard" referenceName="guard">
+                          <subModelOperations xsi:type="tool_1:SetValue" featureName="expression" valueExpression="[New Guard]"/>
+                        </subModelOperations>
+                      </subModelOperations>
                     </subModelOperations>
                   </subModelOperations>
                 </subModelOperations>
@@ -171,6 +195,11 @@
                     <subModelOperations xsi:type="tool_1:CreateInstance" typeName="statechart.Transition" referenceName="internalTransitions">
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="target" valueExpression="var:target"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="source" valueExpression="var:source"/>
+                      <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self/]">
+                        <subModelOperations xsi:type="tool_1:CreateInstance" typeName="statechart.Guard" referenceName="guard">
+                          <subModelOperations xsi:type="tool_1:SetValue" featureName="expression" valueExpression="[New Guard]"/>
+                        </subModelOperations>
+                      </subModelOperations>
                     </subModelOperations>
                   </subModelOperations>
                 </subModelOperations>
@@ -187,21 +216,25 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Entry" nodeMappings="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@containerMappings[name='StateMachineContainer']/@subContainerMappings[name='CompositeStateContainer']/@borderedNodeMappings[name='EntryBorderedNode']" iconPath="de.uni_stuttgart.iste.cowolf.model.statechart.sirius.editor/icons/entry.png">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Entry" nodeMappings="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@containerMappings[name='StateMachineContainer']/@subContainerMappings[name='CompositeStateContainer']/@borderedNodeMappings[name='EntryBorderedNode'] //@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@containerMappings[name='StateMachineContainer']/@subContainerMappings[name='StateContainer']/@borderedNodeMappings[name='EntryStateBorderedNode']" iconPath="de.uni_stuttgart.iste.cowolf.model.statechart.sirius.editor/icons/entry.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="statechart.ENTRY" referenceName="actions"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="statechart.ENTRY" referenceName="actions">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="New Entry"/>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Exit" nodeMappings="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@containerMappings[name='StateMachineContainer']/@subContainerMappings[name='CompositeStateContainer']/@borderedNodeMappings[name='ExitBorderedNode']" iconPath="de.uni_stuttgart.iste.cowolf.model.statechart.sirius.editor/icons/exit.png">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Exit" nodeMappings="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@containerMappings[name='StateMachineContainer']/@subContainerMappings[name='CompositeStateContainer']/@borderedNodeMappings[name='ExitBorderedNode'] //@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@containerMappings[name='StateMachineContainer']/@subContainerMappings[name='StateContainer']/@borderedNodeMappings[name='ExitStateBorderedNode']" iconPath="de.uni_stuttgart.iste.cowolf.model.statechart.sirius.editor/icons/exit.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="statechart.EXIT" referenceName="actions"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="statechart.EXIT" referenceName="actions">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="New Exit"/>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -216,23 +249,11 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Guard" nodeMappings="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@containerMappings[name='StateMachineContainer']/@subContainerMappings[name='StateContainer']/@borderedNodeMappings[name='GuardBorderedNode']" iconPath="de.uni_stuttgart.iste.cowolf.model.statechart.sirius.editor/icons/guard.png">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self.eContainer().eGet()/]">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="statechart.Guard" referenceName="guard"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
           <ownedTools xsi:type="tool:DirectEditLabel" name="EditGuard">
             <mask mask="{0}"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self.trigger/]">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:0"/>
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self.eContainer().guard/]">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="var:0"/>
-                </subModelOperations>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="feature:guard">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="expression" valueExpression="var:0"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -248,6 +269,18 @@
               <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:0">
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="var:0"/>
               </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="EditEntry">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="EditExit">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="var:0"/>
             </initialOperation>
           </ownedTools>
         </toolSections>
