@@ -4,13 +4,23 @@ package de.uni_stuttgart.iste.cowolf.core.ModelAssociation.impl;
 
 import java.io.File;
 import java.io.IOException;
+import java.rmi.UnexpectedException;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.*;
+import de.uni_stuttgart.iste.cowolf.core.natures.ProjectNature;
+import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
 
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.WorkspaceJob;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.common.util.URI;
@@ -22,6 +32,7 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -81,12 +92,38 @@ public class ModelAssociationFactoryImpl extends EFactoryImpl implements ModelAs
 		}
 	}
 
+	@Override
+	public void removeModelAssociation(IProject project) {
+		if (!this.resources.containsKey(project)) {
+			if (getModelAssociation(project) == null) {
+				return;
+			}
+		}
+		
+		this.resources.get(project).unload();
+		this.resources.remove(project);
+		
+		if (project.getFile(ModelAssociationPackage.PROJECT_FILENAME).exists()) {
+			try {
+				project.getFile(ModelAssociationPackage.PROJECT_FILENAME).delete(true, null);
+			} catch (CoreException e) {
+				System.out.println("Could not delete .modelassociation file");
+			}
+		}
+	}
 	
 	@Override
 	public ModelAssociation getModelAssociation(IProject project) {
 		
 		if (project == null) {
 			throw new IllegalArgumentException("No project given.");
+		}
+		
+		try {
+			if (!project.hasNature(ProjectNature.NATURE_ID)) {
+				return null;
+			}
+		} catch (CoreException e) {
 		}
 		
 		Resource res = this.getResource(project);
@@ -170,6 +207,140 @@ public class ModelAssociationFactoryImpl extends EFactoryImpl implements ModelAs
 	public Model createModel() {
 		Model model = new ModelImpl();
 		return model;
+	}
+	
+	@Override
+	public Model copyModel(final Model source, final IFile target, final Runnable onFinish) throws UnexpectedException {
+		
+		if (source == null || target == null || target.getProject() == null || !target.getProject().isOpen()) {
+			System.out.println("There is something null.");
+			return null;
+		}
+		
+		try {
+			if (!target.getProject().hasNature(ProjectNature.NATURE_ID)) {
+				System.out.println("Target project does not have cowolf nature.");
+				return null;
+			}
+		} catch (CoreException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		System.out.println("Copy " + source.getModel() + " to " + target.getLocation().toString());
+		
+		final ModelAssociation tma = ModelAssociationFactory.eINSTANCE.getModelAssociation(target.getProject());
+		
+		if (tma.getModelByPath(target.getProjectRelativePath().toString()) != null) {
+			System.out.println("There is already a model " + target.getProjectRelativePath().toString() + " in Project " + target.getProject().getName());
+			return tma.getModelByPath(target.getProjectRelativePath().toString());
+		}
+		
+		if (!target.exists()) {
+			if (!source.getFile().exists()) {
+				throw new UnexpectedException("There is neither source nor target model file.");
+			}
+//			WorkspaceJob job = new WorkspaceJob("Copy model versions...") {
+//
+//				@Override
+//				public IStatus runInWorkspace(IProgressMonitor monitor) {
+					try {
+						source.getFile().copy(target.getFullPath(), true, null);
+					} catch (CoreException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+//				}
+//			};
+//			job.schedule();
+//			job.join();
+		}
+		
+		final Model model = ModelAssociationFactory.eINSTANCE.createModel();
+		
+		tma.runCluster(new Runnable() {
+			
+			@Override
+			public void run() {
+
+				model.setModel(target.getProjectRelativePath().toString());
+				model.setParent(tma);
+				
+				
+				Resource modelRes = model.getResource();
+				if (modelRes == null) {
+					return;
+				}
+				
+				if (modelRes.getContents().size() > 0 && modelRes.getContents().get(0) instanceof IDBase) {
+					model.setModelID(((IDBase) modelRes.getContents().get(0)).getId());
+				}
+			}
+		});
+		
+		
+		
+		if (source.getVersions().size() > 0) {
+		
+			final IFolder versionSource = source.getParent().getProject().getFolder(ModelAssociationPackage.VERSIONBASEDIR + source.getModel());
+			
+			if (!versionSource.exists()) {
+				throw new UnexpectedException("Source versions directory do not exist.");
+			}
+		
+			final IFolder versionTarget = model.getParent().getProject()
+					.getFolder(ModelAssociationPackage.VERSIONBASEDIR + target.getProjectRelativePath());
+			
+			tma.runCluster(new Runnable() {
+				
+				@Override
+				public void run() {
+					source.getParent().runCluster(new Runnable() {
+						
+						@Override
+						public void run() {
+							model.getVersions().addAll(EcoreUtil.copyAll(source.getVersions()));
+						}
+					});
+				}
+			});
+		
+			new WorkspaceJob("Copy model versions...") {
+	
+				@Override
+				public IStatus runInWorkspace(IProgressMonitor monitor) {
+					try {
+						prepare((IFolder) versionTarget.getParent());
+						versionSource.copy(versionTarget.getFullPath(), true, monitor);
+						
+						if (onFinish != null) {
+							onFinish.run();
+						}
+					} catch (CoreException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+					return Status.OK_STATUS;
+				}
+			}.schedule();
+		}
+	
+		return model;
+	}
+	
+	private static void prepare(IFolder folder) {
+	    if (!folder.exists()) {
+	    	if (folder.getParent() instanceof IFolder) {
+	    		prepare((IFolder) folder.getParent());
+	    	}
+	        try {
+				folder.create(true, true, null);
+			} catch (CoreException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	    }
 	}
 
 	/**

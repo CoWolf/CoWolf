@@ -2,6 +2,9 @@
  */
 package de.uni_stuttgart.iste.cowolf.core.ModelAssociation;
 
+import java.rmi.UnexpectedException;
+
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.ecore.EFactory;
 
@@ -73,5 +76,9 @@ public interface ModelAssociationFactory extends EFactory {
 	void saveAll();
 
 	public abstract ModelAssociation getModelAssociation(IProject project);
+
+	public abstract Model copyModel(Model source, IFile target, Runnable onFinish) throws UnexpectedException;
+
+	void removeModelAssociation(IProject project);
 
 } //ModelAssociationFactory

@@ -125,4 +125,44 @@
             name="CoWolf">
       </page>
    </extension>
+   <extension
+         id="de.uni_stuttgart.iste.cowolf.ui.navigator.commands"
+         name="%extension.name"
+         point="org.eclipse.ui.commands">
+      <command
+            id="de.uni_stuttgart.iste.cowolf.ui.modelassociation.RevertVersion"
+            name="Revert Version">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="de.uni_stuttgart.iste.cowolf.ui.modelassociation.VersionRevert"
+            commandId="de.uni_stuttgart.iste.cowolf.ui.modelassociation.RevertVersion">
+         <enabledWhen>
+            <and>
+               <with
+                     variable="selection">
+                  <count
+                        value="1">
+                  </count>
+               </with>
+               <test
+                     forcePluginActivation="true"
+                     property="de.uni_stuttgart.iste.cowolf.ui.modelassociation.props.canFoo">
+               </test>
+            </and>
+         </enabledWhen>
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.core.expressions.propertyTesters">
+      <propertyTester
+            class="de.uni_stuttgart.iste.cowolf.ui.modelassociation.MAPropertyTester"
+            id="de.uni_stuttgart.iste.cowolf.ui.modelassociation.props"
+            namespace="de.uni_stuttgart.iste.cowolf.ui.modelassociation.props"
+            properties="canFoo"
+            type="java.lang.Object">
+      </propertyTester>
+   </extension>
 </plugin>

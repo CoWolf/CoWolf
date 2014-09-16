@@ -232,12 +232,16 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 		for (Association assoc :  this.getSourceAssociations()) {
 			if (assoc.getSource().size() <= 1) {
 				invalidAssocs.add(assoc);
+				assoc.getSource().clear();
+				assoc.getTarget().clear();
 			}
 		}
 		
 		for (Association assoc :  this.getTargetAssociations()) {
 			if (assoc.getTarget().size() <= 1) {
 				invalidAssocs.add(assoc);
+				assoc.getSource().clear();
+				assoc.getTarget().clear();
 			}
 		}
 		
@@ -719,6 +723,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 
 	@Override
 	public IFile getFile() {
+		if (this.getParent() == null || this.getParent().getProject() == null) {
+			System.out.println("Invalid model " + this.getModel());
+			return null;
+		}
 		return this.getParent().getProject().getFile(this.getModel());
 	}
 	

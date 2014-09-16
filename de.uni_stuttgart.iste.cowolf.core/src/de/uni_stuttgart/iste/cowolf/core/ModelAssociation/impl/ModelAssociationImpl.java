@@ -98,7 +98,6 @@ public class ModelAssociationImpl extends MinimalEObjectImpl.Container implement
 	
 	@Override
 	public Model registerModel(Resource res) {
-		
 		if (getModel(res) == null) {
 			Model model = ModelAssociationFactory.eINSTANCE.createModel();
 			model.setModel(getModelFile(res));
@@ -110,15 +109,23 @@ public class ModelAssociationImpl extends MinimalEObjectImpl.Container implement
 			return model;
 		}
 		
+		
+		
 		return null;
 	}
 	
 	@Override
-	public void removeModel(Model model) {
-		if (this.getModels().contains(model)) {
-			model.prepareRemove();
-			this.getModels().remove(model);
-		}
+	public void removeModel(final Model model) {
+		this.runCluster(new Runnable() {
+			
+			@Override
+			public void run() {
+				if (ModelAssociationImpl.this.getModels().contains(model)) {
+					model.prepareRemove();
+					ModelAssociationImpl.this.getModels().remove(model);
+				}
+			}
+		});
 	}
 	
 	/**

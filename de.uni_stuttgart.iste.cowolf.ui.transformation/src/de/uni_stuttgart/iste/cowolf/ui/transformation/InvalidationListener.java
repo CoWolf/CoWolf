@@ -38,8 +38,6 @@ public class InvalidationListener implements IResourceChangeListener {
 			@Override
 			public boolean visit(IResourceDelta delta) throws CoreException {
 				IResource res = delta.getResource();
-				
-				System.out.println("Resource " + res.getLocation().toString());
 
 				// Don't go into non-CoWolf projects.
 				if (res.getType() == IResource.PROJECT) {
@@ -101,6 +99,10 @@ public class InvalidationListener implements IResourceChangeListener {
 				.getModelAssociation(changedRes.getProject());
 
 		Model model = ma.getModelByPath(changedRes.getProjectRelativePath().toString());
+		
+		if (model == null) {
+			return;
+		}
 		
 		HashSet<IFile> targets = new HashSet<>();
 		for (Association assoc : model.getAllAssociations()) {

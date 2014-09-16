@@ -1,13 +1,16 @@
 package de.uni_stuttgart.iste.cowolf.core.ModelAssociation;
 
 import java.io.IOException;
+import java.rmi.UnexpectedException;
 import java.util.Collections;
 
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceChangeEvent;
 import org.eclipse.core.resources.IResourceChangeListener;
 import org.eclipse.core.resources.IResourceDelta;
 import org.eclipse.core.resources.IResourceDeltaVisitor;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.common.util.URI;
@@ -33,6 +36,10 @@ public class ModelResourceChangeListener implements IResourceChangeListener {
 				
 				// Don't go into non-CoWolf projects.
 				if (res.getType() == IResource.PROJECT) {
+					if (delta.getKind() == IResourceDelta.REMOVED) {
+						ModelAssociationFactory.eINSTANCE.removeModelAssociation(res.getProject());
+						return false;
+					}
 					if (!res.getProject().isOpen()) {
 						return false;
 					}
@@ -60,33 +67,17 @@ public class ModelResourceChangeListener implements IResourceChangeListener {
 					return false;
 				}
 				
-				System.out.println(res.getFullPath().toString() + " - " + delta.getKind());
+				System.out.println(res.getFullPath().toString() + " - " + delta.getKind() + " - " + delta.getFlags());
 				ModelAssociation ma = ModelAssociationFactory.eINSTANCE.getModelAssociation(res.getProject());
 				
 				switch (delta.getKind()) {
 					case IResourceDelta.ADDED:
-						
-						// Register only managed models.
-						ResourceSetImpl resSet = new ResourceSetImpl();
-						Resource modelRes = resSet.createResource(URI.createURI(res.getLocationURI().toString()));
-						
-						try {
-							modelRes.load(Collections.EMPTY_MAP);
-						} catch (IOException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-							return false;
-						}
-						
-						// not a model resource.
-						if (modelRes == null || !modelRes.isLoaded() || ModelRegistry.getInstance().getModelManager(modelRes) == null) {
-							return false;
-						}
-						
 						// Moved files
 						if ((delta.getFlags() & IResourceDelta.MOVED_FROM) == IResourceDelta.MOVED_FROM) {
 							IPath from = delta.getMovedFromPath();
-							if (res.getProject().getProjectRelativePath().isPrefixOf(from)) {
+							IFile source = ResourcesPlugin.getWorkspace().getRoot().getFile(from);
+							
+							if (source.getProject() != null && source.getProject().equals(res.getProject())) {
 								// moved from same project
 								System.out.println(from.makeRelativeTo(res.getProject().getFullPath()));
 								Model model = ma.getModelByPath(from.makeRelativeTo(res.getProject().getFullPath()).toString());
@@ -95,13 +86,67 @@ public class ModelResourceChangeListener implements IResourceChangeListener {
 									model.rename(res.getProjectRelativePath().toString());
 									System.out.println("Renamed model file.");
 								}
-							} else {
-								// FIXME: For now, handle as new.
-								Model model = ma.registerModel(modelRes);
-								model.createVersion("Moved model from " + from.toString());
-								System.out.println("Created model after move.");
+							} else if (source.getProject() != null 
+									&& ModelAssociationFactory.eINSTANCE.getModelAssociation(source.getProject()) != null) {
+								System.out.println("Moved to other project...");
+								final Model sourceModel = ModelAssociationFactory.eINSTANCE
+										.getModelAssociation(source.getProject())
+										.getModelByPath(source.getProjectRelativePath().toString());
+								
+								if (sourceModel != null) {
+									try {
+										ModelAssociationFactory.eINSTANCE.copyModel(sourceModel, (IFile) res,
+												new Runnable() {
+													
+													@Override
+													public void run() {
+
+														sourceModel.getParent().removeModel(sourceModel);
+														
+													}
+												});
+									} catch (UnexpectedException e) {
+										System.out.println("Failed to copy model information ("+e.getMessage()+") Keeping old model information as backup.");
+										return false;
+									}
+								}
 							}
-						} else { // created files
+						} else if((delta.getFlags() & IResourceDelta.COPIED_FROM) == IResourceDelta.COPIED_FROM) {
+							// copied files
+							// XXX: COPIED_FROM is not yet supported, see https://bugs.eclipse.org/bugs/show_bug.cgi?id=217489
+							
+							IPath from = delta.getMovedFromPath();
+							IFile source = ResourcesPlugin.getWorkspace().getRoot().getFile(from);
+							
+							Model sourceModel = ModelAssociationFactory.eINSTANCE.getModelAssociation(
+									source.getProject()).getModelByPath(source.getProjectRelativePath().toString());
+							if (sourceModel != null) {
+								try {
+									ModelAssociationFactory.eINSTANCE.copyModel(sourceModel, (IFile) res, null);
+								} catch (UnexpectedException e) {
+									System.out.println("Failed to copy model information.");
+									return false;
+								}
+							}
+							
+						} else {
+							// created files
+							
+							// Register only managed models.
+							ResourceSetImpl resSet = new ResourceSetImpl();
+							Resource modelRes = resSet.createResource(URI.createURI(res.getLocationURI().toString()));
+							
+							try {
+								modelRes.load(Collections.EMPTY_MAP);
+							} catch (IOException e) {
+								return false;
+							}
+							
+							// not a model resource.
+							if (modelRes == null || !modelRes.isLoaded() || ModelRegistry.getInstance().getModelManager(modelRes) == null) {
+								return false;
+							}
+							
 							Model model = ma.registerModel(modelRes);
 							model.createVersion("Created model");
 							System.out.println("Created model file.");
