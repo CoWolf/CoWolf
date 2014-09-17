@@ -109,5 +109,14 @@ public class EvolutionRegistry {
         }
         return null;
     }
+    
+    public AbstractEvolutionManager getEvolutionManager(Class<?> modelClass) {
+    	for (final AbstractEvolutionManager manager : this.evolutionManagers) {
+            if (manager.isManaged(modelClass)) {
+                return manager;
+            }
+        }
+        return null;
+    }
 
 }

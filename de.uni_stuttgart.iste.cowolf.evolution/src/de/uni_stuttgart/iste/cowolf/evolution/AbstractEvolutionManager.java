@@ -50,6 +50,18 @@ public abstract class AbstractEvolutionManager {
 		}
 		return false;
 	}
+    
+    public boolean isManaged(Class<?> modelClass) {
+    	if (modelClass == null) {
+    		return false;
+    	}
+    	
+    	if (this.getManagedClass().isAssignableFrom(modelClass)) {
+    		return true;
+    	}
+    	
+    	return false;
+    }
 
     protected abstract Class<?> getManagedClass();
 

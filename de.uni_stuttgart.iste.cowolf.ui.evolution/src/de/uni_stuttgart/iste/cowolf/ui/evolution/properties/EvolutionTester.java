@@ -13,6 +13,8 @@ import org.eclipse.ui.PlatformUI;
 
 import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
 import de.uni_stuttgart.iste.cowolf.evolution.EvolutionRegistry;
+import de.uni_stuttgart.iste.cowolf.model.AbstractModelManager;
+import de.uni_stuttgart.iste.cowolf.model.ModelRegistry;
 import de.uni_stuttgart.iste.cowolf.ui.evolution.util.ResourceUtil;
 
 /**
@@ -58,12 +60,17 @@ public class EvolutionTester extends PropertyTester {
 		List<?> list = ((IStructuredSelection) selection).toList();
 		if (list.size() == 1) {
 			Object firstElement = list.get(0);
-			if (firstElement instanceof IFile) {
-				Resource firstElementResource = ResourceUtil
-						.getResourceOfIFile((IFile) firstElement);
-				return extensionHandler
-						.getEvolutionManager(firstElementResource) != null;
+			if (!(firstElement instanceof IFile)) {
+				return false;
 			}
+			
+			AbstractModelManager modelManager = ModelRegistry.getInstance().getModelManager(((IFile) firstElement).getFileExtension()); 
+			
+			if (modelManager != null && extensionHandler.getEvolutionManager(modelManager.getManagedClass()) != null) {
+				return true;
+			}
+			
+			return false;
 		}
 		if (list.size() == 2) {
 

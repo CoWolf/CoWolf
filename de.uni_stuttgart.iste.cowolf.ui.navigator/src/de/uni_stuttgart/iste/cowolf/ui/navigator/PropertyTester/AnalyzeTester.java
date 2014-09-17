@@ -14,6 +14,7 @@ import org.eclipse.ui.ISelectionService;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 
+import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociationFactory;
 import de.uni_stuttgart.iste.cowolf.model.AbstractModelManager;
 import de.uni_stuttgart.iste.cowolf.model.AbstractQoSModelManager;
 import de.uni_stuttgart.iste.cowolf.model.ModelRegistry;
@@ -58,20 +59,13 @@ public class AnalyzeTester extends PropertyTester {
 			// file then try to parse
 			if (selectedElement instanceof IFile) {
 				IFile iFile = (IFile) selectedElement;
-				File file = iFile.getLocation().toFile();
-
-				ResourceSet resourceSet = new ResourceSetImpl();
-				Resource resource;
-
-				URI uri = URI.createPlatformResourceURI(iFile.getFullPath()
-						.toString(), true);
-
-				if (!file.exists()) {
+				
+				
+				if (!iFile.exists()) {
 					return false;
 				}
-
-				resource = resourceSet.getResource(uri, true);
-				AbstractModelManager modelManager = ModelRegistry.getInstance().getModelManager(resource);
+				
+				AbstractModelManager modelManager = ModelRegistry.getInstance().getModelManager(iFile.getFileExtension());
 
 				// must find model manager
 				if (modelManager != null && modelManager instanceof AbstractQoSModelManager) {
