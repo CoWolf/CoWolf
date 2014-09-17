@@ -9,6 +9,10 @@
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 
+	<properties>
+		<github.global.server>github</github.global.server>
+	</properties>
+
 	<build>
 		<plugins>
 			<plugin>
@@ -25,7 +29,8 @@
 						<configuration>
 							<artifactItems>
 								<!-- maven artifacts to add to P2 repository; must be already OSGi 
-									bundles -->
+									bundles (file "META-INF/MANIFEST.MF" exist and contains the "Bundle-SymbolicName" 
+									attribute) -->
 								<artifactItem>
 									<groupId>ch.qos.logback</groupId>
 									<artifactId>logback-classic</artifactId>
@@ -82,6 +87,28 @@
 						<configuration>
 							<target>${project.build.directory}/repository</target>
 							<categoryDefinition>${project.basedir}/category.xml</categoryDefinition>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>com.github.github</groupId>
+				<artifactId>site-maven-plugin</artifactId>
+				<version>0.9</version>
+				<executions>
+					<execution>
+						<phase>deploy</phase>
+						<goals>
+							<goal>site</goal>
+						</goals>
+						<configuration>
+							<message>Updated CoWolf dependencies P2 repository.</message>
+							<branch>refs/heads/gh-pages</branch>
+							<outputDirectory>${project.build.directory}/repository</outputDirectory>
+							<path>DependenciesUpdateSite</path>
+							<repositoryOwner>DevProjectSS2014</repositoryOwner>
+							<repositoryName>CoWolf</repositoryName>
+							<dryRun>true</dryRun>
 						</configuration>
 					</execution>
 				</executions>
