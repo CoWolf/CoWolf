@@ -6,12 +6,14 @@ import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Association;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Model;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociationPackage;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelVersion;
+
 import java.io.IOException;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -25,6 +27,8 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * <!-- begin-user-doc -->
@@ -46,6 +50,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class ModelVersionImpl extends MinimalEObjectImpl.Container implements ModelVersion {
+		
+	private final static Logger LOGGER = LoggerFactory
+			.getLogger(ModelVersionImpl.class);
+	
 	/**
 	 * The default value of the '{@link #getTimestamp() <em>Timestamp</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -238,8 +246,7 @@ public class ModelVersionImpl extends MinimalEObjectImpl.Container implements Mo
 			res.load(Collections.EMPTY_MAP);
 			return res;
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			LOGGER.error("Loading resource failed.",e);
 		}
 		return null;
 	}

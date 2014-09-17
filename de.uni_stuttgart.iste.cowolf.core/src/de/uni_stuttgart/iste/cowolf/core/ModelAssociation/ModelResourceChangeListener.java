@@ -16,11 +16,16 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import de.uni_stuttgart.iste.cowolf.core.natures.ProjectNature;
 import de.uni_stuttgart.iste.cowolf.model.ModelRegistry;
 
 public class ModelResourceChangeListener implements IResourceChangeListener {
+	
+	private final static Logger LOGGER = LoggerFactory
+			.getLogger(ModelResourceChangeListener.class);
 	
 	@Override
 	public void resourceChanged(IResourceChangeEvent event) {
@@ -67,7 +72,7 @@ public class ModelResourceChangeListener implements IResourceChangeListener {
 					return false;
 				}
 				
-				System.out.println(res.getFullPath().toString() + " - " + delta.getKind() + " - " + delta.getFlags());
+				LOGGER.debug("{} - {} - {}",res.getFullPath().toString(), delta.getKind(), delta.getFlags());
 				ModelAssociation ma = ModelAssociationFactory.eINSTANCE.getModelAssociation(res.getProject());
 				
 				switch (delta.getKind()) {
@@ -79,16 +84,16 @@ public class ModelResourceChangeListener implements IResourceChangeListener {
 							
 							if (source.getProject() != null && source.getProject().equals(res.getProject())) {
 								// moved from same project
-								System.out.println(from.makeRelativeTo(res.getProject().getFullPath()));
+								LOGGER.debug("{}", from.makeRelativeTo(res.getProject().getFullPath()));
 								Model model = ma.getModelByPath(from.makeRelativeTo(res.getProject().getFullPath()).toString());
 								
 								if (model != null) {
 									model.rename(res.getProjectRelativePath().toString());
-									System.out.println("Renamed model file.");
+									LOGGER.debug("Renamed model file.");
 								}
 							} else if (source.getProject() != null 
 									&& ModelAssociationFactory.eINSTANCE.getModelAssociation(source.getProject()) != null) {
-								System.out.println("Moved to other project...");
+								LOGGER.debug("Moved to other project...");
 								final Model sourceModel = ModelAssociationFactory.eINSTANCE
 										.getModelAssociation(source.getProject())
 										.getModelByPath(source.getProjectRelativePath().toString());
@@ -106,7 +111,7 @@ public class ModelResourceChangeListener implements IResourceChangeListener {
 													}
 												});
 									} catch (UnexpectedException e) {
-										System.out.println("Failed to copy model information ("+e.getMessage()+") Keeping old model information as backup.");
+										LOGGER.error("Failed to copy model information ({}). Keeping old model information as backup.", e.getMessage(), e);
 										return false;
 									}
 								}
@@ -124,7 +129,7 @@ public class ModelResourceChangeListener implements IResourceChangeListener {
 								try {
 									ModelAssociationFactory.eINSTANCE.copyModel(sourceModel, (IFile) res, null);
 								} catch (UnexpectedException e) {
-									System.out.println("Failed to copy model information.");
+                                    LOGGER.error("Failed to copy model information.",e);
 									return false;
 								}
 							}
@@ -149,7 +154,7 @@ public class ModelResourceChangeListener implements IResourceChangeListener {
 							
 							Model model = ma.registerModel(modelRes);
 							model.createVersion("Created model");
-							System.out.println("Created model file.");
+							LOGGER.debug("Created model file.");
 						}
 						break;
 					
@@ -171,7 +176,7 @@ public class ModelResourceChangeListener implements IResourceChangeListener {
 							Model model = ma.getModelByPath(res.getProjectRelativePath().toString());
 							if (model != null) {
 								ma.removeModel(model);
-								System.out.println("Removed model.");
+								LOGGER.debug("Removed model.");
 							}
 						}
 						break;
@@ -185,8 +190,7 @@ public class ModelResourceChangeListener implements IResourceChangeListener {
 		try {
 			event.getDelta().accept(visitor);
 		} catch (CoreException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			LOGGER.error("", e);
 		}
 		
 	}
