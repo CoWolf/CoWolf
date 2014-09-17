@@ -71,7 +71,8 @@ point="org.eclipse.ui.handlers">
          </enabledWhen>
       </handler>
       <handler
-            commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.handler1">
+            class="de.uni_stuttgart.iste.cowolf.ui.navigator.editors.GraphicalSequenceEditor"
+            commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.graphicalSequenceDiagram">
       </handler>
 </extension>
 <extension
@@ -129,6 +130,11 @@ allPopups="false"
             id="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.analyze"
             name="%command.analyze.name">
       </command>
+      <command
+            defaultHandler="de.uni_stuttgart.iste.cowolf.ui.navigator.editors.GraphicalSequenceEditor"
+            id="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.graphicalSequenceDiagram"
+            name="graphicalSequenceDiagram">
+      </command>
 </extension>
 <extension
          point="org.eclipse.core.expressions.propertyTesters">
@@ -164,6 +170,7 @@ allPopups="false"
          point="org.eclipse.ui.editors">
       <editor
             class="de.uni_stuttgart.iste.cowolf.ui.navigator.editors.GraphicalSequenceEditor"
+            contributorClass="org.eclipse.sirius.diagram.ui.part.SiriusDiagramActionBarContributor"
             default="true"
             extensions="sequence_diagram"
             filenames="sequence_diagram"
