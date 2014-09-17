@@ -2,7 +2,7 @@ package de.uni_stuttgart.iste.cowolf.model.lqn.analysis
 
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.ActivityMakingCallType
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.ActivityType
-import de.uni_stuttgart.iste.cowolf.model.LqnCore.DocumentRoot
+import de.uni_stuttgart.iste.cowolf.model.LqnCore.LQN
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.EntryType
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.PhaseActivities
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.ProcessorType
@@ -21,12 +21,12 @@ class LQNSolverFileStandardGenerator implements LQNSolverFileGenerator {
 	private Map<String,String> entries;
 	
 	
-	override doGenerateLQNSolverFile(DocumentRoot root, Map<String, Object> parameters) {
+	override doGenerateLQNSolverFile(LQN root, Map<String, Object> parameters) {
 		init(root);
 		return '''«lqnStandardTemplate(root, parameters)»'''
 	}
 	
-	def init(DocumentRoot root){
+	def init(LQN root){
 		entries = new HashMap<String,String>();
 		for(EntryType e : root.eAllContents.filter(EntryType).toIterable){
 			if(e.name != null && e.id != null){
@@ -35,7 +35,7 @@ class LQNSolverFileStandardGenerator implements LQNSolverFileGenerator {
 		}
 	}
 	
-	def lqnStandardTemplate(DocumentRoot r, Map<String, Object> parameters)'''
+	def lqnStandardTemplate(LQN r, Map<String, Object> parameters)'''
 		«processSolverParams(r.lqnModel.solverParams)»
 		
 		P 0

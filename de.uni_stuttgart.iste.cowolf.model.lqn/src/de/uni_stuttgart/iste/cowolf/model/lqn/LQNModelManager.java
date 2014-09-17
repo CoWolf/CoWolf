@@ -7,7 +7,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 
 import de.uni_stuttgart.iste.cowolf.model.AbstractQoSModelManager;
 import de.uni_stuttgart.iste.cowolf.model.IAnalysisListener;
-import de.uni_stuttgart.iste.cowolf.model.LqnCore.DocumentRoot;
+import de.uni_stuttgart.iste.cowolf.model.LqnCore.LQN;
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage;
 import de.uni_stuttgart.iste.cowolf.model.lqn.analysis.LQNAnalyzeJob;
 import de.uni_stuttgart.iste.cowolf.model.lqn.analysis.LQNAnalyzeJobListener;
@@ -18,7 +18,7 @@ public class LQNModelManager extends AbstractQoSModelManager {
 
 	@Override
 	public Class<?> getManagedClass() {
-		return DocumentRoot.class;
+		return LQN.class;
 	}
 
 	@Override

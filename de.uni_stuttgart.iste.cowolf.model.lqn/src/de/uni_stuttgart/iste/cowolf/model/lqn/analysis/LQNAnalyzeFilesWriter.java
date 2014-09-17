@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
 
-import de.uni_stuttgart.iste.cowolf.model.LqnCore.DocumentRoot;
+import de.uni_stuttgart.iste.cowolf.model.LqnCore.LQN;
 
 public class LQNAnalyzeFilesWriter {
 	
@@ -43,7 +43,7 @@ public class LQNAnalyzeFilesWriter {
 		LQNSolverFileGenerator generator = lqnFilesGenerator.get((parameters.get("typeOfAnalysis")));
 		OutputStreamWriter out = new FileWriter(pathToOutputLQNFile);
 		out.write(generator.doGenerateLQNSolverFile(
-				(DocumentRoot) model.getContents().get(0), parameters).toString());
+				(LQN) model.getContents().get(0), parameters).toString());
 		out.flush();
 		out.close();
 	}

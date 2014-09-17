@@ -2,6 +2,8 @@ package de.uni_stuttgart.iste.cowolf.model.lqn.analysis;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 
 import de.uni_stuttgart.iste.cowolf.core.utilities.CommandLineExecutor;
+import de.uni_stuttgart.iste.cowolf.core.utilities.PrinterRegistry;
 import de.uni_stuttgart.iste.cowolf.model.IAnalysisListener;
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.ActivityType;
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.EntryType;
@@ -67,7 +70,17 @@ public class LQNAnalyzeJob extends Job {
 			lqnSolverCommand.append(pathToLQNSolver).append("/").append(lqnSolverBasicCommand);
 			lqnSolverCommand.append("-o ").append(OUTPUT_NAME);
 			lqnSolverCommand.append(" ").append(INPUT_FILE_NAME);
-			CommandLineExecutor.execCommand(lqnSolverCommand.toString());
+			Reader r = new InputStreamReader(
+					CommandLineExecutor.execCommandAndGetOutput(System.getProperty("java.io.tmpdir"), lqnSolverCommand.toString())
+					);
+			
+			BufferedReader in = new BufferedReader(r);
+			String line;
+			while ((line = in.readLine()) != null) {
+				PrinterRegistry.getInstance().println("DTMC Analysis", line);
+			}
+			PrinterRegistry.getInstance().close();
+			
 			monitor.worked(1);
 
 			// 3. Parse the results from generated file
