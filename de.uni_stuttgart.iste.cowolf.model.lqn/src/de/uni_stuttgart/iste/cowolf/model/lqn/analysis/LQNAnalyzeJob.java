@@ -172,7 +172,9 @@ public class LQNAnalyzeJob extends Job {
 		String target = source;
 		for (String key : mapIdName.keySet()) {
 			String value = mapIdName.get(key);
-			target = target.replaceAll(key, value);
+			if (value != null && !value.equals("")) {
+				target = target.replaceAll(key, value);
+			}
 		}
 		return target;
 	}
