@@ -154,6 +154,13 @@ public class ChangeTree {
 		String eventName = "'" + componentName + " component fails' occurs";
 		return eventName;
 	}
+	
+	/**
+	 * Creates a Hazard, in case there is already no one in the Fault Tree
+	 */
+	private static void createHazard() {
+		HenshinTransformations.createHazard(saGraph, true);
+	}
 
 	/**
 	 * Handles the actions which are needed with new component instances.
@@ -689,6 +696,9 @@ public class ChangeTree {
 
 		// Merge all input models in the saGraph.
 		saGraph = graph;
+		
+		//Creates a Hazard
+		createHazard();
 
 		// Handle new component types.
 		handleNewComponentTypes(newComponentTypes);
