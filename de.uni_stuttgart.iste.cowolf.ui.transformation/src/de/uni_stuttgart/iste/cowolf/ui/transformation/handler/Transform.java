@@ -25,6 +25,8 @@ import org.eclipse.jface.window.Window;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Association;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Model;
@@ -41,6 +43,10 @@ import de.uni_stuttgart.iste.cowolf.ui.transformation.wizard.TransformationWizar
  */
 public class Transform extends AbstractHandler {
 
+	
+	private final static Logger LOGGER = LoggerFactory
+			.getLogger(Transform.class);
+	
     @Override
     public Object execute(ExecutionEvent event) throws ExecutionException {
         // initialize variables
@@ -104,7 +110,7 @@ public class Transform extends AbstractHandler {
 			        	ModelAssociation ma = ModelAssociationFactory.eINSTANCE.getModelAssociation(target.getProject());
 			        	transformationManager.transform(ma.getModel(sourceRes), ma.getModel(targetRes));
 		        	} catch (InvalidParameterException e) {
-		        		e.printStackTrace();
+		        		LOGGER.error("", e);
 		        	} finally {
 		        		monitor.worked(1);
 		        	}
