@@ -3,10 +3,7 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.dtmc.analyze;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.PipedInputStream;
-import java.io.PipedOutputStream;
+import java.io.ByteArrayInputStream;
 import java.util.Map.Entry;
 
 import org.eclipse.core.resources.IFile;
@@ -17,6 +14,7 @@ import org.eclipse.core.runtime.jobs.IJobChangeEvent;
 import org.eclipse.core.runtime.jobs.IJobChangeListener;
 import org.eclipse.emf.ecore.resource.Resource;
 
+import de.uni_stuttgart.iste.cowolf.model.AnalysisResultUtil;
 import de.uni_stuttgart.iste.cowolf.model.IAnalysisListener;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.State;
 
@@ -67,41 +65,50 @@ public class DTMCAnalyzeJobListener implements IJobChangeListener {
 
 		IFile modelfile = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(resource.getURI().toPlatformString(true)));
 
-		IFile resultfile = ResourcesPlugin.getWorkspace().getRoot().getFile(modelfile.getFullPath().addFileExtension("analysis.csv"));
+		IFile resultfile = ResourcesPlugin.getWorkspace().getRoot().getFile(modelfile.getFullPath().addFileExtension("analysis.html"));
 		
-		try {
-			PipedInputStream in = new PipedInputStream();
-			PipedOutputStream out = new PipedOutputStream(in);
+		StringBuilder sb = new StringBuilder();
+		sb.append("<h1>PRISM Analysis Results for DTMC</h1>\n\n");
+		
+		if (job.getAnalysis().size() > 0) {
+			sb.append("<h2>Reachability Analysis</h2>\n\n");
 			
-			out.write("State,Probability\n".getBytes());
+			sb.append("<table>\n")
+			  .append("<thead>\n")
+			  .append("<tr><th>State</th><th>Probability</th></tr>\n")
+			  .append("</thead>\n")
+			  .append("<tbody>\n");
 
 			for(Entry<Object, String> entry : job.getAnalysis().entrySet()) {
 				String key = "";
 				if (entry.getKey() instanceof State) {
-					key = ((State) entry.getKey()).getName();
+					key = "State: <b>" + ((State) entry.getKey()).getName() + "</b>";
 				} else if (entry.getKey() instanceof String) {
-					key = "Label: " + (String) entry.getKey();
+					key = "Label: <b>" + (String) entry.getKey() + "</b>";
 				}
-				out.write(key.getBytes());
-				out.write(',');
-				out.write(entry.getValue().toString().getBytes());
-				out.write('\n');
+				sb.append("  <tr>\n")
+				  .append("    <td>" + key + "</td>\n")
+				  .append("    <td>" + entry.getValue().toString() + "</td>\n")
+				  .append("  </tr>\n");
 			}
-
-			out.close();
 			
+			sb.append("</tbody>\n")
+			  .append("</table>");
+		} else {
+			sb.append("<p>No analysis results.</p>");
+		}
+		
+		try {
+			String html = AnalysisResultUtil.encapsulateHTML(sb.toString());
+			
+			ByteArrayInputStream in = new ByteArrayInputStream(html.getBytes());
+
 			if (resultfile.exists()) {
 				resultfile.setContents(in, true, false, null);
 			} else {
 				resultfile.create(in, true, null);
 			}
 			
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (CoreException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

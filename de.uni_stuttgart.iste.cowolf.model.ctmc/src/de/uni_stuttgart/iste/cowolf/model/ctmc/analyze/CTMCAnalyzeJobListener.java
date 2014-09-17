@@ -3,10 +3,7 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.ctmc.analyze;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.PipedInputStream;
-import java.io.PipedOutputStream;
+import java.io.ByteArrayInputStream;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -16,6 +13,7 @@ import org.eclipse.core.runtime.jobs.IJobChangeEvent;
 import org.eclipse.core.runtime.jobs.IJobChangeListener;
 import org.eclipse.emf.ecore.resource.Resource;
 
+import de.uni_stuttgart.iste.cowolf.model.AnalysisResultUtil;
 import de.uni_stuttgart.iste.cowolf.model.IAnalysisListener;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.analyze.CTMCAnalyzeJob.Result;
 
@@ -79,34 +77,39 @@ public class CTMCAnalyzeJobListener implements IJobChangeListener {
 		IFile modelfile = ResourcesPlugin.getWorkspace().getRoot()
 				.getFile(new Path(resource.getURI().toPlatformString(true)));
 
-		IFile resultfile = ResourcesPlugin
-				.getWorkspace()
-				.getRoot()
-				.getFile(
-						modelfile.getFullPath()
-								.addFileExtension("analysis.csv"));
+		IFile resultfile = ResourcesPlugin.getWorkspace().getRoot()
+					.getFile(modelfile.getFullPath().addFileExtension("analysis.html"));
+		
+		// When performing a verification, reachability and probability are
+		// evaluated. When performing a simulation, only reachability is
+		// evaluated.
+		StringBuilder sb = new StringBuilder();
+		sb.append("<h1>PRISM Analysis Results for CTMC</h1>\n\n");
+		if (job.getAnalysis().size() > 0) {
+			sb.append("<table>\n")
+			  .append("<thead>\n")
+			  .append("<tr><th>Property</th><th>Description</th><th>Result</th></tr>\n")
+			  .append("</thead>\n")
+			  .append("<tbody>\n");
 
-		try {
-			PipedInputStream in = new PipedInputStream();
-			PipedOutputStream out = new PipedOutputStream(in);
-
-			// When performing a verification, reachability and probability are
-			// evaluated. When performing a simulation, only reachability is
-			// evaluated.
-			if (job.getAnalysis().size() > 0) {
-				out.write("Property,Description,Result\n".getBytes());
-
-				for (Result entry : job.getAnalysis()) {
-					out.write(("\"" + entry.property.replaceAll("\"", "\"\"") + "\",").getBytes());
-					out.write(("\"" + entry.name.replaceAll("\"", "\"\"") + "\"")
-							.getBytes());
-					out.write(',');
-					out.write(entry.value.getBytes());
-					out.write('\n');
-				}
+			for (Result entry : job.getAnalysis()) {
+				sb.append("  <tr>\n")
+				  .append("    <td><pre>" + entry.property + "</pre></td>\n")
+				  .append("    <td>" + entry.name + "</td>\n")
+				  .append("    <td>" + entry.value + "</td>\n")
+				  .append("  </tr>\n");
 			}
 
-			out.close();
+			sb.append("</tbody>\n")
+			  .append("</table>");
+		} else {
+			sb.append("<p>No analysis results.</p>");
+		}
+
+		try {
+			String html = AnalysisResultUtil.encapsulateHTML(sb.toString());
+			
+			ByteArrayInputStream in = new ByteArrayInputStream(html.getBytes());
 
 			if (resultfile.exists()) {
 				resultfile.setContents(in, true, false, null);
@@ -114,16 +117,10 @@ public class CTMCAnalyzeJobListener implements IJobChangeListener {
 				resultfile.create(in, true, null);
 			}
 
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (CoreException e) {
-			System.out.println("Error saving result to csv. Is result csv file from previous run still open?");
+			System.out.println("Error saving result to html. Is result html file from previous run still open?");
 		}
-
+		
 		if (this.listener != null) {
 			this.listener.finished(resource, resultfile);
 		}
