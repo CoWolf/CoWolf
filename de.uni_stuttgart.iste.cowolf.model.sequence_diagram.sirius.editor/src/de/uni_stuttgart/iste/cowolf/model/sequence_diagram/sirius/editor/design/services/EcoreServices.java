@@ -30,8 +30,11 @@ import org.eclipse.uml2.uml.Stereotype;
 import org.eclipse.uml2.uml.Type;
 import org.eclipse.uml2.uml.UMLPlugin;
 import org.eclipse.uml2.uml.util.UMLSwitch;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.google.common.collect.Lists;
+
 
 /**
  * Utility services to manage Ecore UML resources.
@@ -40,6 +43,9 @@ import com.google.common.collect.Lists;
  */
 public class EcoreServices {
 
+	private final static Logger LOGGER = LoggerFactory
+			.getLogger(EcoreServices.class);
+	
 	/**
 	 * A singleton instance to be accessed by other java services.
 	 */
@@ -174,7 +180,7 @@ public class EcoreServices {
 				try {
 					resourceSet.getResource(profileURI.trimFragment(), true);
 				} catch (Exception e) {
-					e.printStackTrace();
+					LOGGER.error("", e); 
 				}
 			}
 

@@ -20,6 +20,8 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import de.uni_stuttgart.iste.cowolf.core.utilities.CommandLineExecutor;
 import de.uni_stuttgart.iste.cowolf.core.utilities.PrinterRegistry;
@@ -30,8 +32,11 @@ import de.uni_stuttgart.iste.cowolf.model.LqnCore.ProcessorType;
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.TaskType;
 import de.uni_stuttgart.iste.cowolf.model.lqn.LQNModelManager;
 
-public class LQNAnalyzeJob extends Job {
-
+public class LQNAnalyzeJob extends Job {	
+	
+	private final static Logger LOGGER = LoggerFactory
+			.getLogger(LQNAnalyzeJob.class);
+	
 	private final Resource model;
 	private final Map<String, Object> parameters;
 	private List<String> results;
@@ -97,7 +102,7 @@ public class LQNAnalyzeJob extends Job {
 			parseResultFile(lqnInputFile.getParentFile().getAbsolutePath() + File.separator + lqnOutputFile + File.separator + lqnInputFile.getName().replace(".lqn", ".lqxo"));
 			monitor.done();
 		} catch (Exception e) {
-			e.printStackTrace();
+			LOGGER.error("", e); 
 			return Status.CANCEL_STATUS;
 		}
 		return Status.OK_STATUS;
@@ -160,7 +165,7 @@ public class LQNAnalyzeJob extends Job {
 					mapIdName.put(id, name);				
 					
 				} catch (Exception e) {
-					e.printStackTrace();
+					LOGGER.error("", e); 
 				}
 			}
 		}
