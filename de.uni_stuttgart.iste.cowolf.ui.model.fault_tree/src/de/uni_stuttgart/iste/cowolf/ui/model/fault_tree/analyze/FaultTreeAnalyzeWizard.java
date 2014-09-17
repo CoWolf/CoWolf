@@ -3,6 +3,9 @@ package de.uni_stuttgart.iste.cowolf.ui.model.fault_tree.analyze;
 import java.util.HashMap;
 
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PlatformUI;
 
 import de.uni_stuttgart.iste.cowolf.model.AbstractQoSModelManager;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreeModelManager;
@@ -55,6 +58,14 @@ public class FaultTreeAnalyzeWizard extends AbstractQoSAnalyzeWizard {
 
 	@Override
 	public boolean checkConditions() {
+		String path = FaultTreePreferencePage.getPathToXFTA().trim();
+		if (path.isEmpty() || path.equals("")) {
+			IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+			   MessageDialog.openError(window.getShell(), "Path to xFTA not set",
+			     "The path to xFTA is missing.\nPlease set the path in your preferences first.");
+			return false;
+		}
+		
 		return true;
 	}
 }
