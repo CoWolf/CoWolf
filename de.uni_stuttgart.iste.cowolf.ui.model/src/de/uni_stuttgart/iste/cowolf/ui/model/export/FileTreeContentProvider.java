@@ -14,9 +14,14 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class FileTreeContentProvider implements ITreeContentProvider {
 
+
+    private final static Logger LOGGER = LoggerFactory.getLogger(FileTreeContentProvider.class);	
+	 
 	private List<String> fileExtension;
 
 	/**
@@ -43,7 +48,7 @@ public class FileTreeContentProvider implements ITreeContentProvider {
 			try {
 				return this.filterExtension(projects.members());
 			} catch (CoreException e) {
-				e.printStackTrace();
+				LOGGER.error("", e);
 			}
 		}
 		if (parentElement instanceof IFolder) {
@@ -51,7 +56,7 @@ public class FileTreeContentProvider implements ITreeContentProvider {
 			try {
 				return this.filterExtension(ifolder.members());
 			} catch (CoreException e) {
-				e.printStackTrace();
+				LOGGER.error("", e);
 			}
 		}
 
@@ -100,7 +105,7 @@ public class FileTreeContentProvider implements ITreeContentProvider {
 					}
 				}
 			} catch (CoreException e) {
-				e.printStackTrace();
+				LOGGER.error("", e);
 			}
 		} else if (element instanceof IFile) {
 			if (filterExtension(new IResource[] {element}).length > 0) {
@@ -138,7 +143,7 @@ public class FileTreeContentProvider implements ITreeContentProvider {
 			try {
 				return projects.members().length > 0;
 			} catch (CoreException e) {
-				e.printStackTrace();
+				LOGGER.error("", e);
 			}
 		}
 		if (element instanceof IFolder) {
@@ -146,7 +151,7 @@ public class FileTreeContentProvider implements ITreeContentProvider {
 			try {
 				return this.filterExtension(folder.members()).length > 0;
 			} catch (CoreException e) {
-				e.printStackTrace();
+				LOGGER.error("", e);
 			}
 		}
 		return false;

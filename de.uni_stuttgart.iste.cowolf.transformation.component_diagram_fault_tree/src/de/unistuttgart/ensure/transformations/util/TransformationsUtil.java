@@ -12,11 +12,11 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.emf.henshin.interpreter.EGraph;
 import org.eclipse.emf.henshin.trace.Trace;
 import org.eclipse.emf.henshin.trace.TracePackage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.*;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.*;
-
-
 
 /**
  * Provides some common functionalities for the Henshin transformations.
@@ -45,6 +45,10 @@ import de.uni_stuttgart.iste.cowolf.model.fault_tree.*;
  * 
  */
 public class TransformationsUtil {
+		
+	private final static Logger LOGGER = LoggerFactory
+			.getLogger(TransformationsUtil.class);
+	
 	// ------------------------------------------------------------
 	// INITIALIZATION
 	// ------------------------------------------------------------
@@ -404,7 +408,7 @@ public class TransformationsUtil {
 		try {
 			resource.save(null);
 		} catch (IOException e) {
-			e.printStackTrace();
+			LOGGER.error("Saving resource failed.", e);
 		}
 	}
 }

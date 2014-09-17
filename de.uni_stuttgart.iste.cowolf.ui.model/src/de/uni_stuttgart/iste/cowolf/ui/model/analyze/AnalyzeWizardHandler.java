@@ -7,11 +7,16 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import de.uni_stuttgart.iste.cowolf.model.AbstractQoSModelManager;
 
 public class AnalyzeWizardHandler {
-
+	
+	private final static Logger LOGGER = LoggerFactory
+			.getLogger(AnalyzeWizardHandler.class);
+	
 	/**
 	 * ID for the QoS analyze wizard extension.
 	 */
@@ -64,7 +69,7 @@ public class AnalyzeWizardHandler {
 					extensions.add((T) obj);
 				}
 			} catch (final CoreException e1) {
-				e1.printStackTrace();
+				LOGGER.error("Creating extension failed.", e1);
 			}
 		}
 		return extensions;

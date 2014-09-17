@@ -3,6 +3,7 @@ package de.uni_stuttgart.iste.cowolf.transformation;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
@@ -43,6 +44,8 @@ import org.eclipse.emf.henshin.trace.TracePackage;
 import org.sidiff.difference.symmetric.AttributeValueChange;
 import org.sidiff.difference.symmetric.SemanticChangeSet;
 import org.sidiff.difference.symmetric.SymmetricDifference;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Association;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Model;
@@ -62,6 +65,7 @@ import de.uni_stuttgart.iste.cowolf.transformation.model.util.XMLMappingLoader;
  * 
  */
 public abstract class AbstractTransformationManager {
+	
     protected static final URI RESOURCE_URL_OLDTRACES 	= URI.createURI("transform:oldtraces");
 	protected static final URI RESOURCE_URL_TARGET 		= URI.createURI("transform:target");
 	protected static final URI RESOURCE_URL_RESULT 		= URI.createURI("transform:result");
@@ -69,8 +73,10 @@ public abstract class AbstractTransformationManager {
 	protected static final URI RESOURCE_URL_TRACES 		= URI.createURI("transform:traces");
 	protected static final URI RESOURCE_URL_DIFF 		= URI.createURI("transform:diff");
 	protected static final URI RESOURCE_URL_OLD 		= URI.createURI("transform:old");
-
-
+	
+	private final static Logger LOGGER = LoggerFactory
+			.getLogger(AbstractTransformationManager.class);
+	
     /**
      * 
      * @param source
@@ -185,7 +191,7 @@ public abstract class AbstractTransformationManager {
         
         // Break if there are no changes since the last transformation (old == current)
         if (oldSourceVersion.equals(sourceVersion)) {
-        	System.out.println("No changes in source model.");
+        	LOGGER.info("No changes in source model.");
         	for (ModelVersion version : latest.getTarget()) {
 	        	if (version.getModel().equals(targetModel)) {
 	        		return version;
@@ -225,22 +231,21 @@ public abstract class AbstractTransformationManager {
 					transResSet.getResource(RESOURCE_URL_OLD, false),
 					sourceRes);
 		} catch (EvolutionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			LOGGER.error("", e); 
 			return null;
 		}
         
         if (difference == null || difference.getChanges().size() <= 0) {
-            System.out.println("Difference is null.");
+        	LOGGER.error("Difference is null.");
             return null;
         }
         
         transResSet.createResource(RESOURCE_URL_DIFF).getContents().add(difference);
         
-        System.out.println("Run Transformation");
+        LOGGER.info("Run Transformation");
         
         if (!this.runTransformation(transResSet, difference)) {
-        	System.out.println("Transformation failed.");
+        	LOGGER.error("Transformation failed.");
         	return null;
         }
         
@@ -297,7 +302,7 @@ public abstract class AbstractTransformationManager {
 	        Module module = rulesResourceSet.getModule(henshinFile.file, true);
 	        
 	        if (module == null) {
-	        	System.out.println("Skip henshin file " + henshinFile.file.toString() + ": Module invalid.");
+	        	LOGGER.warn("Skip henshin file {}: Module invalid.", henshinFile.file.toString());
 	        	continue;
 	        }
 	        
@@ -310,11 +315,11 @@ public abstract class AbstractTransformationManager {
 	        Unit unit = module.getUnit(main);
 	        
 	        if (unit == null) {
-		        	System.out.println("Skip henshin file " + henshinFile.file.toString() + ": Unknown unit \"" + main + "\".");
+	        	LOGGER.warn("Skip henshin file {}: Unknown unit \"{}\".", henshinFile.file.toString(), main);
 		        	continue;
 	        }
 	        
-	        System.out.println("Execute unit " + main + " in henshin file " + henshinFile.file.toString() + ".");
+	        LOGGER.debug("Execute unit {} in henshin file {}.", main, henshinFile.file.toString());
 	        
 	        // Apply the unit:
 	        UnitApplication application = new UnitApplicationImpl(engine, graph, unit, null);
@@ -351,21 +356,20 @@ public abstract class AbstractTransformationManager {
             mappingObject = XMLMappingLoader.loadMapping(this.getMappingStream(resSet.getResource(this.getSourceUri(resSet), false)));
             mappings = mappingObject.getMapping();
             changeMapping = mappingObject.getChangeMapping();
-            System.out.println("Found " + mappingObject.getMapping().size()
-                    + " mappings.");
+            LOGGER.debug("Found {} mappings.", mappingObject.getMapping().size());
         } catch (JAXBException e1) {
-            e1.printStackTrace();
+            LOGGER.error("", e1);
             return null;
         }
         
-        System.out.println("Mapping loaded.");
+	    LOGGER.info("Mapping loaded.");
         // Load rules from files in folder
-        System.out.println("Load henshin rules...");
+	    LOGGER.info("Load henshin rules...");
         
         // Map containing all Henshin units. Key: Name of the unit.
         Map<String, Unit> units = this.getHenshinRules(mappings);
         
-        System.out.println("Number of henshin rules:" + units.size());
+        LOGGER.debug("Number of henshin rules: {}", units.size());
         
         EGraph graph = generateGraph(resSet);
 	
@@ -378,7 +382,7 @@ public abstract class AbstractTransformationManager {
 	    List<MappingSet> sortedMappings = new ArrayList<>();
 	
 	    for (SemanticChangeSet changeSet : changeSets) {
-	        System.out.println(changeSet.getName());
+	    	LOGGER.debug(changeSet.getName());
 	        Mapping mapping = mappings.get(changeSet.getName());
 	        if (mapping != null) {
 	            MappingSet mapSet = new MappingSet();
@@ -407,7 +411,7 @@ public abstract class AbstractTransformationManager {
 	                mapSet.setMapping(mapping);
 	                sortedMappings.add(mapSet);
 	            }
-	            System.out.println(key);
+	            LOGGER.debug(key);
 	        }
 	
 	    }
@@ -423,7 +427,7 @@ public abstract class AbstractTransformationManager {
 	        Rule rule = mapping.getRule();
 	        Unit unit = units.get(rule.getName());
 	        if (unit != null) {
-	        	System.out.println(unit.getName() + ":");
+	        	LOGGER.debug("{}: ", unit.getName());
 	            application.setUnit(unit);
 	            // traverse parameters from config object.
 	            for (Param param : rule.getParams().getParam()) {
@@ -442,14 +446,12 @@ public abstract class AbstractTransformationManager {
 	                            + " is set to null");
 	                }
 	                application.setParameterValue(name, value);
-	                System.out.println(name +" -> " + value);
+	                LOGGER.debug("{} -> {}", name, value);
 	            }
 	            result = application.execute(new LoggingApplicationMonitor());
-	            System.out.println(" "
-	                    + (result ? "successful" : "error"));
+	            LOGGER.debug(" {}", result ? "successful" : "error");
 	        } else {
-	            System.out.println("No rule found for changeset with name "
-	                    + changeSet.getName());
+	            LOGGER.warn("No rule found for changeset with name {}", changeSet.getName());
 	        }
 	
 	    }
@@ -481,7 +483,7 @@ public abstract class AbstractTransformationManager {
         
         EGraph graph = mergeInstanceModels(graphSources);
         
-        System.out.println("Finished merging graphs.");
+        LOGGER.info("Finished merging graphs.");
 		return graph;
 	}
     
@@ -566,14 +568,13 @@ public abstract class AbstractTransformationManager {
     		}
     	}
 		
-		if (System.getenv("COWOLF_DEBUG") != null) {
-			System.out.println("Traces (Resolved for " + against.toString() + ")");
+		
+			LOGGER.debug("Traces (Resolved for {})", against.toString());
 			for (EObject dobj : traceResource.getContents()) {
 				Trace dtrace = (Trace) dobj;
-				System.out.println("\t" + (dtrace.getSource().size()>0 ? EcoreUtil.getURI(dtrace.getSource().get(0)) : "(deleted)")
-						+ " --> " + (dtrace.getTarget().size()>0 ? EcoreUtil.getURI(dtrace.getTarget().get(0)) : "(deleted)"));
+				LOGGER.debug("\t{} --> {}", dtrace.getSource().size()>0 ? EcoreUtil.getURI(dtrace.getSource().get(0)) : "(deleted)", dtrace.getTarget().size()>0 ? EcoreUtil.getURI(dtrace.getTarget().get(0)) : "(deleted)");
 			}
-		}
+		
 	}
 
 	/**
@@ -586,7 +587,7 @@ public abstract class AbstractTransformationManager {
 	 */
     protected void extractResultFromGraph(EGraph graph, ResourceSet resSet) {
 
-        System.out.println("Number of roots: " + graph.getRoots().size());
+        LOGGER.debug("Number of roots: ", graph.getRoots().size());
 
         Resource traces = resSet.getResource(RESOURCE_URL_TRACES, false);
         if (traces == null) {
@@ -645,7 +646,7 @@ public abstract class AbstractTransformationManager {
     private ModelVersion saveTransformationResult(Model sourceModel,
 			final ModelVersion sourceVersion, Model targetModel,
 			ResourceSet resSet) {
-		System.out.println("Save result");
+    	LOGGER.info("Save result");
 	    
 	    
 	    Resource targetRes = targetModel.getResource();
@@ -656,9 +657,7 @@ public abstract class AbstractTransformationManager {
 	    try {
 			targetRes.save(Collections.EMPTY_MAP);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			System.out.println("ERROR: Could not save result to resource.");
+			LOGGER.error("Could not save result to resource.", e);
 			return null;
 		}
 	    
@@ -720,12 +719,17 @@ public abstract class AbstractTransformationManager {
                 if (element.getAttribute("key").equals(this.getKey(source))) {
                     String platformString = extension.getNamespaceIdentifier()
                             + File.separator + element.getAttribute("file");
+                    String uri = null;
+                    URL url = null;
                     try {
-                        URL url = new URL(URI.createPlatformPluginURI(
-                                platformString, true).toString());
+                    	uri = URI.createPlatformPluginURI(
+                                platformString, true).toString();
+                        url = new URL(uri);
                         return url.openStream();
+                    } catch (MalformedURLException e) {
+                    	LOGGER.error("Can't create URL of URI {}", uri, e);
                     } catch (IOException e) {
-                        e.printStackTrace();
+                    	LOGGER.error("Can't open stream of URL {}", url, e);
                     }
                 }
             }

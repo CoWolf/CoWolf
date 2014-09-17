@@ -51,6 +51,8 @@ import org.eclipse.ui.part.EditorPart;
 import org.sidiff.difference.rulebase.RecognitionRule;
 import org.sidiff.difference.rulebase.extension.IRuleBase;
 import org.sidiff.difference.rulebase.util.RuleBaseUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import de.uni_stuttgart.iste.cowolf.model.ModelRegistry;
 import de.uni_stuttgart.iste.cowolf.transformation.model.Mapping;
@@ -65,6 +67,9 @@ import de.uni_stuttgart.iste.cowolf.transformation.model.util.XMLMappingLoader;
  */
 public class TransformationMappingEditor extends EditorPart {
 
+	private final static Logger LOGGER = LoggerFactory
+			.getLogger(TransformationMappingEditor.class);
+	
 	public TransformationMappingEditor() {
 	}
 
@@ -126,7 +131,7 @@ public class TransformationMappingEditor extends EditorPart {
 			XMLMappingLoader.storeMappings(this.mappings, targetFile);
 			this.noUnsavedChanges();
 		} catch (JAXBException e) {
-			e.printStackTrace();
+			LOGGER.error("", e);
 		}
 
 	}
@@ -141,8 +146,6 @@ public class TransformationMappingEditor extends EditorPart {
 		}
 
 		this.transformationMappingEditorInput = (IFileEditorInput) input;
-
-		// this.inputFile = transformationMappingEditorInput.getFile().getL;
 
 		try {
 			this.mappings = XMLMappingLoader
@@ -462,7 +465,7 @@ public class TransformationMappingEditor extends EditorPart {
 													"platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.generator/de/uni_stuttgart/iste/cowolf/transformation/generator/ui/icons/HenshinModelFile.gif"))
 									.createImage());
 		} catch (MalformedURLException e) {
-			e.printStackTrace();
+			LOGGER.error("", e);
 		}
 		colRecognitionRuleName.setLabelProvider(new ColumnLabelProvider() {
 
@@ -508,7 +511,7 @@ public class TransformationMappingEditor extends EditorPart {
 													"platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.generator/de/uni_stuttgart/iste/cowolf/transformation/generator/ui/icons/Unit.png"))
 									.createImage());
 		} catch (MalformedURLException e) {
-			e.printStackTrace();
+			LOGGER.error("", e);
 		}
 		colTransformationRuleName.setLabelProvider(new ColumnLabelProvider() {
 

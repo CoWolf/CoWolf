@@ -2,6 +2,7 @@ package de.uni_stuttgart.iste.cowolf.ui.console;
 
 import java.io.IOException;
 import java.net.URL;
+
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.jface.resource.ImageDescriptor;
@@ -12,6 +13,8 @@ import org.eclipse.ui.console.IOConsoleOutputStream;
 import org.eclipse.ui.console.MessageConsole;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.FrameworkUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import de.uni_stuttgart.iste.cowolf.core.utilities.IPrinter;
 
@@ -22,7 +25,10 @@ import de.uni_stuttgart.iste.cowolf.core.utilities.IPrinter;
  * @author Rene Trefft
  */
 public class ConsolePrinter implements IPrinter {
-
+	
+	private final static Logger LOGGER = LoggerFactory
+			.getLogger(ConsolePrinter.class);
+	
 	private IOConsoleOutputStream consoleOutputStream = null;
 
 	/**
@@ -94,7 +100,7 @@ public class ConsolePrinter implements IPrinter {
 		try {
 			consoleOutputStream.write(printLine + "\n");
 		} catch (IOException e) {
-			e.printStackTrace();
+			LOGGER.error("", e);
 		}
 
 	}
@@ -108,7 +114,7 @@ public class ConsolePrinter implements IPrinter {
 			consoleOutputStream.close();
 			this.printName = null;
 		} catch (IOException e) {
-			e.printStackTrace();
+			LOGGER.error("", e);
 		}
 	}
 

@@ -15,6 +15,8 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import de.uni_stuttgart.iste.cowolf.transformation.generator.l10n.Messages;
 import de.uni_stuttgart.iste.cowolf.transformation.model.Mappings;
@@ -28,6 +30,9 @@ import de.uni_stuttgart.iste.cowolf.transformation.model.util.XMLMappingLoader;
 public class TransformationMappingWizard extends Wizard implements INewWizard,
 		IExecutableExtension {
 
+	private final static Logger LOGGER = LoggerFactory
+			.getLogger(TransformationMappingWizard.class);
+	
 	private static final String PAGE_NAME = "New CoWolf Transformation Mapping Wizard";
 	private static final String WIZARD_NAME = "CoWolf Transformation Mapping";
 
@@ -55,7 +60,7 @@ public class TransformationMappingWizard extends Wizard implements INewWizard,
 			XMLMappingLoader.storeMappings(transformationMappings,
 					transformationMappingFile.getLocation().toFile());
 		} catch (JAXBException e1) {
-			e1.printStackTrace();
+			LOGGER.error("", e1);
 			return false;
 		}
 
