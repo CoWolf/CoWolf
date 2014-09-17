@@ -12,9 +12,15 @@ import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ModelRegistry {
 
+	
+	private final static Logger LOGGER = LoggerFactory
+			.getLogger(ModelRegistry.class);
+	
 	/**
 	 * ID for the QoS model manager extension.
 	 */
@@ -111,7 +117,7 @@ public class ModelRegistry {
                     extensions.add((T) obj);
                 }
             } catch (final CoreException e1) {
-                e1.printStackTrace();
+                LOGGER.error("Creating extension failed.", e1);
             }
         }
         return extensions;

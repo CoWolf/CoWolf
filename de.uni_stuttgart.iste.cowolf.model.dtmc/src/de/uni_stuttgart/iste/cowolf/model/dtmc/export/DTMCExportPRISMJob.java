@@ -7,12 +7,15 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.Label;
@@ -20,7 +23,10 @@ import de.uni_stuttgart.iste.cowolf.model.dtmc.State;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.analyze.PRISMGenerator;
 
 public class DTMCExportPRISMJob extends Job {
-
+	
+	private final static Logger LOGGER = LoggerFactory
+			.getLogger(DTMCExportPRISMJob.class);
+	
 	private Map<Resource, File> mappingPCTL = new HashMap<Resource, File> ();
 	private Map<Resource, File> mappingPM = new HashMap<Resource, File> ();
 
@@ -41,7 +47,7 @@ public class DTMCExportPRISMJob extends Job {
 	@Override
 	protected IStatus run(final IProgressMonitor monitor) {
 		monitor.beginTask("Export dtmc's as prism model", this.mappingPM.size() + this.mappingPCTL.size());
-		System.out.println("Export prism model");
+		LOGGER.info("Export prism model");
 		// For each selected item
 		HashSet<Resource> resources = new HashSet<Resource>();
 		resources.addAll(this.mappingPCTL.keySet());
@@ -65,7 +71,7 @@ public class DTMCExportPRISMJob extends Job {
 					out.close();
 					monitor.worked(1);
 				} catch(SecurityException | IOException e) {
-					e.printStackTrace();
+					LOGGER.error("", e); 
 				}
 			}
 		}
@@ -86,7 +92,7 @@ public class DTMCExportPRISMJob extends Job {
 					out.close();
 					monitor.worked(1);
 				} catch(SecurityException | IOException e) {
-					e.printStackTrace();
+					LOGGER.error("", e); 
 				}
 			}
 		}

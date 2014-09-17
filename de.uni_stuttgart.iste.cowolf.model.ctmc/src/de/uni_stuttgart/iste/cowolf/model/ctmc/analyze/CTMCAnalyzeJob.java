@@ -16,13 +16,18 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import de.uni_stuttgart.iste.cowolf.core.utilities.CommandLineExecutor;
 import de.uni_stuttgart.iste.cowolf.core.utilities.PrinterRegistry;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.CTMC;
 
 public class CTMCAnalyzeJob extends Job {
-
+	
+	private final static Logger LOGGER = LoggerFactory
+			.getLogger(CTMCAnalyzeJob.class);
+	
 	private final Resource model;
 	private final Map<String, Object> parameters;
 
@@ -109,7 +114,7 @@ public class CTMCAnalyzeJob extends Job {
 			// 1. Generate sm-file from model and save it to a temporary file.
 			File smFile = File.createTempFile("ctmc_prism_sm", ".sm");
 
-			System.out.println(generator.generateSM(this.model));
+			LOGGER.debug(generator.generateSM(this.model).toString());
 
 			FileOutputStream out = new FileOutputStream(
 					smFile.getAbsolutePath());
@@ -125,7 +130,7 @@ public class CTMCAnalyzeJob extends Job {
 					this.analyzeProperties,
 					this.parameters.containsKey("verify")).toString();
 
-			System.out.println(csl);
+	     	LOGGER.debug(csl);
 
 			out = new FileOutputStream(cslFile.getAbsolutePath());
 			out.write(csl.getBytes());
@@ -169,15 +174,15 @@ public class CTMCAnalyzeJob extends Job {
 			cslFile.delete();
 			resultFile.delete();
 
-			System.out.println("Results:");
+			LOGGER.info("Results:");
 			for (Result entry : this.prismResult) {
-				System.out.println(entry.name + " => " + entry.value);
+				LOGGER.info("{} => {}", entry.name, entry.value);
 			}
 
 		} catch (IOException e) {
-			e.printStackTrace();
+			LOGGER.error("", e);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LOGGER.error("", e);
 		}
 
 		return Status.OK_STATUS;
@@ -222,9 +227,9 @@ public class CTMCAnalyzeJob extends Job {
 			}
 			br.close();
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			LOGGER.error("", e);
 		} catch (IOException e) {
-			e.printStackTrace();
+			LOGGER.error("", e);
 		}
 
 	}
