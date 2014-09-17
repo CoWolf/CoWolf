@@ -2,6 +2,8 @@ package de.uni_stuttgart.iste.cowolf.ui.model.fault_tree.analyze;
 
 import java.util.HashMap;
 
+import javax.swing.JOptionPane;
+
 import org.eclipse.emf.ecore.resource.Resource;
 
 import de.uni_stuttgart.iste.cowolf.model.AbstractQoSModelManager;
@@ -55,6 +57,14 @@ public class FaultTreeAnalyzeWizard extends AbstractQoSAnalyzeWizard {
 
 	@Override
 	public boolean checkConditions() {
+		String path = FaultTreePreferencePage.getPathToXFTA().trim();
+		if (path.isEmpty() || path.equals("")) {
+			JOptionPane.showMessageDialog(null,
+					"Path to xFTA is missing, please add in the preferences!",
+					"Missing Path", JOptionPane.ERROR_MESSAGE);
+			return false;
+		}
+		
 		return true;
 	}
 }
