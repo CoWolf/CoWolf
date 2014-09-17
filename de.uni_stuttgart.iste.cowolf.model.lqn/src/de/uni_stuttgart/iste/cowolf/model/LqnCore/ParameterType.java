@@ -33,7 +33,7 @@ public interface ParameterType extends IDBase {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage#getParameterType_Name()
-	 * @model required="true"
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
 	 *        extendedMetaData="kind='attribute' name='name' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -60,7 +60,7 @@ public interface ParameterType extends IDBase {
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(String)
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage#getParameterType_Value()
-	 * @model required="true"
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
 	 *        extendedMetaData="kind='attribute' name='value' namespace='##targetNamespace'"
 	 * @generated
 	 */

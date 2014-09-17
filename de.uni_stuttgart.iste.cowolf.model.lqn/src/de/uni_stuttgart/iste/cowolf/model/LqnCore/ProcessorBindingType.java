@@ -33,7 +33,7 @@ public interface ProcessorBindingType extends IDBase {
 	 * @return the value of the '<em>Source</em>' attribute.
 	 * @see #setSource(String)
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage#getProcessorBindingType_Source()
-	 * @model required="true"
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
 	 *        extendedMetaData="kind='attribute' name='source' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -60,7 +60,7 @@ public interface ProcessorBindingType extends IDBase {
 	 * @return the value of the '<em>Target</em>' attribute.
 	 * @see #setTarget(String)
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage#getProcessorBindingType_Target()
-	 * @model required="true"
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
 	 *        extendedMetaData="kind='attribute' name='target' namespace='##targetNamespace'"
 	 * @generated
 	 */

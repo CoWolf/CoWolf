@@ -29,8 +29,6 @@ import org.eclipse.emf.common.util.EList;
  *
  * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage#getActivityDefBase()
  * @model extendedMetaData="name='ActivityDefBase' kind='elementOnly'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='test'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot test='true'"
  * @generated
  */
 public interface ActivityDefBase extends IDBase {
@@ -252,7 +250,7 @@ public interface ActivityDefBase extends IDBase {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage#getActivityDefBase_Name()
-	 * @model required="true"
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
 	 *        extendedMetaData="kind='attribute' name='name' namespace='##targetNamespace'"
 	 * @generated
 	 */

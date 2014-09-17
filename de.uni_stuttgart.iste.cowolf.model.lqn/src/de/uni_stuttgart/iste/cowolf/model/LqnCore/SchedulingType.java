@@ -76,7 +76,7 @@ public enum SchedulingType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PS_HOL(5, "psHol", "psHol"),
+	PS_HOL(5, "psHol", "ps-hol"),
 
 	/**
 	 * The '<em><b>Ps Pp</b></em>' literal object.
@@ -86,7 +86,7 @@ public enum SchedulingType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PS_PP(6, "psPp", "psPp");
+	PS_PP(6, "psPp", "ps-pp");
 
 	/**
 	 * The '<em><b>Fcfs</b></em>' literal value.
@@ -172,7 +172,7 @@ public enum SchedulingType implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #PS_HOL
-	 * @model name="psHol"
+	 * @model name="psHol" literal="ps-hol"
 	 * @generated
 	 * @ordered
 	 */
@@ -187,7 +187,7 @@ public enum SchedulingType implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #PS_PP
-	 * @model name="psPp"
+	 * @model name="psPp" literal="ps-pp"
 	 * @generated
 	 * @ordered
 	 */

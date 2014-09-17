@@ -73,7 +73,7 @@ public interface OutputResultForwardingANDJoinDelay extends IDBase {
 	 * @return the value of the '<em>Dest</em>' attribute.
 	 * @see #setDest(String)
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage#getOutputResultForwardingANDJoinDelay_Dest()
-	 * @model required="true"
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
 	 *        extendedMetaData="kind='attribute' name='dest' namespace='##targetNamespace'"
 	 * @generated
 	 */

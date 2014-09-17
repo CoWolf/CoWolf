@@ -63,7 +63,8 @@ public interface InPortType extends IDBase {
 	 * @return the value of the '<em>Description</em>' attribute.
 	 * @see #setDescription(String)
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage#getInPortType_Description()
-	 * @model extendedMetaData="kind='attribute' name='description' namespace='##targetNamespace'"
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 *        extendedMetaData="kind='attribute' name='description' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getDescription();
@@ -89,7 +90,7 @@ public interface InPortType extends IDBase {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage#getInPortType_Name()
-	 * @model required="true"
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
 	 *        extendedMetaData="kind='attribute' name='name' namespace='##targetNamespace'"
 	 * @generated
 	 */

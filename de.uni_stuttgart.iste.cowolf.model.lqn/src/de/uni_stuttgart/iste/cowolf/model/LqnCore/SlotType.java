@@ -81,7 +81,7 @@ public interface SlotType extends IDBase {
 	 * @return the value of the '<em>Bind Target</em>' attribute.
 	 * @see #setBindTarget(String)
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage#getSlotType_BindTarget()
-	 * @model required="true"
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
 	 *        extendedMetaData="kind='attribute' name='bind-target' namespace='##targetNamespace'"
 	 * @generated
 	 */
