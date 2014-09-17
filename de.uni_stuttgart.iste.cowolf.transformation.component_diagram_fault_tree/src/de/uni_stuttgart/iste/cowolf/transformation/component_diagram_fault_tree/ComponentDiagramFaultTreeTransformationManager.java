@@ -10,6 +10,8 @@ import org.eclipse.emf.henshin.interpreter.EGraph;
 import org.eclipse.emf.henshin.interpreter.impl.EGraphImpl;
 import org.sidiff.difference.symmetric.Change;
 import org.sidiff.difference.symmetric.SymmetricDifference;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.Architecture;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree;
@@ -24,7 +26,10 @@ import de.uni_stuttgart.iste.cowolf.transformation.component_diagram_fault_tree.
  * uses small henshin rules to acquire graph information and perform changes.
  */
 public class ComponentDiagramFaultTreeTransformationManager extends AbstractTransformationManager {
-
+	
+	private final static Logger LOGGER = LoggerFactory
+			.getLogger(ComponentDiagramFaultTreeTransformationManager.class);
+	
 	/**
 	 * Key for extension point identification.
 	 */
@@ -84,7 +89,7 @@ public class ComponentDiagramFaultTreeTransformationManager extends AbstractTran
 		
 		ChangesFiller filler = new ChangesFiller(_newComponentTypes, _newPortTypes, _newComponentInstances, _newPortInstances, _newSubComponentInstances, _newConnectors);
 		
-		System.out.println(">>> Building lists of differences for ChangeTree...");
+		LOGGER.debug(">>> Building lists of differences for ChangeTree...");
 
 		for(Change change : difference.getChanges()) {
 			filler.add(change);
@@ -107,8 +112,7 @@ public class ComponentDiagramFaultTreeTransformationManager extends AbstractTran
 		newSubComponentInstances.addAll(_newSubComponentInstances);
 		newConnectors.addAll(_newConnectors);
 
-		System.out.println(" >>> Parameter List sizes: " + newComponentTypes.size() + " " + newPortTypes.size() + " " + newComponentInstances.size() + " " + newPortInstances.size() + " " +
-			newSubComponentInstances.size() + " " + newConnectors.size());
+		LOGGER.debug(" >>> Parameter List sizes: {} {} {} {} {} {}", newComponentTypes.size(), newPortTypes.size(), newComponentInstances.size(), newPortInstances.size(), newSubComponentInstances.size(), newConnectors.size());
 		
 		// execute all change operations on the merged graph
 		EGraph result = ChangeTree.run(mergeResources(resSet), newComponentTypes, newPortTypes, newComponentInstances, newPortInstances,
@@ -144,7 +148,7 @@ public class ComponentDiagramFaultTreeTransformationManager extends AbstractTran
         
         EGraph graph = mergeInstanceModels(graphSources);
         
-        System.out.println("Finished merging graphs.");
+        LOGGER.debug("Finished merging graphs.");
 		return graph;
 
 	}

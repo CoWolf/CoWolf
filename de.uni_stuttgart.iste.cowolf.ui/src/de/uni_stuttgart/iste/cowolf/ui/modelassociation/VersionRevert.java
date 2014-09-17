@@ -16,6 +16,8 @@ import org.eclipse.jface.window.Window;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Model;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociation;
@@ -24,6 +26,9 @@ import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelVersion;
 
 
 public class VersionRevert extends AbstractHandler {
+	
+	private final static Logger LOGGER = LoggerFactory
+			.getLogger(VersionRevert.class);
 	
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
@@ -100,8 +105,7 @@ public class VersionRevert extends AbstractHandler {
 		try {
 			modelRes.save(Collections.EMPTY_MAP);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			LOGGER.error("Saving resource failed.", e);
 		}
 		
 		Date date = new Date(version.getTimestamp());

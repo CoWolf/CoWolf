@@ -12,9 +12,14 @@ import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class TransformationRegistry {
-
+	
+	private final static Logger LOGGER = LoggerFactory
+			.getLogger(TransformationRegistry.class);
+	
 	/**
 	 * ID for the transformation manager extension.
 	 */
@@ -130,7 +135,7 @@ public class TransformationRegistry {
                     extensions.add((T) obj);
                 }
             } catch (final CoreException e1) {
-                e1.printStackTrace();
+            	LOGGER.error("", e1);
             }
         }
         return extensions;

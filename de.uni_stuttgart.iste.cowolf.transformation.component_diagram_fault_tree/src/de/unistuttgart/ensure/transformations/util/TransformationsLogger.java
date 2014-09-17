@@ -4,7 +4,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class TransformationsLogger {
+		
+	private final static Logger LOGGER = LoggerFactory
+			.getLogger(TransformationsLogger.class);
 	
 	// Log counter
 	private static int executionCounter = 0;
@@ -21,26 +27,28 @@ public class TransformationsLogger {
 	 *            - String
 	 */
 	public static void log(String value) {
-		log(value, true);
+		LOGGER.debug(value);
+		//log(value, true);
 	}
 
-	/**
-	 * Logs an simple String value with optional line break.
-	 * 
-	 * @param value
-	 *            - String
-	 * @param lineBreak
-	 *            - boolean
-	 */
-	public static void log(String value, boolean lineBreak) {
-		if (logging) {
-			if (lineBreak) {
-				System.out.println(value);
-			} else {
-				System.out.print(value);
-			}
-		}
-	}
+//	/**
+//	 * Logs an simple String value with optional line break.
+//	 * 
+//	 * @param value
+//	 *            - String
+//	 * @param lineBreak
+//	 *            - boolean
+//	 */
+//	public static void log(String value, boolean lineBreak) {
+//		if (logging) {
+//			
+//			if (lineBreak) {
+//				System.out.println(value);
+//			} else {
+//				System.out.print(value);
+//			}
+//		}
+//	}
 	
 	/**
 	 * Logs the result of rule execution without parameters.

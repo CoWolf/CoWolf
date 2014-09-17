@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.henshin.interpreter.EGraph;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import de.unistuttgart.ensure.transformations.util.HenshinTransformations;
 import de.unistuttgart.ensure.transformations.util.TransformationsLogger;
@@ -19,6 +21,9 @@ import de.unistuttgart.ensure.transformations.util.TransformationsUtil;
  */
 public class ChangeTree {
 
+	private final static Logger LOGGER = LoggerFactory
+			.getLogger(ChangeTree.class);
+	
 	private static Resource saInstanceModel;
 	private static Resource faulttreeInstanceModel;
 	private static EGraph saGraph;
@@ -171,7 +176,7 @@ public class ChangeTree {
 	private static void handleNewComponentInstances(List<String> newComponentInstances) {
 		for (String newComponentInstance : newComponentInstances) {
 
-			System.out.println("## new component instance: " + newComponentInstance);
+			LOGGER.debug("## new component instance: ", newComponentInstance);
 
 			// Get sub components of the new component instance.
 			List<String> subComponents = HenshinTransformations.getSubComponents(newComponentInstance, saGraph, false);
@@ -300,7 +305,7 @@ public class ChangeTree {
 	private static void handleNewComponentTypes(List<String> newComponentTypes) {
 		// New component type doesn't lead to direct changes in fault tree.
 		for (String newComponentType : newComponentTypes) {
-			System.out.println("## new component type: " + newComponentType);
+			LOGGER.debug("## new component type: ", newComponentType);
 		}
 	}
 
@@ -545,7 +550,7 @@ public class ChangeTree {
 
 	private static void handleNewConnectors(List<String> newConnectors) {
 		for (String newConnector : newConnectors) {
-			System.out.println("## new connector: " + newConnector);
+			LOGGER.debug("## new connector: ", newConnector);
 
 			// Check whether the new connector creates a new connection between
 			// components.
@@ -585,7 +590,7 @@ public class ChangeTree {
 
 	private static void handleNewPortInstances(List<String> newPortInstances) {
 		for (String newPortInstance : newPortInstances) {
-			System.out.println("## new port instance: " + newPortInstance);
+			LOGGER.debug("## new port instance: ", newPortInstance);
 
 			// Check whether the new port instance creates a new connection
 			// between components.
@@ -631,14 +636,14 @@ public class ChangeTree {
 	private static void handleNewPortTypes(List<String> newPortTypes) {
 		// New port type doesn't lead to direct changes in fault tree.
 		for (String newPortType : newPortTypes) {
-			System.out.println("## new port type: " + newPortType);
+			LOGGER.debug("## new port type: ", newPortType);
 		}
 	}
 
 	private static void handleNewSubComponentInstances(List<String> newSubComponentInstances) {
 		for (String newSubComponent : newSubComponentInstances) {
 			// TODO How include new sub component instances?
-			System.out.println("## new sub component instance: " + newSubComponent);
+			LOGGER.debug("## new sub component instance: ", newSubComponent);
 		}
 	}
 
@@ -702,7 +707,7 @@ public class ChangeTree {
 
 		// Logging.
 		TransformationsLogger.log("Preparing...");
-		System.out.println("\n\n");
+	//	System.out.println("\n\n");
 
 		// Merge all input models in the saGraph.
 		saGraph = graph;
@@ -729,7 +734,7 @@ public class ChangeTree {
 		handleNewConnectors(newConnectors);
 
 		// Sync root objects.
-		System.out.println("\n\n");
+		//System.out.println("\n\n");
 		// TransformationsLogger.log("DON'T Syncing models... DEVELOPING PHASE");
 
 		TransformationsLogger.log("Syncing models...");
