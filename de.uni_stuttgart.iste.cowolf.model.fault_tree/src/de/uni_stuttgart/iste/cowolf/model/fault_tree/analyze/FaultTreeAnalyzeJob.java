@@ -45,7 +45,8 @@ public class FaultTreeAnalyzeJob extends Job {
 	private final IAnalysisListener listener;
 	private Map<String, String> mapIdName;
 
-	public FaultTreeAnalyzeJob(final Resource model, final Map<String, Object> parameters, IAnalysisListener listener) {
+	public FaultTreeAnalyzeJob(final Resource model,
+			final Map<String, Object> parameters, IAnalysisListener listener) {
 		super("Fault Tree Analysys Job");
 		this.model = model;
 		this.parameters = parameters;
@@ -55,18 +56,22 @@ public class FaultTreeAnalyzeJob extends Job {
 
 	static {
 		XFTAScriptGenerators = new HashMap<String, XFTAGenerator>();
-		XFTAScriptGenerators.put("probabilityTopEvent", new XFTAProbailityTopEventScriptGenerator());
-		XFTAScriptGenerators.put("minimalCutSets", new XFTAMinimalCutsetsScriptGenerator());
+		XFTAScriptGenerators.put("probabilityTopEvent",
+				new XFTAProbailityTopEventScriptGenerator());
+		XFTAScriptGenerators.put("minimalCutSets",
+				new XFTAMinimalCutsetsScriptGenerator());
 
 		resultFileTitles = new HashMap<String, String>();
 		StringBuilder pteTitle = new StringBuilder();
 		pteTitle.append("Probability of The Top Event").append(CRLF);
-		pteTitle.append("Id Top Evenet").append(TAB).append("Mission Time").append(TAB).append("Probability");
+		pteTitle.append("Id Top Evenet").append(TAB).append("Mission Time")
+				.append(TAB).append("Probability");
 		resultFileTitles.put("probabilityTopEvent", pteTitle.toString());
 
 		StringBuilder mcsTitle = new StringBuilder();
 		mcsTitle.append("Minimal cutsets").append(CRLF);
-		mcsTitle.append("Rank").append(TAB).append("Probability").append(TAB).append("Contribution").append(TAB).append("Cut-Set");
+		mcsTitle.append("Rank").append(TAB).append("Probability").append(TAB)
+				.append("Contribution").append(TAB).append("Cut-Set");
 		resultFileTitles.put("minimalCutSets", mcsTitle.toString());
 	}
 
@@ -77,29 +82,41 @@ public class FaultTreeAnalyzeJob extends Job {
 			final String inputFaultTreeFileName = "xFTA_tree.xml";
 			final String scriptFileName = "xFTA_script.xml";
 			final String outputFaultTreeFileName = "xFTA_out.txt";
-			final String pathToXFTA = (String) parameters.get(FaultTreeModelManager.PARAM_PATH_TO_XFTA);
+			final String pathToXFTA = (String) parameters
+					.get(FaultTreeModelManager.PARAM_PATH_TO_XFTA);
 			final String xFTABasicCommand = "xftar ";
-			final String pathToOutputXFTAFile = System.getProperty("java.io.tmpdir") + "/" + outputFaultTreeFileName;
+			final String pathToOutputXFTAFile = System
+					.getProperty("java.io.tmpdir")
+					+ "/"
+					+ outputFaultTreeFileName;
 
 			monitor.beginTask("Analyse Fault Tree", 3);
 
 			// 1. Generate xFTA file
-			File xFTAFaultTreeFile = writeTempFileFromGenerator(inputFaultTreeFileName, new XFTAFaultTreeGenerator());
+			File xFTAFaultTreeFile = writeTempFileFromGenerator(
+					inputFaultTreeFileName, new XFTAFaultTreeGenerator());
 			monitor.worked(1);
 
 			// 2. Generate xFTA script
-			parameters.put("pathToInputXFTAFile", xFTAFaultTreeFile.getAbsoluteFile());
+			parameters.put("pathToInputXFTAFile",
+					xFTAFaultTreeFile.getAbsoluteFile());
 			parameters.put("pathToOutputXFTAFile", pathToOutputXFTAFile);
-			File xFTAScriptFile = writeTempFileFromGenerator(scriptFileName, XFTAScriptGenerators.get((parameters.get("typeOfAnalysis"))));
+			File xFTAScriptFile = writeTempFileFromGenerator(
+					scriptFileName,
+					XFTAScriptGenerators.get((parameters.get("typeOfAnalysis"))));
 			monitor.worked(1);
 
 			// 3. Use CommandLineExecutor to execute xFTA.
-			final String xFTACommand = xFTABasicCommand + xFTAScriptFile.getAbsolutePath();
-			Reader r = new InputStreamReader(CommandLineExecutor.execCommandAndGetOutput(pathToXFTA, xFTACommand));
+			final String xFTACommand = xFTABasicCommand
+					+ xFTAScriptFile.getAbsolutePath();
+			Reader r = new InputStreamReader(
+					CommandLineExecutor.execCommandAndGetOutput(pathToXFTA,
+							xFTACommand));
 			BufferedReader in = new BufferedReader(r);
 			String line;
 			while ((line = in.readLine()) != null) {
-				PrinterRegistry.getInstance().println("FaultTree Analysis", line);
+				PrinterRegistry.getInstance().println("FaultTree Analysis",
+						line);
 			}
 			PrinterRegistry.getInstance().close();
 			monitor.worked(1);
@@ -122,9 +139,15 @@ public class FaultTreeAnalyzeJob extends Job {
 	public void writeToResultFile() {
 		Resource resource = this.getModel();
 
-		IFile modelfile = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(resource.getURI().toPlatformString(true)));
+		IFile modelfile = ResourcesPlugin.getWorkspace().getRoot()
+				.getFile(new Path(resource.getURI().toPlatformString(true)));
 
-		IFile resultfile = ResourcesPlugin.getWorkspace().getRoot().getFile(modelfile.getFullPath().addFileExtension("analysis.csv"));
+		IFile resultfile = ResourcesPlugin
+				.getWorkspace()
+				.getRoot()
+				.getFile(
+						modelfile.getFullPath()
+								.addFileExtension("analysis.csv"));
 		OutputStreamWriter out = null;
 		try {
 			out = new FileWriter(resultfile.getLocation().toOSString());
@@ -166,12 +189,15 @@ public class FaultTreeAnalyzeJob extends Job {
 		br.close();
 	}
 
-	private File writeTempFileFromGenerator(String name, XFTAGenerator generator) throws Exception {
+	private File writeTempFileFromGenerator(String name, XFTAGenerator generator)
+			throws Exception {
 		String fileNameParts[] = name.split("\\.");
-		File xftaFile = File.createTempFile(fileNameParts[0], "." + fileNameParts[1]);
+		File xftaFile = File.createTempFile(fileNameParts[0], "."
+				+ fileNameParts[1]);
 
 		OutputStreamWriter out = new FileWriter(xftaFile.getAbsolutePath());
-		out.write(generator.doGenerateXFTAFile((FaultTree) model.getContents().get(0), parameters).toString());
+		out.write(generator.doGenerateXFTAFile(
+				(FaultTree) model.getContents().get(0), parameters).toString());
 		out.close();
 
 		return xftaFile;
@@ -193,7 +219,6 @@ public class FaultTreeAnalyzeJob extends Job {
 		String target = source;
 		for (String key : mapIdName.keySet()) {
 			String value = mapIdName.get(key);
-
 			if (value != null && !value.equals("")) {
 				target = target.replaceAll(key, value);
 			}
