@@ -14,20 +14,10 @@ The logged entries will be directly printed to console.
 	<!-- <statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener" 
 		/> -->		
 
-	<root level="TRACE">
-		<appender-ref ref="CONSOLE-ALL" />
-		<!-- uncomment to enable file logging -->
-		<!-- <appender-ref ref="FILE-ALL" /> 
-		<appender-ref ref="FILE-WARNING" /> 
-		<appender-ref ref="FILE-ERROR" /> -->
-		<!-- uncomment to use socket appender, e.g. to use Lilith event viewer tool -->
-		<!-- <appender-ref ref="SOCKET-ALL" /> -->
-	</root>
-
 	<!-- file appender for console log -->
 	<appender name="CONSOLE-ALL" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
-			<pattern>%-13date{HH:mm:ss.SSS} %-6level %-46(%logger{40}:%line)
+			<pattern>%-13date{HH:mm:ss.SSS} %-6level %-46(%logger{80}:%line)
 				%msg%n
 			</pattern>
 		</encoder>
@@ -49,7 +39,8 @@ The logged entries will be directly printed to console.
 	</appender>
 
 	<!-- file appender for warning and error log -->
-	<appender name="FILE-WARNING-AND-ERROR"
+	<!-- uncomment to use file logging -->
+<!-- 	<appender name="FILE-WARNING-AND-ERROR"
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<encoder>
 			<pattern>%-24date %-6level %-46(%logger{40}:%line) %msg%n
@@ -59,20 +50,34 @@ The logged entries will be directly printed to console.
 			<level>WARN</level>
 		</filter>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<!-- weekly rollover -->
+			weekly rollover
 			<fileNamePattern>logs/%d{yyyy-'W'ww}_warning+error.log
 			</fileNamePattern>
-			<!-- keep logs for 12 weeks -->
+			keep logs for 12 weeks
 			<maxHistory>12</maxHistory>
 		</rollingPolicy>
-	</appender>
+	</appender> -->
 
-	<appender name="SOCKET-ALL" class="ch.qos.logback.classic.net.SocketAppender">
+<!-- uncomment to use socket appender, e.g. for Lilith event viewer tool -->
+<!-- 	<appender name="SOCKET-ALL" class="ch.qos.logback.classic.net.SocketAppender">
 		<remoteHost>localhost</remoteHost>
 		<port>4560</port>
 		<reconnectionDelay>170</reconnectionDelay>
 		<includeCallerData>true</includeCallerData>
-	</appender>
+	</appender> -->
+	
+	<root level="TRACE">
+	
+		<appender-ref ref="CONSOLE-ALL" />
+		
+		<!-- uncomment to enable file logging -->
+		<!-- <appender-ref ref="FILE-ALL" /> 
+		<appender-ref ref="FILE-WARNING" /> 
+		<appender-ref ref="FILE-ERROR" /> -->
+		
+		<!-- uncomment to use socket appender, e.g. for Lilith event viewer tool -->
+		<!-- <appender-ref ref="SOCKET-ALL" /> -->
+	</root>
 
 
 </configuration>
