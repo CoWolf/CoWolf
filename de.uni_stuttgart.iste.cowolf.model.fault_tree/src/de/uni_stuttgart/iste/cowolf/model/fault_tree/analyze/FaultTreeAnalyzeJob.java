@@ -24,6 +24,8 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import de.uni_stuttgart.iste.cowolf.core.utilities.CommandLineExecutor;
 import de.uni_stuttgart.iste.cowolf.core.utilities.PrinterRegistry;
@@ -35,6 +37,9 @@ import de.uni_stuttgart.iste.cowolf.model.fault_tree.impl.EventImpl;
 
 public class FaultTreeAnalyzeJob extends Job {
 
+	private final static Logger LOGGER = LoggerFactory
+			.getLogger(FaultTreeAnalyzeJob.class);
+	
 	private static final Map<String, XFTAGenerator> XFTAScriptGenerators;
 	private static final Map<String, String> resultFileTitles;
 	private static final String SEP = "</td><td>";
@@ -138,9 +143,9 @@ public class FaultTreeAnalyzeJob extends Job {
 			xFTAScriptFile.delete();
 
 		} catch (IOException e) {
-			e.printStackTrace();
+			LOGGER.error("", e); 
 		} catch (Exception e) {
-			e.printStackTrace();
+			LOGGER.error("", e); 
 		}
 		return Status.OK_STATUS;
 	}
@@ -194,15 +199,15 @@ public class FaultTreeAnalyzeJob extends Job {
 				this.listener.finished(resource, resultfile);
 			}
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			LOGGER.error("", e); 
 		} catch (IOException e) {
-			e.printStackTrace();
+			LOGGER.error("", e); 
 		} finally {
 			try {
 				out.flush();
 				out.close();
 			} catch (Exception e2) {
-				e2.printStackTrace();
+				LOGGER.error("", e2); 
 			}
 		}
 	}

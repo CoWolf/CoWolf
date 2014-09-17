@@ -26,6 +26,8 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
@@ -34,6 +36,9 @@ import de.uni_stuttgart.iste.cowolf.model.AnalysisResultUtil;
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.LQN;
 
 public class LQNAnalyzeFilesWriter {
+	
+	private final static Logger LOGGER = LoggerFactory
+			.getLogger(LQNAnalyzeFilesWriter.class);
 	
 	private final static Map<String,LQNSolverFileGenerator> lqnFilesGenerator;
 	private static final String RESULTS_FILE_EXTENSION = "xml";
@@ -79,15 +84,15 @@ public class LQNAnalyzeFilesWriter {
 			return resultFile;
 
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			LOGGER.error("", e); 
 		} catch (IOException e) {
-			e.printStackTrace();
+			LOGGER.error("", e); 
 		} finally {
 			try {
 				out.flush();
 				out.close();
 			} catch (Exception e2) {
-				e2.printStackTrace();
+				LOGGER.error("", e2); 
 			}
 		}
 		return null;
@@ -134,9 +139,9 @@ public class LQNAnalyzeFilesWriter {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+			
         
-        
-        try {
+			try {
         	String html = AnalysisResultUtil.encapsulateHTML(out.toString());
 			
 			ByteArrayInputStream in = new ByteArrayInputStream(html.getBytes());
@@ -148,7 +153,7 @@ public class LQNAnalyzeFilesWriter {
 			}
 
 		} catch (CoreException e) {
-			System.out.println("Error saving result to html. Is result html file from previous run still open?");
+			LOGGER.error("Error saving result to html. Is result html file from previous run still open?", e);
 			return null;
 		}
 		
