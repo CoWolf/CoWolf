@@ -33,6 +33,8 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,6 +43,9 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * @generated NOT
  */
 public class ModelAssociationFactoryImpl extends EFactoryImpl implements ModelAssociationFactory {
+	
+	private final static Logger LOGGER = LoggerFactory
+			.getLogger(ModelAssociationFactoryImpl.class);
 	
 	private Map<IProject, Resource> resources;
 	
@@ -107,7 +112,7 @@ public class ModelAssociationFactoryImpl extends EFactoryImpl implements ModelAs
 			try {
 				project.getFile(ModelAssociationPackage.PROJECT_FILENAME).delete(true, null);
 			} catch (CoreException e) {
-				System.out.println("Could not delete .modelassociation file");
+				LOGGER.warn("Could not delete .modelassociation file", e);
 			}
 		}
 	}
@@ -151,8 +156,7 @@ public class ModelAssociationFactoryImpl extends EFactoryImpl implements ModelAs
 			try {
 				res.load(Collections.EMPTY_MAP);
 			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
+				LOGGER.error("Loading resource failed.", e1);
 			}
 		}
 		
@@ -180,8 +184,7 @@ public class ModelAssociationFactoryImpl extends EFactoryImpl implements ModelAs
 					try {
 						res.save(Collections.EMPTY_MAP);
 					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+						LOGGER.error("Saving resource failed.", e);
 					}
 				}
 			}
@@ -213,26 +216,25 @@ public class ModelAssociationFactoryImpl extends EFactoryImpl implements ModelAs
 	public Model copyModel(final Model source, final IFile target, final Runnable onFinish) throws UnexpectedException {
 		
 		if (source == null || target == null || target.getProject() == null || !target.getProject().isOpen()) {
-			System.out.println("There is something null.");
+			LOGGER.error("There is something null.");
 			return null;
 		}
 		
 		try {
 			if (!target.getProject().hasNature(ProjectNature.NATURE_ID)) {
-				System.out.println("Target project does not have cowolf nature.");
+				LOGGER.error("Target project does not have cowolf nature.");
 				return null;
 			}
 		} catch (CoreException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			LOGGER.error("",e);
 		}
 		
-		System.out.println("Copy " + source.getModel() + " to " + target.getLocation().toString());
+		LOGGER.debug("Copy {} to {}", source.getModel(), target.getLocation().toString());
 		
 		final ModelAssociation tma = ModelAssociationFactory.eINSTANCE.getModelAssociation(target.getProject());
 		
 		if (tma.getModelByPath(target.getProjectRelativePath().toString()) != null) {
-			System.out.println("There is already a model " + target.getProjectRelativePath().toString() + " in Project " + target.getProject().getName());
+			LOGGER.error("There is already a model {} in project {}.", target.getProjectRelativePath().toString(), target.getProject().getName());
 			return tma.getModelByPath(target.getProjectRelativePath().toString());
 		}
 		
@@ -247,8 +249,7 @@ public class ModelAssociationFactoryImpl extends EFactoryImpl implements ModelAs
 					try {
 						source.getFile().copy(target.getFullPath(), true, null);
 					} catch (CoreException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+						LOGGER.error("Copying resource failed.", e);
 					}
 //				}
 //			};
@@ -317,8 +318,7 @@ public class ModelAssociationFactoryImpl extends EFactoryImpl implements ModelAs
 							onFinish.run();
 						}
 					} catch (CoreException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+						LOGGER.error("",e);
 					}
 					
 					return Status.OK_STATUS;
@@ -337,8 +337,7 @@ public class ModelAssociationFactoryImpl extends EFactoryImpl implements ModelAs
 	        try {
 				folder.create(true, true, null);
 			} catch (CoreException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				LOGGER.error("",e);
 			}
 	    }
 	}
@@ -389,8 +388,7 @@ public class ModelAssociationFactoryImpl extends EFactoryImpl implements ModelAs
 			try {
 				res.save(Collections.EMPTY_MAP);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				LOGGER.error("",e);
 			}
 		}
 		
