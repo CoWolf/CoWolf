@@ -33,7 +33,7 @@ public interface PragmaType extends IDBase {
 	 * @return the value of the '<em>Param</em>' attribute.
 	 * @see #setParam(String)
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage#getPragmaType_Param()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
+	 * @model required="true"
 	 *        extendedMetaData="kind='attribute' name='param' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -60,7 +60,7 @@ public interface PragmaType extends IDBase {
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(String)
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage#getPragmaType_Value()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
+	 * @model required="true"
 	 *        extendedMetaData="kind='attribute' name='value' namespace='##targetNamespace'"
 	 * @generated
 	 */

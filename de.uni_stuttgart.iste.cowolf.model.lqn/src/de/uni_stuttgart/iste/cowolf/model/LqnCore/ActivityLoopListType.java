@@ -52,8 +52,7 @@ public interface ActivityLoopListType extends IDBase {
 	 * @return the value of the '<em>End</em>' attribute.
 	 * @see #setEnd(String)
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage#getActivityLoopListType_End()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='attribute' name='end' namespace='##targetNamespace'"
+	 * @model extendedMetaData="kind='attribute' name='end' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getEnd();

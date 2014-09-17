@@ -32,8 +32,7 @@ public interface PlotType extends IDBase {
 	 * @return the value of the '<em>Variable</em>' attribute.
 	 * @see #setVariable(String)
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage#getPlotType_Variable()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='attribute' name='variable' namespace='##targetNamespace'"
+	 * @model extendedMetaData="kind='attribute' name='variable' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getVariable();
