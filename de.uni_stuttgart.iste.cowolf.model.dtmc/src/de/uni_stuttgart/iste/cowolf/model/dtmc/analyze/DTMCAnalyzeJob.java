@@ -23,6 +23,8 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import de.uni_stuttgart.iste.cowolf.core.utilities.CommandLineExecutor;
 import de.uni_stuttgart.iste.cowolf.core.utilities.PrinterRegistry;
@@ -31,6 +33,9 @@ import de.uni_stuttgart.iste.cowolf.model.dtmc.State;
 
 public class DTMCAnalyzeJob extends Job {
 
+	private final static Logger LOGGER = LoggerFactory
+			.getLogger(DTMCAnalyzeJob.class);
+	
 	private final Resource model;
 	private final Map<String, Object> parameters;
 
@@ -118,7 +123,7 @@ public class DTMCAnalyzeJob extends Job {
 			// 1. Generate pm-file from model and save it to a temporary file.
 			File pmFile = File.createTempFile("dtmc_prism_pm", ".pm");
 
-			System.out.println(generator.generatePM(this.model));
+			LOGGER.debug(generator.generatePM(this.model).toString());
 
 			FileOutputStream out = new FileOutputStream(
 					pmFile.getAbsolutePath());
@@ -133,7 +138,7 @@ public class DTMCAnalyzeJob extends Job {
 			String pctl = generator.generatePCTL(this.model,
 					this.analyzeStates, this.analyzeLabels).toString();
 
-			System.out.println(pctl);
+			LOGGER.debug(pctl);
 
 			out = new FileOutputStream(pctlFile.getAbsolutePath());
 			out.write(pctl.getBytes());
@@ -175,7 +180,7 @@ public class DTMCAnalyzeJob extends Job {
 			pctlFile.delete();
 			resultFile.delete();
 
-			System.out.println("Results:");
+			LOGGER.info("Results:");
 			for (Entry<Object, String> entry : this.prismResult.entrySet()) {
 				String key = "";
 				if (entry.getKey() instanceof State) {
@@ -185,13 +190,13 @@ public class DTMCAnalyzeJob extends Job {
 				}
 				String value = entry.getValue();
 
-				System.out.println(key + " => " + value);
+				LOGGER.info("{} => {}", key, value);
 			}
 
 		} catch (IOException e) {
-			e.printStackTrace();
+			LOGGER.error("", e); 
 		} catch (Exception e) {
-			e.printStackTrace();
+			LOGGER.error("", e); 
 		}
 
 		return Status.OK_STATUS;
@@ -284,9 +289,9 @@ public class DTMCAnalyzeJob extends Job {
 			}
 			br.close();
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			LOGGER.error("", e); 
 		} catch (IOException e) {
-			e.printStackTrace();
+			LOGGER.error("", e); 
 		}
 
 	}
