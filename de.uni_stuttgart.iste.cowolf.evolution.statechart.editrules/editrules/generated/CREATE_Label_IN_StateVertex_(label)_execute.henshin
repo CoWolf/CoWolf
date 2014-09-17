@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_vDzC8DzqEeS0Et0zBBezDw" name="CREATE_Label_IN_StateVertex_(label)" description="Creates one Label in StateVertex">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_vDzC8TzqEeS0Et0zBBezDw" name="createLabel_IN_StateVertex" description="creates one Label in the context: StateVertex">
+    <parameters xmi:id="_vDzC8jzqEeS0Et0zBBezDw" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//StateVertex"/>
+    </parameters>
+    <parameters xmi:id="_vDzC8zzqEeS0Et0zBBezDw" name="New">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//Label"/>
+    </parameters>
+    <parameters xmi:id="_vDzC9DzqEeS0Et0zBBezDw" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_vDzC9TzqEeS0Et0zBBezDw" name="Name">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_vDzC9jzqEeS0Et0zBBezDw" name="Lhs">
+      <nodes xmi:id="_vDzC9zzqEeS0Et0zBBezDw" name="Selected">
+        <type href="http://Statemachine/1.0#//StateVertex"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_vDzC-DzqEeS0Et0zBBezDw" name="Rhs">
+      <nodes xmi:id="_vDzC-TzqEeS0Et0zBBezDw" name="Selected" outgoing="_vDzC_TzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//StateVertex"/>
+      </nodes>
+      <nodes xmi:id="_vDzC-jzqEeS0Et0zBBezDw" name="New" incoming="_vDzC_TzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//Label"/>
+        <attributes xmi:id="_vDzC-zzqEeS0Et0zBBezDw" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_vDzC_DzqEeS0Et0zBBezDw" value="Name">
+          <type href="http://Statemachine/1.0#//Label/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_vDzC_TzqEeS0Et0zBBezDw" source="_vDzC-TzqEeS0Et0zBBezDw" target="_vDzC-jzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//StateVertex/label"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_vDzC_jzqEeS0Et0zBBezDw" origin="_vDzC9zzqEeS0Et0zBBezDw" image="_vDzC-TzqEeS0Et0zBBezDw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_vDzC_zzqEeS0Et0zBBezDw" name="mainUnit" subUnits="_vDzC8TzqEeS0Et0zBBezDw">
+    <parameters xmi:id="_vDzDADzqEeS0Et0zBBezDw" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//StateVertex"/>
+    </parameters>
+    <parameters xmi:id="_vDzDATzqEeS0Et0zBBezDw" name="New">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//Label"/>
+    </parameters>
+    <parameters xmi:id="_vDzDAjzqEeS0Et0zBBezDw" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_vDzDAzzqEeS0Et0zBBezDw" name="Name">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_vDzDBDzqEeS0Et0zBBezDw" source="_vDzDADzqEeS0Et0zBBezDw" target="_vDzC8jzqEeS0Et0zBBezDw"/>
+    <parameterMappings xmi:id="_vDzDBTzqEeS0Et0zBBezDw" source="_vDzC8zzqEeS0Et0zBBezDw" target="_vDzDATzqEeS0Et0zBBezDw"/>
+    <parameterMappings xmi:id="_vDzDBjzqEeS0Et0zBBezDw" source="_vDzDAjzqEeS0Et0zBBezDw" target="_vDzC9DzqEeS0Et0zBBezDw"/>
+    <parameterMappings xmi:id="_vDzDBzzqEeS0Et0zBBezDw" source="_vDzDAzzqEeS0Et0zBBezDw" target="_vDzC9TzqEeS0Et0zBBezDw"/>
+  </units>
+</henshin:Module>

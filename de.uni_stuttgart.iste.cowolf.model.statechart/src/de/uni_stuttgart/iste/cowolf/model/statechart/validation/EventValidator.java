@@ -4,10 +4,7 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.statechart.validation;
 
-import de.uni_stuttgart.iste.cowolf.model.statechart.State;
 import de.uni_stuttgart.iste.cowolf.model.statechart.Transition;
-
-import org.eclipse.emf.common.util.EList;
 
 /**
  * A sample validator interface for {@link de.uni_stuttgart.iste.cowolf.model.statechart.Event}.
@@ -18,6 +15,6 @@ import org.eclipse.emf.common.util.EList;
 public interface EventValidator {
 	boolean validate();
 
-	boolean validateEvt_container(EList<Transition> value);
-	boolean validateTargets(EList<State> value);
+	boolean validateName(String value);
+	boolean validateEvt_container(Transition value);
 }

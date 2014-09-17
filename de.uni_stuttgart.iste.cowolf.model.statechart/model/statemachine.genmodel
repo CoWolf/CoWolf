@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.uni_stuttgart.iste.cowolf.model.statechart/src"
+    editDirectory="/de.uni_stuttgart.iste.cowolf.model.statechart.emf.edit/src" editorDirectory="/de.uni_stuttgart.iste.cowolf.model.statechart.emf.editor/src"
+    modelPluginID="de.uni_stuttgart.iste.cowolf.model.statechart" modelName="Statemachine"
+    modelPluginClass="" editPluginClass="de.uni_stuttgart.iste.cowolf.model.statechart.emf.provider.StatemachineEditPlugin"
+    editorPluginClass="de.uni_stuttgart.iste.cowolf.model.statechart.emf.presentation.StatemachineEditorPlugin"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="7.0" copyrightFields="false" editPluginID="de.uni_stuttgart.iste.cowolf.model.statechart.emf.edit"
+    editorPluginID="de.uni_stuttgart.iste.cowolf.model.statechart.emf.editor" usedGenPackages="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.genmodel#//commonBase"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>statemachine.ecore</foreignModel>
+  <genPackages prefix="Statemachine" basePackage="de.uni_stuttgart.iste.cowolf.model"
+      disposableProviderFactory="true" generateExampleClass="false" ecorePackage="statemachine.ecore#/1">
+    <genClasses ecoreClass="statemachine.ecore#/1/StateMachineRoot">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference statemachine.ecore#/1/StateMachineRoot/subStateMachines"/>
+    </genClasses>
+    <genClasses ecoreClass="statemachine.ecore#/1/StateMachine">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference statemachine.ecore#/1/StateMachine/transitions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference statemachine.ecore#/1/StateMachine/top"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference statemachine.ecore#/1/StateMachine/statemachine_container"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference statemachine.ecore#/1/StateMachine/calledByAction"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute statemachine.ecore#/1/StateMachine/name"/>
+    </genClasses>
+    <genClasses ecoreClass="statemachine.ecore#/1/State">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute statemachine.ecore#/1/State/label"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference statemachine.ecore#/1/State/state_container"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference statemachine.ecore#/1/State/internalTransitions"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference statemachine.ecore#/1/State/deferrableEvents"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference statemachine.ecore#/1/State/actions"/>
+    </genClasses>
+    <genClasses ecoreClass="statemachine.ecore#/1/CompositeState">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference statemachine.ecore#/1/CompositeState/subVertexes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute statemachine.ecore#/1/CompositeState/isConcurrent"/>
+    </genClasses>
+    <genClasses ecoreClass="statemachine.ecore#/1/Action">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute statemachine.ecore#/1/Action/value"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference statemachine.ecore#/1/Action/stateMachineCall"/>
+    </genClasses>
+    <genClasses ecoreClass="statemachine.ecore#/1/Transition">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference statemachine.ecore#/1/Transition/transSM_container"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference statemachine.ecore#/1/Transition/transS_container"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference statemachine.ecore#/1/Transition/trigger"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference statemachine.ecore#/1/Transition/guard"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference statemachine.ecore#/1/Transition/action"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference statemachine.ecore#/1/Transition/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference statemachine.ecore#/1/Transition/target"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute statemachine.ecore#/1/Transition/description"/>
+    </genClasses>
+    <genClasses ecoreClass="statemachine.ecore#/1/Event">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute statemachine.ecore#/1/Event/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference statemachine.ecore#/1/Event/evt_container"/>
+    </genClasses>
+    <genClasses ecoreClass="statemachine.ecore#/1/Guard">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute statemachine.ecore#/1/Guard/expression"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference statemachine.ecore#/1/Guard/gua_container"/>
+    </genClasses>
+    <genClasses ecoreClass="statemachine.ecore#/1/TransitionAction">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference statemachine.ecore#/1/TransitionAction/act_container"/>
+    </genClasses>
+    <genClasses ecoreClass="statemachine.ecore#/1/StateVertex">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference statemachine.ecore#/1/StateVertex/sv_container"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference statemachine.ecore#/1/StateVertex/outgoing"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference statemachine.ecore#/1/StateVertex/incoming"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="statemachine.ecore#/1/StateAction">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference statemachine.ecore#/1/StateAction/action_container"/>
+    </genClasses>
+    <genClasses ecoreClass="statemachine.ecore#/1/DO"/>
+    <genClasses ecoreClass="statemachine.ecore#/1/ENTRY"/>
+    <genClasses ecoreClass="statemachine.ecore#/1/EXIT"/>
+  </genPackages>
+</genmodel:GenModel>

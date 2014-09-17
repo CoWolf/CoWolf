@@ -1,68 +1,72 @@
 <?xml version="1.0" encoding="ASCII"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_iHH5QCxkEeSKHvuYIUm5Ng" name="CREATE_CompositeState_IN_CompositeState_(subVertexes)" description="Creates one CompositeState in CompositeState">
-  <imports href="http://Statechart/1.0#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="_iHH5QSxkEeSKHvuYIUm5Ng" name="createCompositeState_IN_CompositeState" description="creates one CompositeState in the context: CompositeState">
-    <parameters xmi:id="_iHH5QixkEeSKHvuYIUm5Ng" name="Selected"/>
-    <parameters xmi:id="_iHH5QyxkEeSKHvuYIUm5Ng" name="New"/>
-    <parameters xmi:id="_iHH5RCxkEeSKHvuYIUm5Ng" name="Id"/>
-    <parameters xmi:id="_iHH5RSxkEeSKHvuYIUm5Ng" name="Name"/>
-    <parameters xmi:id="_iHH5RixkEeSKHvuYIUm5Ng" name="IsConcurrent"/>
-    <parameters xmi:id="_iHH5RyxkEeSKHvuYIUm5Ng" name="Existing"/>
-    <lhs xmi:id="_iHH5SCxkEeSKHvuYIUm5Ng" name="Lhs">
-      <nodes xmi:id="_iHH5SSxkEeSKHvuYIUm5Ng" name="Selected">
-        <type href="http://Statechart/1.0#//CompositeState"/>
-      </nodes>
-      <nodes xmi:id="_iHH5SixkEeSKHvuYIUm5Ng" name="Existing">
-        <type href="http://Statechart/1.0#//StateMachine"/>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_vG72gDzqEeS0Et0zBBezDw" name="CREATE_CompositeState_IN_CompositeState_(subVertexes)" description="Creates one CompositeState in CompositeState">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_vG72gTzqEeS0Et0zBBezDw" name="createCompositeState_IN_CompositeState" description="creates one CompositeState in the context: CompositeState">
+    <parameters xmi:id="_vG72gjzqEeS0Et0zBBezDw" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//CompositeState"/>
+    </parameters>
+    <parameters xmi:id="_vG72gzzqEeS0Et0zBBezDw" name="New">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//CompositeState"/>
+    </parameters>
+    <parameters xmi:id="_vG72hDzqEeS0Et0zBBezDw" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_vG72hTzqEeS0Et0zBBezDw" name="Name">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_vG72hjzqEeS0Et0zBBezDw" name="IsConcurrent">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </parameters>
+    <lhs xmi:id="_vG72hzzqEeS0Et0zBBezDw" name="Lhs">
+      <nodes xmi:id="_vG72iDzqEeS0Et0zBBezDw" name="Selected">
+        <type href="http://Statemachine/1.0#//CompositeState"/>
       </nodes>
     </lhs>
-    <rhs xmi:id="_iHH5SyxkEeSKHvuYIUm5Ng" name="Rhs">
-      <nodes xmi:id="_iHH5TCxkEeSKHvuYIUm5Ng" name="Selected" incoming="_iHH5UyxkEeSKHvuYIUm5Ng" outgoing="_iHH5UixkEeSKHvuYIUm5Ng">
-        <type href="http://Statechart/1.0#//CompositeState"/>
+    <rhs xmi:id="_vG72iTzqEeS0Et0zBBezDw" name="Rhs">
+      <nodes xmi:id="_vG72ijzqEeS0Et0zBBezDw" name="Selected" incoming="_vG72kDzqEeS0Et0zBBezDw" outgoing="_vG72jzzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//CompositeState"/>
       </nodes>
-      <nodes xmi:id="_iHH5TSxkEeSKHvuYIUm5Ng" name="New" incoming="_iHH5UixkEeSKHvuYIUm5Ng _iHH5VSxkEeSKHvuYIUm5Ng" outgoing="_iHH5UyxkEeSKHvuYIUm5Ng _iHH5VCxkEeSKHvuYIUm5Ng">
-        <type href="http://Statechart/1.0#//CompositeState"/>
-        <attributes xmi:id="_iHH5TixkEeSKHvuYIUm5Ng" value="Id">
+      <nodes xmi:id="_vG72izzqEeS0Et0zBBezDw" name="New" incoming="_vG72jzzqEeS0Et0zBBezDw" outgoing="_vG72kDzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//CompositeState"/>
+        <attributes xmi:id="_vG72jDzqEeS0Et0zBBezDw" value="Id">
           <type href="http://CommonBase/1.0#//IDBase/id"/>
         </attributes>
-        <attributes xmi:id="_iHH5TyxkEeSKHvuYIUm5Ng" value="Name">
+        <attributes xmi:id="_vG72jTzqEeS0Et0zBBezDw" value="Name">
           <type href="http://CommonBase/1.0#//NameBase/name"/>
         </attributes>
-        <attributes xmi:id="_iHH5UCxkEeSKHvuYIUm5Ng" value="IsConcurrent">
-          <type href="http://Statechart/1.0#//CompositeState/isConcurrent"/>
+        <attributes xmi:id="_vG72jjzqEeS0Et0zBBezDw" value="IsConcurrent">
+          <type href="http://Statemachine/1.0#//CompositeState/isConcurrent"/>
         </attributes>
       </nodes>
-      <nodes xmi:id="_iHH5USxkEeSKHvuYIUm5Ng" name="Existing" incoming="_iHH5VCxkEeSKHvuYIUm5Ng" outgoing="_iHH5VSxkEeSKHvuYIUm5Ng">
-        <type href="http://Statechart/1.0#//StateMachine"/>
-      </nodes>
-      <edges xmi:id="_iHH5UixkEeSKHvuYIUm5Ng" source="_iHH5TCxkEeSKHvuYIUm5Ng" target="_iHH5TSxkEeSKHvuYIUm5Ng">
-        <type href="http://Statechart/1.0#//CompositeState/subVertexes"/>
+      <edges xmi:id="_vG72jzzqEeS0Et0zBBezDw" source="_vG72ijzqEeS0Et0zBBezDw" target="_vG72izzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//CompositeState/subVertexes"/>
       </edges>
-      <edges xmi:id="_iHH5UyxkEeSKHvuYIUm5Ng" source="_iHH5TSxkEeSKHvuYIUm5Ng" target="_iHH5TCxkEeSKHvuYIUm5Ng">
-        <type href="http://Statechart/1.0#//StateVertex/sv_container"/>
-      </edges>
-      <edges xmi:id="_iHH5VCxkEeSKHvuYIUm5Ng" source="_iHH5TSxkEeSKHvuYIUm5Ng" target="_iHH5USxkEeSKHvuYIUm5Ng">
-        <type href="http://Statechart/1.0#//State/state_container"/>
-      </edges>
-      <edges xmi:id="_iHH5VSxkEeSKHvuYIUm5Ng" source="_iHH5USxkEeSKHvuYIUm5Ng" target="_iHH5TSxkEeSKHvuYIUm5Ng">
-        <type href="http://Statechart/1.0#//StateMachine/states"/>
+      <edges xmi:id="_vG72kDzqEeS0Et0zBBezDw" source="_vG72izzqEeS0Et0zBBezDw" target="_vG72ijzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//StateVertex/sv_container"/>
       </edges>
     </rhs>
-    <mappings xmi:id="_iHH5VixkEeSKHvuYIUm5Ng" origin="_iHH5SSxkEeSKHvuYIUm5Ng" image="_iHH5TCxkEeSKHvuYIUm5Ng"/>
-    <mappings xmi:id="_iHH5VyxkEeSKHvuYIUm5Ng" origin="_iHH5SixkEeSKHvuYIUm5Ng" image="_iHH5USxkEeSKHvuYIUm5Ng"/>
+    <mappings xmi:id="_vG72kTzqEeS0Et0zBBezDw" origin="_vG72iDzqEeS0Et0zBBezDw" image="_vG72ijzqEeS0Et0zBBezDw"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="_iHH5WCxkEeSKHvuYIUm5Ng" name="mainUnit" description="Creates one CompositeState depending on available contexts in model instance" subUnits="_iHH5QSxkEeSKHvuYIUm5Ng">
-    <parameters xmi:id="_iHH5WSxkEeSKHvuYIUm5Ng" name="New"/>
-    <parameters xmi:id="_iHH5WixkEeSKHvuYIUm5Ng" name="selectedEObject"/>
-    <parameters xmi:id="_iHH5WyxkEeSKHvuYIUm5Ng" name="Id"/>
-    <parameters xmi:id="_iHH5XCxkEeSKHvuYIUm5Ng" name="Name"/>
-    <parameters xmi:id="_iHH5XSxkEeSKHvuYIUm5Ng" name="IsConcurrent"/>
-    <parameters xmi:id="_iHH5XixkEeSKHvuYIUm5Ng" name="Existing"/>
-    <parameterMappings xmi:id="_iHH5XyxkEeSKHvuYIUm5Ng" source="_iHH5WixkEeSKHvuYIUm5Ng" target="_iHH5QixkEeSKHvuYIUm5Ng"/>
-    <parameterMappings xmi:id="_iHIgUCxkEeSKHvuYIUm5Ng" source="_iHH5QyxkEeSKHvuYIUm5Ng" target="_iHH5WSxkEeSKHvuYIUm5Ng"/>
-    <parameterMappings xmi:id="_iHIgUSxkEeSKHvuYIUm5Ng" source="_iHH5WyxkEeSKHvuYIUm5Ng" target="_iHH5RCxkEeSKHvuYIUm5Ng"/>
-    <parameterMappings xmi:id="_iHIgUixkEeSKHvuYIUm5Ng" source="_iHH5XCxkEeSKHvuYIUm5Ng" target="_iHH5RSxkEeSKHvuYIUm5Ng"/>
-    <parameterMappings xmi:id="_iHIgUyxkEeSKHvuYIUm5Ng" source="_iHH5XSxkEeSKHvuYIUm5Ng" target="_iHH5RixkEeSKHvuYIUm5Ng"/>
-    <parameterMappings xmi:id="_iHIgVCxkEeSKHvuYIUm5Ng" source="_iHH5XixkEeSKHvuYIUm5Ng" target="_iHH5RyxkEeSKHvuYIUm5Ng"/>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_vG72kjzqEeS0Et0zBBezDw" name="mainUnit" subUnits="_vG72gTzqEeS0Et0zBBezDw">
+    <parameters xmi:id="_vG72kzzqEeS0Et0zBBezDw" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//CompositeState"/>
+    </parameters>
+    <parameters xmi:id="_vG72lDzqEeS0Et0zBBezDw" name="New">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//CompositeState"/>
+    </parameters>
+    <parameters xmi:id="_vG72lTzqEeS0Et0zBBezDw" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_vG72ljzqEeS0Et0zBBezDw" name="Name">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_vG72lzzqEeS0Et0zBBezDw" name="IsConcurrent">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </parameters>
+    <parameterMappings xmi:id="_vG72mDzqEeS0Et0zBBezDw" source="_vG72kzzqEeS0Et0zBBezDw" target="_vG72gjzqEeS0Et0zBBezDw"/>
+    <parameterMappings xmi:id="_vG72mTzqEeS0Et0zBBezDw" source="_vG72gzzqEeS0Et0zBBezDw" target="_vG72lDzqEeS0Et0zBBezDw"/>
+    <parameterMappings xmi:id="_vG72mjzqEeS0Et0zBBezDw" source="_vG72lTzqEeS0Et0zBBezDw" target="_vG72hDzqEeS0Et0zBBezDw"/>
+    <parameterMappings xmi:id="_vG72mzzqEeS0Et0zBBezDw" source="_vG72ljzqEeS0Et0zBBezDw" target="_vG72hTzqEeS0Et0zBBezDw"/>
+    <parameterMappings xmi:id="_vG72nDzqEeS0Et0zBBezDw" source="_vG72lzzqEeS0Et0zBBezDw" target="_vG72hjzqEeS0Et0zBBezDw"/>
   </units>
 </henshin:Module>

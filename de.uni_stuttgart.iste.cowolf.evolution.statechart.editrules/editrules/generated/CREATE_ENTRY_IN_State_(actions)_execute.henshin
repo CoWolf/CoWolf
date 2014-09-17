@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_vGpioDzqEeS0Et0zBBezDw" name="CREATE_ENTRY_IN_State_(actions)" description="Creates one ENTRY in State">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_vGpioTzqEeS0Et0zBBezDw" name="createENTRY_IN_State" description="creates one ENTRY in the context: State">
+    <parameters xmi:id="_vGpiojzqEeS0Et0zBBezDw" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//State"/>
+    </parameters>
+    <parameters xmi:id="_vGpiozzqEeS0Et0zBBezDw" name="New">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//ENTRY"/>
+    </parameters>
+    <parameters xmi:id="_vGpipDzqEeS0Et0zBBezDw" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_vGpipTzqEeS0Et0zBBezDw" name="Value">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_vGpipjzqEeS0Et0zBBezDw" name="Lhs">
+      <nodes xmi:id="_vGpipzzqEeS0Et0zBBezDw" name="Selected">
+        <type href="http://Statemachine/1.0#//State"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_vGpiqDzqEeS0Et0zBBezDw" name="Rhs">
+      <nodes xmi:id="_vGpiqTzqEeS0Et0zBBezDw" name="Selected" incoming="_vGpirjzqEeS0Et0zBBezDw" outgoing="_vGpirTzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_vGpiqjzqEeS0Et0zBBezDw" name="New" incoming="_vGpirTzqEeS0Et0zBBezDw" outgoing="_vGpirjzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//ENTRY"/>
+        <attributes xmi:id="_vGpiqzzqEeS0Et0zBBezDw" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_vGpirDzqEeS0Et0zBBezDw" value="Value">
+          <type href="http://Statemachine/1.0#//Action/value"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_vGpirTzqEeS0Et0zBBezDw" source="_vGpiqTzqEeS0Et0zBBezDw" target="_vGpiqjzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//State/actions"/>
+      </edges>
+      <edges xmi:id="_vGpirjzqEeS0Et0zBBezDw" source="_vGpiqjzqEeS0Et0zBBezDw" target="_vGpiqTzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//StateAction/action_container"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_vGpirzzqEeS0Et0zBBezDw" origin="_vGpipzzqEeS0Et0zBBezDw" image="_vGpiqTzqEeS0Et0zBBezDw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_vGpisDzqEeS0Et0zBBezDw" name="mainUnit" subUnits="_vGpioTzqEeS0Et0zBBezDw">
+    <parameters xmi:id="_vGpisTzqEeS0Et0zBBezDw" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//State"/>
+    </parameters>
+    <parameters xmi:id="_vGpisjzqEeS0Et0zBBezDw" name="New">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//ENTRY"/>
+    </parameters>
+    <parameters xmi:id="_vGpiszzqEeS0Et0zBBezDw" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_vGpitDzqEeS0Et0zBBezDw" name="Value">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_vGpitTzqEeS0Et0zBBezDw" source="_vGpisTzqEeS0Et0zBBezDw" target="_vGpiojzqEeS0Et0zBBezDw"/>
+    <parameterMappings xmi:id="_vGpitjzqEeS0Et0zBBezDw" source="_vGpiozzqEeS0Et0zBBezDw" target="_vGpisjzqEeS0Et0zBBezDw"/>
+    <parameterMappings xmi:id="_vGpitzzqEeS0Et0zBBezDw" source="_vGpiszzqEeS0Et0zBBezDw" target="_vGpipDzqEeS0Et0zBBezDw"/>
+    <parameterMappings xmi:id="_vGpiuDzqEeS0Et0zBBezDw" source="_vGpitDzqEeS0Et0zBBezDw" target="_vGpipTzqEeS0Et0zBBezDw"/>
+  </units>
+</henshin:Module>

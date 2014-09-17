@@ -4,6 +4,7 @@ package de.uni_stuttgart.iste.cowolf.model.statechart;
 
 import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
 import de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase;
+
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -17,10 +18,11 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.StateVertex#getSv_container <em>Sv container</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.StateVertex#getOutgoing <em>Outgoing</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.StateVertex#getIncoming <em>Incoming</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.StateVertex#getLabel <em>Label</em>}</li>
  * </ul>
  * </p>
  *
- * @see de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage#getStateVertex()
+ * @see de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage#getStateVertex()
  * @model
  * @generated
  */
@@ -36,7 +38,7 @@ public interface StateVertex extends IDBase, NameBase {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sv container</em>' container reference.
 	 * @see #setSv_container(CompositeState)
-	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage#getStateVertex_Sv_container()
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage#getStateVertex_Sv_container()
 	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.CompositeState#getSubVertexes
 	 * @model opposite="subVertexes" transient="false" ordered="false"
 	 * @generated
@@ -64,7 +66,7 @@ public interface StateVertex extends IDBase, NameBase {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Outgoing</em>' reference list.
-	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage#getStateVertex_Outgoing()
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage#getStateVertex_Outgoing()
 	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.Transition#getSource
 	 * @model opposite="source" ordered="false"
 	 * @generated
@@ -82,11 +84,27 @@ public interface StateVertex extends IDBase, NameBase {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Incoming</em>' reference list.
-	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage#getStateVertex_Incoming()
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage#getStateVertex_Incoming()
 	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.Transition#getTarget
 	 * @model opposite="target" ordered="false"
 	 * @generated
 	 */
 	EList<Transition> getIncoming();
+
+	/**
+	 * Returns the value of the '<em><b>Label</b></em>' containment reference list.
+	 * The list contents are of type {@link de.uni_stuttgart.iste.cowolf.model.statechart.Label}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Label</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Label</em>' containment reference list.
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage#getStateVertex_Label()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Label> getLabel();
 
 } // StateVertex

@@ -1,38 +1,43 @@
 <?xml version="1.0" encoding="ASCII"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_iGK3ACxkEeSKHvuYIUm5Ng" name="ADD_State_(deferrableEvents)_TGT_Event" description="Adds to State's reference deferrableEvents the target Event">
-  <imports href="http://Statechart/1.0#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="_iGK3ASxkEeSKHvuYIUm5Ng" name="addToState_deferrableEvents_Event" description="Adds to State's reference deferrableEvents the target Event">
-    <parameters xmi:id="_iGK3AixkEeSKHvuYIUm5Ng" name="Selected"/>
-    <parameters xmi:id="_iGK3AyxkEeSKHvuYIUm5Ng" name="NewTarget"/>
-    <lhs xmi:id="_iGK3BCxkEeSKHvuYIUm5Ng" name="Lhs">
-      <nodes xmi:id="_iGK3BSxkEeSKHvuYIUm5Ng" name="Selected">
-        <type href="http://Statechart/1.0#//State"/>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_vGULcDzqEeS0Et0zBBezDw" name="ADD_State_(deferrableEvents)_TGT_Event" description="Adds to State's reference deferrableEvents the target Event">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_vGULcTzqEeS0Et0zBBezDw" name="addToState_deferrableEvents_Event" description="Adds to State's reference deferrableEvents the target Event">
+    <parameters xmi:id="_vGULcjzqEeS0Et0zBBezDw" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//State"/>
+    </parameters>
+    <parameters xmi:id="_vGULczzqEeS0Et0zBBezDw" name="NewTarget">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//Event"/>
+    </parameters>
+    <lhs xmi:id="_vGULdDzqEeS0Et0zBBezDw" name="Lhs">
+      <nodes xmi:id="_vGULdTzqEeS0Et0zBBezDw" name="Selected">
+        <type href="http://Statemachine/1.0#//State"/>
       </nodes>
-      <nodes xmi:id="_iGK3BixkEeSKHvuYIUm5Ng" name="NewTarget">
-        <type href="http://Statechart/1.0#//Event"/>
+      <nodes xmi:id="_vGULdjzqEeS0Et0zBBezDw" name="NewTarget">
+        <type href="http://Statemachine/1.0#//Event"/>
       </nodes>
     </lhs>
-    <rhs xmi:id="_iGK3ByxkEeSKHvuYIUm5Ng" name="Rhs">
-      <nodes xmi:id="_iGK3CCxkEeSKHvuYIUm5Ng" name="Selected" incoming="_iGK3CyxkEeSKHvuYIUm5Ng" outgoing="_iGK3CixkEeSKHvuYIUm5Ng">
-        <type href="http://Statechart/1.0#//State"/>
+    <rhs xmi:id="_vGULdzzqEeS0Et0zBBezDw" name="Rhs">
+      <nodes xmi:id="_vGULeDzqEeS0Et0zBBezDw" name="Selected" outgoing="_vGULejzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//State"/>
       </nodes>
-      <nodes xmi:id="_iGK3CSxkEeSKHvuYIUm5Ng" name="NewTarget" incoming="_iGK3CixkEeSKHvuYIUm5Ng" outgoing="_iGK3CyxkEeSKHvuYIUm5Ng">
-        <type href="http://Statechart/1.0#//Event"/>
+      <nodes xmi:id="_vGULeTzqEeS0Et0zBBezDw" name="NewTarget" incoming="_vGULejzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//Event"/>
       </nodes>
-      <edges xmi:id="_iGK3CixkEeSKHvuYIUm5Ng" source="_iGK3CCxkEeSKHvuYIUm5Ng" target="_iGK3CSxkEeSKHvuYIUm5Ng">
-        <type href="http://Statechart/1.0#//State/deferrableEvents"/>
-      </edges>
-      <edges xmi:id="_iGK3CyxkEeSKHvuYIUm5Ng" source="_iGK3CSxkEeSKHvuYIUm5Ng" target="_iGK3CCxkEeSKHvuYIUm5Ng">
-        <type href="http://Statechart/1.0#//Event/targets"/>
+      <edges xmi:id="_vGULejzqEeS0Et0zBBezDw" source="_vGULeDzqEeS0Et0zBBezDw" target="_vGULeTzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//State/deferrableEvents"/>
       </edges>
     </rhs>
-    <mappings xmi:id="_iGK3DCxkEeSKHvuYIUm5Ng" origin="_iGK3BSxkEeSKHvuYIUm5Ng" image="_iGK3CCxkEeSKHvuYIUm5Ng"/>
-    <mappings xmi:id="_iGK3DSxkEeSKHvuYIUm5Ng" origin="_iGK3BixkEeSKHvuYIUm5Ng" image="_iGK3CSxkEeSKHvuYIUm5Ng"/>
+    <mappings xmi:id="_vGULezzqEeS0Et0zBBezDw" origin="_vGULdTzqEeS0Et0zBBezDw" image="_vGULeDzqEeS0Et0zBBezDw"/>
+    <mappings xmi:id="_vGULfDzqEeS0Et0zBBezDw" origin="_vGULdjzqEeS0Et0zBBezDw" image="_vGULeTzqEeS0Et0zBBezDw"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="_iGK3DixkEeSKHvuYIUm5Ng" name="mainUnit" subUnits="_iGK3ASxkEeSKHvuYIUm5Ng">
-    <parameters xmi:id="_iGK3DyxkEeSKHvuYIUm5Ng" name="selectedEObject"/>
-    <parameters xmi:id="_iGK3ECxkEeSKHvuYIUm5Ng" name="NewTarget"/>
-    <parameterMappings xmi:id="_iGK3ESxkEeSKHvuYIUm5Ng" source="_iGK3DyxkEeSKHvuYIUm5Ng" target="_iGK3AixkEeSKHvuYIUm5Ng"/>
-    <parameterMappings xmi:id="_iGK3EixkEeSKHvuYIUm5Ng" source="_iGK3ECxkEeSKHvuYIUm5Ng" target="_iGK3AyxkEeSKHvuYIUm5Ng"/>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_vGULfTzqEeS0Et0zBBezDw" name="mainUnit" subUnits="_vGULcTzqEeS0Et0zBBezDw">
+    <parameters xmi:id="_vGULfjzqEeS0Et0zBBezDw" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//State"/>
+    </parameters>
+    <parameters xmi:id="_vGULfzzqEeS0Et0zBBezDw" name="NewTarget">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//Event"/>
+    </parameters>
+    <parameterMappings xmi:id="_vGULgDzqEeS0Et0zBBezDw" source="_vGULfjzqEeS0Et0zBBezDw" target="_vGULcjzqEeS0Et0zBBezDw"/>
+    <parameterMappings xmi:id="_vGULgTzqEeS0Et0zBBezDw" source="_vGULfzzqEeS0Et0zBBezDw" target="_vGULczzqEeS0Et0zBBezDw"/>
   </units>
 </henshin:Module>

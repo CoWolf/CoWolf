@@ -4,7 +4,6 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.statechart.validation;
 
-import de.uni_stuttgart.iste.cowolf.model.statechart.BooleanExpression;
 import de.uni_stuttgart.iste.cowolf.model.statechart.Transition;
 
 /**
@@ -16,6 +15,6 @@ import de.uni_stuttgart.iste.cowolf.model.statechart.Transition;
 public interface GuardValidator {
 	boolean validate();
 
+	boolean validateExpression(String value);
 	boolean validateGua_container(Transition value);
-	boolean validateExpression(BooleanExpression value);
 }

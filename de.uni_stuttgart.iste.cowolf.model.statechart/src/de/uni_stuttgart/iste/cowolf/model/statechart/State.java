@@ -15,18 +15,18 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.State#getState_container <em>State container</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.State#getInternalTransitions <em>Internal Transitions</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.State#getDeferrableEvents <em>Deferrable Events</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.State#getAtomicProposition <em>Atomic Proposition</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.State#getActions <em>Actions</em>}</li>
  * </ul>
  * </p>
  *
- * @see de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage#getState()
+ * @see de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage#getState()
  * @model
  * @generated
  */
 public interface State extends StateVertex {
 	/**
 	 * Returns the value of the '<em><b>State container</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine#getStates <em>States</em>}'.
+	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine#getTop <em>Top</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>State container</em>' container reference isn't clear,
@@ -35,9 +35,9 @@ public interface State extends StateVertex {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>State container</em>' container reference.
 	 * @see #setState_container(StateMachine)
-	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage#getState_State_container()
-	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine#getStates
-	 * @model opposite="states" required="true" transient="false" ordered="false"
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage#getState_State_container()
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine#getTop
+	 * @model opposite="top" transient="false" ordered="false"
 	 * @generated
 	 */
 	StateMachine getState_container();
@@ -63,7 +63,7 @@ public interface State extends StateVertex {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Internal Transitions</em>' containment reference list.
-	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage#getState_InternalTransitions()
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage#getState_InternalTransitions()
 	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.Transition#getTransS_container
 	 * @model opposite="transS_container" containment="true" ordered="false"
 	 * @generated
@@ -73,7 +73,6 @@ public interface State extends StateVertex {
 	/**
 	 * Returns the value of the '<em><b>Deferrable Events</b></em>' reference list.
 	 * The list contents are of type {@link de.uni_stuttgart.iste.cowolf.model.statechart.Event}.
-	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.model.statechart.Event#getTargets <em>Targets</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Deferrable Events</em>' reference list isn't clear,
@@ -81,27 +80,28 @@ public interface State extends StateVertex {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Deferrable Events</em>' reference list.
-	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage#getState_DeferrableEvents()
-	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.Event#getTargets
-	 * @model opposite="targets" ordered="false"
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage#getState_DeferrableEvents()
+	 * @model ordered="false"
 	 * @generated
 	 */
 	EList<Event> getDeferrableEvents();
 
 	/**
-	 * Returns the value of the '<em><b>Atomic Proposition</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uni_stuttgart.iste.cowolf.model.statechart.BooleanExpression}.
+	 * Returns the value of the '<em><b>Actions</b></em>' containment reference list.
+	 * The list contents are of type {@link de.uni_stuttgart.iste.cowolf.model.statechart.StateAction}.
+	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.model.statechart.StateAction#getAction_container <em>Action container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Atomic Proposition</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Actions</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Atomic Proposition</em>' containment reference list.
-	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage#getState_AtomicProposition()
-	 * @model containment="true"
+	 * @return the value of the '<em>Actions</em>' containment reference list.
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage#getState_Actions()
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.StateAction#getAction_container
+	 * @model opposite="action_container" containment="true"
 	 * @generated
 	 */
-	EList<BooleanExpression> getAtomicProposition();
+	EList<StateAction> getActions();
 
 } // State

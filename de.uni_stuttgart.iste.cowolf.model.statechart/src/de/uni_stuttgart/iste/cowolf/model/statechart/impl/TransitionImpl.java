@@ -2,18 +2,18 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.statechart.impl;
 
-import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
-import de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase;
 import de.uni_stuttgart.iste.cowolf.model.commonBase.impl.IDBaseImpl;
 import de.uni_stuttgart.iste.cowolf.model.statechart.Event;
 import de.uni_stuttgart.iste.cowolf.model.statechart.Guard;
 import de.uni_stuttgart.iste.cowolf.model.statechart.State;
 import de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine;
 import de.uni_stuttgart.iste.cowolf.model.statechart.StateVertex;
+import de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage;
 import de.uni_stuttgart.iste.cowolf.model.statechart.Transition;
-import de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage;
+import de.uni_stuttgart.iste.cowolf.model.statechart.TransitionAction;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -26,13 +26,14 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.TransitionImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.TransitionImpl#getTransSM_container <em>Trans SM container</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.TransitionImpl#getTransS_container <em>Trans Scontainer</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.TransitionImpl#getTrigger <em>Trigger</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.TransitionImpl#getGuard <em>Guard</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.TransitionImpl#getAction <em>Action</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.TransitionImpl#getSource <em>Source</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.TransitionImpl#getTarget <em>Target</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.TransitionImpl#getDescription <em>Description</em>}</li>
  * </ul>
  * </p>
  *
@@ -40,27 +41,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  */
 public class TransitionImpl extends IDBaseImpl implements Transition {
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getTrigger() <em>Trigger</em>}' reference.
+	 * The cached value of the '{@link #getTrigger() <em>Trigger</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getTrigger()
@@ -78,6 +59,16 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	 * @ordered
 	 */
 	protected Guard guard;
+
+	/**
+	 * The cached value of the '{@link #getAction() <em>Action</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAction()
+	 * @generated
+	 * @ordered
+	 */
+	protected TransitionAction action;
 
 	/**
 	 * The cached value of the '{@link #getSource() <em>Source</em>}' reference.
@@ -100,6 +91,26 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	protected StateVertex target;
 
 	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected String description = DESCRIPTION_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -115,29 +126,10 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return statechartemfPackage.Literals.TRANSITION;
+		return StatemachinePackage.Literals.TRANSITION;
 	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, statechartemfPackage.TRANSITION__NAME, oldName, name));
-	}
+	
+	
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -145,17 +137,42 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	 * @generated
 	 */
 	public StateMachine getTransSM_container() {
-		if (eContainerFeatureID() != statechartemfPackage.TRANSITION__TRANS_SM_CONTAINER) return null;
+		if (eContainerFeatureID() != StatemachinePackage.TRANSITION__TRANS_SM_CONTAINER) return null;
 		return (StateMachine)eInternalContainer();
 	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@SuppressWarnings("unchecked")
+	public EList<StateVertex> getTransStates() {
+		
+		if(  this.eContainer instanceof CompositeStateImpl){
+			return ((CompositeStateImpl) this.eContainer).getSubVertexes();
+		}
+		else if(this.eContainer instanceof StateMachineImpl){
+			return (EList<StateVertex>)(EList<?>)((StateMachineImpl) this.eContainer).getTop();
+		}
+		else {
+			return null;
+		}
 
+//		
+//		
+//		if (eContainerFeatureID() != StatemachinePackage.TRANSITION__TRANS_SM_CONTAINER) return null;
+//		return ((StateMachine)eInternalContainer()).getTop();
+		
+		
+	}
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetTransSM_container(StateMachine newTransSM_container, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newTransSM_container, statechartemfPackage.TRANSITION__TRANS_SM_CONTAINER, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newTransSM_container, StatemachinePackage.TRANSITION__TRANS_SM_CONTAINER, msgs);
 		return msgs;
 	}
 
@@ -165,19 +182,19 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	 * @generated
 	 */
 	public void setTransSM_container(StateMachine newTransSM_container) {
-		if (newTransSM_container != eInternalContainer() || (eContainerFeatureID() != statechartemfPackage.TRANSITION__TRANS_SM_CONTAINER && newTransSM_container != null)) {
+		if (newTransSM_container != eInternalContainer() || (eContainerFeatureID() != StatemachinePackage.TRANSITION__TRANS_SM_CONTAINER && newTransSM_container != null)) {
 			if (EcoreUtil.isAncestor(this, newTransSM_container))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newTransSM_container != null)
-				msgs = ((InternalEObject)newTransSM_container).eInverseAdd(this, statechartemfPackage.STATE_MACHINE__TRANSITIONS, StateMachine.class, msgs);
+				msgs = ((InternalEObject)newTransSM_container).eInverseAdd(this, StatemachinePackage.STATE_MACHINE__TRANSITIONS, StateMachine.class, msgs);
 			msgs = basicSetTransSM_container(newTransSM_container, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, statechartemfPackage.TRANSITION__TRANS_SM_CONTAINER, newTransSM_container, newTransSM_container));
+			eNotify(new ENotificationImpl(this, Notification.SET, StatemachinePackage.TRANSITION__TRANS_SM_CONTAINER, newTransSM_container, newTransSM_container));
 	}
 
 	/**
@@ -186,7 +203,7 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	 * @generated
 	 */
 	public State getTransS_container() {
-		if (eContainerFeatureID() != statechartemfPackage.TRANSITION__TRANS_SCONTAINER) return null;
+		if (eContainerFeatureID() != StatemachinePackage.TRANSITION__TRANS_SCONTAINER) return null;
 		return (State)eInternalContainer();
 	}
 
@@ -196,7 +213,7 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	 * @generated
 	 */
 	public NotificationChain basicSetTransS_container(State newTransS_container, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newTransS_container, statechartemfPackage.TRANSITION__TRANS_SCONTAINER, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newTransS_container, StatemachinePackage.TRANSITION__TRANS_SCONTAINER, msgs);
 		return msgs;
 	}
 
@@ -206,19 +223,19 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	 * @generated
 	 */
 	public void setTransS_container(State newTransS_container) {
-		if (newTransS_container != eInternalContainer() || (eContainerFeatureID() != statechartemfPackage.TRANSITION__TRANS_SCONTAINER && newTransS_container != null)) {
+		if (newTransS_container != eInternalContainer() || (eContainerFeatureID() != StatemachinePackage.TRANSITION__TRANS_SCONTAINER && newTransS_container != null)) {
 			if (EcoreUtil.isAncestor(this, newTransS_container))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newTransS_container != null)
-				msgs = ((InternalEObject)newTransS_container).eInverseAdd(this, statechartemfPackage.STATE__INTERNAL_TRANSITIONS, State.class, msgs);
+				msgs = ((InternalEObject)newTransS_container).eInverseAdd(this, StatemachinePackage.STATE__INTERNAL_TRANSITIONS, State.class, msgs);
 			msgs = basicSetTransS_container(newTransS_container, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, statechartemfPackage.TRANSITION__TRANS_SCONTAINER, newTransS_container, newTransS_container));
+			eNotify(new ENotificationImpl(this, Notification.SET, StatemachinePackage.TRANSITION__TRANS_SCONTAINER, newTransS_container, newTransS_container));
 	}
 
 	/**
@@ -227,23 +244,6 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	 * @generated
 	 */
 	public Event getTrigger() {
-		if (trigger != null && trigger.eIsProxy()) {
-			InternalEObject oldTrigger = (InternalEObject)trigger;
-			trigger = (Event)eResolveProxy(oldTrigger);
-			if (trigger != oldTrigger) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, statechartemfPackage.TRANSITION__TRIGGER, oldTrigger, trigger));
-			}
-		}
-		return trigger;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Event basicGetTrigger() {
 		return trigger;
 	}
 
@@ -256,7 +256,7 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 		Event oldTrigger = trigger;
 		trigger = newTrigger;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, statechartemfPackage.TRANSITION__TRIGGER, oldTrigger, newTrigger);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, StatemachinePackage.TRANSITION__TRIGGER, oldTrigger, newTrigger);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -271,14 +271,14 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 		if (newTrigger != trigger) {
 			NotificationChain msgs = null;
 			if (trigger != null)
-				msgs = ((InternalEObject)trigger).eInverseRemove(this, statechartemfPackage.EVENT__EVT_CONTAINER, Event.class, msgs);
+				msgs = ((InternalEObject)trigger).eInverseRemove(this, StatemachinePackage.EVENT__EVT_CONTAINER, Event.class, msgs);
 			if (newTrigger != null)
-				msgs = ((InternalEObject)newTrigger).eInverseAdd(this, statechartemfPackage.EVENT__EVT_CONTAINER, Event.class, msgs);
+				msgs = ((InternalEObject)newTrigger).eInverseAdd(this, StatemachinePackage.EVENT__EVT_CONTAINER, Event.class, msgs);
 			msgs = basicSetTrigger(newTrigger, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, statechartemfPackage.TRANSITION__TRIGGER, newTrigger, newTrigger));
+			eNotify(new ENotificationImpl(this, Notification.SET, StatemachinePackage.TRANSITION__TRIGGER, newTrigger, newTrigger));
 	}
 
 	/**
@@ -299,7 +299,7 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 		Guard oldGuard = guard;
 		guard = newGuard;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, statechartemfPackage.TRANSITION__GUARD, oldGuard, newGuard);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, StatemachinePackage.TRANSITION__GUARD, oldGuard, newGuard);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -314,14 +314,57 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 		if (newGuard != guard) {
 			NotificationChain msgs = null;
 			if (guard != null)
-				msgs = ((InternalEObject)guard).eInverseRemove(this, statechartemfPackage.GUARD__GUA_CONTAINER, Guard.class, msgs);
+				msgs = ((InternalEObject)guard).eInverseRemove(this, StatemachinePackage.GUARD__GUA_CONTAINER, Guard.class, msgs);
 			if (newGuard != null)
-				msgs = ((InternalEObject)newGuard).eInverseAdd(this, statechartemfPackage.GUARD__GUA_CONTAINER, Guard.class, msgs);
+				msgs = ((InternalEObject)newGuard).eInverseAdd(this, StatemachinePackage.GUARD__GUA_CONTAINER, Guard.class, msgs);
 			msgs = basicSetGuard(newGuard, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, statechartemfPackage.TRANSITION__GUARD, newGuard, newGuard));
+			eNotify(new ENotificationImpl(this, Notification.SET, StatemachinePackage.TRANSITION__GUARD, newGuard, newGuard));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TransitionAction getAction() {
+		return action;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAction(TransitionAction newAction, NotificationChain msgs) {
+		TransitionAction oldAction = action;
+		action = newAction;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, StatemachinePackage.TRANSITION__ACTION, oldAction, newAction);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAction(TransitionAction newAction) {
+		if (newAction != action) {
+			NotificationChain msgs = null;
+			if (action != null)
+				msgs = ((InternalEObject)action).eInverseRemove(this, StatemachinePackage.TRANSITION_ACTION__ACT_CONTAINER, TransitionAction.class, msgs);
+			if (newAction != null)
+				msgs = ((InternalEObject)newAction).eInverseAdd(this, StatemachinePackage.TRANSITION_ACTION__ACT_CONTAINER, TransitionAction.class, msgs);
+			msgs = basicSetAction(newAction, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, StatemachinePackage.TRANSITION__ACTION, newAction, newAction));
 	}
 
 	/**
@@ -335,7 +378,7 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 			source = (StateVertex)eResolveProxy(oldSource);
 			if (source != oldSource) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, statechartemfPackage.TRANSITION__SOURCE, oldSource, source));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StatemachinePackage.TRANSITION__SOURCE, oldSource, source));
 			}
 		}
 		return source;
@@ -359,7 +402,7 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 		StateVertex oldSource = source;
 		source = newSource;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, statechartemfPackage.TRANSITION__SOURCE, oldSource, newSource);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, StatemachinePackage.TRANSITION__SOURCE, oldSource, newSource);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -374,14 +417,14 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 		if (newSource != source) {
 			NotificationChain msgs = null;
 			if (source != null)
-				msgs = ((InternalEObject)source).eInverseRemove(this, statechartemfPackage.STATE_VERTEX__OUTGOING, StateVertex.class, msgs);
+				msgs = ((InternalEObject)source).eInverseRemove(this, StatemachinePackage.STATE_VERTEX__OUTGOING, StateVertex.class, msgs);
 			if (newSource != null)
-				msgs = ((InternalEObject)newSource).eInverseAdd(this, statechartemfPackage.STATE_VERTEX__OUTGOING, StateVertex.class, msgs);
+				msgs = ((InternalEObject)newSource).eInverseAdd(this, StatemachinePackage.STATE_VERTEX__OUTGOING, StateVertex.class, msgs);
 			msgs = basicSetSource(newSource, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, statechartemfPackage.TRANSITION__SOURCE, newSource, newSource));
+			eNotify(new ENotificationImpl(this, Notification.SET, StatemachinePackage.TRANSITION__SOURCE, newSource, newSource));
 	}
 
 	/**
@@ -395,7 +438,7 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 			target = (StateVertex)eResolveProxy(oldTarget);
 			if (target != oldTarget) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, statechartemfPackage.TRANSITION__TARGET, oldTarget, target));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StatemachinePackage.TRANSITION__TARGET, oldTarget, target));
 			}
 		}
 		return target;
@@ -419,7 +462,7 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 		StateVertex oldTarget = target;
 		target = newTarget;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, statechartemfPackage.TRANSITION__TARGET, oldTarget, newTarget);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, StatemachinePackage.TRANSITION__TARGET, oldTarget, newTarget);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -434,14 +477,35 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 		if (newTarget != target) {
 			NotificationChain msgs = null;
 			if (target != null)
-				msgs = ((InternalEObject)target).eInverseRemove(this, statechartemfPackage.STATE_VERTEX__INCOMING, StateVertex.class, msgs);
+				msgs = ((InternalEObject)target).eInverseRemove(this, StatemachinePackage.STATE_VERTEX__INCOMING, StateVertex.class, msgs);
 			if (newTarget != null)
-				msgs = ((InternalEObject)newTarget).eInverseAdd(this, statechartemfPackage.STATE_VERTEX__INCOMING, StateVertex.class, msgs);
+				msgs = ((InternalEObject)newTarget).eInverseAdd(this, StatemachinePackage.STATE_VERTEX__INCOMING, StateVertex.class, msgs);
 			msgs = basicSetTarget(newTarget, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, statechartemfPackage.TRANSITION__TARGET, newTarget, newTarget));
+			eNotify(new ENotificationImpl(this, Notification.SET, StatemachinePackage.TRANSITION__TARGET, newTarget, newTarget));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDescription(String newDescription) {
+		String oldDescription = description;
+		description = newDescription;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, StatemachinePackage.TRANSITION__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -452,29 +516,33 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case statechartemfPackage.TRANSITION__TRANS_SM_CONTAINER:
+			case StatemachinePackage.TRANSITION__TRANS_SM_CONTAINER:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetTransSM_container((StateMachine)otherEnd, msgs);
-			case statechartemfPackage.TRANSITION__TRANS_SCONTAINER:
+			case StatemachinePackage.TRANSITION__TRANS_SCONTAINER:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetTransS_container((State)otherEnd, msgs);
-			case statechartemfPackage.TRANSITION__TRIGGER:
+			case StatemachinePackage.TRANSITION__TRIGGER:
 				if (trigger != null)
-					msgs = ((InternalEObject)trigger).eInverseRemove(this, statechartemfPackage.EVENT__EVT_CONTAINER, Event.class, msgs);
+					msgs = ((InternalEObject)trigger).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - StatemachinePackage.TRANSITION__TRIGGER, null, msgs);
 				return basicSetTrigger((Event)otherEnd, msgs);
-			case statechartemfPackage.TRANSITION__GUARD:
+			case StatemachinePackage.TRANSITION__GUARD:
 				if (guard != null)
-					msgs = ((InternalEObject)guard).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - statechartemfPackage.TRANSITION__GUARD, null, msgs);
+					msgs = ((InternalEObject)guard).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - StatemachinePackage.TRANSITION__GUARD, null, msgs);
 				return basicSetGuard((Guard)otherEnd, msgs);
-			case statechartemfPackage.TRANSITION__SOURCE:
+			case StatemachinePackage.TRANSITION__ACTION:
+				if (action != null)
+					msgs = ((InternalEObject)action).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - StatemachinePackage.TRANSITION__ACTION, null, msgs);
+				return basicSetAction((TransitionAction)otherEnd, msgs);
+			case StatemachinePackage.TRANSITION__SOURCE:
 				if (source != null)
-					msgs = ((InternalEObject)source).eInverseRemove(this, statechartemfPackage.STATE_VERTEX__OUTGOING, StateVertex.class, msgs);
+					msgs = ((InternalEObject)source).eInverseRemove(this, StatemachinePackage.STATE_VERTEX__OUTGOING, StateVertex.class, msgs);
 				return basicSetSource((StateVertex)otherEnd, msgs);
-			case statechartemfPackage.TRANSITION__TARGET:
+			case StatemachinePackage.TRANSITION__TARGET:
 				if (target != null)
-					msgs = ((InternalEObject)target).eInverseRemove(this, statechartemfPackage.STATE_VERTEX__INCOMING, StateVertex.class, msgs);
+					msgs = ((InternalEObject)target).eInverseRemove(this, StatemachinePackage.STATE_VERTEX__INCOMING, StateVertex.class, msgs);
 				return basicSetTarget((StateVertex)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -488,17 +556,19 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case statechartemfPackage.TRANSITION__TRANS_SM_CONTAINER:
+			case StatemachinePackage.TRANSITION__TRANS_SM_CONTAINER:
 				return basicSetTransSM_container(null, msgs);
-			case statechartemfPackage.TRANSITION__TRANS_SCONTAINER:
+			case StatemachinePackage.TRANSITION__TRANS_SCONTAINER:
 				return basicSetTransS_container(null, msgs);
-			case statechartemfPackage.TRANSITION__TRIGGER:
+			case StatemachinePackage.TRANSITION__TRIGGER:
 				return basicSetTrigger(null, msgs);
-			case statechartemfPackage.TRANSITION__GUARD:
+			case StatemachinePackage.TRANSITION__GUARD:
 				return basicSetGuard(null, msgs);
-			case statechartemfPackage.TRANSITION__SOURCE:
+			case StatemachinePackage.TRANSITION__ACTION:
+				return basicSetAction(null, msgs);
+			case StatemachinePackage.TRANSITION__SOURCE:
 				return basicSetSource(null, msgs);
-			case statechartemfPackage.TRANSITION__TARGET:
+			case StatemachinePackage.TRANSITION__TARGET:
 				return basicSetTarget(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -512,10 +582,10 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case statechartemfPackage.TRANSITION__TRANS_SM_CONTAINER:
-				return eInternalContainer().eInverseRemove(this, statechartemfPackage.STATE_MACHINE__TRANSITIONS, StateMachine.class, msgs);
-			case statechartemfPackage.TRANSITION__TRANS_SCONTAINER:
-				return eInternalContainer().eInverseRemove(this, statechartemfPackage.STATE__INTERNAL_TRANSITIONS, State.class, msgs);
+			case StatemachinePackage.TRANSITION__TRANS_SM_CONTAINER:
+				return eInternalContainer().eInverseRemove(this, StatemachinePackage.STATE_MACHINE__TRANSITIONS, StateMachine.class, msgs);
+			case StatemachinePackage.TRANSITION__TRANS_SCONTAINER:
+				return eInternalContainer().eInverseRemove(this, StatemachinePackage.STATE__INTERNAL_TRANSITIONS, State.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -528,23 +598,24 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case statechartemfPackage.TRANSITION__NAME:
-				return getName();
-			case statechartemfPackage.TRANSITION__TRANS_SM_CONTAINER:
+			case StatemachinePackage.TRANSITION__TRANS_SM_CONTAINER:
 				return getTransSM_container();
-			case statechartemfPackage.TRANSITION__TRANS_SCONTAINER:
+			case StatemachinePackage.TRANSITION__TRANS_SCONTAINER:
 				return getTransS_container();
-			case statechartemfPackage.TRANSITION__TRIGGER:
-				if (resolve) return getTrigger();
-				return basicGetTrigger();
-			case statechartemfPackage.TRANSITION__GUARD:
+			case StatemachinePackage.TRANSITION__TRIGGER:
+				return getTrigger();
+			case StatemachinePackage.TRANSITION__GUARD:
 				return getGuard();
-			case statechartemfPackage.TRANSITION__SOURCE:
+			case StatemachinePackage.TRANSITION__ACTION:
+				return getAction();
+			case StatemachinePackage.TRANSITION__SOURCE:
 				if (resolve) return getSource();
 				return basicGetSource();
-			case statechartemfPackage.TRANSITION__TARGET:
+			case StatemachinePackage.TRANSITION__TARGET:
 				if (resolve) return getTarget();
 				return basicGetTarget();
+			case StatemachinePackage.TRANSITION__DESCRIPTION:
+				return getDescription();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -557,26 +628,29 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case statechartemfPackage.TRANSITION__NAME:
-				setName((String)newValue);
-				return;
-			case statechartemfPackage.TRANSITION__TRANS_SM_CONTAINER:
+			case StatemachinePackage.TRANSITION__TRANS_SM_CONTAINER:
 				setTransSM_container((StateMachine)newValue);
 				return;
-			case statechartemfPackage.TRANSITION__TRANS_SCONTAINER:
+			case StatemachinePackage.TRANSITION__TRANS_SCONTAINER:
 				setTransS_container((State)newValue);
 				return;
-			case statechartemfPackage.TRANSITION__TRIGGER:
+			case StatemachinePackage.TRANSITION__TRIGGER:
 				setTrigger((Event)newValue);
 				return;
-			case statechartemfPackage.TRANSITION__GUARD:
+			case StatemachinePackage.TRANSITION__GUARD:
 				setGuard((Guard)newValue);
 				return;
-			case statechartemfPackage.TRANSITION__SOURCE:
+			case StatemachinePackage.TRANSITION__ACTION:
+				setAction((TransitionAction)newValue);
+				return;
+			case StatemachinePackage.TRANSITION__SOURCE:
 				setSource((StateVertex)newValue);
 				return;
-			case statechartemfPackage.TRANSITION__TARGET:
+			case StatemachinePackage.TRANSITION__TARGET:
 				setTarget((StateVertex)newValue);
+				return;
+			case StatemachinePackage.TRANSITION__DESCRIPTION:
+				setDescription((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -590,26 +664,29 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case statechartemfPackage.TRANSITION__NAME:
-				setName(NAME_EDEFAULT);
-				return;
-			case statechartemfPackage.TRANSITION__TRANS_SM_CONTAINER:
+			case StatemachinePackage.TRANSITION__TRANS_SM_CONTAINER:
 				setTransSM_container((StateMachine)null);
 				return;
-			case statechartemfPackage.TRANSITION__TRANS_SCONTAINER:
+			case StatemachinePackage.TRANSITION__TRANS_SCONTAINER:
 				setTransS_container((State)null);
 				return;
-			case statechartemfPackage.TRANSITION__TRIGGER:
+			case StatemachinePackage.TRANSITION__TRIGGER:
 				setTrigger((Event)null);
 				return;
-			case statechartemfPackage.TRANSITION__GUARD:
+			case StatemachinePackage.TRANSITION__GUARD:
 				setGuard((Guard)null);
 				return;
-			case statechartemfPackage.TRANSITION__SOURCE:
+			case StatemachinePackage.TRANSITION__ACTION:
+				setAction((TransitionAction)null);
+				return;
+			case StatemachinePackage.TRANSITION__SOURCE:
 				setSource((StateVertex)null);
 				return;
-			case statechartemfPackage.TRANSITION__TARGET:
+			case StatemachinePackage.TRANSITION__TARGET:
 				setTarget((StateVertex)null);
+				return;
+			case StatemachinePackage.TRANSITION__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -623,54 +700,24 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case statechartemfPackage.TRANSITION__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case statechartemfPackage.TRANSITION__TRANS_SM_CONTAINER:
+			case StatemachinePackage.TRANSITION__TRANS_SM_CONTAINER:
 				return getTransSM_container() != null;
-			case statechartemfPackage.TRANSITION__TRANS_SCONTAINER:
+			case StatemachinePackage.TRANSITION__TRANS_SCONTAINER:
 				return getTransS_container() != null;
-			case statechartemfPackage.TRANSITION__TRIGGER:
+			case StatemachinePackage.TRANSITION__TRIGGER:
 				return trigger != null;
-			case statechartemfPackage.TRANSITION__GUARD:
+			case StatemachinePackage.TRANSITION__GUARD:
 				return guard != null;
-			case statechartemfPackage.TRANSITION__SOURCE:
+			case StatemachinePackage.TRANSITION__ACTION:
+				return action != null;
+			case StatemachinePackage.TRANSITION__SOURCE:
 				return source != null;
-			case statechartemfPackage.TRANSITION__TARGET:
+			case StatemachinePackage.TRANSITION__TARGET:
 				return target != null;
+			case StatemachinePackage.TRANSITION__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == NameBase.class) {
-			switch (derivedFeatureID) {
-				case statechartemfPackage.TRANSITION__NAME: return CommonBasePackage.NAME_BASE__NAME;
-				default: return -1;
-			}
-		}
-		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == NameBase.class) {
-			switch (baseFeatureID) {
-				case CommonBasePackage.NAME_BASE__NAME: return statechartemfPackage.TRANSITION__NAME;
-				default: return -1;
-			}
-		}
-		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**
@@ -683,8 +730,8 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(name);
+		result.append(" (description: ");
+		result.append(description);
 		result.append(')');
 		return result.toString();
 	}

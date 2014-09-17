@@ -17,7 +17,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  * </p>
  *
- * @see de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage#getCompositeState()
+ * @see de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage#getCompositeState()
  * @model
  * @generated
  */
@@ -33,7 +33,7 @@ public interface CompositeState extends State {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sub Vertexes</em>' containment reference list.
-	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage#getCompositeState_SubVertexes()
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage#getCompositeState_SubVertexes()
 	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.StateVertex#getSv_container
 	 * @model opposite="sv_container" containment="true" ordered="false"
 	 * @generated
@@ -42,6 +42,7 @@ public interface CompositeState extends State {
 
 	/**
 	 * Returns the value of the '<em><b>Is Concurrent</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Is Concurrent</em>' attribute isn't clear,
@@ -50,8 +51,8 @@ public interface CompositeState extends State {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Is Concurrent</em>' attribute.
 	 * @see #setIsConcurrent(boolean)
-	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage#getCompositeState_IsConcurrent()
-	 * @model unique="false" required="true" ordered="false"
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage#getCompositeState_IsConcurrent()
+	 * @model default="false" required="true"
 	 * @generated
 	 */
 	boolean isIsConcurrent();

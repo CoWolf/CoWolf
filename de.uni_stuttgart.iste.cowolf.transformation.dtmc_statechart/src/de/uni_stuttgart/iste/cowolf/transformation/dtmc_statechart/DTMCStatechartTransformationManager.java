@@ -2,6 +2,7 @@ package de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart;
 
 import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMC;
 import de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine;
+import de.uni_stuttgart.iste.cowolf.model.statechart.StateMachineRoot;
 import de.uni_stuttgart.iste.cowolf.transformation.AbstractTransformationManager;
 
 /**
@@ -40,7 +41,7 @@ public class DTMCStatechartTransformationManager extends
 
 	@Override
 	public Class<?> getManagedClass2() {
-		return StateMachine.class;
+		return StateMachineRoot.class;
 	}
 
 }

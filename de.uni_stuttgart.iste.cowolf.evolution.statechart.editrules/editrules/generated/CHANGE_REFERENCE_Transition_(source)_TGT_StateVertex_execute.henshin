@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_vEEvwDzqEeS0Et0zBBezDw" name="CHANGE_REFERENCE_Transition_(source)_TGT_StateVertex" description="CHANGEs Transition's reference source the target StateVertex">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_vEEvwTzqEeS0Et0zBBezDw" name="changeTransition_source_TO_StateVertex" description="Change the EReference source">
+    <parameters xmi:id="_vEEvwjzqEeS0Et0zBBezDw" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//Transition"/>
+    </parameters>
+    <parameters xmi:id="_vEEvwzzqEeS0Et0zBBezDw" name="OldTarget">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//StateVertex"/>
+    </parameters>
+    <parameters xmi:id="_vEFW0DzqEeS0Et0zBBezDw" name="NewTarget">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//StateVertex"/>
+    </parameters>
+    <lhs xmi:id="_vEFW0TzqEeS0Et0zBBezDw" name="Lhs">
+      <nodes xmi:id="_vEFW0jzqEeS0Et0zBBezDw" name="Selected" incoming="_vEFW1jzqEeS0Et0zBBezDw" outgoing="_vEFW1TzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//Transition"/>
+      </nodes>
+      <nodes xmi:id="_vEFW0zzqEeS0Et0zBBezDw" name="OldTarget" incoming="_vEFW1TzqEeS0Et0zBBezDw" outgoing="_vEFW1jzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//StateVertex"/>
+      </nodes>
+      <nodes xmi:id="_vEFW1DzqEeS0Et0zBBezDw" name="NewTarget">
+        <type href="http://Statemachine/1.0#//StateVertex"/>
+      </nodes>
+      <edges xmi:id="_vEFW1TzqEeS0Et0zBBezDw" source="_vEFW0jzqEeS0Et0zBBezDw" target="_vEFW0zzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//Transition/source"/>
+      </edges>
+      <edges xmi:id="_vEFW1jzqEeS0Et0zBBezDw" source="_vEFW0zzqEeS0Et0zBBezDw" target="_vEFW0jzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//StateVertex/outgoing"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_vEFW1zzqEeS0Et0zBBezDw" name="Rhs">
+      <nodes xmi:id="_vEFW2DzqEeS0Et0zBBezDw" name="Selected" incoming="_vEFW3DzqEeS0Et0zBBezDw" outgoing="_vEFW2zzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//Transition"/>
+      </nodes>
+      <nodes xmi:id="_vEFW2TzqEeS0Et0zBBezDw" name="OldTarget">
+        <type href="http://Statemachine/1.0#//StateVertex"/>
+      </nodes>
+      <nodes xmi:id="_vEFW2jzqEeS0Et0zBBezDw" name="NewTarget" incoming="_vEFW2zzqEeS0Et0zBBezDw" outgoing="_vEFW3DzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//StateVertex"/>
+      </nodes>
+      <edges xmi:id="_vEFW2zzqEeS0Et0zBBezDw" source="_vEFW2DzqEeS0Et0zBBezDw" target="_vEFW2jzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//Transition/source"/>
+      </edges>
+      <edges xmi:id="_vEFW3DzqEeS0Et0zBBezDw" source="_vEFW2jzqEeS0Et0zBBezDw" target="_vEFW2DzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//StateVertex/outgoing"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_vEFW3TzqEeS0Et0zBBezDw" origin="_vEFW0jzqEeS0Et0zBBezDw" image="_vEFW2DzqEeS0Et0zBBezDw"/>
+    <mappings xmi:id="_vEFW3jzqEeS0Et0zBBezDw" origin="_vEFW0zzqEeS0Et0zBBezDw" image="_vEFW2TzqEeS0Et0zBBezDw"/>
+    <mappings xmi:id="_vEFW3zzqEeS0Et0zBBezDw" origin="_vEFW1DzqEeS0Et0zBBezDw" image="_vEFW2jzqEeS0Et0zBBezDw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_vEFW4DzqEeS0Et0zBBezDw" name="mainUnit" subUnits="_vEEvwTzqEeS0Et0zBBezDw">
+    <parameters xmi:id="_vEFW4TzqEeS0Et0zBBezDw" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//Transition"/>
+    </parameters>
+    <parameters xmi:id="_vEFW4jzqEeS0Et0zBBezDw" name="OldTarget">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//StateVertex"/>
+    </parameters>
+    <parameters xmi:id="_vEFW4zzqEeS0Et0zBBezDw" name="NewTarget">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//StateVertex"/>
+    </parameters>
+    <parameterMappings xmi:id="_vEFW5DzqEeS0Et0zBBezDw" source="_vEFW4TzqEeS0Et0zBBezDw" target="_vEEvwjzqEeS0Et0zBBezDw"/>
+    <parameterMappings xmi:id="_vEFW5TzqEeS0Et0zBBezDw" source="_vEFW4jzqEeS0Et0zBBezDw" target="_vEEvwzzqEeS0Et0zBBezDw"/>
+    <parameterMappings xmi:id="_vEFW5jzqEeS0Et0zBBezDw" source="_vEFW4zzqEeS0Et0zBBezDw" target="_vEFW0DzqEeS0Et0zBBezDw"/>
+  </units>
+</henshin:Module>

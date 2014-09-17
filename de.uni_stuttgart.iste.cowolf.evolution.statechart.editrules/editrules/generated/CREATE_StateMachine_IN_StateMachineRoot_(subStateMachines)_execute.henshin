@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_vF4toDzqEeS0Et0zBBezDw" name="CREATE_StateMachine_IN_StateMachineRoot_(subStateMachines)" description="Creates one StateMachine in StateMachineRoot">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_vF4toTzqEeS0Et0zBBezDw" name="createStateMachine_IN_StateMachineRoot" description="creates one StateMachine in the context: StateMachineRoot">
+    <parameters xmi:id="_vF4tojzqEeS0Et0zBBezDw" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//StateMachineRoot"/>
+    </parameters>
+    <parameters xmi:id="_vF4tozzqEeS0Et0zBBezDw" name="New">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//StateMachine"/>
+    </parameters>
+    <parameters xmi:id="_vF4tpDzqEeS0Et0zBBezDw" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_vF4tpTzqEeS0Et0zBBezDw" name="Name">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_vF4tpjzqEeS0Et0zBBezDw" name="Lhs">
+      <nodes xmi:id="_vF4tpzzqEeS0Et0zBBezDw" name="Selected">
+        <type href="http://Statemachine/1.0#//StateMachineRoot"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_vF4tqDzqEeS0Et0zBBezDw" name="Rhs">
+      <nodes xmi:id="_vF4tqTzqEeS0Et0zBBezDw" name="Selected" incoming="_vF4trjzqEeS0Et0zBBezDw" outgoing="_vF4trTzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//StateMachineRoot"/>
+      </nodes>
+      <nodes xmi:id="_vF4tqjzqEeS0Et0zBBezDw" name="New" incoming="_vF4trTzqEeS0Et0zBBezDw" outgoing="_vF4trjzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//StateMachine"/>
+        <attributes xmi:id="_vF4tqzzqEeS0Et0zBBezDw" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_vF4trDzqEeS0Et0zBBezDw" value="Name">
+          <type href="http://Statemachine/1.0#//StateMachine/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_vF4trTzqEeS0Et0zBBezDw" source="_vF4tqTzqEeS0Et0zBBezDw" target="_vF4tqjzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//StateMachineRoot/subStateMachines"/>
+      </edges>
+      <edges xmi:id="_vF4trjzqEeS0Et0zBBezDw" source="_vF4tqjzqEeS0Et0zBBezDw" target="_vF4tqTzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//StateMachine/statemachine_container"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_vF4trzzqEeS0Et0zBBezDw" origin="_vF4tpzzqEeS0Et0zBBezDw" image="_vF4tqTzqEeS0Et0zBBezDw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_vF4tsDzqEeS0Et0zBBezDw" name="mainUnit" subUnits="_vF4toTzqEeS0Et0zBBezDw">
+    <parameters xmi:id="_vF4tsTzqEeS0Et0zBBezDw" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//StateMachineRoot"/>
+    </parameters>
+    <parameters xmi:id="_vF4tsjzqEeS0Et0zBBezDw" name="New">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//StateMachine"/>
+    </parameters>
+    <parameters xmi:id="_vF4tszzqEeS0Et0zBBezDw" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_vF4ttDzqEeS0Et0zBBezDw" name="Name">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_vF4ttTzqEeS0Et0zBBezDw" source="_vF4tsTzqEeS0Et0zBBezDw" target="_vF4tojzqEeS0Et0zBBezDw"/>
+    <parameterMappings xmi:id="_vF4ttjzqEeS0Et0zBBezDw" source="_vF4tozzqEeS0Et0zBBezDw" target="_vF4tsjzqEeS0Et0zBBezDw"/>
+    <parameterMappings xmi:id="_vF4ttzzqEeS0Et0zBBezDw" source="_vF4tszzqEeS0Et0zBBezDw" target="_vF4tpDzqEeS0Et0zBBezDw"/>
+    <parameterMappings xmi:id="_vF4tuDzqEeS0Et0zBBezDw" source="_vF4ttDzqEeS0Et0zBBezDw" target="_vF4tpTzqEeS0Et0zBBezDw"/>
+  </units>
+</henshin:Module>

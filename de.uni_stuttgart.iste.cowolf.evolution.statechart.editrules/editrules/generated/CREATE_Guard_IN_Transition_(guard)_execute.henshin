@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_vHZwkDzqEeS0Et0zBBezDw" name="CREATE_Guard_IN_Transition_(guard)" description="Creates one Guard in Transition">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_vHZwkTzqEeS0Et0zBBezDw" name="createGuard_IN_Transition" description="creates one Guard in the context: Transition">
+    <parameters xmi:id="_vHZwkjzqEeS0Et0zBBezDw" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//Transition"/>
+    </parameters>
+    <parameters xmi:id="_vHZwkzzqEeS0Et0zBBezDw" name="New">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//Guard"/>
+    </parameters>
+    <parameters xmi:id="_vHZwlDzqEeS0Et0zBBezDw" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_vHZwlTzqEeS0Et0zBBezDw" name="Expression">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_vHZwljzqEeS0Et0zBBezDw" name="Lhs">
+      <nodes xmi:id="_vHZwlzzqEeS0Et0zBBezDw" name="Selected">
+        <type href="http://Statemachine/1.0#//Transition"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_vHZwmDzqEeS0Et0zBBezDw">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_vHZwmTzqEeS0Et0zBBezDw">
+          <conclusion xmi:id="_vHZwmjzqEeS0Et0zBBezDw" name="ub0">
+            <nodes xmi:id="_vHZwmzzqEeS0Et0zBBezDw" outgoing="_vHZwnTzqEeS0Et0zBBezDw">
+              <type href="http://Statemachine/1.0#//Transition"/>
+            </nodes>
+            <nodes xmi:id="_vHZwnDzqEeS0Et0zBBezDw" incoming="_vHZwnTzqEeS0Et0zBBezDw">
+              <type href="http://Statemachine/1.0#//Guard"/>
+            </nodes>
+            <edges xmi:id="_vHZwnTzqEeS0Et0zBBezDw" source="_vHZwmzzqEeS0Et0zBBezDw" target="_vHZwnDzqEeS0Et0zBBezDw">
+              <type href="http://Statemachine/1.0#//Transition/guard"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_vHZwnjzqEeS0Et0zBBezDw" origin="_vHZwlzzqEeS0Et0zBBezDw" image="_vHZwmzzqEeS0Et0zBBezDw"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_vHZwnzzqEeS0Et0zBBezDw" name="Rhs">
+      <nodes xmi:id="_vHZwoDzqEeS0Et0zBBezDw" name="Selected" incoming="_vHZwpTzqEeS0Et0zBBezDw" outgoing="_vHZwpDzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//Transition"/>
+      </nodes>
+      <nodes xmi:id="_vHZwoTzqEeS0Et0zBBezDw" name="New" incoming="_vHZwpDzqEeS0Et0zBBezDw" outgoing="_vHZwpTzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//Guard"/>
+        <attributes xmi:id="_vHZwojzqEeS0Et0zBBezDw" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_vHZwozzqEeS0Et0zBBezDw" value="Expression">
+          <type href="http://Statemachine/1.0#//Guard/expression"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_vHZwpDzqEeS0Et0zBBezDw" source="_vHZwoDzqEeS0Et0zBBezDw" target="_vHZwoTzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//Transition/guard"/>
+      </edges>
+      <edges xmi:id="_vHZwpTzqEeS0Et0zBBezDw" source="_vHZwoTzqEeS0Et0zBBezDw" target="_vHZwoDzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//Guard/gua_container"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_vHZwpjzqEeS0Et0zBBezDw" origin="_vHZwlzzqEeS0Et0zBBezDw" image="_vHZwoDzqEeS0Et0zBBezDw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_vHZwpzzqEeS0Et0zBBezDw" name="mainUnit" subUnits="_vHZwkTzqEeS0Et0zBBezDw">
+    <parameters xmi:id="_vHZwqDzqEeS0Et0zBBezDw" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//Transition"/>
+    </parameters>
+    <parameters xmi:id="_vHZwqTzqEeS0Et0zBBezDw" name="New">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//Guard"/>
+    </parameters>
+    <parameters xmi:id="_vHZwqjzqEeS0Et0zBBezDw" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_vHZwqzzqEeS0Et0zBBezDw" name="Expression">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_vHZwrDzqEeS0Et0zBBezDw" source="_vHZwqDzqEeS0Et0zBBezDw" target="_vHZwkjzqEeS0Et0zBBezDw"/>
+    <parameterMappings xmi:id="_vHZwrTzqEeS0Et0zBBezDw" source="_vHZwkzzqEeS0Et0zBBezDw" target="_vHZwqTzqEeS0Et0zBBezDw"/>
+    <parameterMappings xmi:id="_vHZwrjzqEeS0Et0zBBezDw" source="_vHZwqjzqEeS0Et0zBBezDw" target="_vHZwlDzqEeS0Et0zBBezDw"/>
+    <parameterMappings xmi:id="_vHZwrzzqEeS0Et0zBBezDw" source="_vHZwqzzqEeS0Et0zBBezDw" target="_vHZwlTzqEeS0Et0zBBezDw"/>
+  </units>
+</henshin:Module>

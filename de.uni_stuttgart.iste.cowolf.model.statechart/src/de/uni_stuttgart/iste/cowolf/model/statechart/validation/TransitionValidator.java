@@ -9,6 +9,7 @@ import de.uni_stuttgart.iste.cowolf.model.statechart.Guard;
 import de.uni_stuttgart.iste.cowolf.model.statechart.State;
 import de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine;
 import de.uni_stuttgart.iste.cowolf.model.statechart.StateVertex;
+import de.uni_stuttgart.iste.cowolf.model.statechart.TransitionAction;
 
 /**
  * A sample validator interface for {@link de.uni_stuttgart.iste.cowolf.model.statechart.Transition}.
@@ -23,6 +24,8 @@ public interface TransitionValidator {
 	boolean validateTransS_container(State value);
 	boolean validateTrigger(Event value);
 	boolean validateGuard(Guard value);
+	boolean validateAction(TransitionAction value);
 	boolean validateSource(StateVertex value);
 	boolean validateTarget(StateVertex value);
+	boolean validateDescription(String value);
 }

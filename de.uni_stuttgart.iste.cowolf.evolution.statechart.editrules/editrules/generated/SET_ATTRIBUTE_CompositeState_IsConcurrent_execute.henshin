@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_vHPYgDzqEeS0Et0zBBezDw" name="SET_ATTRIBUTE_CompositeState_IsConcurrent" description="Sets CompositeState IsConcurrent">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_vHPYgTzqEeS0Et0zBBezDw" name="setCompositeStateIsConcurrent" description="Sets the EAttribute isConcurrent">
+    <parameters xmi:id="_vHPYgjzqEeS0Et0zBBezDw" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//CompositeState"/>
+    </parameters>
+    <parameters xmi:id="_vHPYgzzqEeS0Et0zBBezDw" name="IsConcurrent">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </parameters>
+    <lhs xmi:id="_vHPYhDzqEeS0Et0zBBezDw" name="Lhs">
+      <nodes xmi:id="_vHPYhTzqEeS0Et0zBBezDw" name="Selected">
+        <type href="http://Statemachine/1.0#//CompositeState"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_vHPYhjzqEeS0Et0zBBezDw" name="Rhs">
+      <nodes xmi:id="_vHPYhzzqEeS0Et0zBBezDw" name="Selected">
+        <type href="http://Statemachine/1.0#//CompositeState"/>
+        <attributes xmi:id="_vHPYiDzqEeS0Et0zBBezDw" value="IsConcurrent">
+          <type href="http://Statemachine/1.0#//CompositeState/isConcurrent"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_vHPYiTzqEeS0Et0zBBezDw" origin="_vHPYhTzqEeS0Et0zBBezDw" image="_vHPYhzzqEeS0Et0zBBezDw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_vHPYijzqEeS0Et0zBBezDw" name="mainUnit" subUnits="_vHPYgTzqEeS0Et0zBBezDw">
+    <parameters xmi:id="_vHPYizzqEeS0Et0zBBezDw" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//CompositeState"/>
+    </parameters>
+    <parameters xmi:id="_vHPYjDzqEeS0Et0zBBezDw" name="IsConcurrent">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </parameters>
+    <parameterMappings xmi:id="_vHPYjTzqEeS0Et0zBBezDw" source="_vHPYizzqEeS0Et0zBBezDw" target="_vHPYgjzqEeS0Et0zBBezDw"/>
+    <parameterMappings xmi:id="_vHPYjjzqEeS0Et0zBBezDw" source="_vHPYjDzqEeS0Et0zBBezDw" target="_vHPYgzzqEeS0Et0zBBezDw"/>
+  </units>
+</henshin:Module>

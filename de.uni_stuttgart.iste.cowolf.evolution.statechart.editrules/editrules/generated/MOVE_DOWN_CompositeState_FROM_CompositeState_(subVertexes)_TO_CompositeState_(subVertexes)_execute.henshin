@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_vNBQYDzqEeS0Et0zBBezDw" name="MOVE_DOWN_CompositeState_FROM_CompositeState_(subVertexes)_TO_CompositeState_(subVertexes)" description="MOVE DOWNWARDs CompositeState from CompositeState(Reference:subVertexes) to CompositeState(Reference:subVertexes">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_vNBQYTzqEeS0Et0zBBezDw" name="moveDownCompositeState_FROM_CompositeState_subVertexes_TO_CompositeState_CompositeState" description="Moves down CompositeState from CompositeState(Reference:subVertexes) toCompositeState(Reference:CompositeState)">
+    <parameters xmi:id="_vNBQYjzqEeS0Et0zBBezDw" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//CompositeState"/>
+    </parameters>
+    <parameters xmi:id="_vNBQYzzqEeS0Et0zBBezDw" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//CompositeState"/>
+    </parameters>
+    <parameters xmi:id="_vNBQZDzqEeS0Et0zBBezDw" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//CompositeState"/>
+    </parameters>
+    <lhs xmi:id="_vNBQZTzqEeS0Et0zBBezDw" name="Lhs">
+      <nodes xmi:id="_vNBQZjzqEeS0Et0zBBezDw" name="Selected" incoming="_vNBQaTzqEeS0Et0zBBezDw" outgoing="_vNBQajzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//CompositeState"/>
+      </nodes>
+      <nodes xmi:id="_vNBQZzzqEeS0Et0zBBezDw" name="OldSource" incoming="_vNBQajzqEeS0Et0zBBezDw" outgoing="_vNBQaTzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//CompositeState"/>
+      </nodes>
+      <nodes xmi:id="_vNBQaDzqEeS0Et0zBBezDw" name="NewSource">
+        <type href="http://Statemachine/1.0#//CompositeState"/>
+      </nodes>
+      <edges xmi:id="_vNBQaTzqEeS0Et0zBBezDw" source="_vNBQZzzqEeS0Et0zBBezDw" target="_vNBQZjzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//CompositeState/subVertexes"/>
+      </edges>
+      <edges xmi:id="_vNBQajzqEeS0Et0zBBezDw" source="_vNBQZjzqEeS0Et0zBBezDw" target="_vNBQZzzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//StateVertex/sv_container"/>
+      </edges>
+      <formula xsi:type="henshin:NestedCondition" xmi:id="_vNBQazzqEeS0Et0zBBezDw">
+        <conclusion xmi:id="_vNBQbDzqEeS0Et0zBBezDw" name="cyclePath">
+          <nodes xmi:id="_vNBQbTzqEeS0Et0zBBezDw" name="OldSource" outgoing="_vNBQbzzqEeS0Et0zBBezDw">
+            <type href="http://Statemachine/1.0#//CompositeState"/>
+          </nodes>
+          <nodes xmi:id="_vNBQbjzqEeS0Et0zBBezDw" name="NewSource" incoming="_vNBQbzzqEeS0Et0zBBezDw">
+            <type href="http://Statemachine/1.0#//CompositeState"/>
+          </nodes>
+          <edges xmi:id="_vNBQbzzqEeS0Et0zBBezDw" source="_vNBQbTzqEeS0Et0zBBezDw" target="_vNBQbjzqEeS0Et0zBBezDw">
+            <type href="http://Statemachine/1.0#//CompositeState/subVertexes"/>
+          </edges>
+        </conclusion>
+        <mappings xmi:id="_vNBQcDzqEeS0Et0zBBezDw" origin="_vNBQaDzqEeS0Et0zBBezDw" image="_vNBQbjzqEeS0Et0zBBezDw"/>
+        <mappings xmi:id="_vNBQcTzqEeS0Et0zBBezDw" origin="_vNBQZzzqEeS0Et0zBBezDw" image="_vNBQbTzqEeS0Et0zBBezDw"/>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_vNBQcjzqEeS0Et0zBBezDw" name="Rhs">
+      <nodes xmi:id="_vNBQczzqEeS0Et0zBBezDw" name="Selected" incoming="_vNBQdjzqEeS0Et0zBBezDw" outgoing="_vNBQdzzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//CompositeState"/>
+      </nodes>
+      <nodes xmi:id="_vNBQdDzqEeS0Et0zBBezDw" name="OldSource">
+        <type href="http://Statemachine/1.0#//CompositeState"/>
+      </nodes>
+      <nodes xmi:id="_vNBQdTzqEeS0Et0zBBezDw" name="NewSource" incoming="_vNBQdzzqEeS0Et0zBBezDw" outgoing="_vNBQdjzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//CompositeState"/>
+      </nodes>
+      <edges xmi:id="_vNBQdjzqEeS0Et0zBBezDw" source="_vNBQdTzqEeS0Et0zBBezDw" target="_vNBQczzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//CompositeState/subVertexes"/>
+      </edges>
+      <edges xmi:id="_vNBQdzzqEeS0Et0zBBezDw" source="_vNBQczzqEeS0Et0zBBezDw" target="_vNBQdTzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//StateVertex/sv_container"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_vNBQeDzqEeS0Et0zBBezDw" origin="_vNBQZjzqEeS0Et0zBBezDw" image="_vNBQczzqEeS0Et0zBBezDw"/>
+    <mappings xmi:id="_vNBQeTzqEeS0Et0zBBezDw" origin="_vNBQZzzqEeS0Et0zBBezDw" image="_vNBQdDzqEeS0Et0zBBezDw"/>
+    <mappings xmi:id="_vNBQejzqEeS0Et0zBBezDw" origin="_vNBQaDzqEeS0Et0zBBezDw" image="_vNBQdTzqEeS0Et0zBBezDw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_vNBQezzqEeS0Et0zBBezDw" name="mainUnit" subUnits="_vNBQYTzqEeS0Et0zBBezDw">
+    <parameters xmi:id="_vNBQfDzqEeS0Et0zBBezDw" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//CompositeState"/>
+    </parameters>
+    <parameters xmi:id="_vNBQfTzqEeS0Et0zBBezDw" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//CompositeState"/>
+    </parameters>
+    <parameters xmi:id="_vNBQfjzqEeS0Et0zBBezDw" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//CompositeState"/>
+    </parameters>
+    <parameterMappings xmi:id="_vNBQfzzqEeS0Et0zBBezDw" source="_vNBQfDzqEeS0Et0zBBezDw" target="_vNBQYjzqEeS0Et0zBBezDw"/>
+    <parameterMappings xmi:id="_vNBQgDzqEeS0Et0zBBezDw" source="_vNBQfTzqEeS0Et0zBBezDw" target="_vNBQYzzqEeS0Et0zBBezDw"/>
+    <parameterMappings xmi:id="_vNBQgTzqEeS0Et0zBBezDw" source="_vNBQfjzqEeS0Et0zBBezDw" target="_vNBQZDzqEeS0Et0zBBezDw"/>
+  </units>
+</henshin:Module>

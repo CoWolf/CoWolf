@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_vEVOcDzqEeS0Et0zBBezDw" name="SET_ATTRIBUTE_StateVertex_Name" description="Sets StateVertex Name">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_vEVOcTzqEeS0Et0zBBezDw" name="setStateVertexName" description="Sets the EAttribute name">
+    <parameters xmi:id="_vEVOcjzqEeS0Et0zBBezDw" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//StateVertex"/>
+    </parameters>
+    <parameters xmi:id="_vEVOczzqEeS0Et0zBBezDw" name="Name">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_vEVOdDzqEeS0Et0zBBezDw" name="Lhs">
+      <nodes xmi:id="_vEVOdTzqEeS0Et0zBBezDw" name="Selected">
+        <type href="http://Statemachine/1.0#//StateVertex"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_vEVOdjzqEeS0Et0zBBezDw" name="Rhs">
+      <nodes xmi:id="_vEVOdzzqEeS0Et0zBBezDw" name="Selected">
+        <type href="http://Statemachine/1.0#//StateVertex"/>
+        <attributes xmi:id="_vEVOeDzqEeS0Et0zBBezDw" value="Name">
+          <type href="http://CommonBase/1.0#//NameBase/name"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_vEVOeTzqEeS0Et0zBBezDw" origin="_vEVOdTzqEeS0Et0zBBezDw" image="_vEVOdzzqEeS0Et0zBBezDw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_vEVOejzqEeS0Et0zBBezDw" name="mainUnit" subUnits="_vEVOcTzqEeS0Et0zBBezDw">
+    <parameters xmi:id="_vEVOezzqEeS0Et0zBBezDw" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//StateVertex"/>
+    </parameters>
+    <parameters xmi:id="_vEVOfDzqEeS0Et0zBBezDw" name="Name">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_vEVOfTzqEeS0Et0zBBezDw" source="_vEVOezzqEeS0Et0zBBezDw" target="_vEVOcjzqEeS0Et0zBBezDw"/>
+    <parameterMappings xmi:id="_vEVOfjzqEeS0Et0zBBezDw" source="_vEVOfDzqEeS0Et0zBBezDw" target="_vEVOczzqEeS0Et0zBBezDw"/>
+  </units>
+</henshin:Module>

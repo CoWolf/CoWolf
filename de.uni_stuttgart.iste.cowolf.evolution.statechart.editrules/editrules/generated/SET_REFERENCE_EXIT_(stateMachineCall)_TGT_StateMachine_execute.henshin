@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_vG6oYDzqEeS0Et0zBBezDw" name="SET_REFERENCE_EXIT_(stateMachineCall)_TGT_StateMachine" description="Sets EXIT's reference stateMachineCall the target StateMachine">
+  <imports href="http://Statemachine/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_vG6oYTzqEeS0Et0zBBezDw" name="setEXIT_stateMachineCall_TO_StateMachine" description="SetEXITRefstateMachineCallToStateMachine">
+    <parameters xmi:id="_vG6oYjzqEeS0Et0zBBezDw" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//EXIT"/>
+    </parameters>
+    <parameters xmi:id="_vG6oYzzqEeS0Et0zBBezDw" name="NewTarget">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//StateMachine"/>
+    </parameters>
+    <lhs xmi:id="_vG6oZDzqEeS0Et0zBBezDw" name="Lhs">
+      <nodes xmi:id="_vG6oZTzqEeS0Et0zBBezDw" name="Selected">
+        <type href="http://Statemachine/1.0#//EXIT"/>
+      </nodes>
+      <nodes xmi:id="_vG6oZjzqEeS0Et0zBBezDw" name="NewTarget">
+        <type href="http://Statemachine/1.0#//StateMachine"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_vG6oZzzqEeS0Et0zBBezDw">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_vG6oaDzqEeS0Et0zBBezDw">
+          <conclusion xmi:id="_vG6oaTzqEeS0Et0zBBezDw" name="ub0">
+            <nodes xmi:id="_vG6oajzqEeS0Et0zBBezDw" outgoing="_vG6obDzqEeS0Et0zBBezDw">
+              <type href="http://Statemachine/1.0#//EXIT"/>
+            </nodes>
+            <nodes xmi:id="_vG6oazzqEeS0Et0zBBezDw" incoming="_vG6obDzqEeS0Et0zBBezDw">
+              <type href="http://Statemachine/1.0#//StateMachine"/>
+            </nodes>
+            <edges xmi:id="_vG6obDzqEeS0Et0zBBezDw" source="_vG6oajzqEeS0Et0zBBezDw" target="_vG6oazzqEeS0Et0zBBezDw">
+              <type href="http://Statemachine/1.0#//Action/stateMachineCall"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_vG6obTzqEeS0Et0zBBezDw" origin="_vG6oZTzqEeS0Et0zBBezDw" image="_vG6oajzqEeS0Et0zBBezDw"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_vG6objzqEeS0Et0zBBezDw" name="Rhs">
+      <nodes xmi:id="_vG6obzzqEeS0Et0zBBezDw" name="Selected" incoming="_vG6ocjzqEeS0Et0zBBezDw" outgoing="_vG6ocTzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//EXIT"/>
+      </nodes>
+      <nodes xmi:id="_vG6ocDzqEeS0Et0zBBezDw" name="NewTarget" incoming="_vG6ocTzqEeS0Et0zBBezDw" outgoing="_vG6ocjzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//StateMachine"/>
+      </nodes>
+      <edges xmi:id="_vG6ocTzqEeS0Et0zBBezDw" source="_vG6obzzqEeS0Et0zBBezDw" target="_vG6ocDzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//Action/stateMachineCall"/>
+      </edges>
+      <edges xmi:id="_vG6ocjzqEeS0Et0zBBezDw" source="_vG6ocDzqEeS0Et0zBBezDw" target="_vG6obzzqEeS0Et0zBBezDw">
+        <type href="http://Statemachine/1.0#//StateMachine/calledByAction"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_vG6oczzqEeS0Et0zBBezDw" origin="_vG6oZTzqEeS0Et0zBBezDw" image="_vG6obzzqEeS0Et0zBBezDw"/>
+    <mappings xmi:id="_vG6odDzqEeS0Et0zBBezDw" origin="_vG6oZjzqEeS0Et0zBBezDw" image="_vG6ocDzqEeS0Et0zBBezDw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_vG6odTzqEeS0Et0zBBezDw" name="mainUnit" subUnits="_vG6oYTzqEeS0Et0zBBezDw">
+    <parameters xmi:id="_vG6odjzqEeS0Et0zBBezDw" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//EXIT"/>
+    </parameters>
+    <parameters xmi:id="_vG6odzzqEeS0Et0zBBezDw" name="NewTarget">
+      <type xsi:type="ecore:EClass" href="http://Statemachine/1.0#//StateMachine"/>
+    </parameters>
+    <parameterMappings xmi:id="_vG6oeDzqEeS0Et0zBBezDw" source="_vG6odjzqEeS0Et0zBBezDw" target="_vG6oYjzqEeS0Et0zBBezDw"/>
+    <parameterMappings xmi:id="_vG6oeTzqEeS0Et0zBBezDw" source="_vG6odzzqEeS0Et0zBBezDw" target="_vG6oYzzqEeS0Et0zBBezDw"/>
+  </units>
+</henshin:Module>

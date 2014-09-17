@@ -21,5 +21,4 @@ public interface StateVertexValidator {
 	boolean validateSv_container(CompositeState value);
 	boolean validateOutgoing(EList<Transition> value);
 	boolean validateIncoming(EList<Transition> value);
-	boolean validateId(String value);
 }

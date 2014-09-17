@@ -4,7 +4,9 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.statechart.validation;
 
+import de.uni_stuttgart.iste.cowolf.model.statechart.Action;
 import de.uni_stuttgart.iste.cowolf.model.statechart.State;
+import de.uni_stuttgart.iste.cowolf.model.statechart.StateMachineRoot;
 import de.uni_stuttgart.iste.cowolf.model.statechart.Transition;
 
 import org.eclipse.emf.common.util.EList;
@@ -19,9 +21,9 @@ public interface StateMachineValidator {
 	boolean validate();
 
 	boolean validateTransitions(EList<Transition> value);
-	boolean validateStates(EList<State> value);
-
-	boolean validateInitialStates(State value);
-
 	boolean validateTop(EList<State> value);
+	boolean validateStatemachine_container(StateMachineRoot value);
+	boolean validateCalledByAction(EList<Action> value);
+	boolean validateName(String value);
+	boolean validateInitialState(State value);
 }

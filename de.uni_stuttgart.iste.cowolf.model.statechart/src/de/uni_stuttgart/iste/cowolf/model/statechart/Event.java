@@ -3,8 +3,6 @@
 package de.uni_stuttgart.iste.cowolf.model.statechart;
 
 import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
-import de.uni_stuttgart.iste.cowolf.model.commonBase.NameBase;
-import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,50 +12,68 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.Event#getName <em>Name</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.Event#getEvt_container <em>Evt container</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.Event#getTargets <em>Targets</em>}</li>
  * </ul>
  * </p>
  *
- * @see de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage#getEvent()
+ * @see de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage#getEvent()
  * @model
  * @generated
  */
-public interface Event extends IDBase, NameBase {
+public interface Event extends IDBase {
 	/**
-	 * Returns the value of the '<em><b>Evt container</b></em>' reference list.
-	 * The list contents are of type {@link de.uni_stuttgart.iste.cowolf.model.statechart.Transition}.
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage#getEvent_Name()
+	 * @model
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.statechart.Event#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Evt container</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.model.statechart.Transition#getTrigger <em>Trigger</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Evt container</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Evt container</em>' container reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Evt container</em>' reference list.
-	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage#getEvent_Evt_container()
+	 * @return the value of the '<em>Evt container</em>' container reference.
+	 * @see #setEvt_container(Transition)
+	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage#getEvent_Evt_container()
 	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.Transition#getTrigger
-	 * @model opposite="trigger" ordered="false"
+	 * @model opposite="trigger" transient="false" ordered="false"
 	 * @generated
 	 */
-	EList<Transition> getEvt_container();
+	Transition getEvt_container();
 
 	/**
-	 * Returns the value of the '<em><b>Targets</b></em>' reference list.
-	 * The list contents are of type {@link de.uni_stuttgart.iste.cowolf.model.statechart.State}.
-	 * It is bidirectional and its opposite is '{@link de.uni_stuttgart.iste.cowolf.model.statechart.State#getDeferrableEvents <em>Deferrable Events</em>}'.
+	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.statechart.Event#getEvt_container <em>Evt container</em>}' container reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Targets</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Targets</em>' reference list.
-	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage#getEvent_Targets()
-	 * @see de.uni_stuttgart.iste.cowolf.model.statechart.State#getDeferrableEvents
-	 * @model opposite="deferrableEvents" ordered="false"
+	 * @param value the new value of the '<em>Evt container</em>' container reference.
+	 * @see #getEvt_container()
 	 * @generated
 	 */
-	EList<State> getTargets();
+	void setEvt_container(Transition value);
 
 } // Event

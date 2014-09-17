@@ -2,12 +2,12 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.statechart.impl;
 
-import de.uni_stuttgart.iste.cowolf.model.statechart.BooleanExpression;
 import de.uni_stuttgart.iste.cowolf.model.statechart.Event;
 import de.uni_stuttgart.iste.cowolf.model.statechart.State;
+import de.uni_stuttgart.iste.cowolf.model.statechart.StateAction;
 import de.uni_stuttgart.iste.cowolf.model.statechart.StateMachine;
+import de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage;
 import de.uni_stuttgart.iste.cowolf.model.statechart.Transition;
-import de.uni_stuttgart.iste.cowolf.model.statechart.statechartemfPackage;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -15,9 +15,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -31,7 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateImpl#getState_container <em>State container</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateImpl#getInternalTransitions <em>Internal Transitions</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateImpl#getDeferrableEvents <em>Deferrable Events</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateImpl#getAtomicProposition <em>Atomic Proposition</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.statechart.impl.StateImpl#getActions <em>Actions</em>}</li>
  * </ul>
  * </p>
  *
@@ -59,14 +58,14 @@ public class StateImpl extends StateVertexImpl implements State {
 	protected EList<Event> deferrableEvents;
 
 	/**
-	 * The cached value of the '{@link #getAtomicProposition() <em>Atomic Proposition</em>}' containment reference list.
+	 * The cached value of the '{@link #getActions() <em>Actions</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAtomicProposition()
+	 * @see #getActions()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<BooleanExpression> atomicProposition;
+	protected EList<StateAction> actions;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -84,7 +83,7 @@ public class StateImpl extends StateVertexImpl implements State {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return statechartemfPackage.Literals.STATE;
+		return StatemachinePackage.Literals.STATE;
 	}
 
 	/**
@@ -93,7 +92,7 @@ public class StateImpl extends StateVertexImpl implements State {
 	 * @generated
 	 */
 	public StateMachine getState_container() {
-		if (eContainerFeatureID() != statechartemfPackage.STATE__STATE_CONTAINER) return null;
+		if (eContainerFeatureID() != StatemachinePackage.STATE__STATE_CONTAINER) return null;
 		return (StateMachine)eInternalContainer();
 	}
 
@@ -103,7 +102,7 @@ public class StateImpl extends StateVertexImpl implements State {
 	 * @generated
 	 */
 	public NotificationChain basicSetState_container(StateMachine newState_container, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newState_container, statechartemfPackage.STATE__STATE_CONTAINER, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newState_container, StatemachinePackage.STATE__STATE_CONTAINER, msgs);
 		return msgs;
 	}
 
@@ -113,19 +112,19 @@ public class StateImpl extends StateVertexImpl implements State {
 	 * @generated
 	 */
 	public void setState_container(StateMachine newState_container) {
-		if (newState_container != eInternalContainer() || (eContainerFeatureID() != statechartemfPackage.STATE__STATE_CONTAINER && newState_container != null)) {
+		if (newState_container != eInternalContainer() || (eContainerFeatureID() != StatemachinePackage.STATE__STATE_CONTAINER && newState_container != null)) {
 			if (EcoreUtil.isAncestor(this, newState_container))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newState_container != null)
-				msgs = ((InternalEObject)newState_container).eInverseAdd(this, statechartemfPackage.STATE_MACHINE__STATES, StateMachine.class, msgs);
+				msgs = ((InternalEObject)newState_container).eInverseAdd(this, StatemachinePackage.STATE_MACHINE__TOP, StateMachine.class, msgs);
 			msgs = basicSetState_container(newState_container, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, statechartemfPackage.STATE__STATE_CONTAINER, newState_container, newState_container));
+			eNotify(new ENotificationImpl(this, Notification.SET, StatemachinePackage.STATE__STATE_CONTAINER, newState_container, newState_container));
 	}
 
 	/**
@@ -135,7 +134,7 @@ public class StateImpl extends StateVertexImpl implements State {
 	 */
 	public EList<Transition> getInternalTransitions() {
 		if (internalTransitions == null) {
-			internalTransitions = new EObjectContainmentWithInverseEList<Transition>(Transition.class, this, statechartemfPackage.STATE__INTERNAL_TRANSITIONS, statechartemfPackage.TRANSITION__TRANS_SCONTAINER);
+			internalTransitions = new EObjectContainmentWithInverseEList<Transition>(Transition.class, this, StatemachinePackage.STATE__INTERNAL_TRANSITIONS, StatemachinePackage.TRANSITION__TRANS_SCONTAINER);
 		}
 		return internalTransitions;
 	}
@@ -147,7 +146,7 @@ public class StateImpl extends StateVertexImpl implements State {
 	 */
 	public EList<Event> getDeferrableEvents() {
 		if (deferrableEvents == null) {
-			deferrableEvents = new EObjectWithInverseResolvingEList.ManyInverse<Event>(Event.class, this, statechartemfPackage.STATE__DEFERRABLE_EVENTS, statechartemfPackage.EVENT__TARGETS);
+			deferrableEvents = new EObjectResolvingEList<Event>(Event.class, this, StatemachinePackage.STATE__DEFERRABLE_EVENTS);
 		}
 		return deferrableEvents;
 	}
@@ -157,11 +156,11 @@ public class StateImpl extends StateVertexImpl implements State {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<BooleanExpression> getAtomicProposition() {
-		if (atomicProposition == null) {
-			atomicProposition = new EObjectContainmentEList<BooleanExpression>(BooleanExpression.class, this, statechartemfPackage.STATE__ATOMIC_PROPOSITION);
+	public EList<StateAction> getActions() {
+		if (actions == null) {
+			actions = new EObjectContainmentWithInverseEList<StateAction>(StateAction.class, this, StatemachinePackage.STATE__ACTIONS, StatemachinePackage.STATE_ACTION__ACTION_CONTAINER);
 		}
-		return atomicProposition;
+		return actions;
 	}
 
 	/**
@@ -173,14 +172,14 @@ public class StateImpl extends StateVertexImpl implements State {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case statechartemfPackage.STATE__STATE_CONTAINER:
+			case StatemachinePackage.STATE__STATE_CONTAINER:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetState_container((StateMachine)otherEnd, msgs);
-			case statechartemfPackage.STATE__INTERNAL_TRANSITIONS:
+			case StatemachinePackage.STATE__INTERNAL_TRANSITIONS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getInternalTransitions()).basicAdd(otherEnd, msgs);
-			case statechartemfPackage.STATE__DEFERRABLE_EVENTS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getDeferrableEvents()).basicAdd(otherEnd, msgs);
+			case StatemachinePackage.STATE__ACTIONS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getActions()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -193,14 +192,12 @@ public class StateImpl extends StateVertexImpl implements State {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case statechartemfPackage.STATE__STATE_CONTAINER:
+			case StatemachinePackage.STATE__STATE_CONTAINER:
 				return basicSetState_container(null, msgs);
-			case statechartemfPackage.STATE__INTERNAL_TRANSITIONS:
+			case StatemachinePackage.STATE__INTERNAL_TRANSITIONS:
 				return ((InternalEList<?>)getInternalTransitions()).basicRemove(otherEnd, msgs);
-			case statechartemfPackage.STATE__DEFERRABLE_EVENTS:
-				return ((InternalEList<?>)getDeferrableEvents()).basicRemove(otherEnd, msgs);
-			case statechartemfPackage.STATE__ATOMIC_PROPOSITION:
-				return ((InternalEList<?>)getAtomicProposition()).basicRemove(otherEnd, msgs);
+			case StatemachinePackage.STATE__ACTIONS:
+				return ((InternalEList<?>)getActions()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -213,8 +210,8 @@ public class StateImpl extends StateVertexImpl implements State {
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case statechartemfPackage.STATE__STATE_CONTAINER:
-				return eInternalContainer().eInverseRemove(this, statechartemfPackage.STATE_MACHINE__STATES, StateMachine.class, msgs);
+			case StatemachinePackage.STATE__STATE_CONTAINER:
+				return eInternalContainer().eInverseRemove(this, StatemachinePackage.STATE_MACHINE__TOP, StateMachine.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -227,14 +224,14 @@ public class StateImpl extends StateVertexImpl implements State {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case statechartemfPackage.STATE__STATE_CONTAINER:
+			case StatemachinePackage.STATE__STATE_CONTAINER:
 				return getState_container();
-			case statechartemfPackage.STATE__INTERNAL_TRANSITIONS:
+			case StatemachinePackage.STATE__INTERNAL_TRANSITIONS:
 				return getInternalTransitions();
-			case statechartemfPackage.STATE__DEFERRABLE_EVENTS:
+			case StatemachinePackage.STATE__DEFERRABLE_EVENTS:
 				return getDeferrableEvents();
-			case statechartemfPackage.STATE__ATOMIC_PROPOSITION:
-				return getAtomicProposition();
+			case StatemachinePackage.STATE__ACTIONS:
+				return getActions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -248,20 +245,20 @@ public class StateImpl extends StateVertexImpl implements State {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case statechartemfPackage.STATE__STATE_CONTAINER:
+			case StatemachinePackage.STATE__STATE_CONTAINER:
 				setState_container((StateMachine)newValue);
 				return;
-			case statechartemfPackage.STATE__INTERNAL_TRANSITIONS:
+			case StatemachinePackage.STATE__INTERNAL_TRANSITIONS:
 				getInternalTransitions().clear();
 				getInternalTransitions().addAll((Collection<? extends Transition>)newValue);
 				return;
-			case statechartemfPackage.STATE__DEFERRABLE_EVENTS:
+			case StatemachinePackage.STATE__DEFERRABLE_EVENTS:
 				getDeferrableEvents().clear();
 				getDeferrableEvents().addAll((Collection<? extends Event>)newValue);
 				return;
-			case statechartemfPackage.STATE__ATOMIC_PROPOSITION:
-				getAtomicProposition().clear();
-				getAtomicProposition().addAll((Collection<? extends BooleanExpression>)newValue);
+			case StatemachinePackage.STATE__ACTIONS:
+				getActions().clear();
+				getActions().addAll((Collection<? extends StateAction>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -275,17 +272,17 @@ public class StateImpl extends StateVertexImpl implements State {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case statechartemfPackage.STATE__STATE_CONTAINER:
+			case StatemachinePackage.STATE__STATE_CONTAINER:
 				setState_container((StateMachine)null);
 				return;
-			case statechartemfPackage.STATE__INTERNAL_TRANSITIONS:
+			case StatemachinePackage.STATE__INTERNAL_TRANSITIONS:
 				getInternalTransitions().clear();
 				return;
-			case statechartemfPackage.STATE__DEFERRABLE_EVENTS:
+			case StatemachinePackage.STATE__DEFERRABLE_EVENTS:
 				getDeferrableEvents().clear();
 				return;
-			case statechartemfPackage.STATE__ATOMIC_PROPOSITION:
-				getAtomicProposition().clear();
+			case StatemachinePackage.STATE__ACTIONS:
+				getActions().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -299,14 +296,14 @@ public class StateImpl extends StateVertexImpl implements State {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case statechartemfPackage.STATE__STATE_CONTAINER:
+			case StatemachinePackage.STATE__STATE_CONTAINER:
 				return getState_container() != null;
-			case statechartemfPackage.STATE__INTERNAL_TRANSITIONS:
+			case StatemachinePackage.STATE__INTERNAL_TRANSITIONS:
 				return internalTransitions != null && !internalTransitions.isEmpty();
-			case statechartemfPackage.STATE__DEFERRABLE_EVENTS:
+			case StatemachinePackage.STATE__DEFERRABLE_EVENTS:
 				return deferrableEvents != null && !deferrableEvents.isEmpty();
-			case statechartemfPackage.STATE__ATOMIC_PROPOSITION:
-				return atomicProposition != null && !atomicProposition.isEmpty();
+			case StatemachinePackage.STATE__ACTIONS:
+				return actions != null && !actions.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
