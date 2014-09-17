@@ -365,6 +365,8 @@ public class Sequence_diagramModelWizard extends Wizard implements INewWizard {
 								+ rootObject);
 			RepresentationDescription description = descriptions.iterator()
 					.next();
+			
+			System.out.println(description.getName());
 
 			DialectManager viewpointDialectManager = DialectManager.INSTANCE;
 			Command createViewCommand = new CreateRepresentationCommand(

@@ -70,6 +70,9 @@ point="org.eclipse.ui.handlers">
             </and>
          </enabledWhen>
       </handler>
+      <handler
+            commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.handler1">
+      </handler>
 </extension>
 <extension
 point="org.eclipse.ui.menus">
@@ -156,6 +159,18 @@ allPopups="false"
             </iterate>
          </with>
       </definition>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="de.uni_stuttgart.iste.cowolf.ui.navigator.editors.GraphicalSequenceEditor"
+            default="true"
+            extensions="sequence_diagram"
+            filenames="sequence_diagram"
+            icon="icons/logo_wulf_15x15.png"
+            id="de.uni_stuttgart.iste.cowolf.ui.navigator.editors.sequenceEditor"
+            name="Sequence diagram graphical editor">
+      </editor>
    </extension>
 </plugin>
 
