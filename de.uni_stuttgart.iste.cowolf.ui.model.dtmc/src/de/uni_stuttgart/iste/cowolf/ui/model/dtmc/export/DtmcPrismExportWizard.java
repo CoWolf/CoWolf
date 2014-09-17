@@ -19,12 +19,17 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.IExportWizard;
 import org.eclipse.ui.IWorkbench;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import de.uni_stuttgart.iste.cowolf.model.dtmc.export.DTMCExportPRISMJob;
 import de.uni_stuttgart.iste.cowolf.ui.model.dtmc.Activator;
 
 public class DtmcPrismExportWizard extends Wizard implements IExportWizard {
 
+	private final static Logger LOGGER = LoggerFactory
+			.getLogger(DtmcPrismExportWizard.class);
+	
 	/**
 	 * Creates a Wizarz, which executes the export of dtmc models to PRISM models.
 	 */
@@ -91,8 +96,8 @@ public class DtmcPrismExportWizard extends Wizard implements IExportWizard {
 					pathPM = outputPath + File.separator + iFile.getName().substring(0, iFile.getName().length() - iFile.getFileExtension().length()) + "prism";
 					pathPCTL = outputPath + File.separator + iFile.getName().substring(0, iFile.getName().length() - iFile.getFileExtension().length()) + "props";
 				}
-				System.out.println("Path for pm: " + pathPM);
-				System.out.println("Path for pctl: " + pathPCTL);
+				LOGGER.debug("Path for pm: {}", pathPM);
+				LOGGER.debug("Path for pctl: {}", pathPCTL);
 				// Generate new file and folders
 				File pmFile = new File(pathPM);
 				File pctlFile = new File(pathPCTL);
@@ -102,19 +107,19 @@ public class DtmcPrismExportWizard extends Wizard implements IExportWizard {
 					switch(result) {
 					case 0: 
 						//yes
-						System.out.println("User allowed to delete the file: " + pathPM);
+						LOGGER.debug("User allowed to delete the file: {}", pathPM);
 						break;
 					case 1:
 						//no
-						System.out.println("User didn't allowed to delete the file: " + pathPM);
+						LOGGER.debug("User didn't allowed to delete the file: {}", pathPM);
 						continue fileloop;
 					case 2:
 						//cancel
-						System.out.println("User canceled the export");
+						LOGGER.debug("User canceled the export.");
 						return true;
 					}
 					if (!pmFile.delete()) {
-						System.out.println("Can't delete file: " + pathPCTL);
+						LOGGER.warn("Can't delete file: {}", pathPCTL);
 						continue fileloop;
 					}
 				}
@@ -123,19 +128,19 @@ public class DtmcPrismExportWizard extends Wizard implements IExportWizard {
 					switch(result) {
 					case 0: 
 						//yes
-						System.out.println("User allowed to delete the file: " + pathPCTL);
+						LOGGER.debug("User allowed to delete the file: {}", pathPCTL);
 						break;
 					case 1:
 						//no
-						System.out.println("User didn't allowed to delete the file: " + pathPCTL);
+						LOGGER.debug("User didn't allowed to delete the file: {}", pathPCTL);
 						continue fileloop;
 					case 2:
 						//cancel
-						System.out.println("User canceled the export");
+						LOGGER.debug("User canceled the export.");
 						return true;
 					}
 					if (!pctlFile.delete()) {
-						System.out.println("Can't delete file: " + pathPCTL);
+						LOGGER.warn("Can't delete file: {}", pathPCTL);
 						continue fileloop;
 					}
 				}
@@ -160,11 +165,11 @@ public class DtmcPrismExportWizard extends Wizard implements IExportWizard {
 				mappingPM.put(resource, pmFile);
 				mappingPCTL.put(resource, pctlFile);
 			} catch (SecurityException e) {
-				e.printStackTrace();
+				LOGGER.error("", e);
 			} catch (NullPointerException e) {
-				e.printStackTrace();
+				LOGGER.error("", e);
 			} catch (IOException e) {
-				e.printStackTrace();
+				LOGGER.error("", e);
 			}
 		}
 

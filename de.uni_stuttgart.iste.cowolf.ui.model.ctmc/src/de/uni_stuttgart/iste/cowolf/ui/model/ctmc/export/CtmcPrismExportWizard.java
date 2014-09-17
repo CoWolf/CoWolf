@@ -19,12 +19,18 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.IExportWizard;
 import org.eclipse.ui.IWorkbench;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import de.uni_stuttgart.iste.cowolf.model.ctmc.export.CTMCExportPRISMJob;
 import de.uni_stuttgart.iste.cowolf.ui.model.ctmc.Activator;
 
 public class CtmcPrismExportWizard extends Wizard implements IExportWizard {
 
+	
+	private final static Logger LOGGER = LoggerFactory
+			.getLogger(CtmcPrismExportWizard.class);
+	
 	/**
 	 * Creates a Wizarz, which executes the export of ctmc models to PRISM models.
 	 */
@@ -91,8 +97,8 @@ public class CtmcPrismExportWizard extends Wizard implements IExportWizard {
 					pathSM = outputPath + File.separator + iFile.getName().substring(0, iFile.getName().length() - iFile.getFileExtension().length()) + "prism";
 					pathCSL = outputPath + File.separator + iFile.getName().substring(0, iFile.getName().length() - iFile.getFileExtension().length()) + "props";
 				}
-				System.out.println("Path for sm: " + pathSM);
-				System.out.println("Path for csl: " + pathCSL);
+				LOGGER.debug("Path for sm: {}", pathSM);
+				LOGGER.debug("Path for csl: {}", pathCSL);
 				// Generate new file and folders
 				File smFile = new File(pathSM);
 				File cslFile = new File(pathCSL);
@@ -102,19 +108,19 @@ public class CtmcPrismExportWizard extends Wizard implements IExportWizard {
 					switch(result) {
 					case 0: 
 						//yes
-						System.out.println("User allowed to delete the file: " + pathSM);
+						LOGGER.debug("User allowed to delete the file: {}", pathSM);
 						break;
 					case 1:
 						//no
-						System.out.println("User didn't allowed to delete the file: " + pathSM);
+						LOGGER.debug("User didn't allowed to delete the file: {}", pathSM);
 						continue fileloop;
 					case 2:
 						//cancel
-						System.out.println("User canceled the export");
+						LOGGER.debug("User canceled the export.");
 						return true;
 					}
 					if (!smFile.delete()) {
-						System.out.println("Can't delete file: " + pathCSL);
+						LOGGER.warn("Can't delete file: {}", pathCSL);
 						continue fileloop;
 					}
 				}
@@ -123,19 +129,19 @@ public class CtmcPrismExportWizard extends Wizard implements IExportWizard {
 					switch(result) {
 					case 0: 
 						//yes
-						System.out.println("User allowed to delete the file: " + pathCSL);
+						LOGGER.debug("User allowed to delete the file: {}", pathCSL);
 						break;
 					case 1:
 						//no
-						System.out.println("User didn't allowed to delete the file: " + pathCSL);
+						LOGGER.debug("User didn't allowed to delete the file: {}", pathCSL);
 						continue fileloop;
 					case 2:
 						//cancel
-						System.out.println("User canceled the export");
+						LOGGER.debug("User canceled the export.");
 						return true;
 					}
 					if (!cslFile.delete()) {
-						System.out.println("Can't delete file: " + pathCSL);
+						LOGGER.warn("Can't delete file: {}", pathCSL);
 						continue fileloop;
 					}
 				}
@@ -160,11 +166,11 @@ public class CtmcPrismExportWizard extends Wizard implements IExportWizard {
 				mappingSM.put(resource, smFile);
 				mappingCSL.put(resource, cslFile);
 			} catch (SecurityException e) {
-				e.printStackTrace();
+				LOGGER.error("", e);
 			} catch (NullPointerException e) {
-				e.printStackTrace();
+				LOGGER.error("", e);
 			} catch (IOException e) {
-				e.printStackTrace();
+				LOGGER.error("", e);
 			}
 		}
 
