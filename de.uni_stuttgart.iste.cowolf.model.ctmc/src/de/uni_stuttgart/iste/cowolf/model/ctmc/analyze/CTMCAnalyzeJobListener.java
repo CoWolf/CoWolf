@@ -8,8 +8,6 @@ import java.io.IOException;
 import java.io.PipedInputStream;
 import java.io.PipedOutputStream;
 
-import javax.swing.JOptionPane;
-
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
@@ -123,11 +121,7 @@ public class CTMCAnalyzeJobListener implements IJobChangeListener {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (CoreException e) {
-			JOptionPane
-					.showMessageDialog(
-							null,
-							"Error saving result to csv. Is result csv file from previous run still open?",
-							"Error saving result", JOptionPane.ERROR_MESSAGE);
+			System.out.println("Error saving result to csv. Is result csv file from previous run still open?");
 		}
 
 		if (this.listener != null) {

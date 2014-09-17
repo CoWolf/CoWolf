@@ -1,11 +1,11 @@
 package de.uni_stuttgart.iste.cowolf.ui.model.analyze;
 
-import javax.swing.JOptionPane;
-
 import org.eclipse.core.resources.IFile;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
@@ -23,7 +23,9 @@ public class FileOpenAnalysisListener implements IAnalysisListener{
 				try {
 					IDE.openEditor(page, result, true);
 				} catch (PartInitException e) {
-					JOptionPane.showMessageDialog(null, "Missing editor to open file", "Path to file: " + result.getProjectRelativePath(), JOptionPane.ERROR_MESSAGE);
+					IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+					MessageDialog.openError(window.getShell(), "Error while opening analysis result",
+							"Could not open analysis result file:\nThere is no editor to open this file type.");
 				}
 			}
 		});

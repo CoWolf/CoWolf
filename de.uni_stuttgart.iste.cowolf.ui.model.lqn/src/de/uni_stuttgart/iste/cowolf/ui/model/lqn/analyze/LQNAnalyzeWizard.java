@@ -2,11 +2,12 @@ package de.uni_stuttgart.iste.cowolf.ui.model.lqn.analyze;
 
 import java.util.HashMap;
 
-import javax.swing.JOptionPane;
-
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.Diagnostician;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PlatformUI;
 
 import de.uni_stuttgart.iste.cowolf.model.AbstractQoSModelManager;
 import de.uni_stuttgart.iste.cowolf.model.lqn.LQNModelManager;
@@ -70,15 +71,17 @@ public class LQNAnalyzeWizard extends AbstractQoSAnalyzeWizard{
 	public boolean checkConditions() {
 		String path = LQNPreferencePage.getPathToLQNSolver().trim();
 		if (path.isEmpty() || path.equals("")) {
-			JOptionPane.showMessageDialog(null, "Path to LQN Solver is missing, please add in the preferences!", "Missing Path", JOptionPane.ERROR_MESSAGE);
+			IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+			MessageDialog.openError(window.getShell(), "Path to LQNSolver not set",
+					"The path to LQN Solver is missing.\nPlease set the path in your preferences first.");
 			return false;
 		}
 		if (resource != null && resource.getContents() != null && resource.getContents().get(0) != null) {
 			Diagnostic diag = Diagnostician.INSTANCE.validate(this.resource.getContents().get(0));
 			if (diag.getChildren().size() > 0) {
-				JOptionPane.showMessageDialog(null,
-						"Errors in LQN were found, please run Validation or enable Live Validation to display them.",
-						"Errors in LQN", JOptionPane.ERROR_MESSAGE);	
+				IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+				MessageDialog.openError(window.getShell(), "Errors in LQN model",
+						"Errors in LQN were found, please correct them first.\nRun Validation or enable Live Validation to display them.");
 				return false;
 			}
 		} else {
