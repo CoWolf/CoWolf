@@ -1,24 +1,25 @@
 package de.uni_stuttgart.iste.cowolf.transformation.sequencediagram_lqn;
 
-import de.uni_stuttgart.iste.cowolf.model.LqnCore.LqnCoreType;
+import de.uni_stuttgart.iste.cowolf.model.LqnCore.LQN;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Package;
 import de.uni_stuttgart.iste.cowolf.transformation.AbstractTransformationManager;
 
 /**
  * 
- * @author Jonas Scheurich, David Steinhart
+ * @author Jonas Scheurich
+ * @author David Steinhart
  *
  */
 public class SequenceDiagramLQNTransformationManager extends AbstractTransformationManager{
 
 	@Override
 	public Class<?> getManagedClass1() {
-		// FIXME change to sequence diagram
-		return String.class;
+		return Package.class;
 	}
 
 	@Override
 	public Class<?> getManagedClass2() {
-		return LqnCoreType.class;
+		return LQN.class;
 	}
 
 	@Override
