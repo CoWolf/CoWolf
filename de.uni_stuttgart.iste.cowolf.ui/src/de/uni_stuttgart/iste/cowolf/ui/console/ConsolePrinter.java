@@ -101,6 +101,9 @@ public class ConsolePrinter implements IPrinter {
 
 	@Override
 	public void close() {
+		if (consoleOutputStream == null) {
+			return;
+		}
 		try {
 			consoleOutputStream.close();
 			this.printName = null;

@@ -32,7 +32,11 @@ public class CommandLineExecutor {
 		if (isWindowsSystem()) {
 			process = Runtime.getRuntime().exec("cmd /c " + command, null, dir); //$NON-NLS-1$
 		} else if (isLinuxSystem()) {
-			process = Runtime.getRuntime().exec("./" + command, null, dir);
+			if (command.startsWith("/")) {
+				process = Runtime.getRuntime().exec(command, null, dir);
+			} else  {
+				process = Runtime.getRuntime().exec("./" + command, null, dir);
+			}
 		} else {
 			throw new Exception(
 					Messages.commandLineExecutor_unknown_operating_system);

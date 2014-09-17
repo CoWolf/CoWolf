@@ -1,10 +1,14 @@
 package de.uni_stuttgart.iste.cowolf.model.lqn.analysis;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.lang.reflect.Method;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -34,23 +38,32 @@ public class LQNAnalyzeJob extends Job {
 	private final Map<String, Object> parameters;
 	private List<String> results;
 	private final IAnalysisListener listener;
-	private final String INPUT_FILE_NAME = "model.lqn";
-	private final String OUTPUT_NAME = "model";
-	private final String OUTPUT_FOLDER_NAME = OUTPUT_NAME+".d";
-	private final String OUTPUT_FILE_NAME = OUTPUT_NAME+".lqxo";
-	private final String PATH_TO_INPUT_LQN_FILE = System.getProperty("java.io.tmpdir") + INPUT_FILE_NAME;
-	private final String PATH_TO_OUTPUT_LQN_FILE = System.getProperty("java.io.tmpdir") + OUTPUT_FOLDER_NAME +"/" + OUTPUT_FILE_NAME;
+	private final static String OUTPUT_NAME = "model";
+	private final static String OUTPUT_FOLDER_NAME = OUTPUT_NAME+".d";
+	private final static String OUTPUT_FILE_NAME = OUTPUT_NAME+".lqxo";
+	private File lqnInputFile;
+	private File lqnOutputFile;
 
-	private final String lqnSolverBasicCommand = "lqns.exe -x ";
 	private Map<String,String> mapIdName;
 
 	public LQNAnalyzeJob(final Resource model,
 			final Map<String, Object> parameters, IAnalysisListener listener) {
 		super("LQN Analysis Job");
+		
+		try {
+			lqnInputFile = File.createTempFile("lqnmodel", ".lqn");
+			lqnOutputFile = File.createTempFile("lqnmodel", ".lqxo");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		this.model = model;
 		this.parameters = parameters;
 		this.listener = listener;
 		generateModelIdNameMap();
+		
+		
 	}
 
 	@Override
@@ -61,15 +74,14 @@ public class LQNAnalyzeJob extends Job {
 
 		try {
 			// 1. Generate lqn file
-			LQNAnalyzeFilesWriter.writeTempFileFromGenerator(model, PATH_TO_INPUT_LQN_FILE, parameters);
+			LQNAnalyzeFilesWriter.writeTempFileFromGenerator(model, lqnInputFile.getAbsolutePath(), parameters);
 			monitor.worked(1);
 
 			// 2. Use CommandLineExecutor to execute lqn solver.
 			final StringBuilder lqnSolverCommand = new StringBuilder();
-			lqnSolverCommand.append("cd ").append(System.getProperty("java.io.tmpdir")).append(" & ");
-			lqnSolverCommand.append(pathToLQNSolver).append("/").append(lqnSolverBasicCommand);
-			lqnSolverCommand.append("-o ").append(OUTPUT_NAME);
-			lqnSolverCommand.append(" ").append(INPUT_FILE_NAME);
+			lqnSolverCommand.append(pathToLQNSolver).append(" ");
+			lqnSolverCommand.append("-x -o ").append(lqnOutputFile.getAbsolutePath());
+			lqnSolverCommand.append(" ").append(lqnInputFile.getAbsolutePath());
 			Reader r = new InputStreamReader(
 					CommandLineExecutor.execCommandAndGetOutput(System.getProperty("java.io.tmpdir"), lqnSolverCommand.toString())
 					);
@@ -84,7 +96,7 @@ public class LQNAnalyzeJob extends Job {
 			monitor.worked(1);
 
 			// 3. Parse the results from generated file
-			parseResultFile(PATH_TO_OUTPUT_LQN_FILE);
+			parseResultFile(lqnOutputFile.getAbsolutePath());
 			monitor.done();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -98,15 +110,15 @@ public class LQNAnalyzeJob extends Job {
 		BufferedReader br;
 		br = new BufferedReader(new FileReader(file));
 		String line;
-		int i = 1;
+//		int i = 1;
 		while ((line = br.readLine()) != null) {
-			if (i == 2) {
-				results.add("<?xml-stylesheet type=\"text/xsl\" href=\"out.xslt\"?>");
-			}
+//			if (i == 2) {
+//				results.add("<?xml-stylesheet type=\"text/xsl\" href=\"out.xslt\"?>");
+//			}
 			line = line.replaceAll("__", "-");
 			line = transformIdToNames(line);
 			results.add(line);
-			i++;
+//			i++;
 		}
 		br.close();
 	}
@@ -120,7 +132,13 @@ public class LQNAnalyzeJob extends Job {
 //		}
 //		IFile resultFile = LQNFilesWriter.writeToResultFile(model, results);
 		
-		IFile resultFile = LQNAnalyzeFilesWriter.generateHTMLFile(model,PATH_TO_OUTPUT_LQN_FILE);
+		StringBuilder sb = new StringBuilder();
+		
+		for (String result : results) {
+			sb.append(result).append('\n');
+		}
+		
+		IFile resultFile = LQNAnalyzeFilesWriter.generateHTMLFile(model, sb.toString());
 
 		if (this.listener != null) {
 			this.listener.finished(model, resultFile);

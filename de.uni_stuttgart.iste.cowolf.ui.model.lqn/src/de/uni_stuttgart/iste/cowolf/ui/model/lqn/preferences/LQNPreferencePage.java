@@ -1,7 +1,7 @@
 package de.uni_stuttgart.iste.cowolf.ui.model.lqn.preferences;
 
-import org.eclipse.jface.preference.DirectoryFieldEditor;
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
+import org.eclipse.jface.preference.FileFieldEditor;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
 
@@ -23,7 +23,7 @@ public class LQNPreferencePage extends FieldEditorPreferencePage implements IWor
 
 	@Override
 	protected void createFieldEditors() {
-		addField(new DirectoryFieldEditor(PATH_TO_LQN_KEY, "&Path to LQN Solver:", getFieldEditorParent()));
+		addField(new FileFieldEditor(PATH_TO_LQN_KEY, "&LQN Solver Executable:", getFieldEditorParent()));
 	}
 
 	public static String getPathToLQNSolver() {
