@@ -11,32 +11,30 @@ The logged entries will be directly printed to console.
 <configuration>
 
 	<!-- uncomment to show logback status information -->
-	<!-- <statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener" 
-		/> -->		
+	<!-- <statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener"/> -->		
 
 	<!-- file appender for console log -->
-	<appender name="CONSOLE-ALL" class="ch.qos.logback.core.ConsoleAppender">
+	<appender name="CONSOLE-ALL" class="ch.qos.logback.core.ConsoleAppender">	
 		<encoder>
-			<pattern>%-13date{HH:mm:ss.SSS} %-6level %-46(%logger{80}:%line)
-				%msg%n
-			</pattern>
+			<pattern>%-13date{HH:mm:ss.SSS} %-6level %-68(%logger{65}:%line) %msg%n</pattern>
 		</encoder>
 	</appender>
 
 	<!-- file appender for complete log -->
-	<appender name="FILE-ALL"
+	<!-- uncomment to use file logging -->
+<!-- 	<appender name="FILE-ALL"
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<encoder>
 			<pattern>%-24date %-6level %-46(%logger{40}:%line) %msg%n
 			</pattern>
 		</encoder>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<!-- weekly rollover -->
+			weekly rollover
 			<fileNamePattern>logs/%d{yyyy-'W'ww}_all.log</fileNamePattern>
-			<!-- keep logs for 12 weeks -->
+			keep logs for 12 weeks
 			<maxHistory>12</maxHistory>
 		</rollingPolicy>
-	</appender>
+	</appender> -->
 
 	<!-- file appender for warning and error log -->
 	<!-- uncomment to use file logging -->
@@ -77,7 +75,7 @@ The logged entries will be directly printed to console.
 		
 		<!-- uncomment to use socket appender, e.g. for Lilith event viewer tool -->
 		<!-- <appender-ref ref="SOCKET-ALL" /> -->
+		
 	</root>
-
 
 </configuration>
