@@ -203,11 +203,11 @@ public class ChangeTree {
 					/*
 					 * Create new error instance and link it with the new component
 					 */
-					errorInstance = createErrorOrFailureName(newComponentInstance);
-					HenshinTransformations.createErrorInstance(errorInstance, HenshinTransformations.DEFAULT_ERROR_TYPE_NAME, saGraph, true);
+//					errorInstance = createErrorOrFailureName(newComponentInstance);
+//					HenshinTransformations.createErrorInstance(errorInstance, HenshinTransformations.DEFAULT_ERROR_TYPE_NAME, saGraph, true);
 
 					// Link it to component via Trace
-					HenshinTransformations.connectComponentInstanceWithErrorInstance(newComponentInstance, errorInstance, saGraph, true);
+//					HenshinTransformations.connectComponentInstanceWithErrorInstance(newComponentInstance, errorInstance, saGraph, true);
 
 				} else {
 					errorInstance = errorInstances.get(0);
@@ -232,6 +232,16 @@ public class ChangeTree {
 				 * We ensured now the error instance and the basic event. Now it's necessary to include the basic event in the correct position in the fault
 				 * tree, but this must be done based on other changes: new connectors...
 				 */
+				
+				
+				// If the hazard hasn't a input gate, create an AND gate and add it as an input to it.
+				if (!HenshinTransformations.hasHazardInputGate(saGraph, true)) {
+					HenshinTransformations.createANDGateForHazard(saGraph, true);
+				}
+
+				
+				//Create connection between the new basic event and the hazard, as it doesn't have sub-components
+				HenshinTransformations.connectComponentToHazardGate(basicEvent, saGraph,true);
 
 			} else {
 				/* newComponentInstance has sub components or outgoing ports */

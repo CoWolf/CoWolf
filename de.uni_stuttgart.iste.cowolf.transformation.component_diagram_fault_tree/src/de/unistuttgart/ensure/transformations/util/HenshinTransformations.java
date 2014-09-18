@@ -3865,4 +3865,62 @@ public class HenshinTransformations {
 
 		return result;
 	}
+
+
+	/**
+	 * 
+	 * @param graph
+	 * @param logging
+	 * @return
+	 */
+	public static boolean hasHazardInputGate(EGraph graph, boolean logging) {
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), true).getUnit("HasHazardInputGate");
+		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
+		boolean result = application.execute(null);
+
+		if (logging) {
+			ArrayList<String> param = new ArrayList<String>();
+			TransformationsLogger.logRuleExecution(unit.getName(), param, result);
+		}
+		return result;
+	}
+
+	
+	/**
+	 * 
+	 * @param graph
+	 * @param logging
+	 * @return
+	 */
+	public static boolean createANDGateForHazard(EGraph graph, boolean logging) {
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), true).getUnit("CreateANDGateForHazard");
+		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
+		boolean result = application.execute(null);
+
+		if (logging) {
+			ArrayList<String> param = new ArrayList<String>();
+			TransformationsLogger.logRuleExecution(unit.getName(), param, result);
+		}
+		return result;
+	}
+	
+	/**
+	 * @param event_name
+	 * @param graph
+	 * @param logging
+	 * @return
+	 */
+	public static boolean connectComponentToHazardGate(String event_name, EGraph graph, boolean logging) {
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), true).getUnit("ConnectEventToHazardGate");
+		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
+		application.setParameterValue("event_name", event_name);
+		boolean result = application.execute(null);
+
+		if (logging) {
+			ArrayList<String> param = new ArrayList<String>();
+			TransformationsLogger.logRuleExecution(unit.getName(), param, result);
+		}
+		return result;
+	}
+	
 }
