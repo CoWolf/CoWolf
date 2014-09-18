@@ -48,6 +48,8 @@ public class LQNAnalyzeJob extends Job {
 		try {
 			lqnInputFile = File.createTempFile("lqnmodel", ".lqn");
 			lqnOutputFile = lqnInputFile.getName().replace(".lqn", ".d");
+			File dir = new File(lqnInputFile.getParentFile().getAbsolutePath() + File.separator + lqnOutputFile);
+			dir.mkdirs();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
