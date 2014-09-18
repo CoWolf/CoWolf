@@ -150,7 +150,8 @@ public class DTMCAnalyzeJob extends Job {
 			// 4. Use CommandLineExecutor to execute PRISM.
 			Reader r = new InputStreamReader(
 					CommandLineExecutor.execCommandAndGetOutput(
-							this.prismRootPath, "prism " + this.prismPMPath
+							this.prismRootPath, "prism",
+									this.prismPMPath
 									+ " " + this.prismPCTLPath
 									+ " -exportresults " + this.prismResultPath
 									+ this.prismParameters));

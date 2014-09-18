@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 
 import de.uni_stuttgart.iste.cowolf.core.utilities.CommandLineExecutor;
 import de.uni_stuttgart.iste.cowolf.core.utilities.PrinterRegistry;
+import de.uni_stuttgart.iste.cowolf.model.AnalysisResultUtil;
 import de.uni_stuttgart.iste.cowolf.model.IAnalysisListener;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreeModelManager;
@@ -36,8 +37,7 @@ public class FaultTreeAnalyzeJob extends Job {
 
 	private static final Map<String, XFTAGenerator> XFTAScriptGenerators;
 	private static final Map<String, String> resultFileTitles;
-	private static final String TAB = "\t";
-	private static final String CRLF = "\r\n";
+	private static final String SEP = "</td><td>";
 
 	private final Resource model;
 	private final Map<String, Object> parameters;
@@ -63,15 +63,24 @@ public class FaultTreeAnalyzeJob extends Job {
 
 		resultFileTitles = new HashMap<String, String>();
 		StringBuilder pteTitle = new StringBuilder();
-		pteTitle.append("Probability of The Top Event").append(CRLF);
-		pteTitle.append("Id Top Evenet").append(TAB).append("Mission Time")
-				.append(TAB).append("Probability");
+		pteTitle.append("<h2>Probability of The Top Event</h2>\n");
+		
+		pteTitle.append("<table>");
+		pteTitle.append("<thead><tr>").append("<th>Id Top Event</th>")
+			.append("<th>Mission Time</th>")
+			.append("<th>Probability</th>")
+			.append("</tr></thead>");
 		resultFileTitles.put("probabilityTopEvent", pteTitle.toString());
 
 		StringBuilder mcsTitle = new StringBuilder();
-		mcsTitle.append("Minimal cutsets").append(CRLF);
-		mcsTitle.append("Rank").append(TAB).append("Probability").append(TAB)
-				.append("Contribution").append(TAB).append("Cut-Set");
+		mcsTitle.append("<h2>Minimal cutsets</h2>\n");
+		mcsTitle.append("<table>");
+		mcsTitle.append("<thead><tr>")
+				.append("<th>Rank</th>")
+				.append("<th>Probability</th>")
+				.append("<th>Contribution</th>")
+				.append("<th>Cut-Set</th>")
+				.append("</tr></thead>");
 		resultFileTitles.put("minimalCutSets", mcsTitle.toString());
 	}
 
@@ -84,7 +93,7 @@ public class FaultTreeAnalyzeJob extends Job {
 			final String outputFaultTreeFileName = "xFTA_out.txt";
 			final String pathToXFTA = (String) parameters
 					.get(FaultTreeModelManager.PARAM_PATH_TO_XFTA);
-			final String xFTABasicCommand = "xftar ";
+			final String xFTABasicCommand = "xftar";
 			final String pathToOutputXFTAFile = System
 					.getProperty("java.io.tmpdir")
 					+ "/"
@@ -107,10 +116,10 @@ public class FaultTreeAnalyzeJob extends Job {
 			monitor.worked(1);
 
 			// 3. Use CommandLineExecutor to execute xFTA.
-			final String xFTACommand = xFTABasicCommand
-					+ xFTAScriptFile.getAbsolutePath();
+			final String xFTACommand = xFTAScriptFile.getAbsolutePath();
 			Reader r = new InputStreamReader(
 					CommandLineExecutor.execCommandAndGetOutput(pathToXFTA,
+							xFTABasicCommand,
 							xFTACommand));
 			BufferedReader in = new BufferedReader(r);
 			String line;
@@ -147,19 +156,39 @@ public class FaultTreeAnalyzeJob extends Job {
 				.getRoot()
 				.getFile(
 						modelfile.getFullPath()
-								.addFileExtension("analysis.csv"));
+								.addFileExtension("analysis.html"));
 		OutputStreamWriter out = null;
 		try {
 			out = new FileWriter(resultfile.getLocation().toOSString());
 
 			StringBuilder sb = new StringBuilder();
+			sb.append("<h1>xFTA Analysis Result</h1>\n");
 			sb.append(resultFileTitles.get(parameters.get("typeOfAnalysis")));
-			sb.append(CRLF);
-			for (String line : this.getResults()) {
-				sb.append(transformIdToNames(line)).append(CRLF);
+			sb.append("\n");
+			
+			if (parameters.get("typeOfAnalysis").equals("probabilityTopEvent")
+					&& this.getResults().size() > 0
+					&& this.getResults().get(0).startsWith("top-event"+SEP+"mission-time")) {
+				this.getResults().remove(0);
 			}
+			
+			sb.append("<tbody>");
+			for (String line : this.getResults()) {
+				if (parameters.get("typeOfAnalysis").equals("probabilityTopEvent")
+						&& line.startsWith("basic-event"+SEP+"occurrences")) {
+					sb.append("</tbody></table><br /><br />\n\n");
+					sb.append("<table><thead><tr><th>")
+					  .append(line.replace(SEP, "</th><th>"))
+					  .append("</th></tr></thead>\n")
+					  .append("<tbody>");
+					continue;
+				}
+				sb.append("<tr><td>").append(transformIdToNames(line)).append("</td></tr>\n");
+			}
+			
+			sb.append("</tbody></table>");
 
-			out.write(sb.toString());
+			out.write(AnalysisResultUtil.encapsulateHTML(sb.toString()));
 
 			if (this.listener != null) {
 				this.listener.finished(resource, resultfile);
@@ -184,7 +213,20 @@ public class FaultTreeAnalyzeJob extends Job {
 		br = new BufferedReader(new FileReader(file));
 		String line;
 		while ((line = br.readLine()) != null) {
-			results.add(line);
+			if (parameters.get("typeOfAnalysis").equals("minimalCutSets")) {
+				String[] parsed = line.split("\\t", 4);
+				if (parsed.length == 4) {
+					parsed[3] = "<ul><li>" + parsed[3].replace("\t", "</li><li>") + "</li></ul>";
+				}
+				String join = "";
+				for (int i=0; i<parsed.length;i++) {
+					join += (i==0?"":SEP) + parsed[i];
+				}
+				results.add(join);
+			
+			} else {
+				results.add(line.replace("\t", SEP));
+			}
 		}
 		br.close();
 	}
@@ -230,8 +272,15 @@ public class FaultTreeAnalyzeJob extends Job {
 		return model;
 	}
 
+	/**
+	 * 
+	 * @return a list of results, never null.
+	 */
 	public List<String> getResults() {
-		return results;
+		if (results != null) {
+			return results;
+		}
+		return new ArrayList<String>();
 	}
 
 }

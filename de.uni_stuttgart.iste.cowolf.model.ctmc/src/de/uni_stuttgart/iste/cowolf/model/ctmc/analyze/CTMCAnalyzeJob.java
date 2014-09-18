@@ -142,7 +142,8 @@ public class CTMCAnalyzeJob extends Job {
 			// 4. Use CommandLineExecutor to execute PRISM.
 			Reader r = new InputStreamReader(
 					CommandLineExecutor.execCommandAndGetOutput(
-							this.prismRootPath, "prism " + this.prismSMPath
+							this.prismRootPath, "prism",
+									this.prismSMPath
 									+ " " + this.prismCSLPath
 									+ " -exportresults " + this.prismResultPath
 									+ this.prismParameters));

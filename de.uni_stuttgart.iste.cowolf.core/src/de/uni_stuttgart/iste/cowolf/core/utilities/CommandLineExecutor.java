@@ -14,8 +14,8 @@ import java.io.Reader;
 public class CommandLineExecutor {
 
 	public static void execCommandAndDiscardOutput(String directory,
-			String command) throws Exception {
-		InputStream inputStream = execCommandAndGetOutput(directory, command);
+			String command, String parameters) throws Exception {
+		InputStream inputStream = execCommandAndGetOutput(directory, command, parameters);
 		Reader r = new InputStreamReader(inputStream);
 		BufferedReader in = new BufferedReader(r);
 		while (in.readLine() != null) {
@@ -25,14 +25,18 @@ public class CommandLineExecutor {
 	}
 
 	public static InputStream execCommandAndGetOutput(String directory,
-			String command) throws Exception {
+			String command, String parameters) throws Exception {
 
 		File dir = new File(directory);
 		Process process;
 		if (isWindowsSystem()) {
-			process = Runtime.getRuntime().exec("cmd /c " + command, null, dir); //$NON-NLS-1$
+			process = Runtime.getRuntime().exec("cmd /c " + "\"" + command + "\" " + parameters, null, dir); //$NON-NLS-1$
 		} else if (isLinuxSystem()) {
-			process = Runtime.getRuntime().exec("./" + command, null, dir);
+			if (command.startsWith("/")) {
+				process = Runtime.getRuntime().exec(command + " " + parameters, null, dir);
+			} else  {
+				process = Runtime.getRuntime().exec("./" + command + " " + parameters, null, dir);
+			}
 		} else {
 			throw new Exception(
 					Messages.commandLineExecutor_unknown_operating_system);
