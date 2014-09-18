@@ -93,7 +93,7 @@ public class FaultTreeAnalyzeJob extends Job {
 			final String outputFaultTreeFileName = "xFTA_out.txt";
 			final String pathToXFTA = (String) parameters
 					.get(FaultTreeModelManager.PARAM_PATH_TO_XFTA);
-			final String xFTABasicCommand = "xftar ";
+			final String xFTABasicCommand = "xftar";
 			final String pathToOutputXFTAFile = System
 					.getProperty("java.io.tmpdir")
 					+ "/"
@@ -116,10 +116,10 @@ public class FaultTreeAnalyzeJob extends Job {
 			monitor.worked(1);
 
 			// 3. Use CommandLineExecutor to execute xFTA.
-			final String xFTACommand = xFTABasicCommand
-					+ xFTAScriptFile.getAbsolutePath();
+			final String xFTACommand = xFTAScriptFile.getAbsolutePath();
 			Reader r = new InputStreamReader(
 					CommandLineExecutor.execCommandAndGetOutput(pathToXFTA,
+							xFTABasicCommand,
 							xFTACommand));
 			BufferedReader in = new BufferedReader(r);
 			String line;

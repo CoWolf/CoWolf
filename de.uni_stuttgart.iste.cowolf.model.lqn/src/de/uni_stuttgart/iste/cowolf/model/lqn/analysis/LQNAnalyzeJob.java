@@ -7,8 +7,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.lang.reflect.Method;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -38,11 +36,8 @@ public class LQNAnalyzeJob extends Job {
 	private final Map<String, Object> parameters;
 	private List<String> results;
 	private final IAnalysisListener listener;
-	private final static String OUTPUT_NAME = "model";
-	private final static String OUTPUT_FOLDER_NAME = OUTPUT_NAME+".d";
-	private final static String OUTPUT_FILE_NAME = OUTPUT_NAME+".lqxo";
 	private File lqnInputFile;
-	private File lqnOutputFile;
+	private String lqnOutputFile;
 
 	private Map<String,String> mapIdName;
 
@@ -52,7 +47,7 @@ public class LQNAnalyzeJob extends Job {
 		
 		try {
 			lqnInputFile = File.createTempFile("lqnmodel", ".lqn");
-			lqnOutputFile = File.createTempFile("lqnmodel", ".lqxo");
+			lqnOutputFile = lqnInputFile.getName().replace(".lqn", ".d");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -62,8 +57,8 @@ public class LQNAnalyzeJob extends Job {
 		this.parameters = parameters;
 		this.listener = listener;
 		generateModelIdNameMap();
-		
-		
+		System.out.println("Input: " + lqnInputFile.getAbsolutePath());
+		System.out.println(lqnOutputFile.toString());
 	}
 
 	@Override
@@ -79,12 +74,13 @@ public class LQNAnalyzeJob extends Job {
 
 			// 2. Use CommandLineExecutor to execute lqn solver.
 			final StringBuilder lqnSolverCommand = new StringBuilder();
-			lqnSolverCommand.append(pathToLQNSolver).append(" ");
-			lqnSolverCommand.append("-x -o ").append(lqnOutputFile.getAbsolutePath());
-			lqnSolverCommand.append(" ").append(lqnInputFile.getAbsolutePath());
+			lqnSolverCommand.append("-x -o ").append(lqnOutputFile);
+			lqnSolverCommand.append(" ").append(lqnInputFile.getName());
 			Reader r = new InputStreamReader(
-					CommandLineExecutor.execCommandAndGetOutput(System.getProperty("java.io.tmpdir"), lqnSolverCommand.toString())
+					CommandLineExecutor.execCommandAndGetOutput(lqnInputFile.getParentFile().getAbsolutePath(),  pathToLQNSolver, lqnSolverCommand.toString())
 					);
+			
+			System.out.println(lqnSolverCommand.toString());
 			
 			BufferedReader in = new BufferedReader(r);
 			String line;
@@ -96,7 +92,7 @@ public class LQNAnalyzeJob extends Job {
 			monitor.worked(1);
 
 			// 3. Parse the results from generated file
-			parseResultFile(lqnOutputFile.getAbsolutePath());
+			parseResultFile(lqnInputFile.getParentFile().getAbsolutePath() + File.separator + lqnOutputFile + File.separator + lqnInputFile.getName().replace(".lqn", ".lqxo"));
 			monitor.done();
 		} catch (Exception e) {
 			e.printStackTrace();
