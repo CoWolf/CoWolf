@@ -71,7 +71,7 @@ point="org.eclipse.ui.handlers">
          </enabledWhen>
       </handler>
       <handler
-            class="de.uni_stuttgart.iste.cowolf.ui.navigator.editors.GraphicalSequenceEditor"
+            class="de.uni_stuttgart.iste.cowolf.ui.navigator.editors.GraphicalEditor"
             commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.graphicalSequenceDiagram">
       </handler>
 </extension>
@@ -131,7 +131,7 @@ allPopups="false"
             name="%command.analyze.name">
       </command>
       <command
-            defaultHandler="de.uni_stuttgart.iste.cowolf.ui.navigator.editors.GraphicalSequenceEditor"
+            defaultHandler="de.uni_stuttgart.iste.cowolf.ui.navigator.editors.GraphicalEditor"
             id="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.graphicalSequenceDiagram"
             name="graphicalSequenceDiagram">
       </command>
@@ -169,14 +169,13 @@ allPopups="false"
    <extension
          point="org.eclipse.ui.editors">
       <editor
-            class="de.uni_stuttgart.iste.cowolf.ui.navigator.editors.GraphicalSequenceEditor"
-            contributorClass="org.eclipse.sirius.diagram.ui.part.SiriusDiagramActionBarContributor"
             default="true"
             extensions="sequence_diagram"
             filenames="sequence_diagram"
             icon="icons/logo_wulf_15x15.png"
-            id="de.uni_stuttgart.iste.cowolf.ui.navigator.editors.sequenceEditor"
-            name="Sequence diagram graphical editor">
+            id="de.uni_stuttgart.iste.cowolf.ui.navigator.editors.graphicalEditor"
+            launcher="de.uni_stuttgart.iste.cowolf.ui.navigator.editors.GraphicalEditor"
+            name="graphical editor">
       </editor>
    </extension>
 </plugin>
