@@ -2,9 +2,9 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl;
 
-import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Expression;
-import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Implication;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PCTLPackage;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PathFormula;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.TimeBound;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -17,35 +17,35 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Implication</b></em>'.
+ * An implementation of the model object '<em><b>Path Formula</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.ImplicationImpl#getRight <em>Right</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PathFormulaImpl#getBound <em>Bound</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ImplicationImpl extends MinimalEObjectImpl.Container implements Implication
+public class PathFormulaImpl extends MinimalEObjectImpl.Container implements PathFormula
 {
   /**
-   * The cached value of the '{@link #getRight() <em>Right</em>}' containment reference.
+   * The cached value of the '{@link #getBound() <em>Bound</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRight()
+   * @see #getBound()
    * @generated
    * @ordered
    */
-  protected Expression right;
+  protected TimeBound bound;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ImplicationImpl()
+  protected PathFormulaImpl()
   {
     super();
   }
@@ -58,7 +58,7 @@ public class ImplicationImpl extends MinimalEObjectImpl.Container implements Imp
   @Override
   protected EClass eStaticClass()
   {
-    return PCTLPackage.Literals.IMPLICATION;
+    return PCTLPackage.Literals.PATH_FORMULA;
   }
 
   /**
@@ -66,9 +66,9 @@ public class ImplicationImpl extends MinimalEObjectImpl.Container implements Imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expression getRight()
+  public TimeBound getBound()
   {
-    return right;
+    return bound;
   }
 
   /**
@@ -76,13 +76,13 @@ public class ImplicationImpl extends MinimalEObjectImpl.Container implements Imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetRight(Expression newRight, NotificationChain msgs)
+  public NotificationChain basicSetBound(TimeBound newBound, NotificationChain msgs)
   {
-    Expression oldRight = right;
-    right = newRight;
+    TimeBound oldBound = bound;
+    bound = newBound;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PCTLPackage.IMPLICATION__RIGHT, oldRight, newRight);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PCTLPackage.PATH_FORMULA__BOUND, oldBound, newBound);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -93,20 +93,20 @@ public class ImplicationImpl extends MinimalEObjectImpl.Container implements Imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRight(Expression newRight)
+  public void setBound(TimeBound newBound)
   {
-    if (newRight != right)
+    if (newBound != bound)
     {
       NotificationChain msgs = null;
-      if (right != null)
-        msgs = ((InternalEObject)right).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PCTLPackage.IMPLICATION__RIGHT, null, msgs);
-      if (newRight != null)
-        msgs = ((InternalEObject)newRight).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PCTLPackage.IMPLICATION__RIGHT, null, msgs);
-      msgs = basicSetRight(newRight, msgs);
+      if (bound != null)
+        msgs = ((InternalEObject)bound).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PCTLPackage.PATH_FORMULA__BOUND, null, msgs);
+      if (newBound != null)
+        msgs = ((InternalEObject)newBound).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PCTLPackage.PATH_FORMULA__BOUND, null, msgs);
+      msgs = basicSetBound(newBound, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, PCTLPackage.IMPLICATION__RIGHT, newRight, newRight));
+      eNotify(new ENotificationImpl(this, Notification.SET, PCTLPackage.PATH_FORMULA__BOUND, newBound, newBound));
   }
 
   /**
@@ -119,8 +119,8 @@ public class ImplicationImpl extends MinimalEObjectImpl.Container implements Imp
   {
     switch (featureID)
     {
-      case PCTLPackage.IMPLICATION__RIGHT:
-        return basicSetRight(null, msgs);
+      case PCTLPackage.PATH_FORMULA__BOUND:
+        return basicSetBound(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -135,8 +135,8 @@ public class ImplicationImpl extends MinimalEObjectImpl.Container implements Imp
   {
     switch (featureID)
     {
-      case PCTLPackage.IMPLICATION__RIGHT:
-        return getRight();
+      case PCTLPackage.PATH_FORMULA__BOUND:
+        return getBound();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -151,8 +151,8 @@ public class ImplicationImpl extends MinimalEObjectImpl.Container implements Imp
   {
     switch (featureID)
     {
-      case PCTLPackage.IMPLICATION__RIGHT:
-        setRight((Expression)newValue);
+      case PCTLPackage.PATH_FORMULA__BOUND:
+        setBound((TimeBound)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -168,8 +168,8 @@ public class ImplicationImpl extends MinimalEObjectImpl.Container implements Imp
   {
     switch (featureID)
     {
-      case PCTLPackage.IMPLICATION__RIGHT:
-        setRight((Expression)null);
+      case PCTLPackage.PATH_FORMULA__BOUND:
+        setBound((TimeBound)null);
         return;
     }
     super.eUnset(featureID);
@@ -185,10 +185,10 @@ public class ImplicationImpl extends MinimalEObjectImpl.Container implements Imp
   {
     switch (featureID)
     {
-      case PCTLPackage.IMPLICATION__RIGHT:
-        return right != null;
+      case PCTLPackage.PATH_FORMULA__BOUND:
+        return bound != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //ImplicationImpl
+} //PathFormulaImpl

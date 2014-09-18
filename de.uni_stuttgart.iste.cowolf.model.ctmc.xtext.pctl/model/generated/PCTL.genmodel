@@ -9,36 +9,75 @@
   <genPackages prefix="PCTL" basePackage="de.uni_stuttgart.iste.cowolf.model.ctmc.xtext"
       disposableProviderFactory="true" fileExtensions="pctl" ecorePackage="PCTL.ecore#/">
     <genClasses ecoreClass="PCTL.ecore#//Start">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//Start/start"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//Start/rule"/>
     </genClasses>
-    <genClasses ecoreClass="PCTL.ecore#//Rules">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//Rules/rule"/>
+    <genClasses ecoreClass="PCTL.ecore#//Fragment"/>
+    <genClasses ecoreClass="PCTL.ecore#//Comment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PCTL.ecore#//Comment/comment"/>
     </genClasses>
-    <genClasses ecoreClass="PCTL.ecore#//CommentedRule">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PCTL.ecore#//CommentedRule/comment"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//CommentedRule/rule"/>
+    <genClasses ecoreClass="PCTL.ecore#//Rule"/>
+    <genClasses ecoreClass="PCTL.ecore#//SteadyState">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//SteadyState/bound"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//SteadyState/value"/>
     </genClasses>
-    <genClasses ecoreClass="PCTL.ecore#//Pctl"/>
-    <genClasses ecoreClass="PCTL.ecore#//State"/>
-    <genClasses ecoreClass="PCTL.ecore#//Label"/>
-    <genClasses ecoreClass="PCTL.ecore#//Atomic">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PCTL.ecore#//Atomic/name"/>
+    <genClasses ecoreClass="PCTL.ecore#//QuantifiedProbability">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//QuantifiedProbability/value"/>
     </genClasses>
-    <genClasses ecoreClass="PCTL.ecore#//Expression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//Expression/left"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//Expression/right"/>
+    <genClasses ecoreClass="PCTL.ecore#//BooleanRule">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//BooleanRule/value"/>
     </genClasses>
-    <genClasses ecoreClass="PCTL.ecore#//SteadyState"/>
-    <genClasses ecoreClass="PCTL.ecore#//QuantifiedProbability"/>
-    <genClasses ecoreClass="PCTL.ecore#//Probability"/>
-    <genClasses ecoreClass="PCTL.ecore#//Until"/>
-    <genClasses ecoreClass="PCTL.ecore#//Next"/>
-    <genClasses ecoreClass="PCTL.ecore#//Future"/>
-    <genClasses ecoreClass="PCTL.ecore#//Globally"/>
-    <genClasses ecoreClass="PCTL.ecore#//Implication">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//Implication/right"/>
+    <genClasses ecoreClass="PCTL.ecore#//StateFormula">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//StateFormula/left"/>
     </genClasses>
-    <genClasses ecoreClass="PCTL.ecore#//Conjunction"/>
-    <genClasses ecoreClass="PCTL.ecore#//Disjunction"/>
+    <genClasses ecoreClass="PCTL.ecore#//StateExpression"/>
+    <genClasses ecoreClass="PCTL.ecore#//RightStateExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//RightStateExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="PCTL.ecore#//State">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PCTL.ecore#//State/value"/>
+    </genClasses>
+    <genClasses ecoreClass="PCTL.ecore#//Label">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PCTL.ecore#//Label/value"/>
+    </genClasses>
+    <genClasses ecoreClass="PCTL.ecore#//Boolean">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PCTL.ecore#//Boolean/value"/>
+    </genClasses>
+    <genClasses ecoreClass="PCTL.ecore#//PathFormula">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//PathFormula/bound"/>
+    </genClasses>
+    <genClasses ecoreClass="PCTL.ecore#//Until">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//Until/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PCTL.ecore#//Until/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//Until/right"/>
+    </genClasses>
+    <genClasses ecoreClass="PCTL.ecore#//Next">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//Next/value"/>
+    </genClasses>
+    <genClasses ecoreClass="PCTL.ecore#//Future">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//Future/value"/>
+    </genClasses>
+    <genClasses ecoreClass="PCTL.ecore#//Globally">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//Globally/value"/>
+    </genClasses>
+    <genClasses ecoreClass="PCTL.ecore#//CompareProbability">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PCTL.ecore#//CompareProbability/operator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PCTL.ecore#//CompareProbability/value"/>
+    </genClasses>
+    <genClasses ecoreClass="PCTL.ecore#//TimeBound">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PCTL.ecore#//TimeBound/operator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PCTL.ecore#//TimeBound/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PCTL.ecore#//TimeBound/from"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PCTL.ecore#//TimeBound/to"/>
+    </genClasses>
+    <genClasses ecoreClass="PCTL.ecore#//Conjunction">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//Conjunction/left"/>
+    </genClasses>
+    <genClasses ecoreClass="PCTL.ecore#//Disjunction">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//Disjunction/left"/>
+    </genClasses>
+    <genClasses ecoreClass="PCTL.ecore#//Probability">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//Probability/comparator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PCTL.ecore#//Probability/path"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -67,13 +67,13 @@ public interface PCTLPackage extends EPackage
   int START = 0;
 
   /**
-   * The feature id for the '<em><b>Start</b></em>' containment reference.
+   * The feature id for the '<em><b>Rule</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int START__START = 0;
+  int START__RULE = 0;
 
   /**
    * The number of structural features of the '<em>Start</em>' class.
@@ -85,42 +85,33 @@ public interface PCTLPackage extends EPackage
   int START_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.RulesImpl <em>Rules</em>}' class.
+   * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.FragmentImpl <em>Fragment</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.RulesImpl
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getRules()
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.FragmentImpl
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getFragment()
    * @generated
    */
-  int RULES = 1;
+  int FRAGMENT = 1;
 
   /**
-   * The feature id for the '<em><b>Rule</b></em>' containment reference list.
+   * The number of structural features of the '<em>Fragment</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RULES__RULE = 0;
+  int FRAGMENT_FEATURE_COUNT = 0;
 
   /**
-   * The number of structural features of the '<em>Rules</em>' class.
+   * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.CommentImpl <em>Comment</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RULES_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.CommentedRuleImpl <em>Commented Rule</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.CommentedRuleImpl
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getCommentedRule()
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.CommentImpl
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getComment()
    * @generated
    */
-  int COMMENTED_RULE = 2;
+  int COMMENT = 2;
 
   /**
    * The feature id for the '<em><b>Comment</b></em>' attribute.
@@ -129,219 +120,35 @@ public interface PCTLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMMENTED_RULE__COMMENT = 0;
+  int COMMENT__COMMENT = FRAGMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Rule</b></em>' containment reference.
+   * The number of structural features of the '<em>Comment</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMMENTED_RULE__RULE = 1;
+  int COMMENT_FEATURE_COUNT = FRAGMENT_FEATURE_COUNT + 1;
 
   /**
-   * The number of structural features of the '<em>Commented Rule</em>' class.
+   * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.RuleImpl <em>Rule</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.RuleImpl
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getRule()
+   * @generated
+   */
+  int RULE = 3;
+
+  /**
+   * The number of structural features of the '<em>Rule</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMMENTED_RULE_FEATURE_COUNT = 2;
-
-  /**
-   * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PctlImpl <em>Pctl</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PctlImpl
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getPctl()
-   * @generated
-   */
-  int PCTL = 3;
-
-  /**
-   * The number of structural features of the '<em>Pctl</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PCTL_FEATURE_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.ExpressionImpl <em>Expression</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.ExpressionImpl
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getExpression()
-   * @generated
-   */
-  int EXPRESSION = 7;
-
-  /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION__LEFT = PCTL_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION__RIGHT = PCTL_FEATURE_COUNT + 1;
-
-  /**
-   * The number of structural features of the '<em>Expression</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION_FEATURE_COUNT = PCTL_FEATURE_COUNT + 2;
-
-  /**
-   * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.AtomicImpl <em>Atomic</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.AtomicImpl
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getAtomic()
-   * @generated
-   */
-  int ATOMIC = 6;
-
-  /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ATOMIC__LEFT = EXPRESSION__LEFT;
-
-  /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ATOMIC__RIGHT = EXPRESSION__RIGHT;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ATOMIC__NAME = EXPRESSION_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Atomic</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ATOMIC_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.StateImpl <em>State</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.StateImpl
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getState()
-   * @generated
-   */
-  int STATE = 4;
-
-  /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATE__LEFT = ATOMIC__LEFT;
-
-  /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATE__RIGHT = ATOMIC__RIGHT;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATE__NAME = ATOMIC__NAME;
-
-  /**
-   * The number of structural features of the '<em>State</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATE_FEATURE_COUNT = ATOMIC_FEATURE_COUNT + 0;
-
-  /**
-   * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.LabelImpl <em>Label</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.LabelImpl
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getLabel()
-   * @generated
-   */
-  int LABEL = 5;
-
-  /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LABEL__LEFT = ATOMIC__LEFT;
-
-  /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LABEL__RIGHT = ATOMIC__RIGHT;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LABEL__NAME = ATOMIC__NAME;
-
-  /**
-   * The number of structural features of the '<em>Label</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LABEL_FEATURE_COUNT = ATOMIC_FEATURE_COUNT + 0;
+  int RULE_FEATURE_COUNT = FRAGMENT_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.SteadyStateImpl <em>Steady State</em>}' class.
@@ -351,7 +158,25 @@ public interface PCTLPackage extends EPackage
    * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getSteadyState()
    * @generated
    */
-  int STEADY_STATE = 8;
+  int STEADY_STATE = 4;
+
+  /**
+   * The feature id for the '<em><b>Bound</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STEADY_STATE__BOUND = RULE_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STEADY_STATE__VALUE = RULE_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Steady State</em>' class.
@@ -360,7 +185,7 @@ public interface PCTLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STEADY_STATE_FEATURE_COUNT = PCTL_FEATURE_COUNT + 0;
+  int STEADY_STATE_FEATURE_COUNT = RULE_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.QuantifiedProbabilityImpl <em>Quantified Probability</em>}' class.
@@ -370,7 +195,16 @@ public interface PCTLPackage extends EPackage
    * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getQuantifiedProbability()
    * @generated
    */
-  int QUANTIFIED_PROBABILITY = 9;
+  int QUANTIFIED_PROBABILITY = 5;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int QUANTIFIED_PROBABILITY__VALUE = RULE_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Quantified Probability</em>' class.
@@ -379,26 +213,231 @@ public interface PCTLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int QUANTIFIED_PROBABILITY_FEATURE_COUNT = PCTL_FEATURE_COUNT + 0;
+  int QUANTIFIED_PROBABILITY_FEATURE_COUNT = RULE_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.ProbabilityImpl <em>Probability</em>}' class.
+   * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.BooleanRuleImpl <em>Boolean Rule</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.ProbabilityImpl
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getProbability()
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.BooleanRuleImpl
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getBooleanRule()
    * @generated
    */
-  int PROBABILITY = 10;
+  int BOOLEAN_RULE = 6;
 
   /**
-   * The number of structural features of the '<em>Probability</em>' class.
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROBABILITY_FEATURE_COUNT = 0;
+  int BOOLEAN_RULE__VALUE = RULE_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Boolean Rule</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOLEAN_RULE_FEATURE_COUNT = RULE_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.StateExpressionImpl <em>State Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.StateExpressionImpl
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getStateExpression()
+   * @generated
+   */
+  int STATE_EXPRESSION = 8;
+
+  /**
+   * The number of structural features of the '<em>State Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATE_EXPRESSION_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.StateFormulaImpl <em>State Formula</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.StateFormulaImpl
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getStateFormula()
+   * @generated
+   */
+  int STATE_FORMULA = 7;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATE_FORMULA__RIGHT = STATE_EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATE_FORMULA__LEFT = STATE_EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>State Formula</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATE_FORMULA_FEATURE_COUNT = STATE_EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.RightStateExpressionImpl <em>Right State Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.RightStateExpressionImpl
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getRightStateExpression()
+   * @generated
+   */
+  int RIGHT_STATE_EXPRESSION = 9;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RIGHT_STATE_EXPRESSION__RIGHT = 0;
+
+  /**
+   * The number of structural features of the '<em>Right State Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RIGHT_STATE_EXPRESSION_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.StateImpl <em>State</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.StateImpl
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getState()
+   * @generated
+   */
+  int STATE = 10;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATE__VALUE = STATE_EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>State</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATE_FEATURE_COUNT = STATE_EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.LabelImpl <em>Label</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.LabelImpl
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getLabel()
+   * @generated
+   */
+  int LABEL = 11;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LABEL__VALUE = STATE_EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Label</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LABEL_FEATURE_COUNT = STATE_EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.BooleanImpl <em>Boolean</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.BooleanImpl
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getBoolean()
+   * @generated
+   */
+  int BOOLEAN = 12;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOLEAN__VALUE = STATE_EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Boolean</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOLEAN_FEATURE_COUNT = STATE_EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PathFormulaImpl <em>Path Formula</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PathFormulaImpl
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getPathFormula()
+   * @generated
+   */
+  int PATH_FORMULA = 13;
+
+  /**
+   * The feature id for the '<em><b>Bound</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PATH_FORMULA__BOUND = 0;
+
+  /**
+   * The number of structural features of the '<em>Path Formula</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PATH_FORMULA_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.UntilImpl <em>Until</em>}' class.
@@ -408,7 +447,16 @@ public interface PCTLPackage extends EPackage
    * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getUntil()
    * @generated
    */
-  int UNTIL = 11;
+  int UNTIL = 14;
+
+  /**
+   * The feature id for the '<em><b>Bound</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNTIL__BOUND = PATH_FORMULA__BOUND;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -417,7 +465,16 @@ public interface PCTLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int UNTIL__LEFT = EXPRESSION__LEFT;
+  int UNTIL__LEFT = PATH_FORMULA_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNTIL__TYPE = PATH_FORMULA_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Right</b></em>' containment reference.
@@ -426,7 +483,7 @@ public interface PCTLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int UNTIL__RIGHT = EXPRESSION__RIGHT;
+  int UNTIL__RIGHT = PATH_FORMULA_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Until</em>' class.
@@ -435,7 +492,7 @@ public interface PCTLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int UNTIL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
+  int UNTIL_FEATURE_COUNT = PATH_FORMULA_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.NextImpl <em>Next</em>}' class.
@@ -445,25 +502,25 @@ public interface PCTLPackage extends EPackage
    * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getNext()
    * @generated
    */
-  int NEXT = 12;
+  int NEXT = 15;
 
   /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * The feature id for the '<em><b>Bound</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int NEXT__LEFT = EXPRESSION__LEFT;
+  int NEXT__BOUND = PATH_FORMULA__BOUND;
 
   /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int NEXT__RIGHT = EXPRESSION__RIGHT;
+  int NEXT__VALUE = PATH_FORMULA_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Next</em>' class.
@@ -472,7 +529,7 @@ public interface PCTLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int NEXT_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
+  int NEXT_FEATURE_COUNT = PATH_FORMULA_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.FutureImpl <em>Future</em>}' class.
@@ -482,25 +539,25 @@ public interface PCTLPackage extends EPackage
    * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getFuture()
    * @generated
    */
-  int FUTURE = 13;
+  int FUTURE = 16;
 
   /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * The feature id for the '<em><b>Bound</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FUTURE__LEFT = EXPRESSION__LEFT;
+  int FUTURE__BOUND = PATH_FORMULA__BOUND;
 
   /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FUTURE__RIGHT = EXPRESSION__RIGHT;
+  int FUTURE__VALUE = PATH_FORMULA_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Future</em>' class.
@@ -509,7 +566,7 @@ public interface PCTLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FUTURE_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
+  int FUTURE_FEATURE_COUNT = PATH_FORMULA_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.GloballyImpl <em>Globally</em>}' class.
@@ -519,25 +576,25 @@ public interface PCTLPackage extends EPackage
    * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getGlobally()
    * @generated
    */
-  int GLOBALLY = 14;
+  int GLOBALLY = 17;
 
   /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * The feature id for the '<em><b>Bound</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int GLOBALLY__LEFT = EXPRESSION__LEFT;
+  int GLOBALLY__BOUND = PATH_FORMULA__BOUND;
 
   /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int GLOBALLY__RIGHT = EXPRESSION__RIGHT;
+  int GLOBALLY__VALUE = PATH_FORMULA_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Globally</em>' class.
@@ -546,35 +603,99 @@ public interface PCTLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GLOBALLY_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
+  int GLOBALLY_FEATURE_COUNT = PATH_FORMULA_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.ImplicationImpl <em>Implication</em>}' class.
+   * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.CompareProbabilityImpl <em>Compare Probability</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.ImplicationImpl
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getImplication()
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.CompareProbabilityImpl
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getCompareProbability()
    * @generated
    */
-  int IMPLICATION = 15;
+  int COMPARE_PROBABILITY = 18;
 
   /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IMPLICATION__RIGHT = 0;
-
-  /**
-   * The number of structural features of the '<em>Implication</em>' class.
+   * The feature id for the '<em><b>Operator</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int IMPLICATION_FEATURE_COUNT = 1;
+  int COMPARE_PROBABILITY__OPERATOR = 0;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPARE_PROBABILITY__VALUE = 1;
+
+  /**
+   * The number of structural features of the '<em>Compare Probability</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPARE_PROBABILITY_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.TimeBoundImpl <em>Time Bound</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.TimeBoundImpl
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getTimeBound()
+   * @generated
+   */
+  int TIME_BOUND = 19;
+
+  /**
+   * The feature id for the '<em><b>Operator</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TIME_BOUND__OPERATOR = 0;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TIME_BOUND__VALUE = 1;
+
+  /**
+   * The feature id for the '<em><b>From</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TIME_BOUND__FROM = 2;
+
+  /**
+   * The feature id for the '<em><b>To</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TIME_BOUND__TO = 3;
+
+  /**
+   * The number of structural features of the '<em>Time Bound</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TIME_BOUND_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.ConjunctionImpl <em>Conjunction</em>}' class.
@@ -584,16 +705,7 @@ public interface PCTLPackage extends EPackage
    * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getConjunction()
    * @generated
    */
-  int CONJUNCTION = 16;
-
-  /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONJUNCTION__LEFT = EXPRESSION__LEFT;
+  int CONJUNCTION = 20;
 
   /**
    * The feature id for the '<em><b>Right</b></em>' containment reference.
@@ -602,7 +714,16 @@ public interface PCTLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONJUNCTION__RIGHT = EXPRESSION__RIGHT;
+  int CONJUNCTION__RIGHT = RIGHT_STATE_EXPRESSION__RIGHT;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONJUNCTION__LEFT = RIGHT_STATE_EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Conjunction</em>' class.
@@ -611,7 +732,7 @@ public interface PCTLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONJUNCTION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
+  int CONJUNCTION_FEATURE_COUNT = RIGHT_STATE_EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.DisjunctionImpl <em>Disjunction</em>}' class.
@@ -621,16 +742,7 @@ public interface PCTLPackage extends EPackage
    * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getDisjunction()
    * @generated
    */
-  int DISJUNCTION = 17;
-
-  /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DISJUNCTION__LEFT = EXPRESSION__LEFT;
+  int DISJUNCTION = 21;
 
   /**
    * The feature id for the '<em><b>Right</b></em>' containment reference.
@@ -639,7 +751,16 @@ public interface PCTLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DISJUNCTION__RIGHT = EXPRESSION__RIGHT;
+  int DISJUNCTION__RIGHT = RIGHT_STATE_EXPRESSION__RIGHT;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DISJUNCTION__LEFT = RIGHT_STATE_EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Disjunction</em>' class.
@@ -648,7 +769,44 @@ public interface PCTLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DISJUNCTION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
+  int DISJUNCTION_FEATURE_COUNT = RIGHT_STATE_EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.ProbabilityImpl <em>Probability</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.ProbabilityImpl
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getProbability()
+   * @generated
+   */
+  int PROBABILITY = 22;
+
+  /**
+   * The feature id for the '<em><b>Comparator</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROBABILITY__COMPARATOR = STATE_EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Path</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROBABILITY__PATH = STATE_EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Probability</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROBABILITY_FEATURE_COUNT = STATE_EXPRESSION_FEATURE_COUNT + 2;
 
 
   /**
@@ -662,151 +820,56 @@ public interface PCTLPackage extends EPackage
   EClass getStart();
 
   /**
-   * Returns the meta object for the containment reference '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Start#getStart <em>Start</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Start</em>'.
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Start#getStart()
-   * @see #getStart()
-   * @generated
-   */
-  EReference getStart_Start();
-
-  /**
-   * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Rules <em>Rules</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Rules</em>'.
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Rules
-   * @generated
-   */
-  EClass getRules();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Rules#getRule <em>Rule</em>}'.
+   * Returns the meta object for the containment reference list '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Start#getRule <em>Rule</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Rule</em>'.
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Rules#getRule()
-   * @see #getRules()
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Start#getRule()
+   * @see #getStart()
    * @generated
    */
-  EReference getRules_Rule();
+  EReference getStart_Rule();
 
   /**
-   * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.CommentedRule <em>Commented Rule</em>}'.
+   * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Fragment <em>Fragment</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Commented Rule</em>'.
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.CommentedRule
+   * @return the meta object for class '<em>Fragment</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Fragment
    * @generated
    */
-  EClass getCommentedRule();
+  EClass getFragment();
 
   /**
-   * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.CommentedRule#getComment <em>Comment</em>}'.
+   * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Comment <em>Comment</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Comment</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Comment
+   * @generated
+   */
+  EClass getComment();
+
+  /**
+   * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Comment#getComment <em>Comment</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Comment</em>'.
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.CommentedRule#getComment()
-   * @see #getCommentedRule()
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Comment#getComment()
+   * @see #getComment()
    * @generated
    */
-  EAttribute getCommentedRule_Comment();
+  EAttribute getComment_Comment();
 
   /**
-   * Returns the meta object for the containment reference '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.CommentedRule#getRule <em>Rule</em>}'.
+   * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Rule <em>Rule</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Rule</em>'.
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.CommentedRule#getRule()
-   * @see #getCommentedRule()
+   * @return the meta object for class '<em>Rule</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Rule
    * @generated
    */
-  EReference getCommentedRule_Rule();
-
-  /**
-   * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Pctl <em>Pctl</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Pctl</em>'.
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Pctl
-   * @generated
-   */
-  EClass getPctl();
-
-  /**
-   * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.State <em>State</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>State</em>'.
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.State
-   * @generated
-   */
-  EClass getState();
-
-  /**
-   * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Label <em>Label</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Label</em>'.
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Label
-   * @generated
-   */
-  EClass getLabel();
-
-  /**
-   * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Atomic <em>Atomic</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Atomic</em>'.
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Atomic
-   * @generated
-   */
-  EClass getAtomic();
-
-  /**
-   * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Atomic#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Atomic#getName()
-   * @see #getAtomic()
-   * @generated
-   */
-  EAttribute getAtomic_Name();
-
-  /**
-   * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Expression <em>Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Expression</em>'.
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Expression
-   * @generated
-   */
-  EClass getExpression();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Expression#getLeft <em>Left</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Left</em>'.
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Expression#getLeft()
-   * @see #getExpression()
-   * @generated
-   */
-  EReference getExpression_Left();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Expression#getRight <em>Right</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Right</em>'.
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Expression#getRight()
-   * @see #getExpression()
-   * @generated
-   */
-  EReference getExpression_Right();
+  EClass getRule();
 
   /**
    * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.SteadyState <em>Steady State</em>}'.
@@ -819,6 +882,28 @@ public interface PCTLPackage extends EPackage
   EClass getSteadyState();
 
   /**
+   * Returns the meta object for the containment reference '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.SteadyState#getBound <em>Bound</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Bound</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.SteadyState#getBound()
+   * @see #getSteadyState()
+   * @generated
+   */
+  EReference getSteadyState_Bound();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.SteadyState#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Value</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.SteadyState#getValue()
+   * @see #getSteadyState()
+   * @generated
+   */
+  EReference getSteadyState_Value();
+
+  /**
    * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.QuantifiedProbability <em>Quantified Probability</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -829,14 +914,172 @@ public interface PCTLPackage extends EPackage
   EClass getQuantifiedProbability();
 
   /**
-   * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Probability <em>Probability</em>}'.
+   * Returns the meta object for the containment reference '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.QuantifiedProbability#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Probability</em>'.
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Probability
+   * @return the meta object for the containment reference '<em>Value</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.QuantifiedProbability#getValue()
+   * @see #getQuantifiedProbability()
    * @generated
    */
-  EClass getProbability();
+  EReference getQuantifiedProbability_Value();
+
+  /**
+   * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.BooleanRule <em>Boolean Rule</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Boolean Rule</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.BooleanRule
+   * @generated
+   */
+  EClass getBooleanRule();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.BooleanRule#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Value</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.BooleanRule#getValue()
+   * @see #getBooleanRule()
+   * @generated
+   */
+  EReference getBooleanRule_Value();
+
+  /**
+   * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.StateFormula <em>State Formula</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>State Formula</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.StateFormula
+   * @generated
+   */
+  EClass getStateFormula();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.StateFormula#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.StateFormula#getLeft()
+   * @see #getStateFormula()
+   * @generated
+   */
+  EReference getStateFormula_Left();
+
+  /**
+   * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.StateExpression <em>State Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>State Expression</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.StateExpression
+   * @generated
+   */
+  EClass getStateExpression();
+
+  /**
+   * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.RightStateExpression <em>Right State Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Right State Expression</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.RightStateExpression
+   * @generated
+   */
+  EClass getRightStateExpression();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.RightStateExpression#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.RightStateExpression#getRight()
+   * @see #getRightStateExpression()
+   * @generated
+   */
+  EReference getRightStateExpression_Right();
+
+  /**
+   * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.State <em>State</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>State</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.State
+   * @generated
+   */
+  EClass getState();
+
+  /**
+   * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.State#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.State#getValue()
+   * @see #getState()
+   * @generated
+   */
+  EAttribute getState_Value();
+
+  /**
+   * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Label <em>Label</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Label</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Label
+   * @generated
+   */
+  EClass getLabel();
+
+  /**
+   * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Label#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Label#getValue()
+   * @see #getLabel()
+   * @generated
+   */
+  EAttribute getLabel_Value();
+
+  /**
+   * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Boolean <em>Boolean</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Boolean</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Boolean
+   * @generated
+   */
+  EClass getBoolean();
+
+  /**
+   * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Boolean#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Boolean#getValue()
+   * @see #getBoolean()
+   * @generated
+   */
+  EAttribute getBoolean_Value();
+
+  /**
+   * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PathFormula <em>Path Formula</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Path Formula</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PathFormula
+   * @generated
+   */
+  EClass getPathFormula();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PathFormula#getBound <em>Bound</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Bound</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PathFormula#getBound()
+   * @see #getPathFormula()
+   * @generated
+   */
+  EReference getPathFormula_Bound();
 
   /**
    * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Until <em>Until</em>}'.
@@ -849,6 +1092,39 @@ public interface PCTLPackage extends EPackage
   EClass getUntil();
 
   /**
+   * Returns the meta object for the containment reference '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Until#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Until#getLeft()
+   * @see #getUntil()
+   * @generated
+   */
+  EReference getUntil_Left();
+
+  /**
+   * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Until#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Type</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Until#getType()
+   * @see #getUntil()
+   * @generated
+   */
+  EAttribute getUntil_Type();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Until#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Until#getRight()
+   * @see #getUntil()
+   * @generated
+   */
+  EReference getUntil_Right();
+
+  /**
    * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Next <em>Next</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -857,6 +1133,17 @@ public interface PCTLPackage extends EPackage
    * @generated
    */
   EClass getNext();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Next#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Value</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Next#getValue()
+   * @see #getNext()
+   * @generated
+   */
+  EReference getNext_Value();
 
   /**
    * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Future <em>Future</em>}'.
@@ -869,6 +1156,17 @@ public interface PCTLPackage extends EPackage
   EClass getFuture();
 
   /**
+   * Returns the meta object for the containment reference '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Future#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Value</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Future#getValue()
+   * @see #getFuture()
+   * @generated
+   */
+  EReference getFuture_Value();
+
+  /**
    * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Globally <em>Globally</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -879,25 +1177,101 @@ public interface PCTLPackage extends EPackage
   EClass getGlobally();
 
   /**
-   * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Implication <em>Implication</em>}'.
+   * Returns the meta object for the containment reference '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Globally#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Implication</em>'.
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Implication
+   * @return the meta object for the containment reference '<em>Value</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Globally#getValue()
+   * @see #getGlobally()
    * @generated
    */
-  EClass getImplication();
+  EReference getGlobally_Value();
 
   /**
-   * Returns the meta object for the containment reference '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Implication#getRight <em>Right</em>}'.
+   * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.CompareProbability <em>Compare Probability</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Right</em>'.
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Implication#getRight()
-   * @see #getImplication()
+   * @return the meta object for class '<em>Compare Probability</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.CompareProbability
    * @generated
    */
-  EReference getImplication_Right();
+  EClass getCompareProbability();
+
+  /**
+   * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.CompareProbability#getOperator <em>Operator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Operator</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.CompareProbability#getOperator()
+   * @see #getCompareProbability()
+   * @generated
+   */
+  EAttribute getCompareProbability_Operator();
+
+  /**
+   * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.CompareProbability#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.CompareProbability#getValue()
+   * @see #getCompareProbability()
+   * @generated
+   */
+  EAttribute getCompareProbability_Value();
+
+  /**
+   * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.TimeBound <em>Time Bound</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Time Bound</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.TimeBound
+   * @generated
+   */
+  EClass getTimeBound();
+
+  /**
+   * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.TimeBound#getOperator <em>Operator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Operator</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.TimeBound#getOperator()
+   * @see #getTimeBound()
+   * @generated
+   */
+  EAttribute getTimeBound_Operator();
+
+  /**
+   * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.TimeBound#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.TimeBound#getValue()
+   * @see #getTimeBound()
+   * @generated
+   */
+  EAttribute getTimeBound_Value();
+
+  /**
+   * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.TimeBound#getFrom <em>From</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>From</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.TimeBound#getFrom()
+   * @see #getTimeBound()
+   * @generated
+   */
+  EAttribute getTimeBound_From();
+
+  /**
+   * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.TimeBound#getTo <em>To</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>To</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.TimeBound#getTo()
+   * @see #getTimeBound()
+   * @generated
+   */
+  EAttribute getTimeBound_To();
 
   /**
    * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Conjunction <em>Conjunction</em>}'.
@@ -910,6 +1284,17 @@ public interface PCTLPackage extends EPackage
   EClass getConjunction();
 
   /**
+   * Returns the meta object for the containment reference '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Conjunction#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Conjunction#getLeft()
+   * @see #getConjunction()
+   * @generated
+   */
+  EReference getConjunction_Left();
+
+  /**
    * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Disjunction <em>Disjunction</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -918,6 +1303,49 @@ public interface PCTLPackage extends EPackage
    * @generated
    */
   EClass getDisjunction();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Disjunction#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Disjunction#getLeft()
+   * @see #getDisjunction()
+   * @generated
+   */
+  EReference getDisjunction_Left();
+
+  /**
+   * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Probability <em>Probability</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Probability</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Probability
+   * @generated
+   */
+  EClass getProbability();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Probability#getComparator <em>Comparator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Comparator</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Probability#getComparator()
+   * @see #getProbability()
+   * @generated
+   */
+  EReference getProbability_Comparator();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Probability#getPath <em>Path</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Path</em>'.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Probability#getPath()
+   * @see #getProbability()
+   * @generated
+   */
+  EReference getProbability_Path();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -953,40 +1381,32 @@ public interface PCTLPackage extends EPackage
     EClass START = eINSTANCE.getStart();
 
     /**
-     * The meta object literal for the '<em><b>Start</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference START__START = eINSTANCE.getStart_Start();
-
-    /**
-     * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.RulesImpl <em>Rules</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.RulesImpl
-     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getRules()
-     * @generated
-     */
-    EClass RULES = eINSTANCE.getRules();
-
-    /**
      * The meta object literal for the '<em><b>Rule</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference RULES__RULE = eINSTANCE.getRules_Rule();
+    EReference START__RULE = eINSTANCE.getStart_Rule();
 
     /**
-     * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.CommentedRuleImpl <em>Commented Rule</em>}' class.
+     * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.FragmentImpl <em>Fragment</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.CommentedRuleImpl
-     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getCommentedRule()
+     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.FragmentImpl
+     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getFragment()
      * @generated
      */
-    EClass COMMENTED_RULE = eINSTANCE.getCommentedRule();
+    EClass FRAGMENT = eINSTANCE.getFragment();
+
+    /**
+     * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.CommentImpl <em>Comment</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.CommentImpl
+     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getComment()
+     * @generated
+     */
+    EClass COMMENT = eINSTANCE.getComment();
 
     /**
      * The meta object literal for the '<em><b>Comment</b></em>' attribute feature.
@@ -994,89 +1414,17 @@ public interface PCTLPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute COMMENTED_RULE__COMMENT = eINSTANCE.getCommentedRule_Comment();
+    EAttribute COMMENT__COMMENT = eINSTANCE.getComment_Comment();
 
     /**
-     * The meta object literal for the '<em><b>Rule</b></em>' containment reference feature.
+     * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.RuleImpl <em>Rule</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.RuleImpl
+     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getRule()
      * @generated
      */
-    EReference COMMENTED_RULE__RULE = eINSTANCE.getCommentedRule_Rule();
-
-    /**
-     * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PctlImpl <em>Pctl</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PctlImpl
-     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getPctl()
-     * @generated
-     */
-    EClass PCTL = eINSTANCE.getPctl();
-
-    /**
-     * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.StateImpl <em>State</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.StateImpl
-     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getState()
-     * @generated
-     */
-    EClass STATE = eINSTANCE.getState();
-
-    /**
-     * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.LabelImpl <em>Label</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.LabelImpl
-     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getLabel()
-     * @generated
-     */
-    EClass LABEL = eINSTANCE.getLabel();
-
-    /**
-     * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.AtomicImpl <em>Atomic</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.AtomicImpl
-     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getAtomic()
-     * @generated
-     */
-    EClass ATOMIC = eINSTANCE.getAtomic();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ATOMIC__NAME = eINSTANCE.getAtomic_Name();
-
-    /**
-     * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.ExpressionImpl <em>Expression</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.ExpressionImpl
-     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getExpression()
-     * @generated
-     */
-    EClass EXPRESSION = eINSTANCE.getExpression();
-
-    /**
-     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EXPRESSION__LEFT = eINSTANCE.getExpression_Left();
-
-    /**
-     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EXPRESSION__RIGHT = eINSTANCE.getExpression_Right();
+    EClass RULE = eINSTANCE.getRule();
 
     /**
      * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.SteadyStateImpl <em>Steady State</em>}' class.
@@ -1089,6 +1437,22 @@ public interface PCTLPackage extends EPackage
     EClass STEADY_STATE = eINSTANCE.getSteadyState();
 
     /**
+     * The meta object literal for the '<em><b>Bound</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STEADY_STATE__BOUND = eINSTANCE.getSteadyState_Bound();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STEADY_STATE__VALUE = eINSTANCE.getSteadyState_Value();
+
+    /**
      * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.QuantifiedProbabilityImpl <em>Quantified Probability</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1099,14 +1463,148 @@ public interface PCTLPackage extends EPackage
     EClass QUANTIFIED_PROBABILITY = eINSTANCE.getQuantifiedProbability();
 
     /**
-     * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.ProbabilityImpl <em>Probability</em>}' class.
+     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.ProbabilityImpl
-     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getProbability()
      * @generated
      */
-    EClass PROBABILITY = eINSTANCE.getProbability();
+    EReference QUANTIFIED_PROBABILITY__VALUE = eINSTANCE.getQuantifiedProbability_Value();
+
+    /**
+     * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.BooleanRuleImpl <em>Boolean Rule</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.BooleanRuleImpl
+     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getBooleanRule()
+     * @generated
+     */
+    EClass BOOLEAN_RULE = eINSTANCE.getBooleanRule();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BOOLEAN_RULE__VALUE = eINSTANCE.getBooleanRule_Value();
+
+    /**
+     * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.StateFormulaImpl <em>State Formula</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.StateFormulaImpl
+     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getStateFormula()
+     * @generated
+     */
+    EClass STATE_FORMULA = eINSTANCE.getStateFormula();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STATE_FORMULA__LEFT = eINSTANCE.getStateFormula_Left();
+
+    /**
+     * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.StateExpressionImpl <em>State Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.StateExpressionImpl
+     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getStateExpression()
+     * @generated
+     */
+    EClass STATE_EXPRESSION = eINSTANCE.getStateExpression();
+
+    /**
+     * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.RightStateExpressionImpl <em>Right State Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.RightStateExpressionImpl
+     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getRightStateExpression()
+     * @generated
+     */
+    EClass RIGHT_STATE_EXPRESSION = eINSTANCE.getRightStateExpression();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RIGHT_STATE_EXPRESSION__RIGHT = eINSTANCE.getRightStateExpression_Right();
+
+    /**
+     * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.StateImpl <em>State</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.StateImpl
+     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getState()
+     * @generated
+     */
+    EClass STATE = eINSTANCE.getState();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STATE__VALUE = eINSTANCE.getState_Value();
+
+    /**
+     * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.LabelImpl <em>Label</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.LabelImpl
+     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getLabel()
+     * @generated
+     */
+    EClass LABEL = eINSTANCE.getLabel();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LABEL__VALUE = eINSTANCE.getLabel_Value();
+
+    /**
+     * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.BooleanImpl <em>Boolean</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.BooleanImpl
+     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getBoolean()
+     * @generated
+     */
+    EClass BOOLEAN = eINSTANCE.getBoolean();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BOOLEAN__VALUE = eINSTANCE.getBoolean_Value();
+
+    /**
+     * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PathFormulaImpl <em>Path Formula</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PathFormulaImpl
+     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getPathFormula()
+     * @generated
+     */
+    EClass PATH_FORMULA = eINSTANCE.getPathFormula();
+
+    /**
+     * The meta object literal for the '<em><b>Bound</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PATH_FORMULA__BOUND = eINSTANCE.getPathFormula_Bound();
 
     /**
      * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.UntilImpl <em>Until</em>}' class.
@@ -1119,6 +1617,30 @@ public interface PCTLPackage extends EPackage
     EClass UNTIL = eINSTANCE.getUntil();
 
     /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UNTIL__LEFT = eINSTANCE.getUntil_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute UNTIL__TYPE = eINSTANCE.getUntil_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UNTIL__RIGHT = eINSTANCE.getUntil_Right();
+
+    /**
      * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.NextImpl <em>Next</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1127,6 +1649,14 @@ public interface PCTLPackage extends EPackage
      * @generated
      */
     EClass NEXT = eINSTANCE.getNext();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference NEXT__VALUE = eINSTANCE.getNext_Value();
 
     /**
      * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.FutureImpl <em>Future</em>}' class.
@@ -1139,6 +1669,14 @@ public interface PCTLPackage extends EPackage
     EClass FUTURE = eINSTANCE.getFuture();
 
     /**
+     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FUTURE__VALUE = eINSTANCE.getFuture_Value();
+
+    /**
      * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.GloballyImpl <em>Globally</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1149,22 +1687,80 @@ public interface PCTLPackage extends EPackage
     EClass GLOBALLY = eINSTANCE.getGlobally();
 
     /**
-     * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.ImplicationImpl <em>Implication</em>}' class.
+     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.ImplicationImpl
-     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getImplication()
      * @generated
      */
-    EClass IMPLICATION = eINSTANCE.getImplication();
+    EReference GLOBALLY__VALUE = eINSTANCE.getGlobally_Value();
 
     /**
-     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.CompareProbabilityImpl <em>Compare Probability</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.CompareProbabilityImpl
+     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getCompareProbability()
+     * @generated
+     */
+    EClass COMPARE_PROBABILITY = eINSTANCE.getCompareProbability();
+
+    /**
+     * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference IMPLICATION__RIGHT = eINSTANCE.getImplication_Right();
+    EAttribute COMPARE_PROBABILITY__OPERATOR = eINSTANCE.getCompareProbability_Operator();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute COMPARE_PROBABILITY__VALUE = eINSTANCE.getCompareProbability_Value();
+
+    /**
+     * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.TimeBoundImpl <em>Time Bound</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.TimeBoundImpl
+     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getTimeBound()
+     * @generated
+     */
+    EClass TIME_BOUND = eINSTANCE.getTimeBound();
+
+    /**
+     * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TIME_BOUND__OPERATOR = eINSTANCE.getTimeBound_Operator();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TIME_BOUND__VALUE = eINSTANCE.getTimeBound_Value();
+
+    /**
+     * The meta object literal for the '<em><b>From</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TIME_BOUND__FROM = eINSTANCE.getTimeBound_From();
+
+    /**
+     * The meta object literal for the '<em><b>To</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TIME_BOUND__TO = eINSTANCE.getTimeBound_To();
 
     /**
      * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.ConjunctionImpl <em>Conjunction</em>}' class.
@@ -1177,6 +1773,14 @@ public interface PCTLPackage extends EPackage
     EClass CONJUNCTION = eINSTANCE.getConjunction();
 
     /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONJUNCTION__LEFT = eINSTANCE.getConjunction_Left();
+
+    /**
      * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.DisjunctionImpl <em>Disjunction</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1185,6 +1789,40 @@ public interface PCTLPackage extends EPackage
      * @generated
      */
     EClass DISJUNCTION = eINSTANCE.getDisjunction();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DISJUNCTION__LEFT = eINSTANCE.getDisjunction_Left();
+
+    /**
+     * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.ProbabilityImpl <em>Probability</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.ProbabilityImpl
+     * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.PCTLPackageImpl#getProbability()
+     * @generated
+     */
+    EClass PROBABILITY = eINSTANCE.getProbability();
+
+    /**
+     * The meta object literal for the '<em><b>Comparator</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PROBABILITY__COMPARATOR = eINSTANCE.getProbability_Comparator();
+
+    /**
+     * The meta object literal for the '<em><b>Path</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PROBABILITY__PATH = eINSTANCE.getProbability_Path();
 
   }
 

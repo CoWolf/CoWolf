@@ -2,7 +2,29 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.util;
 
-import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.*;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.BooleanRule;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Comment;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.CompareProbability;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Conjunction;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Disjunction;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Fragment;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Future;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Globally;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Label;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Next;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PCTLPackage;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PathFormula;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Probability;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.QuantifiedProbability;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.RightStateExpression;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Rule;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Start;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.State;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.StateExpression;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.StateFormula;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.SteadyState;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.TimeBound;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Until;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -79,73 +101,26 @@ public class PCTLSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case PCTLPackage.RULES:
+      case PCTLPackage.FRAGMENT:
       {
-        Rules rules = (Rules)theEObject;
-        T result = caseRules(rules);
+        Fragment fragment = (Fragment)theEObject;
+        T result = caseFragment(fragment);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case PCTLPackage.COMMENTED_RULE:
+      case PCTLPackage.COMMENT:
       {
-        CommentedRule commentedRule = (CommentedRule)theEObject;
-        T result = caseCommentedRule(commentedRule);
+        Comment comment = (Comment)theEObject;
+        T result = caseComment(comment);
+        if (result == null) result = caseFragment(comment);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case PCTLPackage.PCTL:
+      case PCTLPackage.RULE:
       {
-        Pctl pctl = (Pctl)theEObject;
-        T result = casePctl(pctl);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case PCTLPackage.STATE:
-      {
-        State state = (State)theEObject;
-        T result = caseState(state);
-        if (result == null) result = caseAtomic(state);
-        if (result == null) result = caseExpression(state);
-        if (result == null) result = caseSteadyState(state);
-        if (result == null) result = caseQuantifiedProbability(state);
-        if (result == null) result = caseProbability(state);
-        if (result == null) result = casePctl(state);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case PCTLPackage.LABEL:
-      {
-        Label label = (Label)theEObject;
-        T result = caseLabel(label);
-        if (result == null) result = caseAtomic(label);
-        if (result == null) result = caseExpression(label);
-        if (result == null) result = caseSteadyState(label);
-        if (result == null) result = caseQuantifiedProbability(label);
-        if (result == null) result = caseProbability(label);
-        if (result == null) result = casePctl(label);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case PCTLPackage.ATOMIC:
-      {
-        Atomic atomic = (Atomic)theEObject;
-        T result = caseAtomic(atomic);
-        if (result == null) result = caseExpression(atomic);
-        if (result == null) result = caseSteadyState(atomic);
-        if (result == null) result = caseQuantifiedProbability(atomic);
-        if (result == null) result = caseProbability(atomic);
-        if (result == null) result = casePctl(atomic);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case PCTLPackage.EXPRESSION:
-      {
-        Expression expression = (Expression)theEObject;
-        T result = caseExpression(expression);
-        if (result == null) result = caseSteadyState(expression);
-        if (result == null) result = caseQuantifiedProbability(expression);
-        if (result == null) result = caseProbability(expression);
-        if (result == null) result = casePctl(expression);
+        Rule rule = (Rule)theEObject;
+        T result = caseRule(rule);
+        if (result == null) result = caseFragment(rule);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -153,7 +128,8 @@ public class PCTLSwitch<T> extends Switch<T>
       {
         SteadyState steadyState = (SteadyState)theEObject;
         T result = caseSteadyState(steadyState);
-        if (result == null) result = casePctl(steadyState);
+        if (result == null) result = caseRule(steadyState);
+        if (result == null) result = caseFragment(steadyState);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -161,14 +137,71 @@ public class PCTLSwitch<T> extends Switch<T>
       {
         QuantifiedProbability quantifiedProbability = (QuantifiedProbability)theEObject;
         T result = caseQuantifiedProbability(quantifiedProbability);
-        if (result == null) result = casePctl(quantifiedProbability);
+        if (result == null) result = caseRule(quantifiedProbability);
+        if (result == null) result = caseFragment(quantifiedProbability);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case PCTLPackage.PROBABILITY:
+      case PCTLPackage.BOOLEAN_RULE:
       {
-        Probability probability = (Probability)theEObject;
-        T result = caseProbability(probability);
+        BooleanRule booleanRule = (BooleanRule)theEObject;
+        T result = caseBooleanRule(booleanRule);
+        if (result == null) result = caseRule(booleanRule);
+        if (result == null) result = caseFragment(booleanRule);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PCTLPackage.STATE_FORMULA:
+      {
+        StateFormula stateFormula = (StateFormula)theEObject;
+        T result = caseStateFormula(stateFormula);
+        if (result == null) result = caseStateExpression(stateFormula);
+        if (result == null) result = caseRightStateExpression(stateFormula);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PCTLPackage.STATE_EXPRESSION:
+      {
+        StateExpression stateExpression = (StateExpression)theEObject;
+        T result = caseStateExpression(stateExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PCTLPackage.RIGHT_STATE_EXPRESSION:
+      {
+        RightStateExpression rightStateExpression = (RightStateExpression)theEObject;
+        T result = caseRightStateExpression(rightStateExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PCTLPackage.STATE:
+      {
+        State state = (State)theEObject;
+        T result = caseState(state);
+        if (result == null) result = caseStateExpression(state);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PCTLPackage.LABEL:
+      {
+        Label label = (Label)theEObject;
+        T result = caseLabel(label);
+        if (result == null) result = caseStateExpression(label);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PCTLPackage.BOOLEAN:
+      {
+        de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Boolean boolean_ = (de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Boolean)theEObject;
+        T result = caseBoolean(boolean_);
+        if (result == null) result = caseStateExpression(boolean_);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PCTLPackage.PATH_FORMULA:
+      {
+        PathFormula pathFormula = (PathFormula)theEObject;
+        T result = casePathFormula(pathFormula);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -176,11 +209,7 @@ public class PCTLSwitch<T> extends Switch<T>
       {
         Until until = (Until)theEObject;
         T result = caseUntil(until);
-        if (result == null) result = caseExpression(until);
-        if (result == null) result = caseSteadyState(until);
-        if (result == null) result = caseQuantifiedProbability(until);
-        if (result == null) result = caseProbability(until);
-        if (result == null) result = casePctl(until);
+        if (result == null) result = casePathFormula(until);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -188,11 +217,7 @@ public class PCTLSwitch<T> extends Switch<T>
       {
         Next next = (Next)theEObject;
         T result = caseNext(next);
-        if (result == null) result = caseExpression(next);
-        if (result == null) result = caseSteadyState(next);
-        if (result == null) result = caseQuantifiedProbability(next);
-        if (result == null) result = caseProbability(next);
-        if (result == null) result = casePctl(next);
+        if (result == null) result = casePathFormula(next);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -200,11 +225,7 @@ public class PCTLSwitch<T> extends Switch<T>
       {
         Future future = (Future)theEObject;
         T result = caseFuture(future);
-        if (result == null) result = caseExpression(future);
-        if (result == null) result = caseSteadyState(future);
-        if (result == null) result = caseQuantifiedProbability(future);
-        if (result == null) result = caseProbability(future);
-        if (result == null) result = casePctl(future);
+        if (result == null) result = casePathFormula(future);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -212,18 +233,21 @@ public class PCTLSwitch<T> extends Switch<T>
       {
         Globally globally = (Globally)theEObject;
         T result = caseGlobally(globally);
-        if (result == null) result = caseExpression(globally);
-        if (result == null) result = caseSteadyState(globally);
-        if (result == null) result = caseQuantifiedProbability(globally);
-        if (result == null) result = caseProbability(globally);
-        if (result == null) result = casePctl(globally);
+        if (result == null) result = casePathFormula(globally);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case PCTLPackage.IMPLICATION:
+      case PCTLPackage.COMPARE_PROBABILITY:
       {
-        Implication implication = (Implication)theEObject;
-        T result = caseImplication(implication);
+        CompareProbability compareProbability = (CompareProbability)theEObject;
+        T result = caseCompareProbability(compareProbability);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PCTLPackage.TIME_BOUND:
+      {
+        TimeBound timeBound = (TimeBound)theEObject;
+        T result = caseTimeBound(timeBound);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -231,11 +255,7 @@ public class PCTLSwitch<T> extends Switch<T>
       {
         Conjunction conjunction = (Conjunction)theEObject;
         T result = caseConjunction(conjunction);
-        if (result == null) result = caseExpression(conjunction);
-        if (result == null) result = caseSteadyState(conjunction);
-        if (result == null) result = caseQuantifiedProbability(conjunction);
-        if (result == null) result = caseProbability(conjunction);
-        if (result == null) result = casePctl(conjunction);
+        if (result == null) result = caseRightStateExpression(conjunction);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -243,11 +263,15 @@ public class PCTLSwitch<T> extends Switch<T>
       {
         Disjunction disjunction = (Disjunction)theEObject;
         T result = caseDisjunction(disjunction);
-        if (result == null) result = caseExpression(disjunction);
-        if (result == null) result = caseSteadyState(disjunction);
-        if (result == null) result = caseQuantifiedProbability(disjunction);
-        if (result == null) result = caseProbability(disjunction);
-        if (result == null) result = casePctl(disjunction);
+        if (result == null) result = caseRightStateExpression(disjunction);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PCTLPackage.PROBABILITY:
+      {
+        Probability probability = (Probability)theEObject;
+        T result = caseProbability(probability);
+        if (result == null) result = caseStateExpression(probability);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -272,113 +296,49 @@ public class PCTLSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Rules</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Fragment</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Rules</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Fragment</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseRules(Rules object)
+  public T caseFragment(Fragment object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Commented Rule</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Comment</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Commented Rule</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Comment</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseCommentedRule(CommentedRule object)
+  public T caseComment(Comment object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Pctl</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Rule</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Pctl</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Rule</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T casePctl(Pctl object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>State</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>State</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseState(State object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Label</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Label</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseLabel(Label object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Atomic</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Atomic</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAtomic(Atomic object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseExpression(Expression object)
+  public T caseRule(Rule object)
   {
     return null;
   }
@@ -416,17 +376,129 @@ public class PCTLSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Probability</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Boolean Rule</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Probability</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Boolean Rule</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseProbability(Probability object)
+  public T caseBooleanRule(BooleanRule object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>State Formula</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>State Formula</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStateFormula(StateFormula object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>State Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>State Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStateExpression(StateExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Right State Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Right State Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRightStateExpression(RightStateExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>State</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>State</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseState(State object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Label</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Label</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLabel(Label object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Boolean</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Boolean</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBoolean(de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Boolean object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Path Formula</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Path Formula</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePathFormula(PathFormula object)
   {
     return null;
   }
@@ -496,17 +568,33 @@ public class PCTLSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Implication</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Compare Probability</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Implication</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Compare Probability</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseImplication(Implication object)
+  public T caseCompareProbability(CompareProbability object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Time Bound</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Time Bound</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTimeBound(TimeBound object)
   {
     return null;
   }
@@ -539,6 +627,22 @@ public class PCTLSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDisjunction(Disjunction object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Probability</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Probability</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseProbability(Probability object)
   {
     return null;
   }

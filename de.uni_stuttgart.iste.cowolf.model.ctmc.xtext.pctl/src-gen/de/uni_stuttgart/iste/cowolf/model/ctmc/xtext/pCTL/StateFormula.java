@@ -5,21 +5,21 @@ package de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Disjunction</b></em>'.
+ * A representation of the model object '<em><b>State Formula</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Disjunction#getLeft <em>Left</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.StateFormula#getLeft <em>Left</em>}</li>
  * </ul>
  * </p>
  *
- * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PCTLPackage#getDisjunction()
+ * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PCTLPackage#getStateFormula()
  * @model
  * @generated
  */
-public interface Disjunction extends RightStateExpression
+public interface StateFormula extends StateExpression, RightStateExpression
 {
   /**
    * Returns the value of the '<em><b>Left</b></em>' containment reference.
@@ -30,21 +30,21 @@ public interface Disjunction extends RightStateExpression
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Left</em>' containment reference.
-   * @see #setLeft(StateFormula)
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PCTLPackage#getDisjunction_Left()
+   * @see #setLeft(StateExpression)
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PCTLPackage#getStateFormula_Left()
    * @model containment="true"
    * @generated
    */
-  StateFormula getLeft();
+  StateExpression getLeft();
 
   /**
-   * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Disjunction#getLeft <em>Left</em>}' containment reference.
+   * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.StateFormula#getLeft <em>Left</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Left</em>' containment reference.
    * @see #getLeft()
    * @generated
    */
-  void setLeft(StateFormula value);
+  void setLeft(StateExpression value);
 
-} // Disjunction
+} // StateFormula

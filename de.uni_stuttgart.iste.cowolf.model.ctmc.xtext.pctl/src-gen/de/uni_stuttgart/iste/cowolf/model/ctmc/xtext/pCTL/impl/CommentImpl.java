@@ -2,7 +2,7 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl;
 
-import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Atomic;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Comment;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PCTLPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -13,45 +13,45 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Atomic</b></em>'.
+ * An implementation of the model object '<em><b>Comment</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.AtomicImpl#getName <em>Name</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.CommentImpl#getComment <em>Comment</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class AtomicImpl extends ExpressionImpl implements Atomic
+public class CommentImpl extends FragmentImpl implements Comment
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The default value of the '{@link #getComment() <em>Comment</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getComment()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
+  protected static final String COMMENT_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getComment() <em>Comment</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getComment()
    * @generated
    * @ordered
    */
-  protected String name = NAME_EDEFAULT;
+  protected String comment = COMMENT_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected AtomicImpl()
+  protected CommentImpl()
   {
     super();
   }
@@ -64,7 +64,7 @@ public class AtomicImpl extends ExpressionImpl implements Atomic
   @Override
   protected EClass eStaticClass()
   {
-    return PCTLPackage.Literals.ATOMIC;
+    return PCTLPackage.Literals.COMMENT;
   }
 
   /**
@@ -72,9 +72,9 @@ public class AtomicImpl extends ExpressionImpl implements Atomic
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public String getComment()
   {
-    return name;
+    return comment;
   }
 
   /**
@@ -82,12 +82,12 @@ public class AtomicImpl extends ExpressionImpl implements Atomic
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
+  public void setComment(String newComment)
   {
-    String oldName = name;
-    name = newName;
+    String oldComment = comment;
+    comment = newComment;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, PCTLPackage.ATOMIC__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, PCTLPackage.COMMENT__COMMENT, oldComment, comment));
   }
 
   /**
@@ -100,8 +100,8 @@ public class AtomicImpl extends ExpressionImpl implements Atomic
   {
     switch (featureID)
     {
-      case PCTLPackage.ATOMIC__NAME:
-        return getName();
+      case PCTLPackage.COMMENT__COMMENT:
+        return getComment();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -116,8 +116,8 @@ public class AtomicImpl extends ExpressionImpl implements Atomic
   {
     switch (featureID)
     {
-      case PCTLPackage.ATOMIC__NAME:
-        setName((String)newValue);
+      case PCTLPackage.COMMENT__COMMENT:
+        setComment((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -133,8 +133,8 @@ public class AtomicImpl extends ExpressionImpl implements Atomic
   {
     switch (featureID)
     {
-      case PCTLPackage.ATOMIC__NAME:
-        setName(NAME_EDEFAULT);
+      case PCTLPackage.COMMENT__COMMENT:
+        setComment(COMMENT_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -150,8 +150,8 @@ public class AtomicImpl extends ExpressionImpl implements Atomic
   {
     switch (featureID)
     {
-      case PCTLPackage.ATOMIC__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case PCTLPackage.COMMENT__COMMENT:
+        return COMMENT_EDEFAULT == null ? comment != null : !COMMENT_EDEFAULT.equals(comment);
     }
     return super.eIsSet(featureID);
   }
@@ -167,10 +167,10 @@ public class AtomicImpl extends ExpressionImpl implements Atomic
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
+    result.append(" (comment: ");
+    result.append(comment);
     result.append(')');
     return result.toString();
   }
 
-} //AtomicImpl
+} //CommentImpl

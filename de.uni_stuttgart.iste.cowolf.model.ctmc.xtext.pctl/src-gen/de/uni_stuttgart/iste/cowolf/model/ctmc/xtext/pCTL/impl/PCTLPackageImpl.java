@@ -2,25 +2,29 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl;
 
-import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Atomic;
-import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.CommentedRule;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.BooleanRule;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Comment;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.CompareProbability;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Conjunction;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Disjunction;
-import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Expression;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Fragment;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Future;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Globally;
-import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Implication;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Label;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Next;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PCTLFactory;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PCTLPackage;
-import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Pctl;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PathFormula;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Probability;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.QuantifiedProbability;
-import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Rules;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.RightStateExpression;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Rule;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Start;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.State;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.StateExpression;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.StateFormula;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.SteadyState;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.TimeBound;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Until;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -50,49 +54,21 @@ public class PCTLPackageImpl extends EPackageImpl implements PCTLPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass rulesEClass = null;
+  private EClass fragmentEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass commentedRuleEClass = null;
+  private EClass commentEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass pctlEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass stateEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass labelEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass atomicEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass expressionEClass = null;
+  private EClass ruleEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -113,7 +89,56 @@ public class PCTLPackageImpl extends EPackageImpl implements PCTLPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass probabilityEClass = null;
+  private EClass booleanRuleEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass stateFormulaEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass stateExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass rightStateExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass stateEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass labelEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass booleanEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass pathFormulaEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -148,7 +173,14 @@ public class PCTLPackageImpl extends EPackageImpl implements PCTLPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass implicationEClass = null;
+  private EClass compareProbabilityEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass timeBoundEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -163,6 +195,13 @@ public class PCTLPackageImpl extends EPackageImpl implements PCTLPackage
    * @generated
    */
   private EClass disjunctionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass probabilityEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -242,7 +281,7 @@ public class PCTLPackageImpl extends EPackageImpl implements PCTLPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getStart_Start()
+  public EReference getStart_Rule()
   {
     return (EReference)startEClass.getEStructuralFeatures().get(0);
   }
@@ -252,9 +291,9 @@ public class PCTLPackageImpl extends EPackageImpl implements PCTLPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getRules()
+  public EClass getFragment()
   {
-    return rulesEClass;
+    return fragmentEClass;
   }
 
   /**
@@ -262,9 +301,9 @@ public class PCTLPackageImpl extends EPackageImpl implements PCTLPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRules_Rule()
+  public EClass getComment()
   {
-    return (EReference)rulesEClass.getEStructuralFeatures().get(0);
+    return commentEClass;
   }
 
   /**
@@ -272,9 +311,9 @@ public class PCTLPackageImpl extends EPackageImpl implements PCTLPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getCommentedRule()
+  public EAttribute getComment_Comment()
   {
-    return commentedRuleEClass;
+    return (EAttribute)commentEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -282,99 +321,9 @@ public class PCTLPackageImpl extends EPackageImpl implements PCTLPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getCommentedRule_Comment()
+  public EClass getRule()
   {
-    return (EAttribute)commentedRuleEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getCommentedRule_Rule()
-  {
-    return (EReference)commentedRuleEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getPctl()
-  {
-    return pctlEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getState()
-  {
-    return stateEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getLabel()
-  {
-    return labelEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getAtomic()
-  {
-    return atomicEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getAtomic_Name()
-  {
-    return (EAttribute)atomicEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getExpression()
-  {
-    return expressionEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getExpression_Left()
-  {
-    return (EReference)expressionEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getExpression_Right()
-  {
-    return (EReference)expressionEClass.getEStructuralFeatures().get(1);
+    return ruleEClass;
   }
 
   /**
@@ -392,6 +341,26 @@ public class PCTLPackageImpl extends EPackageImpl implements PCTLPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getSteadyState_Bound()
+  {
+    return (EReference)steadyStateEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSteadyState_Value()
+  {
+    return (EReference)steadyStateEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getQuantifiedProbability()
   {
     return quantifiedProbabilityEClass;
@@ -402,9 +371,159 @@ public class PCTLPackageImpl extends EPackageImpl implements PCTLPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getProbability()
+  public EReference getQuantifiedProbability_Value()
   {
-    return probabilityEClass;
+    return (EReference)quantifiedProbabilityEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getBooleanRule()
+  {
+    return booleanRuleEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getBooleanRule_Value()
+  {
+    return (EReference)booleanRuleEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getStateFormula()
+  {
+    return stateFormulaEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getStateFormula_Left()
+  {
+    return (EReference)stateFormulaEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getStateExpression()
+  {
+    return stateExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getRightStateExpression()
+  {
+    return rightStateExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRightStateExpression_Right()
+  {
+    return (EReference)rightStateExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getState()
+  {
+    return stateEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getState_Value()
+  {
+    return (EAttribute)stateEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getLabel()
+  {
+    return labelEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getLabel_Value()
+  {
+    return (EAttribute)labelEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getBoolean()
+  {
+    return booleanEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getBoolean_Value()
+  {
+    return (EAttribute)booleanEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPathFormula()
+  {
+    return pathFormulaEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPathFormula_Bound()
+  {
+    return (EReference)pathFormulaEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -422,9 +541,49 @@ public class PCTLPackageImpl extends EPackageImpl implements PCTLPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getUntil_Left()
+  {
+    return (EReference)untilEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getUntil_Type()
+  {
+    return (EAttribute)untilEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getUntil_Right()
+  {
+    return (EReference)untilEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getNext()
   {
     return nextEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getNext_Value()
+  {
+    return (EReference)nextEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -442,6 +601,16 @@ public class PCTLPackageImpl extends EPackageImpl implements PCTLPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getFuture_Value()
+  {
+    return (EReference)futureEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getGlobally()
   {
     return globallyEClass;
@@ -452,9 +621,9 @@ public class PCTLPackageImpl extends EPackageImpl implements PCTLPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getImplication()
+  public EReference getGlobally_Value()
   {
-    return implicationEClass;
+    return (EReference)globallyEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -462,9 +631,79 @@ public class PCTLPackageImpl extends EPackageImpl implements PCTLPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getImplication_Right()
+  public EClass getCompareProbability()
   {
-    return (EReference)implicationEClass.getEStructuralFeatures().get(0);
+    return compareProbabilityEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCompareProbability_Operator()
+  {
+    return (EAttribute)compareProbabilityEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCompareProbability_Value()
+  {
+    return (EAttribute)compareProbabilityEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getTimeBound()
+  {
+    return timeBoundEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTimeBound_Operator()
+  {
+    return (EAttribute)timeBoundEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTimeBound_Value()
+  {
+    return (EAttribute)timeBoundEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTimeBound_From()
+  {
+    return (EAttribute)timeBoundEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTimeBound_To()
+  {
+    return (EAttribute)timeBoundEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -482,9 +721,59 @@ public class PCTLPackageImpl extends EPackageImpl implements PCTLPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getConjunction_Left()
+  {
+    return (EReference)conjunctionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getDisjunction()
   {
     return disjunctionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDisjunction_Left()
+  {
+    return (EReference)disjunctionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getProbability()
+  {
+    return probabilityEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getProbability_Comparator()
+  {
+    return (EReference)probabilityEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getProbability_Path()
+  {
+    return (EReference)probabilityEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -518,48 +807,78 @@ public class PCTLPackageImpl extends EPackageImpl implements PCTLPackage
 
     // Create classes and their features
     startEClass = createEClass(START);
-    createEReference(startEClass, START__START);
+    createEReference(startEClass, START__RULE);
 
-    rulesEClass = createEClass(RULES);
-    createEReference(rulesEClass, RULES__RULE);
+    fragmentEClass = createEClass(FRAGMENT);
 
-    commentedRuleEClass = createEClass(COMMENTED_RULE);
-    createEAttribute(commentedRuleEClass, COMMENTED_RULE__COMMENT);
-    createEReference(commentedRuleEClass, COMMENTED_RULE__RULE);
+    commentEClass = createEClass(COMMENT);
+    createEAttribute(commentEClass, COMMENT__COMMENT);
 
-    pctlEClass = createEClass(PCTL);
-
-    stateEClass = createEClass(STATE);
-
-    labelEClass = createEClass(LABEL);
-
-    atomicEClass = createEClass(ATOMIC);
-    createEAttribute(atomicEClass, ATOMIC__NAME);
-
-    expressionEClass = createEClass(EXPRESSION);
-    createEReference(expressionEClass, EXPRESSION__LEFT);
-    createEReference(expressionEClass, EXPRESSION__RIGHT);
+    ruleEClass = createEClass(RULE);
 
     steadyStateEClass = createEClass(STEADY_STATE);
+    createEReference(steadyStateEClass, STEADY_STATE__BOUND);
+    createEReference(steadyStateEClass, STEADY_STATE__VALUE);
 
     quantifiedProbabilityEClass = createEClass(QUANTIFIED_PROBABILITY);
+    createEReference(quantifiedProbabilityEClass, QUANTIFIED_PROBABILITY__VALUE);
 
-    probabilityEClass = createEClass(PROBABILITY);
+    booleanRuleEClass = createEClass(BOOLEAN_RULE);
+    createEReference(booleanRuleEClass, BOOLEAN_RULE__VALUE);
+
+    stateFormulaEClass = createEClass(STATE_FORMULA);
+    createEReference(stateFormulaEClass, STATE_FORMULA__LEFT);
+
+    stateExpressionEClass = createEClass(STATE_EXPRESSION);
+
+    rightStateExpressionEClass = createEClass(RIGHT_STATE_EXPRESSION);
+    createEReference(rightStateExpressionEClass, RIGHT_STATE_EXPRESSION__RIGHT);
+
+    stateEClass = createEClass(STATE);
+    createEAttribute(stateEClass, STATE__VALUE);
+
+    labelEClass = createEClass(LABEL);
+    createEAttribute(labelEClass, LABEL__VALUE);
+
+    booleanEClass = createEClass(BOOLEAN);
+    createEAttribute(booleanEClass, BOOLEAN__VALUE);
+
+    pathFormulaEClass = createEClass(PATH_FORMULA);
+    createEReference(pathFormulaEClass, PATH_FORMULA__BOUND);
 
     untilEClass = createEClass(UNTIL);
+    createEReference(untilEClass, UNTIL__LEFT);
+    createEAttribute(untilEClass, UNTIL__TYPE);
+    createEReference(untilEClass, UNTIL__RIGHT);
 
     nextEClass = createEClass(NEXT);
+    createEReference(nextEClass, NEXT__VALUE);
 
     futureEClass = createEClass(FUTURE);
+    createEReference(futureEClass, FUTURE__VALUE);
 
     globallyEClass = createEClass(GLOBALLY);
+    createEReference(globallyEClass, GLOBALLY__VALUE);
 
-    implicationEClass = createEClass(IMPLICATION);
-    createEReference(implicationEClass, IMPLICATION__RIGHT);
+    compareProbabilityEClass = createEClass(COMPARE_PROBABILITY);
+    createEAttribute(compareProbabilityEClass, COMPARE_PROBABILITY__OPERATOR);
+    createEAttribute(compareProbabilityEClass, COMPARE_PROBABILITY__VALUE);
+
+    timeBoundEClass = createEClass(TIME_BOUND);
+    createEAttribute(timeBoundEClass, TIME_BOUND__OPERATOR);
+    createEAttribute(timeBoundEClass, TIME_BOUND__VALUE);
+    createEAttribute(timeBoundEClass, TIME_BOUND__FROM);
+    createEAttribute(timeBoundEClass, TIME_BOUND__TO);
 
     conjunctionEClass = createEClass(CONJUNCTION);
+    createEReference(conjunctionEClass, CONJUNCTION__LEFT);
 
     disjunctionEClass = createEClass(DISJUNCTION);
+    createEReference(disjunctionEClass, DISJUNCTION__LEFT);
+
+    probabilityEClass = createEClass(PROBABILITY);
+    createEReference(probabilityEClass, PROBABILITY__COMPARATOR);
+    createEReference(probabilityEClass, PROBABILITY__PATH);
   }
 
   /**
@@ -591,66 +910,98 @@ public class PCTLPackageImpl extends EPackageImpl implements PCTLPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    stateEClass.getESuperTypes().add(this.getAtomic());
-    labelEClass.getESuperTypes().add(this.getAtomic());
-    atomicEClass.getESuperTypes().add(this.getExpression());
-    expressionEClass.getESuperTypes().add(this.getPctl());
-    expressionEClass.getESuperTypes().add(this.getSteadyState());
-    expressionEClass.getESuperTypes().add(this.getQuantifiedProbability());
-    expressionEClass.getESuperTypes().add(this.getProbability());
-    steadyStateEClass.getESuperTypes().add(this.getPctl());
-    quantifiedProbabilityEClass.getESuperTypes().add(this.getPctl());
-    untilEClass.getESuperTypes().add(this.getExpression());
-    nextEClass.getESuperTypes().add(this.getExpression());
-    futureEClass.getESuperTypes().add(this.getExpression());
-    globallyEClass.getESuperTypes().add(this.getExpression());
-    conjunctionEClass.getESuperTypes().add(this.getExpression());
-    disjunctionEClass.getESuperTypes().add(this.getExpression());
+    commentEClass.getESuperTypes().add(this.getFragment());
+    ruleEClass.getESuperTypes().add(this.getFragment());
+    steadyStateEClass.getESuperTypes().add(this.getRule());
+    quantifiedProbabilityEClass.getESuperTypes().add(this.getRule());
+    booleanRuleEClass.getESuperTypes().add(this.getRule());
+    stateFormulaEClass.getESuperTypes().add(this.getStateExpression());
+    stateFormulaEClass.getESuperTypes().add(this.getRightStateExpression());
+    stateEClass.getESuperTypes().add(this.getStateExpression());
+    labelEClass.getESuperTypes().add(this.getStateExpression());
+    booleanEClass.getESuperTypes().add(this.getStateExpression());
+    untilEClass.getESuperTypes().add(this.getPathFormula());
+    nextEClass.getESuperTypes().add(this.getPathFormula());
+    futureEClass.getESuperTypes().add(this.getPathFormula());
+    globallyEClass.getESuperTypes().add(this.getPathFormula());
+    conjunctionEClass.getESuperTypes().add(this.getRightStateExpression());
+    disjunctionEClass.getESuperTypes().add(this.getRightStateExpression());
+    probabilityEClass.getESuperTypes().add(this.getStateExpression());
 
     // Initialize classes and features; add operations and parameters
     initEClass(startEClass, Start.class, "Start", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getStart_Start(), this.getRules(), null, "start", null, 0, 1, Start.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStart_Rule(), this.getFragment(), null, "rule", null, 0, -1, Start.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(rulesEClass, Rules.class, "Rules", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getRules_Rule(), ecorePackage.getEObject(), null, "rule", null, 0, -1, Rules.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(fragmentEClass, Fragment.class, "Fragment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(commentedRuleEClass, CommentedRule.class, "CommentedRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getCommentedRule_Comment(), ecorePackage.getEString(), "comment", null, 0, 1, CommentedRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCommentedRule_Rule(), this.getPctl(), null, "rule", null, 0, 1, CommentedRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(commentEClass, Comment.class, "Comment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getComment_Comment(), ecorePackage.getEString(), "comment", null, 0, 1, Comment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(pctlEClass, Pctl.class, "Pctl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(labelEClass, Label.class, "Label", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(atomicEClass, Atomic.class, "Atomic", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getAtomic_Name(), ecorePackage.getEString(), "name", null, 0, 1, Atomic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getExpression_Left(), this.getProbability(), null, "left", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getExpression_Right(), ecorePackage.getEObject(), null, "right", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(ruleEClass, Rule.class, "Rule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(steadyStateEClass, SteadyState.class, "SteadyState", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSteadyState_Bound(), this.getCompareProbability(), null, "bound", null, 0, 1, SteadyState.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSteadyState_Value(), this.getStateFormula(), null, "value", null, 0, 1, SteadyState.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(quantifiedProbabilityEClass, QuantifiedProbability.class, "QuantifiedProbability", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getQuantifiedProbability_Value(), this.getPathFormula(), null, "value", null, 0, 1, QuantifiedProbability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(probabilityEClass, Probability.class, "Probability", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(booleanRuleEClass, BooleanRule.class, "BooleanRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getBooleanRule_Value(), this.getStateFormula(), null, "value", null, 0, 1, BooleanRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(stateFormulaEClass, StateFormula.class, "StateFormula", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getStateFormula_Left(), this.getStateExpression(), null, "left", null, 0, 1, StateFormula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(stateExpressionEClass, StateExpression.class, "StateExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(rightStateExpressionEClass, RightStateExpression.class, "RightStateExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getRightStateExpression_Right(), this.getRightStateExpression(), null, "right", null, 0, 1, RightStateExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getState_Value(), ecorePackage.getEString(), "value", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(labelEClass, Label.class, "Label", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getLabel_Value(), ecorePackage.getEString(), "value", null, 0, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(booleanEClass, de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Boolean.class, "Boolean", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getBoolean_Value(), ecorePackage.getEString(), "value", null, 0, 1, de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Boolean.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(pathFormulaEClass, PathFormula.class, "PathFormula", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPathFormula_Bound(), this.getTimeBound(), null, "bound", null, 0, 1, PathFormula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(untilEClass, Until.class, "Until", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getUntil_Left(), this.getStateFormula(), null, "left", null, 0, 1, Until.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getUntil_Type(), ecorePackage.getEString(), "type", null, 0, 1, Until.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUntil_Right(), this.getStateFormula(), null, "right", null, 0, 1, Until.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(nextEClass, Next.class, "Next", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getNext_Value(), this.getStateFormula(), null, "value", null, 0, 1, Next.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(futureEClass, Future.class, "Future", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFuture_Value(), this.getStateFormula(), null, "value", null, 0, 1, Future.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(globallyEClass, Globally.class, "Globally", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getGlobally_Value(), this.getStateFormula(), null, "value", null, 0, 1, Globally.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(implicationEClass, Implication.class, "Implication", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getImplication_Right(), this.getExpression(), null, "right", null, 0, 1, Implication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(compareProbabilityEClass, CompareProbability.class, "CompareProbability", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCompareProbability_Operator(), ecorePackage.getEString(), "operator", null, 0, 1, CompareProbability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCompareProbability_Value(), ecorePackage.getEDouble(), "value", null, 0, 1, CompareProbability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(timeBoundEClass, TimeBound.class, "TimeBound", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getTimeBound_Operator(), ecorePackage.getEString(), "operator", null, 0, 1, TimeBound.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTimeBound_Value(), ecorePackage.getEDouble(), "value", null, 0, 1, TimeBound.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTimeBound_From(), ecorePackage.getEDouble(), "from", null, 0, 1, TimeBound.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTimeBound_To(), ecorePackage.getEDouble(), "to", null, 0, 1, TimeBound.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(conjunctionEClass, Conjunction.class, "Conjunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getConjunction_Left(), this.getStateFormula(), null, "left", null, 0, 1, Conjunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(disjunctionEClass, Disjunction.class, "Disjunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDisjunction_Left(), this.getStateFormula(), null, "left", null, 0, 1, Disjunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(probabilityEClass, Probability.class, "Probability", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getProbability_Comparator(), this.getCompareProbability(), null, "comparator", null, 0, 1, Probability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getProbability_Path(), this.getPathFormula(), null, "path", null, 0, 1, Probability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

@@ -1,98 +1,118 @@
 grammar de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.PCTL with org.eclipse.xtext.common.Terminals
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 generate pCTL "http://www.uni_stuttgart.de/iste/cowolf/model/ctmc/xtext/PCTL"
 
 Start:
-	start=Rules?
-;
-
-Rules:
-    rule+=CommentedRule (rule+=Rules)?
+	rule+=Fragment*
 ;
 
 terminal BOOL : 'true'|'false';
 
-terminal DECIMAL : INT ('.' INT)? | ('.' INT);
+terminal DOUBLE returns ecore::EDouble : INT ('.' INT)? | ('.' INT);
 
-CommentedRule:
-    comment=SL_COMMENT? rule=Pctl
+terminal COMPARATOR returns ecore::EString : '>''='?|'<''='?;
+
+Fragment returns Fragment:
+    Comment|Rule
 ;
 
-Pctl:
-    (StateFormula|SteadyState|QuantifiedProbability)
-;
-State:
-	'State:' name=ID;
-
-Label:
-	'Label:' name=ID;
-	
-
-Atomic:
-	 State|Label|BOOL
+Comment:
+    comment=SL_COMMENT
 ;
 
-Negation returns Expression:
+Rule:
+    (BooleanRule|SteadyState|QuantifiedProbability)
+;
+
+SteadyState:
+    "S" (bound=CompareProbability|"=?") "[" value=StateFormula "]";
+    
+
+QuantifiedProbability:
+    ("P" "=?") "[" value=PathFormula "]"
+;
+
+BooleanRule:
+    value=StateFormula
+;
+
+
+//###########################################################
+//#             State Formular expressions                  #
+//###########################################################
+
+StateFormula:
+    '(' left=StateFormula (right=Junction|right=Implication)? ')' | left=(Negation| Atomic| Probability)
+;
+
+Negation returns StateExpression:
     "!" StateFormula
 ;
 
-Junction returns Expression:
+Junction returns RightStateExpression:
     Conjunction
     | Disjunction
 ;
 
-Conjunction returns Expression:
+Conjunction returns RightStateExpression:
     '&' StateFormula ({Conjunction.left=current} '&' right=StateFormula)*
 ;
 
-Disjunction returns Expression:
+Disjunction returns RightStateExpression:
     '|' StateFormula ({Disjunction.left=current} '|' right=StateFormula)*
 ;
-	
-StateFormula returns Expression:
-    '(' left=StateFormula (right=Junction|right=Implication)? ')' | Negation | Atomic | left=Probability
-;
 
-PathFormula returns Expression:
+Implication returns RightStateExpression:
+    "=>" right=StateFormula
+;  
+
+Probability returns StateExpression:
+    ("P" {Probability} comparator=CompareProbability "[" path=PathFormula "]");   
+    
+
+Atomic returns StateExpression:
+     (State|Label|Boolean)
+;
+    
+State:
+    'State:' value=ID;
+
+Label:
+    'Label:' value=ID;
+    
+Boolean:
+    value=BOOL;
+    
+//###########################################################
+//#             Path Formular expressions                  #
+//###########################################################
+
+PathFormula:
       Next
     | Until
     | Future
     | Globally
 ;
-
-SteadyState:
-	"S" (CompareProbability|"=?") "[" StateFormula "]";
-	
-
-QuantifiedProbability:
-    ("P" "=?") "[" PathFormula "]"
-;
-	
-Probability:
-	("P" CompareProbability "[" PathFormula "]");	
 	
 Until:
-    left=StateFormula ('U' | 'W' | 'R') TimeBound? right=StateFormula
+    left=StateFormula type=('U' | 'W' | 'R') bound=TimeBound? right=StateFormula
 ;
 
 Next:
-    "X" TimeBound? right=StateFormula;
+    "X" bound=TimeBound? value=StateFormula;
 
 Future:
-    'F' TimeBound? right=StateFormula
+    'F' bound=TimeBound? value=StateFormula
 ;
 
 Globally:
-    'G' TimeBound? right=StateFormula
-;
-
-Implication:
-    "=>" right=StateFormula
-;   
+    'G' bound=TimeBound? value=StateFormula
+; 
 	
 CompareProbability:
-    ('>''='?|'<''='?) DECIMAL
+    operator=COMPARATOR value=DOUBLE
 ;
 
 TimeBound:
-	(('>''='?|'<''='?|'=') DECIMAL) | ("[" DECIMAL "," DECIMAL "]");
+	(operator=(COMPARATOR|'=') value=DOUBLE) | ("[" from=DOUBLE operator="," to=DOUBLE "]");

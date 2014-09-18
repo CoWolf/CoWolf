@@ -2,6 +2,8 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -12,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Start#getStart <em>Start</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Start#getRule <em>Rule</em>}</li>
  * </ul>
  * </p>
  *
@@ -23,29 +25,19 @@ import org.eclipse.emf.ecore.EObject;
 public interface Start extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Start</b></em>' containment reference.
+   * Returns the value of the '<em><b>Rule</b></em>' containment reference list.
+   * The list contents are of type {@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Fragment}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Start</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Rule</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Start</em>' containment reference.
-   * @see #setStart(Rules)
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PCTLPackage#getStart_Start()
+   * @return the value of the '<em>Rule</em>' containment reference list.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PCTLPackage#getStart_Rule()
    * @model containment="true"
    * @generated
    */
-  Rules getStart();
-
-  /**
-   * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Start#getStart <em>Start</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Start</em>' containment reference.
-   * @see #getStart()
-   * @generated
-   */
-  void setStart(Rules value);
+  EList<Fragment> getRule();
 
 } // Start

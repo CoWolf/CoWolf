@@ -6,21 +6,21 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Implication</b></em>'.
+ * A representation of the model object '<em><b>Right State Expression</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Implication#getRight <em>Right</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.RightStateExpression#getRight <em>Right</em>}</li>
  * </ul>
  * </p>
  *
- * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PCTLPackage#getImplication()
+ * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PCTLPackage#getRightStateExpression()
  * @model
  * @generated
  */
-public interface Implication extends EObject
+public interface RightStateExpression extends EObject
 {
   /**
    * Returns the value of the '<em><b>Right</b></em>' containment reference.
@@ -31,21 +31,21 @@ public interface Implication extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Right</em>' containment reference.
-   * @see #setRight(Expression)
-   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PCTLPackage#getImplication_Right()
+   * @see #setRight(RightStateExpression)
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PCTLPackage#getRightStateExpression_Right()
    * @model containment="true"
    * @generated
    */
-  Expression getRight();
+  RightStateExpression getRight();
 
   /**
-   * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Implication#getRight <em>Right</em>}' containment reference.
+   * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.RightStateExpression#getRight <em>Right</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Right</em>' containment reference.
    * @see #getRight()
    * @generated
    */
-  void setRight(Expression value);
+  void setRight(RightStateExpression value);
 
-} // Implication
+} // RightStateExpression

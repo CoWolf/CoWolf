@@ -3,29 +3,27 @@
 package de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl;
 
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PCTLPackage;
-import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Pctl;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Rule;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Pctl</b></em>'.
+ * An implementation of the model object '<em><b>Rule</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public class PctlImpl extends MinimalEObjectImpl.Container implements Pctl
+public class RuleImpl extends FragmentImpl implements Rule
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected PctlImpl()
+  protected RuleImpl()
   {
     super();
   }
@@ -38,7 +36,7 @@ public class PctlImpl extends MinimalEObjectImpl.Container implements Pctl
   @Override
   protected EClass eStaticClass()
   {
-    return PCTLPackage.Literals.PCTL;
+    return PCTLPackage.Literals.RULE;
   }
 
-} //PctlImpl
+} //RuleImpl

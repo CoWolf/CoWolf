@@ -2,7 +2,7 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl;
 
-import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Future;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.BooleanRule;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PCTLPackage;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.StateFormula;
 
@@ -16,18 +16,18 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Future</b></em>'.
+ * An implementation of the model object '<em><b>Boolean Rule</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.FutureImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.BooleanRuleImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class FutureImpl extends PathFormulaImpl implements Future
+public class BooleanRuleImpl extends RuleImpl implements BooleanRule
 {
   /**
    * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
@@ -44,7 +44,7 @@ public class FutureImpl extends PathFormulaImpl implements Future
    * <!-- end-user-doc -->
    * @generated
    */
-  protected FutureImpl()
+  protected BooleanRuleImpl()
   {
     super();
   }
@@ -57,7 +57,7 @@ public class FutureImpl extends PathFormulaImpl implements Future
   @Override
   protected EClass eStaticClass()
   {
-    return PCTLPackage.Literals.FUTURE;
+    return PCTLPackage.Literals.BOOLEAN_RULE;
   }
 
   /**
@@ -81,7 +81,7 @@ public class FutureImpl extends PathFormulaImpl implements Future
     value = newValue;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PCTLPackage.FUTURE__VALUE, oldValue, newValue);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PCTLPackage.BOOLEAN_RULE__VALUE, oldValue, newValue);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -98,14 +98,14 @@ public class FutureImpl extends PathFormulaImpl implements Future
     {
       NotificationChain msgs = null;
       if (value != null)
-        msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PCTLPackage.FUTURE__VALUE, null, msgs);
+        msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PCTLPackage.BOOLEAN_RULE__VALUE, null, msgs);
       if (newValue != null)
-        msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PCTLPackage.FUTURE__VALUE, null, msgs);
+        msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PCTLPackage.BOOLEAN_RULE__VALUE, null, msgs);
       msgs = basicSetValue(newValue, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, PCTLPackage.FUTURE__VALUE, newValue, newValue));
+      eNotify(new ENotificationImpl(this, Notification.SET, PCTLPackage.BOOLEAN_RULE__VALUE, newValue, newValue));
   }
 
   /**
@@ -118,7 +118,7 @@ public class FutureImpl extends PathFormulaImpl implements Future
   {
     switch (featureID)
     {
-      case PCTLPackage.FUTURE__VALUE:
+      case PCTLPackage.BOOLEAN_RULE__VALUE:
         return basicSetValue(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -134,7 +134,7 @@ public class FutureImpl extends PathFormulaImpl implements Future
   {
     switch (featureID)
     {
-      case PCTLPackage.FUTURE__VALUE:
+      case PCTLPackage.BOOLEAN_RULE__VALUE:
         return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -150,7 +150,7 @@ public class FutureImpl extends PathFormulaImpl implements Future
   {
     switch (featureID)
     {
-      case PCTLPackage.FUTURE__VALUE:
+      case PCTLPackage.BOOLEAN_RULE__VALUE:
         setValue((StateFormula)newValue);
         return;
     }
@@ -167,7 +167,7 @@ public class FutureImpl extends PathFormulaImpl implements Future
   {
     switch (featureID)
     {
-      case PCTLPackage.FUTURE__VALUE:
+      case PCTLPackage.BOOLEAN_RULE__VALUE:
         setValue((StateFormula)null);
         return;
     }
@@ -184,10 +184,10 @@ public class FutureImpl extends PathFormulaImpl implements Future
   {
     switch (featureID)
     {
-      case PCTLPackage.FUTURE__VALUE:
+      case PCTLPackage.BOOLEAN_RULE__VALUE:
         return value != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //FutureImpl
+} //BooleanRuleImpl

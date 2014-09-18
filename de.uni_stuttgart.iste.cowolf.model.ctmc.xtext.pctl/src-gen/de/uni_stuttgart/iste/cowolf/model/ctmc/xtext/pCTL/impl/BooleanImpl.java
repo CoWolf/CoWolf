@@ -3,7 +3,6 @@
 package de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl;
 
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PCTLPackage;
-import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.State;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -13,18 +12,18 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>State</b></em>'.
+ * An implementation of the model object '<em><b>Boolean</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.StateImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.BooleanImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class StateImpl extends StateExpressionImpl implements State
+public class BooleanImpl extends StateExpressionImpl implements de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Boolean
 {
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -51,7 +50,7 @@ public class StateImpl extends StateExpressionImpl implements State
    * <!-- end-user-doc -->
    * @generated
    */
-  protected StateImpl()
+  protected BooleanImpl()
   {
     super();
   }
@@ -64,7 +63,7 @@ public class StateImpl extends StateExpressionImpl implements State
   @Override
   protected EClass eStaticClass()
   {
-    return PCTLPackage.Literals.STATE;
+    return PCTLPackage.Literals.BOOLEAN;
   }
 
   /**
@@ -87,7 +86,7 @@ public class StateImpl extends StateExpressionImpl implements State
     String oldValue = value;
     value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, PCTLPackage.STATE__VALUE, oldValue, value));
+      eNotify(new ENotificationImpl(this, Notification.SET, PCTLPackage.BOOLEAN__VALUE, oldValue, value));
   }
 
   /**
@@ -100,7 +99,7 @@ public class StateImpl extends StateExpressionImpl implements State
   {
     switch (featureID)
     {
-      case PCTLPackage.STATE__VALUE:
+      case PCTLPackage.BOOLEAN__VALUE:
         return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -116,7 +115,7 @@ public class StateImpl extends StateExpressionImpl implements State
   {
     switch (featureID)
     {
-      case PCTLPackage.STATE__VALUE:
+      case PCTLPackage.BOOLEAN__VALUE:
         setValue((String)newValue);
         return;
     }
@@ -133,7 +132,7 @@ public class StateImpl extends StateExpressionImpl implements State
   {
     switch (featureID)
     {
-      case PCTLPackage.STATE__VALUE:
+      case PCTLPackage.BOOLEAN__VALUE:
         setValue(VALUE_EDEFAULT);
         return;
     }
@@ -150,7 +149,7 @@ public class StateImpl extends StateExpressionImpl implements State
   {
     switch (featureID)
     {
-      case PCTLPackage.STATE__VALUE:
+      case PCTLPackage.BOOLEAN__VALUE:
         return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);
@@ -173,4 +172,4 @@ public class StateImpl extends StateExpressionImpl implements State
     return result.toString();
   }
 
-} //StateImpl
+} //BooleanImpl

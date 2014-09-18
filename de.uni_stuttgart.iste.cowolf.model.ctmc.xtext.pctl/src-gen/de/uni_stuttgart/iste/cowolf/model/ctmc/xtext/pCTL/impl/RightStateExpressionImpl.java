@@ -2,9 +2,8 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl;
 
-import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Future;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PCTLPackage;
-import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.StateFormula;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.RightStateExpression;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -13,38 +12,39 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Future</b></em>'.
+ * An implementation of the model object '<em><b>Right State Expression</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.FutureImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl.RightStateExpressionImpl#getRight <em>Right</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class FutureImpl extends PathFormulaImpl implements Future
+public class RightStateExpressionImpl extends MinimalEObjectImpl.Container implements RightStateExpression
 {
   /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
+   * The cached value of the '{@link #getRight() <em>Right</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getValue()
+   * @see #getRight()
    * @generated
    * @ordered
    */
-  protected StateFormula value;
+  protected RightStateExpression right;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected FutureImpl()
+  protected RightStateExpressionImpl()
   {
     super();
   }
@@ -57,7 +57,7 @@ public class FutureImpl extends PathFormulaImpl implements Future
   @Override
   protected EClass eStaticClass()
   {
-    return PCTLPackage.Literals.FUTURE;
+    return PCTLPackage.Literals.RIGHT_STATE_EXPRESSION;
   }
 
   /**
@@ -65,9 +65,9 @@ public class FutureImpl extends PathFormulaImpl implements Future
    * <!-- end-user-doc -->
    * @generated
    */
-  public StateFormula getValue()
+  public RightStateExpression getRight()
   {
-    return value;
+    return right;
   }
 
   /**
@@ -75,13 +75,13 @@ public class FutureImpl extends PathFormulaImpl implements Future
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetValue(StateFormula newValue, NotificationChain msgs)
+  public NotificationChain basicSetRight(RightStateExpression newRight, NotificationChain msgs)
   {
-    StateFormula oldValue = value;
-    value = newValue;
+    RightStateExpression oldRight = right;
+    right = newRight;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PCTLPackage.FUTURE__VALUE, oldValue, newValue);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PCTLPackage.RIGHT_STATE_EXPRESSION__RIGHT, oldRight, newRight);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -92,20 +92,20 @@ public class FutureImpl extends PathFormulaImpl implements Future
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setValue(StateFormula newValue)
+  public void setRight(RightStateExpression newRight)
   {
-    if (newValue != value)
+    if (newRight != right)
     {
       NotificationChain msgs = null;
-      if (value != null)
-        msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PCTLPackage.FUTURE__VALUE, null, msgs);
-      if (newValue != null)
-        msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PCTLPackage.FUTURE__VALUE, null, msgs);
-      msgs = basicSetValue(newValue, msgs);
+      if (right != null)
+        msgs = ((InternalEObject)right).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PCTLPackage.RIGHT_STATE_EXPRESSION__RIGHT, null, msgs);
+      if (newRight != null)
+        msgs = ((InternalEObject)newRight).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PCTLPackage.RIGHT_STATE_EXPRESSION__RIGHT, null, msgs);
+      msgs = basicSetRight(newRight, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, PCTLPackage.FUTURE__VALUE, newValue, newValue));
+      eNotify(new ENotificationImpl(this, Notification.SET, PCTLPackage.RIGHT_STATE_EXPRESSION__RIGHT, newRight, newRight));
   }
 
   /**
@@ -118,8 +118,8 @@ public class FutureImpl extends PathFormulaImpl implements Future
   {
     switch (featureID)
     {
-      case PCTLPackage.FUTURE__VALUE:
-        return basicSetValue(null, msgs);
+      case PCTLPackage.RIGHT_STATE_EXPRESSION__RIGHT:
+        return basicSetRight(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -134,8 +134,8 @@ public class FutureImpl extends PathFormulaImpl implements Future
   {
     switch (featureID)
     {
-      case PCTLPackage.FUTURE__VALUE:
-        return getValue();
+      case PCTLPackage.RIGHT_STATE_EXPRESSION__RIGHT:
+        return getRight();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -150,8 +150,8 @@ public class FutureImpl extends PathFormulaImpl implements Future
   {
     switch (featureID)
     {
-      case PCTLPackage.FUTURE__VALUE:
-        setValue((StateFormula)newValue);
+      case PCTLPackage.RIGHT_STATE_EXPRESSION__RIGHT:
+        setRight((RightStateExpression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -167,8 +167,8 @@ public class FutureImpl extends PathFormulaImpl implements Future
   {
     switch (featureID)
     {
-      case PCTLPackage.FUTURE__VALUE:
-        setValue((StateFormula)null);
+      case PCTLPackage.RIGHT_STATE_EXPRESSION__RIGHT:
+        setRight((RightStateExpression)null);
         return;
     }
     super.eUnset(featureID);
@@ -184,10 +184,10 @@ public class FutureImpl extends PathFormulaImpl implements Future
   {
     switch (featureID)
     {
-      case PCTLPackage.FUTURE__VALUE:
-        return value != null;
+      case PCTLPackage.RIGHT_STATE_EXPRESSION__RIGHT:
+        return right != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //FutureImpl
+} //RightStateExpressionImpl
