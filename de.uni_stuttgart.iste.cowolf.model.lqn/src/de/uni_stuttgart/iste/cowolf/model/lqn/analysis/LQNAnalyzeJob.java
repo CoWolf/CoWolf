@@ -56,16 +56,15 @@ public class LQNAnalyzeJob extends Job {
 			File dir = new File(lqnInputFile.getParentFile().getAbsolutePath() + File.separator + lqnOutputFile);
 			dir.mkdirs();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			LOGGER.error("", e);
 		}
 		
 		this.model = model;
 		this.parameters = parameters;
 		this.listener = listener;
 		generateModelIdNameMap();
-		System.out.println("Input: " + lqnInputFile.getAbsolutePath());
-		System.out.println(lqnOutputFile.toString());
+		LOGGER.debug("Input: {}", lqnInputFile.getAbsolutePath());
+		LOGGER.debug(lqnOutputFile);
 	}
 
 	@Override
@@ -84,10 +83,10 @@ public class LQNAnalyzeJob extends Job {
 			lqnSolverCommand.append("-x -o ").append(lqnOutputFile);
 			lqnSolverCommand.append(" ").append(lqnInputFile.getName());
 			Reader r = new InputStreamReader(
-					CommandLineExecutor.execCommandAndGetOutput(lqnInputFile.getParentFile().getAbsolutePath(),  pathToLQNSolver, lqnSolverCommand.toString())
+					CommandLineExecutor.execCommandAndGetOutput(lqnInputFile.getParentFile().getAbsolutePath(), pathToLQNSolver, lqnSolverCommand.toString())
 					);
 			
-			System.out.println(lqnSolverCommand.toString());
+			LOGGER.debug(lqnSolverCommand.toString());
 			
 			BufferedReader in = new BufferedReader(r);
 			String line;
