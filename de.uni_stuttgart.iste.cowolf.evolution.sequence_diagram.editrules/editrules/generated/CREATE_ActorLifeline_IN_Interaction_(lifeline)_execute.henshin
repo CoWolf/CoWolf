@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_xeITAD89EeS0f8NNvwcvKQ" name="CREATE_ActorLifeline_IN_Interaction_(lifeline)" description="Creates one ActorLifeline in Interaction">
+  <imports href="http://sequence_diagram/1.0#/"/>
+  <imports href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_xeITAT89EeS0f8NNvwcvKQ" name="createActorLifeline_IN_Interaction" description="creates one ActorLifeline in the context: Interaction">
+    <parameters xmi:id="_xeITAj89EeS0f8NNvwcvKQ" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Interaction"/>
+    </parameters>
+    <parameters xmi:id="_xeITAz89EeS0f8NNvwcvKQ" name="New">
+      <type xsi:type="ecore:EClass" href="http://sequence_diagram/1.0#//ActorLifeline"/>
+    </parameters>
+    <parameters xmi:id="_xeITBD89EeS0f8NNvwcvKQ" name="Name">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+    </parameters>
+    <parameters xmi:id="_xeITBT89EeS0f8NNvwcvKQ" name="Visibility">
+      <type xsi:type="ecore:EEnum" href="http://www.eclipse.org/uml2/5.0.0/UML#//VisibilityKind"/>
+    </parameters>
+    <parameters xmi:id="_xeITBj89EeS0f8NNvwcvKQ" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_xeITBz89EeS0f8NNvwcvKQ" name="Lhs">
+      <nodes xmi:id="_xeITCD89EeS0f8NNvwcvKQ" name="Selected">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Interaction"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_xeITCT89EeS0f8NNvwcvKQ" name="Rhs">
+      <nodes xmi:id="_xeITCj89EeS0f8NNvwcvKQ" name="Selected" incoming="_xeITED89EeS0f8NNvwcvKQ" outgoing="_xeITDz89EeS0f8NNvwcvKQ">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Interaction"/>
+      </nodes>
+      <nodes xmi:id="_xeITCz89EeS0f8NNvwcvKQ" name="New" incoming="_xeITDz89EeS0f8NNvwcvKQ" outgoing="_xeITED89EeS0f8NNvwcvKQ">
+        <type href="http://sequence_diagram/1.0#//ActorLifeline"/>
+        <attributes xmi:id="_xeITDD89EeS0f8NNvwcvKQ" value="Name">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+        </attributes>
+        <attributes xmi:id="_xeITDT89EeS0f8NNvwcvKQ" value="Visibility">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/visibility"/>
+        </attributes>
+        <attributes xmi:id="_xeITDj89EeS0f8NNvwcvKQ" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_xeITDz89EeS0f8NNvwcvKQ" source="_xeITCj89EeS0f8NNvwcvKQ" target="_xeITCz89EeS0f8NNvwcvKQ">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Interaction/lifeline"/>
+      </edges>
+      <edges xmi:id="_xeITED89EeS0f8NNvwcvKQ" source="_xeITCz89EeS0f8NNvwcvKQ" target="_xeITCj89EeS0f8NNvwcvKQ">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Lifeline/interaction"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_xeITET89EeS0f8NNvwcvKQ" origin="_xeITCD89EeS0f8NNvwcvKQ" image="_xeITCj89EeS0f8NNvwcvKQ"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_xeITEj89EeS0f8NNvwcvKQ" name="mainUnit" subUnits="_xeITAT89EeS0f8NNvwcvKQ">
+    <parameters xmi:id="_xeITEz89EeS0f8NNvwcvKQ" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Interaction"/>
+    </parameters>
+    <parameters xmi:id="_xeITFD89EeS0f8NNvwcvKQ" name="New">
+      <type xsi:type="ecore:EClass" href="http://sequence_diagram/1.0#//ActorLifeline"/>
+    </parameters>
+    <parameters xmi:id="_xeITFT89EeS0f8NNvwcvKQ" name="Name">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+    </parameters>
+    <parameters xmi:id="_xeITFj89EeS0f8NNvwcvKQ" name="Visibility">
+      <type xsi:type="ecore:EEnum" href="http://www.eclipse.org/uml2/5.0.0/UML#//VisibilityKind"/>
+    </parameters>
+    <parameters xmi:id="_xeITFz89EeS0f8NNvwcvKQ" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_xeITGD89EeS0f8NNvwcvKQ" source="_xeITEz89EeS0f8NNvwcvKQ" target="_xeITAj89EeS0f8NNvwcvKQ"/>
+    <parameterMappings xmi:id="_xeITGT89EeS0f8NNvwcvKQ" source="_xeITAz89EeS0f8NNvwcvKQ" target="_xeITFD89EeS0f8NNvwcvKQ"/>
+    <parameterMappings xmi:id="_xeITGj89EeS0f8NNvwcvKQ" source="_xeITFT89EeS0f8NNvwcvKQ" target="_xeITBD89EeS0f8NNvwcvKQ"/>
+    <parameterMappings xmi:id="_xeITGz89EeS0f8NNvwcvKQ" source="_xeITFj89EeS0f8NNvwcvKQ" target="_xeITBT89EeS0f8NNvwcvKQ"/>
+    <parameterMappings xmi:id="_xeITHD89EeS0f8NNvwcvKQ" source="_xeITFz89EeS0f8NNvwcvKQ" target="_xeITBj89EeS0f8NNvwcvKQ"/>
+  </units>
+</henshin:Module>

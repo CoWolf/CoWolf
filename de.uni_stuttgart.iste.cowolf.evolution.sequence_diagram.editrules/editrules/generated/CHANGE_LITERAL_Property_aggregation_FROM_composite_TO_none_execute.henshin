@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_xaWmQD89EeS0f8NNvwcvKQ" name="CHANGE_LITERAL_Property_aggregation_FROM_composite_TO_none" description="Changes the attribute value of aggregation_FROM_composite_TO_none">
+  <imports href="http://sequence_diagram/1.0#/"/>
+  <imports href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_xaWmQT89EeS0f8NNvwcvKQ" name="changePropertyAggregation_FROM_Composite_TO_none" description="Changes the attribute value of aggregation_FROM_composite_TO_none">
+    <parameters xmi:id="_xaWmQj89EeS0f8NNvwcvKQ" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+    </parameters>
+    <parameters xmi:id="_xaWmQz89EeS0f8NNvwcvKQ" name="&quot;composite&quot;">
+      <type xsi:type="ecore:EEnum" href="http://www.eclipse.org/uml2/5.0.0/UML#//AggregationKind"/>
+    </parameters>
+    <parameters xmi:id="_xaWmRD89EeS0f8NNvwcvKQ" name="&quot;none&quot;">
+      <type xsi:type="ecore:EEnum" href="http://www.eclipse.org/uml2/5.0.0/UML#//AggregationKind"/>
+    </parameters>
+    <lhs xmi:id="_xaWmRT89EeS0f8NNvwcvKQ" name="Lhs">
+      <nodes xmi:id="_xaWmRj89EeS0f8NNvwcvKQ" name="Selected">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+        <attributes xmi:id="_xaWmRz89EeS0f8NNvwcvKQ" value="&quot;composite&quot;">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property/aggregation"/>
+        </attributes>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_xaWmSD89EeS0f8NNvwcvKQ" name="Rhs">
+      <nodes xmi:id="_xaWmST89EeS0f8NNvwcvKQ" name="Selected">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+        <attributes xmi:id="_xaWmSj89EeS0f8NNvwcvKQ" value="&quot;none&quot;">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Property/aggregation"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_xaWmSz89EeS0f8NNvwcvKQ" origin="_xaWmRj89EeS0f8NNvwcvKQ" image="_xaWmST89EeS0f8NNvwcvKQ"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_xaWmTD89EeS0f8NNvwcvKQ" name="mainUnit" subUnits="_xaWmQT89EeS0f8NNvwcvKQ">
+    <parameters xmi:id="_xaWmTT89EeS0f8NNvwcvKQ" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+    </parameters>
+    <parameters xmi:id="_xaWmTj89EeS0f8NNvwcvKQ" name="&quot;composite&quot;">
+      <type xsi:type="ecore:EEnum" href="http://www.eclipse.org/uml2/5.0.0/UML#//AggregationKind"/>
+    </parameters>
+    <parameters xmi:id="_xaWmTz89EeS0f8NNvwcvKQ" name="&quot;none&quot;">
+      <type xsi:type="ecore:EEnum" href="http://www.eclipse.org/uml2/5.0.0/UML#//AggregationKind"/>
+    </parameters>
+    <parameterMappings xmi:id="_xaWmUD89EeS0f8NNvwcvKQ" source="_xaWmTT89EeS0f8NNvwcvKQ" target="_xaWmQj89EeS0f8NNvwcvKQ"/>
+    <parameterMappings xmi:id="_xaWmUT89EeS0f8NNvwcvKQ" source="_xaWmTj89EeS0f8NNvwcvKQ" target="_xaWmQz89EeS0f8NNvwcvKQ"/>
+    <parameterMappings xmi:id="_xaWmUj89EeS0f8NNvwcvKQ" source="_xaWmTz89EeS0f8NNvwcvKQ" target="_xaWmRD89EeS0f8NNvwcvKQ"/>
+  </units>
+</henshin:Module>

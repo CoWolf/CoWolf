@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_xaODYD89EeS0f8NNvwcvKQ" name="DELETE_Property_IN_StructuredClassifier_(ownedAttribute)" description="Deletes one Property in StructuredClassifier">
+  <imports href="http://sequence_diagram/1.0#/"/>
+  <imports href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_xaODYT89EeS0f8NNvwcvKQ" name="deleteProperty_IN_StructuredClassifier" description="deletes one Property in the context: StructuredClassifier">
+    <parameters xmi:id="_xaODYj89EeS0f8NNvwcvKQ" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//StructuredClassifier"/>
+    </parameters>
+    <parameters xmi:id="_xaODYz89EeS0f8NNvwcvKQ" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://sequence_diagram/1.0#//Property"/>
+    </parameters>
+    <lhs xmi:id="_xaODZD89EeS0f8NNvwcvKQ" name="LHS">
+      <nodes xmi:id="_xaODZT89EeS0f8NNvwcvKQ" name="Selected" outgoing="_xaODZz89EeS0f8NNvwcvKQ">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//StructuredClassifier"/>
+      </nodes>
+      <nodes xmi:id="_xaODZj89EeS0f8NNvwcvKQ" name="ToBeDeleted" incoming="_xaODZz89EeS0f8NNvwcvKQ">
+        <type href="http://sequence_diagram/1.0#//Property"/>
+      </nodes>
+      <edges xmi:id="_xaODZz89EeS0f8NNvwcvKQ" source="_xaODZT89EeS0f8NNvwcvKQ" target="_xaODZj89EeS0f8NNvwcvKQ">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//StructuredClassifier/ownedAttribute"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_xaODaD89EeS0f8NNvwcvKQ" name="RHS">
+      <nodes xmi:id="_xaODaT89EeS0f8NNvwcvKQ" name="Selected">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//StructuredClassifier"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_xaODaj89EeS0f8NNvwcvKQ" origin="_xaODZT89EeS0f8NNvwcvKQ" image="_xaODaT89EeS0f8NNvwcvKQ"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_xaODaz89EeS0f8NNvwcvKQ" name="mainUnit" subUnits="_xaODYT89EeS0f8NNvwcvKQ">
+    <parameters xmi:id="_xaODbD89EeS0f8NNvwcvKQ" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//StructuredClassifier"/>
+    </parameters>
+    <parameters xmi:id="_xaODbT89EeS0f8NNvwcvKQ" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://sequence_diagram/1.0#//Property"/>
+    </parameters>
+    <parameterMappings xmi:id="_xaODbj89EeS0f8NNvwcvKQ" source="_xaODbD89EeS0f8NNvwcvKQ" target="_xaODYj89EeS0f8NNvwcvKQ"/>
+    <parameterMappings xmi:id="_xaODbz89EeS0f8NNvwcvKQ" source="_xaODbT89EeS0f8NNvwcvKQ" target="_xaODYz89EeS0f8NNvwcvKQ"/>
+  </units>
+</henshin:Module>
