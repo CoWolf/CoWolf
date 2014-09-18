@@ -8,10 +8,10 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
-import org.eclipse.emf.edit.ui.util.EditUIUtil;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.diagram.business.internal.metamodel.spec.DSemanticDiagramSpec;
 import org.eclipse.sirius.diagram.sequence.business.internal.metamodel.SequenceDDiagramSpec;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.tools.api.project.ModelingProjectManager;
@@ -23,7 +23,6 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.util.*;
 
 public class GraphicalEditor implements IEditorLauncher {
 
@@ -70,12 +69,17 @@ public class GraphicalEditor implements IEditorLauncher {
 			EList<DRepresentation> representations = view
 					.getOwnedRepresentations();
 
-			Resource resource = null;
 
 			DRepresentation representation = null;
+			EObject rootObject = null;
 			for (DRepresentation currentRep : representations) {
-				EObject rootObject = ((SequenceDDiagramSpec) currentRep)
-						.getTarget();
+				if (currentRep instanceof SequenceDDiagramSpec) {
+					rootObject = ((SequenceDDiagramSpec) currentRep)
+							.getTarget();
+				} else if (currentRep instanceof DSemanticDiagramSpec) {
+					rootObject = ((DSemanticDiagramSpec) currentRep)
+							.getTarget();
+				}
 
 				Resource eResource = rootObject.eResource();
 				URI eUri = eResource.getURI();

@@ -297,7 +297,7 @@ public class Sequence_diagramModelWizard extends Wizard implements INewWizard {
 			IFile airdFile = modelFile.getProject().getFile(
 					"representations.aird");
 			if (!airdFile.exists())
-				throw new Exception("could not found file:"
+				throw new Exception("could not find file:"
 						+ airdFile.getLocationURI());
 			URI airdFileURI = URI.createPlatformResourceURI(airdFile
 					.getFullPath().toOSString(), true);
@@ -363,8 +363,7 @@ public class Sequence_diagramModelWizard extends Wizard implements INewWizard {
 								+ rootObject);
 			RepresentationDescription description = descriptions.iterator()
 					.next();
-			
-			System.out.println(description.getName());
+
 
 			DialectManager viewpointDialectManager = DialectManager.INSTANCE;
 			Command createViewCommand = new CreateRepresentationCommand(
