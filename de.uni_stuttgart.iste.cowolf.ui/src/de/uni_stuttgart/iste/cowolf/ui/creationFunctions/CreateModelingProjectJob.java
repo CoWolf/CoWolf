@@ -1,41 +1,21 @@
 package de.uni_stuttgart.iste.cowolf.ui.creationFunctions;
 
 import java.net.URI;
-import java.util.HashSet;
-import java.util.Set;
-
-import javax.swing.JOptionPane;
 
 import org.eclipse.core.resources.IContainer;
-import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
-import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
-import org.eclipse.emf.common.command.Command;
-import org.eclipse.emf.transaction.RecordingCommand;
-import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.eclipse.sirius.business.api.dialect.DialectManager;
-import org.eclipse.sirius.business.api.dialect.command.CreateRepresentationCommand;
-import org.eclipse.sirius.business.api.helper.SiriusResourceHelper;
-import org.eclipse.sirius.business.api.session.Session;
-import org.eclipse.sirius.business.api.session.SessionManager;
-import org.eclipse.sirius.tools.api.command.semantic.AddSemanticResourceCommand;
-import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
-import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelection;
-import org.eclipse.sirius.ui.business.internal.commands.ChangeViewpointSelectionCommand;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.sirius.ui.tools.api.project.ModelingProjectManager;
-import org.eclipse.sirius.viewpoint.DRepresentation;
-import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
-import org.eclipse.sirius.viewpoint.description.Viewpoint;
+import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PlatformUI;
 
 import de.uni_stuttgart.iste.cowolf.core.natures.ProjectNature;
 import de.uni_stuttgart.iste.cowolf.model.ModelRegistry;
@@ -117,7 +97,6 @@ public class CreateModelingProjectJob extends Job {
 		return true;
 	}
 
-
 	/**
 	 * @param name
 	 *            the name of the folder
@@ -135,8 +114,11 @@ public class CreateModelingProjectJob extends Job {
 			try {
 				iFolder.create(false, true, null);
 			} catch (CoreException e) {
-				JOptionPane.showMessageDialog(null, "Could not create folder"
-						+ e.getLocalizedMessage());
+				IWorkbenchWindow window = PlatformUI.getWorkbench()
+						.getActiveWorkbenchWindow();
+				MessageDialog.openError(window.getShell(), "",
+						"Could not create folder " + iFolder.getName() + ":\n"
+								+ e.getLocalizedMessage());
 			}
 		}
 		return iFolder;
@@ -148,16 +130,27 @@ public class CreateModelingProjectJob extends Job {
 	 * @throws CoreException
 	 */
 	private static void addNature(IProject iProject) throws CoreException {
-		IProjectDescription description = iProject.getDescription();
-		String[] previousNatures = description.getNatureIds();
-		String[] newNatures = new String[previousNatures.length + 1];
-		System.arraycopy(previousNatures, 0, newNatures, 0,
-				previousNatures.length);
-		newNatures[previousNatures.length] = ProjectNature.NATURE_ID;
-		description.setNatureIds(newNatures);
-		IProgressMonitor monitor = null;
-		iProject.setDescription(description, monitor);
-
+		try {
+			if (!iProject.hasNature(ProjectNature.NATURE_ID)
+					&& !iProject.hasNature(ProjectNature.MODELING_NATURE_ID)) {
+				IProjectDescription description = iProject.getDescription();
+				String[] previousNatures = description.getNatureIds();
+				String[] newNatures = new String[previousNatures.length + 2];
+				System.arraycopy(previousNatures, 0, newNatures, 0,
+						previousNatures.length);
+				newNatures[previousNatures.length] = ProjectNature.NATURE_ID;
+				newNatures[previousNatures.length + 1] = ProjectNature.MODELING_NATURE_ID;
+				description.setNatureIds(newNatures);
+				IProgressMonitor monitor = null;
+				iProject.setDescription(description, monitor);
+			}
+		} catch (CoreException e) {
+			IWorkbenchWindow window = PlatformUI.getWorkbench()
+					.getActiveWorkbenchWindow();
+			MessageDialog.openError(window.getShell(), "",
+					"Could not add nature to project " + iProject.getName()
+							+ ":\n" + e.getLocalizedMessage());
+		}
 	}
 
 }
