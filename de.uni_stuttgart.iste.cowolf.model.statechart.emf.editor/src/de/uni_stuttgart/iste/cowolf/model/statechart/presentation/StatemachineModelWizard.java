@@ -8,79 +8,74 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.MissingResourceException;
+import java.util.Set;
 import java.util.StringTokenizer;
 
 import org.eclipse.emf.common.CommonPlugin;
-
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.util.URI;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
-
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.ecore.xmi.XMLResource;
-
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
-
+import org.eclipse.emf.transaction.RecordingCommand;
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
-
 import org.eclipse.core.runtime.IProgressMonitor;
-
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jface.dialogs.MessageDialog;
-
 import org.eclipse.jface.viewers.IStructuredSelection;
-
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardPage;
-
+import org.eclipse.sirius.business.api.dialect.DialectManager;
+import org.eclipse.sirius.business.api.dialect.command.CreateRepresentationCommand;
+import org.eclipse.sirius.business.api.helper.SiriusResourceHelper;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.tools.api.command.semantic.AddSemanticResourceCommand;
+import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
+import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelection;
+import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelectionCallbackWithConfimation;
+import org.eclipse.sirius.ui.business.internal.commands.ChangeViewpointSelectionCommand;
+import org.eclipse.sirius.viewpoint.DRepresentation;
+import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
+import org.eclipse.sirius.viewpoint.description.Viewpoint;
 import org.eclipse.swt.SWT;
-
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.ModifyEvent;
-
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
-
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
-
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
-
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
-
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
 
 import de.uni_stuttgart.iste.cowolf.model.statechart.StatemachineFactory;
 import de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage;
 import de.uni_stuttgart.iste.cowolf.model.statechart.emf.provider.StatemachineEditPlugin;
-
-
 import de.uni_stuttgart.iste.cowolf.model.statechart.emf.presentation.StatemachineEditorPlugin;
 
 import org.eclipse.core.runtime.Path;
-
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
-
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchWindow;
@@ -111,6 +106,8 @@ public class StatemachineModelWizard extends Wizard implements INewWizard {
 	 */
 	public static final String FORMATTED_FILE_EXTENSIONS =
 		StatemachineEditorPlugin.INSTANCE.getString("_UI_StatemachineEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
+
+	private static final String FILE_EXTENSION = "statemachine";
 
 	/**
 	 * This caches an instance of the model package.
@@ -286,17 +283,98 @@ public class StatemachineModelWizard extends Wizard implements INewWizard {
 					 });
 			}
 
-			// Open an editor on the new file.
-			//
-			try {
-				page.openEditor
-					(new FileEditorInput(modelFile),
-					 workbench.getEditorRegistry().getDefaultEditor(modelFile.getFullPath().toString()).getId());					 	 
-			}
-			catch (PartInitException exception) {
-				MessageDialog.openError(workbenchWindow.getShell(), StatemachineEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
-				return false;
-			}
+			// create viewpoint
+            IFile airdFile = modelFile.getProject().getFile(
+                    "representations.aird");
+            if (!airdFile.exists())
+                throw new Exception("could not found file:"
+                        + airdFile.getLocationURI());
+            URI airdFileURI = URI.createPlatformResourceURI(airdFile
+                    .getFullPath().toOSString(), true);
+            Session session = SessionManager.INSTANCE.getSession(airdFileURI,
+                    new NullProgressMonitor());
+
+            URI fileURI = URI.createPlatformResourceURI(
+                    modelFile.getFullPath().toString() , true);
+
+            // adding the resource also to Sirius session
+            AddSemanticResourceCommand addCommandToSession = new AddSemanticResourceCommand(
+                    session, fileURI, new NullProgressMonitor());
+            session.getTransactionalEditingDomain().getCommandStack()
+                    .execute(addCommandToSession);
+            session.save(new NullProgressMonitor());
+
+            ;
+
+            // find and add viewpoint
+            Set<Viewpoint> availableViewpoints = ViewpointSelection
+                    .getViewpoints(FILE_EXTENSION);
+
+            if (availableViewpoints.isEmpty())
+                throw new Exception(
+                        "Could not find viewport for fileextension "
+                                + FILE_EXTENSION);
+
+            Set<Viewpoint> viewpoints = new HashSet<Viewpoint>();
+            for (Viewpoint p : availableViewpoints)
+                viewpoints.add(SiriusResourceHelper.getCorrespondingViewpoint(
+                        session, p));
+
+            ViewpointSelection.Callback callback = new ViewpointSelectionCallbackWithConfimation();
+
+            RecordingCommand command = new ChangeViewpointSelectionCommand(
+                    session, callback, viewpoints, new HashSet<Viewpoint>(),
+                    true, new NullProgressMonitor());
+            TransactionalEditingDomain domain = session
+                    .getTransactionalEditingDomain();
+            domain.getCommandStack().execute(command);
+
+
+            // create representation
+         
+            Object[] elements1 = session
+                    .getSemanticResources().toArray();
+            Resource resource = (Resource) elements1[elements1.length-1];
+
+
+
+            EObject rootObject = resource.getContents().get(0);
+
+            Collection<RepresentationDescription> descriptions = DialectManager.INSTANCE
+                    .getAvailableRepresentationDescriptions(
+                            session.getSelectedViewpoints(false), rootObject);
+            if (descriptions.isEmpty())
+                throw new Exception(
+                        "Could not find representation description for object: "
+                                + rootObject);
+            RepresentationDescription description = descriptions.iterator()
+                    .next();
+
+
+            DialectManager viewpointDialectManager = DialectManager.INSTANCE;
+            Command createViewCommand = new CreateRepresentationCommand(
+                    session, description, rootObject, modelFile.getName(),
+                    new NullProgressMonitor());
+
+            session.getTransactionalEditingDomain().getCommandStack()
+                    .execute(createViewCommand);
+
+            SessionManager.INSTANCE.notifyRepresentationCreated(session);
+
+            // open editor for last representation
+            Collection<DRepresentation> representations = viewpointDialectManager
+                    .getRepresentations(description, session);
+            Object[] arrayRep =  representations
+                    .toArray();
+            DRepresentation myDiagramRepresentation = (DRepresentation) arrayRep[arrayRep.length - 1];
+            DialectUIManager dialectUIManager = DialectUIManager.INSTANCE;
+            dialectUIManager.openEditor(session, myDiagramRepresentation,
+                    new NullProgressMonitor());
+
+            // save session and refresh workspace
+            session.save(new NullProgressMonitor());
+            modelFile.getProject().refreshLocal(IResource.DEPTH_INFINITE,
+                    new NullProgressMonitor());
 
 			return true;
 		}

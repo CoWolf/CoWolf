@@ -309,8 +309,7 @@ public class CtmcModelWizard extends Wizard implements INewWizard {
 			// find and add viewpoint
 			Set<Viewpoint> availableViewpoints = ViewpointSelection
 					.getViewpoints(FILE_EXTENSION);
-			// TODO add constant with file extension
-			if (availableViewpoints.isEmpty())
+						if (availableViewpoints.isEmpty())
 				throw new Exception(
 						"Could not find viewport for fileextension "
 								+ FILE_EXTENSION);
@@ -333,13 +332,10 @@ public class CtmcModelWizard extends Wizard implements INewWizard {
 			Object[] elements1 = session.getSemanticResources().toArray();
 			Resource resource = (Resource) elements1[elements1.length - 1];
 
-			// TODO here we need the matching node for the viewpoint. If the
-			// root node is the matching node, just use
-			// resource.getContents().get(0)
 
 			EObject rootObject = resource.getContents().get(0);
 
-			// TODO end
+
 			Collection<RepresentationDescription> descriptions = DialectManager.INSTANCE
 					.getAvailableRepresentationDescriptions(
 							session.getSelectedViewpoints(false), rootObject);

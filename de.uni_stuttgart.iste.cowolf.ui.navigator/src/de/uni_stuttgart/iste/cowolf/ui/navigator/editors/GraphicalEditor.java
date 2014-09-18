@@ -5,6 +5,7 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
@@ -64,10 +65,14 @@ public class GraphicalEditor implements IEditorLauncher {
 			// get representation
 			DAnalysis root = (DAnalysis) session.getSessionResource()
 					.getContents().get(0);
-			DView view = root.getOwnedViews().get(0);
+			EList<DView> views = root.getOwnedViews();
 
-			EList<DRepresentation> representations = view
-					.getOwnedRepresentations();
+			EList<DRepresentation> representations = new BasicEList<DRepresentation>();
+			
+			for(DView view : views){
+				representations.addAll(view.getOwnedRepresentations());
+			}
+
 
 
 			DRepresentation representation = null;
@@ -86,6 +91,7 @@ public class GraphicalEditor implements IEditorLauncher {
 
 				if (eUri.equals(fFileURI)) {
 					representation = currentRep;
+					break;
 				}
 
 			}
