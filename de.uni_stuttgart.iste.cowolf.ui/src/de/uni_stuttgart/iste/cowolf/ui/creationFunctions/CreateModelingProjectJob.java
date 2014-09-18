@@ -131,15 +131,13 @@ public class CreateModelingProjectJob extends Job {
 	 */
 	private static void addNature(IProject iProject) throws CoreException {
 		try {
-			if (!iProject.hasNature(ProjectNature.NATURE_ID)
-					&& !iProject.hasNature(ProjectNature.MODELING_NATURE_ID)) {
+			if (!iProject.hasNature(ProjectNature.NATURE_ID)) {
 				IProjectDescription description = iProject.getDescription();
 				String[] previousNatures = description.getNatureIds();
-				String[] newNatures = new String[previousNatures.length + 2];
+				String[] newNatures = new String[previousNatures.length + 1];
 				System.arraycopy(previousNatures, 0, newNatures, 0,
 						previousNatures.length);
 				newNatures[previousNatures.length] = ProjectNature.NATURE_ID;
-				newNatures[previousNatures.length + 1] = ProjectNature.MODELING_NATURE_ID;
 				description.setNatureIds(newNatures);
 				IProgressMonitor monitor = null;
 				iProject.setDescription(description, monitor);
