@@ -65,6 +65,7 @@ public class PCTLFactoryImpl extends EFactoryImpl implements PCTLFactory
     switch (eClass.getClassifierID())
     {
       case PCTLPackage.START: return createStart();
+      case PCTLPackage.RULES: return createRules();
       case PCTLPackage.COMMENTED_RULE: return createCommentedRule();
       case PCTLPackage.PCTL: return createPctl();
       case PCTLPackage.STATE: return createState();
@@ -95,6 +96,17 @@ public class PCTLFactoryImpl extends EFactoryImpl implements PCTLFactory
   {
     StartImpl start = new StartImpl();
     return start;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Rules createRules()
+  {
+    RulesImpl rules = new RulesImpl();
+    return rules;
   }
 
   /**

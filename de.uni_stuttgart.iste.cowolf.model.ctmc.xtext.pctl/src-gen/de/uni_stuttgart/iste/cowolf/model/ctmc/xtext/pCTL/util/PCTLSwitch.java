@@ -79,6 +79,13 @@ public class PCTLSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case PCTLPackage.RULES:
+      {
+        Rules rules = (Rules)theEObject;
+        T result = caseRules(rules);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case PCTLPackage.COMMENTED_RULE:
       {
         CommentedRule commentedRule = (CommentedRule)theEObject;
@@ -260,6 +267,22 @@ public class PCTLSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseStart(Start object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Rules</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Rules</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRules(Rules object)
   {
     return null;
   }

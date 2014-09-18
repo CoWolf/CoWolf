@@ -77,12 +77,12 @@ ruleStart returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-((
+(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getStartAccess().getStartCommentedRuleParserRuleCall_0_0()); 
+	        newCompositeNode(grammarAccess.getStartAccess().getStartRulesParserRuleCall_0()); 
 	    }
-		lv_start_0_0=ruleCommentedRule		{
+		lv_start_0_0=ruleRules		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getStartRule());
 	        }
@@ -90,6 +90,45 @@ ruleStart returns [EObject current=null]
        			$current, 
        			"start",
         		lv_start_0_0, 
+        		"Rules");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)?
+;
+
+
+
+
+
+// Entry rule entryRuleRules
+entryRuleRules returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getRulesRule()); }
+	 iv_ruleRules=ruleRules 
+	 { $current=$iv_ruleRules.current; } 
+	 EOF 
+;
+
+// Rule Rules
+ruleRules returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+(
+		{ 
+	        newCompositeNode(grammarAccess.getRulesAccess().getRuleCommentedRuleParserRuleCall_0_0()); 
+	    }
+		lv_rule_0_0=ruleCommentedRule		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getRulesRule());
+	        }
+       		add(
+       			$current, 
+       			"rule",
+        		lv_rule_0_0, 
         		"CommentedRule");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -98,17 +137,17 @@ ruleStart returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getStartAccess().getStartStartParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getRulesAccess().getRuleRulesParserRuleCall_1_0()); 
 	    }
-		lv_start_1_0=ruleStart		{
+		lv_rule_1_0=ruleRules		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getStartRule());
+	            $current = createModelElementForParent(grammarAccess.getRulesRule());
 	        }
-       		set(
+       		add(
        			$current, 
-       			"start",
-        		lv_start_1_0, 
-        		"Start");
+       			"rule",
+        		lv_rule_1_0, 
+        		"Rules");
 	        afterParserOrEnumRuleCall();
 	    }
 

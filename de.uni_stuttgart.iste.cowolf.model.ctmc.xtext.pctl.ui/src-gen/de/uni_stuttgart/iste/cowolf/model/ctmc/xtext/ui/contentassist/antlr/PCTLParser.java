@@ -48,7 +48,7 @@ public class PCTLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getCompareProbabilityAccess().getAlternatives_0(), "rule__CompareProbability__Alternatives_0");
 					put(grammarAccess.getTimeBoundAccess().getAlternatives(), "rule__TimeBound__Alternatives");
 					put(grammarAccess.getTimeBoundAccess().getAlternatives_0_0(), "rule__TimeBound__Alternatives_0_0");
-					put(grammarAccess.getStartAccess().getGroup(), "rule__Start__Group__0");
+					put(grammarAccess.getRulesAccess().getGroup(), "rule__Rules__Group__0");
 					put(grammarAccess.getCommentedRuleAccess().getGroup(), "rule__CommentedRule__Group__0");
 					put(grammarAccess.getStateAccess().getGroup(), "rule__State__Group__0");
 					put(grammarAccess.getLabelAccess().getGroup(), "rule__Label__Group__0");
@@ -74,8 +74,9 @@ public class PCTLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTimeBoundAccess().getGroup_0_0_0(), "rule__TimeBound__Group_0_0_0__0");
 					put(grammarAccess.getTimeBoundAccess().getGroup_0_0_1(), "rule__TimeBound__Group_0_0_1__0");
 					put(grammarAccess.getTimeBoundAccess().getGroup_1(), "rule__TimeBound__Group_1__0");
-					put(grammarAccess.getStartAccess().getStartAssignment_0(), "rule__Start__StartAssignment_0");
-					put(grammarAccess.getStartAccess().getStartAssignment_1(), "rule__Start__StartAssignment_1");
+					put(grammarAccess.getStartAccess().getStartAssignment(), "rule__Start__StartAssignment");
+					put(grammarAccess.getRulesAccess().getRuleAssignment_0(), "rule__Rules__RuleAssignment_0");
+					put(grammarAccess.getRulesAccess().getRuleAssignment_1(), "rule__Rules__RuleAssignment_1");
 					put(grammarAccess.getCommentedRuleAccess().getCommentAssignment_0(), "rule__CommentedRule__CommentAssignment_0");
 					put(grammarAccess.getCommentedRuleAccess().getRuleAssignment_1(), "rule__CommentedRule__RuleAssignment_1");
 					put(grammarAccess.getStateAccess().getNameAssignment_1(), "rule__State__NameAssignment_1");

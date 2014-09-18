@@ -12,6 +12,7 @@ import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Implication;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Label;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Next;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PCTLPackage;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Rules;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Start;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.State;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Until;
@@ -121,6 +122,12 @@ public class PCTLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				   context == grammarAccess.getProbabilityRule() ||
 				   context == grammarAccess.getQuantifiedProbabilityRule()) {
 					sequence_Next(context, (Next) semanticObject); 
+					return; 
+				}
+				else break;
+			case PCTLPackage.RULES:
+				if(context == grammarAccess.getRulesRule()) {
+					sequence_Rules(context, (Rules) semanticObject); 
 					return; 
 				}
 				else break;
@@ -261,7 +268,16 @@ public class PCTLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (start=CommentedRule start=Start?)
+	 *     (rule+=CommentedRule rule+=Rules?)
+	 */
+	protected void sequence_Rules(EObject context, Rules semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     start=Rules?
 	 */
 	protected void sequence_Start(EObject context, Start semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

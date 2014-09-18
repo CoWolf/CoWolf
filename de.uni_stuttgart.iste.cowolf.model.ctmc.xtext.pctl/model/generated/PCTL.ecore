@@ -3,7 +3,11 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="pCTL" nsURI="http://www.uni_stuttgart.de/iste/cowolf/model/ctmc/xtext/PCTL"
     nsPrefix="pCTL">
   <eClassifiers xsi:type="ecore:EClass" name="Start">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="start" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="start" eType="#//Rules"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Rules">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rule" upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CommentedRule">

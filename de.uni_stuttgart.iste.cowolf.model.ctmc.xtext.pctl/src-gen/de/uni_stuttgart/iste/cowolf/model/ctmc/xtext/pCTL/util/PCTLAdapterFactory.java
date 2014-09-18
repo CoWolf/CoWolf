@@ -80,6 +80,11 @@ public class PCTLAdapterFactory extends AdapterFactoryImpl
         return createStartAdapter();
       }
       @Override
+      public Adapter caseRules(Rules object)
+      {
+        return createRulesAdapter();
+      }
+      @Override
       public Adapter caseCommentedRule(CommentedRule object)
       {
         return createCommentedRuleAdapter();
@@ -192,6 +197,21 @@ public class PCTLAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createStartAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Rules <em>Rules</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Rules
+   * @generated
+   */
+  public Adapter createRulesAdapter()
   {
     return null;
   }

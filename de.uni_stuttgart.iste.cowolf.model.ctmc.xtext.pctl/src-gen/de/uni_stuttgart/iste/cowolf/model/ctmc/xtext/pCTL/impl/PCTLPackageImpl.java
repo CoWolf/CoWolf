@@ -17,6 +17,7 @@ import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PCTLPackage;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Pctl;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Probability;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.QuantifiedProbability;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Rules;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Start;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.State;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.SteadyState;
@@ -43,6 +44,13 @@ public class PCTLPackageImpl extends EPackageImpl implements PCTLPackage
    * @generated
    */
   private EClass startEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass rulesEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -237,6 +245,26 @@ public class PCTLPackageImpl extends EPackageImpl implements PCTLPackage
   public EReference getStart_Start()
   {
     return (EReference)startEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getRules()
+  {
+    return rulesEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRules_Rule()
+  {
+    return (EReference)rulesEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -492,6 +520,9 @@ public class PCTLPackageImpl extends EPackageImpl implements PCTLPackage
     startEClass = createEClass(START);
     createEReference(startEClass, START__START);
 
+    rulesEClass = createEClass(RULES);
+    createEReference(rulesEClass, RULES__RULE);
+
     commentedRuleEClass = createEClass(COMMENTED_RULE);
     createEAttribute(commentedRuleEClass, COMMENTED_RULE__COMMENT);
     createEReference(commentedRuleEClass, COMMENTED_RULE__RULE);
@@ -578,7 +609,10 @@ public class PCTLPackageImpl extends EPackageImpl implements PCTLPackage
 
     // Initialize classes and features; add operations and parameters
     initEClass(startEClass, Start.class, "Start", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getStart_Start(), ecorePackage.getEObject(), null, "start", null, 0, 1, Start.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStart_Start(), this.getRules(), null, "start", null, 0, 1, Start.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(rulesEClass, Rules.class, "Rules", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getRules_Rule(), ecorePackage.getEObject(), null, "rule", null, 0, -1, Rules.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(commentedRuleEClass, CommentedRule.class, "CommentedRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getCommentedRule_Comment(), ecorePackage.getEString(), "comment", null, 0, 1, CommentedRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

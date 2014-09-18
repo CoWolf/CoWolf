@@ -182,7 +182,7 @@ public class PCTLSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     'U' | 'R' | 'W'
+	 *     'R' | 'U' | 'W'
 	 */
 	protected void emit_Until_RKeyword_1_2_or_UKeyword_1_0_or_WKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

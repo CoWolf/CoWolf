@@ -20,30 +20,46 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public class StartElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Start");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cStartAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cStartCommentedRuleParserRuleCall_0_0 = (RuleCall)cStartAssignment_0.eContents().get(0);
-		private final Assignment cStartAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cStartStartParserRuleCall_1_0 = (RuleCall)cStartAssignment_1.eContents().get(0);
+		private final Assignment cStartAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cStartRulesParserRuleCall_0 = (RuleCall)cStartAssignment.eContents().get(0);
 		
 		//Start:
-		//	start=CommentedRule start=Start?;
+		//	start=Rules?;
 		public ParserRule getRule() { return rule; }
 
-		//start=CommentedRule start=Start?
+		//start=Rules?
+		public Assignment getStartAssignment() { return cStartAssignment; }
+
+		//Rules
+		public RuleCall getStartRulesParserRuleCall_0() { return cStartRulesParserRuleCall_0; }
+	}
+
+	public class RulesElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Rules");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cRuleAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cRuleCommentedRuleParserRuleCall_0_0 = (RuleCall)cRuleAssignment_0.eContents().get(0);
+		private final Assignment cRuleAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cRuleRulesParserRuleCall_1_0 = (RuleCall)cRuleAssignment_1.eContents().get(0);
+		
+		//Rules:
+		//	rule+=CommentedRule rule+=Rules?;
+		public ParserRule getRule() { return rule; }
+
+		//rule+=CommentedRule rule+=Rules?
 		public Group getGroup() { return cGroup; }
 
-		//start=CommentedRule
-		public Assignment getStartAssignment_0() { return cStartAssignment_0; }
+		//rule+=CommentedRule
+		public Assignment getRuleAssignment_0() { return cRuleAssignment_0; }
 
 		//CommentedRule
-		public RuleCall getStartCommentedRuleParserRuleCall_0_0() { return cStartCommentedRuleParserRuleCall_0_0; }
+		public RuleCall getRuleCommentedRuleParserRuleCall_0_0() { return cRuleCommentedRuleParserRuleCall_0_0; }
 
-		//start=Start?
-		public Assignment getStartAssignment_1() { return cStartAssignment_1; }
+		//rule+=Rules?
+		public Assignment getRuleAssignment_1() { return cRuleAssignment_1; }
 
-		//Start
-		public RuleCall getStartStartParserRuleCall_1_0() { return cStartStartParserRuleCall_1_0; }
+		//Rules
+		public RuleCall getRuleRulesParserRuleCall_1_0() { return cRuleRulesParserRuleCall_1_0; }
 	}
 
 	public class CommentedRuleElements extends AbstractParserRuleElementFinder {
@@ -772,6 +788,7 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	
 	private StartElements pStart;
+	private RulesElements pRules;
 	private TerminalRule tBOOL;
 	private TerminalRule tDECIMAL;
 	private CommentedRuleElements pCommentedRule;
@@ -835,13 +852,23 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Start:
-	//	start=CommentedRule start=Start?;
+	//	start=Rules?;
 	public StartElements getStartAccess() {
 		return (pStart != null) ? pStart : (pStart = new StartElements());
 	}
 	
 	public ParserRule getStartRule() {
 		return getStartAccess().getRule();
+	}
+
+	//Rules:
+	//	rule+=CommentedRule rule+=Rules?;
+	public RulesElements getRulesAccess() {
+		return (pRules != null) ? pRules : (pRules = new RulesElements());
+	}
+	
+	public ParserRule getRulesRule() {
+		return getRulesAccess().getRule();
 	}
 
 	//terminal BOOL:

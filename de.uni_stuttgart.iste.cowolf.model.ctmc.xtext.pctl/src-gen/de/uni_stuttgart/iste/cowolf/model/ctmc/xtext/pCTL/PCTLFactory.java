@@ -32,6 +32,15 @@ public interface PCTLFactory extends EFactory
   Start createStart();
 
   /**
+   * Returns a new object of class '<em>Rules</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Rules</em>'.
+   * @generated
+   */
+  Rules createRules();
+
+  /**
    * Returns a new object of class '<em>Commented Rule</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

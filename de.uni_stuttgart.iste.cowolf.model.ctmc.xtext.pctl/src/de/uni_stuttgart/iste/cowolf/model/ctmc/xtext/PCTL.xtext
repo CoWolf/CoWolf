@@ -3,7 +3,11 @@ grammar de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.PCTL with org.eclipse.xtex
 generate pCTL "http://www.uni_stuttgart.de/iste/cowolf/model/ctmc/xtext/PCTL"
 
 Start:
-	start=CommentedRule (start=Start)?
+	start=Rules?
+;
+
+Rules:
+    rule+=CommentedRule (rule+=Rules)?
 ;
 
 terminal BOOL : 'true'|'false';
@@ -25,7 +29,7 @@ Label:
 	
 
 Atomic:
-	State|Label|BOOL
+	 State|Label|BOOL
 ;
 
 Negation returns Expression:
