@@ -528,23 +528,23 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cStateKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cValueIDTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cValueSTRINGTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		
 		//State:
-		//	"State:" value=ID;
+		//	"State:" value=STRING;
 		public ParserRule getRule() { return rule; }
 
-		//"State:" value=ID
+		//"State:" value=STRING
 		public Group getGroup() { return cGroup; }
 
 		//"State:"
 		public Keyword getStateKeyword_0() { return cStateKeyword_0; }
 
-		//value=ID
+		//value=STRING
 		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
 
-		//ID
-		public RuleCall getValueIDTerminalRuleCall_1_0() { return cValueIDTerminalRuleCall_1_0; }
+		//STRING
+		public RuleCall getValueSTRINGTerminalRuleCall_1_0() { return cValueSTRINGTerminalRuleCall_1_0; }
 	}
 
 	public class LabelElements extends AbstractParserRuleElementFinder {
@@ -552,23 +552,23 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cLabelKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cValueIDTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cValueSTRINGTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		
 		//Label:
-		//	"Label:" value=ID;
+		//	"Label:" value=STRING;
 		public ParserRule getRule() { return rule; }
 
-		//"Label:" value=ID
+		//"Label:" value=STRING
 		public Group getGroup() { return cGroup; }
 
 		//"Label:"
 		public Keyword getLabelKeyword_0() { return cLabelKeyword_0; }
 
-		//value=ID
+		//value=STRING
 		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
 
-		//ID
-		public RuleCall getValueIDTerminalRuleCall_1_0() { return cValueIDTerminalRuleCall_1_0; }
+		//STRING
+		public RuleCall getValueSTRINGTerminalRuleCall_1_0() { return cValueSTRINGTerminalRuleCall_1_0; }
 	}
 
 	public class BooleanElements extends AbstractParserRuleElementFinder {
@@ -1115,7 +1115,7 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//State:
-	//	"State:" value=ID;
+	//	"State:" value=STRING;
 	public StateElements getStateAccess() {
 		return (pState != null) ? pState : (pState = new StateElements());
 	}
@@ -1125,7 +1125,7 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Label:
-	//	"Label:" value=ID;
+	//	"Label:" value=STRING;
 	public LabelElements getLabelAccess() {
 		return (pLabel != null) ? pLabel : (pLabel = new LabelElements());
 	}

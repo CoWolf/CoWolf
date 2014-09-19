@@ -3619,8 +3619,8 @@ rule__State__ValueAssignment_1
     }
 :
 (
-{ before(grammarAccess.getStateAccess().getValueIDTerminalRuleCall_1_0()); }
-	RULE_ID{ after(grammarAccess.getStateAccess().getValueIDTerminalRuleCall_1_0()); }
+{ before(grammarAccess.getStateAccess().getValueSTRINGTerminalRuleCall_1_0()); }
+	RULE_STRING{ after(grammarAccess.getStateAccess().getValueSTRINGTerminalRuleCall_1_0()); }
 )
 
 ;
@@ -3634,8 +3634,8 @@ rule__Label__ValueAssignment_1
     }
 :
 (
-{ before(grammarAccess.getLabelAccess().getValueIDTerminalRuleCall_1_0()); }
-	RULE_ID{ after(grammarAccess.getLabelAccess().getValueIDTerminalRuleCall_1_0()); }
+{ before(grammarAccess.getLabelAccess().getValueSTRINGTerminalRuleCall_1_0()); }
+	RULE_STRING{ after(grammarAccess.getLabelAccess().getValueSTRINGTerminalRuleCall_1_0()); }
 )
 
 ;

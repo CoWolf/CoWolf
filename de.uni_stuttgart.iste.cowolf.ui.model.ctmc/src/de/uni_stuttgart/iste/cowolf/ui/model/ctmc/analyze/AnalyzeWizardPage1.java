@@ -8,6 +8,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -17,7 +19,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.jface.viewers.ITableLabelProvider;
@@ -65,7 +66,7 @@ public class AnalyzeWizardPage1 extends WizardPage {
 	private List<Object[]> tableData;
 	File clsFile;
 	private XtextResource pctlRes;
-
+	
 	protected AnalyzeWizardPage1(final String pageName, final Resource res) {
 		super(pageName);
 		this.resource = res;
@@ -87,7 +88,6 @@ public class AnalyzeWizardPage1 extends WizardPage {
 		clsFile = new File(resultfile.getLocationURI());
 
 		ResourceSet resSet = new ResourceSetImpl();
-		System.out.println("PCTL file: " + resultfile.getFullPath().toString());
 		
 		pctlRes = (XtextResource) resSet.getResource(URI.createPlatformResourceURI(resultfile.getFullPath().toString(), false), true);
 		
@@ -114,12 +114,10 @@ public class AnalyzeWizardPage1 extends WizardPage {
 		Comment comment = null;
 		while (it.hasNext()) {
 			Fragment current = it.next();
-			System.out.println("Current object: " + current);
 			if (current instanceof Comment) {
 				comment = (Comment) current;
 			} else if (current instanceof Rule) {
 				tableData.add(new Object[] {null, comment, (Rule) current});
-				System.out.println("Add table data: " + comment + " / " + current);
 				comment = null;
 			}
 		}
@@ -147,6 +145,8 @@ public class AnalyzeWizardPage1 extends WizardPage {
 		
 		Start start = (Start) pctlRes.getContents().get(0);
 		
+		Set<Integer> selection = this.getCheckedItems();
+		
 		if (tableData.get(index)[1] == null) {
 			if (!key.getComment().matches("^/*\\s*$")) {
 				// Add comment.
@@ -166,25 +166,49 @@ public class AnalyzeWizardPage1 extends WizardPage {
 		ICompositeNode node = NodeModelUtils.getNode((EObject) tableData.get(index)[2]);
 		pctlRes.update(node.getOffset(), node.getLength(), NodeModelUtils.getNode(value).getText().trim());
 		
-		start = (Start) pctlRes.getContents().get(0);
 		save();
 		
+		start = (Start) pctlRes.getContents().get(0);
+		
 		tableData.get(index)[2] = start.getRule().get(oldIndex);
+		
+		this.readTableData();	
 		
 		tableViewer.setInput(tableData);
 		
 		tableViewer.refresh();
 		table.redraw();
+		this.setCheckedItems(selection);
+	}
+
+	private void setCheckedItems(Set<Integer> selection) {
+		if (selection == null) {
+			return;
+		}
+		
+		for (int i : selection) {
+			if (i < table.getItemCount()) {
+				table.getItem(i).setChecked(true);
+			}
+		}
+	}
+
+	private Set<Integer> getCheckedItems() {
+		Set<Integer> result = new TreeSet<>();
+		for (int i=0; i<table.getItemCount();i++) {
+			if (table.getItem(i).getChecked()) {
+				result.add(i);
+			}
+		}
+		return result;
 	}
 
 	public void deleteTableItem(int index) {
-		System.out.println("Deleting " + index);
 		Start start = (Start) pctlRes.getContents().get(0);
-		
-		System.out.println(tableData.get(index)[1] + " - " + tableData.get(index)[2]);
 		
 		if (tableData.get(index)[1] != null) {
 			start.getRule().remove(tableData.get(index)[1]);
+			
 		}
 		if (tableData.get(index)[2] != null) {
 			start.getRule().remove(tableData.get(index)[2]);

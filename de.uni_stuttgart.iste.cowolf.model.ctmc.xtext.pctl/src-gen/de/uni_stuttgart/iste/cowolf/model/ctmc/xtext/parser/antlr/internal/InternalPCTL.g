@@ -991,9 +991,9 @@ ruleState returns [EObject current=null]
     }
 (
 (
-		lv_value_1_0=RULE_ID
+		lv_value_1_0=RULE_STRING
 		{
-			newLeafNode(lv_value_1_0, grammarAccess.getStateAccess().getValueIDTerminalRuleCall_1_0()); 
+			newLeafNode(lv_value_1_0, grammarAccess.getStateAccess().getValueSTRINGTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1003,7 +1003,7 @@ ruleState returns [EObject current=null]
        			$current, 
        			"value",
         		lv_value_1_0, 
-        		"ID");
+        		"STRING");
 	    }
 
 )
@@ -1034,9 +1034,9 @@ ruleLabel returns [EObject current=null]
     }
 (
 (
-		lv_value_1_0=RULE_ID
+		lv_value_1_0=RULE_STRING
 		{
-			newLeafNode(lv_value_1_0, grammarAccess.getLabelAccess().getValueIDTerminalRuleCall_1_0()); 
+			newLeafNode(lv_value_1_0, grammarAccess.getLabelAccess().getValueSTRINGTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1046,7 +1046,7 @@ ruleLabel returns [EObject current=null]
        			$current, 
        			"value",
         		lv_value_1_0, 
-        		"ID");
+        		"STRING");
 	    }
 
 )

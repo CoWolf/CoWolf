@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 @SuppressWarnings("all")
 public class InternalPCTLLexer extends Lexer {
-    public static final int RULE_ID=6;
+    public static final int RULE_ID=10;
     public static final int T__29=29;
     public static final int T__28=28;
     public static final int T__27=27;
@@ -33,7 +33,7 @@ public class InternalPCTLLexer extends Lexer {
     public static final int T__30=30;
     public static final int T__31=31;
     public static final int T__32=32;
-    public static final int RULE_STRING=10;
+    public static final int RULE_STRING=6;
     public static final int T__16=16;
     public static final int T__33=33;
     public static final int T__15=15;

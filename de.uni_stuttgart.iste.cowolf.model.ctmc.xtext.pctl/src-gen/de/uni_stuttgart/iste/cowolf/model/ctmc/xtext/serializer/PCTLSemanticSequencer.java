@@ -325,7 +325,7 @@ public class PCTLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     value=ID
+	 *     value=STRING
 	 */
 	protected void sequence_Label(EObject context, Label semanticObject) {
 		if(errorAcceptor != null) {
@@ -334,7 +334,7 @@ public class PCTLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getLabelAccess().getValueIDTerminalRuleCall_1_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getLabelAccess().getValueSTRINGTerminalRuleCall_1_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -403,7 +403,7 @@ public class PCTLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     value=ID
+	 *     value=STRING
 	 */
 	protected void sequence_State(EObject context, State semanticObject) {
 		if(errorAcceptor != null) {
@@ -412,7 +412,7 @@ public class PCTLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getStateAccess().getValueIDTerminalRuleCall_1_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getStateAccess().getValueSTRINGTerminalRuleCall_1_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	

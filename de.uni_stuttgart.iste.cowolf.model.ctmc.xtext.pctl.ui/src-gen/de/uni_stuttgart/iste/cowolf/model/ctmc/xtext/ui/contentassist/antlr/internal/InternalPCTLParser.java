@@ -22,9 +22,9 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalPCTLParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_COMPARATOR", "RULE_SL_COMMENT", "RULE_ID", "RULE_BOOL", "RULE_DOUBLE", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'=?'", "'U'", "'W'", "'R'", "'='", "'S'", "'['", "']'", "'P'", "'('", "')'", "'!'", "'&'", "'|'", "'=>'", "'State:'", "'Label:'", "'X'", "'F'", "'G'", "','"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_COMPARATOR", "RULE_SL_COMMENT", "RULE_STRING", "RULE_BOOL", "RULE_DOUBLE", "RULE_INT", "RULE_ID", "RULE_ML_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'=?'", "'U'", "'W'", "'R'", "'='", "'S'", "'['", "']'", "'P'", "'('", "')'", "'!'", "'&'", "'|'", "'=>'", "'State:'", "'Label:'", "'X'", "'F'", "'G'", "','"
     };
-    public static final int RULE_ID=6;
+    public static final int RULE_ID=10;
     public static final int T__29=29;
     public static final int T__28=28;
     public static final int T__27=27;
@@ -44,7 +44,7 @@ public class InternalPCTLParser extends AbstractInternalContentAssistParser {
     public static final int T__30=30;
     public static final int T__19=19;
     public static final int T__31=31;
-    public static final int RULE_STRING=10;
+    public static final int RULE_STRING=6;
     public static final int T__32=32;
     public static final int T__33=33;
     public static final int T__16=16;
@@ -9776,21 +9776,21 @@ public class InternalPCTLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__State__ValueAssignment_1"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl.ui/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/ui/contentassist/antlr/internal/InternalPCTL.g:3616:1: rule__State__ValueAssignment_1 : ( RULE_ID ) ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl.ui/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/ui/contentassist/antlr/internal/InternalPCTL.g:3616:1: rule__State__ValueAssignment_1 : ( RULE_STRING ) ;
     public final void rule__State__ValueAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl.ui/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/ui/contentassist/antlr/internal/InternalPCTL.g:3620:1: ( ( RULE_ID ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl.ui/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/ui/contentassist/antlr/internal/InternalPCTL.g:3621:1: ( RULE_ID )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl.ui/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/ui/contentassist/antlr/internal/InternalPCTL.g:3620:1: ( ( RULE_STRING ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl.ui/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/ui/contentassist/antlr/internal/InternalPCTL.g:3621:1: ( RULE_STRING )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl.ui/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/ui/contentassist/antlr/internal/InternalPCTL.g:3621:1: ( RULE_ID )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl.ui/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/ui/contentassist/antlr/internal/InternalPCTL.g:3622:1: RULE_ID
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl.ui/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/ui/contentassist/antlr/internal/InternalPCTL.g:3621:1: ( RULE_STRING )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl.ui/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/ui/contentassist/antlr/internal/InternalPCTL.g:3622:1: RULE_STRING
             {
-             before(grammarAccess.getStateAccess().getValueIDTerminalRuleCall_1_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__State__ValueAssignment_17291); 
-             after(grammarAccess.getStateAccess().getValueIDTerminalRuleCall_1_0()); 
+             before(grammarAccess.getStateAccess().getValueSTRINGTerminalRuleCall_1_0()); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__State__ValueAssignment_17291); 
+             after(grammarAccess.getStateAccess().getValueSTRINGTerminalRuleCall_1_0()); 
 
             }
 
@@ -9813,21 +9813,21 @@ public class InternalPCTLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Label__ValueAssignment_1"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl.ui/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/ui/contentassist/antlr/internal/InternalPCTL.g:3631:1: rule__Label__ValueAssignment_1 : ( RULE_ID ) ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl.ui/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/ui/contentassist/antlr/internal/InternalPCTL.g:3631:1: rule__Label__ValueAssignment_1 : ( RULE_STRING ) ;
     public final void rule__Label__ValueAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl.ui/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/ui/contentassist/antlr/internal/InternalPCTL.g:3635:1: ( ( RULE_ID ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl.ui/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/ui/contentassist/antlr/internal/InternalPCTL.g:3636:1: ( RULE_ID )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl.ui/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/ui/contentassist/antlr/internal/InternalPCTL.g:3635:1: ( ( RULE_STRING ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl.ui/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/ui/contentassist/antlr/internal/InternalPCTL.g:3636:1: ( RULE_STRING )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl.ui/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/ui/contentassist/antlr/internal/InternalPCTL.g:3636:1: ( RULE_ID )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl.ui/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/ui/contentassist/antlr/internal/InternalPCTL.g:3637:1: RULE_ID
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl.ui/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/ui/contentassist/antlr/internal/InternalPCTL.g:3636:1: ( RULE_STRING )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl.ui/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/ui/contentassist/antlr/internal/InternalPCTL.g:3637:1: RULE_STRING
             {
-             before(grammarAccess.getLabelAccess().getValueIDTerminalRuleCall_1_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Label__ValueAssignment_17322); 
-             after(grammarAccess.getLabelAccess().getValueIDTerminalRuleCall_1_0()); 
+             before(grammarAccess.getLabelAccess().getValueSTRINGTerminalRuleCall_1_0()); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Label__ValueAssignment_17322); 
+             after(grammarAccess.getLabelAccess().getValueSTRINGTerminalRuleCall_1_0()); 
 
             }
 
@@ -10952,8 +10952,8 @@ public class InternalPCTLParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_ruleStateFormula_in_rule__Implication__RightAssignment_17198 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleCompareProbability_in_rule__Probability__ComparatorAssignment_37229 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rulePathFormula_in_rule__Probability__PathAssignment_67260 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__State__ValueAssignment_17291 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Label__ValueAssignment_17322 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__State__ValueAssignment_17291 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__Label__ValueAssignment_17322 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_BOOL_in_rule__Boolean__ValueAssignment7353 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleStateFormula_in_rule__Until__LeftAssignment_07384 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Until__TypeAlternatives_1_0_in_rule__Until__TypeAssignment_17415 = new BitSet(new long[]{0x0000000000000002L});
