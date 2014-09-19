@@ -24,8 +24,8 @@ import org.eclipse.emf.common.util.EList;
  *
  * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreePackage#getGate()
  * @model abstract="true"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='NoHazardAsInput NoBasicEventAsOutput AtLeastTwoInputs ExactlyOneOutput'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL NoHazardAsInput='self.inputEvents->forAll(e : Event | (e.oclIsTypeOf(BasicEvent) or e.oclIsTypeOf(IntermediateEvent)) and not e.oclIsTypeOf(Hazard))' NoBasicEventAsOutput='self.outputEvent->forAll(e : Event | (e.oclIsTypeOf(IntermediateEvent) or e.oclIsTypeOf(Hazard)) and not e.oclIsTypeOf(BasicEvent))' AtLeastTwoInputs='self.inputGates->size() + self.inputEvents->size() >= 2' ExactlyOneOutput='self.outputGate->size() + self.outputEvent->size() = 1'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='NoHazardAsInput NoBasicEventAsOutput AtLeastTwoInputs ExactlyOneOutput NoAutoReferencesAllowedInInputGates NoAutoReferencesAllowedInOutputGate'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL NoHazardAsInput='self.inputEvents->forAll(e : Event | (e.oclIsTypeOf(BasicEvent) or e.oclIsTypeOf(IntermediateEvent)) and not e.oclIsTypeOf(Hazard))' NoBasicEventAsOutput='self.outputEvent->forAll(e : Event | (e.oclIsTypeOf(IntermediateEvent) or e.oclIsTypeOf(Hazard)) and not e.oclIsTypeOf(BasicEvent))' AtLeastTwoInputs='self.inputGates->size() + self.inputEvents->size() >= 2' ExactlyOneOutput='self.outputGate->size() + self.outputEvent->size() = 1' NoAutoReferencesAllowedInInputGates='if self.inputGates->size() > 0 then self.inputGates->select(g : Gate | g.id = self.id)->size() = 0 else true endif' NoAutoReferencesAllowedInOutputGate='if self.outputGate <> null then self.outputGate.id <> self.id else true endif'"
  * @generated
  */
 public interface Gate extends IDBase {

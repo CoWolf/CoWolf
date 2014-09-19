@@ -1002,7 +1002,7 @@ public class FaultTreePackageImpl extends EPackageImpl implements FaultTreePacka
 		  (gateEClass, 
 		   source, 
 		   new String[] {
-			 "constraints", "NoHazardAsInput NoBasicEventAsOutput AtLeastTwoInputs ExactlyOneOutput"
+			 "constraints", "NoHazardAsInput NoBasicEventAsOutput AtLeastTwoInputs ExactlyOneOutput NoAutoReferencesAllowedInInputGates NoAutoReferencesAllowedInOutputGate"
 		   });	
 		addAnnotation
 		  (eventEClass, 
@@ -1051,7 +1051,9 @@ public class FaultTreePackageImpl extends EPackageImpl implements FaultTreePacka
 			 "NoHazardAsInput", "self.inputEvents->forAll(e : Event | (e.oclIsTypeOf(BasicEvent) or e.oclIsTypeOf(IntermediateEvent)) and not e.oclIsTypeOf(Hazard))",
 			 "NoBasicEventAsOutput", "self.outputEvent->forAll(e : Event | (e.oclIsTypeOf(IntermediateEvent) or e.oclIsTypeOf(Hazard)) and not e.oclIsTypeOf(BasicEvent))",
 			 "AtLeastTwoInputs", "self.inputGates->size() + self.inputEvents->size() >= 2",
-			 "ExactlyOneOutput", "self.outputGate->size() + self.outputEvent->size() = 1"
+			 "ExactlyOneOutput", "self.outputGate->size() + self.outputEvent->size() = 1",
+			 "NoAutoReferencesAllowedInInputGates", "if self.inputGates->size() > 0 then self.inputGates->select(g : Gate | g.id = self.id)->size() = 0 else true endif",
+			 "NoAutoReferencesAllowedInOutputGate", "if self.outputGate <> null then self.outputGate.id <> self.id else true endif"
 		   });	
 		addAnnotation
 		  (eventEClass, 

@@ -2,7 +2,9 @@ package de.uni_stuttgart.iste.cowolf.ui.model.fault_tree.analyze;
 
 import java.util.HashMap;
 
+import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
@@ -15,6 +17,12 @@ import de.uni_stuttgart.iste.cowolf.ui.model.fault_tree.preferences.FaultTreePre
 public class FaultTreeAnalyzeWizard extends AbstractQoSAnalyzeWizard {
 
 	protected FaultTreeAnalyzeWizardPage1 pageOne;
+	
+	private static final String VALIDATE_PATH_ERROR_TITLE = "Path to xFTA not set";
+	private static final String VALIDATE_PATH_ERROR_MESSAGE = "The path to xFTA is missing.\nPlease set the path in your preferences first.";
+
+	private static final String VALIDATE_MODEL_ERROR_TITLE = "Errors in Fault Tree model";
+	private static final String VALIDATE_MODEL_ERROR_MESSAGE = "Errors in Fault Tree were found, please correct them first.\nRun Validation or enable Live Validation to display them.";
 
 	public FaultTreeAnalyzeWizard() {
 		super();
@@ -58,14 +66,35 @@ public class FaultTreeAnalyzeWizard extends AbstractQoSAnalyzeWizard {
 
 	@Override
 	public boolean checkConditions() {
+		return checkXftaPath() & checkValidModel();
+	}
+	
+	private boolean checkXftaPath(){
 		String path = FaultTreePreferencePage.getPathToXFTA().trim();
 		if (path.isEmpty() || path.equals("")) {
 			IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
-			   MessageDialog.openError(window.getShell(), "Path to xFTA not set",
-			     "The path to xFTA is missing.\nPlease set the path in your preferences first.");
+			   MessageDialog.openError(window.getShell(), VALIDATE_PATH_ERROR_TITLE,VALIDATE_PATH_ERROR_MESSAGE);
 			return false;
 		}
-		
 		return true;
+	}
+	
+	private boolean checkValidModel(){
+		if (resource != null && resource.getContents() != null
+				&& resource.getContents().get(0) != null) {
+			Diagnostic diag = Diagnostician.INSTANCE.validate(this.resource
+					.getContents().get(0));
+			if (diag.getChildren().size() > 0) {
+				IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+				MessageDialog.openError(window.getShell(), VALIDATE_MODEL_ERROR_TITLE, VALIDATE_MODEL_ERROR_MESSAGE);
+				return false;
+			}
+			else {
+				return true;
+			}
+		}
+		else {
+			return false;
+		}
 	}
 }

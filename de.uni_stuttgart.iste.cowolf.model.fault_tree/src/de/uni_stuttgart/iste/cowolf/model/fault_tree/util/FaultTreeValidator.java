@@ -191,6 +191,8 @@ public class FaultTreeValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validateGate_NoBasicEventAsOutput(gate, diagnostics, context);
 		if (result || diagnostics != null) result &= validateGate_AtLeastTwoInputs(gate, diagnostics, context);
 		if (result || diagnostics != null) result &= validateGate_ExactlyOneOutput(gate, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGate_NoAutoReferencesAllowedInInputGates(gate, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGate_NoAutoReferencesAllowedInOutputGate(gate, diagnostics, context);
 		return result;
 	}
 
@@ -305,6 +307,64 @@ public class FaultTreeValidator extends EObjectValidator {
 				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
 				 "ExactlyOneOutput",
 				 GATE__EXACTLY_ONE_OUTPUT__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
+	}
+
+	/**
+	 * The cached validation expression for the NoAutoReferencesAllowedInInputGates constraint of '<em>Gate</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String GATE__NO_AUTO_REFERENCES_ALLOWED_IN_INPUT_GATES__EEXPRESSION = "if self.inputGates->size() > 0 then self.inputGates->select(g : Gate | g.id = self.id)->size() = 0 else true endif";
+
+	/**
+	 * Validates the NoAutoReferencesAllowedInInputGates constraint of '<em>Gate</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateGate_NoAutoReferencesAllowedInInputGates(Gate gate, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(FaultTreePackage.Literals.GATE,
+				 gate,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
+				 "NoAutoReferencesAllowedInInputGates",
+				 GATE__NO_AUTO_REFERENCES_ALLOWED_IN_INPUT_GATES__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
+	}
+
+	/**
+	 * The cached validation expression for the NoAutoReferencesAllowedInOutputGate constraint of '<em>Gate</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String GATE__NO_AUTO_REFERENCES_ALLOWED_IN_OUTPUT_GATE__EEXPRESSION = "if self.outputGate <> null then self.outputGate.id <> self.id else true endif";
+
+	/**
+	 * Validates the NoAutoReferencesAllowedInOutputGate constraint of '<em>Gate</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateGate_NoAutoReferencesAllowedInOutputGate(Gate gate, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(FaultTreePackage.Literals.GATE,
+				 gate,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
+				 "NoAutoReferencesAllowedInOutputGate",
+				 GATE__NO_AUTO_REFERENCES_ALLOWED_IN_OUTPUT_GATE__EEXPRESSION,
 				 Diagnostic.ERROR,
 				 DIAGNOSTIC_SOURCE,
 				 0);
@@ -620,6 +680,8 @@ public class FaultTreeValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validateGate_NoBasicEventAsOutput(or, diagnostics, context);
 		if (result || diagnostics != null) result &= validateGate_AtLeastTwoInputs(or, diagnostics, context);
 		if (result || diagnostics != null) result &= validateGate_ExactlyOneOutput(or, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGate_NoAutoReferencesAllowedInInputGates(or, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGate_NoAutoReferencesAllowedInOutputGate(or, diagnostics, context);
 		return result;
 	}
 
@@ -642,6 +704,8 @@ public class FaultTreeValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validateGate_NoBasicEventAsOutput(and, diagnostics, context);
 		if (result || diagnostics != null) result &= validateGate_AtLeastTwoInputs(and, diagnostics, context);
 		if (result || diagnostics != null) result &= validateGate_ExactlyOneOutput(and, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGate_NoAutoReferencesAllowedInInputGates(and, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGate_NoAutoReferencesAllowedInOutputGate(and, diagnostics, context);
 		return result;
 	}
 
@@ -664,6 +728,8 @@ public class FaultTreeValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validateGate_NoBasicEventAsOutput(xor, diagnostics, context);
 		if (result || diagnostics != null) result &= validateGate_AtLeastTwoInputs(xor, diagnostics, context);
 		if (result || diagnostics != null) result &= validateGate_ExactlyOneOutput(xor, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGate_NoAutoReferencesAllowedInInputGates(xor, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGate_NoAutoReferencesAllowedInOutputGate(xor, diagnostics, context);
 		return result;
 	}
 
@@ -686,6 +752,8 @@ public class FaultTreeValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validateGate_NoBasicEventAsOutput(priorAND, diagnostics, context);
 		if (result || diagnostics != null) result &= validateGate_AtLeastTwoInputs(priorAND, diagnostics, context);
 		if (result || diagnostics != null) result &= validateGate_ExactlyOneOutput(priorAND, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGate_NoAutoReferencesAllowedInInputGates(priorAND, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGate_NoAutoReferencesAllowedInOutputGate(priorAND, diagnostics, context);
 		return result;
 	}
 
@@ -708,6 +776,8 @@ public class FaultTreeValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validateGate_NoBasicEventAsOutput(inhibit, diagnostics, context);
 		if (result || diagnostics != null) result &= validateGate_AtLeastTwoInputs(inhibit, diagnostics, context);
 		if (result || diagnostics != null) result &= validateGate_ExactlyOneOutput(inhibit, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGate_NoAutoReferencesAllowedInInputGates(inhibit, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGate_NoAutoReferencesAllowedInOutputGate(inhibit, diagnostics, context);
 		return result;
 	}
 

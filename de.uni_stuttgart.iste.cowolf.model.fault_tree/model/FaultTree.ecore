@@ -21,13 +21,15 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Gate" abstract="true" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="NoHazardAsInput NoBasicEventAsOutput AtLeastTwoInputs ExactlyOneOutput"/>
+      <details key="constraints" value="NoHazardAsInput NoBasicEventAsOutput AtLeastTwoInputs ExactlyOneOutput NoAutoReferencesAllowedInInputGates NoAutoReferencesAllowedInOutputGate"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
       <details key="NoHazardAsInput" value="self.inputEvents->forAll(e : Event | (e.oclIsTypeOf(BasicEvent) or e.oclIsTypeOf(IntermediateEvent)) and not e.oclIsTypeOf(Hazard))"/>
       <details key="NoBasicEventAsOutput" value="self.outputEvent->forAll(e : Event | (e.oclIsTypeOf(IntermediateEvent) or e.oclIsTypeOf(Hazard)) and not e.oclIsTypeOf(BasicEvent))"/>
       <details key="AtLeastTwoInputs" value="self.inputGates->size() + self.inputEvents->size() >= 2"/>
       <details key="ExactlyOneOutput" value="self.outputGate->size() + self.outputEvent->size() = 1"/>
+      <details key="NoAutoReferencesAllowedInInputGates" value="if self.inputGates->size() > 0 then self.inputGates->select(g : Gate | g.id = self.id)->size() = 0 else true endif"/>
+      <details key="NoAutoReferencesAllowedInOutputGate" value="if self.outputGate &lt;> null then self.outputGate.id &lt;> self.id else true endif"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputGates" upperBound="-1"
         eType="#//Gate"/>
