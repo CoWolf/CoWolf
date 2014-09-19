@@ -4,23 +4,9 @@
   <imports href="http://FaultTree/1.0#/"/>
   <imports href="http://www.eclipse.org/emf/2011/Henshin/Trace#/"/>
   <imports href="http://www.sidiff.org/difference/symmetric/1.0#/"/>
-  <units xsi:type="henshin:SequentialUnit" xmi:id="_ASZM0D8jEeSDhIfSuKzNKw" name="mainLoopIteration" subUnits="_CdoVUD8jEeSDhIfSuKzNKw _vdoNID84EeSDhIfSuKzNKw _2nxk0D8mEeSDhIfSuKzNKw _rphO4D8jEeSDhIfSuKzNKw _jmN5QD9DEeSDhIfSuKzNKw" strict="false" rollback="false">
-    <parameters xmi:id="_LkDHQD8jEeSDhIfSuKzNKw" name="gateId"/>
-    <parameters xmi:id="_ADDT0D8kEeSDhIfSuKzNKw" name="startId"/>
-    <parameterMappings xmi:id="_MahcQD8jEeSDhIfSuKzNKw" source="_LkDHQD8jEeSDhIfSuKzNKw" target="_H9kIwD8jEeSDhIfSuKzNKw"/>
-    <parameterMappings xmi:id="_MaiDUD8jEeSDhIfSuKzNKw" source="_H9kIwD8jEeSDhIfSuKzNKw" target="_LkDHQD8jEeSDhIfSuKzNKw"/>
-    <parameterMappings xmi:id="_GS8dMD8nEeSDhIfSuKzNKw" source="_LkDHQD8jEeSDhIfSuKzNKw" target="_4xecQD8mEeSDhIfSuKzNKw"/>
-    <parameterMappings xmi:id="_GS9EQD8nEeSDhIfSuKzNKw" source="_4xecQD8mEeSDhIfSuKzNKw" target="_LkDHQD8jEeSDhIfSuKzNKw"/>
-    <parameterMappings xmi:id="_GS9EQT8nEeSDhIfSuKzNKw" source="_ADDT0D8kEeSDhIfSuKzNKw" target="_4xecQT8mEeSDhIfSuKzNKw"/>
-    <parameterMappings xmi:id="_GS9EQj8nEeSDhIfSuKzNKw" source="_4xecQT8mEeSDhIfSuKzNKw" target="_ADDT0D8kEeSDhIfSuKzNKw"/>
-    <parameterMappings xmi:id="_LD2VgD8pEeSDhIfSuKzNKw" source="_LkDHQD8jEeSDhIfSuKzNKw" target="_agqloD8lEeSDhIfSuKzNKw"/>
-    <parameterMappings xmi:id="_LD28kD8pEeSDhIfSuKzNKw" source="_agqloD8lEeSDhIfSuKzNKw" target="_LkDHQD8jEeSDhIfSuKzNKw"/>
-    <parameterMappings xmi:id="_LD28kT8pEeSDhIfSuKzNKw" source="_ADDT0D8kEeSDhIfSuKzNKw" target="_4PiUMD8jEeSDhIfSuKzNKw"/>
-    <parameterMappings xmi:id="_LD28kj8pEeSDhIfSuKzNKw" source="_4PiUMD8jEeSDhIfSuKzNKw" target="_ADDT0D8kEeSDhIfSuKzNKw"/>
-    <parameterMappings xmi:id="_YIk80D85EeSDhIfSuKzNKw" source="_LkDHQD8jEeSDhIfSuKzNKw" target="_0M8b8D84EeSDhIfSuKzNKw"/>
-    <parameterMappings xmi:id="_YIk80T85EeSDhIfSuKzNKw" source="_0M8b8D84EeSDhIfSuKzNKw" target="_LkDHQD8jEeSDhIfSuKzNKw"/>
-    <parameterMappings xmi:id="_oB8dsD9DEeSDhIfSuKzNKw" source="_LkDHQD8jEeSDhIfSuKzNKw" target="_kgbewD9DEeSDhIfSuKzNKw"/>
-    <parameterMappings xmi:id="_oB8dsT9DEeSDhIfSuKzNKw" source="_kgbewD9DEeSDhIfSuKzNKw" target="_LkDHQD8jEeSDhIfSuKzNKw"/>
+  <units xsi:type="henshin:SequentialUnit" xmi:id="_ASZM0D8jEeSDhIfSuKzNKw" name="mainUnit" subUnits="_CdoVUD8jEeSDhIfSuKzNKw _vdoNID84EeSDhIfSuKzNKw _2nxk0D8mEeSDhIfSuKzNKw _rphO4D8jEeSDhIfSuKzNKw _jmN5QD9DEeSDhIfSuKzNKw" rollback="false">
+    <parameters xmi:id="_jNrToD_WEeSr08IgXHP_ZA" name="gateId"/>
+    <parameters xmi:id="_jNrToT_WEeSr08IgXHP_ZA" name="startId"/>
   </units>
   <units xsi:type="henshin:Rule" xmi:id="_CdoVUD8jEeSDhIfSuKzNKw" name="hasAddedEventToOR">
     <parameters xmi:id="_H9kIwD8jEeSDhIfSuKzNKw" name="gateId"/>
@@ -48,21 +34,31 @@
       </edges>
     </lhs>
     <rhs xmi:id="_Cd7QQT8jEeSDhIfSuKzNKw" name="Rhs">
-      <nodes xmi:id="_Ec3pMD8jEeSDhIfSuKzNKw" outgoing="_GIe2cT8jEeSDhIfSuKzNKw">
+      <nodes xmi:id="_Ec3pMD8jEeSDhIfSuKzNKw" incoming="_bkZ_sT_XEeSr08IgXHP_ZA" outgoing="_GIe2cT8jEeSDhIfSuKzNKw">
         <type href="http://FaultTree/1.0#//OR"/>
         <attributes xmi:id="_IUfbAT8jEeSDhIfSuKzNKw" value="gateId">
           <type href="http://CommonBase/1.0#//IDBase/id"/>
         </attributes>
       </nodes>
-      <nodes xmi:id="_FN4PYT8jEeSDhIfSuKzNKw" incoming="_GIe2cT8jEeSDhIfSuKzNKw">
+      <nodes xmi:id="_FN4PYT8jEeSDhIfSuKzNKw" incoming="_GIe2cT8jEeSDhIfSuKzNKw _bkZ_sj_XEeSr08IgXHP_ZA">
         <type href="http://FaultTree/1.0#//Event"/>
+      </nodes>
+      <nodes xmi:id="_bkYKgD_XEeSr08IgXHP_ZA" name="" outgoing="_bkZ_sT_XEeSr08IgXHP_ZA _bkZ_sj_XEeSr08IgXHP_ZA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference"/>
       </nodes>
       <edges xmi:id="_GIe2cT8jEeSDhIfSuKzNKw" source="_Ec3pMD8jEeSDhIfSuKzNKw" target="_FN4PYT8jEeSDhIfSuKzNKw">
         <type href="http://FaultTree/1.0#//Gate/inputEvents"/>
       </edges>
+      <edges xmi:id="_bkZ_sT_XEeSr08IgXHP_ZA" source="_bkYKgD_XEeSr08IgXHP_ZA" target="_Ec3pMD8jEeSDhIfSuKzNKw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/src"/>
+      </edges>
+      <edges xmi:id="_bkZ_sj_XEeSr08IgXHP_ZA" source="_bkYKgD_XEeSr08IgXHP_ZA" target="_FN4PYT8jEeSDhIfSuKzNKw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/tgt"/>
+      </edges>
     </rhs>
     <mappings xmi:id="_Ec5eYD8jEeSDhIfSuKzNKw" origin="_Ec3CID8jEeSDhIfSuKzNKw" image="_Ec3pMD8jEeSDhIfSuKzNKw"/>
     <mappings xmi:id="_FN42cD8jEeSDhIfSuKzNKw" origin="_FN4PYD8jEeSDhIfSuKzNKw" image="_FN4PYT8jEeSDhIfSuKzNKw"/>
+    <mappings xmi:id="_bkZ_sD_XEeSr08IgXHP_ZA" origin="_xoRggD_MEeSr08IgXHP_ZA" image="_bkYKgD_XEeSr08IgXHP_ZA"/>
   </units>
   <units xsi:type="henshin:LoopUnit" xmi:id="_rphO4D8jEeSDhIfSuKzNKw" name="buildTree" subUnit="_nYr2YD8kEeSDhIfSuKzNKw">
     <parameters xmi:id="_agqloD8lEeSDhIfSuKzNKw" name="gateId"/>
@@ -805,5 +801,4 @@
     <parameterMappings xmi:id="_mu9L0D9DEeSDhIfSuKzNKw" source="_kgbewD9DEeSDhIfSuKzNKw" target="_zW4LED9CEeSDhIfSuKzNKw"/>
     <parameterMappings xmi:id="_mu9y4D9DEeSDhIfSuKzNKw" source="_zW4LED9CEeSDhIfSuKzNKw" target="_kgbewD9DEeSDhIfSuKzNKw"/>
   </units>
-  <units xsi:type="henshin:LoopUnit" xmi:id="_GPvTwD_NEeSr08IgXHP_ZA" name="mainUnit" subUnit="_ASZM0D8jEeSDhIfSuKzNKw"/>
 </henshin:Module>
