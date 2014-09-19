@@ -131,10 +131,7 @@ public class Transform extends AbstractHandler {
 	
 	private boolean isValid(IFile file) {
 		
-		ResourceSet resSet = new ResourceSetImpl();
-		Resource resource;
-		URI uri = URI.createPlatformResourceURI(file.getFullPath().toString(), true);
-		resource = resSet.getResource(uri, true);
+		Resource resource = getResourceOfIFile(file);
 		
 		if (resource != null && resource.getContents() != null && resource.getContents().get(0) != null) {
 			Diagnostic diag = Diagnostician.INSTANCE.validate(resource.getContents().get(0));
