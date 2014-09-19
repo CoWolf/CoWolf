@@ -912,7 +912,7 @@ public class FaultTreePackageImpl extends EPackageImpl implements FaultTreePacka
 
 		initEClass(basicEventEClass, BasicEvent.class, "BasicEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBasicEvent_Instance(), this.getErrorInstance(), this.getErrorInstance_Error(), "instance", null, 0, -1, BasicEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getBasicEvent_Probability(), ecorePackage.getEDouble(), "probability", "1", 0, 1, BasicEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBasicEvent_Probability(), ecorePackage.getEDouble(), "probability", "0", 0, 1, BasicEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBasicEvent_OutEvent(), this.getIntermediateEvent(), null, "outEvent", null, 0, 1, BasicEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(undevelopedEventEClass, UndevelopedEvent.class, "UndevelopedEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -955,8 +955,8 @@ public class FaultTreePackageImpl extends EPackageImpl implements FaultTreePacka
 		createImportAnnotations();
 		// http://www.eclipse.org/emf/2002/Ecore
 		createEcoreAnnotations();
-		// http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot
-		createPivotAnnotations();
+		// http://www.eclipse.org/emf/2002/Ecore/OCL
+		createOCLAnnotations();
 	}
 
 	/**
@@ -988,9 +988,9 @@ public class FaultTreePackageImpl extends EPackageImpl implements FaultTreePacka
 		  (this, 
 		   source, 
 		   new String[] {
-			 "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-			 "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"
+			 "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL",
+			 "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL",
+			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL"
 		   });	
 		addAnnotation
 		  (hazardEClass, 
@@ -1003,6 +1003,12 @@ public class FaultTreePackageImpl extends EPackageImpl implements FaultTreePacka
 		   source, 
 		   new String[] {
 			 "constraints", "NoHazardAsInput NoBasicEventAsOutput AtLeastTwoInputs ExactlyOneOutput"
+		   });	
+		addAnnotation
+		  (eventEClass, 
+		   source, 
+		   new String[] {
+			 "constraints", "EventHasAName"
 		   });	
 		addAnnotation
 		  (intermediateEventEClass, 
@@ -1025,13 +1031,13 @@ public class FaultTreePackageImpl extends EPackageImpl implements FaultTreePacka
 	}
 
 	/**
-	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot</b>.
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore/OCL</b>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void createPivotAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";	
+	protected void createOCLAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL";	
 		addAnnotation
 		  (hazardEClass, 
 		   source, 
@@ -1046,6 +1052,12 @@ public class FaultTreePackageImpl extends EPackageImpl implements FaultTreePacka
 			 "NoBasicEventAsOutput", "self.outputEvent->forAll(e : Event | (e.oclIsTypeOf(IntermediateEvent) or e.oclIsTypeOf(Hazard)) and not e.oclIsTypeOf(BasicEvent))",
 			 "AtLeastTwoInputs", "self.inputGates->size() + self.inputEvents->size() >= 2",
 			 "ExactlyOneOutput", "self.outputGate->size() + self.outputEvent->size() = 1"
+		   });	
+		addAnnotation
+		  (eventEClass, 
+		   source, 
+		   new String[] {
+			 "EventHasAName", "self.name->size() > 0"
 		   });	
 		addAnnotation
 		  (intermediateEventEClass, 

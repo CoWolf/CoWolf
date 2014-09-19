@@ -23,6 +23,8 @@ import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
  *
  * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreePackage#getEvent()
  * @model abstract="true"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='EventHasAName'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL EventHasAName='self.name->size() > 0'"
  * @generated
  */
 public interface Event extends IDBase {

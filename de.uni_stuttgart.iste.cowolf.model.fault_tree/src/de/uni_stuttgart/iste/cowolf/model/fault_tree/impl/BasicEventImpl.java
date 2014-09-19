@@ -56,7 +56,7 @@ public class BasicEventImpl extends EventImpl implements BasicEvent {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double PROBABILITY_EDEFAULT = 1.0;
+	protected static final double PROBABILITY_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getProbability() <em>Probability</em>}' attribute.

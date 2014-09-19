@@ -20,7 +20,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreePackage#getBasicEvent()
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='NoStandaloneBasicEvent'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot NoStandaloneBasicEvent='self.inputGate->size() + self.outputGate->size() + self.outEvent->size()> 0'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL NoStandaloneBasicEvent='self.inputGate->size() + self.outputGate->size() + self.outEvent->size()> 0'"
  * @generated
  */
 public interface BasicEvent extends Event {
@@ -44,7 +44,7 @@ public interface BasicEvent extends Event {
 
 	/**
 	 * Returns the value of the '<em><b>Probability</b></em>' attribute.
-	 * The default value is <code>"1"</code>.
+	 * The default value is <code>"0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Probability</em>' attribute isn't clear,
@@ -54,7 +54,7 @@ public interface BasicEvent extends Event {
 	 * @return the value of the '<em>Probability</em>' attribute.
 	 * @see #setProbability(double)
 	 * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreePackage#getBasicEvent_Probability()
-	 * @model default="1"
+	 * @model default="0"
 	 * @generated
 	 */
 	double getProbability();

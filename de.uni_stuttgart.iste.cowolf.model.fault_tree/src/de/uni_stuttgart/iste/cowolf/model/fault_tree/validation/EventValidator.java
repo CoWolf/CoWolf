@@ -6,6 +6,7 @@ package de.uni_stuttgart.iste.cowolf.model.fault_tree.validation;
 
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree;
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.Gate;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * A sample validator interface for {@link de.uni_stuttgart.iste.cowolf.model.fault_tree.Event}.
@@ -20,6 +21,8 @@ public interface EventValidator {
 	boolean validateInputGate(Gate value);
 	boolean validateOutputGate(Gate value);
 	boolean validateRoot(FaultTree value);
+	boolean validateName(EList<String> value);
+
 	boolean validateName(String value);
 	boolean validateId(int value);
 }
