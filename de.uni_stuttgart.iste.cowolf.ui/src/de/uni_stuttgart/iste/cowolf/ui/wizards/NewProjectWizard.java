@@ -22,7 +22,7 @@ import de.uni_stuttgart.iste.cowolf.ui.externalizedStrings.Messages;
  *
  */
 public class NewProjectWizard extends Wizard implements INewWizard,
-IExecutableExtension {
+		IExecutableExtension {
 
 	private static final String PAGE_NAME = Messages.CustomNewProjectWizard_page_1_name;
 	private static final String WIZARD_NAME = Messages.CustomNewProjectWizard_new_project_wizard_name;

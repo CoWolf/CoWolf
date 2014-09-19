@@ -9,7 +9,6 @@ import org.eclipse.ui.PlatformUI;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociationFactory;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelResourceChangeListener;
 
-
 /**
  * This trigger is executed at the very start of eclipse. You can add necessary
  * listeners here.
@@ -26,15 +25,16 @@ public class StartTrigger implements IStartup {
 
 		// listener for end of eclipse
 		addWorkbenchListener();
-		
+
 		addResourceChangeListener();
 
-
+		
 	}
 
 	private void addResourceChangeListener() {
-		ResourcesPlugin.getWorkspace().addResourceChangeListener(new ModelResourceChangeListener());
-		
+		ResourcesPlugin.getWorkspace().addResourceChangeListener(
+				new ModelResourceChangeListener());
+
 	}
 
 	/**
@@ -68,8 +68,6 @@ public class StartTrigger implements IStartup {
 				public void postShutdown(IWorkbench workbench) {
 					// nothing to do
 				}
-				
-				
 
 			};
 			PlatformUI.getWorkbench().addWorkbenchListener(workbenchListener);

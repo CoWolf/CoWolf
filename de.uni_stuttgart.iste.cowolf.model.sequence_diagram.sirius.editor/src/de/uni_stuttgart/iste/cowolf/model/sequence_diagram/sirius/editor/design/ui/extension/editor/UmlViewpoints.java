@@ -27,7 +27,7 @@ public class UmlViewpoints {
 	}
 
 	public Viewpoint design() {
-		return registry.getViewpoint(URI.createURI("viewpoint:/de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.design/Design"));
+		return registry.getViewpoint(URI.createURI("viewpoint:/de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.design/Sequence diagram"));
 	}
 
 	public Viewpoint review() {

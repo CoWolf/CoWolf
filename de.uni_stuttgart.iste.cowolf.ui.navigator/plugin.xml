@@ -43,6 +43,13 @@ activeByDefault="true"
             </and>
          </filterExpression>
       </commonFilter>
+       <commonFilter
+activeByDefault="true"
+class="de.uni_stuttgart.iste.cowolf.ui.navigator.filter.AirdFileFilter"
+description="Hides Representation descriptions"
+id="de.uni_stuttgart.iste.cowolf.ui.navigator.filters.AirdFileFilter"
+name="Representation descriptions in CoWolf">
+</commonFilter>
 </extension>
 <extension
 point="org.eclipse.ui.handlers">
@@ -149,6 +156,16 @@ allPopups="false"
             </iterate>
          </with>
       </definition>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            default="true"
+            extensions="ctmc, dtmc, sequence_diagram, statemachine, faulttree"
+            id="de.uni_stuttgart.iste.cowolf.ui.navigator.editors.graphicalEditor"
+            launcher="de.uni_stuttgart.iste.cowolf.ui.navigator.editors.GraphicalEditor"
+            name="graphical editor">
+      </editor>
    </extension>
 </plugin>
 

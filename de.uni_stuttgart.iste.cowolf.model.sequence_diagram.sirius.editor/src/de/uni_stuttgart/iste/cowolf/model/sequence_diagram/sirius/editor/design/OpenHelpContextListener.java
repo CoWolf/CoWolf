@@ -47,8 +47,7 @@ public class OpenHelpContextListener implements IPartListener2 {
 	public void partOpened(IWorkbenchPartReference partRef) {
 		IWorkbenchPart part = partRef.getPart(false);
 		if (part instanceof DialectEditor) {
-			String representationId = DialectManager.INSTANCE.getDescription(
-					((DialectEditor)part).getRepresentation()).getName();
+			String representationId = "Sequence_Diagram";
 
 			if (!preferenceStore.getBoolean(representationId)) {
 				preferenceStore.setValue(representationId, Boolean.TRUE);
