@@ -111,7 +111,6 @@ class PRISMGenerator {
 
 		for (entry : nameToIntMap.entrySet()) {
 		    var name = entry.key.replace("\"", "\\\\\"").replace("'", "\\\\'");
-		    println("Replacing: " + name);
 			result = result.replaceAll("State:([\"'])" + name + "\\1", "s=" + entry.value)
 		}
 		for (entry : labelsList) {
