@@ -193,9 +193,9 @@ public class StatemachineModelWizard extends Wizard implements INewWizard {
 			for (EClassifier eClassifier : statemachinePackage.getEClassifiers()) {
 				if (eClassifier instanceof EClass) {
 					EClass eClass = (EClass)eClassifier;
-					if (!eClass.isAbstract() && eClass.getName().equalsIgnoreCase("StateMachineRoot")) {
-					      initialObjectNames.add(eClass.getName());
-					     }
+					if (!eClass.isAbstract()) {
+						initialObjectNames.add(eClass.getName());
+					}
 				}
 			}
 			Collections.sort(initialObjectNames, CommonPlugin.INSTANCE.getComparator());

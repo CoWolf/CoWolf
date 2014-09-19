@@ -20,7 +20,6 @@ Package statechart <http://Statemachine/1.0>
     Reference InitialState : State
 
   Class State -> StateVertex
-    Attribute label : EString<<0..*>>
     Reference state_container : StateMachine
     Reference internalTransitions : Transition<<0..*>>
     Reference deferrableEvents : Event<<0..*>>
@@ -59,6 +58,7 @@ Package statechart <http://Statemachine/1.0>
     Reference sv_container : CompositeState
     Reference outgoing : Transition<<0..*>>
     Reference incoming : Transition<<0..*>>
+    Reference label : Label<<0..*>>
 
   Class StateAction -> Action
     Reference action_container : State
@@ -68,3 +68,6 @@ Package statechart <http://Statemachine/1.0>
   Class ENTRY -> StateAction
 
   Class EXIT -> StateAction
+
+  Class Label -> IDBase
+    Attribute name : EString

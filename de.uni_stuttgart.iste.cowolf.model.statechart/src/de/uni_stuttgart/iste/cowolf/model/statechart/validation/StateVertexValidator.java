@@ -5,6 +5,7 @@
 package de.uni_stuttgart.iste.cowolf.model.statechart.validation;
 
 import de.uni_stuttgart.iste.cowolf.model.statechart.CompositeState;
+import de.uni_stuttgart.iste.cowolf.model.statechart.Label;
 import de.uni_stuttgart.iste.cowolf.model.statechart.Transition;
 
 import org.eclipse.emf.common.util.EList;
@@ -21,4 +22,6 @@ public interface StateVertexValidator {
 	boolean validateSv_container(CompositeState value);
 	boolean validateOutgoing(EList<Transition> value);
 	boolean validateIncoming(EList<Transition> value);
+
+	boolean validateLabel(EList<Label> value);
 }

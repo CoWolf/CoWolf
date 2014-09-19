@@ -7,16 +7,16 @@ This can be disabled with -vmargs -Dorg.eclipse.emf.examples.generator.validator
 
 Package component_diagram <http://component_diagram/1.0>
 
-  Class ComponentType
+  Class ComponentType -> IDBase
     Attribute name : EString
     Reference port_types : PortType<<0..*>>
     Reference instance : ComponentInstance<<0..*>>
 
-  Class Connector
+  Class Connector -> IDBase
     Attribute name : EString
     Reference port : PortInstance<<2..2>>
 
-  Class PortInstance
+  Class PortInstance -> IDBase
     Attribute name : EString
     Reference connect : Connector
     Reference outComponent : ComponentInstance
@@ -37,14 +37,14 @@ Package component_diagram <http://component_diagram/1.0>
   Class Sensor -> ElectronicDevice
     Attribute type : EString
 
-  Class Architecture
+  Class Architecture -> IDBase
     Reference component : ComponentType<<0..*>>
     Reference connectors : Connector<<0..*>>
     Reference ports : PortInstance<<0..*>>
     Reference instances : ComponentInstance<<0..*>>
     Reference port_type : PortType<<0..*>>
 
-  Class ComponentInstance
+  Class ComponentInstance -> IDBase
     Attribute name : EString
     Reference subcomponent : ComponentInstance<<0..*>>
     Reference parentcomponent : ComponentInstance
@@ -53,7 +53,7 @@ Package component_diagram <http://component_diagram/1.0>
     Reference type : ComponentType<<1..1>>
     Attribute version : EInt
 
-  Class PortType
+  Class PortType -> IDBase
     Attribute name : EString
     Reference component_type : ComponentType
     Reference port_instance : PortInstance<<0..*>>
