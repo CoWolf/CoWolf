@@ -17,7 +17,7 @@ package de.uni_stuttgart.iste.cowolf.model.fault_tree;
  *
  * @see de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreePackage#getHazard()
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='NoStandaloneUndevelopedEvent'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot NoStandaloneUndevelopedEvent='self.inputGate->size() + self.outputGate->size() + self.inEvent->size() > 0'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL NoStandaloneUndevelopedEvent='self.inputGate->size() + self.outputGate->size() + self.inEvent->size() > 0'"
  * @generated
  */
 public interface Hazard extends Event {

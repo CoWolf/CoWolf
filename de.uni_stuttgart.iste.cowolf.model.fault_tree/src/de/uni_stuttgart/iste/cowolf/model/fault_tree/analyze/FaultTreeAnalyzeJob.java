@@ -134,8 +134,8 @@ public class FaultTreeAnalyzeJob extends Job {
 			parseResultFile(pathToOutputXFTAFile);
 			monitor.done();
 
-			xFTAFaultTreeFile.delete();
-			xFTAScriptFile.delete();
+//			xFTAFaultTreeFile.delete();
+//			xFTAScriptFile.delete();
 
 		} catch (IOException e) {
 			e.printStackTrace();

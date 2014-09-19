@@ -10,35 +10,33 @@ Package fault_tree <http://FaultTree/1.0>
   Class Hazard -> Event
     Reference inEvent : IntermediateEvent
 
-  Class Gate
-    Attribute id : EInt<<1..1>>
+  Class Gate -> IDBase
     Reference inputGates : Gate<<0..*>>
     Reference inputEvents : Event<<0..*>>
     Reference outputGate : Gate
     Reference outputEvent : Event
-    Reference root : Root
+    Reference root : FaultTree
 
-  Class Event
+  Class Event -> IDBase
     Attribute description : EString
     Reference inputGate : Gate
     Reference outputGate : Gate
-    Reference root : Root
+    Reference root : FaultTree
     Attribute name : EString
-    Attribute id : EInt<<1..1>>
 
   Class IntermediateEvent -> Event
     Reference instance : FailureInstance<<0..*>>
     Reference inEvent : Event
     Reference outEvent : Event
 
-  Class FailureType
+  Class FailureType -> IDBase
     Reference instance : FailureInstance<<1..*>>
-    Reference root : Root
+    Reference root : FaultTree
     Attribute name : EString
 
-  Class FailureInstance
+  Class FailureInstance -> IDBase
     Reference type : FailureType<<1..1>>
-    Reference root : Root
+    Reference root : FaultTree
     Reference previousFailure : FailureInstance
     Reference previousError : ErrorInstance
     Reference event : IntermediateEvent
@@ -51,15 +49,15 @@ Package fault_tree <http://FaultTree/1.0>
 
   Class UndevelopedEvent -> Event
 
-  Class ErrorType
+  Class ErrorType -> IDBase
     Reference error : ErrorInstance<<1..*>>
-    Reference root : Root
+    Reference root : FaultTree
     Attribute name : EString
 
-  Class ErrorInstance
+  Class ErrorInstance -> IDBase
     Reference error : BasicEvent
     Reference type : ErrorType<<1..1>>
-    Reference root : Root
+    Reference root : FaultTree
     Attribute name : EString
 
   Class OR -> Gate
@@ -72,7 +70,7 @@ Package fault_tree <http://FaultTree/1.0>
 
   Class Inhibit -> Gate
 
-  Class Root
+  Class FaultTree -> IDBase
     Reference hazard : Hazard<<1..1>>
     Reference gate : Gate<<0..*>>
     Reference event : Event<<0..*>>

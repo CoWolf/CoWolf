@@ -138,6 +138,7 @@ public class FaultTreeValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(hazard, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(hazard, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(hazard, diagnostics, context);
+		if (result || diagnostics != null) result &= validateEvent_EventHasAName(hazard, diagnostics, context);
 		if (result || diagnostics != null) result &= validateHazard_NoStandaloneUndevelopedEvent(hazard, diagnostics, context);
 		return result;
 	}
@@ -163,7 +164,7 @@ public class FaultTreeValidator extends EObjectValidator {
 				 hazard,
 				 diagnostics,
 				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
 				 "NoStandaloneUndevelopedEvent",
 				 HAZARD__NO_STANDALONE_UNDEVELOPED_EVENT__EEXPRESSION,
 				 Diagnostic.ERROR,
@@ -214,7 +215,7 @@ public class FaultTreeValidator extends EObjectValidator {
 				 gate,
 				 diagnostics,
 				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
 				 "NoHazardAsInput",
 				 GATE__NO_HAZARD_AS_INPUT__EEXPRESSION,
 				 Diagnostic.ERROR,
@@ -243,7 +244,7 @@ public class FaultTreeValidator extends EObjectValidator {
 				 gate,
 				 diagnostics,
 				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
 				 "NoBasicEventAsOutput",
 				 GATE__NO_BASIC_EVENT_AS_OUTPUT__EEXPRESSION,
 				 Diagnostic.ERROR,
@@ -272,7 +273,7 @@ public class FaultTreeValidator extends EObjectValidator {
 				 gate,
 				 diagnostics,
 				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
 				 "AtLeastTwoInputs",
 				 GATE__AT_LEAST_TWO_INPUTS__EEXPRESSION,
 				 Diagnostic.ERROR,
@@ -301,7 +302,7 @@ public class FaultTreeValidator extends EObjectValidator {
 				 gate,
 				 diagnostics,
 				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
 				 "ExactlyOneOutput",
 				 GATE__EXACTLY_ONE_OUTPUT__EEXPRESSION,
 				 Diagnostic.ERROR,
@@ -315,7 +316,46 @@ public class FaultTreeValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateEvent(Event event, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(event, diagnostics, context);
+		if (!validate_NoCircularContainment(event, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(event, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(event, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(event, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(event, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(event, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(event, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(event, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(event, diagnostics, context);
+		if (result || diagnostics != null) result &= validateEvent_EventHasAName(event, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * The cached validation expression for the EventHasAName constraint of '<em>Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String EVENT__EVENT_HAS_ANAME__EEXPRESSION = "self.name->size() > 0";
+
+	/**
+	 * Validates the EventHasAName constraint of '<em>Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateEvent_EventHasAName(Event event, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(FaultTreePackage.Literals.EVENT,
+				 event,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
+				 "EventHasAName",
+				 EVENT__EVENT_HAS_ANAME__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
 
 	/**
@@ -333,6 +373,7 @@ public class FaultTreeValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(intermediateEvent, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(intermediateEvent, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(intermediateEvent, diagnostics, context);
+		if (result || diagnostics != null) result &= validateEvent_EventHasAName(intermediateEvent, diagnostics, context);
 		if (result || diagnostics != null) result &= validateIntermediateEvent_OnlyIntermediateOrBasicEventAsInput(intermediateEvent, diagnostics, context);
 		if (result || diagnostics != null) result &= validateIntermediateEvent_NoStandaloneIntermediateEvent(intermediateEvent, diagnostics, context);
 		if (result || diagnostics != null) result &= validateIntermediateEvent_OnlyIntermediateOrHazardtAsOutput(intermediateEvent, diagnostics, context);
@@ -360,7 +401,7 @@ public class FaultTreeValidator extends EObjectValidator {
 				 intermediateEvent,
 				 diagnostics,
 				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
 				 "OnlyIntermediateOrBasicEventAsInput",
 				 INTERMEDIATE_EVENT__ONLY_INTERMEDIATE_OR_BASIC_EVENT_AS_INPUT__EEXPRESSION,
 				 Diagnostic.ERROR,
@@ -389,7 +430,7 @@ public class FaultTreeValidator extends EObjectValidator {
 				 intermediateEvent,
 				 diagnostics,
 				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
 				 "NoStandaloneIntermediateEvent",
 				 INTERMEDIATE_EVENT__NO_STANDALONE_INTERMEDIATE_EVENT__EEXPRESSION,
 				 Diagnostic.ERROR,
@@ -418,7 +459,7 @@ public class FaultTreeValidator extends EObjectValidator {
 				 intermediateEvent,
 				 diagnostics,
 				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
 				 "OnlyIntermediateOrHazardtAsOutput",
 				 INTERMEDIATE_EVENT__ONLY_INTERMEDIATE_OR_HAZARDT_AS_OUTPUT__EEXPRESSION,
 				 Diagnostic.ERROR,
@@ -459,6 +500,7 @@ public class FaultTreeValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(basicEvent, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(basicEvent, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(basicEvent, diagnostics, context);
+		if (result || diagnostics != null) result &= validateEvent_EventHasAName(basicEvent, diagnostics, context);
 		if (result || diagnostics != null) result &= validateBasicEvent_NoStandaloneBasicEvent(basicEvent, diagnostics, context);
 		return result;
 	}
@@ -484,7 +526,7 @@ public class FaultTreeValidator extends EObjectValidator {
 				 basicEvent,
 				 diagnostics,
 				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
 				 "NoStandaloneBasicEvent",
 				 BASIC_EVENT__NO_STANDALONE_BASIC_EVENT__EEXPRESSION,
 				 Diagnostic.ERROR,
@@ -507,6 +549,7 @@ public class FaultTreeValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(undevelopedEvent, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(undevelopedEvent, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(undevelopedEvent, diagnostics, context);
+		if (result || diagnostics != null) result &= validateEvent_EventHasAName(undevelopedEvent, diagnostics, context);
 		if (result || diagnostics != null) result &= validateUndevelopedEvent_NoStandaloneUndevelopedEvent(undevelopedEvent, diagnostics, context);
 		return result;
 	}
@@ -532,7 +575,7 @@ public class FaultTreeValidator extends EObjectValidator {
 				 undevelopedEvent,
 				 diagnostics,
 				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
 				 "NoStandaloneUndevelopedEvent",
 				 UNDEVELOPED_EVENT__NO_STANDALONE_UNDEVELOPED_EVENT__EEXPRESSION,
 				 Diagnostic.ERROR,
