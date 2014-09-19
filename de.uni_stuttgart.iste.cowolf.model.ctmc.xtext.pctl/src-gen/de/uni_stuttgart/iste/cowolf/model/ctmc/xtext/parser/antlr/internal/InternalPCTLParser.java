@@ -435,18 +435,21 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
         EObject iv_ruleRule = null;
 
 
+         
+        		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS");
+        	
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:186:2: (iv_ruleRule= ruleRule EOF )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:187:2: iv_ruleRule= ruleRule EOF
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:189:2: (iv_ruleRule= ruleRule EOF )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:190:2: iv_ruleRule= ruleRule EOF
             {
              newCompositeNode(grammarAccess.getRuleRule()); 
-            pushFollow(FOLLOW_ruleRule_in_entryRuleRule376);
+            pushFollow(FOLLOW_ruleRule_in_entryRuleRule382);
             iv_ruleRule=ruleRule();
 
             state._fsp--;
 
              current =iv_ruleRule; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleRule386); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleRule392); 
 
             }
 
@@ -457,6 +460,9 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
                 appendSkippedTokens();
             } 
         finally {
+
+            	myHiddenTokenState.restore();
+
         }
         return current;
     }
@@ -464,7 +470,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRule"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:194:1: ruleRule returns [EObject current=null] : (this_BooleanRule_0= ruleBooleanRule | this_SteadyState_1= ruleSteadyState | this_QuantifiedProbability_2= ruleQuantifiedProbability ) ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:200:1: ruleRule returns [EObject current=null] : (this_BooleanRule_0= ruleBooleanRule | this_SteadyState_1= ruleSteadyState | this_QuantifiedProbability_2= ruleQuantifiedProbability ) ;
     public final EObject ruleRule() throws RecognitionException {
         EObject current = null;
 
@@ -476,61 +482,23 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
          enterRule(); 
+        		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS");
             
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:197:28: ( (this_BooleanRule_0= ruleBooleanRule | this_SteadyState_1= ruleSteadyState | this_QuantifiedProbability_2= ruleQuantifiedProbability ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:198:1: (this_BooleanRule_0= ruleBooleanRule | this_SteadyState_1= ruleSteadyState | this_QuantifiedProbability_2= ruleQuantifiedProbability )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:204:28: ( (this_BooleanRule_0= ruleBooleanRule | this_SteadyState_1= ruleSteadyState | this_QuantifiedProbability_2= ruleQuantifiedProbability ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:205:1: (this_BooleanRule_0= ruleBooleanRule | this_SteadyState_1= ruleSteadyState | this_QuantifiedProbability_2= ruleQuantifiedProbability )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:198:1: (this_BooleanRule_0= ruleBooleanRule | this_SteadyState_1= ruleSteadyState | this_QuantifiedProbability_2= ruleQuantifiedProbability )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:205:1: (this_BooleanRule_0= ruleBooleanRule | this_SteadyState_1= ruleSteadyState | this_QuantifiedProbability_2= ruleQuantifiedProbability )
             int alt3=3;
-            switch ( input.LA(1) ) {
-            case RULE_BOOL:
-            case 19:
-            case 21:
-            case 25:
-            case 26:
-                {
-                alt3=1;
-                }
-                break;
-            case 18:
-                {
-                int LA3_2 = input.LA(2);
-
-                if ( (LA3_2==RULE_COMPARATOR) ) {
-                    alt3=1;
-                }
-                else if ( (LA3_2==15) ) {
-                    alt3=3;
-                }
-                else {
-                    NoViableAltException nvae =
-                        new NoViableAltException("", 3, 2, input);
-
-                    throw nvae;
-                }
-                }
-                break;
-            case 14:
-                {
-                alt3=2;
-                }
-                break;
-            default:
-                NoViableAltException nvae =
-                    new NoViableAltException("", 3, 0, input);
-
-                throw nvae;
-            }
-
+            alt3 = dfa3.predict(input);
             switch (alt3) {
                 case 1 :
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:199:5: this_BooleanRule_0= ruleBooleanRule
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:206:5: this_BooleanRule_0= ruleBooleanRule
                     {
                      
                             newCompositeNode(grammarAccess.getRuleAccess().getBooleanRuleParserRuleCall_0()); 
                         
-                    pushFollow(FOLLOW_ruleBooleanRule_in_ruleRule433);
+                    pushFollow(FOLLOW_ruleBooleanRule_in_ruleRule443);
                     this_BooleanRule_0=ruleBooleanRule();
 
                     state._fsp--;
@@ -543,12 +511,12 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:209:5: this_SteadyState_1= ruleSteadyState
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:216:5: this_SteadyState_1= ruleSteadyState
                     {
                      
                             newCompositeNode(grammarAccess.getRuleAccess().getSteadyStateParserRuleCall_1()); 
                         
-                    pushFollow(FOLLOW_ruleSteadyState_in_ruleRule460);
+                    pushFollow(FOLLOW_ruleSteadyState_in_ruleRule470);
                     this_SteadyState_1=ruleSteadyState();
 
                     state._fsp--;
@@ -561,12 +529,12 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:219:5: this_QuantifiedProbability_2= ruleQuantifiedProbability
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:226:5: this_QuantifiedProbability_2= ruleQuantifiedProbability
                     {
                      
                             newCompositeNode(grammarAccess.getRuleAccess().getQuantifiedProbabilityParserRuleCall_2()); 
                         
-                    pushFollow(FOLLOW_ruleQuantifiedProbability_in_ruleRule487);
+                    pushFollow(FOLLOW_ruleQuantifiedProbability_in_ruleRule497);
                     this_QuantifiedProbability_2=ruleQuantifiedProbability();
 
                     state._fsp--;
@@ -592,6 +560,9 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
                 appendSkippedTokens();
             } 
         finally {
+
+            	myHiddenTokenState.restore();
+
         }
         return current;
     }
@@ -599,7 +570,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSteadyState"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:235:1: entryRuleSteadyState returns [EObject current=null] : iv_ruleSteadyState= ruleSteadyState EOF ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:245:1: entryRuleSteadyState returns [EObject current=null] : iv_ruleSteadyState= ruleSteadyState EOF ;
     public final EObject entryRuleSteadyState() throws RecognitionException {
         EObject current = null;
 
@@ -607,17 +578,17 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:236:2: (iv_ruleSteadyState= ruleSteadyState EOF )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:237:2: iv_ruleSteadyState= ruleSteadyState EOF
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:246:2: (iv_ruleSteadyState= ruleSteadyState EOF )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:247:2: iv_ruleSteadyState= ruleSteadyState EOF
             {
              newCompositeNode(grammarAccess.getSteadyStateRule()); 
-            pushFollow(FOLLOW_ruleSteadyState_in_entryRuleSteadyState522);
+            pushFollow(FOLLOW_ruleSteadyState_in_entryRuleSteadyState536);
             iv_ruleSteadyState=ruleSteadyState();
 
             state._fsp--;
 
              current =iv_ruleSteadyState; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleSteadyState532); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleSteadyState546); 
 
             }
 
@@ -635,63 +606,95 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSteadyState"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:244:1: ruleSteadyState returns [EObject current=null] : (otherlv_0= 'S' ( ( (lv_bound_1_0= ruleCompareProbability ) ) | otherlv_2= '=?' ) otherlv_3= '[' ( (lv_value_4_0= ruleStateFormula ) ) otherlv_5= ']' ) ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:254:1: ruleSteadyState returns [EObject current=null] : (otherlv_0= 'S' (this_SL_COMMENT_1= RULE_SL_COMMENT )* ( ( (lv_bound_2_0= ruleCompareProbability ) ) | otherlv_3= '=?' ) (this_SL_COMMENT_4= RULE_SL_COMMENT )* otherlv_5= '[' (this_SL_COMMENT_6= RULE_SL_COMMENT )* ( (lv_value_7_0= ruleStateFormula ) ) (this_SL_COMMENT_8= RULE_SL_COMMENT )* otherlv_9= ']' ) ;
     public final EObject ruleSteadyState() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
-        Token otherlv_2=null;
+        Token this_SL_COMMENT_1=null;
         Token otherlv_3=null;
+        Token this_SL_COMMENT_4=null;
         Token otherlv_5=null;
-        EObject lv_bound_1_0 = null;
+        Token this_SL_COMMENT_6=null;
+        Token this_SL_COMMENT_8=null;
+        Token otherlv_9=null;
+        EObject lv_bound_2_0 = null;
 
-        EObject lv_value_4_0 = null;
+        EObject lv_value_7_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:247:28: ( (otherlv_0= 'S' ( ( (lv_bound_1_0= ruleCompareProbability ) ) | otherlv_2= '=?' ) otherlv_3= '[' ( (lv_value_4_0= ruleStateFormula ) ) otherlv_5= ']' ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:248:1: (otherlv_0= 'S' ( ( (lv_bound_1_0= ruleCompareProbability ) ) | otherlv_2= '=?' ) otherlv_3= '[' ( (lv_value_4_0= ruleStateFormula ) ) otherlv_5= ']' )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:257:28: ( (otherlv_0= 'S' (this_SL_COMMENT_1= RULE_SL_COMMENT )* ( ( (lv_bound_2_0= ruleCompareProbability ) ) | otherlv_3= '=?' ) (this_SL_COMMENT_4= RULE_SL_COMMENT )* otherlv_5= '[' (this_SL_COMMENT_6= RULE_SL_COMMENT )* ( (lv_value_7_0= ruleStateFormula ) ) (this_SL_COMMENT_8= RULE_SL_COMMENT )* otherlv_9= ']' ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:258:1: (otherlv_0= 'S' (this_SL_COMMENT_1= RULE_SL_COMMENT )* ( ( (lv_bound_2_0= ruleCompareProbability ) ) | otherlv_3= '=?' ) (this_SL_COMMENT_4= RULE_SL_COMMENT )* otherlv_5= '[' (this_SL_COMMENT_6= RULE_SL_COMMENT )* ( (lv_value_7_0= ruleStateFormula ) ) (this_SL_COMMENT_8= RULE_SL_COMMENT )* otherlv_9= ']' )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:248:1: (otherlv_0= 'S' ( ( (lv_bound_1_0= ruleCompareProbability ) ) | otherlv_2= '=?' ) otherlv_3= '[' ( (lv_value_4_0= ruleStateFormula ) ) otherlv_5= ']' )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:248:3: otherlv_0= 'S' ( ( (lv_bound_1_0= ruleCompareProbability ) ) | otherlv_2= '=?' ) otherlv_3= '[' ( (lv_value_4_0= ruleStateFormula ) ) otherlv_5= ']'
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:258:1: (otherlv_0= 'S' (this_SL_COMMENT_1= RULE_SL_COMMENT )* ( ( (lv_bound_2_0= ruleCompareProbability ) ) | otherlv_3= '=?' ) (this_SL_COMMENT_4= RULE_SL_COMMENT )* otherlv_5= '[' (this_SL_COMMENT_6= RULE_SL_COMMENT )* ( (lv_value_7_0= ruleStateFormula ) ) (this_SL_COMMENT_8= RULE_SL_COMMENT )* otherlv_9= ']' )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:258:3: otherlv_0= 'S' (this_SL_COMMENT_1= RULE_SL_COMMENT )* ( ( (lv_bound_2_0= ruleCompareProbability ) ) | otherlv_3= '=?' ) (this_SL_COMMENT_4= RULE_SL_COMMENT )* otherlv_5= '[' (this_SL_COMMENT_6= RULE_SL_COMMENT )* ( (lv_value_7_0= ruleStateFormula ) ) (this_SL_COMMENT_8= RULE_SL_COMMENT )* otherlv_9= ']'
             {
-            otherlv_0=(Token)match(input,14,FOLLOW_14_in_ruleSteadyState569); 
+            otherlv_0=(Token)match(input,14,FOLLOW_14_in_ruleSteadyState583); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getSteadyStateAccess().getSKeyword_0());
                 
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:252:1: ( ( (lv_bound_1_0= ruleCompareProbability ) ) | otherlv_2= '=?' )
-            int alt4=2;
-            int LA4_0 = input.LA(1);
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:262:1: (this_SL_COMMENT_1= RULE_SL_COMMENT )*
+            loop4:
+            do {
+                int alt4=2;
+                int LA4_0 = input.LA(1);
 
-            if ( (LA4_0==RULE_COMPARATOR) ) {
-                alt4=1;
+                if ( (LA4_0==RULE_SL_COMMENT) ) {
+                    alt4=1;
+                }
+
+
+                switch (alt4) {
+            	case 1 :
+            	    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:262:2: this_SL_COMMENT_1= RULE_SL_COMMENT
+            	    {
+            	    this_SL_COMMENT_1=(Token)match(input,RULE_SL_COMMENT,FOLLOW_RULE_SL_COMMENT_in_ruleSteadyState595); 
+            	     
+            	        newLeafNode(this_SL_COMMENT_1, grammarAccess.getSteadyStateAccess().getSL_COMMENTTerminalRuleCall_1()); 
+            	        
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop4;
+                }
+            } while (true);
+
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:266:3: ( ( (lv_bound_2_0= ruleCompareProbability ) ) | otherlv_3= '=?' )
+            int alt5=2;
+            int LA5_0 = input.LA(1);
+
+            if ( (LA5_0==RULE_COMPARATOR) ) {
+                alt5=1;
             }
-            else if ( (LA4_0==15) ) {
-                alt4=2;
+            else if ( (LA5_0==15) ) {
+                alt5=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 4, 0, input);
+                    new NoViableAltException("", 5, 0, input);
 
                 throw nvae;
             }
-            switch (alt4) {
+            switch (alt5) {
                 case 1 :
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:252:2: ( (lv_bound_1_0= ruleCompareProbability ) )
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:266:4: ( (lv_bound_2_0= ruleCompareProbability ) )
                     {
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:252:2: ( (lv_bound_1_0= ruleCompareProbability ) )
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:253:1: (lv_bound_1_0= ruleCompareProbability )
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:266:4: ( (lv_bound_2_0= ruleCompareProbability ) )
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:267:1: (lv_bound_2_0= ruleCompareProbability )
                     {
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:253:1: (lv_bound_1_0= ruleCompareProbability )
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:254:3: lv_bound_1_0= ruleCompareProbability
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:267:1: (lv_bound_2_0= ruleCompareProbability )
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:268:3: lv_bound_2_0= ruleCompareProbability
                     {
                      
-                    	        newCompositeNode(grammarAccess.getSteadyStateAccess().getBoundCompareProbabilityParserRuleCall_1_0_0()); 
+                    	        newCompositeNode(grammarAccess.getSteadyStateAccess().getBoundCompareProbabilityParserRuleCall_2_0_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleCompareProbability_in_ruleSteadyState591);
-                    lv_bound_1_0=ruleCompareProbability();
+                    pushFollow(FOLLOW_ruleCompareProbability_in_ruleSteadyState618);
+                    lv_bound_2_0=ruleCompareProbability();
 
                     state._fsp--;
 
@@ -702,7 +705,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
                            		set(
                            			current, 
                            			"bound",
-                            		lv_bound_1_0, 
+                            		lv_bound_2_0, 
                             		"CompareProbability");
                     	        afterParserOrEnumRuleCall();
                     	    
@@ -716,11 +719,11 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:271:7: otherlv_2= '=?'
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:285:7: otherlv_3= '=?'
                     {
-                    otherlv_2=(Token)match(input,15,FOLLOW_15_in_ruleSteadyState609); 
+                    otherlv_3=(Token)match(input,15,FOLLOW_15_in_ruleSteadyState636); 
 
-                        	newLeafNode(otherlv_2, grammarAccess.getSteadyStateAccess().getEqualsSignQuestionMarkKeyword_1_1());
+                        	newLeafNode(otherlv_3, grammarAccess.getSteadyStateAccess().getEqualsSignQuestionMarkKeyword_2_1());
                         
 
                     }
@@ -728,21 +731,77 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,16,FOLLOW_16_in_ruleSteadyState622); 
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:289:2: (this_SL_COMMENT_4= RULE_SL_COMMENT )*
+            loop6:
+            do {
+                int alt6=2;
+                int LA6_0 = input.LA(1);
 
-                	newLeafNode(otherlv_3, grammarAccess.getSteadyStateAccess().getLeftSquareBracketKeyword_2());
+                if ( (LA6_0==RULE_SL_COMMENT) ) {
+                    alt6=1;
+                }
+
+
+                switch (alt6) {
+            	case 1 :
+            	    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:289:3: this_SL_COMMENT_4= RULE_SL_COMMENT
+            	    {
+            	    this_SL_COMMENT_4=(Token)match(input,RULE_SL_COMMENT,FOLLOW_RULE_SL_COMMENT_in_ruleSteadyState649); 
+            	     
+            	        newLeafNode(this_SL_COMMENT_4, grammarAccess.getSteadyStateAccess().getSL_COMMENTTerminalRuleCall_3()); 
+            	        
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop6;
+                }
+            } while (true);
+
+            otherlv_5=(Token)match(input,16,FOLLOW_16_in_ruleSteadyState662); 
+
+                	newLeafNode(otherlv_5, grammarAccess.getSteadyStateAccess().getLeftSquareBracketKeyword_4());
                 
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:279:1: ( (lv_value_4_0= ruleStateFormula ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:280:1: (lv_value_4_0= ruleStateFormula )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:297:1: (this_SL_COMMENT_6= RULE_SL_COMMENT )*
+            loop7:
+            do {
+                int alt7=2;
+                int LA7_0 = input.LA(1);
+
+                if ( (LA7_0==RULE_SL_COMMENT) ) {
+                    alt7=1;
+                }
+
+
+                switch (alt7) {
+            	case 1 :
+            	    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:297:2: this_SL_COMMENT_6= RULE_SL_COMMENT
+            	    {
+            	    this_SL_COMMENT_6=(Token)match(input,RULE_SL_COMMENT,FOLLOW_RULE_SL_COMMENT_in_ruleSteadyState674); 
+            	     
+            	        newLeafNode(this_SL_COMMENT_6, grammarAccess.getSteadyStateAccess().getSL_COMMENTTerminalRuleCall_5()); 
+            	        
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop7;
+                }
+            } while (true);
+
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:301:3: ( (lv_value_7_0= ruleStateFormula ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:302:1: (lv_value_7_0= ruleStateFormula )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:280:1: (lv_value_4_0= ruleStateFormula )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:281:3: lv_value_4_0= ruleStateFormula
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:302:1: (lv_value_7_0= ruleStateFormula )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:303:3: lv_value_7_0= ruleStateFormula
             {
              
-            	        newCompositeNode(grammarAccess.getSteadyStateAccess().getValueStateFormulaParserRuleCall_3_0()); 
+            	        newCompositeNode(grammarAccess.getSteadyStateAccess().getValueStateFormulaParserRuleCall_6_0()); 
             	    
-            pushFollow(FOLLOW_ruleStateFormula_in_ruleSteadyState643);
-            lv_value_4_0=ruleStateFormula();
+            pushFollow(FOLLOW_ruleStateFormula_in_ruleSteadyState696);
+            lv_value_7_0=ruleStateFormula();
 
             state._fsp--;
 
@@ -753,7 +812,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
                    		set(
                    			current, 
                    			"value",
-                    		lv_value_4_0, 
+                    		lv_value_7_0, 
                     		"StateFormula");
             	        afterParserOrEnumRuleCall();
             	    
@@ -763,9 +822,37 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,17,FOLLOW_17_in_ruleSteadyState655); 
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:319:2: (this_SL_COMMENT_8= RULE_SL_COMMENT )*
+            loop8:
+            do {
+                int alt8=2;
+                int LA8_0 = input.LA(1);
 
-                	newLeafNode(otherlv_5, grammarAccess.getSteadyStateAccess().getRightSquareBracketKeyword_4());
+                if ( (LA8_0==RULE_SL_COMMENT) ) {
+                    alt8=1;
+                }
+
+
+                switch (alt8) {
+            	case 1 :
+            	    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:319:3: this_SL_COMMENT_8= RULE_SL_COMMENT
+            	    {
+            	    this_SL_COMMENT_8=(Token)match(input,RULE_SL_COMMENT,FOLLOW_RULE_SL_COMMENT_in_ruleSteadyState708); 
+            	     
+            	        newLeafNode(this_SL_COMMENT_8, grammarAccess.getSteadyStateAccess().getSL_COMMENTTerminalRuleCall_7()); 
+            	        
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop8;
+                }
+            } while (true);
+
+            otherlv_9=(Token)match(input,17,FOLLOW_17_in_ruleSteadyState721); 
+
+                	newLeafNode(otherlv_9, grammarAccess.getSteadyStateAccess().getRightSquareBracketKeyword_8());
                 
 
             }
@@ -788,7 +875,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleQuantifiedProbability"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:309:1: entryRuleQuantifiedProbability returns [EObject current=null] : iv_ruleQuantifiedProbability= ruleQuantifiedProbability EOF ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:335:1: entryRuleQuantifiedProbability returns [EObject current=null] : iv_ruleQuantifiedProbability= ruleQuantifiedProbability EOF ;
     public final EObject entryRuleQuantifiedProbability() throws RecognitionException {
         EObject current = null;
 
@@ -796,17 +883,17 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:310:2: (iv_ruleQuantifiedProbability= ruleQuantifiedProbability EOF )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:311:2: iv_ruleQuantifiedProbability= ruleQuantifiedProbability EOF
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:336:2: (iv_ruleQuantifiedProbability= ruleQuantifiedProbability EOF )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:337:2: iv_ruleQuantifiedProbability= ruleQuantifiedProbability EOF
             {
              newCompositeNode(grammarAccess.getQuantifiedProbabilityRule()); 
-            pushFollow(FOLLOW_ruleQuantifiedProbability_in_entryRuleQuantifiedProbability691);
+            pushFollow(FOLLOW_ruleQuantifiedProbability_in_entryRuleQuantifiedProbability757);
             iv_ruleQuantifiedProbability=ruleQuantifiedProbability();
 
             state._fsp--;
 
              current =iv_ruleQuantifiedProbability; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleQuantifiedProbability701); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleQuantifiedProbability767); 
 
             }
 
@@ -824,55 +911,107 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleQuantifiedProbability"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:318:1: ruleQuantifiedProbability returns [EObject current=null] : ( (otherlv_0= 'P' otherlv_1= '=?' ) otherlv_2= '[' ( (lv_value_3_0= rulePathFormula ) ) otherlv_4= ']' ) ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:344:1: ruleQuantifiedProbability returns [EObject current=null] : (otherlv_0= 'P' (this_SL_COMMENT_1= RULE_SL_COMMENT )* otherlv_2= '=?' (this_SL_COMMENT_3= RULE_SL_COMMENT )* otherlv_4= '[' ( (lv_value_5_0= rulePathFormula ) ) otherlv_6= ']' ) ;
     public final EObject ruleQuantifiedProbability() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
-        Token otherlv_1=null;
+        Token this_SL_COMMENT_1=null;
         Token otherlv_2=null;
+        Token this_SL_COMMENT_3=null;
         Token otherlv_4=null;
-        EObject lv_value_3_0 = null;
+        Token otherlv_6=null;
+        EObject lv_value_5_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:321:28: ( ( (otherlv_0= 'P' otherlv_1= '=?' ) otherlv_2= '[' ( (lv_value_3_0= rulePathFormula ) ) otherlv_4= ']' ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:322:1: ( (otherlv_0= 'P' otherlv_1= '=?' ) otherlv_2= '[' ( (lv_value_3_0= rulePathFormula ) ) otherlv_4= ']' )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:347:28: ( (otherlv_0= 'P' (this_SL_COMMENT_1= RULE_SL_COMMENT )* otherlv_2= '=?' (this_SL_COMMENT_3= RULE_SL_COMMENT )* otherlv_4= '[' ( (lv_value_5_0= rulePathFormula ) ) otherlv_6= ']' ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:348:1: (otherlv_0= 'P' (this_SL_COMMENT_1= RULE_SL_COMMENT )* otherlv_2= '=?' (this_SL_COMMENT_3= RULE_SL_COMMENT )* otherlv_4= '[' ( (lv_value_5_0= rulePathFormula ) ) otherlv_6= ']' )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:322:1: ( (otherlv_0= 'P' otherlv_1= '=?' ) otherlv_2= '[' ( (lv_value_3_0= rulePathFormula ) ) otherlv_4= ']' )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:322:2: (otherlv_0= 'P' otherlv_1= '=?' ) otherlv_2= '[' ( (lv_value_3_0= rulePathFormula ) ) otherlv_4= ']'
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:348:1: (otherlv_0= 'P' (this_SL_COMMENT_1= RULE_SL_COMMENT )* otherlv_2= '=?' (this_SL_COMMENT_3= RULE_SL_COMMENT )* otherlv_4= '[' ( (lv_value_5_0= rulePathFormula ) ) otherlv_6= ']' )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:348:3: otherlv_0= 'P' (this_SL_COMMENT_1= RULE_SL_COMMENT )* otherlv_2= '=?' (this_SL_COMMENT_3= RULE_SL_COMMENT )* otherlv_4= '[' ( (lv_value_5_0= rulePathFormula ) ) otherlv_6= ']'
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:322:2: (otherlv_0= 'P' otherlv_1= '=?' )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:322:4: otherlv_0= 'P' otherlv_1= '=?'
-            {
-            otherlv_0=(Token)match(input,18,FOLLOW_18_in_ruleQuantifiedProbability739); 
+            otherlv_0=(Token)match(input,18,FOLLOW_18_in_ruleQuantifiedProbability804); 
 
-                	newLeafNode(otherlv_0, grammarAccess.getQuantifiedProbabilityAccess().getPKeyword_0_0());
+                	newLeafNode(otherlv_0, grammarAccess.getQuantifiedProbabilityAccess().getPKeyword_0());
                 
-            otherlv_1=(Token)match(input,15,FOLLOW_15_in_ruleQuantifiedProbability751); 
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:352:1: (this_SL_COMMENT_1= RULE_SL_COMMENT )*
+            loop9:
+            do {
+                int alt9=2;
+                int LA9_0 = input.LA(1);
 
-                	newLeafNode(otherlv_1, grammarAccess.getQuantifiedProbabilityAccess().getEqualsSignQuestionMarkKeyword_0_1());
+                if ( (LA9_0==RULE_SL_COMMENT) ) {
+                    alt9=1;
+                }
+
+
+                switch (alt9) {
+            	case 1 :
+            	    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:352:2: this_SL_COMMENT_1= RULE_SL_COMMENT
+            	    {
+            	    this_SL_COMMENT_1=(Token)match(input,RULE_SL_COMMENT,FOLLOW_RULE_SL_COMMENT_in_ruleQuantifiedProbability816); 
+            	     
+            	        newLeafNode(this_SL_COMMENT_1, grammarAccess.getQuantifiedProbabilityAccess().getSL_COMMENTTerminalRuleCall_1()); 
+            	        
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop9;
+                }
+            } while (true);
+
+            otherlv_2=(Token)match(input,15,FOLLOW_15_in_ruleQuantifiedProbability829); 
+
+                	newLeafNode(otherlv_2, grammarAccess.getQuantifiedProbabilityAccess().getEqualsSignQuestionMarkKeyword_2());
                 
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:360:1: (this_SL_COMMENT_3= RULE_SL_COMMENT )*
+            loop10:
+            do {
+                int alt10=2;
+                int LA10_0 = input.LA(1);
 
-            }
+                if ( (LA10_0==RULE_SL_COMMENT) ) {
+                    alt10=1;
+                }
 
-            otherlv_2=(Token)match(input,16,FOLLOW_16_in_ruleQuantifiedProbability764); 
 
-                	newLeafNode(otherlv_2, grammarAccess.getQuantifiedProbabilityAccess().getLeftSquareBracketKeyword_1());
+                switch (alt10) {
+            	case 1 :
+            	    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:360:2: this_SL_COMMENT_3= RULE_SL_COMMENT
+            	    {
+            	    this_SL_COMMENT_3=(Token)match(input,RULE_SL_COMMENT,FOLLOW_RULE_SL_COMMENT_in_ruleQuantifiedProbability841); 
+            	     
+            	        newLeafNode(this_SL_COMMENT_3, grammarAccess.getQuantifiedProbabilityAccess().getSL_COMMENTTerminalRuleCall_3()); 
+            	        
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop10;
+                }
+            } while (true);
+
+            otherlv_4=(Token)match(input,16,FOLLOW_16_in_ruleQuantifiedProbability854); 
+
+                	newLeafNode(otherlv_4, grammarAccess.getQuantifiedProbabilityAccess().getLeftSquareBracketKeyword_4());
                 
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:334:1: ( (lv_value_3_0= rulePathFormula ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:335:1: (lv_value_3_0= rulePathFormula )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:368:1: ( (lv_value_5_0= rulePathFormula ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:369:1: (lv_value_5_0= rulePathFormula )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:335:1: (lv_value_3_0= rulePathFormula )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:336:3: lv_value_3_0= rulePathFormula
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:369:1: (lv_value_5_0= rulePathFormula )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:370:3: lv_value_5_0= rulePathFormula
             {
              
-            	        newCompositeNode(grammarAccess.getQuantifiedProbabilityAccess().getValuePathFormulaParserRuleCall_2_0()); 
+            	        newCompositeNode(grammarAccess.getQuantifiedProbabilityAccess().getValuePathFormulaParserRuleCall_5_0()); 
             	    
-            pushFollow(FOLLOW_rulePathFormula_in_ruleQuantifiedProbability785);
-            lv_value_3_0=rulePathFormula();
+            pushFollow(FOLLOW_rulePathFormula_in_ruleQuantifiedProbability875);
+            lv_value_5_0=rulePathFormula();
 
             state._fsp--;
 
@@ -883,7 +1022,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
                    		set(
                    			current, 
                    			"value",
-                    		lv_value_3_0, 
+                    		lv_value_5_0, 
                     		"PathFormula");
             	        afterParserOrEnumRuleCall();
             	    
@@ -893,9 +1032,9 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,17,FOLLOW_17_in_ruleQuantifiedProbability797); 
+            otherlv_6=(Token)match(input,17,FOLLOW_17_in_ruleQuantifiedProbability887); 
 
-                	newLeafNode(otherlv_4, grammarAccess.getQuantifiedProbabilityAccess().getRightSquareBracketKeyword_3());
+                	newLeafNode(otherlv_6, grammarAccess.getQuantifiedProbabilityAccess().getRightSquareBracketKeyword_6());
                 
 
             }
@@ -918,7 +1057,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleBooleanRule"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:364:1: entryRuleBooleanRule returns [EObject current=null] : iv_ruleBooleanRule= ruleBooleanRule EOF ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:398:1: entryRuleBooleanRule returns [EObject current=null] : iv_ruleBooleanRule= ruleBooleanRule EOF ;
     public final EObject entryRuleBooleanRule() throws RecognitionException {
         EObject current = null;
 
@@ -926,17 +1065,17 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:365:2: (iv_ruleBooleanRule= ruleBooleanRule EOF )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:366:2: iv_ruleBooleanRule= ruleBooleanRule EOF
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:399:2: (iv_ruleBooleanRule= ruleBooleanRule EOF )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:400:2: iv_ruleBooleanRule= ruleBooleanRule EOF
             {
              newCompositeNode(grammarAccess.getBooleanRuleRule()); 
-            pushFollow(FOLLOW_ruleBooleanRule_in_entryRuleBooleanRule833);
+            pushFollow(FOLLOW_ruleBooleanRule_in_entryRuleBooleanRule923);
             iv_ruleBooleanRule=ruleBooleanRule();
 
             state._fsp--;
 
              current =iv_ruleBooleanRule; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleBooleanRule843); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleBooleanRule933); 
 
             }
 
@@ -954,7 +1093,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBooleanRule"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:373:1: ruleBooleanRule returns [EObject current=null] : ( (lv_value_0_0= ruleStateFormula ) ) ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:407:1: ruleBooleanRule returns [EObject current=null] : ( (lv_value_0_0= ruleStateFormula ) ) ;
     public final EObject ruleBooleanRule() throws RecognitionException {
         EObject current = null;
 
@@ -964,19 +1103,19 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:376:28: ( ( (lv_value_0_0= ruleStateFormula ) ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:377:1: ( (lv_value_0_0= ruleStateFormula ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:410:28: ( ( (lv_value_0_0= ruleStateFormula ) ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:411:1: ( (lv_value_0_0= ruleStateFormula ) )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:377:1: ( (lv_value_0_0= ruleStateFormula ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:378:1: (lv_value_0_0= ruleStateFormula )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:411:1: ( (lv_value_0_0= ruleStateFormula ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:412:1: (lv_value_0_0= ruleStateFormula )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:378:1: (lv_value_0_0= ruleStateFormula )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:379:3: lv_value_0_0= ruleStateFormula
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:412:1: (lv_value_0_0= ruleStateFormula )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:413:3: lv_value_0_0= ruleStateFormula
             {
              
             	        newCompositeNode(grammarAccess.getBooleanRuleAccess().getValueStateFormulaParserRuleCall_0()); 
             	    
-            pushFollow(FOLLOW_ruleStateFormula_in_ruleBooleanRule888);
+            pushFollow(FOLLOW_ruleStateFormula_in_ruleBooleanRule978);
             lv_value_0_0=ruleStateFormula();
 
             state._fsp--;
@@ -1016,7 +1155,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleStateFormula"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:403:1: entryRuleStateFormula returns [EObject current=null] : iv_ruleStateFormula= ruleStateFormula EOF ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:437:1: entryRuleStateFormula returns [EObject current=null] : iv_ruleStateFormula= ruleStateFormula EOF ;
     public final EObject entryRuleStateFormula() throws RecognitionException {
         EObject current = null;
 
@@ -1024,17 +1163,17 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:404:2: (iv_ruleStateFormula= ruleStateFormula EOF )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:405:2: iv_ruleStateFormula= ruleStateFormula EOF
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:438:2: (iv_ruleStateFormula= ruleStateFormula EOF )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:439:2: iv_ruleStateFormula= ruleStateFormula EOF
             {
              newCompositeNode(grammarAccess.getStateFormulaRule()); 
-            pushFollow(FOLLOW_ruleStateFormula_in_entryRuleStateFormula923);
+            pushFollow(FOLLOW_ruleStateFormula_in_entryRuleStateFormula1013);
             iv_ruleStateFormula=ruleStateFormula();
 
             state._fsp--;
 
              current =iv_ruleStateFormula; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleStateFormula933); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleStateFormula1023); 
 
             }
 
@@ -1052,69 +1191,99 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleStateFormula"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:412:1: ruleStateFormula returns [EObject current=null] : ( (otherlv_0= '(' ( (lv_left_1_0= ruleStateFormula ) ) ( ( (lv_right_2_0= ruleJunction ) ) | ( (lv_right_3_0= ruleImplication ) ) )? otherlv_4= ')' ) | ( ( (lv_left_5_1= ruleNegation | lv_left_5_2= ruleAtomic | lv_left_5_3= ruleProbability ) ) ) ) ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:446:1: ruleStateFormula returns [EObject current=null] : ( (otherlv_0= '(' (this_SL_COMMENT_1= RULE_SL_COMMENT )* ( (lv_left_2_0= ruleStateFormula ) ) ( ( (lv_right_3_0= ruleJunction ) ) | ( (lv_right_4_0= ruleImplication ) ) )? (this_SL_COMMENT_5= RULE_SL_COMMENT )* otherlv_6= ')' ) | ( ( (lv_left_7_1= ruleNegation | lv_left_7_2= ruleAtomic | lv_left_7_3= ruleProbability ) ) ) ) ;
     public final EObject ruleStateFormula() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
-        Token otherlv_4=null;
-        EObject lv_left_1_0 = null;
-
-        EObject lv_right_2_0 = null;
+        Token this_SL_COMMENT_1=null;
+        Token this_SL_COMMENT_5=null;
+        Token otherlv_6=null;
+        EObject lv_left_2_0 = null;
 
         EObject lv_right_3_0 = null;
 
-        EObject lv_left_5_1 = null;
+        EObject lv_right_4_0 = null;
 
-        EObject lv_left_5_2 = null;
+        EObject lv_left_7_1 = null;
 
-        EObject lv_left_5_3 = null;
+        EObject lv_left_7_2 = null;
+
+        EObject lv_left_7_3 = null;
 
 
          enterRule(); 
             
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:415:28: ( ( (otherlv_0= '(' ( (lv_left_1_0= ruleStateFormula ) ) ( ( (lv_right_2_0= ruleJunction ) ) | ( (lv_right_3_0= ruleImplication ) ) )? otherlv_4= ')' ) | ( ( (lv_left_5_1= ruleNegation | lv_left_5_2= ruleAtomic | lv_left_5_3= ruleProbability ) ) ) ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:416:1: ( (otherlv_0= '(' ( (lv_left_1_0= ruleStateFormula ) ) ( ( (lv_right_2_0= ruleJunction ) ) | ( (lv_right_3_0= ruleImplication ) ) )? otherlv_4= ')' ) | ( ( (lv_left_5_1= ruleNegation | lv_left_5_2= ruleAtomic | lv_left_5_3= ruleProbability ) ) ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:449:28: ( ( (otherlv_0= '(' (this_SL_COMMENT_1= RULE_SL_COMMENT )* ( (lv_left_2_0= ruleStateFormula ) ) ( ( (lv_right_3_0= ruleJunction ) ) | ( (lv_right_4_0= ruleImplication ) ) )? (this_SL_COMMENT_5= RULE_SL_COMMENT )* otherlv_6= ')' ) | ( ( (lv_left_7_1= ruleNegation | lv_left_7_2= ruleAtomic | lv_left_7_3= ruleProbability ) ) ) ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:450:1: ( (otherlv_0= '(' (this_SL_COMMENT_1= RULE_SL_COMMENT )* ( (lv_left_2_0= ruleStateFormula ) ) ( ( (lv_right_3_0= ruleJunction ) ) | ( (lv_right_4_0= ruleImplication ) ) )? (this_SL_COMMENT_5= RULE_SL_COMMENT )* otherlv_6= ')' ) | ( ( (lv_left_7_1= ruleNegation | lv_left_7_2= ruleAtomic | lv_left_7_3= ruleProbability ) ) ) )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:416:1: ( (otherlv_0= '(' ( (lv_left_1_0= ruleStateFormula ) ) ( ( (lv_right_2_0= ruleJunction ) ) | ( (lv_right_3_0= ruleImplication ) ) )? otherlv_4= ')' ) | ( ( (lv_left_5_1= ruleNegation | lv_left_5_2= ruleAtomic | lv_left_5_3= ruleProbability ) ) ) )
-            int alt7=2;
-            int LA7_0 = input.LA(1);
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:450:1: ( (otherlv_0= '(' (this_SL_COMMENT_1= RULE_SL_COMMENT )* ( (lv_left_2_0= ruleStateFormula ) ) ( ( (lv_right_3_0= ruleJunction ) ) | ( (lv_right_4_0= ruleImplication ) ) )? (this_SL_COMMENT_5= RULE_SL_COMMENT )* otherlv_6= ')' ) | ( ( (lv_left_7_1= ruleNegation | lv_left_7_2= ruleAtomic | lv_left_7_3= ruleProbability ) ) ) )
+            int alt15=2;
+            int LA15_0 = input.LA(1);
 
-            if ( (LA7_0==19) ) {
-                alt7=1;
+            if ( (LA15_0==19) ) {
+                alt15=1;
             }
-            else if ( (LA7_0==RULE_BOOL||LA7_0==18||LA7_0==21||(LA7_0>=25 && LA7_0<=26)) ) {
-                alt7=2;
+            else if ( (LA15_0==RULE_BOOL||LA15_0==18||LA15_0==21||(LA15_0>=25 && LA15_0<=26)) ) {
+                alt15=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 7, 0, input);
+                    new NoViableAltException("", 15, 0, input);
 
                 throw nvae;
             }
-            switch (alt7) {
+            switch (alt15) {
                 case 1 :
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:416:2: (otherlv_0= '(' ( (lv_left_1_0= ruleStateFormula ) ) ( ( (lv_right_2_0= ruleJunction ) ) | ( (lv_right_3_0= ruleImplication ) ) )? otherlv_4= ')' )
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:450:2: (otherlv_0= '(' (this_SL_COMMENT_1= RULE_SL_COMMENT )* ( (lv_left_2_0= ruleStateFormula ) ) ( ( (lv_right_3_0= ruleJunction ) ) | ( (lv_right_4_0= ruleImplication ) ) )? (this_SL_COMMENT_5= RULE_SL_COMMENT )* otherlv_6= ')' )
                     {
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:416:2: (otherlv_0= '(' ( (lv_left_1_0= ruleStateFormula ) ) ( ( (lv_right_2_0= ruleJunction ) ) | ( (lv_right_3_0= ruleImplication ) ) )? otherlv_4= ')' )
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:416:4: otherlv_0= '(' ( (lv_left_1_0= ruleStateFormula ) ) ( ( (lv_right_2_0= ruleJunction ) ) | ( (lv_right_3_0= ruleImplication ) ) )? otherlv_4= ')'
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:450:2: (otherlv_0= '(' (this_SL_COMMENT_1= RULE_SL_COMMENT )* ( (lv_left_2_0= ruleStateFormula ) ) ( ( (lv_right_3_0= ruleJunction ) ) | ( (lv_right_4_0= ruleImplication ) ) )? (this_SL_COMMENT_5= RULE_SL_COMMENT )* otherlv_6= ')' )
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:450:4: otherlv_0= '(' (this_SL_COMMENT_1= RULE_SL_COMMENT )* ( (lv_left_2_0= ruleStateFormula ) ) ( ( (lv_right_3_0= ruleJunction ) ) | ( (lv_right_4_0= ruleImplication ) ) )? (this_SL_COMMENT_5= RULE_SL_COMMENT )* otherlv_6= ')'
                     {
-                    otherlv_0=(Token)match(input,19,FOLLOW_19_in_ruleStateFormula971); 
+                    otherlv_0=(Token)match(input,19,FOLLOW_19_in_ruleStateFormula1061); 
 
                         	newLeafNode(otherlv_0, grammarAccess.getStateFormulaAccess().getLeftParenthesisKeyword_0_0());
                         
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:420:1: ( (lv_left_1_0= ruleStateFormula ) )
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:421:1: (lv_left_1_0= ruleStateFormula )
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:454:1: (this_SL_COMMENT_1= RULE_SL_COMMENT )*
+                    loop11:
+                    do {
+                        int alt11=2;
+                        int LA11_0 = input.LA(1);
+
+                        if ( (LA11_0==RULE_SL_COMMENT) ) {
+                            alt11=1;
+                        }
+
+
+                        switch (alt11) {
+                    	case 1 :
+                    	    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:454:2: this_SL_COMMENT_1= RULE_SL_COMMENT
+                    	    {
+                    	    this_SL_COMMENT_1=(Token)match(input,RULE_SL_COMMENT,FOLLOW_RULE_SL_COMMENT_in_ruleStateFormula1073); 
+                    	     
+                    	        newLeafNode(this_SL_COMMENT_1, grammarAccess.getStateFormulaAccess().getSL_COMMENTTerminalRuleCall_0_1()); 
+                    	        
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop11;
+                        }
+                    } while (true);
+
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:458:3: ( (lv_left_2_0= ruleStateFormula ) )
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:459:1: (lv_left_2_0= ruleStateFormula )
                     {
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:421:1: (lv_left_1_0= ruleStateFormula )
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:422:3: lv_left_1_0= ruleStateFormula
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:459:1: (lv_left_2_0= ruleStateFormula )
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:460:3: lv_left_2_0= ruleStateFormula
                     {
                      
-                    	        newCompositeNode(grammarAccess.getStateFormulaAccess().getLeftStateFormulaParserRuleCall_0_1_0()); 
+                    	        newCompositeNode(grammarAccess.getStateFormulaAccess().getLeftStateFormulaParserRuleCall_0_2_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleStateFormula_in_ruleStateFormula992);
-                    lv_left_1_0=ruleStateFormula();
+                    pushFollow(FOLLOW_ruleStateFormula_in_ruleStateFormula1095);
+                    lv_left_2_0=ruleStateFormula();
 
                     state._fsp--;
 
@@ -1125,7 +1294,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
                            		set(
                            			current, 
                            			"left",
-                            		lv_left_1_0, 
+                            		lv_left_2_0, 
                             		"StateFormula");
                     	        afterParserOrEnumRuleCall();
                     	    
@@ -1135,31 +1304,31 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:438:2: ( ( (lv_right_2_0= ruleJunction ) ) | ( (lv_right_3_0= ruleImplication ) ) )?
-                    int alt5=3;
-                    int LA5_0 = input.LA(1);
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:476:2: ( ( (lv_right_3_0= ruleJunction ) ) | ( (lv_right_4_0= ruleImplication ) ) )?
+                    int alt12=3;
+                    int LA12_0 = input.LA(1);
 
-                    if ( ((LA5_0>=22 && LA5_0<=23)) ) {
-                        alt5=1;
+                    if ( ((LA12_0>=22 && LA12_0<=23)) ) {
+                        alt12=1;
                     }
-                    else if ( (LA5_0==24) ) {
-                        alt5=2;
+                    else if ( (LA12_0==24) ) {
+                        alt12=2;
                     }
-                    switch (alt5) {
+                    switch (alt12) {
                         case 1 :
-                            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:438:3: ( (lv_right_2_0= ruleJunction ) )
+                            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:476:3: ( (lv_right_3_0= ruleJunction ) )
                             {
-                            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:438:3: ( (lv_right_2_0= ruleJunction ) )
-                            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:439:1: (lv_right_2_0= ruleJunction )
+                            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:476:3: ( (lv_right_3_0= ruleJunction ) )
+                            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:477:1: (lv_right_3_0= ruleJunction )
                             {
-                            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:439:1: (lv_right_2_0= ruleJunction )
-                            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:440:3: lv_right_2_0= ruleJunction
+                            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:477:1: (lv_right_3_0= ruleJunction )
+                            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:478:3: lv_right_3_0= ruleJunction
                             {
                              
-                            	        newCompositeNode(grammarAccess.getStateFormulaAccess().getRightJunctionParserRuleCall_0_2_0_0()); 
+                            	        newCompositeNode(grammarAccess.getStateFormulaAccess().getRightJunctionParserRuleCall_0_3_0_0()); 
                             	    
-                            pushFollow(FOLLOW_ruleJunction_in_ruleStateFormula1014);
-                            lv_right_2_0=ruleJunction();
+                            pushFollow(FOLLOW_ruleJunction_in_ruleStateFormula1117);
+                            lv_right_3_0=ruleJunction();
 
                             state._fsp--;
 
@@ -1170,7 +1339,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
                                    		set(
                                    			current, 
                                    			"right",
-                                    		lv_right_2_0, 
+                                    		lv_right_3_0, 
                                     		"Junction");
                             	        afterParserOrEnumRuleCall();
                             	    
@@ -1184,19 +1353,19 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:457:6: ( (lv_right_3_0= ruleImplication ) )
+                            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:495:6: ( (lv_right_4_0= ruleImplication ) )
                             {
-                            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:457:6: ( (lv_right_3_0= ruleImplication ) )
-                            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:458:1: (lv_right_3_0= ruleImplication )
+                            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:495:6: ( (lv_right_4_0= ruleImplication ) )
+                            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:496:1: (lv_right_4_0= ruleImplication )
                             {
-                            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:458:1: (lv_right_3_0= ruleImplication )
-                            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:459:3: lv_right_3_0= ruleImplication
+                            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:496:1: (lv_right_4_0= ruleImplication )
+                            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:497:3: lv_right_4_0= ruleImplication
                             {
                              
-                            	        newCompositeNode(grammarAccess.getStateFormulaAccess().getRightImplicationParserRuleCall_0_2_1_0()); 
+                            	        newCompositeNode(grammarAccess.getStateFormulaAccess().getRightImplicationParserRuleCall_0_3_1_0()); 
                             	    
-                            pushFollow(FOLLOW_ruleImplication_in_ruleStateFormula1041);
-                            lv_right_3_0=ruleImplication();
+                            pushFollow(FOLLOW_ruleImplication_in_ruleStateFormula1144);
+                            lv_right_4_0=ruleImplication();
 
                             state._fsp--;
 
@@ -1207,7 +1376,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
                                    		set(
                                    			current, 
                                    			"right",
-                                    		lv_right_3_0, 
+                                    		lv_right_4_0, 
                                     		"Implication");
                             	        afterParserOrEnumRuleCall();
                             	    
@@ -1223,9 +1392,37 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_4=(Token)match(input,20,FOLLOW_20_in_ruleStateFormula1055); 
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:513:4: (this_SL_COMMENT_5= RULE_SL_COMMENT )*
+                    loop13:
+                    do {
+                        int alt13=2;
+                        int LA13_0 = input.LA(1);
 
-                        	newLeafNode(otherlv_4, grammarAccess.getStateFormulaAccess().getRightParenthesisKeyword_0_3());
+                        if ( (LA13_0==RULE_SL_COMMENT) ) {
+                            alt13=1;
+                        }
+
+
+                        switch (alt13) {
+                    	case 1 :
+                    	    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:513:5: this_SL_COMMENT_5= RULE_SL_COMMENT
+                    	    {
+                    	    this_SL_COMMENT_5=(Token)match(input,RULE_SL_COMMENT,FOLLOW_RULE_SL_COMMENT_in_ruleStateFormula1158); 
+                    	     
+                    	        newLeafNode(this_SL_COMMENT_5, grammarAccess.getStateFormulaAccess().getSL_COMMENTTerminalRuleCall_0_4()); 
+                    	        
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop13;
+                        }
+                    } while (true);
+
+                    otherlv_6=(Token)match(input,20,FOLLOW_20_in_ruleStateFormula1171); 
+
+                        	newLeafNode(otherlv_6, grammarAccess.getStateFormulaAccess().getRightParenthesisKeyword_0_5());
                         
 
                     }
@@ -1234,50 +1431,50 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:480:6: ( ( (lv_left_5_1= ruleNegation | lv_left_5_2= ruleAtomic | lv_left_5_3= ruleProbability ) ) )
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:522:6: ( ( (lv_left_7_1= ruleNegation | lv_left_7_2= ruleAtomic | lv_left_7_3= ruleProbability ) ) )
                     {
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:480:6: ( ( (lv_left_5_1= ruleNegation | lv_left_5_2= ruleAtomic | lv_left_5_3= ruleProbability ) ) )
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:481:1: ( (lv_left_5_1= ruleNegation | lv_left_5_2= ruleAtomic | lv_left_5_3= ruleProbability ) )
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:522:6: ( ( (lv_left_7_1= ruleNegation | lv_left_7_2= ruleAtomic | lv_left_7_3= ruleProbability ) ) )
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:523:1: ( (lv_left_7_1= ruleNegation | lv_left_7_2= ruleAtomic | lv_left_7_3= ruleProbability ) )
                     {
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:481:1: ( (lv_left_5_1= ruleNegation | lv_left_5_2= ruleAtomic | lv_left_5_3= ruleProbability ) )
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:482:1: (lv_left_5_1= ruleNegation | lv_left_5_2= ruleAtomic | lv_left_5_3= ruleProbability )
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:523:1: ( (lv_left_7_1= ruleNegation | lv_left_7_2= ruleAtomic | lv_left_7_3= ruleProbability ) )
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:524:1: (lv_left_7_1= ruleNegation | lv_left_7_2= ruleAtomic | lv_left_7_3= ruleProbability )
                     {
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:482:1: (lv_left_5_1= ruleNegation | lv_left_5_2= ruleAtomic | lv_left_5_3= ruleProbability )
-                    int alt6=3;
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:524:1: (lv_left_7_1= ruleNegation | lv_left_7_2= ruleAtomic | lv_left_7_3= ruleProbability )
+                    int alt14=3;
                     switch ( input.LA(1) ) {
                     case 21:
                         {
-                        alt6=1;
+                        alt14=1;
                         }
                         break;
                     case RULE_BOOL:
                     case 25:
                     case 26:
                         {
-                        alt6=2;
+                        alt14=2;
                         }
                         break;
                     case 18:
                         {
-                        alt6=3;
+                        alt14=3;
                         }
                         break;
                     default:
                         NoViableAltException nvae =
-                            new NoViableAltException("", 6, 0, input);
+                            new NoViableAltException("", 14, 0, input);
 
                         throw nvae;
                     }
 
-                    switch (alt6) {
+                    switch (alt14) {
                         case 1 :
-                            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:483:3: lv_left_5_1= ruleNegation
+                            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:525:3: lv_left_7_1= ruleNegation
                             {
                              
                             	        newCompositeNode(grammarAccess.getStateFormulaAccess().getLeftNegationParserRuleCall_1_0_0()); 
                             	    
-                            pushFollow(FOLLOW_ruleNegation_in_ruleStateFormula1085);
-                            lv_left_5_1=ruleNegation();
+                            pushFollow(FOLLOW_ruleNegation_in_ruleStateFormula1201);
+                            lv_left_7_1=ruleNegation();
 
                             state._fsp--;
 
@@ -1288,7 +1485,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
                                    		set(
                                    			current, 
                                    			"left",
-                                    		lv_left_5_1, 
+                                    		lv_left_7_1, 
                                     		"Negation");
                             	        afterParserOrEnumRuleCall();
                             	    
@@ -1296,13 +1493,13 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:498:8: lv_left_5_2= ruleAtomic
+                            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:540:8: lv_left_7_2= ruleAtomic
                             {
                              
                             	        newCompositeNode(grammarAccess.getStateFormulaAccess().getLeftAtomicParserRuleCall_1_0_1()); 
                             	    
-                            pushFollow(FOLLOW_ruleAtomic_in_ruleStateFormula1104);
-                            lv_left_5_2=ruleAtomic();
+                            pushFollow(FOLLOW_ruleAtomic_in_ruleStateFormula1220);
+                            lv_left_7_2=ruleAtomic();
 
                             state._fsp--;
 
@@ -1313,7 +1510,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
                                    		set(
                                    			current, 
                                    			"left",
-                                    		lv_left_5_2, 
+                                    		lv_left_7_2, 
                                     		"Atomic");
                             	        afterParserOrEnumRuleCall();
                             	    
@@ -1321,13 +1518,13 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 3 :
-                            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:513:8: lv_left_5_3= ruleProbability
+                            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:555:8: lv_left_7_3= ruleProbability
                             {
                              
                             	        newCompositeNode(grammarAccess.getStateFormulaAccess().getLeftProbabilityParserRuleCall_1_0_2()); 
                             	    
-                            pushFollow(FOLLOW_ruleProbability_in_ruleStateFormula1123);
-                            lv_left_5_3=ruleProbability();
+                            pushFollow(FOLLOW_ruleProbability_in_ruleStateFormula1239);
+                            lv_left_7_3=ruleProbability();
 
                             state._fsp--;
 
@@ -1338,7 +1535,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
                                    		set(
                                    			current, 
                                    			"left",
-                                    		lv_left_5_3, 
+                                    		lv_left_7_3, 
                                     		"Probability");
                             	        afterParserOrEnumRuleCall();
                             	    
@@ -1378,7 +1575,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleNegation"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:539:1: entryRuleNegation returns [EObject current=null] : iv_ruleNegation= ruleNegation EOF ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:581:1: entryRuleNegation returns [EObject current=null] : iv_ruleNegation= ruleNegation EOF ;
     public final EObject entryRuleNegation() throws RecognitionException {
         EObject current = null;
 
@@ -1386,17 +1583,17 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:540:2: (iv_ruleNegation= ruleNegation EOF )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:541:2: iv_ruleNegation= ruleNegation EOF
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:582:2: (iv_ruleNegation= ruleNegation EOF )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:583:2: iv_ruleNegation= ruleNegation EOF
             {
              newCompositeNode(grammarAccess.getNegationRule()); 
-            pushFollow(FOLLOW_ruleNegation_in_entryRuleNegation1162);
+            pushFollow(FOLLOW_ruleNegation_in_entryRuleNegation1278);
             iv_ruleNegation=ruleNegation();
 
             state._fsp--;
 
              current =iv_ruleNegation; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleNegation1172); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleNegation1288); 
 
             }
 
@@ -1414,7 +1611,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNegation"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:548:1: ruleNegation returns [EObject current=null] : (otherlv_0= '!' this_StateFormula_1= ruleStateFormula ) ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:590:1: ruleNegation returns [EObject current=null] : (otherlv_0= '!' this_StateFormula_1= ruleStateFormula ) ;
     public final EObject ruleNegation() throws RecognitionException {
         EObject current = null;
 
@@ -1425,20 +1622,20 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:551:28: ( (otherlv_0= '!' this_StateFormula_1= ruleStateFormula ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:552:1: (otherlv_0= '!' this_StateFormula_1= ruleStateFormula )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:593:28: ( (otherlv_0= '!' this_StateFormula_1= ruleStateFormula ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:594:1: (otherlv_0= '!' this_StateFormula_1= ruleStateFormula )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:552:1: (otherlv_0= '!' this_StateFormula_1= ruleStateFormula )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:552:3: otherlv_0= '!' this_StateFormula_1= ruleStateFormula
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:594:1: (otherlv_0= '!' this_StateFormula_1= ruleStateFormula )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:594:3: otherlv_0= '!' this_StateFormula_1= ruleStateFormula
             {
-            otherlv_0=(Token)match(input,21,FOLLOW_21_in_ruleNegation1209); 
+            otherlv_0=(Token)match(input,21,FOLLOW_21_in_ruleNegation1325); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getNegationAccess().getExclamationMarkKeyword_0());
                 
              
                     newCompositeNode(grammarAccess.getNegationAccess().getStateFormulaParserRuleCall_1()); 
                 
-            pushFollow(FOLLOW_ruleStateFormula_in_ruleNegation1231);
+            pushFollow(FOLLOW_ruleStateFormula_in_ruleNegation1347);
             this_StateFormula_1=ruleStateFormula();
 
             state._fsp--;
@@ -1468,25 +1665,28 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleJunction"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:573:1: entryRuleJunction returns [EObject current=null] : iv_ruleJunction= ruleJunction EOF ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:615:1: entryRuleJunction returns [EObject current=null] : iv_ruleJunction= ruleJunction EOF ;
     public final EObject entryRuleJunction() throws RecognitionException {
         EObject current = null;
 
         EObject iv_ruleJunction = null;
 
 
+         
+        		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_SL_COMMENT");
+        	
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:574:2: (iv_ruleJunction= ruleJunction EOF )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:575:2: iv_ruleJunction= ruleJunction EOF
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:619:2: (iv_ruleJunction= ruleJunction EOF )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:620:2: iv_ruleJunction= ruleJunction EOF
             {
              newCompositeNode(grammarAccess.getJunctionRule()); 
-            pushFollow(FOLLOW_ruleJunction_in_entryRuleJunction1266);
+            pushFollow(FOLLOW_ruleJunction_in_entryRuleJunction1388);
             iv_ruleJunction=ruleJunction();
 
             state._fsp--;
 
              current =iv_ruleJunction; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleJunction1276); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleJunction1398); 
 
             }
 
@@ -1497,6 +1697,9 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
                 appendSkippedTokens();
             } 
         finally {
+
+            	myHiddenTokenState.restore();
+
         }
         return current;
     }
@@ -1504,7 +1707,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleJunction"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:582:1: ruleJunction returns [EObject current=null] : (this_Conjunction_0= ruleConjunction | this_Disjunction_1= ruleDisjunction ) ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:630:1: ruleJunction returns [EObject current=null] : (this_Conjunction_0= ruleConjunction | this_Disjunction_1= ruleDisjunction ) ;
     public final EObject ruleJunction() throws RecognitionException {
         EObject current = null;
 
@@ -1514,35 +1717,36 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
          enterRule(); 
+        		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_SL_COMMENT");
             
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:585:28: ( (this_Conjunction_0= ruleConjunction | this_Disjunction_1= ruleDisjunction ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:586:1: (this_Conjunction_0= ruleConjunction | this_Disjunction_1= ruleDisjunction )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:634:28: ( (this_Conjunction_0= ruleConjunction | this_Disjunction_1= ruleDisjunction ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:635:1: (this_Conjunction_0= ruleConjunction | this_Disjunction_1= ruleDisjunction )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:586:1: (this_Conjunction_0= ruleConjunction | this_Disjunction_1= ruleDisjunction )
-            int alt8=2;
-            int LA8_0 = input.LA(1);
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:635:1: (this_Conjunction_0= ruleConjunction | this_Disjunction_1= ruleDisjunction )
+            int alt16=2;
+            int LA16_0 = input.LA(1);
 
-            if ( (LA8_0==22) ) {
-                alt8=1;
+            if ( (LA16_0==22) ) {
+                alt16=1;
             }
-            else if ( (LA8_0==23) ) {
-                alt8=2;
+            else if ( (LA16_0==23) ) {
+                alt16=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 8, 0, input);
+                    new NoViableAltException("", 16, 0, input);
 
                 throw nvae;
             }
-            switch (alt8) {
+            switch (alt16) {
                 case 1 :
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:587:5: this_Conjunction_0= ruleConjunction
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:636:5: this_Conjunction_0= ruleConjunction
                     {
                      
                             newCompositeNode(grammarAccess.getJunctionAccess().getConjunctionParserRuleCall_0()); 
                         
-                    pushFollow(FOLLOW_ruleConjunction_in_ruleJunction1323);
+                    pushFollow(FOLLOW_ruleConjunction_in_ruleJunction1449);
                     this_Conjunction_0=ruleConjunction();
 
                     state._fsp--;
@@ -1555,12 +1759,12 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:597:5: this_Disjunction_1= ruleDisjunction
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:646:5: this_Disjunction_1= ruleDisjunction
                     {
                      
                             newCompositeNode(grammarAccess.getJunctionAccess().getDisjunctionParserRuleCall_1()); 
                         
-                    pushFollow(FOLLOW_ruleDisjunction_in_ruleJunction1350);
+                    pushFollow(FOLLOW_ruleDisjunction_in_ruleJunction1476);
                     this_Disjunction_1=ruleDisjunction();
 
                     state._fsp--;
@@ -1586,6 +1790,9 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
                 appendSkippedTokens();
             } 
         finally {
+
+            	myHiddenTokenState.restore();
+
         }
         return current;
     }
@@ -1593,7 +1800,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleConjunction"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:613:1: entryRuleConjunction returns [EObject current=null] : iv_ruleConjunction= ruleConjunction EOF ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:665:1: entryRuleConjunction returns [EObject current=null] : iv_ruleConjunction= ruleConjunction EOF ;
     public final EObject entryRuleConjunction() throws RecognitionException {
         EObject current = null;
 
@@ -1601,17 +1808,17 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:614:2: (iv_ruleConjunction= ruleConjunction EOF )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:615:2: iv_ruleConjunction= ruleConjunction EOF
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:666:2: (iv_ruleConjunction= ruleConjunction EOF )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:667:2: iv_ruleConjunction= ruleConjunction EOF
             {
              newCompositeNode(grammarAccess.getConjunctionRule()); 
-            pushFollow(FOLLOW_ruleConjunction_in_entryRuleConjunction1385);
+            pushFollow(FOLLOW_ruleConjunction_in_entryRuleConjunction1515);
             iv_ruleConjunction=ruleConjunction();
 
             state._fsp--;
 
              current =iv_ruleConjunction; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleConjunction1395); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleConjunction1525); 
 
             }
 
@@ -1629,7 +1836,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleConjunction"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:622:1: ruleConjunction returns [EObject current=null] : (otherlv_0= '&' this_StateFormula_1= ruleStateFormula ( () otherlv_3= '&' ( (lv_right_4_0= ruleStateFormula ) ) )* ) ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:674:1: ruleConjunction returns [EObject current=null] : (otherlv_0= '&' this_StateFormula_1= ruleStateFormula ( () otherlv_3= '&' ( (lv_right_4_0= ruleStateFormula ) ) )* ) ;
     public final EObject ruleConjunction() throws RecognitionException {
         EObject current = null;
 
@@ -1643,20 +1850,20 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:625:28: ( (otherlv_0= '&' this_StateFormula_1= ruleStateFormula ( () otherlv_3= '&' ( (lv_right_4_0= ruleStateFormula ) ) )* ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:626:1: (otherlv_0= '&' this_StateFormula_1= ruleStateFormula ( () otherlv_3= '&' ( (lv_right_4_0= ruleStateFormula ) ) )* )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:677:28: ( (otherlv_0= '&' this_StateFormula_1= ruleStateFormula ( () otherlv_3= '&' ( (lv_right_4_0= ruleStateFormula ) ) )* ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:678:1: (otherlv_0= '&' this_StateFormula_1= ruleStateFormula ( () otherlv_3= '&' ( (lv_right_4_0= ruleStateFormula ) ) )* )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:626:1: (otherlv_0= '&' this_StateFormula_1= ruleStateFormula ( () otherlv_3= '&' ( (lv_right_4_0= ruleStateFormula ) ) )* )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:626:3: otherlv_0= '&' this_StateFormula_1= ruleStateFormula ( () otherlv_3= '&' ( (lv_right_4_0= ruleStateFormula ) ) )*
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:678:1: (otherlv_0= '&' this_StateFormula_1= ruleStateFormula ( () otherlv_3= '&' ( (lv_right_4_0= ruleStateFormula ) ) )* )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:678:3: otherlv_0= '&' this_StateFormula_1= ruleStateFormula ( () otherlv_3= '&' ( (lv_right_4_0= ruleStateFormula ) ) )*
             {
-            otherlv_0=(Token)match(input,22,FOLLOW_22_in_ruleConjunction1432); 
+            otherlv_0=(Token)match(input,22,FOLLOW_22_in_ruleConjunction1562); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getConjunctionAccess().getAmpersandKeyword_0());
                 
              
                     newCompositeNode(grammarAccess.getConjunctionAccess().getStateFormulaParserRuleCall_1()); 
                 
-            pushFollow(FOLLOW_ruleStateFormula_in_ruleConjunction1454);
+            pushFollow(FOLLOW_ruleStateFormula_in_ruleConjunction1584);
             this_StateFormula_1=ruleStateFormula();
 
             state._fsp--;
@@ -1665,23 +1872,23 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
                     current = this_StateFormula_1; 
                     afterParserOrEnumRuleCall();
                 
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:639:1: ( () otherlv_3= '&' ( (lv_right_4_0= ruleStateFormula ) ) )*
-            loop9:
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:691:1: ( () otherlv_3= '&' ( (lv_right_4_0= ruleStateFormula ) ) )*
+            loop17:
             do {
-                int alt9=2;
-                int LA9_0 = input.LA(1);
+                int alt17=2;
+                int LA17_0 = input.LA(1);
 
-                if ( (LA9_0==22) ) {
-                    alt9=1;
+                if ( (LA17_0==22) ) {
+                    alt17=1;
                 }
 
 
-                switch (alt9) {
+                switch (alt17) {
             	case 1 :
-            	    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:639:2: () otherlv_3= '&' ( (lv_right_4_0= ruleStateFormula ) )
+            	    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:691:2: () otherlv_3= '&' ( (lv_right_4_0= ruleStateFormula ) )
             	    {
-            	    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:639:2: ()
-            	    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:640:5: 
+            	    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:691:2: ()
+            	    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:692:5: 
             	    {
 
             	            current = forceCreateModelElementAndSet(
@@ -1691,20 +1898,20 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    otherlv_3=(Token)match(input,22,FOLLOW_22_in_ruleConjunction1475); 
+            	    otherlv_3=(Token)match(input,22,FOLLOW_22_in_ruleConjunction1605); 
 
             	        	newLeafNode(otherlv_3, grammarAccess.getConjunctionAccess().getAmpersandKeyword_2_1());
             	        
-            	    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:649:1: ( (lv_right_4_0= ruleStateFormula ) )
-            	    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:650:1: (lv_right_4_0= ruleStateFormula )
+            	    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:701:1: ( (lv_right_4_0= ruleStateFormula ) )
+            	    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:702:1: (lv_right_4_0= ruleStateFormula )
             	    {
-            	    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:650:1: (lv_right_4_0= ruleStateFormula )
-            	    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:651:3: lv_right_4_0= ruleStateFormula
+            	    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:702:1: (lv_right_4_0= ruleStateFormula )
+            	    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:703:3: lv_right_4_0= ruleStateFormula
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getConjunctionAccess().getRightStateFormulaParserRuleCall_2_2_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleStateFormula_in_ruleConjunction1496);
+            	    pushFollow(FOLLOW_ruleStateFormula_in_ruleConjunction1626);
             	    lv_right_4_0=ruleStateFormula();
 
             	    state._fsp--;
@@ -1731,7 +1938,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop9;
+            	    break loop17;
                 }
             } while (true);
 
@@ -1756,7 +1963,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDisjunction"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:675:1: entryRuleDisjunction returns [EObject current=null] : iv_ruleDisjunction= ruleDisjunction EOF ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:727:1: entryRuleDisjunction returns [EObject current=null] : iv_ruleDisjunction= ruleDisjunction EOF ;
     public final EObject entryRuleDisjunction() throws RecognitionException {
         EObject current = null;
 
@@ -1764,17 +1971,17 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:676:2: (iv_ruleDisjunction= ruleDisjunction EOF )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:677:2: iv_ruleDisjunction= ruleDisjunction EOF
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:728:2: (iv_ruleDisjunction= ruleDisjunction EOF )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:729:2: iv_ruleDisjunction= ruleDisjunction EOF
             {
              newCompositeNode(grammarAccess.getDisjunctionRule()); 
-            pushFollow(FOLLOW_ruleDisjunction_in_entryRuleDisjunction1534);
+            pushFollow(FOLLOW_ruleDisjunction_in_entryRuleDisjunction1664);
             iv_ruleDisjunction=ruleDisjunction();
 
             state._fsp--;
 
              current =iv_ruleDisjunction; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDisjunction1544); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDisjunction1674); 
 
             }
 
@@ -1792,7 +1999,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDisjunction"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:684:1: ruleDisjunction returns [EObject current=null] : (otherlv_0= '|' this_StateFormula_1= ruleStateFormula ( () otherlv_3= '|' ( (lv_right_4_0= ruleStateFormula ) ) )* ) ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:736:1: ruleDisjunction returns [EObject current=null] : (otherlv_0= '|' this_StateFormula_1= ruleStateFormula ( () otherlv_3= '|' ( (lv_right_4_0= ruleStateFormula ) ) )* ) ;
     public final EObject ruleDisjunction() throws RecognitionException {
         EObject current = null;
 
@@ -1806,20 +2013,20 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:687:28: ( (otherlv_0= '|' this_StateFormula_1= ruleStateFormula ( () otherlv_3= '|' ( (lv_right_4_0= ruleStateFormula ) ) )* ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:688:1: (otherlv_0= '|' this_StateFormula_1= ruleStateFormula ( () otherlv_3= '|' ( (lv_right_4_0= ruleStateFormula ) ) )* )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:739:28: ( (otherlv_0= '|' this_StateFormula_1= ruleStateFormula ( () otherlv_3= '|' ( (lv_right_4_0= ruleStateFormula ) ) )* ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:740:1: (otherlv_0= '|' this_StateFormula_1= ruleStateFormula ( () otherlv_3= '|' ( (lv_right_4_0= ruleStateFormula ) ) )* )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:688:1: (otherlv_0= '|' this_StateFormula_1= ruleStateFormula ( () otherlv_3= '|' ( (lv_right_4_0= ruleStateFormula ) ) )* )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:688:3: otherlv_0= '|' this_StateFormula_1= ruleStateFormula ( () otherlv_3= '|' ( (lv_right_4_0= ruleStateFormula ) ) )*
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:740:1: (otherlv_0= '|' this_StateFormula_1= ruleStateFormula ( () otherlv_3= '|' ( (lv_right_4_0= ruleStateFormula ) ) )* )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:740:3: otherlv_0= '|' this_StateFormula_1= ruleStateFormula ( () otherlv_3= '|' ( (lv_right_4_0= ruleStateFormula ) ) )*
             {
-            otherlv_0=(Token)match(input,23,FOLLOW_23_in_ruleDisjunction1581); 
+            otherlv_0=(Token)match(input,23,FOLLOW_23_in_ruleDisjunction1711); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getDisjunctionAccess().getVerticalLineKeyword_0());
                 
              
                     newCompositeNode(grammarAccess.getDisjunctionAccess().getStateFormulaParserRuleCall_1()); 
                 
-            pushFollow(FOLLOW_ruleStateFormula_in_ruleDisjunction1603);
+            pushFollow(FOLLOW_ruleStateFormula_in_ruleDisjunction1733);
             this_StateFormula_1=ruleStateFormula();
 
             state._fsp--;
@@ -1828,23 +2035,23 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
                     current = this_StateFormula_1; 
                     afterParserOrEnumRuleCall();
                 
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:701:1: ( () otherlv_3= '|' ( (lv_right_4_0= ruleStateFormula ) ) )*
-            loop10:
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:753:1: ( () otherlv_3= '|' ( (lv_right_4_0= ruleStateFormula ) ) )*
+            loop18:
             do {
-                int alt10=2;
-                int LA10_0 = input.LA(1);
+                int alt18=2;
+                int LA18_0 = input.LA(1);
 
-                if ( (LA10_0==23) ) {
-                    alt10=1;
+                if ( (LA18_0==23) ) {
+                    alt18=1;
                 }
 
 
-                switch (alt10) {
+                switch (alt18) {
             	case 1 :
-            	    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:701:2: () otherlv_3= '|' ( (lv_right_4_0= ruleStateFormula ) )
+            	    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:753:2: () otherlv_3= '|' ( (lv_right_4_0= ruleStateFormula ) )
             	    {
-            	    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:701:2: ()
-            	    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:702:5: 
+            	    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:753:2: ()
+            	    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:754:5: 
             	    {
 
             	            current = forceCreateModelElementAndSet(
@@ -1854,20 +2061,20 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    otherlv_3=(Token)match(input,23,FOLLOW_23_in_ruleDisjunction1624); 
+            	    otherlv_3=(Token)match(input,23,FOLLOW_23_in_ruleDisjunction1754); 
 
             	        	newLeafNode(otherlv_3, grammarAccess.getDisjunctionAccess().getVerticalLineKeyword_2_1());
             	        
-            	    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:711:1: ( (lv_right_4_0= ruleStateFormula ) )
-            	    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:712:1: (lv_right_4_0= ruleStateFormula )
+            	    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:763:1: ( (lv_right_4_0= ruleStateFormula ) )
+            	    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:764:1: (lv_right_4_0= ruleStateFormula )
             	    {
-            	    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:712:1: (lv_right_4_0= ruleStateFormula )
-            	    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:713:3: lv_right_4_0= ruleStateFormula
+            	    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:764:1: (lv_right_4_0= ruleStateFormula )
+            	    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:765:3: lv_right_4_0= ruleStateFormula
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getDisjunctionAccess().getRightStateFormulaParserRuleCall_2_2_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleStateFormula_in_ruleDisjunction1645);
+            	    pushFollow(FOLLOW_ruleStateFormula_in_ruleDisjunction1775);
             	    lv_right_4_0=ruleStateFormula();
 
             	    state._fsp--;
@@ -1894,7 +2101,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop10;
+            	    break loop18;
                 }
             } while (true);
 
@@ -1919,25 +2126,28 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleImplication"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:737:1: entryRuleImplication returns [EObject current=null] : iv_ruleImplication= ruleImplication EOF ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:789:1: entryRuleImplication returns [EObject current=null] : iv_ruleImplication= ruleImplication EOF ;
     public final EObject entryRuleImplication() throws RecognitionException {
         EObject current = null;
 
         EObject iv_ruleImplication = null;
 
 
+         
+        		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_SL_COMMENT");
+        	
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:738:2: (iv_ruleImplication= ruleImplication EOF )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:739:2: iv_ruleImplication= ruleImplication EOF
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:793:2: (iv_ruleImplication= ruleImplication EOF )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:794:2: iv_ruleImplication= ruleImplication EOF
             {
              newCompositeNode(grammarAccess.getImplicationRule()); 
-            pushFollow(FOLLOW_ruleImplication_in_entryRuleImplication1683);
+            pushFollow(FOLLOW_ruleImplication_in_entryRuleImplication1819);
             iv_ruleImplication=ruleImplication();
 
             state._fsp--;
 
              current =iv_ruleImplication; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleImplication1693); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleImplication1829); 
 
             }
 
@@ -1948,6 +2158,9 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
                 appendSkippedTokens();
             } 
         finally {
+
+            	myHiddenTokenState.restore();
+
         }
         return current;
     }
@@ -1955,7 +2168,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleImplication"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:746:1: ruleImplication returns [EObject current=null] : (otherlv_0= '=>' ( (lv_right_1_0= ruleStateFormula ) ) ) ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:804:1: ruleImplication returns [EObject current=null] : (otherlv_0= '=>' ( (lv_right_1_0= ruleStateFormula ) ) ) ;
     public final EObject ruleImplication() throws RecognitionException {
         EObject current = null;
 
@@ -1964,28 +2177,29 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
          enterRule(); 
+        		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_SL_COMMENT");
             
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:749:28: ( (otherlv_0= '=>' ( (lv_right_1_0= ruleStateFormula ) ) ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:750:1: (otherlv_0= '=>' ( (lv_right_1_0= ruleStateFormula ) ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:808:28: ( (otherlv_0= '=>' ( (lv_right_1_0= ruleStateFormula ) ) ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:809:1: (otherlv_0= '=>' ( (lv_right_1_0= ruleStateFormula ) ) )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:750:1: (otherlv_0= '=>' ( (lv_right_1_0= ruleStateFormula ) ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:750:3: otherlv_0= '=>' ( (lv_right_1_0= ruleStateFormula ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:809:1: (otherlv_0= '=>' ( (lv_right_1_0= ruleStateFormula ) ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:809:3: otherlv_0= '=>' ( (lv_right_1_0= ruleStateFormula ) )
             {
-            otherlv_0=(Token)match(input,24,FOLLOW_24_in_ruleImplication1730); 
+            otherlv_0=(Token)match(input,24,FOLLOW_24_in_ruleImplication1870); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getImplicationAccess().getEqualsSignGreaterThanSignKeyword_0());
                 
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:754:1: ( (lv_right_1_0= ruleStateFormula ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:755:1: (lv_right_1_0= ruleStateFormula )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:813:1: ( (lv_right_1_0= ruleStateFormula ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:814:1: (lv_right_1_0= ruleStateFormula )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:755:1: (lv_right_1_0= ruleStateFormula )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:756:3: lv_right_1_0= ruleStateFormula
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:814:1: (lv_right_1_0= ruleStateFormula )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:815:3: lv_right_1_0= ruleStateFormula
             {
              
             	        newCompositeNode(grammarAccess.getImplicationAccess().getRightStateFormulaParserRuleCall_1_0()); 
             	    
-            pushFollow(FOLLOW_ruleStateFormula_in_ruleImplication1751);
+            pushFollow(FOLLOW_ruleStateFormula_in_ruleImplication1891);
             lv_right_1_0=ruleStateFormula();
 
             state._fsp--;
@@ -2021,6 +2235,9 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
                 appendSkippedTokens();
             } 
         finally {
+
+            	myHiddenTokenState.restore();
+
         }
         return current;
     }
@@ -2028,7 +2245,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleProbability"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:780:1: entryRuleProbability returns [EObject current=null] : iv_ruleProbability= ruleProbability EOF ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:842:1: entryRuleProbability returns [EObject current=null] : iv_ruleProbability= ruleProbability EOF ;
     public final EObject entryRuleProbability() throws RecognitionException {
         EObject current = null;
 
@@ -2036,17 +2253,17 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:781:2: (iv_ruleProbability= ruleProbability EOF )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:782:2: iv_ruleProbability= ruleProbability EOF
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:843:2: (iv_ruleProbability= ruleProbability EOF )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:844:2: iv_ruleProbability= ruleProbability EOF
             {
              newCompositeNode(grammarAccess.getProbabilityRule()); 
-            pushFollow(FOLLOW_ruleProbability_in_entryRuleProbability1787);
+            pushFollow(FOLLOW_ruleProbability_in_entryRuleProbability1931);
             iv_ruleProbability=ruleProbability();
 
             state._fsp--;
 
              current =iv_ruleProbability; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleProbability1797); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleProbability1941); 
 
             }
 
@@ -2064,53 +2281,83 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleProbability"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:789:1: ruleProbability returns [EObject current=null] : (otherlv_0= 'P' () ( (lv_comparator_2_0= ruleCompareProbability ) ) otherlv_3= '[' ( (lv_path_4_0= rulePathFormula ) ) otherlv_5= ']' ) ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:851:1: ruleProbability returns [EObject current=null] : (otherlv_0= 'P' (this_SL_COMMENT_1= RULE_SL_COMMENT )* () ( (lv_comparator_3_0= ruleCompareProbability ) ) (this_SL_COMMENT_4= RULE_SL_COMMENT )* otherlv_5= '[' ( (lv_path_6_0= rulePathFormula ) ) otherlv_7= ']' ) ;
     public final EObject ruleProbability() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
-        Token otherlv_3=null;
+        Token this_SL_COMMENT_1=null;
+        Token this_SL_COMMENT_4=null;
         Token otherlv_5=null;
-        EObject lv_comparator_2_0 = null;
+        Token otherlv_7=null;
+        EObject lv_comparator_3_0 = null;
 
-        EObject lv_path_4_0 = null;
+        EObject lv_path_6_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:792:28: ( (otherlv_0= 'P' () ( (lv_comparator_2_0= ruleCompareProbability ) ) otherlv_3= '[' ( (lv_path_4_0= rulePathFormula ) ) otherlv_5= ']' ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:793:1: (otherlv_0= 'P' () ( (lv_comparator_2_0= ruleCompareProbability ) ) otherlv_3= '[' ( (lv_path_4_0= rulePathFormula ) ) otherlv_5= ']' )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:854:28: ( (otherlv_0= 'P' (this_SL_COMMENT_1= RULE_SL_COMMENT )* () ( (lv_comparator_3_0= ruleCompareProbability ) ) (this_SL_COMMENT_4= RULE_SL_COMMENT )* otherlv_5= '[' ( (lv_path_6_0= rulePathFormula ) ) otherlv_7= ']' ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:855:1: (otherlv_0= 'P' (this_SL_COMMENT_1= RULE_SL_COMMENT )* () ( (lv_comparator_3_0= ruleCompareProbability ) ) (this_SL_COMMENT_4= RULE_SL_COMMENT )* otherlv_5= '[' ( (lv_path_6_0= rulePathFormula ) ) otherlv_7= ']' )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:793:1: (otherlv_0= 'P' () ( (lv_comparator_2_0= ruleCompareProbability ) ) otherlv_3= '[' ( (lv_path_4_0= rulePathFormula ) ) otherlv_5= ']' )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:793:3: otherlv_0= 'P' () ( (lv_comparator_2_0= ruleCompareProbability ) ) otherlv_3= '[' ( (lv_path_4_0= rulePathFormula ) ) otherlv_5= ']'
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:855:1: (otherlv_0= 'P' (this_SL_COMMENT_1= RULE_SL_COMMENT )* () ( (lv_comparator_3_0= ruleCompareProbability ) ) (this_SL_COMMENT_4= RULE_SL_COMMENT )* otherlv_5= '[' ( (lv_path_6_0= rulePathFormula ) ) otherlv_7= ']' )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:855:3: otherlv_0= 'P' (this_SL_COMMENT_1= RULE_SL_COMMENT )* () ( (lv_comparator_3_0= ruleCompareProbability ) ) (this_SL_COMMENT_4= RULE_SL_COMMENT )* otherlv_5= '[' ( (lv_path_6_0= rulePathFormula ) ) otherlv_7= ']'
             {
-            otherlv_0=(Token)match(input,18,FOLLOW_18_in_ruleProbability1834); 
+            otherlv_0=(Token)match(input,18,FOLLOW_18_in_ruleProbability1978); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getProbabilityAccess().getPKeyword_0());
                 
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:797:1: ()
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:798:5: 
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:859:1: (this_SL_COMMENT_1= RULE_SL_COMMENT )*
+            loop19:
+            do {
+                int alt19=2;
+                int LA19_0 = input.LA(1);
+
+                if ( (LA19_0==RULE_SL_COMMENT) ) {
+                    alt19=1;
+                }
+
+
+                switch (alt19) {
+            	case 1 :
+            	    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:859:2: this_SL_COMMENT_1= RULE_SL_COMMENT
+            	    {
+            	    this_SL_COMMENT_1=(Token)match(input,RULE_SL_COMMENT,FOLLOW_RULE_SL_COMMENT_in_ruleProbability1990); 
+            	     
+            	        newLeafNode(this_SL_COMMENT_1, grammarAccess.getProbabilityAccess().getSL_COMMENTTerminalRuleCall_1()); 
+            	        
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop19;
+                }
+            } while (true);
+
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:863:3: ()
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:864:5: 
             {
 
                     current = forceCreateModelElement(
-                        grammarAccess.getProbabilityAccess().getProbabilityAction_1(),
+                        grammarAccess.getProbabilityAccess().getProbabilityAction_2(),
                         current);
                 
 
             }
 
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:803:2: ( (lv_comparator_2_0= ruleCompareProbability ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:804:1: (lv_comparator_2_0= ruleCompareProbability )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:869:2: ( (lv_comparator_3_0= ruleCompareProbability ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:870:1: (lv_comparator_3_0= ruleCompareProbability )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:804:1: (lv_comparator_2_0= ruleCompareProbability )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:805:3: lv_comparator_2_0= ruleCompareProbability
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:870:1: (lv_comparator_3_0= ruleCompareProbability )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:871:3: lv_comparator_3_0= ruleCompareProbability
             {
              
-            	        newCompositeNode(grammarAccess.getProbabilityAccess().getComparatorCompareProbabilityParserRuleCall_2_0()); 
+            	        newCompositeNode(grammarAccess.getProbabilityAccess().getComparatorCompareProbabilityParserRuleCall_3_0()); 
             	    
-            pushFollow(FOLLOW_ruleCompareProbability_in_ruleProbability1864);
-            lv_comparator_2_0=ruleCompareProbability();
+            pushFollow(FOLLOW_ruleCompareProbability_in_ruleProbability2021);
+            lv_comparator_3_0=ruleCompareProbability();
 
             state._fsp--;
 
@@ -2121,7 +2368,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
                    		set(
                    			current, 
                    			"comparator",
-                    		lv_comparator_2_0, 
+                    		lv_comparator_3_0, 
                     		"CompareProbability");
             	        afterParserOrEnumRuleCall();
             	    
@@ -2131,21 +2378,49 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,16,FOLLOW_16_in_ruleProbability1876); 
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:887:2: (this_SL_COMMENT_4= RULE_SL_COMMENT )*
+            loop20:
+            do {
+                int alt20=2;
+                int LA20_0 = input.LA(1);
 
-                	newLeafNode(otherlv_3, grammarAccess.getProbabilityAccess().getLeftSquareBracketKeyword_3());
+                if ( (LA20_0==RULE_SL_COMMENT) ) {
+                    alt20=1;
+                }
+
+
+                switch (alt20) {
+            	case 1 :
+            	    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:887:3: this_SL_COMMENT_4= RULE_SL_COMMENT
+            	    {
+            	    this_SL_COMMENT_4=(Token)match(input,RULE_SL_COMMENT,FOLLOW_RULE_SL_COMMENT_in_ruleProbability2033); 
+            	     
+            	        newLeafNode(this_SL_COMMENT_4, grammarAccess.getProbabilityAccess().getSL_COMMENTTerminalRuleCall_4()); 
+            	        
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop20;
+                }
+            } while (true);
+
+            otherlv_5=(Token)match(input,16,FOLLOW_16_in_ruleProbability2046); 
+
+                	newLeafNode(otherlv_5, grammarAccess.getProbabilityAccess().getLeftSquareBracketKeyword_5());
                 
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:825:1: ( (lv_path_4_0= rulePathFormula ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:826:1: (lv_path_4_0= rulePathFormula )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:895:1: ( (lv_path_6_0= rulePathFormula ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:896:1: (lv_path_6_0= rulePathFormula )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:826:1: (lv_path_4_0= rulePathFormula )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:827:3: lv_path_4_0= rulePathFormula
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:896:1: (lv_path_6_0= rulePathFormula )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:897:3: lv_path_6_0= rulePathFormula
             {
              
-            	        newCompositeNode(grammarAccess.getProbabilityAccess().getPathPathFormulaParserRuleCall_4_0()); 
+            	        newCompositeNode(grammarAccess.getProbabilityAccess().getPathPathFormulaParserRuleCall_6_0()); 
             	    
-            pushFollow(FOLLOW_rulePathFormula_in_ruleProbability1897);
-            lv_path_4_0=rulePathFormula();
+            pushFollow(FOLLOW_rulePathFormula_in_ruleProbability2067);
+            lv_path_6_0=rulePathFormula();
 
             state._fsp--;
 
@@ -2156,7 +2431,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
                    		set(
                    			current, 
                    			"path",
-                    		lv_path_4_0, 
+                    		lv_path_6_0, 
                     		"PathFormula");
             	        afterParserOrEnumRuleCall();
             	    
@@ -2166,9 +2441,9 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,17,FOLLOW_17_in_ruleProbability1909); 
+            otherlv_7=(Token)match(input,17,FOLLOW_17_in_ruleProbability2079); 
 
-                	newLeafNode(otherlv_5, grammarAccess.getProbabilityAccess().getRightSquareBracketKeyword_5());
+                	newLeafNode(otherlv_7, grammarAccess.getProbabilityAccess().getRightSquareBracketKeyword_7());
                 
 
             }
@@ -2191,7 +2466,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAtomic"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:855:1: entryRuleAtomic returns [EObject current=null] : iv_ruleAtomic= ruleAtomic EOF ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:925:1: entryRuleAtomic returns [EObject current=null] : iv_ruleAtomic= ruleAtomic EOF ;
     public final EObject entryRuleAtomic() throws RecognitionException {
         EObject current = null;
 
@@ -2199,17 +2474,17 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:856:2: (iv_ruleAtomic= ruleAtomic EOF )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:857:2: iv_ruleAtomic= ruleAtomic EOF
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:926:2: (iv_ruleAtomic= ruleAtomic EOF )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:927:2: iv_ruleAtomic= ruleAtomic EOF
             {
              newCompositeNode(grammarAccess.getAtomicRule()); 
-            pushFollow(FOLLOW_ruleAtomic_in_entryRuleAtomic1945);
+            pushFollow(FOLLOW_ruleAtomic_in_entryRuleAtomic2115);
             iv_ruleAtomic=ruleAtomic();
 
             state._fsp--;
 
              current =iv_ruleAtomic; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAtomic1955); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleAtomic2125); 
 
             }
 
@@ -2227,7 +2502,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAtomic"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:864:1: ruleAtomic returns [EObject current=null] : (this_State_0= ruleState | this_Label_1= ruleLabel | this_Boolean_2= ruleBoolean ) ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:934:1: ruleAtomic returns [EObject current=null] : (this_State_0= ruleState | this_Label_1= ruleLabel | this_Boolean_2= ruleBoolean ) ;
     public final EObject ruleAtomic() throws RecognitionException {
         EObject current = null;
 
@@ -2241,42 +2516,42 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:867:28: ( (this_State_0= ruleState | this_Label_1= ruleLabel | this_Boolean_2= ruleBoolean ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:868:1: (this_State_0= ruleState | this_Label_1= ruleLabel | this_Boolean_2= ruleBoolean )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:937:28: ( (this_State_0= ruleState | this_Label_1= ruleLabel | this_Boolean_2= ruleBoolean ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:938:1: (this_State_0= ruleState | this_Label_1= ruleLabel | this_Boolean_2= ruleBoolean )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:868:1: (this_State_0= ruleState | this_Label_1= ruleLabel | this_Boolean_2= ruleBoolean )
-            int alt11=3;
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:938:1: (this_State_0= ruleState | this_Label_1= ruleLabel | this_Boolean_2= ruleBoolean )
+            int alt21=3;
             switch ( input.LA(1) ) {
             case 25:
                 {
-                alt11=1;
+                alt21=1;
                 }
                 break;
             case 26:
                 {
-                alt11=2;
+                alt21=2;
                 }
                 break;
             case RULE_BOOL:
                 {
-                alt11=3;
+                alt21=3;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 11, 0, input);
+                    new NoViableAltException("", 21, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt11) {
+            switch (alt21) {
                 case 1 :
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:869:5: this_State_0= ruleState
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:939:5: this_State_0= ruleState
                     {
                      
                             newCompositeNode(grammarAccess.getAtomicAccess().getStateParserRuleCall_0()); 
                         
-                    pushFollow(FOLLOW_ruleState_in_ruleAtomic2002);
+                    pushFollow(FOLLOW_ruleState_in_ruleAtomic2172);
                     this_State_0=ruleState();
 
                     state._fsp--;
@@ -2289,12 +2564,12 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:879:5: this_Label_1= ruleLabel
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:949:5: this_Label_1= ruleLabel
                     {
                      
                             newCompositeNode(grammarAccess.getAtomicAccess().getLabelParserRuleCall_1()); 
                         
-                    pushFollow(FOLLOW_ruleLabel_in_ruleAtomic2029);
+                    pushFollow(FOLLOW_ruleLabel_in_ruleAtomic2199);
                     this_Label_1=ruleLabel();
 
                     state._fsp--;
@@ -2307,12 +2582,12 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:889:5: this_Boolean_2= ruleBoolean
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:959:5: this_Boolean_2= ruleBoolean
                     {
                      
                             newCompositeNode(grammarAccess.getAtomicAccess().getBooleanParserRuleCall_2()); 
                         
-                    pushFollow(FOLLOW_ruleBoolean_in_ruleAtomic2056);
+                    pushFollow(FOLLOW_ruleBoolean_in_ruleAtomic2226);
                     this_Boolean_2=ruleBoolean();
 
                     state._fsp--;
@@ -2345,7 +2620,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleState"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:905:1: entryRuleState returns [EObject current=null] : iv_ruleState= ruleState EOF ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:975:1: entryRuleState returns [EObject current=null] : iv_ruleState= ruleState EOF ;
     public final EObject entryRuleState() throws RecognitionException {
         EObject current = null;
 
@@ -2353,17 +2628,17 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:906:2: (iv_ruleState= ruleState EOF )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:907:2: iv_ruleState= ruleState EOF
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:976:2: (iv_ruleState= ruleState EOF )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:977:2: iv_ruleState= ruleState EOF
             {
              newCompositeNode(grammarAccess.getStateRule()); 
-            pushFollow(FOLLOW_ruleState_in_entryRuleState2091);
+            pushFollow(FOLLOW_ruleState_in_entryRuleState2261);
             iv_ruleState=ruleState();
 
             state._fsp--;
 
              current =iv_ruleState; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleState2101); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleState2271); 
 
             }
 
@@ -2381,7 +2656,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleState"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:914:1: ruleState returns [EObject current=null] : (otherlv_0= 'State:' ( (lv_value_1_0= RULE_ID ) ) ) ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:984:1: ruleState returns [EObject current=null] : (otherlv_0= 'State:' ( (lv_value_1_0= RULE_ID ) ) ) ;
     public final EObject ruleState() throws RecognitionException {
         EObject current = null;
 
@@ -2391,23 +2666,23 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:917:28: ( (otherlv_0= 'State:' ( (lv_value_1_0= RULE_ID ) ) ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:918:1: (otherlv_0= 'State:' ( (lv_value_1_0= RULE_ID ) ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:987:28: ( (otherlv_0= 'State:' ( (lv_value_1_0= RULE_ID ) ) ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:988:1: (otherlv_0= 'State:' ( (lv_value_1_0= RULE_ID ) ) )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:918:1: (otherlv_0= 'State:' ( (lv_value_1_0= RULE_ID ) ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:918:3: otherlv_0= 'State:' ( (lv_value_1_0= RULE_ID ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:988:1: (otherlv_0= 'State:' ( (lv_value_1_0= RULE_ID ) ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:988:3: otherlv_0= 'State:' ( (lv_value_1_0= RULE_ID ) )
             {
-            otherlv_0=(Token)match(input,25,FOLLOW_25_in_ruleState2138); 
+            otherlv_0=(Token)match(input,25,FOLLOW_25_in_ruleState2308); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getStateAccess().getStateKeyword_0());
                 
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:922:1: ( (lv_value_1_0= RULE_ID ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:923:1: (lv_value_1_0= RULE_ID )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:992:1: ( (lv_value_1_0= RULE_ID ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:993:1: (lv_value_1_0= RULE_ID )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:923:1: (lv_value_1_0= RULE_ID )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:924:3: lv_value_1_0= RULE_ID
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:993:1: (lv_value_1_0= RULE_ID )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:994:3: lv_value_1_0= RULE_ID
             {
-            lv_value_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleState2155); 
+            lv_value_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleState2325); 
 
             			newLeafNode(lv_value_1_0, grammarAccess.getStateAccess().getValueIDTerminalRuleCall_1_0()); 
             		
@@ -2448,7 +2723,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleLabel"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:948:1: entryRuleLabel returns [EObject current=null] : iv_ruleLabel= ruleLabel EOF ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1018:1: entryRuleLabel returns [EObject current=null] : iv_ruleLabel= ruleLabel EOF ;
     public final EObject entryRuleLabel() throws RecognitionException {
         EObject current = null;
 
@@ -2456,17 +2731,17 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:949:2: (iv_ruleLabel= ruleLabel EOF )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:950:2: iv_ruleLabel= ruleLabel EOF
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1019:2: (iv_ruleLabel= ruleLabel EOF )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1020:2: iv_ruleLabel= ruleLabel EOF
             {
              newCompositeNode(grammarAccess.getLabelRule()); 
-            pushFollow(FOLLOW_ruleLabel_in_entryRuleLabel2196);
+            pushFollow(FOLLOW_ruleLabel_in_entryRuleLabel2366);
             iv_ruleLabel=ruleLabel();
 
             state._fsp--;
 
              current =iv_ruleLabel; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleLabel2206); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleLabel2376); 
 
             }
 
@@ -2484,7 +2759,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleLabel"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:957:1: ruleLabel returns [EObject current=null] : (otherlv_0= 'Label:' ( (lv_value_1_0= RULE_ID ) ) ) ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1027:1: ruleLabel returns [EObject current=null] : (otherlv_0= 'Label:' ( (lv_value_1_0= RULE_ID ) ) ) ;
     public final EObject ruleLabel() throws RecognitionException {
         EObject current = null;
 
@@ -2494,23 +2769,23 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:960:28: ( (otherlv_0= 'Label:' ( (lv_value_1_0= RULE_ID ) ) ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:961:1: (otherlv_0= 'Label:' ( (lv_value_1_0= RULE_ID ) ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1030:28: ( (otherlv_0= 'Label:' ( (lv_value_1_0= RULE_ID ) ) ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1031:1: (otherlv_0= 'Label:' ( (lv_value_1_0= RULE_ID ) ) )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:961:1: (otherlv_0= 'Label:' ( (lv_value_1_0= RULE_ID ) ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:961:3: otherlv_0= 'Label:' ( (lv_value_1_0= RULE_ID ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1031:1: (otherlv_0= 'Label:' ( (lv_value_1_0= RULE_ID ) ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1031:3: otherlv_0= 'Label:' ( (lv_value_1_0= RULE_ID ) )
             {
-            otherlv_0=(Token)match(input,26,FOLLOW_26_in_ruleLabel2243); 
+            otherlv_0=(Token)match(input,26,FOLLOW_26_in_ruleLabel2413); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getLabelAccess().getLabelKeyword_0());
                 
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:965:1: ( (lv_value_1_0= RULE_ID ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:966:1: (lv_value_1_0= RULE_ID )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1035:1: ( (lv_value_1_0= RULE_ID ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1036:1: (lv_value_1_0= RULE_ID )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:966:1: (lv_value_1_0= RULE_ID )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:967:3: lv_value_1_0= RULE_ID
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1036:1: (lv_value_1_0= RULE_ID )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1037:3: lv_value_1_0= RULE_ID
             {
-            lv_value_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleLabel2260); 
+            lv_value_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleLabel2430); 
 
             			newLeafNode(lv_value_1_0, grammarAccess.getLabelAccess().getValueIDTerminalRuleCall_1_0()); 
             		
@@ -2551,7 +2826,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleBoolean"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:991:1: entryRuleBoolean returns [EObject current=null] : iv_ruleBoolean= ruleBoolean EOF ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1061:1: entryRuleBoolean returns [EObject current=null] : iv_ruleBoolean= ruleBoolean EOF ;
     public final EObject entryRuleBoolean() throws RecognitionException {
         EObject current = null;
 
@@ -2559,17 +2834,17 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:992:2: (iv_ruleBoolean= ruleBoolean EOF )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:993:2: iv_ruleBoolean= ruleBoolean EOF
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1062:2: (iv_ruleBoolean= ruleBoolean EOF )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1063:2: iv_ruleBoolean= ruleBoolean EOF
             {
              newCompositeNode(grammarAccess.getBooleanRule()); 
-            pushFollow(FOLLOW_ruleBoolean_in_entryRuleBoolean2301);
+            pushFollow(FOLLOW_ruleBoolean_in_entryRuleBoolean2471);
             iv_ruleBoolean=ruleBoolean();
 
             state._fsp--;
 
              current =iv_ruleBoolean; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleBoolean2311); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleBoolean2481); 
 
             }
 
@@ -2587,7 +2862,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBoolean"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1000:1: ruleBoolean returns [EObject current=null] : ( (lv_value_0_0= RULE_BOOL ) ) ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1070:1: ruleBoolean returns [EObject current=null] : ( (lv_value_0_0= RULE_BOOL ) ) ;
     public final EObject ruleBoolean() throws RecognitionException {
         EObject current = null;
 
@@ -2596,16 +2871,16 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1003:28: ( ( (lv_value_0_0= RULE_BOOL ) ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1004:1: ( (lv_value_0_0= RULE_BOOL ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1073:28: ( ( (lv_value_0_0= RULE_BOOL ) ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1074:1: ( (lv_value_0_0= RULE_BOOL ) )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1004:1: ( (lv_value_0_0= RULE_BOOL ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1005:1: (lv_value_0_0= RULE_BOOL )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1074:1: ( (lv_value_0_0= RULE_BOOL ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1075:1: (lv_value_0_0= RULE_BOOL )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1005:1: (lv_value_0_0= RULE_BOOL )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1006:3: lv_value_0_0= RULE_BOOL
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1075:1: (lv_value_0_0= RULE_BOOL )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1076:3: lv_value_0_0= RULE_BOOL
             {
-            lv_value_0_0=(Token)match(input,RULE_BOOL,FOLLOW_RULE_BOOL_in_ruleBoolean2352); 
+            lv_value_0_0=(Token)match(input,RULE_BOOL,FOLLOW_RULE_BOOL_in_ruleBoolean2522); 
 
             			newLeafNode(lv_value_0_0, grammarAccess.getBooleanAccess().getValueBOOLTerminalRuleCall_0()); 
             		
@@ -2643,25 +2918,28 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePathFormula"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1030:1: entryRulePathFormula returns [EObject current=null] : iv_rulePathFormula= rulePathFormula EOF ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1100:1: entryRulePathFormula returns [EObject current=null] : iv_rulePathFormula= rulePathFormula EOF ;
     public final EObject entryRulePathFormula() throws RecognitionException {
         EObject current = null;
 
         EObject iv_rulePathFormula = null;
 
 
+         
+        		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_SL_COMMENT");
+        	
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1031:2: (iv_rulePathFormula= rulePathFormula EOF )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1032:2: iv_rulePathFormula= rulePathFormula EOF
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1104:2: (iv_rulePathFormula= rulePathFormula EOF )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1105:2: iv_rulePathFormula= rulePathFormula EOF
             {
              newCompositeNode(grammarAccess.getPathFormulaRule()); 
-            pushFollow(FOLLOW_rulePathFormula_in_entryRulePathFormula2392);
+            pushFollow(FOLLOW_rulePathFormula_in_entryRulePathFormula2568);
             iv_rulePathFormula=rulePathFormula();
 
             state._fsp--;
 
              current =iv_rulePathFormula; 
-            match(input,EOF,FOLLOW_EOF_in_entryRulePathFormula2402); 
+            match(input,EOF,FOLLOW_EOF_in_entryRulePathFormula2578); 
 
             }
 
@@ -2672,6 +2950,9 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
                 appendSkippedTokens();
             } 
         finally {
+
+            	myHiddenTokenState.restore();
+
         }
         return current;
     }
@@ -2679,7 +2960,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePathFormula"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1039:1: rulePathFormula returns [EObject current=null] : (this_Next_0= ruleNext | this_Until_1= ruleUntil | this_Future_2= ruleFuture | this_Globally_3= ruleGlobally ) ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1115:1: rulePathFormula returns [EObject current=null] : (this_Next_0= ruleNext | this_Until_1= ruleUntil | this_Future_2= ruleFuture | this_Globally_3= ruleGlobally ) ;
     public final EObject rulePathFormula() throws RecognitionException {
         EObject current = null;
 
@@ -2693,17 +2974,18 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
          enterRule(); 
+        		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_SL_COMMENT");
             
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1042:28: ( (this_Next_0= ruleNext | this_Until_1= ruleUntil | this_Future_2= ruleFuture | this_Globally_3= ruleGlobally ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1043:1: (this_Next_0= ruleNext | this_Until_1= ruleUntil | this_Future_2= ruleFuture | this_Globally_3= ruleGlobally )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1119:28: ( (this_Next_0= ruleNext | this_Until_1= ruleUntil | this_Future_2= ruleFuture | this_Globally_3= ruleGlobally ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1120:1: (this_Next_0= ruleNext | this_Until_1= ruleUntil | this_Future_2= ruleFuture | this_Globally_3= ruleGlobally )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1043:1: (this_Next_0= ruleNext | this_Until_1= ruleUntil | this_Future_2= ruleFuture | this_Globally_3= ruleGlobally )
-            int alt12=4;
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1120:1: (this_Next_0= ruleNext | this_Until_1= ruleUntil | this_Future_2= ruleFuture | this_Globally_3= ruleGlobally )
+            int alt22=4;
             switch ( input.LA(1) ) {
             case 30:
                 {
-                alt12=1;
+                alt22=1;
                 }
                 break;
             case RULE_BOOL:
@@ -2713,34 +2995,34 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
             case 25:
             case 26:
                 {
-                alt12=2;
+                alt22=2;
                 }
                 break;
             case 31:
                 {
-                alt12=3;
+                alt22=3;
                 }
                 break;
             case 32:
                 {
-                alt12=4;
+                alt22=4;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 12, 0, input);
+                    new NoViableAltException("", 22, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt12) {
+            switch (alt22) {
                 case 1 :
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1044:5: this_Next_0= ruleNext
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1121:5: this_Next_0= ruleNext
                     {
                      
                             newCompositeNode(grammarAccess.getPathFormulaAccess().getNextParserRuleCall_0()); 
                         
-                    pushFollow(FOLLOW_ruleNext_in_rulePathFormula2449);
+                    pushFollow(FOLLOW_ruleNext_in_rulePathFormula2629);
                     this_Next_0=ruleNext();
 
                     state._fsp--;
@@ -2753,12 +3035,12 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1054:5: this_Until_1= ruleUntil
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1131:5: this_Until_1= ruleUntil
                     {
                      
                             newCompositeNode(grammarAccess.getPathFormulaAccess().getUntilParserRuleCall_1()); 
                         
-                    pushFollow(FOLLOW_ruleUntil_in_rulePathFormula2476);
+                    pushFollow(FOLLOW_ruleUntil_in_rulePathFormula2656);
                     this_Until_1=ruleUntil();
 
                     state._fsp--;
@@ -2771,12 +3053,12 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1064:5: this_Future_2= ruleFuture
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1141:5: this_Future_2= ruleFuture
                     {
                      
                             newCompositeNode(grammarAccess.getPathFormulaAccess().getFutureParserRuleCall_2()); 
                         
-                    pushFollow(FOLLOW_ruleFuture_in_rulePathFormula2503);
+                    pushFollow(FOLLOW_ruleFuture_in_rulePathFormula2683);
                     this_Future_2=ruleFuture();
 
                     state._fsp--;
@@ -2789,12 +3071,12 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1074:5: this_Globally_3= ruleGlobally
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1151:5: this_Globally_3= ruleGlobally
                     {
                      
                             newCompositeNode(grammarAccess.getPathFormulaAccess().getGloballyParserRuleCall_3()); 
                         
-                    pushFollow(FOLLOW_ruleGlobally_in_rulePathFormula2530);
+                    pushFollow(FOLLOW_ruleGlobally_in_rulePathFormula2710);
                     this_Globally_3=ruleGlobally();
 
                     state._fsp--;
@@ -2820,6 +3102,9 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
                 appendSkippedTokens();
             } 
         finally {
+
+            	myHiddenTokenState.restore();
+
         }
         return current;
     }
@@ -2827,7 +3112,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleUntil"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1090:1: entryRuleUntil returns [EObject current=null] : iv_ruleUntil= ruleUntil EOF ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1170:1: entryRuleUntil returns [EObject current=null] : iv_ruleUntil= ruleUntil EOF ;
     public final EObject entryRuleUntil() throws RecognitionException {
         EObject current = null;
 
@@ -2835,17 +3120,17 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1091:2: (iv_ruleUntil= ruleUntil EOF )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1092:2: iv_ruleUntil= ruleUntil EOF
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1171:2: (iv_ruleUntil= ruleUntil EOF )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1172:2: iv_ruleUntil= ruleUntil EOF
             {
              newCompositeNode(grammarAccess.getUntilRule()); 
-            pushFollow(FOLLOW_ruleUntil_in_entryRuleUntil2565);
+            pushFollow(FOLLOW_ruleUntil_in_entryRuleUntil2749);
             iv_ruleUntil=ruleUntil();
 
             state._fsp--;
 
              current =iv_ruleUntil; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleUntil2575); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleUntil2759); 
 
             }
 
@@ -2863,7 +3148,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleUntil"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1099:1: ruleUntil returns [EObject current=null] : ( ( (lv_left_0_0= ruleStateFormula ) ) ( ( (lv_type_1_1= 'U' | lv_type_1_2= 'W' | lv_type_1_3= 'R' ) ) ) ( (lv_bound_2_0= ruleTimeBound ) )? ( (lv_right_3_0= ruleStateFormula ) ) ) ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1179:1: ruleUntil returns [EObject current=null] : ( ( (lv_left_0_0= ruleStateFormula ) ) ( ( (lv_type_1_1= 'U' | lv_type_1_2= 'W' | lv_type_1_3= 'R' ) ) ) ( (lv_bound_2_0= ruleTimeBound ) )? ( (lv_right_3_0= ruleStateFormula ) ) ) ;
     public final EObject ruleUntil() throws RecognitionException {
         EObject current = null;
 
@@ -2880,22 +3165,22 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1102:28: ( ( ( (lv_left_0_0= ruleStateFormula ) ) ( ( (lv_type_1_1= 'U' | lv_type_1_2= 'W' | lv_type_1_3= 'R' ) ) ) ( (lv_bound_2_0= ruleTimeBound ) )? ( (lv_right_3_0= ruleStateFormula ) ) ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1103:1: ( ( (lv_left_0_0= ruleStateFormula ) ) ( ( (lv_type_1_1= 'U' | lv_type_1_2= 'W' | lv_type_1_3= 'R' ) ) ) ( (lv_bound_2_0= ruleTimeBound ) )? ( (lv_right_3_0= ruleStateFormula ) ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1182:28: ( ( ( (lv_left_0_0= ruleStateFormula ) ) ( ( (lv_type_1_1= 'U' | lv_type_1_2= 'W' | lv_type_1_3= 'R' ) ) ) ( (lv_bound_2_0= ruleTimeBound ) )? ( (lv_right_3_0= ruleStateFormula ) ) ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1183:1: ( ( (lv_left_0_0= ruleStateFormula ) ) ( ( (lv_type_1_1= 'U' | lv_type_1_2= 'W' | lv_type_1_3= 'R' ) ) ) ( (lv_bound_2_0= ruleTimeBound ) )? ( (lv_right_3_0= ruleStateFormula ) ) )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1103:1: ( ( (lv_left_0_0= ruleStateFormula ) ) ( ( (lv_type_1_1= 'U' | lv_type_1_2= 'W' | lv_type_1_3= 'R' ) ) ) ( (lv_bound_2_0= ruleTimeBound ) )? ( (lv_right_3_0= ruleStateFormula ) ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1103:2: ( (lv_left_0_0= ruleStateFormula ) ) ( ( (lv_type_1_1= 'U' | lv_type_1_2= 'W' | lv_type_1_3= 'R' ) ) ) ( (lv_bound_2_0= ruleTimeBound ) )? ( (lv_right_3_0= ruleStateFormula ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1183:1: ( ( (lv_left_0_0= ruleStateFormula ) ) ( ( (lv_type_1_1= 'U' | lv_type_1_2= 'W' | lv_type_1_3= 'R' ) ) ) ( (lv_bound_2_0= ruleTimeBound ) )? ( (lv_right_3_0= ruleStateFormula ) ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1183:2: ( (lv_left_0_0= ruleStateFormula ) ) ( ( (lv_type_1_1= 'U' | lv_type_1_2= 'W' | lv_type_1_3= 'R' ) ) ) ( (lv_bound_2_0= ruleTimeBound ) )? ( (lv_right_3_0= ruleStateFormula ) )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1103:2: ( (lv_left_0_0= ruleStateFormula ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1104:1: (lv_left_0_0= ruleStateFormula )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1183:2: ( (lv_left_0_0= ruleStateFormula ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1184:1: (lv_left_0_0= ruleStateFormula )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1104:1: (lv_left_0_0= ruleStateFormula )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1105:3: lv_left_0_0= ruleStateFormula
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1184:1: (lv_left_0_0= ruleStateFormula )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1185:3: lv_left_0_0= ruleStateFormula
             {
              
             	        newCompositeNode(grammarAccess.getUntilAccess().getLeftStateFormulaParserRuleCall_0_0()); 
             	    
-            pushFollow(FOLLOW_ruleStateFormula_in_ruleUntil2621);
+            pushFollow(FOLLOW_ruleStateFormula_in_ruleUntil2805);
             lv_left_0_0=ruleStateFormula();
 
             state._fsp--;
@@ -2917,42 +3202,42 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1121:2: ( ( (lv_type_1_1= 'U' | lv_type_1_2= 'W' | lv_type_1_3= 'R' ) ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1122:1: ( (lv_type_1_1= 'U' | lv_type_1_2= 'W' | lv_type_1_3= 'R' ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1201:2: ( ( (lv_type_1_1= 'U' | lv_type_1_2= 'W' | lv_type_1_3= 'R' ) ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1202:1: ( (lv_type_1_1= 'U' | lv_type_1_2= 'W' | lv_type_1_3= 'R' ) )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1122:1: ( (lv_type_1_1= 'U' | lv_type_1_2= 'W' | lv_type_1_3= 'R' ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1123:1: (lv_type_1_1= 'U' | lv_type_1_2= 'W' | lv_type_1_3= 'R' )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1202:1: ( (lv_type_1_1= 'U' | lv_type_1_2= 'W' | lv_type_1_3= 'R' ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1203:1: (lv_type_1_1= 'U' | lv_type_1_2= 'W' | lv_type_1_3= 'R' )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1123:1: (lv_type_1_1= 'U' | lv_type_1_2= 'W' | lv_type_1_3= 'R' )
-            int alt13=3;
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1203:1: (lv_type_1_1= 'U' | lv_type_1_2= 'W' | lv_type_1_3= 'R' )
+            int alt23=3;
             switch ( input.LA(1) ) {
             case 27:
                 {
-                alt13=1;
+                alt23=1;
                 }
                 break;
             case 28:
                 {
-                alt13=2;
+                alt23=2;
                 }
                 break;
             case 29:
                 {
-                alt13=3;
+                alt23=3;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 13, 0, input);
+                    new NoViableAltException("", 23, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt13) {
+            switch (alt23) {
                 case 1 :
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1124:3: lv_type_1_1= 'U'
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1204:3: lv_type_1_1= 'U'
                     {
-                    lv_type_1_1=(Token)match(input,27,FOLLOW_27_in_ruleUntil2641); 
+                    lv_type_1_1=(Token)match(input,27,FOLLOW_27_in_ruleUntil2825); 
 
                             newLeafNode(lv_type_1_1, grammarAccess.getUntilAccess().getTypeUKeyword_1_0_0());
                         
@@ -2966,9 +3251,9 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1136:8: lv_type_1_2= 'W'
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1216:8: lv_type_1_2= 'W'
                     {
-                    lv_type_1_2=(Token)match(input,28,FOLLOW_28_in_ruleUntil2670); 
+                    lv_type_1_2=(Token)match(input,28,FOLLOW_28_in_ruleUntil2854); 
 
                             newLeafNode(lv_type_1_2, grammarAccess.getUntilAccess().getTypeWKeyword_1_0_1());
                         
@@ -2982,9 +3267,9 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1148:8: lv_type_1_3= 'R'
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1228:8: lv_type_1_3= 'R'
                     {
-                    lv_type_1_3=(Token)match(input,29,FOLLOW_29_in_ruleUntil2699); 
+                    lv_type_1_3=(Token)match(input,29,FOLLOW_29_in_ruleUntil2883); 
 
                             newLeafNode(lv_type_1_3, grammarAccess.getUntilAccess().getTypeRKeyword_1_0_2());
                         
@@ -3006,24 +3291,24 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1163:2: ( (lv_bound_2_0= ruleTimeBound ) )?
-            int alt14=2;
-            int LA14_0 = input.LA(1);
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1243:2: ( (lv_bound_2_0= ruleTimeBound ) )?
+            int alt24=2;
+            int LA24_0 = input.LA(1);
 
-            if ( (LA14_0==RULE_COMPARATOR||LA14_0==16||LA14_0==33) ) {
-                alt14=1;
+            if ( (LA24_0==RULE_COMPARATOR||LA24_0==16||LA24_0==33) ) {
+                alt24=1;
             }
-            switch (alt14) {
+            switch (alt24) {
                 case 1 :
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1164:1: (lv_bound_2_0= ruleTimeBound )
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1244:1: (lv_bound_2_0= ruleTimeBound )
                     {
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1164:1: (lv_bound_2_0= ruleTimeBound )
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1165:3: lv_bound_2_0= ruleTimeBound
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1244:1: (lv_bound_2_0= ruleTimeBound )
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1245:3: lv_bound_2_0= ruleTimeBound
                     {
                      
                     	        newCompositeNode(grammarAccess.getUntilAccess().getBoundTimeBoundParserRuleCall_2_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleTimeBound_in_ruleUntil2736);
+                    pushFollow(FOLLOW_ruleTimeBound_in_ruleUntil2920);
                     lv_bound_2_0=ruleTimeBound();
 
                     state._fsp--;
@@ -3048,16 +3333,16 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1181:3: ( (lv_right_3_0= ruleStateFormula ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1182:1: (lv_right_3_0= ruleStateFormula )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1261:3: ( (lv_right_3_0= ruleStateFormula ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1262:1: (lv_right_3_0= ruleStateFormula )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1182:1: (lv_right_3_0= ruleStateFormula )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1183:3: lv_right_3_0= ruleStateFormula
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1262:1: (lv_right_3_0= ruleStateFormula )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1263:3: lv_right_3_0= ruleStateFormula
             {
              
             	        newCompositeNode(grammarAccess.getUntilAccess().getRightStateFormulaParserRuleCall_3_0()); 
             	    
-            pushFollow(FOLLOW_ruleStateFormula_in_ruleUntil2758);
+            pushFollow(FOLLOW_ruleStateFormula_in_ruleUntil2942);
             lv_right_3_0=ruleStateFormula();
 
             state._fsp--;
@@ -3100,7 +3385,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleNext"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1207:1: entryRuleNext returns [EObject current=null] : iv_ruleNext= ruleNext EOF ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1287:1: entryRuleNext returns [EObject current=null] : iv_ruleNext= ruleNext EOF ;
     public final EObject entryRuleNext() throws RecognitionException {
         EObject current = null;
 
@@ -3108,17 +3393,17 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1208:2: (iv_ruleNext= ruleNext EOF )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1209:2: iv_ruleNext= ruleNext EOF
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1288:2: (iv_ruleNext= ruleNext EOF )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1289:2: iv_ruleNext= ruleNext EOF
             {
              newCompositeNode(grammarAccess.getNextRule()); 
-            pushFollow(FOLLOW_ruleNext_in_entryRuleNext2794);
+            pushFollow(FOLLOW_ruleNext_in_entryRuleNext2978);
             iv_ruleNext=ruleNext();
 
             state._fsp--;
 
              current =iv_ruleNext; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleNext2804); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleNext2988); 
 
             }
 
@@ -3136,7 +3421,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNext"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1216:1: ruleNext returns [EObject current=null] : (otherlv_0= 'X' ( (lv_bound_1_0= ruleTimeBound ) )? ( (lv_value_2_0= ruleStateFormula ) ) ) ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1296:1: ruleNext returns [EObject current=null] : (otherlv_0= 'X' ( (lv_bound_1_0= ruleTimeBound ) )? ( (lv_value_2_0= ruleStateFormula ) ) ) ;
     public final EObject ruleNext() throws RecognitionException {
         EObject current = null;
 
@@ -3149,34 +3434,34 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1219:28: ( (otherlv_0= 'X' ( (lv_bound_1_0= ruleTimeBound ) )? ( (lv_value_2_0= ruleStateFormula ) ) ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1220:1: (otherlv_0= 'X' ( (lv_bound_1_0= ruleTimeBound ) )? ( (lv_value_2_0= ruleStateFormula ) ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1299:28: ( (otherlv_0= 'X' ( (lv_bound_1_0= ruleTimeBound ) )? ( (lv_value_2_0= ruleStateFormula ) ) ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1300:1: (otherlv_0= 'X' ( (lv_bound_1_0= ruleTimeBound ) )? ( (lv_value_2_0= ruleStateFormula ) ) )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1220:1: (otherlv_0= 'X' ( (lv_bound_1_0= ruleTimeBound ) )? ( (lv_value_2_0= ruleStateFormula ) ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1220:3: otherlv_0= 'X' ( (lv_bound_1_0= ruleTimeBound ) )? ( (lv_value_2_0= ruleStateFormula ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1300:1: (otherlv_0= 'X' ( (lv_bound_1_0= ruleTimeBound ) )? ( (lv_value_2_0= ruleStateFormula ) ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1300:3: otherlv_0= 'X' ( (lv_bound_1_0= ruleTimeBound ) )? ( (lv_value_2_0= ruleStateFormula ) )
             {
-            otherlv_0=(Token)match(input,30,FOLLOW_30_in_ruleNext2841); 
+            otherlv_0=(Token)match(input,30,FOLLOW_30_in_ruleNext3025); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getNextAccess().getXKeyword_0());
                 
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1224:1: ( (lv_bound_1_0= ruleTimeBound ) )?
-            int alt15=2;
-            int LA15_0 = input.LA(1);
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1304:1: ( (lv_bound_1_0= ruleTimeBound ) )?
+            int alt25=2;
+            int LA25_0 = input.LA(1);
 
-            if ( (LA15_0==RULE_COMPARATOR||LA15_0==16||LA15_0==33) ) {
-                alt15=1;
+            if ( (LA25_0==RULE_COMPARATOR||LA25_0==16||LA25_0==33) ) {
+                alt25=1;
             }
-            switch (alt15) {
+            switch (alt25) {
                 case 1 :
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1225:1: (lv_bound_1_0= ruleTimeBound )
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1305:1: (lv_bound_1_0= ruleTimeBound )
                     {
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1225:1: (lv_bound_1_0= ruleTimeBound )
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1226:3: lv_bound_1_0= ruleTimeBound
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1305:1: (lv_bound_1_0= ruleTimeBound )
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1306:3: lv_bound_1_0= ruleTimeBound
                     {
                      
                     	        newCompositeNode(grammarAccess.getNextAccess().getBoundTimeBoundParserRuleCall_1_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleTimeBound_in_ruleNext2862);
+                    pushFollow(FOLLOW_ruleTimeBound_in_ruleNext3046);
                     lv_bound_1_0=ruleTimeBound();
 
                     state._fsp--;
@@ -3201,16 +3486,16 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1242:3: ( (lv_value_2_0= ruleStateFormula ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1243:1: (lv_value_2_0= ruleStateFormula )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1322:3: ( (lv_value_2_0= ruleStateFormula ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1323:1: (lv_value_2_0= ruleStateFormula )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1243:1: (lv_value_2_0= ruleStateFormula )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1244:3: lv_value_2_0= ruleStateFormula
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1323:1: (lv_value_2_0= ruleStateFormula )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1324:3: lv_value_2_0= ruleStateFormula
             {
              
             	        newCompositeNode(grammarAccess.getNextAccess().getValueStateFormulaParserRuleCall_2_0()); 
             	    
-            pushFollow(FOLLOW_ruleStateFormula_in_ruleNext2884);
+            pushFollow(FOLLOW_ruleStateFormula_in_ruleNext3068);
             lv_value_2_0=ruleStateFormula();
 
             state._fsp--;
@@ -3253,7 +3538,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleFuture"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1268:1: entryRuleFuture returns [EObject current=null] : iv_ruleFuture= ruleFuture EOF ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1348:1: entryRuleFuture returns [EObject current=null] : iv_ruleFuture= ruleFuture EOF ;
     public final EObject entryRuleFuture() throws RecognitionException {
         EObject current = null;
 
@@ -3261,17 +3546,17 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1269:2: (iv_ruleFuture= ruleFuture EOF )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1270:2: iv_ruleFuture= ruleFuture EOF
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1349:2: (iv_ruleFuture= ruleFuture EOF )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1350:2: iv_ruleFuture= ruleFuture EOF
             {
              newCompositeNode(grammarAccess.getFutureRule()); 
-            pushFollow(FOLLOW_ruleFuture_in_entryRuleFuture2920);
+            pushFollow(FOLLOW_ruleFuture_in_entryRuleFuture3104);
             iv_ruleFuture=ruleFuture();
 
             state._fsp--;
 
              current =iv_ruleFuture; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleFuture2930); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleFuture3114); 
 
             }
 
@@ -3289,7 +3574,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFuture"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1277:1: ruleFuture returns [EObject current=null] : (otherlv_0= 'F' ( (lv_bound_1_0= ruleTimeBound ) )? ( (lv_value_2_0= ruleStateFormula ) ) ) ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1357:1: ruleFuture returns [EObject current=null] : (otherlv_0= 'F' ( (lv_bound_1_0= ruleTimeBound ) )? ( (lv_value_2_0= ruleStateFormula ) ) ) ;
     public final EObject ruleFuture() throws RecognitionException {
         EObject current = null;
 
@@ -3302,34 +3587,34 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1280:28: ( (otherlv_0= 'F' ( (lv_bound_1_0= ruleTimeBound ) )? ( (lv_value_2_0= ruleStateFormula ) ) ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1281:1: (otherlv_0= 'F' ( (lv_bound_1_0= ruleTimeBound ) )? ( (lv_value_2_0= ruleStateFormula ) ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1360:28: ( (otherlv_0= 'F' ( (lv_bound_1_0= ruleTimeBound ) )? ( (lv_value_2_0= ruleStateFormula ) ) ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1361:1: (otherlv_0= 'F' ( (lv_bound_1_0= ruleTimeBound ) )? ( (lv_value_2_0= ruleStateFormula ) ) )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1281:1: (otherlv_0= 'F' ( (lv_bound_1_0= ruleTimeBound ) )? ( (lv_value_2_0= ruleStateFormula ) ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1281:3: otherlv_0= 'F' ( (lv_bound_1_0= ruleTimeBound ) )? ( (lv_value_2_0= ruleStateFormula ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1361:1: (otherlv_0= 'F' ( (lv_bound_1_0= ruleTimeBound ) )? ( (lv_value_2_0= ruleStateFormula ) ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1361:3: otherlv_0= 'F' ( (lv_bound_1_0= ruleTimeBound ) )? ( (lv_value_2_0= ruleStateFormula ) )
             {
-            otherlv_0=(Token)match(input,31,FOLLOW_31_in_ruleFuture2967); 
+            otherlv_0=(Token)match(input,31,FOLLOW_31_in_ruleFuture3151); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getFutureAccess().getFKeyword_0());
                 
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1285:1: ( (lv_bound_1_0= ruleTimeBound ) )?
-            int alt16=2;
-            int LA16_0 = input.LA(1);
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1365:1: ( (lv_bound_1_0= ruleTimeBound ) )?
+            int alt26=2;
+            int LA26_0 = input.LA(1);
 
-            if ( (LA16_0==RULE_COMPARATOR||LA16_0==16||LA16_0==33) ) {
-                alt16=1;
+            if ( (LA26_0==RULE_COMPARATOR||LA26_0==16||LA26_0==33) ) {
+                alt26=1;
             }
-            switch (alt16) {
+            switch (alt26) {
                 case 1 :
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1286:1: (lv_bound_1_0= ruleTimeBound )
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1366:1: (lv_bound_1_0= ruleTimeBound )
                     {
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1286:1: (lv_bound_1_0= ruleTimeBound )
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1287:3: lv_bound_1_0= ruleTimeBound
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1366:1: (lv_bound_1_0= ruleTimeBound )
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1367:3: lv_bound_1_0= ruleTimeBound
                     {
                      
                     	        newCompositeNode(grammarAccess.getFutureAccess().getBoundTimeBoundParserRuleCall_1_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleTimeBound_in_ruleFuture2988);
+                    pushFollow(FOLLOW_ruleTimeBound_in_ruleFuture3172);
                     lv_bound_1_0=ruleTimeBound();
 
                     state._fsp--;
@@ -3354,16 +3639,16 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1303:3: ( (lv_value_2_0= ruleStateFormula ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1304:1: (lv_value_2_0= ruleStateFormula )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1383:3: ( (lv_value_2_0= ruleStateFormula ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1384:1: (lv_value_2_0= ruleStateFormula )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1304:1: (lv_value_2_0= ruleStateFormula )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1305:3: lv_value_2_0= ruleStateFormula
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1384:1: (lv_value_2_0= ruleStateFormula )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1385:3: lv_value_2_0= ruleStateFormula
             {
              
             	        newCompositeNode(grammarAccess.getFutureAccess().getValueStateFormulaParserRuleCall_2_0()); 
             	    
-            pushFollow(FOLLOW_ruleStateFormula_in_ruleFuture3010);
+            pushFollow(FOLLOW_ruleStateFormula_in_ruleFuture3194);
             lv_value_2_0=ruleStateFormula();
 
             state._fsp--;
@@ -3406,7 +3691,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleGlobally"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1329:1: entryRuleGlobally returns [EObject current=null] : iv_ruleGlobally= ruleGlobally EOF ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1409:1: entryRuleGlobally returns [EObject current=null] : iv_ruleGlobally= ruleGlobally EOF ;
     public final EObject entryRuleGlobally() throws RecognitionException {
         EObject current = null;
 
@@ -3414,17 +3699,17 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1330:2: (iv_ruleGlobally= ruleGlobally EOF )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1331:2: iv_ruleGlobally= ruleGlobally EOF
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1410:2: (iv_ruleGlobally= ruleGlobally EOF )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1411:2: iv_ruleGlobally= ruleGlobally EOF
             {
              newCompositeNode(grammarAccess.getGloballyRule()); 
-            pushFollow(FOLLOW_ruleGlobally_in_entryRuleGlobally3046);
+            pushFollow(FOLLOW_ruleGlobally_in_entryRuleGlobally3230);
             iv_ruleGlobally=ruleGlobally();
 
             state._fsp--;
 
              current =iv_ruleGlobally; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleGlobally3056); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleGlobally3240); 
 
             }
 
@@ -3442,7 +3727,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGlobally"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1338:1: ruleGlobally returns [EObject current=null] : (otherlv_0= 'G' ( (lv_bound_1_0= ruleTimeBound ) )? ( (lv_value_2_0= ruleStateFormula ) ) ) ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1418:1: ruleGlobally returns [EObject current=null] : (otherlv_0= 'G' ( (lv_bound_1_0= ruleTimeBound ) )? ( (lv_value_2_0= ruleStateFormula ) ) ) ;
     public final EObject ruleGlobally() throws RecognitionException {
         EObject current = null;
 
@@ -3455,34 +3740,34 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1341:28: ( (otherlv_0= 'G' ( (lv_bound_1_0= ruleTimeBound ) )? ( (lv_value_2_0= ruleStateFormula ) ) ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1342:1: (otherlv_0= 'G' ( (lv_bound_1_0= ruleTimeBound ) )? ( (lv_value_2_0= ruleStateFormula ) ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1421:28: ( (otherlv_0= 'G' ( (lv_bound_1_0= ruleTimeBound ) )? ( (lv_value_2_0= ruleStateFormula ) ) ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1422:1: (otherlv_0= 'G' ( (lv_bound_1_0= ruleTimeBound ) )? ( (lv_value_2_0= ruleStateFormula ) ) )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1342:1: (otherlv_0= 'G' ( (lv_bound_1_0= ruleTimeBound ) )? ( (lv_value_2_0= ruleStateFormula ) ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1342:3: otherlv_0= 'G' ( (lv_bound_1_0= ruleTimeBound ) )? ( (lv_value_2_0= ruleStateFormula ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1422:1: (otherlv_0= 'G' ( (lv_bound_1_0= ruleTimeBound ) )? ( (lv_value_2_0= ruleStateFormula ) ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1422:3: otherlv_0= 'G' ( (lv_bound_1_0= ruleTimeBound ) )? ( (lv_value_2_0= ruleStateFormula ) )
             {
-            otherlv_0=(Token)match(input,32,FOLLOW_32_in_ruleGlobally3093); 
+            otherlv_0=(Token)match(input,32,FOLLOW_32_in_ruleGlobally3277); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getGloballyAccess().getGKeyword_0());
                 
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1346:1: ( (lv_bound_1_0= ruleTimeBound ) )?
-            int alt17=2;
-            int LA17_0 = input.LA(1);
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1426:1: ( (lv_bound_1_0= ruleTimeBound ) )?
+            int alt27=2;
+            int LA27_0 = input.LA(1);
 
-            if ( (LA17_0==RULE_COMPARATOR||LA17_0==16||LA17_0==33) ) {
-                alt17=1;
+            if ( (LA27_0==RULE_COMPARATOR||LA27_0==16||LA27_0==33) ) {
+                alt27=1;
             }
-            switch (alt17) {
+            switch (alt27) {
                 case 1 :
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1347:1: (lv_bound_1_0= ruleTimeBound )
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1427:1: (lv_bound_1_0= ruleTimeBound )
                     {
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1347:1: (lv_bound_1_0= ruleTimeBound )
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1348:3: lv_bound_1_0= ruleTimeBound
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1427:1: (lv_bound_1_0= ruleTimeBound )
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1428:3: lv_bound_1_0= ruleTimeBound
                     {
                      
                     	        newCompositeNode(grammarAccess.getGloballyAccess().getBoundTimeBoundParserRuleCall_1_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleTimeBound_in_ruleGlobally3114);
+                    pushFollow(FOLLOW_ruleTimeBound_in_ruleGlobally3298);
                     lv_bound_1_0=ruleTimeBound();
 
                     state._fsp--;
@@ -3507,16 +3792,16 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1364:3: ( (lv_value_2_0= ruleStateFormula ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1365:1: (lv_value_2_0= ruleStateFormula )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1444:3: ( (lv_value_2_0= ruleStateFormula ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1445:1: (lv_value_2_0= ruleStateFormula )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1365:1: (lv_value_2_0= ruleStateFormula )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1366:3: lv_value_2_0= ruleStateFormula
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1445:1: (lv_value_2_0= ruleStateFormula )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1446:3: lv_value_2_0= ruleStateFormula
             {
              
             	        newCompositeNode(grammarAccess.getGloballyAccess().getValueStateFormulaParserRuleCall_2_0()); 
             	    
-            pushFollow(FOLLOW_ruleStateFormula_in_ruleGlobally3136);
+            pushFollow(FOLLOW_ruleStateFormula_in_ruleGlobally3320);
             lv_value_2_0=ruleStateFormula();
 
             state._fsp--;
@@ -3559,25 +3844,28 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleCompareProbability"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1390:1: entryRuleCompareProbability returns [EObject current=null] : iv_ruleCompareProbability= ruleCompareProbability EOF ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1470:1: entryRuleCompareProbability returns [EObject current=null] : iv_ruleCompareProbability= ruleCompareProbability EOF ;
     public final EObject entryRuleCompareProbability() throws RecognitionException {
         EObject current = null;
 
         EObject iv_ruleCompareProbability = null;
 
 
+         
+        		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_SL_COMMENT");
+        	
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1391:2: (iv_ruleCompareProbability= ruleCompareProbability EOF )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1392:2: iv_ruleCompareProbability= ruleCompareProbability EOF
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1474:2: (iv_ruleCompareProbability= ruleCompareProbability EOF )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1475:2: iv_ruleCompareProbability= ruleCompareProbability EOF
             {
              newCompositeNode(grammarAccess.getCompareProbabilityRule()); 
-            pushFollow(FOLLOW_ruleCompareProbability_in_entryRuleCompareProbability3172);
+            pushFollow(FOLLOW_ruleCompareProbability_in_entryRuleCompareProbability3362);
             iv_ruleCompareProbability=ruleCompareProbability();
 
             state._fsp--;
 
              current =iv_ruleCompareProbability; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleCompareProbability3182); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleCompareProbability3372); 
 
             }
 
@@ -3588,6 +3876,9 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
                 appendSkippedTokens();
             } 
         finally {
+
+            	myHiddenTokenState.restore();
+
         }
         return current;
     }
@@ -3595,7 +3886,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCompareProbability"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1399:1: ruleCompareProbability returns [EObject current=null] : ( ( (lv_operator_0_0= RULE_COMPARATOR ) ) ( (lv_value_1_0= RULE_DOUBLE ) ) ) ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1485:1: ruleCompareProbability returns [EObject current=null] : ( ( (lv_operator_0_0= RULE_COMPARATOR ) ) ( (lv_value_1_0= RULE_DOUBLE ) ) ) ;
     public final EObject ruleCompareProbability() throws RecognitionException {
         EObject current = null;
 
@@ -3603,21 +3894,22 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
         Token lv_value_1_0=null;
 
          enterRule(); 
+        		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_SL_COMMENT");
             
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1402:28: ( ( ( (lv_operator_0_0= RULE_COMPARATOR ) ) ( (lv_value_1_0= RULE_DOUBLE ) ) ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1403:1: ( ( (lv_operator_0_0= RULE_COMPARATOR ) ) ( (lv_value_1_0= RULE_DOUBLE ) ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1489:28: ( ( ( (lv_operator_0_0= RULE_COMPARATOR ) ) ( (lv_value_1_0= RULE_DOUBLE ) ) ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1490:1: ( ( (lv_operator_0_0= RULE_COMPARATOR ) ) ( (lv_value_1_0= RULE_DOUBLE ) ) )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1403:1: ( ( (lv_operator_0_0= RULE_COMPARATOR ) ) ( (lv_value_1_0= RULE_DOUBLE ) ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1403:2: ( (lv_operator_0_0= RULE_COMPARATOR ) ) ( (lv_value_1_0= RULE_DOUBLE ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1490:1: ( ( (lv_operator_0_0= RULE_COMPARATOR ) ) ( (lv_value_1_0= RULE_DOUBLE ) ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1490:2: ( (lv_operator_0_0= RULE_COMPARATOR ) ) ( (lv_value_1_0= RULE_DOUBLE ) )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1403:2: ( (lv_operator_0_0= RULE_COMPARATOR ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1404:1: (lv_operator_0_0= RULE_COMPARATOR )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1490:2: ( (lv_operator_0_0= RULE_COMPARATOR ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1491:1: (lv_operator_0_0= RULE_COMPARATOR )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1404:1: (lv_operator_0_0= RULE_COMPARATOR )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1405:3: lv_operator_0_0= RULE_COMPARATOR
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1491:1: (lv_operator_0_0= RULE_COMPARATOR )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1492:3: lv_operator_0_0= RULE_COMPARATOR
             {
-            lv_operator_0_0=(Token)match(input,RULE_COMPARATOR,FOLLOW_RULE_COMPARATOR_in_ruleCompareProbability3224); 
+            lv_operator_0_0=(Token)match(input,RULE_COMPARATOR,FOLLOW_RULE_COMPARATOR_in_ruleCompareProbability3418); 
 
             			newLeafNode(lv_operator_0_0, grammarAccess.getCompareProbabilityAccess().getOperatorCOMPARATORTerminalRuleCall_0_0()); 
             		
@@ -3637,13 +3929,13 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1421:2: ( (lv_value_1_0= RULE_DOUBLE ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1422:1: (lv_value_1_0= RULE_DOUBLE )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1508:2: ( (lv_value_1_0= RULE_DOUBLE ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1509:1: (lv_value_1_0= RULE_DOUBLE )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1422:1: (lv_value_1_0= RULE_DOUBLE )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1423:3: lv_value_1_0= RULE_DOUBLE
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1509:1: (lv_value_1_0= RULE_DOUBLE )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1510:3: lv_value_1_0= RULE_DOUBLE
             {
-            lv_value_1_0=(Token)match(input,RULE_DOUBLE,FOLLOW_RULE_DOUBLE_in_ruleCompareProbability3246); 
+            lv_value_1_0=(Token)match(input,RULE_DOUBLE,FOLLOW_RULE_DOUBLE_in_ruleCompareProbability3440); 
 
             			newLeafNode(lv_value_1_0, grammarAccess.getCompareProbabilityAccess().getValueDOUBLETerminalRuleCall_1_0()); 
             		
@@ -3677,6 +3969,9 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
                 appendSkippedTokens();
             } 
         finally {
+
+            	myHiddenTokenState.restore();
+
         }
         return current;
     }
@@ -3684,25 +3979,28 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleTimeBound"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1447:1: entryRuleTimeBound returns [EObject current=null] : iv_ruleTimeBound= ruleTimeBound EOF ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1537:1: entryRuleTimeBound returns [EObject current=null] : iv_ruleTimeBound= ruleTimeBound EOF ;
     public final EObject entryRuleTimeBound() throws RecognitionException {
         EObject current = null;
 
         EObject iv_ruleTimeBound = null;
 
 
+         
+        		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_SL_COMMENT");
+        	
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1448:2: (iv_ruleTimeBound= ruleTimeBound EOF )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1449:2: iv_ruleTimeBound= ruleTimeBound EOF
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1541:2: (iv_ruleTimeBound= ruleTimeBound EOF )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1542:2: iv_ruleTimeBound= ruleTimeBound EOF
             {
              newCompositeNode(grammarAccess.getTimeBoundRule()); 
-            pushFollow(FOLLOW_ruleTimeBound_in_entryRuleTimeBound3287);
+            pushFollow(FOLLOW_ruleTimeBound_in_entryRuleTimeBound3491);
             iv_ruleTimeBound=ruleTimeBound();
 
             state._fsp--;
 
              current =iv_ruleTimeBound; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleTimeBound3297); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleTimeBound3501); 
 
             }
 
@@ -3713,6 +4011,9 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
                 appendSkippedTokens();
             } 
         finally {
+
+            	myHiddenTokenState.restore();
+
         }
         return current;
     }
@@ -3720,7 +4021,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTimeBound"
-    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1456:1: ruleTimeBound returns [EObject current=null] : ( ( ( ( (lv_operator_0_1= RULE_COMPARATOR | lv_operator_0_2= '=' ) ) ) ( (lv_value_1_0= RULE_DOUBLE ) ) ) | (otherlv_2= '[' ( (lv_from_3_0= RULE_DOUBLE ) ) ( (lv_operator_4_0= ',' ) ) ( (lv_to_5_0= RULE_DOUBLE ) ) otherlv_6= ']' ) ) ;
+    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1552:1: ruleTimeBound returns [EObject current=null] : ( ( ( ( (lv_operator_0_1= RULE_COMPARATOR | lv_operator_0_2= '=' ) ) ) ( (lv_value_1_0= RULE_DOUBLE ) ) ) | (otherlv_2= '[' ( (lv_from_3_0= RULE_DOUBLE ) ) ( (lv_operator_4_0= ',' ) ) ( (lv_to_5_0= RULE_DOUBLE ) ) otherlv_6= ']' ) ) ;
     public final EObject ruleTimeBound() throws RecognitionException {
         EObject current = null;
 
@@ -3734,61 +4035,62 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
         Token otherlv_6=null;
 
          enterRule(); 
+        		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_SL_COMMENT");
             
         try {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1459:28: ( ( ( ( ( (lv_operator_0_1= RULE_COMPARATOR | lv_operator_0_2= '=' ) ) ) ( (lv_value_1_0= RULE_DOUBLE ) ) ) | (otherlv_2= '[' ( (lv_from_3_0= RULE_DOUBLE ) ) ( (lv_operator_4_0= ',' ) ) ( (lv_to_5_0= RULE_DOUBLE ) ) otherlv_6= ']' ) ) )
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1460:1: ( ( ( ( (lv_operator_0_1= RULE_COMPARATOR | lv_operator_0_2= '=' ) ) ) ( (lv_value_1_0= RULE_DOUBLE ) ) ) | (otherlv_2= '[' ( (lv_from_3_0= RULE_DOUBLE ) ) ( (lv_operator_4_0= ',' ) ) ( (lv_to_5_0= RULE_DOUBLE ) ) otherlv_6= ']' ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1556:28: ( ( ( ( ( (lv_operator_0_1= RULE_COMPARATOR | lv_operator_0_2= '=' ) ) ) ( (lv_value_1_0= RULE_DOUBLE ) ) ) | (otherlv_2= '[' ( (lv_from_3_0= RULE_DOUBLE ) ) ( (lv_operator_4_0= ',' ) ) ( (lv_to_5_0= RULE_DOUBLE ) ) otherlv_6= ']' ) ) )
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1557:1: ( ( ( ( (lv_operator_0_1= RULE_COMPARATOR | lv_operator_0_2= '=' ) ) ) ( (lv_value_1_0= RULE_DOUBLE ) ) ) | (otherlv_2= '[' ( (lv_from_3_0= RULE_DOUBLE ) ) ( (lv_operator_4_0= ',' ) ) ( (lv_to_5_0= RULE_DOUBLE ) ) otherlv_6= ']' ) )
             {
-            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1460:1: ( ( ( ( (lv_operator_0_1= RULE_COMPARATOR | lv_operator_0_2= '=' ) ) ) ( (lv_value_1_0= RULE_DOUBLE ) ) ) | (otherlv_2= '[' ( (lv_from_3_0= RULE_DOUBLE ) ) ( (lv_operator_4_0= ',' ) ) ( (lv_to_5_0= RULE_DOUBLE ) ) otherlv_6= ']' ) )
-            int alt19=2;
-            int LA19_0 = input.LA(1);
+            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1557:1: ( ( ( ( (lv_operator_0_1= RULE_COMPARATOR | lv_operator_0_2= '=' ) ) ) ( (lv_value_1_0= RULE_DOUBLE ) ) ) | (otherlv_2= '[' ( (lv_from_3_0= RULE_DOUBLE ) ) ( (lv_operator_4_0= ',' ) ) ( (lv_to_5_0= RULE_DOUBLE ) ) otherlv_6= ']' ) )
+            int alt29=2;
+            int LA29_0 = input.LA(1);
 
-            if ( (LA19_0==RULE_COMPARATOR||LA19_0==33) ) {
-                alt19=1;
+            if ( (LA29_0==RULE_COMPARATOR||LA29_0==33) ) {
+                alt29=1;
             }
-            else if ( (LA19_0==16) ) {
-                alt19=2;
+            else if ( (LA29_0==16) ) {
+                alt29=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 19, 0, input);
+                    new NoViableAltException("", 29, 0, input);
 
                 throw nvae;
             }
-            switch (alt19) {
+            switch (alt29) {
                 case 1 :
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1460:2: ( ( ( (lv_operator_0_1= RULE_COMPARATOR | lv_operator_0_2= '=' ) ) ) ( (lv_value_1_0= RULE_DOUBLE ) ) )
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1557:2: ( ( ( (lv_operator_0_1= RULE_COMPARATOR | lv_operator_0_2= '=' ) ) ) ( (lv_value_1_0= RULE_DOUBLE ) ) )
                     {
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1460:2: ( ( ( (lv_operator_0_1= RULE_COMPARATOR | lv_operator_0_2= '=' ) ) ) ( (lv_value_1_0= RULE_DOUBLE ) ) )
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1460:3: ( ( (lv_operator_0_1= RULE_COMPARATOR | lv_operator_0_2= '=' ) ) ) ( (lv_value_1_0= RULE_DOUBLE ) )
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1557:2: ( ( ( (lv_operator_0_1= RULE_COMPARATOR | lv_operator_0_2= '=' ) ) ) ( (lv_value_1_0= RULE_DOUBLE ) ) )
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1557:3: ( ( (lv_operator_0_1= RULE_COMPARATOR | lv_operator_0_2= '=' ) ) ) ( (lv_value_1_0= RULE_DOUBLE ) )
                     {
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1460:3: ( ( (lv_operator_0_1= RULE_COMPARATOR | lv_operator_0_2= '=' ) ) )
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1461:1: ( (lv_operator_0_1= RULE_COMPARATOR | lv_operator_0_2= '=' ) )
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1557:3: ( ( (lv_operator_0_1= RULE_COMPARATOR | lv_operator_0_2= '=' ) ) )
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1558:1: ( (lv_operator_0_1= RULE_COMPARATOR | lv_operator_0_2= '=' ) )
                     {
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1461:1: ( (lv_operator_0_1= RULE_COMPARATOR | lv_operator_0_2= '=' ) )
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1462:1: (lv_operator_0_1= RULE_COMPARATOR | lv_operator_0_2= '=' )
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1558:1: ( (lv_operator_0_1= RULE_COMPARATOR | lv_operator_0_2= '=' ) )
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1559:1: (lv_operator_0_1= RULE_COMPARATOR | lv_operator_0_2= '=' )
                     {
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1462:1: (lv_operator_0_1= RULE_COMPARATOR | lv_operator_0_2= '=' )
-                    int alt18=2;
-                    int LA18_0 = input.LA(1);
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1559:1: (lv_operator_0_1= RULE_COMPARATOR | lv_operator_0_2= '=' )
+                    int alt28=2;
+                    int LA28_0 = input.LA(1);
 
-                    if ( (LA18_0==RULE_COMPARATOR) ) {
-                        alt18=1;
+                    if ( (LA28_0==RULE_COMPARATOR) ) {
+                        alt28=1;
                     }
-                    else if ( (LA18_0==33) ) {
-                        alt18=2;
+                    else if ( (LA28_0==33) ) {
+                        alt28=2;
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("", 18, 0, input);
+                            new NoViableAltException("", 28, 0, input);
 
                         throw nvae;
                     }
-                    switch (alt18) {
+                    switch (alt28) {
                         case 1 :
-                            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1463:3: lv_operator_0_1= RULE_COMPARATOR
+                            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1560:3: lv_operator_0_1= RULE_COMPARATOR
                             {
-                            lv_operator_0_1=(Token)match(input,RULE_COMPARATOR,FOLLOW_RULE_COMPARATOR_in_ruleTimeBound3342); 
+                            lv_operator_0_1=(Token)match(input,RULE_COMPARATOR,FOLLOW_RULE_COMPARATOR_in_ruleTimeBound3550); 
 
                             			newLeafNode(lv_operator_0_1, grammarAccess.getTimeBoundAccess().getOperatorCOMPARATORTerminalRuleCall_0_0_0_0()); 
                             		
@@ -3806,9 +4108,9 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1478:8: lv_operator_0_2= '='
+                            // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1575:8: lv_operator_0_2= '='
                             {
-                            lv_operator_0_2=(Token)match(input,33,FOLLOW_33_in_ruleTimeBound3363); 
+                            lv_operator_0_2=(Token)match(input,33,FOLLOW_33_in_ruleTimeBound3571); 
 
                                     newLeafNode(lv_operator_0_2, grammarAccess.getTimeBoundAccess().getOperatorEqualsSignKeyword_0_0_0_1());
                                 
@@ -3830,13 +4132,13 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1493:2: ( (lv_value_1_0= RULE_DOUBLE ) )
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1494:1: (lv_value_1_0= RULE_DOUBLE )
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1590:2: ( (lv_value_1_0= RULE_DOUBLE ) )
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1591:1: (lv_value_1_0= RULE_DOUBLE )
                     {
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1494:1: (lv_value_1_0= RULE_DOUBLE )
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1495:3: lv_value_1_0= RULE_DOUBLE
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1591:1: (lv_value_1_0= RULE_DOUBLE )
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1592:3: lv_value_1_0= RULE_DOUBLE
                     {
-                    lv_value_1_0=(Token)match(input,RULE_DOUBLE,FOLLOW_RULE_DOUBLE_in_ruleTimeBound3396); 
+                    lv_value_1_0=(Token)match(input,RULE_DOUBLE,FOLLOW_RULE_DOUBLE_in_ruleTimeBound3604); 
 
                     			newLeafNode(lv_value_1_0, grammarAccess.getTimeBoundAccess().getValueDOUBLETerminalRuleCall_0_1_0()); 
                     		
@@ -3863,22 +4165,22 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1512:6: (otherlv_2= '[' ( (lv_from_3_0= RULE_DOUBLE ) ) ( (lv_operator_4_0= ',' ) ) ( (lv_to_5_0= RULE_DOUBLE ) ) otherlv_6= ']' )
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1609:6: (otherlv_2= '[' ( (lv_from_3_0= RULE_DOUBLE ) ) ( (lv_operator_4_0= ',' ) ) ( (lv_to_5_0= RULE_DOUBLE ) ) otherlv_6= ']' )
                     {
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1512:6: (otherlv_2= '[' ( (lv_from_3_0= RULE_DOUBLE ) ) ( (lv_operator_4_0= ',' ) ) ( (lv_to_5_0= RULE_DOUBLE ) ) otherlv_6= ']' )
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1512:8: otherlv_2= '[' ( (lv_from_3_0= RULE_DOUBLE ) ) ( (lv_operator_4_0= ',' ) ) ( (lv_to_5_0= RULE_DOUBLE ) ) otherlv_6= ']'
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1609:6: (otherlv_2= '[' ( (lv_from_3_0= RULE_DOUBLE ) ) ( (lv_operator_4_0= ',' ) ) ( (lv_to_5_0= RULE_DOUBLE ) ) otherlv_6= ']' )
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1609:8: otherlv_2= '[' ( (lv_from_3_0= RULE_DOUBLE ) ) ( (lv_operator_4_0= ',' ) ) ( (lv_to_5_0= RULE_DOUBLE ) ) otherlv_6= ']'
                     {
-                    otherlv_2=(Token)match(input,16,FOLLOW_16_in_ruleTimeBound3421); 
+                    otherlv_2=(Token)match(input,16,FOLLOW_16_in_ruleTimeBound3629); 
 
                         	newLeafNode(otherlv_2, grammarAccess.getTimeBoundAccess().getLeftSquareBracketKeyword_1_0());
                         
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1516:1: ( (lv_from_3_0= RULE_DOUBLE ) )
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1517:1: (lv_from_3_0= RULE_DOUBLE )
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1613:1: ( (lv_from_3_0= RULE_DOUBLE ) )
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1614:1: (lv_from_3_0= RULE_DOUBLE )
                     {
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1517:1: (lv_from_3_0= RULE_DOUBLE )
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1518:3: lv_from_3_0= RULE_DOUBLE
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1614:1: (lv_from_3_0= RULE_DOUBLE )
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1615:3: lv_from_3_0= RULE_DOUBLE
                     {
-                    lv_from_3_0=(Token)match(input,RULE_DOUBLE,FOLLOW_RULE_DOUBLE_in_ruleTimeBound3438); 
+                    lv_from_3_0=(Token)match(input,RULE_DOUBLE,FOLLOW_RULE_DOUBLE_in_ruleTimeBound3646); 
 
                     			newLeafNode(lv_from_3_0, grammarAccess.getTimeBoundAccess().getFromDOUBLETerminalRuleCall_1_1_0()); 
                     		
@@ -3898,13 +4200,13 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1534:2: ( (lv_operator_4_0= ',' ) )
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1535:1: (lv_operator_4_0= ',' )
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1631:2: ( (lv_operator_4_0= ',' ) )
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1632:1: (lv_operator_4_0= ',' )
                     {
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1535:1: (lv_operator_4_0= ',' )
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1536:3: lv_operator_4_0= ','
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1632:1: (lv_operator_4_0= ',' )
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1633:3: lv_operator_4_0= ','
                     {
-                    lv_operator_4_0=(Token)match(input,34,FOLLOW_34_in_ruleTimeBound3461); 
+                    lv_operator_4_0=(Token)match(input,34,FOLLOW_34_in_ruleTimeBound3669); 
 
                             newLeafNode(lv_operator_4_0, grammarAccess.getTimeBoundAccess().getOperatorCommaKeyword_1_2_0());
                         
@@ -3920,13 +4222,13 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1549:2: ( (lv_to_5_0= RULE_DOUBLE ) )
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1550:1: (lv_to_5_0= RULE_DOUBLE )
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1646:2: ( (lv_to_5_0= RULE_DOUBLE ) )
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1647:1: (lv_to_5_0= RULE_DOUBLE )
                     {
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1550:1: (lv_to_5_0= RULE_DOUBLE )
-                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1551:3: lv_to_5_0= RULE_DOUBLE
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1647:1: (lv_to_5_0= RULE_DOUBLE )
+                    // ../de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl/src-gen/de/uni_stuttgart/iste/cowolf/model/ctmc/xtext/parser/antlr/internal/InternalPCTL.g:1648:3: lv_to_5_0= RULE_DOUBLE
                     {
-                    lv_to_5_0=(Token)match(input,RULE_DOUBLE,FOLLOW_RULE_DOUBLE_in_ruleTimeBound3491); 
+                    lv_to_5_0=(Token)match(input,RULE_DOUBLE,FOLLOW_RULE_DOUBLE_in_ruleTimeBound3699); 
 
                     			newLeafNode(lv_to_5_0, grammarAccess.getTimeBoundAccess().getToDOUBLETerminalRuleCall_1_3_0()); 
                     		
@@ -3946,7 +4248,7 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_6=(Token)match(input,17,FOLLOW_17_in_ruleTimeBound3508); 
+                    otherlv_6=(Token)match(input,17,FOLLOW_17_in_ruleTimeBound3716); 
 
                         	newLeafNode(otherlv_6, grammarAccess.getTimeBoundAccess().getRightSquareBracketKeyword_1_4());
                         
@@ -3970,6 +4272,9 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
                 appendSkippedTokens();
             } 
         finally {
+
+            	myHiddenTokenState.restore();
+
         }
         return current;
     }
@@ -3978,6 +4283,61 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
     // Delegated rules
 
 
+    protected DFA3 dfa3 = new DFA3(this);
+    static final String DFA3_eotS =
+        "\6\uffff";
+    static final String DFA3_eofS =
+        "\6\uffff";
+    static final String DFA3_minS =
+        "\1\6\1\uffff\1\4\1\uffff\1\4\1\uffff";
+    static final String DFA3_maxS =
+        "\1\32\1\uffff\1\17\1\uffff\1\17\1\uffff";
+    static final String DFA3_acceptS =
+        "\1\uffff\1\1\1\uffff\1\2\1\uffff\1\3";
+    static final String DFA3_specialS =
+        "\6\uffff}>";
+    static final String[] DFA3_transitionS = {
+            "\1\1\7\uffff\1\3\3\uffff\1\2\1\1\1\uffff\1\1\3\uffff\2\1",
+            "",
+            "\1\4\2\uffff\1\1\7\uffff\1\5",
+            "",
+            "\1\4\2\uffff\1\1\7\uffff\1\5",
+            ""
+    };
+
+    static final short[] DFA3_eot = DFA.unpackEncodedString(DFA3_eotS);
+    static final short[] DFA3_eof = DFA.unpackEncodedString(DFA3_eofS);
+    static final char[] DFA3_min = DFA.unpackEncodedStringToUnsignedChars(DFA3_minS);
+    static final char[] DFA3_max = DFA.unpackEncodedStringToUnsignedChars(DFA3_maxS);
+    static final short[] DFA3_accept = DFA.unpackEncodedString(DFA3_acceptS);
+    static final short[] DFA3_special = DFA.unpackEncodedString(DFA3_specialS);
+    static final short[][] DFA3_transition;
+
+    static {
+        int numStates = DFA3_transitionS.length;
+        DFA3_transition = new short[numStates][];
+        for (int i=0; i<numStates; i++) {
+            DFA3_transition[i] = DFA.unpackEncodedString(DFA3_transitionS[i]);
+        }
+    }
+
+    class DFA3 extends DFA {
+
+        public DFA3(BaseRecognizer recognizer) {
+            this.recognizer = recognizer;
+            this.decisionNumber = 3;
+            this.eot = DFA3_eot;
+            this.eof = DFA3_eof;
+            this.min = DFA3_min;
+            this.max = DFA3_max;
+            this.accept = DFA3_accept;
+            this.special = DFA3_special;
+            this.transition = DFA3_transition;
+        }
+        public String getDescription() {
+            return "205:1: (this_BooleanRule_0= ruleBooleanRule | this_SteadyState_1= ruleSteadyState | this_QuantifiedProbability_2= ruleQuantifiedProbability )";
+        }
+    }
  
 
     public static final BitSet FOLLOW_ruleStart_in_entryRuleStart75 = new BitSet(new long[]{0x0000000000000000L});
@@ -3990,128 +4350,138 @@ public class InternalPCTLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleComment_in_entryRuleComment285 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleComment295 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_SL_COMMENT_in_ruleComment336 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRule_in_entryRuleRule376 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleRule386 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBooleanRule_in_ruleRule433 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSteadyState_in_ruleRule460 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQuantifiedProbability_in_ruleRule487 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSteadyState_in_entryRuleSteadyState522 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleSteadyState532 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_14_in_ruleSteadyState569 = new BitSet(new long[]{0x0000000000008080L});
-    public static final BitSet FOLLOW_ruleCompareProbability_in_ruleSteadyState591 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_15_in_ruleSteadyState609 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleSteadyState622 = new BitSet(new long[]{0x00000000062C0040L});
-    public static final BitSet FOLLOW_ruleStateFormula_in_ruleSteadyState643 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_17_in_ruleSteadyState655 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQuantifiedProbability_in_entryRuleQuantifiedProbability691 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleQuantifiedProbability701 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_ruleQuantifiedProbability739 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleQuantifiedProbability751 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleQuantifiedProbability764 = new BitSet(new long[]{0x00000001C62C0040L});
-    public static final BitSet FOLLOW_rulePathFormula_in_ruleQuantifiedProbability785 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_17_in_ruleQuantifiedProbability797 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBooleanRule_in_entryRuleBooleanRule833 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleBooleanRule843 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleStateFormula_in_ruleBooleanRule888 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleStateFormula_in_entryRuleStateFormula923 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleStateFormula933 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_19_in_ruleStateFormula971 = new BitSet(new long[]{0x00000000062C0040L});
-    public static final BitSet FOLLOW_ruleStateFormula_in_ruleStateFormula992 = new BitSet(new long[]{0x0000000001D00000L});
-    public static final BitSet FOLLOW_ruleJunction_in_ruleStateFormula1014 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_ruleImplication_in_ruleStateFormula1041 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_20_in_ruleStateFormula1055 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNegation_in_ruleStateFormula1085 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAtomic_in_ruleStateFormula1104 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleProbability_in_ruleStateFormula1123 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNegation_in_entryRuleNegation1162 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleNegation1172 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_21_in_ruleNegation1209 = new BitSet(new long[]{0x00000000062C0040L});
-    public static final BitSet FOLLOW_ruleStateFormula_in_ruleNegation1231 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJunction_in_entryRuleJunction1266 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleJunction1276 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleConjunction_in_ruleJunction1323 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDisjunction_in_ruleJunction1350 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleConjunction_in_entryRuleConjunction1385 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleConjunction1395 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_22_in_ruleConjunction1432 = new BitSet(new long[]{0x00000000062C0040L});
-    public static final BitSet FOLLOW_ruleStateFormula_in_ruleConjunction1454 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_22_in_ruleConjunction1475 = new BitSet(new long[]{0x00000000062C0040L});
-    public static final BitSet FOLLOW_ruleStateFormula_in_ruleConjunction1496 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_ruleDisjunction_in_entryRuleDisjunction1534 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDisjunction1544 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_23_in_ruleDisjunction1581 = new BitSet(new long[]{0x00000000062C0040L});
-    public static final BitSet FOLLOW_ruleStateFormula_in_ruleDisjunction1603 = new BitSet(new long[]{0x0000000000800002L});
-    public static final BitSet FOLLOW_23_in_ruleDisjunction1624 = new BitSet(new long[]{0x00000000062C0040L});
-    public static final BitSet FOLLOW_ruleStateFormula_in_ruleDisjunction1645 = new BitSet(new long[]{0x0000000000800002L});
-    public static final BitSet FOLLOW_ruleImplication_in_entryRuleImplication1683 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleImplication1693 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_24_in_ruleImplication1730 = new BitSet(new long[]{0x00000000062C0040L});
-    public static final BitSet FOLLOW_ruleStateFormula_in_ruleImplication1751 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleProbability_in_entryRuleProbability1787 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleProbability1797 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_ruleProbability1834 = new BitSet(new long[]{0x0000000000000080L});
-    public static final BitSet FOLLOW_ruleCompareProbability_in_ruleProbability1864 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleProbability1876 = new BitSet(new long[]{0x00000001C62C0040L});
-    public static final BitSet FOLLOW_rulePathFormula_in_ruleProbability1897 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_17_in_ruleProbability1909 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAtomic_in_entryRuleAtomic1945 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAtomic1955 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleState_in_ruleAtomic2002 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLabel_in_ruleAtomic2029 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBoolean_in_ruleAtomic2056 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleState_in_entryRuleState2091 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleState2101 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_25_in_ruleState2138 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleState2155 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLabel_in_entryRuleLabel2196 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleLabel2206 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_26_in_ruleLabel2243 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleLabel2260 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBoolean_in_entryRuleBoolean2301 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleBoolean2311 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_BOOL_in_ruleBoolean2352 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePathFormula_in_entryRulePathFormula2392 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRulePathFormula2402 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNext_in_rulePathFormula2449 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleUntil_in_rulePathFormula2476 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFuture_in_rulePathFormula2503 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGlobally_in_rulePathFormula2530 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleUntil_in_entryRuleUntil2565 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleUntil2575 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleStateFormula_in_ruleUntil2621 = new BitSet(new long[]{0x0000000038000000L});
-    public static final BitSet FOLLOW_27_in_ruleUntil2641 = new BitSet(new long[]{0x00000002062D00C0L});
-    public static final BitSet FOLLOW_28_in_ruleUntil2670 = new BitSet(new long[]{0x00000002062D00C0L});
-    public static final BitSet FOLLOW_29_in_ruleUntil2699 = new BitSet(new long[]{0x00000002062D00C0L});
-    public static final BitSet FOLLOW_ruleTimeBound_in_ruleUntil2736 = new BitSet(new long[]{0x00000000062C0040L});
-    public static final BitSet FOLLOW_ruleStateFormula_in_ruleUntil2758 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNext_in_entryRuleNext2794 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleNext2804 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_30_in_ruleNext2841 = new BitSet(new long[]{0x00000002062D00C0L});
-    public static final BitSet FOLLOW_ruleTimeBound_in_ruleNext2862 = new BitSet(new long[]{0x00000000062C0040L});
-    public static final BitSet FOLLOW_ruleStateFormula_in_ruleNext2884 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFuture_in_entryRuleFuture2920 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleFuture2930 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_31_in_ruleFuture2967 = new BitSet(new long[]{0x00000002062D00C0L});
-    public static final BitSet FOLLOW_ruleTimeBound_in_ruleFuture2988 = new BitSet(new long[]{0x00000000062C0040L});
-    public static final BitSet FOLLOW_ruleStateFormula_in_ruleFuture3010 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGlobally_in_entryRuleGlobally3046 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleGlobally3056 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_32_in_ruleGlobally3093 = new BitSet(new long[]{0x00000002062D00C0L});
-    public static final BitSet FOLLOW_ruleTimeBound_in_ruleGlobally3114 = new BitSet(new long[]{0x00000000062C0040L});
-    public static final BitSet FOLLOW_ruleStateFormula_in_ruleGlobally3136 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCompareProbability_in_entryRuleCompareProbability3172 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleCompareProbability3182 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_COMPARATOR_in_ruleCompareProbability3224 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_RULE_DOUBLE_in_ruleCompareProbability3246 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTimeBound_in_entryRuleTimeBound3287 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleTimeBound3297 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_COMPARATOR_in_ruleTimeBound3342 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_33_in_ruleTimeBound3363 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_RULE_DOUBLE_in_ruleTimeBound3396 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_16_in_ruleTimeBound3421 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_RULE_DOUBLE_in_ruleTimeBound3438 = new BitSet(new long[]{0x0000000400000000L});
-    public static final BitSet FOLLOW_34_in_ruleTimeBound3461 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_RULE_DOUBLE_in_ruleTimeBound3491 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_17_in_ruleTimeBound3508 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRule_in_entryRuleRule382 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleRule392 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBooleanRule_in_ruleRule443 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSteadyState_in_ruleRule470 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQuantifiedProbability_in_ruleRule497 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSteadyState_in_entryRuleSteadyState536 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleSteadyState546 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_14_in_ruleSteadyState583 = new BitSet(new long[]{0x0000000000008090L});
+    public static final BitSet FOLLOW_RULE_SL_COMMENT_in_ruleSteadyState595 = new BitSet(new long[]{0x0000000000008090L});
+    public static final BitSet FOLLOW_ruleCompareProbability_in_ruleSteadyState618 = new BitSet(new long[]{0x0000000000010010L});
+    public static final BitSet FOLLOW_15_in_ruleSteadyState636 = new BitSet(new long[]{0x0000000000010010L});
+    public static final BitSet FOLLOW_RULE_SL_COMMENT_in_ruleSteadyState649 = new BitSet(new long[]{0x0000000000010010L});
+    public static final BitSet FOLLOW_16_in_ruleSteadyState662 = new BitSet(new long[]{0x00000000062C0050L});
+    public static final BitSet FOLLOW_RULE_SL_COMMENT_in_ruleSteadyState674 = new BitSet(new long[]{0x00000000062C0050L});
+    public static final BitSet FOLLOW_ruleStateFormula_in_ruleSteadyState696 = new BitSet(new long[]{0x0000000000020010L});
+    public static final BitSet FOLLOW_RULE_SL_COMMENT_in_ruleSteadyState708 = new BitSet(new long[]{0x0000000000020010L});
+    public static final BitSet FOLLOW_17_in_ruleSteadyState721 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQuantifiedProbability_in_entryRuleQuantifiedProbability757 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleQuantifiedProbability767 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_18_in_ruleQuantifiedProbability804 = new BitSet(new long[]{0x0000000000008010L});
+    public static final BitSet FOLLOW_RULE_SL_COMMENT_in_ruleQuantifiedProbability816 = new BitSet(new long[]{0x0000000000008010L});
+    public static final BitSet FOLLOW_15_in_ruleQuantifiedProbability829 = new BitSet(new long[]{0x0000000000010010L});
+    public static final BitSet FOLLOW_RULE_SL_COMMENT_in_ruleQuantifiedProbability841 = new BitSet(new long[]{0x0000000000010010L});
+    public static final BitSet FOLLOW_16_in_ruleQuantifiedProbability854 = new BitSet(new long[]{0x00000001C62C0040L});
+    public static final BitSet FOLLOW_rulePathFormula_in_ruleQuantifiedProbability875 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_17_in_ruleQuantifiedProbability887 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBooleanRule_in_entryRuleBooleanRule923 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleBooleanRule933 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleStateFormula_in_ruleBooleanRule978 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleStateFormula_in_entryRuleStateFormula1013 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleStateFormula1023 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_ruleStateFormula1061 = new BitSet(new long[]{0x00000000062C0050L});
+    public static final BitSet FOLLOW_RULE_SL_COMMENT_in_ruleStateFormula1073 = new BitSet(new long[]{0x00000000062C0050L});
+    public static final BitSet FOLLOW_ruleStateFormula_in_ruleStateFormula1095 = new BitSet(new long[]{0x0000000001D00010L});
+    public static final BitSet FOLLOW_ruleJunction_in_ruleStateFormula1117 = new BitSet(new long[]{0x0000000000100010L});
+    public static final BitSet FOLLOW_ruleImplication_in_ruleStateFormula1144 = new BitSet(new long[]{0x0000000000100010L});
+    public static final BitSet FOLLOW_RULE_SL_COMMENT_in_ruleStateFormula1158 = new BitSet(new long[]{0x0000000000100010L});
+    public static final BitSet FOLLOW_20_in_ruleStateFormula1171 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNegation_in_ruleStateFormula1201 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAtomic_in_ruleStateFormula1220 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleProbability_in_ruleStateFormula1239 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNegation_in_entryRuleNegation1278 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleNegation1288 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_21_in_ruleNegation1325 = new BitSet(new long[]{0x00000000062C0040L});
+    public static final BitSet FOLLOW_ruleStateFormula_in_ruleNegation1347 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJunction_in_entryRuleJunction1388 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleJunction1398 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleConjunction_in_ruleJunction1449 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDisjunction_in_ruleJunction1476 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleConjunction_in_entryRuleConjunction1515 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleConjunction1525 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_22_in_ruleConjunction1562 = new BitSet(new long[]{0x00000000062C0040L});
+    public static final BitSet FOLLOW_ruleStateFormula_in_ruleConjunction1584 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_22_in_ruleConjunction1605 = new BitSet(new long[]{0x00000000062C0040L});
+    public static final BitSet FOLLOW_ruleStateFormula_in_ruleConjunction1626 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_ruleDisjunction_in_entryRuleDisjunction1664 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDisjunction1674 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_23_in_ruleDisjunction1711 = new BitSet(new long[]{0x00000000062C0040L});
+    public static final BitSet FOLLOW_ruleStateFormula_in_ruleDisjunction1733 = new BitSet(new long[]{0x0000000000800002L});
+    public static final BitSet FOLLOW_23_in_ruleDisjunction1754 = new BitSet(new long[]{0x00000000062C0040L});
+    public static final BitSet FOLLOW_ruleStateFormula_in_ruleDisjunction1775 = new BitSet(new long[]{0x0000000000800002L});
+    public static final BitSet FOLLOW_ruleImplication_in_entryRuleImplication1819 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleImplication1829 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_24_in_ruleImplication1870 = new BitSet(new long[]{0x00000000062C0040L});
+    public static final BitSet FOLLOW_ruleStateFormula_in_ruleImplication1891 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleProbability_in_entryRuleProbability1931 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleProbability1941 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_18_in_ruleProbability1978 = new BitSet(new long[]{0x0000000000000090L});
+    public static final BitSet FOLLOW_RULE_SL_COMMENT_in_ruleProbability1990 = new BitSet(new long[]{0x0000000000000090L});
+    public static final BitSet FOLLOW_ruleCompareProbability_in_ruleProbability2021 = new BitSet(new long[]{0x0000000000010010L});
+    public static final BitSet FOLLOW_RULE_SL_COMMENT_in_ruleProbability2033 = new BitSet(new long[]{0x0000000000010010L});
+    public static final BitSet FOLLOW_16_in_ruleProbability2046 = new BitSet(new long[]{0x00000001C62C0040L});
+    public static final BitSet FOLLOW_rulePathFormula_in_ruleProbability2067 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_17_in_ruleProbability2079 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAtomic_in_entryRuleAtomic2115 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleAtomic2125 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleState_in_ruleAtomic2172 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLabel_in_ruleAtomic2199 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBoolean_in_ruleAtomic2226 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleState_in_entryRuleState2261 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleState2271 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_25_in_ruleState2308 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleState2325 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLabel_in_entryRuleLabel2366 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleLabel2376 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_26_in_ruleLabel2413 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleLabel2430 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBoolean_in_entryRuleBoolean2471 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleBoolean2481 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_BOOL_in_ruleBoolean2522 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePathFormula_in_entryRulePathFormula2568 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRulePathFormula2578 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNext_in_rulePathFormula2629 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleUntil_in_rulePathFormula2656 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFuture_in_rulePathFormula2683 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGlobally_in_rulePathFormula2710 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleUntil_in_entryRuleUntil2749 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleUntil2759 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleStateFormula_in_ruleUntil2805 = new BitSet(new long[]{0x0000000038000000L});
+    public static final BitSet FOLLOW_27_in_ruleUntil2825 = new BitSet(new long[]{0x00000002062D00C0L});
+    public static final BitSet FOLLOW_28_in_ruleUntil2854 = new BitSet(new long[]{0x00000002062D00C0L});
+    public static final BitSet FOLLOW_29_in_ruleUntil2883 = new BitSet(new long[]{0x00000002062D00C0L});
+    public static final BitSet FOLLOW_ruleTimeBound_in_ruleUntil2920 = new BitSet(new long[]{0x00000000062C0040L});
+    public static final BitSet FOLLOW_ruleStateFormula_in_ruleUntil2942 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNext_in_entryRuleNext2978 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleNext2988 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_30_in_ruleNext3025 = new BitSet(new long[]{0x00000002062D00C0L});
+    public static final BitSet FOLLOW_ruleTimeBound_in_ruleNext3046 = new BitSet(new long[]{0x00000000062C0040L});
+    public static final BitSet FOLLOW_ruleStateFormula_in_ruleNext3068 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFuture_in_entryRuleFuture3104 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleFuture3114 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_31_in_ruleFuture3151 = new BitSet(new long[]{0x00000002062D00C0L});
+    public static final BitSet FOLLOW_ruleTimeBound_in_ruleFuture3172 = new BitSet(new long[]{0x00000000062C0040L});
+    public static final BitSet FOLLOW_ruleStateFormula_in_ruleFuture3194 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGlobally_in_entryRuleGlobally3230 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleGlobally3240 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_32_in_ruleGlobally3277 = new BitSet(new long[]{0x00000002062D00C0L});
+    public static final BitSet FOLLOW_ruleTimeBound_in_ruleGlobally3298 = new BitSet(new long[]{0x00000000062C0040L});
+    public static final BitSet FOLLOW_ruleStateFormula_in_ruleGlobally3320 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCompareProbability_in_entryRuleCompareProbability3362 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleCompareProbability3372 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_COMPARATOR_in_ruleCompareProbability3418 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_RULE_DOUBLE_in_ruleCompareProbability3440 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleTimeBound_in_entryRuleTimeBound3491 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleTimeBound3501 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_COMPARATOR_in_ruleTimeBound3550 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_33_in_ruleTimeBound3571 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_RULE_DOUBLE_in_ruleTimeBound3604 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_16_in_ruleTimeBound3629 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_RULE_DOUBLE_in_ruleTimeBound3646 = new BitSet(new long[]{0x0000000400000000L});
+    public static final BitSet FOLLOW_34_in_ruleTimeBound3669 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_RULE_DOUBLE_in_ruleTimeBound3699 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_17_in_ruleTimeBound3716 = new BitSet(new long[]{0x0000000000000002L});
 
 }

@@ -361,8 +361,8 @@ public class PCTLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getProbabilityAccess().getComparatorCompareProbabilityParserRuleCall_2_0(), semanticObject.getComparator());
-		feeder.accept(grammarAccess.getProbabilityAccess().getPathPathFormulaParserRuleCall_4_0(), semanticObject.getPath());
+		feeder.accept(grammarAccess.getProbabilityAccess().getComparatorCompareProbabilityParserRuleCall_3_0(), semanticObject.getComparator());
+		feeder.accept(grammarAccess.getProbabilityAccess().getPathPathFormulaParserRuleCall_6_0(), semanticObject.getPath());
 		feeder.finish();
 	}
 	
@@ -378,7 +378,7 @@ public class PCTLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getQuantifiedProbabilityAccess().getValuePathFormulaParserRuleCall_2_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getQuantifiedProbabilityAccess().getValuePathFormulaParserRuleCall_5_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	

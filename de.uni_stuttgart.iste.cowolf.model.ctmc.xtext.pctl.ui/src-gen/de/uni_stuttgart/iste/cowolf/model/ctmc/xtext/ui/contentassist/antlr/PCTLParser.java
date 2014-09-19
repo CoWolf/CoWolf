@@ -39,9 +39,9 @@ public class PCTLParser extends AbstractContentAssistParser {
 				{
 					put(grammarAccess.getFragmentAccess().getAlternatives(), "rule__Fragment__Alternatives");
 					put(grammarAccess.getRuleAccess().getAlternatives(), "rule__Rule__Alternatives");
-					put(grammarAccess.getSteadyStateAccess().getAlternatives_1(), "rule__SteadyState__Alternatives_1");
+					put(grammarAccess.getSteadyStateAccess().getAlternatives_2(), "rule__SteadyState__Alternatives_2");
 					put(grammarAccess.getStateFormulaAccess().getAlternatives(), "rule__StateFormula__Alternatives");
-					put(grammarAccess.getStateFormulaAccess().getAlternatives_0_2(), "rule__StateFormula__Alternatives_0_2");
+					put(grammarAccess.getStateFormulaAccess().getAlternatives_0_3(), "rule__StateFormula__Alternatives_0_3");
 					put(grammarAccess.getStateFormulaAccess().getLeftAlternatives_1_0(), "rule__StateFormula__LeftAlternatives_1_0");
 					put(grammarAccess.getJunctionAccess().getAlternatives(), "rule__Junction__Alternatives");
 					put(grammarAccess.getAtomicAccess().getAlternatives(), "rule__Atomic__Alternatives");
@@ -51,7 +51,6 @@ public class PCTLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTimeBoundAccess().getOperatorAlternatives_0_0_0(), "rule__TimeBound__OperatorAlternatives_0_0_0");
 					put(grammarAccess.getSteadyStateAccess().getGroup(), "rule__SteadyState__Group__0");
 					put(grammarAccess.getQuantifiedProbabilityAccess().getGroup(), "rule__QuantifiedProbability__Group__0");
-					put(grammarAccess.getQuantifiedProbabilityAccess().getGroup_0(), "rule__QuantifiedProbability__Group_0__0");
 					put(grammarAccess.getStateFormulaAccess().getGroup_0(), "rule__StateFormula__Group_0__0");
 					put(grammarAccess.getNegationAccess().getGroup(), "rule__Negation__Group__0");
 					put(grammarAccess.getConjunctionAccess().getGroup(), "rule__Conjunction__Group__0");
@@ -71,19 +70,19 @@ public class PCTLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTimeBoundAccess().getGroup_1(), "rule__TimeBound__Group_1__0");
 					put(grammarAccess.getStartAccess().getRuleAssignment(), "rule__Start__RuleAssignment");
 					put(grammarAccess.getCommentAccess().getCommentAssignment(), "rule__Comment__CommentAssignment");
-					put(grammarAccess.getSteadyStateAccess().getBoundAssignment_1_0(), "rule__SteadyState__BoundAssignment_1_0");
-					put(grammarAccess.getSteadyStateAccess().getValueAssignment_3(), "rule__SteadyState__ValueAssignment_3");
-					put(grammarAccess.getQuantifiedProbabilityAccess().getValueAssignment_2(), "rule__QuantifiedProbability__ValueAssignment_2");
+					put(grammarAccess.getSteadyStateAccess().getBoundAssignment_2_0(), "rule__SteadyState__BoundAssignment_2_0");
+					put(grammarAccess.getSteadyStateAccess().getValueAssignment_6(), "rule__SteadyState__ValueAssignment_6");
+					put(grammarAccess.getQuantifiedProbabilityAccess().getValueAssignment_5(), "rule__QuantifiedProbability__ValueAssignment_5");
 					put(grammarAccess.getBooleanRuleAccess().getValueAssignment(), "rule__BooleanRule__ValueAssignment");
-					put(grammarAccess.getStateFormulaAccess().getLeftAssignment_0_1(), "rule__StateFormula__LeftAssignment_0_1");
-					put(grammarAccess.getStateFormulaAccess().getRightAssignment_0_2_0(), "rule__StateFormula__RightAssignment_0_2_0");
-					put(grammarAccess.getStateFormulaAccess().getRightAssignment_0_2_1(), "rule__StateFormula__RightAssignment_0_2_1");
+					put(grammarAccess.getStateFormulaAccess().getLeftAssignment_0_2(), "rule__StateFormula__LeftAssignment_0_2");
+					put(grammarAccess.getStateFormulaAccess().getRightAssignment_0_3_0(), "rule__StateFormula__RightAssignment_0_3_0");
+					put(grammarAccess.getStateFormulaAccess().getRightAssignment_0_3_1(), "rule__StateFormula__RightAssignment_0_3_1");
 					put(grammarAccess.getStateFormulaAccess().getLeftAssignment_1(), "rule__StateFormula__LeftAssignment_1");
 					put(grammarAccess.getConjunctionAccess().getRightAssignment_2_2(), "rule__Conjunction__RightAssignment_2_2");
 					put(grammarAccess.getDisjunctionAccess().getRightAssignment_2_2(), "rule__Disjunction__RightAssignment_2_2");
 					put(grammarAccess.getImplicationAccess().getRightAssignment_1(), "rule__Implication__RightAssignment_1");
-					put(grammarAccess.getProbabilityAccess().getComparatorAssignment_2(), "rule__Probability__ComparatorAssignment_2");
-					put(grammarAccess.getProbabilityAccess().getPathAssignment_4(), "rule__Probability__PathAssignment_4");
+					put(grammarAccess.getProbabilityAccess().getComparatorAssignment_3(), "rule__Probability__ComparatorAssignment_3");
+					put(grammarAccess.getProbabilityAccess().getPathAssignment_6(), "rule__Probability__PathAssignment_6");
 					put(grammarAccess.getStateAccess().getValueAssignment_1(), "rule__State__ValueAssignment_1");
 					put(grammarAccess.getLabelAccess().getValueAssignment_1(), "rule__Label__ValueAssignment_1");
 					put(grammarAccess.getBooleanAccess().getValueAssignment(), "rule__Boolean__ValueAssignment");
@@ -123,7 +122,7 @@ public class PCTLParser extends AbstractContentAssistParser {
 	
 	@Override
 	protected String[] getInitialHiddenTokens() {
-		return new String[] { "RULE_WS", "RULE_ML_COMMENT", "RULE_SL_COMMENT" };
+		return new String[] { "RULE_WS" };
 	}
 	
 	public PCTLGrammarAccess getGrammarAccess() {

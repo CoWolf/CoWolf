@@ -183,16 +183,23 @@ ruleComment returns [EObject current=null]
 
 // Entry rule entryRuleRule
 entryRuleRule returns [EObject current=null] 
+	@init { 
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS");
+	}
 	:
 	{ newCompositeNode(grammarAccess.getRuleRule()); }
 	 iv_ruleRule=ruleRule 
 	 { $current=$iv_ruleRule.current; } 
 	 EOF 
 ;
+finally {
+	myHiddenTokenState.restore();
+}
 
 // Rule Rule
 ruleRule returns [EObject current=null] 
     @init { enterRule(); 
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS");
     }
     @after { leaveRule(); }:
 (
@@ -226,6 +233,9 @@ ruleRule returns [EObject current=null]
     }
 )
 ;
+finally {
+	myHiddenTokenState.restore();
+}
 
 
 
@@ -249,54 +259,70 @@ ruleSteadyState returns [EObject current=null]
     {
     	newLeafNode(otherlv_0, grammarAccess.getSteadyStateAccess().getSKeyword_0());
     }
-((
+(this_SL_COMMENT_1=RULE_SL_COMMENT
+    { 
+    newLeafNode(this_SL_COMMENT_1, grammarAccess.getSteadyStateAccess().getSL_COMMENTTerminalRuleCall_1()); 
+    }
+)*((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSteadyStateAccess().getBoundCompareProbabilityParserRuleCall_1_0_0()); 
+	        newCompositeNode(grammarAccess.getSteadyStateAccess().getBoundCompareProbabilityParserRuleCall_2_0_0()); 
 	    }
-		lv_bound_1_0=ruleCompareProbability		{
+		lv_bound_2_0=ruleCompareProbability		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getSteadyStateRule());
 	        }
        		set(
        			$current, 
        			"bound",
-        		lv_bound_1_0, 
+        		lv_bound_2_0, 
         		"CompareProbability");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
 )
-    |	otherlv_2='=?' 
+    |	otherlv_3='=?' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getSteadyStateAccess().getEqualsSignQuestionMarkKeyword_1_1());
+    	newLeafNode(otherlv_3, grammarAccess.getSteadyStateAccess().getEqualsSignQuestionMarkKeyword_2_1());
     }
-)	otherlv_3='[' 
+)(this_SL_COMMENT_4=RULE_SL_COMMENT
+    { 
+    newLeafNode(this_SL_COMMENT_4, grammarAccess.getSteadyStateAccess().getSL_COMMENTTerminalRuleCall_3()); 
+    }
+)*	otherlv_5='[' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getSteadyStateAccess().getLeftSquareBracketKeyword_2());
+    	newLeafNode(otherlv_5, grammarAccess.getSteadyStateAccess().getLeftSquareBracketKeyword_4());
     }
-(
+(this_SL_COMMENT_6=RULE_SL_COMMENT
+    { 
+    newLeafNode(this_SL_COMMENT_6, grammarAccess.getSteadyStateAccess().getSL_COMMENTTerminalRuleCall_5()); 
+    }
+)*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSteadyStateAccess().getValueStateFormulaParserRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getSteadyStateAccess().getValueStateFormulaParserRuleCall_6_0()); 
 	    }
-		lv_value_4_0=ruleStateFormula		{
+		lv_value_7_0=ruleStateFormula		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getSteadyStateRule());
 	        }
        		set(
        			$current, 
        			"value",
-        		lv_value_4_0, 
+        		lv_value_7_0, 
         		"StateFormula");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_5=']' 
+)(this_SL_COMMENT_8=RULE_SL_COMMENT
+    { 
+    newLeafNode(this_SL_COMMENT_8, grammarAccess.getSteadyStateAccess().getSL_COMMENTTerminalRuleCall_7()); 
+    }
+)*	otherlv_9=']' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getSteadyStateAccess().getRightSquareBracketKeyword_4());
+    	newLeafNode(otherlv_9, grammarAccess.getSteadyStateAccess().getRightSquareBracketKeyword_8());
     }
 )
 ;
@@ -319,39 +345,47 @@ ruleQuantifiedProbability returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-((	otherlv_0='P' 
+(	otherlv_0='P' 
     {
-    	newLeafNode(otherlv_0, grammarAccess.getQuantifiedProbabilityAccess().getPKeyword_0_0());
+    	newLeafNode(otherlv_0, grammarAccess.getQuantifiedProbabilityAccess().getPKeyword_0());
     }
-	otherlv_1='=?' 
-    {
-    	newLeafNode(otherlv_1, grammarAccess.getQuantifiedProbabilityAccess().getEqualsSignQuestionMarkKeyword_0_1());
+(this_SL_COMMENT_1=RULE_SL_COMMENT
+    { 
+    newLeafNode(this_SL_COMMENT_1, grammarAccess.getQuantifiedProbabilityAccess().getSL_COMMENTTerminalRuleCall_1()); 
     }
-)	otherlv_2='[' 
+)*	otherlv_2='=?' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getQuantifiedProbabilityAccess().getLeftSquareBracketKeyword_1());
+    	newLeafNode(otherlv_2, grammarAccess.getQuantifiedProbabilityAccess().getEqualsSignQuestionMarkKeyword_2());
+    }
+(this_SL_COMMENT_3=RULE_SL_COMMENT
+    { 
+    newLeafNode(this_SL_COMMENT_3, grammarAccess.getQuantifiedProbabilityAccess().getSL_COMMENTTerminalRuleCall_3()); 
+    }
+)*	otherlv_4='[' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getQuantifiedProbabilityAccess().getLeftSquareBracketKeyword_4());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getQuantifiedProbabilityAccess().getValuePathFormulaParserRuleCall_2_0()); 
+	        newCompositeNode(grammarAccess.getQuantifiedProbabilityAccess().getValuePathFormulaParserRuleCall_5_0()); 
 	    }
-		lv_value_3_0=rulePathFormula		{
+		lv_value_5_0=rulePathFormula		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getQuantifiedProbabilityRule());
 	        }
        		set(
        			$current, 
        			"value",
-        		lv_value_3_0, 
+        		lv_value_5_0, 
         		"PathFormula");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_4=']' 
+)	otherlv_6=']' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getQuantifiedProbabilityAccess().getRightSquareBracketKeyword_3());
+    	newLeafNode(otherlv_6, grammarAccess.getQuantifiedProbabilityAccess().getRightSquareBracketKeyword_6());
     }
 )
 ;
@@ -417,19 +451,23 @@ ruleStateFormula returns [EObject current=null]
     {
     	newLeafNode(otherlv_0, grammarAccess.getStateFormulaAccess().getLeftParenthesisKeyword_0_0());
     }
-(
+(this_SL_COMMENT_1=RULE_SL_COMMENT
+    { 
+    newLeafNode(this_SL_COMMENT_1, grammarAccess.getStateFormulaAccess().getSL_COMMENTTerminalRuleCall_0_1()); 
+    }
+)*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getStateFormulaAccess().getLeftStateFormulaParserRuleCall_0_1_0()); 
+	        newCompositeNode(grammarAccess.getStateFormulaAccess().getLeftStateFormulaParserRuleCall_0_2_0()); 
 	    }
-		lv_left_1_0=ruleStateFormula		{
+		lv_left_2_0=ruleStateFormula		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getStateFormulaRule());
 	        }
        		set(
        			$current, 
        			"left",
-        		lv_left_1_0, 
+        		lv_left_2_0, 
         		"StateFormula");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -438,16 +476,16 @@ ruleStateFormula returns [EObject current=null]
 )((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getStateFormulaAccess().getRightJunctionParserRuleCall_0_2_0_0()); 
+	        newCompositeNode(grammarAccess.getStateFormulaAccess().getRightJunctionParserRuleCall_0_3_0_0()); 
 	    }
-		lv_right_2_0=ruleJunction		{
+		lv_right_3_0=ruleJunction		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getStateFormulaRule());
 	        }
        		set(
        			$current, 
        			"right",
-        		lv_right_2_0, 
+        		lv_right_3_0, 
         		"Junction");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -457,24 +495,28 @@ ruleStateFormula returns [EObject current=null]
     |(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getStateFormulaAccess().getRightImplicationParserRuleCall_0_2_1_0()); 
+	        newCompositeNode(grammarAccess.getStateFormulaAccess().getRightImplicationParserRuleCall_0_3_1_0()); 
 	    }
-		lv_right_3_0=ruleImplication		{
+		lv_right_4_0=ruleImplication		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getStateFormulaRule());
 	        }
        		set(
        			$current, 
        			"right",
-        		lv_right_3_0, 
+        		lv_right_4_0, 
         		"Implication");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))?	otherlv_4=')' 
+))?(this_SL_COMMENT_5=RULE_SL_COMMENT
+    { 
+    newLeafNode(this_SL_COMMENT_5, grammarAccess.getStateFormulaAccess().getSL_COMMENTTerminalRuleCall_0_4()); 
+    }
+)*	otherlv_6=')' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getStateFormulaAccess().getRightParenthesisKeyword_0_3());
+    	newLeafNode(otherlv_6, grammarAccess.getStateFormulaAccess().getRightParenthesisKeyword_0_5());
     }
 )
     |(
@@ -483,14 +525,14 @@ ruleStateFormula returns [EObject current=null]
 		{ 
 	        newCompositeNode(grammarAccess.getStateFormulaAccess().getLeftNegationParserRuleCall_1_0_0()); 
 	    }
-		lv_left_5_1=ruleNegation		{
+		lv_left_7_1=ruleNegation		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getStateFormulaRule());
 	        }
        		set(
        			$current, 
        			"left",
-        		lv_left_5_1, 
+        		lv_left_7_1, 
         		"Negation");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -498,14 +540,14 @@ ruleStateFormula returns [EObject current=null]
     |		{ 
 	        newCompositeNode(grammarAccess.getStateFormulaAccess().getLeftAtomicParserRuleCall_1_0_1()); 
 	    }
-		lv_left_5_2=ruleAtomic		{
+		lv_left_7_2=ruleAtomic		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getStateFormulaRule());
 	        }
        		set(
        			$current, 
        			"left",
-        		lv_left_5_2, 
+        		lv_left_7_2, 
         		"Atomic");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -513,14 +555,14 @@ ruleStateFormula returns [EObject current=null]
     |		{ 
 	        newCompositeNode(grammarAccess.getStateFormulaAccess().getLeftProbabilityParserRuleCall_1_0_2()); 
 	    }
-		lv_left_5_3=ruleProbability		{
+		lv_left_7_3=ruleProbability		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getStateFormulaRule());
 	        }
        		set(
        			$current, 
        			"left",
-        		lv_left_5_3, 
+        		lv_left_7_3, 
         		"Probability");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -571,16 +613,23 @@ ruleNegation returns [EObject current=null]
 
 // Entry rule entryRuleJunction
 entryRuleJunction returns [EObject current=null] 
+	@init { 
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_SL_COMMENT");
+	}
 	:
 	{ newCompositeNode(grammarAccess.getJunctionRule()); }
 	 iv_ruleJunction=ruleJunction 
 	 { $current=$iv_ruleJunction.current; } 
 	 EOF 
 ;
+finally {
+	myHiddenTokenState.restore();
+}
 
 // Rule Junction
 ruleJunction returns [EObject current=null] 
     @init { enterRule(); 
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_SL_COMMENT");
     }
     @after { leaveRule(); }:
 (
@@ -604,6 +653,9 @@ ruleJunction returns [EObject current=null]
     }
 )
 ;
+finally {
+	myHiddenTokenState.restore();
+}
 
 
 
@@ -735,16 +787,23 @@ ruleDisjunction returns [EObject current=null]
 
 // Entry rule entryRuleImplication
 entryRuleImplication returns [EObject current=null] 
+	@init { 
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_SL_COMMENT");
+	}
 	:
 	{ newCompositeNode(grammarAccess.getImplicationRule()); }
 	 iv_ruleImplication=ruleImplication 
 	 { $current=$iv_ruleImplication.current; } 
 	 EOF 
 ;
+finally {
+	myHiddenTokenState.restore();
+}
 
 // Rule Implication
 ruleImplication returns [EObject current=null] 
     @init { enterRule(); 
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_SL_COMMENT");
     }
     @after { leaveRule(); }:
 (	otherlv_0='=>' 
@@ -771,6 +830,9 @@ ruleImplication returns [EObject current=null]
 )
 ))
 ;
+finally {
+	myHiddenTokenState.restore();
+}
 
 
 
@@ -794,55 +856,63 @@ ruleProbability returns [EObject current=null]
     {
     	newLeafNode(otherlv_0, grammarAccess.getProbabilityAccess().getPKeyword_0());
     }
-(
+(this_SL_COMMENT_1=RULE_SL_COMMENT
+    { 
+    newLeafNode(this_SL_COMMENT_1, grammarAccess.getProbabilityAccess().getSL_COMMENTTerminalRuleCall_1()); 
+    }
+)*(
     {
         $current = forceCreateModelElement(
-            grammarAccess.getProbabilityAccess().getProbabilityAction_1(),
+            grammarAccess.getProbabilityAccess().getProbabilityAction_2(),
             $current);
     }
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getProbabilityAccess().getComparatorCompareProbabilityParserRuleCall_2_0()); 
+	        newCompositeNode(grammarAccess.getProbabilityAccess().getComparatorCompareProbabilityParserRuleCall_3_0()); 
 	    }
-		lv_comparator_2_0=ruleCompareProbability		{
+		lv_comparator_3_0=ruleCompareProbability		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getProbabilityRule());
 	        }
        		set(
        			$current, 
        			"comparator",
-        		lv_comparator_2_0, 
+        		lv_comparator_3_0, 
         		"CompareProbability");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_3='[' 
+)(this_SL_COMMENT_4=RULE_SL_COMMENT
+    { 
+    newLeafNode(this_SL_COMMENT_4, grammarAccess.getProbabilityAccess().getSL_COMMENTTerminalRuleCall_4()); 
+    }
+)*	otherlv_5='[' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getProbabilityAccess().getLeftSquareBracketKeyword_3());
+    	newLeafNode(otherlv_5, grammarAccess.getProbabilityAccess().getLeftSquareBracketKeyword_5());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getProbabilityAccess().getPathPathFormulaParserRuleCall_4_0()); 
+	        newCompositeNode(grammarAccess.getProbabilityAccess().getPathPathFormulaParserRuleCall_6_0()); 
 	    }
-		lv_path_4_0=rulePathFormula		{
+		lv_path_6_0=rulePathFormula		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getProbabilityRule());
 	        }
        		set(
        			$current, 
        			"path",
-        		lv_path_4_0, 
+        		lv_path_6_0, 
         		"PathFormula");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_5=']' 
+)	otherlv_7=']' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getProbabilityAccess().getRightSquareBracketKeyword_5());
+    	newLeafNode(otherlv_7, grammarAccess.getProbabilityAccess().getRightSquareBracketKeyword_7());
     }
 )
 ;
@@ -1028,16 +1098,23 @@ ruleBoolean returns [EObject current=null]
 
 // Entry rule entryRulePathFormula
 entryRulePathFormula returns [EObject current=null] 
+	@init { 
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_SL_COMMENT");
+	}
 	:
 	{ newCompositeNode(grammarAccess.getPathFormulaRule()); }
 	 iv_rulePathFormula=rulePathFormula 
 	 { $current=$iv_rulePathFormula.current; } 
 	 EOF 
 ;
+finally {
+	myHiddenTokenState.restore();
+}
 
 // Rule PathFormula
 rulePathFormula returns [EObject current=null] 
     @init { enterRule(); 
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_SL_COMMENT");
     }
     @after { leaveRule(); }:
 (
@@ -1081,6 +1158,9 @@ rulePathFormula returns [EObject current=null]
     }
 )
 ;
+finally {
+	myHiddenTokenState.restore();
+}
 
 
 
@@ -1388,16 +1468,23 @@ ruleGlobally returns [EObject current=null]
 
 // Entry rule entryRuleCompareProbability
 entryRuleCompareProbability returns [EObject current=null] 
+	@init { 
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_SL_COMMENT");
+	}
 	:
 	{ newCompositeNode(grammarAccess.getCompareProbabilityRule()); }
 	 iv_ruleCompareProbability=ruleCompareProbability 
 	 { $current=$iv_ruleCompareProbability.current; } 
 	 EOF 
 ;
+finally {
+	myHiddenTokenState.restore();
+}
 
 // Rule CompareProbability
 ruleCompareProbability returns [EObject current=null] 
     @init { enterRule(); 
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_SL_COMMENT");
     }
     @after { leaveRule(); }:
 ((
@@ -1438,6 +1525,9 @@ ruleCompareProbability returns [EObject current=null]
 )
 ))
 ;
+finally {
+	myHiddenTokenState.restore();
+}
 
 
 
@@ -1445,16 +1535,23 @@ ruleCompareProbability returns [EObject current=null]
 
 // Entry rule entryRuleTimeBound
 entryRuleTimeBound returns [EObject current=null] 
+	@init { 
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_SL_COMMENT");
+	}
 	:
 	{ newCompositeNode(grammarAccess.getTimeBoundRule()); }
 	 iv_ruleTimeBound=ruleTimeBound 
 	 { $current=$iv_ruleTimeBound.current; } 
 	 EOF 
 ;
+finally {
+	myHiddenTokenState.restore();
+}
 
 // Rule TimeBound
 ruleTimeBound returns [EObject current=null] 
     @init { enterRule(); 
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_SL_COMMENT");
     }
     @after { leaveRule(); }:
 (((
@@ -1570,6 +1667,9 @@ ruleTimeBound returns [EObject current=null]
     }
 ))
 ;
+finally {
+	myHiddenTokenState.restore();
+}
 
 
 
