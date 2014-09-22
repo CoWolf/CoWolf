@@ -1,8 +1,8 @@
 package de.uni_stuttgart.iste.cowolf.model.fault_tree.analyze;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -17,6 +17,7 @@ import java.util.Map;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
@@ -156,16 +157,9 @@ public class FaultTreeAnalyzeJob extends Job {
 		IFile modelfile = ResourcesPlugin.getWorkspace().getRoot()
 				.getFile(new Path(resource.getURI().toPlatformString(true)));
 
-		IFile resultfile = ResourcesPlugin
-				.getWorkspace()
-				.getRoot()
-				.getFile(
-						modelfile.getFullPath()
-								.addFileExtension("analysis.html"));
-		OutputStreamWriter out = null;
+		IFile resultfile = ResourcesPlugin.getWorkspace().getRoot().getFile(
+						modelfile.getFullPath().addFileExtension("analysis.html"));
 		try {
-			out = new FileWriter(resultfile.getLocation().toOSString());
-
 			StringBuilder sb = new StringBuilder();
 			sb.append("<h1>xFTA Analysis Result</h1>\n");
 			sb.append(resultFileTitles.get(parameters.get("typeOfAnalysis")));
@@ -192,23 +186,20 @@ public class FaultTreeAnalyzeJob extends Job {
 			}
 			
 			sb.append("</tbody></table>");
+			
+			ByteArrayInputStream in = new ByteArrayInputStream(AnalysisResultUtil.encapsulateHTML(sb.toString()).getBytes());
 
-			out.write(AnalysisResultUtil.encapsulateHTML(sb.toString()));
+			if (resultfile.exists()) {
+				resultfile.setContents(in, true, false, null);
+			} else {
+				resultfile.create(in, true, null);
+			}
 
 			if (this.listener != null) {
 				this.listener.finished(resource, resultfile);
 			}
-		} catch (FileNotFoundException e) {
-			LOGGER.error("", e); 
-		} catch (IOException e) {
-			LOGGER.error("", e); 
-		} finally {
-			try {
-				out.flush();
-				out.close();
-			} catch (Exception e2) {
-				LOGGER.error("", e2); 
-			}
+		} catch (CoreException e) {
+			LOGGER.error("", e);
 		}
 	}
 
