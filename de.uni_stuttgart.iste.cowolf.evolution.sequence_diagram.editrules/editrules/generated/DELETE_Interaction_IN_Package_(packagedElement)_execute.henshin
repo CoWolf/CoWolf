@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_xd0xAD89EeS0f8NNvwcvKQ" name="DELETE_Interaction_IN_Package_(packagedElement)" description="Deletes one Interaction in Package">
+  <imports href="http://sequence_diagram/1.0#/"/>
+  <imports href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_xd0xAT89EeS0f8NNvwcvKQ" name="deleteInteraction_IN_Package" description="deletes one Interaction in the context: Package">
+    <parameters xmi:id="_xd0xAj89EeS0f8NNvwcvKQ" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+    </parameters>
+    <parameters xmi:id="_xd0xAz89EeS0f8NNvwcvKQ" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://sequence_diagram/1.0#//Interaction"/>
+    </parameters>
+    <lhs xmi:id="_xd0xBD89EeS0f8NNvwcvKQ" name="LHS">
+      <nodes xmi:id="_xd0xBT89EeS0f8NNvwcvKQ" name="Selected" outgoing="_xd0xBz89EeS0f8NNvwcvKQ">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </nodes>
+      <nodes xmi:id="_xd0xBj89EeS0f8NNvwcvKQ" name="ToBeDeleted" incoming="_xd0xBz89EeS0f8NNvwcvKQ">
+        <type href="http://sequence_diagram/1.0#//Interaction"/>
+      </nodes>
+      <edges xmi:id="_xd0xBz89EeS0f8NNvwcvKQ" source="_xd0xBT89EeS0f8NNvwcvKQ" target="_xd0xBj89EeS0f8NNvwcvKQ">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package/packagedElement"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_xd0xCD89EeS0f8NNvwcvKQ" name="RHS">
+      <nodes xmi:id="_xd0xCT89EeS0f8NNvwcvKQ" name="Selected">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_xd0xCj89EeS0f8NNvwcvKQ" origin="_xd0xBT89EeS0f8NNvwcvKQ" image="_xd0xCT89EeS0f8NNvwcvKQ"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_xd0xCz89EeS0f8NNvwcvKQ" name="mainUnit" subUnits="_xd0xAT89EeS0f8NNvwcvKQ">
+    <parameters xmi:id="_xd0xDD89EeS0f8NNvwcvKQ" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+    </parameters>
+    <parameters xmi:id="_xd0xDT89EeS0f8NNvwcvKQ" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://sequence_diagram/1.0#//Interaction"/>
+    </parameters>
+    <parameterMappings xmi:id="_xd0xDj89EeS0f8NNvwcvKQ" source="_xd0xDD89EeS0f8NNvwcvKQ" target="_xd0xAj89EeS0f8NNvwcvKQ"/>
+    <parameterMappings xmi:id="_xd0xDz89EeS0f8NNvwcvKQ" source="_xd0xDT89EeS0f8NNvwcvKQ" target="_xd0xAz89EeS0f8NNvwcvKQ"/>
+  </units>
+</henshin:Module>

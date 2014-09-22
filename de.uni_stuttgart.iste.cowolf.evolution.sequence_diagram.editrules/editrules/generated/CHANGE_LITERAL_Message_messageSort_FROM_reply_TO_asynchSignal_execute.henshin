@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_xa-RUD89EeS0f8NNvwcvKQ" name="CHANGE_LITERAL_Message_messageSort_FROM_reply_TO_asynchSignal" description="Changes the attribute value of messageSort_FROM_reply_TO_asynchSignal">
+  <imports href="http://sequence_diagram/1.0#/"/>
+  <imports href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_xa-RUT89EeS0f8NNvwcvKQ" name="changeMessageMessageSort_FROM_Reply_TO_asynchSignal" description="Changes the attribute value of messageSort_FROM_reply_TO_asynchSignal">
+    <parameters xmi:id="_xa-RUj89EeS0f8NNvwcvKQ" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Message"/>
+    </parameters>
+    <parameters xmi:id="_xa-RUz89EeS0f8NNvwcvKQ" name="&quot;reply&quot;">
+      <type xsi:type="ecore:EEnum" href="http://www.eclipse.org/uml2/5.0.0/UML#//MessageSort"/>
+    </parameters>
+    <parameters xmi:id="_xa-RVD89EeS0f8NNvwcvKQ" name="&quot;asynchSignal&quot;">
+      <type xsi:type="ecore:EEnum" href="http://www.eclipse.org/uml2/5.0.0/UML#//MessageSort"/>
+    </parameters>
+    <lhs xmi:id="_xa-RVT89EeS0f8NNvwcvKQ" name="Lhs">
+      <nodes xmi:id="_xa-RVj89EeS0f8NNvwcvKQ" name="Selected">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Message"/>
+        <attributes xmi:id="_xa-RVz89EeS0f8NNvwcvKQ" value="&quot;reply&quot;">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Message/messageSort"/>
+        </attributes>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_xa-RWD89EeS0f8NNvwcvKQ" name="Rhs">
+      <nodes xmi:id="_xa-RWT89EeS0f8NNvwcvKQ" name="Selected">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Message"/>
+        <attributes xmi:id="_xa-RWj89EeS0f8NNvwcvKQ" value="&quot;asynchSignal&quot;">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Message/messageSort"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_xa-RWz89EeS0f8NNvwcvKQ" origin="_xa-RVj89EeS0f8NNvwcvKQ" image="_xa-RWT89EeS0f8NNvwcvKQ"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_xa-RXD89EeS0f8NNvwcvKQ" name="mainUnit" subUnits="_xa-RUT89EeS0f8NNvwcvKQ">
+    <parameters xmi:id="_xa-RXT89EeS0f8NNvwcvKQ" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Message"/>
+    </parameters>
+    <parameters xmi:id="_xa-RXj89EeS0f8NNvwcvKQ" name="&quot;reply&quot;">
+      <type xsi:type="ecore:EEnum" href="http://www.eclipse.org/uml2/5.0.0/UML#//MessageSort"/>
+    </parameters>
+    <parameters xmi:id="_xa-RXz89EeS0f8NNvwcvKQ" name="&quot;asynchSignal&quot;">
+      <type xsi:type="ecore:EEnum" href="http://www.eclipse.org/uml2/5.0.0/UML#//MessageSort"/>
+    </parameters>
+    <parameterMappings xmi:id="_xa-RYD89EeS0f8NNvwcvKQ" source="_xa-RXT89EeS0f8NNvwcvKQ" target="_xa-RUj89EeS0f8NNvwcvKQ"/>
+    <parameterMappings xmi:id="_xa-RYT89EeS0f8NNvwcvKQ" source="_xa-RXj89EeS0f8NNvwcvKQ" target="_xa-RUz89EeS0f8NNvwcvKQ"/>
+    <parameterMappings xmi:id="_xa-RYj89EeS0f8NNvwcvKQ" source="_xa-RXz89EeS0f8NNvwcvKQ" target="_xa-RVD89EeS0f8NNvwcvKQ"/>
+  </units>
+</henshin:Module>

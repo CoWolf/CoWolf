@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>de.uni_stuttgart.iste.cowolf.evolution.sequence_diagram.editrules</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.xtext.ui.shared.xtextBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<!-- For this evolution the recognition rules are not generated automatic, because the maven-silift-plugin dosn't provide the UML2 ecore model
+		     This comment deactivates the automatic generation of the recognition rules by workspace build.
+		<buildCommand>
+			<name>org.sidiff.difference.rulebase.builder.rulebasebuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand> -->
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>org.eclipse.pde.ManifestBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>org.eclipse.pde.SchemaBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>org.eclipse.m2e.core.maven2Builder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.xtext.ui.shared.xtextNature</nature>
+		<nature>org.eclipse.m2e.core.maven2Nature</nature>
+		<!-- For this evolution the recognition rules are not generated automatic. This comment deactivates the maven-silift-plugin
+		<nature>org.sidiff.difference.rulebase.project.rulebasenature</nature>-->
+		<nature>org.eclipse.pde.PluginNature</nature>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+</projectDescription>

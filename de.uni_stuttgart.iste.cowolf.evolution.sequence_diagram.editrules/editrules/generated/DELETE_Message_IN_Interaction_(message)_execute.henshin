@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_xakosD89EeS0f8NNvwcvKQ" name="DELETE_Message_IN_Interaction_(message)" description="Deletes one Message in Interaction">
+  <imports href="http://sequence_diagram/1.0#/"/>
+  <imports href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_xakosT89EeS0f8NNvwcvKQ" name="deleteMessage_IN_Interaction" description="deletes one Message in the context: Interaction">
+    <parameters xmi:id="_xakosj89EeS0f8NNvwcvKQ" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Interaction"/>
+    </parameters>
+    <parameters xmi:id="_xakosz89EeS0f8NNvwcvKQ" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://sequence_diagram/1.0#//Message"/>
+    </parameters>
+    <lhs xmi:id="_xakotD89EeS0f8NNvwcvKQ" name="LHS">
+      <nodes xmi:id="_xakotT89EeS0f8NNvwcvKQ" name="Selected" incoming="_xakouD89EeS0f8NNvwcvKQ" outgoing="_xakotz89EeS0f8NNvwcvKQ">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Interaction"/>
+      </nodes>
+      <nodes xmi:id="_xakotj89EeS0f8NNvwcvKQ" name="ToBeDeleted" incoming="_xakotz89EeS0f8NNvwcvKQ" outgoing="_xakouD89EeS0f8NNvwcvKQ">
+        <type href="http://sequence_diagram/1.0#//Message"/>
+      </nodes>
+      <edges xmi:id="_xakotz89EeS0f8NNvwcvKQ" source="_xakotT89EeS0f8NNvwcvKQ" target="_xakotj89EeS0f8NNvwcvKQ">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Interaction/message"/>
+      </edges>
+      <edges xmi:id="_xakouD89EeS0f8NNvwcvKQ" source="_xakotj89EeS0f8NNvwcvKQ" target="_xakotT89EeS0f8NNvwcvKQ">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Message/interaction"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_xakouT89EeS0f8NNvwcvKQ" name="RHS">
+      <nodes xmi:id="_xakouj89EeS0f8NNvwcvKQ" name="Selected">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Interaction"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_xakouz89EeS0f8NNvwcvKQ" origin="_xakotT89EeS0f8NNvwcvKQ" image="_xakouj89EeS0f8NNvwcvKQ"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_xakovD89EeS0f8NNvwcvKQ" name="mainUnit" subUnits="_xakosT89EeS0f8NNvwcvKQ">
+    <parameters xmi:id="_xakovT89EeS0f8NNvwcvKQ" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Interaction"/>
+    </parameters>
+    <parameters xmi:id="_xakovj89EeS0f8NNvwcvKQ" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://sequence_diagram/1.0#//Message"/>
+    </parameters>
+    <parameterMappings xmi:id="_xakovz89EeS0f8NNvwcvKQ" source="_xakovT89EeS0f8NNvwcvKQ" target="_xakosj89EeS0f8NNvwcvKQ"/>
+    <parameterMappings xmi:id="_xakowD89EeS0f8NNvwcvKQ" source="_xakovj89EeS0f8NNvwcvKQ" target="_xakosz89EeS0f8NNvwcvKQ"/>
+  </units>
+</henshin:Module>
