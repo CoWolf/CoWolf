@@ -10,11 +10,13 @@
 			<arguments>
 			</arguments>
 		</buildCommand>
+		<!-- For this evolution the recognition rules are not generated automatic, because the maven-silift-plugin dosn't provide the UML2 ecore model
+		     This comment deactivates the automatic generation of the recognition rules by workspace build.
 		<buildCommand>
 			<name>org.sidiff.difference.rulebase.builder.rulebasebuilder</name>
 			<arguments>
 			</arguments>
-		</buildCommand>
+		</buildCommand> -->
 		<buildCommand>
 			<name>org.eclipse.jdt.core.javabuilder</name>
 			<arguments>
@@ -39,7 +41,8 @@
 	<natures>
 		<nature>org.eclipse.xtext.ui.shared.xtextNature</nature>
 		<nature>org.eclipse.m2e.core.maven2Nature</nature>
-		<nature>org.sidiff.difference.rulebase.project.rulebasenature</nature>
+		<!-- For this evolution the recognition rules are not generated automatic. This comment deactivates the maven-silift-plugin
+		<nature>org.sidiff.difference.rulebase.project.rulebasenature</nature>-->
 		<nature>org.eclipse.pde.PluginNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
