@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="CoWolf" uid="de.uni_stuttgart.iste.cowolf.product" id="de.uni_stuttgart.iste.cowolf.product" application="org.eclipse.ui.ide.workbench" version="1.0.0" useFeatures="true" includeLaunchers="true">
+<product name="CoWolf Standalone" uid="de.uni_stuttgart.iste.cowolf.product" id="de.uni_stuttgart.iste.cowolf.product" application="org.eclipse.ui.ide.workbench" version="1.0.0" useFeatures="false" includeLaunchers="true">
 
    <configIni use="default">
    </configIni>
 
    <launcherArgs>
+      <programArgs>-consoleLog
+      </programArgs>
+      <vmArgs>-Dosgi.requiredJavaVersion=1.7 -Xms40m -Xmx512m
+      </vmArgs>
       <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
       </vmArgsMac>
    </launcherArgs>
-
-   <windowImages/>
 
    <launcher>
       <solaris/>
@@ -21,35 +23,29 @@
    </launcher>
 
    <vm>
-      <linux include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7</linux>
-      <macos include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7</macos>
-      <solaris include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7</solaris>
       <windows include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7</windows>
    </vm>
 
    <plugins>
-      <plugin id="ch.qos.logback.classic"/>
-      <plugin id="ch.qos.logback.core"/>
-      <plugin id="ch.qos.logback.slf4j" fragment="true"/>
+      <plugin id="ch.qos.logback.classic" version="1.1.2"/>
+      <plugin id="ch.qos.logback.core" version="1.1.2"/>
       <plugin id="com.google.guava"/>
       <plugin id="com.google.inject"/>
       <plugin id="com.ibm.icu"/>
+      <plugin id="de.itemis.xtext.antlr"/>
+      <plugin id="de.uni_stuttgart.iste.cowolf"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.core"/>
-      <plugin id="de.uni_stuttgart.iste.cowolf.core.tests" fragment="true"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.evolution"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.evolution.activity_diagram"/>
-      <plugin id="de.uni_stuttgart.iste.cowolf.evolution.activity_diagram.tests" fragment="true"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.evolution.component_diagram"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.evolution.component_diagram.difference.technical"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.evolution.component_diagram.editrules"/>
-      <plugin id="de.uni_stuttgart.iste.cowolf.evolution.component_diagram.tests" fragment="true"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.evolution.ctmc"/>
+      <plugin id="de.uni_stuttgart.iste.cowolf.evolution.ctmc.difference.technical"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.evolution.ctmc.editrules"/>
-      <plugin id="de.uni_stuttgart.iste.cowolf.evolution.ctmc.tests" fragment="true"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.evolution.dtmc"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.evolution.dtmc.difference.technical"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.evolution.dtmc.editrules"/>
-      <plugin id="de.uni_stuttgart.iste.cowolf.evolution.dtmc.tests" fragment="true"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.evolution.fault_tree"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.evolution.fault_tree.difference.technical"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.evolution.fault_tree.editrules"/>
@@ -59,12 +55,10 @@
       <plugin id="de.uni_stuttgart.iste.cowolf.evolution.statechart"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.evolution.statechart.difference.technical"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.evolution.statechart.editrules"/>
-      <plugin id="de.uni_stuttgart.iste.cowolf.evolution.statechart.tests" fragment="true"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.model"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.model.activity_diagram"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.model.activity_diagram.emf.edit"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.model.activity_diagram.emf.editor"/>
-      <plugin id="de.uni_stuttgart.iste.cowolf.model.activity_diagram.tests" fragment="true"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.model.component_diagram"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.model.component_diagram.emf.edit"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.model.component_diagram.emf.editor"/>
@@ -72,7 +66,6 @@
       <plugin id="de.uni_stuttgart.iste.cowolf.model.ctmc.emf.edit"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.model.ctmc.emf.editor"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.model.ctmc.sirius.editor"/>
-      <plugin id="de.uni_stuttgart.iste.cowolf.model.ctmc.tests" fragment="true"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl.sdk"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl.ui"/>
@@ -80,17 +73,14 @@
       <plugin id="de.uni_stuttgart.iste.cowolf.model.dtmc.emf.edit"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.model.dtmc.emf.editor"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.model.dtmc.sirius.editor"/>
-      <plugin id="de.uni_stuttgart.iste.cowolf.model.dtmc.tests" fragment="true"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.model.emf.edit"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.model.fault_tree"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.model.fault_tree.emf.edit"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.model.fault_tree.emf.editor"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.model.fault_tree.sirius.editor"/>
-      <plugin id="de.uni_stuttgart.iste.cowolf.model.fault_tree.tests" fragment="true"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.model.lqn"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.model.lqn.emf.edit"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.model.lqn.emf.editor"/>
-      <plugin id="de.uni_stuttgart.iste.cowolf.model.lqn.tests" fragment="true"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.model.sequence_diagram"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.model.sequence_diagram.emf.edit"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.model.sequence_diagram.emf.editor"/>
@@ -99,7 +89,6 @@
       <plugin id="de.uni_stuttgart.iste.cowolf.model.statechart.emf.edit"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.model.statechart.emf.editor"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.model.statechart.sirius.editor"/>
-      <plugin id="de.uni_stuttgart.iste.cowolf.model.statechart.tests" fragment="true"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.skeleton.branding"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.skeleton.editor"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.skeleton.evolve"/>
@@ -108,13 +97,10 @@
       <plugin id="de.uni_stuttgart.iste.cowolf.transformation"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.transformation.component_diagram_fault_tree"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.transformation.component_diagram_fault_tree.rules"/>
-      <plugin id="de.uni_stuttgart.iste.cowolf.transformation.component_diagram_fault_tree.tests" fragment="true"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.transformation.dtmc_ctmc"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.transformation.dtmc_ctmc.rules"/>
-      <plugin id="de.uni_stuttgart.iste.cowolf.transformation.dtmc_ctmc.tests" fragment="true"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules"/>
-      <plugin id="de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.tests" fragment="true"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.transformation.generator"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.transformation.model"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.ui"/>
@@ -125,16 +111,22 @@
       <plugin id="de.uni_stuttgart.iste.cowolf.ui.model.fault_tree"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.ui.model.lqn"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.ui.navigator"/>
-      <plugin id="de.uni_stuttgart.iste.cowolf.ui.tests" fragment="true"/>
       <plugin id="de.uni_stuttgart.iste.cowolf.ui.transformation"/>
+      <plugin id="de.uni_stuttgart.iste.transformation.faulttree_ctmc"/>
+      <plugin id="de.uni_stuttgart.iste.transformation.faulttree_ctmc.rules"/>
+      <plugin id="javax.activation"/>
       <plugin id="javax.annotation"/>
       <plugin id="javax.inject"/>
+      <plugin id="javax.mail"/>
+      <plugin id="javax.servlet"/>
       <plugin id="javax.xml"/>
+      <plugin id="javax.xml.stream"/>
       <plugin id="lpg.runtime.java"/>
+      <plugin id="org.antlr.generator"/>
       <plugin id="org.antlr.runtime"/>
       <plugin id="org.apache.ant"/>
       <plugin id="org.apache.batik.bridge"/>
-      <plugin id="org.apache.batik.css"/>
+      <plugin id="org.apache.batik.css" version="1.6.0.v201011041432"/>
       <plugin id="org.apache.batik.dom"/>
       <plugin id="org.apache.batik.dom.svg"/>
       <plugin id="org.apache.batik.ext.awt"/>
@@ -142,13 +134,15 @@
       <plugin id="org.apache.batik.pdf"/>
       <plugin id="org.apache.batik.svggen"/>
       <plugin id="org.apache.batik.transcoder"/>
-      <plugin id="org.apache.batik.util"/>
-      <plugin id="org.apache.batik.util.gui"/>
+      <plugin id="org.apache.batik.util" version="1.6.0.v201011041432"/>
+      <plugin id="org.apache.batik.util.gui" version="1.6.0.v201011041432"/>
       <plugin id="org.apache.batik.xml"/>
       <plugin id="org.apache.commons.cli"/>
       <plugin id="org.apache.commons.lang"/>
       <plugin id="org.apache.commons.logging"/>
       <plugin id="org.apache.log4j"/>
+      <plugin id="org.apache.lucene.analysis"/>
+      <plugin id="org.apache.lucene.core"/>
       <plugin id="org.apache.xerces"/>
       <plugin id="org.apache.xml.resolver"/>
       <plugin id="org.apache.xml.serializer"/>
@@ -180,6 +174,7 @@
       <plugin id="org.eclipse.core.filesystem.java7" fragment="true"/>
       <plugin id="org.eclipse.core.filesystem.win32.x86_64" fragment="true"/>
       <plugin id="org.eclipse.core.jobs"/>
+      <plugin id="org.eclipse.core.net"/>
       <plugin id="org.eclipse.core.resources"/>
       <plugin id="org.eclipse.core.resources.win32.x86_64" fragment="true"/>
       <plugin id="org.eclipse.core.runtime"/>
@@ -208,8 +203,10 @@
       <plugin id="org.eclipse.e4.ui.workbench.swt"/>
       <plugin id="org.eclipse.e4.ui.workbench3"/>
       <plugin id="org.eclipse.emf"/>
+      <plugin id="org.eclipse.emf.ant"/>
       <plugin id="org.eclipse.emf.codegen"/>
       <plugin id="org.eclipse.emf.codegen.ecore"/>
+      <plugin id="org.eclipse.emf.codegen.ecore.ui"/>
       <plugin id="org.eclipse.emf.common"/>
       <plugin id="org.eclipse.emf.common.ui"/>
       <plugin id="org.eclipse.emf.compare"/>
@@ -230,6 +227,10 @@
       <plugin id="org.eclipse.emf.importer.ecore"/>
       <plugin id="org.eclipse.emf.mapping.ecore2xml"/>
       <plugin id="org.eclipse.emf.mwe.core"/>
+      <plugin id="org.eclipse.emf.mwe.utils"/>
+      <plugin id="org.eclipse.emf.mwe2.language"/>
+      <plugin id="org.eclipse.emf.mwe2.launch"/>
+      <plugin id="org.eclipse.emf.mwe2.lib"/>
       <plugin id="org.eclipse.emf.mwe2.runtime"/>
       <plugin id="org.eclipse.emf.query"/>
       <plugin id="org.eclipse.emf.query.ocl"/>
@@ -240,8 +241,11 @@
       <plugin id="org.eclipse.equinox.bidi"/>
       <plugin id="org.eclipse.equinox.common"/>
       <plugin id="org.eclipse.equinox.ds"/>
+      <plugin id="org.eclipse.equinox.event"/>
       <plugin id="org.eclipse.equinox.frameworkadmin"/>
       <plugin id="org.eclipse.equinox.frameworkadmin.equinox"/>
+      <plugin id="org.eclipse.equinox.http.jetty"/>
+      <plugin id="org.eclipse.equinox.http.servlet"/>
       <plugin id="org.eclipse.equinox.p2.artifact.repository"/>
       <plugin id="org.eclipse.equinox.p2.core"/>
       <plugin id="org.eclipse.equinox.p2.director"/>
@@ -258,6 +262,7 @@
       <plugin id="org.eclipse.equinox.p2.repository.tools"/>
       <plugin id="org.eclipse.equinox.p2.touchpoint.eclipse"/>
       <plugin id="org.eclipse.equinox.p2.ui"/>
+      <plugin id="org.eclipse.equinox.p2.updatesite"/>
       <plugin id="org.eclipse.equinox.preferences"/>
       <plugin id="org.eclipse.equinox.registry"/>
       <plugin id="org.eclipse.equinox.security"/>
@@ -300,6 +305,9 @@
       <plugin id="org.eclipse.gmf.runtime.notation"/>
       <plugin id="org.eclipse.gmf.runtime.notation.edit"/>
       <plugin id="org.eclipse.help"/>
+      <plugin id="org.eclipse.help.base"/>
+      <plugin id="org.eclipse.help.ui"/>
+      <plugin id="org.eclipse.jdt.annotation"/>
       <plugin id="org.eclipse.jdt.compiler.apt" fragment="true"/>
       <plugin id="org.eclipse.jdt.compiler.tool" fragment="true"/>
       <plugin id="org.eclipse.jdt.core"/>
@@ -311,27 +319,24 @@
       <plugin id="org.eclipse.jdt.junit.runtime"/>
       <plugin id="org.eclipse.jdt.launching"/>
       <plugin id="org.eclipse.jdt.ui"/>
-      <plugin id="org.eclipse.jem.util"/>
+      <plugin id="org.eclipse.jetty.continuation"/>
+      <plugin id="org.eclipse.jetty.http"/>
+      <plugin id="org.eclipse.jetty.io"/>
+      <plugin id="org.eclipse.jetty.security"/>
+      <plugin id="org.eclipse.jetty.server"/>
+      <plugin id="org.eclipse.jetty.servlet"/>
+      <plugin id="org.eclipse.jetty.util"/>
       <plugin id="org.eclipse.jface"/>
       <plugin id="org.eclipse.jface.databinding"/>
       <plugin id="org.eclipse.jface.text"/>
       <plugin id="org.eclipse.ltk.core.refactoring"/>
       <plugin id="org.eclipse.ltk.ui.refactoring"/>
-      <plugin id="org.eclipse.m2e.archetype.common"/>
-      <plugin id="org.eclipse.m2e.core"/>
-      <plugin id="org.eclipse.m2e.core.ui"/>
-      <plugin id="org.eclipse.m2e.logback.appender" fragment="true"/>
-      <plugin id="org.eclipse.m2e.maven.indexer"/>
-      <plugin id="org.eclipse.m2e.maven.runtime"/>
-      <plugin id="org.eclipse.m2e.maven.runtime.slf4j.simple"/>
-      <plugin id="org.eclipse.m2e.model.edit"/>
       <plugin id="org.eclipse.ocl"/>
       <plugin id="org.eclipse.ocl.common"/>
       <plugin id="org.eclipse.ocl.ecore"/>
       <plugin id="org.eclipse.osgi"/>
       <plugin id="org.eclipse.osgi.compatibility.state" fragment="true"/>
       <plugin id="org.eclipse.osgi.services"/>
-      <plugin id="org.eclipse.osgi.util"/>
       <plugin id="org.eclipse.pde.build"/>
       <plugin id="org.eclipse.pde.core"/>
       <plugin id="org.eclipse.pde.launching"/>
@@ -377,13 +382,6 @@
       <plugin id="org.eclipse.sirius.ui"/>
       <plugin id="org.eclipse.swt"/>
       <plugin id="org.eclipse.swt.win32.win32.x86_64" fragment="true"/>
-      <plugin id="org.eclipse.swtbot.ant.junit" fragment="true"/>
-      <plugin id="org.eclipse.swtbot.eclipse.core"/>
-      <plugin id="org.eclipse.swtbot.eclipse.finder"/>
-      <plugin id="org.eclipse.swtbot.eclipse.gef.finder"/>
-      <plugin id="org.eclipse.swtbot.forms.finder"/>
-      <plugin id="org.eclipse.swtbot.junit4_x"/>
-      <plugin id="org.eclipse.swtbot.swt.finder"/>
       <plugin id="org.eclipse.team.core"/>
       <plugin id="org.eclipse.team.ui"/>
       <plugin id="org.eclipse.text"/>
@@ -394,6 +392,7 @@
       <plugin id="org.eclipse.ui.externaltools"/>
       <plugin id="org.eclipse.ui.forms"/>
       <plugin id="org.eclipse.ui.ide"/>
+      <plugin id="org.eclipse.ui.ide.application"/>
       <plugin id="org.eclipse.ui.intro"/>
       <plugin id="org.eclipse.ui.navigator"/>
       <plugin id="org.eclipse.ui.navigator.resources"/>
@@ -413,34 +412,29 @@
       <plugin id="org.eclipse.uml2.uml.profile.standard"/>
       <plugin id="org.eclipse.uml2.uml.resources"/>
       <plugin id="org.eclipse.update.configurator"/>
-      <plugin id="org.eclipse.wst.common.core"/>
-      <plugin id="org.eclipse.wst.common.emf"/>
-      <plugin id="org.eclipse.wst.common.environment"/>
-      <plugin id="org.eclipse.wst.common.frameworks"/>
-      <plugin id="org.eclipse.wst.common.project.facet.core"/>
-      <plugin id="org.eclipse.wst.common.uriresolver"/>
-      <plugin id="org.eclipse.wst.sse.core"/>
-      <plugin id="org.eclipse.wst.validation"/>
-      <plugin id="org.eclipse.wst.xml.core"/>
-      <plugin id="org.eclipse.wst.xsd.core"/>
-      <plugin id="org.eclipse.xsd"/>
+      <plugin id="org.eclipse.xpand"/>
+      <plugin id="org.eclipse.xtend"/>
       <plugin id="org.eclipse.xtend.lib"/>
       <plugin id="org.eclipse.xtend.lib.macro"/>
+      <plugin id="org.eclipse.xtend.typesystem.emf"/>
       <plugin id="org.eclipse.xtext"/>
       <plugin id="org.eclipse.xtext.builder"/>
       <plugin id="org.eclipse.xtext.common.types"/>
+      <plugin id="org.eclipse.xtext.common.types.edit"/>
       <plugin id="org.eclipse.xtext.common.types.ui"/>
-      <plugin id="org.eclipse.xtext.junit"/>
+      <plugin id="org.eclipse.xtext.ecore"/>
+      <plugin id="org.eclipse.xtext.generator"/>
       <plugin id="org.eclipse.xtext.junit4"/>
       <plugin id="org.eclipse.xtext.logging" fragment="true"/>
+      <plugin id="org.eclipse.xtext.smap"/>
       <plugin id="org.eclipse.xtext.ui"/>
       <plugin id="org.eclipse.xtext.ui.codetemplates"/>
       <plugin id="org.eclipse.xtext.ui.codetemplates.ui"/>
       <plugin id="org.eclipse.xtext.ui.shared"/>
       <plugin id="org.eclipse.xtext.util"/>
+      <plugin id="org.eclipse.xtext.xbase"/>
       <plugin id="org.eclipse.xtext.xbase.lib"/>
       <plugin id="org.hamcrest.core"/>
-      <plugin id="org.hamcrest.library"/>
       <plugin id="org.jdom"/>
       <plugin id="org.junit"/>
       <plugin id="org.objectweb.asm"/>
@@ -468,52 +462,22 @@
       <plugin id="org.sidiff.difference.technical"/>
       <plugin id="org.silift.common.util"/>
       <plugin id="org.silift.common.util.ui"/>
-      <plugin id="org.slf4j.api"/>
       <plugin id="org.w3c.css.sac"/>
       <plugin id="org.w3c.dom.events"/>
       <plugin id="org.w3c.dom.smil"/>
       <plugin id="org.w3c.dom.svg"/>
-      <plugin id="slf4j.api"/>
+      <plugin id="slf4j.api" version="1.7.7"/>
    </plugins>
 
-   <features>
-      <feature id="de.uni_stuttgart.iste.cowolf.core.feature" version="1.0.0.qualifier"/>
-      <feature id="de.uni_stuttgart.iste.cowolf.evolution.activity_diagram.feature" version="1.0.0.qualifier"/>
-      <feature id="de.uni_stuttgart.iste.cowolf.evolution.component_diagram.feature" version="1.0.0.qualifier"/>
-      <feature id="de.uni_stuttgart.iste.cowolf.evolution.ctmc.feature" version="1.0.0.qualifier"/>
-      <feature id="de.uni_stuttgart.iste.cowolf.evolution.dtmc.feature" version="1.0.0.qualifier"/>
-      <feature id="de.uni_stuttgart.iste.cowolf.evolution.fault_tree.feature" version="1.0.0.qualifier"/>
-      <feature id="de.uni_stuttgart.iste.cowolf.evolution.lqn.feature" version="1.0.0.qualifier"/>
-      <feature id="de.uni_stuttgart.iste.cowolf.evolution.statechart.feature" version="1.0.0.qualifier"/>
-      <feature id="de.uni_stuttgart.iste.cowolf.model.activity_diagram.feature" version="1.0.0.qualifier"/>
-      <feature id="de.uni_stuttgart.iste.cowolf.model.component_diagram.feature" version="1.0.0.qualifier"/>
-      <feature id="de.uni_stuttgart.iste.cowolf.model.ctmc.feature" version="1.0.0.qualifier"/>
-      <feature id="de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl.sdk" version="1.0.0.qualifier"/>
-      <feature id="de.uni_stuttgart.iste.cowolf.model.dtmc.feature" version="1.0.0.qualifier"/>
-      <feature id="de.uni_stuttgart.iste.cowolf.model.fault_tree.feature" version="1.0.0.qualifier"/>
-      <feature id="de.uni_stuttgart.iste.cowolf.model.lqn.feature" version="1.0.0.qualifier"/>
-      <feature id="de.uni_stuttgart.iste.cowolf.model.sequence_diagram.feature" version="1.0.0.qualifier"/>
-      <feature id="de.uni_stuttgart.iste.cowolf.model.statechart.feature" version="1.0.0.qualifier"/>
-      <feature id="de.uni_stuttgart.iste.cowolf.skeleton.feature" version="1.0.0.qualifier"/>
-      <feature id="de.uni_stuttgart.iste.cowolf.transformation.component_diagram_fault_tree.feature" version="1.0.0.qualifier"/>
-      <feature id="de.uni_stuttgart.iste.cowolf.transformation.dtmc_ctmc.feature" version="1.0.0.qualifier"/>
-      <feature id="de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.feature" version="1.0.0.qualifier"/>
-      <feature id="de.uni_stuttgart.iste.cowolf.transformation.generator.feature" version="1.0.0.qualifier"/>
-      <feature id="de.uni_stuttgart.iste.cowolf.ui.feature" version="1.0.0.qualifier"/>
-      <feature id="de.uni_stuttgart.iste.cowolf.license.feature" version="1.0.0.qualifier"/>
-      <feature id="de.uni_stuttgart.iste.cowolf.evolution.feature"/>
-      <feature id="de.uni_stuttgart.iste.cowolf.transformation.feature"/>
-      <feature id="de.uni_stuttgart.iste.cowolf.model.feature"/>
-      <feature id="de.uni_stuttgart.iste.cowolf.dependencies.feature" version="1.0.0.qualifier"/>
-   </features>
-
    <configurations>
+      <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="1" />
       <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.p2.reconciler.dropins" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
+      <plugin id="org.eclipse.osgi" autoStart="true" startLevel="-1" />
+      <plugin id="org.eclipse.update.configurator" autoStart="true" startLevel="3" />
    </configurations>
-
-   <repositories>
-      <repository location="http://https://github.com/DevProjectSS2014/p2_update_site/raw/master" enabled="true" />
-   </repositories>
 
 </product>
