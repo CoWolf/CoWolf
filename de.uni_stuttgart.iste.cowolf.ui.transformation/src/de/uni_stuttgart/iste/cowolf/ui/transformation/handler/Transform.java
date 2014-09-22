@@ -12,10 +12,13 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
+import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.Diagnostician;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.window.Window;
@@ -29,9 +32,9 @@ import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Association;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Model;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociation;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociationFactory;
-import de.uni_stuttgart.iste.cowolf.ui.transformation.wizard.TransformationWizard;
 import de.uni_stuttgart.iste.cowolf.transformation.AbstractTransformationManager;
 import de.uni_stuttgart.iste.cowolf.transformation.TransformationRegistry;
+import de.uni_stuttgart.iste.cowolf.ui.transformation.wizard.TransformationWizard;
 
 /**
  * The transformation action is handled here.
@@ -57,8 +60,15 @@ public class Transform extends AbstractHandler {
 
         IStructuredSelection selection = (IStructuredSelection) window.getSelectionService().getSelection();
 
-		IFile selectedElement = (IFile) selection.getFirstElement();
+ 		IFile selectedElement = (IFile) selection.getFirstElement();
 		
+		//Show error if model isn't valid
+  		if (!isValid(selectedElement)) {
+ 			MessageDialog.openError(window.getShell(), "Errors in '" + selectedElement.getName() +"'",
+					"Errors in '" + selectedElement.getName() + "' were found, please correct them first.\nRun Validation or enable Live Validation to display them.");	
+			return null;
+ 		}
+				
 		ModelAssociation ma = ModelAssociationFactory.eINSTANCE.getModelAssociation(selectedElement.getProject());
 		Model model = ma.getModelByPath(selectedElement.getProjectRelativePath().toString());
 		if (model == null) {
@@ -124,4 +134,17 @@ public class Transform extends AbstractHandler {
 
         return null;
     }
+	
+	private boolean isValid(IFile file) {
+		
+		Resource resource = getResourceOfIFile(file);
+		
+		if (resource != null && resource.getContents() != null && resource.getContents().get(0) != null) {
+			Diagnostic diag = Diagnostician.INSTANCE.validate(resource.getContents().get(0));
+			if (diag.getChildren().size() > 0) {
+				return false;
+			}
+		}
+		return true;
+	}
 }
