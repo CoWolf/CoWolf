@@ -733,14 +733,6 @@ public class ChangeTree {
 		// Handle new connectors.
 		handleNewConnectors(newConnectors);
 
-		// Sync root objects.
-		//System.out.println("\n\n");
-		// TransformationsLogger.log("DON'T Syncing models... DEVELOPING PHASE");
-
-		TransformationsLogger.log("Syncing models...");
-		saInstanceModel = TransformationsUtil.getSAInstanceModel(saGraph, saInstanceModel);
-		faulttreeInstanceModel = TransformationsUtil.getFaultTreeInstanceModel(saGraph, faulttreeInstanceModel);
-
 		// Logging.
 		TransformationsLogger.log("Construction of FaultTree terminated.");
 		return saGraph;
