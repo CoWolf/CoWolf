@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="de.uni_stuttgart.iste.cowolf.transformation.component_diagram_fault_tree.feature"
-      label="Cowolf component fault tree model"
+      label="CoWolf component diagram - fault tree transformation"
       version="1.0.0.qualifier"
       provider-name="University of Stuttgart Institute of Software Technology"
       plugin="de.uni_stuttgart.iste.cowolf.transformation.component_diagram_fault_tree"
@@ -214,6 +214,21 @@ litigation.
    <license url="http://www.example.com/license">
       [Enter License Description here.]
    </license>
+
+   <requires>
+      <import plugin="org.sidiff.difference.symmetric"/>
+      <import plugin="org.eclipse.emf.henshin.interpreter"/>
+      <import plugin="org.eclipse.emf.henshin.trace"/>
+      <import plugin="org.eclipse.emf.ecore.xmi"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.osgi"/>
+      <import feature="de.uni_stuttgart.iste.cowolf.model.component_diagram.feature" version="1.0.0.qualifier"/>
+      <import feature="de.uni_stuttgart.iste.cowolf.model.fault_tree.feature" version="1.0.0.qualifier"/>
+      <import feature="de.uni_stuttgart.iste.cowolf.transformation.feature" version="1.0.0.qualifier"/>
+      <import feature="de.uni_stuttgart.iste.cowolf.evolution.component_diagram.feature" version="1.0.0.qualifier"/>
+      <import feature="de.uni_stuttgart.iste.cowolf.evolution.fault_tree.feature" version="1.0.0.qualifier"/>
+      <import feature="de.uni_stuttgart.iste.cowolf.evolution.feature" version="1.0.0.qualifier"/>
+   </requires>
 
    <plugin
          id="de.uni_stuttgart.iste.cowolf.transformation.component_diagram_fault_tree"

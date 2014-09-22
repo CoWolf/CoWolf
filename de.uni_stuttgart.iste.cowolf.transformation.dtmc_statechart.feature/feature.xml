@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.feature"
-      label="CoWolf dtmc statechart model"
+      label="CoWolf DTMC - statechart transformation"
       version="1.0.0.qualifier"
       provider-name="University of Stuttgart Institute of Software Technology"
       plugin="de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart"
@@ -211,49 +211,34 @@ Each party waives its rights to a jury trial in any resulting
 litigation.
    </copyright>
 
-
-   <includes
-         id="de.uni_stuttgart.iste.cowolf.evolution.statechart.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="de.uni_stuttgart.iste.cowolf.model.dtmc.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="de.uni_stuttgart.iste.cowolf.transformation.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="de.uni_stuttgart.iste.cowolf.evolution.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="de.uni_stuttgart.iste.cowolf.model.statechart.feature"
-         version="0.0.0"/>
-
    <requires>
-      <import plugin="de.uni_stuttgart.iste.cowolf.model.dtmc" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="de.uni_stuttgart.iste.cowolf.evolution.statechart" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="de.uni_stuttgart.iste.cowolf.transformation" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="de.uni_stuttgart.iste.cowolf.evolution"/>
-      <import plugin="org.eclipse.emf.common"/>
-      <import plugin="org.eclipse.emf.ecore"/>
-      <import plugin="org.junit"/>
-      <import plugin="de.uni_stuttgart.iste.cowolf.model.statechart"/>
-      <import plugin="de.uni_stuttgart.iste.cowolf.transformation.model"/>
       <import plugin="org.eclipse.core.resources"/>
       <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.emf.common"/>
+      <import plugin="org.eclipse.emf.ecore"/>
       <import plugin="org.eclipse.emf.henshin.interpreter"/>
       <import plugin="org.eclipse.emf.henshin.model"/>
       <import plugin="org.eclipse.emf.henshin.trace"/>
       <import plugin="org.eclipse.osgi"/>
       <import plugin="org.eclipse.ui.ide"/>
       <import plugin="org.sidiff.difference.symmetric"/>
+      <import feature="de.uni_stuttgart.iste.cowolf.evolution.statechart.feature" version="1.0.0.qualifier"/>
+      <import feature="de.uni_stuttgart.iste.cowolf.evolution.feature" version="1.0.0.qualifier"/>
+      <import feature="de.uni_stuttgart.iste.cowolf.model.dtmc.feature" version="1.0.0.qualifier"/>
+      <import feature="de.uni_stuttgart.iste.cowolf.model.statechart.feature" version="1.0.0.qualifier"/>
+      <import feature="de.uni_stuttgart.iste.cowolf.transformation.feature" version="1.0.0.qualifier"/>
+      <import feature="de.uni_stuttgart.iste.cowolf.evolution.dtmc.feature" version="1.0.0.qualifier"/>
    </requires>
 
    <plugin
          id="de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.rules"
          download-size="0"
          install-size="0"
          version="0.0.0"

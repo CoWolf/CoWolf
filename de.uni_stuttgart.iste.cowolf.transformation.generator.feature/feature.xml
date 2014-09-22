@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="de.uni_stuttgart.iste.cowolf.evolution.activity_diagram.feature"
-      label="CoWolf Activity diagram model"
+      id="de.uni_stuttgart.iste.cowolf.transformation.generator.feature"
+      label="CoWolf Transformation Mapping File Editor"
       version="1.0.0.qualifier"
       provider-name="University of Stuttgart Institute of Software Technology"
-      plugin="de.uni_stuttgart.iste.cowolf.evolution.activity_diagram"
+      plugin="de.uni_stuttgart.iste.cowolf.transformation.generator"
       license-feature="de.uni_stuttgart.iste.cowolf.license.feature"
       license-feature-version="1.0.0.qualifier">
 
    <description url="http://devprojectss2014.github.io/CoWolf/">
-      CoWolf Ativity Diagram Evolution feature, which enables the Ativity Diagram Evolution functionality for CoWolf.
+      CoWolf Transformation Mapping Editor feature that contains an editor for creating Transformation Mapping files which maps SiLift recognition rules on Henshin transformation rules.
    </description>
 
    <copyright url="https://www.eclipse.org/legal/epl-v10.html">
@@ -211,16 +211,26 @@ Each party waives its rights to a jury trial in any resulting
 litigation.
    </copyright>
 
-   <license url="http://www.example.com/license">
-      [Enter License Description here.]
-   </license>
-
    <requires>
-      <import feature="de.uni_stuttgart.iste.cowolf.evolution.feature" version="1.0.0.qualifier"/>
+      <import plugin="org.eclipse.ui.ide" version="3.10.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.commands"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.emf.common"/>
+      <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="org.eclipse.emf.henshin.model"/>
+      <import plugin="org.eclipse.jface"/>
+      <import plugin="org.eclipse.osgi"/>
+      <import plugin="org.eclipse.swt"/>
+      <import plugin="org.eclipse.ui.forms"/>
+      <import plugin="org.sidiff.difference.rulebase"/>
+      <import plugin="org.sidiff.difference.symmetric"/>
+      <import feature="de.uni_stuttgart.iste.cowolf.model.feature" version="1.0.0.qualifier"/>
+      <import feature="de.uni_stuttgart.iste.cowolf.transformation.feature" version="1.0.0.qualifier"/>
    </requires>
 
    <plugin
-         id="de.uni_stuttgart.iste.cowolf.evolution.activity_diagram"
+         id="de.uni_stuttgart.iste.cowolf.transformation.generator"
          download-size="0"
          install-size="0"
          version="0.0.0"

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="de.uni_stuttgart.iste.cowolf.model.ctmc.feature"
-      label="CoWolf ctmc model"
+      label="CoWolf CTMC model"
       version="1.0.0.qualifier"
       provider-name="University of Stuttgart Institute of Software Technology"
       plugin="de.uni_stuttgart.iste.cowolf.model.ctmc"
@@ -215,34 +215,73 @@ litigation.
       [Enter License Description here.]
    </license>
 
-   <includes
-         id="de.uni_stuttgart.iste.cowolf.model.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="de.uni_stuttgart.iste.cowolf.core.feature"
-         version="0.0.0"/>
-
    <requires>
       <import plugin="org.eclipse.core.runtime"/>
       <import plugin="org.eclipse.emf.ecore"/>
-      <import plugin="de.uni_stuttgart.iste.cowolf.model" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="de.uni_stuttgart.iste.cowolf.core"/>
       <import plugin="org.eclipse.xtend.lib"/>
       <import plugin="com.google.guava"/>
       <import plugin="org.eclipse.xtext.xbase.lib"/>
       <import plugin="org.eclipse.core.resources"/>
       <import plugin="org.junit"/>
+      <import plugin="org.eclipse.xtext"/>
+      <import plugin="org.eclipse.xtext.util"/>
+      <import plugin="org.eclipse.emf.common"/>
+      <import plugin="org.antlr.runtime"/>
+      <import plugin="org.eclipse.xtext.common.types"/>
+      <import plugin="org.apache.log4j"/>
+      <import plugin="org.eclipse.xtext.junit4"/>
+      <import plugin="org.hamcrest.core"/>
+      <import plugin="org.eclipse.xtext.ui"/>
+      <import plugin="org.eclipse.ui.editors" version="3.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.ide" version="3.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.ui.shared"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.xtext.builder"/>
+      <import plugin="org.eclipse.xtext.common.types.ui"/>
+      <import plugin="org.eclipse.xtext.ui.codetemplates.ui"/>
+      <import plugin="org.eclipse.compare"/>
+      <import plugin="org.eclipse.sirius"/>
+      <import plugin="org.eclipse.sirius.common.acceleo.mtl"/>
       <import plugin="org.eclipse.emf.edit"/>
-      <import plugin="de.uni_stuttgart.iste.cowolf.model.emf.edit"/>
       <import plugin="org.eclipse.emf.ecore.xmi"/>
       <import plugin="org.eclipse.emf.edit.ui"/>
-      <import plugin="org.eclipse.ui.ide"/>
-      <import plugin="de.uni_stuttgart.iste.cowolf.model.ctmc" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.mwe.core"/>
+      <import plugin="org.eclipse.sirius.ui"/>
+      <import plugin="org.eclipse.emf.transaction"/>
+      <import feature="de.uni_stuttgart.iste.cowolf.model.feature" version="1.0.0.qualifier"/>
+      <import feature="de.uni_stuttgart.iste.cowolf.core.feature" version="1.0.0.qualifier"/>
    </requires>
 
    <plugin
          id="de.uni_stuttgart.iste.cowolf.model.ctmc"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl.sdk"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.uni_stuttgart.iste.cowolf.model.ctmc.sirius.editor"
          download-size="0"
          install-size="0"
          version="0.0.0"

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="de.uni_stuttgart.iste.cowolf.model.lqn.feature"
-      label="CoWolf lqn model"
+      label="CoWolf LQN model"
       version="1.0.0.qualifier"
       provider-name="University of Stuttgart Institute of Software Technology"
       plugin="de.uni_stuttgart.iste.cowolf.model.lqn"
@@ -215,17 +215,37 @@ litigation.
       [Enter License Description here.]
    </license>
 
-   <includes
-         id="de.uni_stuttgart.iste.cowolf.model.feature"
-         version="0.0.0"/>
-
    <requires>
-      <import plugin="de.uni_stuttgart.iste.cowolf.model" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.junit"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="org.eclipse.emf.ecore.xmi"/>
+      <import plugin="org.eclipse.xtend.lib"/>
+      <import plugin="com.google.guava"/>
+      <import plugin="org.eclipse.xtext.xbase.lib"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.emf.edit"/>
+      <import plugin="org.eclipse.emf.edit.ui"/>
+      <import plugin="org.eclipse.ui.ide"/>
+      <import feature="de.uni_stuttgart.iste.cowolf.model.feature" version="1.0.0.qualifier"/>
+      <import feature="de.uni_stuttgart.iste.cowolf.core.feature" version="1.0.0.qualifier"/>
    </requires>
 
    <plugin
          id="de.uni_stuttgart.iste.cowolf.model.lqn"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.uni_stuttgart.iste.cowolf.model.lqn.emf.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.uni_stuttgart.iste.cowolf.model.lqn.emf.editor"
          download-size="0"
          install-size="0"
          version="0.0.0"

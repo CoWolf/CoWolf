@@ -215,35 +215,17 @@ litigation.
       [Enter License Description here.]
    </license>
 
-   <includes
-         id="de.uni_stuttgart.iste.cowolf.evolution.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="de.uni_stuttgart.iste.cowolf.model.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="de.uni_stuttgart.iste.cowolf.model.dtmc.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="de.uni_stuttgart.iste.cowolf.ui.feature"
-         version="0.0.0"/>
-
    <requires>
+      <import plugin="org.eclipse.core.resources"/>
       <import plugin="org.eclipse.ui"/>
       <import plugin="org.eclipse.core.runtime"/>
-      <import plugin="org.eclipse.emf.henshin.model"/>
-      <import plugin="org.sidiff.difference.rulebase"/>
-      <import plugin="de.uni_stuttgart.iste.cowolf.evolution"/>
-      <import plugin="de.uni_stuttgart.iste.cowolf.model.dtmc"/>
       <import plugin="org.eclipse.emf.common"/>
       <import plugin="org.eclipse.emf.ecore"/>
-      <import plugin="de.uni_stuttgart.iste.cowolf.model"/>
-      <import plugin="de.uni_stuttgart.iste.cowolf.ui.model"/>
       <import plugin="org.eclipse.jface"/>
       <import plugin="org.eclipse.swt"/>
+      <import feature="de.uni_stuttgart.iste.cowolf.evolution.feature" version="1.0.0.qualifier"/>
+      <import feature="de.uni_stuttgart.iste.cowolf.model.feature" version="1.0.0.qualifier"/>
+      <import feature="de.uni_stuttgart.iste.cowolf.ui.feature" version="1.0.0.qualifier"/>
    </requires>
 
    <plugin
@@ -269,6 +251,13 @@ litigation.
 
    <plugin
          id="de.uni_stuttgart.iste.cowolf.skeleton.ui.analyze"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.uni_stuttgart.iste.cowolf.skeleton.branding"
          download-size="0"
          install-size="0"
          version="0.0.0"

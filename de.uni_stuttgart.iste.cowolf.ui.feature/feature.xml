@@ -215,38 +215,6 @@ litigation.
       [Enter License Description here.]
    </license>
 
-   <includes
-         id="de.uni_stuttgart.iste.cowolf.core.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="de.uni_stuttgart.iste.cowolf.model.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="de.uni_stuttgart.iste.cowolf.model.dtmc.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="de.uni_stuttgart.iste.cowolf.evolution.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="de.uni_stuttgart.iste.cowolf.model.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="de.uni_stuttgart.iste.cowolf.model.dtmc.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="de.uni_stuttgart.iste.cowolf.model.fault_tree.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="de.uni_stuttgart.iste.cowolf.transformation.feature"
-         version="0.0.0"/>
-
    <requires>
       <import plugin="org.eclipse.ui" version="3.106.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.core.runtime" version="3.10.0" match="greaterOrEqual"/>
@@ -254,15 +222,20 @@ litigation.
       <import plugin="org.eclipse.core.resources" version="3.9.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui.navigator" version="3.5.400" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui.navigator.resources" version="3.4.700" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.ui.workbench"/>
-      <import plugin="de.uni_stuttgart.iste.cowolf.core"/>
-      <import plugin="org.eclipse.emf.common"/>
-      <import plugin="org.eclipse.emf.ecore"/>
-      <import plugin="org.junit"/>
-      <import plugin="org.eclipse.jface"/>
-      <import plugin="de.uni_stuttgart.iste.cowolf.model"/>
-      <import plugin="de.uni_stuttgart.iste.cowolf.model.dtmc"/>
       <import plugin="org.eclipse.swt"/>
+      <import plugin="org.eclipse.ui.workbench"/>
+      <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="org.eclipse.sirius.ui"/>
+      <import plugin="org.eclipse.equinox.registry"/>
+      <import plugin="org.eclipse.emf.ecore.xmi"/>
+      <import plugin="org.eclipse.sirius"/>
+      <import plugin="org.eclipse.core.commands"/>
+      <import plugin="org.eclipse.emf.common"/>
+      <import plugin="org.eclipse.emf.mwe.core"/>
+      <import plugin="org.eclipse.core.expressions"/>
+      <import plugin="org.eclipse.core.filesystem"/>
+      <import plugin="org.eclipse.emf.transaction"/>
+      <import plugin="org.eclipse.ui.console"/>
       <import plugin="org.sidiff.common.emf"/>
       <import plugin="org.sidiff.difference.asymmetric.facade"/>
       <import plugin="org.sidiff.difference.lifting.facade"/>
@@ -270,16 +243,72 @@ litigation.
       <import plugin="org.sidiff.difference.matcher"/>
       <import plugin="org.sidiff.difference.symmetric"/>
       <import plugin="org.silift.common.util"/>
-      <import plugin="de.uni_stuttgart.iste.cowolf.evolution"/>
+      <import plugin="org.silift.common.util.ui"/>
+      <import plugin="org.eclipse.xtext.junit"/>
+      <import plugin="org.eclipse.emf.ecore" version="2.10.0" match="greaterOrEqual"/>
       <import plugin="javax.inject"/>
-      <import plugin="org.eclipse.core.expressions"/>
       <import plugin="org.eclipse.core.jobs"/>
       <import plugin="org.eclipse.e4.ui.di"/>
       <import plugin="org.eclipse.emf.common.ui"/>
       <import plugin="org.eclipse.gmf.runtime.notation"/>
-      <import plugin="de.uni_stuttgart.iste.cowolf.model.fault_tree"/>
-      <import plugin="de.uni_stuttgart.iste.cowolf.transformation"/>
-      <import plugin="org.eclipse.core.expressions" version="3.4.600" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.jface"/>
+      <import plugin="org.eclipse.emf.henshin.trace"/>
+      <import plugin="org.eclipse.sirius.common.acceleo.mtl"/>
+      <import plugin="org.eclipse.emf.transaction" version="1.8.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.ecore.extender" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.diagram.ui"/>
+      <import plugin="org.eclipse.sirius.common" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.common.acceleo.mtl.ide" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.common.ui" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.diagram.layoutdata" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.diagram.sequence" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.diagram.sequence.edit" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.diagram.sequence.ui" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.doc" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.editor" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.editor.diagram" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.editor.sequence" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.editor.table" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.editor.tree" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.eef.adapters" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.ext.base" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.ext.draw2d" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.ext.e3" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.ext.e3.ui" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.ext.emf" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.ext.emf.edit" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.ext.emf.tx" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.ext.gef" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.ext.gmf.notation" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.ext.gmf.runtime" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.ext.jface" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.ext.swt" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.interpreter" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.synchronizer" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.table" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.table.ui" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.tree" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.tree.ui" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.gmf.runtime.diagram.ui.resources.editor"/>
+      <import plugin="org.eclipse.gmf.runtime.diagram.ui" version="1.8.0" match="greaterOrEqual"/>
+      <import plugin="com.google.guava"/>
+      <import plugin="org.eclipse.uml2.uml"/>
+      <import plugin="org.eclipse.emf.edit.ui"/>
+      <import plugin="org.eclipse.emf.edit"/>
+      <import plugin="org.eclipse.sirius.diagram"/>
+      <import plugin="com.google.inject"/>
+      <import plugin="org.eclipse.jface.text"/>
+      <import plugin="org.eclipse.xtext"/>
+      <import plugin="org.eclipse.xtext.ui"/>
+      <import plugin="org.eclipse.xtext.util"/>
+      <import feature="de.uni_stuttgart.iste.cowolf.core.feature" version="1.0.0.qualifier"/>
+      <import feature="de.uni_stuttgart.iste.cowolf.evolution.feature" version="1.0.0.qualifier"/>
+      <import feature="de.uni_stuttgart.iste.cowolf.model.feature" version="1.0.0.qualifier"/>
+      <import feature="de.uni_stuttgart.iste.cowolf.model.ctmc.feature" version="1.0.0.qualifier"/>
+      <import feature="de.uni_stuttgart.iste.cowolf.model.dtmc.feature" version="1.0.0.qualifier"/>
+      <import feature="de.uni_stuttgart.iste.cowolf.model.fault_tree.feature" version="1.0.0.qualifier"/>
+      <import feature="de.uni_stuttgart.iste.cowolf.model.lqn.feature" version="1.0.0.qualifier"/>
+      <import feature="de.uni_stuttgart.iste.cowolf.transformation.feature" version="1.0.0.qualifier"/>
    </requires>
 
    <plugin
@@ -326,6 +355,20 @@ litigation.
 
    <plugin
          id="de.uni_stuttgart.iste.cowolf.ui.navigator"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.uni_stuttgart.iste.cowolf.ui.model.ctmc"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.uni_stuttgart.iste.cowolf.ui.model.lqn"
          download-size="0"
          install-size="0"
          version="0.0.0"

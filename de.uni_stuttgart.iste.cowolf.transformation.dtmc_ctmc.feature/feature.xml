@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="de.uni_stuttgart.iste.cowolf.transformation.dtmc_ctmc.feature"
-      label="CoWolf dtmc ctmc model"
+      label="CoWolf DTMC - CTMC transformation"
       version="1.0.0.qualifier"
       provider-name="University of Stuttgart Institute of Software Technology"
       plugin="de.uni_stuttgart.iste.cowolf.transformation.dtmc_ctmc"
@@ -215,30 +215,15 @@ litigation.
       [Enter License Description here.]
    </license>
 
-   <includes
-         id="de.uni_stuttgart.iste.cowolf.evolution.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="de.uni_stuttgart.iste.cowolf.model.ctmc.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="de.uni_stuttgart.iste.cowolf.model.dtmc.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="de.uni_stuttgart.iste.cowolf.transformation.feature"
-         version="0.0.0"/>
-
    <requires>
-      <import plugin="de.uni_stuttgart.iste.cowolf.model.dtmc" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="de.uni_stuttgart.iste.cowolf.model.ctmc" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="de.uni_stuttgart.iste.cowolf.transformation" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="de.uni_stuttgart.iste.cowolf.evolution"/>
       <import plugin="org.eclipse.core.runtime"/>
       <import plugin="org.eclipse.osgi"/>
-      <import plugin="org.junit"/>
+      <import feature="de.uni_stuttgart.iste.cowolf.evolution.dtmc.feature" version="1.0.0.qualifier"/>
+      <import feature="de.uni_stuttgart.iste.cowolf.evolution.ctmc.feature" version="1.0.0.qualifier"/>
+      <import feature="de.uni_stuttgart.iste.cowolf.evolution.feature" version="1.0.0.qualifier"/>
+      <import feature="de.uni_stuttgart.iste.cowolf.model.ctmc.feature" version="1.0.0.qualifier"/>
+      <import feature="de.uni_stuttgart.iste.cowolf.model.dtmc.feature" version="1.0.0.qualifier"/>
+      <import feature="de.uni_stuttgart.iste.cowolf.transformation.feature" version="1.0.0.qualifier"/>
    </requires>
 
    <plugin

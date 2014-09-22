@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="CoWolf Product" uid="de.uni_stuttgart.iste.cowolf.product" id="de.uni_stuttgart.iste.cowolf.product" application="org.eclipse.ui.ide.workbench" useFeatures="true" includeLaunchers="true">
+<product name="CoWolf" uid="de.uni_stuttgart.iste.cowolf.product" id="de.uni_stuttgart.iste.cowolf.product" application="org.eclipse.ui.ide.workbench" version="1.0.0" useFeatures="true" includeLaunchers="true">
+
 
    <configIni use="default">
    </configIni>
@@ -11,8 +12,99 @@
       </vmArgsMac>
    </launcherArgs>
 
+   <windowImages/>
+
+
+   <launcher>
+      <solaris/>
+      <win useIco="false">
+         <bmp/>
+      </win>
+   </launcher>
+
+
+   <vm>
+      <linux include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7</linux>
+      <macos include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7</macos>
+      <solaris include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7</solaris>
+      <windows include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7</windows>
+   </vm>
+
+
    <plugins>
    </plugins>
 
+   <features>
+      <feature id="de.uni_stuttgart.iste.cowolf.core.feature" version="1.0.0.qualifier"/>
+      <feature id="de.uni_stuttgart.iste.cowolf.evolution.activity_diagram.feature" version="1.0.0.qualifier"/>
+      <feature id="de.uni_stuttgart.iste.cowolf.evolution.component_diagram.feature" version="1.0.0.qualifier"/>
+      <feature id="de.uni_stuttgart.iste.cowolf.evolution.ctmc.feature" version="1.0.0.qualifier"/>
+      <feature id="de.uni_stuttgart.iste.cowolf.evolution.dtmc.feature" version="1.0.0.qualifier"/>
+      <feature id="de.uni_stuttgart.iste.cowolf.evolution.fault_tree.feature" version="1.0.0.qualifier"/>
+      <feature id="de.uni_stuttgart.iste.cowolf.evolution.lqn.feature" version="1.0.0.qualifier"/>
+      <feature id="de.uni_stuttgart.iste.cowolf.evolution.statechart.feature" version="1.0.0.qualifier"/>
+      <feature id="de.uni_stuttgart.iste.cowolf.model.activity_diagram.feature" version="1.0.0.qualifier"/>
+      <feature id="de.uni_stuttgart.iste.cowolf.model.component_diagram.feature" version="1.0.0.qualifier"/>
+      <feature id="de.uni_stuttgart.iste.cowolf.model.ctmc.feature" version="1.0.0.qualifier"/>
+      <feature id="de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pctl.sdk" version="1.0.0.qualifier"/>
+      <feature id="de.uni_stuttgart.iste.cowolf.model.dtmc.feature" version="1.0.0.qualifier"/>
+      <feature id="de.uni_stuttgart.iste.cowolf.model.fault_tree.feature" version="1.0.0.qualifier"/>
+      <feature id="de.uni_stuttgart.iste.cowolf.model.lqn.feature" version="1.0.0.qualifier"/>
+      <feature id="de.uni_stuttgart.iste.cowolf.model.sequence_diagram.feature" version="1.0.0.qualifier"/>
+      <feature id="de.uni_stuttgart.iste.cowolf.model.statechart.feature" version="1.0.0.qualifier"/>
+      <feature id="de.uni_stuttgart.iste.cowolf.skeleton.feature" version="1.0.0.qualifier"/>
+      <feature id="de.uni_stuttgart.iste.cowolf.transformation.component_diagram_fault_tree.feature" version="1.0.0.qualifier"/>
+      <feature id="de.uni_stuttgart.iste.cowolf.transformation.dtmc_ctmc.feature" version="1.0.0.qualifier"/>
+      <feature id="de.uni_stuttgart.iste.cowolf.transformation.dtmc_statechart.feature" version="1.0.0.qualifier"/>
+      <feature id="de.uni_stuttgart.iste.cowolf.transformation.generator.feature" version="1.0.0.qualifier"/>
+      <feature id="de.uni_stuttgart.iste.cowolf.ui.feature" version="1.0.0.qualifier"/>
+      <feature id="de.uni_stuttgart.iste.cowolf.license.feature" version="1.0.0.qualifier"/>
+      <feature id="org.eclipse.platform" version="4.4.0.v20140606-1558"/>
+      <feature id="org.eclipse.emf.edit" version="2.10.0.v20140519-0339"/>
+      <feature id="org.eclipse.emf.henshin.sdk" version="1.0.0.201408281831"/>
+      <feature id="org.eclipse.emf.common" version="2.10.0.v20140514-1158"/>
+      <feature id="org.eclipse.emf.ecore" version="2.10.0.v20140514-1158"/>
+      <feature id="org.eclipse.emf.transaction" version="1.8.0.201405281451"/>
+      <feature id="de.uni_stuttgart.iste.cowolf.evolution.feature" version="1.0.0.qualifier"/>
+      <feature id="de.uni_stuttgart.iste.cowolf.model.feature" version="1.0.0.qualifier"/>
+      <feature id="de.uni_stuttgart.iste.cowolf.transformation.feature" version="1.0.0.qualifier"/>
+      <feature id="org.eclipse.emf.edit.ui" version="2.10.0.v20140519-0339"/>
+      <feature id="org.eclipse.xtend.sdk" version="2.7.0.v201409021032"/>
+      <feature id="org.eclipse.emf.validation" version="1.8.0.201405281429"/>
+      <feature id="org.eclipse.emf.converter" version="2.10.0.v20140519-0339"/>
+      <feature id="org.eclipse.emf.common.ui" version="2.9.0.v20140519-0339"/>
+      <feature id="org.eclipse.xtext.runtime" version="2.7.0.v201409021032"/>
+      <feature id="org.silift.core" version="0.1.0.201409111244"/>
+      <feature id="org.eclipse.jdt" version="3.10.0.v20140606-1536"/>
+      <feature id="org.eclipse.sirius.runtime" version="1.0.0.201406040902"/>
+      <feature id="org.eclipse.equinox.p2.core.feature"/>
+      <feature id="org.eclipse.ecf.core.ssl.feature"/>
+      <feature id="org.eclipse.equinox.p2.rcp.feature"/>
+      <feature id="org.eclipse.equinox.p2.user.ui"/>
+      <feature id="org.eclipse.equinox.p2.extras.feature"/>
+      <feature id="org.eclipse.ecf.filetransfer.httpclient4.feature"/>
+      <feature id="org.silift.henshin.extensions"/>
+      <feature id="org.eclipse.help"/>
+      <feature id="org.eclipse.ecf.filetransfer.ssl.feature"/>
+      <feature id="org.eclipse.ecf.filetransfer.feature"/>
+      <feature id="org.eclipse.xtext.ui"/>
+      <feature id="org.eclipse.rcp"/>
+      <feature id="org.eclipse.ecf.core.feature"/>
+      <feature id="org.eclipse.e4.rcp"/>
+      <feature id="org.eclipse.ecf.filetransfer.httpclient4.ssl.feature"/>
+   </features>
+
+   <configurations>
+      <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.p2.reconciler.dropins" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
+   </configurations>
+
+   <repositories>
+      <repository location="http://https://github.com/DevProjectSS2014/p2_update_site/raw/master" enabled="true" />
+   </repositories>
 
 </product>
