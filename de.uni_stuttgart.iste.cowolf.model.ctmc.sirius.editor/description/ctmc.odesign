@@ -15,23 +15,23 @@
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
             </style>
           </borderedNodeMappings>
-          <style xsi:type="style:DotDescription" showIcon="false" labelExpression="[self.name + '\n(' + self.exitRate + ')'/]" tooltipExpression="State" sizeComputationExpression="5" labelPosition="node" resizeKind="NSEW">
+          <style xsi:type="style:DotDescription" labelSize="7" showIcon="false" labelExpression="[self.name + '\n(' + self.exitRate + ')'/]" tooltipExpression="State" sizeComputationExpression="5" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
           </style>
           <conditionnalStyles predicateExpression="[container.eGet('initialState').toString().equalsIgnoreCase(self.toString())/]">
-            <style xsi:type="style:DotDescription" borderSizeComputationExpression="4" showIcon="false" labelExpression="[self.name + '\n(' + self.exitRate + ')'/]" tooltipExpression="Initial State" sizeComputationExpression="5" labelPosition="node" resizeKind="NSEW">
+            <style xsi:type="style:DotDescription" borderSizeComputationExpression="4" showIcon="false" labelExpression="['«init»\n' + self.name + '\n(' + self.exitRate + ')'/]" tooltipExpression="Initial State" sizeComputationExpression="5" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             </style>
           </conditionnalStyles>
         </nodeMappings>
-        <edgeMappings name="TransitionEdge" labelDirectEdit="//@ownedViewpoints[name='CTMC']/@ownedRepresentations[name='ctmc%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='edit%20rate']" sourceMapping="//@ownedViewpoints[name='CTMC']/@ownedRepresentations[name='ctmc%20diagram']/@defaultLayer/@nodeMappings[name='StateNode']" targetMapping="//@ownedViewpoints[name='CTMC']/@ownedRepresentations[name='ctmc%20diagram']/@defaultLayer/@nodeMappings[name='StateNode']" targetFinderExpression="feature:to" sourceFinderExpression="feature:from" domainClass="ctmc.Transition" useDomainElement="true" reconnections="//@ownedViewpoints[name='CTMC']/@ownedRepresentations[name='ctmc%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='ReconnectTransitionTarget'] //@ownedViewpoints[name='CTMC']/@ownedRepresentations[name='ctmc%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='ReconnectTransitionSource']">
+        <edgeMappings name="TransitionEdge" labelDirectEdit="//@ownedViewpoints[name='CTMC']/@ownedRepresentations[name='ctmc%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='edit%20prob']" sourceMapping="//@ownedViewpoints[name='CTMC']/@ownedRepresentations[name='ctmc%20diagram']/@defaultLayer/@nodeMappings[name='StateNode']" targetMapping="//@ownedViewpoints[name='CTMC']/@ownedRepresentations[name='ctmc%20diagram']/@defaultLayer/@nodeMappings[name='StateNode']" targetFinderExpression="feature:to" sourceFinderExpression="feature:from" domainClass="ctmc.Transition" useDomainElement="true" reconnections="//@ownedViewpoints[name='CTMC']/@ownedRepresentations[name='ctmc%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='ReconnectTransitionTarget'] //@ownedViewpoints[name='CTMC']/@ownedRepresentations[name='ctmc%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='ReconnectTransitionSource']">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription showIcon="false" labelExpression="feature:rate">
+            <centerLabelStyleDescription showIcon="false" labelExpression="[ '[ prob: ' + self.prob + ' / rate: ' + self.rate + ' ]'/]">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
@@ -76,13 +76,13 @@
           </ownedTools>
         </toolSections>
         <toolSections name="Change">
-          <ownedTools xsi:type="tool:DirectEditLabel" name="edit name">
+          <ownedTools xsi:type="tool:DirectEditLabel" name="edit name" inputLabelExpression="[self.name/]">
             <mask mask="{0}"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:0"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DirectEditLabel" name="edit rate">
+          <ownedTools xsi:type="tool:DirectEditLabel" name="edit prob" label="Edit probability" inputLabelExpression="[self.prob/]">
             <mask mask="{0}"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:SetValue" featureName="rate" valueExpression="var:0"/>

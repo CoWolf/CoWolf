@@ -162,9 +162,44 @@ public class CtmcValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(state, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(state, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(state, diagnostics, context);
+		if (result || diagnostics != null) result &= validateState_OutgoingDontAddUpToOne(state, diagnostics, context);
 		if (result || diagnostics != null) result &= validateState_NonDeterministic(state, diagnostics, context);
 		if (result || diagnostics != null) result &= validateState_NoDuplicateLabels(state, diagnostics, context);
+		if (result || diagnostics != null) result &= validateState_ExitRateGreaterZero(state, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * The cached validation expression for the OutgoingDontAddUpToOne constraint of '<em>State</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String STATE__OUTGOING_DONT_ADD_UP_TO_ONE__EEXPRESSION = "Tuple {\n" +
+		"\tmessage : String = 'Probability of all outgoing transitions must be 1.0.',\n" +
+		"\tstatus : Boolean = \n" +
+		"            self.outgoing->size() = 0 or (self.outgoing.prob->sum() - 1.0).abs()  < 0.000001\n" +
+		"}.status";
+
+	/**
+	 * Validates the OutgoingDontAddUpToOne constraint of '<em>State</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateState_OutgoingDontAddUpToOne(State state, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(CtmcPackage.Literals.STATE,
+				 state,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
+				 "OutgoingDontAddUpToOne",
+				 STATE__OUTGOING_DONT_ADD_UP_TO_ONE__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
 
 	/**
@@ -234,6 +269,39 @@ public class CtmcValidator extends EObjectValidator {
 	}
 
 	/**
+	 * The cached validation expression for the ExitRateGreaterZero constraint of '<em>State</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String STATE__EXIT_RATE_GREATER_ZERO__EEXPRESSION = "Tuple {\n" +
+		"\tmessage : String = 'Exit rate must be greater than 0.',\n" +
+		"\tstatus : Boolean = \n" +
+		"\t\t    exitRate > 0.0 or self.outgoing->size() = 0\n" +
+		"}.status";
+
+	/**
+	 * Validates the ExitRateGreaterZero constraint of '<em>State</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateState_ExitRateGreaterZero(State state, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(CtmcPackage.Literals.STATE,
+				 state,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
+				 "ExitRateGreaterZero",
+				 STATE__EXIT_RATE_GREATER_ZERO__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -248,29 +316,29 @@ public class CtmcValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(transition, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(transition, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(transition, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTransition_RatePositive(transition, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTransition_ProbBetween0and1(transition, diagnostics, context);
 		return result;
 	}
 
 	/**
-	 * The cached validation expression for the RatePositive constraint of '<em>Transition</em>'.
+	 * The cached validation expression for the ProbBetween0and1 constraint of '<em>Transition</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String TRANSITION__RATE_POSITIVE__EEXPRESSION = "Tuple {\n" +
-		"\tmessage : String = 'Transition rate must be greater or equal zero.',\n" +
+	protected static final String TRANSITION__PROB_BETWEEN0AND1__EEXPRESSION = "Tuple {\n" +
+		"\tmessage : String = 'Probability must be between 0 and 1.',\n" +
 		"\tstatus : Boolean = \n" +
-		"\t \t\trate >= 0.0\n" +
+		"            prob >= 0.0 and prob <= 1.0\n" +
 		"}.status";
 
 	/**
-	 * Validates the RatePositive constraint of '<em>Transition</em>'.
+	 * Validates the ProbBetween0and1 constraint of '<em>Transition</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateTransition_RatePositive(Transition transition, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateTransition_ProbBetween0and1(Transition transition, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return
 			validate
 				(CtmcPackage.Literals.TRANSITION,
@@ -278,8 +346,8 @@ public class CtmcValidator extends EObjectValidator {
 				 diagnostics,
 				 context,
 				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
-				 "RatePositive",
-				 TRANSITION__RATE_POSITIVE__EEXPRESSION,
+				 "ProbBetween0and1",
+				 TRANSITION__PROB_BETWEEN0AND1__EEXPRESSION,
 				 Diagnostic.ERROR,
 				 DIAGNOSTIC_SOURCE,
 				 0);

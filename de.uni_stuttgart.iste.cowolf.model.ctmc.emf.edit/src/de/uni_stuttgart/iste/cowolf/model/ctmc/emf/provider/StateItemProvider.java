@@ -140,7 +140,7 @@ public class StateItemProvider extends IDBaseItemProvider {
 				 getString("_UI_State_exitRate_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_State_exitRate_feature", "_UI_State_type"),
 				 CtmcPackage.Literals.STATE__EXIT_RATE,
-				 false,
+				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,

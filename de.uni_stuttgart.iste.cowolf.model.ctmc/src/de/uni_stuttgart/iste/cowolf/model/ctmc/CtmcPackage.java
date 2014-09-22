@@ -244,13 +244,22 @@ public interface CtmcPackage extends EPackage {
 	int TRANSITION__TO = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Prob</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION__PROB = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Rate</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION__RATE = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
+	int TRANSITION__RATE = CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Transition</em>' class.
@@ -259,7 +268,7 @@ public interface CtmcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
+	int TRANSITION_FEATURE_COUNT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Transition</em>' class.
@@ -467,6 +476,17 @@ public interface CtmcPackage extends EPackage {
 	EReference getTransition_To();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.Transition#getProb <em>Prob</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Prob</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.ctmc.Transition#getProb()
+	 * @see #getTransition()
+	 * @generated
+	 */
+	EAttribute getTransition_Prob();
+
+	/**
 	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.Transition#getRate <em>Rate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -641,6 +661,14 @@ public interface CtmcPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TRANSITION__TO = eINSTANCE.getTransition_To();
+
+		/**
+		 * The meta object literal for the '<em><b>Prob</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TRANSITION__PROB = eINSTANCE.getTransition_Prob();
 
 		/**
 		 * The meta object literal for the '<em><b>Rate</b></em>' attribute feature.
