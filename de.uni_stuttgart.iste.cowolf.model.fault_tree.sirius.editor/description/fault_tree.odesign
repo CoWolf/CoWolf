@@ -2,52 +2,51 @@
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="faulttree" version="8.1.0">
   <ownedViewpoints name="Fault Tree" modelFileExtension="faulttree">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="fault tree diagram" domainClass="fault_tree.FaultTree" enablePopupBars="true">
-      <layout xsi:type="description_1:OrderedTreeLayout" childrenExpression="[eContents()->filter(FaultTree)/]" nodeMapping="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='IntermediateEventNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='AndNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='ErrorInstanceNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='FailureInstanceNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='HazardNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='InhibitNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='OrNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='PriorAndNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='XorNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='BasicEventNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='UndevelopedEventNode']"/>
       <defaultLayer name="Default">
-        <nodeMappings name="IntermediateEventNode" labelDirectEdit="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='EditLabelEvent']" domainClass="fault_tree.IntermediateEvent">
+        <nodeMappings name="IntermediateEventNode" labelDirectEdit="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='EditLabelEvent']" semanticCandidatesExpression="feature:eContents" domainClass="fault_tree.IntermediateEvent">
           <style xsi:type="style:SquareDescription" showIcon="false" tooltipExpression="Intermediate Event">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="AndNode" domainClass="fault_tree.AND">
+        <nodeMappings name="AndNode" semanticCandidatesExpression="feature:eContents" domainClass="fault_tree.AND">
           <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" tooltipExpression="AND" workspacePath="de.uni_stuttgart.iste.cowolf.model.fault_tree.sirius.editor/icons/and.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="OrNode" domainClass="fault_tree.OR">
+        <nodeMappings name="OrNode" semanticCandidatesExpression="feature:eContents" domainClass="fault_tree.OR">
           <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" tooltipExpression="OR" workspacePath="de.uni_stuttgart.iste.cowolf.model.fault_tree.sirius.editor/icons/or.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="XorNode" domainClass="fault_tree.XOR">
+        <nodeMappings name="XorNode" semanticCandidatesExpression="feature:eContents" domainClass="fault_tree.XOR">
           <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" tooltipExpression="XOR" workspacePath="de.uni_stuttgart.iste.cowolf.model.fault_tree.sirius.editor/icons/xor.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="InhibitNode" domainClass="fault_tree.Inhibit">
+        <nodeMappings name="InhibitNode" semanticCandidatesExpression="feature:eContents" domainClass="fault_tree.Inhibit">
           <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" tooltipExpression="INHIBIT" workspacePath="de.uni_stuttgart.iste.cowolf.model.fault_tree.sirius.editor/icons/inhibit.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="PriorAndNode" domainClass="fault_tree.PriorAND">
+        <nodeMappings name="PriorAndNode" semanticCandidatesExpression="feature:eContents" domainClass="fault_tree.PriorAND">
           <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" tooltipExpression="PRIORITY AND" workspacePath="de.uni_stuttgart.iste.cowolf.model.fault_tree.sirius.editor/icons/priorand.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="HazardNode" labelDirectEdit="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='EditLabelEvent']" domainClass="fault_tree.Hazard">
+        <nodeMappings name="HazardNode" labelDirectEdit="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='EditLabelEvent']" semanticCandidatesExpression="feature:eContents" domainClass="fault_tree.Hazard">
           <style xsi:type="style:WorkspaceImageDescription" showIcon="false" tooltipExpression="Hazard" workspacePath="de.uni_stuttgart.iste.cowolf.model.fault_tree.sirius.editor/icons/hazard.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="FailureInstanceNode" labelDirectEdit="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='EditLabelEvent']" domainClass="fault_tree.FailureInstance">
+        <nodeMappings name="FailureInstanceNode" labelDirectEdit="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='EditLabelEvent']" semanticCandidatesExpression="feature:eContents" domainClass="fault_tree.FailureInstance">
           <borderedNodeMappings name="FailureTypeNode" labelDirectEdit="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='EditLabelEvent']" semanticCandidatesExpression="feature:type" domainClass="fault_tree.FailureType">
             <style xsi:type="style:LozengeNodeDescription" showIcon="false" tooltipExpression="Failure Type" sizeComputationExpression="1">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -61,7 +60,7 @@
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="ErrorInstanceNode" labelDirectEdit="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='EditLabelEvent']" domainClass="fault_tree.ErrorInstance">
+        <nodeMappings name="ErrorInstanceNode" labelDirectEdit="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='EditLabelEvent']" semanticCandidatesExpression="feature:eContents" domainClass="fault_tree.ErrorInstance">
           <borderedNodeMappings name="ErrorTypeNode" labelDirectEdit="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='EditLabelEvent']" semanticCandidatesExpression="feature:type" domainClass="fault_tree.ErrorType">
             <style xsi:type="style:LozengeNodeDescription" showIcon="false" tooltipExpression="Error Type" sizeComputationExpression="1">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -75,20 +74,21 @@
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="BasicEventNode" labelDirectEdit="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='EditLabelEvent']" domainClass="fault_tree.BasicEvent">
+        <nodeMappings name="BasicEventNode" labelDirectEdit="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='EditLabelEvent']" semanticCandidatesExpression="feature:eContents" domainClass="fault_tree.BasicEvent">
           <style xsi:type="style:DotDescription" showIcon="false" tooltipExpression="Basic Event">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="UndevelopedEventNode" labelDirectEdit="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='EditLabelEvent']" domainClass="fault_tree.UndevelopedEvent">
+        <nodeMappings name="UndevelopedEventNode" labelDirectEdit="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='EditLabelEvent']" semanticCandidatesExpression="feature:eContents" domainClass="fault_tree.UndevelopedEvent">
           <style xsi:type="style:LozengeNodeDescription" showIcon="false" tooltipExpression="Undeveloped Event">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
           </style>
         </nodeMappings>
+        <nodeMappings name="FaultTree" semanticCandidatesExpression="feature:eContents" domainClass="fault_tree.FaultTree"/>
         <edgeMappings name="EventToGateEdge" deletionDescription="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='Edge']" sourceMapping="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='IntermediateEventNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='FailureInstanceNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='HazardNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='ErrorInstanceNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='BasicEventNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='UndevelopedEventNode']" targetMapping="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='AndNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='InhibitNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='OrNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='PriorAndNode'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@nodeMappings[name='XorNode']" targetFinderExpression="feature:outputGate" reconnections="//@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='ReconnectEventToGateTarget'] //@ownedViewpoints[name='Fault%20Tree']/@ownedRepresentations[name='fault%20tree%20diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='ReconnectEventToGateSource']">
           <style targetArrow="NoDecoration" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
