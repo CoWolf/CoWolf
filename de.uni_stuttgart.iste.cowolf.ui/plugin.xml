@@ -136,6 +136,10 @@
          name="%extension.name"
          point="org.eclipse.ui.commands">
       <command
+            id="de.uni_stuttgart.iste.cowolf.ui.modelassociation.CreateVersion"
+            name="Create Version">
+      </command>
+      <command
             id="de.uni_stuttgart.iste.cowolf.ui.modelassociation.RevertVersion"
             name="Revert Version">
       </command>
@@ -145,6 +149,24 @@
       <handler
             class="de.uni_stuttgart.iste.cowolf.ui.modelassociation.VersionRevert"
             commandId="de.uni_stuttgart.iste.cowolf.ui.modelassociation.RevertVersion">
+         <enabledWhen>
+            <and>
+               <with
+                     variable="selection">
+                  <count
+                        value="1">
+                  </count>
+               </with>
+               <test
+                     forcePluginActivation="true"
+                     property="de.uni_stuttgart.iste.cowolf.ui.modelassociation.props.canFoo">
+               </test>
+            </and>
+         </enabledWhen>
+      </handler>
+      <handler
+            class="de.uni_stuttgart.iste.cowolf.ui.modelassociation.VersionCreate"
+            commandId="de.uni_stuttgart.iste.cowolf.ui.modelassociation.CreateVersion">
          <enabledWhen>
             <and>
                <with
