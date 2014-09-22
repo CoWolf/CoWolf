@@ -14,12 +14,17 @@ import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.PlatformUI;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author Rene Trefft
  */
 public class TransformationRulesLabelProvider implements ILabelProvider {
-
+	
+	private final static Logger LOGGER = LoggerFactory
+			.getLogger(TransformationRulesLabelProvider.class);
+	
 	@Override
 	public void addListener(ILabelProviderListener listener) {
 
@@ -64,7 +69,7 @@ public class TransformationRulesLabelProvider implements ILabelProvider {
 						"platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.generator/de/uni_stuttgart/iste/cowolf/transformation/generator/ui/icons/HenshinModelFile.gif");
 				return ImageDescriptor.createFromURL(url).createImage();
 			} catch (MalformedURLException e) {
-				e.printStackTrace();
+				LOGGER.error("", e);
 			}
 
 		} else if (element instanceof Unit) {
@@ -74,7 +79,7 @@ public class TransformationRulesLabelProvider implements ILabelProvider {
 						"platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.generator/de/uni_stuttgart/iste/cowolf/transformation/generator/ui/icons/Unit.png");
 				return ImageDescriptor.createFromURL(url).createImage();
 			} catch (MalformedURLException e) {
-				e.printStackTrace();
+				LOGGER.error("", e);
 			}
 
 		}

@@ -18,11 +18,16 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import de.uni_stuttgart.iste.cowolf.model.ctmc.analyze.PRISMGenerator;
 
 public class CTMCExportPRISMJob extends Job {
 
+	private final static Logger LOGGER = LoggerFactory
+			.getLogger(CTMCExportPRISMJob.class);
+	
 	private Map<Resource, File> mappingCSL = new HashMap<Resource, File> ();
 	private Map<Resource, File> mappingSM = new HashMap<Resource, File> ();
 
@@ -43,7 +48,7 @@ public class CTMCExportPRISMJob extends Job {
 	@Override
 	protected IStatus run(final IProgressMonitor monitor) {
 		monitor.beginTask("Export ctmc's as prism model", this.mappingSM.size() + this.mappingCSL.size());
-		System.out.println("Export prism model");
+		LOGGER.info("Export prism model");
 		// For each selected item
 		HashSet<Resource> resources = new HashSet<Resource>();
 		resources.addAll(this.mappingCSL.keySet());
@@ -67,7 +72,7 @@ public class CTMCExportPRISMJob extends Job {
 					out.close();
 					monitor.worked(1);
 				} catch(SecurityException | IOException e) {
-					e.printStackTrace();
+					LOGGER.error("", e);
 				}
 			}
 		}
@@ -107,8 +112,7 @@ public class CTMCExportPRISMJob extends Job {
 						try {
 							clsFile.createNewFile();
 						} catch (IOException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
+							LOGGER.error("", e);
 						}
 					}
 					
@@ -134,7 +138,7 @@ public class CTMCExportPRISMJob extends Job {
 					out.close();
 					monitor.worked(1);
 				} catch(SecurityException | IOException e) {
-					e.printStackTrace();
+					LOGGER.error("", e);
 				}
 			}
 		}

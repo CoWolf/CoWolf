@@ -15,6 +15,8 @@ import org.eclipse.emf.henshin.model.Unit;
 import org.eclipse.emf.henshin.model.resource.HenshinResourceSet;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 
@@ -22,7 +24,10 @@ import org.eclipse.jface.viewers.Viewer;
  *
  */
 public class TransformationRulesContentProvider implements ITreeContentProvider {
-
+	
+	private final static Logger LOGGER = LoggerFactory
+			.getLogger(TransformationRulesContentProvider.class);
+	
 	@Override
 	public void dispose() {
 
@@ -65,7 +70,7 @@ public class TransformationRulesContentProvider implements ITreeContentProvider 
 				return children.toArray(new IResource[children.size()]);
 
 			} catch (CoreException e) {
-				e.printStackTrace();
+				LOGGER.error("", e);
 			}
 
 		} else if (parentElement instanceof IFile) {

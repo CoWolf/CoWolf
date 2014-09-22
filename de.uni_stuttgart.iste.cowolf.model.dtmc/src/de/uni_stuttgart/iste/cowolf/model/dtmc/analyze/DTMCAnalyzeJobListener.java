@@ -13,6 +13,8 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.jobs.IJobChangeEvent;
 import org.eclipse.core.runtime.jobs.IJobChangeListener;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import de.uni_stuttgart.iste.cowolf.model.AnalysisResultUtil;
 import de.uni_stuttgart.iste.cowolf.model.IAnalysisListener;
@@ -24,6 +26,9 @@ import de.uni_stuttgart.iste.cowolf.model.dtmc.State;
  */
 public class DTMCAnalyzeJobListener implements IJobChangeListener {
 
+	private final static Logger LOGGER = LoggerFactory
+			.getLogger(DTMCAnalyzeJobListener.class);
+	
 	private final IAnalysisListener listener;
 
 	public DTMCAnalyzeJobListener(final IAnalysisListener listener) {
@@ -90,19 +95,19 @@ public class DTMCAnalyzeJobListener implements IJobChangeListener {
 				  .append("    <td>" + key + "</td>\n")
 				  .append("    <td>" + entry.getValue().toString() + "</td>\n")
 				  .append("  </tr>\n");
-			}
+				}
 			
 			sb.append("</tbody>\n")
 			  .append("</table>");
 		} else {
 			sb.append("<p>No analysis results.</p>");
-		}
-		
+			}
+
 		try {
 			String html = AnalysisResultUtil.encapsulateHTML(sb.toString());
 			
 			ByteArrayInputStream in = new ByteArrayInputStream(html.getBytes());
-
+			
 			if (resultfile.exists()) {
 				resultfile.setContents(in, true, false, null);
 			} else {
@@ -110,8 +115,7 @@ public class DTMCAnalyzeJobListener implements IJobChangeListener {
 			}
 			
 		} catch (CoreException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			LOGGER.error("", e); 
 		}
 		
 		if (this.listener != null) {

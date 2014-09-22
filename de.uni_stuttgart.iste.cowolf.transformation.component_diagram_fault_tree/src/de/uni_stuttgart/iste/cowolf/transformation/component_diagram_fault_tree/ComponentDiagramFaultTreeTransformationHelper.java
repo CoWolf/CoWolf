@@ -8,11 +8,17 @@ import java.util.Set;
 import org.sidiff.difference.symmetric.AddObject;
 import org.sidiff.difference.symmetric.AddReference;
 import org.sidiff.difference.symmetric.Change;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ComponentDiagramFaultTreeTransformationHelper {
 
 	public static class ChangesFiller {
 
+		
+		private final static Logger LOGGER = LoggerFactory
+				.getLogger(ComponentDiagramFaultTreeTransformationHelper.ChangesFiller.class);
+		
 		HashSet<String> newComponentTypes, newPortTypes, newComponentInstances,
 				newPortInstances, newSubComponentInstances, newConnectors;
 
@@ -113,8 +119,7 @@ public class ComponentDiagramFaultTreeTransformationHelper {
 				if (list != null) {
 					list.add(objectName);
 				} else {
-					System.out.println(String.format(
-							"ChangeSet %s not yet implemented", changeName));
+					LOGGER.debug("ChangeSet {} not yet implemented.", changeName);
 				}
 			}
 		}
@@ -127,8 +132,7 @@ public class ComponentDiagramFaultTreeTransformationHelper {
 				if (list != null) {
 					list.add(objectName);
 				} else {
-					System.out.println(String.format(
-							"Change for object type %s not yet implemented", objectType));
+					LOGGER.debug("Change for object type {} not yet implemented.", objectType);
 				}
 			}
 		}
@@ -143,17 +147,20 @@ public class ComponentDiagramFaultTreeTransformationHelper {
 	}
 
 	public static class ChangeHandlerFactory {
-
+	
+		private final static Logger LOGGER = LoggerFactory
+				.getLogger(ComponentDiagramFaultTreeTransformationHelper.ChangeHandlerFactory.class);
+		
 		private static final String PCKG = "de.uni_stuttgart.iste.cowolf.transformation.component_diagram_fault_tree.ComponentDiagramFaultTreeTransformationHelper$ChangeHandlerFactory$";
 
 		public static ChangeHandler getChangeHandler(Change change) {
 			ChangeHandler changeHandler = null;
 			String changeHandlerName = PCKG+change.eClass().getName() + "Handler";
 			try {
-				System.out.println(changeHandlerName);
+                LOGGER.debug(changeHandlerName);
 				changeHandler = (ChangeHandler) Class.forName(changeHandlerName).getConstructors()[0].newInstance(null,change);
 			} catch (Exception e) {
-				e.printStackTrace();
+				LOGGER.error("", e);
 			}
 			return changeHandler;
 		}
@@ -186,7 +193,7 @@ public class ComponentDiagramFaultTreeTransformationHelper {
 						try {
 							name = (String) m.invoke(o, null);
 						} catch (Exception e) {
-							e.printStackTrace();
+							LOGGER.error("", e);
 						}
 					}
 				}

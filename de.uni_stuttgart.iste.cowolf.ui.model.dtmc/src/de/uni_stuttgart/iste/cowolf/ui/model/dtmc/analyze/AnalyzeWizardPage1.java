@@ -18,9 +18,15 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class AnalyzeWizardPage1 extends WizardPage {
 
+	
+	private final static Logger LOGGER = LoggerFactory
+			.getLogger(AnalyzeWizardPage1.class);
+	
 	private Composite container;
 	private Button btnSimulation;
 	private Button btnVerification;
@@ -136,7 +142,7 @@ public class AnalyzeWizardPage1 extends WizardPage {
 		this.btnVerification.addSelectionListener(new SelectionListener() {
 			@Override
 			public void widgetSelected(final SelectionEvent e) {
-				System.out.println("Toggle verification");
+				LOGGER.debug("Toggle verification");
 				AnalyzeWizardPage1.this.recursiveSetEnabled(
 						grpSimulationProperties, false);
 				AnalyzeWizardPage1.this.setPageComplete();

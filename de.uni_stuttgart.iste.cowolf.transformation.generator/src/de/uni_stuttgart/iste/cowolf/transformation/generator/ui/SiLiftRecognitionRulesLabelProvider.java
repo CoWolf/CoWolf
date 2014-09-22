@@ -10,12 +10,17 @@ import org.eclipse.swt.graphics.Image;
 import org.sidiff.difference.rulebase.RecognitionRule;
 import org.sidiff.difference.rulebase.RuleBase;
 import org.sidiff.difference.rulebase.extension.IRuleBase;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author Rene Trefft
  */
 public class SiLiftRecognitionRulesLabelProvider implements ILabelProvider {
-
+	
+	private final static Logger LOGGER = LoggerFactory
+			.getLogger(SiLiftRecognitionRulesLabelProvider.class);
+	
 	@Override
 	public void addListener(ILabelProviderListener listener) {
 		// TODO Auto-generated method stub
@@ -49,7 +54,7 @@ public class SiLiftRecognitionRulesLabelProvider implements ILabelProvider {
 						"platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.generator/de/uni_stuttgart/iste/cowolf/transformation/generator/ui/icons/rulebase.gif");
 				return ImageDescriptor.createFromURL(url).createImage();
 			} catch (MalformedURLException e) {
-				e.printStackTrace();
+				LOGGER.error("", e);
 			}
 
 		} else if (element instanceof RecognitionRule) {
@@ -59,7 +64,7 @@ public class SiLiftRecognitionRulesLabelProvider implements ILabelProvider {
 						"platform:/plugin/de.uni_stuttgart.iste.cowolf.transformation.generator/de/uni_stuttgart/iste/cowolf/transformation/generator/ui/icons/HenshinModelFile.gif");
 				return ImageDescriptor.createFromURL(url).createImage();
 			} catch (MalformedURLException e) {
-				e.printStackTrace();
+				LOGGER.error("", e);
 			}
 
 		}

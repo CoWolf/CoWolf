@@ -14,6 +14,8 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Association;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Model;
@@ -25,6 +27,10 @@ import de.uni_stuttgart.iste.cowolf.model.ModelRegistry;
 
 public class InvalidationListener implements IResourceChangeListener {
 		
+	
+	private final static Logger LOGGER = LoggerFactory
+			.getLogger(InvalidationListener.class);
+	
 	private final static String COWOLF_PROBLEM = "de.uni_stuttgart.iste.cowolf.ui.transformation.coevolvewarning";
 
 	@Override
@@ -67,7 +73,7 @@ public class InvalidationListener implements IResourceChangeListener {
 						deleteCoWolfMarkers(res);
 					}
 					
-					System.out.println("Invalidating " + res.getLocation().toString());
+					LOGGER.debug("Invalidating {}", res.getLocation());
 
 					invalidateModels(res);
 				}
@@ -80,8 +86,7 @@ public class InvalidationListener implements IResourceChangeListener {
 		try {
 			event.getDelta().accept(visitor);
 		} catch (CoreException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			LOGGER.error("", e);
 		}
 	
 	}
@@ -210,8 +215,7 @@ public class InvalidationListener implements IResourceChangeListener {
 			return markers.length > 0;
 
 		} catch (CoreException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			LOGGER.error("", e);
 		}
 		return false;
 

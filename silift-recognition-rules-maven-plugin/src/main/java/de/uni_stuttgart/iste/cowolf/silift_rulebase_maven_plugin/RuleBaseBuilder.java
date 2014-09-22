@@ -376,7 +376,9 @@ public class RuleBaseBuilder extends AbstractMojo {
 		try {
 			resource.save(options);
 		} catch (IOException e) {
-			e.printStackTrace();
+			throw new MojoExecutionException("Saving rulebase file \"" +  project.getBasedir()
+					+ File.separator
+					+ AbstractProjectRuleBase.RULEBASE_FILE + "\" failed.", e);
 		}
 
 		getLog().info(

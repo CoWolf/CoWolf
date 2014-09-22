@@ -21,6 +21,8 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.sidiff.difference.symmetric.SymmetricDifference;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Model;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociation;
@@ -37,8 +39,11 @@ import de.uni_stuttgart.iste.cowolf.ui.evolution.wizard.ComponentSelectionWizard
  * @author Michael Müller
  *
  */
-public class Evolve extends AbstractHandler {
-    @Override
+public class Evolve extends AbstractHandler {  
+	
+	private final static Logger LOGGER = LoggerFactory.getLogger(Evolve.class);
+	
+	@Override
     public Object execute(ExecutionEvent event) throws ExecutionException {
 
 
@@ -98,7 +103,7 @@ public class Evolve extends AbstractHandler {
                             MessageDialog.openError(window.getShell(),
                                     "Evolution Exception occured",
                                     e.getLocalizedMessage());
-                            e.printStackTrace();
+                            LOGGER.error("", e);
                         }
                     });
                 }

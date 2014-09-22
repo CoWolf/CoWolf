@@ -40,6 +40,8 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * <!-- begin-user-doc -->
@@ -59,6 +61,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
+	
+	
+	private final static Logger LOGGER = LoggerFactory
+			.getLogger(ModelImpl.class);
+	
 	/**
 	 * The cached value of the '{@link #getVersions() <em>Versions</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -185,8 +192,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
                     
                     return version;
             } catch (IOException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
+            	LOGGER.error("Saving resource failed.",e);
             }
             
             return null;
@@ -207,8 +213,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
                     
                     return this.createVersion(res, message);
             } catch (IOException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
+            	LOGGER.error("Loading resource failed.",e);
             }
             return null;
     }
@@ -256,8 +261,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 				try {
 					versionfolder.delete(true, monitor);
 				} catch (CoreException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					LOGGER.error("Deleting resource failed.",e);
 				}
 				
 				return Status.OK_STATUS;
@@ -318,8 +322,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 					versionfolder.move(moveto, true, monitor);
 					setModel(newPath);
 				} catch (CoreException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					LOGGER.error("Moving resource failed.",e);
 				}
 				
 				return Status.OK_STATUS;
@@ -337,8 +340,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 		try {
 			res.load(Collections.EMPTY_MAP);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			LOGGER.error("Loading resource failed.",e);
 		}
 		return res;
 	}
@@ -724,7 +726,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	@Override
 	public IFile getFile() {
 		if (this.getParent() == null || this.getParent().getProject() == null) {
-			System.out.println("Invalid model " + this.getModel());
+			LOGGER.error("Invalid model {}", this.getModel());
 			return null;
 		}
 		return this.getParent().getProject().getFile(this.getModel());

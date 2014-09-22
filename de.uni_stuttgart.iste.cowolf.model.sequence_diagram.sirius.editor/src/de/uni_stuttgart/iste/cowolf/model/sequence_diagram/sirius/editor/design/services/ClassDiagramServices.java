@@ -16,6 +16,8 @@ import org.eclipse.uml2.uml.PackageImport;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Type;
 import org.eclipse.uml2.uml.UMLFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
@@ -23,6 +25,10 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 
 public class ClassDiagramServices {
+	
+	private final static Logger LOGGER = LoggerFactory
+			.getLogger(ClassDiagramServices.class);
+	
 	final UMLFactory factory = UMLFactory.eINSTANCE;
 
 	final UMLServices umlServices = new UMLServices();
@@ -63,7 +69,7 @@ public class ClassDiagramServices {
 	}
 
 	public void createAssociation(Package pkg, Classifier source, Classifier target) {
-		System.out.println("Create asso");
+		LOGGER.debug("Create asso");
 	}
 
 	public List<Property> getMemberEnds(Association association) {

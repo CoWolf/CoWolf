@@ -16,6 +16,8 @@ import org.eclipse.jface.window.Window;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import de.uni_stuttgart.iste.cowolf.model.AbstractModelManager;
 import de.uni_stuttgart.iste.cowolf.model.AbstractQoSModelManager;
@@ -26,6 +28,9 @@ import de.uni_stuttgart.iste.cowolf.ui.model.analyze.FileOpenAnalysisListener;
 
 public class Analyze implements IHandler {
 
+	
+	private final static Logger LOGGER = LoggerFactory.getLogger(Analyze.class);
+	
 	@Override
 	public void addHandlerListener(final IHandlerListener handlerListener) {
 		// TODO Auto-generated method stub
@@ -45,7 +50,7 @@ public class Analyze implements IHandler {
     		return null;
     	}
 		
-		System.out.println("Doing Analyze");
+    	LOGGER.debug("Doing Analyze");
 		IWorkbenchWindow window = PlatformUI.getWorkbench()
 				.getActiveWorkbenchWindow();
 		IStructuredSelection selection = (IStructuredSelection) window.getSelectionService().getSelection();
@@ -75,10 +80,10 @@ public class Analyze implements IHandler {
 					wizardDialog.setBlockOnOpen(true);
 					FileOpenAnalysisListener fileOpenListener = new FileOpenAnalysisListener();
 					if (wizardDialog.open() == Window.OK) {
-						System.out.println("Ok pressed");
+						LOGGER.debug("Ok pressed");
 						qosModelManager.analyze(resource, properties, fileOpenListener);
 					} else {
-						System.out.println("Cancel pressed");
+						LOGGER.debug("Cancel pressed");
 					}
 				}
 			}

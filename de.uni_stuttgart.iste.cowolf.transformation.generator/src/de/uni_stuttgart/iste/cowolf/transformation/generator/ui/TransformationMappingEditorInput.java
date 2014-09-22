@@ -9,12 +9,17 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.IPersistableElement;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author Rene Trefft
  */
 public class TransformationMappingEditorInput implements IFileEditorInput {
-
+	
+	private final static Logger LOGGER = LoggerFactory
+			.getLogger(TransformationMappingEditorInput.class);
+	
 	IFile transformationMappingFile;
 
 	public TransformationMappingEditorInput(IFile transformationMappingFile) {
@@ -35,7 +40,7 @@ public class TransformationMappingEditorInput implements IFileEditorInput {
 					"platform:/plugin/de.uni_stuttgart.iste.cowolf.ui/icons/logo_wulf_15x15.png");
 			return ImageDescriptor.createFromURL(url);
 		} catch (IOException e1) {
-			e1.printStackTrace();
+			LOGGER.error("", e1);
 		}
 
 		return null;

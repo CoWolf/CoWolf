@@ -1,0 +1,116 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>de.uni_stuttgart.iste.cowolf.p2dependencies</artifactId>
+	<packaging>pom</packaging>
+	<parent>
+		<groupId>de.uni_stuttgart.iste.cowolf</groupId>
+		<artifactId>de.uni_stuttgart.iste.cowolf.parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<properties>
+		<github.global.server>github</github.global.server>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.8</version>
+				<executions>
+					<execution>
+						<id>copy-bundles-for-publishing</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<!-- maven artifacts to add to P2 repository; must be already OSGi 
+									bundles (file "META-INF/MANIFEST.MF" exists and contains the "Bundle-SymbolicName" 
+									attribute) -->
+								<artifactItem>
+									<groupId>ch.qos.logback</groupId>
+									<artifactId>logback-classic</artifactId>
+									<version>1.1.2</version>
+								</artifactItem>
+								<artifactItem>
+									<groupId>ch.qos.logback</groupId>
+									<artifactId>logback-core</artifactId>
+									<version>1.1.2</version>
+								</artifactItem>
+								<artifactItem>
+									<groupId>org.slf4j</groupId>
+									<artifactId>slf4j-api</artifactId>
+									<version>1.7.7</version>
+								</artifactItem>
+								<!-- <artifactItem> <groupId>org.slf4j</groupId> <artifactId>osgi-over-slf4j</artifactId> 
+									<version>1.7.7</version> </artifactItem> -->
+							</artifactItems>
+							<outputDirectory>${project.build.directory}/source/plugins</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho.extras</groupId>
+				<artifactId>tycho-p2-extras-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<executions>
+					<execution>
+						<id>generate-full-metadata</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>publish-features-and-bundles</goal>
+						</goals>
+						<configuration>
+							<sourceLocation>${project.build.directory}/source</sourceLocation>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-p2-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>category-p2-metadata</goal>
+						</goals>
+						<configuration>
+							<target>${project.build.directory}/repository</target>
+							<categoryDefinition>${project.basedir}/category.xml</categoryDefinition>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>com.github.github</groupId>
+				<artifactId>site-maven-plugin</artifactId>
+				<version>0.9</version>
+				<executions>
+					<execution>
+						<phase>deploy</phase>
+						<goals>
+							<goal>site</goal>
+						</goals>
+						<configuration>
+							<message>Updated CoWolf dependencies P2 repository.</message>
+							<branch>refs/heads/gh-pages</branch>
+							<outputDirectory>${project.build.directory}/repository</outputDirectory>
+							<path>DependenciesUpdateSite</path>
+							<repositoryOwner>DevProjectSS2014</repositoryOwner>
+							<repositoryName>CoWolf</repositoryName>
+							<dryRun>true</dryRun>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

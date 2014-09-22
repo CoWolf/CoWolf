@@ -32,9 +32,15 @@ import org.eclipse.swt.widgets.ScrollBar;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class AnalyzeWizardPage1 extends WizardPage {
 
+	
+	private final static Logger LOGGER = LoggerFactory
+			.getLogger(AnalyzeWizardPage1.class);
+	
 	private Composite container;
 	private Resource resource;
 	Table table;
@@ -72,8 +78,7 @@ public class AnalyzeWizardPage1 extends WizardPage {
 			try {
 				clsFile.createNewFile();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				LOGGER.error("", e);
 			}
 		}
 	}
@@ -105,8 +110,7 @@ public class AnalyzeWizardPage1 extends WizardPage {
 			out.close();
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			LOGGER.error("", e);
 		}
 
 	}
