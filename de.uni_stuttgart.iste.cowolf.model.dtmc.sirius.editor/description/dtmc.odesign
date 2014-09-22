@@ -129,6 +129,15 @@
               <firstModelOperations xsi:type="tool_1:SetValue" featureName="labels" valueExpression="var:element"/>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Set Initial State" nodeMappings="//@ownedViewpoints[name='DTMC']/@ownedRepresentations[name='dtmc%20diagram']/@defaultLayer/@nodeMappings[name='StateNode']/@borderedNodeMappings[name='Labels']" iconPath="de.uni_stuttgart.iste.cowolf.model.dtmc.sirius.editor/icons/initialState.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[container.eContainer()/]">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="initialState" valueExpression="var:container"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
