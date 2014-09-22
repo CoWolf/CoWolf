@@ -4,7 +4,7 @@
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="statechart diagram" domainClass="statechart.StateMachineRoot" enablePopupBars="true">
       <layout xsi:type="description_1:CompositeLayout" padding="80" direction="LeftToRight"/>
       <defaultLayer name="Default">
-        <edgeMappings name="StateToStateTransitionEdge" labelDirectEdit="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='EditGuard']" sourceMapping="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@containerMappings[name='StateMachineContainer']/@subContainerMappings[name='StateContainer'] //@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@containerMappings[name='StateMachineContainer']/@subContainerMappings[name='CompositeStateContainer']" targetMapping="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@containerMappings[name='StateMachineContainer']/@subContainerMappings[name='CompositeStateContainer'] //@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@containerMappings[name='StateMachineContainer']/@subContainerMappings[name='StateContainer']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" domainClass="statechart.Transition" useDomainElement="true">
+        <edgeMappings name="StateToStateTransitionEdge" labelDirectEdit="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='EditGuard']" sourceMapping="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@containerMappings[name='StateMachineContainer']/@subContainerMappings[name='StateContainer'] //@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@containerMappings[name='StateMachineContainer']/@subContainerMappings[name='CompositeStateContainer']" targetMapping="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@containerMappings[name='StateMachineContainer']/@subContainerMappings[name='CompositeStateContainer'] //@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@containerMappings[name='StateMachineContainer']/@subContainerMappings[name='StateContainer']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" domainClass="statechart.Transition" useDomainElement="true">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
           </style>
@@ -36,7 +36,7 @@
             </style>
           </conditionnalStyles>
         </edgeMappings>
-        <edgeMappings name="StateMachineCallToEntry" sourceMapping="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@containerMappings[name='StateMachineContainer']" targetMapping="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@containerMappings[name='StateMachineContainer']/@subContainerMappings[name='CompositeStateContainer']/@borderedNodeMappings[name='EntryBorderedNode']" targetFinderExpression="feature:calledByAction">
+        <edgeMappings name="StateMachineCallToEntry" deletionDescription="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='DeleteStateMachineCallToEntry']" sourceMapping="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@containerMappings[name='StateMachineContainer']" targetMapping="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@containerMappings[name='StateMachineContainer']/@subContainerMappings[name='CompositeStateContainer']/@borderedNodeMappings[name='EntryBorderedNode']" targetFinderExpression="feature:calledByAction">
           <style sizeComputationExpression="2" routingStyle="manhattan">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription>
@@ -57,22 +57,22 @@
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
           </style>
         </edgeMappings>
-        <containerMappings xsi:type="description_1:ContainerMappingImport" name="StateMachineContainer" labelDirectEdit="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='EditStateName']" semanticCandidatesExpression="feature:eAllContents" domainClass="statechart.StateMachine">
-          <subContainerMappings xsi:type="description_1:ContainerMappingImport" name="StateContainer" labelDirectEdit="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='EditStateName']" semanticCandidatesExpression="[eContents()->selectByType(State)/]" domainClass="statechart.State" childrenPresentation="List">
-            <borderedNodeMappings name="EntryStateBorderedNode" labelDirectEdit="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='EditEntry']" semanticCandidatesExpression="feature:eContents" domainClass="statechart.ENTRY">
+        <containerMappings xsi:type="description_1:ContainerMappingImport" name="StateMachineContainer" labelDirectEdit="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='EditStateName']" semanticCandidatesExpression="feature:eAllContents" domainClass="statechart.StateMachine">
+          <subContainerMappings xsi:type="description_1:ContainerMappingImport" name="StateContainer" labelDirectEdit="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='EditStateName']" semanticCandidatesExpression="[eContents()->selectByType(State)/]" domainClass="statechart.State" childrenPresentation="List">
+            <borderedNodeMappings name="EntryStateBorderedNode" labelDirectEdit="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='EditEntry']" semanticCandidatesExpression="feature:eContents" domainClass="statechart.ENTRY">
               <style xsi:type="style:DotDescription" showIcon="false" labelExpression="feature:value" sizeComputationExpression="1">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </borderedNodeMappings>
-            <borderedNodeMappings name="ExitStateBorderedNode" labelDirectEdit="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='EditExit']" semanticCandidatesExpression="feature:eContents" domainClass="statechart.EXIT">
+            <borderedNodeMappings name="ExitStateBorderedNode" labelDirectEdit="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='EditExit']" semanticCandidatesExpression="feature:eContents" domainClass="statechart.EXIT">
               <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="feature:value" sizeComputationExpression="1" workspacePath="de.uni_stuttgart.iste.cowolf.model.statechart.sirius.editor/icons/finalstate.svg">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </borderedNodeMappings>
-            <subNodeMappings name="DONode" labelDirectEdit="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='EditDoActionName']" semanticCandidatesExpression="feature:eContents" domainClass="statechart.DO">
+            <subNodeMappings name="DONode" labelDirectEdit="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='EditDoActionName']" semanticCandidatesExpression="feature:eContents" domainClass="statechart.DO">
               <style xsi:type="style:SquareDescription" labelExpression="feature:value" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -86,15 +86,15 @@
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             </style>
           </subContainerMappings>
-          <subContainerMappings xsi:type="description_1:ContainerMappingImport" name="CompositeStateContainer" labelDirectEdit="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='EditStateName']" semanticCandidatesExpression="[eContents()->selectByType(CompositeState)/]" domainClass="statechart.CompositeState" reusedContainerMappings="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@containerMappings[name='StateMachineContainer']/@subContainerMappings[name='StateContainer'] //@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@containerMappings[name='StateMachineContainer']/@subContainerMappings[name='CompositeStateContainer']">
-            <borderedNodeMappings name="EntryBorderedNode" labelDirectEdit="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='EditEntry']" semanticCandidatesExpression="feature:eContents" domainClass="statechart.ENTRY">
+          <subContainerMappings xsi:type="description_1:ContainerMappingImport" name="CompositeStateContainer" labelDirectEdit="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='EditStateName']" semanticCandidatesExpression="[eContents()->selectByType(CompositeState)/]" domainClass="statechart.CompositeState" reusedContainerMappings="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@containerMappings[name='StateMachineContainer']/@subContainerMappings[name='StateContainer'] //@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@containerMappings[name='StateMachineContainer']/@subContainerMappings[name='CompositeStateContainer']">
+            <borderedNodeMappings name="EntryBorderedNode" labelDirectEdit="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='EditEntry']" semanticCandidatesExpression="feature:eContents" domainClass="statechart.ENTRY">
               <style xsi:type="style:DotDescription" showIcon="false" labelExpression="feature:value" sizeComputationExpression="2">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </borderedNodeMappings>
-            <borderedNodeMappings name="ExitBorderedNode" labelDirectEdit="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='EditExit']" semanticCandidatesExpression="feature:eContents" domainClass="statechart.EXIT">
+            <borderedNodeMappings name="ExitBorderedNode" labelDirectEdit="//@ownedViewpoints[name='statechart']/@ownedRepresentations[name='statechart%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='EditExit']" semanticCandidatesExpression="feature:eContents" domainClass="statechart.EXIT">
               <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="feature:value" sizeComputationExpression="2" workspacePath="de.uni_stuttgart.iste.cowolf.model.statechart.sirius.editor/icons/finalstate.svg">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -249,6 +249,8 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+        </toolSections>
+        <toolSections name="Change">
           <ownedTools xsi:type="tool:DirectEditLabel" name="EditGuard">
             <mask mask="{0}"/>
             <initialOperation>
@@ -281,6 +283,16 @@
             <mask mask="{0}"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="DeleteStateMachineCallToEntry">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="element">
+                <subModelOperations xsi:type="tool_1:Unset" featureName="calledByAction" elementExpression="feature:calledByAction"/>
+              </firstModelOperations>
             </initialOperation>
           </ownedTools>
         </toolSections>
