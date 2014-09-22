@@ -29,7 +29,7 @@ public class UMLDesignerPlugin extends AbstractUIPlugin {
 	/**
 	 * The plug-in ID.
 	 */
-	public static final String PLUGIN_ID = "org.obeonetwork.dsl.uml2.design";
+	public static final String PLUGIN_ID = "de.uni_stuttgart.iste.cowolf.model.component_diagram.sirius.editor";
 
 	/**
 	 * The shared instance.
@@ -55,7 +55,7 @@ public class UMLDesignerPlugin extends AbstractUIPlugin {
 		plugin = this;
 		viewpoints = new HashSet<Viewpoint>();
 		viewpoints.addAll(ViewpointRegistry.getInstance().registerFromPlugin(
-				PLUGIN_ID + "/description/uml2.odesign"));
+				PLUGIN_ID + "/description/My.odesign"));
 	}
 
 	/**

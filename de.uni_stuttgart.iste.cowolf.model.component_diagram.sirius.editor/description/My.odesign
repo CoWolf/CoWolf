@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="My" version="8.1.0">
+  <ownedViewpoints name="C" modelFileExtension="component_diagram">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Component Diagram" domainClass="component_diagram.Architecture" enablePopupBars="true">
+      <metamodel href="../../de.uni_stuttgart.iste.cowolf.model.component_diagram/model/component_diagram.ecore#/"/>
+      <defaultLayer name="Default">
+        <nodeMappings name="Port Type" semanticCandidatesExpression="feature:eContents" domainClass="component_diagram.PortType">
+          <style xsi:type="style:DotDescription" labelSize="7" showIcon="false" labelExpression="['Port Type ' + name/]" sizeComputationExpression="7" labelPosition="node" resizeKind="NSEW" strokeSizeComputationExpression="7">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </nodeMappings>
+        <containerMappings name="Component" createElements="false" domainClass="component_diagram.ComponentInstance" reusedContainerMappings="//@ownedViewpoints[name='C']/@ownedRepresentations[name='Component%20Diagram']/@defaultLayer/@containerMappings[name='Component']">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" labelSize="9" labelFormat="bold" showIcon="false" labelExpression="[name +'\n version ' +  version/]" roundedCorner="true" widthComputationExpression="service:defaultWidth" heightComputationExpression="service:defaultHeight" backgroundStyle="Liquid">
+            <borderColor xsi:type="description:UserFixedColor" href="../../org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@userColorsPalettes[name='UMLPalette']/@entries[name='dark%20lagune']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:UserFixedColor" href="../../org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@userColorsPalettes[name='UMLPalette']/@entries[name='light%20lagune']"/>
+          </style>
+        </containerMappings>
+        <containerMappings name="Component Type" semanticCandidatesExpression="feature:eContents" domainClass="component_diagram.ComponentType" reusedNodeMappings="//@ownedViewpoints[name='C']/@ownedRepresentations[name='Component%20Diagram']/@defaultLayer/@nodeMappings[name='Port%20Type']">
+          <style xsi:type="style:FlatContainerStyleDescription" showIcon="false">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+          <conditionnalStyles predicateExpression="[self.oclIsTypeOf(SoftwareComponent)/]">
+            <style xsi:type="style:FlatContainerStyleDescription" showIcon="false" labelExpression="['Software Component \n' +  name/]">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="[self.oclIsTypeOf(HardwareComponent)/]">
+            <style xsi:type="style:FlatContainerStyleDescription" showIcon="false" labelExpression="['Hardware Component \n' +  name + '\n power supply: \n' + powerSupply/]">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='chocolate']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_chocolate']"/>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="[self.oclIsTypeOf(ElectronicDevice)/]">
+            <style xsi:type="style:FlatContainerStyleDescription" showIcon="false" labelExpression="['Electronical Device \n' +  name + '\n power supply: \n' + powerSupply/]">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="[self.oclIsTypeOf(MechanicalDevice)/]">
+            <style xsi:type="style:FlatContainerStyleDescription" showIcon="false" labelExpression="['Mechanical Device \n' +  name + '\n power supply: \n' + powerSupply/]">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="[self.oclIsTypeOf(Sensor)/]">
+            <style xsi:type="style:FlatContainerStyleDescription" showIcon="false" labelExpression="['Sensor \n' +  name + '\n type:  \n' + type + '\n power supply: \n' + powerSupply/]">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="[self.oclIsTypeOf(Actuator)/]">
+            <style xsi:type="style:FlatContainerStyleDescription" showIcon="false" labelExpression="['Actuator \n' +  name + '\n power supply: \n' + powerSupply/]">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+            </style>
+          </conditionnalStyles>
+        </containerMappings>
+        <toolSections name="Component">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Component" containerMappings="//@ownedViewpoints[name='C']/@ownedRepresentations[name='Component%20Diagram']/@defaultLayer/@containerMappings[name='Component']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[container.oclIsTypeOf(Architecture)/]">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="component_diagram.ComponentInstance" referenceName="instances">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="component"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[container.oclIsTypeOf(ComponentInstance)/]">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="component_diagram.ComponentInstance" referenceName="subcomponent">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="component"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Component Types">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Hardware Component Type" nodeMappings="//@ownedViewpoints[name='C']/@ownedRepresentations[name='Component%20Diagram']/@defaultLayer/@nodeMappings[name='Port%20Type']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="component_diagram.HardwareComponent" referenceName="component">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="component"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="powerSupply" valueExpression="supply"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Software Component Type" nodeMappings="//@ownedViewpoints[name='C']/@ownedRepresentations[name='Component%20Diagram']/@defaultLayer/@nodeMappings[name='Port%20Type']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="component_diagram.SoftwareComponent" referenceName="component">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="component"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Electronic DeviceType" nodeMappings="//@ownedViewpoints[name='C']/@ownedRepresentations[name='Component%20Diagram']/@defaultLayer/@nodeMappings[name='Port%20Type']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="component_diagram.ElectronicDevice" referenceName="component">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="component"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="powerSupply" valueExpression="supply"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Mechanical Device Type" nodeMappings="//@ownedViewpoints[name='C']/@ownedRepresentations[name='Component%20Diagram']/@defaultLayer/@nodeMappings[name='Port%20Type']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="component_diagram.MechanicalDevice" referenceName="component">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="component"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="powerSupply" valueExpression="supply"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Sensor Type" nodeMappings="//@ownedViewpoints[name='C']/@ownedRepresentations[name='Component%20Diagram']/@defaultLayer/@nodeMappings[name='Port%20Type']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="component_diagram.Sensor" referenceName="component">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="component"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="type"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="powerSupply" valueExpression="supply"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Actuator Type" nodeMappings="//@ownedViewpoints[name='C']/@ownedRepresentations[name='Component%20Diagram']/@defaultLayer/@nodeMappings[name='Port%20Type']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="component_diagram.Actuator" referenceName="component">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="component"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="powerSupply" valueExpression="supply"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Port Type">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Port Type" nodeMappings="//@ownedViewpoints[name='C']/@ownedRepresentations[name='Component%20Diagram']/@defaultLayer/@nodeMappings[name='Port%20Type']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[container.oclIsTypeOf(Architecture)/]">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="component_diagram.PortType" referenceName="port_type">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="port type"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[container.oclIsKindOf(ComponentType)/]">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="component_diagram.PortType" referenceName="port_types">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="port type"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+  </ownedViewpoints>
+</description:Group>

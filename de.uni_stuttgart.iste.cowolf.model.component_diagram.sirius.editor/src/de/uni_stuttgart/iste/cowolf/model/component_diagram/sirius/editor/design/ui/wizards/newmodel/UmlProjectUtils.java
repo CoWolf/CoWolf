@@ -81,15 +81,11 @@ public class UmlProjectUtils {
 								selection.deselectViewpoint(previouslySelected, session,
 										new NullProgressMonitor());
 							}
-							selection.selectViewpoint(UmlViewpoints.fromViewpointRegistry().capture(),
+						
+							selection.selectViewpoint(UmlViewpoints.fromViewpointRegistry().component(),
 									session, new NullProgressMonitor());
-							selection.selectViewpoint(UmlViewpoints.fromViewpointRegistry().design(),
-									session, new NullProgressMonitor());
-							selection.selectViewpoint(UmlViewpoints.fromViewpointRegistry().review(),
-									session, new NullProgressMonitor());
-							selection.selectViewpoint(UmlViewpoints.fromViewpointRegistry().dashboard(),
-									session, new NullProgressMonitor());
-							selection.selectViewpoint(UmlViewpoints.fromViewpointRegistry().extend(),
+							
+							selection.selectViewpoint(UmlViewpoints.fromViewpointRegistry().c(),
 									session, new NullProgressMonitor());
 						}
 					});

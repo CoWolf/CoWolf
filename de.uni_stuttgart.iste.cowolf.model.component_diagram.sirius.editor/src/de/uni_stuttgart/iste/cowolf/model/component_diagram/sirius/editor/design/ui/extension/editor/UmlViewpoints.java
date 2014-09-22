@@ -22,24 +22,14 @@ public class UmlViewpoints {
 		this.registry = registry;
 	}
 
-	public Viewpoint capture() {
-		return registry.getViewpoint(URI.createURI("viewpoint:/org.obeonetwork.dsl.uml2.design/Capture"));
-	}
+	
 
-	public Viewpoint design() {
-		return registry.getViewpoint(URI.createURI("viewpoint:/org.obeonetwork.dsl.uml2.design/Design"));
+	public Viewpoint component() {
+		return registry.getViewpoint(URI.createURI("viewpoint:/org.obeonetwork.dsl.uml2.design/Component%20Diagram"));
 	}
-
-	public Viewpoint review() {
-		return registry.getViewpoint(URI.createURI("viewpoint:/org.obeonetwork.dsl.uml2.design/Review"));
-	}
-
-	public Viewpoint dashboard() {
-		return registry.getViewpoint(URI.createURI("viewpoint:/org.obeonetwork.dsl.uml2.design/Dashboard"));
-	}
-
-	public Viewpoint extend() {
-		return registry.getViewpoint(URI.createURI("viewpoint:/org.obeonetwork.dsl.uml2.design/Extend"));
+	
+	public Viewpoint c() {
+		return registry.getViewpoint(URI.createURI("viewpoint:/org.obeonetwork.dsl.uml2.design/C"));
 	}
 
 	public static UmlViewpoints fromViewpointRegistry() {

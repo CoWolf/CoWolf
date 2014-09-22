@@ -124,13 +124,11 @@ public class UmlInitDiagramFileAction implements IObjectActionDelegate {
 							selection.deselectViewpoint(previouslySelected, existingSession,
 									new NullProgressMonitor());
 						}
-						selection.selectViewpoint(UmlViewpoints.fromViewpointRegistry().capture(),
+						
+						selection.selectViewpoint(UmlViewpoints.fromViewpointRegistry().component(),
 								existingSession, new NullProgressMonitor());
-						selection.selectViewpoint(UmlViewpoints.fromViewpointRegistry().design(),
-								existingSession, new NullProgressMonitor());
-						selection.selectViewpoint(UmlViewpoints.fromViewpointRegistry().review(),
-								existingSession, new NullProgressMonitor());
-						selection.selectViewpoint(UmlViewpoints.fromViewpointRegistry().extend(),
+						
+						selection.selectViewpoint(UmlViewpoints.fromViewpointRegistry().c(),
 								existingSession, new NullProgressMonitor());
 					}
 				});
