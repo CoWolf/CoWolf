@@ -32,58 +32,31 @@ public interface PCTLFactory extends EFactory
   Start createStart();
 
   /**
-   * Returns a new object of class '<em>Commented Rule</em>'.
+   * Returns a new object of class '<em>Fragment</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Commented Rule</em>'.
+   * @return a new object of class '<em>Fragment</em>'.
    * @generated
    */
-  CommentedRule createCommentedRule();
+  Fragment createFragment();
 
   /**
-   * Returns a new object of class '<em>Pctl</em>'.
+   * Returns a new object of class '<em>Comment</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Pctl</em>'.
+   * @return a new object of class '<em>Comment</em>'.
    * @generated
    */
-  Pctl createPctl();
+  Comment createComment();
 
   /**
-   * Returns a new object of class '<em>State</em>'.
+   * Returns a new object of class '<em>Rule</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>State</em>'.
+   * @return a new object of class '<em>Rule</em>'.
    * @generated
    */
-  State createState();
-
-  /**
-   * Returns a new object of class '<em>Label</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Label</em>'.
-   * @generated
-   */
-  Label createLabel();
-
-  /**
-   * Returns a new object of class '<em>Atomic</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Atomic</em>'.
-   * @generated
-   */
-  Atomic createAtomic();
-
-  /**
-   * Returns a new object of class '<em>Expression</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Expression</em>'.
-   * @generated
-   */
-  Expression createExpression();
+  Rule createRule();
 
   /**
    * Returns a new object of class '<em>Steady State</em>'.
@@ -104,13 +77,76 @@ public interface PCTLFactory extends EFactory
   QuantifiedProbability createQuantifiedProbability();
 
   /**
-   * Returns a new object of class '<em>Probability</em>'.
+   * Returns a new object of class '<em>Boolean Rule</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Probability</em>'.
+   * @return a new object of class '<em>Boolean Rule</em>'.
    * @generated
    */
-  Probability createProbability();
+  BooleanRule createBooleanRule();
+
+  /**
+   * Returns a new object of class '<em>State Formula</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>State Formula</em>'.
+   * @generated
+   */
+  StateFormula createStateFormula();
+
+  /**
+   * Returns a new object of class '<em>State Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>State Expression</em>'.
+   * @generated
+   */
+  StateExpression createStateExpression();
+
+  /**
+   * Returns a new object of class '<em>Right State Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Right State Expression</em>'.
+   * @generated
+   */
+  RightStateExpression createRightStateExpression();
+
+  /**
+   * Returns a new object of class '<em>State</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>State</em>'.
+   * @generated
+   */
+  State createState();
+
+  /**
+   * Returns a new object of class '<em>Label</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Label</em>'.
+   * @generated
+   */
+  Label createLabel();
+
+  /**
+   * Returns a new object of class '<em>Boolean</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Boolean</em>'.
+   * @generated
+   */
+  Boolean createBoolean();
+
+  /**
+   * Returns a new object of class '<em>Path Formula</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Path Formula</em>'.
+   * @generated
+   */
+  PathFormula createPathFormula();
 
   /**
    * Returns a new object of class '<em>Until</em>'.
@@ -149,13 +185,22 @@ public interface PCTLFactory extends EFactory
   Globally createGlobally();
 
   /**
-   * Returns a new object of class '<em>Implication</em>'.
+   * Returns a new object of class '<em>Compare Probability</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Implication</em>'.
+   * @return a new object of class '<em>Compare Probability</em>'.
    * @generated
    */
-  Implication createImplication();
+  CompareProbability createCompareProbability();
+
+  /**
+   * Returns a new object of class '<em>Time Bound</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Time Bound</em>'.
+   * @generated
+   */
+  TimeBound createTimeBound();
 
   /**
    * Returns a new object of class '<em>Conjunction</em>'.
@@ -174,6 +219,15 @@ public interface PCTLFactory extends EFactory
    * @generated
    */
   Disjunction createDisjunction();
+
+  /**
+   * Returns a new object of class '<em>Probability</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Probability</em>'.
+   * @generated
+   */
+  Probability createProbability();
 
   /**
    * Returns the package supported by this factory.

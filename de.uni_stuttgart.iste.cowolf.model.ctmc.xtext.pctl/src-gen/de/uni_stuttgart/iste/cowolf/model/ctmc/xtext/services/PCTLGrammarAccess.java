@@ -20,76 +20,72 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public class StartElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Start");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cStartAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cStartCommentedRuleParserRuleCall_0_0 = (RuleCall)cStartAssignment_0.eContents().get(0);
-		private final Assignment cStartAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cStartStartParserRuleCall_1_0 = (RuleCall)cStartAssignment_1.eContents().get(0);
+		private final Assignment cRuleAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cRuleFragmentParserRuleCall_0 = (RuleCall)cRuleAssignment.eContents().get(0);
 		
 		//Start:
-		//	start=CommentedRule start=Start?;
+		//	rule+=Fragment*;
 		public ParserRule getRule() { return rule; }
 
-		//start=CommentedRule start=Start?
-		public Group getGroup() { return cGroup; }
+		//rule+=Fragment*
+		public Assignment getRuleAssignment() { return cRuleAssignment; }
 
-		//start=CommentedRule
-		public Assignment getStartAssignment_0() { return cStartAssignment_0; }
-
-		//CommentedRule
-		public RuleCall getStartCommentedRuleParserRuleCall_0_0() { return cStartCommentedRuleParserRuleCall_0_0; }
-
-		//start=Start?
-		public Assignment getStartAssignment_1() { return cStartAssignment_1; }
-
-		//Start
-		public RuleCall getStartStartParserRuleCall_1_0() { return cStartStartParserRuleCall_1_0; }
+		//Fragment
+		public RuleCall getRuleFragmentParserRuleCall_0() { return cRuleFragmentParserRuleCall_0; }
 	}
 
-	public class CommentedRuleElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "CommentedRule");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cCommentAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cCommentSL_COMMENTTerminalRuleCall_0_0 = (RuleCall)cCommentAssignment_0.eContents().get(0);
-		private final Assignment cRuleAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cRulePctlParserRuleCall_1_0 = (RuleCall)cRuleAssignment_1.eContents().get(0);
+	public class FragmentElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Fragment");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cCommentParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cRuleParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
-		//CommentedRule:
-		//	comment=SL_COMMENT? rule=Pctl;
+		//Fragment:
+		//	Comment | Rule;
 		public ParserRule getRule() { return rule; }
 
-		//comment=SL_COMMENT? rule=Pctl
-		public Group getGroup() { return cGroup; }
+		//Comment | Rule
+		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//comment=SL_COMMENT?
-		public Assignment getCommentAssignment_0() { return cCommentAssignment_0; }
+		//Comment
+		public RuleCall getCommentParserRuleCall_0() { return cCommentParserRuleCall_0; }
+
+		//Rule
+		public RuleCall getRuleParserRuleCall_1() { return cRuleParserRuleCall_1; }
+	}
+
+	public class CommentElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Comment");
+		private final Assignment cCommentAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cCommentSL_COMMENTTerminalRuleCall_0 = (RuleCall)cCommentAssignment.eContents().get(0);
+		
+		//Comment:
+		//	comment=SL_COMMENT;
+		public ParserRule getRule() { return rule; }
+
+		//comment=SL_COMMENT
+		public Assignment getCommentAssignment() { return cCommentAssignment; }
 
 		//SL_COMMENT
-		public RuleCall getCommentSL_COMMENTTerminalRuleCall_0_0() { return cCommentSL_COMMENTTerminalRuleCall_0_0; }
-
-		//rule=Pctl
-		public Assignment getRuleAssignment_1() { return cRuleAssignment_1; }
-
-		//Pctl
-		public RuleCall getRulePctlParserRuleCall_1_0() { return cRulePctlParserRuleCall_1_0; }
+		public RuleCall getCommentSL_COMMENTTerminalRuleCall_0() { return cCommentSL_COMMENTTerminalRuleCall_0; }
 	}
 
-	public class PctlElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Pctl");
+	public class RuleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Rule");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cStateFormulaParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cBooleanRuleParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cSteadyStateParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cQuantifiedProbabilityParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
-		//Pctl:
-		//	StateFormula | SteadyState | QuantifiedProbability;
+		//Rule hidden(WS):
+		//	BooleanRule | SteadyState | QuantifiedProbability;
 		public ParserRule getRule() { return rule; }
 
-		//StateFormula | SteadyState | QuantifiedProbability
+		//BooleanRule | SteadyState | QuantifiedProbability
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//StateFormula
-		public RuleCall getStateFormulaParserRuleCall_0() { return cStateFormulaParserRuleCall_0; }
+		//BooleanRule
+		public RuleCall getBooleanRuleParserRuleCall_0() { return cBooleanRuleParserRuleCall_0; }
 
 		//SteadyState
 		public RuleCall getSteadyStateParserRuleCall_1() { return cSteadyStateParserRuleCall_1; }
@@ -98,76 +94,213 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getQuantifiedProbabilityParserRuleCall_2() { return cQuantifiedProbabilityParserRuleCall_2; }
 	}
 
-	public class StateElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "State");
+	public class SteadyStateElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SteadyState");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cStateKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cSKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
+		private final Assignment cBoundAssignment_2_0 = (Assignment)cAlternatives_2.eContents().get(0);
+		private final RuleCall cBoundCompareProbabilityParserRuleCall_2_0_0 = (RuleCall)cBoundAssignment_2_0.eContents().get(0);
+		private final Keyword cEqualsSignQuestionMarkKeyword_2_1 = (Keyword)cAlternatives_2.eContents().get(1);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		private final Keyword cLeftSquareBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final Assignment cValueAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cValueStateFormulaParserRuleCall_6_0 = (RuleCall)cValueAssignment_6.eContents().get(0);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_7 = (RuleCall)cGroup.eContents().get(7);
+		private final Keyword cRightSquareBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
-		//State:
-		//	"State:" name=ID;
+		//SteadyState:
+		//	"S" SL_COMMENT* (bound=CompareProbability | "=?") SL_COMMENT* "[" SL_COMMENT* value=StateFormula SL_COMMENT* "]";
 		public ParserRule getRule() { return rule; }
 
-		//"State:" name=ID
+		//"S" SL_COMMENT* (bound=CompareProbability | "=?") SL_COMMENT* "[" SL_COMMENT* value=StateFormula SL_COMMENT* "]"
 		public Group getGroup() { return cGroup; }
 
-		//"State:"
-		public Keyword getStateKeyword_0() { return cStateKeyword_0; }
+		//"S"
+		public Keyword getSKeyword_0() { return cSKeyword_0; }
 
-		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		//SL_COMMENT*
+		public RuleCall getSL_COMMENTTerminalRuleCall_1() { return cSL_COMMENTTerminalRuleCall_1; }
 
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		//bound=CompareProbability | "=?"
+		public Alternatives getAlternatives_2() { return cAlternatives_2; }
+
+		//bound=CompareProbability
+		public Assignment getBoundAssignment_2_0() { return cBoundAssignment_2_0; }
+
+		//CompareProbability
+		public RuleCall getBoundCompareProbabilityParserRuleCall_2_0_0() { return cBoundCompareProbabilityParserRuleCall_2_0_0; }
+
+		//"=?"
+		public Keyword getEqualsSignQuestionMarkKeyword_2_1() { return cEqualsSignQuestionMarkKeyword_2_1; }
+
+		//SL_COMMENT*
+		public RuleCall getSL_COMMENTTerminalRuleCall_3() { return cSL_COMMENTTerminalRuleCall_3; }
+
+		//"["
+		public Keyword getLeftSquareBracketKeyword_4() { return cLeftSquareBracketKeyword_4; }
+
+		//SL_COMMENT*
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//value=StateFormula
+		public Assignment getValueAssignment_6() { return cValueAssignment_6; }
+
+		//StateFormula
+		public RuleCall getValueStateFormulaParserRuleCall_6_0() { return cValueStateFormulaParserRuleCall_6_0; }
+
+		//SL_COMMENT*
+		public RuleCall getSL_COMMENTTerminalRuleCall_7() { return cSL_COMMENTTerminalRuleCall_7; }
+
+		//"]"
+		public Keyword getRightSquareBracketKeyword_8() { return cRightSquareBracketKeyword_8; }
 	}
 
-	public class LabelElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Label");
+	public class QuantifiedProbabilityElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "QuantifiedProbability");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cLabelKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cPKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Keyword cEqualsSignQuestionMarkKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		private final Keyword cLeftSquareBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cValueAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cValuePathFormulaParserRuleCall_5_0 = (RuleCall)cValueAssignment_5.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
-		//Label:
-		//	"Label:" name=ID;
+		//QuantifiedProbability:
+		//	"P" SL_COMMENT* "=?" SL_COMMENT* "[" value=PathFormula "]";
 		public ParserRule getRule() { return rule; }
 
-		//"Label:" name=ID
+		//"P" SL_COMMENT* "=?" SL_COMMENT* "[" value=PathFormula "]"
 		public Group getGroup() { return cGroup; }
 
-		//"Label:"
-		public Keyword getLabelKeyword_0() { return cLabelKeyword_0; }
+		//"P"
+		public Keyword getPKeyword_0() { return cPKeyword_0; }
 
-		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		//SL_COMMENT*
+		public RuleCall getSL_COMMENTTerminalRuleCall_1() { return cSL_COMMENTTerminalRuleCall_1; }
 
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		//"=?"
+		public Keyword getEqualsSignQuestionMarkKeyword_2() { return cEqualsSignQuestionMarkKeyword_2; }
+
+		//SL_COMMENT*
+		public RuleCall getSL_COMMENTTerminalRuleCall_3() { return cSL_COMMENTTerminalRuleCall_3; }
+
+		//"["
+		public Keyword getLeftSquareBracketKeyword_4() { return cLeftSquareBracketKeyword_4; }
+
+		//value=PathFormula
+		public Assignment getValueAssignment_5() { return cValueAssignment_5; }
+
+		//PathFormula
+		public RuleCall getValuePathFormulaParserRuleCall_5_0() { return cValuePathFormulaParserRuleCall_5_0; }
+
+		//"]"
+		public Keyword getRightSquareBracketKeyword_6() { return cRightSquareBracketKeyword_6; }
 	}
 
-	public class AtomicElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Atomic");
+	public class BooleanRuleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "BooleanRule");
+		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cValueStateFormulaParserRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
+		
+		//BooleanRule:
+		//	value=StateFormula;
+		public ParserRule getRule() { return rule; }
+
+		//value=StateFormula
+		public Assignment getValueAssignment() { return cValueAssignment; }
+
+		//StateFormula
+		public RuleCall getValueStateFormulaParserRuleCall_0() { return cValueStateFormulaParserRuleCall_0; }
+	}
+
+	public class StateFormulaElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "StateFormula");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cStateParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cLabelParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cBOOLTerminalRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_0_1 = (RuleCall)cGroup_0.eContents().get(1);
+		private final Assignment cLeftAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
+		private final RuleCall cLeftStateFormulaParserRuleCall_0_2_0 = (RuleCall)cLeftAssignment_0_2.eContents().get(0);
+		private final Alternatives cAlternatives_0_3 = (Alternatives)cGroup_0.eContents().get(3);
+		private final Assignment cRightAssignment_0_3_0 = (Assignment)cAlternatives_0_3.eContents().get(0);
+		private final RuleCall cRightJunctionParserRuleCall_0_3_0_0 = (RuleCall)cRightAssignment_0_3_0.eContents().get(0);
+		private final Assignment cRightAssignment_0_3_1 = (Assignment)cAlternatives_0_3.eContents().get(1);
+		private final RuleCall cRightImplicationParserRuleCall_0_3_1_0 = (RuleCall)cRightAssignment_0_3_1.eContents().get(0);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_0_4 = (RuleCall)cGroup_0.eContents().get(4);
+		private final Keyword cRightParenthesisKeyword_0_5 = (Keyword)cGroup_0.eContents().get(5);
+		private final Assignment cLeftAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final Alternatives cLeftAlternatives_1_0 = (Alternatives)cLeftAssignment_1.eContents().get(0);
+		private final RuleCall cLeftNegationParserRuleCall_1_0_0 = (RuleCall)cLeftAlternatives_1_0.eContents().get(0);
+		private final RuleCall cLeftAtomicParserRuleCall_1_0_1 = (RuleCall)cLeftAlternatives_1_0.eContents().get(1);
+		private final RuleCall cLeftProbabilityParserRuleCall_1_0_2 = (RuleCall)cLeftAlternatives_1_0.eContents().get(2);
 		
-		//Atomic:
-		//	State | Label | BOOL;
+		////###########################################################
+		////#             State Formular expressions                  #
+		////###########################################################
+		//StateFormula:
+		//	"(" SL_COMMENT* left=StateFormula (right=Junction | right=Implication)? SL_COMMENT* ")" | left=(Negation | Atomic |
+		//	Probability);
 		public ParserRule getRule() { return rule; }
 
-		//State | Label | BOOL
+		//"(" SL_COMMENT* left=StateFormula (right=Junction | right=Implication)? SL_COMMENT* ")" | left=(Negation | Atomic |
+		//Probability)
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//State
-		public RuleCall getStateParserRuleCall_0() { return cStateParserRuleCall_0; }
+		//"(" SL_COMMENT* left=StateFormula (right=Junction | right=Implication)? SL_COMMENT* ")"
+		public Group getGroup_0() { return cGroup_0; }
 
-		//Label
-		public RuleCall getLabelParserRuleCall_1() { return cLabelParserRuleCall_1; }
+		//"("
+		public Keyword getLeftParenthesisKeyword_0_0() { return cLeftParenthesisKeyword_0_0; }
 
-		//BOOL
-		public RuleCall getBOOLTerminalRuleCall_2() { return cBOOLTerminalRuleCall_2; }
+		//SL_COMMENT*
+		public RuleCall getSL_COMMENTTerminalRuleCall_0_1() { return cSL_COMMENTTerminalRuleCall_0_1; }
+
+		//left=StateFormula
+		public Assignment getLeftAssignment_0_2() { return cLeftAssignment_0_2; }
+
+		//StateFormula
+		public RuleCall getLeftStateFormulaParserRuleCall_0_2_0() { return cLeftStateFormulaParserRuleCall_0_2_0; }
+
+		//(right=Junction | right=Implication)?
+		public Alternatives getAlternatives_0_3() { return cAlternatives_0_3; }
+
+		//right=Junction
+		public Assignment getRightAssignment_0_3_0() { return cRightAssignment_0_3_0; }
+
+		//Junction
+		public RuleCall getRightJunctionParserRuleCall_0_3_0_0() { return cRightJunctionParserRuleCall_0_3_0_0; }
+
+		//right=Implication
+		public Assignment getRightAssignment_0_3_1() { return cRightAssignment_0_3_1; }
+
+		//Implication
+		public RuleCall getRightImplicationParserRuleCall_0_3_1_0() { return cRightImplicationParserRuleCall_0_3_1_0; }
+
+		//SL_COMMENT*
+		public RuleCall getSL_COMMENTTerminalRuleCall_0_4() { return cSL_COMMENTTerminalRuleCall_0_4; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_0_5() { return cRightParenthesisKeyword_0_5; }
+
+		//left=(Negation | Atomic | Probability)
+		public Assignment getLeftAssignment_1() { return cLeftAssignment_1; }
+
+		//Negation | Atomic | Probability
+		public Alternatives getLeftAlternatives_1_0() { return cLeftAlternatives_1_0; }
+
+		//Negation
+		public RuleCall getLeftNegationParserRuleCall_1_0_0() { return cLeftNegationParserRuleCall_1_0_0; }
+
+		//Atomic
+		public RuleCall getLeftAtomicParserRuleCall_1_0_1() { return cLeftAtomicParserRuleCall_1_0_1; }
+
+		//Probability
+		public RuleCall getLeftProbabilityParserRuleCall_1_0_2() { return cLeftProbabilityParserRuleCall_1_0_2; }
 	}
 
 	public class NegationElements extends AbstractParserRuleElementFinder {
@@ -176,7 +309,7 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cExclamationMarkKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final RuleCall cStateFormulaParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		
-		//Negation returns Expression:
+		//Negation returns StateExpression:
 		//	"!" StateFormula;
 		public ParserRule getRule() { return rule; }
 
@@ -196,7 +329,7 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cConjunctionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cDisjunctionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
-		//Junction returns Expression:
+		//Junction returns RightStateExpression hidden(WS, SL_COMMENT):
 		//	Conjunction | Disjunction;
 		public ParserRule getRule() { return rule; }
 
@@ -221,7 +354,7 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRightAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
 		private final RuleCall cRightStateFormulaParserRuleCall_2_2_0 = (RuleCall)cRightAssignment_2_2.eContents().get(0);
 		
-		//Conjunction returns Expression:
+		//Conjunction returns RightStateExpression:
 		//	"&" StateFormula ({Conjunction.left=current} "&" right=StateFormula)*;
 		public ParserRule getRule() { return rule; }
 
@@ -261,7 +394,7 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRightAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
 		private final RuleCall cRightStateFormulaParserRuleCall_2_2_0 = (RuleCall)cRightAssignment_2_2.eContents().get(0);
 		
-		//Disjunction returns Expression:
+		//Disjunction returns RightStateExpression:
 		//	"|" StateFormula ({Disjunction.left=current} "|" right=StateFormula)*;
 		public ParserRule getRule() { return rule; }
 
@@ -290,72 +423,168 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getRightStateFormulaParserRuleCall_2_2_0() { return cRightStateFormulaParserRuleCall_2_2_0; }
 	}
 
-	public class StateFormulaElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "StateFormula");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
-		private final Assignment cLeftAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
-		private final RuleCall cLeftStateFormulaParserRuleCall_0_1_0 = (RuleCall)cLeftAssignment_0_1.eContents().get(0);
-		private final Alternatives cAlternatives_0_2 = (Alternatives)cGroup_0.eContents().get(2);
-		private final Assignment cRightAssignment_0_2_0 = (Assignment)cAlternatives_0_2.eContents().get(0);
-		private final RuleCall cRightJunctionParserRuleCall_0_2_0_0 = (RuleCall)cRightAssignment_0_2_0.eContents().get(0);
-		private final Assignment cRightAssignment_0_2_1 = (Assignment)cAlternatives_0_2.eContents().get(1);
-		private final RuleCall cRightImplicationParserRuleCall_0_2_1_0 = (RuleCall)cRightAssignment_0_2_1.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_0_3 = (Keyword)cGroup_0.eContents().get(3);
-		private final RuleCall cNegationParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cAtomicParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final Assignment cLeftAssignment_3 = (Assignment)cAlternatives.eContents().get(3);
-		private final RuleCall cLeftProbabilityParserRuleCall_3_0 = (RuleCall)cLeftAssignment_3.eContents().get(0);
+	public class ImplicationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Implication");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cEqualsSignGreaterThanSignKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cRightAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cRightStateFormulaParserRuleCall_1_0 = (RuleCall)cRightAssignment_1.eContents().get(0);
 		
-		//StateFormula returns Expression:
-		//	"(" left=StateFormula (right=Junction | right=Implication)? ")" | Negation | Atomic | left=Probability;
+		//Implication returns RightStateExpression hidden(WS, SL_COMMENT):
+		//	"=>" right=StateFormula;
 		public ParserRule getRule() { return rule; }
 
-		//"(" left=StateFormula (right=Junction | right=Implication)? ")" | Negation | Atomic | left=Probability
-		public Alternatives getAlternatives() { return cAlternatives; }
+		//"=>" right=StateFormula
+		public Group getGroup() { return cGroup; }
 
-		//"(" left=StateFormula (right=Junction | right=Implication)? ")"
-		public Group getGroup_0() { return cGroup_0; }
+		//"=>"
+		public Keyword getEqualsSignGreaterThanSignKeyword_0() { return cEqualsSignGreaterThanSignKeyword_0; }
 
-		//"("
-		public Keyword getLeftParenthesisKeyword_0_0() { return cLeftParenthesisKeyword_0_0; }
-
-		//left=StateFormula
-		public Assignment getLeftAssignment_0_1() { return cLeftAssignment_0_1; }
+		//right=StateFormula
+		public Assignment getRightAssignment_1() { return cRightAssignment_1; }
 
 		//StateFormula
-		public RuleCall getLeftStateFormulaParserRuleCall_0_1_0() { return cLeftStateFormulaParserRuleCall_0_1_0; }
+		public RuleCall getRightStateFormulaParserRuleCall_1_0() { return cRightStateFormulaParserRuleCall_1_0; }
+	}
 
-		//(right=Junction | right=Implication)?
-		public Alternatives getAlternatives_0_2() { return cAlternatives_0_2; }
+	public class ProbabilityElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Probability");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cPKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Action cProbabilityAction_2 = (Action)cGroup.eContents().get(2);
+		private final Assignment cComparatorAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cComparatorCompareProbabilityParserRuleCall_3_0 = (RuleCall)cComparatorAssignment_3.eContents().get(0);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final Keyword cLeftSquareBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cPathAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cPathPathFormulaParserRuleCall_6_0 = (RuleCall)cPathAssignment_6.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		
+		//Probability returns StateExpression:
+		//	"P" SL_COMMENT* {Probability} comparator=CompareProbability SL_COMMENT* "[" path=PathFormula "]";
+		public ParserRule getRule() { return rule; }
 
-		//right=Junction
-		public Assignment getRightAssignment_0_2_0() { return cRightAssignment_0_2_0; }
+		//"P" SL_COMMENT* {Probability} comparator=CompareProbability SL_COMMENT* "[" path=PathFormula "]"
+		public Group getGroup() { return cGroup; }
 
-		//Junction
-		public RuleCall getRightJunctionParserRuleCall_0_2_0_0() { return cRightJunctionParserRuleCall_0_2_0_0; }
+		//"P"
+		public Keyword getPKeyword_0() { return cPKeyword_0; }
 
-		//right=Implication
-		public Assignment getRightAssignment_0_2_1() { return cRightAssignment_0_2_1; }
+		//SL_COMMENT*
+		public RuleCall getSL_COMMENTTerminalRuleCall_1() { return cSL_COMMENTTerminalRuleCall_1; }
 
-		//Implication
-		public RuleCall getRightImplicationParserRuleCall_0_2_1_0() { return cRightImplicationParserRuleCall_0_2_1_0; }
+		//{Probability}
+		public Action getProbabilityAction_2() { return cProbabilityAction_2; }
 
-		//")"
-		public Keyword getRightParenthesisKeyword_0_3() { return cRightParenthesisKeyword_0_3; }
+		//comparator=CompareProbability
+		public Assignment getComparatorAssignment_3() { return cComparatorAssignment_3; }
 
-		//Negation
-		public RuleCall getNegationParserRuleCall_1() { return cNegationParserRuleCall_1; }
+		//CompareProbability
+		public RuleCall getComparatorCompareProbabilityParserRuleCall_3_0() { return cComparatorCompareProbabilityParserRuleCall_3_0; }
 
-		//Atomic
-		public RuleCall getAtomicParserRuleCall_2() { return cAtomicParserRuleCall_2; }
+		//SL_COMMENT*
+		public RuleCall getSL_COMMENTTerminalRuleCall_4() { return cSL_COMMENTTerminalRuleCall_4; }
 
-		//left=Probability
-		public Assignment getLeftAssignment_3() { return cLeftAssignment_3; }
+		//"["
+		public Keyword getLeftSquareBracketKeyword_5() { return cLeftSquareBracketKeyword_5; }
 
-		//Probability
-		public RuleCall getLeftProbabilityParserRuleCall_3_0() { return cLeftProbabilityParserRuleCall_3_0; }
+		//path=PathFormula
+		public Assignment getPathAssignment_6() { return cPathAssignment_6; }
+
+		//PathFormula
+		public RuleCall getPathPathFormulaParserRuleCall_6_0() { return cPathPathFormulaParserRuleCall_6_0; }
+
+		//"]"
+		public Keyword getRightSquareBracketKeyword_7() { return cRightSquareBracketKeyword_7; }
+	}
+
+	public class AtomicElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Atomic");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cStateParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cLabelParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cBooleanParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		
+		//Atomic returns StateExpression:
+		//	State | Label | Boolean;
+		public ParserRule getRule() { return rule; }
+
+		//State | Label | Boolean
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//State
+		public RuleCall getStateParserRuleCall_0() { return cStateParserRuleCall_0; }
+
+		//Label
+		public RuleCall getLabelParserRuleCall_1() { return cLabelParserRuleCall_1; }
+
+		//Boolean
+		public RuleCall getBooleanParserRuleCall_2() { return cBooleanParserRuleCall_2; }
+	}
+
+	public class StateElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "State");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cStateKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueSTRINGTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		
+		//State:
+		//	"State:" value=STRING;
+		public ParserRule getRule() { return rule; }
+
+		//"State:" value=STRING
+		public Group getGroup() { return cGroup; }
+
+		//"State:"
+		public Keyword getStateKeyword_0() { return cStateKeyword_0; }
+
+		//value=STRING
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//STRING
+		public RuleCall getValueSTRINGTerminalRuleCall_1_0() { return cValueSTRINGTerminalRuleCall_1_0; }
+	}
+
+	public class LabelElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Label");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLabelKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueSTRINGTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		
+		//Label:
+		//	"Label:" value=STRING;
+		public ParserRule getRule() { return rule; }
+
+		//"Label:" value=STRING
+		public Group getGroup() { return cGroup; }
+
+		//"Label:"
+		public Keyword getLabelKeyword_0() { return cLabelKeyword_0; }
+
+		//value=STRING
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//STRING
+		public RuleCall getValueSTRINGTerminalRuleCall_1_0() { return cValueSTRINGTerminalRuleCall_1_0; }
+	}
+
+	public class BooleanElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Boolean");
+		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cValueBOOLTerminalRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
+		
+		//Boolean:
+		//	value=BOOL;
+		public ParserRule getRule() { return rule; }
+
+		//value=BOOL
+		public Assignment getValueAssignment() { return cValueAssignment; }
+
+		//BOOL
+		public RuleCall getValueBOOLTerminalRuleCall_0() { return cValueBOOLTerminalRuleCall_0; }
 	}
 
 	public class PathFormulaElements extends AbstractParserRuleElementFinder {
@@ -366,7 +595,10 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cFutureParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cGloballyParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
-		//PathFormula returns Expression:
+		////###########################################################
+		////#             Path Formular expressions                  #
+		////###########################################################
+		//PathFormula hidden(WS, SL_COMMENT):
 		//	Next | Until | Future | Globally;
 		public ParserRule getRule() { return rule; }
 
@@ -386,132 +618,26 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getGloballyParserRuleCall_3() { return cGloballyParserRuleCall_3; }
 	}
 
-	public class SteadyStateElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SteadyState");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cSKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final RuleCall cCompareProbabilityParserRuleCall_1_0 = (RuleCall)cAlternatives_1.eContents().get(0);
-		private final Keyword cEqualsSignQuestionMarkKeyword_1_1 = (Keyword)cAlternatives_1.eContents().get(1);
-		private final Keyword cLeftSquareBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final RuleCall cStateFormulaParserRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
-		private final Keyword cRightSquareBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		
-		//SteadyState:
-		//	"S" (CompareProbability | "=?") "[" StateFormula "]";
-		public ParserRule getRule() { return rule; }
-
-		//"S" (CompareProbability | "=?") "[" StateFormula "]"
-		public Group getGroup() { return cGroup; }
-
-		//"S"
-		public Keyword getSKeyword_0() { return cSKeyword_0; }
-
-		//CompareProbability | "=?"
-		public Alternatives getAlternatives_1() { return cAlternatives_1; }
-
-		//CompareProbability
-		public RuleCall getCompareProbabilityParserRuleCall_1_0() { return cCompareProbabilityParserRuleCall_1_0; }
-
-		//"=?"
-		public Keyword getEqualsSignQuestionMarkKeyword_1_1() { return cEqualsSignQuestionMarkKeyword_1_1; }
-
-		//"["
-		public Keyword getLeftSquareBracketKeyword_2() { return cLeftSquareBracketKeyword_2; }
-
-		//StateFormula
-		public RuleCall getStateFormulaParserRuleCall_3() { return cStateFormulaParserRuleCall_3; }
-
-		//"]"
-		public Keyword getRightSquareBracketKeyword_4() { return cRightSquareBracketKeyword_4; }
-	}
-
-	public class QuantifiedProbabilityElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "QuantifiedProbability");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
-		private final Keyword cPKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
-		private final Keyword cEqualsSignQuestionMarkKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
-		private final Keyword cLeftSquareBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final RuleCall cPathFormulaParserRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
-		private final Keyword cRightSquareBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		
-		//QuantifiedProbability:
-		//	("P" "=?") "[" PathFormula "]";
-		public ParserRule getRule() { return rule; }
-
-		//("P" "=?") "[" PathFormula "]"
-		public Group getGroup() { return cGroup; }
-
-		//"P" "=?"
-		public Group getGroup_0() { return cGroup_0; }
-
-		//"P"
-		public Keyword getPKeyword_0_0() { return cPKeyword_0_0; }
-
-		//"=?"
-		public Keyword getEqualsSignQuestionMarkKeyword_0_1() { return cEqualsSignQuestionMarkKeyword_0_1; }
-
-		//"["
-		public Keyword getLeftSquareBracketKeyword_1() { return cLeftSquareBracketKeyword_1; }
-
-		//PathFormula
-		public RuleCall getPathFormulaParserRuleCall_2() { return cPathFormulaParserRuleCall_2; }
-
-		//"]"
-		public Keyword getRightSquareBracketKeyword_3() { return cRightSquareBracketKeyword_3; }
-	}
-
-	public class ProbabilityElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Probability");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cPKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final RuleCall cCompareProbabilityParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
-		private final Keyword cLeftSquareBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final RuleCall cPathFormulaParserRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
-		private final Keyword cRightSquareBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		
-		//Probability:
-		//	"P" CompareProbability "[" PathFormula "]";
-		public ParserRule getRule() { return rule; }
-
-		//"P" CompareProbability "[" PathFormula "]"
-		public Group getGroup() { return cGroup; }
-
-		//"P"
-		public Keyword getPKeyword_0() { return cPKeyword_0; }
-
-		//CompareProbability
-		public RuleCall getCompareProbabilityParserRuleCall_1() { return cCompareProbabilityParserRuleCall_1; }
-
-		//"["
-		public Keyword getLeftSquareBracketKeyword_2() { return cLeftSquareBracketKeyword_2; }
-
-		//PathFormula
-		public RuleCall getPathFormulaParserRuleCall_3() { return cPathFormulaParserRuleCall_3; }
-
-		//"]"
-		public Keyword getRightSquareBracketKeyword_4() { return cRightSquareBracketKeyword_4; }
-	}
-
 	public class UntilElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Until");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cLeftAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cLeftStateFormulaParserRuleCall_0_0 = (RuleCall)cLeftAssignment_0.eContents().get(0);
-		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final Keyword cUKeyword_1_0 = (Keyword)cAlternatives_1.eContents().get(0);
-		private final Keyword cWKeyword_1_1 = (Keyword)cAlternatives_1.eContents().get(1);
-		private final Keyword cRKeyword_1_2 = (Keyword)cAlternatives_1.eContents().get(2);
-		private final RuleCall cTimeBoundParserRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Alternatives cTypeAlternatives_1_0 = (Alternatives)cTypeAssignment_1.eContents().get(0);
+		private final Keyword cTypeUKeyword_1_0_0 = (Keyword)cTypeAlternatives_1_0.eContents().get(0);
+		private final Keyword cTypeWKeyword_1_0_1 = (Keyword)cTypeAlternatives_1_0.eContents().get(1);
+		private final Keyword cTypeRKeyword_1_0_2 = (Keyword)cTypeAlternatives_1_0.eContents().get(2);
+		private final Assignment cBoundAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cBoundTimeBoundParserRuleCall_2_0 = (RuleCall)cBoundAssignment_2.eContents().get(0);
 		private final Assignment cRightAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cRightStateFormulaParserRuleCall_3_0 = (RuleCall)cRightAssignment_3.eContents().get(0);
 		
 		//Until:
-		//	left=StateFormula ("U" | "W" | "R") TimeBound? right=StateFormula;
+		//	left=StateFormula type=("U" | "W" | "R") bound=TimeBound? right=StateFormula;
 		public ParserRule getRule() { return rule; }
 
-		//left=StateFormula ("U" | "W" | "R") TimeBound? right=StateFormula
+		//left=StateFormula type=("U" | "W" | "R") bound=TimeBound? right=StateFormula
 		public Group getGroup() { return cGroup; }
 
 		//left=StateFormula
@@ -520,20 +646,26 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 		//StateFormula
 		public RuleCall getLeftStateFormulaParserRuleCall_0_0() { return cLeftStateFormulaParserRuleCall_0_0; }
 
+		//type=("U" | "W" | "R")
+		public Assignment getTypeAssignment_1() { return cTypeAssignment_1; }
+
 		//"U" | "W" | "R"
-		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		public Alternatives getTypeAlternatives_1_0() { return cTypeAlternatives_1_0; }
 
 		//"U"
-		public Keyword getUKeyword_1_0() { return cUKeyword_1_0; }
+		public Keyword getTypeUKeyword_1_0_0() { return cTypeUKeyword_1_0_0; }
 
 		//"W"
-		public Keyword getWKeyword_1_1() { return cWKeyword_1_1; }
+		public Keyword getTypeWKeyword_1_0_1() { return cTypeWKeyword_1_0_1; }
 
 		//"R"
-		public Keyword getRKeyword_1_2() { return cRKeyword_1_2; }
+		public Keyword getTypeRKeyword_1_0_2() { return cTypeRKeyword_1_0_2; }
 
-		//TimeBound?
-		public RuleCall getTimeBoundParserRuleCall_2() { return cTimeBoundParserRuleCall_2; }
+		//bound=TimeBound?
+		public Assignment getBoundAssignment_2() { return cBoundAssignment_2; }
+
+		//TimeBound
+		public RuleCall getBoundTimeBoundParserRuleCall_2_0() { return cBoundTimeBoundParserRuleCall_2_0; }
 
 		//right=StateFormula
 		public Assignment getRightAssignment_3() { return cRightAssignment_3; }
@@ -546,225 +678,197 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Next");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cXKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final RuleCall cTimeBoundParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
-		private final Assignment cRightAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cRightStateFormulaParserRuleCall_2_0 = (RuleCall)cRightAssignment_2.eContents().get(0);
+		private final Assignment cBoundAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cBoundTimeBoundParserRuleCall_1_0 = (RuleCall)cBoundAssignment_1.eContents().get(0);
+		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cValueStateFormulaParserRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
 		
 		//Next:
-		//	"X" TimeBound? right=StateFormula;
+		//	"X" bound=TimeBound? value=StateFormula;
 		public ParserRule getRule() { return rule; }
 
-		//"X" TimeBound? right=StateFormula
+		//"X" bound=TimeBound? value=StateFormula
 		public Group getGroup() { return cGroup; }
 
 		//"X"
 		public Keyword getXKeyword_0() { return cXKeyword_0; }
 
-		//TimeBound?
-		public RuleCall getTimeBoundParserRuleCall_1() { return cTimeBoundParserRuleCall_1; }
+		//bound=TimeBound?
+		public Assignment getBoundAssignment_1() { return cBoundAssignment_1; }
 
-		//right=StateFormula
-		public Assignment getRightAssignment_2() { return cRightAssignment_2; }
+		//TimeBound
+		public RuleCall getBoundTimeBoundParserRuleCall_1_0() { return cBoundTimeBoundParserRuleCall_1_0; }
+
+		//value=StateFormula
+		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
 
 		//StateFormula
-		public RuleCall getRightStateFormulaParserRuleCall_2_0() { return cRightStateFormulaParserRuleCall_2_0; }
+		public RuleCall getValueStateFormulaParserRuleCall_2_0() { return cValueStateFormulaParserRuleCall_2_0; }
 	}
 
 	public class FutureElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Future");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cFKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final RuleCall cTimeBoundParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
-		private final Assignment cRightAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cRightStateFormulaParserRuleCall_2_0 = (RuleCall)cRightAssignment_2.eContents().get(0);
+		private final Assignment cBoundAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cBoundTimeBoundParserRuleCall_1_0 = (RuleCall)cBoundAssignment_1.eContents().get(0);
+		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cValueStateFormulaParserRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
 		
 		//Future:
-		//	"F" TimeBound? right=StateFormula;
+		//	"F" bound=TimeBound? value=StateFormula;
 		public ParserRule getRule() { return rule; }
 
-		//"F" TimeBound? right=StateFormula
+		//"F" bound=TimeBound? value=StateFormula
 		public Group getGroup() { return cGroup; }
 
 		//"F"
 		public Keyword getFKeyword_0() { return cFKeyword_0; }
 
-		//TimeBound?
-		public RuleCall getTimeBoundParserRuleCall_1() { return cTimeBoundParserRuleCall_1; }
+		//bound=TimeBound?
+		public Assignment getBoundAssignment_1() { return cBoundAssignment_1; }
 
-		//right=StateFormula
-		public Assignment getRightAssignment_2() { return cRightAssignment_2; }
+		//TimeBound
+		public RuleCall getBoundTimeBoundParserRuleCall_1_0() { return cBoundTimeBoundParserRuleCall_1_0; }
+
+		//value=StateFormula
+		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
 
 		//StateFormula
-		public RuleCall getRightStateFormulaParserRuleCall_2_0() { return cRightStateFormulaParserRuleCall_2_0; }
+		public RuleCall getValueStateFormulaParserRuleCall_2_0() { return cValueStateFormulaParserRuleCall_2_0; }
 	}
 
 	public class GloballyElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Globally");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cGKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final RuleCall cTimeBoundParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
-		private final Assignment cRightAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cRightStateFormulaParserRuleCall_2_0 = (RuleCall)cRightAssignment_2.eContents().get(0);
+		private final Assignment cBoundAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cBoundTimeBoundParserRuleCall_1_0 = (RuleCall)cBoundAssignment_1.eContents().get(0);
+		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cValueStateFormulaParserRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
 		
 		//Globally:
-		//	"G" TimeBound? right=StateFormula;
+		//	"G" bound=TimeBound? value=StateFormula;
 		public ParserRule getRule() { return rule; }
 
-		//"G" TimeBound? right=StateFormula
+		//"G" bound=TimeBound? value=StateFormula
 		public Group getGroup() { return cGroup; }
 
 		//"G"
 		public Keyword getGKeyword_0() { return cGKeyword_0; }
 
-		//TimeBound?
-		public RuleCall getTimeBoundParserRuleCall_1() { return cTimeBoundParserRuleCall_1; }
+		//bound=TimeBound?
+		public Assignment getBoundAssignment_1() { return cBoundAssignment_1; }
 
-		//right=StateFormula
-		public Assignment getRightAssignment_2() { return cRightAssignment_2; }
+		//TimeBound
+		public RuleCall getBoundTimeBoundParserRuleCall_1_0() { return cBoundTimeBoundParserRuleCall_1_0; }
 
-		//StateFormula
-		public RuleCall getRightStateFormulaParserRuleCall_2_0() { return cRightStateFormulaParserRuleCall_2_0; }
-	}
-
-	public class ImplicationElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Implication");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cEqualsSignGreaterThanSignKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cRightAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cRightStateFormulaParserRuleCall_1_0 = (RuleCall)cRightAssignment_1.eContents().get(0);
-		
-		//Implication:
-		//	"=>" right=StateFormula;
-		public ParserRule getRule() { return rule; }
-
-		//"=>" right=StateFormula
-		public Group getGroup() { return cGroup; }
-
-		//"=>"
-		public Keyword getEqualsSignGreaterThanSignKeyword_0() { return cEqualsSignGreaterThanSignKeyword_0; }
-
-		//right=StateFormula
-		public Assignment getRightAssignment_1() { return cRightAssignment_1; }
+		//value=StateFormula
+		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
 
 		//StateFormula
-		public RuleCall getRightStateFormulaParserRuleCall_1_0() { return cRightStateFormulaParserRuleCall_1_0; }
+		public RuleCall getValueStateFormulaParserRuleCall_2_0() { return cValueStateFormulaParserRuleCall_2_0; }
 	}
 
 	public class CompareProbabilityElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "CompareProbability");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
-		private final Group cGroup_0_0 = (Group)cAlternatives_0.eContents().get(0);
-		private final Keyword cGreaterThanSignKeyword_0_0_0 = (Keyword)cGroup_0_0.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_0_0_1 = (Keyword)cGroup_0_0.eContents().get(1);
-		private final Group cGroup_0_1 = (Group)cAlternatives_0.eContents().get(1);
-		private final Keyword cLessThanSignKeyword_0_1_0 = (Keyword)cGroup_0_1.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_0_1_1 = (Keyword)cGroup_0_1.eContents().get(1);
-		private final RuleCall cDECIMALTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cOperatorAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cOperatorCOMPARATORTerminalRuleCall_0_0 = (RuleCall)cOperatorAssignment_0.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueDOUBLETerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		
-		//CompareProbability:
-		//	(">" "="? | "<" "="?) DECIMAL;
+		//CompareProbability hidden(WS, SL_COMMENT):
+		//	operator=COMPARATOR value=DOUBLE;
 		public ParserRule getRule() { return rule; }
 
-		//(">" "="? | "<" "="?) DECIMAL
+		//operator=COMPARATOR value=DOUBLE
 		public Group getGroup() { return cGroup; }
 
-		//">" "="? | "<" "="?
-		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+		//operator=COMPARATOR
+		public Assignment getOperatorAssignment_0() { return cOperatorAssignment_0; }
 
-		//">" "="?
-		public Group getGroup_0_0() { return cGroup_0_0; }
+		//COMPARATOR
+		public RuleCall getOperatorCOMPARATORTerminalRuleCall_0_0() { return cOperatorCOMPARATORTerminalRuleCall_0_0; }
 
-		//">"
-		public Keyword getGreaterThanSignKeyword_0_0_0() { return cGreaterThanSignKeyword_0_0_0; }
+		//value=DOUBLE
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
 
-		//"="?
-		public Keyword getEqualsSignKeyword_0_0_1() { return cEqualsSignKeyword_0_0_1; }
-
-		//"<" "="?
-		public Group getGroup_0_1() { return cGroup_0_1; }
-
-		//"<"
-		public Keyword getLessThanSignKeyword_0_1_0() { return cLessThanSignKeyword_0_1_0; }
-
-		//"="?
-		public Keyword getEqualsSignKeyword_0_1_1() { return cEqualsSignKeyword_0_1_1; }
-
-		//DECIMAL
-		public RuleCall getDECIMALTerminalRuleCall_1() { return cDECIMALTerminalRuleCall_1; }
+		//DOUBLE
+		public RuleCall getValueDOUBLETerminalRuleCall_1_0() { return cValueDOUBLETerminalRuleCall_1_0; }
 	}
 
 	public class TimeBoundElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "TimeBound");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Alternatives cAlternatives_0_0 = (Alternatives)cGroup_0.eContents().get(0);
-		private final Group cGroup_0_0_0 = (Group)cAlternatives_0_0.eContents().get(0);
-		private final Keyword cGreaterThanSignKeyword_0_0_0_0 = (Keyword)cGroup_0_0_0.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_0_0_0_1 = (Keyword)cGroup_0_0_0.eContents().get(1);
-		private final Group cGroup_0_0_1 = (Group)cAlternatives_0_0.eContents().get(1);
-		private final Keyword cLessThanSignKeyword_0_0_1_0 = (Keyword)cGroup_0_0_1.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_0_0_1_1 = (Keyword)cGroup_0_0_1.eContents().get(1);
-		private final Keyword cEqualsSignKeyword_0_0_2 = (Keyword)cAlternatives_0_0.eContents().get(2);
-		private final RuleCall cDECIMALTerminalRuleCall_0_1 = (RuleCall)cGroup_0.eContents().get(1);
+		private final Assignment cOperatorAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
+		private final Alternatives cOperatorAlternatives_0_0_0 = (Alternatives)cOperatorAssignment_0_0.eContents().get(0);
+		private final RuleCall cOperatorCOMPARATORTerminalRuleCall_0_0_0_0 = (RuleCall)cOperatorAlternatives_0_0_0.eContents().get(0);
+		private final Keyword cOperatorEqualsSignKeyword_0_0_0_1 = (Keyword)cOperatorAlternatives_0_0_0.eContents().get(1);
+		private final Assignment cValueAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cValueDOUBLETerminalRuleCall_0_1_0 = (RuleCall)cValueAssignment_0_1.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Keyword cLeftSquareBracketKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final RuleCall cDECIMALTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
-		private final Keyword cCommaKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
-		private final RuleCall cDECIMALTerminalRuleCall_1_3 = (RuleCall)cGroup_1.eContents().get(3);
+		private final Assignment cFromAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cFromDOUBLETerminalRuleCall_1_1_0 = (RuleCall)cFromAssignment_1_1.eContents().get(0);
+		private final Assignment cOperatorAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final Keyword cOperatorCommaKeyword_1_2_0 = (Keyword)cOperatorAssignment_1_2.eContents().get(0);
+		private final Assignment cToAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
+		private final RuleCall cToDOUBLETerminalRuleCall_1_3_0 = (RuleCall)cToAssignment_1_3.eContents().get(0);
 		private final Keyword cRightSquareBracketKeyword_1_4 = (Keyword)cGroup_1.eContents().get(4);
 		
-		//TimeBound:
-		//	(">" "="? | "<" "="? | "=") DECIMAL | "[" DECIMAL "," DECIMAL "]";
+		//TimeBound hidden(WS, SL_COMMENT):
+		//	operator=(COMPARATOR | "=") value=DOUBLE | "[" from=DOUBLE operator="," to=DOUBLE "]";
 		public ParserRule getRule() { return rule; }
 
-		//(">" "="? | "<" "="? | "=") DECIMAL | "[" DECIMAL "," DECIMAL "]"
+		//operator=(COMPARATOR | "=") value=DOUBLE | "[" from=DOUBLE operator="," to=DOUBLE "]"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//(">" "="? | "<" "="? | "=") DECIMAL
+		//operator=(COMPARATOR | "=") value=DOUBLE
 		public Group getGroup_0() { return cGroup_0; }
 
-		//">" "="? | "<" "="? | "="
-		public Alternatives getAlternatives_0_0() { return cAlternatives_0_0; }
+		//operator=(COMPARATOR | "=")
+		public Assignment getOperatorAssignment_0_0() { return cOperatorAssignment_0_0; }
 
-		//">" "="?
-		public Group getGroup_0_0_0() { return cGroup_0_0_0; }
+		//COMPARATOR | "="
+		public Alternatives getOperatorAlternatives_0_0_0() { return cOperatorAlternatives_0_0_0; }
 
-		//">"
-		public Keyword getGreaterThanSignKeyword_0_0_0_0() { return cGreaterThanSignKeyword_0_0_0_0; }
-
-		//"="?
-		public Keyword getEqualsSignKeyword_0_0_0_1() { return cEqualsSignKeyword_0_0_0_1; }
-
-		//"<" "="?
-		public Group getGroup_0_0_1() { return cGroup_0_0_1; }
-
-		//"<"
-		public Keyword getLessThanSignKeyword_0_0_1_0() { return cLessThanSignKeyword_0_0_1_0; }
-
-		//"="?
-		public Keyword getEqualsSignKeyword_0_0_1_1() { return cEqualsSignKeyword_0_0_1_1; }
+		//COMPARATOR
+		public RuleCall getOperatorCOMPARATORTerminalRuleCall_0_0_0_0() { return cOperatorCOMPARATORTerminalRuleCall_0_0_0_0; }
 
 		//"="
-		public Keyword getEqualsSignKeyword_0_0_2() { return cEqualsSignKeyword_0_0_2; }
+		public Keyword getOperatorEqualsSignKeyword_0_0_0_1() { return cOperatorEqualsSignKeyword_0_0_0_1; }
 
-		//DECIMAL
-		public RuleCall getDECIMALTerminalRuleCall_0_1() { return cDECIMALTerminalRuleCall_0_1; }
+		//value=DOUBLE
+		public Assignment getValueAssignment_0_1() { return cValueAssignment_0_1; }
 
-		//"[" DECIMAL "," DECIMAL "]"
+		//DOUBLE
+		public RuleCall getValueDOUBLETerminalRuleCall_0_1_0() { return cValueDOUBLETerminalRuleCall_0_1_0; }
+
+		//"[" from=DOUBLE operator="," to=DOUBLE "]"
 		public Group getGroup_1() { return cGroup_1; }
 
 		//"["
 		public Keyword getLeftSquareBracketKeyword_1_0() { return cLeftSquareBracketKeyword_1_0; }
 
-		//DECIMAL
-		public RuleCall getDECIMALTerminalRuleCall_1_1() { return cDECIMALTerminalRuleCall_1_1; }
+		//from=DOUBLE
+		public Assignment getFromAssignment_1_1() { return cFromAssignment_1_1; }
+
+		//DOUBLE
+		public RuleCall getFromDOUBLETerminalRuleCall_1_1_0() { return cFromDOUBLETerminalRuleCall_1_1_0; }
+
+		//operator=","
+		public Assignment getOperatorAssignment_1_2() { return cOperatorAssignment_1_2; }
 
 		//","
-		public Keyword getCommaKeyword_1_2() { return cCommaKeyword_1_2; }
+		public Keyword getOperatorCommaKeyword_1_2_0() { return cOperatorCommaKeyword_1_2_0; }
 
-		//DECIMAL
-		public RuleCall getDECIMALTerminalRuleCall_1_3() { return cDECIMALTerminalRuleCall_1_3; }
+		//to=DOUBLE
+		public Assignment getToAssignment_1_3() { return cToAssignment_1_3; }
+
+		//DOUBLE
+		public RuleCall getToDOUBLETerminalRuleCall_1_3_0() { return cToDOUBLETerminalRuleCall_1_3_0; }
 
 		//"]"
 		public Keyword getRightSquareBracketKeyword_1_4() { return cRightSquareBracketKeyword_1_4; }
@@ -773,26 +877,30 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	private StartElements pStart;
 	private TerminalRule tBOOL;
-	private TerminalRule tDECIMAL;
-	private CommentedRuleElements pCommentedRule;
-	private PctlElements pPctl;
-	private StateElements pState;
-	private LabelElements pLabel;
-	private AtomicElements pAtomic;
+	private TerminalRule tDOUBLE;
+	private TerminalRule tCOMPARATOR;
+	private FragmentElements pFragment;
+	private CommentElements pComment;
+	private RuleElements pRule;
+	private SteadyStateElements pSteadyState;
+	private QuantifiedProbabilityElements pQuantifiedProbability;
+	private BooleanRuleElements pBooleanRule;
+	private StateFormulaElements pStateFormula;
 	private NegationElements pNegation;
 	private JunctionElements pJunction;
 	private ConjunctionElements pConjunction;
 	private DisjunctionElements pDisjunction;
-	private StateFormulaElements pStateFormula;
-	private PathFormulaElements pPathFormula;
-	private SteadyStateElements pSteadyState;
-	private QuantifiedProbabilityElements pQuantifiedProbability;
+	private ImplicationElements pImplication;
 	private ProbabilityElements pProbability;
+	private AtomicElements pAtomic;
+	private StateElements pState;
+	private LabelElements pLabel;
+	private BooleanElements pBoolean;
+	private PathFormulaElements pPathFormula;
 	private UntilElements pUntil;
 	private NextElements pNext;
 	private FutureElements pFuture;
 	private GloballyElements pGlobally;
-	private ImplicationElements pImplication;
 	private CompareProbabilityElements pCompareProbability;
 	private TimeBoundElements pTimeBound;
 	
@@ -835,7 +943,7 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Start:
-	//	start=CommentedRule start=Start?;
+	//	rule+=Fragment*;
 	public StartElements getStartAccess() {
 		return (pStart != null) ? pStart : (pStart = new StartElements());
 	}
@@ -850,124 +958,50 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 		return (tBOOL != null) ? tBOOL : (tBOOL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "BOOL"));
 	} 
 
-	//terminal DECIMAL:
+	//terminal DOUBLE returns ecore::EDouble:
 	//	INT ("." INT)? | "." INT;
-	public TerminalRule getDECIMALRule() {
-		return (tDECIMAL != null) ? tDECIMAL : (tDECIMAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "DECIMAL"));
+	public TerminalRule getDOUBLERule() {
+		return (tDOUBLE != null) ? tDOUBLE : (tDOUBLE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "DOUBLE"));
 	} 
 
-	//CommentedRule:
-	//	comment=SL_COMMENT? rule=Pctl;
-	public CommentedRuleElements getCommentedRuleAccess() {
-		return (pCommentedRule != null) ? pCommentedRule : (pCommentedRule = new CommentedRuleElements());
+	//terminal COMPARATOR:
+	//	">" "="? | "<" "="?;
+	public TerminalRule getCOMPARATORRule() {
+		return (tCOMPARATOR != null) ? tCOMPARATOR : (tCOMPARATOR = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "COMPARATOR"));
+	} 
+
+	//Fragment:
+	//	Comment | Rule;
+	public FragmentElements getFragmentAccess() {
+		return (pFragment != null) ? pFragment : (pFragment = new FragmentElements());
 	}
 	
-	public ParserRule getCommentedRuleRule() {
-		return getCommentedRuleAccess().getRule();
+	public ParserRule getFragmentRule() {
+		return getFragmentAccess().getRule();
 	}
 
-	//Pctl:
-	//	StateFormula | SteadyState | QuantifiedProbability;
-	public PctlElements getPctlAccess() {
-		return (pPctl != null) ? pPctl : (pPctl = new PctlElements());
+	//Comment:
+	//	comment=SL_COMMENT;
+	public CommentElements getCommentAccess() {
+		return (pComment != null) ? pComment : (pComment = new CommentElements());
 	}
 	
-	public ParserRule getPctlRule() {
-		return getPctlAccess().getRule();
+	public ParserRule getCommentRule() {
+		return getCommentAccess().getRule();
 	}
 
-	//State:
-	//	"State:" name=ID;
-	public StateElements getStateAccess() {
-		return (pState != null) ? pState : (pState = new StateElements());
+	//Rule hidden(WS):
+	//	BooleanRule | SteadyState | QuantifiedProbability;
+	public RuleElements getRuleAccess() {
+		return (pRule != null) ? pRule : (pRule = new RuleElements());
 	}
 	
-	public ParserRule getStateRule() {
-		return getStateAccess().getRule();
-	}
-
-	//Label:
-	//	"Label:" name=ID;
-	public LabelElements getLabelAccess() {
-		return (pLabel != null) ? pLabel : (pLabel = new LabelElements());
-	}
-	
-	public ParserRule getLabelRule() {
-		return getLabelAccess().getRule();
-	}
-
-	//Atomic:
-	//	State | Label | BOOL;
-	public AtomicElements getAtomicAccess() {
-		return (pAtomic != null) ? pAtomic : (pAtomic = new AtomicElements());
-	}
-	
-	public ParserRule getAtomicRule() {
-		return getAtomicAccess().getRule();
-	}
-
-	//Negation returns Expression:
-	//	"!" StateFormula;
-	public NegationElements getNegationAccess() {
-		return (pNegation != null) ? pNegation : (pNegation = new NegationElements());
-	}
-	
-	public ParserRule getNegationRule() {
-		return getNegationAccess().getRule();
-	}
-
-	//Junction returns Expression:
-	//	Conjunction | Disjunction;
-	public JunctionElements getJunctionAccess() {
-		return (pJunction != null) ? pJunction : (pJunction = new JunctionElements());
-	}
-	
-	public ParserRule getJunctionRule() {
-		return getJunctionAccess().getRule();
-	}
-
-	//Conjunction returns Expression:
-	//	"&" StateFormula ({Conjunction.left=current} "&" right=StateFormula)*;
-	public ConjunctionElements getConjunctionAccess() {
-		return (pConjunction != null) ? pConjunction : (pConjunction = new ConjunctionElements());
-	}
-	
-	public ParserRule getConjunctionRule() {
-		return getConjunctionAccess().getRule();
-	}
-
-	//Disjunction returns Expression:
-	//	"|" StateFormula ({Disjunction.left=current} "|" right=StateFormula)*;
-	public DisjunctionElements getDisjunctionAccess() {
-		return (pDisjunction != null) ? pDisjunction : (pDisjunction = new DisjunctionElements());
-	}
-	
-	public ParserRule getDisjunctionRule() {
-		return getDisjunctionAccess().getRule();
-	}
-
-	//StateFormula returns Expression:
-	//	"(" left=StateFormula (right=Junction | right=Implication)? ")" | Negation | Atomic | left=Probability;
-	public StateFormulaElements getStateFormulaAccess() {
-		return (pStateFormula != null) ? pStateFormula : (pStateFormula = new StateFormulaElements());
-	}
-	
-	public ParserRule getStateFormulaRule() {
-		return getStateFormulaAccess().getRule();
-	}
-
-	//PathFormula returns Expression:
-	//	Next | Until | Future | Globally;
-	public PathFormulaElements getPathFormulaAccess() {
-		return (pPathFormula != null) ? pPathFormula : (pPathFormula = new PathFormulaElements());
-	}
-	
-	public ParserRule getPathFormulaRule() {
-		return getPathFormulaAccess().getRule();
+	public ParserRule getRuleRule() {
+		return getRuleAccess().getRule();
 	}
 
 	//SteadyState:
-	//	"S" (CompareProbability | "=?") "[" StateFormula "]";
+	//	"S" SL_COMMENT* (bound=CompareProbability | "=?") SL_COMMENT* "[" SL_COMMENT* value=StateFormula SL_COMMENT* "]";
 	public SteadyStateElements getSteadyStateAccess() {
 		return (pSteadyState != null) ? pSteadyState : (pSteadyState = new SteadyStateElements());
 	}
@@ -977,7 +1011,7 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//QuantifiedProbability:
-	//	("P" "=?") "[" PathFormula "]";
+	//	"P" SL_COMMENT* "=?" SL_COMMENT* "[" value=PathFormula "]";
 	public QuantifiedProbabilityElements getQuantifiedProbabilityAccess() {
 		return (pQuantifiedProbability != null) ? pQuantifiedProbability : (pQuantifiedProbability = new QuantifiedProbabilityElements());
 	}
@@ -986,57 +1020,71 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 		return getQuantifiedProbabilityAccess().getRule();
 	}
 
-	//Probability:
-	//	"P" CompareProbability "[" PathFormula "]";
-	public ProbabilityElements getProbabilityAccess() {
-		return (pProbability != null) ? pProbability : (pProbability = new ProbabilityElements());
+	//BooleanRule:
+	//	value=StateFormula;
+	public BooleanRuleElements getBooleanRuleAccess() {
+		return (pBooleanRule != null) ? pBooleanRule : (pBooleanRule = new BooleanRuleElements());
 	}
 	
-	public ParserRule getProbabilityRule() {
-		return getProbabilityAccess().getRule();
+	public ParserRule getBooleanRuleRule() {
+		return getBooleanRuleAccess().getRule();
 	}
 
-	//Until:
-	//	left=StateFormula ("U" | "W" | "R") TimeBound? right=StateFormula;
-	public UntilElements getUntilAccess() {
-		return (pUntil != null) ? pUntil : (pUntil = new UntilElements());
+	////###########################################################
+	////#             State Formular expressions                  #
+	////###########################################################
+	//StateFormula:
+	//	"(" SL_COMMENT* left=StateFormula (right=Junction | right=Implication)? SL_COMMENT* ")" | left=(Negation | Atomic |
+	//	Probability);
+	public StateFormulaElements getStateFormulaAccess() {
+		return (pStateFormula != null) ? pStateFormula : (pStateFormula = new StateFormulaElements());
 	}
 	
-	public ParserRule getUntilRule() {
-		return getUntilAccess().getRule();
+	public ParserRule getStateFormulaRule() {
+		return getStateFormulaAccess().getRule();
 	}
 
-	//Next:
-	//	"X" TimeBound? right=StateFormula;
-	public NextElements getNextAccess() {
-		return (pNext != null) ? pNext : (pNext = new NextElements());
+	//Negation returns StateExpression:
+	//	"!" StateFormula;
+	public NegationElements getNegationAccess() {
+		return (pNegation != null) ? pNegation : (pNegation = new NegationElements());
 	}
 	
-	public ParserRule getNextRule() {
-		return getNextAccess().getRule();
+	public ParserRule getNegationRule() {
+		return getNegationAccess().getRule();
 	}
 
-	//Future:
-	//	"F" TimeBound? right=StateFormula;
-	public FutureElements getFutureAccess() {
-		return (pFuture != null) ? pFuture : (pFuture = new FutureElements());
+	//Junction returns RightStateExpression hidden(WS, SL_COMMENT):
+	//	Conjunction | Disjunction;
+	public JunctionElements getJunctionAccess() {
+		return (pJunction != null) ? pJunction : (pJunction = new JunctionElements());
 	}
 	
-	public ParserRule getFutureRule() {
-		return getFutureAccess().getRule();
+	public ParserRule getJunctionRule() {
+		return getJunctionAccess().getRule();
 	}
 
-	//Globally:
-	//	"G" TimeBound? right=StateFormula;
-	public GloballyElements getGloballyAccess() {
-		return (pGlobally != null) ? pGlobally : (pGlobally = new GloballyElements());
+	//Conjunction returns RightStateExpression:
+	//	"&" StateFormula ({Conjunction.left=current} "&" right=StateFormula)*;
+	public ConjunctionElements getConjunctionAccess() {
+		return (pConjunction != null) ? pConjunction : (pConjunction = new ConjunctionElements());
 	}
 	
-	public ParserRule getGloballyRule() {
-		return getGloballyAccess().getRule();
+	public ParserRule getConjunctionRule() {
+		return getConjunctionAccess().getRule();
 	}
 
-	//Implication:
+	//Disjunction returns RightStateExpression:
+	//	"|" StateFormula ({Disjunction.left=current} "|" right=StateFormula)*;
+	public DisjunctionElements getDisjunctionAccess() {
+		return (pDisjunction != null) ? pDisjunction : (pDisjunction = new DisjunctionElements());
+	}
+	
+	public ParserRule getDisjunctionRule() {
+		return getDisjunctionAccess().getRule();
+	}
+
+	//Implication returns RightStateExpression hidden(WS, SL_COMMENT):
 	//	"=>" right=StateFormula;
 	public ImplicationElements getImplicationAccess() {
 		return (pImplication != null) ? pImplication : (pImplication = new ImplicationElements());
@@ -1046,8 +1094,111 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 		return getImplicationAccess().getRule();
 	}
 
-	//CompareProbability:
-	//	(">" "="? | "<" "="?) DECIMAL;
+	//Probability returns StateExpression:
+	//	"P" SL_COMMENT* {Probability} comparator=CompareProbability SL_COMMENT* "[" path=PathFormula "]";
+	public ProbabilityElements getProbabilityAccess() {
+		return (pProbability != null) ? pProbability : (pProbability = new ProbabilityElements());
+	}
+	
+	public ParserRule getProbabilityRule() {
+		return getProbabilityAccess().getRule();
+	}
+
+	//Atomic returns StateExpression:
+	//	State | Label | Boolean;
+	public AtomicElements getAtomicAccess() {
+		return (pAtomic != null) ? pAtomic : (pAtomic = new AtomicElements());
+	}
+	
+	public ParserRule getAtomicRule() {
+		return getAtomicAccess().getRule();
+	}
+
+	//State:
+	//	"State:" value=STRING;
+	public StateElements getStateAccess() {
+		return (pState != null) ? pState : (pState = new StateElements());
+	}
+	
+	public ParserRule getStateRule() {
+		return getStateAccess().getRule();
+	}
+
+	//Label:
+	//	"Label:" value=STRING;
+	public LabelElements getLabelAccess() {
+		return (pLabel != null) ? pLabel : (pLabel = new LabelElements());
+	}
+	
+	public ParserRule getLabelRule() {
+		return getLabelAccess().getRule();
+	}
+
+	//Boolean:
+	//	value=BOOL;
+	public BooleanElements getBooleanAccess() {
+		return (pBoolean != null) ? pBoolean : (pBoolean = new BooleanElements());
+	}
+	
+	public ParserRule getBooleanRule() {
+		return getBooleanAccess().getRule();
+	}
+
+	////###########################################################
+	////#             Path Formular expressions                  #
+	////###########################################################
+	//PathFormula hidden(WS, SL_COMMENT):
+	//	Next | Until | Future | Globally;
+	public PathFormulaElements getPathFormulaAccess() {
+		return (pPathFormula != null) ? pPathFormula : (pPathFormula = new PathFormulaElements());
+	}
+	
+	public ParserRule getPathFormulaRule() {
+		return getPathFormulaAccess().getRule();
+	}
+
+	//Until:
+	//	left=StateFormula type=("U" | "W" | "R") bound=TimeBound? right=StateFormula;
+	public UntilElements getUntilAccess() {
+		return (pUntil != null) ? pUntil : (pUntil = new UntilElements());
+	}
+	
+	public ParserRule getUntilRule() {
+		return getUntilAccess().getRule();
+	}
+
+	//Next:
+	//	"X" bound=TimeBound? value=StateFormula;
+	public NextElements getNextAccess() {
+		return (pNext != null) ? pNext : (pNext = new NextElements());
+	}
+	
+	public ParserRule getNextRule() {
+		return getNextAccess().getRule();
+	}
+
+	//Future:
+	//	"F" bound=TimeBound? value=StateFormula;
+	public FutureElements getFutureAccess() {
+		return (pFuture != null) ? pFuture : (pFuture = new FutureElements());
+	}
+	
+	public ParserRule getFutureRule() {
+		return getFutureAccess().getRule();
+	}
+
+	//Globally:
+	//	"G" bound=TimeBound? value=StateFormula;
+	public GloballyElements getGloballyAccess() {
+		return (pGlobally != null) ? pGlobally : (pGlobally = new GloballyElements());
+	}
+	
+	public ParserRule getGloballyRule() {
+		return getGloballyAccess().getRule();
+	}
+
+	//CompareProbability hidden(WS, SL_COMMENT):
+	//	operator=COMPARATOR value=DOUBLE;
 	public CompareProbabilityElements getCompareProbabilityAccess() {
 		return (pCompareProbability != null) ? pCompareProbability : (pCompareProbability = new CompareProbabilityElements());
 	}
@@ -1056,8 +1207,8 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 		return getCompareProbabilityAccess().getRule();
 	}
 
-	//TimeBound:
-	//	(">" "="? | "<" "="? | "=") DECIMAL | "[" DECIMAL "," DECIMAL "]";
+	//TimeBound hidden(WS, SL_COMMENT):
+	//	operator=(COMPARATOR | "=") value=DOUBLE | "[" from=DOUBLE operator="," to=DOUBLE "]";
 	public TimeBoundElements getTimeBoundAccess() {
 		return (pTimeBound != null) ? pTimeBound : (pTimeBound = new TimeBoundElements());
 	}

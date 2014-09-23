@@ -9,7 +9,6 @@ import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
-import org.eclipse.xtext.serializer.analysis.GrammarAlias.GroupAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
@@ -20,70 +19,47 @@ public class PCTLSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected PCTLGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_Conjunction_Disjunction_AmpersandKeyword_0_or_VerticalLineKeyword_0;
-	protected AbstractElementAlias match_Future_TimeBoundParserRuleCall_1_q;
-	protected AbstractElementAlias match_Globally_TimeBoundParserRuleCall_1_q;
-	protected AbstractElementAlias match_Negation_ExclamationMarkKeyword_0_a;
-	protected AbstractElementAlias match_Negation_ExclamationMarkKeyword_0_p;
-	protected AbstractElementAlias match_Next_TimeBoundParserRuleCall_1_q;
-	protected AbstractElementAlias match_SteadyState_CompareProbabilityParserRuleCall_1_0_or_EqualsSignQuestionMarkKeyword_1_1;
-	protected AbstractElementAlias match_SteadyState___SKeyword_0___CompareProbabilityParserRuleCall_1_0_or_EqualsSignQuestionMarkKeyword_1_1___LeftSquareBracketKeyword_2__q;
-	protected AbstractElementAlias match_Until_RKeyword_1_2_or_UKeyword_1_0_or_WKeyword_1_1;
-	protected AbstractElementAlias match_Until_TimeBoundParserRuleCall_2_q;
+	protected AbstractElementAlias match_Probability_SL_COMMENTTerminalRuleCall_1_a;
+	protected AbstractElementAlias match_Probability_SL_COMMENTTerminalRuleCall_4_a;
+	protected AbstractElementAlias match_QuantifiedProbability_SL_COMMENTTerminalRuleCall_1_a;
+	protected AbstractElementAlias match_QuantifiedProbability_SL_COMMENTTerminalRuleCall_3_a;
+	protected AbstractElementAlias match_StateFormula_SL_COMMENTTerminalRuleCall_0_1_a;
+	protected AbstractElementAlias match_StateFormula_SL_COMMENTTerminalRuleCall_0_4_a;
+	protected AbstractElementAlias match_SteadyState_SL_COMMENTTerminalRuleCall_1_a;
+	protected AbstractElementAlias match_SteadyState_SL_COMMENTTerminalRuleCall_3_a;
+	protected AbstractElementAlias match_SteadyState_SL_COMMENTTerminalRuleCall_5_a;
+	protected AbstractElementAlias match_SteadyState_SL_COMMENTTerminalRuleCall_7_a;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (PCTLGrammarAccess) access;
 		match_Conjunction_Disjunction_AmpersandKeyword_0_or_VerticalLineKeyword_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getConjunctionAccess().getAmpersandKeyword_0()), new TokenAlias(false, false, grammarAccess.getDisjunctionAccess().getVerticalLineKeyword_0()));
-		match_Future_TimeBoundParserRuleCall_1_q = new TokenAlias(false, true, grammarAccess.getFutureAccess().getTimeBoundParserRuleCall_1());
-		match_Globally_TimeBoundParserRuleCall_1_q = new TokenAlias(false, true, grammarAccess.getGloballyAccess().getTimeBoundParserRuleCall_1());
-		match_Negation_ExclamationMarkKeyword_0_a = new TokenAlias(true, true, grammarAccess.getNegationAccess().getExclamationMarkKeyword_0());
-		match_Negation_ExclamationMarkKeyword_0_p = new TokenAlias(true, false, grammarAccess.getNegationAccess().getExclamationMarkKeyword_0());
-		match_Next_TimeBoundParserRuleCall_1_q = new TokenAlias(false, true, grammarAccess.getNextAccess().getTimeBoundParserRuleCall_1());
-		match_SteadyState_CompareProbabilityParserRuleCall_1_0_or_EqualsSignQuestionMarkKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getSteadyStateAccess().getCompareProbabilityParserRuleCall_1_0()), new TokenAlias(false, false, grammarAccess.getSteadyStateAccess().getEqualsSignQuestionMarkKeyword_1_1()));
-		match_SteadyState___SKeyword_0___CompareProbabilityParserRuleCall_1_0_or_EqualsSignQuestionMarkKeyword_1_1___LeftSquareBracketKeyword_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getSteadyStateAccess().getSKeyword_0()), new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getSteadyStateAccess().getCompareProbabilityParserRuleCall_1_0()), new TokenAlias(false, false, grammarAccess.getSteadyStateAccess().getEqualsSignQuestionMarkKeyword_1_1())), new TokenAlias(false, false, grammarAccess.getSteadyStateAccess().getLeftSquareBracketKeyword_2()));
-		match_Until_RKeyword_1_2_or_UKeyword_1_0_or_WKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getUntilAccess().getRKeyword_1_2()), new TokenAlias(false, false, grammarAccess.getUntilAccess().getUKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getUntilAccess().getWKeyword_1_1()));
-		match_Until_TimeBoundParserRuleCall_2_q = new TokenAlias(false, true, grammarAccess.getUntilAccess().getTimeBoundParserRuleCall_2());
+		match_Probability_SL_COMMENTTerminalRuleCall_1_a = new TokenAlias(true, true, grammarAccess.getProbabilityAccess().getSL_COMMENTTerminalRuleCall_1());
+		match_Probability_SL_COMMENTTerminalRuleCall_4_a = new TokenAlias(true, true, grammarAccess.getProbabilityAccess().getSL_COMMENTTerminalRuleCall_4());
+		match_QuantifiedProbability_SL_COMMENTTerminalRuleCall_1_a = new TokenAlias(true, true, grammarAccess.getQuantifiedProbabilityAccess().getSL_COMMENTTerminalRuleCall_1());
+		match_QuantifiedProbability_SL_COMMENTTerminalRuleCall_3_a = new TokenAlias(true, true, grammarAccess.getQuantifiedProbabilityAccess().getSL_COMMENTTerminalRuleCall_3());
+		match_StateFormula_SL_COMMENTTerminalRuleCall_0_1_a = new TokenAlias(true, true, grammarAccess.getStateFormulaAccess().getSL_COMMENTTerminalRuleCall_0_1());
+		match_StateFormula_SL_COMMENTTerminalRuleCall_0_4_a = new TokenAlias(true, true, grammarAccess.getStateFormulaAccess().getSL_COMMENTTerminalRuleCall_0_4());
+		match_SteadyState_SL_COMMENTTerminalRuleCall_1_a = new TokenAlias(true, true, grammarAccess.getSteadyStateAccess().getSL_COMMENTTerminalRuleCall_1());
+		match_SteadyState_SL_COMMENTTerminalRuleCall_3_a = new TokenAlias(true, true, grammarAccess.getSteadyStateAccess().getSL_COMMENTTerminalRuleCall_3());
+		match_SteadyState_SL_COMMENTTerminalRuleCall_5_a = new TokenAlias(true, true, grammarAccess.getSteadyStateAccess().getSL_COMMENTTerminalRuleCall_5());
+		match_SteadyState_SL_COMMENTTerminalRuleCall_7_a = new TokenAlias(true, true, grammarAccess.getSteadyStateAccess().getSL_COMMENTTerminalRuleCall_7());
 	}
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if(ruleCall.getRule() == grammarAccess.getBOOLRule())
-			return getBOOLToken(semanticObject, ruleCall, node);
-		else if(ruleCall.getRule() == grammarAccess.getCompareProbabilityRule())
-			return getCompareProbabilityToken(semanticObject, ruleCall, node);
-		else if(ruleCall.getRule() == grammarAccess.getTimeBoundRule())
-			return getTimeBoundToken(semanticObject, ruleCall, node);
+		if(ruleCall.getRule() == grammarAccess.getSL_COMMENTRule())
+			return getSL_COMMENTToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
 	/**
-	 * terminal BOOL : 'true'|'false';
+	 * terminal SL_COMMENT 	: '//' !('\n'|'\r')* ('\r'? '\n')?;
 	 */
-	protected String getBOOLToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+	protected String getSL_COMMENTToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
-		return "true";
-	}
-	
-	/**
-	 * CompareProbability:
-	 *     ('>''='?|'<''='?) DECIMAL
-	 * ;
-	 */
-	protected String getCompareProbabilityToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return ">";
-	}
-	
-	/**
-	 * TimeBound:
-	 * 	(('>''='?|'<''='?|'=') DECIMAL) | ("[" DECIMAL "," DECIMAL "]");
-	 */
-	protected String getTimeBoundToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return ">";
+		return "//";
 	}
 	
 	@Override
@@ -94,31 +70,33 @@ public class PCTLSyntacticSequencer extends AbstractSyntacticSequencer {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
 			if(match_Conjunction_Disjunction_AmpersandKeyword_0_or_VerticalLineKeyword_0.equals(syntax))
 				emit_Conjunction_Disjunction_AmpersandKeyword_0_or_VerticalLineKeyword_0(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_Future_TimeBoundParserRuleCall_1_q.equals(syntax))
-				emit_Future_TimeBoundParserRuleCall_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_Globally_TimeBoundParserRuleCall_1_q.equals(syntax))
-				emit_Globally_TimeBoundParserRuleCall_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_Negation_ExclamationMarkKeyword_0_a.equals(syntax))
-				emit_Negation_ExclamationMarkKeyword_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_Negation_ExclamationMarkKeyword_0_p.equals(syntax))
-				emit_Negation_ExclamationMarkKeyword_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_Next_TimeBoundParserRuleCall_1_q.equals(syntax))
-				emit_Next_TimeBoundParserRuleCall_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_SteadyState_CompareProbabilityParserRuleCall_1_0_or_EqualsSignQuestionMarkKeyword_1_1.equals(syntax))
-				emit_SteadyState_CompareProbabilityParserRuleCall_1_0_or_EqualsSignQuestionMarkKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_SteadyState___SKeyword_0___CompareProbabilityParserRuleCall_1_0_or_EqualsSignQuestionMarkKeyword_1_1___LeftSquareBracketKeyword_2__q.equals(syntax))
-				emit_SteadyState___SKeyword_0___CompareProbabilityParserRuleCall_1_0_or_EqualsSignQuestionMarkKeyword_1_1___LeftSquareBracketKeyword_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_Until_RKeyword_1_2_or_UKeyword_1_0_or_WKeyword_1_1.equals(syntax))
-				emit_Until_RKeyword_1_2_or_UKeyword_1_0_or_WKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_Until_TimeBoundParserRuleCall_2_q.equals(syntax))
-				emit_Until_TimeBoundParserRuleCall_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_Probability_SL_COMMENTTerminalRuleCall_1_a.equals(syntax))
+				emit_Probability_SL_COMMENTTerminalRuleCall_1_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_Probability_SL_COMMENTTerminalRuleCall_4_a.equals(syntax))
+				emit_Probability_SL_COMMENTTerminalRuleCall_4_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_QuantifiedProbability_SL_COMMENTTerminalRuleCall_1_a.equals(syntax))
+				emit_QuantifiedProbability_SL_COMMENTTerminalRuleCall_1_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_QuantifiedProbability_SL_COMMENTTerminalRuleCall_3_a.equals(syntax))
+				emit_QuantifiedProbability_SL_COMMENTTerminalRuleCall_3_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_StateFormula_SL_COMMENTTerminalRuleCall_0_1_a.equals(syntax))
+				emit_StateFormula_SL_COMMENTTerminalRuleCall_0_1_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_StateFormula_SL_COMMENTTerminalRuleCall_0_4_a.equals(syntax))
+				emit_StateFormula_SL_COMMENTTerminalRuleCall_0_4_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_SteadyState_SL_COMMENTTerminalRuleCall_1_a.equals(syntax))
+				emit_SteadyState_SL_COMMENTTerminalRuleCall_1_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_SteadyState_SL_COMMENTTerminalRuleCall_3_a.equals(syntax))
+				emit_SteadyState_SL_COMMENTTerminalRuleCall_3_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_SteadyState_SL_COMMENTTerminalRuleCall_5_a.equals(syntax))
+				emit_SteadyState_SL_COMMENTTerminalRuleCall_5_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_SteadyState_SL_COMMENTTerminalRuleCall_7_a.equals(syntax))
+				emit_SteadyState_SL_COMMENTTerminalRuleCall_7_a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
 	/**
 	 * Syntax:
-	 *     '&' | '|'
+	 *     '|' | '&'
 	 */
 	protected void emit_Conjunction_Disjunction_AmpersandKeyword_0_or_VerticalLineKeyword_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -126,73 +104,81 @@ public class PCTLSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     TimeBound?
+	 *     SL_COMMENT*
 	 */
-	protected void emit_Future_TimeBoundParserRuleCall_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Probability_SL_COMMENTTerminalRuleCall_1_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Syntax:
-	 *     TimeBound?
+	 *     SL_COMMENT*
 	 */
-	protected void emit_Globally_TimeBoundParserRuleCall_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Probability_SL_COMMENTTerminalRuleCall_4_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Syntax:
-	 *     '!'*
+	 *     SL_COMMENT*
 	 */
-	protected void emit_Negation_ExclamationMarkKeyword_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_QuantifiedProbability_SL_COMMENTTerminalRuleCall_1_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Syntax:
-	 *     '!'+
+	 *     SL_COMMENT*
 	 */
-	protected void emit_Negation_ExclamationMarkKeyword_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_QuantifiedProbability_SL_COMMENTTerminalRuleCall_3_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Syntax:
-	 *     TimeBound?
+	 *     SL_COMMENT*
 	 */
-	protected void emit_Next_TimeBoundParserRuleCall_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_StateFormula_SL_COMMENTTerminalRuleCall_0_1_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Syntax:
-	 *     '=?' | CompareProbability
+	 *     SL_COMMENT*
 	 */
-	protected void emit_SteadyState_CompareProbabilityParserRuleCall_1_0_or_EqualsSignQuestionMarkKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_StateFormula_SL_COMMENTTerminalRuleCall_0_4_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Syntax:
-	 *     ('S' ('=?' | CompareProbability) '[')?
+	 *     SL_COMMENT*
 	 */
-	protected void emit_SteadyState___SKeyword_0___CompareProbabilityParserRuleCall_1_0_or_EqualsSignQuestionMarkKeyword_1_1___LeftSquareBracketKeyword_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_SteadyState_SL_COMMENTTerminalRuleCall_1_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Syntax:
-	 *     'U' | 'R' | 'W'
+	 *     SL_COMMENT*
 	 */
-	protected void emit_Until_RKeyword_1_2_or_UKeyword_1_0_or_WKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_SteadyState_SL_COMMENTTerminalRuleCall_3_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Syntax:
-	 *     TimeBound?
+	 *     SL_COMMENT*
 	 */
-	protected void emit_Until_TimeBoundParserRuleCall_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_SteadyState_SL_COMMENTTerminalRuleCall_5_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     SL_COMMENT*
+	 */
+	protected void emit_SteadyState_SL_COMMENTTerminalRuleCall_7_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

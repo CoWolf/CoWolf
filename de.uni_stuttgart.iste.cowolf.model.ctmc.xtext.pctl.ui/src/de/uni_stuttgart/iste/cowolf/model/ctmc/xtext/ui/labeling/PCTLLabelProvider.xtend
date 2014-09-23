@@ -4,6 +4,13 @@
 package de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.ui.labeling
 
 import com.google.inject.Inject
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.QuantifiedProbability
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Probability
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.SteadyState
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.BooleanRule
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Next
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.State
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Label
 
 /**
  * Provides labels for a EObjects.
@@ -18,6 +25,40 @@ class PCTLLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObjectLabelPr
 	}
 
 	// Labels and icons can be computed like this:
+
+    
+    def text(QuantifiedProbability o) {
+        'Quantified Probability'
+    }
+    
+    def text(SteadyState o) {
+        'Steady State Probability'
+    }
+    
+    def text(BooleanRule o) {
+        'Boolean Evaluation'
+    }
+    
+    def text(Probability o) {
+        'Probability is ' + o.comparator.operator + ' ' + o.comparator.value
+    }
+    
+    def text(Next o) {
+        'Next State'
+    }
+    
+    def text(de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Boolean o) {
+        o.value
+    }
+    
+    def text(State o) {
+        'State:' + o.value
+    }
+    
+    def text(Label o) {
+        'Label:' + o.value
+    }
+       
 	
 //	def text(Greeting ele) {
 //		'A greeting to ' + ele.name

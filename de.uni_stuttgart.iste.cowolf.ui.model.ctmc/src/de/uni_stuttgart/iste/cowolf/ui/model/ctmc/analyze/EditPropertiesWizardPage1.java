@@ -23,6 +23,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
 import org.eclipse.xtext.resource.IResourceFactory;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
@@ -40,6 +41,11 @@ import com.google.inject.Injector;
 
 import de.uni_stuttgart.iste.cowolf.model.ctmc.CTMC;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.State;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Comment;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Fragment;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PCTLFactory;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Rule;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Start;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.ui.internal.PCTLActivator;
 
 @SuppressWarnings("restriction")
@@ -51,6 +57,8 @@ public class EditPropertiesWizardPage1 extends WizardPage {
 
 	private Resource resource;
 	EmbeddedEditorModelAccess partialEditorModelAccess;
+	private XtextResource xtextResource;
+	
 	private Text text_3;
 	private Text text_4;
 	private Text text_5;
@@ -59,8 +67,8 @@ public class EditPropertiesWizardPage1 extends WizardPage {
 	private Combo combo_1;
 	private Combo combo_2;
 
-	String key;
-	String value;
+	Comment key;
+	Rule value;
 	private Combo combo_3;
 	private Label lblProperty_1;
 	private Label lblFor;
@@ -72,13 +80,13 @@ public class EditPropertiesWizardPage1 extends WizardPage {
 	private Composite composite;
 
 	protected EditPropertiesWizardPage1(final String pageName,
-			final Resource res, String key, String value) {
+			final Resource res, Comment key2, Rule value2) {
 		super(pageName);
 		this.resource = res;
 		this.setTitle("Analyze a ctmc model");
 		this.setDescription("Create properties to analyze.");
-		this.key = key;
-		this.value = value;
+		this.key = key2;
+		this.value = value2;
 		
 		this.xtextValid = false;
 	}
@@ -268,7 +276,9 @@ public class EditPropertiesWizardPage1 extends WizardPage {
 		
 		text_5 = new Text(grpTexteditor, SWT.BORDER);
 		text_5.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
-		text_5.setText(key);
+		if (key != null) {
+			text_5.setText(key.getComment().replaceFirst("^/+\\s*", "").trim());
+		}
 
 		Label lblProperty = new Label(grpTexteditor, SWT.NONE);
 		lblProperty.setText("Property");
@@ -290,15 +300,15 @@ public class EditPropertiesWizardPage1 extends WizardPage {
 
 		        IResourceFactory resourceFactory = injector.getInstance(IResourceFactory.class);
 		        URI uri = URI.createURI("temp.pctl");
-		        XtextResource resource = (XtextResource) resourceFactory.createResource(uri);
-		        rs.getResources().add(resource);
+		        xtextResource = (XtextResource) resourceFactory.createResource(uri);
+		        rs.getResources().add(xtextResource);
 
-		        EcoreUtil.resolveAll(resource);
+		        EcoreUtil.resolveAll(xtextResource);
 
-		        if (!resource.getErrors().isEmpty()) {
+		        if (!xtextResource.getErrors().isEmpty()) {
 		            // handle error?
 		        }
-		        return resource;
+		        return xtextResource;
 		    }};
 
 		PCTLActivator activator = PCTLActivator.getInstance();
@@ -329,7 +339,6 @@ public class EditPropertiesWizardPage1 extends WizardPage {
 			.withParent(composite);
 		
 		this.partialEditorModelAccess = embeddedEditor.createPartialEditor(false);
-		
 		
 		this.setValue(this.value);
 	
@@ -405,20 +414,39 @@ public class EditPropertiesWizardPage1 extends WizardPage {
 		return true;
 	}
 
-	public String getKey() {
-		return text_5.getText();
+	public Comment getKey() {
+		if (key != null) {
+			key.setComment(key.getComment().replaceFirst("^(/+\\s*).*$", "$1"+text_5.getText().trim().replace("\n", "")));
+		} else {
+			this.key = PCTLFactory.eINSTANCE.createComment();
+			key.setComment("// " + text_5.getText().trim().replace("\n", "") + "\n");
+		}
+		return key;
 	}
 	
-	public String getValue() {
-		return this.partialEditorModelAccess.getEditablePart();
+	public Rule getValue() {
+		for (Fragment f : ((Start) xtextResource.getContents().get(0)).getRule()) {
+			if (f instanceof Rule) {
+				return (Rule) f;
+			}
+		}
+		return null;
 	}
 
 	public void setKey(String key) {
 		text_5.setText(key);
 	}
-
+	
 	public void setValue(String value) {
-		partialEditorModelAccess.updateModel("", value, "");
+		partialEditorModelAccess.updateModel("", value.trim(), "");
+	}
+
+	public void setValue(Rule value) {
+		if (value == null) {
+			return;
+		}		
+		String text = NodeModelUtils.findActualNodeFor(value).getText().trim();
+		partialEditorModelAccess.updateModel("", text, "\n");
 	}
 
 	private void createPRISMProperty() {

@@ -7,10 +7,13 @@ import java.util.List
 import org.eclipse.emf.ecore.resource.Resource
 
 class PRISMGenerator {
+    
+    static String STRING_CHARS = "(?:\\\\[btnfru\"'\\\\]|[^\\\\\"'])"
+    static String STRING = "([\"'])(" + STRING_CHARS + "*)\\1";
 
 	var idToIntMap = newHashMap()
-	var nameToIntMap = newHashMap()
-	var labelsList = newArrayList()
+	var nameToIntMap = <String,Integer>newHashMap()
+	var labelsList = <String>newArrayList()
 
 	def CharSequence generateSM(Resource resource) {
 		if (resource.contents.size > 0 && resource.contents.get(0) instanceof CTMC) {
@@ -107,14 +110,15 @@ class PRISMGenerator {
 		var result = s;
 
 		for (entry : nameToIntMap.entrySet()) {
-			result = result.replace("State:" + entry.key, "s=" + entry.value)
+		    var name = entry.key.replace("\"", "\\\\\"").replace("'", "\\\\'");
+			result = result.replaceAll("State:([\"'])" + name + "\\1", "s=" + entry.value)
 		}
 		for (entry : labelsList) {
-			result = result.replace("Label:" + entry, "\"" + entry + "\"")
+			result = result.replaceAll("Label:([\"'])" + entry.replace("\"", "\\\\\"").replace("'", "\\\\'") + "\\1", "\"" + entry + "\"")
 		}
 		
-		result = result.replaceAll("State:\\w+", "false");
-        result = result.replaceAll("Label:\\w+", "false");
+		result = result.replaceAll("State:"+STRING, "false");
+        result = result.replaceAll("Label:"+STRING, "false");
 
 		return result;
 	}

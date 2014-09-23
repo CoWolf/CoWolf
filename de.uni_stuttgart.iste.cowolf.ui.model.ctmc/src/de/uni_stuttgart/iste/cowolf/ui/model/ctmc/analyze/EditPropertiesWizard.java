@@ -3,13 +3,16 @@ package de.uni_stuttgart.iste.cowolf.ui.model.ctmc.analyze;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jface.wizard.Wizard;
 
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Comment;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Rule;
+
 public class EditPropertiesWizard extends Wizard {
 
 	protected EditPropertiesWizardPage1 pageOne;
-	String key;
-	String value;
+	Comment key;
+	Rule value;
 
-	public EditPropertiesWizard(final Resource resource, String key, String value) {
+	public EditPropertiesWizard(final Resource resource, Comment key, Rule value) {
 		super();
 		super.setWindowTitle("Analyze CTMC with PRISM model checker");
 		this.pageOne = new EditPropertiesWizardPage1("Page 1", resource, key, value);
@@ -34,11 +37,11 @@ public class EditPropertiesWizard extends Wizard {
 		return true;
 	}
 
-	public String getKey ()  {
+	public Comment getKey ()  {
 		return key;
 	}
 	
-	public String getValue ()  {
+	public Rule getValue ()  {
 		return value;
 	}
 

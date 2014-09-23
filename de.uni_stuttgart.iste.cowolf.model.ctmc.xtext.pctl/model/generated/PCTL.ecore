@@ -3,36 +3,91 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="pCTL" nsURI="http://www.uni_stuttgart.de/iste/cowolf/model/ctmc/xtext/PCTL"
     nsPrefix="pCTL">
   <eClassifiers xsi:type="ecore:EClass" name="Start">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="start" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rule" upperBound="-1" eType="#//Fragment"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CommentedRule">
+  <eClassifiers xsi:type="ecore:EClass" name="Fragment"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Comment" eSuperTypes="#//Fragment">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="comment" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rule" eType="#//Pctl" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Pctl"/>
-  <eClassifiers xsi:type="ecore:EClass" name="State" eSuperTypes="#//Atomic"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Label" eSuperTypes="#//Atomic"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Atomic" eSuperTypes="#//Expression">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Expression" eSuperTypes="#//Pctl #//SteadyState #//QuantifiedProbability #//Probability">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Probability"
+  <eClassifiers xsi:type="ecore:EClass" name="Rule" eSuperTypes="#//Fragment"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SteadyState" eSuperTypes="#//Rule">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bound" eType="#//CompareProbability"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//StateFormula"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SteadyState" eSuperTypes="#//Pctl"/>
-  <eClassifiers xsi:type="ecore:EClass" name="QuantifiedProbability" eSuperTypes="#//Pctl"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Probability"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Until" eSuperTypes="#//Expression"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Next" eSuperTypes="#//Expression"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Future" eSuperTypes="#//Expression"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Globally" eSuperTypes="#//Expression"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Implication">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Expression"
+  <eClassifiers xsi:type="ecore:EClass" name="QuantifiedProbability" eSuperTypes="#//Rule">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//PathFormula"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Conjunction" eSuperTypes="#//Expression"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Disjunction" eSuperTypes="#//Expression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BooleanRule" eSuperTypes="#//Rule">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//StateFormula"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StateFormula" eSuperTypes="#//StateExpression #//RightStateExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//StateExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StateExpression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RightStateExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//RightStateExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="State" eSuperTypes="#//StateExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Label" eSuperTypes="#//StateExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Boolean" eSuperTypes="#//StateExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PathFormula">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bound" eType="#//TimeBound"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Until" eSuperTypes="#//PathFormula">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//StateFormula"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//StateFormula"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Next" eSuperTypes="#//PathFormula">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//StateFormula"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Future" eSuperTypes="#//PathFormula">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//StateFormula"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Globally" eSuperTypes="#//PathFormula">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//StateFormula"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CompareProbability">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TimeBound">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="from" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="to" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Conjunction" eSuperTypes="#//RightStateExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//StateFormula"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Disjunction" eSuperTypes="#//RightStateExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//StateFormula"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Probability" eSuperTypes="#//StateExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="comparator" eType="#//CompareProbability"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="path" eType="#//PathFormula"
+        containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>

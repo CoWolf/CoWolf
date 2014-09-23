@@ -1,13 +1,15 @@
 package de.uni_stuttgart.iste.cowolf.model.ctmc.export;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.resources.IFile;
@@ -17,11 +19,20 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
+import org.eclipse.xtext.resource.XtextResource;
 
 import de.uni_stuttgart.iste.cowolf.model.ctmc.analyze.PRISMGenerator;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Comment;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Fragment;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Rule;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Start;
 
 public class CTMCExportPRISMJob extends Job {
 
@@ -88,47 +99,18 @@ public class CTMCExportPRISMJob extends Job {
 					}
 					output = this.mappingCSL.get(res);
 					
-					IFile modelfile = ResourcesPlugin.getWorkspace().getRoot()
-							.getFile(new Path(res.getURI().toPlatformString(true)));
-
-					IFile resultfile = ResourcesPlugin.getWorkspace().getRoot()
-							.getFile(modelfile.getFullPath().addFileExtension("pctl"));
-
-					File clsFile = new File(resultfile.getLocationURI());
-
-					String data = "";
-					if (clsFile.exists()) {
-						try (BufferedReader reader = new BufferedReader(new FileReader(
-								clsFile))) {
-
-							String line = null;
-							while ((line = reader.readLine()) != null) {
-								data += line + "\n";
-							}
-						} catch (IOException x) {
-							System.err.format("IOException: %s%n", x);
-						}
-					} else {
-						try {
-							clsFile.createNewFile();
-						} catch (IOException e) {
-							LOGGER.error("", e);
-						}
-					}
+					List<Object[]> tableData = loadPCTL(res);
 					
-					ArrayList<String> properties = new ArrayList<String>();
-					ArrayList<String> propertyNames = new ArrayList<String>();
-					
-					String[] tableData = data.split("//");
-					for (String string : tableData) {
-						if (!string.isEmpty()) {
-							String[] tableSubData = string.split("\n", 2);
-							if (tableSubData.length > 1) {
-								propertyNames.add(tableSubData[0].trim());
-								properties.add(tableSubData[1].trim());
-							} else {
-								propertyNames.add(tableSubData[0].trim());
-							}
+					ArrayList<String> properties = new ArrayList<>();
+					ArrayList<String> propertyNames = new ArrayList<>();
+					for (Object[] data : tableData) {
+						if (data[1] != null && data[1] instanceof Comment) {
+							propertyNames.add(((Comment) data[1]).getComment().replaceFirst("^/+\\s*", ""));
+						} else {
+							propertyNames.add("");
+						}
+						if (data[2] != null && data[2] instanceof Rule) {
+							properties.add(NodeModelUtils.findActualNodeFor((Rule) data[2]).getText().trim());
 						}
 					}
 					
@@ -145,5 +127,50 @@ public class CTMCExportPRISMJob extends Job {
 		monitor.done();
 
 		return Status.OK_STATUS;
+	}
+	
+	private List<Object[]> loadPCTL(Resource resource) {
+		IFile modelfile = ResourcesPlugin.getWorkspace().getRoot()
+				.getFile(new Path(resource.getURI().toPlatformString(true)));
+
+		IFile resultfile = ResourcesPlugin.getWorkspace().getRoot()
+				.getFile(modelfile.getFullPath().addFileExtension("pctl"));
+
+		File clsFile = new File(resultfile.getLocationURI());
+
+		ResourceSet resSet = new ResourceSetImpl();
+		
+		XtextResource pctlRes = (XtextResource) resSet.getResource(URI.createPlatformResourceURI(resultfile.getFullPath().toString(), false), true);
+		
+		List<Object[]> tableData = new LinkedList<>();
+		
+		if (clsFile.exists()) {
+			
+			try {
+				pctlRes.load(Collections.EMPTY_MAP);
+			} catch (IOException e) {
+				System.out.println("Could not load pctl file.");
+				return tableData;
+			}
+			
+			if (pctlRes.getContents().size() == 0 || !(pctlRes.getContents().get(0) instanceof Start)) {
+				return tableData;
+			}
+			
+			Iterator<Fragment> it = ((Start)pctlRes.getContents().get(0)).getRule().iterator();
+
+			Comment comment = null;
+			while (it.hasNext()) {
+				Fragment current = it.next();
+				if (current instanceof Comment) {
+					comment = (Comment) current;
+				} else if (current instanceof Rule) {
+					tableData.add(new Object[] {null, comment, (Rule) current});
+					comment = null;
+				}
+			}
+		}
+		
+		return tableData;
 	}
 }
