@@ -576,6 +576,12 @@
                 <subModelOperations xsi:type="tool_1:If" conditionExpression="[element.oclIsKindOf(FailureInstance)/]">
                   <subModelOperations xsi:type="tool_1:Unset" featureName="previousFailure"/>
                 </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[element.oclIsKindOf(ErrorInstance)/]">
+                  <subModelOperations xsi:type="tool_1:Unset" featureName="error" elementExpression="feature:error"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[element.oclIsKindOf(BasicEvent)/]">
+                  <subModelOperations xsi:type="tool_1:Unset" featureName="outputGate" elementExpression="feature:outputGate"/>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
