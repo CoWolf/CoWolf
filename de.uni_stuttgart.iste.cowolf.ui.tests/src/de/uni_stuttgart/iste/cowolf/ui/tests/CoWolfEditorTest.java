@@ -17,6 +17,7 @@ import org.eclipse.swtbot.swt.finder.SWTBot;
 import org.eclipse.swtbot.swt.finder.finders.UIThreadRunnable;
 import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner;
 import org.eclipse.swtbot.swt.finder.results.Result;
+import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences;
 import org.eclipse.swtbot.swt.finder.widgets.AbstractSWTBot;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem;
 import org.junit.After;
@@ -32,12 +33,21 @@ import static org.eclipse.xtext.junit4.ui.util.IResourcesSetupUtil.cleanWorkspac
 public class CoWolfEditorTest {
 
 	private static SWTWorkbenchBot bot;
-	private static TestHelper testHelper = null;
+	private static TestDriver testDriver = null;
+	
+	String _dtmc_file_name = "My.dtmc";
+	String _ctmc_file_name = "My.ctmc";
+	String _statechart_file_name = "My.statechart";
+	String _faulttree_file_name = "My.faulttree";
+	String _activity_file_name = "My.activity_diagram";
+	String _component_file_name = "My.component_diagram";
+	
 
 	@BeforeClass
 	public static void beforeClass() throws Exception {
 		bot = new SWTWorkbenchBot();
-		testHelper = new TestHelper();
+		SWTBotPreferences.TIMEOUT = 10000;
+		testDriver = new TestDriver();
 		try {
 			cleanWorkspace();
 			bot.viewByTitle("Welcome").close();
@@ -58,26 +68,26 @@ public class CoWolfEditorTest {
 	// dtmc editor test
 	@Test
 	public void dtmcEditorTest() throws Exception {
+		
 
-		// change to cowolf perspective
-		testHelper.changeToCoWolfPerspective(bot);
-
-		testHelper.createCoWolfProject(bot);
-
-		// Create a dtmc model
-		testHelper.openProjectWizardwithContextMenu(bot);
-		testHelper.createModel(bot, "DTMC Model");
+		projectInit(TestDriver._cowolf_model_dtmc);
 
 		// Set the Cowolf view active to open the My.Dtmc file
-		testHelper.setFocusCoWolfView(bot);
+		testDriver.setFocusCoWolfView(bot);
 
 		// operate on the dtmc file
-		SWTBotEditor dtmcEditor = testHelper.getFileEditor(bot, "My.dtmc");
-
+		SWTBotEditor editor = testDriver.getFileEditor(bot, _dtmc_file_name);
+		editor.saveAndClose();
+		// open My.dtmc as text file
+		bot.viewByTitle(TestDriver._cowolf_view).setFocus();
+		bot.tree().getTreeItem(TestDriver._cowolf_project_name).getNode(_dtmc_file_name)
+				.select().contextMenu("Open With").menu(TestDriver._cowolf_Dialog_Open_With_dtmc).click();
+		
 		// We set a refrence to the dtmc node, to extend it with States and
 		// transitions
-		SWTBotTreeItem dtmcRootNode = getRootNode(dtmcEditor, "My.dtmc", "DTMC");
-
+		editor = testDriver.getFileEditor(bot, _dtmc_file_name);
+		SWTBotTreeItem dtmcRootNode = getRootNode(editor, _dtmc_file_name, "DTMC");
+		
 		SWTBotView propertiesView = getPropertiesView(bot, dtmcRootNode);
 
 		// populate DTMC model instance
@@ -98,7 +108,7 @@ public class CoWolfEditorTest {
 		createNode(dtmcRootNode, propertiesView, "State", "E5");
 		createNode(dtmcRootNode, propertiesView, "State", "E6");
 
-		dtmcEditor.bot().tree()
+		editor.bot().tree()
 				.getTreeItem("platform:/resource/CoWolf-Test-Project/My.dtmc")
 				.select();
 
@@ -116,30 +126,29 @@ public class CoWolfEditorTest {
 				"State 6");
 
 		// Save
-		dtmcEditor.saveAndClose();
+		editor.saveAndClose();
 	}
 
 	@Test
 	public void CtmcEditorTest() throws Exception {
 
-		// change to cowolf perspective
-		testHelper.changeToCoWolfPerspective(bot);
-
-		testHelper.createCoWolfProject(bot);
-
-		// Create a ctmc model
-		testHelper.openProjectWizardwithContextMenu(bot);
-		testHelper.createModel(bot, "Ctmc Model");
+		projectInit(TestDriver._cowolf_model_ctmc);
 
 		// Set the Cowolf view active to open the My.Dtmc file
-		testHelper.setFocusCoWolfView(bot);
+		testDriver.setFocusCoWolfView(bot);
 
 		// operate on the ctmc file
-		SWTBotEditor editor = testHelper.getFileEditor(bot, "My.ctmc");
-
-		// We set a refrence to the ctmc node, to extend it with States and
+		SWTBotEditor editor = testDriver.getFileEditor(bot, _ctmc_file_name);
+		editor.saveAndClose();
+		// open My.dtmc as text file
+		bot.viewByTitle(TestDriver._cowolf_view).setFocus();
+		bot.tree().getTreeItem(TestDriver._cowolf_project_name).getNode(_ctmc_file_name)
+				.select().contextMenu("Open With").menu(TestDriver._cowolf_Dialog_Open_With_ctmc).click();
+		
+		// We set a refrence to the dtmc node, to extend it with States and
 		// transitions
-		SWTBotTreeItem rootNode = getRootNode(editor, "My.ctmc", "CTMC");
+		editor = testDriver.getFileEditor(bot, _ctmc_file_name);
+		SWTBotTreeItem rootNode = getRootNode(editor, _ctmc_file_name, "CTMC");
 
 		SWTBotView propertiesView = getPropertiesView(bot, rootNode);
 
@@ -183,27 +192,26 @@ public class CoWolfEditorTest {
 	}
 
 	@Test
-	public void StateChartTest() throws Exception {
+	public void StateMachineTest() throws Exception {
 
-		// change to cowolf perspective
-		testHelper.changeToCoWolfPerspective(bot);
+		projectInit(TestDriver._cowolf_model_statemachine);
 
-		testHelper.createCoWolfProject(bot);
-
-		// Create a model
-		testHelper.openProjectWizardwithContextMenu(bot);
-		testHelper.createModel(bot, "statechartemf Model");
 
 		// Set the Cowolf view active to open the file
-		testHelper.setFocusCoWolfView(bot);
+		testDriver.setFocusCoWolfView(bot);
 
 		// operate on the file
-		SWTBotEditor editor = testHelper.getFileEditor(bot, "My.statechartemf");
-
+		SWTBotEditor editor = testDriver.getFileEditor(bot, _statechart_file_name);
+		editor.saveAndClose();
+		// open My.dtmc as text file
+		bot.viewByTitle(TestDriver._cowolf_view).setFocus();
+		bot.tree().getTreeItem(TestDriver._cowolf_project_name).getNode(_statechart_file_name)
+				.select().contextMenu("Open With").menu(TestDriver._cowolf_Dialog_Open_With_statechart).click();
+		
 		// We set a refrence to the dtmc node, to extend it with States and
 		// transitions
-		SWTBotTreeItem rootNode = getRootNode(editor, "My.statechartemf",
-				"State Machine");
+		editor = testDriver.getFileEditor(bot, _statechart_file_name);
+		SWTBotTreeItem rootNode = getRootNode(editor, _statechart_file_name, "State Machine Root");
 
 		SWTBotView propertiesView = getPropertiesView(bot, rootNode);
 
@@ -216,7 +224,7 @@ public class CoWolfEditorTest {
 		editor.bot()
 				.tree()
 				.getTreeItem(
-						"platform:/resource/CoWolf-Test-Project/My.statechartemf")
+						"platform:/resource/CoWolf-Test-Project/My.statechart")
 				.select();
 
 		createTransition(rootNode, propertiesView, "State START");
@@ -230,20 +238,22 @@ public class CoWolfEditorTest {
 	@Test
 	public void FaultTreeTest() throws Exception {
 
-		// change to cowolf perspective
-		testHelper.changeToCoWolfPerspective(bot);
+		projectInit(TestDriver._cowolf_model_faulttree);
 
-		testHelper.createCoWolfProject(bot);
+		// Set the Cowolf view active to open the My.Dtmc file
+		testDriver.setFocusCoWolfView(bot);
 
-		// Create a model
-		testHelper.openProjectWizardwithContextMenu(bot);
-		testHelper.createModel(bot, "FaultTree Model");
-
-		// Set the Cowolf view active to open the file
-		testHelper.setFocusCoWolfView(bot);
-
-		SWTBotEditor editor = testHelper.getFileEditor(bot, "My.faulttree");
-
+		SWTBotEditor editor = testDriver.getFileEditor(bot, _faulttree_file_name);
+		editor.saveAndClose();
+		// open My.dtmc as text file
+		bot.viewByTitle(TestDriver._cowolf_view).setFocus();
+		bot.tree().getTreeItem(TestDriver._cowolf_project_name).getNode(_faulttree_file_name)
+				.select().contextMenu("Open With").menu(TestDriver._cowolf_Dialog_Open_With_faulttree).click();
+		
+		// We set a refrence to the dtmc node, to extend it with States and
+		// transitions
+		editor = testDriver.getFileEditor(bot, _faulttree_file_name);
+	  
 		SWTBotTreeItem xml = editor
 				.bot()
 				.tree()
@@ -287,23 +297,24 @@ public class CoWolfEditorTest {
 	@Test
 	public void ActivityDiagramTest() throws Exception {
 
-		// change to cowolf perspective
-		testHelper.changeToCoWolfPerspective(bot);
+		projectInit(TestDriver._cowolf_model_activity);
+		bot.sleep(3000);
+		testDriver.setFocusCoWolfView(bot);
 
-		testHelper.createCoWolfProject(bot);
+		SWTBotEditor editor = testDriver.getFileEditor(bot, _activity_file_name);
+		editor.saveAndClose();
+		bot.sleep(3000);
+		bot.viewByTitle(TestDriver._cowolf_view).setFocus();
+		bot.sleep(3000);
+		bot.tree().getTreeItem(TestDriver._cowolf_project_name).getNode(_activity_file_name)
+				.select().contextMenu("Open With").menu(TestDriver._cowolf_Dialog_Open_With_activity).click();
+		
 
-		// Create a Activitiy Diagram model
-		testHelper.openProjectWizardwithContextMenu(bot);
-		testHelper.createModel(bot, "Activity Diagram");
+		editor = testDriver.getFileEditor(bot, _activity_file_name);
+		
+		//SWTBotTreeItem rootNode = getRootNode(editor, _activity_file_name, "Activity Diagram");
 
-		// Set the Cowolf view active to open the My.activity file
-		testHelper.setFocusCoWolfView(bot);
-
-		SWTBotEditor editor = testHelper.getFileEditor(bot,
-				"My.activity_diagram");
-
-		// We set a refrence to the node, to extend it with States and
-		// transitions
+		//SWTBotView propertiesView = getPropertiesView(bot, rootNode);
 
 		SWTBotTreeItem xml = editor
 				.bot()
@@ -343,24 +354,25 @@ public class CoWolfEditorTest {
 	@Test
 	public void ComponentDiagramTest() throws Exception {
 
-		// change to cowolf perspective
-		testHelper.changeToCoWolfPerspective(bot);
-
-		testHelper.createCoWolfProject(bot);
-
-		// Create a component_diagram model
-		testHelper.openProjectWizardwithContextMenu(bot);
-		testHelper.createModel(bot, "Component_diagram Model");
+		projectInit(TestDriver._cowolf_model_component);
 
 		// Set the Cowolf view active to open the My.activity file
-		testHelper.setFocusCoWolfView(bot);
+		testDriver.setFocusCoWolfView(bot);
 
 		// operate on the component_diagram file
-		SWTBotEditor editor = testHelper.getFileEditor(bot,
-				"My.component_diagram");
+		SWTBotEditor editor = testDriver.getFileEditor(bot, _component_file_name);
+		editor.saveAndClose();
+		// open My.dtmc as text file
+		bot.viewByTitle(TestDriver._cowolf_view).setFocus();
+		bot.tree().getTreeItem(TestDriver._cowolf_project_name).getNode(_component_file_name)
+				.select().contextMenu("Open With").menu(TestDriver._cowolf_Dialog_Open_With_component).click();
+		
+		// We set a refrence to the dtmc node, to extend it with States and
+		// transitions
+		editor = testDriver.getFileEditor(bot, _component_file_name);
 
 		// We set a refrence to the node, to extend it
-		SWTBotTreeItem rootNode = getRootNode(editor, "My.component_diagram",
+		SWTBotTreeItem rootNode = getRootNode(editor, _component_file_name,
 				"Architecture");
 		bot.sleep(4000);
 		SWTBotView propertiesView = getPropertiesView(bot, rootNode);
@@ -441,11 +453,9 @@ public class CoWolfEditorTest {
 
 	private SWTBotTreeItem getRootNode(SWTBotEditor editor, String filename,
 			String nodeName) {
-		SWTBotTreeItem item = editor
-				.bot()
-				.tree()
+		SWTBotTreeItem item = editor.bot().tree()
 				.getTreeItem(
-						"platform:/resource/CoWolf-Test-Project/" + filename)
+						"platform:/resource/" + TestDriver._cowolf_project_name + "/" + filename).select().expand().click()
 				.getNode(nodeName);
 		return item;
 	}
@@ -480,6 +490,12 @@ public class CoWolfEditorTest {
 			view.bot().tree().getTreeItem("Name").select().click();
 			view.bot().text().setText(name);
 		}
+	}
+	private void projectInit(String model){
+		testDriver.changeToCoWolfPerspective(bot);
+		testDriver.createCoWolfProject(bot);
+		testDriver.openProjectWizardwithContextMenu(bot);
+		testDriver.createModel(bot, model);		
 	}
 
 	@AfterClass
