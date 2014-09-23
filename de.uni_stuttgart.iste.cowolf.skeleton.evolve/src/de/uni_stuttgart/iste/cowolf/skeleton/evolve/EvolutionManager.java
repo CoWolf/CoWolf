@@ -26,6 +26,6 @@ public class EvolutionManager extends AbstractEvolutionManager {
 
 	@Override
 	protected Class<?> getManagedClass() {
-		return null;
+		return this.getClass();
 	}
 }
