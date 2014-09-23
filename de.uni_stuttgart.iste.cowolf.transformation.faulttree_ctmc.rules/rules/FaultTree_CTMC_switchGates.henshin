@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_MXkHYEMfEeS9YtMKDW_uRw">
+  <imports href="http://FaultTree/1.0#/"/>
+  <imports href="http://www.eclipse.org/emf/2011/Henshin/Trace#/"/>
+  <units xsi:type="henshin:LoopUnit" xmi:id="_RDjVYEMfEeS9YtMKDW_uRw" name="switchGatesToEvents" description="" subUnit="_RDjVYUMfEeS9YtMKDW_uRw"/>
+  <units xsi:type="henshin:Rule" xmi:id="_RDjVYUMfEeS9YtMKDW_uRw" name="switchGateToEvent" checkDangling="false">
+    <lhs xmi:id="_RDjVYkMfEeS9YtMKDW_uRw" name="Lhs">
+      <nodes xmi:id="_RDjVY0MfEeS9YtMKDW_uRw" outgoing="_RDjVZkMfEeS9YtMKDW_uRw _RDjVZ0MfEeS9YtMKDW_uRw">
+        <type href="http://FaultTree/1.0#//FaultTree"/>
+      </nodes>
+      <nodes xmi:id="_RDjVZEMfEeS9YtMKDW_uRw" incoming="_RDjVZ0MfEeS9YtMKDW_uRw" outgoing="_RDjVaEMfEeS9YtMKDW_uRw">
+        <type href="http://FaultTree/1.0#//Gate"/>
+      </nodes>
+      <nodes xmi:id="_RDjVZUMfEeS9YtMKDW_uRw" incoming="_RDjVZkMfEeS9YtMKDW_uRw _RDjVaEMfEeS9YtMKDW_uRw">
+        <type href="http://FaultTree/1.0#//Gate"/>
+      </nodes>
+      <edges xmi:id="_RDjVZkMfEeS9YtMKDW_uRw" source="_RDjVY0MfEeS9YtMKDW_uRw" target="_RDjVZUMfEeS9YtMKDW_uRw">
+        <type href="http://FaultTree/1.0#//FaultTree/gate"/>
+      </edges>
+      <edges xmi:id="_RDjVZ0MfEeS9YtMKDW_uRw" source="_RDjVY0MfEeS9YtMKDW_uRw" target="_RDjVZEMfEeS9YtMKDW_uRw">
+        <type href="http://FaultTree/1.0#//FaultTree/gate"/>
+      </edges>
+      <edges xmi:id="_RDjVaEMfEeS9YtMKDW_uRw" source="_RDjVZEMfEeS9YtMKDW_uRw" target="_RDjVZUMfEeS9YtMKDW_uRw">
+        <type href="http://FaultTree/1.0#//Gate/inputGates"/>
+      </edges>
+      <formula xsi:type="henshin:Not" xmi:id="_RDjVaUMfEeS9YtMKDW_uRw">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_RDjVakMfEeS9YtMKDW_uRw">
+          <conclusion xmi:id="_RDjVa0MfEeS9YtMKDW_uRw">
+            <nodes xmi:id="_RDjVbEMfEeS9YtMKDW_uRw" outgoing="_RDjVcUMfEeS9YtMKDW_uRw _RDjVckMfEeS9YtMKDW_uRw">
+              <type href="http://FaultTree/1.0#//FaultTree"/>
+            </nodes>
+            <nodes xmi:id="_RDjVbUMfEeS9YtMKDW_uRw" incoming="_RDjVcUMfEeS9YtMKDW_uRw _RDjVc0MfEeS9YtMKDW_uRw _RDjVdEMfEeS9YtMKDW_uRw">
+              <type href="http://FaultTree/1.0#//Gate"/>
+            </nodes>
+            <nodes xmi:id="_RDjVbkMfEeS9YtMKDW_uRw" incoming="_RDjVckMfEeS9YtMKDW_uRw" outgoing="_RDjVdEMfEeS9YtMKDW_uRw">
+              <type href="http://FaultTree/1.0#//Gate"/>
+            </nodes>
+            <nodes xmi:id="_RDjVb0MfEeS9YtMKDW_uRw" outgoing="_RDjVc0MfEeS9YtMKDW_uRw">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+              <attributes xmi:id="_RDjVcEMfEeS9YtMKDW_uRw" value="&quot;pseudo&quot;">
+                <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/name"/>
+              </attributes>
+            </nodes>
+            <edges xmi:id="_RDjVcUMfEeS9YtMKDW_uRw" source="_RDjVbEMfEeS9YtMKDW_uRw" target="_RDjVbUMfEeS9YtMKDW_uRw">
+              <type href="http://FaultTree/1.0#//FaultTree/gate"/>
+            </edges>
+            <edges xmi:id="_RDjVckMfEeS9YtMKDW_uRw" source="_RDjVbEMfEeS9YtMKDW_uRw" target="_RDjVbkMfEeS9YtMKDW_uRw">
+              <type href="http://FaultTree/1.0#//FaultTree/gate"/>
+            </edges>
+            <edges xmi:id="_RDjVc0MfEeS9YtMKDW_uRw" source="_RDjVb0MfEeS9YtMKDW_uRw" target="_RDjVbUMfEeS9YtMKDW_uRw">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+            </edges>
+            <edges xmi:id="_RDjVdEMfEeS9YtMKDW_uRw" source="_RDjVbkMfEeS9YtMKDW_uRw" target="_RDjVbUMfEeS9YtMKDW_uRw">
+              <type href="http://FaultTree/1.0#//Gate/inputGates"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_RDjVdUMfEeS9YtMKDW_uRw" origin="_RDjVY0MfEeS9YtMKDW_uRw" image="_RDjVbEMfEeS9YtMKDW_uRw"/>
+          <mappings xmi:id="_RDjVdkMfEeS9YtMKDW_uRw" origin="_RDjVZUMfEeS9YtMKDW_uRw" image="_RDjVbUMfEeS9YtMKDW_uRw"/>
+          <mappings xmi:id="_RDjVd0MfEeS9YtMKDW_uRw" origin="_RDjVZEMfEeS9YtMKDW_uRw" image="_RDjVbkMfEeS9YtMKDW_uRw"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_RDjVeEMfEeS9YtMKDW_uRw" name="Rhs">
+      <nodes xmi:id="_RDjVeUMfEeS9YtMKDW_uRw" outgoing="_RDjVgEMfEeS9YtMKDW_uRw _RDjVgUMfEeS9YtMKDW_uRw _RDjVg0MfEeS9YtMKDW_uRw">
+        <type href="http://FaultTree/1.0#//FaultTree"/>
+      </nodes>
+      <nodes xmi:id="_RDjVekMfEeS9YtMKDW_uRw" incoming="_RDjVgUMfEeS9YtMKDW_uRw" outgoing="_RDjVhEMfEeS9YtMKDW_uRw _RDjVhkMfEeS9YtMKDW_uRw">
+        <type href="http://FaultTree/1.0#//Gate"/>
+      </nodes>
+      <nodes xmi:id="_RDjVe0MfEeS9YtMKDW_uRw" incoming="_RDjVgEMfEeS9YtMKDW_uRw _RDjVhUMfEeS9YtMKDW_uRw _RDjVhkMfEeS9YtMKDW_uRw">
+        <type href="http://FaultTree/1.0#//Gate"/>
+      </nodes>
+      <nodes xmi:id="_RDjVfEMfEeS9YtMKDW_uRw" outgoing="_RDjVgkMfEeS9YtMKDW_uRw _RDjVhUMfEeS9YtMKDW_uRw">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+        <attributes xmi:id="_RDjVfUMfEeS9YtMKDW_uRw" value="&quot;pseudo&quot;">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_RDjVfkMfEeS9YtMKDW_uRw" incoming="_RDjVg0MfEeS9YtMKDW_uRw _RDjVgkMfEeS9YtMKDW_uRw _RDjVhEMfEeS9YtMKDW_uRw">
+        <type href="http://FaultTree/1.0#//BasicEvent"/>
+        <attributes xmi:id="_RDjVf0MfEeS9YtMKDW_uRw" value="&quot;pseudo&quot;">
+          <type href="http://FaultTree/1.0#//Event/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_RDjVgEMfEeS9YtMKDW_uRw" source="_RDjVeUMfEeS9YtMKDW_uRw" target="_RDjVe0MfEeS9YtMKDW_uRw">
+        <type href="http://FaultTree/1.0#//FaultTree/gate"/>
+      </edges>
+      <edges xmi:id="_RDjVgUMfEeS9YtMKDW_uRw" source="_RDjVeUMfEeS9YtMKDW_uRw" target="_RDjVekMfEeS9YtMKDW_uRw">
+        <type href="http://FaultTree/1.0#//FaultTree/gate"/>
+      </edges>
+      <edges xmi:id="_RDjVgkMfEeS9YtMKDW_uRw" source="_RDjVfEMfEeS9YtMKDW_uRw" target="_RDjVfkMfEeS9YtMKDW_uRw">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+      <edges xmi:id="_RDjVg0MfEeS9YtMKDW_uRw" source="_RDjVeUMfEeS9YtMKDW_uRw" target="_RDjVfkMfEeS9YtMKDW_uRw">
+        <type href="http://FaultTree/1.0#//FaultTree/event"/>
+      </edges>
+      <edges xmi:id="_RDjVhEMfEeS9YtMKDW_uRw" source="_RDjVekMfEeS9YtMKDW_uRw" target="_RDjVfkMfEeS9YtMKDW_uRw">
+        <type href="http://FaultTree/1.0#//Gate/inputEvents"/>
+      </edges>
+      <edges xmi:id="_RDjVhUMfEeS9YtMKDW_uRw" source="_RDjVfEMfEeS9YtMKDW_uRw" target="_RDjVe0MfEeS9YtMKDW_uRw">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+      <edges xmi:id="_RDjVhkMfEeS9YtMKDW_uRw" source="_RDjVekMfEeS9YtMKDW_uRw" target="_RDjVe0MfEeS9YtMKDW_uRw">
+        <type href="http://FaultTree/1.0#//Gate/inputGates"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_RDjVh0MfEeS9YtMKDW_uRw" origin="_RDjVY0MfEeS9YtMKDW_uRw" image="_RDjVeUMfEeS9YtMKDW_uRw"/>
+    <mappings xmi:id="_RDjViEMfEeS9YtMKDW_uRw" origin="_RDjVZEMfEeS9YtMKDW_uRw" image="_RDjVekMfEeS9YtMKDW_uRw"/>
+    <mappings xmi:id="_RDjViUMfEeS9YtMKDW_uRw" origin="_RDjVZUMfEeS9YtMKDW_uRw" image="_RDjVe0MfEeS9YtMKDW_uRw"/>
+    <multiRules xmi:id="_RDjVikMfEeS9YtMKDW_uRw">
+      <lhs xmi:id="_RDjVi0MfEeS9YtMKDW_uRw" name="Lhs">
+        <nodes xmi:id="_RDjVjEMfEeS9YtMKDW_uRw" outgoing="_RDjVkEMfEeS9YtMKDW_uRw _RDjVkUMfEeS9YtMKDW_uRw">
+          <type href="http://FaultTree/1.0#//FaultTree"/>
+        </nodes>
+        <nodes xmi:id="_RDjVjUMfEeS9YtMKDW_uRw" incoming="_RDjVkEMfEeS9YtMKDW_uRw _RDjVkkMfEeS9YtMKDW_uRw _RDjVk0MfEeS9YtMKDW_uRw">
+          <type href="http://FaultTree/1.0#//Gate"/>
+        </nodes>
+        <nodes xmi:id="_RDjVjkMfEeS9YtMKDW_uRw" incoming="_RDjVkUMfEeS9YtMKDW_uRw" outgoing="_RDjVkkMfEeS9YtMKDW_uRw">
+          <type href="http://FaultTree/1.0#//Gate"/>
+        </nodes>
+        <nodes xmi:id="_RDjVj0MfEeS9YtMKDW_uRw" outgoing="_RDjVk0MfEeS9YtMKDW_uRw">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+        </nodes>
+        <edges xmi:id="_RDjVkEMfEeS9YtMKDW_uRw" source="_RDjVjEMfEeS9YtMKDW_uRw" target="_RDjVjUMfEeS9YtMKDW_uRw">
+          <type href="http://FaultTree/1.0#//FaultTree/gate"/>
+        </edges>
+        <edges xmi:id="_RDjVkUMfEeS9YtMKDW_uRw" source="_RDjVjEMfEeS9YtMKDW_uRw" target="_RDjVjkMfEeS9YtMKDW_uRw">
+          <type href="http://FaultTree/1.0#//FaultTree/gate"/>
+        </edges>
+        <edges xmi:id="_RDjVkkMfEeS9YtMKDW_uRw" source="_RDjVjkMfEeS9YtMKDW_uRw" target="_RDjVjUMfEeS9YtMKDW_uRw">
+          <type href="http://FaultTree/1.0#//Gate/inputGates"/>
+        </edges>
+        <edges xmi:id="_RDjVk0MfEeS9YtMKDW_uRw" source="_RDjVj0MfEeS9YtMKDW_uRw" target="_RDjVjUMfEeS9YtMKDW_uRw">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+        </edges>
+        <formula xsi:type="henshin:Not" xmi:id="_RDjVlEMfEeS9YtMKDW_uRw">
+          <child xsi:type="henshin:NestedCondition" xmi:id="_RDjVlUMfEeS9YtMKDW_uRw">
+            <conclusion xmi:id="_RDjVlkMfEeS9YtMKDW_uRw">
+              <nodes xmi:id="_RDjVl0MfEeS9YtMKDW_uRw" outgoing="_RDjVmkMfEeS9YtMKDW_uRw">
+                <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+                <attributes xmi:id="_RDjVmEMfEeS9YtMKDW_uRw" value="&quot;pseudo&quot;">
+                  <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/name"/>
+                </attributes>
+              </nodes>
+              <nodes xmi:id="_RDjVmUMfEeS9YtMKDW_uRw" incoming="_RDjVmkMfEeS9YtMKDW_uRw">
+                <type href="http://FaultTree/1.0#//Gate"/>
+              </nodes>
+              <edges xmi:id="_RDjVmkMfEeS9YtMKDW_uRw" source="_RDjVl0MfEeS9YtMKDW_uRw" target="_RDjVmUMfEeS9YtMKDW_uRw">
+                <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+              </edges>
+            </conclusion>
+            <mappings xmi:id="_RDjVm0MfEeS9YtMKDW_uRw" origin="_RDjVj0MfEeS9YtMKDW_uRw" image="_RDjVl0MfEeS9YtMKDW_uRw"/>
+            <mappings xmi:id="_RDjVnEMfEeS9YtMKDW_uRw" origin="_RDjVjUMfEeS9YtMKDW_uRw" image="_RDjVmUMfEeS9YtMKDW_uRw"/>
+          </child>
+        </formula>
+      </lhs>
+      <rhs xmi:id="_RDj8cEMfEeS9YtMKDW_uRw" name="Rhs">
+        <nodes xmi:id="_RDj8cUMfEeS9YtMKDW_uRw" outgoing="_RDj8eUMfEeS9YtMKDW_uRw _RDj8ekMfEeS9YtMKDW_uRw _RDj8e0MfEeS9YtMKDW_uRw">
+          <type href="http://FaultTree/1.0#//FaultTree"/>
+        </nodes>
+        <nodes xmi:id="_RDj8ckMfEeS9YtMKDW_uRw" incoming="_RDj8eUMfEeS9YtMKDW_uRw _RDj8fUMfEeS9YtMKDW_uRw _RDj8fkMfEeS9YtMKDW_uRw">
+          <type href="http://FaultTree/1.0#//Gate"/>
+        </nodes>
+        <nodes xmi:id="_RDj8c0MfEeS9YtMKDW_uRw" incoming="_RDj8ekMfEeS9YtMKDW_uRw" outgoing="_RDj8fEMfEeS9YtMKDW_uRw _RDj8fUMfEeS9YtMKDW_uRw">
+          <type href="http://FaultTree/1.0#//Gate"/>
+        </nodes>
+        <nodes xmi:id="_RDj8dEMfEeS9YtMKDW_uRw" incoming="_RDj8e0MfEeS9YtMKDW_uRw _RDj8fEMfEeS9YtMKDW_uRw _RDj8f0MfEeS9YtMKDW_uRw">
+          <type href="http://FaultTree/1.0#//BasicEvent"/>
+          <attributes xmi:id="_RDj8dUMfEeS9YtMKDW_uRw" value="&quot;pseudo&quot;">
+            <type href="http://FaultTree/1.0#//Event/name"/>
+          </attributes>
+        </nodes>
+        <nodes xmi:id="_RDj8dkMfEeS9YtMKDW_uRw" outgoing="_RDj8fkMfEeS9YtMKDW_uRw">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+          <attributes xmi:id="_RDj8d0MfEeS9YtMKDW_uRw" value="&quot;pseudo&quot;">
+            <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/name"/>
+          </attributes>
+        </nodes>
+        <nodes xmi:id="_RDj8eEMfEeS9YtMKDW_uRw" outgoing="_RDj8f0MfEeS9YtMKDW_uRw">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+        </nodes>
+        <edges xmi:id="_RDj8eUMfEeS9YtMKDW_uRw" source="_RDj8cUMfEeS9YtMKDW_uRw" target="_RDj8ckMfEeS9YtMKDW_uRw">
+          <type href="http://FaultTree/1.0#//FaultTree/gate"/>
+        </edges>
+        <edges xmi:id="_RDj8ekMfEeS9YtMKDW_uRw" source="_RDj8cUMfEeS9YtMKDW_uRw" target="_RDj8c0MfEeS9YtMKDW_uRw">
+          <type href="http://FaultTree/1.0#//FaultTree/gate"/>
+        </edges>
+        <edges xmi:id="_RDj8e0MfEeS9YtMKDW_uRw" source="_RDj8cUMfEeS9YtMKDW_uRw" target="_RDj8dEMfEeS9YtMKDW_uRw">
+          <type href="http://FaultTree/1.0#//FaultTree/event"/>
+        </edges>
+        <edges xmi:id="_RDj8fEMfEeS9YtMKDW_uRw" source="_RDj8c0MfEeS9YtMKDW_uRw" target="_RDj8dEMfEeS9YtMKDW_uRw">
+          <type href="http://FaultTree/1.0#//Gate/inputEvents"/>
+        </edges>
+        <edges xmi:id="_RDj8fUMfEeS9YtMKDW_uRw" source="_RDj8c0MfEeS9YtMKDW_uRw" target="_RDj8ckMfEeS9YtMKDW_uRw">
+          <type href="http://FaultTree/1.0#//Gate/inputGates"/>
+        </edges>
+        <edges xmi:id="_RDj8fkMfEeS9YtMKDW_uRw" source="_RDj8dkMfEeS9YtMKDW_uRw" target="_RDj8ckMfEeS9YtMKDW_uRw">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+        </edges>
+        <edges xmi:id="_RDj8f0MfEeS9YtMKDW_uRw" source="_RDj8eEMfEeS9YtMKDW_uRw" target="_RDj8dEMfEeS9YtMKDW_uRw">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+        </edges>
+      </rhs>
+      <mappings xmi:id="_RDj8gEMfEeS9YtMKDW_uRw" origin="_RDjVjEMfEeS9YtMKDW_uRw" image="_RDj8cUMfEeS9YtMKDW_uRw"/>
+      <mappings xmi:id="_RDj8gUMfEeS9YtMKDW_uRw" origin="_RDjVjkMfEeS9YtMKDW_uRw" image="_RDj8c0MfEeS9YtMKDW_uRw"/>
+      <mappings xmi:id="_RDj8gkMfEeS9YtMKDW_uRw" origin="_RDjVjUMfEeS9YtMKDW_uRw" image="_RDj8ckMfEeS9YtMKDW_uRw"/>
+      <mappings xmi:id="_RDj8g0MfEeS9YtMKDW_uRw" origin="_RDjVj0MfEeS9YtMKDW_uRw" image="_RDj8eEMfEeS9YtMKDW_uRw"/>
+      <multiMappings xmi:id="_RDj8hEMfEeS9YtMKDW_uRw" origin="_RDjVeUMfEeS9YtMKDW_uRw" image="_RDj8cUMfEeS9YtMKDW_uRw"/>
+      <multiMappings xmi:id="_RDj8hUMfEeS9YtMKDW_uRw" origin="_RDjVe0MfEeS9YtMKDW_uRw" image="_RDj8ckMfEeS9YtMKDW_uRw"/>
+      <multiMappings xmi:id="_RDj8hkMfEeS9YtMKDW_uRw" origin="_RDjVekMfEeS9YtMKDW_uRw" image="_RDj8c0MfEeS9YtMKDW_uRw"/>
+      <multiMappings xmi:id="_RDj8h0MfEeS9YtMKDW_uRw" origin="_RDjVfkMfEeS9YtMKDW_uRw" image="_RDj8dEMfEeS9YtMKDW_uRw"/>
+      <multiMappings xmi:id="_RDj8iEMfEeS9YtMKDW_uRw" origin="_RDjVY0MfEeS9YtMKDW_uRw" image="_RDjVjEMfEeS9YtMKDW_uRw"/>
+      <multiMappings xmi:id="_RDj8iUMfEeS9YtMKDW_uRw" origin="_RDjVZUMfEeS9YtMKDW_uRw" image="_RDjVjUMfEeS9YtMKDW_uRw"/>
+      <multiMappings xmi:id="_RDj8ikMfEeS9YtMKDW_uRw" origin="_RDjVZEMfEeS9YtMKDW_uRw" image="_RDjVjkMfEeS9YtMKDW_uRw"/>
+      <multiMappings xmi:id="_RDj8i0MfEeS9YtMKDW_uRw" origin="_RDjVfEMfEeS9YtMKDW_uRw" image="_RDj8dkMfEeS9YtMKDW_uRw"/>
+    </multiRules>
+  </units>
+</henshin:Module>
