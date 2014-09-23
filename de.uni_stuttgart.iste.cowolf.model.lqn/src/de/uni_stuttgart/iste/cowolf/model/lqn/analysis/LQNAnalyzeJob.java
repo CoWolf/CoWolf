@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import de.uni_stuttgart.iste.cowolf.core.utilities.CommandLineExecutor;
 import de.uni_stuttgart.iste.cowolf.core.utilities.PrinterRegistry;
 import de.uni_stuttgart.iste.cowolf.model.IAnalysisListener;
-import de.uni_stuttgart.iste.cowolf.model.LqnCore.ActivityType;
+import de.uni_stuttgart.iste.cowolf.model.LqnCore.ActivityDefType;
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.EntryType;
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.ProcessorType;
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.TaskType;
@@ -149,7 +149,7 @@ public class LQNAnalyzeJob extends Job {
 		
 		for ( Iterator<EObject> iter = model.getAllContents();iter.hasNext();) {
 			EObject o = iter.next();
-			if (o instanceof ProcessorType || o instanceof TaskType || o instanceof EntryType || o instanceof ActivityType) {
+			if (o instanceof ProcessorType || o instanceof TaskType || o instanceof EntryType || o instanceof ActivityDefType) {
 				try {
 					Method gi = o.getClass().getMethod("getId", null);
 					Method gn = o.getClass().getMethod("getName", null);

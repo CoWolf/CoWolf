@@ -2,24 +2,18 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.LqnCore.impl;
 
+import de.uni_stuttgart.iste.cowolf.model.LqnCore.EntryType;
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage;
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.MakingCallType;
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.OutputResultType;
-
 import de.uni_stuttgart.iste.cowolf.model.commonBase.impl.IDBaseImpl;
-
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -31,9 +25,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.MakingCallTypeImpl#getResultCall <em>Result Call</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.MakingCallTypeImpl#getDest <em>Dest</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.MakingCallTypeImpl#getFanin <em>Fanin</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.MakingCallTypeImpl#getFanout <em>Fanout</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.MakingCallTypeImpl#getDest <em>Dest</em>}</li>
  * </ul>
  * </p>
  *
@@ -49,26 +43,6 @@ public class MakingCallTypeImpl extends IDBaseImpl implements MakingCallType {
 	 * @ordered
 	 */
 	protected EList<OutputResultType> resultCall;
-
-	/**
-	 * The default value of the '{@link #getDest() <em>Dest</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDest()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String DEST_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getDest() <em>Dest</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDest()
-	 * @generated
-	 * @ordered
-	 */
-	protected String dest = DEST_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getFanin() <em>Fanin</em>}' attribute.
@@ -129,6 +103,16 @@ public class MakingCallTypeImpl extends IDBaseImpl implements MakingCallType {
 	protected boolean fanoutESet;
 
 	/**
+	 * The cached value of the '{@link #getDest() <em>Dest</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDest()
+	 * @generated
+	 * @ordered
+	 */
+	protected EntryType dest;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -164,7 +148,15 @@ public class MakingCallTypeImpl extends IDBaseImpl implements MakingCallType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getDest() {
+	public EntryType getDest() {
+		if (dest != null && dest.eIsProxy()) {
+			InternalEObject oldDest = (InternalEObject)dest;
+			dest = (EntryType)eResolveProxy(oldDest);
+			if (dest != oldDest) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, LQNPackage.MAKING_CALL_TYPE__DEST, oldDest, dest));
+			}
+		}
 		return dest;
 	}
 
@@ -173,8 +165,17 @@ public class MakingCallTypeImpl extends IDBaseImpl implements MakingCallType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDest(String newDest) {
-		String oldDest = dest;
+	public EntryType basicGetDest() {
+		return dest;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDest(EntryType newDest) {
+		EntryType oldDest = dest;
 		dest = newDest;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, LQNPackage.MAKING_CALL_TYPE__DEST, oldDest, dest));
@@ -296,12 +297,13 @@ public class MakingCallTypeImpl extends IDBaseImpl implements MakingCallType {
 		switch (featureID) {
 			case LQNPackage.MAKING_CALL_TYPE__RESULT_CALL:
 				return getResultCall();
-			case LQNPackage.MAKING_CALL_TYPE__DEST:
-				return getDest();
 			case LQNPackage.MAKING_CALL_TYPE__FANIN:
 				return getFanin();
 			case LQNPackage.MAKING_CALL_TYPE__FANOUT:
 				return getFanout();
+			case LQNPackage.MAKING_CALL_TYPE__DEST:
+				if (resolve) return getDest();
+				return basicGetDest();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -319,14 +321,14 @@ public class MakingCallTypeImpl extends IDBaseImpl implements MakingCallType {
 				getResultCall().clear();
 				getResultCall().addAll((Collection<? extends OutputResultType>)newValue);
 				return;
-			case LQNPackage.MAKING_CALL_TYPE__DEST:
-				setDest((String)newValue);
-				return;
 			case LQNPackage.MAKING_CALL_TYPE__FANIN:
 				setFanin((Integer)newValue);
 				return;
 			case LQNPackage.MAKING_CALL_TYPE__FANOUT:
 				setFanout((Integer)newValue);
+				return;
+			case LQNPackage.MAKING_CALL_TYPE__DEST:
+				setDest((EntryType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -343,14 +345,14 @@ public class MakingCallTypeImpl extends IDBaseImpl implements MakingCallType {
 			case LQNPackage.MAKING_CALL_TYPE__RESULT_CALL:
 				getResultCall().clear();
 				return;
-			case LQNPackage.MAKING_CALL_TYPE__DEST:
-				setDest(DEST_EDEFAULT);
-				return;
 			case LQNPackage.MAKING_CALL_TYPE__FANIN:
 				unsetFanin();
 				return;
 			case LQNPackage.MAKING_CALL_TYPE__FANOUT:
 				unsetFanout();
+				return;
+			case LQNPackage.MAKING_CALL_TYPE__DEST:
+				setDest((EntryType)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -366,12 +368,12 @@ public class MakingCallTypeImpl extends IDBaseImpl implements MakingCallType {
 		switch (featureID) {
 			case LQNPackage.MAKING_CALL_TYPE__RESULT_CALL:
 				return resultCall != null && !resultCall.isEmpty();
-			case LQNPackage.MAKING_CALL_TYPE__DEST:
-				return DEST_EDEFAULT == null ? dest != null : !DEST_EDEFAULT.equals(dest);
 			case LQNPackage.MAKING_CALL_TYPE__FANIN:
 				return isSetFanin();
 			case LQNPackage.MAKING_CALL_TYPE__FANOUT:
 				return isSetFanout();
+			case LQNPackage.MAKING_CALL_TYPE__DEST:
+				return dest != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -386,9 +388,7 @@ public class MakingCallTypeImpl extends IDBaseImpl implements MakingCallType {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (dest: ");
-		result.append(dest);
-		result.append(", fanin: ");
+		result.append(" (fanin: ");
 		if (faninESet) result.append(fanin); else result.append("<unset>");
 		result.append(", fanout: ");
 		if (fanoutESet) result.append(fanout); else result.append("<unset>");

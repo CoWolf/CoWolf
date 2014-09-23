@@ -34,7 +34,7 @@ public interface ActivityOrType extends ActivityType {
 	 * @see #unsetProb()
 	 * @see #setProb(String)
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage#getActivityOrType_Prob()
-	 * @model default="1" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @model default="1" unsettable="true"
 	 *        extendedMetaData="kind='attribute' name='prob' namespace='##targetNamespace'"
 	 * @generated
 	 */

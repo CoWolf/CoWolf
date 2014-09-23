@@ -87,7 +87,7 @@ public interface SolverParamsType extends IDBase {
 	 * @see #unsetComment()
 	 * @see #setComment(String)
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage#getSolverParamsType_Comment()
-	 * @model default="" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @model default="" unsettable="true"
 	 *        extendedMetaData="kind='attribute' name='comment' namespace='##targetNamespace'"
 	 * @generated
 	 */

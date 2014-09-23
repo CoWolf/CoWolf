@@ -66,8 +66,7 @@ public interface ResultGeneralType extends IDBase {
 	 * @return the value of the '<em>Elapsed Time</em>' attribute.
 	 * @see #setElapsedTime(String)
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage#getResultGeneralType_ElapsedTime()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='attribute' name='elapsed-time' namespace='##targetNamespace'"
+	 * @model extendedMetaData="kind='attribute' name='elapsed-time' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getElapsedTime();
@@ -120,8 +119,7 @@ public interface ResultGeneralType extends IDBase {
 	 * @return the value of the '<em>Platform Info</em>' attribute.
 	 * @see #setPlatformInfo(String)
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage#getResultGeneralType_PlatformInfo()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='attribute' name='platform-info' namespace='##targetNamespace'"
+	 * @model extendedMetaData="kind='attribute' name='platform-info' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getPlatformInfo();
@@ -147,8 +145,7 @@ public interface ResultGeneralType extends IDBase {
 	 * @return the value of the '<em>Solver Info</em>' attribute.
 	 * @see #setSolverInfo(String)
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage#getResultGeneralType_SolverInfo()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='attribute' name='solver-info' namespace='##targetNamespace'"
+	 * @model extendedMetaData="kind='attribute' name='solver-info' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getSolverInfo();
@@ -174,8 +171,7 @@ public interface ResultGeneralType extends IDBase {
 	 * @return the value of the '<em>System Cpu Time</em>' attribute.
 	 * @see #setSystemCpuTime(String)
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage#getResultGeneralType_SystemCpuTime()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='attribute' name='system-cpu-time' namespace='##targetNamespace'"
+	 * @model extendedMetaData="kind='attribute' name='system-cpu-time' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getSystemCpuTime();
@@ -201,8 +197,7 @@ public interface ResultGeneralType extends IDBase {
 	 * @return the value of the '<em>User Cpu Time</em>' attribute.
 	 * @see #setUserCpuTime(String)
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage#getResultGeneralType_UserCpuTime()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='attribute' name='user-cpu-time' namespace='##targetNamespace'"
+	 * @model extendedMetaData="kind='attribute' name='user-cpu-time' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getUserCpuTime();

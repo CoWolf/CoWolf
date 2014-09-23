@@ -54,9 +54,9 @@ public class MakingCallTypeItemProvider extends IDBaseItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addDestPropertyDescriptor(object);
 			addFaninPropertyDescriptor(object);
 			addFanoutPropertyDescriptor(object);
+			addDestPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -78,7 +78,7 @@ public class MakingCallTypeItemProvider extends IDBaseItemProvider {
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -195,9 +195,9 @@ public class MakingCallTypeItemProvider extends IDBaseItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(MakingCallType.class)) {
-			case LQNPackage.MAKING_CALL_TYPE__DEST:
 			case LQNPackage.MAKING_CALL_TYPE__FANIN:
 			case LQNPackage.MAKING_CALL_TYPE__FANOUT:
+			case LQNPackage.MAKING_CALL_TYPE__DEST:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case LQNPackage.MAKING_CALL_TYPE__RESULT_CALL:

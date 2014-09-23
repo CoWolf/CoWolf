@@ -7,6 +7,7 @@ package de.uni_stuttgart.iste.cowolf.model.LqnCore.validation;
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.ActivityMakingCallType;
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.CallListType;
 
+import de.uni_stuttgart.iste.cowolf.model.LqnCore.EntryType;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.util.FeatureMap;
@@ -24,5 +25,11 @@ public interface ActivityDefTypeValidator {
 	boolean validateGroup(FeatureMap value);
 	boolean validateSynchCall(EList<ActivityMakingCallType> value);
 	boolean validateAsynchCall(EList<ActivityMakingCallType> value);
+	boolean validateBountToType(String value);
+
+	boolean validateBoundToType(EntryType value);
+
+	boolean validateBoundToEntry(EntryType value);
+
 	boolean validateBoundToEntry(String value);
 }

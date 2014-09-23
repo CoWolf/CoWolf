@@ -106,8 +106,7 @@ public interface EntryActivityDefType extends ActivityDefBase {
 	 * @return the value of the '<em>First Activity</em>' attribute.
 	 * @see #setFirstActivity(String)
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage#getEntryActivityDefType_FirstActivity()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-	 *        extendedMetaData="kind='attribute' name='first-activity' namespace='##targetNamespace'"
+	 * @model extendedMetaData="kind='attribute' name='first-activity' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getFirstActivity();

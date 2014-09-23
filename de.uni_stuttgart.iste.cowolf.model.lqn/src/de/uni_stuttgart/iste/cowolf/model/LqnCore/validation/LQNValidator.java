@@ -7,6 +7,7 @@ package de.uni_stuttgart.iste.cowolf.model.LqnCore.validation;
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.LqnCoreType;
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.LqnModelType;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 
 import org.eclipse.emf.ecore.util.FeatureMap;
@@ -23,6 +24,10 @@ public interface LQNValidator {
 	boolean validateMixed(FeatureMap value);
 	boolean validateXMLNSPrefixMap(EMap<String, String> value);
 	boolean validateXSISchemaLocation(EMap<String, String> value);
+	boolean validateLqnCore(EList<LqnCoreType> value);
+
+	boolean validateLqnModel(EList<LqnModelType> value);
+
 	boolean validateLqnCore(LqnCoreType value);
 	boolean validateLqnModel(LqnModelType value);
 }

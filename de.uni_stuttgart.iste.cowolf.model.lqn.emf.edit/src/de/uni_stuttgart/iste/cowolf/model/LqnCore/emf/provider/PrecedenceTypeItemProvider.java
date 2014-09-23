@@ -107,14 +107,11 @@ public class PrecedenceTypeItemProvider extends IDBaseItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((PrecedenceType)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_PrecedenceType_type") :
-			getString("_UI_PrecedenceType_type") + " " + label;
+		return getString("_UI_PrecedenceType_type");
 	}
 	
 

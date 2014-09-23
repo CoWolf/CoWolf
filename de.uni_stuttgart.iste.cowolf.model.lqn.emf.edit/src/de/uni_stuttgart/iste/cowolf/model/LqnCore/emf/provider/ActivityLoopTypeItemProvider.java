@@ -91,7 +91,7 @@ public class ActivityLoopTypeItemProvider extends ActivityTypeItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ActivityLoopType)object).getName();
+		String label = ((ActivityLoopType)object).getId();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ActivityLoopType_type") :
 			getString("_UI_ActivityLoopType_type") + " " + label;

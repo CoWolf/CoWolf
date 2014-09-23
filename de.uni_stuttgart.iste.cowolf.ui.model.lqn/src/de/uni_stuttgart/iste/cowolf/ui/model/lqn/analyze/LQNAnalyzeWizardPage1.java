@@ -50,7 +50,7 @@ public class LQNAnalyzeWizardPage1 extends WizardPage {
 
 		this.btnServiceTime = new Button(grpVerificationMethod, SWT.RADIO);
 		this.btnServiceTime.setSelection(true);
-		this.btnServiceTime.setText("Service Time");
+		this.btnServiceTime.setText("Solve the LQN Model");
 		this.setPageComplete();
 	}
 
