@@ -51,25 +51,25 @@ public class ActivityDefTypeItemProvider extends ActivityDefBaseItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addBoundToEntryPropertyDescriptor(object);
+			addBountToTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Bound To Entry feature.
+	 * This adds a property descriptor for the Bount To Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addBoundToEntryPropertyDescriptor(Object object) {
+	protected void addBountToTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ActivityDefType_boundToEntry_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ActivityDefType_boundToEntry_feature", "_UI_ActivityDefType_type"),
-				 LQNPackage.Literals.ACTIVITY_DEF_TYPE__BOUND_TO_ENTRY,
+				 getString("_UI_ActivityDefType_bountToType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ActivityDefType_bountToType_feature", "_UI_ActivityDefType_type"),
+				 LQNPackage.Literals.ACTIVITY_DEF_TYPE__BOUNT_TO_TYPE,
 				 true,
 				 false,
 				 false,
@@ -147,7 +147,7 @@ public class ActivityDefTypeItemProvider extends ActivityDefBaseItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ActivityDefType.class)) {
-			case LQNPackage.ACTIVITY_DEF_TYPE__BOUND_TO_ENTRY:
+			case LQNPackage.ACTIVITY_DEF_TYPE__BOUNT_TO_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case LQNPackage.ACTIVITY_DEF_TYPE__CALL_LIST:

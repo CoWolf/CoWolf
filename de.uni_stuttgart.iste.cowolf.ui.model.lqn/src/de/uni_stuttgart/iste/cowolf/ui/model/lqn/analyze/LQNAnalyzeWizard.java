@@ -28,6 +28,12 @@ import de.uni_stuttgart.iste.cowolf.ui.model.lqn.preferences.LQNPreferencePage;
 public class LQNAnalyzeWizard extends AbstractQoSAnalyzeWizard{
 	private LQNAnalyzeWizardPage1 pageOne;
 
+	private static final String VALIDATE_PATH_ERROR_TITLE = "Path to LQN Solver not set";
+	private static final String VALIDATE_PATH_ERROR_MESSAGE = "The path to LQN Solver is missing.\nPlease set the path in your preferences first.";
+
+	private static final String VALIDATE_MODEL_ERROR_TITLE = "Errors in LQN model";
+	private static final String VALIDATE_MODEL_ERROR_MESSAGE = "Errors in LQN Model were found, please correct them first.\nRun Validation or enable Live Validation to display them.";
+
 	/**
 	 * Constructor for LQNAnalyzeWizard.
 	 */
@@ -69,25 +75,35 @@ public class LQNAnalyzeWizard extends AbstractQoSAnalyzeWizard{
 
 	@Override
 	public boolean checkConditions() {
+		return checkLQNSolverPath() & checkValidModel();
+	}
+
+	private boolean checkLQNSolverPath(){
 		String path = LQNPreferencePage.getPathToLQNSolver().trim();
 		if (path.isEmpty() || path.equals("")) {
 			IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
-			MessageDialog.openError(window.getShell(), "Path to LQNSolver not set",
-					"The path to LQN Solver is missing.\nPlease set the path in your preferences first.");
+			   MessageDialog.openError(window.getShell(), VALIDATE_PATH_ERROR_TITLE,VALIDATE_PATH_ERROR_MESSAGE);
 			return false;
 		}
-		if (resource != null && resource.getContents() != null && resource.getContents().get(0) != null) {
-			Diagnostic diag = Diagnostician.INSTANCE.validate(this.resource.getContents().get(0));
+		return true;
+	}
+	
+	private boolean checkValidModel(){
+		if (resource != null && resource.getContents() != null
+				&& resource.getContents().get(0) != null) {
+			Diagnostic diag = Diagnostician.INSTANCE.validate(this.resource
+					.getContents().get(0));
 			if (diag.getChildren().size() > 0) {
 				IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
-				MessageDialog.openError(window.getShell(), "Errors in LQN model",
-						"Errors in LQN were found, please correct them first.\nRun Validation or enable Live Validation to display them.");
+				MessageDialog.openError(window.getShell(), VALIDATE_MODEL_ERROR_TITLE, VALIDATE_MODEL_ERROR_MESSAGE);
 				return false;
 			}
-		} else {
+			else {
+				return true;
+			}
+		}
+		else {
 			return false;
 		}
-	
-		return true;
 	}
 }

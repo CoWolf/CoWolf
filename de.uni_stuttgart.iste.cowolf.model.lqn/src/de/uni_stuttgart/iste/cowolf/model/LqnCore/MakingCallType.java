@@ -15,9 +15,9 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.MakingCallType#getResultCall <em>Result Call</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.MakingCallType#getDest <em>Dest</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.MakingCallType#getFanin <em>Fanin</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.MakingCallType#getFanout <em>Fanout</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.MakingCallType#getDest <em>Dest</em>}</li>
  * </ul>
  * </p>
  *
@@ -44,31 +44,30 @@ public interface MakingCallType extends IDBase {
 	EList<OutputResultType> getResultCall();
 
 	/**
-	 * Returns the value of the '<em><b>Dest</b></em>' attribute.
+	 * Returns the value of the '<em><b>Dest</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Dest</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Dest</em>' attribute.
-	 * @see #setDest(String)
+	 * @return the value of the '<em>Dest</em>' reference.
+	 * @see #setDest(EntryType)
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage#getMakingCallType_Dest()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
-	 *        extendedMetaData="kind='attribute' name='dest' namespace='##targetNamespace'"
+	 * @model required="true"
 	 * @generated
 	 */
-	String getDest();
+	EntryType getDest();
 
 	/**
-	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.MakingCallType#getDest <em>Dest</em>}' attribute.
+	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.MakingCallType#getDest <em>Dest</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Dest</em>' attribute.
+	 * @param value the new value of the '<em>Dest</em>' reference.
 	 * @see #getDest()
 	 * @generated
 	 */
-	void setDest(String value);
+	void setDest(EntryType value);
 
 	/**
 	 * Returns the value of the '<em><b>Fanin</b></em>' attribute.

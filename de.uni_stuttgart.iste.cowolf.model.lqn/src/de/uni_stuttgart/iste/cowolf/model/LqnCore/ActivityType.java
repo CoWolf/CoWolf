@@ -12,7 +12,7 @@ import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.ActivityType#getName <em>Name</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.ActivityType#getActivity <em>Activity</em>}</li>
  * </ul>
  * </p>
  *
@@ -22,30 +22,29 @@ import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
  */
 public interface ActivityType extends IDBase {
 	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * Returns the value of the '<em><b>Activity</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Activity</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage#getActivityType_Name()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
-	 *        extendedMetaData="kind='attribute' name='name' namespace='##targetNamespace'"
+	 * @return the value of the '<em>Activity</em>' reference.
+	 * @see #setActivity(ActivityDefType)
+	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage#getActivityType_Activity()
+	 * @model
 	 * @generated
 	 */
-	String getName();
+	ActivityDefType getActivity();
 
 	/**
-	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.ActivityType#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.ActivityType#getActivity <em>Activity</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
+	 * @param value the new value of the '<em>Activity</em>' reference.
+	 * @see #getActivity()
 	 * @generated
 	 */
-	void setName(String value);
+	void setActivity(ActivityDefType value);
 
 } // ActivityType

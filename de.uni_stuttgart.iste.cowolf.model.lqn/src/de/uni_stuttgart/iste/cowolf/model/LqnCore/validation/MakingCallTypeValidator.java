@@ -4,6 +4,7 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.LqnCore.validation;
 
+import de.uni_stuttgart.iste.cowolf.model.LqnCore.EntryType;
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.OutputResultType;
 
 import org.eclipse.emf.common.util.EList;
@@ -21,4 +22,6 @@ public interface MakingCallTypeValidator {
 	boolean validateDest(String value);
 	boolean validateFanin(int value);
 	boolean validateFanout(int value);
+
+	boolean validateDest(EntryType value);
 }
