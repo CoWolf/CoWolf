@@ -11,7 +11,21 @@
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
           </style>
         </nodeMappings>
-        <containerMappings name="Component" createElements="false" domainClass="component_diagram.ComponentInstance" reusedContainerMappings="//@ownedViewpoints[name='C']/@ownedRepresentations[name='Component%20Diagram']/@defaultLayer/@containerMappings[name='Component']">
+        <nodeMappings name="Port Instance" semanticCandidatesExpression="feature:eContents" domainClass="component_diagram.PortInstance">
+          <style xsi:type="style:BundledImageDescription" labelSize="7" labelFormat="italic" showIcon="false" sizeComputationExpression="2" resizeKind="EAST_WEST">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+          </style>
+        </nodeMappings>
+        <containerMappings name="Component Instance" semanticCandidatesExpression="feature:eContents" createElements="false" domainClass="component_diagram.ComponentInstance" reusedContainerMappings="//@ownedViewpoints[name='C']/@ownedRepresentations[name='Component%20Diagram']/@defaultLayer/@containerMappings[name='Component%20Instance']">
+          <borderedNodeMappings name="Port Instance in Component" semanticCandidatesExpression="feature:eAllContents" domainClass="component_diagram.PortInstance">
+            <style xsi:type="style:BundledImageDescription" labelSize="7" labelFormat="italic" showIcon="false" sizeComputationExpression="2" resizeKind="EAST_WEST">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+            </style>
+          </borderedNodeMappings>
           <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" labelSize="9" labelFormat="bold" showIcon="false" labelExpression="[name +'\n version ' +  version/]" roundedCorner="true" widthComputationExpression="service:defaultWidth" heightComputationExpression="service:defaultHeight" backgroundStyle="Liquid">
             <borderColor xsi:type="description:UserFixedColor" href="../../org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@userColorsPalettes[name='UMLPalette']/@entries[name='dark%20lagune']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -75,8 +89,8 @@
             </style>
           </conditionnalStyles>
         </containerMappings>
-        <toolSections name="Component">
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Component" containerMappings="//@ownedViewpoints[name='C']/@ownedRepresentations[name='Component%20Diagram']/@defaultLayer/@containerMappings[name='Component']">
+        <toolSections name="Component Instance">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Component" containerMappings="//@ownedViewpoints[name='C']/@ownedRepresentations[name='Component%20Diagram']/@defaultLayer/@containerMappings[name='Component%20Instance']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -188,6 +202,48 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+        </toolSections>
+        <toolSections name="Port Instance">
+          <subSections name="Out Ports">
+            <ownedTools xsi:type="tool:NodeCreationDescription" name="Out Post" nodeMappings="//@ownedViewpoints[name='C']/@ownedRepresentations[name='Component%20Diagram']/@defaultLayer/@nodeMappings[name='Port%20Instance']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="[container.oclIsTypeOf(Architecture)/]">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="component_diagram.PortInstance" referenceName="ports">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="port"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="[container.oclIsTypeOf(ComponentInstance)/]">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="component_diagram.PortInstance" referenceName="outPorts">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="out"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </ownedTools>
+          </subSections>
+          <subSections name="In Port">
+            <ownedTools xsi:type="tool:NodeCreationDescription" name="In Port" nodeMappings="//@ownedViewpoints[name='C']/@ownedRepresentations[name='Component%20Diagram']/@defaultLayer/@nodeMappings[name='Port%20Instance']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="[container.oclIsTypeOf(Architecture)/]">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="component_diagram.PortInstance" referenceName="ports">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="port"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="[container.oclIsTypeOf(ComponentInstance)/]">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="component_diagram.PortInstance" referenceName="inPorts">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="in"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </ownedTools>
+          </subSections>
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
