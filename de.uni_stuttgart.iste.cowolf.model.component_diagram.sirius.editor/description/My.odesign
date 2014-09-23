@@ -11,62 +11,70 @@
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
           </style>
         </nodeMappings>
+        <edgeMappings name="Connector" sourceMapping="//@ownedViewpoints[name='C']/@ownedRepresentations[name='Component%20Diagram']/@defaultLayer/@containerMappings[name='Component%20Instance']/@borderedNodeMappings[name='Port%20Instance%20in%20Component']" targetMapping="//@ownedViewpoints[name='C']/@ownedRepresentations[name='Component%20Diagram']/@defaultLayer/@containerMappings[name='Component%20Instance']/@borderedNodeMappings[name='Port%20Instance%20in%20Component']" targetFinderExpression="service:findTarget" sourceFinderExpression="service:findSource" domainClass="component_diagram.Connector" useDomainElement="true">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
         <containerMappings name="Component Instance" semanticCandidatesExpression="feature:eContents" createElements="false" domainClass="component_diagram.ComponentInstance" reusedBorderedNodeMappings="//@ownedViewpoints[name='C']/@ownedRepresentations[name='Component%20Diagram']/@defaultLayer/@containerMappings[name='Component%20Instance']/@borderedNodeMappings[name='Port%20Instance%20in%20Component']" reusedContainerMappings="//@ownedViewpoints[name='C']/@ownedRepresentations[name='Component%20Diagram']/@defaultLayer/@containerMappings[name='Component%20Instance']">
           <borderedNodeMappings name="Port Instance in Component" semanticCandidatesExpression="feature:eContents" domainClass="component_diagram.PortInstance">
-            <style xsi:type="style:BundledImageDescription" labelSize="7" labelFormat="italic" showIcon="false" sizeComputationExpression="2" resizeKind="EAST_WEST">
+            <style xsi:type="style:BundledImageDescription" labelSize="10" labelFormat="italic" showIcon="false" sizeComputationExpression="2" labelPosition="node" resizeKind="EAST_WEST">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </borderedNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" labelSize="9" labelFormat="bold" showIcon="false" labelExpression="[name +'\n version ' +  version/]" roundedCorner="true" widthComputationExpression="5" heightComputationExpression="5">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" labelSize="10" labelFormat="bold" showIcon="false" labelExpression="[name +'\n version ' +  version/]" roundedCorner="true" widthComputationExpression="20" heightComputationExpression="20">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
           </style>
-          <conditionnalStyles predicateExpression="[self.parentcomponent.oclIsKindOf(SoftwareComponent)/]">
-            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" labelSize="9" labelFormat="bold" showIcon="false" labelExpression="[name +'\n version ' +  version/]" roundedCorner="true" widthComputationExpression="5" heightComputationExpression="5">
+          <conditionnalStyles predicateExpression="[self.type.oclIsTypeOf(SoftwareComponent)/]">
+            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" labelSize="12" labelFormat="bold" showIcon="false" labelExpression="[name +'\n version ' +  version/]" roundedCorner="true" widthComputationExpression="20" heightComputationExpression="20">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
             </style>
           </conditionnalStyles>
-          <conditionnalStyles predicateExpression="[self.parentcomponent.oclIsKindOf(HardwareComponent)/]">
-            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" labelSize="9" labelFormat="bold" showIcon="false" labelExpression="[name +'\n version ' +  version/]" roundedCorner="true" widthComputationExpression="5" heightComputationExpression="5">
+          <conditionnalStyles predicateExpression="[self.type.oclIsTypeOf(HardwareComponent)/]">
+            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" labelSize="12" labelFormat="bold" showIcon="false" labelExpression="[name +'\n version ' +  version/]" roundedCorner="true" widthComputationExpression="20" heightComputationExpression="20">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='chocolate']"/>
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_chocolate']"/>
             </style>
           </conditionnalStyles>
-          <conditionnalStyles predicateExpression="[self.parentcomponent.oclIsKindOf(ElectronicDevice)/]">
-            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" labelSize="9" labelFormat="bold" showIcon="false" labelExpression="[name +'\n version ' +  version/]" roundedCorner="true" widthComputationExpression="5" heightComputationExpression="5">
+          <conditionnalStyles predicateExpression="[self.type.oclIsTypeOf(ElectronicDevice)/]">
+            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" labelSize="12" labelFormat="bold" showIcon="false" labelExpression="[name +'\n version ' +  version/]" roundedCorner="true" widthComputationExpression="20" heightComputationExpression="20">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
             </style>
           </conditionnalStyles>
-          <conditionnalStyles predicateExpression="[self.parentcomponent.oclIsKindOf(MechanicalDevice)/]">
-            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" labelSize="9" labelFormat="bold" showIcon="false" labelExpression="[name +'\n version ' +  version/]" roundedCorner="true" widthComputationExpression="5" heightComputationExpression="5">
+          <conditionnalStyles predicateExpression="[self.type.oclIsTypeOf(MechanicalDevice)/]">
+            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" labelSize="12" labelFormat="bold" showIcon="false" labelExpression="[name +'\n version ' +  version/]" roundedCorner="true" widthComputationExpression="20" heightComputationExpression="20">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
             </style>
           </conditionnalStyles>
-          <conditionnalStyles predicateExpression="[self.parentcomponent.oclIsKindOf(Sensor)/]">
-            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" labelSize="9" labelFormat="bold" showIcon="false" labelExpression="[name +'\n version ' +  version/]" roundedCorner="true" widthComputationExpression="5" heightComputationExpression="5">
+          <conditionnalStyles predicateExpression="[self.type.oclIsTypeOf(Sensor)/]">
+            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" labelSize="12" labelFormat="bold" showIcon="false" labelExpression="[name +'\n version ' +  version/]" roundedCorner="true" widthComputationExpression="20" heightComputationExpression="20">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
             </style>
           </conditionnalStyles>
-          <conditionnalStyles predicateExpression="[self.parentcomponent.oclIsKindOf(Actuator)/]">
-            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" labelSize="9" labelFormat="bold" showIcon="false" labelExpression="[name +'\n version ' +  version/]" roundedCorner="true" widthComputationExpression="5" heightComputationExpression="5">
+          <conditionnalStyles predicateExpression="[self.type.oclIsTypeOf(Actuator)/]">
+            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" labelSize="12" labelFormat="bold" showIcon="false" labelExpression="[name +'\n version ' +  version/]" roundedCorner="true" widthComputationExpression="20" heightComputationExpression="20">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
@@ -75,14 +83,14 @@
           </conditionnalStyles>
         </containerMappings>
         <containerMappings name="Component Type" semanticCandidatesExpression="feature:eContents" domainClass="component_diagram.ComponentType" reusedNodeMappings="//@ownedViewpoints[name='C']/@ownedRepresentations[name='Component%20Diagram']/@defaultLayer/@nodeMappings[name='Port%20Type']">
-          <style xsi:type="style:FlatContainerStyleDescription" showIcon="false">
+          <style xsi:type="style:FlatContainerStyleDescription" labelSize="10" showIcon="false">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
           </style>
           <conditionnalStyles predicateExpression="[self.oclIsTypeOf(SoftwareComponent)/]">
-            <style xsi:type="style:FlatContainerStyleDescription" showIcon="false" labelExpression="['Software Component \n' +  name/]">
+            <style xsi:type="style:FlatContainerStyleDescription" labelSize="10" showIcon="false" labelExpression="['Software Component \n' +  name/]">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
@@ -90,7 +98,7 @@
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="[self.oclIsTypeOf(HardwareComponent)/]">
-            <style xsi:type="style:FlatContainerStyleDescription" showIcon="false" labelExpression="['Hardware Component \n' +  name + '\n power supply: \n' + powerSupply/]">
+            <style xsi:type="style:FlatContainerStyleDescription" labelSize="10" showIcon="false" labelExpression="['Hardware Component \n' +  name + '\n power supply: \n' + powerSupply/]">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='chocolate']"/>
@@ -98,7 +106,7 @@
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="[self.oclIsTypeOf(ElectronicDevice)/]">
-            <style xsi:type="style:FlatContainerStyleDescription" showIcon="false" labelExpression="['Electronical Device \n' +  name + '\n power supply: \n' + powerSupply/]">
+            <style xsi:type="style:FlatContainerStyleDescription" labelSize="10" showIcon="false" labelExpression="['Electronical Device \n' +  name + '\n power supply: \n' + powerSupply/]">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
@@ -106,7 +114,7 @@
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="[self.oclIsTypeOf(MechanicalDevice)/]">
-            <style xsi:type="style:FlatContainerStyleDescription" showIcon="false" labelExpression="['Mechanical Device \n' +  name + '\n power supply: \n' + powerSupply/]">
+            <style xsi:type="style:FlatContainerStyleDescription" labelSize="10" showIcon="false" labelExpression="['Mechanical Device \n' +  name + '\n power supply: \n' + powerSupply/]">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
@@ -114,7 +122,7 @@
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="[self.oclIsTypeOf(Sensor)/]">
-            <style xsi:type="style:FlatContainerStyleDescription" showIcon="false" labelExpression="['Sensor \n' +  name + '\n type:  \n' + type + '\n power supply: \n' + powerSupply/]">
+            <style xsi:type="style:FlatContainerStyleDescription" labelSize="10" showIcon="false" labelExpression="['Sensor \n' +  name + '\n type:  \n' + type + '\n power supply: \n' + powerSupply/]">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
@@ -122,7 +130,7 @@
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="[self.oclIsTypeOf(Actuator)/]">
-            <style xsi:type="style:FlatContainerStyleDescription" showIcon="false" labelExpression="['Actuator \n' +  name + '\n power supply: \n' + powerSupply/]">
+            <style xsi:type="style:FlatContainerStyleDescription" labelSize="10" showIcon="false" labelExpression="['Actuator \n' +  name + '\n power supply: \n' + powerSupply/]">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
@@ -246,7 +254,7 @@
         </toolSections>
         <toolSections name="Port Instance">
           <subSections name="Out Ports">
-            <ownedTools xsi:type="tool:NodeCreationDescription" name="Out Post" nodeMappings="//@ownedViewpoints[name='C']/@ownedRepresentations[name='Component%20Diagram']/@defaultLayer/@containerMappings[name='Component%20Instance']/@borderedNodeMappings[name='Port%20Instance%20in%20Component']">
+            <ownedTools xsi:type="tool:NodeCreationDescription" name="Out Port" nodeMappings="//@ownedViewpoints[name='C']/@ownedRepresentations[name='Component%20Diagram']/@defaultLayer/@containerMappings[name='Component%20Instance']/@borderedNodeMappings[name='Port%20Instance%20in%20Component']">
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
@@ -254,6 +262,7 @@
                   <subModelOperations xsi:type="tool_1:If" conditionExpression="[container.oclIsTypeOf(ComponentInstance)/]"/>
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="component_diagram.PortInstance" referenceName="outPorts">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="out"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="outComponent" valueExpression="var:container"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -268,13 +277,30 @@
                   <subModelOperations xsi:type="tool_1:If" conditionExpression="[container.oclIsTypeOf(ComponentInstance)/]"/>
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="component_diagram.PortInstance" referenceName="inPorts">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="in"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="inComponent" valueExpression="var:container"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
             </ownedTools>
           </subSections>
         </toolSections>
+        <toolSections name="Connector">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Connector" edgeMappings="//@ownedViewpoints[name='C']/@ownedRepresentations[name='Component%20Diagram']/@defaultLayer/@edgeMappings[name='Connector']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:getRootElelent(source)">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[self.oclIsTypeOf(Architecture)/]">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="component_diagram.Connector" referenceName="connectors"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
       </defaultLayer>
     </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="de.uni_stuttgart.iste.cowolf.model.component_diagram.sirius.editor.services.ComponentServices"/>
   </ownedViewpoints>
 </description:Group>
