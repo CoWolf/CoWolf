@@ -1,105 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
-  <ecore:EPackage name="PrimitiveTypes" nsURI="http://PrimitiveTypes/1.0" nsPrefix="PrimitiveTypes">
-    <eClassifiers xsi:type="ecore:EDataType" name="Integer" instanceTypeName="Integer"/>
-    <eClassifiers xsi:type="ecore:EDataType" name="String" instanceTypeName="String"/>
-    <eClassifiers xsi:type="ecore:EDataType" name="Boolean" instanceTypeName="Boolean"/>
-    <eClassifiers xsi:type="ecore:EDataType" name="Double" instanceTypeName="Double"/>
-  </ecore:EPackage>
-  <ecore:EPackage name="statechart" nsURI="http://Statemachine/1.0" nsPrefix="Statemachine">
-    <eClassifiers xsi:type="ecore:EClass" name="StateMachineRoot" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="subStateMachines" upperBound="-1"
-          eType="#/1/StateMachine" containment="true" eOpposite="#/1/StateMachine/statemachine_container"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="InitialStateMachine"
-          eType="#/1/StateMachine"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="StateMachine" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="transitions" ordered="false"
-          upperBound="-1" eType="#/1/Transition" containment="true" eOpposite="#/1/Transition/transSM_container"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="top" ordered="false"
-          upperBound="-1" eType="#/1/State" containment="true" eOpposite="#/1/State/state_container"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="statemachine_container"
-          eType="#/1/StateMachineRoot" eOpposite="#/1/StateMachineRoot/subStateMachines"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="calledByAction" upperBound="-1"
-          eType="#/1/Action" eOpposite="#/1/Action/stateMachineCall"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="InitialState" eType="#/1/State"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="State" eSuperTypes="#/1/StateVertex">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="state_container" ordered="false"
-          eType="#/1/StateMachine" eOpposite="#/1/StateMachine/top"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="internalTransitions"
-          ordered="false" upperBound="-1" eType="#/1/Transition" containment="true"
-          eOpposite="#/1/Transition/transS_container"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="deferrableEvents" ordered="false"
-          upperBound="-1" eType="#/1/Event"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
-          eType="#/1/StateAction" containment="true" eOpposite="#/1/StateAction/action_container"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="CompositeState" eSuperTypes="#/1/State">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="subVertexes" ordered="false"
-          upperBound="-1" eType="#/1/StateVertex" containment="true" eOpposite="#/1/StateVertex/sv_container"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isConcurrent" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-          defaultValueLiteral="false"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Action" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="stateMachineCall" eType="#/1/StateMachine"
-          eOpposite="#/1/StateMachine/calledByAction"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Transition" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="transSM_container" ordered="false"
-          eType="#/1/StateMachine" eOpposite="#/1/StateMachine/transitions"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="transS_container" ordered="false"
-          eType="#/1/State" eOpposite="#/1/State/internalTransitions"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="trigger" ordered="false"
-          eType="#/1/Event" containment="true" eOpposite="#/1/Event/evt_container"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="guard" ordered="false"
-          eType="#/1/Guard" containment="true" eOpposite="#/1/Guard/gua_container"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="action" eType="#/1/TransitionAction"
-          containment="true" eOpposite="#/1/TransitionAction/act_container"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="source" ordered="false"
-          lowerBound="1" eType="#/1/StateVertex" eOpposite="#/1/StateVertex/outgoing"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="target" ordered="false"
-          lowerBound="1" eType="#/1/StateVertex" eOpposite="#/1/StateVertex/incoming"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Event" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="evt_container" ordered="false"
-          eType="#/1/Transition" eOpposite="#/1/Transition/trigger"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Guard" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="expression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="gua_container" ordered="false"
-          lowerBound="1" eType="#/1/Transition" eOpposite="#/1/Transition/guard"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="TransitionAction" eSuperTypes="#/1/Action">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="act_container" eType="#/1/Transition"
-          eOpposite="#/1/Transition/action"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="StateVertex" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase ../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//NameBase">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="sv_container" ordered="false"
-          eType="#/1/CompositeState" eOpposite="#/1/CompositeState/subVertexes"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="outgoing" ordered="false"
-          upperBound="-1" eType="#/1/Transition" eOpposite="#/1/Transition/source"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="incoming" ordered="false"
-          upperBound="-1" eType="#/1/Transition" eOpposite="#/1/Transition/target"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="label" upperBound="-1"
-          eType="#/1/Label" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="StateAction" abstract="true" eSuperTypes="#/1/Action">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="action_container" eType="#/1/State"
-          eOpposite="#/1/State/actions"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="DO" eSuperTypes="#/1/StateAction"/>
-    <eClassifiers xsi:type="ecore:EClass" name="ENTRY" eSuperTypes="#/1/StateAction"/>
-    <eClassifiers xsi:type="ecore:EClass" name="EXIT" eSuperTypes="#/1/StateAction"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Label" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eClassifiers>
-  </ecore:EPackage>
-</xmi:XMI>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="statechart" nsURI="http://Statemachine/1.0" nsPrefix="Statemachine">
+  <eClassifiers xsi:type="ecore:EClass" name="StateMachineRoot" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subStateMachines" upperBound="-1"
+        eType="#//StateMachine" containment="true" eOpposite="#//StateMachine/statemachine_container"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="InitialStateMachine" eType="#//StateMachine"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StateMachine" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transitions" ordered="false"
+        upperBound="-1" eType="#//Transition" containment="true" eOpposite="#//Transition/transSM_container"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="top" ordered="false" upperBound="-1"
+        eType="#//State" containment="true" eOpposite="#//State/state_container"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="statemachine_container"
+        eType="#//StateMachineRoot" eOpposite="#//StateMachineRoot/subStateMachines"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="calledByAction" upperBound="-1"
+        eType="#//Action" eOpposite="#//Action/stateMachineCall"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="InitialState" eType="#//State"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="State" eSuperTypes="#//StateVertex">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="state_container" ordered="false"
+        eType="#//StateMachine" eOpposite="#//StateMachine/top"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="internalTransitions" ordered="false"
+        upperBound="-1" eType="#//Transition" containment="true" eOpposite="#//Transition/transS_container"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="deferrableEvents" ordered="false"
+        upperBound="-1" eType="#//Event"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
+        eType="#//StateAction" containment="true" eOpposite="#//StateAction/action_container"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CompositeState" eSuperTypes="#//State">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subVertexes" ordered="false"
+        upperBound="-1" eType="#//StateVertex" containment="true" eOpposite="#//StateVertex/sv_container"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isConcurrent" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Action" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stateMachineCall" eType="#//StateMachine"
+        eOpposite="#//StateMachine/calledByAction"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Transition" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transSM_container" ordered="false"
+        eType="#//StateMachine" eOpposite="#//StateMachine/transitions"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transS_container" ordered="false"
+        eType="#//State" eOpposite="#//State/internalTransitions"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trigger" ordered="false"
+        eType="#//Event" containment="true" eOpposite="#//Event/evt_container"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="guard" ordered="false"
+        eType="#//Guard" containment="true" eOpposite="#//Guard/gua_container"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="action" eType="#//TransitionAction"
+        containment="true" eOpposite="#//TransitionAction/act_container"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" ordered="false"
+        lowerBound="1" eType="#//StateVertex" eOpposite="#//StateVertex/outgoing"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" ordered="false"
+        lowerBound="1" eType="#//StateVertex" eOpposite="#//StateVertex/incoming"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Event" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="evt_container" ordered="false"
+        eType="#//Transition" eOpposite="#//Transition/trigger"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Guard" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="expression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="gua_container" ordered="false"
+        lowerBound="1" eType="#//Transition" eOpposite="#//Transition/guard"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TransitionAction" eSuperTypes="#//Action">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="act_container" eType="#//Transition"
+        eOpposite="#//Transition/action"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StateVertex" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase ../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//NameBase">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sv_container" ordered="false"
+        eType="#//CompositeState" eOpposite="#//CompositeState/subVertexes"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outgoing" ordered="false"
+        upperBound="-1" eType="#//Transition" eOpposite="#//Transition/source"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="incoming" ordered="false"
+        upperBound="-1" eType="#//Transition" eOpposite="#//Transition/target"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="label" upperBound="-1"
+        eType="#//Label" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StateAction" abstract="true" eSuperTypes="#//Action">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="action_container" eType="#//State"
+        eOpposite="#//State/actions"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DO" eSuperTypes="#//StateAction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ENTRY" eSuperTypes="#//StateAction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EXIT" eSuperTypes="#//StateAction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Label" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>
