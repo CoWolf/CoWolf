@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_GHR3EEMJEeS7fNXjNshAGg" name="MOVE_REF_COMBI_Transition_FROM_State_(outgoing)_TO_State_(outgoing)" description="MOVEs Transition from State(Reference:outgoing) to State(Reference:outgoing">
+  <imports href="http://ctmc/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_GHR3EUMJEeS7fNXjNshAGg" name="moveTransition_FROM_State_outgoing_TO_State_State" description="Moves Transition from State(Reference:outgoing) toState(Reference:State)">
+    <parameters xmi:id="_GHR3EkMJEeS7fNXjNshAGg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//Transition"/>
+    </parameters>
+    <parameters xmi:id="_GHR3E0MJEeS7fNXjNshAGg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//State"/>
+    </parameters>
+    <parameters xmi:id="_GHR3FEMJEeS7fNXjNshAGg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//State"/>
+    </parameters>
+    <lhs xmi:id="_GHR3FUMJEeS7fNXjNshAGg" name="Lhs">
+      <nodes xmi:id="_GHR3FkMJEeS7fNXjNshAGg" name="Selected" incoming="_GHR3GUMJEeS7fNXjNshAGg" outgoing="_GHR3GkMJEeS7fNXjNshAGg">
+        <type href="http://ctmc/1.0#//Transition"/>
+      </nodes>
+      <nodes xmi:id="_GHR3F0MJEeS7fNXjNshAGg" name="OldSource" incoming="_GHR3GkMJEeS7fNXjNshAGg" outgoing="_GHR3GUMJEeS7fNXjNshAGg">
+        <type href="http://ctmc/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_GHR3GEMJEeS7fNXjNshAGg" name="NewSource">
+        <type href="http://ctmc/1.0#//State"/>
+      </nodes>
+      <edges xmi:id="_GHR3GUMJEeS7fNXjNshAGg" source="_GHR3F0MJEeS7fNXjNshAGg" target="_GHR3FkMJEeS7fNXjNshAGg">
+        <type href="http://ctmc/1.0#//State/outgoing"/>
+      </edges>
+      <edges xmi:id="_GHR3GkMJEeS7fNXjNshAGg" source="_GHR3FkMJEeS7fNXjNshAGg" target="_GHR3F0MJEeS7fNXjNshAGg">
+        <type href="http://ctmc/1.0#//Transition/from"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_GHR3G0MJEeS7fNXjNshAGg" name="Rhs">
+      <nodes xmi:id="_GHR3HEMJEeS7fNXjNshAGg" name="Selected" incoming="_GHR3H0MJEeS7fNXjNshAGg" outgoing="_GHR3IEMJEeS7fNXjNshAGg">
+        <type href="http://ctmc/1.0#//Transition"/>
+      </nodes>
+      <nodes xmi:id="_GHR3HUMJEeS7fNXjNshAGg" name="OldSource">
+        <type href="http://ctmc/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_GHR3HkMJEeS7fNXjNshAGg" name="NewSource" incoming="_GHR3IEMJEeS7fNXjNshAGg" outgoing="_GHR3H0MJEeS7fNXjNshAGg">
+        <type href="http://ctmc/1.0#//State"/>
+      </nodes>
+      <edges xmi:id="_GHR3H0MJEeS7fNXjNshAGg" source="_GHR3HkMJEeS7fNXjNshAGg" target="_GHR3HEMJEeS7fNXjNshAGg">
+        <type href="http://ctmc/1.0#//State/outgoing"/>
+      </edges>
+      <edges xmi:id="_GHR3IEMJEeS7fNXjNshAGg" source="_GHR3HEMJEeS7fNXjNshAGg" target="_GHR3HkMJEeS7fNXjNshAGg">
+        <type href="http://ctmc/1.0#//Transition/from"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_GHR3IUMJEeS7fNXjNshAGg" origin="_GHR3FkMJEeS7fNXjNshAGg" image="_GHR3HEMJEeS7fNXjNshAGg"/>
+    <mappings xmi:id="_GHR3IkMJEeS7fNXjNshAGg" origin="_GHR3F0MJEeS7fNXjNshAGg" image="_GHR3HUMJEeS7fNXjNshAGg"/>
+    <mappings xmi:id="_GHR3I0MJEeS7fNXjNshAGg" origin="_GHR3GEMJEeS7fNXjNshAGg" image="_GHR3HkMJEeS7fNXjNshAGg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_GHR3JEMJEeS7fNXjNshAGg" name="mainUnit" subUnits="_GHR3EUMJEeS7fNXjNshAGg">
+    <parameters xmi:id="_GHR3JUMJEeS7fNXjNshAGg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//Transition"/>
+    </parameters>
+    <parameters xmi:id="_GHR3JkMJEeS7fNXjNshAGg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//State"/>
+    </parameters>
+    <parameters xmi:id="_GHR3J0MJEeS7fNXjNshAGg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//State"/>
+    </parameters>
+    <parameterMappings xmi:id="_GHR3KEMJEeS7fNXjNshAGg" source="_GHR3JUMJEeS7fNXjNshAGg" target="_GHR3EkMJEeS7fNXjNshAGg"/>
+    <parameterMappings xmi:id="_GHR3KUMJEeS7fNXjNshAGg" source="_GHR3JkMJEeS7fNXjNshAGg" target="_GHR3E0MJEeS7fNXjNshAGg"/>
+    <parameterMappings xmi:id="_GHR3KkMJEeS7fNXjNshAGg" source="_GHR3J0MJEeS7fNXjNshAGg" target="_GHR3FEMJEeS7fNXjNshAGg"/>
+  </units>
+</henshin:Module>

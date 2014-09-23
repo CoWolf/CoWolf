@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_GHD0oEMJEeS7fNXjNshAGg" name="MOVE_REF_COMBI_State_FROM_CTMC_(States)_TO_CTMC_(States)" description="MOVEs State from CTMC(Reference:States) to CTMC(Reference:States">
+  <imports href="http://ctmc/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_GHD0oUMJEeS7fNXjNshAGg" name="moveState_FROM_CTMC_States_TO_CTMC_CTMC" description="Moves State from CTMC(Reference:States) toCTMC(Reference:CTMC)">
+    <parameters xmi:id="_GHD0okMJEeS7fNXjNshAGg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//State"/>
+    </parameters>
+    <parameters xmi:id="_GHD0o0MJEeS7fNXjNshAGg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//CTMC"/>
+    </parameters>
+    <parameters xmi:id="_GHD0pEMJEeS7fNXjNshAGg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//CTMC"/>
+    </parameters>
+    <lhs xmi:id="_GHD0pUMJEeS7fNXjNshAGg" name="Lhs">
+      <nodes xmi:id="_GHD0pkMJEeS7fNXjNshAGg" name="Selected" incoming="_GHD0qUMJEeS7fNXjNshAGg">
+        <type href="http://ctmc/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_GHD0p0MJEeS7fNXjNshAGg" name="OldSource" outgoing="_GHD0qUMJEeS7fNXjNshAGg">
+        <type href="http://ctmc/1.0#//CTMC"/>
+      </nodes>
+      <nodes xmi:id="_GHD0qEMJEeS7fNXjNshAGg" name="NewSource">
+        <type href="http://ctmc/1.0#//CTMC"/>
+      </nodes>
+      <edges xmi:id="_GHD0qUMJEeS7fNXjNshAGg" source="_GHD0p0MJEeS7fNXjNshAGg" target="_GHD0pkMJEeS7fNXjNshAGg">
+        <type href="http://ctmc/1.0#//CTMC/States"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_GHD0qkMJEeS7fNXjNshAGg" name="Rhs">
+      <nodes xmi:id="_GHD0q0MJEeS7fNXjNshAGg" name="Selected" incoming="_GHD0rkMJEeS7fNXjNshAGg">
+        <type href="http://ctmc/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_GHD0rEMJEeS7fNXjNshAGg" name="OldSource">
+        <type href="http://ctmc/1.0#//CTMC"/>
+      </nodes>
+      <nodes xmi:id="_GHD0rUMJEeS7fNXjNshAGg" name="NewSource" outgoing="_GHD0rkMJEeS7fNXjNshAGg">
+        <type href="http://ctmc/1.0#//CTMC"/>
+      </nodes>
+      <edges xmi:id="_GHD0rkMJEeS7fNXjNshAGg" source="_GHD0rUMJEeS7fNXjNshAGg" target="_GHD0q0MJEeS7fNXjNshAGg">
+        <type href="http://ctmc/1.0#//CTMC/States"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_GHD0r0MJEeS7fNXjNshAGg" origin="_GHD0pkMJEeS7fNXjNshAGg" image="_GHD0q0MJEeS7fNXjNshAGg"/>
+    <mappings xmi:id="_GHD0sEMJEeS7fNXjNshAGg" origin="_GHD0p0MJEeS7fNXjNshAGg" image="_GHD0rEMJEeS7fNXjNshAGg"/>
+    <mappings xmi:id="_GHD0sUMJEeS7fNXjNshAGg" origin="_GHD0qEMJEeS7fNXjNshAGg" image="_GHD0rUMJEeS7fNXjNshAGg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_GHD0skMJEeS7fNXjNshAGg" name="mainUnit" subUnits="_GHD0oUMJEeS7fNXjNshAGg">
+    <parameters xmi:id="_GHD0s0MJEeS7fNXjNshAGg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//State"/>
+    </parameters>
+    <parameters xmi:id="_GHD0tEMJEeS7fNXjNshAGg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//CTMC"/>
+    </parameters>
+    <parameters xmi:id="_GHD0tUMJEeS7fNXjNshAGg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//CTMC"/>
+    </parameters>
+    <parameterMappings xmi:id="_GHD0tkMJEeS7fNXjNshAGg" source="_GHD0s0MJEeS7fNXjNshAGg" target="_GHD0okMJEeS7fNXjNshAGg"/>
+    <parameterMappings xmi:id="_GHD0t0MJEeS7fNXjNshAGg" source="_GHD0tEMJEeS7fNXjNshAGg" target="_GHD0o0MJEeS7fNXjNshAGg"/>
+    <parameterMappings xmi:id="_GHD0uEMJEeS7fNXjNshAGg" source="_GHD0tUMJEeS7fNXjNshAGg" target="_GHD0pEMJEeS7fNXjNshAGg"/>
+  </units>
+</henshin:Module>
