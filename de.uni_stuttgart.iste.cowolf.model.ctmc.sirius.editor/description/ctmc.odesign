@@ -76,16 +76,22 @@
           </ownedTools>
         </toolSections>
         <toolSections name="Change">
-          <ownedTools xsi:type="tool:DirectEditLabel" name="edit name" inputLabelExpression="[self.name/]">
-            <mask mask="{0}"/>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="edit name" inputLabelExpression="[self.name + ' (' + self.exitRate + ')'/]">
+            <mask mask="{0} ({1})"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:0"/>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:0">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[arg1.toReal() > 0/]">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="exitRate" valueExpression="var:1"/>
+                </subModelOperations>
+              </firstModelOperations>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:DirectEditLabel" name="edit prob" label="Edit probability" inputLabelExpression="[self.prob/]">
             <mask mask="{0}"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:SetValue" featureName="rate" valueExpression="var:0"/>
+              <firstModelOperations xsi:type="tool_1:If" conditionExpression="[arg0.toReal() >= 0 and arg0.toReal() &lt;= 1 /]">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="prob" valueExpression="var:0"/>
+              </firstModelOperations>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:DirectEditLabel" name="edit label">

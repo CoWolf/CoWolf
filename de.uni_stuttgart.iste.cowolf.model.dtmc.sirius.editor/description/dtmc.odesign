@@ -85,7 +85,9 @@
           <ownedTools xsi:type="tool:DirectEditLabel" name="edit prob">
             <mask mask="{0}"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:SetValue" featureName="prob" valueExpression="var:0"/>
+              <firstModelOperations xsi:type="tool_1:If" conditionExpression="[arg0.toReal() >= 0 and arg0.toReal() &lt;= 1 /]">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="prob" valueExpression="var:0"/>
+              </firstModelOperations>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:DirectEditLabel" name="edit label">
