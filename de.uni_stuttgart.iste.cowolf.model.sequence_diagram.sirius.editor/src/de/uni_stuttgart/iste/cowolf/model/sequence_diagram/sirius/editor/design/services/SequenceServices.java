@@ -2119,9 +2119,6 @@ public class SequenceServices {
 			return false;
 		}
 
-		if (preTarget instanceof de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ActorLifeline) {
-			return false;
-		}
 
 		if (preTarget instanceof Lifeline) {
 			return isValidMessageEndForLifeline(preTarget);
@@ -2143,13 +2140,10 @@ public class SequenceServices {
 			return false;
 		}
 
-		if (preSource instanceof de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Lifeline) {
-			return false;
-		}
-		if (preSource instanceof de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ActorLifeline) {
+		if (preSource instanceof Lifeline) {
 			return true;
-
-		} else if (preSource instanceof ExecutionSpecification) {
+		}
+		 else if (preSource instanceof ExecutionSpecification) {
 			return true;
 		}
 
