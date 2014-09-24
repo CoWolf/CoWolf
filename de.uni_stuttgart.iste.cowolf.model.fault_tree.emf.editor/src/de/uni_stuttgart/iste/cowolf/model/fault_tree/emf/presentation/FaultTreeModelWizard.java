@@ -203,7 +203,7 @@ public class FaultTreeModelWizard extends Wizard implements INewWizard {
 	 * Do the work after everything is specified. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
-	 * @generated not
+	 * @generated NOT
 	 */
 	@Override
 	public boolean performFinish() {
