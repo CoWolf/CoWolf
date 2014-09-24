@@ -1,69 +1,69 @@
 <?xml version="1.0" encoding="ASCII"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_GHHfAEMJEeS7fNXjNshAGg" name="CREATE_State_IN_CTMC_(States)" description="Creates one State in CTMC">
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_uy_C0ENYEeSZj6LVx_utuw" name="CREATE_State_IN_CTMC_(States)" description="Creates one State in CTMC">
   <imports href="http://ctmc/1.0#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="_GHHfAUMJEeS7fNXjNshAGg" name="createState_IN_CTMC" description="creates one State in the context: CTMC">
-    <parameters xmi:id="_GHHfAkMJEeS7fNXjNshAGg" name="Selected">
+  <units xsi:type="henshin:Rule" xmi:id="_uy_C0UNYEeSZj6LVx_utuw" name="createState_IN_CTMC" description="creates one State in the context: CTMC">
+    <parameters xmi:id="_uy_C0kNYEeSZj6LVx_utuw" name="Selected">
       <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//CTMC"/>
     </parameters>
-    <parameters xmi:id="_GHHfA0MJEeS7fNXjNshAGg" name="New">
+    <parameters xmi:id="_uy_C00NYEeSZj6LVx_utuw" name="New">
       <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//State"/>
     </parameters>
-    <parameters xmi:id="_GHHfBEMJEeS7fNXjNshAGg" name="Id">
+    <parameters xmi:id="_uy_C1ENYEeSZj6LVx_utuw" name="Id">
       <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
-    <parameters xmi:id="_GHHfBUMJEeS7fNXjNshAGg" name="Name">
+    <parameters xmi:id="_uy_C1UNYEeSZj6LVx_utuw" name="Name">
       <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
-    <parameters xmi:id="_GHHfBkMJEeS7fNXjNshAGg" name="ExitRate">
+    <parameters xmi:id="_uy_C1kNYEeSZj6LVx_utuw" name="ExitRate">
       <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     </parameters>
-    <lhs xmi:id="_GHHfB0MJEeS7fNXjNshAGg" name="Lhs">
-      <nodes xmi:id="_GHHfCEMJEeS7fNXjNshAGg" name="Selected">
+    <lhs xmi:id="_uy_C10NYEeSZj6LVx_utuw" name="Lhs">
+      <nodes xmi:id="_uy_C2ENYEeSZj6LVx_utuw" name="Selected">
         <type href="http://ctmc/1.0#//CTMC"/>
       </nodes>
     </lhs>
-    <rhs xmi:id="_GHHfCUMJEeS7fNXjNshAGg" name="Rhs">
-      <nodes xmi:id="_GHHfCkMJEeS7fNXjNshAGg" name="Selected" outgoing="_GHHfD0MJEeS7fNXjNshAGg">
+    <rhs xmi:id="_uy_C2UNYEeSZj6LVx_utuw" name="Rhs">
+      <nodes xmi:id="_uy_C2kNYEeSZj6LVx_utuw" name="Selected" outgoing="_uy_C30NYEeSZj6LVx_utuw">
         <type href="http://ctmc/1.0#//CTMC"/>
       </nodes>
-      <nodes xmi:id="_GHHfC0MJEeS7fNXjNshAGg" name="New" incoming="_GHHfD0MJEeS7fNXjNshAGg">
+      <nodes xmi:id="_uy_C20NYEeSZj6LVx_utuw" name="New" incoming="_uy_C30NYEeSZj6LVx_utuw">
         <type href="http://ctmc/1.0#//State"/>
-        <attributes xmi:id="_GHHfDEMJEeS7fNXjNshAGg" value="Id">
+        <attributes xmi:id="_uy_C3ENYEeSZj6LVx_utuw" value="Id">
           <type href="platform:/resource/de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
         </attributes>
-        <attributes xmi:id="_GHHfDUMJEeS7fNXjNshAGg" value="Name">
+        <attributes xmi:id="_uy_C3UNYEeSZj6LVx_utuw" value="Name">
           <type href="http://ctmc/1.0#//State/name"/>
         </attributes>
-        <attributes xmi:id="_GHHfDkMJEeS7fNXjNshAGg" value="ExitRate">
+        <attributes xmi:id="_uy_C3kNYEeSZj6LVx_utuw" value="ExitRate">
           <type href="http://ctmc/1.0#//State/exitRate"/>
         </attributes>
       </nodes>
-      <edges xmi:id="_GHHfD0MJEeS7fNXjNshAGg" source="_GHHfCkMJEeS7fNXjNshAGg" target="_GHHfC0MJEeS7fNXjNshAGg">
+      <edges xmi:id="_uy_C30NYEeSZj6LVx_utuw" source="_uy_C2kNYEeSZj6LVx_utuw" target="_uy_C20NYEeSZj6LVx_utuw">
         <type href="http://ctmc/1.0#//CTMC/States"/>
       </edges>
     </rhs>
-    <mappings xmi:id="_GHHfEEMJEeS7fNXjNshAGg" origin="_GHHfCEMJEeS7fNXjNshAGg" image="_GHHfCkMJEeS7fNXjNshAGg"/>
+    <mappings xmi:id="_uy_C4ENYEeSZj6LVx_utuw" origin="_uy_C2ENYEeSZj6LVx_utuw" image="_uy_C2kNYEeSZj6LVx_utuw"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="_GHHfEUMJEeS7fNXjNshAGg" name="mainUnit" subUnits="_GHHfAUMJEeS7fNXjNshAGg">
-    <parameters xmi:id="_GHHfEkMJEeS7fNXjNshAGg" name="selectedEObject">
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_uy_C4UNYEeSZj6LVx_utuw" name="mainUnit" subUnits="_uy_C0UNYEeSZj6LVx_utuw">
+    <parameters xmi:id="_uy_C4kNYEeSZj6LVx_utuw" name="selectedEObject">
       <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//CTMC"/>
     </parameters>
-    <parameters xmi:id="_GHHfE0MJEeS7fNXjNshAGg" name="New">
+    <parameters xmi:id="_uy_C40NYEeSZj6LVx_utuw" name="New">
       <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//State"/>
     </parameters>
-    <parameters xmi:id="_GHHfFEMJEeS7fNXjNshAGg" name="Id">
+    <parameters xmi:id="_uy_C5ENYEeSZj6LVx_utuw" name="Id">
       <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
-    <parameters xmi:id="_GHHfFUMJEeS7fNXjNshAGg" name="Name">
+    <parameters xmi:id="_uy_C5UNYEeSZj6LVx_utuw" name="Name">
       <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </parameters>
-    <parameters xmi:id="_GHHfFkMJEeS7fNXjNshAGg" name="ExitRate">
+    <parameters xmi:id="_uy_C5kNYEeSZj6LVx_utuw" name="ExitRate">
       <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     </parameters>
-    <parameterMappings xmi:id="_GHHfF0MJEeS7fNXjNshAGg" source="_GHHfEkMJEeS7fNXjNshAGg" target="_GHHfAkMJEeS7fNXjNshAGg"/>
-    <parameterMappings xmi:id="_GHHfGEMJEeS7fNXjNshAGg" source="_GHHfA0MJEeS7fNXjNshAGg" target="_GHHfE0MJEeS7fNXjNshAGg"/>
-    <parameterMappings xmi:id="_GHHfGUMJEeS7fNXjNshAGg" source="_GHHfFEMJEeS7fNXjNshAGg" target="_GHHfBEMJEeS7fNXjNshAGg"/>
-    <parameterMappings xmi:id="_GHHfGkMJEeS7fNXjNshAGg" source="_GHHfFUMJEeS7fNXjNshAGg" target="_GHHfBUMJEeS7fNXjNshAGg"/>
-    <parameterMappings xmi:id="_GHHfG0MJEeS7fNXjNshAGg" source="_GHHfFkMJEeS7fNXjNshAGg" target="_GHHfBkMJEeS7fNXjNshAGg"/>
+    <parameterMappings xmi:id="_uy_C50NYEeSZj6LVx_utuw" source="_uy_C4kNYEeSZj6LVx_utuw" target="_uy_C0kNYEeSZj6LVx_utuw"/>
+    <parameterMappings xmi:id="_uy_C6ENYEeSZj6LVx_utuw" source="_uy_C00NYEeSZj6LVx_utuw" target="_uy_C40NYEeSZj6LVx_utuw"/>
+    <parameterMappings xmi:id="_uy_C6UNYEeSZj6LVx_utuw" source="_uy_C5ENYEeSZj6LVx_utuw" target="_uy_C1ENYEeSZj6LVx_utuw"/>
+    <parameterMappings xmi:id="_uy_C6kNYEeSZj6LVx_utuw" source="_uy_C5UNYEeSZj6LVx_utuw" target="_uy_C1UNYEeSZj6LVx_utuw"/>
+    <parameterMappings xmi:id="_uy_C60NYEeSZj6LVx_utuw" source="_uy_C5kNYEeSZj6LVx_utuw" target="_uy_C1kNYEeSZj6LVx_utuw"/>
   </units>
 </henshin:Module>
