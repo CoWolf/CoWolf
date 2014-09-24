@@ -4,7 +4,7 @@ package de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.impl;
 
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Disjunction;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PCTLPackage;
-import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.StateFormula;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.RightStateExpression;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -37,7 +37,7 @@ public class DisjunctionImpl extends RightStateExpressionImpl implements Disjunc
    * @generated
    * @ordered
    */
-  protected StateFormula left;
+  protected RightStateExpression left;
 
   /**
    * <!-- begin-user-doc -->
@@ -65,7 +65,7 @@ public class DisjunctionImpl extends RightStateExpressionImpl implements Disjunc
    * <!-- end-user-doc -->
    * @generated
    */
-  public StateFormula getLeft()
+  public RightStateExpression getLeft()
   {
     return left;
   }
@@ -75,9 +75,9 @@ public class DisjunctionImpl extends RightStateExpressionImpl implements Disjunc
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetLeft(StateFormula newLeft, NotificationChain msgs)
+  public NotificationChain basicSetLeft(RightStateExpression newLeft, NotificationChain msgs)
   {
-    StateFormula oldLeft = left;
+    RightStateExpression oldLeft = left;
     left = newLeft;
     if (eNotificationRequired())
     {
@@ -92,7 +92,7 @@ public class DisjunctionImpl extends RightStateExpressionImpl implements Disjunc
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setLeft(StateFormula newLeft)
+  public void setLeft(RightStateExpression newLeft)
   {
     if (newLeft != left)
     {
@@ -151,7 +151,7 @@ public class DisjunctionImpl extends RightStateExpressionImpl implements Disjunc
     switch (featureID)
     {
       case PCTLPackage.DISJUNCTION__LEFT:
-        setLeft((StateFormula)newValue);
+        setLeft((RightStateExpression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -168,7 +168,7 @@ public class DisjunctionImpl extends RightStateExpressionImpl implements Disjunc
     switch (featureID)
     {
       case PCTLPackage.DISJUNCTION__LEFT:
-        setLeft((StateFormula)null);
+        setLeft((RightStateExpression)null);
         return;
     }
     super.eUnset(featureID);

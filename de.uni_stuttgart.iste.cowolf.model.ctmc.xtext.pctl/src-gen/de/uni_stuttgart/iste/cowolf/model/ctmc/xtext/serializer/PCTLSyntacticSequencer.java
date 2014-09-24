@@ -96,7 +96,7 @@ public class PCTLSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	/**
 	 * Syntax:
-	 *     '|' | '&'
+	 *     '&' | '|'
 	 */
 	protected void emit_Conjunction_Disjunction_AmpersandKeyword_0_or_VerticalLineKeyword_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

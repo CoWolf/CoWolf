@@ -41,7 +41,7 @@ class PRISMGenerator {
 			
 			for (String label : analyzeLabels) {
 				if (e.states.map(s | s.labels).flatten.exists[l | l.name.equals(label)]) {
-					result += "P=? [ F \"" + label + "\" ]\n";
+					result += "P=? [ F \"" + label.replaceAll("[^a-zA-Z0-9_]", "_") + "\" ]\n";
 				}
 			}
 		} else {
@@ -61,7 +61,7 @@ class PRISMGenerator {
 			}
 			m.get(l.name).add(l.state);
 			m]
-		return labels.entrySet.map[l | 'label "' + l.key + '" = ' + l.value.join('|')["s="+getIntState] + ";"].join('\n');
+		return labels.entrySet.map[l | 'label "' + l.key.replaceAll("[^a-zA-Z0-9_]", "_") + '" = ' + l.value.join('|')["s="+getIntState] + ";"].join('\n');
 	
 	}
 

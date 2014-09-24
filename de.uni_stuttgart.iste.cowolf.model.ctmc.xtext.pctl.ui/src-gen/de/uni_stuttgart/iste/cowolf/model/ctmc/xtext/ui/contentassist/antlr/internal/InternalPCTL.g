@@ -72,9 +72,9 @@ ruleStart
     }
 	:
 (
-{ before(grammarAccess.getStartAccess().getRuleAssignment()); }
-(rule__Start__RuleAssignment)*
-{ after(grammarAccess.getStartAccess().getRuleAssignment()); }
+{ before(grammarAccess.getStartAccess().getGroup()); }
+(rule__Start__Group__0)
+{ after(grammarAccess.getStartAccess().getGroup()); }
 )
 
 ;
@@ -1114,6 +1114,69 @@ rule__TimeBound__OperatorAlternatives_0_0_0
 finally {
 	restoreStackSize(stackSize);
 }
+
+
+
+rule__Start__Group__0
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__Start__Group__0__Impl
+	rule__Start__Group__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Start__Group__0__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getStartAccess().getStartAction_0()); }
+(
+
+)
+{ after(grammarAccess.getStartAccess().getStartAction_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__Start__Group__1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__Start__Group__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Start__Group__1__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getStartAccess().getRuleAssignment_1()); }
+(rule__Start__RuleAssignment_1)*
+{ after(grammarAccess.getStartAccess().getRuleAssignment_1()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
 
 
 
@@ -3387,14 +3450,14 @@ finally {
 
 
 
-rule__Start__RuleAssignment
+rule__Start__RuleAssignment_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getStartAccess().getRuleFragmentParserRuleCall_0()); }
-	ruleFragment{ after(grammarAccess.getStartAccess().getRuleFragmentParserRuleCall_0()); }
+{ before(grammarAccess.getStartAccess().getRuleFragmentParserRuleCall_1_0()); }
+	ruleFragment{ after(grammarAccess.getStartAccess().getRuleFragmentParserRuleCall_1_0()); }
 )
 
 ;
@@ -3934,7 +3997,7 @@ RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
 RULE_INT : ('0'..'9')+;
 
-RULE_STRING : ('"' ('\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|'\''|'\\')|~(('\\'|'"')))* '"'|'\'' ('\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|'\''|'\\')|~(('\\'|'\'')))* '\'');
+RULE_STRING : ('"' ('\\' .|~(('\\'|'"')))* '"'|'\'' ('\\' .|~(('\\'|'\'')))* '\'');
 
 RULE_ML_COMMENT : '/*' ( options {greedy=false;} : . )*'*/';
 

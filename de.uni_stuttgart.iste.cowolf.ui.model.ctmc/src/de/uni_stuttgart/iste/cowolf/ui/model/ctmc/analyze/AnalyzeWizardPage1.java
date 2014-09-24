@@ -1,6 +1,6 @@
 package de.uni_stuttgart.iste.cowolf.ui.model.ctmc.analyze;
 
-import java.io.File;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -13,9 +13,9 @@ import java.util.TreeSet;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
@@ -42,14 +42,14 @@ import org.eclipse.swt.widgets.ScrollBar;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.eclipse.xtext.nodemodel.ICompositeNode;
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
 import org.eclipse.xtext.resource.XtextResource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Comment;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Fragment;
+import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PCTLFactory;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Rule;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Start;
 
@@ -64,7 +64,6 @@ public class AnalyzeWizardPage1 extends WizardPage {
 	Table table;
 	TableViewer tableViewer;
 	private List<Object[]> tableData;
-	File clsFile;
 	private XtextResource pctlRes;
 	
 	protected AnalyzeWizardPage1(final String pageName, final Resource res) {
@@ -85,26 +84,30 @@ public class AnalyzeWizardPage1 extends WizardPage {
 		IFile resultfile = ResourcesPlugin.getWorkspace().getRoot()
 				.getFile(modelfile.getFullPath().addFileExtension("pctl"));
 
-		clsFile = new File(resultfile.getLocationURI());
-
 		ResourceSet resSet = new ResourceSetImpl();
 		
-		pctlRes = (XtextResource) resSet.getResource(URI.createPlatformResourceURI(resultfile.getFullPath().toString(), false), true);
-		
-		if (clsFile.exists()) {
-			
+		if (!resultfile.exists()) {
 			try {
-				pctlRes.load(Collections.EMPTY_MAP);
-			} catch (IOException e) {
-				LOGGER.error("Could not load pctl file", e);
+				resultfile.create(new ByteArrayInputStream(new byte[0]), true, null);
+			} catch (CoreException e) {
+				LOGGER.error("Could not create pctl file", e);
 			}
-			
-			if (pctlRes.getContents().size() == 0 || !(pctlRes.getContents().get(0) instanceof Start)) {
-				return;
-			}
-			
-			readTableData();
+			pctlRes = (XtextResource) resSet.createResource(URI.createPlatformResourceURI(resultfile.getFullPath().toString(), false));
+		} else {
+			pctlRes = (XtextResource) resSet.getResource(URI.createPlatformResourceURI(resultfile.getFullPath().toString(), false), true);
 		}
+		
+		try {
+			pctlRes.load(Collections.EMPTY_MAP);
+		} catch (IOException e) {
+			LOGGER.error("Could not load pctl file", e);
+		}
+
+		if (pctlRes.getContents().size() == 0 || !(pctlRes.getContents().get(0) instanceof Start)) {
+			return;
+		}
+
+		readTableData();
 	}
 
 	private void readTableData() {
@@ -128,7 +131,13 @@ public class AnalyzeWizardPage1 extends WizardPage {
 
 		tableViewer.setInput(tableData);
 		tableViewer.refresh();
-		if (key != null && !key.getComment().isEmpty()) {
+		
+		// When a new file is created, Start seems to be missing.
+		if (pctlRes.getContents().size() == 0) {
+			pctlRes.getContents().add(PCTLFactory.eINSTANCE.createStart());
+		}
+		
+		if (key != null && !key.getComment().matches("^/*\\s*$")) {
 			((Start) pctlRes.getContents().get(0)).getRule().add(key);
 		}
 		if (value != null) {
@@ -163,8 +172,9 @@ public class AnalyzeWizardPage1 extends WizardPage {
 		}
 		
 		int oldIndex = start.getRule().indexOf(tableData.get(index)[2]);
-		ICompositeNode node = NodeModelUtils.getNode((EObject) tableData.get(index)[2]);
-		pctlRes.update(node.getOffset(), node.getLength(), NodeModelUtils.getNode(value).getText().trim());
+		//ICompositeNode node = NodeModelUtils.getNode((EObject) tableData.get(index)[2]);
+		//pctlRes.update(node.getOffset(), node.getLength(), NodeModelUtils.getNode(value).getText().trim());
+		start.getRule().set(oldIndex, value);
 		
 		save();
 		
