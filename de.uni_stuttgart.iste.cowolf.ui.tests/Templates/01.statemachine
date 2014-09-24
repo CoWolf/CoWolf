@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Statemachine:StateMachineRoot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Statemachine="http://Statemachine/1.0" id="_jpMp4DpjEeSXMPgb8dt0xw" InitialStateMachine="_3iAAUDpjEeSXMPgb8dt0xw">
+  <subStateMachines id="_3iAAUDpjEeSXMPgb8dt0xw" name="MAIN" InitialState="_Rb3hUjpkEeSXMPgb8dt0xw">
+    <transitions id="_NydRADpsEeSXMPgb8dt0xw" source="_Rb3hUjpkEeSXMPgb8dt0xw" target="_T2nsgjpkEeSXMPgb8dt0xw" description="SystemInitialization->NormalRun">
+      <guard id="_T5Ep8TpsEeSXMPgb8dt0xw" expression="[IF all internal final states reached]"/>
+      <action id="_V8YlgjpsEeSXMPgb8dt0xw" value="Stock_OK"/>
+    </transitions>
+    <transitions id="_PsxBkDpsEeSXMPgb8dt0xw" source="_T2nsgjpkEeSXMPgb8dt0xw" target="_WbRakjpkEeSXMPgb8dt0xw" description="NormalRun->EmergencyStopStock">
+      <guard id="_h_728TpsEeSXMPgb8dt0xw" expression="[NOT Nicht_Notaus_Lager]"/>
+    </transitions>
+    <transitions id="_QhBwEDpsEeSXMPgb8dt0xw" source="_WbRakjpkEeSXMPgb8dt0xw" target="_apaO8jpkEeSXMPgb8dt0xw" description="EmergencyStopStock->EmergencyStopCommon">
+      <guard id="_w40WwTpsEeSXMPgb8dt0xw" expression="[IF all internal final states reached]"/>
+    </transitions>
+    <transitions id="_Q2QZMDpsEeSXMPgb8dt0xw" source="_apaO8jpkEeSXMPgb8dt0xw" target="_OtWG4TtnEeSrUpxzjeMOzA" description="EmergencyStopCommon->SafeState">
+      <guard id="_3c0PQTpsEeSXMPgb8dt0xw" expression="[IF all internal final states reached]"/>
+    </transitions>
+    <transitions id="_RHLxIDpsEeSXMPgb8dt0xw" source="_OtWG4TtnEeSrUpxzjeMOzA" target="_Rb3hUjpkEeSXMPgb8dt0xw" description="SafeState->SystemInitialization">
+      <action id="_K-e4EjptEeSXMPgb8dt0xw" value="[Nicht_Notaus_Lager]"/>
+    </transitions>
+    <top xsi:type="Statemachine:CompositeState" id="_Rb3hUjpkEeSXMPgb8dt0xw" name="SystemInitialization" outgoing="_NydRADpsEeSXMPgb8dt0xw" incoming="_RHLxIDpsEeSXMPgb8dt0xw" isConcurrent="true">
+      <subVertexes xsi:type="Statemachine:CompositeState" id="_XqzZtjptEeSXMPgb8dt0xw" name="SeparatorInitialization">
+        <label id="label_0" name="2"/>
+        <internalTransitions id="_uAhegDptEeSXMPgb8dt0xw" source="_8vxhNTptEeSXMPgb8dt0xw" target="_93y5NTptEeSXMPgb8dt0xw" description="START->SeparatorInitialization"/>
+        <internalTransitions id="_yp5n8DpuEeSXMPgb8dt0xw" source="_93y5NTptEeSXMPgb8dt0xw" target="_0VXENTpuEeSXMPgb8dt0xw">
+          <guard id="_GI_d4TpvEeSXMPgb8dt0xw" expression="[IF all internal final states reached]"/>
+        </internalTransitions>
+        <subVertexes xsi:type="Statemachine:State" id="_8vxhNTptEeSXMPgb8dt0xw" name="START (SeparatorInitialization)" outgoing="_uAhegDptEeSXMPgb8dt0xw"/>
+        <subVertexes xsi:type="Statemachine:State" id="_93y5NTptEeSXMPgb8dt0xw" name="SeparatorInitialization" outgoing="_yp5n8DpuEeSXMPgb8dt0xw" incoming="_uAhegDptEeSXMPgb8dt0xw">
+          <actions xsi:type="Statemachine:DO" id="_b4Kssj54EeS0mdV0WVVb3g" stateMachineCall="_7MV9sDtsEeSGTscIP6EPdQ"/>
+        </subVertexes>
+        <subVertexes xsi:type="Statemachine:State" id="_0VXENTpuEeSXMPgb8dt0xw" name="FINAL (SeparatorInitialization)" incoming="_yp5n8DpuEeSXMPgb8dt0xw"/>
+      </subVertexes>
+      <subVertexes xsi:type="Statemachine:CompositeState" id="_Nn_mFjpvEeSXMPgb8dt0xw" name="CraneInitialization">
+        <label id="label_1" name="1"/>
+        <internalTransitions id="_l-eBsDpvEeSXMPgb8dt0xw" source="_W-VDVTpvEeSXMPgb8dt0xw" target="_XbReBTpvEeSXMPgb8dt0xw" description="START->CraneInitialization"/>
+        <internalTransitions id="_mihxADpvEeSXMPgb8dt0xw" source="_XbReBTpvEeSXMPgb8dt0xw" target="_XwSEtTpvEeSXMPgb8dt0xw" description="CraneInitialization->FINAL">
+          <guard id="_9RpNQTpvEeSXMPgb8dt0xw" expression="[IF all internal final states reached]"/>
+        </internalTransitions>
+        <subVertexes xsi:type="Statemachine:State" id="_W-VDVTpvEeSXMPgb8dt0xw" name="start (CraneInitialization)" outgoing="_l-eBsDpvEeSXMPgb8dt0xw"/>
+        <subVertexes xsi:type="Statemachine:State" id="_XbReBTpvEeSXMPgb8dt0xw" name="CraneInitialization" outgoing="_mihxADpvEeSXMPgb8dt0xw" incoming="_l-eBsDpvEeSXMPgb8dt0xw">
+          <actions xsi:type="Statemachine:DO" id="_YOtkoj52EeS0mdV0WVVb3g" stateMachineCall="__xdZkDtqEeSGTscIP6EPdQ"/>
+        </subVertexes>
+        <subVertexes xsi:type="Statemachine:State" id="_XwSEtTpvEeSXMPgb8dt0xw" name="final (CraneInitialization)" incoming="_mihxADpvEeSXMPgb8dt0xw"/>
+      </subVertexes>
+    </top>
+    <top xsi:type="Statemachine:CompositeState" id="_T2nsgjpkEeSXMPgb8dt0xw" name="NormalRun" outgoing="_PsxBkDpsEeSXMPgb8dt0xw" incoming="_NydRADpsEeSXMPgb8dt0xw">
+      <internalTransitions id="_hbZTkDp5EeSXMPgb8dt0xw" source="_M03DhTpwEeSXMPgb8dt0xw" target="_PbhjxTpwEeSXMPgb8dt0xw" description="START->Waiting"/>
+      <internalTransitions id="_hzZj4Dp5EeSXMPgb8dt0xw" source="_PbhjxTpwEeSXMPgb8dt0xw" target="_P1p7BTpwEeSXMPgb8dt0xw" description="Waiting->CraneToStock"/>
+      <internalTransitions id="_iEf68Dp5EeSXMPgb8dt0xw" source="_P1p7BTpwEeSXMPgb8dt0xw" target="_QOjjNTpwEeSXMPgb8dt0xw" description="CraneToStock->ProvideWP"/>
+      <internalTransitions id="_iWCW4Dp5EeSXMPgb8dt0xw" source="_QOjjNTpwEeSXMPgb8dt0xw" target="_QinutTpwEeSXMPgb8dt0xw" description="ProvideWP->WaitingForPickUp"/>
+      <internalTransitions id="_imhp8Dp5EeSXMPgb8dt0xw" source="_QinutTpwEeSXMPgb8dt0xw" target="_ShyKFTpwEeSXMPgb8dt0xw" description="WaitingForPickUp->WaitingForSupplies"/>
+      <internalTransitions id="_i2q-wDp5EeSXMPgb8dt0xw" source="_ShyKFTpwEeSXMPgb8dt0xw" target="_QOjjNTpwEeSXMPgb8dt0xw" description="WaitingForSupplies->ProvideWP"/>
+      <internalTransitions id="_jJOHUDp5EeSXMPgb8dt0xw" source="_QinutTpwEeSXMPgb8dt0xw" target="_S-wZ8zpwEeSXMPgb8dt0xw" description="WaitingForPickUp->PickUpWP"/>
+      <internalTransitions id="_jaCxkDp5EeSXMPgb8dt0xw" source="_S-wZ8zpwEeSXMPgb8dt0xw" target="_TVdCtTpwEeSXMPgb8dt0xw" description="PickUpWP->SeparatorRetrackt"/>
+      <internalTransitions id="_j7B-wDp5EeSXMPgb8dt0xw" source="_TVdCtTpwEeSXMPgb8dt0xw" target="_TyMpFTpwEeSXMPgb8dt0xw" description="SeparatorRetrackt->CraneToSlide"/>
+      <internalTransitions id="_mHQlwDp5EeSXMPgb8dt0xw" source="_TyMpFTpwEeSXMPgb8dt0xw" target="_UJMMxTpwEeSXMPgb8dt0xw" description="CraneToSlide->PutDownWP"/>
+      <internalTransitions id="_AFfXcDp8EeSXMPgb8dt0xw" source="_UJMMxTpwEeSXMPgb8dt0xw" target="_P1p7BTpwEeSXMPgb8dt0xw" description="PutDownWP->CraneToStock"/>
+      <subVertexes xsi:type="Statemachine:State" id="_M03DhTpwEeSXMPgb8dt0xw" name="start (NormalRun)" outgoing="_hbZTkDp5EeSXMPgb8dt0xw">
+        <label id="label_2" name="NormalRun"/>
+      </subVertexes>
+      <subVertexes xsi:type="Statemachine:State" id="_PbhjxTpwEeSXMPgb8dt0xw" name="Waiting" outgoing="_hzZj4Dp5EeSXMPgb8dt0xw" incoming="_hbZTkDp5EeSXMPgb8dt0xw"/>
+      <subVertexes xsi:type="Statemachine:State" id="_P1p7BTpwEeSXMPgb8dt0xw" name="CraneToStock" outgoing="_iEf68Dp5EeSXMPgb8dt0xw" incoming="_hzZj4Dp5EeSXMPgb8dt0xw _AFfXcDp8EeSXMPgb8dt0xw">
+        <actions xsi:type="Statemachine:DO" id="_7mQhAj52EeS0mdV0WVVb3g" value="" stateMachineCall="_5wV5wDtsEeSGTscIP6EPdQ"/>
+      </subVertexes>
+      <subVertexes xsi:type="Statemachine:State" id="_QOjjNTpwEeSXMPgb8dt0xw" name="ProvideWP" outgoing="_iWCW4Dp5EeSXMPgb8dt0xw" incoming="_iEf68Dp5EeSXMPgb8dt0xw _i2q-wDp5EeSXMPgb8dt0xw">
+        <actions xsi:type="Statemachine:DO" id="_PCv5cj54EeS0mdV0WVVb3g" stateMachineCall="_7hThEDtsEeSGTscIP6EPdQ"/>
+      </subVertexes>
+      <subVertexes xsi:type="Statemachine:State" id="_QinutTpwEeSXMPgb8dt0xw" name="WaitingForPickUp" outgoing="_imhp8Dp5EeSXMPgb8dt0xw _jJOHUDp5EeSXMPgb8dt0xw" incoming="_iWCW4Dp5EeSXMPgb8dt0xw"/>
+      <subVertexes xsi:type="Statemachine:State" id="_ShyKFTpwEeSXMPgb8dt0xw" name="WaitingForSupplies" outgoing="_i2q-wDp5EeSXMPgb8dt0xw" incoming="_imhp8Dp5EeSXMPgb8dt0xw"/>
+      <subVertexes xsi:type="Statemachine:State" id="_S-wZ8zpwEeSXMPgb8dt0xw" name="PickUpWP" outgoing="_jaCxkDp5EeSXMPgb8dt0xw" incoming="_jJOHUDp5EeSXMPgb8dt0xw">
+        <actions xsi:type="Statemachine:DO" id="_HYbkAj52EeS0mdV0WVVb3g" value="" stateMachineCall="_g2bMIDtnEeSrUpxzjeMOzA"/>
+      </subVertexes>
+      <subVertexes xsi:type="Statemachine:State" id="_TVdCtTpwEeSXMPgb8dt0xw" name="SeparatorRetrackt (NormalRun)" outgoing="_j7B-wDp5EeSXMPgb8dt0xw" incoming="_jaCxkDp5EeSXMPgb8dt0xw">
+        <actions xsi:type="Statemachine:DO" id="_lhG84j54EeS0mdV0WVVb3g" stateMachineCall="_68OeEDtsEeSGTscIP6EPdQ"/>
+      </subVertexes>
+      <subVertexes xsi:type="Statemachine:State" id="_TyMpFTpwEeSXMPgb8dt0xw" name="CraneToSlide" outgoing="_mHQlwDp5EeSXMPgb8dt0xw" incoming="_j7B-wDp5EeSXMPgb8dt0xw">
+        <actions xsi:type="Statemachine:DO" id="_13uQ4j52EeS0mdV0WVVb3g" value="" stateMachineCall="_35By0DtsEeSGTscIP6EPdQ"/>
+      </subVertexes>
+      <subVertexes xsi:type="Statemachine:State" id="_UJMMxTpwEeSXMPgb8dt0xw" name="PutDownWP" outgoing="_AFfXcDp8EeSXMPgb8dt0xw" incoming="_mHQlwDp5EeSXMPgb8dt0xw">
+        <actions xsi:type="Statemachine:DO" id="_OCoyMj52EeS0mdV0WVVb3g" value="" stateMachineCall="_a9U1UDtoEeSrUpxzjeMOzA"/>
+      </subVertexes>
+    </top>
+    <top xsi:type="Statemachine:CompositeState" id="_WbRakjpkEeSXMPgb8dt0xw" name="EmergencyStopStock" outgoing="_QhBwEDpsEeSXMPgb8dt0xw" incoming="_PsxBkDpsEeSXMPgb8dt0xw">
+      <subVertexes xsi:type="Statemachine:CompositeState" id="_q25dVjp8EeSXMPgb8dt0xw" name="Region0">
+        <label id="label_3" name="3"/>
+        <internalTransitions id="_DhcEcDp9EeSXMPgb8dt0xw" source="_51C3pTp8EeSXMPgb8dt0xw" target="_6PtaZTp8EeSXMPgb8dt0xw" description="START->CraneSiphonOff"/>
+        <internalTransitions id="_Eb13MDp9EeSXMPgb8dt0xw" source="_6PtaZTp8EeSXMPgb8dt0xw" target="_6lp1NTp8EeSXMPgb8dt0xw" description="CraneSiphonOff->FINAL"/>
+        <subVertexes xsi:type="Statemachine:State" id="_51C3pTp8EeSXMPgb8dt0xw" name="start (region0)" outgoing="_DhcEcDp9EeSXMPgb8dt0xw"/>
+        <subVertexes xsi:type="Statemachine:State" id="_6PtaZTp8EeSXMPgb8dt0xw" name="CraneSiphonOff" outgoing="_Eb13MDp9EeSXMPgb8dt0xw" incoming="_DhcEcDp9EeSXMPgb8dt0xw"/>
+        <subVertexes xsi:type="Statemachine:State" id="_6lp1NTp8EeSXMPgb8dt0xw" name="final (region0)" incoming="_Eb13MDp9EeSXMPgb8dt0xw"/>
+      </subVertexes>
+      <subVertexes xsi:type="Statemachine:CompositeState" id="_tLIw1jp8EeSXMPgb8dt0xw" name="Region1">
+        <label id="label_4" name="3"/>
+        <internalTransitions id="_Zs_goDp9EeSXMPgb8dt0xw" source="_P_NzxTp9EeSXMPgb8dt0xw" target="_UFa0JTp9EeSXMPgb8dt0xw" description="START->SeparatorRetract"/>
+        <internalTransitions id="_aA7wUDp9EeSXMPgb8dt0xw" source="_UFa0JTp9EeSXMPgb8dt0xw" target="_UazORTp9EeSXMPgb8dt0xw" description="SeparatorRetract->FINAL"/>
+        <subVertexes xsi:type="Statemachine:State" id="_P_NzxTp9EeSXMPgb8dt0xw" name="start (region1)" outgoing="_Zs_goDp9EeSXMPgb8dt0xw"/>
+        <subVertexes xsi:type="Statemachine:State" id="_UFa0JTp9EeSXMPgb8dt0xw" name="SeparatorRetract (region1)" outgoing="_aA7wUDp9EeSXMPgb8dt0xw" incoming="_Zs_goDp9EeSXMPgb8dt0xw">
+          <actions xsi:type="Statemachine:DO" id="_sK24Ej54EeS0mdV0WVVb3g" stateMachineCall="_68OeEDtsEeSGTscIP6EPdQ"/>
+        </subVertexes>
+        <subVertexes xsi:type="Statemachine:State" id="_UazORTp9EeSXMPgb8dt0xw" name="final (region1)" incoming="_aA7wUDp9EeSXMPgb8dt0xw"/>
+      </subVertexes>
+      <subVertexes xsi:type="Statemachine:CompositeState" id="_tjYRtjp8EeSXMPgb8dt0xw" name="Region2">
+        <label id="label_5" name="1"/>
+        <internalTransitions id="_M9MXwDp-EeSXMPgb8dt0xw" source="_FXz6xTp-EeSXMPgb8dt0xw" target="_EevkxTp-EeSXMPgb8dt0xw" description="START->CraneGoUp"/>
+        <internalTransitions id="_OHQ-MDp-EeSXMPgb8dt0xw" source="_EevkxTp-EeSXMPgb8dt0xw" target="_DTVhlTp-EeSXMPgb8dt0xw" description="CraneGoUp->FINAL"/>
+        <subVertexes xsi:type="Statemachine:State" id="_DTVhlTp-EeSXMPgb8dt0xw" name="final (region2)" incoming="_OHQ-MDp-EeSXMPgb8dt0xw"/>
+        <subVertexes xsi:type="Statemachine:State" id="_EevkxTp-EeSXMPgb8dt0xw" name="CraneGoUp" outgoing="_OHQ-MDp-EeSXMPgb8dt0xw" incoming="_M9MXwDp-EeSXMPgb8dt0xw">
+          <actions xsi:type="Statemachine:DO" id="_AjsEUj53EeS0mdV0WVVb3g" stateMachineCall="_6oJEcDtsEeSGTscIP6EPdQ"/>
+        </subVertexes>
+        <subVertexes xsi:type="Statemachine:State" id="_FXz6xTp-EeSXMPgb8dt0xw" name="start (regon2)" outgoing="_M9MXwDp-EeSXMPgb8dt0xw"/>
+      </subVertexes>
+    </top>
+    <top xsi:type="Statemachine:CompositeState" id="_apaO8jpkEeSXMPgb8dt0xw" name="EmergencyStopCommon" outgoing="_Q2QZMDpsEeSXMPgb8dt0xw" incoming="_QhBwEDpsEeSXMPgb8dt0xw">
+      <internalTransitions id="_BcQrUDtnEeSrUpxzjeMOzA" source="_CSjaJTtnEeSrUpxzjeMOzA" target="_C8-QJTtnEeSrUpxzjeMOzA" description="START->CraneStop"/>
+      <internalTransitions id="_B5JboDtnEeSrUpxzjeMOzA" source="_C8-QJTtnEeSrUpxzjeMOzA" target="_DSi3hTtnEeSrUpxzjeMOzA" description="CraneStop->FINAL"/>
+      <subVertexes xsi:type="Statemachine:State" id="_CSjaJTtnEeSrUpxzjeMOzA" name="START" outgoing="_BcQrUDtnEeSrUpxzjeMOzA"/>
+      <subVertexes xsi:type="Statemachine:State" id="_C8-QJTtnEeSrUpxzjeMOzA" name="CraneStop" outgoing="_B5JboDtnEeSrUpxzjeMOzA" incoming="_BcQrUDtnEeSrUpxzjeMOzA"/>
+      <subVertexes xsi:type="Statemachine:State" id="_DSi3hTtnEeSrUpxzjeMOzA" name="FINAL" incoming="_B5JboDtnEeSrUpxzjeMOzA"/>
+    </top>
+    <top id="_OtWG4TtnEeSrUpxzjeMOzA" name="SafeState" outgoing="_RHLxIDpsEeSXMPgb8dt0xw" incoming="_Q2QZMDpsEeSXMPgb8dt0xw">
+      <actions xsi:type="Statemachine:EXIT" id="_Q0Z6AztnEeSrUpxzjeMOzA" value="Stock_not_OK()"/>
+    </top>
+  </subStateMachines>
+  <subStateMachines id="_g2bMIDtnEeSrUpxzjeMOzA" calledByAction="_HYbkAj52EeS0mdV0WVVb3g" name="Crane.ACT_CranePickUpWP" InitialState="_-edoATtnEeSrUpxzjeMOzA">
+    <transitions id="_nxHGUDtnEeSrUpxzjeMOzA" source="_-edoATtnEeSrUpxzjeMOzA" target="_-w2YgTtnEeSrUpxzjeMOzA" description="GoDown->PickUpWP">
+      <guard id="_O7YmETtrEeSGTscIP6EPdQ" expression="[IF all internal final states reached]"/>
+    </transitions>
+    <transitions id="_ptrgsDtnEeSrUpxzjeMOzA" source="_-w2YgTtnEeSrUpxzjeMOzA" target="_-ElIYTtnEeSrUpxzjeMOzA" description="PickUpWP->FINAL">
+      <guard id="_Sq49sTtrEeSGTscIP6EPdQ" expression="[Kran_Mat_angesaugt]"/>
+    </transitions>
+    <transitions id="_p8upUDtnEeSrUpxzjeMOzA" source="_-w2YgTtnEeSrUpxzjeMOzA" target="__LzPITtnEeSrUpxzjeMOzA" description="PickUpWP->Error">
+      <guard id="_WeTk8TtrEeSGTscIP6EPdQ" expression="[after(t#2s)]"/>
+      <action id="_YwPLUjtrEeSGTscIP6EPdQ" value="LetOutWP"/>
+    </transitions>
+    <transitions id="_qJ0DEDtnEeSrUpxzjeMOzA" source="__LzPITtnEeSrUpxzjeMOzA" target="_-ElIYTtnEeSrUpxzjeMOzA" description="Error->FINAL">
+      <guard id="_bsjLcTtrEeSGTscIP6EPdQ" expression="[IF all internal final states reached]"/>
+    </transitions>
+    <top id="_-ElIYTtnEeSrUpxzjeMOzA" name="FINAL" incoming="_ptrgsDtnEeSrUpxzjeMOzA _qJ0DEDtnEeSrUpxzjeMOzA"/>
+    <top id="_-edoATtnEeSrUpxzjeMOzA" name="GoDown" outgoing="_nxHGUDtnEeSrUpxzjeMOzA">
+      <actions xsi:type="Statemachine:DO" id="_zjqRoj54EeS0mdV0WVVb3g" stateMachineCall="_68OeEDtsEeSGTscIP6EPdQ"/>
+    </top>
+    <top id="_-w2YgTtnEeSrUpxzjeMOzA" name="PickUpWP" outgoing="_ptrgsDtnEeSrUpxzjeMOzA _p8upUDtnEeSrUpxzjeMOzA" incoming="_nxHGUDtnEeSrUpxzjeMOzA"/>
+    <top id="__LzPITtnEeSrUpxzjeMOzA" name="Error" outgoing="_qJ0DEDtnEeSrUpxzjeMOzA" incoming="_p8upUDtnEeSrUpxzjeMOzA">
+      <actions xsi:type="Statemachine:DO" id="_FmZwQT53EeS0mdV0WVVb3g" stateMachineCall="_6oJEcDtsEeSGTscIP6EPdQ"/>
+    </top>
+  </subStateMachines>
+  <subStateMachines id="_a9U1UDtoEeSrUpxzjeMOzA" calledByAction="_OCoyMj52EeS0mdV0WVVb3g" name="Crane.ACT_CranePutDownWP" InitialState="_Tl2mkTtqEeSGTscIP6EPdQ">
+    <transitions id="_dR08oDtqEeSGTscIP6EPdQ" source="_Tl2mkTtqEeSGTscIP6EPdQ" target="_U1RAATtqEeSGTscIP6EPdQ" description="GoDown->LetOutWP">
+      <guard id="_MIl44TtsEeSGTscIP6EPdQ" expression="[IF all internal final states reached]"/>
+    </transitions>
+    <transitions id="_do71EDtqEeSGTscIP6EPdQ" source="_U1RAATtqEeSGTscIP6EPdQ" target="_926N4TtpEeS-wsujrZREEQ" description="LetOutWP->GoUp">
+      <guard id="_OITt4TtsEeSGTscIP6EPdQ" expression="[NOT Kran_Mat_angesaugt]"/>
+    </transitions>
+    <transitions id="_d5bvMDtqEeSGTscIP6EPdQ" source="_926N4TtpEeS-wsujrZREEQ" target="_VNkyUTtqEeSGTscIP6EPdQ" description="GoUp->FINAL">
+      <guard id="_O_P88TtsEeSGTscIP6EPdQ" expression="[IF all internal final states reached]"/>
+    </transitions>
+    <top id="_926N4TtpEeS-wsujrZREEQ" name="GoUp" outgoing="_d5bvMDtqEeSGTscIP6EPdQ" incoming="_do71EDtqEeSGTscIP6EPdQ">
+      <actions xsi:type="Statemachine:DO" id="_S5H8ETttEeSGTscIP6EPdQ" value="GVL.Kranzylinder.ausfahren" stateMachineCall="_6oJEcDtsEeSGTscIP6EPdQ"/>
+    </top>
+    <top id="_Tl2mkTtqEeSGTscIP6EPdQ" name="GoDown" outgoing="_dR08oDtqEeSGTscIP6EPdQ">
+      <actions xsi:type="Statemachine:DO" id="_QTPe8TttEeSGTscIP6EPdQ" value="GVL.Kranzylinder.einfahren" stateMachineCall="_68OeEDtsEeSGTscIP6EPdQ"/>
+    </top>
+    <top id="_U1RAATtqEeSGTscIP6EPdQ" name="LetOutWP" outgoing="_do71EDtqEeSGTscIP6EPdQ" incoming="_dR08oDtqEeSGTscIP6EPdQ">
+      <actions xsi:type="Statemachine:DO" id="_VDYNITttEeSGTscIP6EPdQ" value="LetOutWP"/>
+    </top>
+    <top id="_VNkyUTtqEeSGTscIP6EPdQ" name="FINAL" incoming="_d5bvMDtqEeSGTscIP6EPdQ"/>
+  </subStateMachines>
+  <subStateMachines id="__xdZkDtqEeSGTscIP6EPdQ" calledByAction="_YOtkoj52EeS0mdV0WVVb3g" name="Crane.ACT_Init" InitialState="_CY4u0TtrEeSGTscIP6EPdQ">
+    <transitions id="_TqrKQDtsEeSGTscIP6EPdQ" source="_CY4u0TtrEeSGTscIP6EPdQ" target="_Dm-SkTtrEeSGTscIP6EPdQ" description="WaitingStateStart->SiphonOff">
+      <guard id="_hfyf8TtsEeSGTscIP6EPdQ" expression="[Lager_Man_Auto AND Lager_Start]"/>
+    </transitions>
+    <transitions id="_U_tqkDtsEeSGTscIP6EPdQ" source="_Dm-SkTtrEeSGTscIP6EPdQ" target="_D8kIETtrEeSGTscIP6EPdQ" description="SiphonOff->CraneGoUp">
+      <guard id="_i_hNUTtsEeSGTscIP6EPdQ" expression="[TRUE]"/>
+    </transitions>
+    <transitions id="_VNN7EDtsEeSGTscIP6EPdQ" source="_D8kIETtrEeSGTscIP6EPdQ" target="_ENBl8TtrEeSGTscIP6EPdQ" description="CraneGoUp->WaitingStateEnd">
+      <guard id="_kCa0wTtsEeSGTscIP6EPdQ" expression="[IF all internal final states reached]"/>
+    </transitions>
+    <transitions id="_VcqsUDtsEeSGTscIP6EPdQ" source="_ENBl8TtrEeSGTscIP6EPdQ" target="_EixMcTtrEeSGTscIP6EPdQ" description="WaitingStateEnd->FINAL">
+      <guard id="_lT31kTtsEeSGTscIP6EPdQ" expression="[after(t#1s)]"/>
+    </transitions>
+    <top id="_CY4u0TtrEeSGTscIP6EPdQ" name="WaitingStateStart" outgoing="_TqrKQDtsEeSGTscIP6EPdQ">
+      <actions xsi:type="Statemachine:ENTRY" id="_nvx3UjtsEeSGTscIP6EPdQ" value="ACTReInitialize"/>
+      <actions xsi:type="Statemachine:DO" id="_roQkwTtsEeSGTscIP6EPdQ" value="Not_OK"/>
+    </top>
+    <top id="_Dm-SkTtrEeSGTscIP6EPdQ" name="SiphonOff" outgoing="_U_tqkDtsEeSGTscIP6EPdQ" incoming="_TqrKQDtsEeSGTscIP6EPdQ">
+      <actions xsi:type="Statemachine:DO" id="_t0vqcTtsEeSGTscIP6EPdQ" value="LetOutWP"/>
+    </top>
+    <top id="_D8kIETtrEeSGTscIP6EPdQ" name="CraneGoUp" outgoing="_VNN7EDtsEeSGTscIP6EPdQ" incoming="_U_tqkDtsEeSGTscIP6EPdQ">
+      <actions xsi:type="Statemachine:DO" id="_x3a1sTtsEeSGTscIP6EPdQ" value="GVL.Kranzylinder.ausfahren()" stateMachineCall="_6oJEcDtsEeSGTscIP6EPdQ"/>
+    </top>
+    <top id="_ENBl8TtrEeSGTscIP6EPdQ" name="WaitingStateEnd" outgoing="_VcqsUDtsEeSGTscIP6EPdQ" incoming="_VNN7EDtsEeSGTscIP6EPdQ">
+      <actions xsi:type="Statemachine:ENTRY" id="_KO4v0jttEeSGTscIP6EPdQ" value="OK"/>
+    </top>
+    <top id="_EixMcTtrEeSGTscIP6EPdQ" name="Final" incoming="_VcqsUDtsEeSGTscIP6EPdQ"/>
+  </subStateMachines>
+  <subStateMachines id="_35By0DtsEeSGTscIP6EPdQ" calledByAction="_13uQ4j52EeS0mdV0WVVb3g" name="Crane.ACT_ToSlidePosition" InitialState="_0LmM4TtuEeSGTscIP6EPdQ">
+    <transitions id="_q76xQDtuEeSGTscIP6EPdQ" source="_0LmM4TtuEeSGTscIP6EPdQ" target="_WJymITtuEeSGTscIP6EPdQ" description="START->GoUp">
+      <guard id="_CE7FcTt1EeSGTscIP6EPdQ" expression="[NOT GVL.Kranzylinder.IX_ausgefahren]"/>
+    </transitions>
+    <transitions id="_rlsHADtuEeSGTscIP6EPdQ" source="_0LmM4TtuEeSGTscIP6EPdQ" target="_YmG3kTtuEeSGTscIP6EPdQ" description="START->Stop">
+      <guard id="_DtSxcTt1EeSGTscIP6EPdQ" expression="[GVL.Kranzylinder.IX_ausgefahren]"/>
+    </transitions>
+    <transitions id="_r2h_YDtuEeSGTscIP6EPdQ" source="_WJymITtuEeSGTscIP6EPdQ" target="_YmG3kTtuEeSGTscIP6EPdQ" description="GoUp->Stop">
+      <guard id="_F3NEQTt1EeSGTscIP6EPdQ" expression="[IF all internal final states reached]"/>
+    </transitions>
+    <transitions id="_sGtJYDtuEeSGTscIP6EPdQ" source="_YmG3kTtuEeSGTscIP6EPdQ" target="_ZCt7ETtuEeSGTscIP6EPdQ" description="Stop->TurnLeft">
+      <guard id="_Hgbr4Tt1EeSGTscIP6EPdQ" expression="[NOT Kran_Pos_Band]"/>
+    </transitions>
+    <transitions id="_3P-j4DtuEeSGTscIP6EPdQ" source="_YmG3kTtuEeSGTscIP6EPdQ" target="_aSAYsTtuEeSGTscIP6EPdQ" description="Stop->FINAL">
+      <guard id="_JQxBETt1EeSGTscIP6EPdQ" expression="[Kran_Pos_Band]"/>
+    </transitions>
+    <transitions id="_9Drn4DtuEeSGTscIP6EPdQ" source="_ZCt7ETtuEeSGTscIP6EPdQ" target="_YmG3kTtuEeSGTscIP6EPdQ" description="TurnLeft->Stop">
+      <guard id="_LQbLsTt1EeSGTscIP6EPdQ" expression="[Kran_Pos_Band]"/>
+    </transitions>
+    <top id="_WJymITtuEeSGTscIP6EPdQ" name="GoUp" outgoing="_r2h_YDtuEeSGTscIP6EPdQ" incoming="_q76xQDtuEeSGTscIP6EPdQ">
+      <actions xsi:type="Statemachine:DO" id="_iUwHITtuEeSGTscIP6EPdQ" value="GVL.Kranzylinder.ausfahren()" stateMachineCall="_6oJEcDtsEeSGTscIP6EPdQ"/>
+    </top>
+    <top id="_YmG3kTtuEeSGTscIP6EPdQ" name="Stop" outgoing="_sGtJYDtuEeSGTscIP6EPdQ _3P-j4DtuEeSGTscIP6EPdQ" incoming="_rlsHADtuEeSGTscIP6EPdQ _r2h_YDtuEeSGTscIP6EPdQ _9Drn4DtuEeSGTscIP6EPdQ">
+      <actions xsi:type="Statemachine:DO" id="_lVAzITtuEeSGTscIP6EPdQ" value="Stop"/>
+    </top>
+    <top id="_ZCt7ETtuEeSGTscIP6EPdQ" name="TurnLeft" outgoing="_9Drn4DtuEeSGTscIP6EPdQ" incoming="_sGtJYDtuEeSGTscIP6EPdQ">
+      <actions xsi:type="Statemachine:DO" id="_mhPVsTtuEeSGTscIP6EPdQ" value="TurnLeft"/>
+    </top>
+    <top id="_aSAYsTtuEeSGTscIP6EPdQ" name="FINAL" incoming="_3P-j4DtuEeSGTscIP6EPdQ"/>
+    <top id="_0LmM4TtuEeSGTscIP6EPdQ" name="start" outgoing="_q76xQDtuEeSGTscIP6EPdQ _rlsHADtuEeSGTscIP6EPdQ"/>
+  </subStateMachines>
+  <subStateMachines id="_5wV5wDtsEeSGTscIP6EPdQ" calledByAction="_7mQhAj52EeS0mdV0WVVb3g" name="Crane.ACT_ToStackPosition" InitialState="_WDiI8Tt1EeSGTscIP6EPdQ">
+    <transitions id="_zALecDt1EeSGTscIP6EPdQ" source="_WDiI8Tt1EeSGTscIP6EPdQ" target="_XXu7wTt1EeSGTscIP6EPdQ" description="START->GoUp">
+      <guard id="_GQ9LkTt2EeSGTscIP6EPdQ" expression="[NOT GVL.Kranzylinder.IX_ausgefahren]"/>
+    </transitions>
+    <transitions id="_0Gx6IDt1EeSGTscIP6EPdQ" source="_WDiI8Tt1EeSGTscIP6EPdQ" target="_XXu7wTt1EeSGTscIP6EPdQ" description="START->Stop">
+      <guard id="_Hyw8kTt2EeSGTscIP6EPdQ" expression="[GVL.Kranzylinder.IX_ausgefahren]"/>
+    </transitions>
+    <transitions id="_0fofADt1EeSGTscIP6EPdQ" source="_XDRusTt1EeSGTscIP6EPdQ" target="_XXu7wTt1EeSGTscIP6EPdQ" description="GoUp->Stop">
+      <guard id="_JoFfcTt2EeSGTscIP6EPdQ" expression="[IF all internal final states reached]"/>
+    </transitions>
+    <transitions id="_0w84gDt1EeSGTscIP6EPdQ" source="_XXu7wTt1EeSGTscIP6EPdQ" target="_XrXCYTt1EeSGTscIP6EPdQ" description="Stop->TurnRight">
+      <guard id="_MhG7ATt2EeSGTscIP6EPdQ" expression="[NOT Kran_Pos_Lager]"/>
+    </transitions>
+    <transitions id="_1AvoADt1EeSGTscIP6EPdQ" source="_XXu7wTt1EeSGTscIP6EPdQ" target="_YEXYQTt1EeSGTscIP6EPdQ" description="Stop->FINAL">
+      <guard id="_OVtsMTt2EeSGTscIP6EPdQ" expression="[Kran_Pos_Lager]"/>
+    </transitions>
+    <transitions id="_1Po_oDt1EeSGTscIP6EPdQ" source="_XrXCYTt1EeSGTscIP6EPdQ" target="_XXu7wTt1EeSGTscIP6EPdQ" description="TurnRight->Stop">
+      <guard id="_P7FHgTt2EeSGTscIP6EPdQ" expression="[Kran_Pos_Lager]"/>
+    </transitions>
+    <top id="_WDiI8Tt1EeSGTscIP6EPdQ" name="START" outgoing="_zALecDt1EeSGTscIP6EPdQ _0Gx6IDt1EeSGTscIP6EPdQ"/>
+    <top id="_XDRusTt1EeSGTscIP6EPdQ" name="GoUp" outgoing="_0fofADt1EeSGTscIP6EPdQ">
+      <actions xsi:type="Statemachine:DO" id="_koJo8Tt1EeSGTscIP6EPdQ" value="GVL.Kranzylinder.ausfahren" stateMachineCall="_6oJEcDtsEeSGTscIP6EPdQ"/>
+    </top>
+    <top id="_XXu7wTt1EeSGTscIP6EPdQ" name="Stop" outgoing="_0w84gDt1EeSGTscIP6EPdQ _1AvoADt1EeSGTscIP6EPdQ" incoming="_zALecDt1EeSGTscIP6EPdQ _0Gx6IDt1EeSGTscIP6EPdQ _0fofADt1EeSGTscIP6EPdQ _1Po_oDt1EeSGTscIP6EPdQ">
+      <actions xsi:type="Statemachine:DO" id="_oQyjkTt1EeSGTscIP6EPdQ" value="Stop"/>
+    </top>
+    <top id="_XrXCYTt1EeSGTscIP6EPdQ" name="TurnRight" outgoing="_1Po_oDt1EeSGTscIP6EPdQ" incoming="_0w84gDt1EeSGTscIP6EPdQ">
+      <actions xsi:type="Statemachine:DO" id="_pefFwTt1EeSGTscIP6EPdQ" value="TurnRight"/>
+    </top>
+    <top id="_YEXYQTt1EeSGTscIP6EPdQ" name="FINAL" incoming="_1AvoADt1EeSGTscIP6EPdQ"/>
+  </subStateMachines>
+  <subStateMachines id="_6oJEcDtsEeSGTscIP6EPdQ" calledByAction="_x3a1sTtsEeSGTscIP6EPdQ _iUwHITtuEeSGTscIP6EPdQ _koJo8Tt1EeSGTscIP6EPdQ _5Y3-gTt4EeSGTscIP6EPdQ _nEAqkTt5EeSGTscIP6EPdQ _AjsEUj53EeS0mdV0WVVb3g _FmZwQT53EeS0mdV0WVVb3g _S5H8ETttEeSGTscIP6EPdQ" name="Cylinder.ausfahren" InitialState="_hCjl0Tt2EeSGTscIP6EPdQ">
+    <transitions id="_wq7o4Dt2EeSGTscIP6EPdQ" source="_hCjl0Tt2EeSGTscIP6EPdQ" target="_i0bzITt2EeSGTscIP6EPdQ" description="START->Ausfahren"/>
+    <transitions id="_xN3W0Dt2EeSGTscIP6EPdQ" source="_i0bzITt2EeSGTscIP6EPdQ" target="_jLTbATt2EeSGTscIP6EPdQ" description="Ausfahren->Einfahren">
+      <guard id="_7sstMTt2EeSGTscIP6EPdQ" expression="[after(t#1s)]"/>
+    </transitions>
+    <transitions id="_xeWC0Dt2EeSGTscIP6EPdQ" source="_i0bzITt2EeSGTscIP6EPdQ" target="_jjkKATt2EeSGTscIP6EPdQ" description="Ausfahren->FINAL">
+      <guard id="_-BuD0Tt2EeSGTscIP6EPdQ" expression="[IX_ausgefahren]"/>
+    </transitions>
+    <transitions id="_xxMGUDt2EeSGTscIP6EPdQ" source="_jLTbATt2EeSGTscIP6EPdQ" target="_i0bzITt2EeSGTscIP6EPdQ" description="Einfahren->Ausfahren">
+      <guard id="_BTCDkTt3EeSGTscIP6EPdQ" expression="[after(t#1s)]"/>
+    </transitions>
+    <top id="_hCjl0Tt2EeSGTscIP6EPdQ" name="START" outgoing="_wq7o4Dt2EeSGTscIP6EPdQ"/>
+    <top id="_i0bzITt2EeSGTscIP6EPdQ" name="Ausfahren" outgoing="_xN3W0Dt2EeSGTscIP6EPdQ _xeWC0Dt2EeSGTscIP6EPdQ" incoming="_wq7o4Dt2EeSGTscIP6EPdQ _xxMGUDt2EeSGTscIP6EPdQ">
+      <actions xsi:type="Statemachine:DO" id="_oVj5YTt2EeSGTscIP6EPdQ" value="intern_ausfahren()"/>
+    </top>
+    <top id="_jLTbATt2EeSGTscIP6EPdQ" name="Einfahren" outgoing="_xxMGUDt2EeSGTscIP6EPdQ" incoming="_xN3W0Dt2EeSGTscIP6EPdQ">
+      <actions xsi:type="Statemachine:DO" id="_prFh4Tt2EeSGTscIP6EPdQ" value="intern_einfahren()"/>
+    </top>
+    <top id="_jjkKATt2EeSGTscIP6EPdQ" name="FINAL" incoming="_xeWC0Dt2EeSGTscIP6EPdQ"/>
+  </subStateMachines>
+  <subStateMachines id="_68OeEDtsEeSGTscIP6EPdQ" calledByAction="_QTPe8TttEeSGTscIP6EPdQ _9h5pYTt4EeSGTscIP6EPdQ _8n3NkTt5EeSGTscIP6EPdQ _lhG84j54EeS0mdV0WVVb3g _sK24Ej54EeS0mdV0WVVb3g _zjqRoj54EeS0mdV0WVVb3g" name="Cylinder.einfahren" InitialState="_IxeLETt3EeSGTscIP6EPdQ">
+    <transitions id="_Wr--IDt3EeSGTscIP6EPdQ" source="_IxeLETt3EeSGTscIP6EPdQ" target="_Lc2zQTt3EeSGTscIP6EPdQ" description="START->Einfahren"/>
+    <transitions id="_YJkWcDt3EeSGTscIP6EPdQ" source="_Lc2zQTt3EeSGTscIP6EPdQ" target="_L5x_0Tt3EeSGTscIP6EPdQ" description="Einfahren->Ausfahren"/>
+    <transitions id="_YZPxMDt3EeSGTscIP6EPdQ" source="_Lc2zQTt3EeSGTscIP6EPdQ" target="_QI7g0Tt3EeSGTscIP6EPdQ" description="Einfahren->FINAL"/>
+    <transitions id="_YsHC0Dt3EeSGTscIP6EPdQ" source="_L5x_0Tt3EeSGTscIP6EPdQ" target="_Lc2zQTt3EeSGTscIP6EPdQ" description="Ausfahren->Einfahren"/>
+    <top id="_IxeLETt3EeSGTscIP6EPdQ" name="START" outgoing="_Wr--IDt3EeSGTscIP6EPdQ"/>
+    <top id="_Lc2zQTt3EeSGTscIP6EPdQ" name="Einfahren" outgoing="_YJkWcDt3EeSGTscIP6EPdQ _YZPxMDt3EeSGTscIP6EPdQ" incoming="_Wr--IDt3EeSGTscIP6EPdQ _YsHC0Dt3EeSGTscIP6EPdQ">
+      <actions xsi:type="Statemachine:DO" id="_UIiJ8Tt3EeSGTscIP6EPdQ" value="intern_einfahren()"/>
+    </top>
+    <top id="_L5x_0Tt3EeSGTscIP6EPdQ" name="Ausfahren" outgoing="_YsHC0Dt3EeSGTscIP6EPdQ" incoming="_YJkWcDt3EeSGTscIP6EPdQ">
+      <actions xsi:type="Statemachine:DO" id="_U0f4ETt3EeSGTscIP6EPdQ" value="intern_ausfahren()"/>
+    </top>
+    <top id="_QI7g0Tt3EeSGTscIP6EPdQ" name="Final" incoming="_YZPxMDt3EeSGTscIP6EPdQ"/>
+  </subStateMachines>
+  <subStateMachines id="_7MV9sDtsEeSGTscIP6EPdQ" calledByAction="_b4Kssj54EeS0mdV0WVVb3g" name="Separator.ACT_Init" InitialState="_ydSh4Tt3EeSGTscIP6EPdQ">
+    <transitions id="_CZh8IDt4EeSGTscIP6EPdQ" source="_ydSh4Tt3EeSGTscIP6EPdQ" target="_37tSYTt3EeSGTscIP6EPdQ" description="WaitingStateStart->Extract">
+      <guard id="_QQV68Tt4EeSGTscIP6EPdQ" expression="[Lager_Man_Auto AND Lager_Start]"/>
+    </transitions>
+    <transitions id="_DKhUMDt4EeSGTscIP6EPdQ" source="_37tSYTt3EeSGTscIP6EPdQ" target="_4dKZoTt3EeSGTscIP6EPdQ" description="Extract->Retract">
+      <guard id="_RqEG8Tt4EeSGTscIP6EPdQ" expression="[TRUE]"/>
+    </transitions>
+    <transitions id="_DgDfUDt4EeSGTscIP6EPdQ" source="_4dKZoTt3EeSGTscIP6EPdQ" target="_4xSPgTt3EeSGTscIP6EPdQ" description="Retract->WaitingStateEnd">
+      <guard id="_TXocATt4EeSGTscIP6EPdQ" expression="[IF all internal final states reached]"/>
+    </transitions>
+    <transitions id="_D3BN0Dt4EeSGTscIP6EPdQ" source="_ydSh4Tt3EeSGTscIP6EPdQ" target="_5Cbp4Tt3EeSGTscIP6EPdQ" description="WaitingStateEnd->FINAL">
+      <guard id="_V6KDITt4EeSGTscIP6EPdQ" expression="[after(t#1s)]"/>
+    </transitions>
+    <top id="_ydSh4Tt3EeSGTscIP6EPdQ" name="WaitingStateStart" outgoing="_CZh8IDt4EeSGTscIP6EPdQ _D3BN0Dt4EeSGTscIP6EPdQ">
+      <actions xsi:type="Statemachine:ENTRY" id="_bkg94jt4EeSGTscIP6EPdQ" value="ACTReInitialize"/>
+      <actions xsi:type="Statemachine:DO" id="_c-0_wTt4EeSGTscIP6EPdQ" value="Not_OK"/>
+    </top>
+    <top id="_37tSYTt3EeSGTscIP6EPdQ" name="Extract" outgoing="_DKhUMDt4EeSGTscIP6EPdQ" incoming="_CZh8IDt4EeSGTscIP6EPdQ">
+      <actions xsi:type="Statemachine:DO" id="_5Y3-gTt4EeSGTscIP6EPdQ" value="GVL.Vereinzelungszylinder.ausfahren()" stateMachineCall="_6oJEcDtsEeSGTscIP6EPdQ"/>
+    </top>
+    <top id="_4dKZoTt3EeSGTscIP6EPdQ" name="Retract" outgoing="_DgDfUDt4EeSGTscIP6EPdQ" incoming="_DKhUMDt4EeSGTscIP6EPdQ">
+      <actions xsi:type="Statemachine:DO" id="_9h5pYTt4EeSGTscIP6EPdQ" value="GVL.Vereinzelungszylinder.einfahren()" stateMachineCall="_68OeEDtsEeSGTscIP6EPdQ"/>
+    </top>
+    <top id="_4xSPgTt3EeSGTscIP6EPdQ" name="WaitingStateEnd" incoming="_DgDfUDt4EeSGTscIP6EPdQ">
+      <actions xsi:type="Statemachine:ENTRY" id="_CBD8Ujt5EeSGTscIP6EPdQ" value="OK"/>
+    </top>
+    <top id="_5Cbp4Tt3EeSGTscIP6EPdQ" name="FINAL" incoming="_D3BN0Dt4EeSGTscIP6EPdQ"/>
+  </subStateMachines>
+  <subStateMachines id="_7hThEDtsEeSGTscIP6EPdQ" calledByAction="_PCv5cj54EeS0mdV0WVVb3g" name="Separator.ACT_ProvideWP" InitialState="_HVUrQTt5EeSGTscIP6EPdQ">
+    <transitions id="_OPsm8Dt6EeSGTscIP6EPdQ" source="_HVUrQTt5EeSGTscIP6EPdQ" target="_NCozYjt5EeSGTscIP6EPdQ" description="START->ExtractWP"/>
+    <transitions id="_P3SP0Dt6EeSGTscIP6EPdQ" source="_NCozYjt5EeSGTscIP6EPdQ" target="_2DF5Ajt5EeSGTscIP6EPdQ" description="NormalRun->ErrorReaction"/>
+    <transitions id="_QI6yYDt6EeSGTscIP6EPdQ" source="_NCozYjt5EeSGTscIP6EPdQ" target="_JB0CQTt5EeSGTscIP6EPdQ" description="NormalRun->FINAL"/>
+    <transitions id="_QYmNIDt6EeSGTscIP6EPdQ" source="_2DF5Ajt5EeSGTscIP6EPdQ" target="_JB0CQTt5EeSGTscIP6EPdQ" description="ErrorReaction->FINAL"/>
+    <top id="_HVUrQTt5EeSGTscIP6EPdQ" name="START" outgoing="_OPsm8Dt6EeSGTscIP6EPdQ"/>
+    <top id="_JB0CQTt5EeSGTscIP6EPdQ" name="FINAL" incoming="_QI6yYDt6EeSGTscIP6EPdQ _QYmNIDt6EeSGTscIP6EPdQ"/>
+    <top xsi:type="Statemachine:CompositeState" id="_NCozYjt5EeSGTscIP6EPdQ" name="NormalRun" outgoing="_P3SP0Dt6EeSGTscIP6EPdQ _QI6yYDt6EeSGTscIP6EPdQ" incoming="_OPsm8Dt6EeSGTscIP6EPdQ">
+      <internalTransitions id="_YEqWYDt5EeSGTscIP6EPdQ" source="_dX9cBTt5EeSGTscIP6EPdQ" target="_g6MztTt5EeSGTscIP6EPdQ" description="ExtractWP->FINAL">
+        <guard id="_i_xZETt5EeSGTscIP6EPdQ" expression="[Lager_Sensor_Mat_Vorhanden]"/>
+        <action id="_k69TYjt5EeSGTscIP6EPdQ" value="GVL.WS_ausgeschoben:=TRUE;"/>
+      </internalTransitions>
+      <subVertexes xsi:type="Statemachine:State" id="_dX9cBTt5EeSGTscIP6EPdQ" name="ExtractWP" outgoing="_YEqWYDt5EeSGTscIP6EPdQ">
+        <actions xsi:type="Statemachine:DO" id="_nEAqkTt5EeSGTscIP6EPdQ" value="GVL.Vereinzelungszylinder.ausfahren()" stateMachineCall="_6oJEcDtsEeSGTscIP6EPdQ"/>
+      </subVertexes>
+      <subVertexes xsi:type="Statemachine:State" id="_g6MztTt5EeSGTscIP6EPdQ" name="FINAL" incoming="_YEqWYDt5EeSGTscIP6EPdQ"/>
+    </top>
+    <top xsi:type="Statemachine:CompositeState" id="_2DF5Ajt5EeSGTscIP6EPdQ" name="ErrorState" outgoing="_QYmNIDt6EeSGTscIP6EPdQ" incoming="_P3SP0Dt6EeSGTscIP6EPdQ">
+      <subVertexes xsi:type="Statemachine:State" id="_3X_PZTt5EeSGTscIP6EPdQ" name="ErrorReaction">
+        <actions xsi:type="Statemachine:ENTRY" id="_7DB9wjt5EeSGTscIP6EPdQ" value="Error_Set"/>
+        <actions xsi:type="Statemachine:DO" id="_8n3NkTt5EeSGTscIP6EPdQ" value="GVL.Vereinzelungszylinder.einfahren()" stateMachineCall="_68OeEDtsEeSGTscIP6EPdQ"/>
+      </subVertexes>
+    </top>
+  </subStateMachines>
+</Statemachine:StateMachineRoot>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fault_tree:FaultTree xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fault_tree="http://FaultTree/1.0" id="_O_Mn0Dd1EeSoZOVMwBDVVQ">
+  <hazard id="_Z_CkEDd2EeSoZOVMwBDVVQ" inputGate="_011_wTd3EeSoZOVMwBDVVQ" name="WP outside the system"/>
+  <gate xsi:type="fault_tree:OR" id="_008_MTd3EeSoZOVMwBDVVQ" inputEvents="_VhzHSDd3EeSoZOVMwBDVVQ _WdiWyDd3EeSoZOVMwBDVVQ _W7my2Dd3EeSoZOVMwBDVVQ _XiM4yDd3EeSoZOVMwBDVVQ" outputEvent="_NyYkhzd3EeSoZOVMwBDVVQ"/>
+  <gate xsi:type="fault_tree:OR" id="_013_sTd3EeSoZOVMwBDVVQ" inputEvents="_X9bcODd3EeSoZOVMwBDVVQ _ZB_QiDd3EeSoZOVMwBDVVQ" outputEvent="_OxLvFzd3EeSoZOVMwBDVVQ"/>
+  <gate xsi:type="fault_tree:OR" id="_002_gTd3EeSoZOVMwBDVVQ" inputEvents="_Tc1l6Dd3EeSoZOVMwBDVVQ _CQPFGDd5EeSoZOVMwBDVVQ" outputEvent="_PpaXlzd3EeSoZOVMwBDVVQ"/>
+  <gate xsi:type="fault_tree:OR" id="_011_wTd3EeSoZOVMwBDVVQ" inputEvents="_R1ZuBzd3EeSoZOVMwBDVVQ _OxLvFzd3EeSoZOVMwBDVVQ _PpaXlzd3EeSoZOVMwBDVVQ" outputEvent="_Z_CkEDd2EeSoZOVMwBDVVQ"/>
+  <event xsi:type="fault_tree:IntermediateEvent" id="_R1ZuBzd3EeSoZOVMwBDVVQ" outputGate="_011_wTd3EeSoZOVMwBDVVQ" name="Crane lets WP fall outside the system" instance="_hDjTOjd3EeSoZOVMwBDVVQ" inEvent="_NyYkhzd3EeSoZOVMwBDVVQ"/>
+  <event xsi:type="fault_tree:IntermediateEvent" id="_NyYkhzd3EeSoZOVMwBDVVQ" inputGate="_008_MTd3EeSoZOVMwBDVVQ" name="Crane turns wrong direction" instance="_hkI3yjd3EeSoZOVMwBDVVQ" outEvent="_R1ZuBzd3EeSoZOVMwBDVVQ"/>
+  <event xsi:type="fault_tree:IntermediateEvent" id="_OxLvFzd3EeSoZOVMwBDVVQ" inputGate="_013_sTd3EeSoZOVMwBDVVQ" outputGate="_011_wTd3EeSoZOVMwBDVVQ" name="Crane throws WP away" instance="_h_yR-jd3EeSoZOVMwBDVVQ"/>
+  <event xsi:type="fault_tree:IntermediateEvent" id="_PpaXlzd3EeSoZOVMwBDVVQ" inputGate="_002_gTd3EeSoZOVMwBDVVQ" outputGate="_011_wTd3EeSoZOVMwBDVVQ" name="WP at full stations" instance="_ik2t6jd3EeSoZOVMwBDVVQ"/>
+  <event xsi:type="fault_tree:BasicEvent" id="_Tc1l6Dd3EeSoZOVMwBDVVQ" outputGate="_002_gTd3EeSoZOVMwBDVVQ" name="craneImplError occurs" instance="_trC_PDd3EeSoZOVMwBDVVQ"/>
+  <event xsi:type="fault_tree:BasicEvent" id="_VhzHSDd3EeSoZOVMwBDVVQ" outputGate="_008_MTd3EeSoZOVMwBDVVQ" name="maxLeftSTactileError occurs" instance="_w7rCfDd3EeSoZOVMwBDVVQ"/>
+  <event xsi:type="fault_tree:BasicEvent" id="_WdiWyDd3EeSoZOVMwBDVVQ" outputGate="_008_MTd3EeSoZOVMwBDVVQ" name="maxRightSTactileError occurs " instance="_xvZlfDd3EeSoZOVMwBDVVQ"/>
+  <event xsi:type="fault_tree:BasicEvent" id="_W7my2Dd3EeSoZOVMwBDVVQ" outputGate="_008_MTd3EeSoZOVMwBDVVQ" name="toSlideSTactileError occurs " instance="_zODUzDd3EeSoZOVMwBDVVQ"/>
+  <event xsi:type="fault_tree:BasicEvent" id="_XiM4yDd3EeSoZOVMwBDVVQ" outputGate="_008_MTd3EeSoZOVMwBDVVQ" name="toStackSTactileError occurs " instance="_z4n7zDd3EeSoZOVMwBDVVQ"/>
+  <event xsi:type="fault_tree:BasicEvent" id="_X9bcODd3EeSoZOVMwBDVVQ" outputGate="_013_sTd3EeSoZOVMwBDVVQ" name="Vacuum opens in a wrong time" instance="_27xjuDd3EeSoZOVMwBDVVQ"/>
+  <event xsi:type="fault_tree:BasicEvent" id="_ZB_QiDd3EeSoZOVMwBDVVQ" outputGate="_013_sTd3EeSoZOVMwBDVVQ" name="Vacuum is lost" instance="_3hbOfDd3EeSoZOVMwBDVVQ"/>
+  <event xsi:type="fault_tree:BasicEvent" id="_CQPFGDd5EeSoZOVMwBDVVQ" outputGate="_002_gTd3EeSoZOVMwBDVVQ" name="Slide's capacity exceeds" instance="_38JbnDd3EeSoZOVMwBDVVQ"/>
+  <failure_instance id="_hDjTOjd3EeSoZOVMwBDVVQ" type="_klGHWzd3EeSoZOVMwBDVVQ" event="_R1ZuBzd3EeSoZOVMwBDVVQ" name="cranePositionFailure"/>
+  <failure_instance id="_hkI3yjd3EeSoZOVMwBDVVQ" type="_klGHWzd3EeSoZOVMwBDVVQ" event="_NyYkhzd3EeSoZOVMwBDVVQ" name="cylinderPositionFailure"/>
+  <failure_instance id="_h_yR-jd3EeSoZOVMwBDVVQ" type="_lltPyzd3EeSoZOVMwBDVVQ" event="_OxLvFzd3EeSoZOVMwBDVVQ" name="vacuumTimingFailure"/>
+  <failure_instance id="_ik2t6jd3EeSoZOVMwBDVVQ" type="_lJ9u-zd3EeSoZOVMwBDVVQ" event="_PpaXlzd3EeSoZOVMwBDVVQ" name="slideCapacityExceedFailure"/>
+  <failure_type id="_klGHWzd3EeSoZOVMwBDVVQ" instance="_hDjTOjd3EeSoZOVMwBDVVQ _hkI3yjd3EeSoZOVMwBDVVQ" name="PositionFailure"/>
+  <failure_type id="_lJ9u-zd3EeSoZOVMwBDVVQ" instance="_ik2t6jd3EeSoZOVMwBDVVQ" name="CapacityExceedFailure"/>
+  <failure_type id="_lltPyzd3EeSoZOVMwBDVVQ" instance="_h_yR-jd3EeSoZOVMwBDVVQ" name="TimingFailure"/>
+  <error_instance id="_trC_PDd3EeSoZOVMwBDVVQ" error="_Tc1l6Dd3EeSoZOVMwBDVVQ" type="_7eaBbTd3EeSoZOVMwBDVVQ" name="craneImplError"/>
+  <error_instance id="_w7rCfDd3EeSoZOVMwBDVVQ" error="_VhzHSDd3EeSoZOVMwBDVVQ" type="_81skfTd3EeSoZOVMwBDVVQ" name="maxLeftSTactileError"/>
+  <error_instance id="_xvZlfDd3EeSoZOVMwBDVVQ" error="_WdiWyDd3EeSoZOVMwBDVVQ" type="_81skfTd3EeSoZOVMwBDVVQ" name="maxRightSTactileError"/>
+  <error_instance id="_zODUzDd3EeSoZOVMwBDVVQ" error="_W7my2Dd3EeSoZOVMwBDVVQ" type="_81skfTd3EeSoZOVMwBDVVQ" name="toSlideSTactileError"/>
+  <error_instance id="_z4n7zDd3EeSoZOVMwBDVVQ" error="_XiM4yDd3EeSoZOVMwBDVVQ" type="_81skfTd3EeSoZOVMwBDVVQ" name="toStackSTactileError"/>
+  <error_instance id="_27xjuDd3EeSoZOVMwBDVVQ" error="_X9bcODd3EeSoZOVMwBDVVQ" type="_9V0O_Td3EeSoZOVMwBDVVQ" name="vacuumWrongTimeError"/>
+  <error_instance id="_3hbOfDd3EeSoZOVMwBDVVQ" error="_ZB_QiDd3EeSoZOVMwBDVVQ" type="__oYHfTd3EeSoZOVMwBDVVQ" name="vacuumLostError"/>
+  <error_instance id="_38JbnDd3EeSoZOVMwBDVVQ" error="_CQPFGDd5EeSoZOVMwBDVVQ" type="_9zUDTTd3EeSoZOVMwBDVVQ" name="slideExceeds"/>
+  <error_type id="_7eaBbTd3EeSoZOVMwBDVVQ" error="_trC_PDd3EeSoZOVMwBDVVQ" name="ImplError"/>
+  <error_type id="_81skfTd3EeSoZOVMwBDVVQ" error="_w7rCfDd3EeSoZOVMwBDVVQ _xvZlfDd3EeSoZOVMwBDVVQ _zODUzDd3EeSoZOVMwBDVVQ _z4n7zDd3EeSoZOVMwBDVVQ" name="SensorError"/>
+  <error_type id="_9V0O_Td3EeSoZOVMwBDVVQ" error="_27xjuDd3EeSoZOVMwBDVVQ" name="VacuumTimingError"/>
+  <error_type id="_9zUDTTd3EeSoZOVMwBDVVQ" error="_38JbnDd3EeSoZOVMwBDVVQ" name="ExternalCauses"/>
+  <error_type id="__oYHfTd3EeSoZOVMwBDVVQ" error="_3hbOfDd3EeSoZOVMwBDVVQ" name="VacuumError"/>
+</fault_tree:FaultTree>

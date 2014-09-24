@@ -29,13 +29,13 @@ import org.junit.runner.RunWith;
 import static org.eclipse.xtext.junit4.ui.util.IResourcesSetupUtil.cleanWorkspace;
 
 @RunWith(SWTBotJunit4ClassRunner.class)
-public class CoWolfDTMCAnalyseTest {
+public class CoWolfFaulttreeAnalyseTest {
 
 	private static SWTWorkbenchBot bot;
 	private static TestDriver testDriver = null;
 
 	
-	String _dtmc_file_name = "My.dtmc";
+	String _faulttree_file_name = "My.faulttree";
 	@BeforeClass
 	public static void beforeClass() throws Exception {
 		bot = new SWTWorkbenchBot();
@@ -52,9 +52,9 @@ public class CoWolfDTMCAnalyseTest {
 		
 		
 	@Test
-	public void DTMCAnalyseTest() throws Exception {
+	public void FaulttreeAnalyseTest() throws Exception {
 		
-		testDriver.setPrisimPath(bot);
+		testDriver.setXftaPath(bot);
 	
 		// change to cowolf perspective
 		testDriver.changeToCoWolfPerspective(bot);
@@ -63,31 +63,31 @@ public class CoWolfDTMCAnalyseTest {
 		bot.sleep(3000);
 		// Create a ctmc model
 		testDriver.openProjectWizardwithContextMenu(bot);
-		testDriver.createModel(bot, TestDriver._cowolf_model_dtmc);
+		testDriver.createModel(bot, TestDriver._cowolf_model_faulttree);
 
-		// Set the Cowolf view active to open the My.Dtmc file
 		testDriver.setFocusCoWolfView(bot);
 		
 		
-		SWTBotEditor dtmcEditor = testDriver.getFileEditor(bot, _dtmc_file_name);
+		SWTBotEditor dtmcEditor = testDriver.getFileEditor(bot, _faulttree_file_name);
 		dtmcEditor.saveAndClose();
 		
 		// open My.dtmc as text file
 		bot.viewByTitle(TestDriver._cowolf_view).setFocus();
-		bot.tree().getTreeItem("CoWolf-Test-Project").getNode(_dtmc_file_name)
+		bot.tree().getTreeItem("CoWolf-Test-Project").getNode(_faulttree_file_name)
 				.select().contextMenu("Open With").menu("Text Editor").click();
 		
-		SWTBotEditor editor = bot.editorByTitle(_dtmc_file_name);
+		SWTBotEditor editor = bot.editorByTitle(_faulttree_file_name);
 		SWTBotEclipseEditor e = editor.toTextEditor();
-		e.setText(testDriver.getResourceFileContent(_dtmc_file_name));
+		e.setText(testDriver.getResourceFileContent(_faulttree_file_name));
 		editor.saveAndClose();	
 
 		// open My.dtmc as text file
 		bot.viewByTitle(TestDriver._cowolf_view).setFocus();
-		bot.tree().getTreeItem(TestDriver._cowolf_project_name).getNode(_dtmc_file_name)
+		bot.tree().getTreeItem(TestDriver._cowolf_project_name).getNode(_faulttree_file_name)
 				.select().contextMenu("CoWolf").menu("Analyze").click();
-		bot.button("Next >").click();
+		//bot.button("Next >").click();
 		bot.button("Finish").click();
+		bot.sleep(120000);
 		
 		
 		

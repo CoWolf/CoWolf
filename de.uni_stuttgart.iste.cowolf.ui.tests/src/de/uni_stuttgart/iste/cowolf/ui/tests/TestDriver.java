@@ -17,6 +17,7 @@ import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem;
 public class TestDriver {
 	
 	static String _cowolf_prism_path = "/Build/prism-4.2.beta1-linux64";
+	static String _cowolf_xfta_path = "//Build/xfta-linux";
 	
 	static String _cowolf_perspective_dialog_name = "CoWolf perspective";
 	static String _cowolf_view = "Project Explorer";
@@ -33,7 +34,7 @@ public class TestDriver {
 	static String _cowolf_Dialog_Open_With_statechart = "Statemachine Model Editor";
 	static String _cowolf_Dialog_Open_With_component = "Component_diagram Model Editor";
 	static String _cowolf_Dialog_Open_With_faulttree = "FaultTree Model Editor";
-	static String _cowolf_Dialog_Open_With_activity = "Activity Diagram Model Editor";
+	static String _cowolf_Dialog_Open_With_activity = "Activity_diagram Model Editor";
 	static String _cowolf_Dialog_Open_With_lqn = "LQN Model Editor";
 	static String _cowolf_Dialog_Open_With_sequence = "Sequence Diagram Model Editor";
 	
@@ -97,11 +98,22 @@ public class TestDriver {
 		bot.button("Finish").click();		
 	}
 	
+	public void createModel(SWTWorkbenchBot bot,String nModel , String name){
+		bot.tree().getTreeItem("CoWolf").getNode("Models").expand();
+		bot.tree().getTreeItem("CoWolf").getNode("Models").getNode(nModel).select();
+		bot.sleep(2000);
+		bot.button("Next >").click();
+		bot.textWithLabel("&File name:").setText(name);
+		bot.sleep(2000);
+		bot.button("Next >").click();
+		bot.button("Finish").click();		
+	}
+	
 	public void openProjectWizardwithContextMenu(SWTWorkbenchBot bot){
-		SWTBotTreeItem projectTree =  bot.tree().getTreeItem(_cowolf_project_name);
+		SWTBotTreeItem projectTree = bot.tree().getTreeItem(_cowolf_project_name);
 		isExpanded(projectTree);
-		projectTree.getNode("models").select();
-		projectTree.contextMenu("New").menu("Other...").click();
+		SWTBotTreeItem folder = projectTree.getNode("models").expand().select().click();
+		folder.contextMenu("New").menu("Other...").click();
 		SWTBotShell shell = bot.shell("New");
 	    shell.activate();
 	}
@@ -159,8 +171,19 @@ public class TestDriver {
 				
 		}
 		bot.button("OK").click();
+	}
+	public void setXftaPath(SWTBot bot){
+		// Change the perspective via the Open Perspective dialog       
+		bot.menu("Window").menu("Preferences").click();
+		SWTBotShell prefsShell = bot.shell("Preferences");
+		prefsShell.activate();
 
-		
-		
+			SWTBotTreeItem treeItem = bot.tree().getTreeItem("CoWolf").select().expand().click()
+					.getNode("Models").select().expand().click()
+					.getNode("Fault Tree").select().click();		
+			bot.textWithLabel("&Path to xFTA:").setText(_cowolf_xfta_path);
+			bot.button("Apply").click();
+
+		bot.button("OK").click();
 	}
 }

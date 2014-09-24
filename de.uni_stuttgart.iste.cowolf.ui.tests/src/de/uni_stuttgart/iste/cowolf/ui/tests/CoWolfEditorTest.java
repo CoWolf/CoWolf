@@ -298,24 +298,14 @@ public class CoWolfEditorTest {
 	public void ActivityDiagramTest() throws Exception {
 
 		projectInit(TestDriver._cowolf_model_activity);
-		bot.sleep(3000);
+
+		// Set the Cowolf view active to open the My.Dtmc file
 		testDriver.setFocusCoWolfView(bot);
-
+		bot.sleep(2000);
 		SWTBotEditor editor = testDriver.getFileEditor(bot, _activity_file_name);
-		editor.saveAndClose();
-		bot.sleep(3000);
-		bot.viewByTitle(TestDriver._cowolf_view).setFocus();
-		bot.sleep(3000);
-		bot.tree().getTreeItem(TestDriver._cowolf_project_name).getNode(_activity_file_name)
-				.select().contextMenu("Open With").menu(TestDriver._cowolf_Dialog_Open_With_activity).click();
 		
-
 		editor = testDriver.getFileEditor(bot, _activity_file_name);
-		
-		//SWTBotTreeItem rootNode = getRootNode(editor, _activity_file_name, "Activity Diagram");
-
-		//SWTBotView propertiesView = getPropertiesView(bot, rootNode);
-
+		bot.sleep(2000);
 		SWTBotTreeItem xml = editor
 				.bot()
 				.tree()
@@ -361,14 +351,7 @@ public class CoWolfEditorTest {
 
 		// operate on the component_diagram file
 		SWTBotEditor editor = testDriver.getFileEditor(bot, _component_file_name);
-		editor.saveAndClose();
-		// open My.dtmc as text file
-		bot.viewByTitle(TestDriver._cowolf_view).setFocus();
-		bot.tree().getTreeItem(TestDriver._cowolf_project_name).getNode(_component_file_name)
-				.select().contextMenu("Open With").menu(TestDriver._cowolf_Dialog_Open_With_component).click();
-		
-		// We set a refrence to the dtmc node, to extend it with States and
-		// transitions
+
 		editor = testDriver.getFileEditor(bot, _component_file_name);
 
 		// We set a refrence to the node, to extend it
