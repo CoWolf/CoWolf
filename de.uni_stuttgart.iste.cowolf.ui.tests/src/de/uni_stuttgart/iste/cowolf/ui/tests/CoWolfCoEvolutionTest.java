@@ -71,7 +71,7 @@ public class CoWolfCoEvolutionTest {
 		testDriver.setFocusCoWolfView(bot);
 		//create My.dtmc
 		testDriver.openProjectWizardwithContextMenu(bot);
-		testDriver.createModel(bot, TestDriver._cowolf_model_statemachine);
+		testDriver.createModel(bot, TestDriver._cowolf_model_dtmc);
 		testDriver.setFocusCoWolfView(bot);
 		
 		//close 00.statechart
@@ -82,31 +82,26 @@ public class CoWolfCoEvolutionTest {
 		editor.saveAndClose();
 		
 
-		//open 00.statechart as text 
+		//open 00.statechart as text
 		bot.viewByTitle(TestDriver._cowolf_view).setFocus();
-		bot.tree().getTreeItem("CoWolf-Test-Project").getNode(_sta0_file_name)
-				.select().contextMenu("Open With").menu("Text Editor").click();
+		bot.tree().getTreeItem("CoWolf-Test-Project").expand().select().click()
+		.getNode("models").expand().select().click()
+		.getNode(_sta0_file_name).select().contextMenu("Open With").menu("Text Editor").click();
 		//copy the 00.statechart template
 		editor = bot.editorByTitle(_sta0_file_name);
 		SWTBotEclipseEditor e = editor.toTextEditor();
 		e.setText(testDriver.getResourceFileContent(_sta0_file_name));
-		editor.saveAndClose();	
-
-		//open 00.statechart as text and replace it with  01.statechart content
-		bot.viewByTitle(TestDriver._cowolf_view).setFocus();
-		bot.tree().getTreeItem("CoWolf-Test-Project").getNode(_sta0_file_name)
-				.select().contextMenu("Open With").menu("Text Editor").click();
-		//replace 00.statechart with  01.statechart
-		editor = bot.editorByTitle(_sta0_file_name);
-		e = editor.toTextEditor();
+		e.save();
 		e.setText(testDriver.getResourceFileContent(_sta1_file_name));
-		editor.saveAndClose();
-		
-		
+		e.save();
+
+		bot.sleep(40000);
 		// CoEvolve
 		bot.viewByTitle(TestDriver._cowolf_view).setFocus();
-		bot.tree().getTreeItem(TestDriver._cowolf_project_name).getNode(_sta0_file_name)
-				.select().contextMenu("CoWolf").menu("CoEvolve").click();
+		bot.tree().getTreeItem("CoWolf-Test-Project").expand().select().click()
+		.getNode("models").expand().select().click()
+		.getNode(_sta0_file_name).select().click()
+		.contextMenu("CoWolf").menu("CoEvolve").click();
 		bot.sleep(4000);
 //		bot.button("Next >").click();
 //		bot.button("Finish").click();

@@ -101,10 +101,8 @@ public class TestDriver {
 	public void createModel(SWTWorkbenchBot bot,String nModel , String name){
 		bot.tree().getTreeItem("CoWolf").getNode("Models").expand();
 		bot.tree().getTreeItem("CoWolf").getNode("Models").getNode(nModel).select();
-		bot.sleep(2000);
 		bot.button("Next >").click();
 		bot.textWithLabel("&File name:").setText(name);
-		bot.sleep(2000);
 		bot.button("Next >").click();
 		bot.button("Finish").click();		
 	}
