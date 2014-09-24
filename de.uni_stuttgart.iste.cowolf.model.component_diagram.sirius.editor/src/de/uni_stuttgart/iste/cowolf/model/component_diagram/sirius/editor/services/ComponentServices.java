@@ -3,17 +3,17 @@ package de.uni_stuttgart.iste.cowolf.model.component_diagram.sirius.editor.servi
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
-import de.uni_stuttgart.iste.cowolf.model.component_diagram.Architecture;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.ComponentInstance;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.Connector;
 import de.uni_stuttgart.iste.cowolf.model.component_diagram.PortInstance;
+import de.uni_stuttgart.iste.cowolf.model.component_diagram.impl.ArchitectureImpl;
 
 public class ComponentServices {
 
-	public static EObject getRootElelent(PortInstance port) {
+	public static EObject getRootElement(PortInstance port) {
 		ComponentInstance component = (ComponentInstance)port.eContainer();
 		EObject container = component.eContainer();
-		while (!(container.eContainer() instanceof Architecture)) {
+		while (!(container instanceof ArchitectureImpl)) {
 			container = container.eContainer();
 		}
 		return container;
