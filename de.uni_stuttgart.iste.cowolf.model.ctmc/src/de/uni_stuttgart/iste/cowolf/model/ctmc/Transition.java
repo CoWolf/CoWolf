@@ -14,13 +14,14 @@ import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
  * <ul>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.Transition#getFrom <em>From</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.Transition#getTo <em>To</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.Transition#getProb <em>Prob</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.Transition#getRate <em>Rate</em>}</li>
  * </ul>
  * </p>
  *
  * @see de.uni_stuttgart.iste.cowolf.model.ctmc.CtmcPackage#getTransition()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='RatePositive'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL RatePositive='Tuple {\n\tmessage : String = \'Transition rate must be greater or equal zero.\',\n\tstatus : Boolean = \n\t \t\trate >= 0.0\n}.status'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='ProbBetween0and1'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL ProbBetween0and1='Tuple {\n\tmessage : String = \'Probability must be between 0 and 1.\',\n\tstatus : Boolean = \n            prob >= 0.0 and prob <= 1.0\n}.status'"
  * @generated
  */
 public interface Transition extends IDBase {
@@ -81,6 +82,32 @@ public interface Transition extends IDBase {
 	void setTo(State value);
 
 	/**
+	 * Returns the value of the '<em><b>Prob</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Prob</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Prob</em>' attribute.
+	 * @see #setProb(float)
+	 * @see de.uni_stuttgart.iste.cowolf.model.ctmc.CtmcPackage#getTransition_Prob()
+	 * @model required="true"
+	 * @generated
+	 */
+	float getProb();
+
+	/**
+	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.Transition#getProb <em>Prob</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Prob</em>' attribute.
+	 * @see #getProb()
+	 * @generated
+	 */
+	void setProb(float value);
+
+	/**
 	 * Returns the value of the '<em><b>Rate</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -91,7 +118,7 @@ public interface Transition extends IDBase {
 	 * @return the value of the '<em>Rate</em>' attribute.
 	 * @see #setRate(float)
 	 * @see de.uni_stuttgart.iste.cowolf.model.ctmc.CtmcPackage#getTransition_Rate()
-	 * @model required="true"
+	 * @model required="true" transient="true" volatile="true"
 	 * @generated
 	 */
 	float getRate();

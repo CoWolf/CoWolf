@@ -104,6 +104,16 @@ public class StateImpl extends IDBaseImpl implements State {
 	protected static final float EXIT_RATE_EDEFAULT = 0.0F;
 
 	/**
+	 * The cached value of the '{@link #getExitRate() <em>Exit Rate</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExitRate()
+	 * @generated
+	 * @ordered
+	 */
+	protected float exitRate = EXIT_RATE_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -182,17 +192,22 @@ public class StateImpl extends IDBaseImpl implements State {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	public float getExitRate() {
-		// TODO: implement this method to return the 'Exit Rate' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		float exit = 0;
-		for (Transition t : this.getOutgoing()) {
-			exit += t.getRate();
-		}
-		
-		return exit;
+		return exitRate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExitRate(float newExitRate) {
+		float oldExitRate = exitRate;
+		exitRate = newExitRate;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CtmcPackage.STATE__EXIT_RATE, oldExitRate, exitRate));
 	}
 
 	/**
@@ -278,6 +293,9 @@ public class StateImpl extends IDBaseImpl implements State {
 				getLabels().clear();
 				getLabels().addAll((Collection<? extends Label>)newValue);
 				return;
+			case CtmcPackage.STATE__EXIT_RATE:
+				setExitRate((Float)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -302,6 +320,9 @@ public class StateImpl extends IDBaseImpl implements State {
 			case CtmcPackage.STATE__LABELS:
 				getLabels().clear();
 				return;
+			case CtmcPackage.STATE__EXIT_RATE:
+				setExitRate(EXIT_RATE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -323,7 +344,7 @@ public class StateImpl extends IDBaseImpl implements State {
 			case CtmcPackage.STATE__LABELS:
 				return labels != null && !labels.isEmpty();
 			case CtmcPackage.STATE__EXIT_RATE:
-				return getExitRate() != EXIT_RATE_EDEFAULT;
+				return exitRate != EXIT_RATE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -340,6 +361,8 @@ public class StateImpl extends IDBaseImpl implements State {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", exitRate: ");
+		result.append(exitRate);
 		result.append(')');
 		return result.toString();
 	}

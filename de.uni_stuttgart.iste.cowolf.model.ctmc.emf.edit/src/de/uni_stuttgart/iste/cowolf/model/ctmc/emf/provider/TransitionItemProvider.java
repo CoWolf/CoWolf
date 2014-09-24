@@ -53,6 +53,7 @@ public class TransitionItemProvider extends IDBaseItemProvider {
 
 			addFromPropertyDescriptor(object);
 			addToPropertyDescriptor(object);
+			addProbPropertyDescriptor(object);
 			addRatePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -103,6 +104,28 @@ public class TransitionItemProvider extends IDBaseItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Prob feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addProbPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Transition_prob_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Transition_prob_feature", "_UI_Transition_type"),
+				 CtmcPackage.Literals.TRANSITION__PROB,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Rate feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -114,9 +137,9 @@ public class TransitionItemProvider extends IDBaseItemProvider {
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_Transition_rate_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Transition_rate_feature", "_UI_Transition_type"),
+				 getString("_UI_Transition_rate_description"),
 				 CtmcPackage.Literals.TRANSITION__RATE,
-				 true,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
@@ -143,7 +166,11 @@ public class TransitionItemProvider extends IDBaseItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label ="" + ((Transition)object).getRate();
+		String label ="[ prob:" + ((Transition)object).getProb();
+		if (((Transition)object).getFrom() != null) {
+			label += " / rate:" + ((Transition)object).getRate();
+		}
+		label += "]";
 		
 		State transitionTo = ((Transition) object).getTo();
 
@@ -174,6 +201,7 @@ public class TransitionItemProvider extends IDBaseItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Transition.class)) {
+			case CtmcPackage.TRANSITION__PROB:
 			case CtmcPackage.TRANSITION__RATE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

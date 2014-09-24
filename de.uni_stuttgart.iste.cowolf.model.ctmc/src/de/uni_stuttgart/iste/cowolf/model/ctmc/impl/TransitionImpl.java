@@ -3,17 +3,13 @@
 package de.uni_stuttgart.iste.cowolf.model.ctmc.impl;
 
 import de.uni_stuttgart.iste.cowolf.model.commonBase.impl.IDBaseImpl;
-
 import de.uni_stuttgart.iste.cowolf.model.ctmc.CtmcPackage;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.State;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.Transition;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
@@ -26,6 +22,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <ul>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.impl.TransitionImpl#getFrom <em>From</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.impl.TransitionImpl#getTo <em>To</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.impl.TransitionImpl#getProb <em>Prob</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.ctmc.impl.TransitionImpl#getRate <em>Rate</em>}</li>
  * </ul>
  * </p>
@@ -44,6 +41,26 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	protected State to;
 
 	/**
+	 * The default value of the '{@link #getProb() <em>Prob</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProb()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final float PROB_EDEFAULT = 0.0F;
+
+	/**
+	 * The cached value of the '{@link #getProb() <em>Prob</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProb()
+	 * @generated
+	 * @ordered
+	 */
+	protected float prob = PROB_EDEFAULT;
+
+	/**
 	 * The default value of the '{@link #getRate() <em>Rate</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -52,16 +69,6 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	 * @ordered
 	 */
 	protected static final float RATE_EDEFAULT = 0.0F;
-
-	/**
-	 * The cached value of the '{@link #getRate() <em>Rate</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRate()
-	 * @generated
-	 * @ordered
-	 */
-	protected float rate = RATE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -188,8 +195,8 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getRate() {
-		return rate;
+	public float getProb() {
+		return prob;
 	}
 
 	/**
@@ -197,11 +204,33 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRate(float newRate) {
-		float oldRate = rate;
-		rate = newRate;
+	public void setProb(float newProb) {
+		float oldProb = prob;
+		prob = newProb;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CtmcPackage.TRANSITION__RATE, oldRate, rate));
+			eNotify(new ENotificationImpl(this, Notification.SET, CtmcPackage.TRANSITION__PROB, oldProb, prob));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public float getRate() {
+		if (this.getFrom() == null) 
+			return 0;
+		return this.getFrom().getExitRate() * this.prob;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void setRate(float newRate) {
+		if (this.getFrom() == null) 
+			return;
+		this.setProb(newRate / this.getFrom().getExitRate());
 	}
 
 	/**
@@ -267,6 +296,8 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 			case CtmcPackage.TRANSITION__TO:
 				if (resolve) return getTo();
 				return basicGetTo();
+			case CtmcPackage.TRANSITION__PROB:
+				return getProb();
 			case CtmcPackage.TRANSITION__RATE:
 				return getRate();
 		}
@@ -286,6 +317,9 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 				return;
 			case CtmcPackage.TRANSITION__TO:
 				setTo((State)newValue);
+				return;
+			case CtmcPackage.TRANSITION__PROB:
+				setProb((Float)newValue);
 				return;
 			case CtmcPackage.TRANSITION__RATE:
 				setRate((Float)newValue);
@@ -308,6 +342,9 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 			case CtmcPackage.TRANSITION__TO:
 				setTo((State)null);
 				return;
+			case CtmcPackage.TRANSITION__PROB:
+				setProb(PROB_EDEFAULT);
+				return;
 			case CtmcPackage.TRANSITION__RATE:
 				setRate(RATE_EDEFAULT);
 				return;
@@ -327,8 +364,10 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 				return getFrom() != null;
 			case CtmcPackage.TRANSITION__TO:
 				return to != null;
+			case CtmcPackage.TRANSITION__PROB:
+				return prob != PROB_EDEFAULT;
 			case CtmcPackage.TRANSITION__RATE:
-				return rate != RATE_EDEFAULT;
+				return getRate() != RATE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -343,8 +382,8 @@ public class TransitionImpl extends IDBaseImpl implements Transition {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (rate: ");
-		result.append(rate);
+		result.append(" (prob: ");
+		result.append(prob);
 		result.append(')');
 		return result.toString();
 	}

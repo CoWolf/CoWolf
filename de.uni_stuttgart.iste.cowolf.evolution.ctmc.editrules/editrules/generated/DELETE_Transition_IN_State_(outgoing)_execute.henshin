@@ -1,50 +1,62 @@
 <?xml version="1.0" encoding="ASCII"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="__pa8EDQQEeScitwB4YOGeg" name="DELETE_Transition_IN_State_(outgoing)" description="Deletes one Transition in State">
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_uy1R0ENYEeSZj6LVx_utuw" name="DELETE_Transition_IN_State_(outgoing)" description="Deletes one Transition in State">
   <imports href="http://ctmc/1.0#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="__pa8ETQQEeScitwB4YOGeg" name="deleteTransition_IN_State" description="deletes one Transition in the context: State">
-    <parameters xmi:id="__pa8EjQQEeScitwB4YOGeg" name="Existing"/>
-    <parameters xmi:id="__pa8EzQQEeScitwB4YOGeg" name="Selected"/>
-    <parameters xmi:id="__pa8FDQQEeScitwB4YOGeg" name="ToBeDeleted"/>
-    <lhs xmi:id="__pa8FTQQEeScitwB4YOGeg" name="LHS">
-      <nodes xmi:id="__pa8FjQQEeScitwB4YOGeg" name="Selected" incoming="__pa8GjQQEeScitwB4YOGeg" outgoing="__pa8GTQQEeScitwB4YOGeg">
+  <units xsi:type="henshin:Rule" xmi:id="_uy1R0UNYEeSZj6LVx_utuw" name="deleteTransition_IN_State" description="deletes one Transition in the context: State">
+    <parameters xmi:id="_uy1R0kNYEeSZj6LVx_utuw" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//State"/>
+    </parameters>
+    <parameters xmi:id="_uy1R00NYEeSZj6LVx_utuw" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//Transition"/>
+    </parameters>
+    <parameters xmi:id="_uy1R1ENYEeSZj6LVx_utuw" name="Existing">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//State"/>
+    </parameters>
+    <lhs xmi:id="_uy1R1UNYEeSZj6LVx_utuw" name="LHS">
+      <nodes xmi:id="_uy1R1kNYEeSZj6LVx_utuw" name="Selected" incoming="_uy1R2kNYEeSZj6LVx_utuw" outgoing="_uy1R2UNYEeSZj6LVx_utuw">
         <type href="http://ctmc/1.0#//State"/>
       </nodes>
-      <nodes xmi:id="__pa8FzQQEeScitwB4YOGeg" name="ToBeDeleted" incoming="__pa8GTQQEeScitwB4YOGeg __pa8HDQQEeScitwB4YOGeg" outgoing="__pa8GjQQEeScitwB4YOGeg __pa8GzQQEeScitwB4YOGeg">
+      <nodes xmi:id="_uy1R10NYEeSZj6LVx_utuw" name="ToBeDeleted" incoming="_uy1R2UNYEeSZj6LVx_utuw _uy1R3ENYEeSZj6LVx_utuw" outgoing="_uy1R2kNYEeSZj6LVx_utuw _uy1R20NYEeSZj6LVx_utuw">
         <type href="http://ctmc/1.0#//Transition"/>
       </nodes>
-      <nodes xmi:id="__pa8GDQQEeScitwB4YOGeg" name="Existing" incoming="__pa8GzQQEeScitwB4YOGeg" outgoing="__pa8HDQQEeScitwB4YOGeg">
+      <nodes xmi:id="_uy1R2ENYEeSZj6LVx_utuw" name="Existing" incoming="_uy1R20NYEeSZj6LVx_utuw" outgoing="_uy1R3ENYEeSZj6LVx_utuw">
         <type href="http://ctmc/1.0#//State"/>
       </nodes>
-      <edges xmi:id="__pa8GTQQEeScitwB4YOGeg" source="__pa8FjQQEeScitwB4YOGeg" target="__pa8FzQQEeScitwB4YOGeg">
+      <edges xmi:id="_uy1R2UNYEeSZj6LVx_utuw" source="_uy1R1kNYEeSZj6LVx_utuw" target="_uy1R10NYEeSZj6LVx_utuw">
         <type href="http://ctmc/1.0#//State/outgoing"/>
       </edges>
-      <edges xmi:id="__pa8GjQQEeScitwB4YOGeg" source="__pa8FzQQEeScitwB4YOGeg" target="__pa8FjQQEeScitwB4YOGeg">
+      <edges xmi:id="_uy1R2kNYEeSZj6LVx_utuw" source="_uy1R10NYEeSZj6LVx_utuw" target="_uy1R1kNYEeSZj6LVx_utuw">
         <type href="http://ctmc/1.0#//Transition/from"/>
       </edges>
-      <edges xmi:id="__pa8GzQQEeScitwB4YOGeg" source="__pa8FzQQEeScitwB4YOGeg" target="__pa8GDQQEeScitwB4YOGeg">
+      <edges xmi:id="_uy1R20NYEeSZj6LVx_utuw" source="_uy1R10NYEeSZj6LVx_utuw" target="_uy1R2ENYEeSZj6LVx_utuw">
         <type href="http://ctmc/1.0#//Transition/to"/>
       </edges>
-      <edges xmi:id="__pa8HDQQEeScitwB4YOGeg" source="__pa8GDQQEeScitwB4YOGeg" target="__pa8FzQQEeScitwB4YOGeg">
+      <edges xmi:id="_uy1R3ENYEeSZj6LVx_utuw" source="_uy1R2ENYEeSZj6LVx_utuw" target="_uy1R10NYEeSZj6LVx_utuw">
         <type href="http://ctmc/1.0#//State/incoming"/>
       </edges>
     </lhs>
-    <rhs xmi:id="__pa8HTQQEeScitwB4YOGeg" name="RHS">
-      <nodes xmi:id="__pa8HjQQEeScitwB4YOGeg" name="Selected">
+    <rhs xmi:id="_uy1R3UNYEeSZj6LVx_utuw" name="RHS">
+      <nodes xmi:id="_uy1R3kNYEeSZj6LVx_utuw" name="Selected">
         <type href="http://ctmc/1.0#//State"/>
       </nodes>
-      <nodes xmi:id="__pa8HzQQEeScitwB4YOGeg" name="Existing">
+      <nodes xmi:id="_uy1R30NYEeSZj6LVx_utuw" name="Existing">
         <type href="http://ctmc/1.0#//State"/>
       </nodes>
     </rhs>
-    <mappings xmi:id="__pa8IDQQEeScitwB4YOGeg" origin="__pa8FjQQEeScitwB4YOGeg" image="__pa8HjQQEeScitwB4YOGeg"/>
-    <mappings xmi:id="__pa8ITQQEeScitwB4YOGeg" origin="__pa8GDQQEeScitwB4YOGeg" image="__pa8HzQQEeScitwB4YOGeg"/>
+    <mappings xmi:id="_uy1R4ENYEeSZj6LVx_utuw" origin="_uy1R1kNYEeSZj6LVx_utuw" image="_uy1R3kNYEeSZj6LVx_utuw"/>
+    <mappings xmi:id="_uy1R4UNYEeSZj6LVx_utuw" origin="_uy1R2ENYEeSZj6LVx_utuw" image="_uy1R30NYEeSZj6LVx_utuw"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="__pa8IjQQEeScitwB4YOGeg" name="mainUnit" description="Deletes one Transition depending on available contexts in model instance" subUnits="__pa8ETQQEeScitwB4YOGeg">
-    <parameters xmi:id="__pa8IzQQEeScitwB4YOGeg" name="Existing"/>
-    <parameters xmi:id="__pa8JDQQEeScitwB4YOGeg" name="ToBeDeleted"/>
-    <parameters xmi:id="__pa8JTQQEeScitwB4YOGeg" name="selectedEObject"/>
-    <parameterMappings xmi:id="__pa8JjQQEeScitwB4YOGeg" source="__pa8IzQQEeScitwB4YOGeg" target="__pa8EjQQEeScitwB4YOGeg"/>
-    <parameterMappings xmi:id="__pa8JzQQEeScitwB4YOGeg" source="__pa8JTQQEeScitwB4YOGeg" target="__pa8EzQQEeScitwB4YOGeg"/>
-    <parameterMappings xmi:id="__pa8KDQQEeScitwB4YOGeg" source="__pa8JDQQEeScitwB4YOGeg" target="__pa8FDQQEeScitwB4YOGeg"/>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_uy1R4kNYEeSZj6LVx_utuw" name="mainUnit" subUnits="_uy1R0UNYEeSZj6LVx_utuw">
+    <parameters xmi:id="_uy1R40NYEeSZj6LVx_utuw" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//State"/>
+    </parameters>
+    <parameters xmi:id="_uy1R5ENYEeSZj6LVx_utuw" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//Transition"/>
+    </parameters>
+    <parameters xmi:id="_uy1R5UNYEeSZj6LVx_utuw" name="Existing">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//State"/>
+    </parameters>
+    <parameterMappings xmi:id="_uy1R5kNYEeSZj6LVx_utuw" source="_uy1R40NYEeSZj6LVx_utuw" target="_uy1R0kNYEeSZj6LVx_utuw"/>
+    <parameterMappings xmi:id="_uy1R50NYEeSZj6LVx_utuw" source="_uy1R5ENYEeSZj6LVx_utuw" target="_uy1R00NYEeSZj6LVx_utuw"/>
+    <parameterMappings xmi:id="_uy1R6ENYEeSZj6LVx_utuw" source="_uy1R5UNYEeSZj6LVx_utuw" target="_uy1R1ENYEeSZj6LVx_utuw"/>
   </units>
 </henshin:Module>

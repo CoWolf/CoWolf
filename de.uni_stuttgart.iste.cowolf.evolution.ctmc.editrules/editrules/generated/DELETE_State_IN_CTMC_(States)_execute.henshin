@@ -1,31 +1,39 @@
 <?xml version="1.0" encoding="ASCII"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="__oZoYDQQEeScitwB4YOGeg" name="DELETE_State_IN_CTMC_(States)" description="Deletes one State in CTMC">
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_uyX-0ENYEeSZj6LVx_utuw" name="DELETE_State_IN_CTMC_(States)" description="Deletes one State in CTMC">
   <imports href="http://ctmc/1.0#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="__oZoYTQQEeScitwB4YOGeg" name="deleteState_IN_CTMC" description="deletes one State in the context: CTMC">
-    <parameters xmi:id="__oZoYjQQEeScitwB4YOGeg" name="Selected"/>
-    <parameters xmi:id="__oZoYzQQEeScitwB4YOGeg" name="ToBeDeleted"/>
-    <lhs xmi:id="__oZoZDQQEeScitwB4YOGeg" name="LHS">
-      <nodes xmi:id="__oZoZTQQEeScitwB4YOGeg" name="Selected" outgoing="__oZoZzQQEeScitwB4YOGeg">
+  <units xsi:type="henshin:Rule" xmi:id="_uyX-0UNYEeSZj6LVx_utuw" name="deleteState_IN_CTMC" description="deletes one State in the context: CTMC">
+    <parameters xmi:id="_uyX-0kNYEeSZj6LVx_utuw" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//CTMC"/>
+    </parameters>
+    <parameters xmi:id="_uyX-00NYEeSZj6LVx_utuw" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//State"/>
+    </parameters>
+    <lhs xmi:id="_uyX-1ENYEeSZj6LVx_utuw" name="LHS">
+      <nodes xmi:id="_uyX-1UNYEeSZj6LVx_utuw" name="Selected" outgoing="_uyX-10NYEeSZj6LVx_utuw">
         <type href="http://ctmc/1.0#//CTMC"/>
       </nodes>
-      <nodes xmi:id="__oZoZjQQEeScitwB4YOGeg" name="ToBeDeleted" incoming="__oZoZzQQEeScitwB4YOGeg">
+      <nodes xmi:id="_uyX-1kNYEeSZj6LVx_utuw" name="ToBeDeleted" incoming="_uyX-10NYEeSZj6LVx_utuw">
         <type href="http://ctmc/1.0#//State"/>
       </nodes>
-      <edges xmi:id="__oZoZzQQEeScitwB4YOGeg" source="__oZoZTQQEeScitwB4YOGeg" target="__oZoZjQQEeScitwB4YOGeg">
+      <edges xmi:id="_uyX-10NYEeSZj6LVx_utuw" source="_uyX-1UNYEeSZj6LVx_utuw" target="_uyX-1kNYEeSZj6LVx_utuw">
         <type href="http://ctmc/1.0#//CTMC/States"/>
       </edges>
     </lhs>
-    <rhs xmi:id="__oZoaDQQEeScitwB4YOGeg" name="RHS">
-      <nodes xmi:id="__oZoaTQQEeScitwB4YOGeg" name="Selected">
+    <rhs xmi:id="_uyX-2ENYEeSZj6LVx_utuw" name="RHS">
+      <nodes xmi:id="_uyX-2UNYEeSZj6LVx_utuw" name="Selected">
         <type href="http://ctmc/1.0#//CTMC"/>
       </nodes>
     </rhs>
-    <mappings xmi:id="__oZoajQQEeScitwB4YOGeg" origin="__oZoZTQQEeScitwB4YOGeg" image="__oZoaTQQEeScitwB4YOGeg"/>
+    <mappings xmi:id="_uyX-2kNYEeSZj6LVx_utuw" origin="_uyX-1UNYEeSZj6LVx_utuw" image="_uyX-2UNYEeSZj6LVx_utuw"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="__oZoazQQEeScitwB4YOGeg" name="mainUnit" description="Deletes one State depending on available contexts in model instance" subUnits="__oZoYTQQEeScitwB4YOGeg">
-    <parameters xmi:id="__oZobDQQEeScitwB4YOGeg" name="ToBeDeleted"/>
-    <parameters xmi:id="__oZobTQQEeScitwB4YOGeg" name="selectedEObject"/>
-    <parameterMappings xmi:id="__oZobjQQEeScitwB4YOGeg" source="__oZobTQQEeScitwB4YOGeg" target="__oZoYjQQEeScitwB4YOGeg"/>
-    <parameterMappings xmi:id="__oZobzQQEeScitwB4YOGeg" source="__oZobDQQEeScitwB4YOGeg" target="__oZoYzQQEeScitwB4YOGeg"/>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_uyX-20NYEeSZj6LVx_utuw" name="mainUnit" subUnits="_uyX-0UNYEeSZj6LVx_utuw">
+    <parameters xmi:id="_uyX-3ENYEeSZj6LVx_utuw" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//CTMC"/>
+    </parameters>
+    <parameters xmi:id="_uyX-3UNYEeSZj6LVx_utuw" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//State"/>
+    </parameters>
+    <parameterMappings xmi:id="_uyX-3kNYEeSZj6LVx_utuw" source="_uyX-3ENYEeSZj6LVx_utuw" target="_uyX-0kNYEeSZj6LVx_utuw"/>
+    <parameterMappings xmi:id="_uyX-30NYEeSZj6LVx_utuw" source="_uyX-3UNYEeSZj6LVx_utuw" target="_uyX-00NYEeSZj6LVx_utuw"/>
   </units>
 </henshin:Module>

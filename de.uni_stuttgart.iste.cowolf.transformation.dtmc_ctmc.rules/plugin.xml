@@ -2,18 +2,24 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension
-         point="de.uni_stuttgart.iste.cowolf.transformationMappingExtension">
-      <xmlMapping
-            file="mapping/ctmcdtmcmapping.transmap"
+         point="de.uni_stuttgart.iste.cowolf.transformationRuleExtension">
+      <direction
             key="ctmc_dtmc">
-      </xmlMapping>
+      </direction>
+      <henshinMapping
+            file="rules/CTMC_DTMCdiff.henshin"
+            main="mainUnit">
+      </henshinMapping>
    </extension>
    <extension
-         point="de.uni_stuttgart.iste.cowolf.transformationMappingExtension">
-      <xmlMapping
-            file="mapping/dtmcctmcmapping.transmap"
+         point="de.uni_stuttgart.iste.cowolf.transformationRuleExtension">
+      <direction
             key="dtmc_ctmc">
-      </xmlMapping>
+      </direction>
+      <henshinMapping
+            file="rules/DTMC_CTMCdiff.henshin"
+            main="mainUnit">
+      </henshinMapping>
    </extension>
 
 </plugin>

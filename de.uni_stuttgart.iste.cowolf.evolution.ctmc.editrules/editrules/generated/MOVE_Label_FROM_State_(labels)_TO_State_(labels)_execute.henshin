@@ -1,54 +1,66 @@
 <?xml version="1.0" encoding="ASCII"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="__qX-UDQQEeScitwB4YOGeg" name="MOVE_Label_FROM_State_(labels)_TO_State_(labels)" description="MOVEs Label from State(Reference:labels) to State(Reference:labels">
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_uyON0ENYEeSZj6LVx_utuw" name="MOVE_Label_FROM_State_(labels)_TO_State_(labels)" description="MOVEs Label from State(Reference:labels) to State(Reference:labels">
   <imports href="http://ctmc/1.0#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="__qX-UTQQEeScitwB4YOGeg" name="moveLabel_FROM_State_labels_TO_State_State" description="Moves Label from State(Reference:labels) toState(Reference:State)">
-    <parameters xmi:id="__qX-UjQQEeScitwB4YOGeg" name="Selected"/>
-    <parameters xmi:id="__qX-UzQQEeScitwB4YOGeg" name="OldSource"/>
-    <parameters xmi:id="__qX-VDQQEeScitwB4YOGeg" name="NewSource"/>
-    <lhs xmi:id="__qX-VTQQEeScitwB4YOGeg" name="Lhs">
-      <nodes xmi:id="__qX-VjQQEeScitwB4YOGeg" name="Selected" incoming="__qX-WTQQEeScitwB4YOGeg" outgoing="__qX-WjQQEeScitwB4YOGeg">
+  <units xsi:type="henshin:Rule" xmi:id="_uyON0UNYEeSZj6LVx_utuw" name="moveLabel_FROM_State_labels_TO_State_State" description="Moves Label from State(Reference:labels) toState(Reference:State)">
+    <parameters xmi:id="_uyON0kNYEeSZj6LVx_utuw" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//Label"/>
+    </parameters>
+    <parameters xmi:id="_uyON00NYEeSZj6LVx_utuw" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//State"/>
+    </parameters>
+    <parameters xmi:id="_uyO04ENYEeSZj6LVx_utuw" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//State"/>
+    </parameters>
+    <lhs xmi:id="_uyO04UNYEeSZj6LVx_utuw" name="Lhs">
+      <nodes xmi:id="_uyO04kNYEeSZj6LVx_utuw" name="Selected" incoming="_uyO05UNYEeSZj6LVx_utuw" outgoing="_uyO05kNYEeSZj6LVx_utuw">
         <type href="http://ctmc/1.0#//Label"/>
       </nodes>
-      <nodes xmi:id="__qX-VzQQEeScitwB4YOGeg" name="OldSource" incoming="__qX-WjQQEeScitwB4YOGeg" outgoing="__qX-WTQQEeScitwB4YOGeg">
+      <nodes xmi:id="_uyO040NYEeSZj6LVx_utuw" name="OldSource" incoming="_uyO05kNYEeSZj6LVx_utuw" outgoing="_uyO05UNYEeSZj6LVx_utuw">
         <type href="http://ctmc/1.0#//State"/>
       </nodes>
-      <nodes xmi:id="__qX-WDQQEeScitwB4YOGeg" name="NewSource">
+      <nodes xmi:id="_uyO05ENYEeSZj6LVx_utuw" name="NewSource">
         <type href="http://ctmc/1.0#//State"/>
       </nodes>
-      <edges xmi:id="__qX-WTQQEeScitwB4YOGeg" source="__qX-VzQQEeScitwB4YOGeg" target="__qX-VjQQEeScitwB4YOGeg">
+      <edges xmi:id="_uyO05UNYEeSZj6LVx_utuw" source="_uyO040NYEeSZj6LVx_utuw" target="_uyO04kNYEeSZj6LVx_utuw">
         <type href="http://ctmc/1.0#//State/labels"/>
       </edges>
-      <edges xmi:id="__qX-WjQQEeScitwB4YOGeg" source="__qX-VjQQEeScitwB4YOGeg" target="__qX-VzQQEeScitwB4YOGeg">
+      <edges xmi:id="_uyO05kNYEeSZj6LVx_utuw" source="_uyO04kNYEeSZj6LVx_utuw" target="_uyO040NYEeSZj6LVx_utuw">
         <type href="http://ctmc/1.0#//Label/state"/>
       </edges>
     </lhs>
-    <rhs xmi:id="__qX-WzQQEeScitwB4YOGeg" name="Rhs">
-      <nodes xmi:id="__qX-XDQQEeScitwB4YOGeg" name="Selected" incoming="__qX-XzQQEeScitwB4YOGeg" outgoing="__qX-YDQQEeScitwB4YOGeg">
+    <rhs xmi:id="_uyO050NYEeSZj6LVx_utuw" name="Rhs">
+      <nodes xmi:id="_uyO06ENYEeSZj6LVx_utuw" name="Selected" incoming="_uyO060NYEeSZj6LVx_utuw" outgoing="_uyO07ENYEeSZj6LVx_utuw">
         <type href="http://ctmc/1.0#//Label"/>
       </nodes>
-      <nodes xmi:id="__qX-XTQQEeScitwB4YOGeg" name="OldSource">
+      <nodes xmi:id="_uyO06UNYEeSZj6LVx_utuw" name="OldSource">
         <type href="http://ctmc/1.0#//State"/>
       </nodes>
-      <nodes xmi:id="__qX-XjQQEeScitwB4YOGeg" name="NewSource" incoming="__qX-YDQQEeScitwB4YOGeg" outgoing="__qX-XzQQEeScitwB4YOGeg">
+      <nodes xmi:id="_uyO06kNYEeSZj6LVx_utuw" name="NewSource" incoming="_uyO07ENYEeSZj6LVx_utuw" outgoing="_uyO060NYEeSZj6LVx_utuw">
         <type href="http://ctmc/1.0#//State"/>
       </nodes>
-      <edges xmi:id="__qX-XzQQEeScitwB4YOGeg" source="__qX-XjQQEeScitwB4YOGeg" target="__qX-XDQQEeScitwB4YOGeg">
+      <edges xmi:id="_uyO060NYEeSZj6LVx_utuw" source="_uyO06kNYEeSZj6LVx_utuw" target="_uyO06ENYEeSZj6LVx_utuw">
         <type href="http://ctmc/1.0#//State/labels"/>
       </edges>
-      <edges xmi:id="__qX-YDQQEeScitwB4YOGeg" source="__qX-XDQQEeScitwB4YOGeg" target="__qX-XjQQEeScitwB4YOGeg">
+      <edges xmi:id="_uyO07ENYEeSZj6LVx_utuw" source="_uyO06ENYEeSZj6LVx_utuw" target="_uyO06kNYEeSZj6LVx_utuw">
         <type href="http://ctmc/1.0#//Label/state"/>
       </edges>
     </rhs>
-    <mappings xmi:id="__qX-YTQQEeScitwB4YOGeg" origin="__qX-VjQQEeScitwB4YOGeg" image="__qX-XDQQEeScitwB4YOGeg"/>
-    <mappings xmi:id="__qX-YjQQEeScitwB4YOGeg" origin="__qX-VzQQEeScitwB4YOGeg" image="__qX-XTQQEeScitwB4YOGeg"/>
-    <mappings xmi:id="__qX-YzQQEeScitwB4YOGeg" origin="__qX-WDQQEeScitwB4YOGeg" image="__qX-XjQQEeScitwB4YOGeg"/>
+    <mappings xmi:id="_uyO07UNYEeSZj6LVx_utuw" origin="_uyO04kNYEeSZj6LVx_utuw" image="_uyO06ENYEeSZj6LVx_utuw"/>
+    <mappings xmi:id="_uyO07kNYEeSZj6LVx_utuw" origin="_uyO040NYEeSZj6LVx_utuw" image="_uyO06UNYEeSZj6LVx_utuw"/>
+    <mappings xmi:id="_uyO070NYEeSZj6LVx_utuw" origin="_uyO05ENYEeSZj6LVx_utuw" image="_uyO06kNYEeSZj6LVx_utuw"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="__qX-ZDQQEeScitwB4YOGeg" name="mainUnit" subUnits="__qX-UTQQEeScitwB4YOGeg">
-    <parameters xmi:id="__qX-ZTQQEeScitwB4YOGeg" name="selectedEObject"/>
-    <parameters xmi:id="__qX-ZjQQEeScitwB4YOGeg" name="OldSource"/>
-    <parameters xmi:id="__qX-ZzQQEeScitwB4YOGeg" name="NewSource"/>
-    <parameterMappings xmi:id="__qX-aDQQEeScitwB4YOGeg" source="__qX-ZTQQEeScitwB4YOGeg" target="__qX-UjQQEeScitwB4YOGeg"/>
-    <parameterMappings xmi:id="__qX-aTQQEeScitwB4YOGeg" source="__qX-ZjQQEeScitwB4YOGeg" target="__qX-UzQQEeScitwB4YOGeg"/>
-    <parameterMappings xmi:id="__qX-ajQQEeScitwB4YOGeg" source="__qX-ZzQQEeScitwB4YOGeg" target="__qX-VDQQEeScitwB4YOGeg"/>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_uyO08ENYEeSZj6LVx_utuw" name="mainUnit" subUnits="_uyON0UNYEeSZj6LVx_utuw">
+    <parameters xmi:id="_uyO08UNYEeSZj6LVx_utuw" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//Label"/>
+    </parameters>
+    <parameters xmi:id="_uyO08kNYEeSZj6LVx_utuw" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//State"/>
+    </parameters>
+    <parameters xmi:id="_uyO080NYEeSZj6LVx_utuw" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//State"/>
+    </parameters>
+    <parameterMappings xmi:id="_uyO09ENYEeSZj6LVx_utuw" source="_uyO08UNYEeSZj6LVx_utuw" target="_uyON0kNYEeSZj6LVx_utuw"/>
+    <parameterMappings xmi:id="_uyO09UNYEeSZj6LVx_utuw" source="_uyO08kNYEeSZj6LVx_utuw" target="_uyON00NYEeSZj6LVx_utuw"/>
+    <parameterMappings xmi:id="_uyO09kNYEeSZj6LVx_utuw" source="_uyO080NYEeSZj6LVx_utuw" target="_uyO04ENYEeSZj6LVx_utuw"/>
   </units>
 </henshin:Module>

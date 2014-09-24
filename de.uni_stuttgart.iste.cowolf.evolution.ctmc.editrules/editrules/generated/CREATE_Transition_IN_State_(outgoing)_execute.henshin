@@ -1,62 +1,82 @@
 <?xml version="1.0" encoding="ASCII"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="__pTnUDQQEeScitwB4YOGeg" name="CREATE_Transition_IN_State_(outgoing)" description="Creates one Transition in State">
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_uy7YcENYEeSZj6LVx_utuw" name="CREATE_Transition_IN_State_(outgoing)" description="Creates one Transition in State">
   <imports href="http://ctmc/1.0#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="__pTnUTQQEeScitwB4YOGeg" name="createTransition_IN_State" description="creates one Transition in the context: State">
-    <parameters xmi:id="__pTnUjQQEeScitwB4YOGeg" name="Selected"/>
-    <parameters xmi:id="__pTnUzQQEeScitwB4YOGeg" name="New"/>
-    <parameters xmi:id="__pTnVDQQEeScitwB4YOGeg" name="Id"/>
-    <parameters xmi:id="__pTnVTQQEeScitwB4YOGeg" name="Rate"/>
-    <parameters xmi:id="__pTnVjQQEeScitwB4YOGeg" name="Existing"/>
-    <lhs xmi:id="__pTnVzQQEeScitwB4YOGeg" name="Lhs">
-      <nodes xmi:id="__pTnWDQQEeScitwB4YOGeg" name="Selected">
+  <units xsi:type="henshin:Rule" xmi:id="_uy7YcUNYEeSZj6LVx_utuw" name="createTransition_IN_State" description="creates one Transition in the context: State">
+    <parameters xmi:id="_uy7YckNYEeSZj6LVx_utuw" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//State"/>
+    </parameters>
+    <parameters xmi:id="_uy7Yc0NYEeSZj6LVx_utuw" name="Existing">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//State"/>
+    </parameters>
+    <parameters xmi:id="_uy7YdENYEeSZj6LVx_utuw" name="New">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//Transition"/>
+    </parameters>
+    <parameters xmi:id="_uy7YdUNYEeSZj6LVx_utuw" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_uy7YdkNYEeSZj6LVx_utuw" name="Prob">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    </parameters>
+    <lhs xmi:id="_uy7_gENYEeSZj6LVx_utuw" name="Lhs">
+      <nodes xmi:id="_uy7_gUNYEeSZj6LVx_utuw" name="Selected">
         <type href="http://ctmc/1.0#//State"/>
       </nodes>
-      <nodes xmi:id="__pTnWTQQEeScitwB4YOGeg" name="Existing">
+      <nodes xmi:id="_uy7_gkNYEeSZj6LVx_utuw" name="Existing">
         <type href="http://ctmc/1.0#//State"/>
       </nodes>
     </lhs>
-    <rhs xmi:id="__pTnWjQQEeScitwB4YOGeg" name="Rhs">
-      <nodes xmi:id="__pTnWzQQEeScitwB4YOGeg" name="Selected" incoming="__pTnYTQQEeScitwB4YOGeg" outgoing="__pTnYDQQEeScitwB4YOGeg">
+    <rhs xmi:id="_uy7_g0NYEeSZj6LVx_utuw" name="Rhs">
+      <nodes xmi:id="_uy7_hENYEeSZj6LVx_utuw" name="Selected" incoming="_uy7_ikNYEeSZj6LVx_utuw" outgoing="_uy7_iUNYEeSZj6LVx_utuw">
         <type href="http://ctmc/1.0#//State"/>
       </nodes>
-      <nodes xmi:id="__pTnXDQQEeScitwB4YOGeg" name="New" incoming="__pTnYDQQEeScitwB4YOGeg __pTnYzQQEeScitwB4YOGeg" outgoing="__pTnYTQQEeScitwB4YOGeg __pTnYjQQEeScitwB4YOGeg">
+      <nodes xmi:id="_uy7_hUNYEeSZj6LVx_utuw" name="New" incoming="_uy7_iUNYEeSZj6LVx_utuw _uy7_jENYEeSZj6LVx_utuw" outgoing="_uy7_ikNYEeSZj6LVx_utuw _uy7_i0NYEeSZj6LVx_utuw">
         <type href="http://ctmc/1.0#//Transition"/>
-        <attributes xmi:id="__pTnXTQQEeScitwB4YOGeg" value="Id">
-          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        <attributes xmi:id="_uy7_hkNYEeSZj6LVx_utuw" value="Id">
+          <type href="platform:/resource/de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
         </attributes>
-        <attributes xmi:id="__pTnXjQQEeScitwB4YOGeg" value="Rate">
-          <type href="http://ctmc/1.0#//Transition/rate"/>
+        <attributes xmi:id="_uy7_h0NYEeSZj6LVx_utuw" value="Prob">
+          <type href="http://ctmc/1.0#//Transition/prob"/>
         </attributes>
       </nodes>
-      <nodes xmi:id="__pTnXzQQEeScitwB4YOGeg" name="Existing" incoming="__pTnYjQQEeScitwB4YOGeg" outgoing="__pTnYzQQEeScitwB4YOGeg">
+      <nodes xmi:id="_uy7_iENYEeSZj6LVx_utuw" name="Existing" incoming="_uy7_i0NYEeSZj6LVx_utuw" outgoing="_uy7_jENYEeSZj6LVx_utuw">
         <type href="http://ctmc/1.0#//State"/>
       </nodes>
-      <edges xmi:id="__pTnYDQQEeScitwB4YOGeg" source="__pTnWzQQEeScitwB4YOGeg" target="__pTnXDQQEeScitwB4YOGeg">
+      <edges xmi:id="_uy7_iUNYEeSZj6LVx_utuw" source="_uy7_hENYEeSZj6LVx_utuw" target="_uy7_hUNYEeSZj6LVx_utuw">
         <type href="http://ctmc/1.0#//State/outgoing"/>
       </edges>
-      <edges xmi:id="__pTnYTQQEeScitwB4YOGeg" source="__pTnXDQQEeScitwB4YOGeg" target="__pTnWzQQEeScitwB4YOGeg">
+      <edges xmi:id="_uy7_ikNYEeSZj6LVx_utuw" source="_uy7_hUNYEeSZj6LVx_utuw" target="_uy7_hENYEeSZj6LVx_utuw">
         <type href="http://ctmc/1.0#//Transition/from"/>
       </edges>
-      <edges xmi:id="__pTnYjQQEeScitwB4YOGeg" source="__pTnXDQQEeScitwB4YOGeg" target="__pTnXzQQEeScitwB4YOGeg">
+      <edges xmi:id="_uy7_i0NYEeSZj6LVx_utuw" source="_uy7_hUNYEeSZj6LVx_utuw" target="_uy7_iENYEeSZj6LVx_utuw">
         <type href="http://ctmc/1.0#//Transition/to"/>
       </edges>
-      <edges xmi:id="__pTnYzQQEeScitwB4YOGeg" source="__pTnXzQQEeScitwB4YOGeg" target="__pTnXDQQEeScitwB4YOGeg">
+      <edges xmi:id="_uy7_jENYEeSZj6LVx_utuw" source="_uy7_iENYEeSZj6LVx_utuw" target="_uy7_hUNYEeSZj6LVx_utuw">
         <type href="http://ctmc/1.0#//State/incoming"/>
       </edges>
     </rhs>
-    <mappings xmi:id="__pTnZDQQEeScitwB4YOGeg" origin="__pTnWDQQEeScitwB4YOGeg" image="__pTnWzQQEeScitwB4YOGeg"/>
-    <mappings xmi:id="__pTnZTQQEeScitwB4YOGeg" origin="__pTnWTQQEeScitwB4YOGeg" image="__pTnXzQQEeScitwB4YOGeg"/>
+    <mappings xmi:id="_uy7_jUNYEeSZj6LVx_utuw" origin="_uy7_gUNYEeSZj6LVx_utuw" image="_uy7_hENYEeSZj6LVx_utuw"/>
+    <mappings xmi:id="_uy7_jkNYEeSZj6LVx_utuw" origin="_uy7_gkNYEeSZj6LVx_utuw" image="_uy7_iENYEeSZj6LVx_utuw"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="__pTnZjQQEeScitwB4YOGeg" name="mainUnit" description="Creates one Transition depending on available contexts in model instance" subUnits="__pTnUTQQEeScitwB4YOGeg">
-    <parameters xmi:id="__pTnZzQQEeScitwB4YOGeg" name="New"/>
-    <parameters xmi:id="__pTnaDQQEeScitwB4YOGeg" name="selectedEObject"/>
-    <parameters xmi:id="__pTnaTQQEeScitwB4YOGeg" name="Id"/>
-    <parameters xmi:id="__pTnajQQEeScitwB4YOGeg" name="Rate"/>
-    <parameters xmi:id="__pUOYDQQEeScitwB4YOGeg" name="Existing"/>
-    <parameterMappings xmi:id="__pUOYTQQEeScitwB4YOGeg" source="__pTnaDQQEeScitwB4YOGeg" target="__pTnUjQQEeScitwB4YOGeg"/>
-    <parameterMappings xmi:id="__pUOYjQQEeScitwB4YOGeg" source="__pTnUzQQEeScitwB4YOGeg" target="__pTnZzQQEeScitwB4YOGeg"/>
-    <parameterMappings xmi:id="__pUOYzQQEeScitwB4YOGeg" source="__pTnaTQQEeScitwB4YOGeg" target="__pTnVDQQEeScitwB4YOGeg"/>
-    <parameterMappings xmi:id="__pUOZDQQEeScitwB4YOGeg" source="__pTnajQQEeScitwB4YOGeg" target="__pTnVTQQEeScitwB4YOGeg"/>
-    <parameterMappings xmi:id="__pUOZTQQEeScitwB4YOGeg" source="__pUOYDQQEeScitwB4YOGeg" target="__pTnVjQQEeScitwB4YOGeg"/>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_uy7_j0NYEeSZj6LVx_utuw" name="mainUnit" subUnits="_uy7YcUNYEeSZj6LVx_utuw">
+    <parameters xmi:id="_uy7_kENYEeSZj6LVx_utuw" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//State"/>
+    </parameters>
+    <parameters xmi:id="_uy7_kUNYEeSZj6LVx_utuw" name="Existing">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//State"/>
+    </parameters>
+    <parameters xmi:id="_uy7_kkNYEeSZj6LVx_utuw" name="New">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//Transition"/>
+    </parameters>
+    <parameters xmi:id="_uy7_k0NYEeSZj6LVx_utuw" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_uy7_lENYEeSZj6LVx_utuw" name="Prob">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    </parameters>
+    <parameterMappings xmi:id="_uy7_lUNYEeSZj6LVx_utuw" source="_uy7_kENYEeSZj6LVx_utuw" target="_uy7YckNYEeSZj6LVx_utuw"/>
+    <parameterMappings xmi:id="_uy7_lkNYEeSZj6LVx_utuw" source="_uy7_kUNYEeSZj6LVx_utuw" target="_uy7Yc0NYEeSZj6LVx_utuw"/>
+    <parameterMappings xmi:id="_uy7_l0NYEeSZj6LVx_utuw" source="_uy7YdENYEeSZj6LVx_utuw" target="_uy7_kkNYEeSZj6LVx_utuw"/>
+    <parameterMappings xmi:id="_uy7_mENYEeSZj6LVx_utuw" source="_uy7_k0NYEeSZj6LVx_utuw" target="_uy7YdUNYEeSZj6LVx_utuw"/>
+    <parameterMappings xmi:id="_uy7_mUNYEeSZj6LVx_utuw" source="_uy7_lENYEeSZj6LVx_utuw" target="_uy7YdkNYEeSZj6LVx_utuw"/>
   </units>
 </henshin:Module>

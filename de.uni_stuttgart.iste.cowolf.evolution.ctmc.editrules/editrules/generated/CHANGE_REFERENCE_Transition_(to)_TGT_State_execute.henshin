@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_uy5jQENYEeSZj6LVx_utuw" name="CHANGE_REFERENCE_Transition_(to)_TGT_State" description="CHANGEs Transition's reference to the target State">
+  <imports href="http://ctmc/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_uy5jQUNYEeSZj6LVx_utuw" name="changeTransition_to_TO_State" description="Change the EReference to">
+    <parameters xmi:id="_uy5jQkNYEeSZj6LVx_utuw" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//Transition"/>
+    </parameters>
+    <parameters xmi:id="_uy5jQ0NYEeSZj6LVx_utuw" name="OldTarget">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//State"/>
+    </parameters>
+    <parameters xmi:id="_uy5jRENYEeSZj6LVx_utuw" name="NewTarget">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//State"/>
+    </parameters>
+    <lhs xmi:id="_uy5jRUNYEeSZj6LVx_utuw" name="Lhs">
+      <nodes xmi:id="_uy5jRkNYEeSZj6LVx_utuw" name="Selected" incoming="_uy5jSkNYEeSZj6LVx_utuw" outgoing="_uy5jSUNYEeSZj6LVx_utuw">
+        <type href="http://ctmc/1.0#//Transition"/>
+      </nodes>
+      <nodes xmi:id="_uy5jR0NYEeSZj6LVx_utuw" name="OldTarget" incoming="_uy5jSUNYEeSZj6LVx_utuw" outgoing="_uy5jSkNYEeSZj6LVx_utuw">
+        <type href="http://ctmc/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_uy5jSENYEeSZj6LVx_utuw" name="NewTarget">
+        <type href="http://ctmc/1.0#//State"/>
+      </nodes>
+      <edges xmi:id="_uy5jSUNYEeSZj6LVx_utuw" source="_uy5jRkNYEeSZj6LVx_utuw" target="_uy5jR0NYEeSZj6LVx_utuw">
+        <type href="http://ctmc/1.0#//Transition/to"/>
+      </edges>
+      <edges xmi:id="_uy5jSkNYEeSZj6LVx_utuw" source="_uy5jR0NYEeSZj6LVx_utuw" target="_uy5jRkNYEeSZj6LVx_utuw">
+        <type href="http://ctmc/1.0#//State/incoming"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_uy5jS0NYEeSZj6LVx_utuw" name="Rhs">
+      <nodes xmi:id="_uy5jTENYEeSZj6LVx_utuw" name="Selected" incoming="_uy5jUENYEeSZj6LVx_utuw" outgoing="_uy5jT0NYEeSZj6LVx_utuw">
+        <type href="http://ctmc/1.0#//Transition"/>
+      </nodes>
+      <nodes xmi:id="_uy5jTUNYEeSZj6LVx_utuw" name="OldTarget">
+        <type href="http://ctmc/1.0#//State"/>
+      </nodes>
+      <nodes xmi:id="_uy5jTkNYEeSZj6LVx_utuw" name="NewTarget" incoming="_uy5jT0NYEeSZj6LVx_utuw" outgoing="_uy5jUENYEeSZj6LVx_utuw">
+        <type href="http://ctmc/1.0#//State"/>
+      </nodes>
+      <edges xmi:id="_uy5jT0NYEeSZj6LVx_utuw" source="_uy5jTENYEeSZj6LVx_utuw" target="_uy5jTkNYEeSZj6LVx_utuw">
+        <type href="http://ctmc/1.0#//Transition/to"/>
+      </edges>
+      <edges xmi:id="_uy5jUENYEeSZj6LVx_utuw" source="_uy5jTkNYEeSZj6LVx_utuw" target="_uy5jTENYEeSZj6LVx_utuw">
+        <type href="http://ctmc/1.0#//State/incoming"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_uy5jUUNYEeSZj6LVx_utuw" origin="_uy5jRkNYEeSZj6LVx_utuw" image="_uy5jTENYEeSZj6LVx_utuw"/>
+    <mappings xmi:id="_uy5jUkNYEeSZj6LVx_utuw" origin="_uy5jR0NYEeSZj6LVx_utuw" image="_uy5jTUNYEeSZj6LVx_utuw"/>
+    <mappings xmi:id="_uy5jU0NYEeSZj6LVx_utuw" origin="_uy5jSENYEeSZj6LVx_utuw" image="_uy5jTkNYEeSZj6LVx_utuw"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_uy5jVENYEeSZj6LVx_utuw" name="mainUnit" subUnits="_uy5jQUNYEeSZj6LVx_utuw">
+    <parameters xmi:id="_uy5jVUNYEeSZj6LVx_utuw" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//Transition"/>
+    </parameters>
+    <parameters xmi:id="_uy5jVkNYEeSZj6LVx_utuw" name="OldTarget">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//State"/>
+    </parameters>
+    <parameters xmi:id="_uy5jV0NYEeSZj6LVx_utuw" name="NewTarget">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//State"/>
+    </parameters>
+    <parameterMappings xmi:id="_uy5jWENYEeSZj6LVx_utuw" source="_uy5jVUNYEeSZj6LVx_utuw" target="_uy5jQkNYEeSZj6LVx_utuw"/>
+    <parameterMappings xmi:id="_uy5jWUNYEeSZj6LVx_utuw" source="_uy5jVkNYEeSZj6LVx_utuw" target="_uy5jQ0NYEeSZj6LVx_utuw"/>
+    <parameterMappings xmi:id="_uy5jWkNYEeSZj6LVx_utuw" source="_uy5jV0NYEeSZj6LVx_utuw" target="_uy5jRENYEeSZj6LVx_utuw"/>
+  </units>
+</henshin:Module>

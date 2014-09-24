@@ -1,34 +1,42 @@
 <?xml version="1.0" encoding="ASCII"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="__qFqcDQQEeScitwB4YOGeg" name="DELETE_Label_IN_State_(labels)" description="Deletes one Label in State">
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_uynPYENYEeSZj6LVx_utuw" name="DELETE_Label_IN_State_(labels)" description="Deletes one Label in State">
   <imports href="http://ctmc/1.0#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="__qFqcTQQEeScitwB4YOGeg" name="deleteLabel_IN_State" description="deletes one Label in the context: State">
-    <parameters xmi:id="__qFqcjQQEeScitwB4YOGeg" name="Selected"/>
-    <parameters xmi:id="__qFqczQQEeScitwB4YOGeg" name="ToBeDeleted"/>
-    <lhs xmi:id="__qFqdDQQEeScitwB4YOGeg" name="LHS">
-      <nodes xmi:id="__qFqdTQQEeScitwB4YOGeg" name="Selected" incoming="__qFqeDQQEeScitwB4YOGeg" outgoing="__qFqdzQQEeScitwB4YOGeg">
+  <units xsi:type="henshin:Rule" xmi:id="_uynPYUNYEeSZj6LVx_utuw" name="deleteLabel_IN_State" description="deletes one Label in the context: State">
+    <parameters xmi:id="_uynPYkNYEeSZj6LVx_utuw" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//State"/>
+    </parameters>
+    <parameters xmi:id="_uynPY0NYEeSZj6LVx_utuw" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//Label"/>
+    </parameters>
+    <lhs xmi:id="_uynPZENYEeSZj6LVx_utuw" name="LHS">
+      <nodes xmi:id="_uynPZUNYEeSZj6LVx_utuw" name="Selected" incoming="_uynPaENYEeSZj6LVx_utuw" outgoing="_uynPZ0NYEeSZj6LVx_utuw">
         <type href="http://ctmc/1.0#//State"/>
       </nodes>
-      <nodes xmi:id="__qFqdjQQEeScitwB4YOGeg" name="ToBeDeleted" incoming="__qFqdzQQEeScitwB4YOGeg" outgoing="__qFqeDQQEeScitwB4YOGeg">
+      <nodes xmi:id="_uynPZkNYEeSZj6LVx_utuw" name="ToBeDeleted" incoming="_uynPZ0NYEeSZj6LVx_utuw" outgoing="_uynPaENYEeSZj6LVx_utuw">
         <type href="http://ctmc/1.0#//Label"/>
       </nodes>
-      <edges xmi:id="__qFqdzQQEeScitwB4YOGeg" source="__qFqdTQQEeScitwB4YOGeg" target="__qFqdjQQEeScitwB4YOGeg">
+      <edges xmi:id="_uynPZ0NYEeSZj6LVx_utuw" source="_uynPZUNYEeSZj6LVx_utuw" target="_uynPZkNYEeSZj6LVx_utuw">
         <type href="http://ctmc/1.0#//State/labels"/>
       </edges>
-      <edges xmi:id="__qFqeDQQEeScitwB4YOGeg" source="__qFqdjQQEeScitwB4YOGeg" target="__qFqdTQQEeScitwB4YOGeg">
+      <edges xmi:id="_uynPaENYEeSZj6LVx_utuw" source="_uynPZkNYEeSZj6LVx_utuw" target="_uynPZUNYEeSZj6LVx_utuw">
         <type href="http://ctmc/1.0#//Label/state"/>
       </edges>
     </lhs>
-    <rhs xmi:id="__qFqeTQQEeScitwB4YOGeg" name="RHS">
-      <nodes xmi:id="__qFqejQQEeScitwB4YOGeg" name="Selected">
+    <rhs xmi:id="_uynPaUNYEeSZj6LVx_utuw" name="RHS">
+      <nodes xmi:id="_uynPakNYEeSZj6LVx_utuw" name="Selected">
         <type href="http://ctmc/1.0#//State"/>
       </nodes>
     </rhs>
-    <mappings xmi:id="__qFqezQQEeScitwB4YOGeg" origin="__qFqdTQQEeScitwB4YOGeg" image="__qFqejQQEeScitwB4YOGeg"/>
+    <mappings xmi:id="_uynPa0NYEeSZj6LVx_utuw" origin="_uynPZUNYEeSZj6LVx_utuw" image="_uynPakNYEeSZj6LVx_utuw"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="__qFqfDQQEeScitwB4YOGeg" name="mainUnit" description="Deletes one Label depending on available contexts in model instance" subUnits="__qFqcTQQEeScitwB4YOGeg">
-    <parameters xmi:id="__qFqfTQQEeScitwB4YOGeg" name="ToBeDeleted"/>
-    <parameters xmi:id="__qFqfjQQEeScitwB4YOGeg" name="selectedEObject"/>
-    <parameterMappings xmi:id="__qGRgDQQEeScitwB4YOGeg" source="__qFqfjQQEeScitwB4YOGeg" target="__qFqcjQQEeScitwB4YOGeg"/>
-    <parameterMappings xmi:id="__qGRgTQQEeScitwB4YOGeg" source="__qFqfTQQEeScitwB4YOGeg" target="__qFqczQQEeScitwB4YOGeg"/>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_uynPbENYEeSZj6LVx_utuw" name="mainUnit" subUnits="_uynPYUNYEeSZj6LVx_utuw">
+    <parameters xmi:id="_uynPbUNYEeSZj6LVx_utuw" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//State"/>
+    </parameters>
+    <parameters xmi:id="_uynPbkNYEeSZj6LVx_utuw" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//Label"/>
+    </parameters>
+    <parameterMappings xmi:id="_uynPb0NYEeSZj6LVx_utuw" source="_uynPbUNYEeSZj6LVx_utuw" target="_uynPYkNYEeSZj6LVx_utuw"/>
+    <parameterMappings xmi:id="_uynPcENYEeSZj6LVx_utuw" source="_uynPbkNYEeSZj6LVx_utuw" target="_uynPY0NYEeSZj6LVx_utuw"/>
   </units>
 </henshin:Module>

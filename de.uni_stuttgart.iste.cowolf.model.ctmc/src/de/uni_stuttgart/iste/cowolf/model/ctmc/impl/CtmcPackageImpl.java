@@ -250,8 +250,17 @@ public class CtmcPackageImpl extends EPackageImpl implements CtmcPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTransition_Rate() {
+	public EAttribute getTransition_Prob() {
 		return (EAttribute)transitionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTransition_Rate() {
+		return (EAttribute)transitionEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -324,6 +333,7 @@ public class CtmcPackageImpl extends EPackageImpl implements CtmcPackage {
 		transitionEClass = createEClass(TRANSITION);
 		createEReference(transitionEClass, TRANSITION__FROM);
 		createEReference(transitionEClass, TRANSITION__TO);
+		createEAttribute(transitionEClass, TRANSITION__PROB);
 		createEAttribute(transitionEClass, TRANSITION__RATE);
 
 		labelEClass = createEClass(LABEL);
@@ -378,12 +388,13 @@ public class CtmcPackageImpl extends EPackageImpl implements CtmcPackage {
 		initEReference(getState_Incoming(), this.getTransition(), this.getTransition_To(), "incoming", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getState_Outgoing(), this.getTransition(), this.getTransition_From(), "outgoing", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getState_Labels(), this.getLabel(), this.getLabel_State(), "labels", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getState_ExitRate(), ecorePackage.getEFloat(), "exitRate", "0", 1, 1, State.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getState_ExitRate(), ecorePackage.getEFloat(), "exitRate", "0.0", 1, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(transitionEClass, Transition.class, "Transition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTransition_From(), this.getState(), this.getState_Outgoing(), "from", null, 1, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTransition_To(), this.getState(), this.getState_Incoming(), "to", null, 1, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTransition_Rate(), ecorePackage.getEFloat(), "rate", null, 1, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTransition_Prob(), ecorePackage.getEFloat(), "prob", null, 1, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTransition_Rate(), ecorePackage.getEFloat(), "rate", null, 1, 1, Transition.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(labelEClass, Label.class, "Label", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLabel_Name(), ecorePackage.getEString(), "name", null, 1, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -444,13 +455,13 @@ public class CtmcPackageImpl extends EPackageImpl implements CtmcPackage {
 		  (stateEClass, 
 		   source, 
 		   new String[] {
-			 "constraints", "NonDeterministic NoDuplicateLabels"
+			 "constraints", "OutgoingDontAddUpToOne NonDeterministic NoDuplicateLabels ExitRateGreaterZero"
 		   });	
 		addAnnotation
 		  (transitionEClass, 
 		   source, 
 		   new String[] {
-			 "constraints", "RatePositive"
+			 "constraints", "ProbBetween0and1"
 		   });
 	}
 
@@ -472,14 +483,16 @@ public class CtmcPackageImpl extends EPackageImpl implements CtmcPackage {
 		  (stateEClass, 
 		   source, 
 		   new String[] {
+			 "OutgoingDontAddUpToOne", "Tuple {\n\tmessage : String = \'Probability of all outgoing transitions must be 1.0.\',\n\tstatus : Boolean = \n            self.outgoing->size() = 0 or (self.outgoing.prob->sum() - 1.0).abs()  < 0.000001\n}.status",
 			 "NonDeterministic", "Tuple {\n\tmessage : String = \'There must not be any nondeterminism. Please union transitions to the same target.\',\n\tstatus : Boolean = \n\t\t\tself.outgoing.to->asSet()->size() = self.outgoing->size()\n}.status",
-			 "NoDuplicateLabels", "Tuple {\n\tmessage : String = \'Labels must be unique per state.\',\n\tstatus : Boolean = \n\t\t\tself.labels.name->asSet()->size() = self.labels->size()\n}.status"
+			 "NoDuplicateLabels", "Tuple {\n\tmessage : String = \'Labels must be unique per state.\',\n\tstatus : Boolean = \n\t\t\tself.labels.name->asSet()->size() = self.labels->size()\n}.status",
+			 "ExitRateGreaterZero", "Tuple {\n\tmessage : String = \'Exit rate must be greater than 0.\',\n\tstatus : Boolean = \n\t\t    exitRate > 0.0 or self.outgoing->size() = 0\n}.status"
 		   });	
 		addAnnotation
 		  (transitionEClass, 
 		   source, 
 		   new String[] {
-			 "RatePositive", "Tuple {\n\tmessage : String = \'Transition rate must be greater or equal zero.\',\n\tstatus : Boolean = \n\t \t\trate >= 0.0\n}.status"
+			 "ProbBetween0and1", "Tuple {\n\tmessage : String = \'Probability must be between 0 and 1.\',\n\tstatus : Boolean = \n            prob >= 0.0 and prob <= 1.0\n}.status"
 		   });
 	}
 
