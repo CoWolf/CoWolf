@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_frEPwEPMEeSvydpbEtLBCg" name="MOVE_REF_COMBI_BindType_FROM_SlotType_(binding)_TO_SlotType_(binding)" description="MOVEs BindType from SlotType(Reference:binding) to SlotType(Reference:binding">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_frEPwUPMEeSvydpbEtLBCg" name="moveBindType_FROM_SlotType_binding_TO_SlotType_SlotType" description="Moves BindType from SlotType(Reference:binding) toSlotType(Reference:SlotType)">
+    <parameters xmi:id="_frEPwkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//BindType"/>
+    </parameters>
+    <parameters xmi:id="_frEPw0PMEeSvydpbEtLBCg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SlotType"/>
+    </parameters>
+    <parameters xmi:id="_frEPxEPMEeSvydpbEtLBCg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SlotType"/>
+    </parameters>
+    <lhs xmi:id="_frEPxUPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_frEPxkPMEeSvydpbEtLBCg" name="Selected" incoming="_frEPyUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//BindType"/>
+      </nodes>
+      <nodes xmi:id="_frEPx0PMEeSvydpbEtLBCg" name="OldSource" outgoing="_frEPyUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//SlotType"/>
+      </nodes>
+      <nodes xmi:id="_frEPyEPMEeSvydpbEtLBCg" name="NewSource">
+        <type href="http://LQN/1.0#//SlotType"/>
+      </nodes>
+      <edges xmi:id="_frEPyUPMEeSvydpbEtLBCg" source="_frEPx0PMEeSvydpbEtLBCg" target="_frEPxkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//SlotType/binding"/>
+      </edges>
+      <formula xsi:type="henshin:NestedCondition" xmi:id="_frEPykPMEeSvydpbEtLBCg">
+        <conclusion xmi:id="_frEPy0PMEeSvydpbEtLBCg" name="lb0">
+          <nodes xmi:id="_frEPzEPMEeSvydpbEtLBCg" outgoing="_frEPzkPMEeSvydpbEtLBCg">
+            <type href="http://LQN/1.0#//SlotType"/>
+          </nodes>
+          <nodes xmi:id="_frEPzUPMEeSvydpbEtLBCg" incoming="_frEPzkPMEeSvydpbEtLBCg">
+            <type href="http://LQN/1.0#//BindType"/>
+          </nodes>
+          <edges xmi:id="_frEPzkPMEeSvydpbEtLBCg" source="_frEPzEPMEeSvydpbEtLBCg" target="_frEPzUPMEeSvydpbEtLBCg">
+            <type href="http://LQN/1.0#//SlotType/binding"/>
+          </edges>
+        </conclusion>
+        <mappings xmi:id="_frEPz0PMEeSvydpbEtLBCg" origin="_frEPx0PMEeSvydpbEtLBCg" image="_frEPzEPMEeSvydpbEtLBCg"/>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_frEP0EPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_frEP0UPMEeSvydpbEtLBCg" name="Selected" incoming="_frEP1EPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//BindType"/>
+      </nodes>
+      <nodes xmi:id="_frEP0kPMEeSvydpbEtLBCg" name="OldSource">
+        <type href="http://LQN/1.0#//SlotType"/>
+      </nodes>
+      <nodes xmi:id="_frEP00PMEeSvydpbEtLBCg" name="NewSource" outgoing="_frEP1EPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//SlotType"/>
+      </nodes>
+      <edges xmi:id="_frEP1EPMEeSvydpbEtLBCg" source="_frEP00PMEeSvydpbEtLBCg" target="_frEP0UPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//SlotType/binding"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_frEP1UPMEeSvydpbEtLBCg" origin="_frEPxkPMEeSvydpbEtLBCg" image="_frEP0UPMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_frEP1kPMEeSvydpbEtLBCg" origin="_frEPx0PMEeSvydpbEtLBCg" image="_frEP0kPMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_frEP10PMEeSvydpbEtLBCg" origin="_frEPyEPMEeSvydpbEtLBCg" image="_frEP00PMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_frEP2EPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_frEPwUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_frEP2UPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//BindType"/>
+    </parameters>
+    <parameters xmi:id="_frEP2kPMEeSvydpbEtLBCg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SlotType"/>
+    </parameters>
+    <parameters xmi:id="_frEP20PMEeSvydpbEtLBCg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SlotType"/>
+    </parameters>
+    <parameterMappings xmi:id="_frEP3EPMEeSvydpbEtLBCg" source="_frEP2UPMEeSvydpbEtLBCg" target="_frEPwkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_frEP3UPMEeSvydpbEtLBCg" source="_frEP2kPMEeSvydpbEtLBCg" target="_frEPw0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_frEP3kPMEeSvydpbEtLBCg" source="_frEP20PMEeSvydpbEtLBCg" target="_frEPxEPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

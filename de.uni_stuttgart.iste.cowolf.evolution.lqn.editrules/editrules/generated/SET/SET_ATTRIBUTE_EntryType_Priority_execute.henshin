@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fnCrYEPMEeSvydpbEtLBCg" name="SET_ATTRIBUTE_EntryType_Priority" description="Sets EntryType Priority">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fnCrYUPMEeSvydpbEtLBCg" name="setEntryTypePriority" description="Sets the EAttribute priority">
+    <parameters xmi:id="_fnCrYkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <parameters xmi:id="_fnCrY0PMEeSvydpbEtLBCg" name="Priority">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    </parameters>
+    <lhs xmi:id="_fnCrZEPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fnCrZUPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_fnCrZkPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fnCrZ0PMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//EntryType"/>
+        <attributes xmi:id="_fnCraEPMEeSvydpbEtLBCg" value="Priority">
+          <type href="http://LQN/1.0#//EntryType/priority"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_fnCraUPMEeSvydpbEtLBCg" origin="_fnCrZUPMEeSvydpbEtLBCg" image="_fnCrZ0PMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fnCrakPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fnCrYUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fnCra0PMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <parameters xmi:id="_fnCrbEPMEeSvydpbEtLBCg" name="Priority">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    </parameters>
+    <parameterMappings xmi:id="_fnCrbUPMEeSvydpbEtLBCg" source="_fnCra0PMEeSvydpbEtLBCg" target="_fnCrYkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fnCrbkPMEeSvydpbEtLBCg" source="_fnCrbEPMEeSvydpbEtLBCg" target="_fnCrY0PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

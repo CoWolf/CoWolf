@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_frK9cEPMEeSvydpbEtLBCg" name="CREATE_SingleActivityListType_IN_PrecedenceType_(post)" description="Creates one SingleActivityListType in PrecedenceType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_frK9cUPMEeSvydpbEtLBCg" name="createSingleActivityListType_IN_PrecedenceType" description="creates one SingleActivityListType in the context: PrecedenceType">
+    <parameters xmi:id="_frK9ckPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PrecedenceType"/>
+    </parameters>
+    <parameters xmi:id="_frK9c0PMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SingleActivityListType"/>
+    </parameters>
+    <parameters xmi:id="_frK9dEPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_frK9dUPMEeSvydpbEtLBCg" name="Child">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityType"/>
+    </parameters>
+    <parameters xmi:id="_frK9dkPMEeSvydpbEtLBCg" name="Id1">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_frK9d0PMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_frK9eEPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//PrecedenceType"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_frK9eUPMEeSvydpbEtLBCg">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_frK9ekPMEeSvydpbEtLBCg">
+          <conclusion xmi:id="_frK9e0PMEeSvydpbEtLBCg" name="ub0">
+            <nodes xmi:id="_frK9fEPMEeSvydpbEtLBCg" outgoing="_frK9fkPMEeSvydpbEtLBCg">
+              <type href="http://LQN/1.0#//PrecedenceType"/>
+            </nodes>
+            <nodes xmi:id="_frK9fUPMEeSvydpbEtLBCg" incoming="_frK9fkPMEeSvydpbEtLBCg">
+              <type href="http://LQN/1.0#//SingleActivityListType"/>
+            </nodes>
+            <edges xmi:id="_frK9fkPMEeSvydpbEtLBCg" source="_frK9fEPMEeSvydpbEtLBCg" target="_frK9fUPMEeSvydpbEtLBCg">
+              <type href="http://LQN/1.0#//PrecedenceType/post"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_frK9f0PMEeSvydpbEtLBCg" origin="_frK9eEPMEeSvydpbEtLBCg" image="_frK9fEPMEeSvydpbEtLBCg"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_frK9gEPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_frK9gUPMEeSvydpbEtLBCg" name="Selected" outgoing="_frK9hkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//PrecedenceType"/>
+      </nodes>
+      <nodes xmi:id="_frK9gkPMEeSvydpbEtLBCg" name="New" incoming="_frK9hkPMEeSvydpbEtLBCg" outgoing="_frK9h0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//SingleActivityListType"/>
+        <attributes xmi:id="_frK9g0PMEeSvydpbEtLBCg" value="Id">
+          <type href="platform:/resource/de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_frK9hEPMEeSvydpbEtLBCg" name="Child" incoming="_frK9h0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityType"/>
+        <attributes xmi:id="_frK9hUPMEeSvydpbEtLBCg" value="Id1">
+          <type href="platform:/resource/de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_frK9hkPMEeSvydpbEtLBCg" source="_frK9gUPMEeSvydpbEtLBCg" target="_frK9gkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//PrecedenceType/post"/>
+      </edges>
+      <edges xmi:id="_frK9h0PMEeSvydpbEtLBCg" source="_frK9gkPMEeSvydpbEtLBCg" target="_frK9hEPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//SingleActivityListType/activity"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_frK9iEPMEeSvydpbEtLBCg" origin="_frK9eEPMEeSvydpbEtLBCg" image="_frK9gUPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_frK9iUPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_frK9cUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_frK9ikPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PrecedenceType"/>
+    </parameters>
+    <parameters xmi:id="_frK9i0PMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SingleActivityListType"/>
+    </parameters>
+    <parameters xmi:id="_frK9jEPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_frK9jUPMEeSvydpbEtLBCg" name="Child">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityType"/>
+    </parameters>
+    <parameters xmi:id="_frK9jkPMEeSvydpbEtLBCg" name="Id1">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_frK9j0PMEeSvydpbEtLBCg" source="_frK9ikPMEeSvydpbEtLBCg" target="_frK9ckPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_frK9kEPMEeSvydpbEtLBCg" source="_frK9c0PMEeSvydpbEtLBCg" target="_frK9i0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_frK9kUPMEeSvydpbEtLBCg" source="_frK9jEPMEeSvydpbEtLBCg" target="_frK9dEPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_frK9kkPMEeSvydpbEtLBCg" source="_frK9dUPMEeSvydpbEtLBCg" target="_frK9jUPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_frK9k0PMEeSvydpbEtLBCg" source="_frK9jkPMEeSvydpbEtLBCg" target="_frK9dkPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

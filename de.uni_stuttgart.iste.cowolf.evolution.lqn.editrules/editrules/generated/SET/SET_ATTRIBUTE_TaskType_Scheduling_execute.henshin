@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fsFjcEPMEeSvydpbEtLBCg" name="SET_ATTRIBUTE_TaskType_Scheduling" description="Sets TaskType Scheduling">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fsFjcUPMEeSvydpbEtLBCg" name="setTaskTypeScheduling" description="Sets the EAttribute scheduling">
+    <parameters xmi:id="_fsFjckPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskType"/>
+    </parameters>
+    <parameters xmi:id="_fsFjc0PMEeSvydpbEtLBCg" name="Scheduling">
+      <type xsi:type="ecore:EEnum" href="http://LQN/1.0#//TaskSchedulingType"/>
+    </parameters>
+    <lhs xmi:id="_fsFjdEPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fsFjdUPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//TaskType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_fsFjdkPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fsFjd0PMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//TaskType"/>
+        <attributes xmi:id="_fsFjeEPMEeSvydpbEtLBCg" value="Scheduling">
+          <type href="http://LQN/1.0#//TaskType/scheduling"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_fsFjeUPMEeSvydpbEtLBCg" origin="_fsFjdUPMEeSvydpbEtLBCg" image="_fsFjd0PMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fsFjekPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fsFjcUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fsFje0PMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskType"/>
+    </parameters>
+    <parameters xmi:id="_fsFjfEPMEeSvydpbEtLBCg" name="Scheduling">
+      <type xsi:type="ecore:EEnum" href="http://LQN/1.0#//TaskSchedulingType"/>
+    </parameters>
+    <parameterMappings xmi:id="_fsFjfUPMEeSvydpbEtLBCg" source="_fsFje0PMEeSvydpbEtLBCg" target="_fsFjckPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fsFjfkPMEeSvydpbEtLBCg" source="_fsFjfEPMEeSvydpbEtLBCg" target="_fsFjc0PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

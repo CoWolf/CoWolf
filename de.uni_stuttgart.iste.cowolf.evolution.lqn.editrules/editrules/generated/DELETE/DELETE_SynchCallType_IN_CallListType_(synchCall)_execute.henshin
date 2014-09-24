@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fpx2UEPMEeSvydpbEtLBCg" name="DELETE_SynchCallType_IN_CallListType_(synchCall)" description="Deletes one SynchCallType in CallListType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fpx2UUPMEeSvydpbEtLBCg" name="deleteSynchCallType_IN_CallListType" description="deletes one SynchCallType in the context: CallListType">
+    <parameters xmi:id="_fpx2UkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//CallListType"/>
+    </parameters>
+    <parameters xmi:id="_fpx2U0PMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SynchCallType"/>
+    </parameters>
+    <lhs xmi:id="_fpx2VEPMEeSvydpbEtLBCg" name="LHS">
+      <nodes xmi:id="_fpx2VUPMEeSvydpbEtLBCg" name="Selected" outgoing="_fpx2V0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//CallListType"/>
+      </nodes>
+      <nodes xmi:id="_fpx2VkPMEeSvydpbEtLBCg" name="ToBeDeleted" incoming="_fpx2V0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//SynchCallType"/>
+      </nodes>
+      <edges xmi:id="_fpx2V0PMEeSvydpbEtLBCg" source="_fpx2VUPMEeSvydpbEtLBCg" target="_fpx2VkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//CallListType/synchCall"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_fpx2WEPMEeSvydpbEtLBCg" name="RHS">
+      <nodes xmi:id="_fpx2WUPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//CallListType"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_fpx2WkPMEeSvydpbEtLBCg" origin="_fpx2VUPMEeSvydpbEtLBCg" image="_fpx2WUPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fpx2W0PMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fpx2UUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fpx2XEPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//CallListType"/>
+    </parameters>
+    <parameters xmi:id="_fpx2XUPMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SynchCallType"/>
+    </parameters>
+    <parameterMappings xmi:id="_fpx2XkPMEeSvydpbEtLBCg" source="_fpx2XEPMEeSvydpbEtLBCg" target="_fpx2UkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fpx2X0PMEeSvydpbEtLBCg" source="_fpx2XUPMEeSvydpbEtLBCg" target="_fpx2U0PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

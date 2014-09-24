@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fdWj4EPMEeSvydpbEtLBCg" name="MOVE_ProcessorBindingType_FROM_BindType_(processorBinding)_TO_BindType_(processorBinding)" description="MOVEs ProcessorBindingType from BindType(Reference:processorBinding) to BindType(Reference:processorBinding">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fdWj4UPMEeSvydpbEtLBCg" name="moveProcessorBindingType_FROM_BindType_processorBinding_TO_BindType_BindType" description="Moves ProcessorBindingType from BindType(Reference:processorBinding) toBindType(Reference:BindType)">
+    <parameters xmi:id="_fdWj4kPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ProcessorBindingType"/>
+    </parameters>
+    <parameters xmi:id="_fdWj40PMEeSvydpbEtLBCg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//BindType"/>
+    </parameters>
+    <parameters xmi:id="_fdWj5EPMEeSvydpbEtLBCg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//BindType"/>
+    </parameters>
+    <lhs xmi:id="_fdWj5UPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fdWj5kPMEeSvydpbEtLBCg" name="Selected" incoming="_fdWj6UPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ProcessorBindingType"/>
+      </nodes>
+      <nodes xmi:id="_fdWj50PMEeSvydpbEtLBCg" name="OldSource" outgoing="_fdWj6UPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//BindType"/>
+      </nodes>
+      <nodes xmi:id="_fdWj6EPMEeSvydpbEtLBCg" name="NewSource">
+        <type href="http://LQN/1.0#//BindType"/>
+      </nodes>
+      <edges xmi:id="_fdWj6UPMEeSvydpbEtLBCg" source="_fdWj50PMEeSvydpbEtLBCg" target="_fdWj5kPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//BindType/processorBinding"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_fdWj6kPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fdWj60PMEeSvydpbEtLBCg" name="Selected" incoming="_fdWj7kPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ProcessorBindingType"/>
+      </nodes>
+      <nodes xmi:id="_fdWj7EPMEeSvydpbEtLBCg" name="OldSource">
+        <type href="http://LQN/1.0#//BindType"/>
+      </nodes>
+      <nodes xmi:id="_fdWj7UPMEeSvydpbEtLBCg" name="NewSource" outgoing="_fdWj7kPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//BindType"/>
+      </nodes>
+      <edges xmi:id="_fdWj7kPMEeSvydpbEtLBCg" source="_fdWj7UPMEeSvydpbEtLBCg" target="_fdWj60PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//BindType/processorBinding"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_fdWj70PMEeSvydpbEtLBCg" origin="_fdWj5kPMEeSvydpbEtLBCg" image="_fdWj60PMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_fdWj8EPMEeSvydpbEtLBCg" origin="_fdWj50PMEeSvydpbEtLBCg" image="_fdWj7EPMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_fdWj8UPMEeSvydpbEtLBCg" origin="_fdWj6EPMEeSvydpbEtLBCg" image="_fdWj7UPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fdWj8kPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fdWj4UPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fdWj80PMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ProcessorBindingType"/>
+    </parameters>
+    <parameters xmi:id="_fdWj9EPMEeSvydpbEtLBCg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//BindType"/>
+    </parameters>
+    <parameters xmi:id="_fdWj9UPMEeSvydpbEtLBCg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//BindType"/>
+    </parameters>
+    <parameterMappings xmi:id="_fdWj9kPMEeSvydpbEtLBCg" source="_fdWj80PMEeSvydpbEtLBCg" target="_fdWj4kPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fdWj90PMEeSvydpbEtLBCg" source="_fdWj9EPMEeSvydpbEtLBCg" target="_fdWj40PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fdWj-EPMEeSvydpbEtLBCg" source="_fdWj9UPMEeSvydpbEtLBCg" target="_fdWj5EPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

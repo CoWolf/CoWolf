@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fvVrwEPMEeSvydpbEtLBCg" name="MOVE_REF_COMBI_AsynchCallType_FROM_CallListType_(asynchCall)_TO_CallListType_(asynchCall)" description="MOVEs AsynchCallType from CallListType(Reference:asynchCall) to CallListType(Reference:asynchCall">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fvVrwUPMEeSvydpbEtLBCg" name="moveAsynchCallType_FROM_CallListType_asynchCall_TO_CallListType_CallListType" description="Moves AsynchCallType from CallListType(Reference:asynchCall) toCallListType(Reference:CallListType)">
+    <parameters xmi:id="_fvVrwkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//AsynchCallType"/>
+    </parameters>
+    <parameters xmi:id="_fvVrw0PMEeSvydpbEtLBCg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//CallListType"/>
+    </parameters>
+    <parameters xmi:id="_fvVrxEPMEeSvydpbEtLBCg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//CallListType"/>
+    </parameters>
+    <lhs xmi:id="_fvVrxUPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fvVrxkPMEeSvydpbEtLBCg" name="Selected" incoming="_fvVryUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//AsynchCallType"/>
+      </nodes>
+      <nodes xmi:id="_fvVrx0PMEeSvydpbEtLBCg" name="OldSource" outgoing="_fvVryUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//CallListType"/>
+      </nodes>
+      <nodes xmi:id="_fvVryEPMEeSvydpbEtLBCg" name="NewSource">
+        <type href="http://LQN/1.0#//CallListType"/>
+      </nodes>
+      <edges xmi:id="_fvVryUPMEeSvydpbEtLBCg" source="_fvVrx0PMEeSvydpbEtLBCg" target="_fvVrxkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//CallListType/asynchCall"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_fvVrykPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fvVry0PMEeSvydpbEtLBCg" name="Selected" incoming="_fvVrzkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//AsynchCallType"/>
+      </nodes>
+      <nodes xmi:id="_fvVrzEPMEeSvydpbEtLBCg" name="OldSource">
+        <type href="http://LQN/1.0#//CallListType"/>
+      </nodes>
+      <nodes xmi:id="_fvVrzUPMEeSvydpbEtLBCg" name="NewSource" outgoing="_fvVrzkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//CallListType"/>
+      </nodes>
+      <edges xmi:id="_fvVrzkPMEeSvydpbEtLBCg" source="_fvVrzUPMEeSvydpbEtLBCg" target="_fvVry0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//CallListType/asynchCall"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_fvVrz0PMEeSvydpbEtLBCg" origin="_fvVrxkPMEeSvydpbEtLBCg" image="_fvVry0PMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_fvVr0EPMEeSvydpbEtLBCg" origin="_fvVrx0PMEeSvydpbEtLBCg" image="_fvVrzEPMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_fvVr0UPMEeSvydpbEtLBCg" origin="_fvVryEPMEeSvydpbEtLBCg" image="_fvVrzUPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fvVr0kPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fvVrwUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fvVr00PMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//AsynchCallType"/>
+    </parameters>
+    <parameters xmi:id="_fvVr1EPMEeSvydpbEtLBCg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//CallListType"/>
+    </parameters>
+    <parameters xmi:id="_fvVr1UPMEeSvydpbEtLBCg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//CallListType"/>
+    </parameters>
+    <parameterMappings xmi:id="_fvVr1kPMEeSvydpbEtLBCg" source="_fvVr00PMEeSvydpbEtLBCg" target="_fvVrwkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fvVr10PMEeSvydpbEtLBCg" source="_fvVr1EPMEeSvydpbEtLBCg" target="_fvVrw0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fvVr2EPMEeSvydpbEtLBCg" source="_fvVr1UPMEeSvydpbEtLBCg" target="_fvVrxEPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

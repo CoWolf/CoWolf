@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_flU0IEPMEeSvydpbEtLBCg" name="DELETE_ResultConf99Type_IN_OutputResultForwardingANDJoinDelay_(resultConf99)" description="Deletes one ResultConf99Type in OutputResultForwardingANDJoinDelay">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_flU0IUPMEeSvydpbEtLBCg" name="deleteResultConf99Type_IN_OutputResultForwardingANDJoinDelay" description="deletes one ResultConf99Type in the context: OutputResultForwardingANDJoinDelay">
+    <parameters xmi:id="_flU0IkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutputResultForwardingANDJoinDelay"/>
+    </parameters>
+    <parameters xmi:id="_flU0I0PMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ResultConf99Type"/>
+    </parameters>
+    <lhs xmi:id="_flU0JEPMEeSvydpbEtLBCg" name="LHS">
+      <nodes xmi:id="_flU0JUPMEeSvydpbEtLBCg" name="Selected" outgoing="_flU0J0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//OutputResultForwardingANDJoinDelay"/>
+      </nodes>
+      <nodes xmi:id="_flU0JkPMEeSvydpbEtLBCg" name="ToBeDeleted" incoming="_flU0J0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ResultConf99Type"/>
+      </nodes>
+      <edges xmi:id="_flU0J0PMEeSvydpbEtLBCg" source="_flU0JUPMEeSvydpbEtLBCg" target="_flU0JkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//OutputResultForwardingANDJoinDelay/resultConf99"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_flU0KEPMEeSvydpbEtLBCg" name="RHS">
+      <nodes xmi:id="_flU0KUPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//OutputResultForwardingANDJoinDelay"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_flU0KkPMEeSvydpbEtLBCg" origin="_flU0JUPMEeSvydpbEtLBCg" image="_flU0KUPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_flU0K0PMEeSvydpbEtLBCg" name="mainUnit" subUnits="_flU0IUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_flU0LEPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutputResultForwardingANDJoinDelay"/>
+    </parameters>
+    <parameters xmi:id="_flU0LUPMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ResultConf99Type"/>
+    </parameters>
+    <parameterMappings xmi:id="_flU0LkPMEeSvydpbEtLBCg" source="_flU0LEPMEeSvydpbEtLBCg" target="_flU0IkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_flU0L0PMEeSvydpbEtLBCg" source="_flU0LUPMEeSvydpbEtLBCg" target="_flU0I0PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

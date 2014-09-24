@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fkOn8EPMEeSvydpbEtLBCg" name="SET_ATTRIBUTE_EntryType_Semaphore" description="Sets EntryType Semaphore">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fkOn8UPMEeSvydpbEtLBCg" name="setEntryTypeSemaphore" description="Sets the EAttribute semaphore">
+    <parameters xmi:id="_fkOn8kPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <parameters xmi:id="_fkOn80PMEeSvydpbEtLBCg" name="Semaphore">
+      <type xsi:type="ecore:EEnum" href="http://LQN/1.0#//SemaphoreType"/>
+    </parameters>
+    <lhs xmi:id="_fkOn9EPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fkOn9UPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_fkOn9kPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fkOn90PMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//EntryType"/>
+        <attributes xmi:id="_fkOn-EPMEeSvydpbEtLBCg" value="Semaphore">
+          <type href="http://LQN/1.0#//EntryType/semaphore"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_fkOn-UPMEeSvydpbEtLBCg" origin="_fkOn9UPMEeSvydpbEtLBCg" image="_fkOn90PMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fkOn-kPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fkOn8UPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fkOn-0PMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <parameters xmi:id="_fkOn_EPMEeSvydpbEtLBCg" name="Semaphore">
+      <type xsi:type="ecore:EEnum" href="http://LQN/1.0#//SemaphoreType"/>
+    </parameters>
+    <parameterMappings xmi:id="_fkOn_UPMEeSvydpbEtLBCg" source="_fkOn-0PMEeSvydpbEtLBCg" target="_fkOn8kPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fkOn_kPMEeSvydpbEtLBCg" source="_fkOn_EPMEeSvydpbEtLBCg" target="_fkOn80PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_ftlYQEPMEeSvydpbEtLBCg" name="CREATE_PragmaType_IN_SolverParamsType_(pragma)" description="Creates one PragmaType in SolverParamsType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_ftlYQUPMEeSvydpbEtLBCg" name="createPragmaType_IN_SolverParamsType" description="creates one PragmaType in the context: SolverParamsType">
+    <parameters xmi:id="_ftlYQkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SolverParamsType"/>
+    </parameters>
+    <parameters xmi:id="_ftlYQ0PMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PragmaType"/>
+    </parameters>
+    <parameters xmi:id="_ftlYREPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_ftlYRUPMEeSvydpbEtLBCg" name="Param">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_ftlYRkPMEeSvydpbEtLBCg" name="Value">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_ftlYR0PMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_ftlYSEPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//SolverParamsType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_ftlYSUPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_ftlYSkPMEeSvydpbEtLBCg" name="Selected" outgoing="_ftlYT0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//SolverParamsType"/>
+      </nodes>
+      <nodes xmi:id="_ftlYS0PMEeSvydpbEtLBCg" name="New" incoming="_ftlYT0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//PragmaType"/>
+        <attributes xmi:id="_ftlYTEPMEeSvydpbEtLBCg" value="Id">
+          <type href="platform:/resource/de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_ftlYTUPMEeSvydpbEtLBCg" value="Param">
+          <type href="http://LQN/1.0#//PragmaType/param"/>
+        </attributes>
+        <attributes xmi:id="_ftlYTkPMEeSvydpbEtLBCg" value="Value">
+          <type href="http://LQN/1.0#//PragmaType/value"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_ftlYT0PMEeSvydpbEtLBCg" source="_ftlYSkPMEeSvydpbEtLBCg" target="_ftlYS0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//SolverParamsType/pragma"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_ftlYUEPMEeSvydpbEtLBCg" origin="_ftlYSEPMEeSvydpbEtLBCg" image="_ftlYSkPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_ftlYUUPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_ftlYQUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_ftlYUkPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SolverParamsType"/>
+    </parameters>
+    <parameters xmi:id="_ftlYU0PMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PragmaType"/>
+    </parameters>
+    <parameters xmi:id="_ftlYVEPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_ftlYVUPMEeSvydpbEtLBCg" name="Param">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_ftlYVkPMEeSvydpbEtLBCg" name="Value">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_ftlYV0PMEeSvydpbEtLBCg" source="_ftlYUkPMEeSvydpbEtLBCg" target="_ftlYQkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_ftlYWEPMEeSvydpbEtLBCg" source="_ftlYQ0PMEeSvydpbEtLBCg" target="_ftlYU0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_ftlYWUPMEeSvydpbEtLBCg" source="_ftlYVEPMEeSvydpbEtLBCg" target="_ftlYREPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_ftlYWkPMEeSvydpbEtLBCg" source="_ftlYVUPMEeSvydpbEtLBCg" target="_ftlYRUPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_ftlYW0PMEeSvydpbEtLBCg" source="_ftlYVkPMEeSvydpbEtLBCg" target="_ftlYRkPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

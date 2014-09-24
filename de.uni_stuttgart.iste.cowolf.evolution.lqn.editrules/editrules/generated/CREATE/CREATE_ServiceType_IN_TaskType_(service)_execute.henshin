@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_foVr4EPMEeSvydpbEtLBCg" name="CREATE_ServiceType_IN_TaskType_(service)" description="Creates one ServiceType in TaskType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_foVr4UPMEeSvydpbEtLBCg" name="createServiceType_IN_TaskType" description="creates one ServiceType in the context: TaskType">
+    <parameters xmi:id="_foVr4kPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskType"/>
+    </parameters>
+    <parameters xmi:id="_foVr40PMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ServiceType"/>
+    </parameters>
+    <parameters xmi:id="_foVr5EPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_foVr5UPMEeSvydpbEtLBCg" name="Name">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_foVr5kPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_foVr50PMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//TaskType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_foVr6EPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_foVr6UPMEeSvydpbEtLBCg" name="Selected" outgoing="_foVr7UPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//TaskType"/>
+      </nodes>
+      <nodes xmi:id="_foVr6kPMEeSvydpbEtLBCg" name="New" incoming="_foVr7UPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ServiceType"/>
+        <attributes xmi:id="_foVr60PMEeSvydpbEtLBCg" value="Id">
+          <type href="platform:/resource/de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_foVr7EPMEeSvydpbEtLBCg" value="Name">
+          <type href="http://LQN/1.0#//ServiceType/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_foVr7UPMEeSvydpbEtLBCg" source="_foVr6UPMEeSvydpbEtLBCg" target="_foVr6kPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//TaskType/service"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_foVr7kPMEeSvydpbEtLBCg" origin="_foVr50PMEeSvydpbEtLBCg" image="_foVr6UPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_foVr70PMEeSvydpbEtLBCg" name="mainUnit" subUnits="_foVr4UPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_foVr8EPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskType"/>
+    </parameters>
+    <parameters xmi:id="_foVr8UPMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ServiceType"/>
+    </parameters>
+    <parameters xmi:id="_foVr8kPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_foVr80PMEeSvydpbEtLBCg" name="Name">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_foVr9EPMEeSvydpbEtLBCg" source="_foVr8EPMEeSvydpbEtLBCg" target="_foVr4kPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_foVr9UPMEeSvydpbEtLBCg" source="_foVr40PMEeSvydpbEtLBCg" target="_foVr8UPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_foVr9kPMEeSvydpbEtLBCg" source="_foVr8kPMEeSvydpbEtLBCg" target="_foVr5EPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_foVr90PMEeSvydpbEtLBCg" source="_foVr80PMEeSvydpbEtLBCg" target="_foVr5UPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

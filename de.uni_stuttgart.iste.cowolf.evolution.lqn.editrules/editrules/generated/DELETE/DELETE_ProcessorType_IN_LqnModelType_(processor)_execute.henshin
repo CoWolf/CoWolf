@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_ftEa4EPMEeSvydpbEtLBCg" name="DELETE_ProcessorType_IN_LqnModelType_(processor)" description="Deletes one ProcessorType in LqnModelType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_ftEa4UPMEeSvydpbEtLBCg" name="deleteProcessorType_IN_LqnModelType" description="deletes one ProcessorType in the context: LqnModelType">
+    <parameters xmi:id="_ftEa4kPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//LqnModelType"/>
+    </parameters>
+    <parameters xmi:id="_ftEa40PMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ProcessorType"/>
+    </parameters>
+    <parameters xmi:id="_ftEa5EPMEeSvydpbEtLBCg" name="Child">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskType"/>
+    </parameters>
+    <parameters xmi:id="_ftEa5UPMEeSvydpbEtLBCg" name="Child1">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <lhs xmi:id="_ftEa5kPMEeSvydpbEtLBCg" name="LHS">
+      <nodes xmi:id="_ftEa50PMEeSvydpbEtLBCg" name="Selected" outgoing="_ftEa60PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//LqnModelType"/>
+      </nodes>
+      <nodes xmi:id="_ftEa6EPMEeSvydpbEtLBCg" name="ToBeDeleted" incoming="_ftEa60PMEeSvydpbEtLBCg" outgoing="_ftEa7EPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ProcessorType"/>
+      </nodes>
+      <nodes xmi:id="_ftEa6UPMEeSvydpbEtLBCg" name="Child" incoming="_ftEa7EPMEeSvydpbEtLBCg" outgoing="_ftEa7UPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//TaskType"/>
+      </nodes>
+      <nodes xmi:id="_ftEa6kPMEeSvydpbEtLBCg" name="Child1" incoming="_ftEa7UPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+      <edges xmi:id="_ftEa60PMEeSvydpbEtLBCg" source="_ftEa50PMEeSvydpbEtLBCg" target="_ftEa6EPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//LqnModelType/processor"/>
+      </edges>
+      <edges xmi:id="_ftEa7EPMEeSvydpbEtLBCg" source="_ftEa6EPMEeSvydpbEtLBCg" target="_ftEa6UPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ProcessorType/task"/>
+      </edges>
+      <edges xmi:id="_ftEa7UPMEeSvydpbEtLBCg" source="_ftEa6UPMEeSvydpbEtLBCg" target="_ftEa6kPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//TaskType/entry"/>
+      </edges>
+      <formula xsi:type="henshin:NestedCondition" xmi:id="_ftEa7kPMEeSvydpbEtLBCg">
+        <conclusion xmi:id="_ftEa70PMEeSvydpbEtLBCg" name="lb0">
+          <nodes xmi:id="_ftEa8EPMEeSvydpbEtLBCg" outgoing="_ftEa8kPMEeSvydpbEtLBCg">
+            <type href="http://LQN/1.0#//LqnModelType"/>
+          </nodes>
+          <nodes xmi:id="_ftEa8UPMEeSvydpbEtLBCg" incoming="_ftEa8kPMEeSvydpbEtLBCg">
+            <type href="http://LQN/1.0#//ProcessorType"/>
+          </nodes>
+          <edges xmi:id="_ftEa8kPMEeSvydpbEtLBCg" source="_ftEa8EPMEeSvydpbEtLBCg" target="_ftEa8UPMEeSvydpbEtLBCg">
+            <type href="http://LQN/1.0#//LqnModelType/processor"/>
+          </edges>
+        </conclusion>
+        <mappings xmi:id="_ftEa80PMEeSvydpbEtLBCg" origin="_ftEa50PMEeSvydpbEtLBCg" image="_ftEa8EPMEeSvydpbEtLBCg"/>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_ftEa9EPMEeSvydpbEtLBCg" name="RHS">
+      <nodes xmi:id="_ftEa9UPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//LqnModelType"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_ftEa9kPMEeSvydpbEtLBCg" origin="_ftEa50PMEeSvydpbEtLBCg" image="_ftEa9UPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_ftEa90PMEeSvydpbEtLBCg" name="mainUnit" subUnits="_ftEa4UPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_ftEa-EPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//LqnModelType"/>
+    </parameters>
+    <parameters xmi:id="_ftEa-UPMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ProcessorType"/>
+    </parameters>
+    <parameters xmi:id="_ftEa-kPMEeSvydpbEtLBCg" name="Child">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskType"/>
+    </parameters>
+    <parameters xmi:id="_ftEa-0PMEeSvydpbEtLBCg" name="Child1">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <parameterMappings xmi:id="_ftEa_EPMEeSvydpbEtLBCg" source="_ftEa-EPMEeSvydpbEtLBCg" target="_ftEa4kPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_ftEa_UPMEeSvydpbEtLBCg" source="_ftEa-UPMEeSvydpbEtLBCg" target="_ftEa40PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_ftEa_kPMEeSvydpbEtLBCg" source="_ftEa-kPMEeSvydpbEtLBCg" target="_ftEa5EPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_ftEa_0PMEeSvydpbEtLBCg" source="_ftEa-0PMEeSvydpbEtLBCg" target="_ftEa5UPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

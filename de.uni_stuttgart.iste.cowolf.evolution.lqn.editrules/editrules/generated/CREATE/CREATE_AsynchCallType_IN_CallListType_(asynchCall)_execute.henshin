@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fijM8EPMEeSvydpbEtLBCg" name="CREATE_AsynchCallType_IN_CallListType_(asynchCall)" description="Creates one AsynchCallType in CallListType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fijM8UPMEeSvydpbEtLBCg" name="createAsynchCallType_IN_CallListType" description="creates one AsynchCallType in the context: CallListType">
+    <parameters xmi:id="_fijM8kPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//CallListType"/>
+    </parameters>
+    <parameters xmi:id="_fijM80PMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//AsynchCallType"/>
+    </parameters>
+    <parameters xmi:id="_fijM9EPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fijM9UPMEeSvydpbEtLBCg" name="Fanin">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    </parameters>
+    <parameters xmi:id="_fijM9kPMEeSvydpbEtLBCg" name="Fanout">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    </parameters>
+    <lhs xmi:id="_fijM90PMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fijM-EPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//CallListType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_fijM-UPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fijM-kPMEeSvydpbEtLBCg" name="Selected" outgoing="_fijM_0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//CallListType"/>
+      </nodes>
+      <nodes xmi:id="_fijM-0PMEeSvydpbEtLBCg" name="New" incoming="_fijM_0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//AsynchCallType"/>
+        <attributes xmi:id="_fijM_EPMEeSvydpbEtLBCg" value="Id">
+          <type href="platform:/resource/de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_fijM_UPMEeSvydpbEtLBCg" value="Fanin">
+          <type href="http://LQN/1.0#//CallType/fanin"/>
+        </attributes>
+        <attributes xmi:id="_fijM_kPMEeSvydpbEtLBCg" value="Fanout">
+          <type href="http://LQN/1.0#//CallType/fanout"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_fijM_0PMEeSvydpbEtLBCg" source="_fijM-kPMEeSvydpbEtLBCg" target="_fijM-0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//CallListType/asynchCall"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_fijNAEPMEeSvydpbEtLBCg" origin="_fijM-EPMEeSvydpbEtLBCg" image="_fijM-kPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fijNAUPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fijM8UPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fijNAkPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//CallListType"/>
+    </parameters>
+    <parameters xmi:id="_fijNA0PMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//AsynchCallType"/>
+    </parameters>
+    <parameters xmi:id="_fijNBEPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fijNBUPMEeSvydpbEtLBCg" name="Fanin">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    </parameters>
+    <parameters xmi:id="_fijNBkPMEeSvydpbEtLBCg" name="Fanout">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    </parameters>
+    <parameterMappings xmi:id="_fijNB0PMEeSvydpbEtLBCg" source="_fijNAkPMEeSvydpbEtLBCg" target="_fijM8kPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fijNCEPMEeSvydpbEtLBCg" source="_fijM80PMEeSvydpbEtLBCg" target="_fijNA0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fijNCUPMEeSvydpbEtLBCg" source="_fijNBEPMEeSvydpbEtLBCg" target="_fijM9EPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fijNCkPMEeSvydpbEtLBCg" source="_fijNBUPMEeSvydpbEtLBCg" target="_fijM9UPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fijNC0PMEeSvydpbEtLBCg" source="_fijNBkPMEeSvydpbEtLBCg" target="_fijM9kPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

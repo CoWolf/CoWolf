@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fiaDAEPMEeSvydpbEtLBCg" name="SET_ATTRIBUTE_ProcessorType_Name" description="Sets ProcessorType Name">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fiaDAUPMEeSvydpbEtLBCg" name="setProcessorTypeName" description="Sets the EAttribute name">
+    <parameters xmi:id="_fiaDAkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ProcessorType"/>
+    </parameters>
+    <parameters xmi:id="_fiaDA0PMEeSvydpbEtLBCg" name="Name">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_fiaDBEPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fiaDBUPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//ProcessorType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_fiaDBkPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fiaDB0PMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//ProcessorType"/>
+        <attributes xmi:id="_fiaDCEPMEeSvydpbEtLBCg" value="Name">
+          <type href="http://LQN/1.0#//ProcessorType/name"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_fiaDCUPMEeSvydpbEtLBCg" origin="_fiaDBUPMEeSvydpbEtLBCg" image="_fiaDB0PMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fiaDCkPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fiaDAUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fiaDC0PMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ProcessorType"/>
+    </parameters>
+    <parameters xmi:id="_fiaDDEPMEeSvydpbEtLBCg" name="Name">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_fiaDDUPMEeSvydpbEtLBCg" source="_fiaDC0PMEeSvydpbEtLBCg" target="_fiaDAkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fiaDDkPMEeSvydpbEtLBCg" source="_fiaDDEPMEeSvydpbEtLBCg" target="_fiaDA0PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

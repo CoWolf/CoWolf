@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fc9iUEPMEeSvydpbEtLBCg" name="MOVE_REF_COMBI_ServiceType_FROM_TaskType_(service)_TO_TaskType_(service)" description="MOVEs ServiceType from TaskType(Reference:service) to TaskType(Reference:service">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fc9iUUPMEeSvydpbEtLBCg" name="moveServiceType_FROM_TaskType_service_TO_TaskType_TaskType" description="Moves ServiceType from TaskType(Reference:service) toTaskType(Reference:TaskType)">
+    <parameters xmi:id="_fc9iUkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ServiceType"/>
+    </parameters>
+    <parameters xmi:id="_fc9iU0PMEeSvydpbEtLBCg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskType"/>
+    </parameters>
+    <parameters xmi:id="_fc9iVEPMEeSvydpbEtLBCg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskType"/>
+    </parameters>
+    <lhs xmi:id="_fc9iVUPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fc9iVkPMEeSvydpbEtLBCg" name="Selected" incoming="_fc9iWUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ServiceType"/>
+      </nodes>
+      <nodes xmi:id="_fc9iV0PMEeSvydpbEtLBCg" name="OldSource" outgoing="_fc9iWUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//TaskType"/>
+      </nodes>
+      <nodes xmi:id="_fc9iWEPMEeSvydpbEtLBCg" name="NewSource">
+        <type href="http://LQN/1.0#//TaskType"/>
+      </nodes>
+      <edges xmi:id="_fc9iWUPMEeSvydpbEtLBCg" source="_fc9iV0PMEeSvydpbEtLBCg" target="_fc9iVkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//TaskType/service"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_fc9iWkPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fc9iW0PMEeSvydpbEtLBCg" name="Selected" incoming="_fc9iXkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ServiceType"/>
+      </nodes>
+      <nodes xmi:id="_fc9iXEPMEeSvydpbEtLBCg" name="OldSource">
+        <type href="http://LQN/1.0#//TaskType"/>
+      </nodes>
+      <nodes xmi:id="_fc9iXUPMEeSvydpbEtLBCg" name="NewSource" outgoing="_fc9iXkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//TaskType"/>
+      </nodes>
+      <edges xmi:id="_fc9iXkPMEeSvydpbEtLBCg" source="_fc9iXUPMEeSvydpbEtLBCg" target="_fc9iW0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//TaskType/service"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_fc9iX0PMEeSvydpbEtLBCg" origin="_fc9iVkPMEeSvydpbEtLBCg" image="_fc9iW0PMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_fc9iYEPMEeSvydpbEtLBCg" origin="_fc9iV0PMEeSvydpbEtLBCg" image="_fc9iXEPMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_fc9iYUPMEeSvydpbEtLBCg" origin="_fc9iWEPMEeSvydpbEtLBCg" image="_fc9iXUPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fc9iYkPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fc9iUUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fc9iY0PMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ServiceType"/>
+    </parameters>
+    <parameters xmi:id="_fc9iZEPMEeSvydpbEtLBCg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskType"/>
+    </parameters>
+    <parameters xmi:id="_fc9iZUPMEeSvydpbEtLBCg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskType"/>
+    </parameters>
+    <parameterMappings xmi:id="_fc9iZkPMEeSvydpbEtLBCg" source="_fc9iY0PMEeSvydpbEtLBCg" target="_fc9iUkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fc9iZ0PMEeSvydpbEtLBCg" source="_fc9iZEPMEeSvydpbEtLBCg" target="_fc9iU0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fc9iaEPMEeSvydpbEtLBCg" source="_fc9iZUPMEeSvydpbEtLBCg" target="_fc9iVEPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

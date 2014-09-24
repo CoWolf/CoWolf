@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fb7nkEPMEeSvydpbEtLBCg" name="MOVE_InPortType_FROM_InterfaceType_(inPort)_TO_InterfaceType_(inPort)" description="MOVEs InPortType from InterfaceType(Reference:inPort) to InterfaceType(Reference:inPort">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fb7nkUPMEeSvydpbEtLBCg" name="moveInPortType_FROM_InterfaceType_inPort_TO_InterfaceType_InterfaceType" description="Moves InPortType from InterfaceType(Reference:inPort) toInterfaceType(Reference:InterfaceType)">
+    <parameters xmi:id="_fb7nkkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//InPortType"/>
+    </parameters>
+    <parameters xmi:id="_fb7nk0PMEeSvydpbEtLBCg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//InterfaceType"/>
+    </parameters>
+    <parameters xmi:id="_fb7nlEPMEeSvydpbEtLBCg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//InterfaceType"/>
+    </parameters>
+    <lhs xmi:id="_fb7nlUPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fb7nlkPMEeSvydpbEtLBCg" name="Selected" incoming="_fb7nmUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//InPortType"/>
+      </nodes>
+      <nodes xmi:id="_fb7nl0PMEeSvydpbEtLBCg" name="OldSource" outgoing="_fb7nmUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//InterfaceType"/>
+      </nodes>
+      <nodes xmi:id="_fb7nmEPMEeSvydpbEtLBCg" name="NewSource">
+        <type href="http://LQN/1.0#//InterfaceType"/>
+      </nodes>
+      <edges xmi:id="_fb7nmUPMEeSvydpbEtLBCg" source="_fb7nl0PMEeSvydpbEtLBCg" target="_fb7nlkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//InterfaceType/inPort"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_fb7nmkPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fb7nm0PMEeSvydpbEtLBCg" name="Selected" incoming="_fb7nnkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//InPortType"/>
+      </nodes>
+      <nodes xmi:id="_fb7nnEPMEeSvydpbEtLBCg" name="OldSource">
+        <type href="http://LQN/1.0#//InterfaceType"/>
+      </nodes>
+      <nodes xmi:id="_fb7nnUPMEeSvydpbEtLBCg" name="NewSource" outgoing="_fb7nnkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//InterfaceType"/>
+      </nodes>
+      <edges xmi:id="_fb7nnkPMEeSvydpbEtLBCg" source="_fb7nnUPMEeSvydpbEtLBCg" target="_fb7nm0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//InterfaceType/inPort"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_fb7nn0PMEeSvydpbEtLBCg" origin="_fb7nlkPMEeSvydpbEtLBCg" image="_fb7nm0PMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_fb7noEPMEeSvydpbEtLBCg" origin="_fb7nl0PMEeSvydpbEtLBCg" image="_fb7nnEPMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_fb7noUPMEeSvydpbEtLBCg" origin="_fb7nmEPMEeSvydpbEtLBCg" image="_fb7nnUPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fb7nokPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fb7nkUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fb7no0PMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//InPortType"/>
+    </parameters>
+    <parameters xmi:id="_fb7npEPMEeSvydpbEtLBCg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//InterfaceType"/>
+    </parameters>
+    <parameters xmi:id="_fb7npUPMEeSvydpbEtLBCg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//InterfaceType"/>
+    </parameters>
+    <parameterMappings xmi:id="_fb7npkPMEeSvydpbEtLBCg" source="_fb7no0PMEeSvydpbEtLBCg" target="_fb7nkkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fb7np0PMEeSvydpbEtLBCg" source="_fb7npEPMEeSvydpbEtLBCg" target="_fb7nk0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fb7nqEPMEeSvydpbEtLBCg" source="_fb7npUPMEeSvydpbEtLBCg" target="_fb7nlEPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

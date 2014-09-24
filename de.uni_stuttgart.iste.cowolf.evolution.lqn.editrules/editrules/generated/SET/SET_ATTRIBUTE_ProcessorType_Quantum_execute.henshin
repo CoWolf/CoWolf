@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fmnNkEPMEeSvydpbEtLBCg" name="SET_ATTRIBUTE_ProcessorType_Quantum" description="Sets ProcessorType Quantum">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fmnNkUPMEeSvydpbEtLBCg" name="setProcessorTypeQuantum" description="Sets the EAttribute quantum">
+    <parameters xmi:id="_fmnNkkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ProcessorType"/>
+    </parameters>
+    <parameters xmi:id="_fmnNk0PMEeSvydpbEtLBCg" name="Quantum">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <lhs xmi:id="_fmnNlEPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fmnNlUPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//ProcessorType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_fmnNlkPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fmnNl0PMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//ProcessorType"/>
+        <attributes xmi:id="_fmnNmEPMEeSvydpbEtLBCg" value="Quantum">
+          <type href="http://LQN/1.0#//ProcessorType/quantum"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_fmnNmUPMEeSvydpbEtLBCg" origin="_fmnNlUPMEeSvydpbEtLBCg" image="_fmnNl0PMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fmnNmkPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fmnNkUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fmnNm0PMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ProcessorType"/>
+    </parameters>
+    <parameters xmi:id="_fmnNnEPMEeSvydpbEtLBCg" name="Quantum">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameterMappings xmi:id="_fmnNnUPMEeSvydpbEtLBCg" source="_fmnNm0PMEeSvydpbEtLBCg" target="_fmnNkkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fmnNnkPMEeSvydpbEtLBCg" source="_fmnNnEPMEeSvydpbEtLBCg" target="_fmnNk0PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

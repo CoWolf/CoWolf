@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fcfoQEPMEeSvydpbEtLBCg" name="UNSET_REFERENCE_CallType_(dest)_TGT_EntryType" description="Sets CallType's reference dest the target EntryType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fcfoQUPMEeSvydpbEtLBCg" name="setCallType_dest_TO_EntryType" description="SetCallTypeRefdestToEntryType">
+    <parameters xmi:id="_fcfoQkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//CallType"/>
+    </parameters>
+    <parameters xmi:id="_fcfoQ0PMEeSvydpbEtLBCg" name="NewTarget">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <lhs xmi:id="_fcfoREPMEeSvydpbEtLBCg" name="LHS">
+      <nodes xmi:id="_fcfoRUPMEeSvydpbEtLBCg" name="Selected" outgoing="_fcfoR0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//CallType"/>
+      </nodes>
+      <nodes xmi:id="_fcfoRkPMEeSvydpbEtLBCg" name="NewTarget" incoming="_fcfoR0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+      <edges xmi:id="_fcfoR0PMEeSvydpbEtLBCg" source="_fcfoRUPMEeSvydpbEtLBCg" target="_fcfoRkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//CallType/dest"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_fcfoSEPMEeSvydpbEtLBCg" name="RHS">
+      <nodes xmi:id="_fcfoSUPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//CallType"/>
+      </nodes>
+      <nodes xmi:id="_fcfoSkPMEeSvydpbEtLBCg" name="NewTarget">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_fcfoS0PMEeSvydpbEtLBCg" origin="_fcfoRUPMEeSvydpbEtLBCg" image="_fcfoSUPMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_fcfoTEPMEeSvydpbEtLBCg" origin="_fcfoRkPMEeSvydpbEtLBCg" image="_fcfoSkPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fcfoTUPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fcfoQUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fcfoTkPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//CallType"/>
+    </parameters>
+    <parameters xmi:id="_fcfoT0PMEeSvydpbEtLBCg" name="NewTarget">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <parameterMappings xmi:id="_fcfoUEPMEeSvydpbEtLBCg" source="_fcfoTkPMEeSvydpbEtLBCg" target="_fcfoQkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fcfoUUPMEeSvydpbEtLBCg" source="_fcfoT0PMEeSvydpbEtLBCg" target="_fcfoQ0PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

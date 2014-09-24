@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_frhiwEPMEeSvydpbEtLBCg" name="DELETE_ActivityLoopType_IN_ActivityLoopListType_(activity)" description="Deletes one ActivityLoopType in ActivityLoopListType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_frhiwUPMEeSvydpbEtLBCg" name="deleteActivityLoopType_IN_ActivityLoopListType" description="deletes one ActivityLoopType in the context: ActivityLoopListType">
+    <parameters xmi:id="_frhiwkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityLoopListType"/>
+    </parameters>
+    <parameters xmi:id="_frhiw0PMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityLoopType"/>
+    </parameters>
+    <lhs xmi:id="_frhixEPMEeSvydpbEtLBCg" name="LHS">
+      <nodes xmi:id="_frhixUPMEeSvydpbEtLBCg" name="Selected" outgoing="_frhix0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityLoopListType"/>
+      </nodes>
+      <nodes xmi:id="_frhixkPMEeSvydpbEtLBCg" name="ToBeDeleted" incoming="_frhix0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityLoopType"/>
+      </nodes>
+      <edges xmi:id="_frhix0PMEeSvydpbEtLBCg" source="_frhixUPMEeSvydpbEtLBCg" target="_frhixkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityLoopListType/activity"/>
+      </edges>
+      <formula xsi:type="henshin:NestedCondition" xmi:id="_friJ0EPMEeSvydpbEtLBCg">
+        <conclusion xmi:id="_friJ0UPMEeSvydpbEtLBCg" name="lb0">
+          <nodes xmi:id="_friJ0kPMEeSvydpbEtLBCg" outgoing="_friJ1EPMEeSvydpbEtLBCg">
+            <type href="http://LQN/1.0#//ActivityLoopListType"/>
+          </nodes>
+          <nodes xmi:id="_friJ00PMEeSvydpbEtLBCg" incoming="_friJ1EPMEeSvydpbEtLBCg">
+            <type href="http://LQN/1.0#//ActivityLoopType"/>
+          </nodes>
+          <edges xmi:id="_friJ1EPMEeSvydpbEtLBCg" source="_friJ0kPMEeSvydpbEtLBCg" target="_friJ00PMEeSvydpbEtLBCg">
+            <type href="http://LQN/1.0#//ActivityLoopListType/activity"/>
+          </edges>
+        </conclusion>
+        <mappings xmi:id="_friJ1UPMEeSvydpbEtLBCg" origin="_frhixUPMEeSvydpbEtLBCg" image="_friJ0kPMEeSvydpbEtLBCg"/>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_friJ1kPMEeSvydpbEtLBCg" name="RHS">
+      <nodes xmi:id="_friJ10PMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//ActivityLoopListType"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_friJ2EPMEeSvydpbEtLBCg" origin="_frhixUPMEeSvydpbEtLBCg" image="_friJ10PMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_friJ2UPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_frhiwUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_friJ2kPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityLoopListType"/>
+    </parameters>
+    <parameters xmi:id="_friJ20PMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityLoopType"/>
+    </parameters>
+    <parameterMappings xmi:id="_friJ3EPMEeSvydpbEtLBCg" source="_friJ2kPMEeSvydpbEtLBCg" target="_frhiwkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_friJ3UPMEeSvydpbEtLBCg" source="_friJ20PMEeSvydpbEtLBCg" target="_frhiw0PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

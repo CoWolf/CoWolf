@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fkK9kEPMEeSvydpbEtLBCg" name="DELETE_PlotControlType_IN_LqnModelType_(plotControl)" description="Deletes one PlotControlType in LqnModelType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fkK9kUPMEeSvydpbEtLBCg" name="deletePlotControlType_IN_LqnModelType" description="deletes one PlotControlType in the context: LqnModelType">
+    <parameters xmi:id="_fkK9kkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//LqnModelType"/>
+    </parameters>
+    <parameters xmi:id="_fkK9k0PMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PlotControlType"/>
+    </parameters>
+    <parameters xmi:id="_fkK9lEPMEeSvydpbEtLBCg" name="Child">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PlotType"/>
+    </parameters>
+    <parameters xmi:id="_fkK9lUPMEeSvydpbEtLBCg" name="Child1">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//FirstPlotType"/>
+    </parameters>
+    <lhs xmi:id="_fkK9lkPMEeSvydpbEtLBCg" name="LHS">
+      <nodes xmi:id="_fkK9l0PMEeSvydpbEtLBCg" name="Selected" outgoing="_fkK9m0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//LqnModelType"/>
+      </nodes>
+      <nodes xmi:id="_fkK9mEPMEeSvydpbEtLBCg" name="ToBeDeleted" incoming="_fkK9m0PMEeSvydpbEtLBCg" outgoing="_fkK9nEPMEeSvydpbEtLBCg _fkK9nUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//PlotControlType"/>
+      </nodes>
+      <nodes xmi:id="_fkK9mUPMEeSvydpbEtLBCg" name="Child" incoming="_fkK9nEPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//PlotType"/>
+      </nodes>
+      <nodes xmi:id="_fkK9mkPMEeSvydpbEtLBCg" name="Child1" incoming="_fkK9nUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//FirstPlotType"/>
+      </nodes>
+      <edges xmi:id="_fkK9m0PMEeSvydpbEtLBCg" source="_fkK9l0PMEeSvydpbEtLBCg" target="_fkK9mEPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//LqnModelType/plotControl"/>
+      </edges>
+      <edges xmi:id="_fkK9nEPMEeSvydpbEtLBCg" source="_fkK9mEPMEeSvydpbEtLBCg" target="_fkK9mUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//PlotControlType/plot"/>
+      </edges>
+      <edges xmi:id="_fkK9nUPMEeSvydpbEtLBCg" source="_fkK9mEPMEeSvydpbEtLBCg" target="_fkK9mkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//PlotControlType/firstPlot"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_fkK9nkPMEeSvydpbEtLBCg" name="RHS">
+      <nodes xmi:id="_fkK9n0PMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//LqnModelType"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_fkK9oEPMEeSvydpbEtLBCg" origin="_fkK9l0PMEeSvydpbEtLBCg" image="_fkK9n0PMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fkK9oUPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fkK9kUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fkK9okPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//LqnModelType"/>
+    </parameters>
+    <parameters xmi:id="_fkK9o0PMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PlotControlType"/>
+    </parameters>
+    <parameters xmi:id="_fkK9pEPMEeSvydpbEtLBCg" name="Child">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PlotType"/>
+    </parameters>
+    <parameters xmi:id="_fkK9pUPMEeSvydpbEtLBCg" name="Child1">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//FirstPlotType"/>
+    </parameters>
+    <parameterMappings xmi:id="_fkK9pkPMEeSvydpbEtLBCg" source="_fkK9okPMEeSvydpbEtLBCg" target="_fkK9kkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fkK9p0PMEeSvydpbEtLBCg" source="_fkK9o0PMEeSvydpbEtLBCg" target="_fkK9k0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fkK9qEPMEeSvydpbEtLBCg" source="_fkK9pEPMEeSvydpbEtLBCg" target="_fkK9lEPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fkK9qUPMEeSvydpbEtLBCg" source="_fkK9pUPMEeSvydpbEtLBCg" target="_fkK9lUPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_flGKoEPMEeSvydpbEtLBCg" name="DELETE_OutputResultType_IN_ActivityDefBase_(resultActivity)" description="Deletes one OutputResultType in ActivityDefBase">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_flGKoUPMEeSvydpbEtLBCg" name="deleteOutputResultType_IN_ActivityDefBase" description="deletes one OutputResultType in the context: ActivityDefBase">
+    <parameters xmi:id="_flGKokPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityDefBase"/>
+    </parameters>
+    <parameters xmi:id="_flGKo0PMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutputResultType"/>
+    </parameters>
+    <lhs xmi:id="_flGKpEPMEeSvydpbEtLBCg" name="LHS">
+      <nodes xmi:id="_flGKpUPMEeSvydpbEtLBCg" name="Selected" outgoing="_flGKp0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityDefBase"/>
+      </nodes>
+      <nodes xmi:id="_flGKpkPMEeSvydpbEtLBCg" name="ToBeDeleted" incoming="_flGKp0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//OutputResultType"/>
+      </nodes>
+      <edges xmi:id="_flGKp0PMEeSvydpbEtLBCg" source="_flGKpUPMEeSvydpbEtLBCg" target="_flGKpkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityDefBase/resultActivity"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_flGKqEPMEeSvydpbEtLBCg" name="RHS">
+      <nodes xmi:id="_flGKqUPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//ActivityDefBase"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_flGKqkPMEeSvydpbEtLBCg" origin="_flGKpUPMEeSvydpbEtLBCg" image="_flGKqUPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_flGKq0PMEeSvydpbEtLBCg" name="mainUnit" subUnits="_flGKoUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_flGKrEPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityDefBase"/>
+    </parameters>
+    <parameters xmi:id="_flGKrUPMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutputResultType"/>
+    </parameters>
+    <parameterMappings xmi:id="_flGKrkPMEeSvydpbEtLBCg" source="_flGKrEPMEeSvydpbEtLBCg" target="_flGKokPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_flGKr0PMEeSvydpbEtLBCg" source="_flGKrUPMEeSvydpbEtLBCg" target="_flGKo0PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

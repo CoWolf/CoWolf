@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fkXK0EPMEeSvydpbEtLBCg" name="MOVE_REF_COMBI_RunControlType_FROM_LqnModelType_(runControl)_TO_LqnModelType_(runControl)" description="MOVEs RunControlType from LqnModelType(Reference:runControl) to LqnModelType(Reference:runControl">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fkXK0UPMEeSvydpbEtLBCg" name="moveRunControlType_FROM_LqnModelType_runControl_TO_LqnModelType_LqnModelType" description="Moves RunControlType from LqnModelType(Reference:runControl) toLqnModelType(Reference:LqnModelType)">
+    <parameters xmi:id="_fkXK0kPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//RunControlType"/>
+    </parameters>
+    <parameters xmi:id="_fkXK00PMEeSvydpbEtLBCg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//LqnModelType"/>
+    </parameters>
+    <parameters xmi:id="_fkXK1EPMEeSvydpbEtLBCg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//LqnModelType"/>
+    </parameters>
+    <lhs xmi:id="_fkXK1UPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fkXK1kPMEeSvydpbEtLBCg" name="Selected" incoming="_fkXK2UPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//RunControlType"/>
+      </nodes>
+      <nodes xmi:id="_fkXK10PMEeSvydpbEtLBCg" name="OldSource" outgoing="_fkXK2UPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//LqnModelType"/>
+      </nodes>
+      <nodes xmi:id="_fkXK2EPMEeSvydpbEtLBCg" name="NewSource">
+        <type href="http://LQN/1.0#//LqnModelType"/>
+      </nodes>
+      <edges xmi:id="_fkXK2UPMEeSvydpbEtLBCg" source="_fkXK10PMEeSvydpbEtLBCg" target="_fkXK1kPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//LqnModelType/runControl"/>
+      </edges>
+      <formula xsi:type="henshin:Not" xmi:id="_fkXK2kPMEeSvydpbEtLBCg">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_fkXK20PMEeSvydpbEtLBCg">
+          <conclusion xmi:id="_fkXK3EPMEeSvydpbEtLBCg" name="ub0">
+            <nodes xmi:id="_fkXK3UPMEeSvydpbEtLBCg" outgoing="_fkXK30PMEeSvydpbEtLBCg">
+              <type href="http://LQN/1.0#//LqnModelType"/>
+            </nodes>
+            <nodes xmi:id="_fkXK3kPMEeSvydpbEtLBCg" incoming="_fkXK30PMEeSvydpbEtLBCg">
+              <type href="http://LQN/1.0#//RunControlType"/>
+            </nodes>
+            <edges xmi:id="_fkXK30PMEeSvydpbEtLBCg" source="_fkXK3UPMEeSvydpbEtLBCg" target="_fkXK3kPMEeSvydpbEtLBCg">
+              <type href="http://LQN/1.0#//LqnModelType/runControl"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_fkXK4EPMEeSvydpbEtLBCg" origin="_fkXK2EPMEeSvydpbEtLBCg" image="_fkXK3UPMEeSvydpbEtLBCg"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_fkXK4UPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fkXK4kPMEeSvydpbEtLBCg" name="Selected" incoming="_fkXK5UPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//RunControlType"/>
+      </nodes>
+      <nodes xmi:id="_fkXK40PMEeSvydpbEtLBCg" name="OldSource">
+        <type href="http://LQN/1.0#//LqnModelType"/>
+      </nodes>
+      <nodes xmi:id="_fkXK5EPMEeSvydpbEtLBCg" name="NewSource" outgoing="_fkXK5UPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//LqnModelType"/>
+      </nodes>
+      <edges xmi:id="_fkXK5UPMEeSvydpbEtLBCg" source="_fkXK5EPMEeSvydpbEtLBCg" target="_fkXK4kPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//LqnModelType/runControl"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_fkXK5kPMEeSvydpbEtLBCg" origin="_fkXK1kPMEeSvydpbEtLBCg" image="_fkXK4kPMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_fkXK50PMEeSvydpbEtLBCg" origin="_fkXK10PMEeSvydpbEtLBCg" image="_fkXK40PMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_fkXK6EPMEeSvydpbEtLBCg" origin="_fkXK2EPMEeSvydpbEtLBCg" image="_fkXK5EPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fkXK6UPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fkXK0UPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fkXK6kPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//RunControlType"/>
+    </parameters>
+    <parameters xmi:id="_fkXK60PMEeSvydpbEtLBCg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//LqnModelType"/>
+    </parameters>
+    <parameters xmi:id="_fkXK7EPMEeSvydpbEtLBCg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//LqnModelType"/>
+    </parameters>
+    <parameterMappings xmi:id="_fkXK7UPMEeSvydpbEtLBCg" source="_fkXK6kPMEeSvydpbEtLBCg" target="_fkXK0kPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fkXK7kPMEeSvydpbEtLBCg" source="_fkXK60PMEeSvydpbEtLBCg" target="_fkXK00PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fkXK70PMEeSvydpbEtLBCg" source="_fkXK7EPMEeSvydpbEtLBCg" target="_fkXK1EPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fjIbwEPMEeSvydpbEtLBCg" name="CREATE_ParameterType_IN_BindType_(parameter)" description="Creates one ParameterType in BindType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fjIbwUPMEeSvydpbEtLBCg" name="createParameterType_IN_BindType" description="creates one ParameterType in the context: BindType">
+    <parameters xmi:id="_fjIbwkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//BindType"/>
+    </parameters>
+    <parameters xmi:id="_fjIbw0PMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ParameterType"/>
+    </parameters>
+    <parameters xmi:id="_fjIbxEPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fjIbxUPMEeSvydpbEtLBCg" name="Name">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fjIbxkPMEeSvydpbEtLBCg" name="Value">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_fjIbx0PMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fjIbyEPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//BindType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_fjIbyUPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fjIbykPMEeSvydpbEtLBCg" name="Selected" outgoing="_fjIbz0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//BindType"/>
+      </nodes>
+      <nodes xmi:id="_fjIby0PMEeSvydpbEtLBCg" name="New" incoming="_fjIbz0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ParameterType"/>
+        <attributes xmi:id="_fjIbzEPMEeSvydpbEtLBCg" value="Id">
+          <type href="platform:/resource/de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_fjIbzUPMEeSvydpbEtLBCg" value="Name">
+          <type href="http://LQN/1.0#//ParameterType/name"/>
+        </attributes>
+        <attributes xmi:id="_fjIbzkPMEeSvydpbEtLBCg" value="Value">
+          <type href="http://LQN/1.0#//ParameterType/value"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_fjIbz0PMEeSvydpbEtLBCg" source="_fjIbykPMEeSvydpbEtLBCg" target="_fjIby0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//BindType/parameter"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_fjIb0EPMEeSvydpbEtLBCg" origin="_fjIbyEPMEeSvydpbEtLBCg" image="_fjIbykPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fjIb0UPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fjIbwUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fjIb0kPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//BindType"/>
+    </parameters>
+    <parameters xmi:id="_fjIb00PMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ParameterType"/>
+    </parameters>
+    <parameters xmi:id="_fjIb1EPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fjIb1UPMEeSvydpbEtLBCg" name="Name">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fjIb1kPMEeSvydpbEtLBCg" name="Value">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_fjIb10PMEeSvydpbEtLBCg" source="_fjIb0kPMEeSvydpbEtLBCg" target="_fjIbwkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fjIb2EPMEeSvydpbEtLBCg" source="_fjIbw0PMEeSvydpbEtLBCg" target="_fjIb00PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fjIb2UPMEeSvydpbEtLBCg" source="_fjIb1EPMEeSvydpbEtLBCg" target="_fjIbxEPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fjIb2kPMEeSvydpbEtLBCg" source="_fjIb1UPMEeSvydpbEtLBCg" target="_fjIbxUPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fjIb20PMEeSvydpbEtLBCg" source="_fjIb1kPMEeSvydpbEtLBCg" target="_fjIbxkPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

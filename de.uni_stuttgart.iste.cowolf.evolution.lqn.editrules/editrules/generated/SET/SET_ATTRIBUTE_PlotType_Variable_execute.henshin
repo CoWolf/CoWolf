@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fdzP0EPMEeSvydpbEtLBCg" name="SET_ATTRIBUTE_PlotType_Variable" description="Sets PlotType Variable">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fdzP0UPMEeSvydpbEtLBCg" name="setPlotTypeVariable" description="Sets the EAttribute variable">
+    <parameters xmi:id="_fdzP0kPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PlotType"/>
+    </parameters>
+    <parameters xmi:id="_fdzP00PMEeSvydpbEtLBCg" name="Variable">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_fdzP1EPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fdzP1UPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//PlotType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_fdzP1kPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fdzP10PMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//PlotType"/>
+        <attributes xmi:id="_fdzP2EPMEeSvydpbEtLBCg" value="Variable">
+          <type href="http://LQN/1.0#//PlotType/variable"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_fdzP2UPMEeSvydpbEtLBCg" origin="_fdzP1UPMEeSvydpbEtLBCg" image="_fdzP10PMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fdzP2kPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fdzP0UPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fdzP20PMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PlotType"/>
+    </parameters>
+    <parameters xmi:id="_fdzP3EPMEeSvydpbEtLBCg" name="Variable">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_fdz24EPMEeSvydpbEtLBCg" source="_fdzP20PMEeSvydpbEtLBCg" target="_fdzP0kPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fdz24UPMEeSvydpbEtLBCg" source="_fdzP3EPMEeSvydpbEtLBCg" target="_fdzP00PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

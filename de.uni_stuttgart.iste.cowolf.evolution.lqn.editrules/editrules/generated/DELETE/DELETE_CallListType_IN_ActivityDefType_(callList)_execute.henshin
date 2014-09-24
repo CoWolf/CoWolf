@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_f0ss4EPMEeSvydpbEtLBCg" name="DELETE_CallListType_IN_ActivityDefType_(callList)" description="Deletes one CallListType in ActivityDefType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_f0ss4UPMEeSvydpbEtLBCg" name="deleteCallListType_IN_ActivityDefType" description="deletes one CallListType in the context: ActivityDefType">
+    <parameters xmi:id="_f0ss4kPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityDefType"/>
+    </parameters>
+    <parameters xmi:id="_f0ss40PMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//CallListType"/>
+    </parameters>
+    <lhs xmi:id="_f0ss5EPMEeSvydpbEtLBCg" name="LHS">
+      <nodes xmi:id="_f0ss5UPMEeSvydpbEtLBCg" name="Selected" outgoing="_f0ss50PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityDefType"/>
+      </nodes>
+      <nodes xmi:id="_f0ss5kPMEeSvydpbEtLBCg" name="ToBeDeleted" incoming="_f0ss50PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//CallListType"/>
+      </nodes>
+      <edges xmi:id="_f0ss50PMEeSvydpbEtLBCg" source="_f0ss5UPMEeSvydpbEtLBCg" target="_f0ss5kPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityDefType/callList"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_f0ss6EPMEeSvydpbEtLBCg" name="RHS">
+      <nodes xmi:id="_f0ss6UPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//ActivityDefType"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_f0ss6kPMEeSvydpbEtLBCg" origin="_f0ss5UPMEeSvydpbEtLBCg" image="_f0ss6UPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_f0ss60PMEeSvydpbEtLBCg" name="mainUnit" subUnits="_f0ss4UPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_f0ss7EPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityDefType"/>
+    </parameters>
+    <parameters xmi:id="_f0ss7UPMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//CallListType"/>
+    </parameters>
+    <parameterMappings xmi:id="_f0ss7kPMEeSvydpbEtLBCg" source="_f0ss7EPMEeSvydpbEtLBCg" target="_f0ss4kPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_f0ss70PMEeSvydpbEtLBCg" source="_f0ss7UPMEeSvydpbEtLBCg" target="_f0ss40PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fmf40EPMEeSvydpbEtLBCg" name="MOVE_SynchCallType_FROM_CallListType_(synchCall)_TO_CallListType_(synchCall)" description="MOVEs SynchCallType from CallListType(Reference:synchCall) to CallListType(Reference:synchCall">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fmf40UPMEeSvydpbEtLBCg" name="moveSynchCallType_FROM_CallListType_synchCall_TO_CallListType_CallListType" description="Moves SynchCallType from CallListType(Reference:synchCall) toCallListType(Reference:CallListType)">
+    <parameters xmi:id="_fmf40kPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SynchCallType"/>
+    </parameters>
+    <parameters xmi:id="_fmf400PMEeSvydpbEtLBCg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//CallListType"/>
+    </parameters>
+    <parameters xmi:id="_fmf41EPMEeSvydpbEtLBCg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//CallListType"/>
+    </parameters>
+    <lhs xmi:id="_fmf41UPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fmf41kPMEeSvydpbEtLBCg" name="Selected" incoming="_fmf42UPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//SynchCallType"/>
+      </nodes>
+      <nodes xmi:id="_fmf410PMEeSvydpbEtLBCg" name="OldSource" outgoing="_fmf42UPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//CallListType"/>
+      </nodes>
+      <nodes xmi:id="_fmf42EPMEeSvydpbEtLBCg" name="NewSource">
+        <type href="http://LQN/1.0#//CallListType"/>
+      </nodes>
+      <edges xmi:id="_fmf42UPMEeSvydpbEtLBCg" source="_fmf410PMEeSvydpbEtLBCg" target="_fmf41kPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//CallListType/synchCall"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_fmf42kPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fmf420PMEeSvydpbEtLBCg" name="Selected" incoming="_fmf43kPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//SynchCallType"/>
+      </nodes>
+      <nodes xmi:id="_fmf43EPMEeSvydpbEtLBCg" name="OldSource">
+        <type href="http://LQN/1.0#//CallListType"/>
+      </nodes>
+      <nodes xmi:id="_fmf43UPMEeSvydpbEtLBCg" name="NewSource" outgoing="_fmf43kPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//CallListType"/>
+      </nodes>
+      <edges xmi:id="_fmf43kPMEeSvydpbEtLBCg" source="_fmf43UPMEeSvydpbEtLBCg" target="_fmf420PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//CallListType/synchCall"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_fmf430PMEeSvydpbEtLBCg" origin="_fmf41kPMEeSvydpbEtLBCg" image="_fmf420PMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_fmf44EPMEeSvydpbEtLBCg" origin="_fmf410PMEeSvydpbEtLBCg" image="_fmf43EPMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_fmf44UPMEeSvydpbEtLBCg" origin="_fmf42EPMEeSvydpbEtLBCg" image="_fmf43UPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fmf44kPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fmf40UPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fmf440PMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SynchCallType"/>
+    </parameters>
+    <parameters xmi:id="_fmf45EPMEeSvydpbEtLBCg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//CallListType"/>
+    </parameters>
+    <parameters xmi:id="_fmf45UPMEeSvydpbEtLBCg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//CallListType"/>
+    </parameters>
+    <parameterMappings xmi:id="_fmf45kPMEeSvydpbEtLBCg" source="_fmf440PMEeSvydpbEtLBCg" target="_fmf40kPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fmf450PMEeSvydpbEtLBCg" source="_fmf45EPMEeSvydpbEtLBCg" target="_fmf400PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fmf46EPMEeSvydpbEtLBCg" source="_fmf45UPMEeSvydpbEtLBCg" target="_fmf41EPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

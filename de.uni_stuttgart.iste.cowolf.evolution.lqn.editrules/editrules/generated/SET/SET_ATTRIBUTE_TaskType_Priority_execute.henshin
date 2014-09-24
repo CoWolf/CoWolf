@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_ffPaQEPMEeSvydpbEtLBCg" name="SET_ATTRIBUTE_TaskType_Priority" description="Sets TaskType Priority">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_ffPaQUPMEeSvydpbEtLBCg" name="setTaskTypePriority" description="Sets the EAttribute priority">
+    <parameters xmi:id="_ffPaQkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskType"/>
+    </parameters>
+    <parameters xmi:id="_ffPaQ0PMEeSvydpbEtLBCg" name="Priority">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//NonNegativeInteger"/>
+    </parameters>
+    <lhs xmi:id="_ffPaREPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_ffPaRUPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//TaskType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_ffPaRkPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_ffPaR0PMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//TaskType"/>
+        <attributes xmi:id="_ffPaSEPMEeSvydpbEtLBCg" value="Priority">
+          <type href="http://LQN/1.0#//TaskType/priority"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_ffPaSUPMEeSvydpbEtLBCg" origin="_ffPaRUPMEeSvydpbEtLBCg" image="_ffPaR0PMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_ffPaSkPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_ffPaQUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_ffQBUEPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskType"/>
+    </parameters>
+    <parameters xmi:id="_ffQBUUPMEeSvydpbEtLBCg" name="Priority">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//NonNegativeInteger"/>
+    </parameters>
+    <parameterMappings xmi:id="_ffQBUkPMEeSvydpbEtLBCg" source="_ffQBUEPMEeSvydpbEtLBCg" target="_ffPaQkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_ffQBU0PMEeSvydpbEtLBCg" source="_ffQBUUPMEeSvydpbEtLBCg" target="_ffPaQ0PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

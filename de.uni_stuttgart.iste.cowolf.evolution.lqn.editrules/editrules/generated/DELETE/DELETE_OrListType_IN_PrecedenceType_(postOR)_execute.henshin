@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fvgD0EPMEeSvydpbEtLBCg" name="DELETE_OrListType_IN_PrecedenceType_(postOR)" description="Deletes one OrListType in PrecedenceType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fvgD0UPMEeSvydpbEtLBCg" name="deleteOrListType_IN_PrecedenceType" description="deletes one OrListType in the context: PrecedenceType">
+    <parameters xmi:id="_fvgD0kPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PrecedenceType"/>
+    </parameters>
+    <parameters xmi:id="_fvgD00PMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OrListType"/>
+    </parameters>
+    <parameters xmi:id="_fvgD1EPMEeSvydpbEtLBCg" name="Child">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityOrType"/>
+    </parameters>
+    <lhs xmi:id="_fvgD1UPMEeSvydpbEtLBCg" name="LHS">
+      <nodes xmi:id="_fvgD1kPMEeSvydpbEtLBCg" name="Selected" outgoing="_fvgD2UPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//PrecedenceType"/>
+      </nodes>
+      <nodes xmi:id="_fvgD10PMEeSvydpbEtLBCg" name="ToBeDeleted" incoming="_fvgD2UPMEeSvydpbEtLBCg" outgoing="_fvgD2kPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//OrListType"/>
+      </nodes>
+      <nodes xmi:id="_fvgD2EPMEeSvydpbEtLBCg" name="Child" incoming="_fvgD2kPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityOrType"/>
+      </nodes>
+      <edges xmi:id="_fvgD2UPMEeSvydpbEtLBCg" source="_fvgD1kPMEeSvydpbEtLBCg" target="_fvgD10PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//PrecedenceType/postOR"/>
+      </edges>
+      <edges xmi:id="_fvgD2kPMEeSvydpbEtLBCg" source="_fvgD10PMEeSvydpbEtLBCg" target="_fvgD2EPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//OrListType/activity"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_fvgD20PMEeSvydpbEtLBCg" name="RHS">
+      <nodes xmi:id="_fvgD3EPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//PrecedenceType"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_fvgD3UPMEeSvydpbEtLBCg" origin="_fvgD1kPMEeSvydpbEtLBCg" image="_fvgD3EPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fvgD3kPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fvgD0UPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fvgD30PMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PrecedenceType"/>
+    </parameters>
+    <parameters xmi:id="_fvgD4EPMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OrListType"/>
+    </parameters>
+    <parameters xmi:id="_fvgD4UPMEeSvydpbEtLBCg" name="Child">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityOrType"/>
+    </parameters>
+    <parameterMappings xmi:id="_fvgD4kPMEeSvydpbEtLBCg" source="_fvgD30PMEeSvydpbEtLBCg" target="_fvgD0kPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fvgD40PMEeSvydpbEtLBCg" source="_fvgD4EPMEeSvydpbEtLBCg" target="_fvgD00PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fvgD5EPMEeSvydpbEtLBCg" source="_fvgD4UPMEeSvydpbEtLBCg" target="_fvgD1EPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

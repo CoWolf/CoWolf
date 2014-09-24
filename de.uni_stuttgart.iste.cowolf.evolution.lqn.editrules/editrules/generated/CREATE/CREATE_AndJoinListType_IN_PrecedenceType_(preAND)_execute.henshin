@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fjx8AEPMEeSvydpbEtLBCg" name="CREATE_AndJoinListType_IN_PrecedenceType_(preAND)" description="Creates one AndJoinListType in PrecedenceType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fjx8AUPMEeSvydpbEtLBCg" name="createAndJoinListType_IN_PrecedenceType" description="creates one AndJoinListType in the context: PrecedenceType">
+    <parameters xmi:id="_fjx8AkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PrecedenceType"/>
+    </parameters>
+    <parameters xmi:id="_fjx8A0PMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//AndJoinListType"/>
+    </parameters>
+    <parameters xmi:id="_fjx8BEPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fjx8BUPMEeSvydpbEtLBCg" name="Quorum">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//NonNegativeInteger"/>
+    </parameters>
+    <parameters xmi:id="_fjx8BkPMEeSvydpbEtLBCg" name="Child">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityType"/>
+    </parameters>
+    <parameters xmi:id="_fjx8B0PMEeSvydpbEtLBCg" name="Id1">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_fjx8CEPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fjx8CUPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//PrecedenceType"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_fjx8CkPMEeSvydpbEtLBCg">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_fjx8C0PMEeSvydpbEtLBCg">
+          <conclusion xmi:id="_fjx8DEPMEeSvydpbEtLBCg" name="ub0">
+            <nodes xmi:id="_fjx8DUPMEeSvydpbEtLBCg" outgoing="_fjx8D0PMEeSvydpbEtLBCg">
+              <type href="http://LQN/1.0#//PrecedenceType"/>
+            </nodes>
+            <nodes xmi:id="_fjx8DkPMEeSvydpbEtLBCg" incoming="_fjx8D0PMEeSvydpbEtLBCg">
+              <type href="http://LQN/1.0#//AndJoinListType"/>
+            </nodes>
+            <edges xmi:id="_fjx8D0PMEeSvydpbEtLBCg" source="_fjx8DUPMEeSvydpbEtLBCg" target="_fjx8DkPMEeSvydpbEtLBCg">
+              <type href="http://LQN/1.0#//PrecedenceType/preAND"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_fjx8EEPMEeSvydpbEtLBCg" origin="_fjx8CUPMEeSvydpbEtLBCg" image="_fjx8DUPMEeSvydpbEtLBCg"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_fjx8EUPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fjx8EkPMEeSvydpbEtLBCg" name="Selected" outgoing="_fjx8GEPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//PrecedenceType"/>
+      </nodes>
+      <nodes xmi:id="_fjx8E0PMEeSvydpbEtLBCg" name="New" incoming="_fjx8GEPMEeSvydpbEtLBCg" outgoing="_fjx8GUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//AndJoinListType"/>
+        <attributes xmi:id="_fjx8FEPMEeSvydpbEtLBCg" value="Id">
+          <type href="platform:/resource/de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_fjx8FUPMEeSvydpbEtLBCg" value="Quorum">
+          <type href="http://LQN/1.0#//AndJoinListType/quorum"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_fjx8FkPMEeSvydpbEtLBCg" name="Child" incoming="_fjx8GUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityType"/>
+        <attributes xmi:id="_fjx8F0PMEeSvydpbEtLBCg" value="Id1">
+          <type href="platform:/resource/de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_fjx8GEPMEeSvydpbEtLBCg" source="_fjx8EkPMEeSvydpbEtLBCg" target="_fjx8E0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//PrecedenceType/preAND"/>
+      </edges>
+      <edges xmi:id="_fjx8GUPMEeSvydpbEtLBCg" source="_fjx8E0PMEeSvydpbEtLBCg" target="_fjx8FkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//AndJoinListType/activity"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_fjx8GkPMEeSvydpbEtLBCg" origin="_fjx8CUPMEeSvydpbEtLBCg" image="_fjx8EkPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fjyjEEPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fjx8AUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fjyjEUPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PrecedenceType"/>
+    </parameters>
+    <parameters xmi:id="_fjyjEkPMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//AndJoinListType"/>
+    </parameters>
+    <parameters xmi:id="_fjyjE0PMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fjyjFEPMEeSvydpbEtLBCg" name="Quorum">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//NonNegativeInteger"/>
+    </parameters>
+    <parameters xmi:id="_fjyjFUPMEeSvydpbEtLBCg" name="Child">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityType"/>
+    </parameters>
+    <parameters xmi:id="_fjyjFkPMEeSvydpbEtLBCg" name="Id1">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_fjyjF0PMEeSvydpbEtLBCg" source="_fjyjEUPMEeSvydpbEtLBCg" target="_fjx8AkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fjyjGEPMEeSvydpbEtLBCg" source="_fjx8A0PMEeSvydpbEtLBCg" target="_fjyjEkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fjyjGUPMEeSvydpbEtLBCg" source="_fjyjE0PMEeSvydpbEtLBCg" target="_fjx8BEPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fjyjGkPMEeSvydpbEtLBCg" source="_fjyjFEPMEeSvydpbEtLBCg" target="_fjx8BUPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fjyjG0PMEeSvydpbEtLBCg" source="_fjx8BkPMEeSvydpbEtLBCg" target="_fjyjFUPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fjyjHEPMEeSvydpbEtLBCg" source="_fjyjFkPMEeSvydpbEtLBCg" target="_fjx8B0PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

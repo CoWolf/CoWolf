@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fpdtQEPMEeSvydpbEtLBCg" name="CREATE_BindType_IN_SlotType_(binding)" description="Creates one BindType in SlotType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fpdtQUPMEeSvydpbEtLBCg" name="createBindType_IN_SlotType" description="creates one BindType in the context: SlotType">
+    <parameters xmi:id="_fpdtQkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SlotType"/>
+    </parameters>
+    <parameters xmi:id="_fpdtQ0PMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//BindType"/>
+    </parameters>
+    <parameters xmi:id="_fpdtREPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_fpdtRUPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fpdtRkPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//SlotType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_fpdtR0PMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fpdtSEPMEeSvydpbEtLBCg" name="Selected" outgoing="_fpdtS0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//SlotType"/>
+      </nodes>
+      <nodes xmi:id="_fpdtSUPMEeSvydpbEtLBCg" name="New" incoming="_fpdtS0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//BindType"/>
+        <attributes xmi:id="_fpdtSkPMEeSvydpbEtLBCg" value="Id">
+          <type href="platform:/resource/de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_fpdtS0PMEeSvydpbEtLBCg" source="_fpdtSEPMEeSvydpbEtLBCg" target="_fpdtSUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//SlotType/binding"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_fpdtTEPMEeSvydpbEtLBCg" origin="_fpdtRkPMEeSvydpbEtLBCg" image="_fpdtSEPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fpdtTUPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fpdtQUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fpdtTkPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SlotType"/>
+    </parameters>
+    <parameters xmi:id="_fpdtT0PMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//BindType"/>
+    </parameters>
+    <parameters xmi:id="_fpdtUEPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_fpdtUUPMEeSvydpbEtLBCg" source="_fpdtTkPMEeSvydpbEtLBCg" target="_fpdtQkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fpdtUkPMEeSvydpbEtLBCg" source="_fpdtQ0PMEeSvydpbEtLBCg" target="_fpdtT0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fpdtU0PMEeSvydpbEtLBCg" source="_fpdtUEPMEeSvydpbEtLBCg" target="_fpdtREPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

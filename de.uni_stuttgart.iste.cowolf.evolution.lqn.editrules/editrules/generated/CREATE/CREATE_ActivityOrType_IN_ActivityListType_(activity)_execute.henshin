@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fkH6QEPMEeSvydpbEtLBCg" name="CREATE_ActivityOrType_IN_ActivityListType_(activity)" description="Creates one ActivityOrType in ActivityListType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fkH6QUPMEeSvydpbEtLBCg" name="createActivityOrType_IN_ActivityListType" description="creates one ActivityOrType in the context: ActivityListType">
+    <parameters xmi:id="_fkH6QkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityListType"/>
+    </parameters>
+    <parameters xmi:id="_fkH6Q0PMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityOrType"/>
+    </parameters>
+    <parameters xmi:id="_fkH6REPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fkH6RUPMEeSvydpbEtLBCg" name="Prob">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_fkH6RkPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fkH6R0PMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//ActivityListType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_fkH6SEPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fkH6SUPMEeSvydpbEtLBCg" name="Selected" outgoing="_fkH6TUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityListType"/>
+      </nodes>
+      <nodes xmi:id="_fkH6SkPMEeSvydpbEtLBCg" name="New" incoming="_fkH6TUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityOrType"/>
+        <attributes xmi:id="_fkH6S0PMEeSvydpbEtLBCg" value="Id">
+          <type href="platform:/resource/de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_fkH6TEPMEeSvydpbEtLBCg" value="Prob">
+          <type href="http://LQN/1.0#//ActivityOrType/prob"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_fkH6TUPMEeSvydpbEtLBCg" source="_fkH6SUPMEeSvydpbEtLBCg" target="_fkH6SkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityListType/activity"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_fkH6TkPMEeSvydpbEtLBCg" origin="_fkH6R0PMEeSvydpbEtLBCg" image="_fkH6SUPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fkH6T0PMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fkH6QUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fkH6UEPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityListType"/>
+    </parameters>
+    <parameters xmi:id="_fkJIYEPMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityOrType"/>
+    </parameters>
+    <parameters xmi:id="_fkJIYUPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fkJIYkPMEeSvydpbEtLBCg" name="Prob">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_fkJIY0PMEeSvydpbEtLBCg" source="_fkH6UEPMEeSvydpbEtLBCg" target="_fkH6QkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fkJIZEPMEeSvydpbEtLBCg" source="_fkH6Q0PMEeSvydpbEtLBCg" target="_fkJIYEPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fkJIZUPMEeSvydpbEtLBCg" source="_fkJIYUPMEeSvydpbEtLBCg" target="_fkH6REPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fkJIZkPMEeSvydpbEtLBCg" source="_fkJIYkPMEeSvydpbEtLBCg" target="_fkH6RUPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

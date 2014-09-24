@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fttUEEPMEeSvydpbEtLBCg" name="SET_ATTRIBUTE_SlotType_BindTarget" description="Sets SlotType BindTarget">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fttUEUPMEeSvydpbEtLBCg" name="setSlotTypeBindTarget" description="Sets the EAttribute bindTarget">
+    <parameters xmi:id="_fttUEkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SlotType"/>
+    </parameters>
+    <parameters xmi:id="_fttUE0PMEeSvydpbEtLBCg" name="BindTarget">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_fttUFEPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fttUFUPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//SlotType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_fttUFkPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fttUF0PMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//SlotType"/>
+        <attributes xmi:id="_fttUGEPMEeSvydpbEtLBCg" value="BindTarget">
+          <type href="http://LQN/1.0#//SlotType/bindTarget"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_fttUGUPMEeSvydpbEtLBCg" origin="_fttUFUPMEeSvydpbEtLBCg" image="_fttUF0PMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fttUGkPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fttUEUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fttUG0PMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SlotType"/>
+    </parameters>
+    <parameters xmi:id="_fttUHEPMEeSvydpbEtLBCg" name="BindTarget">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_fttUHUPMEeSvydpbEtLBCg" source="_fttUG0PMEeSvydpbEtLBCg" target="_fttUEkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fttUHkPMEeSvydpbEtLBCg" source="_fttUHEPMEeSvydpbEtLBCg" target="_fttUE0PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

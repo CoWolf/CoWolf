@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fcqnYEPMEeSvydpbEtLBCg" name="SET_ATTRIBUTE_AndJoinListType_Quorum" description="Sets AndJoinListType Quorum">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fcqnYUPMEeSvydpbEtLBCg" name="setAndJoinListTypeQuorum" description="Sets the EAttribute quorum">
+    <parameters xmi:id="_fcqnYkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//AndJoinListType"/>
+    </parameters>
+    <parameters xmi:id="_fcqnY0PMEeSvydpbEtLBCg" name="Quorum">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//NonNegativeInteger"/>
+    </parameters>
+    <lhs xmi:id="_fcqnZEPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fcqnZUPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//AndJoinListType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_fcqnZkPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fcqnZ0PMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//AndJoinListType"/>
+        <attributes xmi:id="_fcqnaEPMEeSvydpbEtLBCg" value="Quorum">
+          <type href="http://LQN/1.0#//AndJoinListType/quorum"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_fcqnaUPMEeSvydpbEtLBCg" origin="_fcqnZUPMEeSvydpbEtLBCg" image="_fcqnZ0PMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fcqnakPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fcqnYUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fcqna0PMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//AndJoinListType"/>
+    </parameters>
+    <parameters xmi:id="_fcqnbEPMEeSvydpbEtLBCg" name="Quorum">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//NonNegativeInteger"/>
+    </parameters>
+    <parameterMappings xmi:id="_fcqnbUPMEeSvydpbEtLBCg" source="_fcqna0PMEeSvydpbEtLBCg" target="_fcqnYkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fcqnbkPMEeSvydpbEtLBCg" source="_fcqnbEPMEeSvydpbEtLBCg" target="_fcqnY0PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

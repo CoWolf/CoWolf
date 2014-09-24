@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fkg70EPMEeSvydpbEtLBCg" name="MOVE_ActivityListType_FROM_PrecedenceType_(preOR)_TO_PrecedenceType_(preOR)" description="MOVEs ActivityListType from PrecedenceType(Reference:preOR) to PrecedenceType(Reference:preOR">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fkg70UPMEeSvydpbEtLBCg" name="moveActivityListType_FROM_PrecedenceType_preOR_TO_PrecedenceType_PrecedenceType" description="Moves ActivityListType from PrecedenceType(Reference:preOR) toPrecedenceType(Reference:PrecedenceType)">
+    <parameters xmi:id="_fkg70kPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityListType"/>
+    </parameters>
+    <parameters xmi:id="_fkg700PMEeSvydpbEtLBCg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PrecedenceType"/>
+    </parameters>
+    <parameters xmi:id="_fkg71EPMEeSvydpbEtLBCg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PrecedenceType"/>
+    </parameters>
+    <lhs xmi:id="_fkg71UPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fkg71kPMEeSvydpbEtLBCg" name="Selected" incoming="_fkg72UPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityListType"/>
+      </nodes>
+      <nodes xmi:id="_fkg710PMEeSvydpbEtLBCg" name="OldSource" outgoing="_fkg72UPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//PrecedenceType"/>
+      </nodes>
+      <nodes xmi:id="_fkg72EPMEeSvydpbEtLBCg" name="NewSource">
+        <type href="http://LQN/1.0#//PrecedenceType"/>
+      </nodes>
+      <edges xmi:id="_fkg72UPMEeSvydpbEtLBCg" source="_fkg710PMEeSvydpbEtLBCg" target="_fkg71kPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//PrecedenceType/preOR"/>
+      </edges>
+      <formula xsi:type="henshin:Not" xmi:id="_fkg72kPMEeSvydpbEtLBCg">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_fkg720PMEeSvydpbEtLBCg">
+          <conclusion xmi:id="_fkg73EPMEeSvydpbEtLBCg" name="ub0">
+            <nodes xmi:id="_fkg73UPMEeSvydpbEtLBCg" outgoing="_fkg730PMEeSvydpbEtLBCg">
+              <type href="http://LQN/1.0#//PrecedenceType"/>
+            </nodes>
+            <nodes xmi:id="_fkg73kPMEeSvydpbEtLBCg" incoming="_fkg730PMEeSvydpbEtLBCg">
+              <type href="http://LQN/1.0#//ActivityListType"/>
+            </nodes>
+            <edges xmi:id="_fkg730PMEeSvydpbEtLBCg" source="_fkg73UPMEeSvydpbEtLBCg" target="_fkg73kPMEeSvydpbEtLBCg">
+              <type href="http://LQN/1.0#//PrecedenceType/preOR"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_fkg74EPMEeSvydpbEtLBCg" origin="_fkg72EPMEeSvydpbEtLBCg" image="_fkg73UPMEeSvydpbEtLBCg"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_fkg74UPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fkg74kPMEeSvydpbEtLBCg" name="Selected" incoming="_fkg75UPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityListType"/>
+      </nodes>
+      <nodes xmi:id="_fkg740PMEeSvydpbEtLBCg" name="OldSource">
+        <type href="http://LQN/1.0#//PrecedenceType"/>
+      </nodes>
+      <nodes xmi:id="_fkg75EPMEeSvydpbEtLBCg" name="NewSource" outgoing="_fkg75UPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//PrecedenceType"/>
+      </nodes>
+      <edges xmi:id="_fkg75UPMEeSvydpbEtLBCg" source="_fkg75EPMEeSvydpbEtLBCg" target="_fkg74kPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//PrecedenceType/preOR"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_fkg75kPMEeSvydpbEtLBCg" origin="_fkg71kPMEeSvydpbEtLBCg" image="_fkg74kPMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_fkg750PMEeSvydpbEtLBCg" origin="_fkg710PMEeSvydpbEtLBCg" image="_fkg740PMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_fkg76EPMEeSvydpbEtLBCg" origin="_fkg72EPMEeSvydpbEtLBCg" image="_fkg75EPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fkg76UPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fkg70UPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fkg76kPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityListType"/>
+    </parameters>
+    <parameters xmi:id="_fkg760PMEeSvydpbEtLBCg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PrecedenceType"/>
+    </parameters>
+    <parameters xmi:id="_fkg77EPMEeSvydpbEtLBCg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PrecedenceType"/>
+    </parameters>
+    <parameterMappings xmi:id="_fkg77UPMEeSvydpbEtLBCg" source="_fkg76kPMEeSvydpbEtLBCg" target="_fkg70kPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fkg77kPMEeSvydpbEtLBCg" source="_fkg760PMEeSvydpbEtLBCg" target="_fkg700PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fkg770PMEeSvydpbEtLBCg" source="_fkg77EPMEeSvydpbEtLBCg" target="_fkg71EPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

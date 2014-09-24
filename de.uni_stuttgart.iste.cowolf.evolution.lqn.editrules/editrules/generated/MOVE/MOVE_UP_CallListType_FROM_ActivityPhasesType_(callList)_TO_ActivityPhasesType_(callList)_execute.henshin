@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_feEVkEPMEeSvydpbEtLBCg" name="MOVE_UP_CallListType_FROM_ActivityPhasesType_(callList)_TO_ActivityPhasesType_(callList)" description="MOVE UPWARDs CallListType from ActivityPhasesType(Reference:callList) to ActivityPhasesType(Reference:callList">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_feEVkUPMEeSvydpbEtLBCg" name="moveUpCallListType_FROM_ActivityPhasesType_callList_TO_ActivityPhasesType_ActivityPhasesType" description="Moves up CallListType from ActivityPhasesType(Reference:callList) toActivityPhasesType(Reference:ActivityPhasesType)">
+    <parameters xmi:id="_feEVkkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//CallListType"/>
+    </parameters>
+    <parameters xmi:id="_feEVk0PMEeSvydpbEtLBCg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityPhasesType"/>
+    </parameters>
+    <parameters xmi:id="_feEVlEPMEeSvydpbEtLBCg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityPhasesType"/>
+    </parameters>
+    <lhs xmi:id="_feEVlUPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_feEVlkPMEeSvydpbEtLBCg" name="Selected" incoming="_feEVmUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//CallListType"/>
+      </nodes>
+      <nodes xmi:id="_feEVl0PMEeSvydpbEtLBCg" name="OldSource" outgoing="_feEVmUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityPhasesType"/>
+      </nodes>
+      <nodes xmi:id="_feEVmEPMEeSvydpbEtLBCg" name="NewSource">
+        <type href="http://LQN/1.0#//ActivityPhasesType"/>
+      </nodes>
+      <edges xmi:id="_feEVmUPMEeSvydpbEtLBCg" source="_feEVl0PMEeSvydpbEtLBCg" target="_feEVlkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityPhasesType/callList"/>
+      </edges>
+      <formula xsi:type="henshin:NestedCondition" xmi:id="_feEVmkPMEeSvydpbEtLBCg">
+        <conclusion xmi:id="_feEVm0PMEeSvydpbEtLBCg" name="cyclePath">
+          <nodes xmi:id="_feEVnEPMEeSvydpbEtLBCg" name="OldSource" incoming="_feEVpEPMEeSvydpbEtLBCg">
+            <type href="http://LQN/1.0#//ActivityPhasesType"/>
+          </nodes>
+          <nodes xmi:id="_feEVnUPMEeSvydpbEtLBCg" name="NewSource" outgoing="_feEVoUPMEeSvydpbEtLBCg">
+            <type href="http://LQN/1.0#//ActivityPhasesType"/>
+          </nodes>
+          <nodes xmi:id="_feEVnkPMEeSvydpbEtLBCg" incoming="_feEVoUPMEeSvydpbEtLBCg" outgoing="_feEVokPMEeSvydpbEtLBCg">
+            <type href="http://LQN/1.0#//AsynchCallType"/>
+          </nodes>
+          <nodes xmi:id="_feEVn0PMEeSvydpbEtLBCg" incoming="_feEVokPMEeSvydpbEtLBCg" outgoing="_feEVo0PMEeSvydpbEtLBCg">
+            <type href="http://LQN/1.0#//EntryType"/>
+          </nodes>
+          <nodes xmi:id="_feEVoEPMEeSvydpbEtLBCg" incoming="_feEVo0PMEeSvydpbEtLBCg" outgoing="_feEVpEPMEeSvydpbEtLBCg">
+            <type href="http://LQN/1.0#//PhaseActivities"/>
+          </nodes>
+          <edges xmi:id="_feEVoUPMEeSvydpbEtLBCg" source="_feEVnUPMEeSvydpbEtLBCg" target="_feEVnkPMEeSvydpbEtLBCg">
+            <type href="http://LQN/1.0#//CallListType/asynchCall"/>
+          </edges>
+          <edges xmi:id="_feEVokPMEeSvydpbEtLBCg" source="_feEVnkPMEeSvydpbEtLBCg" target="_feEVn0PMEeSvydpbEtLBCg">
+            <type href="http://LQN/1.0#//CallType/dest"/>
+          </edges>
+          <edges xmi:id="_feEVo0PMEeSvydpbEtLBCg" source="_feEVn0PMEeSvydpbEtLBCg" target="_feEVoEPMEeSvydpbEtLBCg">
+            <type href="http://LQN/1.0#//EntryType/entryPhaseActivities"/>
+          </edges>
+          <edges xmi:id="_feEVpEPMEeSvydpbEtLBCg" source="_feEVoEPMEeSvydpbEtLBCg" target="_feEVnEPMEeSvydpbEtLBCg">
+            <type href="http://LQN/1.0#//PhaseActivities/activity"/>
+          </edges>
+        </conclusion>
+        <mappings xmi:id="_feEVpUPMEeSvydpbEtLBCg" origin="_feEVmEPMEeSvydpbEtLBCg" image="_feEVnUPMEeSvydpbEtLBCg"/>
+        <mappings xmi:id="_feEVpkPMEeSvydpbEtLBCg" origin="_feEVl0PMEeSvydpbEtLBCg" image="_feEVnEPMEeSvydpbEtLBCg"/>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_feEVp0PMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_feEVqEPMEeSvydpbEtLBCg" name="Selected" incoming="_feEVq0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//CallListType"/>
+      </nodes>
+      <nodes xmi:id="_feEVqUPMEeSvydpbEtLBCg" name="OldSource">
+        <type href="http://LQN/1.0#//ActivityPhasesType"/>
+      </nodes>
+      <nodes xmi:id="_feEVqkPMEeSvydpbEtLBCg" name="NewSource" outgoing="_feEVq0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityPhasesType"/>
+      </nodes>
+      <edges xmi:id="_feEVq0PMEeSvydpbEtLBCg" source="_feEVqkPMEeSvydpbEtLBCg" target="_feEVqEPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityPhasesType/callList"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_feEVrEPMEeSvydpbEtLBCg" origin="_feEVlkPMEeSvydpbEtLBCg" image="_feEVqEPMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_feEVrUPMEeSvydpbEtLBCg" origin="_feEVl0PMEeSvydpbEtLBCg" image="_feEVqUPMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_feEVrkPMEeSvydpbEtLBCg" origin="_feEVmEPMEeSvydpbEtLBCg" image="_feEVqkPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_feEVr0PMEeSvydpbEtLBCg" name="mainUnit" subUnits="_feEVkUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_feEVsEPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//CallListType"/>
+    </parameters>
+    <parameters xmi:id="_feEVsUPMEeSvydpbEtLBCg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityPhasesType"/>
+    </parameters>
+    <parameters xmi:id="_feEVskPMEeSvydpbEtLBCg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityPhasesType"/>
+    </parameters>
+    <parameterMappings xmi:id="_feEVs0PMEeSvydpbEtLBCg" source="_feEVsEPMEeSvydpbEtLBCg" target="_feEVkkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_feEVtEPMEeSvydpbEtLBCg" source="_feEVsUPMEeSvydpbEtLBCg" target="_feEVk0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_feEVtUPMEeSvydpbEtLBCg" source="_feEVskPMEeSvydpbEtLBCg" target="_feEVlEPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

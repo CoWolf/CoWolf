@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fsbhsEPMEeSvydpbEtLBCg" name="CREATE_PortBindingType_IN_BindType_(portBinding)" description="Creates one PortBindingType in BindType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fsbhsUPMEeSvydpbEtLBCg" name="createPortBindingType_IN_BindType" description="creates one PortBindingType in the context: BindType">
+    <parameters xmi:id="_fsbhskPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//BindType"/>
+    </parameters>
+    <parameters xmi:id="_fsbhs0PMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PortBindingType"/>
+    </parameters>
+    <parameters xmi:id="_fsbhtEPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fsbhtUPMEeSvydpbEtLBCg" name="Source">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fsbhtkPMEeSvydpbEtLBCg" name="Target">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_fsbht0PMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fsbhuEPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//BindType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_fsbhuUPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fsbhukPMEeSvydpbEtLBCg" name="Selected" outgoing="_fsbhv0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//BindType"/>
+      </nodes>
+      <nodes xmi:id="_fsbhu0PMEeSvydpbEtLBCg" name="New" incoming="_fsbhv0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//PortBindingType"/>
+        <attributes xmi:id="_fsbhvEPMEeSvydpbEtLBCg" value="Id">
+          <type href="platform:/resource/de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_fsbhvUPMEeSvydpbEtLBCg" value="Source">
+          <type href="http://LQN/1.0#//PortBindingType/source"/>
+        </attributes>
+        <attributes xmi:id="_fsbhvkPMEeSvydpbEtLBCg" value="Target">
+          <type href="http://LQN/1.0#//PortBindingType/target"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_fsbhv0PMEeSvydpbEtLBCg" source="_fsbhukPMEeSvydpbEtLBCg" target="_fsbhu0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//BindType/portBinding"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_fsbhwEPMEeSvydpbEtLBCg" origin="_fsbhuEPMEeSvydpbEtLBCg" image="_fsbhukPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fsbhwUPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fsbhsUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fsbhwkPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//BindType"/>
+    </parameters>
+    <parameters xmi:id="_fsbhw0PMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PortBindingType"/>
+    </parameters>
+    <parameters xmi:id="_fsbhxEPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fsbhxUPMEeSvydpbEtLBCg" name="Source">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fsbhxkPMEeSvydpbEtLBCg" name="Target">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_fsbhx0PMEeSvydpbEtLBCg" source="_fsbhwkPMEeSvydpbEtLBCg" target="_fsbhskPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fsbhyEPMEeSvydpbEtLBCg" source="_fsbhs0PMEeSvydpbEtLBCg" target="_fsbhw0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fsbhyUPMEeSvydpbEtLBCg" source="_fsbhxEPMEeSvydpbEtLBCg" target="_fsbhtEPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fsbhykPMEeSvydpbEtLBCg" source="_fsbhxUPMEeSvydpbEtLBCg" target="_fsbhtUPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fsbhy0PMEeSvydpbEtLBCg" source="_fsbhxkPMEeSvydpbEtLBCg" target="_fsbhtkPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

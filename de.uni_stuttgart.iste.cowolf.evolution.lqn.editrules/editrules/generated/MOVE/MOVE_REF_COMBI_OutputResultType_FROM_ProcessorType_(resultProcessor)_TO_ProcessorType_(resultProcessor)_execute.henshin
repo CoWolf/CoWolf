@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fm13EEPMEeSvydpbEtLBCg" name="MOVE_REF_COMBI_OutputResultType_FROM_ProcessorType_(resultProcessor)_TO_ProcessorType_(resultProcessor)" description="MOVEs OutputResultType from ProcessorType(Reference:resultProcessor) to ProcessorType(Reference:resultProcessor">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fm13EUPMEeSvydpbEtLBCg" name="moveOutputResultType_FROM_ProcessorType_resultProcessor_TO_ProcessorType_ProcessorType" description="Moves OutputResultType from ProcessorType(Reference:resultProcessor) toProcessorType(Reference:ProcessorType)">
+    <parameters xmi:id="_fm13EkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutputResultType"/>
+    </parameters>
+    <parameters xmi:id="_fm13E0PMEeSvydpbEtLBCg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ProcessorType"/>
+    </parameters>
+    <parameters xmi:id="_fm13FEPMEeSvydpbEtLBCg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ProcessorType"/>
+    </parameters>
+    <lhs xmi:id="_fm13FUPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fm13FkPMEeSvydpbEtLBCg" name="Selected" incoming="_fm13GUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//OutputResultType"/>
+      </nodes>
+      <nodes xmi:id="_fm13F0PMEeSvydpbEtLBCg" name="OldSource" outgoing="_fm13GUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ProcessorType"/>
+      </nodes>
+      <nodes xmi:id="_fm13GEPMEeSvydpbEtLBCg" name="NewSource">
+        <type href="http://LQN/1.0#//ProcessorType"/>
+      </nodes>
+      <edges xmi:id="_fm13GUPMEeSvydpbEtLBCg" source="_fm13F0PMEeSvydpbEtLBCg" target="_fm13FkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ProcessorType/resultProcessor"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_fm13GkPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fm13G0PMEeSvydpbEtLBCg" name="Selected" incoming="_fm13HkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//OutputResultType"/>
+      </nodes>
+      <nodes xmi:id="_fm13HEPMEeSvydpbEtLBCg" name="OldSource">
+        <type href="http://LQN/1.0#//ProcessorType"/>
+      </nodes>
+      <nodes xmi:id="_fm13HUPMEeSvydpbEtLBCg" name="NewSource" outgoing="_fm13HkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ProcessorType"/>
+      </nodes>
+      <edges xmi:id="_fm13HkPMEeSvydpbEtLBCg" source="_fm13HUPMEeSvydpbEtLBCg" target="_fm13G0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ProcessorType/resultProcessor"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_fm13H0PMEeSvydpbEtLBCg" origin="_fm13FkPMEeSvydpbEtLBCg" image="_fm13G0PMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_fm13IEPMEeSvydpbEtLBCg" origin="_fm13F0PMEeSvydpbEtLBCg" image="_fm13HEPMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_fm13IUPMEeSvydpbEtLBCg" origin="_fm13GEPMEeSvydpbEtLBCg" image="_fm13HUPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fm13IkPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fm13EUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fm13I0PMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutputResultType"/>
+    </parameters>
+    <parameters xmi:id="_fm13JEPMEeSvydpbEtLBCg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ProcessorType"/>
+    </parameters>
+    <parameters xmi:id="_fm13JUPMEeSvydpbEtLBCg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ProcessorType"/>
+    </parameters>
+    <parameterMappings xmi:id="_fm13JkPMEeSvydpbEtLBCg" source="_fm13I0PMEeSvydpbEtLBCg" target="_fm13EkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fm13J0PMEeSvydpbEtLBCg" source="_fm13JEPMEeSvydpbEtLBCg" target="_fm13E0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fm13KEPMEeSvydpbEtLBCg" source="_fm13JUPMEeSvydpbEtLBCg" target="_fm13FEPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fjluwEPMEeSvydpbEtLBCg" name="MOVE_REF_COMBI_ReplyActivityType_FROM_ReplyEntryType_(replyActivity)_TO_EntryActivityGraph_(replyActivity)" description="MOVEs ReplyActivityType from ReplyEntryType(Reference:replyActivity) to EntryActivityGraph(Reference:replyActivity">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fjluwUPMEeSvydpbEtLBCg" name="moveReplyActivityType_FROM_ReplyEntryType_replyActivity_TO_EntryActivityGraph_EntryActivityGraph" description="Moves ReplyActivityType from ReplyEntryType(Reference:replyActivity) toEntryActivityGraph(Reference:EntryActivityGraph)">
+    <parameters xmi:id="_fjluwkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ReplyActivityType"/>
+    </parameters>
+    <parameters xmi:id="_fjluw0PMEeSvydpbEtLBCg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ReplyEntryType"/>
+    </parameters>
+    <parameters xmi:id="_fjluxEPMEeSvydpbEtLBCg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryActivityGraph"/>
+    </parameters>
+    <lhs xmi:id="_fjluxUPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fjluxkPMEeSvydpbEtLBCg" name="Selected" incoming="_fjluyUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ReplyActivityType"/>
+      </nodes>
+      <nodes xmi:id="_fjlux0PMEeSvydpbEtLBCg" name="OldSource" outgoing="_fjluyUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ReplyEntryType"/>
+      </nodes>
+      <nodes xmi:id="_fjluyEPMEeSvydpbEtLBCg" name="NewSource">
+        <type href="http://LQN/1.0#//EntryActivityGraph"/>
+      </nodes>
+      <edges xmi:id="_fjluyUPMEeSvydpbEtLBCg" source="_fjlux0PMEeSvydpbEtLBCg" target="_fjluxkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ReplyEntryType/replyActivity"/>
+      </edges>
+      <formula xsi:type="henshin:NestedCondition" xmi:id="_fjluykPMEeSvydpbEtLBCg">
+        <conclusion xmi:id="_fjluy0PMEeSvydpbEtLBCg" name="lb0">
+          <nodes xmi:id="_fjluzEPMEeSvydpbEtLBCg" outgoing="_fjluzkPMEeSvydpbEtLBCg">
+            <type href="http://LQN/1.0#//ReplyEntryType"/>
+          </nodes>
+          <nodes xmi:id="_fjluzUPMEeSvydpbEtLBCg" incoming="_fjluzkPMEeSvydpbEtLBCg">
+            <type href="http://LQN/1.0#//ReplyActivityType"/>
+          </nodes>
+          <edges xmi:id="_fjluzkPMEeSvydpbEtLBCg" source="_fjluzEPMEeSvydpbEtLBCg" target="_fjluzUPMEeSvydpbEtLBCg">
+            <type href="http://LQN/1.0#//ReplyEntryType/replyActivity"/>
+          </edges>
+        </conclusion>
+        <mappings xmi:id="_fjluz0PMEeSvydpbEtLBCg" origin="_fjlux0PMEeSvydpbEtLBCg" image="_fjluzEPMEeSvydpbEtLBCg"/>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_fjlu0EPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fjlu0UPMEeSvydpbEtLBCg" name="Selected" incoming="_fjlu1EPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ReplyActivityType"/>
+      </nodes>
+      <nodes xmi:id="_fjlu0kPMEeSvydpbEtLBCg" name="OldSource">
+        <type href="http://LQN/1.0#//ReplyEntryType"/>
+      </nodes>
+      <nodes xmi:id="_fjlu00PMEeSvydpbEtLBCg" name="NewSource" outgoing="_fjlu1EPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//EntryActivityGraph"/>
+      </nodes>
+      <edges xmi:id="_fjlu1EPMEeSvydpbEtLBCg" source="_fjlu00PMEeSvydpbEtLBCg" target="_fjlu0UPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//EntryActivityGraph/replyActivity"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_fjlu1UPMEeSvydpbEtLBCg" origin="_fjluxkPMEeSvydpbEtLBCg" image="_fjlu0UPMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_fjlu1kPMEeSvydpbEtLBCg" origin="_fjlux0PMEeSvydpbEtLBCg" image="_fjlu0kPMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_fjlu10PMEeSvydpbEtLBCg" origin="_fjluyEPMEeSvydpbEtLBCg" image="_fjlu00PMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fjlu2EPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fjluwUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fjlu2UPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ReplyActivityType"/>
+    </parameters>
+    <parameters xmi:id="_fjlu2kPMEeSvydpbEtLBCg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ReplyEntryType"/>
+    </parameters>
+    <parameters xmi:id="_fjlu20PMEeSvydpbEtLBCg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryActivityGraph"/>
+    </parameters>
+    <parameterMappings xmi:id="_fjlu3EPMEeSvydpbEtLBCg" source="_fjlu2UPMEeSvydpbEtLBCg" target="_fjluwkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fjlu3UPMEeSvydpbEtLBCg" source="_fjlu2kPMEeSvydpbEtLBCg" target="_fjluw0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fjlu3kPMEeSvydpbEtLBCg" source="_fjlu20PMEeSvydpbEtLBCg" target="_fjluxEPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

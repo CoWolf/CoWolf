@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_f1QtkEPMEeSvydpbEtLBCg" name="SET_ATTRIBUTE_OutputResultType_Utilization" description="Sets OutputResultType Utilization">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_f1QtkUPMEeSvydpbEtLBCg" name="setOutputResultTypeUtilization" description="Sets the EAttribute utilization">
+    <parameters xmi:id="_f1QtkkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutputResultType"/>
+    </parameters>
+    <parameters xmi:id="_f1Qtk0PMEeSvydpbEtLBCg" name="Utilization">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <lhs xmi:id="_f1QtlEPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_f1QtlUPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//OutputResultType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_f1QtlkPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_f1Qtl0PMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//OutputResultType"/>
+        <attributes xmi:id="_f1QtmEPMEeSvydpbEtLBCg" value="Utilization">
+          <type href="http://LQN/1.0#//OutputResultType/utilization"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_f1QtmUPMEeSvydpbEtLBCg" origin="_f1QtlUPMEeSvydpbEtLBCg" image="_f1Qtl0PMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_f1QtmkPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_f1QtkUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_f1Qtm0PMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutputResultType"/>
+    </parameters>
+    <parameters xmi:id="_f1QtnEPMEeSvydpbEtLBCg" name="Utilization">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameterMappings xmi:id="_f1QtnUPMEeSvydpbEtLBCg" source="_f1Qtm0PMEeSvydpbEtLBCg" target="_f1QtkkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_f1QtnkPMEeSvydpbEtLBCg" source="_f1QtnEPMEeSvydpbEtLBCg" target="_f1Qtk0PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

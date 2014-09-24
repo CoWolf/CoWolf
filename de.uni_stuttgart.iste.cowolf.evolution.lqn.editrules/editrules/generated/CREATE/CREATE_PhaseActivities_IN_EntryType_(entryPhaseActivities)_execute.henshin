@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fsU0AEPMEeSvydpbEtLBCg" name="CREATE_PhaseActivities_IN_EntryType_(entryPhaseActivities)" description="Creates one PhaseActivities in EntryType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fsU0AUPMEeSvydpbEtLBCg" name="createPhaseActivities_IN_EntryType" description="creates one PhaseActivities in the context: EntryType">
+    <parameters xmi:id="_fsU0AkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <parameters xmi:id="_fsU0A0PMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PhaseActivities"/>
+    </parameters>
+    <parameters xmi:id="_fsU0BEPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fsU0BUPMEeSvydpbEtLBCg" name="Child">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityPhasesType"/>
+    </parameters>
+    <parameters xmi:id="_fsU0BkPMEeSvydpbEtLBCg" name="Id1">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fsU0B0PMEeSvydpbEtLBCg" name="CallOrder">
+      <type xsi:type="ecore:EEnum" href="http://LQN/1.0#//CallOrderType"/>
+    </parameters>
+    <parameters xmi:id="_fsU0CEPMEeSvydpbEtLBCg" name="HostDemandCvsq">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameters xmi:id="_fsU0CUPMEeSvydpbEtLBCg" name="HostDemandMean">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameters xmi:id="_fsU0CkPMEeSvydpbEtLBCg" name="MaxServiceTime">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameters xmi:id="_fsU0C0PMEeSvydpbEtLBCg" name="Name">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fsU0DEPMEeSvydpbEtLBCg" name="ThinkTime">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameters xmi:id="_fsU0DUPMEeSvydpbEtLBCg" name="Group">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"/>
+    </parameters>
+    <parameters xmi:id="_fsU0DkPMEeSvydpbEtLBCg" name="Phase">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//PhaseType"/>
+    </parameters>
+    <lhs xmi:id="_fsU0D0PMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fsU0EEPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_fsU0EUPMEeSvydpbEtLBCg">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_fsU0EkPMEeSvydpbEtLBCg">
+          <conclusion xmi:id="_fsU0E0PMEeSvydpbEtLBCg" name="ub0">
+            <nodes xmi:id="_fsU0FEPMEeSvydpbEtLBCg" outgoing="_fsU0FkPMEeSvydpbEtLBCg">
+              <type href="http://LQN/1.0#//EntryType"/>
+            </nodes>
+            <nodes xmi:id="_fsU0FUPMEeSvydpbEtLBCg" incoming="_fsU0FkPMEeSvydpbEtLBCg">
+              <type href="http://LQN/1.0#//PhaseActivities"/>
+            </nodes>
+            <edges xmi:id="_fsU0FkPMEeSvydpbEtLBCg" source="_fsU0FEPMEeSvydpbEtLBCg" target="_fsU0FUPMEeSvydpbEtLBCg">
+              <type href="http://LQN/1.0#//EntryType/entryPhaseActivities"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_fsU0F0PMEeSvydpbEtLBCg" origin="_fsU0EEPMEeSvydpbEtLBCg" image="_fsU0FEPMEeSvydpbEtLBCg"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_fsU0GEPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fsU0GUPMEeSvydpbEtLBCg" name="Selected" outgoing="_fsU0JkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+      <nodes xmi:id="_fsU0GkPMEeSvydpbEtLBCg" name="New" incoming="_fsU0JkPMEeSvydpbEtLBCg" outgoing="_fsU0J0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//PhaseActivities"/>
+        <attributes xmi:id="_fsU0G0PMEeSvydpbEtLBCg" value="Id">
+          <type href="platform:/resource/de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_fsU0HEPMEeSvydpbEtLBCg" name="Child" incoming="_fsU0J0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityPhasesType"/>
+        <attributes xmi:id="_fsU0HUPMEeSvydpbEtLBCg" value="Id1">
+          <type href="platform:/resource/de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_fsU0HkPMEeSvydpbEtLBCg" value="CallOrder">
+          <type href="http://LQN/1.0#//ActivityDefBase/callOrder"/>
+        </attributes>
+        <attributes xmi:id="_fsU0H0PMEeSvydpbEtLBCg" value="HostDemandCvsq">
+          <type href="http://LQN/1.0#//ActivityDefBase/hostDemandCvsq"/>
+        </attributes>
+        <attributes xmi:id="_fsU0IEPMEeSvydpbEtLBCg" value="HostDemandMean">
+          <type href="http://LQN/1.0#//ActivityDefBase/hostDemandMean"/>
+        </attributes>
+        <attributes xmi:id="_fsU0IUPMEeSvydpbEtLBCg" value="MaxServiceTime">
+          <type href="http://LQN/1.0#//ActivityDefBase/maxServiceTime"/>
+        </attributes>
+        <attributes xmi:id="_fsU0IkPMEeSvydpbEtLBCg" value="Name">
+          <type href="http://LQN/1.0#//ActivityDefBase/name"/>
+        </attributes>
+        <attributes xmi:id="_fsU0I0PMEeSvydpbEtLBCg" value="ThinkTime">
+          <type href="http://LQN/1.0#//ActivityDefBase/thinkTime"/>
+        </attributes>
+        <attributes xmi:id="_fsU0JEPMEeSvydpbEtLBCg" value="Group">
+          <type href="http://LQN/1.0#//ActivityPhasesType/group"/>
+        </attributes>
+        <attributes xmi:id="_fsU0JUPMEeSvydpbEtLBCg" value="Phase">
+          <type href="http://LQN/1.0#//ActivityPhasesType/phase"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_fsU0JkPMEeSvydpbEtLBCg" source="_fsU0GUPMEeSvydpbEtLBCg" target="_fsU0GkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//EntryType/entryPhaseActivities"/>
+      </edges>
+      <edges xmi:id="_fsU0J0PMEeSvydpbEtLBCg" source="_fsU0GkPMEeSvydpbEtLBCg" target="_fsU0HEPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//PhaseActivities/activity"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_fsU0KEPMEeSvydpbEtLBCg" origin="_fsU0EEPMEeSvydpbEtLBCg" image="_fsU0GUPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fsU0KUPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fsU0AUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fsU0KkPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <parameters xmi:id="_fsU0K0PMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PhaseActivities"/>
+    </parameters>
+    <parameters xmi:id="_fsU0LEPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fsU0LUPMEeSvydpbEtLBCg" name="Child">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityPhasesType"/>
+    </parameters>
+    <parameters xmi:id="_fsU0LkPMEeSvydpbEtLBCg" name="Id1">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fsU0L0PMEeSvydpbEtLBCg" name="CallOrder">
+      <type xsi:type="ecore:EEnum" href="http://LQN/1.0#//CallOrderType"/>
+    </parameters>
+    <parameters xmi:id="_fsU0MEPMEeSvydpbEtLBCg" name="HostDemandCvsq">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameters xmi:id="_fsU0MUPMEeSvydpbEtLBCg" name="HostDemandMean">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameters xmi:id="_fsU0MkPMEeSvydpbEtLBCg" name="MaxServiceTime">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameters xmi:id="_fsU0M0PMEeSvydpbEtLBCg" name="Name">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fsU0NEPMEeSvydpbEtLBCg" name="ThinkTime">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameters xmi:id="_fsU0NUPMEeSvydpbEtLBCg" name="Group">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"/>
+    </parameters>
+    <parameters xmi:id="_fsU0NkPMEeSvydpbEtLBCg" name="Phase">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//PhaseType"/>
+    </parameters>
+    <parameterMappings xmi:id="_fsU0N0PMEeSvydpbEtLBCg" source="_fsU0KkPMEeSvydpbEtLBCg" target="_fsU0AkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fsU0OEPMEeSvydpbEtLBCg" source="_fsU0A0PMEeSvydpbEtLBCg" target="_fsU0K0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fsU0OUPMEeSvydpbEtLBCg" source="_fsU0LEPMEeSvydpbEtLBCg" target="_fsU0BEPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fsU0OkPMEeSvydpbEtLBCg" source="_fsU0BUPMEeSvydpbEtLBCg" target="_fsU0LUPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fsU0O0PMEeSvydpbEtLBCg" source="_fsU0LkPMEeSvydpbEtLBCg" target="_fsU0BkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fsU0PEPMEeSvydpbEtLBCg" source="_fsU0L0PMEeSvydpbEtLBCg" target="_fsU0B0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fsU0PUPMEeSvydpbEtLBCg" source="_fsU0MEPMEeSvydpbEtLBCg" target="_fsU0CEPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fsU0PkPMEeSvydpbEtLBCg" source="_fsU0MUPMEeSvydpbEtLBCg" target="_fsU0CUPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fsU0P0PMEeSvydpbEtLBCg" source="_fsU0MkPMEeSvydpbEtLBCg" target="_fsU0CkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fsU0QEPMEeSvydpbEtLBCg" source="_fsU0M0PMEeSvydpbEtLBCg" target="_fsU0C0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fsU0QUPMEeSvydpbEtLBCg" source="_fsU0NEPMEeSvydpbEtLBCg" target="_fsU0DEPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fsU0QkPMEeSvydpbEtLBCg" source="_fsU0NUPMEeSvydpbEtLBCg" target="_fsU0DUPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fsU0Q0PMEeSvydpbEtLBCg" source="_fsU0NkPMEeSvydpbEtLBCg" target="_fsU0DkPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_f3jMkEPMEeSvydpbEtLBCg" name="DELETE_OutputResultType_IN_EntryType_(resultEntry)" description="Deletes one OutputResultType in EntryType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_f3jzoEPMEeSvydpbEtLBCg" name="deleteOutputResultType_IN_EntryType" description="deletes one OutputResultType in the context: EntryType">
+    <parameters xmi:id="_f3jzoUPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <parameters xmi:id="_f3jzokPMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutputResultType"/>
+    </parameters>
+    <lhs xmi:id="_f3jzo0PMEeSvydpbEtLBCg" name="LHS">
+      <nodes xmi:id="_f3jzpEPMEeSvydpbEtLBCg" name="Selected" outgoing="_f3jzpkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+      <nodes xmi:id="_f3jzpUPMEeSvydpbEtLBCg" name="ToBeDeleted" incoming="_f3jzpkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//OutputResultType"/>
+      </nodes>
+      <edges xmi:id="_f3jzpkPMEeSvydpbEtLBCg" source="_f3jzpEPMEeSvydpbEtLBCg" target="_f3jzpUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//EntryType/resultEntry"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_f3jzp0PMEeSvydpbEtLBCg" name="RHS">
+      <nodes xmi:id="_f3jzqEPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_f3jzqUPMEeSvydpbEtLBCg" origin="_f3jzpEPMEeSvydpbEtLBCg" image="_f3jzqEPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_f3jzqkPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_f3jzoEPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_f3jzq0PMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <parameters xmi:id="_f3jzrEPMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutputResultType"/>
+    </parameters>
+    <parameterMappings xmi:id="_f3jzrUPMEeSvydpbEtLBCg" source="_f3jzq0PMEeSvydpbEtLBCg" target="_f3jzoUPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_f3jzrkPMEeSvydpbEtLBCg" source="_f3jzrEPMEeSvydpbEtLBCg" target="_f3jzokPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fjYTYEPMEeSvydpbEtLBCg" name="CREATE_PlotType_IN_PlotControlType_(plot)" description="Creates one PlotType in PlotControlType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fjYTYUPMEeSvydpbEtLBCg" name="createPlotType_IN_PlotControlType" description="creates one PlotType in the context: PlotControlType">
+    <parameters xmi:id="_fjYTYkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PlotControlType"/>
+    </parameters>
+    <parameters xmi:id="_fjYTY0PMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PlotType"/>
+    </parameters>
+    <parameters xmi:id="_fjYTZEPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fjYTZUPMEeSvydpbEtLBCg" name="Variable">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_fjYTZkPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fjYTZ0PMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//PlotControlType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_fjYTaEPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fjYTaUPMEeSvydpbEtLBCg" name="Selected" outgoing="_fjYTbUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//PlotControlType"/>
+      </nodes>
+      <nodes xmi:id="_fjYTakPMEeSvydpbEtLBCg" name="New" incoming="_fjYTbUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//PlotType"/>
+        <attributes xmi:id="_fjYTa0PMEeSvydpbEtLBCg" value="Id">
+          <type href="platform:/resource/de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_fjYTbEPMEeSvydpbEtLBCg" value="Variable">
+          <type href="http://LQN/1.0#//PlotType/variable"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_fjYTbUPMEeSvydpbEtLBCg" source="_fjYTaUPMEeSvydpbEtLBCg" target="_fjYTakPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//PlotControlType/plot"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_fjYTbkPMEeSvydpbEtLBCg" origin="_fjYTZ0PMEeSvydpbEtLBCg" image="_fjYTaUPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fjYTb0PMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fjYTYUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fjYTcEPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PlotControlType"/>
+    </parameters>
+    <parameters xmi:id="_fjYTcUPMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PlotType"/>
+    </parameters>
+    <parameters xmi:id="_fjYTckPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fjYTc0PMEeSvydpbEtLBCg" name="Variable">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_fjYTdEPMEeSvydpbEtLBCg" source="_fjYTcEPMEeSvydpbEtLBCg" target="_fjYTYkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fjYTdUPMEeSvydpbEtLBCg" source="_fjYTY0PMEeSvydpbEtLBCg" target="_fjYTcUPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fjYTdkPMEeSvydpbEtLBCg" source="_fjYTckPMEeSvydpbEtLBCg" target="_fjYTZEPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fjYTd0PMEeSvydpbEtLBCg" source="_fjYTc0PMEeSvydpbEtLBCg" target="_fjYTZUPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fuNqYEPMEeSvydpbEtLBCg" name="DELETE_TaskType_IN_ProcessorType_(task)" description="Deletes one TaskType in ProcessorType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fuNqYUPMEeSvydpbEtLBCg" name="deleteTaskType_IN_ProcessorType" description="deletes one TaskType in the context: ProcessorType">
+    <parameters xmi:id="_fuNqYkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ProcessorType"/>
+    </parameters>
+    <parameters xmi:id="_fuNqY0PMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskType"/>
+    </parameters>
+    <parameters xmi:id="_fuNqZEPMEeSvydpbEtLBCg" name="Child">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <lhs xmi:id="_fuNqZUPMEeSvydpbEtLBCg" name="LHS">
+      <nodes xmi:id="_fuNqZkPMEeSvydpbEtLBCg" name="Selected" outgoing="_fuNqaUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ProcessorType"/>
+      </nodes>
+      <nodes xmi:id="_fuNqZ0PMEeSvydpbEtLBCg" name="ToBeDeleted" incoming="_fuNqaUPMEeSvydpbEtLBCg" outgoing="_fuNqakPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//TaskType"/>
+      </nodes>
+      <nodes xmi:id="_fuNqaEPMEeSvydpbEtLBCg" name="Child" incoming="_fuNqakPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+      <edges xmi:id="_fuNqaUPMEeSvydpbEtLBCg" source="_fuNqZkPMEeSvydpbEtLBCg" target="_fuNqZ0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ProcessorType/task"/>
+      </edges>
+      <edges xmi:id="_fuNqakPMEeSvydpbEtLBCg" source="_fuNqZ0PMEeSvydpbEtLBCg" target="_fuNqaEPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//TaskType/entry"/>
+      </edges>
+      <formula xsi:type="henshin:NestedCondition" xmi:id="_fuNqa0PMEeSvydpbEtLBCg">
+        <conclusion xmi:id="_fuNqbEPMEeSvydpbEtLBCg" name="lb0">
+          <nodes xmi:id="_fuNqbUPMEeSvydpbEtLBCg" outgoing="_fuNqb0PMEeSvydpbEtLBCg">
+            <type href="http://LQN/1.0#//ProcessorType"/>
+          </nodes>
+          <nodes xmi:id="_fuNqbkPMEeSvydpbEtLBCg" incoming="_fuNqb0PMEeSvydpbEtLBCg">
+            <type href="http://LQN/1.0#//TaskType"/>
+          </nodes>
+          <edges xmi:id="_fuNqb0PMEeSvydpbEtLBCg" source="_fuNqbUPMEeSvydpbEtLBCg" target="_fuNqbkPMEeSvydpbEtLBCg">
+            <type href="http://LQN/1.0#//ProcessorType/task"/>
+          </edges>
+        </conclusion>
+        <mappings xmi:id="_fuNqcEPMEeSvydpbEtLBCg" origin="_fuNqZkPMEeSvydpbEtLBCg" image="_fuNqbUPMEeSvydpbEtLBCg"/>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_fuNqcUPMEeSvydpbEtLBCg" name="RHS">
+      <nodes xmi:id="_fuNqckPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//ProcessorType"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_fuNqc0PMEeSvydpbEtLBCg" origin="_fuNqZkPMEeSvydpbEtLBCg" image="_fuNqckPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fuNqdEPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fuNqYUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fuNqdUPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ProcessorType"/>
+    </parameters>
+    <parameters xmi:id="_fuNqdkPMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskType"/>
+    </parameters>
+    <parameters xmi:id="_fuNqd0PMEeSvydpbEtLBCg" name="Child">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <parameterMappings xmi:id="_fuNqeEPMEeSvydpbEtLBCg" source="_fuNqdUPMEeSvydpbEtLBCg" target="_fuNqYkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fuNqeUPMEeSvydpbEtLBCg" source="_fuNqdkPMEeSvydpbEtLBCg" target="_fuNqY0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fuNqekPMEeSvydpbEtLBCg" source="_fuNqd0PMEeSvydpbEtLBCg" target="_fuNqZEPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

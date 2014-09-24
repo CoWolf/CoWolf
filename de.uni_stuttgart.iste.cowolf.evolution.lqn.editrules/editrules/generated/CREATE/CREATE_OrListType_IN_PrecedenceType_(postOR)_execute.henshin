@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fnRU4EPMEeSvydpbEtLBCg" name="CREATE_OrListType_IN_PrecedenceType_(postOR)" description="Creates one OrListType in PrecedenceType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fnRU4UPMEeSvydpbEtLBCg" name="createOrListType_IN_PrecedenceType" description="creates one OrListType in the context: PrecedenceType">
+    <parameters xmi:id="_fnRU4kPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PrecedenceType"/>
+    </parameters>
+    <parameters xmi:id="_fnRU40PMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OrListType"/>
+    </parameters>
+    <parameters xmi:id="_fnRU5EPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fnRU5UPMEeSvydpbEtLBCg" name="Child">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityOrType"/>
+    </parameters>
+    <parameters xmi:id="_fnRU5kPMEeSvydpbEtLBCg" name="Id1">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fnRU50PMEeSvydpbEtLBCg" name="Prob">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_fnRU6EPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fnRU6UPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//PrecedenceType"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_fnRU6kPMEeSvydpbEtLBCg">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_fnRU60PMEeSvydpbEtLBCg">
+          <conclusion xmi:id="_fnRU7EPMEeSvydpbEtLBCg" name="ub0">
+            <nodes xmi:id="_fnRU7UPMEeSvydpbEtLBCg" outgoing="_fnRU70PMEeSvydpbEtLBCg">
+              <type href="http://LQN/1.0#//PrecedenceType"/>
+            </nodes>
+            <nodes xmi:id="_fnRU7kPMEeSvydpbEtLBCg" incoming="_fnRU70PMEeSvydpbEtLBCg">
+              <type href="http://LQN/1.0#//OrListType"/>
+            </nodes>
+            <edges xmi:id="_fnRU70PMEeSvydpbEtLBCg" source="_fnRU7UPMEeSvydpbEtLBCg" target="_fnRU7kPMEeSvydpbEtLBCg">
+              <type href="http://LQN/1.0#//PrecedenceType/postOR"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_fnRU8EPMEeSvydpbEtLBCg" origin="_fnRU6UPMEeSvydpbEtLBCg" image="_fnRU7UPMEeSvydpbEtLBCg"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_fnRU8UPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fnRU8kPMEeSvydpbEtLBCg" name="Selected" outgoing="_fnRU-EPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//PrecedenceType"/>
+      </nodes>
+      <nodes xmi:id="_fnRU80PMEeSvydpbEtLBCg" name="New" incoming="_fnRU-EPMEeSvydpbEtLBCg" outgoing="_fnRU-UPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//OrListType"/>
+        <attributes xmi:id="_fnRU9EPMEeSvydpbEtLBCg" value="Id">
+          <type href="platform:/resource/de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_fnRU9UPMEeSvydpbEtLBCg" name="Child" incoming="_fnRU-UPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityOrType"/>
+        <attributes xmi:id="_fnRU9kPMEeSvydpbEtLBCg" value="Id1">
+          <type href="platform:/resource/de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_fnRU90PMEeSvydpbEtLBCg" value="Prob">
+          <type href="http://LQN/1.0#//ActivityOrType/prob"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_fnRU-EPMEeSvydpbEtLBCg" source="_fnRU8kPMEeSvydpbEtLBCg" target="_fnRU80PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//PrecedenceType/postOR"/>
+      </edges>
+      <edges xmi:id="_fnRU-UPMEeSvydpbEtLBCg" source="_fnRU80PMEeSvydpbEtLBCg" target="_fnRU9UPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//OrListType/activity"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_fnRU-kPMEeSvydpbEtLBCg" origin="_fnRU6UPMEeSvydpbEtLBCg" image="_fnRU8kPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fnRU-0PMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fnRU4UPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fnRU_EPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PrecedenceType"/>
+    </parameters>
+    <parameters xmi:id="_fnRU_UPMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OrListType"/>
+    </parameters>
+    <parameters xmi:id="_fnRU_kPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fnRU_0PMEeSvydpbEtLBCg" name="Child">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityOrType"/>
+    </parameters>
+    <parameters xmi:id="_fnRVAEPMEeSvydpbEtLBCg" name="Id1">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fnRVAUPMEeSvydpbEtLBCg" name="Prob">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_fnRVAkPMEeSvydpbEtLBCg" source="_fnRU_EPMEeSvydpbEtLBCg" target="_fnRU4kPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fnRVA0PMEeSvydpbEtLBCg" source="_fnRU40PMEeSvydpbEtLBCg" target="_fnRU_UPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fnRVBEPMEeSvydpbEtLBCg" source="_fnRU_kPMEeSvydpbEtLBCg" target="_fnRU5EPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fnRVBUPMEeSvydpbEtLBCg" source="_fnRU5UPMEeSvydpbEtLBCg" target="_fnRU_0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fnRVBkPMEeSvydpbEtLBCg" source="_fnRVAEPMEeSvydpbEtLBCg" target="_fnRU5kPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fnRVB0PMEeSvydpbEtLBCg" source="_fnRVAUPMEeSvydpbEtLBCg" target="_fnRU50PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

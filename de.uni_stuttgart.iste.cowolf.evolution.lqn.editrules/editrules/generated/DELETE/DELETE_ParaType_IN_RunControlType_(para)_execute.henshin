@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_f8sLQEPMEeSvydpbEtLBCg" name="DELETE_ParaType_IN_RunControlType_(para)" description="Deletes one ParaType in RunControlType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_f8sLQUPMEeSvydpbEtLBCg" name="deleteParaType_IN_RunControlType" description="deletes one ParaType in the context: RunControlType">
+    <parameters xmi:id="_f8sLQkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//RunControlType"/>
+    </parameters>
+    <parameters xmi:id="_f8sLQ0PMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ParaType"/>
+    </parameters>
+    <lhs xmi:id="_f8sLREPMEeSvydpbEtLBCg" name="LHS">
+      <nodes xmi:id="_f8sLRUPMEeSvydpbEtLBCg" name="Selected" outgoing="_f8sLR0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//RunControlType"/>
+      </nodes>
+      <nodes xmi:id="_f8sLRkPMEeSvydpbEtLBCg" name="ToBeDeleted" incoming="_f8sLR0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ParaType"/>
+      </nodes>
+      <edges xmi:id="_f8sLR0PMEeSvydpbEtLBCg" source="_f8sLRUPMEeSvydpbEtLBCg" target="_f8sLRkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//RunControlType/para"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_f8sLSEPMEeSvydpbEtLBCg" name="RHS">
+      <nodes xmi:id="_f8sLSUPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//RunControlType"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_f8sLSkPMEeSvydpbEtLBCg" origin="_f8sLRUPMEeSvydpbEtLBCg" image="_f8sLSUPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_f8sLS0PMEeSvydpbEtLBCg" name="mainUnit" subUnits="_f8sLQUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_f8sLTEPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//RunControlType"/>
+    </parameters>
+    <parameters xmi:id="_f8sLTUPMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ParaType"/>
+    </parameters>
+    <parameterMappings xmi:id="_f8sLTkPMEeSvydpbEtLBCg" source="_f8sLTEPMEeSvydpbEtLBCg" target="_f8sLQkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_f8sLT0PMEeSvydpbEtLBCg" source="_f8sLTUPMEeSvydpbEtLBCg" target="_f8sLQ0PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

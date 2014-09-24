@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fzfL8EPMEeSvydpbEtLBCg" name="DELETE_PrecedenceType_IN_ActivityGraphBase_(precedence)" description="Deletes one PrecedenceType in ActivityGraphBase">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fzfL8UPMEeSvydpbEtLBCg" name="deletePrecedenceType_IN_ActivityGraphBase" description="deletes one PrecedenceType in the context: ActivityGraphBase">
+    <parameters xmi:id="_fzfL8kPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityGraphBase"/>
+    </parameters>
+    <parameters xmi:id="_fzfL80PMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PrecedenceType"/>
+    </parameters>
+    <lhs xmi:id="_fzfL9EPMEeSvydpbEtLBCg" name="LHS">
+      <nodes xmi:id="_fzfL9UPMEeSvydpbEtLBCg" name="Selected" outgoing="_fzfL90PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityGraphBase"/>
+      </nodes>
+      <nodes xmi:id="_fzfL9kPMEeSvydpbEtLBCg" name="ToBeDeleted" incoming="_fzfL90PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//PrecedenceType"/>
+      </nodes>
+      <edges xmi:id="_fzfL90PMEeSvydpbEtLBCg" source="_fzfL9UPMEeSvydpbEtLBCg" target="_fzfL9kPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityGraphBase/precedence"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_fzfL-EPMEeSvydpbEtLBCg" name="RHS">
+      <nodes xmi:id="_fzfL-UPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//ActivityGraphBase"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_fzfL-kPMEeSvydpbEtLBCg" origin="_fzfL9UPMEeSvydpbEtLBCg" image="_fzfL-UPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fzfL-0PMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fzfL8UPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fzfL_EPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityGraphBase"/>
+    </parameters>
+    <parameters xmi:id="_fzfL_UPMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PrecedenceType"/>
+    </parameters>
+    <parameterMappings xmi:id="_fzfL_kPMEeSvydpbEtLBCg" source="_fzfL_EPMEeSvydpbEtLBCg" target="_fzfL8kPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fzfL_0PMEeSvydpbEtLBCg" source="_fzfL_UPMEeSvydpbEtLBCg" target="_fzfL80PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_frd4YEPMEeSvydpbEtLBCg" name="SET_ATTRIBUTE_TaskType_ActivityGraph" description="Sets TaskType ActivityGraph">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_frd4YUPMEeSvydpbEtLBCg" name="setTaskTypeActivityGraph" description="Sets the EAttribute activityGraph">
+    <parameters xmi:id="_frd4YkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskType"/>
+    </parameters>
+    <parameters xmi:id="_frd4Y0PMEeSvydpbEtLBCg" name="ActivityGraph">
+      <type xsi:type="ecore:EEnum" href="http://LQN/1.0#//TaskOptionType"/>
+    </parameters>
+    <lhs xmi:id="_frd4ZEPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_frd4ZUPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//TaskType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_frd4ZkPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_frd4Z0PMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//TaskType"/>
+        <attributes xmi:id="_frd4aEPMEeSvydpbEtLBCg" value="ActivityGraph">
+          <type href="http://LQN/1.0#//TaskType/activityGraph"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_frd4aUPMEeSvydpbEtLBCg" origin="_frd4ZUPMEeSvydpbEtLBCg" image="_frd4Z0PMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_frd4akPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_frd4YUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_frd4a0PMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskType"/>
+    </parameters>
+    <parameters xmi:id="_frd4bEPMEeSvydpbEtLBCg" name="ActivityGraph">
+      <type xsi:type="ecore:EEnum" href="http://LQN/1.0#//TaskOptionType"/>
+    </parameters>
+    <parameterMappings xmi:id="_frd4bUPMEeSvydpbEtLBCg" source="_frd4a0PMEeSvydpbEtLBCg" target="_frd4YkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_frd4bkPMEeSvydpbEtLBCg" source="_frd4bEPMEeSvydpbEtLBCg" target="_frd4Y0PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>
