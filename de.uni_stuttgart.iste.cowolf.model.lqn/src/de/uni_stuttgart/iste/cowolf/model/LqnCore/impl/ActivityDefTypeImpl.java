@@ -35,7 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.ActivityDefTypeImpl#getGroup <em>Group</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.ActivityDefTypeImpl#getSynchCall <em>Synch Call</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.ActivityDefTypeImpl#getAsynchCall <em>Asynch Call</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.ActivityDefTypeImpl#getBountToType <em>Bount To Type</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.ActivityDefTypeImpl#getBoundToType <em>Bound To Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -63,24 +63,24 @@ public class ActivityDefTypeImpl extends ActivityDefBaseImpl implements Activity
 	protected FeatureMap group;
 
 	/**
-	 * The default value of the '{@link #getBountToType() <em>Bount To Type</em>}' attribute.
+	 * The default value of the '{@link #getBoundToType() <em>Bound To Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBountToType()
+	 * @see #getBoundToType()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String BOUNT_TO_TYPE_EDEFAULT = null;
+	protected static final String BOUND_TO_TYPE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getBountToType() <em>Bount To Type</em>}' attribute.
+	 * The cached value of the '{@link #getBoundToType() <em>Bound To Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBountToType()
+	 * @see #getBoundToType()
 	 * @generated
 	 * @ordered
 	 */
-	protected String bountToType = BOUNT_TO_TYPE_EDEFAULT;
+	protected String boundToType = BOUND_TO_TYPE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -148,8 +148,8 @@ public class ActivityDefTypeImpl extends ActivityDefBaseImpl implements Activity
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getBountToType() {
-		return bountToType;
+	public String getBoundToType() {
+		return boundToType;
 	}
 
 	/**
@@ -157,11 +157,11 @@ public class ActivityDefTypeImpl extends ActivityDefBaseImpl implements Activity
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBountToType(String newBountToType) {
-		String oldBountToType = bountToType;
-		bountToType = newBountToType;
+	public void setBoundToType(String newBoundToType) {
+		String oldBoundToType = boundToType;
+		boundToType = newBoundToType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LQNPackage.ACTIVITY_DEF_TYPE__BOUNT_TO_TYPE, oldBountToType, bountToType));
+			eNotify(new ENotificationImpl(this, Notification.SET, LQNPackage.ACTIVITY_DEF_TYPE__BOUND_TO_TYPE, oldBoundToType, boundToType));
 	}
 
 	/**
@@ -201,8 +201,8 @@ public class ActivityDefTypeImpl extends ActivityDefBaseImpl implements Activity
 				return getSynchCall();
 			case LQNPackage.ACTIVITY_DEF_TYPE__ASYNCH_CALL:
 				return getAsynchCall();
-			case LQNPackage.ACTIVITY_DEF_TYPE__BOUNT_TO_TYPE:
-				return getBountToType();
+			case LQNPackage.ACTIVITY_DEF_TYPE__BOUND_TO_TYPE:
+				return getBoundToType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -231,8 +231,8 @@ public class ActivityDefTypeImpl extends ActivityDefBaseImpl implements Activity
 				getAsynchCall().clear();
 				getAsynchCall().addAll((Collection<? extends ActivityMakingCallType>)newValue);
 				return;
-			case LQNPackage.ACTIVITY_DEF_TYPE__BOUNT_TO_TYPE:
-				setBountToType((String)newValue);
+			case LQNPackage.ACTIVITY_DEF_TYPE__BOUND_TO_TYPE:
+				setBoundToType((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -258,8 +258,8 @@ public class ActivityDefTypeImpl extends ActivityDefBaseImpl implements Activity
 			case LQNPackage.ACTIVITY_DEF_TYPE__ASYNCH_CALL:
 				getAsynchCall().clear();
 				return;
-			case LQNPackage.ACTIVITY_DEF_TYPE__BOUNT_TO_TYPE:
-				setBountToType(BOUNT_TO_TYPE_EDEFAULT);
+			case LQNPackage.ACTIVITY_DEF_TYPE__BOUND_TO_TYPE:
+				setBoundToType(BOUND_TO_TYPE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -281,8 +281,8 @@ public class ActivityDefTypeImpl extends ActivityDefBaseImpl implements Activity
 				return !getSynchCall().isEmpty();
 			case LQNPackage.ACTIVITY_DEF_TYPE__ASYNCH_CALL:
 				return !getAsynchCall().isEmpty();
-			case LQNPackage.ACTIVITY_DEF_TYPE__BOUNT_TO_TYPE:
-				return BOUNT_TO_TYPE_EDEFAULT == null ? bountToType != null : !BOUNT_TO_TYPE_EDEFAULT.equals(bountToType);
+			case LQNPackage.ACTIVITY_DEF_TYPE__BOUND_TO_TYPE:
+				return BOUND_TO_TYPE_EDEFAULT == null ? boundToType != null : !BOUND_TO_TYPE_EDEFAULT.equals(boundToType);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -299,8 +299,8 @@ public class ActivityDefTypeImpl extends ActivityDefBaseImpl implements Activity
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (group: ");
 		result.append(group);
-		result.append(", bountToType: ");
-		result.append(bountToType);
+		result.append(", boundToType: ");
+		result.append(boundToType);
 		result.append(')');
 		return result.toString();
 	}

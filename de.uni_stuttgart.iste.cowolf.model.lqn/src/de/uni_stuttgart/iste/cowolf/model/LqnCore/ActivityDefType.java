@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.ActivityDefType#getGroup <em>Group</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.ActivityDefType#getSynchCall <em>Synch Call</em>}</li>
  *   <li>{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.ActivityDefType#getAsynchCall <em>Asynch Call</em>}</li>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.ActivityDefType#getBountToType <em>Bount To Type</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.ActivityDefType#getBoundToType <em>Bound To Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -96,29 +96,29 @@ public interface ActivityDefType extends ActivityDefBase {
 	EList<ActivityMakingCallType> getAsynchCall();
 
 	/**
-	 * Returns the value of the '<em><b>Bount To Type</b></em>' attribute.
+	 * Returns the value of the '<em><b>Bound To Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Bount To Type</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Bound To Type</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Bount To Type</em>' attribute.
-	 * @see #setBountToType(String)
-	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage#getActivityDefType_BountToType()
+	 * @return the value of the '<em>Bound To Type</em>' attribute.
+	 * @see #setBoundToType(String)
+	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage#getActivityDefType_BoundToType()
 	 * @model
 	 * @generated
 	 */
-	String getBountToType();
+	String getBoundToType();
 
 	/**
-	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.ActivityDefType#getBountToType <em>Bount To Type</em>}' attribute.
+	 * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.ActivityDefType#getBoundToType <em>Bound To Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Bount To Type</em>' attribute.
-	 * @see #getBountToType()
+	 * @param value the new value of the '<em>Bound To Type</em>' attribute.
+	 * @see #getBoundToType()
 	 * @generated
 	 */
-	void setBountToType(String value);
+	void setBoundToType(String value);
 
 } // ActivityDefType

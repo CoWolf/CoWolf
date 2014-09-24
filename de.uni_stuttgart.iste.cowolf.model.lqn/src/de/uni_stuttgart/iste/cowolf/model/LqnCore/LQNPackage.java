@@ -336,13 +336,13 @@ public interface LQNPackage extends EPackage {
 	int ACTIVITY_DEF_TYPE__ASYNCH_CALL = ACTIVITY_DEF_BASE_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Bount To Type</b></em>' attribute.
+	 * The feature id for the '<em><b>Bound To Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTIVITY_DEF_TYPE__BOUNT_TO_TYPE = ACTIVITY_DEF_BASE_FEATURE_COUNT + 4;
+	int ACTIVITY_DEF_TYPE__BOUND_TO_TYPE = ACTIVITY_DEF_BASE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Activity Def Type</em>' class.
@@ -5522,15 +5522,15 @@ public interface LQNPackage extends EPackage {
 	EReference getActivityDefType_AsynchCall();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.ActivityDefType#getBountToType <em>Bount To Type</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.ActivityDefType#getBoundToType <em>Bound To Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Bount To Type</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.ActivityDefType#getBountToType()
+	 * @return the meta object for the attribute '<em>Bound To Type</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.ActivityDefType#getBoundToType()
 	 * @see #getActivityDefType()
 	 * @generated
 	 */
-	EAttribute getActivityDefType_BountToType();
+	EAttribute getActivityDefType_BoundToType();
 
 	/**
 	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.ActivityGraphBase <em>Activity Graph Base</em>}'.
@@ -9212,12 +9212,12 @@ public interface LQNPackage extends EPackage {
 		EReference ACTIVITY_DEF_TYPE__ASYNCH_CALL = eINSTANCE.getActivityDefType_AsynchCall();
 
 		/**
-		 * The meta object literal for the '<em><b>Bount To Type</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Bound To Type</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ACTIVITY_DEF_TYPE__BOUNT_TO_TYPE = eINSTANCE.getActivityDefType_BountToType();
+		EAttribute ACTIVITY_DEF_TYPE__BOUND_TO_TYPE = eINSTANCE.getActivityDefType_BoundToType();
 
 		/**
 		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.ActivityGraphBaseImpl <em>Activity Graph Base</em>}' class.

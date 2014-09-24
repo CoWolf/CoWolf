@@ -881,7 +881,7 @@ public class LQNPackageImpl extends EPackageImpl implements LQNPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getActivityDefType_BountToType() {
+	public EAttribute getActivityDefType_BoundToType() {
 		return (EAttribute)activityDefTypeEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -3855,7 +3855,7 @@ public class LQNPackageImpl extends EPackageImpl implements LQNPackage {
 		createEAttribute(activityDefTypeEClass, ACTIVITY_DEF_TYPE__GROUP);
 		createEReference(activityDefTypeEClass, ACTIVITY_DEF_TYPE__SYNCH_CALL);
 		createEReference(activityDefTypeEClass, ACTIVITY_DEF_TYPE__ASYNCH_CALL);
-		createEAttribute(activityDefTypeEClass, ACTIVITY_DEF_TYPE__BOUNT_TO_TYPE);
+		createEAttribute(activityDefTypeEClass, ACTIVITY_DEF_TYPE__BOUND_TO_TYPE);
 
 		activityGraphBaseEClass = createEClass(ACTIVITY_GRAPH_BASE);
 		createEReference(activityGraphBaseEClass, ACTIVITY_GRAPH_BASE__ACTIVITY);
@@ -4351,7 +4351,7 @@ public class LQNPackageImpl extends EPackageImpl implements LQNPackage {
 		initEAttribute(getActivityDefType_Group(), ecorePackage.getEFeatureMapEntry(), "group", null, 0, -1, ActivityDefType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getActivityDefType_SynchCall(), this.getActivityMakingCallType(), null, "synchCall", null, 0, -1, ActivityDefType.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getActivityDefType_AsynchCall(), this.getActivityMakingCallType(), null, "asynchCall", null, 0, -1, ActivityDefType.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getActivityDefType_BountToType(), ecorePackage.getEString(), "bountToType", null, 0, 1, ActivityDefType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getActivityDefType_BoundToType(), ecorePackage.getEString(), "boundToType", null, 0, 1, ActivityDefType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(activityGraphBaseEClass, ActivityGraphBase.class, "ActivityGraphBase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getActivityGraphBase_Activity(), this.getActivityDefType(), null, "activity", null, 1, -1, ActivityGraphBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
