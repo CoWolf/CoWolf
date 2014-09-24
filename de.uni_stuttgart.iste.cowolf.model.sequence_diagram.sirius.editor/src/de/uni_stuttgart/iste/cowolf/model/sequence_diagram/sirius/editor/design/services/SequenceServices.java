@@ -73,12 +73,15 @@ import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Signal;
 import org.eclipse.uml2.uml.Type;
 import org.eclipse.uml2.uml.UMLFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
 
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramFactory;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.design.services.internal.NamedElementServices;
+
 
 /**
  * Utility services to manage sequence diagrams.
@@ -106,15 +109,9 @@ public class SequenceServices {
 	 */
 	private final String RECEIVER_MESSAGE_SUFFIX = "_receiver";
 
-	/**
-	 * Logger.
-	 */
-	private LogServices logger = new LogServices();
+private Logger LOGGER = LoggerFactory.getLogger(getClass());
+private OperationServices operationService = new OperationServices();
 
-	/**
-	 * Operation service.
-	 */
-	private OperationServices operationService = new OperationServices();
 
 	public NamedElement findOccurrenceSpecificationContextForSendEvent(
 			Message message) {
@@ -463,11 +460,9 @@ public class SequenceServices {
 		// return a warning in error log view
 		if (!(element instanceof org.eclipse.uml2.uml.Class)
 				&& !(element instanceof Property)) {
-			logger.warning(
+			LOGGER.error(
 					"An instance specification or a property must be selected to import a lifeline but you have selected "
-							+ element.getName()
-							+ " which is a "
-							+ element.getClass().getSimpleName(), null);
+							);
 		}
 
 		// Create lifeline
@@ -2060,8 +2055,7 @@ public class SequenceServices {
 		defaultOperand.getCovereds().addAll(coveredLifelines);
 		combinedFragment.getOperands().add(defaultOperand);
 
-		// TODO refactor the next lines when the way to know the end of a
-		// CombinedFragment is found
+
 		Comment endCombinedFragment = factory.createComment();
 		endCombinedFragment.setBody("endCF");
 		defaultOperand.getOwnedComments().add(endCombinedFragment);
@@ -2077,7 +2071,7 @@ public class SequenceServices {
 	public void createOperand(CombinedFragment combinedFragment) {
 		InteractionOperand operand = UMLFactory.eINSTANCE
 				.createInteractionOperand();
-		// TODO : remove this comment when fix CF finishing end
+
 		Comment endOfOperand = UMLFactory.eINSTANCE.createComment();
 		endOfOperand.setBody("end of Operand");
 		operand.getOwnedComments().add(endOfOperand);
@@ -2140,7 +2134,7 @@ public class SequenceServices {
 				result.add(eObject);
 			}
 
-			// TODO: remove/adapt when combine fragment end element is defined
+
 			if (eObject instanceof Comment) {
 				result.add(eObject);
 			}

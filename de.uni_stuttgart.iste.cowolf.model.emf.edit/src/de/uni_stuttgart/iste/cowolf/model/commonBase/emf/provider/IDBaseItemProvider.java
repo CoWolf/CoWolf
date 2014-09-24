@@ -58,7 +58,6 @@ public class IDBaseItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addIdPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
