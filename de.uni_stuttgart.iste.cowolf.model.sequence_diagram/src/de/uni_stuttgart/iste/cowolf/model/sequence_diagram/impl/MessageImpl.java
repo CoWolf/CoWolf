@@ -4,17 +4,16 @@ package de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl;
 
 import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
 import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
-
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Message;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramPackage;
 
 import java.lang.reflect.InvocationTargetException;
-import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.Namespace;
 import org.eclipse.uml2.uml.UMLPackage;
@@ -56,10 +55,13 @@ public class MessageImpl extends org.eclipse.uml2.uml.internal.impl.MessageImpl 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected MessageImpl() {
 		super();
+		
+		//set ID
+		this.id = EcoreUtil.generateUUID();
 	}
 
 	/**

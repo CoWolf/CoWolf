@@ -4,16 +4,13 @@ package de.uni_stuttgart.iste.cowolf.model.sequence_diagram.impl;
 
 import de.uni_stuttgart.iste.cowolf.model.commonBase.CommonBasePackage;
 import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
-
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.ActorLifeline;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramPackage;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.uml2.uml.internal.impl.LifelineImpl;
 
 /**
@@ -53,10 +50,13 @@ public class ActorLifelineImpl extends LifelineImpl implements ActorLifeline {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected ActorLifelineImpl() {
 		super();
+		
+		//set ID
+		this.id = EcoreUtil.generateUUID();
 	}
 
 	/**
