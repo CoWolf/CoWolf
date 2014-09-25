@@ -6,7 +6,6 @@ import java.util.Date;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.swt.graphics.Image;
@@ -18,7 +17,6 @@ import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Association;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Model;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociation;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociationFactory;
-import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelVersion;
 
 public class ModelVersionTreeLabelProvider implements ILabelProvider {
 	
@@ -84,10 +82,8 @@ public class ModelVersionTreeLabelProvider implements ILabelProvider {
 			if (assoc == null) {
 				return iFile.getName();
 			}
-			
-			EList<ModelVersion> versions = model.getVersions();
-			
-			Date date = new Date(versions.get(versions.size()-1).getTimestamp());
+						
+			Date date = new Date(assoc.getTimestamp());
 			DateFormat df = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
 			return iFile.getName() + " (" + df.format(date) + ")";
 		}
