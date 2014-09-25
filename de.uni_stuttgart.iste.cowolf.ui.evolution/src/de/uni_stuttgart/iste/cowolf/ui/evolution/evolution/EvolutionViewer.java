@@ -1,11 +1,14 @@
 package de.uni_stuttgart.iste.cowolf.ui.evolution.evolution;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
@@ -160,7 +163,13 @@ INotifyChangedListener, ILabelProvider {
 	@Override
 	public Object[] getChildren(Object parentElement) {
 		if (parentElement instanceof Model) {
-			return ((Model)parentElement).getVersions().toArray();
+			List<Object> versions = new ArrayList<Object>(((Model)parentElement).getVersions());
+			versions.add(((Model) parentElement).getResource());
+			return versions.toArray();
+		}
+		if (parentElement instanceof Resource) {
+			SymmetricDifference diff = calculateDifferenceForCurrent((Resource)parentElement);
+			return new Object[] {diff};
 		}
 		if (parentElement instanceof ModelVersion) {
 			SymmetricDifference diff = differenceCache.get(parentElement);
@@ -175,15 +184,25 @@ INotifyChangedListener, ILabelProvider {
 		return contentAdapter.getChildren(parentElement);
 	}
 
+	private SymmetricDifference calculateDifferenceForCurrent(Resource parentElement) {
+		try {
+			return calculateDifference(source.getVersions().get(source.getVersions().size()-1).getResource(), parentElement);
+		} catch (EvolutionException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 	private SymmetricDifference calculateDifferenceForVersion(
 			ModelVersion currentVersion) {
 		
 		EList<ModelVersion> versions = currentVersion.getModel().getVersions();
 		
 		int index = versions.indexOf(currentVersion);
+
 		if (index > 0) {
 			try {
-				return calculateDifference(versions.get(index-1), currentVersion);
+				return calculateDifference(versions.get(index-1).getResource(), currentVersion.getResource());
 			} catch (EvolutionException e) {
 				e.printStackTrace();
 			}
@@ -191,9 +210,9 @@ INotifyChangedListener, ILabelProvider {
 		return null;
 	}
 	
-	private SymmetricDifference calculateDifference(final ModelVersion baseVersion, final ModelVersion targetVersion) throws EvolutionException {
-		AbstractEvolutionManager evoManager = EvolutionRegistry.getInstance().getEvolutionManager(baseVersion.getModel().getResource());
-		SymmetricDifference symmetricDifference = evoManager.evolve(baseVersion.getResource(), targetVersion.getResource());
+	private SymmetricDifference calculateDifference(final Resource baseVersion, final Resource targetVersion) throws EvolutionException {
+		AbstractEvolutionManager evoManager = EvolutionRegistry.getInstance().getEvolutionManager(baseVersion);
+		SymmetricDifference symmetricDifference = evoManager.evolve(baseVersion, targetVersion);
 		return symmetricDifference;
 	}
 
@@ -211,6 +230,9 @@ INotifyChangedListener, ILabelProvider {
 			return false;
 		}
 		if (element instanceof ModelVersion) {
+			return true;
+		}
+		if (element instanceof Resource) {
 			return true;
 		}
 		return contentAdapter.hasChildren(element);
@@ -249,6 +271,9 @@ INotifyChangedListener, ILabelProvider {
 				label += " (" + version.getMessage() + ")";
 			}
 			return label;
+		}
+		if (element instanceof Resource) {
+			return "Current workbench copy";
 		}
 		return labelAdapter.getText(element);
 	}
