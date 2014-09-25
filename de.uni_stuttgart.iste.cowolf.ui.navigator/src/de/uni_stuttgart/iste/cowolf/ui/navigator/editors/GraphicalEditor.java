@@ -1,5 +1,7 @@
 package de.uni_stuttgart.iste.cowolf.ui.navigator.editors;
 
+import javax.swing.JOptionPane;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
@@ -24,14 +26,22 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelResourceChangeListener;
 
 public class GraphicalEditor implements IEditorLauncher {
 
 	protected AdapterFactoryEditingDomain editingDomain;
 
+	private final static Logger LOGGER = LoggerFactory
+			.getLogger(GraphicalEditor.class);
+
 	@Override
 	public void open(IPath filePath) {
 
+		// get selection
 		IWorkbenchWindow window = PlatformUI.getWorkbench()
 				.getActiveWorkbenchWindow();
 		IStructuredSelection selection = (IStructuredSelection) window
@@ -41,23 +51,32 @@ public class GraphicalEditor implements IEditorLauncher {
 
 			IProject project = file.getProject();
 
+			// there is a bug in Sirius which does not redo the connection
+			// between file and representation after a restart of Eclipse.
+			// Therefore we redo the modeling nature as a workaround
 			try {
 				ModelingProjectManager.INSTANCE.removeModelingNature(project,
 						new NullProgressMonitor());
 				ModelingProjectManager.INSTANCE.convertToModelingProject(
 						project, new NullProgressMonitor());
 			} catch (CoreException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				LOGGER.error("Failed to redo modeling nature ({}).",
+						e.getMessage(), e);
 			}
 
-			IFile airdFile = project.getFile("representations.aird");
+		
+			IFile airdFile = project.getFile(file.getName());
 
 			URI representationsFileURI = URI.createPlatformResourceURI(airdFile
 					.getFullPath().toOSString(), true);
 
-			URI fFileURI = URI.createPlatformResourceURI(file.getFullPath()
-					.toOSString(), true);
+			String fileName = file.getName().replace(".aird", "");
+			
+			IFile currentFile = project.getFile(fileName);
+			
+			URI currentFileURI = URI.createPlatformResourceURI(currentFile
+					.getFullPath().toOSString(), true);
+
 
 			Session session = SessionManager.INSTANCE.getSession(
 					representationsFileURI, new NullProgressMonitor());
@@ -68,12 +87,10 @@ public class GraphicalEditor implements IEditorLauncher {
 			EList<DView> views = root.getOwnedViews();
 
 			EList<DRepresentation> representations = new BasicEList<DRepresentation>();
-			
-			for(DView view : views){
+
+			for (DView view : views) {
 				representations.addAll(view.getOwnedRepresentations());
 			}
-
-
 
 			DRepresentation representation = null;
 			EObject rootObject = null;
@@ -84,20 +101,30 @@ public class GraphicalEditor implements IEditorLauncher {
 				} else if (currentRep instanceof DSemanticDiagramSpec) {
 					rootObject = ((DSemanticDiagramSpec) currentRep)
 							.getTarget();
+				} else {
+					break;
 				}
 
-				Resource eResource = rootObject.eResource();
-				URI eUri = eResource.getURI();
+				Resource rootResource = rootObject.eResource();
+				if(rootResource == null){
+					break;
+				}
+				URI rootUriInCurrentRepresentation = rootResource.getURI();
 
-				if (eUri.equals(fFileURI)) {
+				if (rootUriInCurrentRepresentation.equals(currentFileURI)) {
 					representation = currentRep;
 					break;
 				}
 
 			}
 
-			DialectUIManager.INSTANCE.openEditor(session, representation,
-					new NullProgressMonitor());
+			if (session != null && representation != null) {
+
+				DialectUIManager.INSTANCE.openEditor(session, representation,
+						new NullProgressMonitor());
+			}else{
+				JOptionPane.showMessageDialog(null, "No representation found for selected model");
+			}
 		}
 	}
 }

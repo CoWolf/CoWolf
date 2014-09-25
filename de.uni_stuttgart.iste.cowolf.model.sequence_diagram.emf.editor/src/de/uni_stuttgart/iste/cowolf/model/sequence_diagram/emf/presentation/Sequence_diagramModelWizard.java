@@ -41,6 +41,7 @@ import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.sirius.business.api.dialect.DialectManager;
 import org.eclipse.sirius.business.api.dialect.command.CreateRepresentationCommand;
 import org.eclipse.sirius.business.api.helper.SiriusResourceHelper;
+import org.eclipse.sirius.business.api.session.DefaultLocalSessionCreationOperation;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.tools.api.command.semantic.AddSemanticResourceCommand;
@@ -278,19 +279,23 @@ public class Sequence_diagramModelWizard extends Wizard implements INewWizard {
 				});
 			}
 
+
+			URI airdFileURI = URI.createPlatformResourceURI(modelFile.getFullPath()
+					.toString() + ".aird", true);
+
+			/* Create a Session from the session model URI */
+			org.eclipse.sirius.business.api.session.SessionCreationOperation sessionCreationOperation = new DefaultLocalSessionCreationOperation(
+					airdFileURI, new NullProgressMonitor());
+			sessionCreationOperation.execute();
+
 			// create viewpoint
-			IFile airdFile = modelFile.getProject().getFile(
-					"representations.aird");
-			if (!airdFile.exists())
-				throw new Exception("could not find file:"
-						+ airdFile.getLocationURI());
-			URI airdFileURI = URI.createPlatformResourceURI(airdFile
-					.getFullPath().toOSString(), true);
+
+
 			Session session = SessionManager.INSTANCE.getSession(airdFileURI,
 					new NullProgressMonitor());
 
-			URI fileURI = URI.createPlatformResourceURI(
-					modelFile.getFullPath().toString() , true);
+			URI fileURI = URI.createPlatformResourceURI(modelFile.getFullPath()
+					.toString(), true);
 
 			// adding the resource also to Sirius session
 			AddSemanticResourceCommand addCommandToSession = new AddSemanticResourceCommand(
@@ -322,16 +327,14 @@ public class Sequence_diagramModelWizard extends Wizard implements INewWizard {
 			TransactionalEditingDomain domain = session
 					.getTransactionalEditingDomain();
 			domain.getCommandStack().execute(command);
-			
 
 			// create representation
 			Interaction interaction = null;
-			Object[] elements1 = session
-					.getSemanticResources().toArray();
-			Resource resource = (Resource) elements1[elements1.length-1];
-					
-			EList<PackageableElement> pack =((PackageImpl) resource.getContents()
-					.get(0)).getPackagedElements();
+			Object[] elements1 = session.getSemanticResources().toArray();
+			Resource resource = (Resource) elements1[elements1.length - 1];
+
+			EList<PackageableElement> pack = ((PackageImpl) resource
+					.getContents().get(0)).getPackagedElements();
 			for (PackageableElement element : pack) {
 				if (element instanceof Interaction) {
 					interaction = (Interaction) element;
@@ -349,8 +352,8 @@ public class Sequence_diagramModelWizard extends Wizard implements INewWizard {
 			RepresentationDescription description = descriptions.iterator()
 					.next();
 
-
 			DialectManager viewpointDialectManager = DialectManager.INSTANCE;
+
 			Command createViewCommand = new CreateRepresentationCommand(
 					session, description, rootObject, modelFile.getName(),
 					new NullProgressMonitor());
@@ -363,8 +366,7 @@ public class Sequence_diagramModelWizard extends Wizard implements INewWizard {
 			// open editor for last representation
 			Collection<DRepresentation> representations = viewpointDialectManager
 					.getRepresentations(description, session);
-			Object[] arrayRep =  representations
-					.toArray();
+			Object[] arrayRep = representations.toArray();
 			DRepresentation myDiagramRepresentation = (DRepresentation) arrayRep[arrayRep.length - 1];
 			DialectUIManager dialectUIManager = DialectUIManager.INSTANCE;
 			dialectUIManager.openEditor(session, myDiagramRepresentation,

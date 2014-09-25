@@ -6,6 +6,7 @@ import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
@@ -73,17 +74,40 @@ public class CreateModelingProjectJob extends Job {
 	 */
 	public static boolean createModelingProject(String projectName,
 			URI location, IProgressMonitor monitor) throws CoreException {
-		IProject iProject = ModelingProjectManager.INSTANCE
-				.createNewModelingProject(projectName, true, monitor);
-		addNature(iProject);
+		IProject newProject = ResourcesPlugin.getWorkspace().getRoot()
+				.getProject(projectName);
+		// if project exists not, then create one
+		if (!newProject.exists()) {
+			URI projectLocation = location;
+			// Set description
+			IProjectDescription desc = newProject.getWorkspace()
+					.newProjectDescription(newProject.getName());
+			if (location != null
+					&& ResourcesPlugin.getWorkspace().getRoot()
+							.getLocationURI().equals(location)) {
+				projectLocation = null;
+			}
+			desc.setLocationURI(projectLocation);
+			try {
+				newProject.create(desc, null);
+				if (!newProject.isOpen()) {
+					newProject.open(null);
+				}
+			} catch (CoreException e) {
+				// TODO
+				e.printStackTrace();
+			}
+		}
+
+		addNature(newProject);
 
 		// our basic folder structure
 
 		// models
 		IFolder modelFolder = createFolder(
-				Messages.CreationFunctions_folder_title_models, iProject);
+				Messages.CreationFunctions_folder_title_models, newProject);
 		// properties
-		createFolder(".properties", iProject);
+		createFolder(".properties", newProject);
 
 		if (ModelPreferencePage.getFolderPreference()) {
 
