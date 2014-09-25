@@ -8,6 +8,7 @@ import java.net.URL;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -683,6 +684,7 @@ public abstract class AbstractTransformationManager {
 			    newAssoc.getSource().add(sourceVersion);
 			    newAssoc.getTarget().add(newTargetVersion);
 			    newAssoc.setParent(ma);
+			    newAssoc.setTimestamp(new Date().getTime());
 			}
 		});
 	    

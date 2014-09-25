@@ -82,6 +82,7 @@ public class ModelVersionTreeLabelProvider implements ILabelProvider {
 			if (assoc == null) {
 				return iFile.getName();
 			}
+						
 			Date date = new Date(assoc.getTimestamp());
 			DateFormat df = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
 			return iFile.getName() + " (" + df.format(date) + ")";
