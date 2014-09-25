@@ -107,9 +107,7 @@ public class ModelAssociationImpl extends MinimalEObjectImpl.Container implement
 			model.setParent(this);
 			
 			return model;
-		}
-		
-		
+		}		
 		
 		return null;
 	}

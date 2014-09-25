@@ -153,6 +153,10 @@ public class ModelResourceChangeListener implements IResourceChangeListener {
 							}
 							
 							Model model = ma.registerModel(modelRes);
+							if (model == null) {
+								// Model is already registered. (Project import)
+								return false;
+							}
 							model.createVersion("Created model");
 							LOGGER.debug("Created model file.");
 						}

@@ -150,6 +150,10 @@ public class ModelAssociationFactoryImpl extends EFactoryImpl implements ModelAs
 		
 		ResourceSet resSet = new ResourceSetImpl();
 		
+		if (project == null || project.getLocationURI() == null) {
+			return;
+		}
+		
 		URI uri = URI.createURI(project.getLocationURI().toString() + "/" + ModelAssociationPackage.PROJECT_FILENAME);
 		Resource res = resSet.createResource(uri);
 		if (new File(project.getFile(ModelAssociationPackage.PROJECT_FILENAME).getLocation().makeAbsolute().toOSString()).exists()) {
