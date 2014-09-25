@@ -37,6 +37,7 @@ import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
@@ -86,7 +87,6 @@ public class DTMCModelWizard extends Wizard implements INewWizard {
 			.getString("_UI_DTMCEditorFilenameExtensions").replaceAll(
 					"\\s*,\\s*", ", ");
 
-
 	/**
 	 * This caches an instance of the model package. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -110,6 +110,8 @@ public class DTMCModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	protected DTMCModelWizardNewFileCreationPage newFileCreationPage;
+
+	protected EditorPage editorPage;
 
 	/**
 	 * This is the initial object creation page. <!-- begin-user-doc --> <!--
@@ -267,7 +269,11 @@ public class DTMCModelWizard extends Wizard implements INewWizard {
 				});
 			}
 
-			CreateRepresentationAndViewpointHandler.createAll(modelFile, "dtmc");
+			// Only create representation if wished by the user
+			if (editorPage.getGraphicalSelection()) {
+				CreateRepresentationAndViewpointHandler.createAll(modelFile,
+						"dtmc");
+			}
 
 			return true;
 		} catch (Exception exception) {
@@ -538,6 +544,61 @@ public class DTMCModelWizard extends Wizard implements INewWizard {
 	}
 
 	/**
+	 * Page to decide whether to create a graphical editor or not
+	 */
+	public class EditorPage extends WizardPage {
+
+		public EditorPage() {
+			super("ViewpointPage");
+			this.setTitle("Ggraphical Editor");
+			this.setDescription("Create a graphical editor");
+		}
+
+		private Button checkbox = null;
+
+		@Override
+		public void createControl(Composite parent) {
+			Composite composite = new Composite(parent, SWT.NONE);
+			{
+				GridLayout layout = new GridLayout();
+				layout.numColumns = 1;
+				layout.verticalSpacing = 12;
+				composite.setLayout(layout);
+
+				GridData data = new GridData();
+				data.verticalAlignment = GridData.FILL;
+				data.grabExcessVerticalSpace = true;
+				data.horizontalAlignment = GridData.FILL;
+				composite.setLayoutData(data);
+			}
+
+			Label questionLabel = new Label(composite, SWT.LEFT);
+
+			questionLabel
+					.setText("Do you want to create a graphical representation of the model?");
+
+			GridData data = new GridData();
+			data.horizontalAlignment = GridData.FILL;
+			questionLabel.setLayoutData(data);
+
+			checkbox = new Button(composite, SWT.CHECK);
+			checkbox.setText("Yes");
+			checkbox.setSelection(true);
+
+			GridData data1 = new GridData();
+			data1.horizontalAlignment = GridData.FILL;
+			checkbox.setLayoutData(data1);
+
+			setPageComplete(true);
+			setControl(composite);
+		}
+
+		public boolean getGraphicalSelection() {
+			return checkbox.getSelection();
+		}
+	}
+
+	/**
 	 * The framework calls this to create the contents of the wizard. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -607,6 +668,9 @@ public class DTMCModelWizard extends Wizard implements INewWizard {
 		initialObjectCreationPage.setDescription(DTMCEditorPlugin.INSTANCE
 				.getString("_UI_Wizard_initial_object_description"));
 		addPage(initialObjectCreationPage);
+
+		editorPage = new EditorPage();
+		addPage(editorPage);
 	}
 
 	/**

@@ -57,6 +57,7 @@ import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
@@ -131,6 +132,9 @@ public class Sequence_diagramModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	protected Sequence_diagramModelWizardInitialObjectCreationPage initialObjectCreationPage;
+
+	protected EditorPage editorPage;
+
 	/**
 	 * Remember the selection during initialization for populating the default container.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -279,100 +283,105 @@ public class Sequence_diagramModelWizard extends Wizard implements INewWizard {
 				});
 			}
 
-			
-			//Now we have to create an aird file
-			URI airdFileURI = URI.createPlatformResourceURI(modelFile
-					.getFullPath().toString() + ".aird", true);
+			//Only create representation if wished by the user
+			if (editorPage.getGraphicalSelection()) {
 
-			// Create a Session from the session model URI
-			org.eclipse.sirius.business.api.session.SessionCreationOperation sessionCreationOperation = new DefaultLocalSessionCreationOperation(
-					airdFileURI, new NullProgressMonitor());
-			sessionCreationOperation.execute();
+				// Now we have to create an aird file
+				URI airdFileURI = URI.createPlatformResourceURI(modelFile
+						.getFullPath().toString() + ".aird", true);
 
-			// create viewpoint
-			Session session = SessionManager.INSTANCE.getSession(airdFileURI,
-					new NullProgressMonitor());
+				// Create a Session from the session model URI
+				org.eclipse.sirius.business.api.session.SessionCreationOperation sessionCreationOperation = new DefaultLocalSessionCreationOperation(
+						airdFileURI, new NullProgressMonitor());
+				sessionCreationOperation.execute();
 
-			URI fileURI = URI.createPlatformResourceURI(modelFile.getFullPath()
-					.toString(), true);
+				// create viewpoint
+				Session session = SessionManager.INSTANCE.getSession(
+						airdFileURI, new NullProgressMonitor());
 
-			// adding the resource to the session
-			AddSemanticResourceCommand addCommandToSession = new AddSemanticResourceCommand(
-					session, fileURI, new NullProgressMonitor());
-			session.getTransactionalEditingDomain().getCommandStack()
-					.execute(addCommandToSession);
-			session.save(new NullProgressMonitor());
+				URI fileURI = URI.createPlatformResourceURI(modelFile
+						.getFullPath().toString(), true);
 
-			// find and add viewpoint
-			Set<Viewpoint> availableViewpoints = ViewpointSelection
-					.getViewpoints(FILE_EXTENSION);
-			if (availableViewpoints.isEmpty())
-				throw new Exception(
-						"Could not find viewport for fileextension "
-								+ FILE_EXTENSION);
+				// adding the resource to the session
+				AddSemanticResourceCommand addCommandToSession = new AddSemanticResourceCommand(
+						session, fileURI, new NullProgressMonitor());
+				session.getTransactionalEditingDomain().getCommandStack()
+						.execute(addCommandToSession);
+				session.save(new NullProgressMonitor());
 
-			Set<Viewpoint> viewpoints = new HashSet<Viewpoint>();
-			for (Viewpoint p : availableViewpoints)
-				viewpoints.add(SiriusResourceHelper.getCorrespondingViewpoint(
-						session, p));
+				// find and add viewpoint
+				Set<Viewpoint> availableViewpoints = ViewpointSelection
+						.getViewpoints(FILE_EXTENSION);
+				if (availableViewpoints.isEmpty())
+					throw new Exception(
+							"Could not find viewport for fileextension "
+									+ FILE_EXTENSION);
 
-			ViewpointSelection.Callback callback = new ViewpointSelectionCallbackWithConfimation();
+				Set<Viewpoint> viewpoints = new HashSet<Viewpoint>();
+				for (Viewpoint p : availableViewpoints)
+					viewpoints.add(SiriusResourceHelper
+							.getCorrespondingViewpoint(session, p));
 
-			RecordingCommand command = new ChangeViewpointSelectionCommand(
-					session, callback, viewpoints, new HashSet<Viewpoint>(),
-					true, new NullProgressMonitor());
-			TransactionalEditingDomain domain = session
-					.getTransactionalEditingDomain();
-			domain.getCommandStack().execute(command);
+				ViewpointSelection.Callback callback = new ViewpointSelectionCallbackWithConfimation();
 
-			// create representation
-			Interaction interaction = null;
-			Object[] elements1 = session.getSemanticResources().toArray();
-			Resource resource = (Resource) elements1[elements1.length - 1];
+				RecordingCommand command = new ChangeViewpointSelectionCommand(
+						session, callback, viewpoints,
+						new HashSet<Viewpoint>(), true,
+						new NullProgressMonitor());
+				TransactionalEditingDomain domain = session
+						.getTransactionalEditingDomain();
+				domain.getCommandStack().execute(command);
 
-			EList<PackageableElement> pack = ((PackageImpl) resource
-					.getContents().get(0)).getPackagedElements();
-			for (PackageableElement element : pack) {
-				if (element instanceof Interaction) {
-					interaction = (Interaction) element;
+				// create representation
+				Interaction interaction = null;
+				Object[] elements1 = session.getSemanticResources().toArray();
+				Resource resource = (Resource) elements1[elements1.length - 1];
+
+				EList<PackageableElement> pack = ((PackageImpl) resource
+						.getContents().get(0)).getPackagedElements();
+				for (PackageableElement element : pack) {
+					if (element instanceof Interaction) {
+						interaction = (Interaction) element;
+					}
 				}
+
+				EObject rootObject = interaction;
+				Collection<RepresentationDescription> descriptions = DialectManager.INSTANCE
+						.getAvailableRepresentationDescriptions(
+								session.getSelectedViewpoints(false),
+								rootObject);
+				if (descriptions.isEmpty())
+					throw new Exception(
+							"Could not find representation description for object: "
+									+ rootObject);
+				RepresentationDescription description = descriptions.iterator()
+						.next();
+
+				DialectManager viewpointDialectManager = DialectManager.INSTANCE;
+
+				Command createViewCommand = new CreateRepresentationCommand(
+						session, description, rootObject, modelFile.getName(),
+						new NullProgressMonitor());
+
+				session.getTransactionalEditingDomain().getCommandStack()
+						.execute(createViewCommand);
+
+				SessionManager.INSTANCE.notifyRepresentationCreated(session);
+
+				// open editor for last representation
+				Collection<DRepresentation> representations = viewpointDialectManager
+						.getRepresentations(description, session);
+				Object[] arrayRep = representations.toArray();
+				DRepresentation myDiagramRepresentation = (DRepresentation) arrayRep[arrayRep.length - 1];
+				DialectUIManager dialectUIManager = DialectUIManager.INSTANCE;
+				dialectUIManager.openEditor(session, myDiagramRepresentation,
+						new NullProgressMonitor());
+
+				// save session and refresh workspace
+				session.save(new NullProgressMonitor());
+				modelFile.getProject().refreshLocal(IResource.DEPTH_INFINITE,
+						new NullProgressMonitor());
 			}
-
-			EObject rootObject = interaction;
-			Collection<RepresentationDescription> descriptions = DialectManager.INSTANCE
-					.getAvailableRepresentationDescriptions(
-							session.getSelectedViewpoints(false), rootObject);
-			if (descriptions.isEmpty())
-				throw new Exception(
-						"Could not find representation description for object: "
-								+ rootObject);
-			RepresentationDescription description = descriptions.iterator()
-					.next();
-
-			DialectManager viewpointDialectManager = DialectManager.INSTANCE;
-
-			Command createViewCommand = new CreateRepresentationCommand(
-					session, description, rootObject, modelFile.getName(),
-					new NullProgressMonitor());
-
-			session.getTransactionalEditingDomain().getCommandStack()
-					.execute(createViewCommand);
-
-			SessionManager.INSTANCE.notifyRepresentationCreated(session);
-
-			// open editor for last representation
-			Collection<DRepresentation> representations = viewpointDialectManager
-					.getRepresentations(description, session);
-			Object[] arrayRep = representations.toArray();
-			DRepresentation myDiagramRepresentation = (DRepresentation) arrayRep[arrayRep.length - 1];
-			DialectUIManager dialectUIManager = DialectUIManager.INSTANCE;
-			dialectUIManager.openEditor(session, myDiagramRepresentation,
-					new NullProgressMonitor());
-
-			// save session and refresh workspace
-			session.save(new NullProgressMonitor());
-			modelFile.getProject().refreshLocal(IResource.DEPTH_INFINITE,
-					new NullProgressMonitor());
 
 			return true;
 		} catch (Exception exception) {
@@ -624,10 +633,65 @@ public class Sequence_diagramModelWizard extends Wizard implements INewWizard {
 	}
 
 	/**
+	 * Page to decide whether to create a graphical editor or not
+	 */
+	public class EditorPage extends WizardPage {
+
+		public EditorPage() {
+			super("ViewpointPage");
+			this.setTitle("Ggraphical Editor");
+			this.setDescription("Create a graphical editor");
+		}
+
+		private Button checkbox = null;
+
+		@Override
+		public void createControl(Composite parent) {
+			Composite composite = new Composite(parent, SWT.NONE);
+			{
+				GridLayout layout = new GridLayout();
+				layout.numColumns = 1;
+				layout.verticalSpacing = 12;
+				composite.setLayout(layout);
+
+				GridData data = new GridData();
+				data.verticalAlignment = GridData.FILL;
+				data.grabExcessVerticalSpace = true;
+				data.horizontalAlignment = GridData.FILL;
+				composite.setLayoutData(data);
+			}
+
+			Label questionLabel = new Label(composite, SWT.LEFT);
+
+			questionLabel
+					.setText("Do you want to create a graphical representation of the model?");
+
+			GridData data = new GridData();
+			data.horizontalAlignment = GridData.FILL;
+			questionLabel.setLayoutData(data);
+
+			checkbox = new Button(composite, SWT.CHECK);
+			checkbox.setText("Yes");
+			checkbox.setSelection(true);
+
+			GridData data1 = new GridData();
+			data1.horizontalAlignment = GridData.FILL;
+			checkbox.setLayoutData(data1);
+
+			setPageComplete(true);
+			setControl(composite);
+		}
+
+		public boolean getGraphicalSelection() {
+			return checkbox.getSelection();
+		}
+	}
+
+	/**
 	 * The framework calls this to create the contents of the wizard. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void addPages() {
@@ -676,6 +740,9 @@ public class Sequence_diagramModelWizard extends Wizard implements INewWizard {
 		initialObjectCreationPage.setTitle(Sequence_diagramEditorPlugin.INSTANCE.getString("_UI_Sequence_diagramModelWizard_label"));
 		initialObjectCreationPage.setDescription(Sequence_diagramEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
 		addPage(initialObjectCreationPage);
+
+		editorPage = new EditorPage();
+		addPage(editorPage);
 	}
 
 	/**

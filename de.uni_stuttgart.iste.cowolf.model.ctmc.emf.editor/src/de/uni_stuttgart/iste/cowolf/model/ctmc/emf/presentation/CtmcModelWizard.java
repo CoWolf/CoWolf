@@ -37,6 +37,7 @@ import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
@@ -58,19 +59,22 @@ import de.uni_stuttgart.iste.cowolf.model.ctmc.emf.provider.CTMCEditPlugin;
 import de.uni_stuttgart.iste.cowolf.ui.navigator.commands.CreateRepresentationAndViewpointHandler;
 
 /**
- * This is a simple wizard for creating a new model file.
- * <!-- begin-user-doc
+ * This is a simple wizard for creating a new model file. <!-- begin-user-doc
  * --> <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class CtmcModelWizard extends Wizard implements INewWizard {
 	/**
-	 * The supported extensions for created files.
-	 * <!-- begin-user-doc --> <!--
+	 * The supported extensions for created files. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public static final List<String> FILE_EXTENSIONS = Collections.unmodifiableList(Arrays.asList(CTMCEditorPlugin.INSTANCE.getString("_UI_CtmcEditorFilenameExtensions").split("\\s*,\\s*")));
+	public static final List<String> FILE_EXTENSIONS = Collections
+			.unmodifiableList(Arrays.asList(CTMCEditorPlugin.INSTANCE
+					.getString("_UI_CtmcEditorFilenameExtensions").split(
+							"\\s*,\\s*")));
 
 	/**
 	 * A formatted list of supported file extensions, suitable for display. <!--
@@ -78,21 +82,22 @@ public class CtmcModelWizard extends Wizard implements INewWizard {
 	 * 
 	 * @generated
 	 */
-	public static final String FORMATTED_FILE_EXTENSIONS = CTMCEditorPlugin.INSTANCE.getString("_UI_CtmcEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
-
+	public static final String FORMATTED_FILE_EXTENSIONS = CTMCEditorPlugin.INSTANCE
+			.getString("_UI_CtmcEditorFilenameExtensions").replaceAll(
+					"\\s*,\\s*", ", ");
 
 	/**
-	 * This caches an instance of the model package.
-	 * <!-- begin-user-doc -->
+	 * This caches an instance of the model package. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected CtmcPackage ctmcPackage = CtmcPackage.eINSTANCE;
 
 	/**
-	 * This caches an instance of the model factory.
-	 * <!-- begin-user-doc -->
+	 * This caches an instance of the model factory. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected CtmcFactory ctmcFactory = ctmcPackage.getCtmcFactory();
@@ -106,24 +111,27 @@ public class CtmcModelWizard extends Wizard implements INewWizard {
 	protected CtmcModelWizardNewFileCreationPage newFileCreationPage;
 
 	/**
-	 * This is the initial object creation page.
-	 * <!-- begin-user-doc --> <!--
+	 * This is the initial object creation page. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected CtmcModelWizardInitialObjectCreationPage initialObjectCreationPage;
 
+	protected EditorPage editorPage;
+
 	/**
-	 * Remember the selection during initialization for populating the default container.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Remember the selection during initialization for populating the default
+	 * container. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected IStructuredSelection selection;
 
 	/**
-	 * Remember the workbench during initialization.
-	 * <!-- begin-user-doc -->
+	 * Remember the workbench during initialization. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected IWorkbench workbench;
@@ -131,26 +139,30 @@ public class CtmcModelWizard extends Wizard implements INewWizard {
 	/**
 	 * Caches the names of the types that can be created as the root object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected List<String> initialObjectNames;
 
 	/**
-	 * This just records the information.
-	 * <!-- begin-user-doc --> <!--
+	 * This just records the information. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
 		this.selection = selection;
 		setWindowTitle(CTMCEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
-		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(CTMCEditorPlugin.INSTANCE.getImage("full/wizban/NewCtmc")));
+		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE
+				.getImageDescriptor(CTMCEditorPlugin.INSTANCE
+						.getImage("full/wizban/NewCtmc")));
 	}
 
 	/**
 	 * Returns the names of the types that can be created as the root object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	protected Collection<String> getInitialObjectNames() {
@@ -172,12 +184,14 @@ public class CtmcModelWizard extends Wizard implements INewWizard {
 	}
 
 	/**
-	 * Create a new model.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Create a new model. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected EObject createInitialModel() {
-		EClass eClass = (EClass)ctmcPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
+		EClass eClass = (EClass) ctmcPackage
+				.getEClassifier(initialObjectCreationPage
+						.getInitialObjectName());
 		EObject rootObject = ctmcFactory.create(eClass);
 		return rootObject;
 	}
@@ -254,7 +268,11 @@ public class CtmcModelWizard extends Wizard implements INewWizard {
 				});
 			}
 
-			CreateRepresentationAndViewpointHandler.createAll(modelFile, "ctmc");
+			// Only create representation if wished by the user
+			if (editorPage.getGraphicalSelection()) {
+				CreateRepresentationAndViewpointHandler.createAll(modelFile,
+						"ctmc");
+			}
 
 			return true;
 		} catch (Exception exception) {
@@ -264,16 +282,16 @@ public class CtmcModelWizard extends Wizard implements INewWizard {
 	}
 
 	/**
-	 * This is the one page of the wizard.
-	 * <!-- begin-user-doc --> <!--
+	 * This is the one page of the wizard. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public class CtmcModelWizardNewFileCreationPage extends
 			WizardNewFileCreationPage {
 		/**
-		 * Pass in the selection.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * Pass in the selection. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @generated
 		 */
 		public CtmcModelWizardNewFileCreationPage(String pageId,
@@ -292,8 +310,10 @@ public class CtmcModelWizard extends Wizard implements INewWizard {
 			if (super.validatePage()) {
 				String extension = new Path(getFileName()).getFileExtension();
 				if (extension == null || !FILE_EXTENSIONS.contains(extension)) {
-					String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions" : "_WARN_FilenameExtension";
-					setErrorMessage(CTMCEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
+					String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions"
+							: "_WARN_FilenameExtension";
+					setErrorMessage(CTMCEditorPlugin.INSTANCE.getString(key,
+							new Object[] { FORMATTED_FILE_EXTENSIONS }));
 					return false;
 				}
 				return true;
@@ -303,10 +323,12 @@ public class CtmcModelWizard extends Wizard implements INewWizard {
 
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @generated
 		 */
 		public IFile getModelFile() {
-			return ResourcesPlugin.getWorkspace().getRoot().getFile(getContainerFullPath().append(getFileName()));
+			return ResourcesPlugin.getWorkspace().getRoot()
+					.getFile(getContainerFullPath().append(getFileName()));
 		}
 	}
 
@@ -319,6 +341,7 @@ public class CtmcModelWizard extends Wizard implements INewWizard {
 	public class CtmcModelWizardInitialObjectCreationPage extends WizardPage {
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @generated
 		 */
 		protected Combo initialObjectField;
@@ -330,13 +353,14 @@ public class CtmcModelWizard extends Wizard implements INewWizard {
 
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @generated
 		 */
 		protected Combo encodingField;
 
 		/**
-		 * Pass in the selection.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * Pass in the selection. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @generated
 		 */
 		public CtmcModelWizardInitialObjectCreationPage(String pageId) {
@@ -345,10 +369,12 @@ public class CtmcModelWizard extends Wizard implements INewWizard {
 
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @generated
 		 */
 		public void createControl(Composite parent) {
-			Composite composite = new Composite(parent, SWT.NONE); {
+			Composite composite = new Composite(parent, SWT.NONE);
+			{
 				GridLayout layout = new GridLayout();
 				layout.numColumns = 1;
 				layout.verticalSpacing = 12;
@@ -363,7 +389,8 @@ public class CtmcModelWizard extends Wizard implements INewWizard {
 
 			Label containerLabel = new Label(composite, SWT.LEFT);
 			{
-				containerLabel.setText(CTMCEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
+				containerLabel.setText(CTMCEditorPlugin.INSTANCE
+						.getString("_UI_ModelObject"));
 
 				GridData data = new GridData();
 				data.horizontalAlignment = GridData.FILL;
@@ -389,7 +416,8 @@ public class CtmcModelWizard extends Wizard implements INewWizard {
 
 			Label encodingLabel = new Label(composite, SWT.LEFT);
 			{
-				encodingLabel.setText(CTMCEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
+				encodingLabel.setText(CTMCEditorPlugin.INSTANCE
+						.getString("_UI_XMLEncoding"));
 
 				GridData data = new GridData();
 				data.horizontalAlignment = GridData.FILL;
@@ -416,24 +444,28 @@ public class CtmcModelWizard extends Wizard implements INewWizard {
 
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @generated
 		 */
 		protected ModifyListener validator = new ModifyListener() {
-				public void modifyText(ModifyEvent e) {
-					setPageComplete(validatePage());
-				}
-			};
+			public void modifyText(ModifyEvent e) {
+				setPageComplete(validatePage());
+			}
+		};
 
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @generated
 		 */
 		protected boolean validatePage() {
-			return getInitialObjectName() != null && getEncodings().contains(encodingField.getText());
+			return getInitialObjectName() != null
+					&& getEncodings().contains(encodingField.getText());
 		}
 
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @generated
 		 */
 		@Override
@@ -443,8 +475,7 @@ public class CtmcModelWizard extends Wizard implements INewWizard {
 				if (initialObjectField.getItemCount() == 1) {
 					initialObjectField.clearSelection();
 					encodingField.setFocus();
-				}
-				else {
+				} else {
 					encodingField.clearSelection();
 					initialObjectField.setFocus();
 				}
@@ -453,6 +484,7 @@ public class CtmcModelWizard extends Wizard implements INewWizard {
 
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @generated
 		 */
 		public String getInitialObjectName() {
@@ -468,6 +500,7 @@ public class CtmcModelWizard extends Wizard implements INewWizard {
 
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @generated
 		 */
 		public String getEncoding() {
@@ -475,16 +508,16 @@ public class CtmcModelWizard extends Wizard implements INewWizard {
 		}
 
 		/**
-		 * Returns the label for the specified type name.
-		 * <!-- begin-user-doc
+		 * Returns the label for the specified type name. <!-- begin-user-doc
 		 * --> <!-- end-user-doc -->
+		 * 
 		 * @generated
 		 */
 		protected String getLabel(String typeName) {
 			try {
-				return CTMCEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
-			}
-			catch(MissingResourceException mre) {
+				return CTMCEditPlugin.INSTANCE.getString("_UI_" + typeName
+						+ "_type");
+			} catch (MissingResourceException mre) {
 				CTMCEditorPlugin.INSTANCE.log(mre);
 			}
 			return typeName;
@@ -492,16 +525,75 @@ public class CtmcModelWizard extends Wizard implements INewWizard {
 
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @generated
 		 */
 		protected Collection<String> getEncodings() {
 			if (encodings == null) {
 				encodings = new ArrayList<String>();
-				for (StringTokenizer stringTokenizer = new StringTokenizer(CTMCEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); ) {
+				for (StringTokenizer stringTokenizer = new StringTokenizer(
+						CTMCEditorPlugin.INSTANCE
+								.getString("_UI_XMLEncodingChoices")); stringTokenizer
+						.hasMoreTokens();) {
 					encodings.add(stringTokenizer.nextToken());
 				}
 			}
 			return encodings;
+		}
+	}
+
+	/**
+	 * Page to decide whether to create a graphical editor or not
+	 */
+	public class EditorPage extends WizardPage {
+
+		public EditorPage() {
+			super("ViewpointPage");
+			this.setTitle("Ggraphical Editor");
+			this.setDescription("Create a graphical editor");
+		}
+
+		private Button checkbox = null;
+
+		@Override
+		public void createControl(Composite parent) {
+			Composite composite = new Composite(parent, SWT.NONE);
+			{
+				GridLayout layout = new GridLayout();
+				layout.numColumns = 1;
+				layout.verticalSpacing = 12;
+				composite.setLayout(layout);
+
+				GridData data = new GridData();
+				data.verticalAlignment = GridData.FILL;
+				data.grabExcessVerticalSpace = true;
+				data.horizontalAlignment = GridData.FILL;
+				composite.setLayoutData(data);
+			}
+
+			Label questionLabel = new Label(composite, SWT.LEFT);
+
+			questionLabel
+					.setText("Do you want to create a graphical representation of the model?");
+
+			GridData data = new GridData();
+			data.horizontalAlignment = GridData.FILL;
+			questionLabel.setLayoutData(data);
+
+			checkbox = new Button(composite, SWT.CHECK);
+			checkbox.setText("Yes");
+			checkbox.setSelection(true);
+
+			GridData data1 = new GridData();
+			data1.horizontalAlignment = GridData.FILL;
+			checkbox.setLayoutData(data1);
+
+			setPageComplete(true);
+			setControl(composite);
+		}
+
+		public boolean getGraphicalSelection() {
+			return checkbox.getSelection();
 		}
 	}
 
@@ -515,13 +607,20 @@ public class CtmcModelWizard extends Wizard implements INewWizard {
 	public void addPages() {
 		// Create a page, set the title, and the initial model file name.
 		//
-		newFileCreationPage = new CtmcModelWizardNewFileCreationPage("Whatever", selection);
-		newFileCreationPage.setTitle(CTMCEditorPlugin.INSTANCE.getString("_UI_CtmcModelWizard_label"));
-		newFileCreationPage.setDescription(CTMCEditorPlugin.INSTANCE.getString("_UI_CtmcModelWizard_description"));
-		newFileCreationPage.setFileName(CTMCEditorPlugin.INSTANCE.getString("_UI_CtmcEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
+		newFileCreationPage = new CtmcModelWizardNewFileCreationPage(
+				"Whatever", selection);
+		newFileCreationPage.setTitle(CTMCEditorPlugin.INSTANCE
+				.getString("_UI_CtmcModelWizard_label"));
+		newFileCreationPage.setDescription(CTMCEditorPlugin.INSTANCE
+				.getString("_UI_CtmcModelWizard_description"));
+		newFileCreationPage.setFileName(CTMCEditorPlugin.INSTANCE
+				.getString("_UI_CtmcEditorFilenameDefaultBase")
+				+ "."
+				+ FILE_EXTENSIONS.get(0));
 		addPage(newFileCreationPage);
 
-		// Try and get the resource selection to determine a current directory for the file dialog.
+		// Try and get the resource selection to determine a current directory
+		// for the file dialog.
 		//
 		if (selection != null && !selection.isEmpty()) {
 			// Get the resource...
@@ -530,39 +629,52 @@ public class CtmcModelWizard extends Wizard implements INewWizard {
 			if (selectedElement instanceof IResource) {
 				// Get the resource parent, if its a file.
 				//
-				IResource selectedResource = (IResource)selectedElement;
+				IResource selectedResource = (IResource) selectedElement;
 				if (selectedResource.getType() == IResource.FILE) {
 					selectedResource = selectedResource.getParent();
 				}
 
 				// This gives us a directory...
 				//
-				if (selectedResource instanceof IFolder || selectedResource instanceof IProject) {
+				if (selectedResource instanceof IFolder
+						|| selectedResource instanceof IProject) {
 					// Set this for the container.
 					//
-					newFileCreationPage.setContainerFullPath(selectedResource.getFullPath());
+					newFileCreationPage.setContainerFullPath(selectedResource
+							.getFullPath());
 
 					// Make up a unique new name here.
 					//
-					String defaultModelBaseFilename = CTMCEditorPlugin.INSTANCE.getString("_UI_CtmcEditorFilenameDefaultBase");
-					String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
-					String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
-					for (int i = 1; ((IContainer)selectedResource).findMember(modelFilename) != null; ++i) {
-						modelFilename = defaultModelBaseFilename + i + "." + defaultModelFilenameExtension;
+					String defaultModelBaseFilename = CTMCEditorPlugin.INSTANCE
+							.getString("_UI_CtmcEditorFilenameDefaultBase");
+					String defaultModelFilenameExtension = FILE_EXTENSIONS
+							.get(0);
+					String modelFilename = defaultModelBaseFilename + "."
+							+ defaultModelFilenameExtension;
+					for (int i = 1; ((IContainer) selectedResource)
+							.findMember(modelFilename) != null; ++i) {
+						modelFilename = defaultModelBaseFilename + i + "."
+								+ defaultModelFilenameExtension;
 					}
 					newFileCreationPage.setFileName(modelFilename);
 				}
 			}
 		}
-		initialObjectCreationPage = new CtmcModelWizardInitialObjectCreationPage("Whatever2");
-		initialObjectCreationPage.setTitle(CTMCEditorPlugin.INSTANCE.getString("_UI_CtmcModelWizard_label"));
-		initialObjectCreationPage.setDescription(CTMCEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
+		initialObjectCreationPage = new CtmcModelWizardInitialObjectCreationPage(
+				"Whatever2");
+		initialObjectCreationPage.setTitle(CTMCEditorPlugin.INSTANCE
+				.getString("_UI_CtmcModelWizard_label"));
+		initialObjectCreationPage.setDescription(CTMCEditorPlugin.INSTANCE
+				.getString("_UI_Wizard_initial_object_description"));
 		addPage(initialObjectCreationPage);
+
+		editorPage = new EditorPage();
+		addPage(editorPage);
 	}
 
 	/**
-	 * Get the file from the page.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Get the file from the page. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public IFile getModelFile() {
