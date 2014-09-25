@@ -103,7 +103,7 @@ import com.google.common.collect.Iterators;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 
-import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.design.services.internal.ReconnectSwitch;
+
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.design.services.internal.RelatedCompositeStructureElementsSwitch;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.design.services.internal.RelatedElementsSwitch;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.design.services.internal.SemanticElementsSwitch;
@@ -1219,40 +1219,7 @@ public class UMLServices {
 		return Sets.difference(valids, getOwnedClassifiersLike(pak));
 	}
 
-	/**
-	 * Generic service used to process treatments on a reconnect The processing has to be defined by
-	 * overriding the corresponding caseXXX.
-	 * 
-	 * @param context
-	 *            Element attached to the existing edge
-	 * @param edgeView
-	 *            Represents the graphical new edge
-	 * @param sourceView
-	 *            Represents the graphical element pointed by the edge before reconnecting
-	 * @param targetView
-	 *            Represents the graphical element pointed by the edge after reconnecting
-	 * @param source
-	 *            Represents the semantic element pointed by the edge before reconnecting
-	 * @param target
-	 *            Represents the semantic element pointed by the edge after reconnecting
-	 * @return the Element attached to the edge once it has been modified
-	 */
-	public Element reconnectEdge(Element context, DEdge edgeView, EdgeTarget sourceView,
-			EdgeTarget targetView, Element source, Element target) {
-		final ReconnectSwitch reconnectService = new ReconnectSwitch();
-
-		// The edgeview represents the new graphical edge
-		// with testing of its source and target nodes we can
-		// know if the user reconnected the source or the target of the edge
-		if (edgeView.getSourceNode().equals(targetView)) {
-			reconnectService.setReconnectKind(ReconnectSwitch.RECONNECT_SOURCE);
-		} else {
-			reconnectService.setReconnectKind(ReconnectSwitch.RECONNECT_TARGET);
-		}
-		reconnectService.setOldPointedElement(source);
-		reconnectService.setNewPointedElement(target);
-		return reconnectService.doSwitch(context);
-	}
+	
 
 	/**
 	 * Check if a reconnect is possible and is not involving creating a cycle in the model.

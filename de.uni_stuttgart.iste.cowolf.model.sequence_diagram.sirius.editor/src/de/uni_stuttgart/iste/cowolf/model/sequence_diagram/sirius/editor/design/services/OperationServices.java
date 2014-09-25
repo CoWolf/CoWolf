@@ -25,6 +25,7 @@ import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.design.
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.design.services.internal.MoveUpElementSwitch;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.design.services.internal.NamedElementServices;
 
+
 /**
  * Utility services to manage operation.
  * 

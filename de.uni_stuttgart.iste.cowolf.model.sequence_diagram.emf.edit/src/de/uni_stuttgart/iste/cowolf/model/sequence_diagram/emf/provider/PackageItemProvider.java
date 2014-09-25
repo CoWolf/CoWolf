@@ -60,22 +60,22 @@ public class PackageItemProvider extends org.eclipse.uml2.uml.edit.providers.Pac
 	 * This adds a property descriptor for the Id feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addIdPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_IDBase_id_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IDBase_id_feature", "_UI_IDBase_type"),
-				 CommonBasePackage.Literals.ID_BASE__ID,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+//		itemPropertyDescriptors.add
+//			(createItemPropertyDescriptor
+//				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+//				 getResourceLocator(),
+//				 getString("_UI_IDBase_id_feature"),
+//				 getString("_UI_PropertyDescriptor_description", "_UI_IDBase_id_feature", "_UI_IDBase_type"),
+//				 CommonBasePackage.Literals.ID_BASE__ID,
+//				 true,
+//				 false,
+//				 false,
+//				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+//				 null,
+//				 null));
 	}
 
 	/**
