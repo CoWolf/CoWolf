@@ -1,14 +1,10 @@
 package de.uni_stuttgart.iste.cowolf.ui.evolution.evolution;
 
 import java.text.DateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
+import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
@@ -30,13 +26,8 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Tree;
-import org.sidiff.difference.symmetric.SymmetricDifference;
-
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Model;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelVersion;
-import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
-import de.uni_stuttgart.iste.cowolf.evolution.EvolutionException;
-import de.uni_stuttgart.iste.cowolf.evolution.EvolutionRegistry;
 
 public class EvolutionViewer extends ContentViewer implements 
 ITreeContentProvider,
@@ -129,32 +120,24 @@ INotifyChangedListener, ILabelProvider {
 	@Override
 	public void dispose() {
 	}
-
-	HashMap<ModelVersion, SymmetricDifference> differenceCache = new HashMap<ModelVersion, SymmetricDifference> ();
 	
 	@Override
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
-		if (newInput == null) {
-			return;
-		}
-		if (newInput.equals(oldInput)) {
-			return;
-		}
-		differenceCache.clear();
 	}
 
 	@Override
 	public void notifyChanged(Notification notification) {
 	}
 	
-	private Model source;
+	private Map<Object, Object> diffs;
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public Object[] getElements(Object inputElement) {
 		if (inputElement instanceof Object[]) {
-			if (((Object[]) inputElement)[0] instanceof Model) {
-				source = (Model) ((Object[]) inputElement)[0];
-				return new Object[] {source};
+			if (((Object[]) inputElement)[0] instanceof Map<?, ?>) {
+				diffs = (Map<Object, Object>) ((Object[]) inputElement)[0];
+				return diffs.keySet().toArray();
 			}
 		}
 		return contentAdapter.getElements(inputElement);
@@ -162,58 +145,13 @@ INotifyChangedListener, ILabelProvider {
 
 	@Override
 	public Object[] getChildren(Object parentElement) {
-		if (parentElement instanceof Model) {
-			List<Object> versions = new ArrayList<Object>(((Model)parentElement).getVersions());
-			versions.add(((Model) parentElement).getResource());
-			return versions.toArray();
-		}
-		if (parentElement instanceof Resource) {
-			SymmetricDifference diff = calculateDifferenceForCurrent((Resource)parentElement);
-			return new Object[] {diff};
-		}
 		if (parentElement instanceof ModelVersion) {
-			SymmetricDifference diff = differenceCache.get(parentElement);
-			if (diff == null) {
-				diff = calculateDifferenceForVersion((ModelVersion)parentElement);
-				if (diff == null) {
-					return new Object[] {"Initial version"};
-				}
-			}
-			return new Object[] {diff};
+			return new Object[] {diffs.get(parentElement)};
+		}
+		if (parentElement instanceof Model) {
+			return new Object[] {diffs.get(parentElement)};
 		}
 		return contentAdapter.getChildren(parentElement);
-	}
-
-	private SymmetricDifference calculateDifferenceForCurrent(Resource parentElement) {
-		try {
-			return calculateDifference(source.getVersions().get(source.getVersions().size()-1).getResource(), parentElement);
-		} catch (EvolutionException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-
-	private SymmetricDifference calculateDifferenceForVersion(
-			ModelVersion currentVersion) {
-		
-		EList<ModelVersion> versions = currentVersion.getModel().getVersions();
-		
-		int index = versions.indexOf(currentVersion);
-
-		if (index > 0) {
-			try {
-				return calculateDifference(versions.get(index-1).getResource(), currentVersion.getResource());
-			} catch (EvolutionException e) {
-				e.printStackTrace();
-			}
-		}
-		return null;
-	}
-	
-	private SymmetricDifference calculateDifference(final Resource baseVersion, final Resource targetVersion) throws EvolutionException {
-		AbstractEvolutionManager evoManager = EvolutionRegistry.getInstance().getEvolutionManager(baseVersion);
-		SymmetricDifference symmetricDifference = evoManager.evolve(baseVersion, targetVersion);
-		return symmetricDifference;
 	}
 
 	@Override
@@ -230,9 +168,6 @@ INotifyChangedListener, ILabelProvider {
 			return false;
 		}
 		if (element instanceof ModelVersion) {
-			return true;
-		}
-		if (element instanceof Resource) {
 			return true;
 		}
 		return contentAdapter.hasChildren(element);
@@ -255,7 +190,7 @@ INotifyChangedListener, ILabelProvider {
 	@Override
 	public String getText(Object element) {
 		if (element instanceof Model) {
-			return ((Model)element).getFile().getName();
+			return "Current workbench copy";
 		}
 		if (element instanceof String) {
 			return (String) element;
@@ -271,9 +206,6 @@ INotifyChangedListener, ILabelProvider {
 				label += " (" + version.getMessage() + ")";
 			}
 			return label;
-		}
-		if (element instanceof Resource) {
-			return "Current workbench copy";
 		}
 		return labelAdapter.getText(element);
 	}

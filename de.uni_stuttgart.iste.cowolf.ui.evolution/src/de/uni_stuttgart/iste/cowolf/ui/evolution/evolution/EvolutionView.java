@@ -1,5 +1,6 @@
 package de.uni_stuttgart.iste.cowolf.ui.evolution.evolution;
 
+import java.util.HashMap;
 import org.eclipse.emf.ecore.provider.EcoreItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
@@ -9,8 +10,6 @@ import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.ViewPart;
 import org.sidiff.difference.symmetric.provider.SymmetricItemProviderAdapterFactory;
-
-import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Model;
 
 public class EvolutionView extends ViewPart {
 	public EvolutionView() {
@@ -41,8 +40,8 @@ public class EvolutionView extends ViewPart {
 		container.setFocus();
 	}
 
-	public void setModel(Model model) {
-		this.treeViewer.setInput(new Object[] {model});
+	public void setModel(HashMap<Object, Object> results) {
+		this.treeViewer.setInput(new Object[] {results});
 		this.treeViewer.refresh();
 	}
 }

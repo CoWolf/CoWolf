@@ -1,6 +1,7 @@
 package de.uni_stuttgart.iste.cowolf.ui.transformation.resultview;
 
-import java.util.HashMap;
+import java.util.Map;
+
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.ViewPart;
 import org.sidiff.difference.symmetric.SymmetricDifference;
@@ -44,7 +45,7 @@ public class ResultView extends ViewPart {
 		container.setFocus();
 	}
 
-	public void setResult(HashMap<Model, SymmetricDifference> results, Model sourceModel) {
+	public void setResult(Map<Model, SymmetricDifference> results, Model sourceModel) {
 		this.treeViewer.setInput(new Object[] {sourceModel, results});
 		this.treeViewer.refresh();
 	}
