@@ -73,7 +73,7 @@ public class CoWolfFaulttreeAnalyseTest {
 		
 		// open My.dtmc as text file
 		bot.viewByTitle(TestDriver._cowolf_view).setFocus();
-		bot.tree().getTreeItem("CoWolf-Test-Project").getNode(_faulttree_file_name)
+		bot.tree().getTreeItem(TestDriver._cowolf_project_name).getNode(_faulttree_file_name)
 				.select().contextMenu("Open With").menu("Text Editor").click();
 		
 		SWTBotEditor editor = bot.editorByTitle(_faulttree_file_name);
@@ -87,15 +87,9 @@ public class CoWolfFaulttreeAnalyseTest {
 				.select().contextMenu("CoWolf").menu("Analyze").click();
 		//bot.button("Next >").click();
 		bot.button("Finish").click();
-		bot.sleep(120000);
-		
-		
-		
+
 		bot.viewByTitle(TestDriver._cowolf_view).setFocus();
 		bot.tree().getTreeItem("CoWolf-Test-Project").select().expand().click().getNode("My.dtmc.analysis.html").select();
-		bot.sleep(2000);
-		
-		
 	}
 	
 
