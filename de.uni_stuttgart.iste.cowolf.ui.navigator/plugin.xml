@@ -70,6 +70,15 @@ point="org.eclipse.ui.handlers">
             </and>
          </enabledWhen>
       </handler>
+      <handler
+            class="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.CreateRepresentationAndViewpointHandler"
+            commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.CreateRepresentationAndViewpointCommand">
+         <enabledWhen>
+            <test
+                  property="de.uni_stuttgart.iste.cowolf.ui.navigator.propertyTester.graphicalEditor.canFoo">
+            </test>
+         </enabledWhen>
+      </handler>
 </extension>
 <extension
 point="org.eclipse.ui.menus">
@@ -121,6 +130,11 @@ allPopups="false"
                </reference>
             </visibleWhen>
          </menu>
+         <command
+               commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.CreateRepresentationAndViewpointCommand"
+               label="Create Graphical Representation"
+               style="push">
+         </command>
 </menuContribution>
    </extension>
    <extension
@@ -131,6 +145,10 @@ allPopups="false"
             id="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.analyze"
             name="%command.analyze.name">
       </command>
+      <command
+            id="de.uni_stuttgart.iste.cowolf.ui.navigator.CreateRepresentationAndViewpointCommand"
+            name="Create Representation And Viewpoint">
+      </command>
 </extension>
 <extension
          point="org.eclipse.core.expressions.propertyTesters">
@@ -138,6 +156,13 @@ allPopups="false"
             class="de.uni_stuttgart.iste.cowolf.ui.navigator.PropertyTester.AnalyzeTester"
             id="de.uni_stuttgart.iste.cowolf.ui.navigator.propertyTester.analyze"
             namespace="de.uni_stuttgart.iste.cowolf.ui.navigator.propertyTester.analyze"
+            properties="canFoo"
+            type="java.lang.Object">
+      </propertyTester>
+      <propertyTester
+            class="de.uni_stuttgart.iste.cowolf.ui.navigator.PropertyTester.GraphicalEditorTest"
+            id="de.uni_stuttgart.iste.cowolf.ui.navigator.propertyTester.graphicalEditor"
+            namespace="de.uni_stuttgart.iste.cowolf.ui.navigator.propertyTester.graphicalEditor"
             properties="canFoo"
             type="java.lang.Object">
       </propertyTester>
@@ -161,16 +186,6 @@ allPopups="false"
             </iterate>
          </with>
       </definition>
-   </extension>
-   <extension
-         point="org.eclipse.ui.editors">
-      <editor
-            default="true"
-            extensions="ctmc, dtmc, sequence_diagram, statemachine, faulttree,component_diagram,lqn"
-            id="de.uni_stuttgart.iste.cowolf.ui.navigator.editors.graphicalEditor"
-            launcher="de.uni_stuttgart.iste.cowolf.ui.navigator.editors.GraphicalEditor"
-            name="graphical editor">
-      </editor>
    </extension>
 </plugin>
 
