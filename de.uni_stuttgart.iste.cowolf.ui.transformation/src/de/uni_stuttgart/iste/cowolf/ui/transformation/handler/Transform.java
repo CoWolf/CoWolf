@@ -2,6 +2,7 @@ package de.uni_stuttgart.iste.cowolf.ui.transformation.handler;
 
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.eclipse.core.commands.AbstractHandler;
@@ -23,8 +24,11 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.window.Window;
 import org.eclipse.jface.wizard.WizardDialog;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
+import org.sidiff.difference.symmetric.SymmetricDifference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -32,8 +36,13 @@ import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Association;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Model;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociation;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociationFactory;
+import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelVersion;
+import de.uni_stuttgart.iste.cowolf.evolution.AbstractEvolutionManager;
+import de.uni_stuttgart.iste.cowolf.evolution.EvolutionException;
+import de.uni_stuttgart.iste.cowolf.evolution.EvolutionRegistry;
 import de.uni_stuttgart.iste.cowolf.transformation.AbstractTransformationManager;
 import de.uni_stuttgart.iste.cowolf.transformation.TransformationRegistry;
+import de.uni_stuttgart.iste.cowolf.ui.transformation.resultview.ResultView;
 import de.uni_stuttgart.iste.cowolf.ui.transformation.wizard.TransformationWizard;
 
 /**
@@ -60,7 +69,7 @@ public class Transform extends AbstractHandler {
 
         IStructuredSelection selection = (IStructuredSelection) window.getSelectionService().getSelection();
 
- 		IFile selectedElement = (IFile) selection.getFirstElement();
+ 		final IFile selectedElement = (IFile) selection.getFirstElement();
 		
 		//Show error if model isn't valid
   		if (!isValid(selectedElement)) {
@@ -95,7 +104,11 @@ public class Transform extends AbstractHandler {
 			@Override
 			protected IStatus run(IProgressMonitor monitor) {
 				List<IFile> targets = modelWizard.getTargets();
-				monitor.beginTask(this.getName(), targets.size());
+				monitor.beginTask(this.getName(), targets.size()*2);
+				HashMap<Model, SymmetricDifference> results = new HashMap<Model, SymmetricDifference>(targets.size());
+
+	        	ModelAssociation ma = ModelAssociationFactory.eINSTANCE.getModelAssociation(selectedElement.getProject());
+	        	Model sourceModel = ma.getModel(sourceRes);
 		        for (IFile target : targets) {
 		        	if (monitor.isCanceled()) {
 		        		return Status.CANCEL_STATUS;
@@ -104,17 +117,31 @@ public class Transform extends AbstractHandler {
 			        	Resource targetRes = getResourceOfIFile(target);
 			        	AbstractTransformationManager transformationManager = TransformationRegistry.getInstance().getTransformationManager(sourceRes, targetRes);
 			        	if (transformationManager == null) {
+			        		monitor.worked(1);
 			        		continue;
 			        	}
 			        	monitor.subTask("Coevolution to model: " + target.getProjectRelativePath().toOSString());
-			        	ModelAssociation ma = ModelAssociationFactory.eINSTANCE.getModelAssociation(target.getProject());
-			        	transformationManager.transform(ma.getModel(sourceRes), ma.getModel(targetRes));
+			        	Model targetModel = ma.getModel(targetRes);
+			        	ModelVersion newModel = transformationManager.transform(sourceModel, targetModel);
+			        	monitor.worked(1);
+			        	if (newModel == null) {
+			        		continue;
+			        	}
+			        	AbstractEvolutionManager evoManager = EvolutionRegistry.getInstance().getEvolutionManager(targetRes);
+			        	if (evoManager != null) {
+			        		monitor.subTask("Calculate Evolution of: " + target.getProjectRelativePath().toOSString());
+				        	SymmetricDifference difference = evoManager.evolve(targetModel.getVersions().get(targetModel.getVersions().size()-2).getResource(), targetModel.getVersions().get(targetModel.getVersions().size()-1).getResource());
+				        	results.put(ma.getModel(targetRes), difference);
+			        	}
+
 		        	} catch (InvalidParameterException e) {
 		        		LOGGER.error("", e);
-		        	} finally {
-		        		monitor.worked(1);
-		        	}
+		        	} catch (EvolutionException e) {
+		        		LOGGER.error("", e);
+					}
+		        	monitor.worked(1);
 		        }
+		        createResultView(results, sourceModel);
 				return Status.OK_STATUS;
 			}
 		};
@@ -146,5 +173,19 @@ public class Transform extends AbstractHandler {
 			}
 		}
 		return true;
+	}
+	
+	private void createResultView(final HashMap<Model, SymmetricDifference> results, final Model sourceModel) {
+		Display.getDefault().asyncExec(new Runnable() {
+			@Override
+			public void run() {
+				try {
+					ResultView view = (ResultView) PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().showView("de.uni_stuttgart.iste.cowolf.ui.transformation.resultview");
+					view.setResult(results, sourceModel);
+				} catch (PartInitException e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
 }
