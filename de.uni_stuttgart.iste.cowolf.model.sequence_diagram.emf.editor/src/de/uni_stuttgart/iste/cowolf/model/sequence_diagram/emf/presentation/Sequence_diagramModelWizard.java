@@ -279,32 +279,29 @@ public class Sequence_diagramModelWizard extends Wizard implements INewWizard {
 				});
 			}
 
+			
+			//Now we have to create an aird file
+			URI airdFileURI = URI.createPlatformResourceURI(modelFile
+					.getFullPath().toString() + ".aird", true);
 
-			URI airdFileURI = URI.createPlatformResourceURI(modelFile.getFullPath()
-					.toString() + ".aird", true);
-
-			/* Create a Session from the session model URI */
+			// Create a Session from the session model URI
 			org.eclipse.sirius.business.api.session.SessionCreationOperation sessionCreationOperation = new DefaultLocalSessionCreationOperation(
 					airdFileURI, new NullProgressMonitor());
 			sessionCreationOperation.execute();
 
 			// create viewpoint
-
-
 			Session session = SessionManager.INSTANCE.getSession(airdFileURI,
 					new NullProgressMonitor());
 
 			URI fileURI = URI.createPlatformResourceURI(modelFile.getFullPath()
 					.toString(), true);
 
-			// adding the resource also to Sirius session
+			// adding the resource to the session
 			AddSemanticResourceCommand addCommandToSession = new AddSemanticResourceCommand(
 					session, fileURI, new NullProgressMonitor());
 			session.getTransactionalEditingDomain().getCommandStack()
 					.execute(addCommandToSession);
 			session.save(new NullProgressMonitor());
-
-			;
 
 			// find and add viewpoint
 			Set<Viewpoint> availableViewpoints = ViewpointSelection
