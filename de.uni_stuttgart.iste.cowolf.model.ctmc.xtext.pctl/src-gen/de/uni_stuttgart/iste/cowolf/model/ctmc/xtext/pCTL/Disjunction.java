@@ -30,12 +30,12 @@ public interface Disjunction extends RightStateExpression
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Left</em>' containment reference.
-   * @see #setLeft(StateFormula)
+   * @see #setLeft(RightStateExpression)
    * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PCTLPackage#getDisjunction_Left()
    * @model containment="true"
    * @generated
    */
-  StateFormula getLeft();
+  RightStateExpression getLeft();
 
   /**
    * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Disjunction#getLeft <em>Left</em>}' containment reference.
@@ -45,6 +45,6 @@ public interface Disjunction extends RightStateExpression
    * @see #getLeft()
    * @generated
    */
-  void setLeft(StateFormula value);
+  void setLeft(RightStateExpression value);
 
 } // Disjunction

@@ -20,18 +20,26 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public class StartElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Start");
-		private final Assignment cRuleAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cRuleFragmentParserRuleCall_0 = (RuleCall)cRuleAssignment.eContents().get(0);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cStartAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cRuleAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cRuleFragmentParserRuleCall_1_0 = (RuleCall)cRuleAssignment_1.eContents().get(0);
 		
 		//Start:
-		//	rule+=Fragment*;
+		//	{Start} rule+=Fragment*;
 		public ParserRule getRule() { return rule; }
 
+		//{Start} rule+=Fragment*
+		public Group getGroup() { return cGroup; }
+
+		//{Start}
+		public Action getStartAction_0() { return cStartAction_0; }
+
 		//rule+=Fragment*
-		public Assignment getRuleAssignment() { return cRuleAssignment; }
+		public Assignment getRuleAssignment_1() { return cRuleAssignment_1; }
 
 		//Fragment
-		public RuleCall getRuleFragmentParserRuleCall_0() { return cRuleFragmentParserRuleCall_0; }
+		public RuleCall getRuleFragmentParserRuleCall_1_0() { return cRuleFragmentParserRuleCall_1_0; }
 	}
 
 	public class FragmentElements extends AbstractParserRuleElementFinder {
@@ -875,44 +883,72 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	
-	private StartElements pStart;
-	private TerminalRule tBOOL;
-	private TerminalRule tDOUBLE;
-	private TerminalRule tCOMPARATOR;
-	private FragmentElements pFragment;
-	private CommentElements pComment;
-	private RuleElements pRule;
-	private SteadyStateElements pSteadyState;
-	private QuantifiedProbabilityElements pQuantifiedProbability;
-	private BooleanRuleElements pBooleanRule;
-	private StateFormulaElements pStateFormula;
-	private NegationElements pNegation;
-	private JunctionElements pJunction;
-	private ConjunctionElements pConjunction;
-	private DisjunctionElements pDisjunction;
-	private ImplicationElements pImplication;
-	private ProbabilityElements pProbability;
-	private AtomicElements pAtomic;
-	private StateElements pState;
-	private LabelElements pLabel;
-	private BooleanElements pBoolean;
-	private PathFormulaElements pPathFormula;
-	private UntilElements pUntil;
-	private NextElements pNext;
-	private FutureElements pFuture;
-	private GloballyElements pGlobally;
-	private CompareProbabilityElements pCompareProbability;
-	private TimeBoundElements pTimeBound;
+	private final StartElements pStart;
+	private final TerminalRule tBOOL;
+	private final TerminalRule tDOUBLE;
+	private final TerminalRule tCOMPARATOR;
+	private final FragmentElements pFragment;
+	private final CommentElements pComment;
+	private final RuleElements pRule;
+	private final SteadyStateElements pSteadyState;
+	private final QuantifiedProbabilityElements pQuantifiedProbability;
+	private final BooleanRuleElements pBooleanRule;
+	private final StateFormulaElements pStateFormula;
+	private final NegationElements pNegation;
+	private final JunctionElements pJunction;
+	private final ConjunctionElements pConjunction;
+	private final DisjunctionElements pDisjunction;
+	private final ImplicationElements pImplication;
+	private final ProbabilityElements pProbability;
+	private final AtomicElements pAtomic;
+	private final StateElements pState;
+	private final LabelElements pLabel;
+	private final BooleanElements pBoolean;
+	private final PathFormulaElements pPathFormula;
+	private final UntilElements pUntil;
+	private final NextElements pNext;
+	private final FutureElements pFuture;
+	private final GloballyElements pGlobally;
+	private final CompareProbabilityElements pCompareProbability;
+	private final TimeBoundElements pTimeBound;
 	
 	private final Grammar grammar;
 
-	private TerminalsGrammarAccess gaTerminals;
+	private final TerminalsGrammarAccess gaTerminals;
 
 	@Inject
 	public PCTLGrammarAccess(GrammarProvider grammarProvider,
 		TerminalsGrammarAccess gaTerminals) {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
+		this.pStart = new StartElements();
+		this.tBOOL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "BOOL");
+		this.tDOUBLE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "DOUBLE");
+		this.tCOMPARATOR = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "COMPARATOR");
+		this.pFragment = new FragmentElements();
+		this.pComment = new CommentElements();
+		this.pRule = new RuleElements();
+		this.pSteadyState = new SteadyStateElements();
+		this.pQuantifiedProbability = new QuantifiedProbabilityElements();
+		this.pBooleanRule = new BooleanRuleElements();
+		this.pStateFormula = new StateFormulaElements();
+		this.pNegation = new NegationElements();
+		this.pJunction = new JunctionElements();
+		this.pConjunction = new ConjunctionElements();
+		this.pDisjunction = new DisjunctionElements();
+		this.pImplication = new ImplicationElements();
+		this.pProbability = new ProbabilityElements();
+		this.pAtomic = new AtomicElements();
+		this.pState = new StateElements();
+		this.pLabel = new LabelElements();
+		this.pBoolean = new BooleanElements();
+		this.pPathFormula = new PathFormulaElements();
+		this.pUntil = new UntilElements();
+		this.pNext = new NextElements();
+		this.pFuture = new FutureElements();
+		this.pGlobally = new GloballyElements();
+		this.pCompareProbability = new CompareProbabilityElements();
+		this.pTimeBound = new TimeBoundElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -943,9 +979,9 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Start:
-	//	rule+=Fragment*;
+	//	{Start} rule+=Fragment*;
 	public StartElements getStartAccess() {
-		return (pStart != null) ? pStart : (pStart = new StartElements());
+		return pStart;
 	}
 	
 	public ParserRule getStartRule() {
@@ -955,25 +991,25 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 	//terminal BOOL:
 	//	"true" | "false";
 	public TerminalRule getBOOLRule() {
-		return (tBOOL != null) ? tBOOL : (tBOOL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "BOOL"));
+		return tBOOL;
 	} 
 
 	//terminal DOUBLE returns ecore::EDouble:
 	//	INT ("." INT)? | "." INT;
 	public TerminalRule getDOUBLERule() {
-		return (tDOUBLE != null) ? tDOUBLE : (tDOUBLE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "DOUBLE"));
+		return tDOUBLE;
 	} 
 
 	//terminal COMPARATOR:
 	//	">" "="? | "<" "="?;
 	public TerminalRule getCOMPARATORRule() {
-		return (tCOMPARATOR != null) ? tCOMPARATOR : (tCOMPARATOR = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "COMPARATOR"));
+		return tCOMPARATOR;
 	} 
 
 	//Fragment:
 	//	Comment | Rule;
 	public FragmentElements getFragmentAccess() {
-		return (pFragment != null) ? pFragment : (pFragment = new FragmentElements());
+		return pFragment;
 	}
 	
 	public ParserRule getFragmentRule() {
@@ -983,7 +1019,7 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 	//Comment:
 	//	comment=SL_COMMENT;
 	public CommentElements getCommentAccess() {
-		return (pComment != null) ? pComment : (pComment = new CommentElements());
+		return pComment;
 	}
 	
 	public ParserRule getCommentRule() {
@@ -993,7 +1029,7 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 	//Rule hidden(WS):
 	//	BooleanRule | SteadyState | QuantifiedProbability;
 	public RuleElements getRuleAccess() {
-		return (pRule != null) ? pRule : (pRule = new RuleElements());
+		return pRule;
 	}
 	
 	public ParserRule getRuleRule() {
@@ -1003,7 +1039,7 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 	//SteadyState:
 	//	"S" SL_COMMENT* (bound=CompareProbability | "=?") SL_COMMENT* "[" SL_COMMENT* value=StateFormula SL_COMMENT* "]";
 	public SteadyStateElements getSteadyStateAccess() {
-		return (pSteadyState != null) ? pSteadyState : (pSteadyState = new SteadyStateElements());
+		return pSteadyState;
 	}
 	
 	public ParserRule getSteadyStateRule() {
@@ -1013,7 +1049,7 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 	//QuantifiedProbability:
 	//	"P" SL_COMMENT* "=?" SL_COMMENT* "[" value=PathFormula "]";
 	public QuantifiedProbabilityElements getQuantifiedProbabilityAccess() {
-		return (pQuantifiedProbability != null) ? pQuantifiedProbability : (pQuantifiedProbability = new QuantifiedProbabilityElements());
+		return pQuantifiedProbability;
 	}
 	
 	public ParserRule getQuantifiedProbabilityRule() {
@@ -1023,7 +1059,7 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 	//BooleanRule:
 	//	value=StateFormula;
 	public BooleanRuleElements getBooleanRuleAccess() {
-		return (pBooleanRule != null) ? pBooleanRule : (pBooleanRule = new BooleanRuleElements());
+		return pBooleanRule;
 	}
 	
 	public ParserRule getBooleanRuleRule() {
@@ -1037,7 +1073,7 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 	//	"(" SL_COMMENT* left=StateFormula (right=Junction | right=Implication)? SL_COMMENT* ")" | left=(Negation | Atomic |
 	//	Probability);
 	public StateFormulaElements getStateFormulaAccess() {
-		return (pStateFormula != null) ? pStateFormula : (pStateFormula = new StateFormulaElements());
+		return pStateFormula;
 	}
 	
 	public ParserRule getStateFormulaRule() {
@@ -1047,7 +1083,7 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 	//Negation returns StateExpression:
 	//	"!" StateFormula;
 	public NegationElements getNegationAccess() {
-		return (pNegation != null) ? pNegation : (pNegation = new NegationElements());
+		return pNegation;
 	}
 	
 	public ParserRule getNegationRule() {
@@ -1057,7 +1093,7 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 	//Junction returns RightStateExpression hidden(WS, SL_COMMENT):
 	//	Conjunction | Disjunction;
 	public JunctionElements getJunctionAccess() {
-		return (pJunction != null) ? pJunction : (pJunction = new JunctionElements());
+		return pJunction;
 	}
 	
 	public ParserRule getJunctionRule() {
@@ -1067,7 +1103,7 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 	//Conjunction returns RightStateExpression:
 	//	"&" StateFormula ({Conjunction.left=current} "&" right=StateFormula)*;
 	public ConjunctionElements getConjunctionAccess() {
-		return (pConjunction != null) ? pConjunction : (pConjunction = new ConjunctionElements());
+		return pConjunction;
 	}
 	
 	public ParserRule getConjunctionRule() {
@@ -1077,7 +1113,7 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 	//Disjunction returns RightStateExpression:
 	//	"|" StateFormula ({Disjunction.left=current} "|" right=StateFormula)*;
 	public DisjunctionElements getDisjunctionAccess() {
-		return (pDisjunction != null) ? pDisjunction : (pDisjunction = new DisjunctionElements());
+		return pDisjunction;
 	}
 	
 	public ParserRule getDisjunctionRule() {
@@ -1087,7 +1123,7 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 	//Implication returns RightStateExpression hidden(WS, SL_COMMENT):
 	//	"=>" right=StateFormula;
 	public ImplicationElements getImplicationAccess() {
-		return (pImplication != null) ? pImplication : (pImplication = new ImplicationElements());
+		return pImplication;
 	}
 	
 	public ParserRule getImplicationRule() {
@@ -1097,7 +1133,7 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 	//Probability returns StateExpression:
 	//	"P" SL_COMMENT* {Probability} comparator=CompareProbability SL_COMMENT* "[" path=PathFormula "]";
 	public ProbabilityElements getProbabilityAccess() {
-		return (pProbability != null) ? pProbability : (pProbability = new ProbabilityElements());
+		return pProbability;
 	}
 	
 	public ParserRule getProbabilityRule() {
@@ -1107,7 +1143,7 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 	//Atomic returns StateExpression:
 	//	State | Label | Boolean;
 	public AtomicElements getAtomicAccess() {
-		return (pAtomic != null) ? pAtomic : (pAtomic = new AtomicElements());
+		return pAtomic;
 	}
 	
 	public ParserRule getAtomicRule() {
@@ -1117,7 +1153,7 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 	//State:
 	//	"State:" value=STRING;
 	public StateElements getStateAccess() {
-		return (pState != null) ? pState : (pState = new StateElements());
+		return pState;
 	}
 	
 	public ParserRule getStateRule() {
@@ -1127,7 +1163,7 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 	//Label:
 	//	"Label:" value=STRING;
 	public LabelElements getLabelAccess() {
-		return (pLabel != null) ? pLabel : (pLabel = new LabelElements());
+		return pLabel;
 	}
 	
 	public ParserRule getLabelRule() {
@@ -1137,7 +1173,7 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 	//Boolean:
 	//	value=BOOL;
 	public BooleanElements getBooleanAccess() {
-		return (pBoolean != null) ? pBoolean : (pBoolean = new BooleanElements());
+		return pBoolean;
 	}
 	
 	public ParserRule getBooleanRule() {
@@ -1150,7 +1186,7 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 	//PathFormula hidden(WS, SL_COMMENT):
 	//	Next | Until | Future | Globally;
 	public PathFormulaElements getPathFormulaAccess() {
-		return (pPathFormula != null) ? pPathFormula : (pPathFormula = new PathFormulaElements());
+		return pPathFormula;
 	}
 	
 	public ParserRule getPathFormulaRule() {
@@ -1160,7 +1196,7 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 	//Until:
 	//	left=StateFormula type=("U" | "W" | "R") bound=TimeBound? right=StateFormula;
 	public UntilElements getUntilAccess() {
-		return (pUntil != null) ? pUntil : (pUntil = new UntilElements());
+		return pUntil;
 	}
 	
 	public ParserRule getUntilRule() {
@@ -1170,7 +1206,7 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 	//Next:
 	//	"X" bound=TimeBound? value=StateFormula;
 	public NextElements getNextAccess() {
-		return (pNext != null) ? pNext : (pNext = new NextElements());
+		return pNext;
 	}
 	
 	public ParserRule getNextRule() {
@@ -1180,7 +1216,7 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 	//Future:
 	//	"F" bound=TimeBound? value=StateFormula;
 	public FutureElements getFutureAccess() {
-		return (pFuture != null) ? pFuture : (pFuture = new FutureElements());
+		return pFuture;
 	}
 	
 	public ParserRule getFutureRule() {
@@ -1190,7 +1226,7 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 	//Globally:
 	//	"G" bound=TimeBound? value=StateFormula;
 	public GloballyElements getGloballyAccess() {
-		return (pGlobally != null) ? pGlobally : (pGlobally = new GloballyElements());
+		return pGlobally;
 	}
 	
 	public ParserRule getGloballyRule() {
@@ -1200,7 +1236,7 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 	//CompareProbability hidden(WS, SL_COMMENT):
 	//	operator=COMPARATOR value=DOUBLE;
 	public CompareProbabilityElements getCompareProbabilityAccess() {
-		return (pCompareProbability != null) ? pCompareProbability : (pCompareProbability = new CompareProbabilityElements());
+		return pCompareProbability;
 	}
 	
 	public ParserRule getCompareProbabilityRule() {
@@ -1210,7 +1246,7 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 	//TimeBound hidden(WS, SL_COMMENT):
 	//	operator=(COMPARATOR | "=") value=DOUBLE | "[" from=DOUBLE operator="," to=DOUBLE "]";
 	public TimeBoundElements getTimeBoundAccess() {
-		return (pTimeBound != null) ? pTimeBound : (pTimeBound = new TimeBoundElements());
+		return pTimeBound;
 	}
 	
 	public ParserRule getTimeBoundRule() {
@@ -1230,8 +1266,8 @@ public class PCTLGrammarAccess extends AbstractGrammarElementFinder {
 	} 
 
 	//terminal STRING:
-	//	"\"" ("\\" ("b" | "t" | "n" | "f" | "r" | "u" | "\"" | "\'" | "\\") | !("\\" | "\""))* "\"" | "\'" ("\\" ("b" | "t" |
-	//	"n" | "f" | "r" | "u" | "\"" | "\'" | "\\") | !("\\" | "\'"))* "\'";
+	//	"\"" ("\\" . / * 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' * / | !("\\" | "\""))* "\"" | "\'" ("\\" .
+	//	/ * 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' * / | !("\\" | "\'"))* "\'";
 	public TerminalRule getSTRINGRule() {
 		return gaTerminals.getSTRINGRule();
 	} 

@@ -385,7 +385,7 @@ public class PCTLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     rule+=Fragment*
+	 *     (rule+=Fragment*)
 	 */
 	protected void sequence_Start(EObject context, Start semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

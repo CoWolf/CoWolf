@@ -349,13 +349,13 @@ public class EditPropertiesWizardPage1 extends WizardPage {
 			for (State state : ((CTMC) resource.getContents().get(0))
 					.getStates()) {
 				if (state.getName() != null && !state.getName().isEmpty()) {
-					String stateName = "State:" + state.getName();
+					String stateName = "State:\"" + state.getName().replace("\"", "\\\"").replace("\'", "\\\'") + "\"";
 					if (!statesAndLabels.contains(stateName)) {
 						statesAndLabels.add(stateName);
 					}
 					for (de.uni_stuttgart.iste.cowolf.model.ctmc.Label label : state
 							.getLabels()) {
-						String labelName = "Label:" + label.getName();
+						String labelName = "Label:\"" + label.getName().replace("\"", "\\\"").replace("\'", "\\\'") + "\"";
 						if (!statesAndLabels.contains(labelName)) {
 							statesAndLabels.add(labelName);
 						}

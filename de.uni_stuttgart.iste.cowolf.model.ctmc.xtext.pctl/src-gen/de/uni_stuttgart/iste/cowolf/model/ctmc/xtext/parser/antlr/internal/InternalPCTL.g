@@ -77,25 +77,31 @@ ruleStart returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(
+((
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getStartAccess().getStartAction_0(),
+            $current);
+    }
+)(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getStartAccess().getRuleFragmentParserRuleCall_0()); 
+	        newCompositeNode(grammarAccess.getStartAccess().getRuleFragmentParserRuleCall_1_0()); 
 	    }
-		lv_rule_0_0=ruleFragment		{
+		lv_rule_1_0=ruleFragment		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getStartRule());
 	        }
        		add(
        			$current, 
        			"rule",
-        		lv_rule_0_0, 
+        		lv_rule_1_0, 
         		"Fragment");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)*
+)*)
 ;
 
 
@@ -1685,7 +1691,7 @@ RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
 RULE_INT : ('0'..'9')+;
 
-RULE_STRING : ('"' ('\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|'\''|'\\')|~(('\\'|'"')))* '"'|'\'' ('\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|'\''|'\\')|~(('\\'|'\'')))* '\'');
+RULE_STRING : ('"' ('\\' .|~(('\\'|'"')))* '"'|'\'' ('\\' .|~(('\\'|'\'')))* '\'');
 
 RULE_ML_COMMENT : '/*' ( options {greedy=false;} : . )*'*/';
 

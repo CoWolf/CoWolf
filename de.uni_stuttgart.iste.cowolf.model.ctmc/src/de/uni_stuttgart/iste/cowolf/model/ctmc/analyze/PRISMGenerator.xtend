@@ -79,7 +79,7 @@ class PRISMGenerator {
 			if (!m.containsKey(l.name)) {
 				m.put(l.name, newLinkedList())
 			} m.get(l.name).add(l.state); m]
-		return labels.entrySet.map[l|'label "' + l.key + '" = ' + l.value.join('|')["s=" + getIntState] + ";"].join('\n');
+		return labels.entrySet.map[l|'label "' + l.key.replaceAll("[^a-zA-Z0-9_]", "_") + '" = ' + l.value.join('|')["s=" + getIntState] + ";"].join('\n');
 
 	}
 
@@ -114,7 +114,7 @@ class PRISMGenerator {
 			result = result.replaceAll("State:([\"'])" + name + "\\1", "s=" + entry.value)
 		}
 		for (entry : labelsList) {
-			result = result.replaceAll("Label:([\"'])" + entry.replace("\"", "\\\\\"").replace("'", "\\\\'") + "\\1", "\"" + entry + "\"")
+			result = result.replaceAll("Label:([\"'])" + entry.replace("\"", "\\\\\"").replace("'", "\\\\'") + "\\1", "\"" + entry.replaceAll("[^a-zA-Z0-9_]", "_") + "\"")
 		}
 		
 		result = result.replaceAll("State:"+STRING, "false");

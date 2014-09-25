@@ -30,12 +30,12 @@ public interface Conjunction extends RightStateExpression
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Left</em>' containment reference.
-   * @see #setLeft(StateFormula)
+   * @see #setLeft(RightStateExpression)
    * @see de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.PCTLPackage#getConjunction_Left()
    * @model containment="true"
    * @generated
    */
-  StateFormula getLeft();
+  RightStateExpression getLeft();
 
   /**
    * Sets the value of the '{@link de.uni_stuttgart.iste.cowolf.model.ctmc.xtext.pCTL.Conjunction#getLeft <em>Left</em>}' containment reference.
@@ -45,6 +45,6 @@ public interface Conjunction extends RightStateExpression
    * @see #getLeft()
    * @generated
    */
-  void setLeft(StateFormula value);
+  void setLeft(RightStateExpression value);
 
 } // Conjunction
