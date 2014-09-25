@@ -2,6 +2,7 @@ package de.uni_stuttgart.iste.cowolf.ui.navigator.commands;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 import org.eclipse.core.commands.AbstractHandler;
@@ -11,11 +12,13 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.sirius.business.api.dialect.DialectManager;
 import org.eclipse.sirius.business.api.dialect.command.CreateRepresentationCommand;
 import org.eclipse.sirius.business.api.helper.SiriusResourceHelper;
@@ -30,10 +33,15 @@ import org.eclipse.sirius.ui.business.internal.commands.ChangeViewpointSelection
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
+import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.uml2.uml.PackageableElement;
+import org.eclipse.uml2.uml.internal.impl.PackageImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.impl.ModelAssociationFactoryImpl;
+import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Interaction;
 
 public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 
@@ -42,7 +50,21 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		// TODO Auto-generated method stub
+
+		IWorkbenchWindow window = PlatformUI.getWorkbench()
+				.getActiveWorkbenchWindow();
+		IStructuredSelection selection = (IStructuredSelection) window
+				.getSelectionService().getSelection();
+
+		Iterator iterator = selection.iterator();
+
+		while (iterator.hasNext()) {
+			// only IFiles as the command is only clickable for IFiles
+			IFile file = (IFile) iterator.next();
+			createAll(file, file.getFileExtension());
+		}
+
+
 		return null;
 	}
 
@@ -76,7 +98,7 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 					.getViewpoints(fileExtension);
 			if (availableViewpoints.isEmpty())
 				throw new Exception(
-						"Could not find viewport for fileextension "
+						"Could not find viewport for file extension "
 								+ fileExtension);
 
 			Set<Viewpoint> viewpoints = new HashSet<Viewpoint>();
@@ -94,10 +116,26 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 			domain.getCommandStack().execute(command);
 
 			// create representation
-			Object[] elements1 = session.getSemanticResources().toArray();
-			Resource resource = (Resource) elements1[elements1.length - 1];
+			EObject rootObject = null;
+			if (modelFile.getFileExtension().equals("sequence_diagram")) {
+				Interaction interaction = null;
+				Object[] elements1 = session.getSemanticResources().toArray();
+				Resource resource = (Resource) elements1[elements1.length - 1];
 
-			EObject rootObject = resource.getContents().get(0);
+				EList<PackageableElement> pack = ((PackageImpl) resource
+						.getContents().get(0)).getPackagedElements();
+				for (PackageableElement element : pack) {
+					if (element instanceof Interaction) {
+						interaction = (Interaction) element;
+					}
+				}
+				rootObject = interaction;
+			} else {
+				Object[] elements1 = session.getSemanticResources().toArray();
+				Resource resource = (Resource) elements1[elements1.length - 1];
+
+				rootObject = resource.getContents().get(0);
+			}
 
 			Collection<RepresentationDescription> descriptions = DialectManager.INSTANCE
 					.getAvailableRepresentationDescriptions(
