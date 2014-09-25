@@ -15,7 +15,7 @@
       <details key="constraints" value="onlyOneInteraction"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
-      <details key="onlyOneInteraction" value="self.packagedElement -> size() = 1"/>
+      <details key="onlyOneInteraction" value="self.packagedElement -> select(element : uml::PackageableElement| element.oclIsKindOf(uml::Interaction)) -> size() &lt; 2"/>
     </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Class" eSuperTypes="../../org.eclipse.uml2.uml/model/UML.ecore#//Class ../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase"/>

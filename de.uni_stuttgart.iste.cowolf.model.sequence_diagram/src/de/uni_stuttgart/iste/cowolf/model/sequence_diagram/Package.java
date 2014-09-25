@@ -12,7 +12,7 @@ import de.uni_stuttgart.iste.cowolf.model.commonBase.IDBase;
  *
  * @see de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramPackage#getPackage()
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='onlyOneInteraction'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL onlyOneInteraction='self.packagedElement -> size() = 1'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL onlyOneInteraction='self.packagedElement -> select(element : uml::PackageableElement| element.oclIsKindOf(uml::Interaction)) -> size() < 2'"
  * @generated
  */
 public interface Package extends org.eclipse.uml2.uml.Package, IDBase {

@@ -533,7 +533,7 @@ public class Sequence_diagramPackageImpl extends EPackageImpl implements Sequenc
 		  (packageEClass, 
 		   source, 
 		   new String[] {
-			 "onlyOneInteraction", "self.packagedElement -> size() = 1"
+			 "onlyOneInteraction", "self.packagedElement -> select(element : uml::PackageableElement| element.oclIsKindOf(uml::Interaction)) -> size() < 2"
 		   });
 	}
 
