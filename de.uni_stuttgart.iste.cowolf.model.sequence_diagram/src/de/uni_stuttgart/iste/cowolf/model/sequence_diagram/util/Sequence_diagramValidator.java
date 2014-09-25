@@ -174,7 +174,7 @@ public class Sequence_diagramValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String PACKAGE__ONLY_ONE_INTERACTION__EEXPRESSION = "self.packagedElement -> size() = 1";
+	protected static final String PACKAGE__ONLY_ONE_INTERACTION__EEXPRESSION = "self.packagedElement -> select(element : uml::PackageableElement| element.oclIsKindOf(uml::Interaction)) -> size() < 2";
 
 	/**
 	 * Validates the onlyOneInteraction constraint of '<em>Package</em>'.
