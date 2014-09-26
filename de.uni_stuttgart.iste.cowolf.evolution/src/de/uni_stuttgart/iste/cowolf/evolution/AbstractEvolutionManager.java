@@ -8,7 +8,10 @@ import java.util.logging.Logger;
 
 import org.eclipse.emf.ecore.resource.Resource;
 import org.sidiff.common.emf.exceptions.InvalidModelException;
+import org.sidiff.difference.asymmetric.facade.AsymmetricDiffFacade;
+import org.sidiff.difference.asymmetric.facade.util.Difference;
 import org.sidiff.difference.lifting.facade.LiftingFacade;
+import org.sidiff.difference.lifting.facade.util.PipelineUtils;
 import org.sidiff.difference.lifting.settings.LiftingSettings;
 import org.sidiff.difference.lifting.settings.LiftingSettings.RecognitionEngineMode;
 import org.sidiff.difference.matcher.IMatcher;
@@ -96,6 +99,33 @@ public abstract class AbstractEvolutionManager {
             throw new EvolutionException("Invalid Model used for evolution.", e);
         }
     }
+    
+    public Difference getDiff(Resource oldModel, Resource newModel) throws EvolutionException {
+    	
+    	if (!this.isManaged(oldModel) || !this.isManaged(newModel)) {
+            Logger.getLogger("evolution").warning("Model can not be handled by evolution");
+            return null;
+        }
+    	
+        // do required pre-computing work
+        String documentType = this.getDocumentType(oldModel);
+        LiftingSettings settings = this.getDefaultSettings(documentType,
+                oldModel, newModel);
+        settings.setValidate(false);
+        
+        Difference diff = null;
+		try {
+			diff = AsymmetricDiffFacade.liftMeUp(oldModel, newModel, settings);
+		} catch (InvalidModelException e) {
+			throw new EvolutionException("Invalid Model used for evolution.", e);
+		}
+        
+        if (diff != null) {
+			PipelineUtils.sortDifference(diff.getSymmetric());
+		}
+		
+		return diff;
+    }
 
     /**
      * @return Meta data for the evolution
@@ -111,16 +141,17 @@ public abstract class AbstractEvolutionManager {
      * @param modelB
      * @return settings object.
      */
-    protected LiftingSettings getDefaultSettings(String documentType,
+    public LiftingSettings getDefaultSettings(String documentType,
             Resource modelA, Resource modelB) {
         LiftingSettings settings = new LiftingSettings(documentType);
         settings.setRecognitionEngineMode(RecognitionEngineMode.LIFTING_AND_POST_PROCESSING);
+        
         IMatcher matcher = this.getMatcher(this.getEvolutionTypeInfo()
                 .getMatcher(), modelA, modelB);
+        
         // use default matcher, if no corrosponding matcher is found.
         if (matcher == null) {
-            matcher = this.getMatcher(AbstractEvolutionManager.MATCHER_DEFAULT,
-                    modelA, modelB);
+            matcher = this.getMatcher(AbstractEvolutionManager.MATCHER_DEFAULT, modelA, modelB);
         }
         settings.setMatcher(matcher);
         settings.setScope(Scope.RESOURCE);

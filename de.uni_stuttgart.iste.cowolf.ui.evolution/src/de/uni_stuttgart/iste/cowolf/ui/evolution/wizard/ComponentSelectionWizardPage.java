@@ -1,5 +1,6 @@
 package de.uni_stuttgart.iste.cowolf.ui.evolution.wizard;
 
+import java.io.File;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -18,12 +19,18 @@ import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Model;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelVersion;
 
 import org.eclipse.jface.dialogs.DialogPage;
+import org.eclipse.jface.preference.DirectoryFieldEditor;
+import org.eclipse.jface.preference.FileFieldEditor;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.layout.FillLayout;
 
 /**
  * This class provides the main wizard content for selecting model and evolution
@@ -43,6 +50,9 @@ public class ComponentSelectionWizardPage extends WizardPage {
 	private Table table1;
 	private Label lblSelectBaseVersion;
 	private Label lblSelectTargetVersion;
+	private Button btnSaveDifferenceAs;
+	private DirectoryFieldEditor patchFile;
+	private Composite composite;
 
 	/**
 	 * Page providing main content for wizard.
@@ -101,6 +111,28 @@ public class ComponentSelectionWizardPage extends WizardPage {
 		tableViewer2 = new TableViewer (container, SWT.BORDER | SWT.V_SCROLL | SWT.SINGLE);
 		table2 = tableViewer2.getTable();
 		table2.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
+		
+		btnSaveDifferenceAs = new Button(container, SWT.CHECK);
+		btnSaveDifferenceAs.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				patchFile.setEnabled(btnSaveDifferenceAs.getSelection(), composite);
+			}
+		});
+		btnSaveDifferenceAs.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 4, 1));
+		btnSaveDifferenceAs.setText("Save difference as patch");
+		
+		composite = new Composite(container, SWT.NONE);
+		composite.setLayout(new FillLayout(SWT.HORIZONTAL));
+		GridData gd_composite = new GridData(SWT.FILL, SWT.CENTER, true, false, 4, 1);
+		gd_composite.horizontalIndent = 10;
+		composite.setLayoutData(gd_composite);
+		
+		patchFile = new DirectoryFieldEditor("", "Target directory", composite);
+		patchFile.setEmptyStringAllowed(false);
+		patchFile.setStringValue(model.getFile().getParent().getLocation().toString());
+		patchFile.setEnabled(btnSaveDifferenceAs.getSelection(), composite);
+		
 		tableViewer2.setContentProvider(targetSelection);
 		tableViewer2.setLabelProvider(targetSelection);
 		tableViewer2.setInput(model);
@@ -133,6 +165,14 @@ public class ComponentSelectionWizardPage extends WizardPage {
 		}
 		return ((Model) this.table2.getSelection()[0].getData()).getResource();
 	}
+	
+	public File getPatchFile() {
+		if (!btnSaveDifferenceAs.getSelection()) {
+			return null;
+		}
+		
+		return new File(patchFile.getStringValue());
+	}
 
 	public void setPageComplete() {
 		this.setErrorMessage(null);
@@ -148,6 +188,25 @@ public class ComponentSelectionWizardPage extends WizardPage {
 			this.setErrorMessage("No target version is selected!");
 			this.setPageComplete(false);
 			return;
+		}
+		
+		if (this.btnSaveDifferenceAs.getSelection()) {
+			if (patchFile.getStringValue().isEmpty()) {
+				this.setErrorMessage("No patch target directory specified.");
+				this.setPageComplete(false);
+				return;
+			}
+			File patch = new File(patchFile.getStringValue());
+			if (!patch.isDirectory()) {
+				this.setErrorMessage("Patch target is not a directory.");
+				this.setPageComplete(false);
+				return;
+			}
+			if (!patch.canWrite()) {
+				this.setErrorMessage("Can't write to patch target.");
+				this.setPageComplete(false);
+				return;
+			}
 		}
 
 		// WARNINGS
