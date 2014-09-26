@@ -50,11 +50,25 @@ import de.uni_stuttgart.iste.cowolf.model.AbstractModelManager;
 import de.uni_stuttgart.iste.cowolf.model.ModelRegistry;
 
 
+/**
+ * @author Verena Käfer
+ * 
+ *         This class handles the creation of new aird files and their
+ *         configuration
+ *
+ */
 public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 
 	private final static Logger LOGGER = LoggerFactory
 			.getLogger(ModelAssociationFactoryImpl.class);
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.eclipse.core.commands.AbstractHandler#execute(org.eclipse.core.commands
+	 * .ExecutionEvent)
+	 */
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 
@@ -74,6 +88,12 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 		return null;
 	}
 
+	/**
+	 * @param modelFile
+	 *            the current file for which an aird file should be created
+	 * @param firstCreation
+	 *            true if called in a model creation wizard, false else
+	 */
 	public static void createAll(IFile modelFile, boolean firstCreation) {
 		try {
 			Set<Viewpoint> availableViewpoints = ViewpointSelection
@@ -176,6 +196,15 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 		}
 	}
 
+	/**
+	 * If a file is renamed/moved this method deletes the old aird file if it
+	 * exists and creates a new one for the new location
+	 * 
+	 * @param source
+	 *            the source before the rename/move
+	 * @param newPath
+	 *            the full path to the new resource
+	 */
 	public static void renameAirdFile(final IFile source, final IPath newPath) {
 		// update aird file
 		new WorkspaceJob("moced aird file") {
@@ -196,8 +225,7 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 						CreateRepresentationAndViewpointHandler.createAll(
 								newFile, false);
 					} catch (CoreException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+						LOGGER.error("Renaming resource failed.", e);
 					}
 				}
 				return Status.OK_STATUS;
@@ -206,6 +234,15 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 
 	}
 
+	/**
+	 * If a file is copied, this method creates a new aird file for the copy, if
+	 * the origin al had one
+	 * 
+	 * @param source
+	 *            the source before the copy
+	 * @param newPath
+	 *            the full path to the new resource
+	 */
 	public static void copyAirdFile(final IFile source, final IPath newPath) {
 		// copy aird file
 		new WorkspaceJob("New aird file for copy") {
@@ -231,6 +268,12 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 		}.schedule();
 	}
 
+	/**
+	 * if a file is deleted, the according aird file is deleted
+	 * 
+	 * @param source
+	 *            the deleted source
+	 */
 	public static void deleteAirdFile(final IFile source) {
 		// delete aird file
 		new WorkspaceJob("New aird file for copy") {
@@ -248,8 +291,7 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 						oldAirdFile.delete(false, new NullProgressMonitor());
 
 					} catch (CoreException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+						LOGGER.error("Deleting resource failed.", e);
 					}
 				}
 				return Status.OK_STATUS;
