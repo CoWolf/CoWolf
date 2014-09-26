@@ -25,7 +25,8 @@ public class AirdFileFilter extends ViewerFilter {
 	@Override
 	public boolean select(Viewer viewer, Object parentElement, Object element) {
 		if (element instanceof IFile) {
-			if (((IFile) element).getFileExtension().equals("aird")) {
+			String fileExtension = ((IFile) element).getFileExtension();
+			if (fileExtension != null && fileExtension.equals("aird")) {
 				return false;
 			}
 		}

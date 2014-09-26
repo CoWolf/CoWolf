@@ -1,9 +1,5 @@
 package de.uni_stuttgart.iste.cowolf.transformation.sequencediagram_lqn;
 
-import org.sidiff.difference.symmetric.SymmetricDifference;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.LQN;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Package;
 import de.uni_stuttgart.iste.cowolf.transformation.AbstractTransformationManager;

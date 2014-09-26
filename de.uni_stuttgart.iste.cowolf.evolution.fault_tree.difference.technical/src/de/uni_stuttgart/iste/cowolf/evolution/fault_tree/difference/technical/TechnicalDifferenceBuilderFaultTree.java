@@ -2,16 +2,12 @@ package de.uni_stuttgart.iste.cowolf.evolution.fault_tree.difference.technical;
 
 import java.util.HashSet;
 import java.util.Set;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.henshin.trace.impl.TracePackageImpl;
 import org.sidiff.difference.technical.TechnicalDifferenceBuilder;
-import org.silift.common.util.access.EMFModelAccessEx;
-
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTreePackage;
 
 /**
