@@ -20,6 +20,24 @@
             </and>
          </enabledWhen>
       </handler>
+      <handler
+            class="de.uni_stuttgart.iste.cowolf.ui.evolution.handlers.Evolution"
+            commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.evolution">
+         <enabledWhen>
+            <and>
+               <with
+                     variable="selection">
+                  <count
+                        value="1">
+                  </count>
+               </with>
+               <test
+                     forcePluginActivation="true"
+                     property="de.uni_stuttgart.iste.cowolf.ui.evolution.properties.evolution.canFoo">
+               </test>
+            </and>
+         </enabledWhen>
+      </handler>
    </extension>
    <extension
          point="org.eclipse.core.expressions.propertyTesters">
@@ -39,12 +57,26 @@
             id="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.evolve"
             name="Show difference">
       </command>
+      <command
+            id="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.evolution"
+            name="Show Evolution">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.startup">
       <startup
             class="de.uni_stuttgart.iste.cowolf.ui.evolution.triggers.DummyTrigger">
       </startup>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="de.uni_stuttgart.iste.cowolf.ui.evolution.evolution.EvolutionView"
+            icon="icons/logo_wulf_15x15.png"
+            id="de.uni_stuttgart.iste.cowolf.ui.evolution.evolutionview"
+            name="Model Evolution"
+            restorable="true">
+      </view>
    </extension>
 
 </plugin>

@@ -2,8 +2,9 @@ package de.uni_stuttgart.iste.cowolf.ui.transformation.handler;
 
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
@@ -105,7 +106,7 @@ public class Transform extends AbstractHandler {
 			protected IStatus run(IProgressMonitor monitor) {
 				List<IFile> targets = modelWizard.getTargets();
 				monitor.beginTask(this.getName(), targets.size()*2);
-				HashMap<Model, SymmetricDifference> results = new HashMap<Model, SymmetricDifference>(targets.size());
+				LinkedHashMap<Model, SymmetricDifference> results = new LinkedHashMap<Model, SymmetricDifference>(targets.size());
 
 	        	ModelAssociation ma = ModelAssociationFactory.eINSTANCE.getModelAssociation(selectedElement.getProject());
 	        	Model sourceModel = ma.getModel(sourceRes);
@@ -175,7 +176,7 @@ public class Transform extends AbstractHandler {
 		return true;
 	}
 	
-	private void createResultView(final HashMap<Model, SymmetricDifference> results, final Model sourceModel) {
+	private void createResultView(final Map<Model, SymmetricDifference> results, final Model sourceModel) {
 		Display.getDefault().asyncExec(new Runnable() {
 			@Override
 			public void run() {
