@@ -3923,4 +3923,21 @@ public class HenshinTransformations {
 		return result;
 	}
 	
+	/**
+	 * 
+	 * @param graph
+	 * @param logging
+	 * @return
+	 */
+	public static boolean connectIndependentEventsToHazard(EGraph graph, boolean logging) {
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.ENSURE_HENSHIN), true).getUnit("ConnectIndependentEventsToHazard");
+		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
+		boolean result = application.execute(null);
+
+		if (logging) {
+			ArrayList<String> param = new ArrayList<String>();
+			TransformationsLogger.logRuleExecution(unit.getName(), param, result);
+		}
+		return result;
+	}
 }
