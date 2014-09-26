@@ -1,5 +1,7 @@
 package de.uni_stuttgart.iste.cowolf.ui.evolution.wizard;
 
+import java.io.File;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jface.wizard.Wizard;
@@ -27,6 +29,7 @@ public class ComponentSelectionWizard extends Wizard {
 	private Model sourceModel;
 	private Resource baseVersion;
 	private Resource targetVersion;
+	private File patchFile;
 	
     /**
      * Constructor setting both models.
@@ -62,6 +65,7 @@ public class ComponentSelectionWizard extends Wizard {
 	public boolean performFinish() {
 		this.baseVersion = page.getBaseVersion();
 		this.targetVersion = page.getTargetVersion();
+		this.patchFile = page.getPatchFile();
 		return true;
 	}
 
@@ -71,6 +75,10 @@ public class ComponentSelectionWizard extends Wizard {
 
 	public Resource getTargetVersion() {
 		return this.targetVersion;
+	}
+	
+	public File getPatchFile() {
+		return this.patchFile;
 	}
 
 }

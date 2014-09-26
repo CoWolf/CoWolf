@@ -1,6 +1,7 @@
 package de.uni_stuttgart.iste.cowolf.ui.evolution.handlers;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
@@ -8,6 +9,7 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.URI;
@@ -20,7 +22,12 @@ import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
+import org.sidiff.difference.asymmetric.facade.util.Difference;
+import org.sidiff.difference.lifting.settings.LiftingSettings;
 import org.sidiff.difference.symmetric.SymmetricDifference;
+import org.silift.common.util.access.EMFModelAccessEx;
+import org.silift.common.util.ui.UIUtil;
+import org.silift.patching.patch.PatchCreator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -76,26 +83,60 @@ public class Evolve extends AbstractHandler {
         }
         final Resource baseVersion = wizard.getBaseVersion();
         final Resource targetVersion = wizard.getTargetVersion();
+        final File patchFile = wizard.getPatchFile();
         
         Job job = new Job("Model Evolution") {
             @Override
             protected IStatus run(IProgressMonitor monitor) {
                 try {
-                    SymmetricDifference symmetricDifference = evoManager.evolve(baseVersion, targetVersion);
-                    String projectRoot = iFile.getProject().getLocation()
-                            .toFile().toString();
+                	Difference diff = evoManager.getDiff(baseVersion, targetVersion);
+                	
+                    SymmetricDifference symmetricDifference = diff.getSymmetric();
+                    
+                    String projectRoot = iFile.getProject().getLocation().toFile().toString();
                     
                     final String evolveResultsFilePath = evoManager
                             .saveEvolveResults(symmetricDifference, projectRoot
                                     + File.separator + "differences");
-                    Display.getDefault().asyncExec(new Runnable() {
+                    
+                    if (patchFile != null) {
+                    	LiftingSettings settings = evoManager.getDefaultSettings(EMFModelAccessEx.getCharacteristicDocumentType(baseVersion),
+                    			baseVersion, targetVersion);
+                    	
+                    	PatchCreator patchCreator = new PatchCreator(diff.getAsymmetric(), settings);
+                    	
+                    	try {
+							final String patchPath = patchCreator.serializePatch(patchFile.toString());
+							
+							Display.getDefault().asyncExec(new Runnable() {
+	            				@Override
+	            				public void run() {
+	            					try {
+	            						
+	            						UIUtil.openEditor(patchPath);	
+	            					} catch (OperationCanceledException e) {
 
-                        @Override
-                        public void run() {
-                            new DifferencesView().open(evolveResultsFilePath);
-                        }
-                    });
-                    return Status.OK_STATUS;
+	            					} catch (FileNotFoundException e) {
+	            						LOGGER.warn("Can't find patch file.", e);
+	            					}
+	            				}
+	            			});
+						} catch (FileNotFoundException e) {
+							LOGGER.error("Can't write patch file", e);
+							MessageDialog.openError(window.getShell(), "Can't create patch", "Could not create patch file.");
+						}
+                    	
+                    } else {
+                    
+	                    Display.getDefault().asyncExec(new Runnable() {
+	
+	                        @Override
+	                        public void run() {
+	                            new DifferencesView().open(evolveResultsFilePath);
+	                        }
+	                    });
+	                    return Status.OK_STATUS;
+                    }
                 } catch (final EvolutionException e) {
                     Display.getDefault().syncExec(new Runnable() {
                         @Override
@@ -111,6 +152,7 @@ public class Evolve extends AbstractHandler {
             }
 
         };
+        job.setUser(true);
         job.schedule();
         return null;
     }
