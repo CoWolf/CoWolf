@@ -20,7 +20,6 @@ import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelVersion;
 
 import org.eclipse.jface.dialogs.DialogPage;
 import org.eclipse.jface.preference.DirectoryFieldEditor;
-import org.eclipse.jface.preference.FileFieldEditor;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.TableViewer;

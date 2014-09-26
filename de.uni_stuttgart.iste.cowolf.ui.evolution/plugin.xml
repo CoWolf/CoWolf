@@ -38,6 +38,23 @@
             </and>
          </enabledWhen>
       </handler>
+      <handler
+            class="de.uni_stuttgart.iste.cowolf.ui.evolution.handlers.ApplyPatch"
+            commandId="de.uni_stuttgart.iste.cowolf.ui.evolution.commands.applyPatch">
+         <enabledWhen>
+            <and>
+               <with
+                     variable="selection">
+                  <count
+                        value="1">
+                  </count>
+               </with>
+               <test
+                     property="de.uni_stuttgart.iste.cowolf.ui.evolution.properties.evolution.canFoo">
+               </test>
+            </and>
+         </enabledWhen>
+      </handler>
    </extension>
    <extension
          point="org.eclipse.core.expressions.propertyTesters">
@@ -56,6 +73,10 @@
       <command
             id="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.evolve"
             name="Show difference">
+      </command>
+      <command
+            id="de.uni_stuttgart.iste.cowolf.ui.evolution.commands.applyPatch"
+            name="Apply Patch">
       </command>
       <command
             id="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.evolution"
