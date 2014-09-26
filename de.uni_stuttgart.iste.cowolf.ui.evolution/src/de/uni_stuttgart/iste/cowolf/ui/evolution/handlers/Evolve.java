@@ -54,7 +54,7 @@ public class Evolve extends AbstractHandler {
     public Object execute(ExecutionEvent event) throws ExecutionException {
 
 
-    	if (!PlatformUI.getWorkbench().saveAllEditors(true)) {
+		if (!PlatformUI.getWorkbench().saveAllEditors(true)) {
     		return null;
     	}
     	
@@ -65,16 +65,25 @@ public class Evolve extends AbstractHandler {
 
         IStructuredSelection selection = (IStructuredSelection) window
                 .getSelectionService().getSelection();
-        
+        final IFile iFile = (IFile) selection.getFirstElement();
+        if (iFile == null) {
+        	return null;
+        }
+     
+        ModelAssociation ma = ModelAssociationFactory.eINSTANCE.getModelAssociation(iFile.getProject());
+        if (ma == null) {
+        	return null;
+        }
         
         EvolutionRegistry extensionHandler = EvolutionRegistry
                 .getInstance();
-        final IFile iFile = (IFile) selection.getFirstElement();
         final Resource sourceResource = getResourceOfIFile(iFile); 
+        if (sourceResource == null) {
+        	return null;
+        }
         final AbstractEvolutionManager evoManager = extensionHandler.getEvolutionManager(sourceResource);
-        
-        ModelAssociation ma = ModelAssociationFactory.eINSTANCE.getModelAssociation(iFile.getProject());
-        Model sourceModel = ma.getModel(sourceResource);
+
+        final Model sourceModel = ma.getModel(sourceResource);
         
         ComponentSelectionWizard wizard = new ComponentSelectionWizard(iFile, sourceModel);
         WizardDialog dialog = new WizardDialog(window.getShell(), wizard);
