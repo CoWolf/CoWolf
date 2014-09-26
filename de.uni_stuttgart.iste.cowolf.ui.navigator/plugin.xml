@@ -249,6 +249,13 @@ allPopups="false"
             properties="canFoo"
             type="java.lang.Object">
       </propertyTester>
+      <propertyTester
+            class="de.uni_stuttgart.iste.cowolf.ui.navigator.PropertyTester.NatureTest"
+            id="de.uni_stuttgart.iste.cowolf.ui.navigator.propertyTester.hasNatureTester"
+            namespace="de.uni_stuttgart.iste.cowolf.ui.navigator.propertyTester.hasNatureTester"
+            properties="hasNature"
+            type="java.lang.Object">
+      </propertyTester>
 </extension>
    <extension
          point="org.eclipse.ui.startup">
@@ -260,14 +267,16 @@ allPopups="false"
          point="org.eclipse.core.expressions.definitions">
       <definition
             id="de.uni_stuttgart.iste.cowolf.ui.navigator.definition.visibility">
-                    <with
-               variable="selection">
-            <iterate>
-               <instanceof
-                     value="org.eclipse.core.resources.IFile">
-               </instanceof>
-            </iterate>
-         </with>
+         <and>
+         <iterate
+               operator="and">
+            <test
+                  forcePluginActivation="true"
+                  property="de.uni_stuttgart.iste.cowolf.ui.navigator.propertyTester.hasNatureTester.hasNature">
+            </test></iterate>
+         
+         </and>
+                    
       </definition>
    </extension>
 </plugin>
