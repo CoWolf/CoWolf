@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fwNOcEPMEeSvydpbEtLBCg" name="CREATE_ActivityLoopType_IN_ActivityLoopListType_(activity)" description="Creates one ActivityLoopType in ActivityLoopListType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fwNOcUPMEeSvydpbEtLBCg" name="createActivityLoopType_IN_ActivityLoopListType" description="creates one ActivityLoopType in the context: ActivityLoopListType">
+    <parameters xmi:id="_fwNOckPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityLoopListType"/>
+    </parameters>
+    <parameters xmi:id="_fwNOc0PMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityLoopType"/>
+    </parameters>
+    <parameters xmi:id="_fwNOdEPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fwNOdUPMEeSvydpbEtLBCg" name="Count">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <lhs xmi:id="_fwNOdkPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fwNOd0PMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//ActivityLoopListType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_fwNOeEPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fwNOeUPMEeSvydpbEtLBCg" name="Selected" outgoing="_fwNOfUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityLoopListType"/>
+      </nodes>
+      <nodes xmi:id="_fwNOekPMEeSvydpbEtLBCg" name="New" incoming="_fwNOfUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityLoopType"/>
+        <attributes xmi:id="_fwNOe0PMEeSvydpbEtLBCg" value="Id">
+          <type href="platform:/resource/de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_fwNOfEPMEeSvydpbEtLBCg" value="Count">
+          <type href="http://LQN/1.0#//ActivityLoopType/count"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_fwNOfUPMEeSvydpbEtLBCg" source="_fwNOeUPMEeSvydpbEtLBCg" target="_fwNOekPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityLoopListType/activity"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_fwNOfkPMEeSvydpbEtLBCg" origin="_fwNOd0PMEeSvydpbEtLBCg" image="_fwNOeUPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fwNOf0PMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fwNOcUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fwNOgEPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityLoopListType"/>
+    </parameters>
+    <parameters xmi:id="_fwNOgUPMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityLoopType"/>
+    </parameters>
+    <parameters xmi:id="_fwNOgkPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fwNOg0PMEeSvydpbEtLBCg" name="Count">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameterMappings xmi:id="_fwNOhEPMEeSvydpbEtLBCg" source="_fwNOgEPMEeSvydpbEtLBCg" target="_fwNOckPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fwNOhUPMEeSvydpbEtLBCg" source="_fwNOc0PMEeSvydpbEtLBCg" target="_fwNOgUPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fwNOhkPMEeSvydpbEtLBCg" source="_fwNOgkPMEeSvydpbEtLBCg" target="_fwNOdEPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fwNOh0PMEeSvydpbEtLBCg" source="_fwNOg0PMEeSvydpbEtLBCg" target="_fwNOdUPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_ffVg4EPMEeSvydpbEtLBCg" name="CREATE_EntryType_IN_TaskType_(entry)" description="Creates one EntryType in TaskType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_ffVg4UPMEeSvydpbEtLBCg" name="createEntryType_IN_TaskType" description="creates one EntryType in the context: TaskType">
+    <parameters xmi:id="_ffVg4kPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskType"/>
+    </parameters>
+    <parameters xmi:id="_ffVg40PMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <parameters xmi:id="_ffVg5EPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_ffVg5UPMEeSvydpbEtLBCg" name="Name">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_ffVg5kPMEeSvydpbEtLBCg" name="OpenArrivalRate">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameters xmi:id="_ffVg50PMEeSvydpbEtLBCg" name="Priority">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    </parameters>
+    <parameters xmi:id="_ffVg6EPMEeSvydpbEtLBCg" name="Semaphore">
+      <type xsi:type="ecore:EEnum" href="http://LQN/1.0#//SemaphoreType"/>
+    </parameters>
+    <parameters xmi:id="_ffVg6UPMEeSvydpbEtLBCg" name="Type">
+      <type xsi:type="ecore:EEnum" href="http://LQN/1.0#//TypeType"/>
+    </parameters>
+    <lhs xmi:id="_ffVg6kPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_ffVg60PMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//TaskType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_ffVg7EPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_ffVg7UPMEeSvydpbEtLBCg" name="Selected" outgoing="_ffVg9UPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//TaskType"/>
+      </nodes>
+      <nodes xmi:id="_ffVg7kPMEeSvydpbEtLBCg" name="New" incoming="_ffVg9UPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//EntryType"/>
+        <attributes xmi:id="_ffVg70PMEeSvydpbEtLBCg" value="Id">
+          <type href="platform:/resource/de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_ffVg8EPMEeSvydpbEtLBCg" value="Name">
+          <type href="http://LQN/1.0#//EntryType/name"/>
+        </attributes>
+        <attributes xmi:id="_ffVg8UPMEeSvydpbEtLBCg" value="OpenArrivalRate">
+          <type href="http://LQN/1.0#//EntryType/openArrivalRate"/>
+        </attributes>
+        <attributes xmi:id="_ffVg8kPMEeSvydpbEtLBCg" value="Priority">
+          <type href="http://LQN/1.0#//EntryType/priority"/>
+        </attributes>
+        <attributes xmi:id="_ffVg80PMEeSvydpbEtLBCg" value="Semaphore">
+          <type href="http://LQN/1.0#//EntryType/semaphore"/>
+        </attributes>
+        <attributes xmi:id="_ffVg9EPMEeSvydpbEtLBCg" value="Type">
+          <type href="http://LQN/1.0#//EntryType/type"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_ffVg9UPMEeSvydpbEtLBCg" source="_ffVg7UPMEeSvydpbEtLBCg" target="_ffVg7kPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//TaskType/entry"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_ffVg9kPMEeSvydpbEtLBCg" origin="_ffVg60PMEeSvydpbEtLBCg" image="_ffVg7UPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_ffVg90PMEeSvydpbEtLBCg" name="mainUnit" subUnits="_ffVg4UPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_ffVg-EPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskType"/>
+    </parameters>
+    <parameters xmi:id="_ffVg-UPMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <parameters xmi:id="_ffVg-kPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_ffWH8EPMEeSvydpbEtLBCg" name="Name">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_ffWH8UPMEeSvydpbEtLBCg" name="OpenArrivalRate">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameters xmi:id="_ffWH8kPMEeSvydpbEtLBCg" name="Priority">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    </parameters>
+    <parameters xmi:id="_ffWH80PMEeSvydpbEtLBCg" name="Semaphore">
+      <type xsi:type="ecore:EEnum" href="http://LQN/1.0#//SemaphoreType"/>
+    </parameters>
+    <parameters xmi:id="_ffWH9EPMEeSvydpbEtLBCg" name="Type">
+      <type xsi:type="ecore:EEnum" href="http://LQN/1.0#//TypeType"/>
+    </parameters>
+    <parameterMappings xmi:id="_ffWH9UPMEeSvydpbEtLBCg" source="_ffVg-EPMEeSvydpbEtLBCg" target="_ffVg4kPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_ffWH9kPMEeSvydpbEtLBCg" source="_ffVg40PMEeSvydpbEtLBCg" target="_ffVg-UPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_ffWH90PMEeSvydpbEtLBCg" source="_ffVg-kPMEeSvydpbEtLBCg" target="_ffVg5EPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_ffWH-EPMEeSvydpbEtLBCg" source="_ffWH8EPMEeSvydpbEtLBCg" target="_ffVg5UPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_ffWH-UPMEeSvydpbEtLBCg" source="_ffWH8UPMEeSvydpbEtLBCg" target="_ffVg5kPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_ffWH-kPMEeSvydpbEtLBCg" source="_ffWH8kPMEeSvydpbEtLBCg" target="_ffVg50PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_ffWH-0PMEeSvydpbEtLBCg" source="_ffWH80PMEeSvydpbEtLBCg" target="_ffVg6EPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_ffWH_EPMEeSvydpbEtLBCg" source="_ffWH9EPMEeSvydpbEtLBCg" target="_ffVg6UPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

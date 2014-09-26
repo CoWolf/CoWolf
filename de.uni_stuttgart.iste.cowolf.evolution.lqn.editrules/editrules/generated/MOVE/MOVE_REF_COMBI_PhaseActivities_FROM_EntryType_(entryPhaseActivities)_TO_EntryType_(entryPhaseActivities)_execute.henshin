@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fuSi4EPMEeSvydpbEtLBCg" name="MOVE_REF_COMBI_PhaseActivities_FROM_EntryType_(entryPhaseActivities)_TO_EntryType_(entryPhaseActivities)" description="MOVEs PhaseActivities from EntryType(Reference:entryPhaseActivities) to EntryType(Reference:entryPhaseActivities">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fuSi4UPMEeSvydpbEtLBCg" name="movePhaseActivities_FROM_EntryType_entryPhaseActivities_TO_EntryType_EntryType" description="Moves PhaseActivities from EntryType(Reference:entryPhaseActivities) toEntryType(Reference:EntryType)">
+    <parameters xmi:id="_fuSi4kPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PhaseActivities"/>
+    </parameters>
+    <parameters xmi:id="_fuSi40PMEeSvydpbEtLBCg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <parameters xmi:id="_fuSi5EPMEeSvydpbEtLBCg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <lhs xmi:id="_fuSi5UPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fuSi5kPMEeSvydpbEtLBCg" name="Selected" incoming="_fuSi6UPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//PhaseActivities"/>
+      </nodes>
+      <nodes xmi:id="_fuSi50PMEeSvydpbEtLBCg" name="OldSource" outgoing="_fuSi6UPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+      <nodes xmi:id="_fuSi6EPMEeSvydpbEtLBCg" name="NewSource">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+      <edges xmi:id="_fuSi6UPMEeSvydpbEtLBCg" source="_fuSi50PMEeSvydpbEtLBCg" target="_fuSi5kPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//EntryType/entryPhaseActivities"/>
+      </edges>
+      <formula xsi:type="henshin:Not" xmi:id="_fuSi6kPMEeSvydpbEtLBCg">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_fuSi60PMEeSvydpbEtLBCg">
+          <conclusion xmi:id="_fuSi7EPMEeSvydpbEtLBCg" name="ub0">
+            <nodes xmi:id="_fuSi7UPMEeSvydpbEtLBCg" outgoing="_fuSi70PMEeSvydpbEtLBCg">
+              <type href="http://LQN/1.0#//EntryType"/>
+            </nodes>
+            <nodes xmi:id="_fuSi7kPMEeSvydpbEtLBCg" incoming="_fuSi70PMEeSvydpbEtLBCg">
+              <type href="http://LQN/1.0#//PhaseActivities"/>
+            </nodes>
+            <edges xmi:id="_fuSi70PMEeSvydpbEtLBCg" source="_fuSi7UPMEeSvydpbEtLBCg" target="_fuSi7kPMEeSvydpbEtLBCg">
+              <type href="http://LQN/1.0#//EntryType/entryPhaseActivities"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_fuSi8EPMEeSvydpbEtLBCg" origin="_fuSi6EPMEeSvydpbEtLBCg" image="_fuSi7UPMEeSvydpbEtLBCg"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_fuSi8UPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fuSi8kPMEeSvydpbEtLBCg" name="Selected" incoming="_fuSi9UPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//PhaseActivities"/>
+      </nodes>
+      <nodes xmi:id="_fuSi80PMEeSvydpbEtLBCg" name="OldSource">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+      <nodes xmi:id="_fuSi9EPMEeSvydpbEtLBCg" name="NewSource" outgoing="_fuSi9UPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+      <edges xmi:id="_fuSi9UPMEeSvydpbEtLBCg" source="_fuSi9EPMEeSvydpbEtLBCg" target="_fuSi8kPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//EntryType/entryPhaseActivities"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_fuSi9kPMEeSvydpbEtLBCg" origin="_fuSi5kPMEeSvydpbEtLBCg" image="_fuSi8kPMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_fuSi90PMEeSvydpbEtLBCg" origin="_fuSi50PMEeSvydpbEtLBCg" image="_fuSi80PMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_fuSi-EPMEeSvydpbEtLBCg" origin="_fuSi6EPMEeSvydpbEtLBCg" image="_fuSi9EPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fuSi-UPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fuSi4UPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fuSi-kPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PhaseActivities"/>
+    </parameters>
+    <parameters xmi:id="_fuSi-0PMEeSvydpbEtLBCg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <parameters xmi:id="_fuSi_EPMEeSvydpbEtLBCg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <parameterMappings xmi:id="_fuSi_UPMEeSvydpbEtLBCg" source="_fuSi-kPMEeSvydpbEtLBCg" target="_fuSi4kPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fuSi_kPMEeSvydpbEtLBCg" source="_fuSi-0PMEeSvydpbEtLBCg" target="_fuSi40PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fuSi_0PMEeSvydpbEtLBCg" source="_fuSi_EPMEeSvydpbEtLBCg" target="_fuSi5EPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fs6p4EPMEeSvydpbEtLBCg" name="SET_ATTRIBUTE_ParaType_StartValue" description="Sets ParaType StartValue">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fs6p4UPMEeSvydpbEtLBCg" name="setParaTypeStartValue" description="Sets the EAttribute startValue">
+    <parameters xmi:id="_fs6p4kPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ParaType"/>
+    </parameters>
+    <parameters xmi:id="_fs6p40PMEeSvydpbEtLBCg" name="StartValue">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    </parameters>
+    <lhs xmi:id="_fs6p5EPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fs6p5UPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//ParaType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_fs6p5kPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fs6p50PMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//ParaType"/>
+        <attributes xmi:id="_fs6p6EPMEeSvydpbEtLBCg" value="StartValue">
+          <type href="http://LQN/1.0#//ParaType/startValue"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_fs6p6UPMEeSvydpbEtLBCg" origin="_fs6p5UPMEeSvydpbEtLBCg" image="_fs6p50PMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fs6p6kPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fs6p4UPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fs6p60PMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ParaType"/>
+    </parameters>
+    <parameters xmi:id="_fs6p7EPMEeSvydpbEtLBCg" name="StartValue">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    </parameters>
+    <parameterMappings xmi:id="_fs6p7UPMEeSvydpbEtLBCg" source="_fs6p60PMEeSvydpbEtLBCg" target="_fs6p4kPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fs6p7kPMEeSvydpbEtLBCg" source="_fs6p7EPMEeSvydpbEtLBCg" target="_fs6p40PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

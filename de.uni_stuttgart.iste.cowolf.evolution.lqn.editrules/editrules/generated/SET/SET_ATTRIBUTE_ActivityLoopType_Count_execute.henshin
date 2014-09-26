@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fdft0EPMEeSvydpbEtLBCg" name="SET_ATTRIBUTE_ActivityLoopType_Count" description="Sets ActivityLoopType Count">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fdft0UPMEeSvydpbEtLBCg" name="setActivityLoopTypeCount" description="Sets the EAttribute count">
+    <parameters xmi:id="_fdft0kPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityLoopType"/>
+    </parameters>
+    <parameters xmi:id="_fdft00PMEeSvydpbEtLBCg" name="Count">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <lhs xmi:id="_fdft1EPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fdft1UPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//ActivityLoopType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_fdft1kPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fdft10PMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//ActivityLoopType"/>
+        <attributes xmi:id="_fdft2EPMEeSvydpbEtLBCg" value="Count">
+          <type href="http://LQN/1.0#//ActivityLoopType/count"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_fdft2UPMEeSvydpbEtLBCg" origin="_fdft1UPMEeSvydpbEtLBCg" image="_fdft10PMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fdft2kPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fdft0UPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fdft20PMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityLoopType"/>
+    </parameters>
+    <parameters xmi:id="_fdft3EPMEeSvydpbEtLBCg" name="Count">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameterMappings xmi:id="_fdft3UPMEeSvydpbEtLBCg" source="_fdft20PMEeSvydpbEtLBCg" target="_fdft0kPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fdft3kPMEeSvydpbEtLBCg" source="_fdft3EPMEeSvydpbEtLBCg" target="_fdft00PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

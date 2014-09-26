@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fcgPUEPMEeSvydpbEtLBCg" name="CREATE_EntryMakingCallType_IN_EntryType_(forwarding)" description="Creates one EntryMakingCallType in EntryType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fcgPUUPMEeSvydpbEtLBCg" name="createEntryMakingCallType_IN_EntryType" description="creates one EntryMakingCallType in the context: EntryType">
+    <parameters xmi:id="_fcgPUkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <parameters xmi:id="_fcgPU0PMEeSvydpbEtLBCg" name="Existing">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <parameters xmi:id="_fcgPVEPMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryMakingCallType"/>
+    </parameters>
+    <parameters xmi:id="_fcgPVUPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fcgPVkPMEeSvydpbEtLBCg" name="Fanin">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    </parameters>
+    <parameters xmi:id="_fcgPV0PMEeSvydpbEtLBCg" name="Fanout">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    </parameters>
+    <parameters xmi:id="_fcgPWEPMEeSvydpbEtLBCg" name="Prob">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <lhs xmi:id="_fcgPWUPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fcgPWkPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+      <nodes xmi:id="_fcgPW0PMEeSvydpbEtLBCg" name="Existing">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_fcgPXEPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fcgPXUPMEeSvydpbEtLBCg" name="Selected" outgoing="_fcgPZEPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+      <nodes xmi:id="_fcgPXkPMEeSvydpbEtLBCg" name="New" incoming="_fcgPZEPMEeSvydpbEtLBCg" outgoing="_fcgPZUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//EntryMakingCallType"/>
+        <attributes xmi:id="_fcgPX0PMEeSvydpbEtLBCg" value="Id">
+          <type href="platform:/resource/de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_fcgPYEPMEeSvydpbEtLBCg" value="Fanin">
+          <type href="http://LQN/1.0#//MakingCallType/fanin"/>
+        </attributes>
+        <attributes xmi:id="_fcgPYUPMEeSvydpbEtLBCg" value="Fanout">
+          <type href="http://LQN/1.0#//MakingCallType/fanout"/>
+        </attributes>
+        <attributes xmi:id="_fcgPYkPMEeSvydpbEtLBCg" value="Prob">
+          <type href="http://LQN/1.0#//EntryMakingCallType/prob"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_fcgPY0PMEeSvydpbEtLBCg" name="Existing" incoming="_fcgPZUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+      <edges xmi:id="_fcgPZEPMEeSvydpbEtLBCg" source="_fcgPXUPMEeSvydpbEtLBCg" target="_fcgPXkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//EntryType/forwarding"/>
+      </edges>
+      <edges xmi:id="_fcgPZUPMEeSvydpbEtLBCg" source="_fcgPXkPMEeSvydpbEtLBCg" target="_fcgPY0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//MakingCallType/dest"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_fcgPZkPMEeSvydpbEtLBCg" origin="_fcgPWkPMEeSvydpbEtLBCg" image="_fcgPXUPMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_fcgPZ0PMEeSvydpbEtLBCg" origin="_fcgPW0PMEeSvydpbEtLBCg" image="_fcgPY0PMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fcgPaEPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fcgPUUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fcgPaUPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <parameters xmi:id="_fcgPakPMEeSvydpbEtLBCg" name="Existing">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <parameters xmi:id="_fcgPa0PMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryMakingCallType"/>
+    </parameters>
+    <parameters xmi:id="_fcgPbEPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fcgPbUPMEeSvydpbEtLBCg" name="Fanin">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    </parameters>
+    <parameters xmi:id="_fcgPbkPMEeSvydpbEtLBCg" name="Fanout">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    </parameters>
+    <parameters xmi:id="_fcgPb0PMEeSvydpbEtLBCg" name="Prob">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameterMappings xmi:id="_fcgPcEPMEeSvydpbEtLBCg" source="_fcgPaUPMEeSvydpbEtLBCg" target="_fcgPUkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fcgPcUPMEeSvydpbEtLBCg" source="_fcgPakPMEeSvydpbEtLBCg" target="_fcgPU0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fcgPckPMEeSvydpbEtLBCg" source="_fcgPVEPMEeSvydpbEtLBCg" target="_fcgPa0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fcgPc0PMEeSvydpbEtLBCg" source="_fcgPbEPMEeSvydpbEtLBCg" target="_fcgPVUPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fcgPdEPMEeSvydpbEtLBCg" source="_fcgPbUPMEeSvydpbEtLBCg" target="_fcgPVkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fcgPdUPMEeSvydpbEtLBCg" source="_fcgPbkPMEeSvydpbEtLBCg" target="_fcgPV0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fcgPdkPMEeSvydpbEtLBCg" source="_fcgPb0PMEeSvydpbEtLBCg" target="_fcgPWEPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

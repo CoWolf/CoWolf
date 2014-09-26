@@ -4,6 +4,8 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.LqnCore.validation;
 
+import de.uni_stuttgart.iste.cowolf.model.LqnCore.ActivityDefType;
+
 
 /**
  * A sample validator interface for {@link de.uni_stuttgart.iste.cowolf.model.LqnCore.ActivityType}.
@@ -13,6 +15,8 @@ package de.uni_stuttgart.iste.cowolf.model.LqnCore.validation;
  */
 public interface ActivityTypeValidator {
 	boolean validate();
+
+	boolean validateActivity(ActivityDefType value);
 
 	boolean validateName(String value);
 }

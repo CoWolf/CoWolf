@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_f0AwYEPMEeSvydpbEtLBCg" name="CREATE_InPortType_IN_InterfaceType_(inPort)" description="Creates one InPortType in InterfaceType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_f0AwYUPMEeSvydpbEtLBCg" name="createInPortType_IN_InterfaceType" description="creates one InPortType in the context: InterfaceType">
+    <parameters xmi:id="_f0AwYkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//InterfaceType"/>
+    </parameters>
+    <parameters xmi:id="_f0AwY0PMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//InPortType"/>
+    </parameters>
+    <parameters xmi:id="_f0AwZEPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_f0AwZUPMEeSvydpbEtLBCg" name="ConnectFrom">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//ConnectFromType"/>
+    </parameters>
+    <parameters xmi:id="_f0AwZkPMEeSvydpbEtLBCg" name="Description">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_f0AwZ0PMEeSvydpbEtLBCg" name="Name">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_f0AwaEPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_f0AwaUPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//InterfaceType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_f0AwakPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_f0Awa0PMEeSvydpbEtLBCg" name="Selected" outgoing="_f0AwcUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//InterfaceType"/>
+      </nodes>
+      <nodes xmi:id="_f0AwbEPMEeSvydpbEtLBCg" name="New" incoming="_f0AwcUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//InPortType"/>
+        <attributes xmi:id="_f0AwbUPMEeSvydpbEtLBCg" value="Id">
+          <type href="platform:/resource/de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_f0AwbkPMEeSvydpbEtLBCg" value="ConnectFrom">
+          <type href="http://LQN/1.0#//InPortType/connectFrom"/>
+        </attributes>
+        <attributes xmi:id="_f0Awb0PMEeSvydpbEtLBCg" value="Description">
+          <type href="http://LQN/1.0#//InPortType/description"/>
+        </attributes>
+        <attributes xmi:id="_f0AwcEPMEeSvydpbEtLBCg" value="Name">
+          <type href="http://LQN/1.0#//InPortType/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_f0AwcUPMEeSvydpbEtLBCg" source="_f0Awa0PMEeSvydpbEtLBCg" target="_f0AwbEPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//InterfaceType/inPort"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_f0AwckPMEeSvydpbEtLBCg" origin="_f0AwaUPMEeSvydpbEtLBCg" image="_f0Awa0PMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_f0Awc0PMEeSvydpbEtLBCg" name="mainUnit" subUnits="_f0AwYUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_f0AwdEPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//InterfaceType"/>
+    </parameters>
+    <parameters xmi:id="_f0AwdUPMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//InPortType"/>
+    </parameters>
+    <parameters xmi:id="_f0AwdkPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_f0Awd0PMEeSvydpbEtLBCg" name="ConnectFrom">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//ConnectFromType"/>
+    </parameters>
+    <parameters xmi:id="_f0AweEPMEeSvydpbEtLBCg" name="Description">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_f0AweUPMEeSvydpbEtLBCg" name="Name">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_f0AwekPMEeSvydpbEtLBCg" source="_f0AwdEPMEeSvydpbEtLBCg" target="_f0AwYkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_f0Awe0PMEeSvydpbEtLBCg" source="_f0AwY0PMEeSvydpbEtLBCg" target="_f0AwdUPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_f0AwfEPMEeSvydpbEtLBCg" source="_f0AwdkPMEeSvydpbEtLBCg" target="_f0AwZEPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_f0AwfUPMEeSvydpbEtLBCg" source="_f0Awd0PMEeSvydpbEtLBCg" target="_f0AwZUPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_f0AwfkPMEeSvydpbEtLBCg" source="_f0AweEPMEeSvydpbEtLBCg" target="_f0AwZkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_f0Awf0PMEeSvydpbEtLBCg" source="_f0AweUPMEeSvydpbEtLBCg" target="_f0AwZ0PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

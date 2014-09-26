@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fp0SkEPMEeSvydpbEtLBCg" name="MOVE_ProcessorType_FROM_LqnModelType_(processor)_TO_LqnModelType_(processor)" description="MOVEs ProcessorType from LqnModelType(Reference:processor) to LqnModelType(Reference:processor">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fp0SkUPMEeSvydpbEtLBCg" name="moveProcessorType_FROM_LqnModelType_processor_TO_LqnModelType_LqnModelType" description="Moves ProcessorType from LqnModelType(Reference:processor) toLqnModelType(Reference:LqnModelType)">
+    <parameters xmi:id="_fp0SkkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ProcessorType"/>
+    </parameters>
+    <parameters xmi:id="_fp0Sk0PMEeSvydpbEtLBCg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//LqnModelType"/>
+    </parameters>
+    <parameters xmi:id="_fp0SlEPMEeSvydpbEtLBCg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//LqnModelType"/>
+    </parameters>
+    <lhs xmi:id="_fp0SlUPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fp0SlkPMEeSvydpbEtLBCg" name="Selected" incoming="_fp0SmUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ProcessorType"/>
+      </nodes>
+      <nodes xmi:id="_fp0Sl0PMEeSvydpbEtLBCg" name="OldSource" outgoing="_fp0SmUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//LqnModelType"/>
+      </nodes>
+      <nodes xmi:id="_fp0SmEPMEeSvydpbEtLBCg" name="NewSource">
+        <type href="http://LQN/1.0#//LqnModelType"/>
+      </nodes>
+      <edges xmi:id="_fp0SmUPMEeSvydpbEtLBCg" source="_fp0Sl0PMEeSvydpbEtLBCg" target="_fp0SlkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//LqnModelType/processor"/>
+      </edges>
+      <formula xsi:type="henshin:NestedCondition" xmi:id="_fp0SmkPMEeSvydpbEtLBCg">
+        <conclusion xmi:id="_fp0Sm0PMEeSvydpbEtLBCg" name="lb0">
+          <nodes xmi:id="_fp0SnEPMEeSvydpbEtLBCg" outgoing="_fp0SnkPMEeSvydpbEtLBCg">
+            <type href="http://LQN/1.0#//LqnModelType"/>
+          </nodes>
+          <nodes xmi:id="_fp0SnUPMEeSvydpbEtLBCg" incoming="_fp0SnkPMEeSvydpbEtLBCg">
+            <type href="http://LQN/1.0#//ProcessorType"/>
+          </nodes>
+          <edges xmi:id="_fp0SnkPMEeSvydpbEtLBCg" source="_fp0SnEPMEeSvydpbEtLBCg" target="_fp0SnUPMEeSvydpbEtLBCg">
+            <type href="http://LQN/1.0#//LqnModelType/processor"/>
+          </edges>
+        </conclusion>
+        <mappings xmi:id="_fp0Sn0PMEeSvydpbEtLBCg" origin="_fp0Sl0PMEeSvydpbEtLBCg" image="_fp0SnEPMEeSvydpbEtLBCg"/>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_fp0SoEPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fp0SoUPMEeSvydpbEtLBCg" name="Selected" incoming="_fp0SpEPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ProcessorType"/>
+      </nodes>
+      <nodes xmi:id="_fp0SokPMEeSvydpbEtLBCg" name="OldSource">
+        <type href="http://LQN/1.0#//LqnModelType"/>
+      </nodes>
+      <nodes xmi:id="_fp0So0PMEeSvydpbEtLBCg" name="NewSource" outgoing="_fp0SpEPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//LqnModelType"/>
+      </nodes>
+      <edges xmi:id="_fp0SpEPMEeSvydpbEtLBCg" source="_fp0So0PMEeSvydpbEtLBCg" target="_fp0SoUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//LqnModelType/processor"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_fp0SpUPMEeSvydpbEtLBCg" origin="_fp0SlkPMEeSvydpbEtLBCg" image="_fp0SoUPMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_fp0SpkPMEeSvydpbEtLBCg" origin="_fp0Sl0PMEeSvydpbEtLBCg" image="_fp0SokPMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_fp0Sp0PMEeSvydpbEtLBCg" origin="_fp0SmEPMEeSvydpbEtLBCg" image="_fp0So0PMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fp0SqEPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fp0SkUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fp0SqUPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ProcessorType"/>
+    </parameters>
+    <parameters xmi:id="_fp0SqkPMEeSvydpbEtLBCg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//LqnModelType"/>
+    </parameters>
+    <parameters xmi:id="_fp0Sq0PMEeSvydpbEtLBCg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//LqnModelType"/>
+    </parameters>
+    <parameterMappings xmi:id="_fp0SrEPMEeSvydpbEtLBCg" source="_fp0SqUPMEeSvydpbEtLBCg" target="_fp0SkkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fp0SrUPMEeSvydpbEtLBCg" source="_fp0SqkPMEeSvydpbEtLBCg" target="_fp0Sk0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fp0SrkPMEeSvydpbEtLBCg" source="_fp0Sq0PMEeSvydpbEtLBCg" target="_fp0SlEPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

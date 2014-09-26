@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fffR4EPMEeSvydpbEtLBCg" name="SET_ATTRIBUTE_OutputDistributionType_Min" description="Sets OutputDistributionType Min">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fffR4UPMEeSvydpbEtLBCg" name="setOutputDistributionTypeMin" description="Sets the EAttribute min">
+    <parameters xmi:id="_fffR4kPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutputDistributionType"/>
+    </parameters>
+    <parameters xmi:id="_fffR40PMEeSvydpbEtLBCg" name="Min">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <lhs xmi:id="_fffR5EPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fffR5UPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//OutputDistributionType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_fffR5kPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fffR50PMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//OutputDistributionType"/>
+        <attributes xmi:id="_fffR6EPMEeSvydpbEtLBCg" value="Min">
+          <type href="http://LQN/1.0#//OutputDistributionType/min"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_fffR6UPMEeSvydpbEtLBCg" origin="_fffR5UPMEeSvydpbEtLBCg" image="_fffR50PMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fffR6kPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fffR4UPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fffR60PMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutputDistributionType"/>
+    </parameters>
+    <parameters xmi:id="_fffR7EPMEeSvydpbEtLBCg" name="Min">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameterMappings xmi:id="_fffR7UPMEeSvydpbEtLBCg" source="_fffR60PMEeSvydpbEtLBCg" target="_fffR4kPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fffR7kPMEeSvydpbEtLBCg" source="_fffR7EPMEeSvydpbEtLBCg" target="_fffR40PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

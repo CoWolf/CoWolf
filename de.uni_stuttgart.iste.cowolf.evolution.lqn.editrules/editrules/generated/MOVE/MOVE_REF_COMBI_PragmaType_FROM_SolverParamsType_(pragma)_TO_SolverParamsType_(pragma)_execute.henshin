@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fhakgEPMEeSvydpbEtLBCg" name="MOVE_REF_COMBI_PragmaType_FROM_SolverParamsType_(pragma)_TO_SolverParamsType_(pragma)" description="MOVEs PragmaType from SolverParamsType(Reference:pragma) to SolverParamsType(Reference:pragma">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fhakgUPMEeSvydpbEtLBCg" name="movePragmaType_FROM_SolverParamsType_pragma_TO_SolverParamsType_SolverParamsType" description="Moves PragmaType from SolverParamsType(Reference:pragma) toSolverParamsType(Reference:SolverParamsType)">
+    <parameters xmi:id="_fhakgkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PragmaType"/>
+    </parameters>
+    <parameters xmi:id="_fhakg0PMEeSvydpbEtLBCg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SolverParamsType"/>
+    </parameters>
+    <parameters xmi:id="_fhakhEPMEeSvydpbEtLBCg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SolverParamsType"/>
+    </parameters>
+    <lhs xmi:id="_fhakhUPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fhakhkPMEeSvydpbEtLBCg" name="Selected" incoming="_fhakiUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//PragmaType"/>
+      </nodes>
+      <nodes xmi:id="_fhakh0PMEeSvydpbEtLBCg" name="OldSource" outgoing="_fhakiUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//SolverParamsType"/>
+      </nodes>
+      <nodes xmi:id="_fhakiEPMEeSvydpbEtLBCg" name="NewSource">
+        <type href="http://LQN/1.0#//SolverParamsType"/>
+      </nodes>
+      <edges xmi:id="_fhakiUPMEeSvydpbEtLBCg" source="_fhakh0PMEeSvydpbEtLBCg" target="_fhakhkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//SolverParamsType/pragma"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_fhakikPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fhaki0PMEeSvydpbEtLBCg" name="Selected" incoming="_fhakjkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//PragmaType"/>
+      </nodes>
+      <nodes xmi:id="_fhakjEPMEeSvydpbEtLBCg" name="OldSource">
+        <type href="http://LQN/1.0#//SolverParamsType"/>
+      </nodes>
+      <nodes xmi:id="_fhakjUPMEeSvydpbEtLBCg" name="NewSource" outgoing="_fhakjkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//SolverParamsType"/>
+      </nodes>
+      <edges xmi:id="_fhakjkPMEeSvydpbEtLBCg" source="_fhakjUPMEeSvydpbEtLBCg" target="_fhaki0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//SolverParamsType/pragma"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_fhakj0PMEeSvydpbEtLBCg" origin="_fhakhkPMEeSvydpbEtLBCg" image="_fhaki0PMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_fhakkEPMEeSvydpbEtLBCg" origin="_fhakh0PMEeSvydpbEtLBCg" image="_fhakjEPMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_fhakkUPMEeSvydpbEtLBCg" origin="_fhakiEPMEeSvydpbEtLBCg" image="_fhakjUPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fhakkkPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fhakgUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fhakk0PMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PragmaType"/>
+    </parameters>
+    <parameters xmi:id="_fhaklEPMEeSvydpbEtLBCg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SolverParamsType"/>
+    </parameters>
+    <parameters xmi:id="_fhaklUPMEeSvydpbEtLBCg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SolverParamsType"/>
+    </parameters>
+    <parameterMappings xmi:id="_fhaklkPMEeSvydpbEtLBCg" source="_fhakk0PMEeSvydpbEtLBCg" target="_fhakgkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fhakl0PMEeSvydpbEtLBCg" source="_fhaklEPMEeSvydpbEtLBCg" target="_fhakg0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fhakmEPMEeSvydpbEtLBCg" source="_fhaklUPMEeSvydpbEtLBCg" target="_fhakhEPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

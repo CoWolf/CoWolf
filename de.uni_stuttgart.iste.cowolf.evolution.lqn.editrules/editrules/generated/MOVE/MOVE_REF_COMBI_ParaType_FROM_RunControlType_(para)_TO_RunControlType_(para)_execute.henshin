@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_ff3sYEPMEeSvydpbEtLBCg" name="MOVE_REF_COMBI_ParaType_FROM_RunControlType_(para)_TO_RunControlType_(para)" description="MOVEs ParaType from RunControlType(Reference:para) to RunControlType(Reference:para">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_ff3sYUPMEeSvydpbEtLBCg" name="moveParaType_FROM_RunControlType_para_TO_RunControlType_RunControlType" description="Moves ParaType from RunControlType(Reference:para) toRunControlType(Reference:RunControlType)">
+    <parameters xmi:id="_ff3sYkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ParaType"/>
+    </parameters>
+    <parameters xmi:id="_ff3sY0PMEeSvydpbEtLBCg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//RunControlType"/>
+    </parameters>
+    <parameters xmi:id="_ff3sZEPMEeSvydpbEtLBCg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//RunControlType"/>
+    </parameters>
+    <lhs xmi:id="_ff3sZUPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_ff3sZkPMEeSvydpbEtLBCg" name="Selected" incoming="_ff3saUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ParaType"/>
+      </nodes>
+      <nodes xmi:id="_ff3sZ0PMEeSvydpbEtLBCg" name="OldSource" outgoing="_ff3saUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//RunControlType"/>
+      </nodes>
+      <nodes xmi:id="_ff3saEPMEeSvydpbEtLBCg" name="NewSource">
+        <type href="http://LQN/1.0#//RunControlType"/>
+      </nodes>
+      <edges xmi:id="_ff3saUPMEeSvydpbEtLBCg" source="_ff3sZ0PMEeSvydpbEtLBCg" target="_ff3sZkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//RunControlType/para"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_ff3sakPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_ff3sa0PMEeSvydpbEtLBCg" name="Selected" incoming="_ff3sbkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ParaType"/>
+      </nodes>
+      <nodes xmi:id="_ff3sbEPMEeSvydpbEtLBCg" name="OldSource">
+        <type href="http://LQN/1.0#//RunControlType"/>
+      </nodes>
+      <nodes xmi:id="_ff3sbUPMEeSvydpbEtLBCg" name="NewSource" outgoing="_ff3sbkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//RunControlType"/>
+      </nodes>
+      <edges xmi:id="_ff3sbkPMEeSvydpbEtLBCg" source="_ff3sbUPMEeSvydpbEtLBCg" target="_ff3sa0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//RunControlType/para"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_ff3sb0PMEeSvydpbEtLBCg" origin="_ff3sZkPMEeSvydpbEtLBCg" image="_ff3sa0PMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_ff3scEPMEeSvydpbEtLBCg" origin="_ff3sZ0PMEeSvydpbEtLBCg" image="_ff3sbEPMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_ff3scUPMEeSvydpbEtLBCg" origin="_ff3saEPMEeSvydpbEtLBCg" image="_ff3sbUPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_ff3sckPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_ff3sYUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_ff3sc0PMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ParaType"/>
+    </parameters>
+    <parameters xmi:id="_ff3sdEPMEeSvydpbEtLBCg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//RunControlType"/>
+    </parameters>
+    <parameters xmi:id="_ff3sdUPMEeSvydpbEtLBCg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//RunControlType"/>
+    </parameters>
+    <parameterMappings xmi:id="_ff3sdkPMEeSvydpbEtLBCg" source="_ff3sc0PMEeSvydpbEtLBCg" target="_ff3sYkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_ff3sd0PMEeSvydpbEtLBCg" source="_ff3sdEPMEeSvydpbEtLBCg" target="_ff3sY0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_ff3seEPMEeSvydpbEtLBCg" source="_ff3sdUPMEeSvydpbEtLBCg" target="_ff3sZEPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_f1IxwEPMEeSvydpbEtLBCg" name="CREATE_TaskActivityGraph_IN_TaskType_(taskActivities)" description="Creates one TaskActivityGraph in TaskType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_f1IxwUPMEeSvydpbEtLBCg" name="createTaskActivityGraph_IN_TaskType" description="creates one TaskActivityGraph in the context: TaskType">
+    <parameters xmi:id="_f1IxwkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskType"/>
+    </parameters>
+    <parameters xmi:id="_f1Ixw0PMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskActivityGraph"/>
+    </parameters>
+    <parameters xmi:id="_f1IxxEPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_f1IxxUPMEeSvydpbEtLBCg" name="Child">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityDefType"/>
+    </parameters>
+    <parameters xmi:id="_f1IxxkPMEeSvydpbEtLBCg" name="Id1">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_f1Ixx0PMEeSvydpbEtLBCg" name="CallOrder">
+      <type xsi:type="ecore:EEnum" href="http://LQN/1.0#//CallOrderType"/>
+    </parameters>
+    <parameters xmi:id="_f1IxyEPMEeSvydpbEtLBCg" name="HostDemandCvsq">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameters xmi:id="_f1IxyUPMEeSvydpbEtLBCg" name="HostDemandMean">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameters xmi:id="_f1IxykPMEeSvydpbEtLBCg" name="MaxServiceTime">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameters xmi:id="_f1Ixy0PMEeSvydpbEtLBCg" name="Name">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_f1IxzEPMEeSvydpbEtLBCg" name="ThinkTime">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameters xmi:id="_f1IxzUPMEeSvydpbEtLBCg" name="Group">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"/>
+    </parameters>
+    <parameters xmi:id="_f1IxzkPMEeSvydpbEtLBCg" name="BoundToType">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_f1Ixz0PMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_f1Ix0EPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//TaskType"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_f1Ix0UPMEeSvydpbEtLBCg">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_f1Ix0kPMEeSvydpbEtLBCg">
+          <conclusion xmi:id="_f1Ix00PMEeSvydpbEtLBCg" name="ub0">
+            <nodes xmi:id="_f1Ix1EPMEeSvydpbEtLBCg" outgoing="_f1Ix1kPMEeSvydpbEtLBCg">
+              <type href="http://LQN/1.0#//TaskType"/>
+            </nodes>
+            <nodes xmi:id="_f1Ix1UPMEeSvydpbEtLBCg" incoming="_f1Ix1kPMEeSvydpbEtLBCg">
+              <type href="http://LQN/1.0#//TaskActivityGraph"/>
+            </nodes>
+            <edges xmi:id="_f1Ix1kPMEeSvydpbEtLBCg" source="_f1Ix1EPMEeSvydpbEtLBCg" target="_f1Ix1UPMEeSvydpbEtLBCg">
+              <type href="http://LQN/1.0#//TaskType/taskActivities"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_f1Ix10PMEeSvydpbEtLBCg" origin="_f1Ix0EPMEeSvydpbEtLBCg" image="_f1Ix1EPMEeSvydpbEtLBCg"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_f1Ix2EPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_f1Ix2UPMEeSvydpbEtLBCg" name="Selected" outgoing="_f1Ix5kPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//TaskType"/>
+      </nodes>
+      <nodes xmi:id="_f1Ix2kPMEeSvydpbEtLBCg" name="New" incoming="_f1Ix5kPMEeSvydpbEtLBCg" outgoing="_f1Ix50PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//TaskActivityGraph"/>
+        <attributes xmi:id="_f1Ix20PMEeSvydpbEtLBCg" value="Id">
+          <type href="platform:/resource/de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_f1Ix3EPMEeSvydpbEtLBCg" name="Child" incoming="_f1Ix50PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityDefType"/>
+        <attributes xmi:id="_f1Ix3UPMEeSvydpbEtLBCg" value="Id1">
+          <type href="platform:/resource/de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_f1Ix3kPMEeSvydpbEtLBCg" value="CallOrder">
+          <type href="http://LQN/1.0#//ActivityDefBase/callOrder"/>
+        </attributes>
+        <attributes xmi:id="_f1Ix30PMEeSvydpbEtLBCg" value="HostDemandCvsq">
+          <type href="http://LQN/1.0#//ActivityDefBase/hostDemandCvsq"/>
+        </attributes>
+        <attributes xmi:id="_f1Ix4EPMEeSvydpbEtLBCg" value="HostDemandMean">
+          <type href="http://LQN/1.0#//ActivityDefBase/hostDemandMean"/>
+        </attributes>
+        <attributes xmi:id="_f1Ix4UPMEeSvydpbEtLBCg" value="MaxServiceTime">
+          <type href="http://LQN/1.0#//ActivityDefBase/maxServiceTime"/>
+        </attributes>
+        <attributes xmi:id="_f1Ix4kPMEeSvydpbEtLBCg" value="Name">
+          <type href="http://LQN/1.0#//ActivityDefBase/name"/>
+        </attributes>
+        <attributes xmi:id="_f1Ix40PMEeSvydpbEtLBCg" value="ThinkTime">
+          <type href="http://LQN/1.0#//ActivityDefBase/thinkTime"/>
+        </attributes>
+        <attributes xmi:id="_f1Ix5EPMEeSvydpbEtLBCg" value="Group">
+          <type href="http://LQN/1.0#//ActivityDefType/group"/>
+        </attributes>
+        <attributes xmi:id="_f1Ix5UPMEeSvydpbEtLBCg" value="BoundToType">
+          <type href="http://LQN/1.0#//ActivityDefType/boundToType"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_f1Ix5kPMEeSvydpbEtLBCg" source="_f1Ix2UPMEeSvydpbEtLBCg" target="_f1Ix2kPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//TaskType/taskActivities"/>
+      </edges>
+      <edges xmi:id="_f1Ix50PMEeSvydpbEtLBCg" source="_f1Ix2kPMEeSvydpbEtLBCg" target="_f1Ix3EPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityGraphBase/activity"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_f1Ix6EPMEeSvydpbEtLBCg" origin="_f1Ix0EPMEeSvydpbEtLBCg" image="_f1Ix2UPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_f1Ix6UPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_f1IxwUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_f1Ix6kPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskType"/>
+    </parameters>
+    <parameters xmi:id="_f1Ix60PMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskActivityGraph"/>
+    </parameters>
+    <parameters xmi:id="_f1Ix7EPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_f1Ix7UPMEeSvydpbEtLBCg" name="Child">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityDefType"/>
+    </parameters>
+    <parameters xmi:id="_f1Ix7kPMEeSvydpbEtLBCg" name="Id1">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_f1Ix70PMEeSvydpbEtLBCg" name="CallOrder">
+      <type xsi:type="ecore:EEnum" href="http://LQN/1.0#//CallOrderType"/>
+    </parameters>
+    <parameters xmi:id="_f1Ix8EPMEeSvydpbEtLBCg" name="HostDemandCvsq">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameters xmi:id="_f1Ix8UPMEeSvydpbEtLBCg" name="HostDemandMean">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameters xmi:id="_f1Ix8kPMEeSvydpbEtLBCg" name="MaxServiceTime">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameters xmi:id="_f1Ix80PMEeSvydpbEtLBCg" name="Name">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_f1Ix9EPMEeSvydpbEtLBCg" name="ThinkTime">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameters xmi:id="_f1Ix9UPMEeSvydpbEtLBCg" name="Group">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"/>
+    </parameters>
+    <parameters xmi:id="_f1Ix9kPMEeSvydpbEtLBCg" name="BoundToType">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_f1Ix90PMEeSvydpbEtLBCg" source="_f1Ix6kPMEeSvydpbEtLBCg" target="_f1IxwkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_f1Ix-EPMEeSvydpbEtLBCg" source="_f1Ixw0PMEeSvydpbEtLBCg" target="_f1Ix60PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_f1Ix-UPMEeSvydpbEtLBCg" source="_f1Ix7EPMEeSvydpbEtLBCg" target="_f1IxxEPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_f1Ix-kPMEeSvydpbEtLBCg" source="_f1IxxUPMEeSvydpbEtLBCg" target="_f1Ix7UPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_f1Ix-0PMEeSvydpbEtLBCg" source="_f1Ix7kPMEeSvydpbEtLBCg" target="_f1IxxkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_f1Ix_EPMEeSvydpbEtLBCg" source="_f1Ix70PMEeSvydpbEtLBCg" target="_f1Ixx0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_f1Ix_UPMEeSvydpbEtLBCg" source="_f1Ix8EPMEeSvydpbEtLBCg" target="_f1IxyEPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_f1Ix_kPMEeSvydpbEtLBCg" source="_f1Ix8UPMEeSvydpbEtLBCg" target="_f1IxyUPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_f1Ix_0PMEeSvydpbEtLBCg" source="_f1Ix8kPMEeSvydpbEtLBCg" target="_f1IxykPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_f1IyAEPMEeSvydpbEtLBCg" source="_f1Ix80PMEeSvydpbEtLBCg" target="_f1Ixy0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_f1IyAUPMEeSvydpbEtLBCg" source="_f1Ix9EPMEeSvydpbEtLBCg" target="_f1IxzEPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_f1IyAkPMEeSvydpbEtLBCg" source="_f1Ix9UPMEeSvydpbEtLBCg" target="_f1IxzUPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_f1IyA0PMEeSvydpbEtLBCg" source="_f1Ix9kPMEeSvydpbEtLBCg" target="_f1IxzkPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

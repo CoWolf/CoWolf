@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fzUM3kPMEeSvydpbEtLBCg" name="DELETE_EntryMakingCallType_IN_EntryType_(forwarding)" description="Deletes one EntryMakingCallType in EntryType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fzUM30PMEeSvydpbEtLBCg" name="deleteEntryMakingCallType_IN_EntryType" description="deletes one EntryMakingCallType in the context: EntryType">
+    <parameters xmi:id="_fzUM4EPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <parameters xmi:id="_fzUM4UPMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryMakingCallType"/>
+    </parameters>
+    <parameters xmi:id="_fzUM4kPMEeSvydpbEtLBCg" name="Existing">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <lhs xmi:id="_fzUM40PMEeSvydpbEtLBCg" name="LHS">
+      <nodes xmi:id="_fzUM5EPMEeSvydpbEtLBCg" name="Selected" outgoing="_fzUM50PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+      <nodes xmi:id="_fzUM5UPMEeSvydpbEtLBCg" name="ToBeDeleted" incoming="_fzUM50PMEeSvydpbEtLBCg" outgoing="_fzUM6EPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//EntryMakingCallType"/>
+      </nodes>
+      <nodes xmi:id="_fzUM5kPMEeSvydpbEtLBCg" name="Existing" incoming="_fzUM6EPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+      <edges xmi:id="_fzUM50PMEeSvydpbEtLBCg" source="_fzUM5EPMEeSvydpbEtLBCg" target="_fzUM5UPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//EntryType/forwarding"/>
+      </edges>
+      <edges xmi:id="_fzUM6EPMEeSvydpbEtLBCg" source="_fzUM5UPMEeSvydpbEtLBCg" target="_fzUM5kPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//MakingCallType/dest"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_fzUM6UPMEeSvydpbEtLBCg" name="RHS">
+      <nodes xmi:id="_fzUM6kPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+      <nodes xmi:id="_fzUM60PMEeSvydpbEtLBCg" name="Existing">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_fzUM7EPMEeSvydpbEtLBCg" origin="_fzUM5EPMEeSvydpbEtLBCg" image="_fzUM6kPMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_fzUM7UPMEeSvydpbEtLBCg" origin="_fzUM5kPMEeSvydpbEtLBCg" image="_fzUM60PMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fzUM7kPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fzUM30PMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fzUM70PMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <parameters xmi:id="_fzUM8EPMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryMakingCallType"/>
+    </parameters>
+    <parameters xmi:id="_fzUM8UPMEeSvydpbEtLBCg" name="Existing">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <parameterMappings xmi:id="_fzUM8kPMEeSvydpbEtLBCg" source="_fzUM70PMEeSvydpbEtLBCg" target="_fzUM4EPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fzUz4EPMEeSvydpbEtLBCg" source="_fzUM8EPMEeSvydpbEtLBCg" target="_fzUM4UPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fzUz4UPMEeSvydpbEtLBCg" source="_fzUM8UPMEeSvydpbEtLBCg" target="_fzUM4kPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

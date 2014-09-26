@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fdsiIEPMEeSvydpbEtLBCg" name="SET_ATTRIBUTE_HistogramBinType_Prob" description="Sets HistogramBinType Prob">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fdsiIUPMEeSvydpbEtLBCg" name="setHistogramBinTypeProb" description="Sets the EAttribute prob">
+    <parameters xmi:id="_fdsiIkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//HistogramBinType"/>
+    </parameters>
+    <parameters xmi:id="_fdsiI0PMEeSvydpbEtLBCg" name="Prob">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <lhs xmi:id="_fdsiJEPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fdsiJUPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//HistogramBinType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_fdsiJkPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fdsiJ0PMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//HistogramBinType"/>
+        <attributes xmi:id="_fdsiKEPMEeSvydpbEtLBCg" value="Prob">
+          <type href="http://LQN/1.0#//HistogramBinType/prob"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_fdsiKUPMEeSvydpbEtLBCg" origin="_fdsiJUPMEeSvydpbEtLBCg" image="_fdsiJ0PMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fdsiKkPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fdsiIUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fdsiK0PMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//HistogramBinType"/>
+    </parameters>
+    <parameters xmi:id="_fdsiLEPMEeSvydpbEtLBCg" name="Prob">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameterMappings xmi:id="_fdsiLUPMEeSvydpbEtLBCg" source="_fdsiK0PMEeSvydpbEtLBCg" target="_fdsiIkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fdsiLkPMEeSvydpbEtLBCg" source="_fdsiLEPMEeSvydpbEtLBCg" target="_fdsiI0PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

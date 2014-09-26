@@ -93,7 +93,7 @@ public interface LQN extends EObject {
 	 * @return the value of the '<em>Lqn Core</em>' containment reference.
 	 * @see #setLqnCore(LqnCoreType)
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage#getLQN_LqnCore()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 * @model containment="true" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='lqn-core' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -120,7 +120,7 @@ public interface LQN extends EObject {
 	 * @return the value of the '<em>Lqn Model</em>' containment reference.
 	 * @see #setLqnModel(LqnModelType)
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage#getLQN_LqnModel()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
+	 * @model containment="true" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='lqn-model' namespace='##targetNamespace'"
 	 * @generated
 	 */

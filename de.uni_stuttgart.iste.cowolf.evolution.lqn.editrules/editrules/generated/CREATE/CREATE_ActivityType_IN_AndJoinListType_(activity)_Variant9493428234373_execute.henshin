@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_friJ3kPMEeSvydpbEtLBCg" name="CREATE_ActivityType_IN_AndJoinListType_(activity)_Variant9493428234373" description="Creates one ActivityType in AndJoinListType Variant9493428234373">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_friJ30PMEeSvydpbEtLBCg" name="createActivityType_IN_AndJoinListType" description="creates one ActivityType in the context: AndJoinListType">
+    <parameters xmi:id="_friJ4EPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//AndJoinListType"/>
+    </parameters>
+    <parameters xmi:id="_friJ4UPMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityLoopType"/>
+    </parameters>
+    <parameters xmi:id="_friJ4kPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_friJ40PMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_friJ5EPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//AndJoinListType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_friJ5UPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_friJ5kPMEeSvydpbEtLBCg" name="Selected" outgoing="_friJ6UPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//AndJoinListType"/>
+      </nodes>
+      <nodes xmi:id="_friJ50PMEeSvydpbEtLBCg" name="New" incoming="_friJ6UPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityLoopType"/>
+        <attributes xmi:id="_friJ6EPMEeSvydpbEtLBCg" value="Id">
+          <type href="platform:/resource/de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_friJ6UPMEeSvydpbEtLBCg" source="_friJ5kPMEeSvydpbEtLBCg" target="_friJ50PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//AndJoinListType/activity"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_friJ6kPMEeSvydpbEtLBCg" origin="_friJ5EPMEeSvydpbEtLBCg" image="_friJ5kPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_friJ60PMEeSvydpbEtLBCg" name="mainUnit" subUnits="_friJ30PMEeSvydpbEtLBCg">
+    <parameters xmi:id="_friJ7EPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//AndJoinListType"/>
+    </parameters>
+    <parameters xmi:id="_friJ7UPMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityLoopType"/>
+    </parameters>
+    <parameters xmi:id="_friJ7kPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_friJ70PMEeSvydpbEtLBCg" source="_friJ7EPMEeSvydpbEtLBCg" target="_friJ4EPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_friJ8EPMEeSvydpbEtLBCg" source="_friJ4UPMEeSvydpbEtLBCg" target="_friJ7UPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_friJ8UPMEeSvydpbEtLBCg" source="_friJ7kPMEeSvydpbEtLBCg" target="_friJ4kPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

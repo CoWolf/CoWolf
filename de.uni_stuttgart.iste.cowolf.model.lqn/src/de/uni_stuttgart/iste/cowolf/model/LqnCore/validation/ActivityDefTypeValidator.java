@@ -24,5 +24,7 @@ public interface ActivityDefTypeValidator {
 	boolean validateGroup(FeatureMap value);
 	boolean validateSynchCall(EList<ActivityMakingCallType> value);
 	boolean validateAsynchCall(EList<ActivityMakingCallType> value);
+	boolean validateBountToType(String value);
+
 	boolean validateBoundToEntry(String value);
 }

@@ -91,7 +91,7 @@ public class ActivityOrTypeItemProvider extends ActivityTypeItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ActivityOrType)object).getName();
+		String label = ((ActivityOrType)object).getId();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ActivityOrType_type") :
 			getString("_UI_ActivityOrType_type") + " " + label;

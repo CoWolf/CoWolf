@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fl3msEPMEeSvydpbEtLBCg" name="DELETE_EntryActivityGraph_IN_EntryType_(entryActivityGraph)" description="Deletes one EntryActivityGraph in EntryType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fl3msUPMEeSvydpbEtLBCg" name="deleteEntryActivityGraph_IN_EntryType" description="deletes one EntryActivityGraph in the context: EntryType">
+    <parameters xmi:id="_fl3mskPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <parameters xmi:id="_fl3ms0PMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryActivityGraph"/>
+    </parameters>
+    <parameters xmi:id="_fl3mtEPMEeSvydpbEtLBCg" name="Child">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityDefType"/>
+    </parameters>
+    <parameters xmi:id="_fl3mtUPMEeSvydpbEtLBCg" name="Child1">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ReplyActivityType"/>
+    </parameters>
+    <lhs xmi:id="_fl3mtkPMEeSvydpbEtLBCg" name="LHS">
+      <nodes xmi:id="_fl3mt0PMEeSvydpbEtLBCg" name="Selected" outgoing="_fl4Nw0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+      <nodes xmi:id="_fl4NwEPMEeSvydpbEtLBCg" name="ToBeDeleted" incoming="_fl4Nw0PMEeSvydpbEtLBCg" outgoing="_fl4NxEPMEeSvydpbEtLBCg _fl4NxUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//EntryActivityGraph"/>
+      </nodes>
+      <nodes xmi:id="_fl4NwUPMEeSvydpbEtLBCg" name="Child" incoming="_fl4NxEPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityDefType"/>
+      </nodes>
+      <nodes xmi:id="_fl4NwkPMEeSvydpbEtLBCg" name="Child1" incoming="_fl4NxUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ReplyActivityType"/>
+      </nodes>
+      <edges xmi:id="_fl4Nw0PMEeSvydpbEtLBCg" source="_fl3mt0PMEeSvydpbEtLBCg" target="_fl4NwEPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//EntryType/entryActivityGraph"/>
+      </edges>
+      <edges xmi:id="_fl4NxEPMEeSvydpbEtLBCg" source="_fl4NwEPMEeSvydpbEtLBCg" target="_fl4NwUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityGraphBase/activity"/>
+      </edges>
+      <edges xmi:id="_fl4NxUPMEeSvydpbEtLBCg" source="_fl4NwEPMEeSvydpbEtLBCg" target="_fl4NwkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//EntryActivityGraph/replyActivity"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_fl4NxkPMEeSvydpbEtLBCg" name="RHS">
+      <nodes xmi:id="_fl4Nx0PMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_fl4NyEPMEeSvydpbEtLBCg" origin="_fl3mt0PMEeSvydpbEtLBCg" image="_fl4Nx0PMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fl4NyUPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fl3msUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fl4NykPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <parameters xmi:id="_fl4Ny0PMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryActivityGraph"/>
+    </parameters>
+    <parameters xmi:id="_fl4NzEPMEeSvydpbEtLBCg" name="Child">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityDefType"/>
+    </parameters>
+    <parameters xmi:id="_fl4NzUPMEeSvydpbEtLBCg" name="Child1">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ReplyActivityType"/>
+    </parameters>
+    <parameterMappings xmi:id="_fl4NzkPMEeSvydpbEtLBCg" source="_fl4NykPMEeSvydpbEtLBCg" target="_fl3mskPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fl4Nz0PMEeSvydpbEtLBCg" source="_fl4Ny0PMEeSvydpbEtLBCg" target="_fl3ms0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fl4N0EPMEeSvydpbEtLBCg" source="_fl4NzEPMEeSvydpbEtLBCg" target="_fl3mtEPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fl4N0UPMEeSvydpbEtLBCg" source="_fl4NzUPMEeSvydpbEtLBCg" target="_fl3mtUPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

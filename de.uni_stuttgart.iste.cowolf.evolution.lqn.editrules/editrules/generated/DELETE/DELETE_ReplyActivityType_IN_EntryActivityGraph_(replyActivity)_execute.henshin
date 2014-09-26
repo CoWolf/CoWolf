@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_f0IsMEPMEeSvydpbEtLBCg" name="DELETE_ReplyActivityType_IN_EntryActivityGraph_(replyActivity)" description="Deletes one ReplyActivityType in EntryActivityGraph">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_f0IsMUPMEeSvydpbEtLBCg" name="deleteReplyActivityType_IN_EntryActivityGraph" description="deletes one ReplyActivityType in the context: EntryActivityGraph">
+    <parameters xmi:id="_f0IsMkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryActivityGraph"/>
+    </parameters>
+    <parameters xmi:id="_f0IsM0PMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ReplyActivityType"/>
+    </parameters>
+    <lhs xmi:id="_f0IsNEPMEeSvydpbEtLBCg" name="LHS">
+      <nodes xmi:id="_f0IsNUPMEeSvydpbEtLBCg" name="Selected" outgoing="_f0IsN0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//EntryActivityGraph"/>
+      </nodes>
+      <nodes xmi:id="_f0IsNkPMEeSvydpbEtLBCg" name="ToBeDeleted" incoming="_f0IsN0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ReplyActivityType"/>
+      </nodes>
+      <edges xmi:id="_f0IsN0PMEeSvydpbEtLBCg" source="_f0IsNUPMEeSvydpbEtLBCg" target="_f0IsNkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//EntryActivityGraph/replyActivity"/>
+      </edges>
+      <formula xsi:type="henshin:NestedCondition" xmi:id="_f0IsOEPMEeSvydpbEtLBCg">
+        <conclusion xmi:id="_f0IsOUPMEeSvydpbEtLBCg" name="lb0">
+          <nodes xmi:id="_f0IsOkPMEeSvydpbEtLBCg" outgoing="_f0IsPEPMEeSvydpbEtLBCg">
+            <type href="http://LQN/1.0#//EntryActivityGraph"/>
+          </nodes>
+          <nodes xmi:id="_f0IsO0PMEeSvydpbEtLBCg" incoming="_f0IsPEPMEeSvydpbEtLBCg">
+            <type href="http://LQN/1.0#//ReplyActivityType"/>
+          </nodes>
+          <edges xmi:id="_f0IsPEPMEeSvydpbEtLBCg" source="_f0IsOkPMEeSvydpbEtLBCg" target="_f0IsO0PMEeSvydpbEtLBCg">
+            <type href="http://LQN/1.0#//EntryActivityGraph/replyActivity"/>
+          </edges>
+        </conclusion>
+        <mappings xmi:id="_f0IsPUPMEeSvydpbEtLBCg" origin="_f0IsNUPMEeSvydpbEtLBCg" image="_f0IsOkPMEeSvydpbEtLBCg"/>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_f0IsPkPMEeSvydpbEtLBCg" name="RHS">
+      <nodes xmi:id="_f0IsP0PMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//EntryActivityGraph"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_f0IsQEPMEeSvydpbEtLBCg" origin="_f0IsNUPMEeSvydpbEtLBCg" image="_f0IsP0PMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_f0IsQUPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_f0IsMUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_f0IsQkPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryActivityGraph"/>
+    </parameters>
+    <parameters xmi:id="_f0IsQ0PMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ReplyActivityType"/>
+    </parameters>
+    <parameterMappings xmi:id="_f0IsREPMEeSvydpbEtLBCg" source="_f0IsQkPMEeSvydpbEtLBCg" target="_f0IsMkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_f0IsRUPMEeSvydpbEtLBCg" source="_f0IsQ0PMEeSvydpbEtLBCg" target="_f0IsM0PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_frOn0EPMEeSvydpbEtLBCg" name="SET_ATTRIBUTE_EntryType_OpenArrivalRate" description="Sets EntryType OpenArrivalRate">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_frOn0UPMEeSvydpbEtLBCg" name="setEntryTypeOpenArrivalRate" description="Sets the EAttribute openArrivalRate">
+    <parameters xmi:id="_frOn0kPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <parameters xmi:id="_frOn00PMEeSvydpbEtLBCg" name="OpenArrivalRate">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <lhs xmi:id="_frOn1EPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_frOn1UPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_frOn1kPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_frOn10PMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//EntryType"/>
+        <attributes xmi:id="_frOn2EPMEeSvydpbEtLBCg" value="OpenArrivalRate">
+          <type href="http://LQN/1.0#//EntryType/openArrivalRate"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_frOn2UPMEeSvydpbEtLBCg" origin="_frOn1UPMEeSvydpbEtLBCg" image="_frOn10PMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_frOn2kPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_frOn0UPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_frOn20PMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <parameters xmi:id="_frOn3EPMEeSvydpbEtLBCg" name="OpenArrivalRate">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameterMappings xmi:id="_frOn3UPMEeSvydpbEtLBCg" source="_frOn20PMEeSvydpbEtLBCg" target="_frOn0kPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_frOn3kPMEeSvydpbEtLBCg" source="_frOn3EPMEeSvydpbEtLBCg" target="_frOn00PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

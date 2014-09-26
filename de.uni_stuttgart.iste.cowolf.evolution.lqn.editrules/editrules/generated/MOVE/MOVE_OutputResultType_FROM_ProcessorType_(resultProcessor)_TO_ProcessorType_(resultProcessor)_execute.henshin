@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_flsAgEPMEeSvydpbEtLBCg" name="MOVE_OutputResultType_FROM_ProcessorType_(resultProcessor)_TO_ProcessorType_(resultProcessor)" description="MOVEs OutputResultType from ProcessorType(Reference:resultProcessor) to ProcessorType(Reference:resultProcessor">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_flsAgUPMEeSvydpbEtLBCg" name="moveOutputResultType_FROM_ProcessorType_resultProcessor_TO_ProcessorType_ProcessorType" description="Moves OutputResultType from ProcessorType(Reference:resultProcessor) toProcessorType(Reference:ProcessorType)">
+    <parameters xmi:id="_flsAgkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutputResultType"/>
+    </parameters>
+    <parameters xmi:id="_flsAg0PMEeSvydpbEtLBCg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ProcessorType"/>
+    </parameters>
+    <parameters xmi:id="_flsAhEPMEeSvydpbEtLBCg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ProcessorType"/>
+    </parameters>
+    <lhs xmi:id="_flsAhUPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_flsAhkPMEeSvydpbEtLBCg" name="Selected" incoming="_flsAiUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//OutputResultType"/>
+      </nodes>
+      <nodes xmi:id="_flsAh0PMEeSvydpbEtLBCg" name="OldSource" outgoing="_flsAiUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ProcessorType"/>
+      </nodes>
+      <nodes xmi:id="_flsAiEPMEeSvydpbEtLBCg" name="NewSource">
+        <type href="http://LQN/1.0#//ProcessorType"/>
+      </nodes>
+      <edges xmi:id="_flsAiUPMEeSvydpbEtLBCg" source="_flsAh0PMEeSvydpbEtLBCg" target="_flsAhkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ProcessorType/resultProcessor"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_flsAikPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_flsAi0PMEeSvydpbEtLBCg" name="Selected" incoming="_flsAjkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//OutputResultType"/>
+      </nodes>
+      <nodes xmi:id="_flsAjEPMEeSvydpbEtLBCg" name="OldSource">
+        <type href="http://LQN/1.0#//ProcessorType"/>
+      </nodes>
+      <nodes xmi:id="_flsAjUPMEeSvydpbEtLBCg" name="NewSource" outgoing="_flsAjkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ProcessorType"/>
+      </nodes>
+      <edges xmi:id="_flsAjkPMEeSvydpbEtLBCg" source="_flsAjUPMEeSvydpbEtLBCg" target="_flsAi0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ProcessorType/resultProcessor"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_flsAj0PMEeSvydpbEtLBCg" origin="_flsAhkPMEeSvydpbEtLBCg" image="_flsAi0PMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_flsAkEPMEeSvydpbEtLBCg" origin="_flsAh0PMEeSvydpbEtLBCg" image="_flsAjEPMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_flsAkUPMEeSvydpbEtLBCg" origin="_flsAiEPMEeSvydpbEtLBCg" image="_flsAjUPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_flsAkkPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_flsAgUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_flsAk0PMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutputResultType"/>
+    </parameters>
+    <parameters xmi:id="_flsAlEPMEeSvydpbEtLBCg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ProcessorType"/>
+    </parameters>
+    <parameters xmi:id="_flsAlUPMEeSvydpbEtLBCg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ProcessorType"/>
+    </parameters>
+    <parameterMappings xmi:id="_flsAlkPMEeSvydpbEtLBCg" source="_flsAk0PMEeSvydpbEtLBCg" target="_flsAgkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_flsAl0PMEeSvydpbEtLBCg" source="_flsAlEPMEeSvydpbEtLBCg" target="_flsAg0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_flsAmEPMEeSvydpbEtLBCg" source="_flsAlUPMEeSvydpbEtLBCg" target="_flsAhEPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fi-qwEPMEeSvydpbEtLBCg" name="DELETE_ProcessorBindingType_IN_BindType_(processorBinding)" description="Deletes one ProcessorBindingType in BindType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fi-qwUPMEeSvydpbEtLBCg" name="deleteProcessorBindingType_IN_BindType" description="deletes one ProcessorBindingType in the context: BindType">
+    <parameters xmi:id="_fi-qwkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//BindType"/>
+    </parameters>
+    <parameters xmi:id="_fi-qw0PMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ProcessorBindingType"/>
+    </parameters>
+    <lhs xmi:id="_fi-qxEPMEeSvydpbEtLBCg" name="LHS">
+      <nodes xmi:id="_fi-qxUPMEeSvydpbEtLBCg" name="Selected" outgoing="_fi-qx0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//BindType"/>
+      </nodes>
+      <nodes xmi:id="_fi-qxkPMEeSvydpbEtLBCg" name="ToBeDeleted" incoming="_fi-qx0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ProcessorBindingType"/>
+      </nodes>
+      <edges xmi:id="_fi-qx0PMEeSvydpbEtLBCg" source="_fi-qxUPMEeSvydpbEtLBCg" target="_fi-qxkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//BindType/processorBinding"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_fi-qyEPMEeSvydpbEtLBCg" name="RHS">
+      <nodes xmi:id="_fi-qyUPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//BindType"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_fi-qykPMEeSvydpbEtLBCg" origin="_fi-qxUPMEeSvydpbEtLBCg" image="_fi-qyUPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fi-qy0PMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fi-qwUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fi-qzEPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//BindType"/>
+    </parameters>
+    <parameters xmi:id="_fi-qzUPMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ProcessorBindingType"/>
+    </parameters>
+    <parameterMappings xmi:id="_fi-qzkPMEeSvydpbEtLBCg" source="_fi-qzEPMEeSvydpbEtLBCg" target="_fi-qwkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fi-qz0PMEeSvydpbEtLBCg" source="_fi-qzUPMEeSvydpbEtLBCg" target="_fi-qw0PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

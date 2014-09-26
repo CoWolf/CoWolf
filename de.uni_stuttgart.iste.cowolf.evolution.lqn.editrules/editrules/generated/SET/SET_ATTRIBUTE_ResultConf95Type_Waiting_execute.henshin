@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fw7AIEPMEeSvydpbEtLBCg" name="SET_ATTRIBUTE_ResultConf95Type_Waiting" description="Sets ResultConf95Type Waiting">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fw7AIUPMEeSvydpbEtLBCg" name="setResultConf95TypeWaiting" description="Sets the EAttribute waiting">
+    <parameters xmi:id="_fw7AIkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ResultConf95Type"/>
+    </parameters>
+    <parameters xmi:id="_fw7AI0PMEeSvydpbEtLBCg" name="Waiting">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <lhs xmi:id="_fw7AJEPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fw7AJUPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//ResultConf95Type"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_fw7AJkPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fw7AJ0PMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//ResultConf95Type"/>
+        <attributes xmi:id="_fw7AKEPMEeSvydpbEtLBCg" value="Waiting">
+          <type href="http://LQN/1.0#//ResultConf95Type/waiting"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_fw7AKUPMEeSvydpbEtLBCg" origin="_fw7AJUPMEeSvydpbEtLBCg" image="_fw7AJ0PMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fw7AKkPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fw7AIUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fw7AK0PMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ResultConf95Type"/>
+    </parameters>
+    <parameters xmi:id="_fw7ALEPMEeSvydpbEtLBCg" name="Waiting">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameterMappings xmi:id="_fw7ALUPMEeSvydpbEtLBCg" source="_fw7AK0PMEeSvydpbEtLBCg" target="_fw7AIkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fw7ALkPMEeSvydpbEtLBCg" source="_fw7ALEPMEeSvydpbEtLBCg" target="_fw7AI0PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

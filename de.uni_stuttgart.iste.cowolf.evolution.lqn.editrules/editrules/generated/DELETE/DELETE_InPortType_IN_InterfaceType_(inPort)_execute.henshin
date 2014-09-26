@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fq20YEPMEeSvydpbEtLBCg" name="DELETE_InPortType_IN_InterfaceType_(inPort)" description="Deletes one InPortType in InterfaceType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fq20YUPMEeSvydpbEtLBCg" name="deleteInPortType_IN_InterfaceType" description="deletes one InPortType in the context: InterfaceType">
+    <parameters xmi:id="_fq20YkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//InterfaceType"/>
+    </parameters>
+    <parameters xmi:id="_fq20Y0PMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//InPortType"/>
+    </parameters>
+    <lhs xmi:id="_fq20ZEPMEeSvydpbEtLBCg" name="LHS">
+      <nodes xmi:id="_fq20ZUPMEeSvydpbEtLBCg" name="Selected" outgoing="_fq20Z0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//InterfaceType"/>
+      </nodes>
+      <nodes xmi:id="_fq20ZkPMEeSvydpbEtLBCg" name="ToBeDeleted" incoming="_fq20Z0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//InPortType"/>
+      </nodes>
+      <edges xmi:id="_fq20Z0PMEeSvydpbEtLBCg" source="_fq20ZUPMEeSvydpbEtLBCg" target="_fq20ZkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//InterfaceType/inPort"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_fq20aEPMEeSvydpbEtLBCg" name="RHS">
+      <nodes xmi:id="_fq20aUPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//InterfaceType"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_fq20akPMEeSvydpbEtLBCg" origin="_fq20ZUPMEeSvydpbEtLBCg" image="_fq20aUPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fq20a0PMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fq20YUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fq20bEPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//InterfaceType"/>
+    </parameters>
+    <parameters xmi:id="_fq20bUPMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//InPortType"/>
+    </parameters>
+    <parameterMappings xmi:id="_fq20bkPMEeSvydpbEtLBCg" source="_fq20bEPMEeSvydpbEtLBCg" target="_fq20YkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fq20b0PMEeSvydpbEtLBCg" source="_fq20bUPMEeSvydpbEtLBCg" target="_fq20Y0PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

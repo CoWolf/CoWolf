@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fhhSMEPMEeSvydpbEtLBCg" name="DELETE_TaskActivityGraph_IN_TaskType_(taskActivities)" description="Deletes one TaskActivityGraph in TaskType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fhh5QEPMEeSvydpbEtLBCg" name="deleteTaskActivityGraph_IN_TaskType" description="deletes one TaskActivityGraph in the context: TaskType">
+    <parameters xmi:id="_fhh5QUPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskType"/>
+    </parameters>
+    <parameters xmi:id="_fhh5QkPMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskActivityGraph"/>
+    </parameters>
+    <parameters xmi:id="_fhh5Q0PMEeSvydpbEtLBCg" name="Child">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityDefType"/>
+    </parameters>
+    <lhs xmi:id="_fhh5REPMEeSvydpbEtLBCg" name="LHS">
+      <nodes xmi:id="_fhh5RUPMEeSvydpbEtLBCg" name="Selected" outgoing="_fhh5SEPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//TaskType"/>
+      </nodes>
+      <nodes xmi:id="_fhh5RkPMEeSvydpbEtLBCg" name="ToBeDeleted" incoming="_fhh5SEPMEeSvydpbEtLBCg" outgoing="_fhh5SUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//TaskActivityGraph"/>
+      </nodes>
+      <nodes xmi:id="_fhh5R0PMEeSvydpbEtLBCg" name="Child" incoming="_fhh5SUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityDefType"/>
+      </nodes>
+      <edges xmi:id="_fhh5SEPMEeSvydpbEtLBCg" source="_fhh5RUPMEeSvydpbEtLBCg" target="_fhh5RkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//TaskType/taskActivities"/>
+      </edges>
+      <edges xmi:id="_fhh5SUPMEeSvydpbEtLBCg" source="_fhh5RkPMEeSvydpbEtLBCg" target="_fhh5R0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityGraphBase/activity"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_fhh5SkPMEeSvydpbEtLBCg" name="RHS">
+      <nodes xmi:id="_fhh5S0PMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//TaskType"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_fhh5TEPMEeSvydpbEtLBCg" origin="_fhh5RUPMEeSvydpbEtLBCg" image="_fhh5S0PMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fhh5TUPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fhh5QEPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fhh5TkPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskType"/>
+    </parameters>
+    <parameters xmi:id="_fhh5T0PMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskActivityGraph"/>
+    </parameters>
+    <parameters xmi:id="_fhh5UEPMEeSvydpbEtLBCg" name="Child">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityDefType"/>
+    </parameters>
+    <parameterMappings xmi:id="_fhh5UUPMEeSvydpbEtLBCg" source="_fhh5TkPMEeSvydpbEtLBCg" target="_fhh5QUPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fhh5UkPMEeSvydpbEtLBCg" source="_fhh5T0PMEeSvydpbEtLBCg" target="_fhh5QkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fhh5U0PMEeSvydpbEtLBCg" source="_fhh5UEPMEeSvydpbEtLBCg" target="_fhh5Q0PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

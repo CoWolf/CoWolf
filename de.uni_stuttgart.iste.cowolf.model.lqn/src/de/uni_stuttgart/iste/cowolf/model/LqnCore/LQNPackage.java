@@ -26,6 +26,8 @@ import org.eclipse.emf.ecore.EReference;
  * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNFactory
  * @model kind="package"
  *        extendedMetaData="qualified='false'"
+ *        annotation="http://www.eclipse.org/OCL/Import commonBase='../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#/' ecore='http://www.eclipse.org/emf/2002/Ecore' ecore.xml.type='http://www.eclipse.org/emf/2003/XMLType'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL' settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL' validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL'"
  * @generated
  */
 public interface LQNPackage extends EPackage {
@@ -334,13 +336,13 @@ public interface LQNPackage extends EPackage {
 	int ACTIVITY_DEF_TYPE__ASYNCH_CALL = ACTIVITY_DEF_BASE_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Bound To Entry</b></em>' attribute.
+	 * The feature id for the '<em><b>Bound To Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTIVITY_DEF_TYPE__BOUND_TO_ENTRY = ACTIVITY_DEF_BASE_FEATURE_COUNT + 4;
+	int ACTIVITY_DEF_TYPE__BOUND_TO_TYPE = ACTIVITY_DEF_BASE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Activity Def Type</em>' class.
@@ -536,13 +538,13 @@ public interface LQNPackage extends EPackage {
 	int ACTIVITY_TYPE__ID = CommonBasePackage.ID_BASE__ID;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Activity</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTIVITY_TYPE__NAME = CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
+	int ACTIVITY_TYPE__ACTIVITY = CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Activity Type</em>' class.
@@ -582,13 +584,13 @@ public interface LQNPackage extends EPackage {
 	int ACTIVITY_LOOP_TYPE__ID = ACTIVITY_TYPE__ID;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Activity</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTIVITY_LOOP_TYPE__NAME = ACTIVITY_TYPE__NAME;
+	int ACTIVITY_LOOP_TYPE__ACTIVITY = ACTIVITY_TYPE__ACTIVITY;
 
 	/**
 	 * The feature id for the '<em><b>Count</b></em>' attribute.
@@ -646,22 +648,13 @@ public interface LQNPackage extends EPackage {
 	int MAKING_CALL_TYPE__RESULT_CALL = CommonBasePackage.ID_BASE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Dest</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAKING_CALL_TYPE__DEST = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Fanin</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MAKING_CALL_TYPE__FANIN = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
+	int MAKING_CALL_TYPE__FANIN = CommonBasePackage.ID_BASE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Fanout</b></em>' attribute.
@@ -670,7 +663,16 @@ public interface LQNPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAKING_CALL_TYPE__FANOUT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
+	int MAKING_CALL_TYPE__FANOUT = CommonBasePackage.ID_BASE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Dest</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAKING_CALL_TYPE__DEST = CommonBasePackage.ID_BASE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Making Call Type</em>' class.
@@ -719,15 +721,6 @@ public interface LQNPackage extends EPackage {
 	int ACTIVITY_MAKING_CALL_TYPE__RESULT_CALL = MAKING_CALL_TYPE__RESULT_CALL;
 
 	/**
-	 * The feature id for the '<em><b>Dest</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTIVITY_MAKING_CALL_TYPE__DEST = MAKING_CALL_TYPE__DEST;
-
-	/**
 	 * The feature id for the '<em><b>Fanin</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -744,6 +737,15 @@ public interface LQNPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTIVITY_MAKING_CALL_TYPE__FANOUT = MAKING_CALL_TYPE__FANOUT;
+
+	/**
+	 * The feature id for the '<em><b>Dest</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTIVITY_MAKING_CALL_TYPE__DEST = MAKING_CALL_TYPE__DEST;
 
 	/**
 	 * The feature id for the '<em><b>Calls Mean</b></em>' attribute.
@@ -792,13 +794,13 @@ public interface LQNPackage extends EPackage {
 	int ACTIVITY_OR_TYPE__ID = ACTIVITY_TYPE__ID;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Activity</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTIVITY_OR_TYPE__NAME = ACTIVITY_TYPE__NAME;
+	int ACTIVITY_OR_TYPE__ACTIVITY = ACTIVITY_TYPE__ACTIVITY;
 
 	/**
 	 * The feature id for the '<em><b>Prob</b></em>' attribute.
@@ -1753,15 +1755,6 @@ public interface LQNPackage extends EPackage {
 	int ENTRY_MAKING_CALL_TYPE__RESULT_CALL = MAKING_CALL_TYPE__RESULT_CALL;
 
 	/**
-	 * The feature id for the '<em><b>Dest</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTRY_MAKING_CALL_TYPE__DEST = MAKING_CALL_TYPE__DEST;
-
-	/**
 	 * The feature id for the '<em><b>Fanin</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1778,6 +1771,15 @@ public interface LQNPackage extends EPackage {
 	 * @ordered
 	 */
 	int ENTRY_MAKING_CALL_TYPE__FANOUT = MAKING_CALL_TYPE__FANOUT;
+
+	/**
+	 * The feature id for the '<em><b>Dest</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTRY_MAKING_CALL_TYPE__DEST = MAKING_CALL_TYPE__DEST;
 
 	/**
 	 * The feature id for the '<em><b>Prob</b></em>' attribute.
@@ -5520,15 +5522,15 @@ public interface LQNPackage extends EPackage {
 	EReference getActivityDefType_AsynchCall();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.ActivityDefType#getBoundToEntry <em>Bound To Entry</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.ActivityDefType#getBoundToType <em>Bound To Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Bound To Entry</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.ActivityDefType#getBoundToEntry()
+	 * @return the meta object for the attribute '<em>Bound To Type</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.ActivityDefType#getBoundToType()
 	 * @see #getActivityDefType()
 	 * @generated
 	 */
-	EAttribute getActivityDefType_BoundToEntry();
+	EAttribute getActivityDefType_BoundToType();
 
 	/**
 	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.ActivityGraphBase <em>Activity Graph Base</em>}'.
@@ -5754,15 +5756,15 @@ public interface LQNPackage extends EPackage {
 	EClass getActivityType();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.ActivityType#getName <em>Name</em>}'.
+	 * Returns the meta object for the reference '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.ActivityType#getActivity <em>Activity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.ActivityType#getName()
+	 * @return the meta object for the reference '<em>Activity</em>'.
+	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.ActivityType#getActivity()
 	 * @see #getActivityType()
 	 * @generated
 	 */
-	EAttribute getActivityType_Name();
+	EReference getActivityType_Activity();
 
 	/**
 	 * Returns the meta object for class '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.AndJoinListType <em>And Join List Type</em>}'.
@@ -6508,15 +6510,15 @@ public interface LQNPackage extends EPackage {
 	EReference getMakingCallType_ResultCall();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.MakingCallType#getDest <em>Dest</em>}'.
+	 * Returns the meta object for the reference '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.MakingCallType#getDest <em>Dest</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Dest</em>'.
+	 * @return the meta object for the reference '<em>Dest</em>'.
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.MakingCallType#getDest()
 	 * @see #getMakingCallType()
 	 * @generated
 	 */
-	EAttribute getMakingCallType_Dest();
+	EReference getMakingCallType_Dest();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.MakingCallType#getFanin <em>Fanin</em>}'.
@@ -9210,12 +9212,12 @@ public interface LQNPackage extends EPackage {
 		EReference ACTIVITY_DEF_TYPE__ASYNCH_CALL = eINSTANCE.getActivityDefType_AsynchCall();
 
 		/**
-		 * The meta object literal for the '<em><b>Bound To Entry</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Bound To Type</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ACTIVITY_DEF_TYPE__BOUND_TO_ENTRY = eINSTANCE.getActivityDefType_BoundToEntry();
+		EAttribute ACTIVITY_DEF_TYPE__BOUND_TO_TYPE = eINSTANCE.getActivityDefType_BoundToType();
 
 		/**
 		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.ActivityGraphBaseImpl <em>Activity Graph Base</em>}' class.
@@ -9402,12 +9404,12 @@ public interface LQNPackage extends EPackage {
 		EClass ACTIVITY_TYPE = eINSTANCE.getActivityType();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Activity</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ACTIVITY_TYPE__NAME = eINSTANCE.getActivityType_Name();
+		EReference ACTIVITY_TYPE__ACTIVITY = eINSTANCE.getActivityType_Activity();
 
 		/**
 		 * The meta object literal for the '{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.AndJoinListTypeImpl <em>And Join List Type</em>}' class.
@@ -9994,12 +9996,12 @@ public interface LQNPackage extends EPackage {
 		EReference MAKING_CALL_TYPE__RESULT_CALL = eINSTANCE.getMakingCallType_ResultCall();
 
 		/**
-		 * The meta object literal for the '<em><b>Dest</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Dest</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute MAKING_CALL_TYPE__DEST = eINSTANCE.getMakingCallType_Dest();
+		EReference MAKING_CALL_TYPE__DEST = eINSTANCE.getMakingCallType_Dest();
 
 		/**
 		 * The meta object literal for the '<em><b>Fanin</b></em>' attribute feature.

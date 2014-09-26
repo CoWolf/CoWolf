@@ -2,6 +2,7 @@
  */
 package de.uni_stuttgart.iste.cowolf.model.LqnCore.impl;
 
+import de.uni_stuttgart.iste.cowolf.model.LqnCore.ActivityDefType;
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.ActivityType;
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage;
 
@@ -11,6 +12,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -20,7 +22,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.ActivityTypeImpl#getName <em>Name</em>}</li>
+ *   <li>{@link de.uni_stuttgart.iste.cowolf.model.LqnCore.impl.ActivityTypeImpl#getActivity <em>Activity</em>}</li>
  * </ul>
  * </p>
  *
@@ -28,24 +30,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class ActivityTypeImpl extends IDBaseImpl implements ActivityType {
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The cached value of the '{@link #getActivity() <em>Activity</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #getActivity()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
+	protected ActivityDefType activity;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -71,8 +63,16 @@ public class ActivityTypeImpl extends IDBaseImpl implements ActivityType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getName() {
-		return name;
+	public ActivityDefType getActivity() {
+		if (activity != null && activity.eIsProxy()) {
+			InternalEObject oldActivity = (InternalEObject)activity;
+			activity = (ActivityDefType)eResolveProxy(oldActivity);
+			if (activity != oldActivity) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, LQNPackage.ACTIVITY_TYPE__ACTIVITY, oldActivity, activity));
+			}
+		}
+		return activity;
 	}
 
 	/**
@@ -80,11 +80,20 @@ public class ActivityTypeImpl extends IDBaseImpl implements ActivityType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
+	public ActivityDefType basicGetActivity() {
+		return activity;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setActivity(ActivityDefType newActivity) {
+		ActivityDefType oldActivity = activity;
+		activity = newActivity;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LQNPackage.ACTIVITY_TYPE__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, LQNPackage.ACTIVITY_TYPE__ACTIVITY, oldActivity, activity));
 	}
 
 	/**
@@ -95,8 +104,9 @@ public class ActivityTypeImpl extends IDBaseImpl implements ActivityType {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case LQNPackage.ACTIVITY_TYPE__NAME:
-				return getName();
+			case LQNPackage.ACTIVITY_TYPE__ACTIVITY:
+				if (resolve) return getActivity();
+				return basicGetActivity();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -109,8 +119,8 @@ public class ActivityTypeImpl extends IDBaseImpl implements ActivityType {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case LQNPackage.ACTIVITY_TYPE__NAME:
-				setName((String)newValue);
+			case LQNPackage.ACTIVITY_TYPE__ACTIVITY:
+				setActivity((ActivityDefType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -124,8 +134,8 @@ public class ActivityTypeImpl extends IDBaseImpl implements ActivityType {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case LQNPackage.ACTIVITY_TYPE__NAME:
-				setName(NAME_EDEFAULT);
+			case LQNPackage.ACTIVITY_TYPE__ACTIVITY:
+				setActivity((ActivityDefType)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -139,26 +149,10 @@ public class ActivityTypeImpl extends IDBaseImpl implements ActivityType {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case LQNPackage.ACTIVITY_TYPE__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case LQNPackage.ACTIVITY_TYPE__ACTIVITY:
+				return activity != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(')');
-		return result.toString();
 	}
 
 } //ActivityTypeImpl

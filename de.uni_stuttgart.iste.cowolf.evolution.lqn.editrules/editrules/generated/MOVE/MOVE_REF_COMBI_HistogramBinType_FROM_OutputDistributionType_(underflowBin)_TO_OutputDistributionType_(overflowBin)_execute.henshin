@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fvgq4EPMEeSvydpbEtLBCg" name="MOVE_REF_COMBI_HistogramBinType_FROM_OutputDistributionType_(underflowBin)_TO_OutputDistributionType_(overflowBin)" description="MOVEs HistogramBinType from OutputDistributionType(Reference:underflowBin) to OutputDistributionType(Reference:overflowBin">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fvgq4UPMEeSvydpbEtLBCg" name="moveHistogramBinType_FROM_OutputDistributionType_underflowBin_TO_OutputDistributionType_OutputDistributionType" description="Moves HistogramBinType from OutputDistributionType(Reference:underflowBin) toOutputDistributionType(Reference:OutputDistributionType)">
+    <parameters xmi:id="_fvhR8EPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//HistogramBinType"/>
+    </parameters>
+    <parameters xmi:id="_fvhR8UPMEeSvydpbEtLBCg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutputDistributionType"/>
+    </parameters>
+    <parameters xmi:id="_fvhR8kPMEeSvydpbEtLBCg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutputDistributionType"/>
+    </parameters>
+    <lhs xmi:id="_fvhR80PMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fvhR9EPMEeSvydpbEtLBCg" name="Selected" incoming="_fvhR90PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//HistogramBinType"/>
+      </nodes>
+      <nodes xmi:id="_fvhR9UPMEeSvydpbEtLBCg" name="OldSource" outgoing="_fvhR90PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//OutputDistributionType"/>
+      </nodes>
+      <nodes xmi:id="_fvhR9kPMEeSvydpbEtLBCg" name="NewSource">
+        <type href="http://LQN/1.0#//OutputDistributionType"/>
+      </nodes>
+      <edges xmi:id="_fvhR90PMEeSvydpbEtLBCg" source="_fvhR9UPMEeSvydpbEtLBCg" target="_fvhR9EPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//OutputDistributionType/underflowBin"/>
+      </edges>
+      <formula xsi:type="henshin:Not" xmi:id="_fvhR-EPMEeSvydpbEtLBCg">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_fvhR-UPMEeSvydpbEtLBCg">
+          <conclusion xmi:id="_fvhR-kPMEeSvydpbEtLBCg" name="ub0">
+            <nodes xmi:id="_fvhR-0PMEeSvydpbEtLBCg" outgoing="_fvhR_UPMEeSvydpbEtLBCg">
+              <type href="http://LQN/1.0#//OutputDistributionType"/>
+            </nodes>
+            <nodes xmi:id="_fvhR_EPMEeSvydpbEtLBCg" incoming="_fvhR_UPMEeSvydpbEtLBCg">
+              <type href="http://LQN/1.0#//HistogramBinType"/>
+            </nodes>
+            <edges xmi:id="_fvhR_UPMEeSvydpbEtLBCg" source="_fvhR-0PMEeSvydpbEtLBCg" target="_fvhR_EPMEeSvydpbEtLBCg">
+              <type href="http://LQN/1.0#//OutputDistributionType/overflowBin"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_fvhR_kPMEeSvydpbEtLBCg" origin="_fvhR9kPMEeSvydpbEtLBCg" image="_fvhR-0PMEeSvydpbEtLBCg"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_fvhR_0PMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fvhSAEPMEeSvydpbEtLBCg" name="Selected" incoming="_fvhSA0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//HistogramBinType"/>
+      </nodes>
+      <nodes xmi:id="_fvhSAUPMEeSvydpbEtLBCg" name="OldSource">
+        <type href="http://LQN/1.0#//OutputDistributionType"/>
+      </nodes>
+      <nodes xmi:id="_fvhSAkPMEeSvydpbEtLBCg" name="NewSource" outgoing="_fvhSA0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//OutputDistributionType"/>
+      </nodes>
+      <edges xmi:id="_fvhSA0PMEeSvydpbEtLBCg" source="_fvhSAkPMEeSvydpbEtLBCg" target="_fvhSAEPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//OutputDistributionType/overflowBin"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_fvhSBEPMEeSvydpbEtLBCg" origin="_fvhR9EPMEeSvydpbEtLBCg" image="_fvhSAEPMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_fvhSBUPMEeSvydpbEtLBCg" origin="_fvhR9UPMEeSvydpbEtLBCg" image="_fvhSAUPMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_fvhSBkPMEeSvydpbEtLBCg" origin="_fvhR9kPMEeSvydpbEtLBCg" image="_fvhSAkPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fvhSB0PMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fvgq4UPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fvhSCEPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//HistogramBinType"/>
+    </parameters>
+    <parameters xmi:id="_fvhSCUPMEeSvydpbEtLBCg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutputDistributionType"/>
+    </parameters>
+    <parameters xmi:id="_fvhSCkPMEeSvydpbEtLBCg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutputDistributionType"/>
+    </parameters>
+    <parameterMappings xmi:id="_fvhSC0PMEeSvydpbEtLBCg" source="_fvhSCEPMEeSvydpbEtLBCg" target="_fvhR8EPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fvhSDEPMEeSvydpbEtLBCg" source="_fvhSCUPMEeSvydpbEtLBCg" target="_fvhR8UPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fvhSDUPMEeSvydpbEtLBCg" source="_fvhSCkPMEeSvydpbEtLBCg" target="_fvhR8kPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

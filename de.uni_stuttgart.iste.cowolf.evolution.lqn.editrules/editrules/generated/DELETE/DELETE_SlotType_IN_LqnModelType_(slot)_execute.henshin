@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fk26EEPMEeSvydpbEtLBCg" name="DELETE_SlotType_IN_LqnModelType_(slot)" description="Deletes one SlotType in LqnModelType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fk26EUPMEeSvydpbEtLBCg" name="deleteSlotType_IN_LqnModelType" description="deletes one SlotType in the context: LqnModelType">
+    <parameters xmi:id="_fk26EkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//LqnModelType"/>
+    </parameters>
+    <parameters xmi:id="_fk26E0PMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SlotType"/>
+    </parameters>
+    <parameters xmi:id="_fk26FEPMEeSvydpbEtLBCg" name="Child">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//BindType"/>
+    </parameters>
+    <parameters xmi:id="_fk26FUPMEeSvydpbEtLBCg" name="Child1">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//InterfaceType"/>
+    </parameters>
+    <lhs xmi:id="_fk26FkPMEeSvydpbEtLBCg" name="LHS">
+      <nodes xmi:id="_fk26F0PMEeSvydpbEtLBCg" name="Selected" outgoing="_fk26G0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//LqnModelType"/>
+      </nodes>
+      <nodes xmi:id="_fk26GEPMEeSvydpbEtLBCg" name="ToBeDeleted" incoming="_fk26G0PMEeSvydpbEtLBCg" outgoing="_fk26HEPMEeSvydpbEtLBCg _fk26HUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//SlotType"/>
+      </nodes>
+      <nodes xmi:id="_fk26GUPMEeSvydpbEtLBCg" name="Child" incoming="_fk26HEPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//BindType"/>
+      </nodes>
+      <nodes xmi:id="_fk26GkPMEeSvydpbEtLBCg" name="Child1" incoming="_fk26HUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//InterfaceType"/>
+      </nodes>
+      <edges xmi:id="_fk26G0PMEeSvydpbEtLBCg" source="_fk26F0PMEeSvydpbEtLBCg" target="_fk26GEPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//LqnModelType/slot"/>
+      </edges>
+      <edges xmi:id="_fk26HEPMEeSvydpbEtLBCg" source="_fk26GEPMEeSvydpbEtLBCg" target="_fk26GUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//SlotType/binding"/>
+      </edges>
+      <edges xmi:id="_fk26HUPMEeSvydpbEtLBCg" source="_fk26GEPMEeSvydpbEtLBCg" target="_fk26GkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//SlotType/interface"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_fk26HkPMEeSvydpbEtLBCg" name="RHS">
+      <nodes xmi:id="_fk26H0PMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//LqnModelType"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_fk26IEPMEeSvydpbEtLBCg" origin="_fk26F0PMEeSvydpbEtLBCg" image="_fk26H0PMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fk26IUPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fk26EUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fk26IkPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//LqnModelType"/>
+    </parameters>
+    <parameters xmi:id="_fk26I0PMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SlotType"/>
+    </parameters>
+    <parameters xmi:id="_fk26JEPMEeSvydpbEtLBCg" name="Child">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//BindType"/>
+    </parameters>
+    <parameters xmi:id="_fk26JUPMEeSvydpbEtLBCg" name="Child1">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//InterfaceType"/>
+    </parameters>
+    <parameterMappings xmi:id="_fk26JkPMEeSvydpbEtLBCg" source="_fk26IkPMEeSvydpbEtLBCg" target="_fk26EkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fk26J0PMEeSvydpbEtLBCg" source="_fk26I0PMEeSvydpbEtLBCg" target="_fk26E0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fk26KEPMEeSvydpbEtLBCg" source="_fk26JEPMEeSvydpbEtLBCg" target="_fk26FEPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fk26KUPMEeSvydpbEtLBCg" source="_fk26JUPMEeSvydpbEtLBCg" target="_fk26FUPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

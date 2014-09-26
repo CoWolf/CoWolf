@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_foRacEPMEeSvydpbEtLBCg" name="MOVE_REF_COMBI_ActivityOrType_FROM_ActivityListType_(activity)_TO_ActivityListType_(activity)" description="MOVEs ActivityOrType from ActivityListType(Reference:activity) to ActivityListType(Reference:activity">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_foSBgEPMEeSvydpbEtLBCg" name="moveActivityOrType_FROM_ActivityListType_activity_TO_ActivityListType_ActivityListType" description="Moves ActivityOrType from ActivityListType(Reference:activity) toActivityListType(Reference:ActivityListType)">
+    <parameters xmi:id="_foSBgUPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityOrType"/>
+    </parameters>
+    <parameters xmi:id="_foSBgkPMEeSvydpbEtLBCg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityListType"/>
+    </parameters>
+    <parameters xmi:id="_foSBg0PMEeSvydpbEtLBCg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityListType"/>
+    </parameters>
+    <lhs xmi:id="_foSBhEPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_foSBhUPMEeSvydpbEtLBCg" name="Selected" incoming="_foSBiEPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityOrType"/>
+      </nodes>
+      <nodes xmi:id="_foSBhkPMEeSvydpbEtLBCg" name="OldSource" outgoing="_foSBiEPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityListType"/>
+      </nodes>
+      <nodes xmi:id="_foSBh0PMEeSvydpbEtLBCg" name="NewSource">
+        <type href="http://LQN/1.0#//ActivityListType"/>
+      </nodes>
+      <edges xmi:id="_foSBiEPMEeSvydpbEtLBCg" source="_foSBhkPMEeSvydpbEtLBCg" target="_foSBhUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityListType/activity"/>
+      </edges>
+      <formula xsi:type="henshin:NestedCondition" xmi:id="_foSBiUPMEeSvydpbEtLBCg">
+        <conclusion xmi:id="_foSBikPMEeSvydpbEtLBCg" name="lb0">
+          <nodes xmi:id="_foSBi0PMEeSvydpbEtLBCg" outgoing="_foSBjUPMEeSvydpbEtLBCg">
+            <type href="http://LQN/1.0#//ActivityListType"/>
+          </nodes>
+          <nodes xmi:id="_foSBjEPMEeSvydpbEtLBCg" incoming="_foSBjUPMEeSvydpbEtLBCg">
+            <type href="http://LQN/1.0#//ActivityType"/>
+          </nodes>
+          <edges xmi:id="_foSBjUPMEeSvydpbEtLBCg" source="_foSBi0PMEeSvydpbEtLBCg" target="_foSBjEPMEeSvydpbEtLBCg">
+            <type href="http://LQN/1.0#//ActivityListType/activity"/>
+          </edges>
+        </conclusion>
+        <mappings xmi:id="_foSBjkPMEeSvydpbEtLBCg" origin="_foSBhkPMEeSvydpbEtLBCg" image="_foSBi0PMEeSvydpbEtLBCg"/>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_foSBj0PMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_foSBkEPMEeSvydpbEtLBCg" name="Selected" incoming="_foSBk0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityOrType"/>
+      </nodes>
+      <nodes xmi:id="_foSBkUPMEeSvydpbEtLBCg" name="OldSource">
+        <type href="http://LQN/1.0#//ActivityListType"/>
+      </nodes>
+      <nodes xmi:id="_foSBkkPMEeSvydpbEtLBCg" name="NewSource" outgoing="_foSBk0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityListType"/>
+      </nodes>
+      <edges xmi:id="_foSBk0PMEeSvydpbEtLBCg" source="_foSBkkPMEeSvydpbEtLBCg" target="_foSBkEPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityListType/activity"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_foSBlEPMEeSvydpbEtLBCg" origin="_foSBhUPMEeSvydpbEtLBCg" image="_foSBkEPMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_foSBlUPMEeSvydpbEtLBCg" origin="_foSBhkPMEeSvydpbEtLBCg" image="_foSBkUPMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_foSBlkPMEeSvydpbEtLBCg" origin="_foSBh0PMEeSvydpbEtLBCg" image="_foSBkkPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_foSBl0PMEeSvydpbEtLBCg" name="mainUnit" subUnits="_foSBgEPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_foSBmEPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityOrType"/>
+    </parameters>
+    <parameters xmi:id="_foSBmUPMEeSvydpbEtLBCg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityListType"/>
+    </parameters>
+    <parameters xmi:id="_foSBmkPMEeSvydpbEtLBCg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityListType"/>
+    </parameters>
+    <parameterMappings xmi:id="_foSBm0PMEeSvydpbEtLBCg" source="_foSBmEPMEeSvydpbEtLBCg" target="_foSBgUPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_foSBnEPMEeSvydpbEtLBCg" source="_foSBmUPMEeSvydpbEtLBCg" target="_foSBgkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_foSBnUPMEeSvydpbEtLBCg" source="_foSBmkPMEeSvydpbEtLBCg" target="_foSBg0PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_f0SdMEPMEeSvydpbEtLBCg" name="MOVE_REF_COMBI_ResultGeneralType_FROM_SolverParamsType_(resultGeneral)_TO_SolverParamsType_(resultGeneral)" description="MOVEs ResultGeneralType from SolverParamsType(Reference:resultGeneral) to SolverParamsType(Reference:resultGeneral">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_f0SdMUPMEeSvydpbEtLBCg" name="moveResultGeneralType_FROM_SolverParamsType_resultGeneral_TO_SolverParamsType_SolverParamsType" description="Moves ResultGeneralType from SolverParamsType(Reference:resultGeneral) toSolverParamsType(Reference:SolverParamsType)">
+    <parameters xmi:id="_f0SdMkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ResultGeneralType"/>
+    </parameters>
+    <parameters xmi:id="_f0SdM0PMEeSvydpbEtLBCg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SolverParamsType"/>
+    </parameters>
+    <parameters xmi:id="_f0SdNEPMEeSvydpbEtLBCg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SolverParamsType"/>
+    </parameters>
+    <lhs xmi:id="_f0SdNUPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_f0SdNkPMEeSvydpbEtLBCg" name="Selected" incoming="_f0SdOUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ResultGeneralType"/>
+      </nodes>
+      <nodes xmi:id="_f0SdN0PMEeSvydpbEtLBCg" name="OldSource" outgoing="_f0SdOUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//SolverParamsType"/>
+      </nodes>
+      <nodes xmi:id="_f0SdOEPMEeSvydpbEtLBCg" name="NewSource">
+        <type href="http://LQN/1.0#//SolverParamsType"/>
+      </nodes>
+      <edges xmi:id="_f0SdOUPMEeSvydpbEtLBCg" source="_f0SdN0PMEeSvydpbEtLBCg" target="_f0SdNkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//SolverParamsType/resultGeneral"/>
+      </edges>
+      <formula xsi:type="henshin:Not" xmi:id="_f0SdOkPMEeSvydpbEtLBCg">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_f0SdO0PMEeSvydpbEtLBCg">
+          <conclusion xmi:id="_f0SdPEPMEeSvydpbEtLBCg" name="ub0">
+            <nodes xmi:id="_f0SdPUPMEeSvydpbEtLBCg" outgoing="_f0SdP0PMEeSvydpbEtLBCg">
+              <type href="http://LQN/1.0#//SolverParamsType"/>
+            </nodes>
+            <nodes xmi:id="_f0SdPkPMEeSvydpbEtLBCg" incoming="_f0SdP0PMEeSvydpbEtLBCg">
+              <type href="http://LQN/1.0#//ResultGeneralType"/>
+            </nodes>
+            <edges xmi:id="_f0SdP0PMEeSvydpbEtLBCg" source="_f0SdPUPMEeSvydpbEtLBCg" target="_f0SdPkPMEeSvydpbEtLBCg">
+              <type href="http://LQN/1.0#//SolverParamsType/resultGeneral"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_f0SdQEPMEeSvydpbEtLBCg" origin="_f0SdOEPMEeSvydpbEtLBCg" image="_f0SdPUPMEeSvydpbEtLBCg"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_f0SdQUPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_f0SdQkPMEeSvydpbEtLBCg" name="Selected" incoming="_f0SdRUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ResultGeneralType"/>
+      </nodes>
+      <nodes xmi:id="_f0SdQ0PMEeSvydpbEtLBCg" name="OldSource">
+        <type href="http://LQN/1.0#//SolverParamsType"/>
+      </nodes>
+      <nodes xmi:id="_f0SdREPMEeSvydpbEtLBCg" name="NewSource" outgoing="_f0SdRUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//SolverParamsType"/>
+      </nodes>
+      <edges xmi:id="_f0SdRUPMEeSvydpbEtLBCg" source="_f0SdREPMEeSvydpbEtLBCg" target="_f0SdQkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//SolverParamsType/resultGeneral"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_f0SdRkPMEeSvydpbEtLBCg" origin="_f0SdNkPMEeSvydpbEtLBCg" image="_f0SdQkPMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_f0SdR0PMEeSvydpbEtLBCg" origin="_f0SdN0PMEeSvydpbEtLBCg" image="_f0SdQ0PMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_f0SdSEPMEeSvydpbEtLBCg" origin="_f0SdOEPMEeSvydpbEtLBCg" image="_f0SdREPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_f0SdSUPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_f0SdMUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_f0SdSkPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ResultGeneralType"/>
+    </parameters>
+    <parameters xmi:id="_f0SdS0PMEeSvydpbEtLBCg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SolverParamsType"/>
+    </parameters>
+    <parameters xmi:id="_f0SdTEPMEeSvydpbEtLBCg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SolverParamsType"/>
+    </parameters>
+    <parameterMappings xmi:id="_f0SdTUPMEeSvydpbEtLBCg" source="_f0SdSkPMEeSvydpbEtLBCg" target="_f0SdMkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_f0SdTkPMEeSvydpbEtLBCg" source="_f0SdS0PMEeSvydpbEtLBCg" target="_f0SdM0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_f0SdT0PMEeSvydpbEtLBCg" source="_f0SdTEPMEeSvydpbEtLBCg" target="_f0SdNEPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

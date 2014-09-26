@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fiMAkEPMEeSvydpbEtLBCg" name="CREATE_CallListType_IN_ActivityPhasesType_(callList)" description="Creates one CallListType in ActivityPhasesType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fiMAkUPMEeSvydpbEtLBCg" name="createCallListType_IN_ActivityPhasesType" description="creates one CallListType in the context: ActivityPhasesType">
+    <parameters xmi:id="_fiMAkkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityPhasesType"/>
+    </parameters>
+    <parameters xmi:id="_fiMAk0PMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//CallListType"/>
+    </parameters>
+    <parameters xmi:id="_fiMAlEPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_fiMAlUPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fiMAlkPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//ActivityPhasesType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_fiMAl0PMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fiMAmEPMEeSvydpbEtLBCg" name="Selected" outgoing="_fiMAm0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityPhasesType"/>
+      </nodes>
+      <nodes xmi:id="_fiMAmUPMEeSvydpbEtLBCg" name="New" incoming="_fiMAm0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//CallListType"/>
+        <attributes xmi:id="_fiMAmkPMEeSvydpbEtLBCg" value="Id">
+          <type href="platform:/resource/de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_fiMAm0PMEeSvydpbEtLBCg" source="_fiMAmEPMEeSvydpbEtLBCg" target="_fiMAmUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityPhasesType/callList"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_fiMAnEPMEeSvydpbEtLBCg" origin="_fiMAlkPMEeSvydpbEtLBCg" image="_fiMAmEPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fiMAnUPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fiMAkUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fiMAnkPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityPhasesType"/>
+    </parameters>
+    <parameters xmi:id="_fiMAn0PMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//CallListType"/>
+    </parameters>
+    <parameters xmi:id="_fiMAoEPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_fiMAoUPMEeSvydpbEtLBCg" source="_fiMAnkPMEeSvydpbEtLBCg" target="_fiMAkkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fiMAokPMEeSvydpbEtLBCg" source="_fiMAk0PMEeSvydpbEtLBCg" target="_fiMAn0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fiMAo0PMEeSvydpbEtLBCg" source="_fiMAoEPMEeSvydpbEtLBCg" target="_fiMAlEPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fv0z8EPMEeSvydpbEtLBCg" name="DELETE_EntryType_IN_TaskType_(entry)" description="Deletes one EntryType in TaskType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fv0z8UPMEeSvydpbEtLBCg" name="deleteEntryType_IN_TaskType" description="deletes one EntryType in the context: TaskType">
+    <parameters xmi:id="_fv0z8kPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskType"/>
+    </parameters>
+    <parameters xmi:id="_fv0z80PMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <lhs xmi:id="_fv0z9EPMEeSvydpbEtLBCg" name="LHS">
+      <nodes xmi:id="_fv1bAEPMEeSvydpbEtLBCg" name="Selected" outgoing="_fv1bAkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//TaskType"/>
+      </nodes>
+      <nodes xmi:id="_fv1bAUPMEeSvydpbEtLBCg" name="ToBeDeleted" incoming="_fv1bAkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+      <edges xmi:id="_fv1bAkPMEeSvydpbEtLBCg" source="_fv1bAEPMEeSvydpbEtLBCg" target="_fv1bAUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//TaskType/entry"/>
+      </edges>
+      <formula xsi:type="henshin:NestedCondition" xmi:id="_fv1bA0PMEeSvydpbEtLBCg">
+        <conclusion xmi:id="_fv1bBEPMEeSvydpbEtLBCg" name="lb0">
+          <nodes xmi:id="_fv1bBUPMEeSvydpbEtLBCg" outgoing="_fv1bB0PMEeSvydpbEtLBCg">
+            <type href="http://LQN/1.0#//TaskType"/>
+          </nodes>
+          <nodes xmi:id="_fv1bBkPMEeSvydpbEtLBCg" incoming="_fv1bB0PMEeSvydpbEtLBCg">
+            <type href="http://LQN/1.0#//EntryType"/>
+          </nodes>
+          <edges xmi:id="_fv1bB0PMEeSvydpbEtLBCg" source="_fv1bBUPMEeSvydpbEtLBCg" target="_fv1bBkPMEeSvydpbEtLBCg">
+            <type href="http://LQN/1.0#//TaskType/entry"/>
+          </edges>
+        </conclusion>
+        <mappings xmi:id="_fv1bCEPMEeSvydpbEtLBCg" origin="_fv1bAEPMEeSvydpbEtLBCg" image="_fv1bBUPMEeSvydpbEtLBCg"/>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_fv1bCUPMEeSvydpbEtLBCg" name="RHS">
+      <nodes xmi:id="_fv1bCkPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//TaskType"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_fv1bC0PMEeSvydpbEtLBCg" origin="_fv1bAEPMEeSvydpbEtLBCg" image="_fv1bCkPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fv1bDEPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fv0z8UPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fv1bDUPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskType"/>
+    </parameters>
+    <parameters xmi:id="_fv1bDkPMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <parameterMappings xmi:id="_fv1bD0PMEeSvydpbEtLBCg" source="_fv1bDUPMEeSvydpbEtLBCg" target="_fv0z8kPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fv1bEEPMEeSvydpbEtLBCg" source="_fv1bDkPMEeSvydpbEtLBCg" target="_fv0z80PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

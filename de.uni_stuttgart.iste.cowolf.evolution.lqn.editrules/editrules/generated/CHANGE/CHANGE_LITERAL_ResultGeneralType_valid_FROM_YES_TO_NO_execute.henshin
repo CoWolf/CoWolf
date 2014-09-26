@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_f23QEEPMEeSvydpbEtLBCg" name="CHANGE_LITERAL_ResultGeneralType_valid_FROM_YES_TO_NO" description="Changes the attribute value of valid_FROM_YES_TO_NO">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_f23QEUPMEeSvydpbEtLBCg" name="changeResultGeneralTypeValid_FROM_YES_TO_NO" description="Changes the attribute value of valid_FROM_YES_TO_NO">
+    <parameters xmi:id="_f23QEkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ResultGeneralType"/>
+    </parameters>
+    <parameters xmi:id="_f23QE0PMEeSvydpbEtLBCg" name="&quot;YES&quot;">
+      <type xsi:type="ecore:EEnum" href="http://LQN/1.0#//ValidType"/>
+    </parameters>
+    <parameters xmi:id="_f23QFEPMEeSvydpbEtLBCg" name="&quot;NO&quot;">
+      <type xsi:type="ecore:EEnum" href="http://LQN/1.0#//ValidType"/>
+    </parameters>
+    <lhs xmi:id="_f23QFUPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_f23QFkPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//ResultGeneralType"/>
+        <attributes xmi:id="_f23QF0PMEeSvydpbEtLBCg" value="&quot;YES&quot;">
+          <type href="http://LQN/1.0#//ResultGeneralType/valid"/>
+        </attributes>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_f23QGEPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_f23QGUPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//ResultGeneralType"/>
+        <attributes xmi:id="_f23QGkPMEeSvydpbEtLBCg" value="&quot;NO&quot;">
+          <type href="http://LQN/1.0#//ResultGeneralType/valid"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_f23QG0PMEeSvydpbEtLBCg" origin="_f23QFkPMEeSvydpbEtLBCg" image="_f23QGUPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_f23QHEPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_f23QEUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_f23QHUPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ResultGeneralType"/>
+    </parameters>
+    <parameters xmi:id="_f23QHkPMEeSvydpbEtLBCg" name="&quot;YES&quot;">
+      <type xsi:type="ecore:EEnum" href="http://LQN/1.0#//ValidType"/>
+    </parameters>
+    <parameters xmi:id="_f23QH0PMEeSvydpbEtLBCg" name="&quot;NO&quot;">
+      <type xsi:type="ecore:EEnum" href="http://LQN/1.0#//ValidType"/>
+    </parameters>
+    <parameterMappings xmi:id="_f23QIEPMEeSvydpbEtLBCg" source="_f23QHUPMEeSvydpbEtLBCg" target="_f23QEkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_f23QIUPMEeSvydpbEtLBCg" source="_f23QHkPMEeSvydpbEtLBCg" target="_f23QE0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_f23QIkPMEeSvydpbEtLBCg" source="_f23QH0PMEeSvydpbEtLBCg" target="_f23QFEPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_f40X4EPMEeSvydpbEtLBCg" name="SET_ATTRIBUTE_SolverParamsType_Comment" description="Sets SolverParamsType Comment">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_f40X4UPMEeSvydpbEtLBCg" name="setSolverParamsTypeComment" description="Sets the EAttribute comment">
+    <parameters xmi:id="_f40X4kPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SolverParamsType"/>
+    </parameters>
+    <parameters xmi:id="_f40X40PMEeSvydpbEtLBCg" name="Comment">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_f40X5EPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_f40X5UPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//SolverParamsType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_f40X5kPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_f40X50PMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//SolverParamsType"/>
+        <attributes xmi:id="_f40X6EPMEeSvydpbEtLBCg" value="Comment">
+          <type href="http://LQN/1.0#//SolverParamsType/comment"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_f40X6UPMEeSvydpbEtLBCg" origin="_f40X5UPMEeSvydpbEtLBCg" image="_f40X50PMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_f40X6kPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_f40X4UPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_f40X60PMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SolverParamsType"/>
+    </parameters>
+    <parameters xmi:id="_f40X7EPMEeSvydpbEtLBCg" name="Comment">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_f40X7UPMEeSvydpbEtLBCg" source="_f40X60PMEeSvydpbEtLBCg" target="_f40X4kPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_f40X7kPMEeSvydpbEtLBCg" source="_f40X7EPMEeSvydpbEtLBCg" target="_f40X40PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

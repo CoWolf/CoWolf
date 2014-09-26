@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fwHu4EPMEeSvydpbEtLBCg" name="DELETE_ResultGeneralType_IN_SolverParamsType_(resultGeneral)" description="Deletes one ResultGeneralType in SolverParamsType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fwHu4UPMEeSvydpbEtLBCg" name="deleteResultGeneralType_IN_SolverParamsType" description="deletes one ResultGeneralType in the context: SolverParamsType">
+    <parameters xmi:id="_fwHu4kPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SolverParamsType"/>
+    </parameters>
+    <parameters xmi:id="_fwHu40PMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ResultGeneralType"/>
+    </parameters>
+    <lhs xmi:id="_fwHu5EPMEeSvydpbEtLBCg" name="LHS">
+      <nodes xmi:id="_fwHu5UPMEeSvydpbEtLBCg" name="Selected" outgoing="_fwHu50PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//SolverParamsType"/>
+      </nodes>
+      <nodes xmi:id="_fwHu5kPMEeSvydpbEtLBCg" name="ToBeDeleted" incoming="_fwHu50PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ResultGeneralType"/>
+      </nodes>
+      <edges xmi:id="_fwHu50PMEeSvydpbEtLBCg" source="_fwHu5UPMEeSvydpbEtLBCg" target="_fwHu5kPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//SolverParamsType/resultGeneral"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_fwHu6EPMEeSvydpbEtLBCg" name="RHS">
+      <nodes xmi:id="_fwHu6UPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//SolverParamsType"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_fwHu6kPMEeSvydpbEtLBCg" origin="_fwHu5UPMEeSvydpbEtLBCg" image="_fwHu6UPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fwHu60PMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fwHu4UPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fwHu7EPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SolverParamsType"/>
+    </parameters>
+    <parameters xmi:id="_fwHu7UPMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ResultGeneralType"/>
+    </parameters>
+    <parameterMappings xmi:id="_fwHu7kPMEeSvydpbEtLBCg" source="_fwHu7EPMEeSvydpbEtLBCg" target="_fwHu4kPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fwHu70PMEeSvydpbEtLBCg" source="_fwHu7UPMEeSvydpbEtLBCg" target="_fwHu40PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

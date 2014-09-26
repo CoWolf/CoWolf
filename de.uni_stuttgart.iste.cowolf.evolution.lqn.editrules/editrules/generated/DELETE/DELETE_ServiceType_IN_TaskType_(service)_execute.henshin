@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fnf-YEPMEeSvydpbEtLBCg" name="DELETE_ServiceType_IN_TaskType_(service)" description="Deletes one ServiceType in TaskType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fnf-YUPMEeSvydpbEtLBCg" name="deleteServiceType_IN_TaskType" description="deletes one ServiceType in the context: TaskType">
+    <parameters xmi:id="_fnf-YkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskType"/>
+    </parameters>
+    <parameters xmi:id="_fnf-Y0PMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ServiceType"/>
+    </parameters>
+    <lhs xmi:id="_fnf-ZEPMEeSvydpbEtLBCg" name="LHS">
+      <nodes xmi:id="_fnf-ZUPMEeSvydpbEtLBCg" name="Selected" outgoing="_fnf-Z0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//TaskType"/>
+      </nodes>
+      <nodes xmi:id="_fnf-ZkPMEeSvydpbEtLBCg" name="ToBeDeleted" incoming="_fnf-Z0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ServiceType"/>
+      </nodes>
+      <edges xmi:id="_fnf-Z0PMEeSvydpbEtLBCg" source="_fnf-ZUPMEeSvydpbEtLBCg" target="_fnf-ZkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//TaskType/service"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_fnf-aEPMEeSvydpbEtLBCg" name="RHS">
+      <nodes xmi:id="_fnf-aUPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//TaskType"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_fnf-akPMEeSvydpbEtLBCg" origin="_fnf-ZUPMEeSvydpbEtLBCg" image="_fnf-aUPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fnf-a0PMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fnf-YUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fnf-bEPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskType"/>
+    </parameters>
+    <parameters xmi:id="_fnglcEPMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ServiceType"/>
+    </parameters>
+    <parameterMappings xmi:id="_fnglcUPMEeSvydpbEtLBCg" source="_fnf-bEPMEeSvydpbEtLBCg" target="_fnf-YkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fnglckPMEeSvydpbEtLBCg" source="_fnglcEPMEeSvydpbEtLBCg" target="_fnf-Y0PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

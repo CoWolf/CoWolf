@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_f2VEkEPMEeSvydpbEtLBCg" name="SET_ATTRIBUTE_TaskType_ThinkTime" description="Sets TaskType ThinkTime">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_f2VEkUPMEeSvydpbEtLBCg" name="setTaskTypeThinkTime" description="Sets the EAttribute thinkTime">
+    <parameters xmi:id="_f2VEkkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskType"/>
+    </parameters>
+    <parameters xmi:id="_f2VEk0PMEeSvydpbEtLBCg" name="ThinkTime">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <lhs xmi:id="_f2VElEPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_f2VElUPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//TaskType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_f2VElkPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_f2VEl0PMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//TaskType"/>
+        <attributes xmi:id="_f2VEmEPMEeSvydpbEtLBCg" value="ThinkTime">
+          <type href="http://LQN/1.0#//TaskType/thinkTime"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_f2VEmUPMEeSvydpbEtLBCg" origin="_f2VElUPMEeSvydpbEtLBCg" image="_f2VEl0PMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_f2VEmkPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_f2VEkUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_f2VEm0PMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskType"/>
+    </parameters>
+    <parameters xmi:id="_f2VEnEPMEeSvydpbEtLBCg" name="ThinkTime">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameterMappings xmi:id="_f2VEnUPMEeSvydpbEtLBCg" source="_f2VEm0PMEeSvydpbEtLBCg" target="_f2VEkkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_f2VEnkPMEeSvydpbEtLBCg" source="_f2VEnEPMEeSvydpbEtLBCg" target="_f2VEk0PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

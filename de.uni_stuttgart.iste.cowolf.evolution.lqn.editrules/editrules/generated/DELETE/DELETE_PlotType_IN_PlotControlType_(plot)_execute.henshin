@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_foI3kEPMEeSvydpbEtLBCg" name="DELETE_PlotType_IN_PlotControlType_(plot)" description="Deletes one PlotType in PlotControlType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_foI3kUPMEeSvydpbEtLBCg" name="deletePlotType_IN_PlotControlType" description="deletes one PlotType in the context: PlotControlType">
+    <parameters xmi:id="_foI3kkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PlotControlType"/>
+    </parameters>
+    <parameters xmi:id="_foI3k0PMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PlotType"/>
+    </parameters>
+    <lhs xmi:id="_foI3lEPMEeSvydpbEtLBCg" name="LHS">
+      <nodes xmi:id="_foI3lUPMEeSvydpbEtLBCg" name="Selected" outgoing="_foI3l0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//PlotControlType"/>
+      </nodes>
+      <nodes xmi:id="_foI3lkPMEeSvydpbEtLBCg" name="ToBeDeleted" incoming="_foI3l0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//PlotType"/>
+      </nodes>
+      <edges xmi:id="_foI3l0PMEeSvydpbEtLBCg" source="_foI3lUPMEeSvydpbEtLBCg" target="_foI3lkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//PlotControlType/plot"/>
+      </edges>
+      <formula xsi:type="henshin:NestedCondition" xmi:id="_foI3mEPMEeSvydpbEtLBCg">
+        <conclusion xmi:id="_foI3mUPMEeSvydpbEtLBCg" name="lb0">
+          <nodes xmi:id="_foI3mkPMEeSvydpbEtLBCg" outgoing="_foI3nEPMEeSvydpbEtLBCg">
+            <type href="http://LQN/1.0#//PlotControlType"/>
+          </nodes>
+          <nodes xmi:id="_foI3m0PMEeSvydpbEtLBCg" incoming="_foI3nEPMEeSvydpbEtLBCg">
+            <type href="http://LQN/1.0#//PlotType"/>
+          </nodes>
+          <edges xmi:id="_foI3nEPMEeSvydpbEtLBCg" source="_foI3mkPMEeSvydpbEtLBCg" target="_foI3m0PMEeSvydpbEtLBCg">
+            <type href="http://LQN/1.0#//PlotControlType/plot"/>
+          </edges>
+        </conclusion>
+        <mappings xmi:id="_foI3nUPMEeSvydpbEtLBCg" origin="_foI3lUPMEeSvydpbEtLBCg" image="_foI3mkPMEeSvydpbEtLBCg"/>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_foI3nkPMEeSvydpbEtLBCg" name="RHS">
+      <nodes xmi:id="_foI3n0PMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//PlotControlType"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_foI3oEPMEeSvydpbEtLBCg" origin="_foI3lUPMEeSvydpbEtLBCg" image="_foI3n0PMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_foI3oUPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_foI3kUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_foI3okPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PlotControlType"/>
+    </parameters>
+    <parameters xmi:id="_foI3o0PMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PlotType"/>
+    </parameters>
+    <parameterMappings xmi:id="_foI3pEPMEeSvydpbEtLBCg" source="_foI3okPMEeSvydpbEtLBCg" target="_foI3kkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_foI3pUPMEeSvydpbEtLBCg" source="_foI3o0PMEeSvydpbEtLBCg" target="_foI3k0PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

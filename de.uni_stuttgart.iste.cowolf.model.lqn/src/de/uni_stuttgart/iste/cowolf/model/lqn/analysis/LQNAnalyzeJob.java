@@ -20,23 +20,18 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import de.uni_stuttgart.iste.cowolf.core.utilities.CommandLineExecutor;
 import de.uni_stuttgart.iste.cowolf.core.utilities.PrinterRegistry;
 import de.uni_stuttgart.iste.cowolf.model.IAnalysisListener;
-import de.uni_stuttgart.iste.cowolf.model.LqnCore.ActivityType;
+import de.uni_stuttgart.iste.cowolf.model.LqnCore.ActivityDefType;
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.EntryType;
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.ProcessorType;
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.TaskType;
 import de.uni_stuttgart.iste.cowolf.model.lqn.LQNModelManager;
 
-public class LQNAnalyzeJob extends Job {	
-	
-	private final static Logger LOGGER = LoggerFactory
-			.getLogger(LQNAnalyzeJob.class);
-	
+public class LQNAnalyzeJob extends Job {
+
 	private final Resource model;
 	private final Map<String, Object> parameters;
 	private List<String> results;
@@ -56,15 +51,16 @@ public class LQNAnalyzeJob extends Job {
 			File dir = new File(lqnInputFile.getParentFile().getAbsolutePath() + File.separator + lqnOutputFile);
 			dir.mkdirs();
 		} catch (IOException e) {
-			LOGGER.error("", e);
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 		this.model = model;
 		this.parameters = parameters;
 		this.listener = listener;
 		generateModelIdNameMap();
-		LOGGER.debug("Input: {}", lqnInputFile.getAbsolutePath());
-		LOGGER.debug(lqnOutputFile);
+		System.out.println("Input: " + lqnInputFile.getAbsolutePath());
+		System.out.println(lqnOutputFile.toString());
 	}
 
 	@Override
@@ -83,10 +79,10 @@ public class LQNAnalyzeJob extends Job {
 			lqnSolverCommand.append("-x -o ").append(lqnOutputFile);
 			lqnSolverCommand.append(" ").append(lqnInputFile.getName());
 			Reader r = new InputStreamReader(
-					CommandLineExecutor.execCommandAndGetOutput(lqnInputFile.getParentFile().getAbsolutePath(), pathToLQNSolver, lqnSolverCommand.toString())
+					CommandLineExecutor.execCommandAndGetOutput(lqnInputFile.getParentFile().getAbsolutePath(),  pathToLQNSolver, lqnSolverCommand.toString())
 					);
 			
-			LOGGER.debug(lqnSolverCommand.toString());
+			System.out.println(lqnSolverCommand.toString());
 			
 			BufferedReader in = new BufferedReader(r);
 			String line;
@@ -101,7 +97,7 @@ public class LQNAnalyzeJob extends Job {
 			parseResultFile(lqnInputFile.getParentFile().getAbsolutePath() + File.separator + lqnOutputFile + File.separator + lqnInputFile.getName().replace(".lqn", ".lqxo"));
 			monitor.done();
 		} catch (Exception e) {
-			LOGGER.error("", e); 
+			e.printStackTrace();
 			return Status.CANCEL_STATUS;
 		}
 		return Status.OK_STATUS;
@@ -153,7 +149,7 @@ public class LQNAnalyzeJob extends Job {
 		
 		for ( Iterator<EObject> iter = model.getAllContents();iter.hasNext();) {
 			EObject o = iter.next();
-			if (o instanceof ProcessorType || o instanceof TaskType || o instanceof EntryType || o instanceof ActivityType) {
+			if (o instanceof ProcessorType || o instanceof TaskType || o instanceof EntryType || o instanceof ActivityDefType) {
 				try {
 					Method gi = o.getClass().getMethod("getId", null);
 					Method gn = o.getClass().getMethod("getName", null);
@@ -164,7 +160,7 @@ public class LQNAnalyzeJob extends Job {
 					mapIdName.put(id, name);				
 					
 				} catch (Exception e) {
-					LOGGER.error("", e); 
+					e.printStackTrace();
 				}
 			}
 		}

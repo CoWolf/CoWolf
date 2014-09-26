@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_f0ClkEPMEeSvydpbEtLBCg" name="SET_ATTRIBUTE_SolverParamsType_UnderrelaxCoeff" description="Sets SolverParamsType UnderrelaxCoeff">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_f0ClkUPMEeSvydpbEtLBCg" name="setSolverParamsTypeUnderrelaxCoeff" description="Sets the EAttribute underrelaxCoeff">
+    <parameters xmi:id="_f0ClkkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SolverParamsType"/>
+    </parameters>
+    <parameters xmi:id="_f0Clk0PMEeSvydpbEtLBCg" name="UnderrelaxCoeff">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <lhs xmi:id="_f0CllEPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_f0CllUPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//SolverParamsType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_f0CllkPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_f0Cll0PMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//SolverParamsType"/>
+        <attributes xmi:id="_f0ClmEPMEeSvydpbEtLBCg" value="UnderrelaxCoeff">
+          <type href="http://LQN/1.0#//SolverParamsType/underrelaxCoeff"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_f0ClmUPMEeSvydpbEtLBCg" origin="_f0CllUPMEeSvydpbEtLBCg" image="_f0Cll0PMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_f0ClmkPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_f0ClkUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_f0Clm0PMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SolverParamsType"/>
+    </parameters>
+    <parameters xmi:id="_f0ClnEPMEeSvydpbEtLBCg" name="UnderrelaxCoeff">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameterMappings xmi:id="_f0ClnUPMEeSvydpbEtLBCg" source="_f0Clm0PMEeSvydpbEtLBCg" target="_f0ClkkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_f0ClnkPMEeSvydpbEtLBCg" source="_f0ClnEPMEeSvydpbEtLBCg" target="_f0Clk0PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fzM4EEPMEeSvydpbEtLBCg" name="SET_ATTRIBUTE_ProcessorType_Replication" description="Sets ProcessorType Replication">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fzM4EUPMEeSvydpbEtLBCg" name="setProcessorTypeReplication" description="Sets the EAttribute replication">
+    <parameters xmi:id="_fzM4EkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ProcessorType"/>
+    </parameters>
+    <parameters xmi:id="_fzM4E0PMEeSvydpbEtLBCg" name="Replication">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//NonNegativeInteger"/>
+    </parameters>
+    <lhs xmi:id="_fzM4FEPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fzM4FUPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//ProcessorType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_fzM4FkPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fzM4F0PMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//ProcessorType"/>
+        <attributes xmi:id="_fzM4GEPMEeSvydpbEtLBCg" value="Replication">
+          <type href="http://LQN/1.0#//ProcessorType/replication"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_fzM4GUPMEeSvydpbEtLBCg" origin="_fzM4FUPMEeSvydpbEtLBCg" image="_fzM4F0PMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fzM4GkPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fzM4EUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fzM4G0PMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ProcessorType"/>
+    </parameters>
+    <parameters xmi:id="_fzM4HEPMEeSvydpbEtLBCg" name="Replication">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//NonNegativeInteger"/>
+    </parameters>
+    <parameterMappings xmi:id="_fzM4HUPMEeSvydpbEtLBCg" source="_fzM4G0PMEeSvydpbEtLBCg" target="_fzM4EkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fzM4HkPMEeSvydpbEtLBCg" source="_fzM4HEPMEeSvydpbEtLBCg" target="_fzM4E0PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

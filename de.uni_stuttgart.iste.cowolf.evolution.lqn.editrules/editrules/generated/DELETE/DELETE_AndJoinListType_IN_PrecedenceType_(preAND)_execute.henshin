@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fsoWAEPMEeSvydpbEtLBCg" name="DELETE_AndJoinListType_IN_PrecedenceType_(preAND)" description="Deletes one AndJoinListType in PrecedenceType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fsoWAUPMEeSvydpbEtLBCg" name="deleteAndJoinListType_IN_PrecedenceType" description="deletes one AndJoinListType in the context: PrecedenceType">
+    <parameters xmi:id="_fsoWAkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PrecedenceType"/>
+    </parameters>
+    <parameters xmi:id="_fsoWA0PMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//AndJoinListType"/>
+    </parameters>
+    <parameters xmi:id="_fsoWBEPMEeSvydpbEtLBCg" name="Child">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityType"/>
+    </parameters>
+    <lhs xmi:id="_fsoWBUPMEeSvydpbEtLBCg" name="LHS">
+      <nodes xmi:id="_fsoWBkPMEeSvydpbEtLBCg" name="Selected" outgoing="_fsoWCUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//PrecedenceType"/>
+      </nodes>
+      <nodes xmi:id="_fsoWB0PMEeSvydpbEtLBCg" name="ToBeDeleted" incoming="_fsoWCUPMEeSvydpbEtLBCg" outgoing="_fsoWCkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//AndJoinListType"/>
+      </nodes>
+      <nodes xmi:id="_fsoWCEPMEeSvydpbEtLBCg" name="Child" incoming="_fsoWCkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityType"/>
+      </nodes>
+      <edges xmi:id="_fsoWCUPMEeSvydpbEtLBCg" source="_fsoWBkPMEeSvydpbEtLBCg" target="_fsoWB0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//PrecedenceType/preAND"/>
+      </edges>
+      <edges xmi:id="_fsoWCkPMEeSvydpbEtLBCg" source="_fsoWB0PMEeSvydpbEtLBCg" target="_fsoWCEPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//AndJoinListType/activity"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_fsoWC0PMEeSvydpbEtLBCg" name="RHS">
+      <nodes xmi:id="_fsoWDEPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//PrecedenceType"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_fsoWDUPMEeSvydpbEtLBCg" origin="_fsoWBkPMEeSvydpbEtLBCg" image="_fsoWDEPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fsoWDkPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fsoWAUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fsoWD0PMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PrecedenceType"/>
+    </parameters>
+    <parameters xmi:id="_fsoWEEPMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//AndJoinListType"/>
+    </parameters>
+    <parameters xmi:id="_fsoWEUPMEeSvydpbEtLBCg" name="Child">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityType"/>
+    </parameters>
+    <parameterMappings xmi:id="_fsoWEkPMEeSvydpbEtLBCg" source="_fsoWD0PMEeSvydpbEtLBCg" target="_fsoWAkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fsoWE0PMEeSvydpbEtLBCg" source="_fsoWEEPMEeSvydpbEtLBCg" target="_fsoWA0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fsoWFEPMEeSvydpbEtLBCg" source="_fsoWEUPMEeSvydpbEtLBCg" target="_fsoWBEPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

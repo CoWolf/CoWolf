@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fdaOQEPMEeSvydpbEtLBCg" name="CREATE_SlotType_IN_LqnCoreType_(slot)" description="Creates one SlotType in LqnCoreType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fdaOQUPMEeSvydpbEtLBCg" name="createSlotType_IN_LqnCoreType" description="creates one SlotType in the context: LqnCoreType">
+    <parameters xmi:id="_fdaOQkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//LqnCoreType"/>
+    </parameters>
+    <parameters xmi:id="_fdaOQ0PMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SlotType"/>
+    </parameters>
+    <parameters xmi:id="_fdaOREPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fdaORUPMEeSvydpbEtLBCg" name="BindTarget">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fdaORkPMEeSvydpbEtLBCg" name="ReplicNum">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    </parameters>
+    <parameters xmi:id="_fdaOR0PMEeSvydpbEtLBCg" name="Child">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//BindType"/>
+    </parameters>
+    <parameters xmi:id="_fdaOSEPMEeSvydpbEtLBCg" name="Id1">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fdaOSUPMEeSvydpbEtLBCg" name="Child1">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//InterfaceType"/>
+    </parameters>
+    <parameters xmi:id="_fdaOSkPMEeSvydpbEtLBCg" name="Id2">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_fdaOS0PMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fdaOTEPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//LqnCoreType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_fdaOTUPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fdaOTkPMEeSvydpbEtLBCg" name="Selected" outgoing="_fdaOV0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//LqnCoreType"/>
+      </nodes>
+      <nodes xmi:id="_fdaOT0PMEeSvydpbEtLBCg" name="New" incoming="_fdaOV0PMEeSvydpbEtLBCg" outgoing="_fdaOWEPMEeSvydpbEtLBCg _fdaOWUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//SlotType"/>
+        <attributes xmi:id="_fdaOUEPMEeSvydpbEtLBCg" value="Id">
+          <type href="platform:/resource/de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_fdaOUUPMEeSvydpbEtLBCg" value="BindTarget">
+          <type href="http://LQN/1.0#//SlotType/bindTarget"/>
+        </attributes>
+        <attributes xmi:id="_fdaOUkPMEeSvydpbEtLBCg" value="ReplicNum">
+          <type href="http://LQN/1.0#//SlotType/replicNum"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_fdaOU0PMEeSvydpbEtLBCg" name="Child" incoming="_fdaOWEPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//BindType"/>
+        <attributes xmi:id="_fdaOVEPMEeSvydpbEtLBCg" value="Id1">
+          <type href="platform:/resource/de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_fdaOVUPMEeSvydpbEtLBCg" name="Child1" incoming="_fdaOWUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//InterfaceType"/>
+        <attributes xmi:id="_fdaOVkPMEeSvydpbEtLBCg" value="Id2">
+          <type href="platform:/resource/de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_fdaOV0PMEeSvydpbEtLBCg" source="_fdaOTkPMEeSvydpbEtLBCg" target="_fdaOT0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//LqnCoreType/slot"/>
+      </edges>
+      <edges xmi:id="_fdaOWEPMEeSvydpbEtLBCg" source="_fdaOT0PMEeSvydpbEtLBCg" target="_fdaOU0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//SlotType/binding"/>
+      </edges>
+      <edges xmi:id="_fdaOWUPMEeSvydpbEtLBCg" source="_fdaOT0PMEeSvydpbEtLBCg" target="_fdaOVUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//SlotType/interface"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_fdaOWkPMEeSvydpbEtLBCg" origin="_fdaOTEPMEeSvydpbEtLBCg" image="_fdaOTkPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fdaOW0PMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fdaOQUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fdaOXEPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//LqnCoreType"/>
+    </parameters>
+    <parameters xmi:id="_fdaOXUPMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SlotType"/>
+    </parameters>
+    <parameters xmi:id="_fdaOXkPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fdaOX0PMEeSvydpbEtLBCg" name="BindTarget">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fdaOYEPMEeSvydpbEtLBCg" name="ReplicNum">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    </parameters>
+    <parameters xmi:id="_fdaOYUPMEeSvydpbEtLBCg" name="Child">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//BindType"/>
+    </parameters>
+    <parameters xmi:id="_fdaOYkPMEeSvydpbEtLBCg" name="Id1">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fdaOY0PMEeSvydpbEtLBCg" name="Child1">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//InterfaceType"/>
+    </parameters>
+    <parameters xmi:id="_fdaOZEPMEeSvydpbEtLBCg" name="Id2">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_fdaOZUPMEeSvydpbEtLBCg" source="_fdaOXEPMEeSvydpbEtLBCg" target="_fdaOQkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fdaOZkPMEeSvydpbEtLBCg" source="_fdaOQ0PMEeSvydpbEtLBCg" target="_fdaOXUPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fdaOZ0PMEeSvydpbEtLBCg" source="_fdaOXkPMEeSvydpbEtLBCg" target="_fdaOREPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fdaOaEPMEeSvydpbEtLBCg" source="_fdaOX0PMEeSvydpbEtLBCg" target="_fdaORUPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fdaOaUPMEeSvydpbEtLBCg" source="_fdaOYEPMEeSvydpbEtLBCg" target="_fdaORkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fdaOakPMEeSvydpbEtLBCg" source="_fdaOR0PMEeSvydpbEtLBCg" target="_fdaOYUPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fdaOa0PMEeSvydpbEtLBCg" source="_fdaOYkPMEeSvydpbEtLBCg" target="_fdaOSEPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fdaObEPMEeSvydpbEtLBCg" source="_fdaOSUPMEeSvydpbEtLBCg" target="_fdaOY0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fdaObUPMEeSvydpbEtLBCg" source="_fdaOZEPMEeSvydpbEtLBCg" target="_fdaOSkPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

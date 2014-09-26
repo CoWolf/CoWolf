@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_f3jzr0PMEeSvydpbEtLBCg" name="DELETE_ActivityPhasesType_IN_PhaseActivities_(activity)" description="Deletes one ActivityPhasesType in PhaseActivities">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_f3jzsEPMEeSvydpbEtLBCg" name="deleteActivityPhasesType_IN_PhaseActivities" description="deletes one ActivityPhasesType in the context: PhaseActivities">
+    <parameters xmi:id="_f3jzsUPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PhaseActivities"/>
+    </parameters>
+    <parameters xmi:id="_f3jzskPMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityPhasesType"/>
+    </parameters>
+    <lhs xmi:id="_f3jzs0PMEeSvydpbEtLBCg" name="LHS">
+      <nodes xmi:id="_f3jztEPMEeSvydpbEtLBCg" name="Selected" outgoing="_f3jztkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//PhaseActivities"/>
+      </nodes>
+      <nodes xmi:id="_f3jztUPMEeSvydpbEtLBCg" name="ToBeDeleted" incoming="_f3jztkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityPhasesType"/>
+      </nodes>
+      <edges xmi:id="_f3jztkPMEeSvydpbEtLBCg" source="_f3jztEPMEeSvydpbEtLBCg" target="_f3jztUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//PhaseActivities/activity"/>
+      </edges>
+      <formula xsi:type="henshin:NestedCondition" xmi:id="_f3jzt0PMEeSvydpbEtLBCg">
+        <conclusion xmi:id="_f3jzuEPMEeSvydpbEtLBCg" name="lb0">
+          <nodes xmi:id="_f3jzuUPMEeSvydpbEtLBCg" outgoing="_f3jzu0PMEeSvydpbEtLBCg">
+            <type href="http://LQN/1.0#//PhaseActivities"/>
+          </nodes>
+          <nodes xmi:id="_f3jzukPMEeSvydpbEtLBCg" incoming="_f3jzu0PMEeSvydpbEtLBCg">
+            <type href="http://LQN/1.0#//ActivityPhasesType"/>
+          </nodes>
+          <edges xmi:id="_f3jzu0PMEeSvydpbEtLBCg" source="_f3jzuUPMEeSvydpbEtLBCg" target="_f3jzukPMEeSvydpbEtLBCg">
+            <type href="http://LQN/1.0#//PhaseActivities/activity"/>
+          </edges>
+        </conclusion>
+        <mappings xmi:id="_f3jzvEPMEeSvydpbEtLBCg" origin="_f3jztEPMEeSvydpbEtLBCg" image="_f3jzuUPMEeSvydpbEtLBCg"/>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_f3jzvUPMEeSvydpbEtLBCg" name="RHS">
+      <nodes xmi:id="_f3jzvkPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//PhaseActivities"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_f3jzv0PMEeSvydpbEtLBCg" origin="_f3jztEPMEeSvydpbEtLBCg" image="_f3jzvkPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_f3jzwEPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_f3jzsEPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_f3jzwUPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PhaseActivities"/>
+    </parameters>
+    <parameters xmi:id="_f3jzwkPMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityPhasesType"/>
+    </parameters>
+    <parameterMappings xmi:id="_f3jzw0PMEeSvydpbEtLBCg" source="_f3jzwUPMEeSvydpbEtLBCg" target="_f3jzsUPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_f3jzxEPMEeSvydpbEtLBCg" source="_f3jzwkPMEeSvydpbEtLBCg" target="_f3jzskPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

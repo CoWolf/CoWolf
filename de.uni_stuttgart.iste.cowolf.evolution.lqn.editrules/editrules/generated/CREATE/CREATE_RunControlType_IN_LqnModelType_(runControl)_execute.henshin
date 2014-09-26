@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_ftGQEEPMEeSvydpbEtLBCg" name="CREATE_RunControlType_IN_LqnModelType_(runControl)" description="Creates one RunControlType in LqnModelType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_ftGQEUPMEeSvydpbEtLBCg" name="createRunControlType_IN_LqnModelType" description="creates one RunControlType in the context: LqnModelType">
+    <parameters xmi:id="_ftGQEkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//LqnModelType"/>
+    </parameters>
+    <parameters xmi:id="_ftGQE0PMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//RunControlType"/>
+    </parameters>
+    <parameters xmi:id="_ftGQFEPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_ftGQFUPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_ftGQFkPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//LqnModelType"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_ftGQF0PMEeSvydpbEtLBCg">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_ftGQGEPMEeSvydpbEtLBCg">
+          <conclusion xmi:id="_ftGQGUPMEeSvydpbEtLBCg" name="ub0">
+            <nodes xmi:id="_ftGQGkPMEeSvydpbEtLBCg" outgoing="_ftGQHEPMEeSvydpbEtLBCg">
+              <type href="http://LQN/1.0#//LqnModelType"/>
+            </nodes>
+            <nodes xmi:id="_ftGQG0PMEeSvydpbEtLBCg" incoming="_ftGQHEPMEeSvydpbEtLBCg">
+              <type href="http://LQN/1.0#//RunControlType"/>
+            </nodes>
+            <edges xmi:id="_ftGQHEPMEeSvydpbEtLBCg" source="_ftGQGkPMEeSvydpbEtLBCg" target="_ftGQG0PMEeSvydpbEtLBCg">
+              <type href="http://LQN/1.0#//LqnModelType/runControl"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_ftGQHUPMEeSvydpbEtLBCg" origin="_ftGQFkPMEeSvydpbEtLBCg" image="_ftGQGkPMEeSvydpbEtLBCg"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_ftGQHkPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_ftGQH0PMEeSvydpbEtLBCg" name="Selected" outgoing="_ftGQIkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//LqnModelType"/>
+      </nodes>
+      <nodes xmi:id="_ftGQIEPMEeSvydpbEtLBCg" name="New" incoming="_ftGQIkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//RunControlType"/>
+        <attributes xmi:id="_ftGQIUPMEeSvydpbEtLBCg" value="Id">
+          <type href="platform:/resource/de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_ftGQIkPMEeSvydpbEtLBCg" source="_ftGQH0PMEeSvydpbEtLBCg" target="_ftGQIEPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//LqnModelType/runControl"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_ftGQI0PMEeSvydpbEtLBCg" origin="_ftGQFkPMEeSvydpbEtLBCg" image="_ftGQH0PMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_ftGQJEPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_ftGQEUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_ftGQJUPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//LqnModelType"/>
+    </parameters>
+    <parameters xmi:id="_ftGQJkPMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//RunControlType"/>
+    </parameters>
+    <parameters xmi:id="_ftGQJ0PMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_ftGQKEPMEeSvydpbEtLBCg" source="_ftGQJUPMEeSvydpbEtLBCg" target="_ftGQEkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_ftGQKUPMEeSvydpbEtLBCg" source="_ftGQE0PMEeSvydpbEtLBCg" target="_ftGQJkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_ftGQKkPMEeSvydpbEtLBCg" source="_ftGQJ0PMEeSvydpbEtLBCg" target="_ftGQFEPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_f2rp4EPMEeSvydpbEtLBCg" name="SET_ATTRIBUTE_SolverParamsType_ItLimit" description="Sets SolverParamsType ItLimit">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_f2rp4UPMEeSvydpbEtLBCg" name="setSolverParamsTypeItLimit" description="Sets the EAttribute itLimit">
+    <parameters xmi:id="_f2rp4kPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SolverParamsType"/>
+    </parameters>
+    <parameters xmi:id="_f2rp40PMEeSvydpbEtLBCg" name="ItLimit">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    </parameters>
+    <lhs xmi:id="_f2rp5EPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_f2rp5UPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//SolverParamsType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_f2rp5kPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_f2rp50PMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//SolverParamsType"/>
+        <attributes xmi:id="_f2rp6EPMEeSvydpbEtLBCg" value="ItLimit">
+          <type href="http://LQN/1.0#//SolverParamsType/itLimit"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_f2rp6UPMEeSvydpbEtLBCg" origin="_f2rp5UPMEeSvydpbEtLBCg" image="_f2rp50PMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_f2rp6kPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_f2rp4UPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_f2rp60PMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//SolverParamsType"/>
+    </parameters>
+    <parameters xmi:id="_f2rp7EPMEeSvydpbEtLBCg" name="ItLimit">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    </parameters>
+    <parameterMappings xmi:id="_f2rp7UPMEeSvydpbEtLBCg" source="_f2rp60PMEeSvydpbEtLBCg" target="_f2rp4kPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_f2rp7kPMEeSvydpbEtLBCg" source="_f2rp7EPMEeSvydpbEtLBCg" target="_f2rp40PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

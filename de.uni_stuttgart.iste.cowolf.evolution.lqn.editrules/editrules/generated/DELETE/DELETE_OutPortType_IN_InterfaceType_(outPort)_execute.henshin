@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_ff0CAEPMEeSvydpbEtLBCg" name="DELETE_OutPortType_IN_InterfaceType_(outPort)" description="Deletes one OutPortType in InterfaceType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_ff0CAUPMEeSvydpbEtLBCg" name="deleteOutPortType_IN_InterfaceType" description="deletes one OutPortType in the context: InterfaceType">
+    <parameters xmi:id="_ff0CAkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//InterfaceType"/>
+    </parameters>
+    <parameters xmi:id="_ff0CA0PMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutPortType"/>
+    </parameters>
+    <lhs xmi:id="_ff0CBEPMEeSvydpbEtLBCg" name="LHS">
+      <nodes xmi:id="_ff0CBUPMEeSvydpbEtLBCg" name="Selected" outgoing="_ff0CB0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//InterfaceType"/>
+      </nodes>
+      <nodes xmi:id="_ff0CBkPMEeSvydpbEtLBCg" name="ToBeDeleted" incoming="_ff0CB0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//OutPortType"/>
+      </nodes>
+      <edges xmi:id="_ff0CB0PMEeSvydpbEtLBCg" source="_ff0CBUPMEeSvydpbEtLBCg" target="_ff0CBkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//InterfaceType/outPort"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_ff0CCEPMEeSvydpbEtLBCg" name="RHS">
+      <nodes xmi:id="_ff0CCUPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//InterfaceType"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_ff0CCkPMEeSvydpbEtLBCg" origin="_ff0CBUPMEeSvydpbEtLBCg" image="_ff0CCUPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_ff0CC0PMEeSvydpbEtLBCg" name="mainUnit" subUnits="_ff0CAUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_ff0CDEPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//InterfaceType"/>
+    </parameters>
+    <parameters xmi:id="_ff0CDUPMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutPortType"/>
+    </parameters>
+    <parameterMappings xmi:id="_ff0CDkPMEeSvydpbEtLBCg" source="_ff0CDEPMEeSvydpbEtLBCg" target="_ff0CAkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_ff0CD0PMEeSvydpbEtLBCg" source="_ff0CDUPMEeSvydpbEtLBCg" target="_ff0CA0PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

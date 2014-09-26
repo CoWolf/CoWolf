@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fjm84EPMEeSvydpbEtLBCg" name="MOVE_REF_COMBI_OutputResultType_FROM_TaskType_(resultTask)_TO_TaskType_(resultTask)" description="MOVEs OutputResultType from TaskType(Reference:resultTask) to TaskType(Reference:resultTask">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fjm84UPMEeSvydpbEtLBCg" name="moveOutputResultType_FROM_TaskType_resultTask_TO_TaskType_TaskType" description="Moves OutputResultType from TaskType(Reference:resultTask) toTaskType(Reference:TaskType)">
+    <parameters xmi:id="_fjm84kPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutputResultType"/>
+    </parameters>
+    <parameters xmi:id="_fjm840PMEeSvydpbEtLBCg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskType"/>
+    </parameters>
+    <parameters xmi:id="_fjm85EPMEeSvydpbEtLBCg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskType"/>
+    </parameters>
+    <lhs xmi:id="_fjm85UPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fjm85kPMEeSvydpbEtLBCg" name="Selected" incoming="_fjm86UPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//OutputResultType"/>
+      </nodes>
+      <nodes xmi:id="_fjm850PMEeSvydpbEtLBCg" name="OldSource" outgoing="_fjm86UPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//TaskType"/>
+      </nodes>
+      <nodes xmi:id="_fjm86EPMEeSvydpbEtLBCg" name="NewSource">
+        <type href="http://LQN/1.0#//TaskType"/>
+      </nodes>
+      <edges xmi:id="_fjm86UPMEeSvydpbEtLBCg" source="_fjm850PMEeSvydpbEtLBCg" target="_fjm85kPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//TaskType/resultTask"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_fjm86kPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fjm860PMEeSvydpbEtLBCg" name="Selected" incoming="_fjm87kPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//OutputResultType"/>
+      </nodes>
+      <nodes xmi:id="_fjm87EPMEeSvydpbEtLBCg" name="OldSource">
+        <type href="http://LQN/1.0#//TaskType"/>
+      </nodes>
+      <nodes xmi:id="_fjm87UPMEeSvydpbEtLBCg" name="NewSource" outgoing="_fjm87kPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//TaskType"/>
+      </nodes>
+      <edges xmi:id="_fjm87kPMEeSvydpbEtLBCg" source="_fjm87UPMEeSvydpbEtLBCg" target="_fjm860PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//TaskType/resultTask"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_fjm870PMEeSvydpbEtLBCg" origin="_fjm85kPMEeSvydpbEtLBCg" image="_fjm860PMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_fjm88EPMEeSvydpbEtLBCg" origin="_fjm850PMEeSvydpbEtLBCg" image="_fjm87EPMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_fjm88UPMEeSvydpbEtLBCg" origin="_fjm86EPMEeSvydpbEtLBCg" image="_fjm87UPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fjm88kPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fjm84UPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fjnj8EPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutputResultType"/>
+    </parameters>
+    <parameters xmi:id="_fjnj8UPMEeSvydpbEtLBCg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskType"/>
+    </parameters>
+    <parameters xmi:id="_fjnj8kPMEeSvydpbEtLBCg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskType"/>
+    </parameters>
+    <parameterMappings xmi:id="_fjnj80PMEeSvydpbEtLBCg" source="_fjnj8EPMEeSvydpbEtLBCg" target="_fjm84kPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fjnj9EPMEeSvydpbEtLBCg" source="_fjnj8UPMEeSvydpbEtLBCg" target="_fjm840PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fjnj9UPMEeSvydpbEtLBCg" source="_fjnj8kPMEeSvydpbEtLBCg" target="_fjm85EPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

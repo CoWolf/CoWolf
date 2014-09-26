@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_frBzgEPMEeSvydpbEtLBCg" name="CREATE_OutputResultForwardingANDJoinDelay_IN_ActivityDefBase_(resultJoinDelay)" description="Creates one OutputResultForwardingANDJoinDelay in ActivityDefBase">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_frBzgUPMEeSvydpbEtLBCg" name="createOutputResultForwardingANDJoinDelay_IN_ActivityDefBase" description="creates one OutputResultForwardingANDJoinDelay in the context: ActivityDefBase">
+    <parameters xmi:id="_frBzgkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityDefBase"/>
+    </parameters>
+    <parameters xmi:id="_frBzg0PMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutputResultForwardingANDJoinDelay"/>
+    </parameters>
+    <parameters xmi:id="_frBzhEPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_frBzhUPMEeSvydpbEtLBCg" name="Dest">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_frBzhkPMEeSvydpbEtLBCg" name="JoinVariance">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameters xmi:id="_frBzh0PMEeSvydpbEtLBCg" name="JoinWaiting">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameters xmi:id="_frBziEPMEeSvydpbEtLBCg" name="Waiting">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <lhs xmi:id="_frBziUPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_frBzikPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//ActivityDefBase"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_frBzi0PMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_frBzjEPMEeSvydpbEtLBCg" name="Selected" outgoing="_frBzk0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityDefBase"/>
+      </nodes>
+      <nodes xmi:id="_frBzjUPMEeSvydpbEtLBCg" name="New" incoming="_frBzk0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//OutputResultForwardingANDJoinDelay"/>
+        <attributes xmi:id="_frBzjkPMEeSvydpbEtLBCg" value="Id">
+          <type href="platform:/resource/de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_frBzj0PMEeSvydpbEtLBCg" value="Dest">
+          <type href="http://LQN/1.0#//OutputResultForwardingANDJoinDelay/dest"/>
+        </attributes>
+        <attributes xmi:id="_frBzkEPMEeSvydpbEtLBCg" value="JoinVariance">
+          <type href="http://LQN/1.0#//OutputResultForwardingANDJoinDelay/joinVariance"/>
+        </attributes>
+        <attributes xmi:id="_frBzkUPMEeSvydpbEtLBCg" value="JoinWaiting">
+          <type href="http://LQN/1.0#//OutputResultForwardingANDJoinDelay/joinWaiting"/>
+        </attributes>
+        <attributes xmi:id="_frBzkkPMEeSvydpbEtLBCg" value="Waiting">
+          <type href="http://LQN/1.0#//OutputResultForwardingANDJoinDelay/waiting"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_frBzk0PMEeSvydpbEtLBCg" source="_frBzjEPMEeSvydpbEtLBCg" target="_frBzjUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityDefBase/resultJoinDelay"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_frBzlEPMEeSvydpbEtLBCg" origin="_frBzikPMEeSvydpbEtLBCg" image="_frBzjEPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_frBzlUPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_frBzgUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_frBzlkPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityDefBase"/>
+    </parameters>
+    <parameters xmi:id="_frBzl0PMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutputResultForwardingANDJoinDelay"/>
+    </parameters>
+    <parameters xmi:id="_frBzmEPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_frBzmUPMEeSvydpbEtLBCg" name="Dest">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_frBzmkPMEeSvydpbEtLBCg" name="JoinVariance">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameters xmi:id="_frBzm0PMEeSvydpbEtLBCg" name="JoinWaiting">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameters xmi:id="_frBznEPMEeSvydpbEtLBCg" name="Waiting">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameterMappings xmi:id="_frBznUPMEeSvydpbEtLBCg" source="_frBzlkPMEeSvydpbEtLBCg" target="_frBzgkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_frBznkPMEeSvydpbEtLBCg" source="_frBzg0PMEeSvydpbEtLBCg" target="_frBzl0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_frBzn0PMEeSvydpbEtLBCg" source="_frBzmEPMEeSvydpbEtLBCg" target="_frBzhEPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_frBzoEPMEeSvydpbEtLBCg" source="_frBzmUPMEeSvydpbEtLBCg" target="_frBzhUPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_frBzoUPMEeSvydpbEtLBCg" source="_frBzmkPMEeSvydpbEtLBCg" target="_frBzhkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_frBzokPMEeSvydpbEtLBCg" source="_frBzm0PMEeSvydpbEtLBCg" target="_frBzh0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_frBzo0PMEeSvydpbEtLBCg" source="_frBznEPMEeSvydpbEtLBCg" target="_frBziEPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

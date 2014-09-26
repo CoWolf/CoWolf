@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_feGKwEPMEeSvydpbEtLBCg" name="MOVE_REF_COMBI_OutputResultType_FROM_ActivityDefBase_(resultActivity)_TO_EntryType_(resultEntry)" description="MOVEs OutputResultType from ActivityDefBase(Reference:resultActivity) to EntryType(Reference:resultEntry">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_feGKwUPMEeSvydpbEtLBCg" name="moveOutputResultType_FROM_ActivityDefBase_resultActivity_TO_EntryType_EntryType" description="Moves OutputResultType from ActivityDefBase(Reference:resultActivity) toEntryType(Reference:EntryType)">
+    <parameters xmi:id="_feGKwkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutputResultType"/>
+    </parameters>
+    <parameters xmi:id="_feGKw0PMEeSvydpbEtLBCg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityDefBase"/>
+    </parameters>
+    <parameters xmi:id="_feGKxEPMEeSvydpbEtLBCg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <lhs xmi:id="_feGKxUPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_feGKxkPMEeSvydpbEtLBCg" name="Selected" incoming="_feGKyUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//OutputResultType"/>
+      </nodes>
+      <nodes xmi:id="_feGKx0PMEeSvydpbEtLBCg" name="OldSource" outgoing="_feGKyUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityDefBase"/>
+      </nodes>
+      <nodes xmi:id="_feGKyEPMEeSvydpbEtLBCg" name="NewSource">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+      <edges xmi:id="_feGKyUPMEeSvydpbEtLBCg" source="_feGKx0PMEeSvydpbEtLBCg" target="_feGKxkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityDefBase/resultActivity"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_feGKykPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_feGKy0PMEeSvydpbEtLBCg" name="Selected" incoming="_feGKzkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//OutputResultType"/>
+      </nodes>
+      <nodes xmi:id="_feGKzEPMEeSvydpbEtLBCg" name="OldSource">
+        <type href="http://LQN/1.0#//ActivityDefBase"/>
+      </nodes>
+      <nodes xmi:id="_feGKzUPMEeSvydpbEtLBCg" name="NewSource" outgoing="_feGKzkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+      <edges xmi:id="_feGKzkPMEeSvydpbEtLBCg" source="_feGKzUPMEeSvydpbEtLBCg" target="_feGKy0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//EntryType/resultEntry"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_feGKz0PMEeSvydpbEtLBCg" origin="_feGKxkPMEeSvydpbEtLBCg" image="_feGKy0PMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_feGK0EPMEeSvydpbEtLBCg" origin="_feGKx0PMEeSvydpbEtLBCg" image="_feGKzEPMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_feGK0UPMEeSvydpbEtLBCg" origin="_feGKyEPMEeSvydpbEtLBCg" image="_feGKzUPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_feGK0kPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_feGKwUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_feGK00PMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutputResultType"/>
+    </parameters>
+    <parameters xmi:id="_feGK1EPMEeSvydpbEtLBCg" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityDefBase"/>
+    </parameters>
+    <parameters xmi:id="_feGK1UPMEeSvydpbEtLBCg" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <parameterMappings xmi:id="_feGK1kPMEeSvydpbEtLBCg" source="_feGK00PMEeSvydpbEtLBCg" target="_feGKwkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_feGK10PMEeSvydpbEtLBCg" source="_feGK1EPMEeSvydpbEtLBCg" target="_feGKw0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_feGK2EPMEeSvydpbEtLBCg" source="_feGK1UPMEeSvydpbEtLBCg" target="_feGKxEPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

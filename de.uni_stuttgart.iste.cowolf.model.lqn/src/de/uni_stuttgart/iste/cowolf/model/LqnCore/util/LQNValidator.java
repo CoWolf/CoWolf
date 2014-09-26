@@ -441,7 +441,76 @@ public class LQNValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateEntryType(EntryType entryType, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(entryType, diagnostics, context);
+		if (!validate_NoCircularContainment(entryType, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(entryType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(entryType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(entryType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(entryType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(entryType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(entryType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(entryType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(entryType, diagnostics, context);
+		if (result || diagnostics != null) result &= validateEntryType_PH1PH2EntryTypeDefinedWithPhases(entryType, diagnostics, context);
+		if (result || diagnostics != null) result &= validateEntryType_GraphEntryTypeDefinedWithGraph(entryType, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * The cached validation expression for the PH1PH2EntryTypeDefinedWithPhases constraint of '<em>Entry Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String ENTRY_TYPE__PH1PH2_ENTRY_TYPE_DEFINED_WITH_PHASES__EEXPRESSION = "if self.type = TypeType::PH1PH2 then self.entryPhaseActivities->size() > 0 else true endif";
+
+	/**
+	 * Validates the PH1PH2EntryTypeDefinedWithPhases constraint of '<em>Entry Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateEntryType_PH1PH2EntryTypeDefinedWithPhases(EntryType entryType, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(LQNPackage.Literals.ENTRY_TYPE,
+				 entryType,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
+				 "PH1PH2EntryTypeDefinedWithPhases",
+				 ENTRY_TYPE__PH1PH2_ENTRY_TYPE_DEFINED_WITH_PHASES__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
+	}
+
+	/**
+	 * The cached validation expression for the GraphEntryTypeDefinedWithGraph constraint of '<em>Entry Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String ENTRY_TYPE__GRAPH_ENTRY_TYPE_DEFINED_WITH_GRAPH__EEXPRESSION = "if self.type = TypeType::GRAPH or self.type = TypeType::NONE then self.entryActivityGraph->size() > 0 else true endif";
+
+	/**
+	 * Validates the GraphEntryTypeDefinedWithGraph constraint of '<em>Entry Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateEntryType_GraphEntryTypeDefinedWithGraph(EntryType entryType, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(LQNPackage.Literals.ENTRY_TYPE,
+				 entryType,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
+				 "GraphEntryTypeDefinedWithGraph",
+				 ENTRY_TYPE__GRAPH_ENTRY_TYPE_DEFINED_WITH_GRAPH__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
 
 	/**

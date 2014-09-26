@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_frMLkEPMEeSvydpbEtLBCg" name="CREATE_PlotControlType_IN_LqnModelType_(plotControl)" description="Creates one PlotControlType in LqnModelType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_frMLkUPMEeSvydpbEtLBCg" name="createPlotControlType_IN_LqnModelType" description="creates one PlotControlType in the context: LqnModelType">
+    <parameters xmi:id="_frMLkkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//LqnModelType"/>
+    </parameters>
+    <parameters xmi:id="_frMLk0PMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PlotControlType"/>
+    </parameters>
+    <parameters xmi:id="_frMLlEPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_frMLlUPMEeSvydpbEtLBCg" name="Child">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PlotType"/>
+    </parameters>
+    <parameters xmi:id="_frMLlkPMEeSvydpbEtLBCg" name="Id1">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_frMLl0PMEeSvydpbEtLBCg" name="Variable">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_frMLmEPMEeSvydpbEtLBCg" name="Child1">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//FirstPlotType"/>
+    </parameters>
+    <parameters xmi:id="_frMLmUPMEeSvydpbEtLBCg" name="Id2">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_frMLmkPMEeSvydpbEtLBCg" name="Variable1">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_frMLm0PMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_frMLnEPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//LqnModelType"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_frMLnUPMEeSvydpbEtLBCg">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_frMLnkPMEeSvydpbEtLBCg">
+          <conclusion xmi:id="_frMLn0PMEeSvydpbEtLBCg" name="ub0">
+            <nodes xmi:id="_frMLoEPMEeSvydpbEtLBCg" outgoing="_frMLokPMEeSvydpbEtLBCg">
+              <type href="http://LQN/1.0#//LqnModelType"/>
+            </nodes>
+            <nodes xmi:id="_frMLoUPMEeSvydpbEtLBCg" incoming="_frMLokPMEeSvydpbEtLBCg">
+              <type href="http://LQN/1.0#//PlotControlType"/>
+            </nodes>
+            <edges xmi:id="_frMLokPMEeSvydpbEtLBCg" source="_frMLoEPMEeSvydpbEtLBCg" target="_frMLoUPMEeSvydpbEtLBCg">
+              <type href="http://LQN/1.0#//LqnModelType/plotControl"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_frMLo0PMEeSvydpbEtLBCg" origin="_frMLnEPMEeSvydpbEtLBCg" image="_frMLoEPMEeSvydpbEtLBCg"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_frMLpEPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_frMLpUPMEeSvydpbEtLBCg" name="Selected" outgoing="_frMLrkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//LqnModelType"/>
+      </nodes>
+      <nodes xmi:id="_frMLpkPMEeSvydpbEtLBCg" name="New" incoming="_frMLrkPMEeSvydpbEtLBCg" outgoing="_frMLr0PMEeSvydpbEtLBCg _frMLsEPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//PlotControlType"/>
+        <attributes xmi:id="_frMLp0PMEeSvydpbEtLBCg" value="Id">
+          <type href="platform:/resource/de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_frMLqEPMEeSvydpbEtLBCg" name="Child" incoming="_frMLr0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//PlotType"/>
+        <attributes xmi:id="_frMLqUPMEeSvydpbEtLBCg" value="Id1">
+          <type href="platform:/resource/de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_frMLqkPMEeSvydpbEtLBCg" value="Variable">
+          <type href="http://LQN/1.0#//PlotType/variable"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_frMLq0PMEeSvydpbEtLBCg" name="Child1" incoming="_frMLsEPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//FirstPlotType"/>
+        <attributes xmi:id="_frMLrEPMEeSvydpbEtLBCg" value="Id2">
+          <type href="platform:/resource/de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_frMLrUPMEeSvydpbEtLBCg" value="Variable1">
+          <type href="http://LQN/1.0#//FirstPlotType/variable"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_frMLrkPMEeSvydpbEtLBCg" source="_frMLpUPMEeSvydpbEtLBCg" target="_frMLpkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//LqnModelType/plotControl"/>
+      </edges>
+      <edges xmi:id="_frMLr0PMEeSvydpbEtLBCg" source="_frMLpkPMEeSvydpbEtLBCg" target="_frMLqEPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//PlotControlType/plot"/>
+      </edges>
+      <edges xmi:id="_frMLsEPMEeSvydpbEtLBCg" source="_frMLpkPMEeSvydpbEtLBCg" target="_frMLq0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//PlotControlType/firstPlot"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_frMLsUPMEeSvydpbEtLBCg" origin="_frMLnEPMEeSvydpbEtLBCg" image="_frMLpUPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_frMLskPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_frMLkUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_frMLs0PMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//LqnModelType"/>
+    </parameters>
+    <parameters xmi:id="_frMLtEPMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PlotControlType"/>
+    </parameters>
+    <parameters xmi:id="_frMLtUPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_frMLtkPMEeSvydpbEtLBCg" name="Child">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PlotType"/>
+    </parameters>
+    <parameters xmi:id="_frMLt0PMEeSvydpbEtLBCg" name="Id1">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_frMLuEPMEeSvydpbEtLBCg" name="Variable">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_frMLuUPMEeSvydpbEtLBCg" name="Child1">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//FirstPlotType"/>
+    </parameters>
+    <parameters xmi:id="_frMLukPMEeSvydpbEtLBCg" name="Id2">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_frMLu0PMEeSvydpbEtLBCg" name="Variable1">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_frMLvEPMEeSvydpbEtLBCg" source="_frMLs0PMEeSvydpbEtLBCg" target="_frMLkkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_frMLvUPMEeSvydpbEtLBCg" source="_frMLk0PMEeSvydpbEtLBCg" target="_frMLtEPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_frMLvkPMEeSvydpbEtLBCg" source="_frMLtUPMEeSvydpbEtLBCg" target="_frMLlEPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_frMLv0PMEeSvydpbEtLBCg" source="_frMLlUPMEeSvydpbEtLBCg" target="_frMLtkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_frMLwEPMEeSvydpbEtLBCg" source="_frMLt0PMEeSvydpbEtLBCg" target="_frMLlkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_frMLwUPMEeSvydpbEtLBCg" source="_frMLuEPMEeSvydpbEtLBCg" target="_frMLl0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_frMLwkPMEeSvydpbEtLBCg" source="_frMLmEPMEeSvydpbEtLBCg" target="_frMLuUPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_frMLw0PMEeSvydpbEtLBCg" source="_frMLukPMEeSvydpbEtLBCg" target="_frMLmUPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_frMLxEPMEeSvydpbEtLBCg" source="_frMLu0PMEeSvydpbEtLBCg" target="_frMLmkPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

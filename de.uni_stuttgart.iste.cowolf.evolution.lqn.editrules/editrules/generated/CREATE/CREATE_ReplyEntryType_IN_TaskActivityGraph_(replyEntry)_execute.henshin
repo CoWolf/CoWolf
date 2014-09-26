@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fsxf8EPMEeSvydpbEtLBCg" name="CREATE_ReplyEntryType_IN_TaskActivityGraph_(replyEntry)" description="Creates one ReplyEntryType in TaskActivityGraph">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fsxf8UPMEeSvydpbEtLBCg" name="createReplyEntryType_IN_TaskActivityGraph" description="creates one ReplyEntryType in the context: TaskActivityGraph">
+    <parameters xmi:id="_fsxf8kPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskActivityGraph"/>
+    </parameters>
+    <parameters xmi:id="_fsxf80PMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ReplyEntryType"/>
+    </parameters>
+    <parameters xmi:id="_fsxf9EPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fsxf9UPMEeSvydpbEtLBCg" name="Name">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fsxf9kPMEeSvydpbEtLBCg" name="Child">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ReplyActivityType"/>
+    </parameters>
+    <parameters xmi:id="_fsxf90PMEeSvydpbEtLBCg" name="Id1">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fsxf-EPMEeSvydpbEtLBCg" name="Name1">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_fsxf-UPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fsxf-kPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//TaskActivityGraph"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_fsxf-0PMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fsxf_EPMEeSvydpbEtLBCg" name="Selected" outgoing="_fsxgA0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//TaskActivityGraph"/>
+      </nodes>
+      <nodes xmi:id="_fsxf_UPMEeSvydpbEtLBCg" name="New" incoming="_fsxgA0PMEeSvydpbEtLBCg" outgoing="_fsxgBEPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ReplyEntryType"/>
+        <attributes xmi:id="_fsxf_kPMEeSvydpbEtLBCg" value="Id">
+          <type href="platform:/resource/de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_fsxf_0PMEeSvydpbEtLBCg" value="Name">
+          <type href="http://LQN/1.0#//ReplyEntryType/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_fsxgAEPMEeSvydpbEtLBCg" name="Child" incoming="_fsxgBEPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ReplyActivityType"/>
+        <attributes xmi:id="_fsxgAUPMEeSvydpbEtLBCg" value="Id1">
+          <type href="platform:/resource/de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_fsxgAkPMEeSvydpbEtLBCg" value="Name1">
+          <type href="http://LQN/1.0#//ReplyActivityType/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_fsxgA0PMEeSvydpbEtLBCg" source="_fsxf_EPMEeSvydpbEtLBCg" target="_fsxf_UPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//TaskActivityGraph/replyEntry"/>
+      </edges>
+      <edges xmi:id="_fsxgBEPMEeSvydpbEtLBCg" source="_fsxf_UPMEeSvydpbEtLBCg" target="_fsxgAEPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ReplyEntryType/replyActivity"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_fsxgBUPMEeSvydpbEtLBCg" origin="_fsxf-kPMEeSvydpbEtLBCg" image="_fsxf_EPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fsxgBkPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fsxf8UPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fsxgB0PMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskActivityGraph"/>
+    </parameters>
+    <parameters xmi:id="_fsxgCEPMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ReplyEntryType"/>
+    </parameters>
+    <parameters xmi:id="_fsxgCUPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fsxgCkPMEeSvydpbEtLBCg" name="Name">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fsxgC0PMEeSvydpbEtLBCg" name="Child">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ReplyActivityType"/>
+    </parameters>
+    <parameters xmi:id="_fsxgDEPMEeSvydpbEtLBCg" name="Id1">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fsxgDUPMEeSvydpbEtLBCg" name="Name1">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_fsxgDkPMEeSvydpbEtLBCg" source="_fsxgB0PMEeSvydpbEtLBCg" target="_fsxf8kPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fsxgD0PMEeSvydpbEtLBCg" source="_fsxf80PMEeSvydpbEtLBCg" target="_fsxgCEPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fsxgEEPMEeSvydpbEtLBCg" source="_fsxgCUPMEeSvydpbEtLBCg" target="_fsxf9EPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fsxgEUPMEeSvydpbEtLBCg" source="_fsxgCkPMEeSvydpbEtLBCg" target="_fsxf9UPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fsxgEkPMEeSvydpbEtLBCg" source="_fsxf9kPMEeSvydpbEtLBCg" target="_fsxgC0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fsxgE0PMEeSvydpbEtLBCg" source="_fsxgDEPMEeSvydpbEtLBCg" target="_fsxf90PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fsxgFEPMEeSvydpbEtLBCg" source="_fsxgDUPMEeSvydpbEtLBCg" target="_fsxf-EPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

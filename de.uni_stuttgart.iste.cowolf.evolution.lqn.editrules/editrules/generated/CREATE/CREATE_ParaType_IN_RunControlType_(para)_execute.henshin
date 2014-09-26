@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_f1ZQcEPMEeSvydpbEtLBCg" name="CREATE_ParaType_IN_RunControlType_(para)" description="Creates one ParaType in RunControlType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_f1ZQcUPMEeSvydpbEtLBCg" name="createParaType_IN_RunControlType" description="creates one ParaType in the context: RunControlType">
+    <parameters xmi:id="_f1ZQckPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//RunControlType"/>
+    </parameters>
+    <parameters xmi:id="_f1ZQc0PMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ParaType"/>
+    </parameters>
+    <parameters xmi:id="_f1ZQdEPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_f1ZQdUPMEeSvydpbEtLBCg" name="StartValue">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    </parameters>
+    <parameters xmi:id="_f1ZQdkPMEeSvydpbEtLBCg" name="EndValue">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    </parameters>
+    <parameters xmi:id="_f1ZQd0PMEeSvydpbEtLBCg" name="StepValue">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    </parameters>
+    <parameters xmi:id="_f1ZQeEPMEeSvydpbEtLBCg" name="Value">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    </parameters>
+    <lhs xmi:id="_f1ZQeUPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_f1ZQekPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//RunControlType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_f1ZQe0PMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_f1ZQfEPMEeSvydpbEtLBCg" name="Selected" outgoing="_f1ZQg0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//RunControlType"/>
+      </nodes>
+      <nodes xmi:id="_f1ZQfUPMEeSvydpbEtLBCg" name="New" incoming="_f1ZQg0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ParaType"/>
+        <attributes xmi:id="_f1ZQfkPMEeSvydpbEtLBCg" value="Id">
+          <type href="platform:/resource/de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_f1ZQf0PMEeSvydpbEtLBCg" value="StartValue">
+          <type href="http://LQN/1.0#//ParaType/startValue"/>
+        </attributes>
+        <attributes xmi:id="_f1ZQgEPMEeSvydpbEtLBCg" value="EndValue">
+          <type href="http://LQN/1.0#//ParaType/endValue"/>
+        </attributes>
+        <attributes xmi:id="_f1ZQgUPMEeSvydpbEtLBCg" value="StepValue">
+          <type href="http://LQN/1.0#//ParaType/stepValue"/>
+        </attributes>
+        <attributes xmi:id="_f1ZQgkPMEeSvydpbEtLBCg" value="Value">
+          <type href="http://LQN/1.0#//ParaType/value"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_f1ZQg0PMEeSvydpbEtLBCg" source="_f1ZQfEPMEeSvydpbEtLBCg" target="_f1ZQfUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//RunControlType/para"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_f1ZQhEPMEeSvydpbEtLBCg" origin="_f1ZQekPMEeSvydpbEtLBCg" image="_f1ZQfEPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_f1ZQhUPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_f1ZQcUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_f1ZQhkPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//RunControlType"/>
+    </parameters>
+    <parameters xmi:id="_f1ZQh0PMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ParaType"/>
+    </parameters>
+    <parameters xmi:id="_f1ZQiEPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_f1ZQiUPMEeSvydpbEtLBCg" name="StartValue">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    </parameters>
+    <parameters xmi:id="_f1ZQikPMEeSvydpbEtLBCg" name="EndValue">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    </parameters>
+    <parameters xmi:id="_f1ZQi0PMEeSvydpbEtLBCg" name="StepValue">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    </parameters>
+    <parameters xmi:id="_f1ZQjEPMEeSvydpbEtLBCg" name="Value">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    </parameters>
+    <parameterMappings xmi:id="_f1ZQjUPMEeSvydpbEtLBCg" source="_f1ZQhkPMEeSvydpbEtLBCg" target="_f1ZQckPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_f1ZQjkPMEeSvydpbEtLBCg" source="_f1ZQc0PMEeSvydpbEtLBCg" target="_f1ZQh0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_f1ZQj0PMEeSvydpbEtLBCg" source="_f1ZQiEPMEeSvydpbEtLBCg" target="_f1ZQdEPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_f1ZQkEPMEeSvydpbEtLBCg" source="_f1ZQiUPMEeSvydpbEtLBCg" target="_f1ZQdUPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_f1ZQkUPMEeSvydpbEtLBCg" source="_f1ZQikPMEeSvydpbEtLBCg" target="_f1ZQdkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_f1ZQkkPMEeSvydpbEtLBCg" source="_f1ZQi0PMEeSvydpbEtLBCg" target="_f1ZQd0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_f1ZQk0PMEeSvydpbEtLBCg" source="_f1ZQjEPMEeSvydpbEtLBCg" target="_f1ZQeEPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

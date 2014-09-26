@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_ftdccEPMEeSvydpbEtLBCg" name="SET_ATTRIBUTE_ActivityDefBase_CallOrder" description="Sets ActivityDefBase CallOrder">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_ftdccUPMEeSvydpbEtLBCg" name="setActivityDefBaseCallOrder" description="Sets the EAttribute callOrder">
+    <parameters xmi:id="_ftdcckPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityDefBase"/>
+    </parameters>
+    <parameters xmi:id="_ftdcc0PMEeSvydpbEtLBCg" name="CallOrder">
+      <type xsi:type="ecore:EEnum" href="http://LQN/1.0#//CallOrderType"/>
+    </parameters>
+    <lhs xmi:id="_ftdcdEPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_ftdcdUPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//ActivityDefBase"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_ftdcdkPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_ftdcd0PMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//ActivityDefBase"/>
+        <attributes xmi:id="_ftdceEPMEeSvydpbEtLBCg" value="CallOrder">
+          <type href="http://LQN/1.0#//ActivityDefBase/callOrder"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_ftdceUPMEeSvydpbEtLBCg" origin="_ftdcdUPMEeSvydpbEtLBCg" image="_ftdcd0PMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_ftdcekPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_ftdccUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_ftdce0PMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityDefBase"/>
+    </parameters>
+    <parameters xmi:id="_ftdcfEPMEeSvydpbEtLBCg" name="CallOrder">
+      <type xsi:type="ecore:EEnum" href="http://LQN/1.0#//CallOrderType"/>
+    </parameters>
+    <parameterMappings xmi:id="_ftdcfUPMEeSvydpbEtLBCg" source="_ftdce0PMEeSvydpbEtLBCg" target="_ftdcckPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_ftdcfkPMEeSvydpbEtLBCg" source="_ftdcfEPMEeSvydpbEtLBCg" target="_ftdcc0PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

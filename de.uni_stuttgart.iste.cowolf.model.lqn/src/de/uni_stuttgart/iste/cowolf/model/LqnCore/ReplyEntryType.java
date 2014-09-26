@@ -52,7 +52,7 @@ public interface ReplyEntryType extends IDBase {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage#getReplyEntryType_Name()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
+	 * @model required="true"
 	 *        extendedMetaData="kind='attribute' name='name' namespace='##targetNamespace'"
 	 * @generated
 	 */

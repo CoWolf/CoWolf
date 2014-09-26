@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fowioEPMEeSvydpbEtLBCg" name="CREATE_PrecedenceType_IN_ActivityGraphBase_(precedence)" description="Creates one PrecedenceType in ActivityGraphBase">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fowioUPMEeSvydpbEtLBCg" name="createPrecedenceType_IN_ActivityGraphBase" description="creates one PrecedenceType in the context: ActivityGraphBase">
+    <parameters xmi:id="_fowiokPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityGraphBase"/>
+    </parameters>
+    <parameters xmi:id="_fowio0PMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PrecedenceType"/>
+    </parameters>
+    <parameters xmi:id="_fowipEPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_fowipUPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fowipkPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//ActivityGraphBase"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_fowip0PMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fowiqEPMEeSvydpbEtLBCg" name="Selected" outgoing="_fowiq0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityGraphBase"/>
+      </nodes>
+      <nodes xmi:id="_fowiqUPMEeSvydpbEtLBCg" name="New" incoming="_fowiq0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//PrecedenceType"/>
+        <attributes xmi:id="_fowiqkPMEeSvydpbEtLBCg" value="Id">
+          <type href="platform:/resource/de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_fowiq0PMEeSvydpbEtLBCg" source="_fowiqEPMEeSvydpbEtLBCg" target="_fowiqUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityGraphBase/precedence"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_fowirEPMEeSvydpbEtLBCg" origin="_fowipkPMEeSvydpbEtLBCg" image="_fowiqEPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fowirUPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fowioUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fowirkPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityGraphBase"/>
+    </parameters>
+    <parameters xmi:id="_fowir0PMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//PrecedenceType"/>
+    </parameters>
+    <parameters xmi:id="_fowisEPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_fowisUPMEeSvydpbEtLBCg" source="_fowirkPMEeSvydpbEtLBCg" target="_fowiokPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fowiskPMEeSvydpbEtLBCg" source="_fowio0PMEeSvydpbEtLBCg" target="_fowir0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fowis0PMEeSvydpbEtLBCg" source="_fowisEPMEeSvydpbEtLBCg" target="_fowipEPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

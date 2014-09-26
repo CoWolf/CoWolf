@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fzbhkEPMEeSvydpbEtLBCg" name="SET_ATTRIBUTE_CallType_Fanin" description="Sets CallType Fanin">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fzbhkUPMEeSvydpbEtLBCg" name="setCallTypeFanin" description="Sets the EAttribute fanin">
+    <parameters xmi:id="_fzbhkkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//CallType"/>
+    </parameters>
+    <parameters xmi:id="_fzbhk0PMEeSvydpbEtLBCg" name="Fanin">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    </parameters>
+    <lhs xmi:id="_fzbhlEPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fzbhlUPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//CallType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_fzbhlkPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fzbhl0PMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//CallType"/>
+        <attributes xmi:id="_fzbhmEPMEeSvydpbEtLBCg" value="Fanin">
+          <type href="http://LQN/1.0#//CallType/fanin"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_fzbhmUPMEeSvydpbEtLBCg" origin="_fzbhlUPMEeSvydpbEtLBCg" image="_fzbhl0PMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fzbhmkPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fzbhkUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fzbhm0PMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//CallType"/>
+    </parameters>
+    <parameters xmi:id="_fzbhnEPMEeSvydpbEtLBCg" name="Fanin">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    </parameters>
+    <parameterMappings xmi:id="_fzbhnUPMEeSvydpbEtLBCg" source="_fzbhm0PMEeSvydpbEtLBCg" target="_fzbhkkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fzbhnkPMEeSvydpbEtLBCg" source="_fzbhnEPMEeSvydpbEtLBCg" target="_fzbhk0PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

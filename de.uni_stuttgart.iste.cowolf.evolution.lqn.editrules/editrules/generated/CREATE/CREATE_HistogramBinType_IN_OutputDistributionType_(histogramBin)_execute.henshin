@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fyu-AEPMEeSvydpbEtLBCg" name="CREATE_HistogramBinType_IN_OutputDistributionType_(histogramBin)" description="Creates one HistogramBinType in OutputDistributionType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fyu-AUPMEeSvydpbEtLBCg" name="createHistogramBinType_IN_OutputDistributionType" description="creates one HistogramBinType in the context: OutputDistributionType">
+    <parameters xmi:id="_fyu-AkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutputDistributionType"/>
+    </parameters>
+    <parameters xmi:id="_fyu-A0PMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//HistogramBinType"/>
+    </parameters>
+    <parameters xmi:id="_fyu-BEPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fyu-BUPMEeSvydpbEtLBCg" name="Begin">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameters xmi:id="_fyu-BkPMEeSvydpbEtLBCg" name="Conf95">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameters xmi:id="_fyu-B0PMEeSvydpbEtLBCg" name="Conf99">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameters xmi:id="_fyu-CEPMEeSvydpbEtLBCg" name="End">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameters xmi:id="_fyu-CUPMEeSvydpbEtLBCg" name="Prob">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <lhs xmi:id="_fyu-CkPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fyu-C0PMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//OutputDistributionType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_fyu-DEPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fyu-DUPMEeSvydpbEtLBCg" name="Selected" outgoing="_fyu-FUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//OutputDistributionType"/>
+      </nodes>
+      <nodes xmi:id="_fyu-DkPMEeSvydpbEtLBCg" name="New" incoming="_fyu-FUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//HistogramBinType"/>
+        <attributes xmi:id="_fyu-D0PMEeSvydpbEtLBCg" value="Id">
+          <type href="platform:/resource/de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_fyu-EEPMEeSvydpbEtLBCg" value="Begin">
+          <type href="http://LQN/1.0#//HistogramBinType/begin"/>
+        </attributes>
+        <attributes xmi:id="_fyu-EUPMEeSvydpbEtLBCg" value="Conf95">
+          <type href="http://LQN/1.0#//HistogramBinType/conf95"/>
+        </attributes>
+        <attributes xmi:id="_fyu-EkPMEeSvydpbEtLBCg" value="Conf99">
+          <type href="http://LQN/1.0#//HistogramBinType/conf99"/>
+        </attributes>
+        <attributes xmi:id="_fyu-E0PMEeSvydpbEtLBCg" value="End">
+          <type href="http://LQN/1.0#//HistogramBinType/end"/>
+        </attributes>
+        <attributes xmi:id="_fyu-FEPMEeSvydpbEtLBCg" value="Prob">
+          <type href="http://LQN/1.0#//HistogramBinType/prob"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_fyu-FUPMEeSvydpbEtLBCg" source="_fyu-DUPMEeSvydpbEtLBCg" target="_fyu-DkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//OutputDistributionType/histogramBin"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_fyu-FkPMEeSvydpbEtLBCg" origin="_fyu-C0PMEeSvydpbEtLBCg" image="_fyu-DUPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fyu-F0PMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fyu-AUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fyu-GEPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutputDistributionType"/>
+    </parameters>
+    <parameters xmi:id="_fyu-GUPMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//HistogramBinType"/>
+    </parameters>
+    <parameters xmi:id="_fyu-GkPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_fyu-G0PMEeSvydpbEtLBCg" name="Begin">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameters xmi:id="_fyu-HEPMEeSvydpbEtLBCg" name="Conf95">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameters xmi:id="_fyu-HUPMEeSvydpbEtLBCg" name="Conf99">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameters xmi:id="_fyu-HkPMEeSvydpbEtLBCg" name="End">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameters xmi:id="_fyu-H0PMEeSvydpbEtLBCg" name="Prob">
+      <type xsi:type="ecore:EDataType" href="http://LQN/1.0#//SrvnFloat"/>
+    </parameters>
+    <parameterMappings xmi:id="_fyu-IEPMEeSvydpbEtLBCg" source="_fyu-GEPMEeSvydpbEtLBCg" target="_fyu-AkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fyu-IUPMEeSvydpbEtLBCg" source="_fyu-A0PMEeSvydpbEtLBCg" target="_fyu-GUPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fyu-IkPMEeSvydpbEtLBCg" source="_fyu-GkPMEeSvydpbEtLBCg" target="_fyu-BEPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fyu-I0PMEeSvydpbEtLBCg" source="_fyu-G0PMEeSvydpbEtLBCg" target="_fyu-BUPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fyu-JEPMEeSvydpbEtLBCg" source="_fyu-HEPMEeSvydpbEtLBCg" target="_fyu-BkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fyu-JUPMEeSvydpbEtLBCg" source="_fyu-HUPMEeSvydpbEtLBCg" target="_fyu-B0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fyu-JkPMEeSvydpbEtLBCg" source="_fyu-HkPMEeSvydpbEtLBCg" target="_fyu-CEPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fyu-J0PMEeSvydpbEtLBCg" source="_fyu-H0PMEeSvydpbEtLBCg" target="_fyu-CUPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

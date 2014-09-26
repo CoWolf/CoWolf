@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fq0YIEPMEeSvydpbEtLBCg" name="SET_ATTRIBUTE_TaskType_Replication" description="Sets TaskType Replication">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fq0YIUPMEeSvydpbEtLBCg" name="setTaskTypeReplication" description="Sets the EAttribute replication">
+    <parameters xmi:id="_fq0YIkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskType"/>
+    </parameters>
+    <parameters xmi:id="_fq0YI0PMEeSvydpbEtLBCg" name="Replication">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//NonNegativeInteger"/>
+    </parameters>
+    <lhs xmi:id="_fq0YJEPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fq0YJUPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//TaskType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_fq0YJkPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fq0YJ0PMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//TaskType"/>
+        <attributes xmi:id="_fq0YKEPMEeSvydpbEtLBCg" value="Replication">
+          <type href="http://LQN/1.0#//TaskType/replication"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_fq0YKUPMEeSvydpbEtLBCg" origin="_fq0YJUPMEeSvydpbEtLBCg" image="_fq0YJ0PMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fq0YKkPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fq0YIUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fq0YK0PMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//TaskType"/>
+    </parameters>
+    <parameters xmi:id="_fq0YLEPMEeSvydpbEtLBCg" name="Replication">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2003/XMLType#//NonNegativeInteger"/>
+    </parameters>
+    <parameterMappings xmi:id="_fq0YLUPMEeSvydpbEtLBCg" source="_fq0YK0PMEeSvydpbEtLBCg" target="_fq0YIkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fq0YLkPMEeSvydpbEtLBCg" source="_fq0YLEPMEeSvydpbEtLBCg" target="_fq0YI0PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

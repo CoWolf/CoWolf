@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_ff7WwEPMEeSvydpbEtLBCg" name="DELETE_OutputDistributionType_IN_ActivityDefBase_(serviceTimeDistribution)" description="Deletes one OutputDistributionType in ActivityDefBase">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_ff7WwUPMEeSvydpbEtLBCg" name="deleteOutputDistributionType_IN_ActivityDefBase" description="deletes one OutputDistributionType in the context: ActivityDefBase">
+    <parameters xmi:id="_ff7WwkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityDefBase"/>
+    </parameters>
+    <parameters xmi:id="_ff7Ww0PMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutputDistributionType"/>
+    </parameters>
+    <lhs xmi:id="_ff7WxEPMEeSvydpbEtLBCg" name="LHS">
+      <nodes xmi:id="_ff7WxUPMEeSvydpbEtLBCg" name="Selected" outgoing="_ff7Wx0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityDefBase"/>
+      </nodes>
+      <nodes xmi:id="_ff7WxkPMEeSvydpbEtLBCg" name="ToBeDeleted" incoming="_ff7Wx0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//OutputDistributionType"/>
+      </nodes>
+      <edges xmi:id="_ff7Wx0PMEeSvydpbEtLBCg" source="_ff7WxUPMEeSvydpbEtLBCg" target="_ff7WxkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityDefBase/serviceTimeDistribution"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_ff7WyEPMEeSvydpbEtLBCg" name="RHS">
+      <nodes xmi:id="_ff7WyUPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//ActivityDefBase"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_ff7WykPMEeSvydpbEtLBCg" origin="_ff7WxUPMEeSvydpbEtLBCg" image="_ff7WyUPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_ff7Wy0PMEeSvydpbEtLBCg" name="mainUnit" subUnits="_ff7WwUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_ff7WzEPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityDefBase"/>
+    </parameters>
+    <parameters xmi:id="_ff7WzUPMEeSvydpbEtLBCg" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//OutputDistributionType"/>
+    </parameters>
+    <parameterMappings xmi:id="_ff7WzkPMEeSvydpbEtLBCg" source="_ff7WzEPMEeSvydpbEtLBCg" target="_ff7WwkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_ff7Wz0PMEeSvydpbEtLBCg" source="_ff7WzUPMEeSvydpbEtLBCg" target="_ff7Ww0PMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

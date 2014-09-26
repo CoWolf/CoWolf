@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fiEEwEPMEeSvydpbEtLBCg" name="CREATE_ActivityType_IN_AndJoinListType_(activity)" description="Creates one ActivityType in AndJoinListType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fiEEwUPMEeSvydpbEtLBCg" name="createActivityType_IN_AndJoinListType" description="creates one ActivityType in the context: AndJoinListType">
+    <parameters xmi:id="_fiEEwkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//AndJoinListType"/>
+    </parameters>
+    <parameters xmi:id="_fiEEw0PMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityType"/>
+    </parameters>
+    <parameters xmi:id="_fiEExEPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_fiEExUPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fiEExkPMEeSvydpbEtLBCg" name="Selected">
+        <type href="http://LQN/1.0#//AndJoinListType"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_fiEEx0PMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fiEEyEPMEeSvydpbEtLBCg" name="Selected" outgoing="_fiEEy0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//AndJoinListType"/>
+      </nodes>
+      <nodes xmi:id="_fiEEyUPMEeSvydpbEtLBCg" name="New" incoming="_fiEEy0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//ActivityType"/>
+        <attributes xmi:id="_fiEEykPMEeSvydpbEtLBCg" value="Id">
+          <type href="platform:/resource/de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase/id"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_fiEEy0PMEeSvydpbEtLBCg" source="_fiEEyEPMEeSvydpbEtLBCg" target="_fiEEyUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//AndJoinListType/activity"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_fiEEzEPMEeSvydpbEtLBCg" origin="_fiEExkPMEeSvydpbEtLBCg" image="_fiEEyEPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fiEEzUPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fiEEwUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fiEEzkPMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//AndJoinListType"/>
+    </parameters>
+    <parameters xmi:id="_fiEEz0PMEeSvydpbEtLBCg" name="New">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//ActivityType"/>
+    </parameters>
+    <parameters xmi:id="_fiEE0EPMEeSvydpbEtLBCg" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_fiEE0UPMEeSvydpbEtLBCg" source="_fiEEzkPMEeSvydpbEtLBCg" target="_fiEEwkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fiEE0kPMEeSvydpbEtLBCg" source="_fiEEw0PMEeSvydpbEtLBCg" target="_fiEEz0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fiEE00PMEeSvydpbEtLBCg" source="_fiEE0EPMEeSvydpbEtLBCg" target="_fiEExEPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>

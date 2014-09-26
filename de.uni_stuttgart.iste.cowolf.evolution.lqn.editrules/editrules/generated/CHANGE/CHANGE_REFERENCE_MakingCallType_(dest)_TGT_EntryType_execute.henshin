@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_fd4vYEPMEeSvydpbEtLBCg" name="CHANGE_REFERENCE_MakingCallType_(dest)_TGT_EntryType" description="CHANGEs MakingCallType's reference dest the target EntryType">
+  <imports href="http://LQN/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_fd4vYUPMEeSvydpbEtLBCg" name="changeMakingCallType_dest_TO_EntryType" description="Change the EReference dest">
+    <parameters xmi:id="_fd4vYkPMEeSvydpbEtLBCg" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//MakingCallType"/>
+    </parameters>
+    <parameters xmi:id="_fd4vY0PMEeSvydpbEtLBCg" name="OldTarget">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <parameters xmi:id="_fd4vZEPMEeSvydpbEtLBCg" name="NewTarget">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <lhs xmi:id="_fd4vZUPMEeSvydpbEtLBCg" name="Lhs">
+      <nodes xmi:id="_fd4vZkPMEeSvydpbEtLBCg" name="Selected" outgoing="_fd4vaUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//MakingCallType"/>
+      </nodes>
+      <nodes xmi:id="_fd4vZ0PMEeSvydpbEtLBCg" name="OldTarget" incoming="_fd4vaUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+      <nodes xmi:id="_fd4vaEPMEeSvydpbEtLBCg" name="NewTarget">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+      <edges xmi:id="_fd4vaUPMEeSvydpbEtLBCg" source="_fd4vZkPMEeSvydpbEtLBCg" target="_fd4vZ0PMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//MakingCallType/dest"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_fd4vakPMEeSvydpbEtLBCg" name="Rhs">
+      <nodes xmi:id="_fd4va0PMEeSvydpbEtLBCg" name="Selected" outgoing="_fd4vbkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//MakingCallType"/>
+      </nodes>
+      <nodes xmi:id="_fd4vbEPMEeSvydpbEtLBCg" name="OldTarget">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+      <nodes xmi:id="_fd4vbUPMEeSvydpbEtLBCg" name="NewTarget" incoming="_fd4vbkPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//EntryType"/>
+      </nodes>
+      <edges xmi:id="_fd4vbkPMEeSvydpbEtLBCg" source="_fd4va0PMEeSvydpbEtLBCg" target="_fd4vbUPMEeSvydpbEtLBCg">
+        <type href="http://LQN/1.0#//MakingCallType/dest"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_fd4vb0PMEeSvydpbEtLBCg" origin="_fd4vZkPMEeSvydpbEtLBCg" image="_fd4va0PMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_fd4vcEPMEeSvydpbEtLBCg" origin="_fd4vZ0PMEeSvydpbEtLBCg" image="_fd4vbEPMEeSvydpbEtLBCg"/>
+    <mappings xmi:id="_fd4vcUPMEeSvydpbEtLBCg" origin="_fd4vaEPMEeSvydpbEtLBCg" image="_fd4vbUPMEeSvydpbEtLBCg"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_fd4vckPMEeSvydpbEtLBCg" name="mainUnit" subUnits="_fd4vYUPMEeSvydpbEtLBCg">
+    <parameters xmi:id="_fd4vc0PMEeSvydpbEtLBCg" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//MakingCallType"/>
+    </parameters>
+    <parameters xmi:id="_fd4vdEPMEeSvydpbEtLBCg" name="OldTarget">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <parameters xmi:id="_fd4vdUPMEeSvydpbEtLBCg" name="NewTarget">
+      <type xsi:type="ecore:EClass" href="http://LQN/1.0#//EntryType"/>
+    </parameters>
+    <parameterMappings xmi:id="_fd4vdkPMEeSvydpbEtLBCg" source="_fd4vc0PMEeSvydpbEtLBCg" target="_fd4vYkPMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fd4vd0PMEeSvydpbEtLBCg" source="_fd4vdEPMEeSvydpbEtLBCg" target="_fd4vY0PMEeSvydpbEtLBCg"/>
+    <parameterMappings xmi:id="_fd4veEPMEeSvydpbEtLBCg" source="_fd4vdUPMEeSvydpbEtLBCg" target="_fd4vZEPMEeSvydpbEtLBCg"/>
+  </units>
+</henshin:Module>
