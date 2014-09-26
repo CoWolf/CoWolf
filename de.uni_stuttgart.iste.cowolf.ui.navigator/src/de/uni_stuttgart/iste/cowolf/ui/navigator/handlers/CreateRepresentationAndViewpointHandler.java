@@ -68,16 +68,16 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 		while (iterator.hasNext()) {
 			// only IFiles as the command is only clickable for IFiles
 			IFile file = (IFile) iterator.next();
-			createAll(file, file.getFileExtension());
+			createAll(file, false);
 		}
 
 		return null;
 	}
 
-	public static void createAll(IFile modelFile, String fileExtension) {
+	public static void createAll(IFile modelFile, boolean firstCreation) {
 		try {
 			Set<Viewpoint> availableViewpoints = ViewpointSelection
-					.getViewpoints(fileExtension);
+					.getViewpoints(modelFile.getFileExtension());
 			if (availableViewpoints.isEmpty()) {
 				JOptionPane.showMessageDialog(null,
 						"There is no viewpoint for " + modelFile.getFullPath());
@@ -154,14 +154,16 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 
 				SessionManager.INSTANCE.notifyRepresentationCreated(session);
 
-				// open editor for last representation
-				Collection<DRepresentation> representations = viewpointDialectManager
-						.getRepresentations(description, session);
-				Object[] arrayRep = representations.toArray();
-				DRepresentation myDiagramRepresentation = (DRepresentation) arrayRep[arrayRep.length - 1];
-				DialectUIManager dialectUIManager = DialectUIManager.INSTANCE;
-				dialectUIManager.openEditor(session, myDiagramRepresentation,
-						new NullProgressMonitor());
+				if (firstCreation) {
+					// open editor for last representation
+					Collection<DRepresentation> representations = viewpointDialectManager
+							.getRepresentations(description, session);
+					Object[] arrayRep = representations.toArray();
+					DRepresentation myDiagramRepresentation = (DRepresentation) arrayRep[arrayRep.length - 1];
+					DialectUIManager dialectUIManager = DialectUIManager.INSTANCE;
+					dialectUIManager.openEditor(session,
+							myDiagramRepresentation, new NullProgressMonitor());
+				}
 
 				// save session and refresh workspace
 				session.save(new NullProgressMonitor());
@@ -173,46 +175,86 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 
 		}
 	}
-	
-	public static void renameAirdFile(final IFile source, final IPath newPath ){
+
+	public static void renameAirdFile(final IFile source, final IPath newPath) {
 		// update aird file
-				new WorkspaceJob("Update model versioning...") {
+		new WorkspaceJob("moced aird file") {
 
-					@Override
-					public IStatus runInWorkspace(IProgressMonitor monitor) {
-						IPath oldRepresentationPath = source.getProjectRelativePath()
-								.removeLastSegments(1)
-								.append(source.getName() + ".aird");
-						
-						IFile oldAirdFile = source.getProject()
-								.getFile(oldRepresentationPath);
-						if (oldAirdFile.exists()) {
-							try {
-								oldAirdFile.delete(false, new NullProgressMonitor());
-								
-								IFile newFile = source.getProject().getFile(newPath);
-								CreateRepresentationAndViewpointHandler.createAll(newFile, newFile.getFileExtension());				
+			@Override
+			public IStatus runInWorkspace(IProgressMonitor monitor) {
+				IPath oldRepresentationPath = source.getFullPath()
+						.removeLastSegments(1)
+						.append(source.getName() + ".aird");
 
-							} catch (CoreException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
-						}
-						return Status.OK_STATUS;
+				IFile oldAirdFile = source.getProject().getWorkspace()
+						.getRoot().getFile(oldRepresentationPath);
+				if (oldAirdFile.exists()) {
+					try {
+						oldAirdFile.delete(false, new NullProgressMonitor());
+						IFile newFile = source.getProject().getWorkspace()
+								.getRoot().getFile(newPath);
+						CreateRepresentationAndViewpointHandler.createAll(
+								newFile, false);
+					} catch (CoreException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
 					}
-				}.schedule();
+				}
+				return Status.OK_STATUS;
+			}
+		}.schedule();
 
 	}
 
-	public static void copyAirdFile(IFile source) {
-		// TODO Auto-generated method stub
-		
+	public static void copyAirdFile(final IFile source, final IPath newPath) {
+		// copy aird file
+		new WorkspaceJob("New aird file for copy") {
+
+			@Override
+			public IStatus runInWorkspace(IProgressMonitor monitor) {
+				IPath oldRepresentationPath = source.getFullPath()
+						.removeLastSegments(1)
+						.append(source.getName() + ".aird");
+
+				IFile oldAirdFile = source.getProject().getWorkspace()
+						.getRoot().getFile(oldRepresentationPath);
+				if (oldAirdFile.exists()) {
+
+					IFile newFile = source.getProject().getWorkspace()
+							.getRoot().getFile(newPath);
+					CreateRepresentationAndViewpointHandler.createAll(newFile,
+							false);
+
+				}
+				return Status.OK_STATUS;
+			}
+		}.schedule();
 	}
 
-	public static void deleteAirdFile(IFile source) {
-		// TODO Auto-generated method stub
-		
-	}
+	public static void deleteAirdFile(final IFile source) {
+		// delete aird file
+		new WorkspaceJob("New aird file for copy") {
 
+			@Override
+			public IStatus runInWorkspace(IProgressMonitor monitor) {
+				IPath oldRepresentationPath = source.getFullPath()
+						.removeLastSegments(1)
+						.append(source.getName() + ".aird");
+
+				IFile oldAirdFile = source.getProject().getWorkspace()
+						.getRoot().getFile(oldRepresentationPath);
+				if (oldAirdFile.exists()) {
+					try {
+						oldAirdFile.delete(false, new NullProgressMonitor());
+
+					} catch (CoreException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				return Status.OK_STATUS;
+			}
+		}.schedule();
+	}
 
 }

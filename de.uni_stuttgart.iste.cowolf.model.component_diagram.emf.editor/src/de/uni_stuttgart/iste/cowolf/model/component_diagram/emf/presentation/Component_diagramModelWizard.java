@@ -277,7 +277,7 @@ public class Component_diagramModelWizard extends Wizard implements INewWizard {
 			// Only create representation if wished by the user
 			if (editorPage.getGraphicalSelection()) {
 				CreateRepresentationAndViewpointHandler.createAll(modelFile,
-						"component_diagram");
+						true);
 			}
 
 			return true;

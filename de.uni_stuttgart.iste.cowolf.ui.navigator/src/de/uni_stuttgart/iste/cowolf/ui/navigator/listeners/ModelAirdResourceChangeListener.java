@@ -85,7 +85,7 @@ public class ModelAirdResourceChangeListener implements IResourceChangeListener 
 								Model model = ma.getModelByPath(from.makeRelativeTo(res.getProject().getFullPath()).toString());
 								
 								if (model != null) {
-									CreateRepresentationAndViewpointHandler.renameAirdFile(source, res.getProjectRelativePath());
+									CreateRepresentationAndViewpointHandler.renameAirdFile(source, res.getFullPath());
 									LOGGER.debug("Renamed model file.");
 								}
 							} else if (source.getProject() != null 
@@ -96,7 +96,7 @@ public class ModelAirdResourceChangeListener implements IResourceChangeListener 
 										.getModelByPath(source.getProjectRelativePath().toString());
 								
 								if (sourceModel != null) {
-									CreateRepresentationAndViewpointHandler.copyAirdFile(source);
+									CreateRepresentationAndViewpointHandler.renameAirdFile(source, res.getFullPath());
 								}
 							}
 						} else if((delta.getFlags() & IResourceDelta.COPIED_FROM) == IResourceDelta.COPIED_FROM) {
@@ -109,7 +109,7 @@ public class ModelAirdResourceChangeListener implements IResourceChangeListener 
 							Model sourceModel = ModelAssociationFactory.eINSTANCE.getModelAssociation(
 									source.getProject()).getModelByPath(source.getProjectRelativePath().toString());
 							if (sourceModel != null) {
-								CreateRepresentationAndViewpointHandler.copyAirdFile(source);
+								CreateRepresentationAndViewpointHandler.copyAirdFile(source, res.getFullPath());
 							}
 							
 						} 
@@ -121,12 +121,11 @@ public class ModelAirdResourceChangeListener implements IResourceChangeListener 
 						// If not moved, but really removed.
 						if ((delta.getFlags() & IResourceDelta.MOVED_TO) != IResourceDelta.MOVED_TO) {
 
-							IPath from = delta.getMovedFromPath();
+							IPath from = delta.getFullPath();
 							IFile source = ResourcesPlugin.getWorkspace().getRoot().getFile(from);
-							Model model = ma.getModelByPath(res.getProjectRelativePath().toString());
-							if (model != null) {
+
 								CreateRepresentationAndViewpointHandler.deleteAirdFile(source);
-							}
+							
 						}
 						break;
 				}

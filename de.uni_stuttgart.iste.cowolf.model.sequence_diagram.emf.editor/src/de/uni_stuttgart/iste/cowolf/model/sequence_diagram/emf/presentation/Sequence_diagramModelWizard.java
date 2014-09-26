@@ -267,7 +267,7 @@ public class Sequence_diagramModelWizard extends Wizard implements INewWizard {
 			//Only create representation if wished by the user
 			if (editorPage.getGraphicalSelection()) {
 
-				CreateRepresentationAndViewpointHandler.createAll(modelFile, "sequence_diagram");
+				CreateRepresentationAndViewpointHandler.createAll(modelFile, true);
 			}
 
 			return true;

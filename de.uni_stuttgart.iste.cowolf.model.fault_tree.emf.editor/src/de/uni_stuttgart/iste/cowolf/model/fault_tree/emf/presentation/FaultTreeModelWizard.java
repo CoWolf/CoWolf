@@ -272,7 +272,7 @@ public class FaultTreeModelWizard extends Wizard implements INewWizard {
 			// Only create representation if wished by the user
 			if (editorPage.getGraphicalSelection()) {
 				CreateRepresentationAndViewpointHandler.createAll(modelFile,
-						"faulttree");
+						true);
 			}
 
 			return true;
