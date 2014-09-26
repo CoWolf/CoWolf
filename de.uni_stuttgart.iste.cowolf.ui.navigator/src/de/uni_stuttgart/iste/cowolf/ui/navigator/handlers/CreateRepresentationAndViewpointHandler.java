@@ -23,6 +23,9 @@ import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -32,6 +35,7 @@ import org.eclipse.sirius.business.api.helper.SiriusResourceHelper;
 import org.eclipse.sirius.business.api.session.DefaultLocalSessionCreationOperation;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.diagram.impl.DSemanticDiagramImpl;
 import org.eclipse.sirius.tools.api.command.semantic.AddSemanticResourceCommand;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelection;
@@ -218,15 +222,68 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 				IFile oldAirdFile = source.getProject().getWorkspace()
 						.getRoot().getFile(oldRepresentationPath);
 				if (oldAirdFile.exists()) {
-					try {
-						oldAirdFile.delete(false, new NullProgressMonitor());
-						IFile newFile = source.getProject().getWorkspace()
-								.getRoot().getFile(newPath);
-						CreateRepresentationAndViewpointHandler.createAll(
-								newFile, false);
-					} catch (CoreException e) {
-						LOGGER.error("Renaming resource failed.", e);
+					// try {
+					// oldAirdFile.delete(false, new NullProgressMonitor());
+					IFile newFile = source.getProject().getWorkspace()
+							.getRoot().getFile(newPath);
+
+					URI oldAirdUri = (URI.createURI(oldAirdFile
+							.getLocationURI().toString()));
+
+					Session session = SessionManager.INSTANCE.getSession(
+							oldAirdUri, new NullProgressMonitor());
+
+					ResourceSetImpl impl = new ResourceSetImpl();
+
+					Resource resource = impl.getResource(URI.createURI(newFile
+							.getLocationURI().toString()), true);
+
+					EObject rootObject = null;
+					if (newFile.getFileExtension().equals("sequence_diagram")) {
+						Interaction interaction = null;
+
+						EList<PackageableElement> pack = ((PackageImpl) resource
+								.getContents().get(0)).getPackagedElements();
+						for (PackageableElement element : pack) {
+							if (element instanceof Interaction) {
+								interaction = (Interaction) element;
+							}
+						}
+						rootObject = interaction;
+					} else {
+
+						rootObject = resource.getContents().get(0);
 					}
+
+					
+					Set<Viewpoint> availableViewpoints = ViewpointSelection
+							.getViewpoints(newFile.getFileExtension());
+					Collection<RepresentationDescription> descriptions = DialectManager.INSTANCE.getAvailableRepresentationDescriptions(availableViewpoints, rootObject);
+							
+					if (descriptions.isEmpty()) {
+						// TODO
+					}
+					RepresentationDescription description = descriptions
+							.iterator().next();
+
+					Collection<DRepresentation> representations = DialectManager.INSTANCE
+							.getRepresentations(description, session);
+
+					DRepresentation currentRep = representations.iterator()
+							.next();
+
+					
+					SetCommand com = new SetCommand(session.getTransactionalEditingDomain(), currentRep, null, currentRep);
+					
+					session.getTransactionalEditingDomain().getCommandStack()					.execute(com);
+//					((DSemanticDiagramImpl) currentRep).setTarget(rootObject);
+//					;
+
+					// CreateRepresentationAndViewpointHandler.createAll(
+					// newFile, false);
+					// } catch (CoreException e) {
+					// LOGGER.error("Renaming resource failed.", e);
+					// }
 				}
 				return Status.OK_STATUS;
 			}
