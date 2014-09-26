@@ -79,6 +79,10 @@ point="org.eclipse.ui.handlers">
             </test>
          </enabledWhen>
       </handler>
+      <handler
+            class="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.ToggleNatureHandler"
+            commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.addNature">
+      </handler>
 </extension>
 <extension
 point="org.eclipse.ui.menus">
@@ -142,6 +146,62 @@ allPopups="false"
                style="push">
          </command>
 </menuContribution>
+<menuContribution
+      locationURI="popup:org.eclipse.ui.projectConfigure?after=additions">
+   <command
+         commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.addRemoveNatureCommand"
+         icon="icons/logo_wulf_15x15.png"
+         label="%command.addRemoveNatureCommand.remove"
+         style="push">
+      <visibleWhen
+            checkEnabled="false">
+         <iterate
+               ifEmpty="false"
+               operator="and">
+            <adapt
+                  type="org.eclipse.core.resources.IProject">
+               <and>
+                  <test
+                        forcePluginActivation="true"
+                        property="org.eclipse.core.resources.projectNature"
+                        value="de.uni_stuttgart.iste.cowolf.ui.projectNature">
+                  </test>
+                  <test
+                        forcePluginActivation="true"
+                        property="org.eclipse.core.resources.open"
+                        value="true">
+                  </test>
+               </and>
+            </adapt>
+         </iterate>
+      </visibleWhen>
+   </command>
+   <command
+         commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.addRemoveNatureCommand"
+         icon="icons/logo_wulf_15x15.png"
+         label="%command.addRemoveNatureCommand.add"
+         style="push">
+      <visibleWhen
+            checkEnabled="false">
+         <iterate>
+            <adapt
+                  type="org.eclipse.core.resources.IProject">
+               <and>
+                  <test
+                        property="org.eclipse.core.resources.open"
+                        value="true">
+                  </test>
+                  <not>
+                     <test
+                           forcePluginActivation="true"
+                           property="org.eclipse.core.resources.projectNature"
+                           value="de.uni_stuttgart.iste.cowolf.ui.projectNature">
+                     </test>
+                  </not></and>
+            </adapt></iterate>
+      </visibleWhen>
+   </command>
+</menuContribution>
    </extension>
    <extension
          id="de.uni_stuttgart.iste.cowolf.ui.navigator.commands"
@@ -154,6 +214,11 @@ allPopups="false"
       <command
             id="de.uni_stuttgart.iste.cowolf.ui.navigator.CreateRepresentationAndViewpointCommand"
             name="Create Representation And Viewpoint">
+      </command>
+      <command
+            defaultHandler="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.ToggleNatureHandler"
+            id="de.uni_stuttgart.iste.cowolf.ui.navigator.addRemoveNatureCommand"
+            name="test">
       </command>
 </extension>
 <extension
