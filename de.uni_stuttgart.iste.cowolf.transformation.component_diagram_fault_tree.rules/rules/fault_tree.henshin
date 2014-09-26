@@ -615,28 +615,6 @@
       <nodes xmi:id="_r4tAsAKNEeOqy6zVTfyGYA">
         <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree"/>
       </nodes>
-      <formula xsi:type="henshin:Not" xmi:id="_uw1EYAKNEeOqy6zVTfyGYA">
-        <child xsi:type="henshin:NestedCondition" xmi:id="_uw1EYQKNEeOqy6zVTfyGYA">
-          <conclusion xmi:id="_uw1EYgKNEeOqy6zVTfyGYA">
-            <nodes xmi:id="_uw1EYwKNEeOqy6zVTfyGYA" incoming="_B8FMED6iEeSsj_NtrIDgmw" outgoing="_uwz2QAKNEeOqy6zVTfyGYA _wW2nAAKNEeOqy6zVTfyGYA">
-              <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree"/>
-            </nodes>
-            <nodes xmi:id="_uwzPMAKNEeOqy6zVTfyGYA" incoming="_uwz2QAKNEeOqy6zVTfyGYA _wW2nAAKNEeOqy6zVTfyGYA" outgoing="_B8FMED6iEeSsj_NtrIDgmw">
-              <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Hazard"/>
-            </nodes>
-            <edges xmi:id="_uwz2QAKNEeOqy6zVTfyGYA" source="_uw1EYwKNEeOqy6zVTfyGYA" target="_uwzPMAKNEeOqy6zVTfyGYA">
-              <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree/hazard"/>
-            </edges>
-            <edges xmi:id="_wW2nAAKNEeOqy6zVTfyGYA" source="_uw1EYwKNEeOqy6zVTfyGYA" target="_uwzPMAKNEeOqy6zVTfyGYA">
-              <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//FaultTree/event"/>
-            </edges>
-            <edges xmi:id="_B8FMED6iEeSsj_NtrIDgmw" source="_uwzPMAKNEeOqy6zVTfyGYA" target="_uw1EYwKNEeOqy6zVTfyGYA">
-              <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Event/root"/>
-            </edges>
-          </conclusion>
-          <mappings xmi:id="_uw1EZAKNEeOqy6zVTfyGYA" origin="_r4tAsAKNEeOqy6zVTfyGYA" image="_uw1EYwKNEeOqy6zVTfyGYA"/>
-        </child>
-      </formula>
     </lhs>
     <rhs xmi:id="_mOczoQKNEeOqy6zVTfyGYA" name="Rhs">
       <nodes xmi:id="_r4tAsQKNEeOqy6zVTfyGYA" incoming="_DtnbID6iEeSsj_NtrIDgmw" outgoing="_vMiI8AKNEeOqy6zVTfyGYA _sjfqIAKNEeOqy6zVTfyGYA">
@@ -3831,5 +3809,18 @@
     </rhs>
     <mappings xmi:id="_obJksj8_EeSgouN-1T_yNA" origin="_obJksD8_EeSgouN-1T_yNA" image="_obJksT8_EeSgouN-1T_yNA"/>
     <mappings xmi:id="_cL4EET9CEeSgouN-1T_yNA" origin="_cL2O4D9CEeSgouN-1T_yNA" image="_cL4EED9CEeSgouN-1T_yNA"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_J_4p4EWGEeSgB8jU3mSauA" name="ExistsHazard">
+    <lhs xmi:id="_J_-JcEWGEeSgB8jU3mSauA" name="Lhs">
+      <nodes xmi:id="_Mwd7IEWGEeSgB8jU3mSauA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Hazard"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_J_-JcUWGEeSgB8jU3mSauA" name="Rhs">
+      <nodes xmi:id="_Mwd7IUWGEeSgB8jU3mSauA">
+        <type href="../../de.uni_stuttgart.iste.cowolf.model.fault_tree/model/FaultTree.ecore#//Hazard"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_Mwd7IkWGEeSgB8jU3mSauA" origin="_Mwd7IEWGEeSgB8jU3mSauA" image="_Mwd7IUWGEeSgB8jU3mSauA"/>
   </units>
 </henshin:Module>

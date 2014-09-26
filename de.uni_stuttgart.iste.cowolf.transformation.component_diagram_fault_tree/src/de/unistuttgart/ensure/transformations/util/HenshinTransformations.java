@@ -3837,6 +3837,26 @@ public class HenshinTransformations {
 
 
 	/**
+	 * Ask if there is a hazard in the fault tree
+	 * 
+	 * @param graph
+	 * @param logging
+	 * @return
+	 */
+	public static boolean existsHazard(EGraph graph, boolean logging) {
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), true).getUnit("ExistsHazard");
+		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
+		boolean result = application.execute(null);
+
+		if (logging) {
+			ArrayList<String> param = new ArrayList<String>();
+			TransformationsLogger.logRuleExecution(unit.getName(), param, result);
+		}
+		return result;
+	}
+	
+	
+	/**
 	 * Executes the rule CreateHazard, which creates a new Hazard if there is no one already present.
 	 * 
 	 * @param graph
@@ -3914,6 +3934,78 @@ public class HenshinTransformations {
 		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.FT_HENSHIN), true).getUnit("ConnectEventToHazardGate");
 		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		application.setParameterValue("event_name", event_name);
+		boolean result = application.execute(null);
+
+		if (logging) {
+			ArrayList<String> param = new ArrayList<String>();
+			TransformationsLogger.logRuleExecution(unit.getName(), param, result);
+		}
+		return result;
+	}
+	
+	/**
+	 * 
+	 * @param graph
+	 * @param logging
+	 * @return
+	 */
+	public static boolean connectIndependentBasicEventsToHazard(EGraph graph, boolean logging) {
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.ENSURE_HENSHIN), true).getUnit("ConnectIndependentBasicEventsToHazard");
+		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
+		boolean result = application.execute(null);
+
+		if (logging) {
+			ArrayList<String> param = new ArrayList<String>();
+			TransformationsLogger.logRuleExecution(unit.getName(), param, result);
+		}
+		return result;
+	}
+	
+	/**
+	 * 
+	 * @param graph
+	 * @param logging
+	 * @return
+	 */
+	public static boolean connectIndependentIntermediateEventsToHazard(EGraph graph, boolean logging) {
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.ENSURE_HENSHIN), true).getUnit("ConnectIndependentIntermediateEventsToHazard");
+		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
+		boolean result = application.execute(null);
+
+		if (logging) {
+			ArrayList<String> param = new ArrayList<String>();
+			TransformationsLogger.logRuleExecution(unit.getName(), param, result);
+		}
+		return result;
+	}
+
+	/**
+	 * 
+	 * @param graph
+	 * @param logging
+	 * @return
+	 */
+	public static boolean disconnectDependentBasicEventsFromHazard(EGraph graph, boolean logging) {
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.ENSURE_HENSHIN), true).getUnit("DisconnectDependentBasicEventsFromHazard");
+		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
+		boolean result = application.execute(null);
+
+		if (logging) {
+			ArrayList<String> param = new ArrayList<String>();
+			TransformationsLogger.logRuleExecution(unit.getName(), param, result);
+		}
+		return result;
+	}
+	
+	/**
+	 * 
+	 * @param graph
+	 * @param logging
+	 * @return
+	 */
+	public static boolean discconnectDependentIntermediateEventsFromHazard(EGraph graph, boolean logging) {
+		Unit unit = new HenshinResourceSet().getModule(URI.createURI(TransformationsConstants.ENSURE_HENSHIN), true).getUnit("DisconnectDependentIntermediateEventsFromHazard");
+		UnitApplication application = new UnitApplicationImpl(new EngineImpl(), graph, unit, null);
 		boolean result = application.execute(null);
 
 		if (logging) {

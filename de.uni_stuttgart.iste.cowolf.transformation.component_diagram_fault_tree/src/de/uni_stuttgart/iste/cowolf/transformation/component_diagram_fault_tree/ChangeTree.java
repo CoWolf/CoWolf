@@ -164,7 +164,9 @@ public class ChangeTree {
 	 * Creates a Hazard, in case there is already no one in the Fault Tree
 	 */
 	private static void createHazard() {
-		HenshinTransformations.createHazard(saGraph, true);
+		if (!HenshinTransformations.existsHazard(saGraph, true)) {
+			HenshinTransformations.createHazard(saGraph, true);
+		}
 	}
 
 	/**
@@ -208,11 +210,11 @@ public class ChangeTree {
 					/*
 					 * Create new error instance and link it with the new component
 					 */
-//					errorInstance = createErrorOrFailureName(newComponentInstance);
-//					HenshinTransformations.createErrorInstance(errorInstance, HenshinTransformations.DEFAULT_ERROR_TYPE_NAME, saGraph, true);
+					errorInstance = createErrorOrFailureName(newComponentInstance);
+					HenshinTransformations.createErrorInstance(errorInstance, HenshinTransformations.DEFAULT_ERROR_TYPE_NAME, saGraph, true);
 
 					// Link it to component via Trace
-//					HenshinTransformations.connectComponentInstanceWithErrorInstance(newComponentInstance, errorInstance, saGraph, true);
+					HenshinTransformations.connectComponentInstanceWithErrorInstance(newComponentInstance, errorInstance, saGraph, true);
 
 				} else {
 					errorInstance = errorInstances.get(0);
@@ -243,10 +245,6 @@ public class ChangeTree {
 				if (!HenshinTransformations.hasHazardInputGate(saGraph, true)) {
 					HenshinTransformations.createANDGateForHazard(saGraph, true);
 				}
-
-				
-				//Create connection between the new basic event and the hazard, as it doesn't have sub-components
-				HenshinTransformations.connectComponentToHazardGate(basicEvent, saGraph,true);
 
 			} else {
 				/* newComponentInstance has sub components or outgoing ports */
@@ -675,6 +673,18 @@ public class ChangeTree {
 		}
 	}
 
+	/**
+	 * Connects all independent events to hazard.
+	 * Disconnects the dependent ones.
+	 */
+	private static void connectIndependentEventsToHazard(){
+		HenshinTransformations.disconnectDependentBasicEventsFromHazard(saGraph, true);
+		HenshinTransformations.discconnectDependentIntermediateEventsFromHazard(saGraph, true);
+		
+		HenshinTransformations.connectIndependentBasicEventsToHazard(saGraph, true);
+		HenshinTransformations.connectIndependentIntermediateEventsToHazard(saGraph, true);
+	}
+
 	public static void init(Resource sa, Resource ft) {
 		// Add the own extension to importable instance models.
 		TransformationsUtil.registerExtensions();
@@ -732,6 +742,9 @@ public class ChangeTree {
 
 		// Handle new connectors.
 		handleNewConnectors(newConnectors);
+		
+		//Connect independent events to hazard
+		connectIndependentEventsToHazard();
 
 		// Logging.
 		TransformationsLogger.log("Construction of FaultTree terminated.");
