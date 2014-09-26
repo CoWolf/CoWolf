@@ -50,7 +50,6 @@ public class CoWolfProjectTest {
 	//CoWolf Project items test
 	//CoWolf consists of the following project items:
 	// + CoWolf
-	// 		- CoWolf Folder
 	//		- CoWolf Project
 	//		- CoWolf Transformation Mapping File
 	//		+ Models
@@ -69,15 +68,11 @@ public class CoWolfProjectTest {
 	    
 	    bot.tree().getTreeItem("CoWolf").expand();
 		
-		//Check if CoWolf Folder item is available
-		SWTBotTreeItem cFolder  = bot.tree().getTreeItem("CoWolf").getNode("CoWolf Folder").select();
-		assertEquals(cFolder.getText(), "CoWolf Folder");
-		
 		//Check if CoWolf Project item is available
 		SWTBotTreeItem cProject  = bot.tree().getTreeItem("CoWolf").getNode("CoWolf Project").select();
 		assertEquals(cProject.getText(), "CoWolf Project");
 		
-		//Check if CoWolf Folder item is available
+		//Check if CoWolf Transformation Mapping File item is available
 		SWTBotTreeItem cTrans = bot.tree().getTreeItem("CoWolf").getNode("CoWolf Transformation Mapping File").select();
 		assertEquals(cTrans.getText(), "CoWolf Transformation Mapping File");
 		
@@ -85,7 +80,7 @@ public class CoWolfProjectTest {
 		bot.tree().getTreeItem("CoWolf").getNode("Models").expand();
 		bot.tree().getTreeItem("CoWolf").getNode("Models").select();
 		
-		//Check if CoWolf Folder item is available
+		//Check if Models item is available
 		SWTBotTreeItem cAD = bot.tree().getTreeItem("CoWolf").getNode("Models").getNode("Activity Diagram").select();
 		assertEquals(cAD.getText(), "Activity Diagram");
 		
@@ -153,14 +148,14 @@ public class CoWolfProjectTest {
 		openProjectWizardwithContextMenu();
 		createModel("statechartemf Model");
 		
-		//create a new Cowolf Folder
+		//create a new Folder
 		openProjectWizardwithContextMenu();
-		bot.tree().getTreeItem("CoWolf").getNode("CoWolf Folder").select();
+		bot.tree().getTreeItem("General").getNode("Folder").select();
 		bot.button("Next >").click();
 		bot.textWithLabel("Folder &name:").setText("CoWolfTestFolder");
 		bot.button("Finish").click();
 		
-		//Create CoWolf Transformation Mapping file within Cowolf folder
+		//Create CoWolf Transformation Mapping file within Test folder
 		bot.sleep(20);
 		SWTBotTreeItem projectFolder = bot.tree().getTreeItem("CoWolf-Test-Project").select();
 		isExpanded(projectFolder);
