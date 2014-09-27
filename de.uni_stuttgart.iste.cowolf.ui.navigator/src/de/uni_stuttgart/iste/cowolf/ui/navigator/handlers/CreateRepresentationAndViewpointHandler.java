@@ -1,5 +1,10 @@
 package de.uni_stuttgart.iste.cowolf.ui.navigator.handlers;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -18,15 +23,12 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.edit.command.SetCommand;
-import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -36,7 +38,6 @@ import org.eclipse.sirius.business.api.helper.SiriusResourceHelper;
 import org.eclipse.sirius.business.api.session.DefaultLocalSessionCreationOperation;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
-import org.eclipse.sirius.diagram.impl.DSemanticDiagramImpl;
 import org.eclipse.sirius.tools.api.command.semantic.AddSemanticResourceCommand;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelection;
@@ -216,99 +217,164 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 
 			@Override
 			public IStatus runInWorkspace(IProgressMonitor monitor) {
-				IPath oldRepresentationPath = source.getFullPath()
-						.removeLastSegments(1)
+				IPath oldAirdPath = source.getFullPath().removeLastSegments(1)
 						.append(source.getName() + ".aird");
 
-				String newPathString = newPath.toString();
-				newPathString = (newPathString.substring(0,
-						newPathString.length()) + ".aird");
-
 				IFile oldAirdFile = source.getProject().getWorkspace()
-						.getRoot().getFile(oldRepresentationPath);
+						.getRoot().getFile(oldAirdPath);
+
+				URI oldAirdUri = (URI.createURI(oldAirdFile.getLocationURI()
+						.toString()));
+
+				String newAirdString = newPath.toString();
+
+				newAirdString = (newAirdString.substring(0,
+						newAirdString.length()) + ".aird");
+
+				IPath newAirdPath = new Path(newAirdString);
+
+				IFile newAirdFile = source.getProject().getWorkspace()
+						.getRoot().getFile(newAirdPath);
+
+				URI newAirdUri = (URI.createURI(newAirdFile.getLocationURI()
+						.toString()));
+
+				IFile newFile = source.getProject().getWorkspace().getRoot()
+						.getFile(newPath);
+
+				URI newFileUri = (URI.createURI(newFile.getLocationURI()
+						.toString()));
+
+				URI oldFileUri = (URI.createURI(source.getLocationURI()
+						.toString()));
+
 				if (oldAirdFile.exists()) {
-				
-					IFile newFile = source.getProject().getWorkspace()
-							.getRoot().getFile(newPath);
 
-					URI oldAirdUri = (URI.createURI(oldAirdFile
-							.getLocationURI().toString()));
-//
-					
-					URI newFileUri = (URI.createURI(newFile
-							.getLocationURI().toString()));
+					try {
+						oldAirdFile.copy(newAirdPath, false,
+								new NullProgressMonitor());
 
-					Session session = SessionManager.INSTANCE.getSession(
-							oldAirdUri, new NullProgressMonitor());
-					
-					AddSemanticResourceCommand addCommandToSession = new AddSemanticResourceCommand(
-							session, newFileUri, new NullProgressMonitor());
-					
-					session.getTransactionalEditingDomain().getCommandStack()
-							.execute(addCommandToSession);
-					session.save(new NullProgressMonitor());
+						BufferedReader reader = new BufferedReader(
+								new FileReader(newAirdFile.getLocation()
+										.toString()));
+						String line = null;
+						StringBuilder stringBuilder = new StringBuilder();
 
-					ResourceSetImpl impl = new ResourceSetImpl();
+						while ((line = reader.readLine()) != null) {
+							stringBuilder.append(line);
 
-					Resource resource = impl.getResource(
-							URI.createURI(newFile.getLocationURI()
-									.toString()), true);
-
-					EObject rootObject = null;
-					if (newFile.getFileExtension().equals(
-							"sequence_diagram")) {
-						Interaction interaction = null;
-
-						EList<PackageableElement> pack = ((PackageImpl) resource
-								.getContents().get(0))
-								.getPackagedElements();
-						for (PackageableElement element : pack) {
-							if (element instanceof Interaction) {
-								interaction = (Interaction) element;
-							}
 						}
-						rootObject = interaction;
-					} else {
 
-						rootObject = resource.getContents().get(0);
+						String result = stringBuilder.toString();
+						result = result.replace(source.getName(),
+								newFile.getName());
+
+						FileOutputStream stream = new FileOutputStream(
+								newAirdFile.getLocation().toString(), false); 
+						byte[] myBytes = result.getBytes();
+						stream.write(myBytes);
+						stream.close();
+						
+						oldAirdFile.delete(true, new NullProgressMonitor());
+//
+//						Session newSession = SessionManager.INSTANCE
+//								.getSession(newAirdUri,
+//										new NullProgressMonitor());
+
+						// AddSemanticResourceCommand addResourceToSession = new
+						// AddSemanticResourceCommand(
+						// newSession, newFileUri,
+						// new NullProgressMonitor());
+						//
+						//
+						//
+						// Resource res =
+						// newSession.getAllSessionResources().iterator().next();
+						//
+						// RemoveSemanticResourceCommand
+						// removeResourceFromSession = new
+						// RemoveSemanticResourceCommand(
+						// newSession,res, true,
+						// new NullProgressMonitor());
+						//
+						// newSession.getTransactionalEditingDomain()
+						// .getCommandStack()
+						// .execute(addResourceToSession);
+						//
+						//
+						// newSession.getTransactionalEditingDomain()
+						// .getCommandStack()
+						// .execute(removeResourceFromSession);
+
+//						newSession.save(new NullProgressMonitor());
+//
+//						ResourceSetImpl impl = new ResourceSetImpl();
+//
+//						Resource resource = impl.getResource(
+//								URI.createURI(newFile.getLocationURI()
+//										.toString()), true);
+//
+//						EObject rootObject = null;
+//						if (newFile.getFileExtension().equals(
+//								"sequence_diagram")) {
+//							Interaction interaction = null;
+//
+//							EList<PackageableElement> pack = ((PackageImpl) resource
+//									.getContents().get(0))
+//									.getPackagedElements();
+//							for (PackageableElement element : pack) {
+//								if (element instanceof Interaction) {
+//									interaction = (Interaction) element;
+//								}
+//							}
+//							rootObject = interaction;
+//						} else {
+//
+//							rootObject = resource.getContents().get(0);
+//						}
+//
+//						Set<Viewpoint> availableViewpoints = ViewpointSelection
+//								.getViewpoints(newFile.getFileExtension());
+//						Collection<RepresentationDescription> descriptions = DialectManager.INSTANCE
+//								.getAvailableRepresentationDescriptions(
+//										availableViewpoints, rootObject);
+//
+//						if (descriptions.isEmpty()) {
+//							LOGGER.error("Loading resource failed.");
+//						}
+//						RepresentationDescription description = descriptions
+//								.iterator().next();
+//
+//						Collection<DRepresentation> representations = DialectManager.INSTANCE
+//								.getRepresentations(description, newSession);
+//
+//						DSemanticDiagramImpl currentRep = (DSemanticDiagramImpl) representations
+//								.iterator().next();
+//
+//						EStructuralFeature targetFeature = currentRep.eClass()
+//								.getEStructuralFeature("target");
+//
+//						TransactionalEditingDomain ted = (TransactionalEditingDomain) AdapterFactoryEditingDomain
+//								.getEditingDomainFor(currentRep);
+//
+//						Command com = SetCommand.create(ted, currentRep,
+//								targetFeature, rootObject);
+//
+//						ted.getCommandStack().execute(com);
+//
+//						newSession.save(new NullProgressMonitor());
+					} catch (CoreException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (FileNotFoundException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
 					}
-
-					Set<Viewpoint> availableViewpoints = ViewpointSelection
-							.getViewpoints(newFile.getFileExtension());
-					Collection<RepresentationDescription> descriptions = DialectManager.INSTANCE
-							.getAvailableRepresentationDescriptions(
-									availableViewpoints, rootObject);
-
-					if (descriptions.isEmpty()) {
-						LOGGER.error("Loading resource failed.");
-					}
-					RepresentationDescription description = descriptions
-							.iterator().next();
-
-					Collection<DRepresentation> representations = DialectManager.INSTANCE
-							.getRepresentations(description, session);
-
-					DSemanticDiagramImpl currentRep = (DSemanticDiagramImpl) representations
-							.iterator().next();
-
-					EStructuralFeature targetFeature = currentRep.eClass()
-							.getEStructuralFeature("target");
-
-					TransactionalEditingDomain ted = (TransactionalEditingDomain) AdapterFactoryEditingDomain
-							.getEditingDomainFor(currentRep);
-
-					Command com = SetCommand.create(ted, currentRep,
-							targetFeature, rootObject);
-
-
-					ted.getCommandStack().execute(com);
-					
-					
-
-					
-
-session.save(new NullProgressMonitor());
 				}
+
 				return Status.OK_STATUS;
 			}
 		}.schedule();
