@@ -12,21 +12,18 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.resources.WorkspaceJob;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
@@ -40,7 +37,6 @@ import org.eclipse.sirius.business.api.session.DefaultLocalSessionCreationOperat
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.diagram.impl.DSemanticDiagramImpl;
-import org.eclipse.sirius.diagram.sequence.business.internal.metamodel.SequenceDDiagramSpec;
 import org.eclipse.sirius.tools.api.command.semantic.AddSemanticResourceCommand;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelection;
@@ -228,24 +224,16 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 				newPathString = (newPathString.substring(0,
 						newPathString.length()) + ".aird");
 
-				IPath newRepresentationPath = new Path(newPathString);
-
 				IFile oldAirdFile = source.getProject().getWorkspace()
 						.getRoot().getFile(oldRepresentationPath);
 				if (oldAirdFile.exists()) {
-					//oldAirdFile.move(newRepresentationPath, true,
-						//	new NullProgressMonitor());
+				
 					IFile newFile = source.getProject().getWorkspace()
 							.getRoot().getFile(newPath);
 
 					URI oldAirdUri = (URI.createURI(oldAirdFile
 							.getLocationURI().toString()));
 //
-//						IFile newAirdFile = source.getProject().getWorkspace()
-//								.getRoot().getFile(newRepresentationPath);
-//
-//						URI newAirdUri = (URI.createURI(newAirdFile
-//								.getLocationURI().toString()));
 					
 					URI newFileUri = (URI.createURI(newFile
 							.getLocationURI().toString()));
@@ -292,7 +280,7 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 									availableViewpoints, rootObject);
 
 					if (descriptions.isEmpty()) {
-						// TODO
+						LOGGER.error("Loading resource failed.");
 					}
 					RepresentationDescription description = descriptions
 							.iterator().next();
@@ -315,8 +303,7 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 
 					ted.getCommandStack().execute(com);
 					
-					EObject testObject = ((SequenceDDiagramSpec) currentRep)
-							.getTarget();
+					
 
 					
 
