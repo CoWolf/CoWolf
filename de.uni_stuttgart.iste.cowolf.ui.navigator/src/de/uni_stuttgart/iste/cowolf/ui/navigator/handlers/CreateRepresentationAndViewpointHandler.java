@@ -1,11 +1,8 @@
 package de.uni_stuttgart.iste.cowolf.ui.navigator.handlers;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Set;
 
 import javax.swing.JOptionPane;
@@ -15,6 +12,7 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.resources.WorkspaceJob;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
@@ -28,7 +26,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
@@ -42,12 +40,12 @@ import org.eclipse.sirius.business.api.session.DefaultLocalSessionCreationOperat
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.diagram.impl.DSemanticDiagramImpl;
+import org.eclipse.sirius.diagram.sequence.business.internal.metamodel.SequenceDDiagramSpec;
 import org.eclipse.sirius.tools.api.command.semantic.AddSemanticResourceCommand;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelection;
 import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelectionCallbackWithConfimation;
 import org.eclipse.sirius.ui.business.internal.commands.ChangeViewpointSelectionCommand;
-import org.eclipse.sirius.viewpoint.DAnalysis;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
@@ -122,6 +120,7 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 						airdFileURI, new NullProgressMonitor());
 				sessionCreationOperation.execute();
 
+				// create viewpoint
 				Session session = SessionManager.INSTANCE.getSession(
 						airdFileURI, new NullProgressMonitor());
 
@@ -234,35 +233,47 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 				IFile oldAirdFile = source.getProject().getWorkspace()
 						.getRoot().getFile(oldRepresentationPath);
 				if (oldAirdFile.exists()) {
-					// oldAirdFile.move(newRepresentationPath, true,
-					// new NullProgressMonitor());
+					//oldAirdFile.move(newRepresentationPath, true,
+						//	new NullProgressMonitor());
 					IFile newFile = source.getProject().getWorkspace()
 							.getRoot().getFile(newPath);
 
 					URI oldAirdUri = (URI.createURI(oldAirdFile
 							.getLocationURI().toString()));
-					//
-					// IFile newAirdFile = source.getProject().getWorkspace()
-					// .getRoot().getFile(newRepresentationPath);
+//
+//						IFile newAirdFile = source.getProject().getWorkspace()
+//								.getRoot().getFile(newRepresentationPath);
+//
+//						URI newAirdUri = (URI.createURI(newAirdFile
+//								.getLocationURI().toString()));
+					
+					URI newFileUri = (URI.createURI(newFile
+							.getLocationURI().toString()));
 
-					// URI newAirdUri = (URI.createURI(newAirdFile
-					// .getLocationURI().toString()));
-
-					URI newFileUri = (URI.createURI(newFile.getLocationURI()
-							.toString()));
+					Session session = SessionManager.INSTANCE.getSession(
+							oldAirdUri, new NullProgressMonitor());
+					
+					AddSemanticResourceCommand addCommandToSession = new AddSemanticResourceCommand(
+							session, newFileUri, new NullProgressMonitor());
+					
+					session.getTransactionalEditingDomain().getCommandStack()
+							.execute(addCommandToSession);
+					session.save(new NullProgressMonitor());
 
 					ResourceSetImpl impl = new ResourceSetImpl();
 
 					Resource resource = impl.getResource(
-							URI.createURI(newFile.getLocationURI().toString()),
-							true);
+							URI.createURI(newFile.getLocationURI()
+									.toString()), true);
 
 					EObject rootObject = null;
-					if (newFile.getFileExtension().equals("sequence_diagram")) {
+					if (newFile.getFileExtension().equals(
+							"sequence_diagram")) {
 						Interaction interaction = null;
 
 						EList<PackageableElement> pack = ((PackageImpl) resource
-								.getContents().get(0)).getPackagedElements();
+								.getContents().get(0))
+								.getPackagedElements();
 						for (PackageableElement element : pack) {
 							if (element instanceof Interaction) {
 								interaction = (Interaction) element;
@@ -286,45 +297,11 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 					RepresentationDescription description = descriptions
 							.iterator().next();
 
-					// Create a new representation file
-					// org.eclipse.sirius.business.api.session.SessionCreationOperation
-					// sessionCreationOperation = new
-					// DefaultLocalSessionCreationOperation(
-					// newAirdUri, new NullProgressMonitor());
-					// sessionCreationOperation.execute();
-
-					Session oldSession = SessionManager.INSTANCE.getSession(
-							oldAirdUri, new NullProgressMonitor());
-
-					Collection<DRepresentation> representations = DialectManager.INSTANCE.getRepresentations(description, oldSession);
-							
+					Collection<DRepresentation> representations = DialectManager.INSTANCE
+							.getRepresentations(description, session);
 
 					DSemanticDiagramImpl currentRep = (DSemanticDiagramImpl) representations
 							.iterator().next();
-
-					// Session newSession = SessionManager.INSTANCE.getSession(
-					// newAirdUri, new NullProgressMonitor());
-
-					// newSession.save(new NullProgressMonitor());
-
-					ResourceSet rs = new ResourceSetImpl();
-					Resource rsc = rs.createResource(oldAirdUri);
-					try {
-						rsc.load(null);
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-
-					}
-					List<DRepresentation> list = new ArrayList<DRepresentation>();
-					list.add(currentRep);
-					Collection<DRepresentation> coll = list;
-					DAnalysis root = (DAnalysis) rsc.getContents().get(0);
-
-					// MoveRepresentationCommand mrc = new
-					// MoveRepresentationCommand(
-					// oldSession, root, coll);
-					//
-					// oldSession.getTransactionalEditingDomain().getCommandStack().execute(mrc);
 
 					EStructuralFeature targetFeature = currentRep.eClass()
 							.getEStructuralFeature("target");
@@ -332,18 +309,18 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 					TransactionalEditingDomain ted = (TransactionalEditingDomain) AdapterFactoryEditingDomain
 							.getEditingDomainFor(currentRep);
 
-					AddSemanticResourceCommand addCommandToSession = new AddSemanticResourceCommand(
-							oldSession, newFileUri, new NullProgressMonitor());
-					oldSession.getTransactionalEditingDomain()
-							.getCommandStack().execute(addCommandToSession);
-
-					oldSession.save(new NullProgressMonitor());
-					
 					Command com = SetCommand.create(ted, currentRep,
 							targetFeature, rootObject);
 
+
 					ted.getCommandStack().execute(com);
-					oldSession.save(new NullProgressMonitor());
+					
+					EObject testObject = ((SequenceDDiagramSpec) currentRep)
+							.getTarget();
+
+					
+
+session.save(new NullProgressMonitor());
 				}
 				return Status.OK_STATUS;
 			}
