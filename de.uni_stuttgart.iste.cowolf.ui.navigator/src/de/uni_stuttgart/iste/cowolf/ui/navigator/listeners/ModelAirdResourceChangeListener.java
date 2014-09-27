@@ -20,7 +20,7 @@ import de.uni_stuttgart.iste.cowolf.model.ModelRegistry;
 import de.uni_stuttgart.iste.cowolf.ui.navigator.handlers.CreateRepresentationAndViewpointHandler;
 
 /**
- * @author Verena Käfer
+ * @author Philipp Niethammer, Verena Käfer
  * 
  *         This class reacts on changes in the navigator and calls methods to
  *         change the according aird files
@@ -53,8 +53,7 @@ public class ModelAirdResourceChangeListener implements IResourceChangeListener 
 				// Don't go into non-CoWolf projects.
 				if (res.getType() == IResource.PROJECT) {
 					if (delta.getKind() == IResourceDelta.REMOVED) {
-						ModelAssociationFactory.eINSTANCE
-								.removeModelAssociation(res.getProject());
+						
 						return false;
 					}
 					if (!res.getProject().isOpen()) {
