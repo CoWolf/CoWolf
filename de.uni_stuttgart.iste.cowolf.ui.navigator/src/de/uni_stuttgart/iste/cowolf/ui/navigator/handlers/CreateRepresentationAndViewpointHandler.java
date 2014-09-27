@@ -223,9 +223,6 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 				IFile oldAirdFile = source.getProject().getWorkspace()
 						.getRoot().getFile(oldAirdPath);
 
-				URI oldAirdUri = (URI.createURI(oldAirdFile.getLocationURI()
-						.toString()));
-
 				String newAirdString = newPath.toString();
 
 				newAirdString = (newAirdString.substring(0,
@@ -233,19 +230,10 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 
 				IPath newAirdPath = new Path(newAirdString);
 
-				IFile newAirdFile = source.getProject().getWorkspace()
-						.getRoot().getFile(newAirdPath);
-
-				URI newAirdUri = (URI.createURI(newAirdFile.getLocationURI()
-						.toString()));
-
 				IFile newFile = source.getProject().getWorkspace().getRoot()
 						.getFile(newPath);
 
 				URI newFileUri = (URI.createURI(newFile.getLocationURI()
-						.toString()));
-
-				URI oldFileUri = (URI.createURI(source.getLocationURI()
 						.toString()));
 
 				if (oldAirdFile.exists()) {
@@ -253,6 +241,12 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 					try {
 						oldAirdFile.copy(newAirdPath, false,
 								new NullProgressMonitor());
+
+						IFile newAirdFile = source.getProject().getWorkspace()
+								.getRoot().getFile(newAirdPath);
+
+						URI newAirdUri = (URI.createURI(newAirdFile
+								.getLocationURI().toString()));
 
 						BufferedReader reader = new BufferedReader(
 								new FileReader(newAirdFile.getLocation()
@@ -266,112 +260,78 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 						}
 
 						String result = stringBuilder.toString();
-						result = result.replace(source.getName(),
-								newFile.getName());
+						result = result.replace(source.getProjectRelativePath()
+								.toString(), newFile.getProjectRelativePath()
+								.toString());
 
 						FileOutputStream stream = new FileOutputStream(
-								newAirdFile.getLocation().toString(), false); 
+								newAirdFile.getLocation().toString(), false);
 						byte[] myBytes = result.getBytes();
 						stream.write(myBytes);
 						stream.close();
-						
+
 						oldAirdFile.delete(true, new NullProgressMonitor());
-//
-//						Session newSession = SessionManager.INSTANCE
-//								.getSession(newAirdUri,
-//										new NullProgressMonitor());
 
-						// AddSemanticResourceCommand addResourceToSession = new
-						// AddSemanticResourceCommand(
-						// newSession, newFileUri,
-						// new NullProgressMonitor());
-						//
-						//
-						//
-						// Resource res =
-						// newSession.getAllSessionResources().iterator().next();
-						//
-						// RemoveSemanticResourceCommand
-						// removeResourceFromSession = new
-						// RemoveSemanticResourceCommand(
-						// newSession,res, true,
-						// new NullProgressMonitor());
-						//
-						// newSession.getTransactionalEditingDomain()
-						// .getCommandStack()
-						// .execute(addResourceToSession);
-						//
-						//
-						// newSession.getTransactionalEditingDomain()
-						// .getCommandStack()
-						// .execute(removeResourceFromSession);
+						Session newSession = SessionManager.INSTANCE
+								.getSession(newAirdUri,
+										new NullProgressMonitor());
 
-//						newSession.save(new NullProgressMonitor());
-//
-//						ResourceSetImpl impl = new ResourceSetImpl();
-//
-//						Resource resource = impl.getResource(
-//								URI.createURI(newFile.getLocationURI()
-//										.toString()), true);
-//
-//						EObject rootObject = null;
-//						if (newFile.getFileExtension().equals(
-//								"sequence_diagram")) {
-//							Interaction interaction = null;
-//
-//							EList<PackageableElement> pack = ((PackageImpl) resource
-//									.getContents().get(0))
-//									.getPackagedElements();
-//							for (PackageableElement element : pack) {
-//								if (element instanceof Interaction) {
-//									interaction = (Interaction) element;
-//								}
-//							}
-//							rootObject = interaction;
-//						} else {
-//
-//							rootObject = resource.getContents().get(0);
-//						}
-//
-//						Set<Viewpoint> availableViewpoints = ViewpointSelection
-//								.getViewpoints(newFile.getFileExtension());
-//						Collection<RepresentationDescription> descriptions = DialectManager.INSTANCE
-//								.getAvailableRepresentationDescriptions(
-//										availableViewpoints, rootObject);
-//
-//						if (descriptions.isEmpty()) {
-//							LOGGER.error("Loading resource failed.");
-//						}
-//						RepresentationDescription description = descriptions
-//								.iterator().next();
-//
-//						Collection<DRepresentation> representations = DialectManager.INSTANCE
-//								.getRepresentations(description, newSession);
-//
-//						DSemanticDiagramImpl currentRep = (DSemanticDiagramImpl) representations
-//								.iterator().next();
-//
-//						EStructuralFeature targetFeature = currentRep.eClass()
-//								.getEStructuralFeature("target");
-//
-//						TransactionalEditingDomain ted = (TransactionalEditingDomain) AdapterFactoryEditingDomain
-//								.getEditingDomainFor(currentRep);
-//
-//						Command com = SetCommand.create(ted, currentRep,
-//								targetFeature, rootObject);
-//
-//						ted.getCommandStack().execute(com);
-//
-//						newSession.save(new NullProgressMonitor());
+						Collection<Resource> resources = newSession
+								.getSemanticResources();
+
+						// Sirius deleted the model entry
+						if (resources.size() == 0) {
+							JOptionPane
+									.showMessageDialog(null,
+											"It was not possible to copy the layout. Sorry");
+
+							AddSemanticResourceCommand addResourceToSession = new AddSemanticResourceCommand(
+									newSession, newFileUri,
+									new NullProgressMonitor());
+
+							newSession.getTransactionalEditingDomain()
+									.getCommandStack()
+									.execute(addResourceToSession);
+							newSession.save(new NullProgressMonitor());
+
+							newSession.save(new NullProgressMonitor());
+
+							// This is tricky:
+							// Sirius takes in the session the uri to the model,
+							// but in the aird it only needs the name of the
+							// file. This makes problems in subfolders.
+							// Therefore we replace the project relative path
+							// with the file name
+							BufferedReader reader1 = new BufferedReader(
+									new FileReader(newAirdFile.getLocation()
+											.toString()));
+							String line1 = null;
+							StringBuilder stringBuilder1 = new StringBuilder();
+
+							while ((line1 = reader1.readLine()) != null) {
+								stringBuilder1.append(line1);
+
+							}
+
+							String result1 = stringBuilder1.toString();
+							result1 = result1.replace(newFile
+									.getProjectRelativePath().toString(),
+									newFile.getName());
+
+							FileOutputStream stream1 = new FileOutputStream(
+									newAirdFile.getLocation().toString(), false);
+							byte[] myBytes1 = result1.getBytes();
+							stream1.write(myBytes1);
+							stream1.close();
+
+						}
+
 					} catch (CoreException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+						LOGGER.error("Renamin resource failed.", e);
 					} catch (FileNotFoundException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+						LOGGER.error("Renamin resource failed.", e);
 					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+						LOGGER.error("Renamin resource failed.", e);
 					}
 				}
 
@@ -396,20 +356,122 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 
 			@Override
 			public IStatus runInWorkspace(IProgressMonitor monitor) {
-				IPath oldRepresentationPath = source.getFullPath()
-						.removeLastSegments(1)
+				IPath oldAirdPath = source.getFullPath().removeLastSegments(1)
 						.append(source.getName() + ".aird");
 
 				IFile oldAirdFile = source.getProject().getWorkspace()
-						.getRoot().getFile(oldRepresentationPath);
+						.getRoot().getFile(oldAirdPath);
+
+				String newAirdString = newPath.toString();
+
+				newAirdString = (newAirdString.substring(0,
+						newAirdString.length()) + ".aird");
+
+				IPath newAirdPath = new Path(newAirdString);
+
+				IFile newFile = source.getProject().getWorkspace().getRoot()
+						.getFile(newPath);
+
+				URI newFileUri = (URI.createURI(newFile.getLocationURI()
+						.toString()));
+
 				if (oldAirdFile.exists()) {
 
-					IFile newFile = source.getProject().getWorkspace()
-							.getRoot().getFile(newPath);
-					CreateRepresentationAndViewpointHandler.createAll(newFile,
-							false);
+					try {
+						oldAirdFile.copy(newAirdPath, false,
+								new NullProgressMonitor());
 
+						IFile newAirdFile = source.getProject().getWorkspace()
+								.getRoot().getFile(newAirdPath);
+
+						URI newAirdUri = (URI.createURI(newAirdFile
+								.getLocationURI().toString()));
+
+						BufferedReader reader = new BufferedReader(
+								new FileReader(newAirdFile.getLocation()
+										.toString()));
+						String line = null;
+						StringBuilder stringBuilder = new StringBuilder();
+
+						while ((line = reader.readLine()) != null) {
+							stringBuilder.append(line);
+
+						}
+
+						String result = stringBuilder.toString();
+						result = result.replace(source.getProjectRelativePath()
+								.toString(), newFile.getProjectRelativePath()
+								.toString());
+
+						FileOutputStream stream = new FileOutputStream(
+								newAirdFile.getLocation().toString(), false);
+						byte[] myBytes = result.getBytes();
+						stream.write(myBytes);
+						stream.close();
+
+						Session newSession = SessionManager.INSTANCE
+								.getSession(newAirdUri,
+										new NullProgressMonitor());
+
+						Collection<Resource> resources = newSession
+								.getSemanticResources();
+
+						// Sirius deleted the model entry
+						if (resources.size() == 0) {
+							JOptionPane
+									.showMessageDialog(null,
+											"It was not possible to copy the layout. Sorry");
+
+							AddSemanticResourceCommand addResourceToSession = new AddSemanticResourceCommand(
+									newSession, newFileUri,
+									new NullProgressMonitor());
+
+							newSession.getTransactionalEditingDomain()
+									.getCommandStack()
+									.execute(addResourceToSession);
+							newSession.save(new NullProgressMonitor());
+
+							newSession.save(new NullProgressMonitor());
+
+							// This is tricky:
+							// Sirius takes in the session the uri to the model,
+							// but in the aird it only needs the name of the
+							// file. This makes problems in subfolders.
+							// Therefore we replace the project relative path
+							// with the file name
+							BufferedReader reader1 = new BufferedReader(
+									new FileReader(newAirdFile.getLocation()
+											.toString()));
+							String line1 = null;
+							StringBuilder stringBuilder1 = new StringBuilder();
+
+							while ((line1 = reader1.readLine()) != null) {
+								stringBuilder1.append(line1);
+
+							}
+
+							String result1 = stringBuilder1.toString();
+							result1 = result1.replace(newFile
+									.getProjectRelativePath().toString(),
+									newFile.getName());
+
+							FileOutputStream stream1 = new FileOutputStream(
+									newAirdFile.getLocation().toString(), false);
+							byte[] myBytes1 = result1.getBytes();
+							stream1.write(myBytes1);
+							stream1.close();
+
+						}
+
+					} catch (CoreException e) {
+						LOGGER.error("Copying resource failed.", e);
+					} catch (FileNotFoundException e) {
+						LOGGER.error("Copying resource failed.", e);
+					} catch (IOException e) {
+						LOGGER.error("Copying resource failed.", e);
+					}
 				}
+
 				return Status.OK_STATUS;
 			}
 		}.schedule();
