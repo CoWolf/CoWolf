@@ -26,6 +26,16 @@ public class CommandLineExecutor {
 
 	public static InputStream execCommandAndGetOutput(String directory,
 			String command, String parameters) throws Exception {
+		return execCommandAndGetProcess(directory, command, parameters).getInputStream();
+	}
+
+	public static InputStream execCommandAndGetErrorOutput(String directory,
+			String command, String parameters) throws Exception {
+		return execCommandAndGetProcess(directory, command, parameters).getErrorStream();		
+	}
+
+	public static Process execCommandAndGetProcess(String directory,
+			String command, String parameters) throws Exception {
 
 		File dir = new File(directory);
 		Process process;
@@ -42,7 +52,7 @@ public class CommandLineExecutor {
 					Messages.commandLineExecutor_unknown_operating_system);
 		}
 
-		return process.getInputStream();
+		return process;
 
 	}
 
