@@ -490,7 +490,7 @@ public class LQNValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String ENTRY_TYPE__GRAPH_ENTRY_TYPE_DEFINED_WITH_GRAPH__EEXPRESSION = "if self.type = TypeType::GRAPH or self.type = TypeType::NONE then self.entryActivityGraph->size() > 0 else true endif";
+	protected static final String ENTRY_TYPE__GRAPH_ENTRY_TYPE_DEFINED_WITH_GRAPH__EEXPRESSION = "if self.type = TypeType::GRAPH then self.entryActivityGraph->size() > 0 else true endif";
 
 	/**
 	 * Validates the GraphEntryTypeDefinedWithGraph constraint of '<em>Entry Type</em>'.

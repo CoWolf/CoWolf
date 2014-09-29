@@ -7480,7 +7480,7 @@ public class LQNPackageImpl extends EPackageImpl implements LQNPackage {
 		   source, 
 		   new String[] {
 			 "PH1PH2EntryTypeDefinedWithPhases", "if self.type = TypeType::PH1PH2 then self.entryPhaseActivities->size() > 0 else true endif",
-			 "GraphEntryTypeDefinedWithGraph", "if self.type = TypeType::GRAPH or self.type = TypeType::NONE then self.entryActivityGraph->size() > 0 else true endif"
+			 "GraphEntryTypeDefinedWithGraph", "if self.type = TypeType::GRAPH then self.entryActivityGraph->size() > 0 else true endif"
 		   });
 	}
 
