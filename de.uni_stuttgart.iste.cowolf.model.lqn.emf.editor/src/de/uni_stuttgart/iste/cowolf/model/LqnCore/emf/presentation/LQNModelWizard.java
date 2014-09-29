@@ -273,8 +273,8 @@ public class LQNModelWizard extends Wizard implements INewWizard {
 
 			// Only create representation if wished by the user
 			if (editorPage.getGraphicalSelection()) {
-				// CreateRepresentationAndViewpointHandler.createAll(modelFile,
-				//true);
+				 CreateRepresentationAndViewpointHandler.createAll(modelFile,
+				true);
 			}
 
 			return true;
