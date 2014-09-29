@@ -540,7 +540,7 @@ public class StatemachineModelWizard extends Wizard implements INewWizard {
 
 		public EditorPage() {
 			super("ViewpointPage");
-			this.setTitle("Ggraphical Editor");
+			this.setTitle("Graphical Editor");
 			this.setDescription("Create a graphical editor");
 		}
 
