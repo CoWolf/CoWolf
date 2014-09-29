@@ -52,6 +52,7 @@ public class ComponentSelectionWizardPage extends WizardPage {
 	private Button btnSaveDifferenceAs;
 	private DirectoryFieldEditor patchFile;
 	private Composite composite;
+	private boolean patchDefault = false;
 
 	/**
 	 * Page providing main content for wizard.
@@ -59,7 +60,7 @@ public class ComponentSelectionWizardPage extends WizardPage {
 	 * @param wizard
 	 */
 	protected ComponentSelectionWizardPage(ComponentSelectionWizard wizard,
-			IFile sourceFile, Model model) {
+			IFile sourceFile, Model model, boolean patch) {
 		super("Model Difference");
 		this.setDescription("Compare two versions of a model with SiLift.");
 		this.setTitle("Compare models with each other.");
@@ -67,6 +68,7 @@ public class ComponentSelectionWizardPage extends WizardPage {
 		targetSelection = new ModelVersionProvider();
 		this.source = sourceFile;
 		this.model = model;
+		this.patchDefault = patch;
 	}
 
 	@Override
@@ -120,6 +122,8 @@ public class ComponentSelectionWizardPage extends WizardPage {
 		});
 		btnSaveDifferenceAs.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 4, 1));
 		btnSaveDifferenceAs.setText("Save difference as patch");
+		
+		btnSaveDifferenceAs.setSelection(this.patchDefault);
 		
 		composite = new Composite(container, SWT.NONE);
 		composite.setLayout(new FillLayout(SWT.HORIZONTAL));

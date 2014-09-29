@@ -30,6 +30,7 @@ public class ComponentSelectionWizard extends Wizard {
 	private Resource baseVersion;
 	private Resource targetVersion;
 	private File patchFile;
+    private boolean patchDefault = false;
 	
     /**
      * Constructor setting both models.
@@ -45,7 +46,7 @@ public class ComponentSelectionWizard extends Wizard {
 
     @Override
     public void addPages() {
-        this.page = new ComponentSelectionWizardPage(this, source, sourceModel);
+        this.page = new ComponentSelectionWizardPage(this, source, sourceModel, patchDefault);
         this.addPage(this.page);
     }
 
@@ -79,6 +80,14 @@ public class ComponentSelectionWizard extends Wizard {
 	
 	public File getPatchFile() {
 		return this.patchFile;
+	}
+	
+	public boolean isPatchDefault() {
+		return patchDefault;
+	}
+
+	public void setPatchDefault(boolean patchDefault) {
+		this.patchDefault = patchDefault;
 	}
 
 }

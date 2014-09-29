@@ -52,6 +52,14 @@ public class Evolve extends AbstractHandler {
 	
 	@Override
     public Object execute(ExecutionEvent event) throws ExecutionException {
+		
+		String patchParam = event.getParameter("de.uni_stuttgart.iste.cowolf.ui.evolution.handlers.evolve.patch");
+		boolean patch = false;
+		if (patchParam != null && (patchParam.equalsIgnoreCase("yes")
+				|| patchParam.equalsIgnoreCase("true")
+				|| patchParam.equalsIgnoreCase("1"))) {
+			patch = true;
+		}
 
 
 		if (!PlatformUI.getWorkbench().saveAllEditors(true)) {
@@ -86,6 +94,8 @@ public class Evolve extends AbstractHandler {
         final Model sourceModel = ma.getModel(sourceResource);
         
         ComponentSelectionWizard wizard = new ComponentSelectionWizard(iFile, sourceModel);
+        wizard.setPatchDefault(patch);
+        
         WizardDialog dialog = new WizardDialog(window.getShell(), wizard);
         if (dialog.open() == WizardDialog.CANCEL) {
         	return null;
