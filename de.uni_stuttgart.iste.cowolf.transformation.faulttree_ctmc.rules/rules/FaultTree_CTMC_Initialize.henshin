@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_0NtrUENGEeSbft_zz69zYA">
+  <imports href="http://ctmc/1.0#/"/>
+  <imports href="http://FaultTree/1.0#/"/>
+  <imports href="http://www.eclipse.org/emf/2011/Henshin/Trace#/"/>
+  <imports href="http://www.sidiff.org/difference/symmetric/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_5QVQoENGEeSbft_zz69zYA" name="createInitialState">
+    <lhs xmi:id="_5QVQoUNGEeSbft_zz69zYA" name="Lhs">
+      <nodes xmi:id="_5QVQokNGEeSbft_zz69zYA">
+        <type href="http://ctmc/1.0#//CTMC"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_5QVQo0NGEeSbft_zz69zYA">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_5QVQpENGEeSbft_zz69zYA">
+          <conclusion xmi:id="_5QVQpUNGEeSbft_zz69zYA">
+            <nodes xmi:id="_5QVQpkNGEeSbft_zz69zYA" outgoing="_5QVQqENGEeSbft_zz69zYA">
+              <type href="http://ctmc/1.0#//CTMC"/>
+            </nodes>
+            <nodes xmi:id="_5QVQp0NGEeSbft_zz69zYA" incoming="_5QVQqENGEeSbft_zz69zYA">
+              <type href="http://ctmc/1.0#//State"/>
+            </nodes>
+            <edges xmi:id="_5QVQqENGEeSbft_zz69zYA" source="_5QVQpkNGEeSbft_zz69zYA" target="_5QVQp0NGEeSbft_zz69zYA">
+              <type href="http://ctmc/1.0#//CTMC/initialState"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_5QVQqUNGEeSbft_zz69zYA" origin="_5QVQokNGEeSbft_zz69zYA" image="_5QVQpkNGEeSbft_zz69zYA"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_5QVQqkNGEeSbft_zz69zYA" name="Rhs">
+      <nodes xmi:id="_5QVQq0NGEeSbft_zz69zYA" outgoing="_5QVQrUNGEeSbft_zz69zYA _5QVQrkNGEeSbft_zz69zYA">
+        <type href="http://ctmc/1.0#//CTMC"/>
+      </nodes>
+      <nodes xmi:id="_5QVQrENGEeSbft_zz69zYA" incoming="_5QVQrUNGEeSbft_zz69zYA _5QVQrkNGEeSbft_zz69zYA">
+        <type href="http://ctmc/1.0#//State"/>
+      </nodes>
+      <edges xmi:id="_5QVQrUNGEeSbft_zz69zYA" source="_5QVQq0NGEeSbft_zz69zYA" target="_5QVQrENGEeSbft_zz69zYA">
+        <type href="http://ctmc/1.0#//CTMC/initialState"/>
+      </edges>
+      <edges xmi:id="_5QVQrkNGEeSbft_zz69zYA" source="_5QVQq0NGEeSbft_zz69zYA" target="_5QVQrENGEeSbft_zz69zYA">
+        <type href="http://ctmc/1.0#//CTMC/States"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_5QVQr0NGEeSbft_zz69zYA" origin="_5QVQokNGEeSbft_zz69zYA" image="_5QVQq0NGEeSbft_zz69zYA"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="__nUn4ENGEeSbft_zz69zYA" name="createHazard">
+    <lhs xmi:id="__nUn4UNGEeSbft_zz69zYA" name="Lhs">
+      <nodes xmi:id="__nUn4kNGEeSbft_zz69zYA" outgoing="__nUn50NGEeSbft_zz69zYA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddObject"/>
+      </nodes>
+      <nodes xmi:id="__nUn40NGEeSbft_zz69zYA" incoming="__nUn50NGEeSbft_zz69zYA">
+        <type href="http://FaultTree/1.0#//Hazard"/>
+      </nodes>
+      <nodes xmi:id="__nUn5ENGEeSbft_zz69zYA">
+        <type href="http://ctmc/1.0#//CTMC"/>
+      </nodes>
+      <nodes xmi:id="__nUn5UNGEeSbft_zz69zYA">
+        <type href="http://ctmc/1.0#//Label"/>
+        <attributes xmi:id="__nUn5kNGEeSbft_zz69zYA" value="&quot;error&quot;">
+          <type href="http://ctmc/1.0#//Label/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="__nUn50NGEeSbft_zz69zYA" source="__nUn4kNGEeSbft_zz69zYA" target="__nUn40NGEeSbft_zz69zYA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddObject/obj"/>
+      </edges>
+      <formula xsi:type="henshin:Not" xmi:id="__nUn6ENGEeSbft_zz69zYA">
+        <child xsi:type="henshin:NestedCondition" xmi:id="__nUn6UNGEeSbft_zz69zYA">
+          <conclusion xmi:id="__nUn6kNGEeSbft_zz69zYA">
+            <nodes xmi:id="__nUn60NGEeSbft_zz69zYA" outgoing="__nUn8UNGEeSbft_zz69zYA">
+              <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddObject"/>
+            </nodes>
+            <nodes xmi:id="__nUn7ENGEeSbft_zz69zYA" incoming="__nUn8UNGEeSbft_zz69zYA __nUn8kNGEeSbft_zz69zYA">
+              <type href="http://FaultTree/1.0#//Hazard"/>
+            </nodes>
+            <nodes xmi:id="__nUn7UNGEeSbft_zz69zYA">
+              <type href="http://ctmc/1.0#//CTMC"/>
+            </nodes>
+            <nodes xmi:id="__nUn7kNGEeSbft_zz69zYA">
+              <type href="http://ctmc/1.0#//Label"/>
+              <attributes xmi:id="__nUn70NGEeSbft_zz69zYA" value="&quot;error&quot;">
+                <type href="http://ctmc/1.0#//Label/name"/>
+              </attributes>
+            </nodes>
+            <nodes xmi:id="__nUn8ENGEeSbft_zz69zYA" outgoing="__nUn8kNGEeSbft_zz69zYA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+            </nodes>
+            <edges xmi:id="__nUn8UNGEeSbft_zz69zYA" source="__nUn60NGEeSbft_zz69zYA" target="__nUn7ENGEeSbft_zz69zYA">
+              <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddObject/obj"/>
+            </edges>
+            <edges xmi:id="__nUn8kNGEeSbft_zz69zYA" source="__nUn8ENGEeSbft_zz69zYA" target="__nUn7ENGEeSbft_zz69zYA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="__nUn80NGEeSbft_zz69zYA" origin="__nUn4kNGEeSbft_zz69zYA" image="__nUn60NGEeSbft_zz69zYA"/>
+          <mappings xmi:id="__nUn9ENGEeSbft_zz69zYA" origin="__nUn40NGEeSbft_zz69zYA" image="__nUn7ENGEeSbft_zz69zYA"/>
+          <mappings xmi:id="__nUn9UNGEeSbft_zz69zYA" origin="__nUn5ENGEeSbft_zz69zYA" image="__nUn7UNGEeSbft_zz69zYA"/>
+          <mappings xmi:id="__nUn9kNGEeSbft_zz69zYA" origin="__nUn5UNGEeSbft_zz69zYA" image="__nUn7kNGEeSbft_zz69zYA"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="__nUn90NGEeSbft_zz69zYA" name="Rhs">
+      <nodes xmi:id="__nUn-ENGEeSbft_zz69zYA" incoming="__nUoBENGEeSbft_zz69zYA __nUoBUNGEeSbft_zz69zYA">
+        <type href="http://FaultTree/1.0#//Hazard"/>
+      </nodes>
+      <nodes xmi:id="__nUn-UNGEeSbft_zz69zYA" outgoing="__nUoAENGEeSbft_zz69zYA">
+        <type href="http://ctmc/1.0#//CTMC"/>
+      </nodes>
+      <nodes xmi:id="__nUn-kNGEeSbft_zz69zYA" incoming="__nUoAENGEeSbft_zz69zYA __nUoAUNGEeSbft_zz69zYA __nUoA0NGEeSbft_zz69zYA">
+        <type href="http://ctmc/1.0#//State"/>
+        <attributes xmi:id="__nUn-0NGEeSbft_zz69zYA" value="&quot;errorstate&quot;">
+          <type href="http://ctmc/1.0#//State/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="__nUn_ENGEeSbft_zz69zYA" outgoing="__nUoAUNGEeSbft_zz69zYA">
+        <type href="http://ctmc/1.0#//Label"/>
+        <attributes xmi:id="__nUn_UNGEeSbft_zz69zYA" value="&quot;error&quot;">
+          <type href="http://ctmc/1.0#//Label/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="__nUn_kNGEeSbft_zz69zYA" outgoing="__nUoA0NGEeSbft_zz69zYA __nUoBENGEeSbft_zz69zYA">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+      </nodes>
+      <nodes xmi:id="__nUn_0NGEeSbft_zz69zYA" outgoing="__nUoBUNGEeSbft_zz69zYA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddObject"/>
+      </nodes>
+      <edges xmi:id="__nUoAENGEeSbft_zz69zYA" source="__nUn-UNGEeSbft_zz69zYA" target="__nUn-kNGEeSbft_zz69zYA">
+        <type href="http://ctmc/1.0#//CTMC/States"/>
+      </edges>
+      <edges xmi:id="__nUoAUNGEeSbft_zz69zYA" source="__nUn_ENGEeSbft_zz69zYA" target="__nUn-kNGEeSbft_zz69zYA">
+        <type href="http://ctmc/1.0#//Label/state"/>
+      </edges>
+      <edges xmi:id="__nUoA0NGEeSbft_zz69zYA" source="__nUn_kNGEeSbft_zz69zYA" target="__nUn-kNGEeSbft_zz69zYA">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+      </edges>
+      <edges xmi:id="__nUoBENGEeSbft_zz69zYA" source="__nUn_kNGEeSbft_zz69zYA" target="__nUn-ENGEeSbft_zz69zYA">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+      <edges xmi:id="__nUoBUNGEeSbft_zz69zYA" source="__nUn_0NGEeSbft_zz69zYA" target="__nUn-ENGEeSbft_zz69zYA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddObject/obj"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="__nUoBkNGEeSbft_zz69zYA" origin="__nUn40NGEeSbft_zz69zYA" image="__nUn-ENGEeSbft_zz69zYA"/>
+    <mappings xmi:id="__nUoB0NGEeSbft_zz69zYA" origin="__nUn5ENGEeSbft_zz69zYA" image="__nUn-UNGEeSbft_zz69zYA"/>
+    <mappings xmi:id="__nUoCENGEeSbft_zz69zYA" origin="__nUn5UNGEeSbft_zz69zYA" image="__nUn_ENGEeSbft_zz69zYA"/>
+    <mappings xmi:id="__nUoCUNGEeSbft_zz69zYA" origin="__nUn4kNGEeSbft_zz69zYA" image="__nUn_0NGEeSbft_zz69zYA"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="__nUoCkNGEeSbft_zz69zYA" name="createErrorLabelIfNotExists">
+    <lhs xmi:id="__nUoC0NGEeSbft_zz69zYA" name="Lhs">
+      <formula xsi:type="henshin:Not" xmi:id="__nUoDENGEeSbft_zz69zYA">
+        <child xsi:type="henshin:NestedCondition" xmi:id="__nUoDUNGEeSbft_zz69zYA">
+          <conclusion xmi:id="__nUoDkNGEeSbft_zz69zYA">
+            <nodes xmi:id="__nUoD0NGEeSbft_zz69zYA">
+              <type href="http://ctmc/1.0#//Label"/>
+              <attributes xmi:id="__nUoEENGEeSbft_zz69zYA" value="&quot;error&quot;">
+                <type href="http://ctmc/1.0#//Label/name"/>
+              </attributes>
+            </nodes>
+          </conclusion>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="__nUoEUNGEeSbft_zz69zYA" name="Rhs">
+      <nodes xmi:id="__nUoEkNGEeSbft_zz69zYA">
+        <type href="http://ctmc/1.0#//Label"/>
+        <attributes xmi:id="__nUoE0NGEeSbft_zz69zYA" value="&quot;error&quot;">
+          <type href="http://ctmc/1.0#//Label/name"/>
+        </attributes>
+      </nodes>
+    </rhs>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="__nUoGENGEeSbft_zz69zYA" name="createGate" checkDangling="false">
+    <lhs xmi:id="__nUoGUNGEeSbft_zz69zYA" name="Lhs">
+      <nodes xmi:id="__nUoGkNGEeSbft_zz69zYA" outgoing="__nUoHUNGEeSbft_zz69zYA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddObject"/>
+      </nodes>
+      <nodes xmi:id="__nUoG0NGEeSbft_zz69zYA" incoming="__nUoHUNGEeSbft_zz69zYA">
+        <type href="http://FaultTree/1.0#//Gate"/>
+      </nodes>
+      <nodes xmi:id="__nUoHENGEeSbft_zz69zYA">
+        <type href="http://ctmc/1.0#//CTMC"/>
+      </nodes>
+      <edges xmi:id="__nUoHUNGEeSbft_zz69zYA" source="__nUoGkNGEeSbft_zz69zYA" target="__nUoG0NGEeSbft_zz69zYA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddObject/obj"/>
+      </edges>
+      <formula xsi:type="henshin:Not" xmi:id="__nUoHkNGEeSbft_zz69zYA">
+        <child xsi:type="henshin:NestedCondition" xmi:id="__nUoH0NGEeSbft_zz69zYA">
+          <conclusion xmi:id="__nUoIENGEeSbft_zz69zYA">
+            <nodes xmi:id="__nUoIUNGEeSbft_zz69zYA" outgoing="__nUoJENGEeSbft_zz69zYA">
+              <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddObject"/>
+            </nodes>
+            <nodes xmi:id="__nUoIkNGEeSbft_zz69zYA" incoming="__nUoJENGEeSbft_zz69zYA __nUoJUNGEeSbft_zz69zYA">
+              <type href="http://FaultTree/1.0#//Gate"/>
+            </nodes>
+            <nodes xmi:id="__nUoI0NGEeSbft_zz69zYA" outgoing="__nUoJUNGEeSbft_zz69zYA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+            </nodes>
+            <edges xmi:id="__nUoJENGEeSbft_zz69zYA" source="__nUoIUNGEeSbft_zz69zYA" target="__nUoIkNGEeSbft_zz69zYA">
+              <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddObject/obj"/>
+            </edges>
+            <edges xmi:id="__nUoJUNGEeSbft_zz69zYA" source="__nUoI0NGEeSbft_zz69zYA" target="__nUoIkNGEeSbft_zz69zYA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="__nUoJkNGEeSbft_zz69zYA" origin="__nUoGkNGEeSbft_zz69zYA" image="__nUoIUNGEeSbft_zz69zYA"/>
+          <mappings xmi:id="__nUoJ0NGEeSbft_zz69zYA" origin="__nUoG0NGEeSbft_zz69zYA" image="__nUoIkNGEeSbft_zz69zYA"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="__nUoKENGEeSbft_zz69zYA" name="Rhs">
+      <nodes xmi:id="__nUoKUNGEeSbft_zz69zYA" name="" incoming="__nUoNkNGEeSbft_zz69zYA __nUoOUNGEeSbft_zz69zYA __nUoPUNGEeSbft_zz69zYA">
+        <type href="http://ctmc/1.0#//State"/>
+        <attributes xmi:id="__nUoKkNGEeSbft_zz69zYA" value="&quot;start&quot;">
+          <type href="http://ctmc/1.0#//State/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="__nUoK0NGEeSbft_zz69zYA" outgoing="__nUoNkNGEeSbft_zz69zYA __nUoOENGEeSbft_zz69zYA">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+        <attributes xmi:id="__nUoLENGEeSbft_zz69zYA" value="&quot;start&quot;">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="__nUoLUNGEeSbft_zz69zYA" outgoing="__nUoN0NGEeSbft_zz69zYA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddObject"/>
+      </nodes>
+      <nodes xmi:id="__nUoLkNGEeSbft_zz69zYA" incoming="__nUoN0NGEeSbft_zz69zYA __nUoOENGEeSbft_zz69zYA __nUoQENGEeSbft_zz69zYA">
+        <type href="http://FaultTree/1.0#//Gate"/>
+      </nodes>
+      <nodes xmi:id="__nUoL0NGEeSbft_zz69zYA" incoming="__nUoOkNGEeSbft_zz69zYA __nUoPkNGEeSbft_zz69zYA __nUoP0NGEeSbft_zz69zYA">
+        <type href="http://ctmc/1.0#//State"/>
+        <attributes xmi:id="__nUoMENGEeSbft_zz69zYA" value="&quot;exit&quot;">
+          <type href="http://ctmc/1.0#//State/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="__nUoMUNGEeSbft_zz69zYA" outgoing="__nUoOUNGEeSbft_zz69zYA __nUoOkNGEeSbft_zz69zYA">
+        <type href="http://ctmc/1.0#//CTMC"/>
+      </nodes>
+      <nodes xmi:id="__nUoMkNGEeSbft_zz69zYA" outgoing="__nUoPUNGEeSbft_zz69zYA __nUoPkNGEeSbft_zz69zYA">
+        <type href="http://ctmc/1.0#//Transition"/>
+        <attributes xmi:id="__nUoM0NGEeSbft_zz69zYA" value="&quot;1.0&quot;">
+          <type href="http://ctmc/1.0#//Transition/rate"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="__nUoNENGEeSbft_zz69zYA" outgoing="__nUoP0NGEeSbft_zz69zYA __nUoQENGEeSbft_zz69zYA">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+        <attributes xmi:id="__nUoNUNGEeSbft_zz69zYA" value="&quot;end&quot;">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="__nUoNkNGEeSbft_zz69zYA" source="__nUoK0NGEeSbft_zz69zYA" target="__nUoKUNGEeSbft_zz69zYA">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+      </edges>
+      <edges xmi:id="__nUoN0NGEeSbft_zz69zYA" source="__nUoLUNGEeSbft_zz69zYA" target="__nUoLkNGEeSbft_zz69zYA">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddObject/obj"/>
+      </edges>
+      <edges xmi:id="__nUoOENGEeSbft_zz69zYA" source="__nUoK0NGEeSbft_zz69zYA" target="__nUoLkNGEeSbft_zz69zYA">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+      <edges xmi:id="__nUoOUNGEeSbft_zz69zYA" source="__nUoMUNGEeSbft_zz69zYA" target="__nUoKUNGEeSbft_zz69zYA">
+        <type href="http://ctmc/1.0#//CTMC/States"/>
+      </edges>
+      <edges xmi:id="__nUoOkNGEeSbft_zz69zYA" source="__nUoMUNGEeSbft_zz69zYA" target="__nUoL0NGEeSbft_zz69zYA">
+        <type href="http://ctmc/1.0#//CTMC/States"/>
+      </edges>
+      <edges xmi:id="__nUoPUNGEeSbft_zz69zYA" source="__nUoMkNGEeSbft_zz69zYA" target="__nUoKUNGEeSbft_zz69zYA">
+        <type href="http://ctmc/1.0#//Transition/from"/>
+      </edges>
+      <edges xmi:id="__nUoPkNGEeSbft_zz69zYA" source="__nUoMkNGEeSbft_zz69zYA" target="__nUoL0NGEeSbft_zz69zYA">
+        <type href="http://ctmc/1.0#//Transition/to"/>
+      </edges>
+      <edges xmi:id="__nUoP0NGEeSbft_zz69zYA" source="__nUoNENGEeSbft_zz69zYA" target="__nUoL0NGEeSbft_zz69zYA">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+      </edges>
+      <edges xmi:id="__nUoQENGEeSbft_zz69zYA" source="__nUoNENGEeSbft_zz69zYA" target="__nUoLkNGEeSbft_zz69zYA">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="__nUoQUNGEeSbft_zz69zYA" origin="__nUoGkNGEeSbft_zz69zYA" image="__nUoLUNGEeSbft_zz69zYA"/>
+    <mappings xmi:id="__nUoQkNGEeSbft_zz69zYA" origin="__nUoG0NGEeSbft_zz69zYA" image="__nUoLkNGEeSbft_zz69zYA"/>
+    <mappings xmi:id="__nUoQ0NGEeSbft_zz69zYA" origin="__nUoHENGEeSbft_zz69zYA" image="__nUoMUNGEeSbft_zz69zYA"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="__nUoRENGEeSbft_zz69zYA" name="hasNewGate">
+    <lhs xmi:id="__nUoRUNGEeSbft_zz69zYA" name="Lhs">
+      <nodes xmi:id="__nUoRkNGEeSbft_zz69zYA">
+        <type href="http://FaultTree/1.0#//Gate"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="__nUoR0NGEeSbft_zz69zYA">
+        <child xsi:type="henshin:NestedCondition" xmi:id="__nUoSENGEeSbft_zz69zYA">
+          <conclusion xmi:id="__nUoSUNGEeSbft_zz69zYA">
+            <nodes xmi:id="__nUoSkNGEeSbft_zz69zYA" incoming="__nUoTENGEeSbft_zz69zYA">
+              <type href="http://FaultTree/1.0#//Gate"/>
+            </nodes>
+            <nodes xmi:id="__nUoS0NGEeSbft_zz69zYA" outgoing="__nUoTENGEeSbft_zz69zYA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+            </nodes>
+            <edges xmi:id="__nUoTENGEeSbft_zz69zYA" source="__nUoS0NGEeSbft_zz69zYA" target="__nUoSkNGEeSbft_zz69zYA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="__nUoTUNGEeSbft_zz69zYA" origin="__nUoRkNGEeSbft_zz69zYA" image="__nUoSkNGEeSbft_zz69zYA"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="__nUoTkNGEeSbft_zz69zYA" name="Rhs">
+      <nodes xmi:id="__nUoT0NGEeSbft_zz69zYA">
+        <type href="http://FaultTree/1.0#//Gate"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="__nUoUENGEeSbft_zz69zYA" origin="__nUoRkNGEeSbft_zz69zYA" image="__nUoT0NGEeSbft_zz69zYA"/>
+  </units>
+  <units xsi:type="henshin:ConditionalUnit" xmi:id="__nUoUUNGEeSbft_zz69zYA" name="createGates" if="__nUoRENGEeSbft_zz69zYA" then="__nUoGENGEeSbft_zz69zYA" else="__nUoUkNGEeSbft_zz69zYA"/>
+  <units xsi:type="henshin:Rule" xmi:id="__nUoUkNGEeSbft_zz69zYA" name="false">
+    <lhs xmi:id="__nUoU0NGEeSbft_zz69zYA" name="Lhs">
+      <formula xsi:type="henshin:And" xmi:id="__nUoVENGEeSbft_zz69zYA">
+        <left xsi:type="henshin:Not" xmi:id="__nUoVUNGEeSbft_zz69zYA">
+          <child xsi:type="henshin:NestedCondition" xmi:id="__nUoVkNGEeSbft_zz69zYA">
+            <conclusion xmi:id="__nUoV0NGEeSbft_zz69zYA" name="2">
+              <nodes xmi:id="__nUoWENGEeSbft_zz69zYA">
+                <type href="http://FaultTree/1.0#//FaultTree"/>
+              </nodes>
+            </conclusion>
+          </child>
+        </left>
+        <right xsi:type="henshin:Not" xmi:id="__nUoWUNGEeSbft_zz69zYA">
+          <child xsi:type="henshin:NestedCondition" xmi:id="__nUoWkNGEeSbft_zz69zYA">
+            <conclusion xmi:id="__nUoW0NGEeSbft_zz69zYA" name="1">
+              <nodes xmi:id="__nUoXENGEeSbft_zz69zYA">
+                <type href="http://ctmc/1.0#//CTMC"/>
+              </nodes>
+            </conclusion>
+          </child>
+        </right>
+      </formula>
+    </lhs>
+    <rhs xmi:id="__nUoXUNGEeSbft_zz69zYA" name="Rhs"/>
+  </units>
+  <units xsi:type="henshin:LoopUnit" xmi:id="_TzY4kENHEeSbft_zz69zYA" name="mainUnit" subUnit="_WYIGMENHEeSbft_zz69zYA"/>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_WYIGMENHEeSbft_zz69zYA" name="mainUnitIteration" subUnits="_5QVQoENGEeSbft_zz69zYA __nUoUUNGEeSbft_zz69zYA __nUoCkNGEeSbft_zz69zYA __nUn4ENGEeSbft_zz69zYA"/>
+  <units xsi:type="henshin:Rule" xmi:id="_AgQeMENLEeSbft_zz69zYA" name="true">
+    <lhs xmi:id="_AgSTYENLEeSbft_zz69zYA" name="Lhs"/>
+    <rhs xmi:id="_AgSTYUNLEeSbft_zz69zYA" name="Rhs"/>
+  </units>
+</henshin:Module>
