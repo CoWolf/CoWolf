@@ -2,13 +2,10 @@ package de.uni_stuttgart.iste.cowolf.model.lqn.analysis;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.io.StringReader;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
