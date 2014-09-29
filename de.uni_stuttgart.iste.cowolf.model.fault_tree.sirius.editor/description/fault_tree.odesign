@@ -172,6 +172,9 @@
                 <subModelOperations xsi:type="tool_1:If" conditionExpression="[source.oclIsKindOf(Gate)/]">
                   <subModelOperations xsi:type="tool_1:If" conditionExpression="[target.oclIsKindOf(Gate)/]">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="outputGate" valueExpression="var:target"/>
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="inputGates" valueExpression="var:source"/>
+                    </subModelOperations>
                   </subModelOperations>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool_1:If" conditionExpression="[source.oclIsKindOf(Gate)/]">
