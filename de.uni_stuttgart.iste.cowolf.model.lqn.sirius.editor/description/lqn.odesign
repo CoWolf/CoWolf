@@ -1,0 +1,623 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="lqn" version="8.1.0">
+  <ownedViewpoints name="LQN" modelFileExtension="lqn">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="lqn diagram" domainClass="LqnModelType" enablePopupBars="true">
+      <layout xsi:type="description_1:CompositeLayout"/>
+      <defaultLayer name="Default">
+        <edgeMappings name="TaskTypeToProcessorEdge" sourceMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']" targetMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@borderedNodeMappings[name='ProcessorTypeBorderedNode']" targetFinderExpression="feature:eContainer">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="EntryMakingCallTypeEdge" deletionDescription="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='DeleteEntryMakingCallTypeEdge']" sourceMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@borderedNodeMappings[name='EntryTypeBorderedNode']" targetMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@borderedNodeMappings[name='EntryTypeBorderedNode']" targetFinderExpression="[eGet('forwarding').eGet('dest')/]">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="ActivitySingleEdge" sourceMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@subContainerMappings[name='ActivityDefTypeNode']" targetMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@subContainerMappings[name='ActivityDefTypeNode']" targetFinderExpression="[eGet('post').eContents().eGet('activity')/]" sourceFinderExpression="[eGet('pre').eContents().eGet('activity')/]" domainClass="LqnCore.PrecedenceType" useDomainElement="true">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="ActivityLoopEdge" sourceMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@subNodeMappings[name='LoopListNode']" targetMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@subNodeMappings[name='LoopListNode']" targetFinderExpression="feature:eContainer">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription showIcon="false" labelExpression="feature:count">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="ActivityPostOrEdge" deletionDescription="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='DeletePostOrListEdge']" labelDirectEdit="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='EditOrProbEdge']" sourceMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@subNodeMappings[name='PreOrListNode']" targetMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@subContainerMappings[name='ActivityDefTypeNode']" targetFinderExpression="feature:activity" sourceFinderExpression="[eContainer().eContainer().eGet('preOR')/]" domainClass="LqnCore.ActivityOrType" useDomainElement="true">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription showIcon="false" labelExpression="feature:prob">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="ActivityDefTypeToPreOrEdge" preconditionExpression="[eContainer().eContainmentFeature().name.equalsIgnoreCase('preOR')/]" sourceMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@subContainerMappings[name='ActivityDefTypeNode']" targetMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@subNodeMappings[name='PreOrListNode']" targetFinderExpression="feature:eContainer" sourceFinderExpression="feature:activity" domainClass="LqnCore.ActivityType" useDomainElement="true">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="ActivityDefTypeToAndJoinEdge" sourceMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@subContainerMappings[name='ActivityDefTypeNode']" targetMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@subNodeMappings[name='AndJoinNode']" targetFinderExpression="feature:eContainer" sourceFinderExpression="feature:activity" domainClass="LqnCore.ActivityType" useDomainElement="true">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="ActivityPostAndEdge" preconditionExpression="[eContainer().eContainmentFeature().name.equalsIgnoreCase('postAND')/]" deletionDescription="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='DeletePostAndEdge']" sourceMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@subNodeMappings[name='AndJoinNode']" targetMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@subContainerMappings[name='ActivityDefTypeNode']" targetFinderExpression="feature:activity" sourceFinderExpression="[eContainer().eContainer().eGet('preAND')/]" domainClass="LqnCore.ActivityType" useDomainElement="true">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="LoopNodeToActivityDefType" labelDirectEdit="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='EditLoopCountEdge']" sourceMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@subNodeMappings[name='LoopListNode']" targetMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@subContainerMappings[name='ActivityDefTypeNode']" targetFinderExpression="feature:activity" sourceFinderExpression="feature:eContainer" domainClass="LqnCore.ActivityLoopType" useDomainElement="true">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription showIcon="false" labelExpression="feature:count">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="EntryToEntryActivity" deletionDescription="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='DeleteEntryActivityEdge']" sourceMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@borderedNodeMappings[name='EntryTypeBorderedNode']" targetMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@subContainerMappings[name='ActivityDefTypeNode']" targetFinderExpression="[eAllContents()->filter(ActivityDefType)/]">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="ActivityDefTypeToLoopNode" deletionDescription="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='DeleteActivityDefTypeToLoopNode']" sourceMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@subContainerMappings[name='ActivityDefTypeNode']" targetMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@subNodeMappings[name='LoopListNode']" targetFinderExpression="[self/]" sourceFinderExpression="[eContainer().eGet('pre').eGet('activity').eGet('activity')/]" domainClass="LqnCore.ActivityLoopListType" useDomainElement="true">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="SynchronActivityMakingCall" semanticCandidatesExpression="[eContainer().eAllContents()->filter(ActivityDefType).eGet('synchCall')/]" sourceMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@subContainerMappings[name='ActivityDefTypeNode']" targetMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@borderedNodeMappings[name='EntryTypeBorderedNode']" targetFinderExpression="[self.dest/]" sourceFinderExpression="[self.eContainer()/]" domainClass="LqnCore.ActivityMakingCallType" useDomainElement="true">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription showIcon="false" labelExpression="feature:callsMean">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="AsynchronActivityMakingCall" semanticCandidatesExpression="[eContainer().eAllContents()->filter(ActivityDefType).eGet('asynchCall')/]" sourceMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@subContainerMappings[name='ActivityDefTypeNode']" targetMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@borderedNodeMappings[name='EntryTypeBorderedNode']" targetFinderExpression="[self.dest/]" sourceFinderExpression="[self.eContainer()/]" domainClass="LqnCore.ActivityMakingCallType" useDomainElement="true">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription showIcon="false" labelExpression="feature:callsMean">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="ProcessorTypeContainer" pasteDescriptions="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='']" labelDirectEdit="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='ProcessorTypeLabel']" semanticCandidatesExpression="feature:eAllContents" domainClass="LqnCore.ProcessorType">
+          <borderedNodeMappings name="ProcessorTypeBorderedNode" pasteDescriptions="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='']" labelDirectEdit="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='ProcessorTypeLabel']" semanticCandidatesExpression="var:self" domainClass="LqnCore.ProcessorType">
+            <style xsi:type="style:DotDescription" showIcon="false" sizeComputationExpression="6" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            </style>
+            <conditionnalStyles predicateExpression="[multiplicity > 1/]">
+              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="6" labelPosition="node" resizeKind="NSEW" workspacePath="de.uni_stuttgart.iste.cowolf.model.lqn.sirius.editor/icons/multiprocessor.svg">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </conditionnalStyles>
+          </borderedNodeMappings>
+          <subContainerMappings name="TaskTypeContainer" pasteDescriptions="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='']" semanticCandidatesExpression="feature:eAllContents" domainClass="LqnCore.TaskType">
+            <borderedNodeMappings name="EntryTypeBorderedNode" pasteDescriptions="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='']" semanticCandidatesExpression="feature:eAllContents" domainClass="LqnCore.EntryType">
+              <borderedNodeMappings name="DummyEntryBorderedNode" pasteDescriptions="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='']" semanticCandidatesExpression="feature:eAllContents"/>
+              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="[name/]" sizeComputationExpression="6" labelPosition="node" resizeKind="NSEW" workspacePath="de.uni_stuttgart.iste.cowolf.model.lqn.sirius.editor/icons/entry.svg">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </borderedNodeMappings>
+            <subNodeMappings name="AndJoinNode" pasteDescriptions="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='']" deletionDescription="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='DeletePreAndPreOrListNode']" semanticCandidatesExpression="feature:eAllContents" domainClass="LqnCore.AndJoinListType">
+              <style xsi:type="style:DotDescription" labelFormat="bold" showIcon="false" labelExpression="&amp;" labelPosition="node" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+              </style>
+            </subNodeMappings>
+            <subNodeMappings name="PreOrListNode" pasteDescriptions="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='']" deletionDescription="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='DeletePreAndPreOrListNode']" semanticCandidatesExpression="[eAllContents()->filter(PrecedenceType).eGet('preOR')/]" domainClass="LqnCore.ActivityListType">
+              <style xsi:type="style:DotDescription" labelFormat="bold" showIcon="false" labelExpression="+" labelPosition="node" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+              </style>
+            </subNodeMappings>
+            <subNodeMappings name="LoopListNode" pasteDescriptions="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='']" semanticCandidatesExpression="feature:eAllContents" domainClass="LqnCore.ActivityLoopListType">
+              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="feature:end" resizeKind="NSEW" workspacePath="de.uni_stuttgart.iste.cowolf.model.lqn.sirius.editor/icons/loop.svg">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </subNodeMappings>
+            <subContainerMappings name="ActivityDefTypeNode" pasteDescriptions="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='']" labelDirectEdit="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='EditActivityDefTypeLabel']" semanticCandidatesExpression="feature:eAllContents" domainClass="LqnCore.ActivityDefType">
+              <style xsi:type="style:FlatContainerStyleDescription" showIcon="false" labelExpression="[name + '\n[' + hostDemandMean + ']\n' + maxServiceTime/]">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+              </style>
+              <conditionnalStyles predicateExpression="[eContainer().oclIsTypeOf(EntryActivityGraph)/]">
+                <style xsi:type="style:FlatContainerStyleDescription" showIcon="false" labelExpression="[name + '\n[' + hostDemandMean + ']\n' + maxServiceTime/]">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+                  <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+                </style>
+              </conditionnalStyles>
+            </subContainerMappings>
+            <style xsi:type="style:ShapeContainerStyleDescription" showIcon="false" labelExpression="[name + ' {' +  multiplicity + '}'/]" widthComputationExpression="15" heightComputationExpression="5">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" showIcon="false" widthComputationExpression="50" heightComputationExpression="30">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+        </containerMappings>
+        <toolSections name="Processor">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Processor" containerMappings="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']" iconPath="de.uni_stuttgart.iste.cowolf.model.lqn.sirius.editor/icons/singleprocessor.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.ProcessorType" referenceName="processor">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New Processor"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Task">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Task" containerMappings="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']" iconPath="de.uni_stuttgart.iste.cowolf.model.lqn.sirius.editor/icons/task.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.TaskType" referenceName="task">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New Task"/>
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.EntryType" referenceName="entry">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New Entry"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Entry">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Entry" nodeMappings="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@borderedNodeMappings[name='EntryTypeBorderedNode']" iconPath="de.uni_stuttgart.iste.cowolf.model.lqn.sirius.editor/icons/entry.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.EntryType" referenceName="entry">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New Entry"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Entry Activity" nodeMappings="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@borderedNodeMappings[name='EntryTypeBorderedNode']/@borderedNodeMappings[name='DummyEntryBorderedNode']" iconPath="de.uni_stuttgart.iste.cowolf.model.lqn.sirius.editor/icons/entryActivity.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[container.eContents()->filter(EntryActivityGraph)->size()=0/]">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.EntryActivityGraph" referenceName="entryActivityGraph">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New Entry Activity"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[container.eContents()->filter(EntryActivityGraph)->size()>0/]">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[container.eGet('entryActivityGraph')/]">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.ActivityDefType" referenceName="activity">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New Entry Activity"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Activity">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Task Activity" containerMappings="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@subContainerMappings[name='ActivityDefTypeNode']" iconPath="de.uni_stuttgart.iste.cowolf.model.lqn.sirius.editor/icons/taskActivity.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[taskActivities.oclIsUndefined()/]">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.TaskActivityGraph" referenceName="taskActivities">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New Activity"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[not taskActivities.oclIsUndefined()/]">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[container.eGet('taskActivities')/]">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.ActivityDefType" referenceName="activity">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New Activity"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="And" nodeMappings="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@subNodeMappings[name='AndJoinNode']" iconPath="de.uni_stuttgart.iste.cowolf.model.lqn.sirius.editor/icons/and.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[taskActivities.oclIsUndefined()/]">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.TaskActivityGraph" referenceName="taskActivities"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[not taskActivities.oclIsUndefined()/]">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[container.eGet('taskActivities')/]">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.PrecedenceType" referenceName="precedence" variableName="precedence">
+                      <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:precedence">
+                        <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.AndJoinListType" referenceName="preAND" variableName="postList"/>
+                      </subModelOperations>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Or" nodeMappings="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@subNodeMappings[name='PreOrListNode']" iconPath="de.uni_stuttgart.iste.cowolf.model.lqn.sirius.editor/icons/or.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[taskActivities.oclIsUndefined()/]">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.TaskActivityGraph" referenceName="taskActivities"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[not taskActivities.oclIsUndefined()/]">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[container.eGet('taskActivities')/]">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.PrecedenceType" referenceName="precedence" variableName="precedence">
+                      <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:precedence">
+                        <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.ActivityListType" referenceName="preOR" variableName="preOR"/>
+                      </subModelOperations>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Loop" nodeMappings="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@subNodeMappings[name='LoopListNode']" iconPath="de.uni_stuttgart.iste.cowolf.model.lqn.sirius.editor/icons/loop.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[taskActivities.oclIsUndefined()/]">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.TaskActivityGraph" referenceName="taskActivities"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[not taskActivities.oclIsUndefined()/]">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[container.eGet('taskActivities')/]">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.PrecedenceType" referenceName="precedence" variableName="precedence">
+                      <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:precedence">
+                        <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.ActivityLoopListType" referenceName="postLOOP" variableName="loopList"/>
+                      </subModelOperations>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Edit">
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="DeleteEntryMakingCallTypeEdge">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext">
+                <subModelOperations xsi:type="tool_1:RemoveElement"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Calls">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Call" edgeMappings="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@edgeMappings[name='EntryMakingCallTypeEdge'] //@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@edgeMappings[name='ActivityDefTypeToAndJoinEdge'] //@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@edgeMappings[name='ActivityDefTypeToPreOrEdge'] //@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@edgeMappings[name='ActivityLoopEdge'] //@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@edgeMappings[name='ActivityPostAndEdge'] //@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@edgeMappings[name='ActivityPostOrEdge'] //@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@edgeMappings[name='ActivitySingleEdge'] //@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@edgeMappings[name='LoopNodeToActivityDefType'] //@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@edgeMappings[name='TaskTypeToProcessorEdge'] //@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@edgeMappings[name='EntryToEntryActivity'] //@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@edgeMappings[name='ActivityDefTypeToLoopNode']" iconPath="de.uni_stuttgart.iste.cowolf.model.lqn.sirius.editor/icons/call.png">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[source.oclIsKindOf(EntryType) and target.oclIsKindOf(EntryType) and source.eContents()->filter(EntryMakingCallType)->size()=0/]">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.EntryMakingCallType" referenceName="forwarding">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="dest" valueExpression="var:target"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[source.oclIsKindOf(ActivityDefType) and target.oclIsKindOf(ActivityDefType)/]">
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="[source.eContainer().oclIsTypeOf(TaskActivityGraph) and target.eContainer().oclIsTypeOf(TaskActivityGraph)/]">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="feature:eContainer">
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.PrecedenceType" referenceName="precedence" variableName="precedence">
+                        <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:precedence">
+                          <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.SingleActivityListType" referenceName="pre" variableName="preList">
+                            <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:preList">
+                              <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.ActivityType" referenceName="activity">
+                                <subModelOperations xsi:type="tool_1:SetValue" featureName="activity" valueExpression="var:source"/>
+                              </subModelOperations>
+                            </subModelOperations>
+                          </subModelOperations>
+                          <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.SingleActivityListType" referenceName="post" variableName="postList">
+                            <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:postList">
+                              <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.ActivityType" referenceName="activity">
+                                <subModelOperations xsi:type="tool_1:SetValue" featureName="activity" valueExpression="var:target"/>
+                              </subModelOperations>
+                            </subModelOperations>
+                          </subModelOperations>
+                        </subModelOperations>
+                      </subModelOperations>
+                    </subModelOperations>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="[source.eContainer().oclIsTypeOf(EntryActivityGraph) and target.eContainer().oclIsTypeOf(TaskActivityGraph)/]">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="feature:eContainer">
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.PrecedenceType" referenceName="precedence" variableName="precedence">
+                        <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:precedence">
+                          <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.SingleActivityListType" referenceName="pre" variableName="preList">
+                            <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:preList">
+                              <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.ActivityType" referenceName="activity">
+                                <subModelOperations xsi:type="tool_1:SetValue" featureName="activity" valueExpression="var:source"/>
+                              </subModelOperations>
+                            </subModelOperations>
+                          </subModelOperations>
+                          <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.SingleActivityListType" referenceName="post" variableName="postList">
+                            <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:postList">
+                              <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.ActivityType" referenceName="activity">
+                                <subModelOperations xsi:type="tool_1:SetValue" featureName="activity" valueExpression="var:target"/>
+                              </subModelOperations>
+                            </subModelOperations>
+                          </subModelOperations>
+                        </subModelOperations>
+                      </subModelOperations>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[source.oclIsKindOf(ActivityDefType) and target.oclIsKindOf(AndJoinListType)/]">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.ActivityType" referenceName="activity">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="activity" valueExpression="var:source"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[source.oclIsKindOf(AndJoinListType) and target.oclIsKindOf(ActivityDefType)/]">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[source.eContainer()/]">
+                    <subModelOperations xsi:type="tool_1:If" conditionExpression="[eGet('postAND')->size()>0/]">
+                      <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="feature:postAND">
+                        <subModelOperations xsi:type="tool_1:CreateInstance" typeName="ActivityType" referenceName="activity">
+                          <subModelOperations xsi:type="tool_1:SetValue" featureName="activity" valueExpression="var:target"/>
+                        </subModelOperations>
+                      </subModelOperations>
+                    </subModelOperations>
+                    <subModelOperations xsi:type="tool_1:If" conditionExpression="[eGet('postAND')->size()=0/]">
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.ActivityListType" referenceName="postAND" variableName="postAnd">
+                        <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:postAnd">
+                          <subModelOperations xsi:type="tool_1:CreateInstance" typeName="ActivityType" referenceName="activity">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="activity" valueExpression="var:target"/>
+                          </subModelOperations>
+                        </subModelOperations>
+                      </subModelOperations>
+                      <subModelOperations xsi:type="tool_1:If" conditionExpression="[eGet('postAND')->size()=0/]">
+                        <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.ActivityListType" referenceName="postAND" variableName="postAnd">
+                          <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:postAnd">
+                            <subModelOperations xsi:type="tool_1:CreateInstance" typeName="ActivityType" referenceName="activity">
+                              <subModelOperations xsi:type="tool_1:SetValue" featureName="activity" valueExpression="var:target"/>
+                            </subModelOperations>
+                          </subModelOperations>
+                        </subModelOperations>
+                      </subModelOperations>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[source.oclIsKindOf(ActivityDefType) and target.oclIsKindOf(ActivityListType)/]">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.ActivityType" referenceName="activity">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="activity" valueExpression="var:source"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[source.oclIsKindOf(ActivityListType) and target.oclIsKindOf(ActivityDefType)/]">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[source.eContainer()/]">
+                    <subModelOperations xsi:type="tool_1:If" conditionExpression="[eGet('postOR')->size()>0/]">
+                      <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="feature:postOR">
+                        <subModelOperations xsi:type="tool_1:CreateInstance" typeName="ActivityOrType" referenceName="activity">
+                          <subModelOperations xsi:type="tool_1:SetValue" featureName="activity" valueExpression="var:target"/>
+                        </subModelOperations>
+                      </subModelOperations>
+                    </subModelOperations>
+                    <subModelOperations xsi:type="tool_1:If" conditionExpression="[eGet('postOR')->size()=0/]">
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.OrListType" referenceName="postOR" variableName="postOr">
+                        <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:postOr">
+                          <subModelOperations xsi:type="tool_1:CreateInstance" typeName="ActivityOrType" referenceName="activity">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="activity" valueExpression="var:target"/>
+                          </subModelOperations>
+                        </subModelOperations>
+                      </subModelOperations>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[source.oclIsKindOf(ActivityLoopListType) and target.oclIsKindOf(ActivityDefType)/]">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="ActivityLoopType" referenceName="activity">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="activity" valueExpression="var:target"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="count" valueExpression="1.0"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[source.oclIsKindOf(ActivityDefType) and target.oclIsKindOf(ActivityLoopListType)/]">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[target.eContainer()/]">
+                    <subModelOperations xsi:type="tool_1:If" conditionExpression="[eGet('pre').oclIsUndefined()/]">
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.SingleActivityListType" referenceName="pre" variableName="preList">
+                        <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:preList">
+                          <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.ActivityType" referenceName="activity">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="activity" valueExpression="var:source"/>
+                          </subModelOperations>
+                        </subModelOperations>
+                      </subModelOperations>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Synchron Call" edgeMappings="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@edgeMappings[name='SynchronActivityMakingCall']" iconPath="de.uni_stuttgart.iste.cowolf.model.lqn.sirius.editor/icons/synchCall.png">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.ActivityMakingCallType" referenceName="synchCall">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="dest" valueExpression="var:target"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="callsMean" valueExpression="1.0"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Asynchron Call" edgeMappings="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@edgeMappings[name='AsynchronActivityMakingCall']" iconPath="de.uni_stuttgart.iste.cowolf.model.lqn.sirius.editor/icons/asynchCall.png">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.ActivityMakingCallType" referenceName="asynchCall">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="dest" valueExpression="var:target"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="callsMean" valueExpression="1.0"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Change">
+          <ownedTools xsi:type="tool:DirectEditLabel" name="EditActivityDefTypeLabel">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="ProcessorTypeLabel">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="EditLoopCountEdge">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="count" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="EditOrProbEdge">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="prob" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="EditSynchAsynchCallMeanLabel">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="callsMean" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="DeletePostOrListEdge">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[eContainer().eContents()->size()=1/]">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[element.eContainer()/]">
+                    <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[element.eContainer().eContents()->size()>1/]">
+                  <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="DeletePostAndEdge">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[eContainer().eContents()->size()=1/]">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[element.eContainer()/]">
+                    <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[element.eContainer().eContents()->size()>1/]">
+                  <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="DeletePreAndPreOrListNode">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[eContainer().eContents()->size()=1/]">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[element.eContainer()/]">
+                    <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[eContainer().eContents()->size()>1/]">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[element.eContainer()/]">
+                    <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="DeleteEntryActivityEdge">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:RemoveElement"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="DeleteActivityDefTypeToLoopNode">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[element.eContainer().eGet('pre')/]">
+                <subModelOperations xsi:type="tool_1:RemoveElement"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:PasteDescription" forceRefresh="true">
+            <container name="container"/>
+            <containerView name="containerView"/>
+            <copiedView name="copiedView"/>
+            <copiedElement name="copiedElement"/>
+            <initialOperation/>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+  </ownedViewpoints>
+</description:Group>
