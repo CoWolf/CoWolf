@@ -147,6 +147,7 @@ public class Transform extends AbstractHandler {
 			}
 		};
 		coevolveJob.setPriority(Job.LONG);
+		coevolveJob.setUser(true);
         coevolveJob.schedule();
         return null;
     }

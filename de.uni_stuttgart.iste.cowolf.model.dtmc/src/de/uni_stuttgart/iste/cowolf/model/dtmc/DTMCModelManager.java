@@ -20,6 +20,7 @@ public class DTMCModelManager extends AbstractQoSModelManager {
 		final DTMCAnalyzeJob job = new DTMCAnalyzeJob(model, parameters);
 		job.addJobChangeListener(new DTMCAnalyzeJobListener(listener));
 		job.setPriority(Job.LONG);
+		job.setUser(true);
 		job.schedule();
 		return null;
 	}
