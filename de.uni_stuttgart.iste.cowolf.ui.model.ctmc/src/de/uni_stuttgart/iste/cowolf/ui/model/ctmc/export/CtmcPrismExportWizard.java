@@ -32,7 +32,7 @@ public class CtmcPrismExportWizard extends Wizard implements IExportWizard {
 			.getLogger(CtmcPrismExportWizard.class);
 	
 	/**
-	 * Creates a Wizarz, which executes the export of ctmc models to PRISM models.
+	 * Creates a Wizard, which executes the export of CTMC models to PRISM models.
 	 */
 	public CtmcPrismExportWizard() {
 		super();

@@ -14,9 +14,10 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.sirius.ui.tools.api.project.ModelingProjectManager;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import de.uni_stuttgart.iste.cowolf.core.natures.ProjectNature;
 import de.uni_stuttgart.iste.cowolf.model.ModelRegistry;
@@ -27,11 +28,15 @@ import de.uni_stuttgart.iste.cowolf.ui.model.preference.ModelPreferencePage;
  * This class holds the functions to create a new sirius modeling project with
  * representation file and viewpoint
  * 
- * @author Johannes Wolf, Verena Käfer
+ * @author Johannes Wolf
+ * @author Verena Käfer
  *
  */
 public class CreateModelingProjectJob extends Job {
 
+	private final static Logger LOGGER = LoggerFactory
+			.getLogger(CreateModelingProjectJob.class);
+	
 	private String projectName;
 	private URI location;
 
@@ -94,8 +99,7 @@ public class CreateModelingProjectJob extends Job {
 					newProject.open(null);
 				}
 			} catch (CoreException e) {
-				// TODO
-				e.printStackTrace();
+				LOGGER.error("", e);
 			}
 		}
 
