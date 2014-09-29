@@ -13,7 +13,7 @@
           </style>
         </edgeMappings>
         <edgeMappings name="EntryMakingCallTypeEdge" deletionDescription="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='DeleteEntryMakingCallTypeEdge']" sourceMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@borderedNodeMappings[name='EntryTypeBorderedNode']" targetMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@borderedNodeMappings[name='EntryTypeBorderedNode']" targetFinderExpression="[eGet('forwarding').eGet('dest')/]">
-          <style sizeComputationExpression="2">
+          <style lineStyle="dash" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -90,7 +90,7 @@
           </style>
         </edgeMappings>
         <edgeMappings name="SynchronActivityMakingCall" semanticCandidatesExpression="[eContainer().eAllContents()->filter(ActivityDefType).eGet('synchCall')/]" sourceMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@subContainerMappings[name='ActivityDefTypeNode']" targetMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@borderedNodeMappings[name='EntryTypeBorderedNode']" targetFinderExpression="[self.dest/]" sourceFinderExpression="[self.eContainer()/]" domainClass="LqnCore.ActivityMakingCallType" useDomainElement="true">
-          <style sizeComputationExpression="2">
+          <style targetArrow="InputFillClosedArrow" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription showIcon="false" labelExpression="feature:callsMean">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -98,11 +98,21 @@
           </style>
         </edgeMappings>
         <edgeMappings name="AsynchronActivityMakingCall" semanticCandidatesExpression="[eContainer().eAllContents()->filter(ActivityDefType).eGet('asynchCall')/]" sourceMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@subContainerMappings[name='ActivityDefTypeNode']" targetMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@borderedNodeMappings[name='EntryTypeBorderedNode']" targetFinderExpression="[self.dest/]" sourceFinderExpression="[self.eContainer()/]" domainClass="LqnCore.ActivityMakingCallType" useDomainElement="true">
-          <style sizeComputationExpression="2">
+          <style targetArrow="InputClosedArrow" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription showIcon="false" labelExpression="feature:callsMean">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="AsynchronEntryCall" sourceMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@borderedNodeMappings[name='EntryTypeBorderedNode']" targetMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@borderedNodeMappings[name='EntryTypeBorderedNode']" targetFinderExpression="[self.dest/]" sourceFinderExpression="[self.eContainer().eContainer().eContainer().eContainer()/]" domainClass="LqnCore.SynchCallType" useDomainElement="true">
+          <style targetArrow="InputClosedArrow" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="SynchronEntryCall" sourceMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@borderedNodeMappings[name='EntryTypeBorderedNode']" targetMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@borderedNodeMappings[name='EntryTypeBorderedNode']" targetFinderExpression="[self.dest/]" sourceFinderExpression="[self.eContainer().eContainer().eContainer().eContainer()/]" domainClass="LqnCore.AsynchCallType" useDomainElement="true">
+          <style targetArrow="InputFillClosedArrow" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
           </style>
         </edgeMappings>
         <containerMappings name="ProcessorTypeContainer" pasteDescriptions="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='']" labelDirectEdit="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='ProcessorTypeLabel']" semanticCandidatesExpression="feature:eAllContents" domainClass="LqnCore.ProcessorType">
@@ -476,30 +486,45 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Synchron Call" edgeMappings="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@edgeMappings[name='SynchronActivityMakingCall']" iconPath="de.uni_stuttgart.iste.cowolf.model.lqn.sirius.editor/icons/synchCall.png">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Synchron Call" edgeMappings="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@edgeMappings[name='SynchronActivityMakingCall'] //@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@edgeMappings[name='SynchronEntryCall']" iconPath="de.uni_stuttgart.iste.cowolf.model.lqn.sirius.editor/icons/synchCall.png">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.ActivityMakingCallType" referenceName="synchCall">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="dest" valueExpression="var:target"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="callsMean" valueExpression="1.0"/>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[source.oclIsKindOf(ActivityDefType)/]">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.ActivityMakingCallType" referenceName="synchCall">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="dest" valueExpression="var:target"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="callsMean" valueExpression="1.0"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[source.oclIsKindOf(EntryType)/]">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.PhaseActivities" referenceName="entryPhaseActivities">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.ActivityPhasesType" referenceName="activity">
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.CallListType" referenceName="callList">
+                        <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.SynchCallType" referenceName="synchCall">
+                          <subModelOperations xsi:type="tool_1:SetValue" featureName="dest" valueExpression="var:target"/>
+                        </subModelOperations>
+                      </subModelOperations>
+                    </subModelOperations>
+                  </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Asynchron Call" edgeMappings="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@edgeMappings[name='AsynchronActivityMakingCall']" iconPath="de.uni_stuttgart.iste.cowolf.model.lqn.sirius.editor/icons/asynchCall.png">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Asynchron Call" edgeMappings="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@edgeMappings[name='AsynchronActivityMakingCall'] //@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@edgeMappings[name='AsynchronEntryCall']" iconPath="de.uni_stuttgart.iste.cowolf.model.lqn.sirius.editor/icons/asynchCall.png">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.ActivityMakingCallType" referenceName="asynchCall">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="dest" valueExpression="var:target"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="callsMean" valueExpression="1.0"/>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[source.oclIsKindOf(ActivityDefType)/]">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.ActivityMakingCallType" referenceName="asynchCall">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="dest" valueExpression="var:target"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="callsMean" valueExpression="1.0"/>
+                  </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
