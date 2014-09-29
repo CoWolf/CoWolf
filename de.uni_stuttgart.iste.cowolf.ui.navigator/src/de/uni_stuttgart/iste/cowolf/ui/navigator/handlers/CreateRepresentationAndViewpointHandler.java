@@ -1,4 +1,4 @@
-package de.uni_stuttgart.iste.cowolf.ui.navigator.commands;
+package de.uni_stuttgart.iste.cowolf.ui.navigator.handlers;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -12,7 +12,6 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.command.Command;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -35,13 +34,13 @@ import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
-import org.eclipse.uml2.uml.PackageableElement;
-import org.eclipse.uml2.uml.internal.impl.PackageImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.impl.ModelAssociationFactoryImpl;
-import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Interaction;
+import de.uni_stuttgart.iste.cowolf.model.AbstractModelManager;
+import de.uni_stuttgart.iste.cowolf.model.ModelRegistry;
+
 
 public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 
@@ -115,27 +114,13 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 					.getTransactionalEditingDomain();
 			domain.getCommandStack().execute(command);
 
-			// create representation
-			EObject rootObject = null;
-			if (modelFile.getFileExtension().equals("sequence_diagram")) {
-				Interaction interaction = null;
-				Object[] elements1 = session.getSemanticResources().toArray();
-				Resource resource = (Resource) elements1[elements1.length - 1];
-
-				EList<PackageableElement> pack = ((PackageImpl) resource
-						.getContents().get(0)).getPackagedElements();
-				for (PackageableElement element : pack) {
-					if (element instanceof Interaction) {
-						interaction = (Interaction) element;
-					}
-				}
-				rootObject = interaction;
-			} else {
-				Object[] elements1 = session.getSemanticResources().toArray();
-				Resource resource = (Resource) elements1[elements1.length - 1];
-
-				rootObject = resource.getContents().get(0);
-			}
+			Object[] elements1 = session.getSemanticResources().toArray();
+			Resource resource = (Resource) elements1[elements1.length - 1];
+			
+			AbstractModelManager modelManager = ModelRegistry.getInstance()
+					.getModelManager(modelFile.getFileExtension());
+			
+			EObject rootObject = modelManager.getRootObject(resource);
 
 			Collection<RepresentationDescription> descriptions = DialectManager.INSTANCE
 					.getAvailableRepresentationDescriptions(

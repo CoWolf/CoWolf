@@ -51,7 +51,7 @@ import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Interaction;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramFactory;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramPackage;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.emf.provider.Sequence_diagramEditPlugin;
-import de.uni_stuttgart.iste.cowolf.ui.navigator.commands.CreateRepresentationAndViewpointHandler;
+import de.uni_stuttgart.iste.cowolf.ui.navigator.handlers.CreateRepresentationAndViewpointHandler;
 
 import org.eclipse.core.runtime.Path;
 import org.eclipse.jface.viewers.ISelection;

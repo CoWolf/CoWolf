@@ -51,7 +51,7 @@ import de.uni_stuttgart.iste.cowolf.model.statechart.StatemachineFactory;
 import de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage;
 import de.uni_stuttgart.iste.cowolf.model.statechart.emf.provider.StatemachineEditPlugin;
 import de.uni_stuttgart.iste.cowolf.model.statechart.emf.presentation.StatemachineEditorPlugin;
-import de.uni_stuttgart.iste.cowolf.ui.navigator.commands.CreateRepresentationAndViewpointHandler;
+import de.uni_stuttgart.iste.cowolf.ui.navigator.handlers.CreateRepresentationAndViewpointHandler;
 
 import org.eclipse.core.runtime.Path;
 import org.eclipse.jface.viewers.ISelection;

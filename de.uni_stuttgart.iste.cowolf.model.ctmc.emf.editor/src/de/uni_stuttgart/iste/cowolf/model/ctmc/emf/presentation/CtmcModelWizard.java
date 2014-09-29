@@ -56,7 +56,7 @@ import org.eclipse.ui.IWorkbenchWindow;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.CtmcFactory;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.CtmcPackage;
 import de.uni_stuttgart.iste.cowolf.model.ctmc.emf.provider.CTMCEditPlugin;
-import de.uni_stuttgart.iste.cowolf.ui.navigator.commands.CreateRepresentationAndViewpointHandler;
+import de.uni_stuttgart.iste.cowolf.ui.navigator.handlers.CreateRepresentationAndViewpointHandler;
 
 /**
  * This is a simple wizard for creating a new model file. <!-- begin-user-doc
