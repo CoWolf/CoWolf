@@ -105,12 +105,12 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="AsynchronEntryCall" sourceMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@borderedNodeMappings[name='EntryTypeBorderedNode']" targetMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@borderedNodeMappings[name='EntryTypeBorderedNode']" targetFinderExpression="[self.dest/]" sourceFinderExpression="[self.eContainer().eContainer().eContainer().eContainer()/]" domainClass="LqnCore.SynchCallType" useDomainElement="true">
+        <edgeMappings name="AsynchronEntryCall" deletionDescription="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='DeleteAsynchEntryCall']" sourceMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@borderedNodeMappings[name='EntryTypeBorderedNode']" targetMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@borderedNodeMappings[name='EntryTypeBorderedNode']" targetFinderExpression="[self.dest/]" sourceFinderExpression="[self.eContainer().eContainer().eContainer().eContainer()/]" domainClass="LqnCore.AsynchCallType" useDomainElement="true">
           <style targetArrow="InputClosedArrow" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
           </style>
         </edgeMappings>
-        <edgeMappings name="SynchronEntryCall" sourceMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@borderedNodeMappings[name='EntryTypeBorderedNode']" targetMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@borderedNodeMappings[name='EntryTypeBorderedNode']" targetFinderExpression="[self.dest/]" sourceFinderExpression="[self.eContainer().eContainer().eContainer().eContainer()/]" domainClass="LqnCore.AsynchCallType" useDomainElement="true">
+        <edgeMappings name="SynchronEntryCall" deletionDescription="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='DeleteSynchEntryCall']" sourceMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@borderedNodeMappings[name='EntryTypeBorderedNode']" targetMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@borderedNodeMappings[name='EntryTypeBorderedNode']" targetFinderExpression="[self.dest/]" sourceFinderExpression="[self.eContainer().eContainer().eContainer().eContainer()/]" domainClass="LqnCore.SynchCallType" useDomainElement="true">
           <style targetArrow="InputFillClosedArrow" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
           </style>
@@ -500,11 +500,24 @@
                   </subModelOperations>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool_1:If" conditionExpression="[source.oclIsKindOf(EntryType)/]">
-                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.PhaseActivities" referenceName="entryPhaseActivities">
-                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.ActivityPhasesType" referenceName="activity">
-                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.CallListType" referenceName="callList">
-                        <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.SynchCallType" referenceName="synchCall">
-                          <subModelOperations xsi:type="tool_1:SetValue" featureName="dest" valueExpression="var:target"/>
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="[not entryPhaseActivities.oclIsUndefined()/]">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="feature:entryPhaseActivities">
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.ActivityPhasesType" referenceName="activity">
+                        <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.CallListType" referenceName="callList">
+                          <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.SynchCallType" referenceName="synchCall">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="dest" valueExpression="var:target"/>
+                          </subModelOperations>
+                        </subModelOperations>
+                      </subModelOperations>
+                    </subModelOperations>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="[entryPhaseActivities.oclIsUndefined()/]">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.PhaseActivities" referenceName="entryPhaseActivities">
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.ActivityPhasesType" referenceName="activity">
+                        <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.CallListType" referenceName="callList">
+                          <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.SynchCallType" referenceName="synchCall">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="dest" valueExpression="var:target"/>
+                          </subModelOperations>
                         </subModelOperations>
                       </subModelOperations>
                     </subModelOperations>
@@ -524,6 +537,30 @@
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.ActivityMakingCallType" referenceName="asynchCall">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="dest" valueExpression="var:target"/>
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="callsMean" valueExpression="1.0"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[source.oclIsKindOf(EntryType)/]">
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="[not entryPhaseActivities.oclIsUndefined()/]">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="feature:entryPhaseActivities">
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.ActivityPhasesType" referenceName="activity">
+                        <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.CallListType" referenceName="callList">
+                          <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.AsynchCallType" referenceName="asynchCall">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="dest" valueExpression="var:target"/>
+                          </subModelOperations>
+                        </subModelOperations>
+                      </subModelOperations>
+                    </subModelOperations>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="[entryPhaseActivities.oclIsUndefined()/]">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.PhaseActivities" referenceName="entryPhaseActivities">
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.ActivityPhasesType" referenceName="activity">
+                        <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.CallListType" referenceName="callList">
+                          <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.AsynchCallType" referenceName="asynchCall">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="dest" valueExpression="var:target"/>
+                          </subModelOperations>
+                        </subModelOperations>
+                      </subModelOperations>
+                    </subModelOperations>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
@@ -631,6 +668,40 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[element.eContainer().eGet('pre')/]">
                 <subModelOperations xsi:type="tool_1:RemoveElement"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="DeleteSynchEntryCall">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[eContainer().eContents()->size()=1/]">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[element.eContainer().eContainer()/]">
+                    <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[eContainer().eContents()->size()>1/]">
+                  <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="DeleteAsynchEntryCall">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[eContainer().eContents()->size()=1/]">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[element.eContainer().eContainer()/]">
+                    <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[eContainer().eContents()->size()>1/]">
+                  <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
