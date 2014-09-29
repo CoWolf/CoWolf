@@ -271,7 +271,7 @@ public class CtmcModelWizard extends Wizard implements INewWizard {
 			// Only create representation if wished by the user
 			if (editorPage.getGraphicalSelection()) {
 				CreateRepresentationAndViewpointHandler.createAll(modelFile,
-						"ctmc");
+						true);
 			}
 
 			return true;
@@ -601,7 +601,7 @@ public class CtmcModelWizard extends Wizard implements INewWizard {
 	 * The framework calls this to create the contents of the wizard. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void addPages() {

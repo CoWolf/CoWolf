@@ -8,6 +8,7 @@ import org.eclipse.ui.PlatformUI;
 
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociationFactory;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelResourceChangeListener;
+import de.uni_stuttgart.iste.cowolf.ui.navigator.listeners.ModelAirdResourceChangeListener;
 
 /**
  * This trigger is executed at the very start of eclipse. You can add necessary
@@ -34,6 +35,8 @@ public class StartTrigger implements IStartup {
 	private void addResourceChangeListener() {
 		ResourcesPlugin.getWorkspace().addResourceChangeListener(
 				new ModelResourceChangeListener());
+		ResourcesPlugin.getWorkspace().addResourceChangeListener(
+				new ModelAirdResourceChangeListener());
 
 	}
 

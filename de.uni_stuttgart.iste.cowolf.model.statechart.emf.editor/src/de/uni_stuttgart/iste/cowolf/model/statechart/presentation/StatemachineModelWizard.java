@@ -283,102 +283,14 @@ public class StatemachineModelWizard extends Wizard implements INewWizard {
 					 });
 			}
 
-			// create viewpoint
-            IFile airdFile = modelFile.getProject().getFile(
-                    "representations.aird");
-            if (!airdFile.exists())
-                throw new Exception("could not found file:"
-                        + airdFile.getLocationURI());
-            URI airdFileURI = URI.createPlatformResourceURI(airdFile
-                    .getFullPath().toOSString(), true);
-            Session session = SessionManager.INSTANCE.getSession(airdFileURI,
-                    new NullProgressMonitor());
-
-            URI fileURI = URI.createPlatformResourceURI(
-                    modelFile.getFullPath().toString() , true);
-
-            // adding the resource also to Sirius session
-            AddSemanticResourceCommand addCommandToSession = new AddSemanticResourceCommand(
-                    session, fileURI, new NullProgressMonitor());
-            session.getTransactionalEditingDomain().getCommandStack()
-                    .execute(addCommandToSession);
-            session.save(new NullProgressMonitor());
-
-            ;
-
-            // find and add viewpoint
-            Set<Viewpoint> availableViewpoints = ViewpointSelection
-                    .getViewpoints(FILE_EXTENSION);
-
-            if (availableViewpoints.isEmpty())
-                throw new Exception(
-                        "Could not find viewport for fileextension "
-                                + FILE_EXTENSION);
-
-            Set<Viewpoint> viewpoints = new HashSet<Viewpoint>();
-            for (Viewpoint p : availableViewpoints)
-                viewpoints.add(SiriusResourceHelper.getCorrespondingViewpoint(
-                        session, p));
-
-            ViewpointSelection.Callback callback = new ViewpointSelectionCallbackWithConfimation();
-
-            RecordingCommand command = new ChangeViewpointSelectionCommand(
-                    session, callback, viewpoints, new HashSet<Viewpoint>(),
-                    true, new NullProgressMonitor());
-            TransactionalEditingDomain domain = session
-                    .getTransactionalEditingDomain();
-            domain.getCommandStack().execute(command);
-
-
-            // create representation
-         
-            Object[] elements1 = session
-                    .getSemanticResources().toArray();
-            Resource resource = (Resource) elements1[elements1.length-1];
-
-
-
-            EObject rootObject = resource.getContents().get(0);
-
-            Collection<RepresentationDescription> descriptions = DialectManager.INSTANCE
-                    .getAvailableRepresentationDescriptions(
-                            session.getSelectedViewpoints(false), rootObject);
-            if (descriptions.isEmpty())
-                throw new Exception(
-                        "Could not find representation description for object: "
-                                + rootObject);
-            RepresentationDescription description = descriptions.iterator()
-                    .next();
-
-
-            DialectManager viewpointDialectManager = DialectManager.INSTANCE;
-            Command createViewCommand = new CreateRepresentationCommand(
-                    session, description, rootObject, modelFile.getName(),
-                    new NullProgressMonitor());
-
-            session.getTransactionalEditingDomain().getCommandStack()
-                    .execute(createViewCommand);
-
-            SessionManager.INSTANCE.notifyRepresentationCreated(session);
-
-            // open editor for last representation
-            Collection<DRepresentation> representations = viewpointDialectManager
-                    .getRepresentations(description, session);
-            Object[] arrayRep =  representations
-                    .toArray();
-            DRepresentation myDiagramRepresentation = (DRepresentation) arrayRep[arrayRep.length - 1];
-            DialectUIManager dialectUIManager = DialectUIManager.INSTANCE;
-            dialectUIManager.openEditor(session, myDiagramRepresentation,
-                    new NullProgressMonitor());
-
-            // save session and refresh workspace
-            session.save(new NullProgressMonitor());
-            modelFile.getProject().refreshLocal(IResource.DEPTH_INFINITE,
-                    new NullProgressMonitor());
+			// Only create representation if wished by the user
+			if (editorPage.getGraphicalSelection()) {
+				CreateRepresentationAndViewpointHandler.createAll(modelFile,
+						true);
+			}
 
 			return true;
-		}
-		catch (Exception exception) {
+		} catch (Exception exception) {
 			StatemachineEditorPlugin.INSTANCE.log(exception);
 			return false;
 		}
@@ -643,7 +555,7 @@ public class StatemachineModelWizard extends Wizard implements INewWizard {
 	 * The framework calls this to create the contents of the wizard.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 		@Override
 	public void addPages() {
