@@ -5,16 +5,22 @@ import de.uni_stuttgart.iste.cowolf.model.fault_tree.Event
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.FaultTree
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.Gate
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.Hazard
-import java.util.Map
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.IntermediateEvent
 import de.uni_stuttgart.iste.cowolf.model.fault_tree.UndevelopedEvent
+import java.util.Map
 
 class XFTAFaultTreeGenerator implements XFTAGenerator {
 
+/*
+ * XFTA only supports AND, OR, NOT and ATLEAST gates. So the meta-model gates must be horribly translated
+ * or logically converted. Future work.
+ */
+private val gates = #{'and'->'and', 'or'->'or', 'inhibit'->'and', 'priorand'->'and', 'xor'->'or'};
+	
 	override CharSequence doGenerateXFTAFile(FaultTree root, Map<String, Object> parameters) {
 		return '''«root.xFTAFaultTreeTemplate»'''
 	}
-
+	
 	def xFTAFaultTreeTemplate(FaultTree r) '''
 		<?xml version="1.0"?>
 		<!DOCTYPE open-psa>
@@ -88,13 +94,17 @@ class XFTAFaultTreeGenerator implements XFTAGenerator {
 	'''
 
 	def fillGateContent(Gate gate)'''
-		   	<«gate.class.interfaces.get(0).simpleName.toLowerCase»>
+		   	<«gate.class.interfaces.get(0).simpleName.toLowerCase.translateGate»>
 		«FOR g : gate.inputGates»
 			«processGate(g)»
 		«ENDFOR»
 		«FOR e : gate.inputEvents»
 			«processEvent(e)»
 		«ENDFOR»
-		   	</«gate.class.interfaces.get(0).simpleName.toLowerCase»>
+		   	</«gate.class.interfaces.get(0).simpleName.toLowerCase.translateGate»>
 	'''
+
+	def translateGate(CharSequence s){
+		return gates.get(s);
+	}
 }
