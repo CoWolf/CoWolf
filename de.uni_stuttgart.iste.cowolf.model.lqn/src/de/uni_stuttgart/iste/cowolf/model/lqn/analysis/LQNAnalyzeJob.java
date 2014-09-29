@@ -20,6 +20,8 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import de.uni_stuttgart.iste.cowolf.core.utilities.CommandLineExecutor;
 import de.uni_stuttgart.iste.cowolf.core.utilities.PrinterRegistry;
@@ -31,6 +33,8 @@ import de.uni_stuttgart.iste.cowolf.model.LqnCore.TaskType;
 import de.uni_stuttgart.iste.cowolf.model.lqn.LQNModelManager;
 
 public class LQNAnalyzeJob extends Job {
+
+	private final static Logger LOGGER = LoggerFactory.getLogger(LQNAnalyzeJob.class);
 
 	private final Resource model;
 	private final Map<String, Object> parameters;
@@ -76,21 +80,25 @@ public class LQNAnalyzeJob extends Job {
 
 			// 2. Use CommandLineExecutor to execute lqn solver.
 			final StringBuilder lqnSolverCommand = new StringBuilder();
-			lqnSolverCommand.append("-x -o ").append(lqnOutputFile);
+			lqnSolverCommand.append(" -v -x -o ").append(lqnOutputFile);
 			lqnSolverCommand.append(" ").append(lqnInputFile.getName());
 			Reader r = new InputStreamReader(
-					CommandLineExecutor.execCommandAndGetOutput(lqnInputFile.getParentFile().getAbsolutePath(),  pathToLQNSolver, lqnSolverCommand.toString())
+					CommandLineExecutor.execCommandAndGetErrorOutput(lqnInputFile.getParentFile().getAbsolutePath(),  pathToLQNSolver, lqnSolverCommand.toString())
 					);
 			
-			System.out.println(lqnSolverCommand.toString());
+			LOGGER.debug("LQN Solver Command: "+lqnSolverCommand.toString());
 			
 			BufferedReader in = new BufferedReader(r);
 			String line;
 			while ((line = in.readLine()) != null) {
-				PrinterRegistry.getInstance().println("DTMC Analysis", line);
+				String nLine = parseLQNSolverOutputLine(line);
+				if (!nLine.equals("")) {
+					PrinterRegistry.getInstance().println("LQN Analysis", nLine);					
+				}
 			}
 			PrinterRegistry.getInstance().close();
-			
+
+			in.close();
 			monitor.worked(1);
 
 			// 3. Parse the results from generated file
@@ -175,5 +183,16 @@ public class LQNAnalyzeJob extends Job {
 			}
 		}
 		return target;
+	}
+	
+	private String parseLQNSolverOutputLine(String line){
+		String nLine = "";
+		if (line.indexOf("advisory") >= 0 ) {
+			nLine = line.substring(line.indexOf("advisory"));
+		}
+		if (line.indexOf("error") >= 0 ) {
+			nLine = line.substring(line.indexOf("error"));
+		}
+		return nLine;
 	}
 }
