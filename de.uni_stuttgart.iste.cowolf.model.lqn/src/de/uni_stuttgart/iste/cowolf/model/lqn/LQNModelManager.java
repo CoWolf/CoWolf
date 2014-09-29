@@ -3,12 +3,15 @@ package de.uni_stuttgart.iste.cowolf.model.lqn;
 import java.util.Map;
 
 import org.eclipse.core.runtime.jobs.Job;
+import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 
 import de.uni_stuttgart.iste.cowolf.model.AbstractQoSModelManager;
 import de.uni_stuttgart.iste.cowolf.model.IAnalysisListener;
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.LQN;
 import de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage;
+import de.uni_stuttgart.iste.cowolf.model.LqnCore.LqnModelType;
 import de.uni_stuttgart.iste.cowolf.model.lqn.analysis.LQNAnalyzeJob;
 import de.uni_stuttgart.iste.cowolf.model.lqn.analysis.LQNAnalyzeJobListener;
 
@@ -47,5 +50,20 @@ public class LQNModelManager extends AbstractQoSModelManager {
 		job.schedule();
 
 		return null;
+	}
+	
+	@Override
+	public EObject getRootObject(Resource resource) {
+		
+		LqnModelType lqnmodeltype = null;
+		TreeIterator<EObject> allObjects = resource.getAllContents();
+
+		while(allObjects.hasNext()){
+			EObject object = allObjects.next();
+			if (object instanceof LqnModelType) {
+				lqnmodeltype = (LqnModelType) object;
+			}
+		}
+		return lqnmodeltype;
 	}
 }
