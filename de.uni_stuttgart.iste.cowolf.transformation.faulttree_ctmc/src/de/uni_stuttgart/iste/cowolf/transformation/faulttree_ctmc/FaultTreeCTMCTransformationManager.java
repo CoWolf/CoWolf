@@ -35,5 +35,16 @@ public class FaultTreeCTMCTransformationManager extends AbstractTransformationMa
 	protected String getReverseKey() {
 		return "ctmc_faulttree";
 	}
+	
+	@Override
+	public boolean isManaged(Class<?> source, Class<?> target) {
+
+		if (getManagedClass1().isAssignableFrom(source)
+				&& getManagedClass2().isAssignableFrom(target)) {
+			return true;
+		}
+
+		return false;
+	}
 
 }
