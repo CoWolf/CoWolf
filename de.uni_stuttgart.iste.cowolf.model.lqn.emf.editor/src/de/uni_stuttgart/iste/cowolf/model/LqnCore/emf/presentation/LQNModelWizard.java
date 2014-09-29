@@ -54,7 +54,7 @@ import de.uni_stuttgart.iste.cowolf.model.lqn.emf.provider.LQNEditPlugin;
 
 
 import de.uni_stuttgart.iste.cowolf.model.lqn.emf.presentation.LQNEditorPlugin;
-import de.uni_stuttgart.iste.cowolf.ui.navigator.commands.CreateRepresentationAndViewpointHandler;
+import de.uni_stuttgart.iste.cowolf.ui.navigator.handlers.CreateRepresentationAndViewpointHandler;
 
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.ecore.EStructuralFeature;
