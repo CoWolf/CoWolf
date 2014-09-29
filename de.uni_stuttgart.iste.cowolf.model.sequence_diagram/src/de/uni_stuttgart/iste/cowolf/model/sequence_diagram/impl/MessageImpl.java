@@ -101,9 +101,7 @@ public class MessageImpl extends org.eclipse.uml2.uml.internal.impl.MessageImpl 
 	 * @generated
 	 */
 	public boolean isDistinguishableFrom(NamedElement n, Namespace ns) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return true;
 	}
 
 	/**
