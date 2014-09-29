@@ -50,7 +50,7 @@ import org.eclipse.ui.part.ISetSelectionTarget;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCFactory;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.DTMCPackage;
 import de.uni_stuttgart.iste.cowolf.model.dtmc.emf.provider.DTMCEditPlugin;
-import de.uni_stuttgart.iste.cowolf.ui.navigator.commands.CreateRepresentationAndViewpointHandler;
+import de.uni_stuttgart.iste.cowolf.ui.navigator.handlers.CreateRepresentationAndViewpointHandler;
 
 import org.eclipse.core.runtime.Path;
 import org.eclipse.jface.viewers.ISelection;
