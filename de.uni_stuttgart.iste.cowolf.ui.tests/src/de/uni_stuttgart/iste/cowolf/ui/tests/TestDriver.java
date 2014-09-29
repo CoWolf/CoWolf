@@ -148,7 +148,7 @@ public class TestDriver {
 
 	public String getResourceFileContent(String fileName) {
 
-		String path = CoWolfEditorTest.class.getProtectionDomain()
+		String path = T004_CoWolfEditorTest.class.getProtectionDomain()
 				.getCodeSource().getLocation().getPath();
 
 		String xml = "";

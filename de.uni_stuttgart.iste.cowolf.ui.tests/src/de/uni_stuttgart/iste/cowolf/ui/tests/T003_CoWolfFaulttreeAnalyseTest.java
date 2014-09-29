@@ -29,7 +29,7 @@ import org.junit.runner.RunWith;
 import static org.eclipse.xtext.junit4.ui.util.IResourcesSetupUtil.cleanWorkspace;
 
 @RunWith(SWTBotJunit4ClassRunner.class)
-public class CoWolfFaulttreeAnalyseTest {
+public class T003_CoWolfFaulttreeAnalyseTest {
 
 	private static SWTWorkbenchBot bot;
 	private static TestDriver testDriver = null;
@@ -73,8 +73,10 @@ public class CoWolfFaulttreeAnalyseTest {
 		
 		// open My.dtmc as text file
 		bot.viewByTitle(TestDriver._cowolf_view).setFocus();
-		bot.tree().getTreeItem(TestDriver._cowolf_project_name).getNode(_faulttree_file_name)
-				.select().contextMenu("Open With").menu("Text Editor").click();
+		bot.tree().getTreeItem(TestDriver._cowolf_project_name).expand().select().click()
+		.getNode("models").expand().select().click()
+		.getNode(_faulttree_file_name)
+		.select().contextMenu("Open With").menu("Text Editor").click();
 		
 		SWTBotEditor editor = bot.editorByTitle(_faulttree_file_name);
 		SWTBotEclipseEditor e = editor.toTextEditor();
@@ -83,51 +85,20 @@ public class CoWolfFaulttreeAnalyseTest {
 
 		// open My.dtmc as text file
 		bot.viewByTitle(TestDriver._cowolf_view).setFocus();
-		bot.tree().getTreeItem(TestDriver._cowolf_project_name).getNode(_faulttree_file_name)
-				.select().contextMenu("CoWolf").menu("Analyze").click();
-		//bot.button("Next >").click();
+		bot.tree().getTreeItem(TestDriver._cowolf_project_name).expand().select().click()
+		.getNode("models").expand().select().click()
+		.getNode(_faulttree_file_name).expand().select().click()
+		.select().contextMenu("CoWolf").menu("Analyze").click();
+
 		bot.button("Finish").click();
 
 		bot.viewByTitle(TestDriver._cowolf_view).setFocus();
-		bot.tree().getTreeItem("CoWolf-Test-Project").select().expand().click().getNode("My.dtmc.analysis.html").select();
+		bot.tree().getTreeItem("CoWolf-Test-Project").select().expand().click()
+		.getNode("models").expand().select().click()
+		.getNode("My.faulttree.analysis.html").select();
+		bot.sleep(2000);
+		
 	}
 	
-
-//
-//		// Open My.dtmc as textfile
-//		bot.viewByTitle("CoWolf View").setFocus();
-//		bot.tree().getTreeItem("CoWolf-Test-Project").getNode("My.dtmc")
-//				.select().contextMenu("Open With").menu("Text Editor").click();
-//
-//		// Open My.dtmc as textfile
-//		SWTBotEditor editor = bot.editorByTitle("My.dtmc");
-//		SWTBotEclipseEditor e = editor.toTextEditor();
-//		e.setText(xml1.toString());
-//		editor.saveAndClose();
-//		
-//		//create modified dtmc
-//		// Create a ctmc model
-//		testHelper.openProjectWizardwithContextMenu(bot);
-//		testHelper.createModel(bot, "DTMC Model");
-//
-//		dtmcEditor = testHelper.getFileEditor(bot, "My1.dtmc");
-//		dtmcEditor.bot().tree()
-//		.getTreeItem("platform:/resource/CoWolf-Test-Project/My1.dtmc")
-//		.select();
-//		// Save
-//		dtmcEditor.saveAndClose();
-//		
-//		bot.sleep(2000);
-//		// open My.dtmc as text file
-//		bot.viewByTitle("CoWolf View").setFocus();
-//		bot.tree().getTreeItem("CoWolf-Test-Project").getNode("My1.dtmc")
-//				.select().contextMenu("Open With").menu("Text Editor").click();
-//
-//
-//		// Open My.dtmc as textfile
-//		editor = bot.editorByTitle("My1.dtmc");
-//		e = editor.toTextEditor();
-//		e.setText(xml2.toString());
-//		editor.saveAndClose();
 	}
 

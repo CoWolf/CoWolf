@@ -31,7 +31,7 @@ import org.junit.runner.RunWith;
 import static org.eclipse.xtext.junit4.ui.util.IResourcesSetupUtil.cleanWorkspace;
 
 @RunWith(SWTBotJunit4ClassRunner.class)
-public class CoWolfCoEvolutionTest {
+public class T001_CoWolfCoEvolutionTest {
 
 	private static SWTWorkbenchBot bot;
 	private static TestDriver testDriver = null;
