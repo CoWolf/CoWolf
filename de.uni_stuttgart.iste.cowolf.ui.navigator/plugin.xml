@@ -43,13 +43,6 @@ activeByDefault="true"
             </and>
          </filterExpression>
       </commonFilter>
-       <commonFilter
-activeByDefault="true"
-class="de.uni_stuttgart.iste.cowolf.ui.navigator.filter.AirdFileFilter"
-description="Hides Representation descriptions"
-id="de.uni_stuttgart.iste.cowolf.ui.navigator.filters.AirdFileFilter"
-name="Representation descriptions in CoWolf">
-</commonFilter>
 </extension>
 <extension
 point="org.eclipse.ui.handlers">
@@ -73,11 +66,6 @@ point="org.eclipse.ui.handlers">
       <handler
             class="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.CreateRepresentationAndViewpointHandler"
             commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.CreateRepresentationAndViewpointCommand">
-         <enabledWhen>
-            <test
-                  property="de.uni_stuttgart.iste.cowolf.ui.navigator.propertyTester.graphicalEditor.canFoo">
-            </test>
-         </enabledWhen>
       </handler>
       <handler
             class="de.uni_stuttgart.iste.cowolf.ui.navigator.commands.ToggleNatureHandler"
@@ -156,6 +144,12 @@ allPopups="false"
                commandId="de.uni_stuttgart.iste.cowolf.ui.navigator.CreateRepresentationAndViewpointCommand"
                label="Create Graphical Representation"
                style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <reference
+                     definitionId="de.uni_stuttgart.iste.cowolf.ui.navigator.definition.visibility.representation">
+               </reference>
+            </visibleWhen>
          </command>
 </menuContribution>
 <menuContribution
@@ -277,6 +271,18 @@ allPopups="false"
          
          </and>
                     
+      </definition>
+      <definition
+            id="de.uni_stuttgart.iste.cowolf.ui.navigator.definition.visibility.representation">
+         <and>
+            <iterate
+                  operator="and">
+               <test
+                     forcePluginActivation="true"
+                     property="de.uni_stuttgart.iste.cowolf.ui.navigator.propertyTester.graphicalEditor.canFoo">
+               </test>
+            </iterate>
+         </and>
       </definition>
    </extension>
 </plugin>

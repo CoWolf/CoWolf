@@ -9,9 +9,13 @@ import org.eclipse.ui.ISelectionService;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 
+import de.uni_stuttgart.iste.cowolf.core.natures.ProjectNature;
 import de.uni_stuttgart.iste.cowolf.model.AbstractModelManager;
 import de.uni_stuttgart.iste.cowolf.model.ModelRegistry;
 
@@ -43,24 +47,22 @@ public class GraphicalEditorTest extends PropertyTester {
 			return false;
 		}
 
-		Iterator iterator = ((IStructuredSelection) selection).iterator();
-		while (iterator.hasNext()) {
-			Object object = iterator.next();
-			IFile currentResource;
+		Object selectedElement = ((IStructuredSelection) selection)
+				.getFirstElement();
 
-			if (!(object instanceof IFile)) {
-				return false;
-			} else {
-				currentResource = (IFile) object;
-			}
+		if (selectedElement == null) {
+			return false;
+		}
+		if (selectedElement instanceof IFile) {
+			IFile iFile = (IFile) selectedElement;
 
-			if (currentResource.getFileExtension().endsWith("aird")) {
+			if (!iFile.exists()) {
 				return false;
 			}
 
 			try {
 				AbstractModelManager modelManager = ModelRegistry.getInstance()
-						.getModelManager(currentResource.getFileExtension());
+						.getModelManager(iFile.getFileExtension());
 
 				if (modelManager == null) {
 					return false;
@@ -69,18 +71,14 @@ public class GraphicalEditorTest extends PropertyTester {
 				return false;
 			}
 
-			IPath representationPath = currentResource.getProjectRelativePath()
-					.removeLastSegments(1)
-					.append(currentResource.getName() + ".aird");
-			IFile test = currentResource.getProject().getFile(
-					representationPath);
-			if (currentResource.getProject().getFile(representationPath)
-					.exists()) {
+			IPath representationPath = iFile.getProjectRelativePath()
+					.removeLastSegments(1).append(iFile.getName() + ".aird");
+			if (iFile.getProject().getFile(representationPath).exists()) {
 				return false;
 			}
-
+			return true;
 		}
+		return false;
 
-		return true;
 	}
 }
