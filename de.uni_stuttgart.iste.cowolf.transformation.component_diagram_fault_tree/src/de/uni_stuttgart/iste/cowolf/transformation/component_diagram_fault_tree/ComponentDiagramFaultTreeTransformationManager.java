@@ -29,46 +29,31 @@ public class ComponentDiagramFaultTreeTransformationManager extends AbstractTran
 	
 	private final static Logger LOGGER = LoggerFactory
 			.getLogger(ComponentDiagramFaultTreeTransformationManager.class);
-	
-	/**
-	 * Key for extension point identification.
-	 */
-	private final static String KEY = "componentdiagram_faulttree";
-	private final static String REVERSE_KEY = "faulttree_componentdiagram";
-	private final static Class<?> FIRST_MODEL = Architecture.class;
-	private final static Class<?> SECOND_MODEL = FaultTree.class;
-	
+
 	@Override
-	public boolean isManaged(Resource source, Resource target) {
-		if ((source == null) || (target == null)) { 
-			return false;
-		}
-		if ((source.getContents() == null) || source.getContents().isEmpty()
-				|| (target.getContents() == null)
-				|| target.getContents().isEmpty()) {
-			return false;
-		}
-
-		return (((FIRST_MODEL.isAssignableFrom(source.getContents().get(0)
-				.getClass())) && (SECOND_MODEL.isAssignableFrom(target
-				.getContents().get(0).getClass()))) || ((SECOND_MODEL
-				.isAssignableFrom(source.getContents().get(0).getClass())) && (FIRST_MODEL
-				.isAssignableFrom(target.getContents().get(0).getClass()))));
+	public boolean isManaged(Class<?> source, Class<?> target) {
+		
+		if (getManagedClass1().isAssignableFrom(source)
+                && getManagedClass2().isAssignableFrom(target)) {
+            return true;
+        }
+		
+		return false;
 	}
-
+	
 	@Override
 	protected String getKey() {
-		return KEY;
+		return "componentdiagram_faulttree";
 	}
 
 	@Override
 	public Class<?> getManagedClass1() {
-		return FIRST_MODEL;
+		return Architecture.class;
 	}
 
 	@Override
 	public Class<?> getManagedClass2() {
-		return SECOND_MODEL;
+		return FaultTree.class;
 	}
 	
 	@Override
@@ -127,7 +112,7 @@ public class ComponentDiagramFaultTreeTransformationManager extends AbstractTran
 
 	@Override
 	protected String getReverseKey() {
-		return REVERSE_KEY;
+		return "faulttree_componentdiagram";
 	}
 	
 	/**
