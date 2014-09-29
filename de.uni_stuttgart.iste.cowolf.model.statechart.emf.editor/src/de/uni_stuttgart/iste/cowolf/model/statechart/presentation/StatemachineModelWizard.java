@@ -8,15 +8,12 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.MissingResourceException;
-import java.util.Set;
 import java.util.StringTokenizer;
 
 import org.eclipse.emf.common.CommonPlugin;
-import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
@@ -26,8 +23,6 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
-import org.eclipse.emf.transaction.RecordingCommand;
-import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -35,29 +30,15 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardPage;
-import org.eclipse.sirius.business.api.dialect.DialectManager;
-import org.eclipse.sirius.business.api.dialect.command.CreateRepresentationCommand;
-import org.eclipse.sirius.business.api.helper.SiriusResourceHelper;
-import org.eclipse.sirius.business.api.session.Session;
-import org.eclipse.sirius.business.api.session.SessionManager;
-import org.eclipse.sirius.tools.api.command.semantic.AddSemanticResourceCommand;
-import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
-import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelection;
-import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelectionCallbackWithConfimation;
-import org.eclipse.sirius.ui.business.internal.commands.ChangeViewpointSelectionCommand;
-import org.eclipse.sirius.viewpoint.DRepresentation;
-import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
-import org.eclipse.sirius.viewpoint.description.Viewpoint;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
@@ -65,13 +46,13 @@ import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
-import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
 
 import de.uni_stuttgart.iste.cowolf.model.statechart.StatemachineFactory;
 import de.uni_stuttgart.iste.cowolf.model.statechart.StatemachinePackage;
 import de.uni_stuttgart.iste.cowolf.model.statechart.emf.provider.StatemachineEditPlugin;
 import de.uni_stuttgart.iste.cowolf.model.statechart.emf.presentation.StatemachineEditorPlugin;
+import de.uni_stuttgart.iste.cowolf.ui.navigator.handlers.CreateRepresentationAndViewpointHandler;
 
 import org.eclipse.core.runtime.Path;
 import org.eclipse.jface.viewers.ISelection;
@@ -79,7 +60,6 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.PartInitException;
 
 
 /**
@@ -133,6 +113,8 @@ public class StatemachineModelWizard extends Wizard implements INewWizard {
 	 */
 	protected StatemachineModelWizardNewFileCreationPage newFileCreationPage;
 
+	protected EditorPage editorPage;
+	
 	/**
 	 * This is the initial object creation page.
 	 * <!-- begin-user-doc -->
@@ -552,6 +534,61 @@ public class StatemachineModelWizard extends Wizard implements INewWizard {
 	}
 
 	/**
+	 * Page to decide whether to create a graphical editor or not
+	 */
+	public class EditorPage extends WizardPage {
+
+		public EditorPage() {
+			super("ViewpointPage");
+			this.setTitle("Ggraphical Editor");
+			this.setDescription("Create a graphical editor");
+		}
+
+		private Button checkbox = null;
+
+		@Override
+		public void createControl(Composite parent) {
+			Composite composite = new Composite(parent, SWT.NONE);
+			{
+				GridLayout layout = new GridLayout();
+				layout.numColumns = 1;
+				layout.verticalSpacing = 12;
+				composite.setLayout(layout);
+
+				GridData data = new GridData();
+				data.verticalAlignment = GridData.FILL;
+				data.grabExcessVerticalSpace = true;
+				data.horizontalAlignment = GridData.FILL;
+				composite.setLayoutData(data);
+			}
+
+			Label questionLabel = new Label(composite, SWT.LEFT);
+
+			questionLabel
+					.setText("Do you want to create a graphical representation of the model?");
+
+			GridData data = new GridData();
+			data.horizontalAlignment = GridData.FILL;
+			questionLabel.setLayoutData(data);
+
+			checkbox = new Button(composite, SWT.CHECK);
+			checkbox.setText("Yes");
+			checkbox.setSelection(true);
+
+			GridData data1 = new GridData();
+			data1.horizontalAlignment = GridData.FILL;
+			checkbox.setLayoutData(data1);
+
+			setPageComplete(true);
+			setControl(composite);
+		}
+
+		public boolean getGraphicalSelection() {
+			return checkbox.getSelection();
+		}
+	}
+	
+	/**
 	 * The framework calls this to create the contents of the wizard.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -604,8 +641,11 @@ public class StatemachineModelWizard extends Wizard implements INewWizard {
 		initialObjectCreationPage.setTitle(StatemachineEditorPlugin.INSTANCE.getString("_UI_StatemachineModelWizard_label"));
 		initialObjectCreationPage.setDescription(StatemachineEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
 		addPage(initialObjectCreationPage);
+		
+		editorPage = new EditorPage();
+		addPage(editorPage);
 	}
-
+		
 	/**
 	 * Get the file from the page.
 	 * <!-- begin-user-doc -->
