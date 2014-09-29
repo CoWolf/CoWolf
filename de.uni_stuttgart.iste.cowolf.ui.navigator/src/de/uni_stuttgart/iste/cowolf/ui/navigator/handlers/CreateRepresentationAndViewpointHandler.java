@@ -55,7 +55,6 @@ import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.impl.ModelAssociationF
 import de.uni_stuttgart.iste.cowolf.model.AbstractModelManager;
 import de.uni_stuttgart.iste.cowolf.model.ModelRegistry;
 
-
 /**
  * @author Verena Käfer
  * 
@@ -148,15 +147,14 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 						.getTransactionalEditingDomain();
 				domain.getCommandStack().execute(command);
 
-			Object[] elements1 = session.getSemanticResources().toArray();
-							.toArray();
-			Resource resource = (Resource) elements1[elements1.length - 1];
-			
-			AbstractModelManager modelManager = ModelRegistry.getInstance()
-					.getModelManager(modelFile.getFileExtension());
-							.toArray();
-			
-			EObject rootObject = modelManager.getRootObject(resource);
+				Object[] elements1 = session.getSemanticResources().toArray();
+
+				Resource resource = (Resource) elements1[elements1.length - 1];
+
+				AbstractModelManager modelManager = ModelRegistry.getInstance()
+						.getModelManager(modelFile.getFileExtension());
+
+				EObject rootObject = modelManager.getRootObject(resource);
 
 				Collection<RepresentationDescription> descriptions = DialectManager.INSTANCE
 						.getAvailableRepresentationDescriptions(
