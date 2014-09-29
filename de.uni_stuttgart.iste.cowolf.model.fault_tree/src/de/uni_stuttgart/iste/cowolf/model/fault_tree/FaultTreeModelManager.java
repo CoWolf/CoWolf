@@ -21,6 +21,7 @@ public class FaultTreeModelManager extends AbstractQoSModelManager {
 				parameters, listener);
 		job.addJobChangeListener(new FaultTreeAnalyzeJobListener());
 		job.setPriority(Job.LONG);
+		job.setUser(true);
 		job.schedule();
 
 		return null;

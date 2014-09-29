@@ -25,6 +25,7 @@ public class CTMCModelManager extends AbstractQoSModelManager{
 		final CTMCAnalyzeJob job = new CTMCAnalyzeJob(model, parameters);
 		job.addJobChangeListener(new CTMCAnalyzeJobListener(listener));
 		job.setPriority(Job.LONG);
+		job.setUser(true);
 		job.schedule();
 		return null;
 	}

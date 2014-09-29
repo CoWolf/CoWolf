@@ -43,6 +43,7 @@ public class LQNModelManager extends AbstractQoSModelManager {
 				parameters, listener);
 		job.addJobChangeListener(new LQNAnalyzeJobListener());
 		job.setPriority(Job.LONG);
+		job.setUser(true);
 		job.schedule();
 
 		return null;
