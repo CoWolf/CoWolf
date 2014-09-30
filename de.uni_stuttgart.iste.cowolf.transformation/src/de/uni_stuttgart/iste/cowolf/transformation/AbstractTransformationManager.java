@@ -212,7 +212,7 @@ public abstract class AbstractTransformationManager {
         
         // Create backup version for target model if needed.
         if (targetModel.hasChanges()) {
-        	targetModel.createVersion("Backup changes before co-evolution from " + targetModel.getModel());
+        	targetModel.createVersion("Backup changes before co-evolution from " + sourceModel.getModel());
         }
         
         // Got all needed versions.
@@ -664,7 +664,7 @@ public abstract class AbstractTransformationManager {
 	    
 	    targetRes.unload();
 	    
-	    final ModelVersion newTargetVersion = targetModel.createVersion("Co-evolution from " + targetModel.getModel());
+	    final ModelVersion newTargetVersion = targetModel.createVersion("Co-evolution from " + sourceModel.getModel());
 	    
 	    final BasicEList<Trace> tl = new BasicEList<Trace>();
 	    for (EObject o : resSet.getResource(RESOURCE_URL_TRACES, false).getContents()) {
