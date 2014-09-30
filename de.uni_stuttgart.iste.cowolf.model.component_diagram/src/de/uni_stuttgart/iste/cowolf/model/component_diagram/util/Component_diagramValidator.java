@@ -340,7 +340,166 @@ public class Component_diagramValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateArchitecture(Architecture architecture, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(architecture, diagnostics, context);
+		if (!validate_NoCircularContainment(architecture, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(architecture, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(architecture, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(architecture, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(architecture, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(architecture, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(architecture, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(architecture, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(architecture, diagnostics, context);
+		if (result || diagnostics != null) result &= validateArchitecture_UniqueComponentTypeNames(architecture, diagnostics, context);
+		if (result || diagnostics != null) result &= validateArchitecture_UniqueConnectorNames(architecture, diagnostics, context);
+		if (result || diagnostics != null) result &= validateArchitecture_UniquePortNames(architecture, diagnostics, context);
+		if (result || diagnostics != null) result &= validateArchitecture_UniqueComponentInstanceNames(architecture, diagnostics, context);
+		if (result || diagnostics != null) result &= validateArchitecture_UniquePortTypeNames(architecture, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * The cached validation expression for the UniqueComponentTypeNames constraint of '<em>Architecture</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String ARCHITECTURE__UNIQUE_COMPONENT_TYPE_NAMES__EEXPRESSION = "self.component.name -> asSet() -> size() = self.component.name -> size()";
+
+	/**
+	 * Validates the UniqueComponentTypeNames constraint of '<em>Architecture</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateArchitecture_UniqueComponentTypeNames(Architecture architecture, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(Component_diagramPackage.Literals.ARCHITECTURE,
+				 architecture,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
+				 "UniqueComponentTypeNames",
+				 ARCHITECTURE__UNIQUE_COMPONENT_TYPE_NAMES__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
+	}
+
+	/**
+	 * The cached validation expression for the UniqueConnectorNames constraint of '<em>Architecture</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String ARCHITECTURE__UNIQUE_CONNECTOR_NAMES__EEXPRESSION = "self.connectors.name -> asSet() -> size() = self.connectors.name -> size()";
+
+	/**
+	 * Validates the UniqueConnectorNames constraint of '<em>Architecture</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateArchitecture_UniqueConnectorNames(Architecture architecture, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(Component_diagramPackage.Literals.ARCHITECTURE,
+				 architecture,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
+				 "UniqueConnectorNames",
+				 ARCHITECTURE__UNIQUE_CONNECTOR_NAMES__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
+	}
+
+	/**
+	 * The cached validation expression for the UniquePortNames constraint of '<em>Architecture</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String ARCHITECTURE__UNIQUE_PORT_NAMES__EEXPRESSION = "self.ports.name -> asSet() -> size() = self.ports.name -> size()";
+
+	/**
+	 * Validates the UniquePortNames constraint of '<em>Architecture</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateArchitecture_UniquePortNames(Architecture architecture, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(Component_diagramPackage.Literals.ARCHITECTURE,
+				 architecture,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
+				 "UniquePortNames",
+				 ARCHITECTURE__UNIQUE_PORT_NAMES__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
+	}
+
+	/**
+	 * The cached validation expression for the UniqueComponentInstanceNames constraint of '<em>Architecture</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String ARCHITECTURE__UNIQUE_COMPONENT_INSTANCE_NAMES__EEXPRESSION = "self.instances.name -> asSet() -> size() = self.instances.name -> size()";
+
+	/**
+	 * Validates the UniqueComponentInstanceNames constraint of '<em>Architecture</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateArchitecture_UniqueComponentInstanceNames(Architecture architecture, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(Component_diagramPackage.Literals.ARCHITECTURE,
+				 architecture,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
+				 "UniqueComponentInstanceNames",
+				 ARCHITECTURE__UNIQUE_COMPONENT_INSTANCE_NAMES__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
+	}
+
+	/**
+	 * The cached validation expression for the UniquePortTypeNames constraint of '<em>Architecture</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String ARCHITECTURE__UNIQUE_PORT_TYPE_NAMES__EEXPRESSION = "self.port_type.name -> asSet() -> size() = self.port_type.name -> size()";
+
+	/**
+	 * Validates the UniquePortTypeNames constraint of '<em>Architecture</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateArchitecture_UniquePortTypeNames(Architecture architecture, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(Component_diagramPackage.Literals.ARCHITECTURE,
+				 architecture,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL",
+				 "UniquePortTypeNames",
+				 ARCHITECTURE__UNIQUE_PORT_TYPE_NAMES__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
 
 	/**

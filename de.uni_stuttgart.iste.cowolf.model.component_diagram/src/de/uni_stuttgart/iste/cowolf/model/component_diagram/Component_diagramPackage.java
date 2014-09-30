@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EReference;
  * <!-- end-user-doc -->
  * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramFactory
  * @model kind="package"
+ *        annotation="http://www.eclipse.org/OCL/Import commonBase='../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#/' ecore='http://www.eclipse.org/emf/2002/Ecore'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL' settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL' validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL'"
  * @generated
  */
