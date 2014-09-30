@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_4gsPsDdOEeShrM5H7CbEAQ" name="ADD_LOOP_Transition_IN_State">
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_4gsPsDdOEeShrM5H7CbEAQ" name="ADD_LOOP_Transition_IN_State">
   <imports href="http://ctmc/1.0#/"/>
-  <units xsi:type="henshin:SequentialUnit" xmi:id="_B-854DdPEeShrM5H7CbEAQ" name="mainUnit" subUnits="_XzarwDdPEeShrM5H7CbEAQ">
-    <parameters xmi:id="_NxsIIDdPEeShrM5H7CbEAQ" name="new"/>
-    <parameters xmi:id="_RF5D0DdPEeShrM5H7CbEAQ" name="selectedEObject"/>
-    <parameters xmi:id="_TU__sDdPEeShrM5H7CbEAQ" name="id"/>
-    <parameters xmi:id="_PWMRIEMeEeSjG4AeAd4QWw" name="prob"/>
+  <units xsi:type="henshin:SequentialUnit" xmi:id="_B-854DdPEeShrM5H7CbEAQ" name="mainUnit" description="Creates Loop" subUnits="_XzarwDdPEeShrM5H7CbEAQ">
+    <parameters xmi:id="_NxsIIDdPEeShrM5H7CbEAQ" name="new">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//Transition"/>
+    </parameters>
+    <parameters xmi:id="_RF5D0DdPEeShrM5H7CbEAQ" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//State"/>
+    </parameters>
+    <parameters xmi:id="_TU__sDdPEeShrM5H7CbEAQ" name="id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_PWMRIEMeEeSjG4AeAd4QWw" name="prob">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    </parameters>
     <parameterMappings xmi:id="_RN0hIUMeEeSjG4AeAd4QWw" source="_bS5DUDdPEeShrM5H7CbEAQ" target="_NxsIIDdPEeShrM5H7CbEAQ"/>
     <parameterMappings xmi:id="_RN0hIkMeEeSjG4AeAd4QWw" source="_RF5D0DdPEeShrM5H7CbEAQ" target="_bS5DUTdPEeShrM5H7CbEAQ"/>
     <parameterMappings xmi:id="_RN0hI0MeEeSjG4AeAd4QWw" source="_bS5DUTdPEeShrM5H7CbEAQ" target="_RF5D0DdPEeShrM5H7CbEAQ"/>
@@ -15,10 +23,18 @@
     <parameterMappings xmi:id="_RN1IMEMeEeSjG4AeAd4QWw" source="_eYOiMEL4EeSd4uyyTuTjoQ" target="_PWMRIEMeEeSjG4AeAd4QWw"/>
   </units>
   <units xsi:type="henshin:Rule" xmi:id="_XzarwDdPEeShrM5H7CbEAQ" name="addLoopTransitionInState">
-    <parameters xmi:id="_bS5DUDdPEeShrM5H7CbEAQ" name="new"/>
-    <parameters xmi:id="_bS5DUTdPEeShrM5H7CbEAQ" name="selectedEObject"/>
-    <parameters xmi:id="_bS5DUjdPEeShrM5H7CbEAQ" name="id"/>
-    <parameters xmi:id="_eYOiMEL4EeSd4uyyTuTjoQ" name="prob"/>
+    <parameters xmi:id="_bS5DUDdPEeShrM5H7CbEAQ" name="new">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//Transition"/>
+    </parameters>
+    <parameters xmi:id="_bS5DUTdPEeShrM5H7CbEAQ" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://ctmc/1.0#//State"/>
+    </parameters>
+    <parameters xmi:id="_bS5DUjdPEeShrM5H7CbEAQ" name="id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_eYOiMEL4EeSd4uyyTuTjoQ" name="prob">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    </parameters>
     <lhs xmi:id="_Xze9MDdPEeShrM5H7CbEAQ" name="Lhs">
       <nodes xmi:id="_hRDD0DdPEeShrM5H7CbEAQ" name="selectedEObject">
         <type href="http://ctmc/1.0#//State"/>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_aYq5UEi_EeSQR7cX9E7Q6g" name="CREATE_Hazard_IN_FaultTree_(event)" description="Creates one Hazard in FaultTree">
+  <imports href="http://FaultTree/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_aYq5UUi_EeSQR7cX9E7Q6g" name="createHazard_IN_FaultTree" description="creates one Hazard in the context: FaultTree">
+    <parameters xmi:id="_aYq5Uki_EeSQR7cX9E7Q6g" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//FaultTree"/>
+    </parameters>
+    <parameters xmi:id="_aYq5U0i_EeSQR7cX9E7Q6g" name="New">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//Hazard"/>
+    </parameters>
+    <parameters xmi:id="_aYq5VEi_EeSQR7cX9E7Q6g" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_aYq5VUi_EeSQR7cX9E7Q6g" name="Description">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_aYq5Vki_EeSQR7cX9E7Q6g" name="Name">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_aYq5V0i_EeSQR7cX9E7Q6g" name="Lhs">
+      <nodes xmi:id="_aYq5WEi_EeSQR7cX9E7Q6g" name="Selected">
+        <type href="http://FaultTree/1.0#//FaultTree"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_aYq5WUi_EeSQR7cX9E7Q6g" name="Rhs">
+      <nodes xmi:id="_aYq5Wki_EeSQR7cX9E7Q6g" name="Selected" outgoing="_BXn54EjDEeSQR7cX9E7Q6g">
+        <type href="http://FaultTree/1.0#//FaultTree"/>
+      </nodes>
+      <nodes xmi:id="_aYq5W0i_EeSQR7cX9E7Q6g" name="New" incoming="_BXn54EjDEeSQR7cX9E7Q6g">
+        <type href="http://FaultTree/1.0#//Hazard"/>
+        <attributes xmi:id="_aYq5XEi_EeSQR7cX9E7Q6g" value="Id">
+          <type href="http://CommonBase/1.0#//IDBase/id"/>
+        </attributes>
+        <attributes xmi:id="_aYq5XUi_EeSQR7cX9E7Q6g" value="Description">
+          <type href="http://FaultTree/1.0#//Event/description"/>
+        </attributes>
+        <attributes xmi:id="_aYq5Xki_EeSQR7cX9E7Q6g" value="Name">
+          <type href="http://FaultTree/1.0#//Event/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_BXn54EjDEeSQR7cX9E7Q6g" source="_aYq5Wki_EeSQR7cX9E7Q6g" target="_aYq5W0i_EeSQR7cX9E7Q6g">
+        <type href="http://FaultTree/1.0#//FaultTree/hazard"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_aYq5YUi_EeSQR7cX9E7Q6g" origin="_aYq5WEi_EeSQR7cX9E7Q6g" image="_aYq5Wki_EeSQR7cX9E7Q6g"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_aYq5Yki_EeSQR7cX9E7Q6g" name="mainUnit" subUnits="_aYq5UUi_EeSQR7cX9E7Q6g">
+    <parameters xmi:id="_aYq5Y0i_EeSQR7cX9E7Q6g" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//FaultTree"/>
+    </parameters>
+    <parameters xmi:id="_aYq5ZEi_EeSQR7cX9E7Q6g" name="New">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//Hazard"/>
+    </parameters>
+    <parameters xmi:id="_aYq5ZUi_EeSQR7cX9E7Q6g" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_aYq5Zki_EeSQR7cX9E7Q6g" name="Description">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_aYq5Z0i_EeSQR7cX9E7Q6g" name="Name">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_aYq5aEi_EeSQR7cX9E7Q6g" source="_aYq5Y0i_EeSQR7cX9E7Q6g" target="_aYq5Uki_EeSQR7cX9E7Q6g"/>
+    <parameterMappings xmi:id="_aYq5aUi_EeSQR7cX9E7Q6g" source="_aYq5U0i_EeSQR7cX9E7Q6g" target="_aYq5ZEi_EeSQR7cX9E7Q6g"/>
+    <parameterMappings xmi:id="_aYq5aki_EeSQR7cX9E7Q6g" source="_aYq5ZUi_EeSQR7cX9E7Q6g" target="_aYq5VEi_EeSQR7cX9E7Q6g"/>
+    <parameterMappings xmi:id="_aYq5a0i_EeSQR7cX9E7Q6g" source="_aYq5Zki_EeSQR7cX9E7Q6g" target="_aYq5VUi_EeSQR7cX9E7Q6g"/>
+    <parameterMappings xmi:id="_aYq5bEi_EeSQR7cX9E7Q6g" source="_aYq5Z0i_EeSQR7cX9E7Q6g" target="_aYq5Vki_EeSQR7cX9E7Q6g"/>
+  </units>
+</henshin:Module>

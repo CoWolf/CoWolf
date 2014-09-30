@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_abHJUEi_EeSQR7cX9E7Q6g" name="setFailurePreviousError" description="Sets FailureInstance's reference previousError the target ErrorInstance">
+  <imports href="http://FaultTree/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_abHJUUi_EeSQR7cX9E7Q6g" name="setFailureInstance_previousError_TO_ErrorInstance" description="SetFailureInstanceRefpreviousErrorToErrorInstance">
+    <parameters xmi:id="_abHJUki_EeSQR7cX9E7Q6g" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//FailureInstance"/>
+    </parameters>
+    <parameters xmi:id="_abHJU0i_EeSQR7cX9E7Q6g" name="NewTarget">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//ErrorInstance"/>
+    </parameters>
+    <lhs xmi:id="_abHJVEi_EeSQR7cX9E7Q6g" name="Lhs">
+      <nodes xmi:id="_abHJVUi_EeSQR7cX9E7Q6g" name="Selected">
+        <type href="http://FaultTree/1.0#//FailureInstance"/>
+      </nodes>
+      <nodes xmi:id="_abHJVki_EeSQR7cX9E7Q6g" name="NewTarget">
+        <type href="http://FaultTree/1.0#//ErrorInstance"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_abHJV0i_EeSQR7cX9E7Q6g">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_abHJWEi_EeSQR7cX9E7Q6g">
+          <conclusion xmi:id="_abHJWUi_EeSQR7cX9E7Q6g" name="ub0">
+            <nodes xmi:id="_abHJWki_EeSQR7cX9E7Q6g" outgoing="_abHJXEi_EeSQR7cX9E7Q6g">
+              <type href="http://FaultTree/1.0#//FailureInstance"/>
+            </nodes>
+            <nodes xmi:id="_abHJW0i_EeSQR7cX9E7Q6g" incoming="_abHJXEi_EeSQR7cX9E7Q6g">
+              <type href="http://FaultTree/1.0#//ErrorInstance"/>
+            </nodes>
+            <edges xmi:id="_abHJXEi_EeSQR7cX9E7Q6g" source="_abHJWki_EeSQR7cX9E7Q6g" target="_abHJW0i_EeSQR7cX9E7Q6g">
+              <type href="http://FaultTree/1.0#//FailureInstance/previousError"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_abHJXUi_EeSQR7cX9E7Q6g" origin="_abHJVUi_EeSQR7cX9E7Q6g" image="_abHJWki_EeSQR7cX9E7Q6g"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_abHJXki_EeSQR7cX9E7Q6g" name="Rhs">
+      <nodes xmi:id="_abHJX0i_EeSQR7cX9E7Q6g" name="Selected" outgoing="_abHJYUi_EeSQR7cX9E7Q6g">
+        <type href="http://FaultTree/1.0#//FailureInstance"/>
+      </nodes>
+      <nodes xmi:id="_abHJYEi_EeSQR7cX9E7Q6g" name="NewTarget" incoming="_abHJYUi_EeSQR7cX9E7Q6g">
+        <type href="http://FaultTree/1.0#//ErrorInstance"/>
+      </nodes>
+      <edges xmi:id="_abHJYUi_EeSQR7cX9E7Q6g" source="_abHJX0i_EeSQR7cX9E7Q6g" target="_abHJYEi_EeSQR7cX9E7Q6g">
+        <type href="http://FaultTree/1.0#//FailureInstance/previousError"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_abHJYki_EeSQR7cX9E7Q6g" origin="_abHJVUi_EeSQR7cX9E7Q6g" image="_abHJX0i_EeSQR7cX9E7Q6g"/>
+    <mappings xmi:id="_abHJY0i_EeSQR7cX9E7Q6g" origin="_abHJVki_EeSQR7cX9E7Q6g" image="_abHJYEi_EeSQR7cX9E7Q6g"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_abHJZEi_EeSQR7cX9E7Q6g" name="mainUnit" subUnits="_abHJUUi_EeSQR7cX9E7Q6g">
+    <parameters xmi:id="_abHJZUi_EeSQR7cX9E7Q6g" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//FailureInstance"/>
+    </parameters>
+    <parameters xmi:id="_abHJZki_EeSQR7cX9E7Q6g" name="NewTarget">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//ErrorInstance"/>
+    </parameters>
+    <parameterMappings xmi:id="_abHJZ0i_EeSQR7cX9E7Q6g" source="_abHJZUi_EeSQR7cX9E7Q6g" target="_abHJUki_EeSQR7cX9E7Q6g"/>
+    <parameterMappings xmi:id="_abHJaEi_EeSQR7cX9E7Q6g" source="_abHJZki_EeSQR7cX9E7Q6g" target="_abHJU0i_EeSQR7cX9E7Q6g"/>
+  </units>
+</henshin:Module>

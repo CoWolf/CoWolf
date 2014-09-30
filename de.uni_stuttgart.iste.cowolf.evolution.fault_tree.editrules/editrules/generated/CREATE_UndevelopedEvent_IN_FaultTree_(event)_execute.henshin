@@ -1,52 +1,72 @@
 <?xml version="1.0" encoding="ASCII"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_k-rZcCkoEeSR5d0JIP8zig" name="CREATE_UndevelopedEvent_IN_FaultTree_(event)" description="Creates one UndevelopedEvent in FaultTree">
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_aWyqAEi_EeSQR7cX9E7Q6g" name="CREATE_UndevelopedEvent_IN_FaultTree_(event)" description="Creates one UndevelopedEvent in FaultTree">
   <imports href="http://FaultTree/1.0#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="_k-rZcSkoEeSR5d0JIP8zig" name="createUndevelopedEvent_IN_FaultTree" description="creates one UndevelopedEvent in the context: FaultTree">
-    <parameters xmi:id="_k-rZcikoEeSR5d0JIP8zig" name="Selected"/>
-    <parameters xmi:id="_k-rZcykoEeSR5d0JIP8zig" name="New"/>
-    <parameters xmi:id="_k-rZdCkoEeSR5d0JIP8zig" name="Id"/>
-    <parameters xmi:id="_k-rZdSkoEeSR5d0JIP8zig" name="Description"/>
-    <parameters xmi:id="_k-rZdikoEeSR5d0JIP8zig" name="Name"/>
-    <lhs xmi:id="_k-rZdykoEeSR5d0JIP8zig" name="Lhs">
-      <nodes xmi:id="_k-rZeCkoEeSR5d0JIP8zig" name="Selected">
+  <units xsi:type="henshin:Rule" xmi:id="_aWyqAUi_EeSQR7cX9E7Q6g" name="createUndevelopedEvent_IN_FaultTree" description="creates one UndevelopedEvent in the context: FaultTree">
+    <parameters xmi:id="_aWyqAki_EeSQR7cX9E7Q6g" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//FaultTree"/>
+    </parameters>
+    <parameters xmi:id="_aWyqA0i_EeSQR7cX9E7Q6g" name="New">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//UndevelopedEvent"/>
+    </parameters>
+    <parameters xmi:id="_aWyqBEi_EeSQR7cX9E7Q6g" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_aWyqBUi_EeSQR7cX9E7Q6g" name="Description">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_aWyqBki_EeSQR7cX9E7Q6g" name="Name">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_aWyqB0i_EeSQR7cX9E7Q6g" name="Lhs">
+      <nodes xmi:id="_aWyqCEi_EeSQR7cX9E7Q6g" name="Selected">
         <type href="http://FaultTree/1.0#//FaultTree"/>
       </nodes>
     </lhs>
-    <rhs xmi:id="_k-rZeSkoEeSR5d0JIP8zig" name="Rhs">
-      <nodes xmi:id="_k-rZeikoEeSR5d0JIP8zig" name="Selected" incoming="_k-rZgCkoEeSR5d0JIP8zig" outgoing="_k-rZfykoEeSR5d0JIP8zig">
+    <rhs xmi:id="_aWyqCUi_EeSQR7cX9E7Q6g" name="Rhs">
+      <nodes xmi:id="_aWyqCki_EeSQR7cX9E7Q6g" name="Selected" incoming="_aWyqEEi_EeSQR7cX9E7Q6g" outgoing="_aWyqD0i_EeSQR7cX9E7Q6g">
         <type href="http://FaultTree/1.0#//FaultTree"/>
       </nodes>
-      <nodes xmi:id="_k-rZeykoEeSR5d0JIP8zig" name="New" incoming="_k-rZfykoEeSR5d0JIP8zig" outgoing="_k-rZgCkoEeSR5d0JIP8zig">
+      <nodes xmi:id="_aWyqC0i_EeSQR7cX9E7Q6g" name="New" incoming="_aWyqD0i_EeSQR7cX9E7Q6g" outgoing="_aWyqEEi_EeSQR7cX9E7Q6g">
         <type href="http://FaultTree/1.0#//UndevelopedEvent"/>
-        <attributes xmi:id="_k-rZfCkoEeSR5d0JIP8zig" value="Id">
+        <attributes xmi:id="_aWyqDEi_EeSQR7cX9E7Q6g" value="Id">
           <type href="http://CommonBase/1.0#//IDBase/id"/>
         </attributes>
-        <attributes xmi:id="_k-rZfSkoEeSR5d0JIP8zig" value="Description">
+        <attributes xmi:id="_aWyqDUi_EeSQR7cX9E7Q6g" value="Description">
           <type href="http://FaultTree/1.0#//Event/description"/>
         </attributes>
-        <attributes xmi:id="_k-rZfikoEeSR5d0JIP8zig" value="Name">
+        <attributes xmi:id="_aWyqDki_EeSQR7cX9E7Q6g" value="Name">
           <type href="http://FaultTree/1.0#//Event/name"/>
         </attributes>
       </nodes>
-      <edges xmi:id="_k-rZfykoEeSR5d0JIP8zig" source="_k-rZeikoEeSR5d0JIP8zig" target="_k-rZeykoEeSR5d0JIP8zig">
+      <edges xmi:id="_aWyqD0i_EeSQR7cX9E7Q6g" source="_aWyqCki_EeSQR7cX9E7Q6g" target="_aWyqC0i_EeSQR7cX9E7Q6g">
         <type href="http://FaultTree/1.0#//FaultTree/event"/>
       </edges>
-      <edges xmi:id="_k-rZgCkoEeSR5d0JIP8zig" source="_k-rZeykoEeSR5d0JIP8zig" target="_k-rZeikoEeSR5d0JIP8zig">
+      <edges xmi:id="_aWyqEEi_EeSQR7cX9E7Q6g" source="_aWyqC0i_EeSQR7cX9E7Q6g" target="_aWyqCki_EeSQR7cX9E7Q6g">
         <type href="http://FaultTree/1.0#//Event/root"/>
       </edges>
     </rhs>
-    <mappings xmi:id="_k-rZgSkoEeSR5d0JIP8zig" origin="_k-rZeCkoEeSR5d0JIP8zig" image="_k-rZeikoEeSR5d0JIP8zig"/>
+    <mappings xmi:id="_aWyqEUi_EeSQR7cX9E7Q6g" origin="_aWyqCEi_EeSQR7cX9E7Q6g" image="_aWyqCki_EeSQR7cX9E7Q6g"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="_k-rZgikoEeSR5d0JIP8zig" name="mainUnit" description="Creates one UndevelopedEvent depending on available contexts in model instance" subUnits="_k-rZcSkoEeSR5d0JIP8zig">
-    <parameters xmi:id="_k-rZgykoEeSR5d0JIP8zig" name="New"/>
-    <parameters xmi:id="_k-rZhCkoEeSR5d0JIP8zig" name="selectedEObject"/>
-    <parameters xmi:id="_k-rZhSkoEeSR5d0JIP8zig" name="Id"/>
-    <parameters xmi:id="_k-rZhikoEeSR5d0JIP8zig" name="Description"/>
-    <parameters xmi:id="_k-rZhykoEeSR5d0JIP8zig" name="Name"/>
-    <parameterMappings xmi:id="_k-rZiCkoEeSR5d0JIP8zig" source="_k-rZhCkoEeSR5d0JIP8zig" target="_k-rZcikoEeSR5d0JIP8zig"/>
-    <parameterMappings xmi:id="_k-rZiSkoEeSR5d0JIP8zig" source="_k-rZcykoEeSR5d0JIP8zig" target="_k-rZgykoEeSR5d0JIP8zig"/>
-    <parameterMappings xmi:id="_k-rZiikoEeSR5d0JIP8zig" source="_k-rZhSkoEeSR5d0JIP8zig" target="_k-rZdCkoEeSR5d0JIP8zig"/>
-    <parameterMappings xmi:id="_k-rZiykoEeSR5d0JIP8zig" source="_k-rZhikoEeSR5d0JIP8zig" target="_k-rZdSkoEeSR5d0JIP8zig"/>
-    <parameterMappings xmi:id="_k-rZjCkoEeSR5d0JIP8zig" source="_k-rZhykoEeSR5d0JIP8zig" target="_k-rZdikoEeSR5d0JIP8zig"/>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_aWyqEki_EeSQR7cX9E7Q6g" name="mainUnit" subUnits="_aWyqAUi_EeSQR7cX9E7Q6g">
+    <parameters xmi:id="_aWyqE0i_EeSQR7cX9E7Q6g" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//FaultTree"/>
+    </parameters>
+    <parameters xmi:id="_aWyqFEi_EeSQR7cX9E7Q6g" name="New">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//UndevelopedEvent"/>
+    </parameters>
+    <parameters xmi:id="_aWyqFUi_EeSQR7cX9E7Q6g" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_aWyqFki_EeSQR7cX9E7Q6g" name="Description">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_aWyqF0i_EeSQR7cX9E7Q6g" name="Name">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_aWyqGEi_EeSQR7cX9E7Q6g" source="_aWyqE0i_EeSQR7cX9E7Q6g" target="_aWyqAki_EeSQR7cX9E7Q6g"/>
+    <parameterMappings xmi:id="_aWyqGUi_EeSQR7cX9E7Q6g" source="_aWyqA0i_EeSQR7cX9E7Q6g" target="_aWyqFEi_EeSQR7cX9E7Q6g"/>
+    <parameterMappings xmi:id="_aWyqGki_EeSQR7cX9E7Q6g" source="_aWyqFUi_EeSQR7cX9E7Q6g" target="_aWyqBEi_EeSQR7cX9E7Q6g"/>
+    <parameterMappings xmi:id="_aWyqG0i_EeSQR7cX9E7Q6g" source="_aWyqFki_EeSQR7cX9E7Q6g" target="_aWyqBUi_EeSQR7cX9E7Q6g"/>
+    <parameterMappings xmi:id="_aWyqHEi_EeSQR7cX9E7Q6g" source="_aWyqF0i_EeSQR7cX9E7Q6g" target="_aWyqBki_EeSQR7cX9E7Q6g"/>
   </units>
 </henshin:Module>

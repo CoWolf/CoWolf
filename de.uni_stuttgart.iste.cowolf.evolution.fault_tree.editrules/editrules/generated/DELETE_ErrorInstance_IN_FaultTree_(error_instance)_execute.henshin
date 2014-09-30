@@ -1,50 +1,76 @@
 <?xml version="1.0" encoding="ASCII"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_k_3FMCkoEeSR5d0JIP8zig" name="DELETE_ErrorInstance_IN_FaultTree_(error_instance)" description="Deletes one ErrorInstance in FaultTree">
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_aaHq0Ei_EeSQR7cX9E7Q6g" name="DELETE_ErrorInstance_IN_FaultTree_(error_instance)" description="Deletes one ErrorInstance in FaultTree">
   <imports href="http://FaultTree/1.0#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="_k_3FMSkoEeSR5d0JIP8zig" name="deleteErrorInstance_IN_FaultTree" description="deletes one ErrorInstance in the context: FaultTree">
-    <parameters xmi:id="_k_3FMikoEeSR5d0JIP8zig" name="Existing"/>
-    <parameters xmi:id="_k_3FMykoEeSR5d0JIP8zig" name="Selected"/>
-    <parameters xmi:id="_k_3FNCkoEeSR5d0JIP8zig" name="ToBeDeleted"/>
-    <lhs xmi:id="_k_3FNSkoEeSR5d0JIP8zig" name="LHS">
-      <nodes xmi:id="_k_3FNikoEeSR5d0JIP8zig" name="Selected" incoming="_k_3FOikoEeSR5d0JIP8zig" outgoing="_k_3FOSkoEeSR5d0JIP8zig">
+  <units xsi:type="henshin:Rule" xmi:id="_aaHq0Ui_EeSQR7cX9E7Q6g" name="deleteErrorInstance_IN_FaultTree" description="deletes one ErrorInstance in the context: FaultTree">
+    <parameters xmi:id="_aaHq0ki_EeSQR7cX9E7Q6g" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//FaultTree"/>
+    </parameters>
+    <parameters xmi:id="_aaHq00i_EeSQR7cX9E7Q6g" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//ErrorInstance"/>
+    </parameters>
+    <parameters xmi:id="_aaHq1Ei_EeSQR7cX9E7Q6g" name="Existing">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//ErrorType"/>
+    </parameters>
+    <lhs xmi:id="_aaHq1Ui_EeSQR7cX9E7Q6g" name="LHS">
+      <nodes xmi:id="_aaHq1ki_EeSQR7cX9E7Q6g" name="Selected" incoming="_aaHq2ki_EeSQR7cX9E7Q6g" outgoing="_aaHq2Ui_EeSQR7cX9E7Q6g">
         <type href="http://FaultTree/1.0#//FaultTree"/>
       </nodes>
-      <nodes xmi:id="_k_3FNykoEeSR5d0JIP8zig" name="ToBeDeleted" incoming="_k_3FOSkoEeSR5d0JIP8zig _k_3FPCkoEeSR5d0JIP8zig" outgoing="_k_3FOikoEeSR5d0JIP8zig _k_3FOykoEeSR5d0JIP8zig">
+      <nodes xmi:id="_aaHq10i_EeSQR7cX9E7Q6g" name="ToBeDeleted" incoming="_aaHq2Ui_EeSQR7cX9E7Q6g _aaHq3Ei_EeSQR7cX9E7Q6g" outgoing="_aaHq2ki_EeSQR7cX9E7Q6g _aaHq20i_EeSQR7cX9E7Q6g">
         <type href="http://FaultTree/1.0#//ErrorInstance"/>
       </nodes>
-      <nodes xmi:id="_k_3FOCkoEeSR5d0JIP8zig" name="Existing" incoming="_k_3FOykoEeSR5d0JIP8zig" outgoing="_k_3FPCkoEeSR5d0JIP8zig">
+      <nodes xmi:id="_aaHq2Ei_EeSQR7cX9E7Q6g" name="Existing" incoming="_aaHq20i_EeSQR7cX9E7Q6g" outgoing="_aaHq3Ei_EeSQR7cX9E7Q6g">
         <type href="http://FaultTree/1.0#//ErrorType"/>
       </nodes>
-      <edges xmi:id="_k_3FOSkoEeSR5d0JIP8zig" source="_k_3FNikoEeSR5d0JIP8zig" target="_k_3FNykoEeSR5d0JIP8zig">
+      <edges xmi:id="_aaHq2Ui_EeSQR7cX9E7Q6g" source="_aaHq1ki_EeSQR7cX9E7Q6g" target="_aaHq10i_EeSQR7cX9E7Q6g">
         <type href="http://FaultTree/1.0#//FaultTree/error_instance"/>
       </edges>
-      <edges xmi:id="_k_3FOikoEeSR5d0JIP8zig" source="_k_3FNykoEeSR5d0JIP8zig" target="_k_3FNikoEeSR5d0JIP8zig">
+      <edges xmi:id="_aaHq2ki_EeSQR7cX9E7Q6g" source="_aaHq10i_EeSQR7cX9E7Q6g" target="_aaHq1ki_EeSQR7cX9E7Q6g">
         <type href="http://FaultTree/1.0#//ErrorInstance/root"/>
       </edges>
-      <edges xmi:id="_k_3FOykoEeSR5d0JIP8zig" source="_k_3FNykoEeSR5d0JIP8zig" target="_k_3FOCkoEeSR5d0JIP8zig">
+      <edges xmi:id="_aaHq20i_EeSQR7cX9E7Q6g" source="_aaHq10i_EeSQR7cX9E7Q6g" target="_aaHq2Ei_EeSQR7cX9E7Q6g">
         <type href="http://FaultTree/1.0#//ErrorInstance/type"/>
       </edges>
-      <edges xmi:id="_k_3FPCkoEeSR5d0JIP8zig" source="_k_3FOCkoEeSR5d0JIP8zig" target="_k_3FNykoEeSR5d0JIP8zig">
+      <edges xmi:id="_aaHq3Ei_EeSQR7cX9E7Q6g" source="_aaHq2Ei_EeSQR7cX9E7Q6g" target="_aaHq10i_EeSQR7cX9E7Q6g">
         <type href="http://FaultTree/1.0#//ErrorType/error"/>
       </edges>
+      <formula xsi:type="henshin:NestedCondition" xmi:id="_aaHq3Ui_EeSQR7cX9E7Q6g">
+        <conclusion xmi:id="_aaHq3ki_EeSQR7cX9E7Q6g" name="lb0">
+          <nodes xmi:id="_aaHq30i_EeSQR7cX9E7Q6g" outgoing="_aaHq4Ui_EeSQR7cX9E7Q6g">
+            <type href="http://FaultTree/1.0#//ErrorType"/>
+          </nodes>
+          <nodes xmi:id="_aaHq4Ei_EeSQR7cX9E7Q6g" incoming="_aaHq4Ui_EeSQR7cX9E7Q6g">
+            <type href="http://FaultTree/1.0#//ErrorInstance"/>
+          </nodes>
+          <edges xmi:id="_aaHq4Ui_EeSQR7cX9E7Q6g" source="_aaHq30i_EeSQR7cX9E7Q6g" target="_aaHq4Ei_EeSQR7cX9E7Q6g">
+            <type href="http://FaultTree/1.0#//ErrorType/error"/>
+          </edges>
+        </conclusion>
+        <mappings xmi:id="_aaHq4ki_EeSQR7cX9E7Q6g" origin="_aaHq2Ei_EeSQR7cX9E7Q6g" image="_aaHq30i_EeSQR7cX9E7Q6g"/>
+      </formula>
     </lhs>
-    <rhs xmi:id="_k_3FPSkoEeSR5d0JIP8zig" name="RHS">
-      <nodes xmi:id="_k_3FPikoEeSR5d0JIP8zig" name="Selected">
+    <rhs xmi:id="_aaHq40i_EeSQR7cX9E7Q6g" name="RHS">
+      <nodes xmi:id="_aaHq5Ei_EeSQR7cX9E7Q6g" name="Selected">
         <type href="http://FaultTree/1.0#//FaultTree"/>
       </nodes>
-      <nodes xmi:id="_k_3FPykoEeSR5d0JIP8zig" name="Existing">
+      <nodes xmi:id="_aaHq5Ui_EeSQR7cX9E7Q6g" name="Existing">
         <type href="http://FaultTree/1.0#//ErrorType"/>
       </nodes>
     </rhs>
-    <mappings xmi:id="_k_3FQCkoEeSR5d0JIP8zig" origin="_k_3FNikoEeSR5d0JIP8zig" image="_k_3FPikoEeSR5d0JIP8zig"/>
-    <mappings xmi:id="_k_3FQSkoEeSR5d0JIP8zig" origin="_k_3FOCkoEeSR5d0JIP8zig" image="_k_3FPykoEeSR5d0JIP8zig"/>
+    <mappings xmi:id="_aaHq5ki_EeSQR7cX9E7Q6g" origin="_aaHq1ki_EeSQR7cX9E7Q6g" image="_aaHq5Ei_EeSQR7cX9E7Q6g"/>
+    <mappings xmi:id="_aaHq50i_EeSQR7cX9E7Q6g" origin="_aaHq2Ei_EeSQR7cX9E7Q6g" image="_aaHq5Ui_EeSQR7cX9E7Q6g"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="_k_3FQikoEeSR5d0JIP8zig" name="mainUnit" description="Deletes one ErrorInstance depending on available contexts in model instance" subUnits="_k_3FMSkoEeSR5d0JIP8zig">
-    <parameters xmi:id="_k_3FQykoEeSR5d0JIP8zig" name="Existing"/>
-    <parameters xmi:id="_k_3FRCkoEeSR5d0JIP8zig" name="ToBeDeleted"/>
-    <parameters xmi:id="_k_3FRSkoEeSR5d0JIP8zig" name="selectedEObject"/>
-    <parameterMappings xmi:id="_k_3FRikoEeSR5d0JIP8zig" source="_k_3FQykoEeSR5d0JIP8zig" target="_k_3FMikoEeSR5d0JIP8zig"/>
-    <parameterMappings xmi:id="_k_3FRykoEeSR5d0JIP8zig" source="_k_3FRSkoEeSR5d0JIP8zig" target="_k_3FMykoEeSR5d0JIP8zig"/>
-    <parameterMappings xmi:id="_k_3FSCkoEeSR5d0JIP8zig" source="_k_3FRCkoEeSR5d0JIP8zig" target="_k_3FNCkoEeSR5d0JIP8zig"/>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_aaHq6Ei_EeSQR7cX9E7Q6g" name="mainUnit" subUnits="_aaHq0Ui_EeSQR7cX9E7Q6g">
+    <parameters xmi:id="_aaHq6Ui_EeSQR7cX9E7Q6g" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//FaultTree"/>
+    </parameters>
+    <parameters xmi:id="_aaHq6ki_EeSQR7cX9E7Q6g" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//ErrorInstance"/>
+    </parameters>
+    <parameters xmi:id="_aaHq60i_EeSQR7cX9E7Q6g" name="Existing">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//ErrorType"/>
+    </parameters>
+    <parameterMappings xmi:id="_aaHq7Ei_EeSQR7cX9E7Q6g" source="_aaHq6Ui_EeSQR7cX9E7Q6g" target="_aaHq0ki_EeSQR7cX9E7Q6g"/>
+    <parameterMappings xmi:id="_aaHq7Ui_EeSQR7cX9E7Q6g" source="_aaHq6ki_EeSQR7cX9E7Q6g" target="_aaHq00i_EeSQR7cX9E7Q6g"/>
+    <parameterMappings xmi:id="_aaHq7ki_EeSQR7cX9E7Q6g" source="_aaHq60i_EeSQR7cX9E7Q6g" target="_aaHq1Ei_EeSQR7cX9E7Q6g"/>
   </units>
 </henshin:Module>

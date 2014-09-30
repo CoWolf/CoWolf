@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_aUb5kEi_EeSQR7cX9E7Q6g" name="addFailureToIntermediateEvent" description="Adds to IntermediateEvent's reference instance the target FailureInstance">
+  <imports href="http://FaultTree/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_aUb5kUi_EeSQR7cX9E7Q6g" name="addToIntermediateEvent_instance_FailureInstance" description="Adds to IntermediateEvent's reference instance the target FailureInstance">
+    <parameters xmi:id="_aUb5kki_EeSQR7cX9E7Q6g" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//IntermediateEvent"/>
+    </parameters>
+    <parameters xmi:id="_aUb5k0i_EeSQR7cX9E7Q6g" name="NewTarget">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//FailureInstance"/>
+    </parameters>
+    <lhs xmi:id="_aUb5lEi_EeSQR7cX9E7Q6g" name="Lhs">
+      <nodes xmi:id="_aUb5lUi_EeSQR7cX9E7Q6g" name="Selected">
+        <type href="http://FaultTree/1.0#//IntermediateEvent"/>
+      </nodes>
+      <nodes xmi:id="_aUb5lki_EeSQR7cX9E7Q6g" name="NewTarget">
+        <type href="http://FaultTree/1.0#//FailureInstance"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_aUb5l0i_EeSQR7cX9E7Q6g">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_aUb5mEi_EeSQR7cX9E7Q6g">
+          <conclusion xmi:id="_aUb5mUi_EeSQR7cX9E7Q6g" name="ub0">
+            <nodes xmi:id="_aUb5mki_EeSQR7cX9E7Q6g" outgoing="_aUb5nEi_EeSQR7cX9E7Q6g">
+              <type href="http://FaultTree/1.0#//FailureInstance"/>
+            </nodes>
+            <nodes xmi:id="_aUb5m0i_EeSQR7cX9E7Q6g" incoming="_aUb5nEi_EeSQR7cX9E7Q6g">
+              <type href="http://FaultTree/1.0#//IntermediateEvent"/>
+            </nodes>
+            <edges xmi:id="_aUb5nEi_EeSQR7cX9E7Q6g" source="_aUb5mki_EeSQR7cX9E7Q6g" target="_aUb5m0i_EeSQR7cX9E7Q6g">
+              <type href="http://FaultTree/1.0#//FailureInstance/event"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_aUb5nUi_EeSQR7cX9E7Q6g" origin="_aUb5lki_EeSQR7cX9E7Q6g" image="_aUb5mki_EeSQR7cX9E7Q6g"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_aUb5nki_EeSQR7cX9E7Q6g" name="Rhs">
+      <nodes xmi:id="_aUb5n0i_EeSQR7cX9E7Q6g" name="Selected" incoming="_aUb5oki_EeSQR7cX9E7Q6g" outgoing="_aUb5oUi_EeSQR7cX9E7Q6g">
+        <type href="http://FaultTree/1.0#//IntermediateEvent"/>
+      </nodes>
+      <nodes xmi:id="_aUb5oEi_EeSQR7cX9E7Q6g" name="NewTarget" incoming="_aUb5oUi_EeSQR7cX9E7Q6g" outgoing="_aUb5oki_EeSQR7cX9E7Q6g">
+        <type href="http://FaultTree/1.0#//FailureInstance"/>
+      </nodes>
+      <edges xmi:id="_aUb5oUi_EeSQR7cX9E7Q6g" source="_aUb5n0i_EeSQR7cX9E7Q6g" target="_aUb5oEi_EeSQR7cX9E7Q6g">
+        <type href="http://FaultTree/1.0#//IntermediateEvent/instance"/>
+      </edges>
+      <edges xmi:id="_aUb5oki_EeSQR7cX9E7Q6g" source="_aUb5oEi_EeSQR7cX9E7Q6g" target="_aUb5n0i_EeSQR7cX9E7Q6g">
+        <type href="http://FaultTree/1.0#//FailureInstance/event"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_aUb5o0i_EeSQR7cX9E7Q6g" origin="_aUb5lUi_EeSQR7cX9E7Q6g" image="_aUb5n0i_EeSQR7cX9E7Q6g"/>
+    <mappings xmi:id="_aUb5pEi_EeSQR7cX9E7Q6g" origin="_aUb5lki_EeSQR7cX9E7Q6g" image="_aUb5oEi_EeSQR7cX9E7Q6g"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_aUb5pUi_EeSQR7cX9E7Q6g" name="mainUnit" subUnits="_aUb5kUi_EeSQR7cX9E7Q6g">
+    <parameters xmi:id="_aUb5pki_EeSQR7cX9E7Q6g" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//IntermediateEvent"/>
+    </parameters>
+    <parameters xmi:id="_aUb5p0i_EeSQR7cX9E7Q6g" name="NewTarget">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//FailureInstance"/>
+    </parameters>
+    <parameterMappings xmi:id="_aUb5qEi_EeSQR7cX9E7Q6g" source="_aUb5pki_EeSQR7cX9E7Q6g" target="_aUb5kki_EeSQR7cX9E7Q6g"/>
+    <parameterMappings xmi:id="_aUb5qUi_EeSQR7cX9E7Q6g" source="_aUb5p0i_EeSQR7cX9E7Q6g" target="_aUb5k0i_EeSQR7cX9E7Q6g"/>
+  </units>
+</henshin:Module>

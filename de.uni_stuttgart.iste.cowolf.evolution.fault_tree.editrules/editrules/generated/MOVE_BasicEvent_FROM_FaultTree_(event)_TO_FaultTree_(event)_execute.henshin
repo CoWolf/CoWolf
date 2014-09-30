@@ -1,54 +1,66 @@
 <?xml version="1.0" encoding="ASCII"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_k-lS0CkoEeSR5d0JIP8zig" name="MOVE_BasicEvent_FROM_FaultTree_(event)_TO_FaultTree_(event)" description="MOVEs BasicEvent from FaultTree(Reference:event) to FaultTree(Reference:event">
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_abNP8Ei_EeSQR7cX9E7Q6g" name="MOVE_BasicEvent_FROM_FaultTree_(event)_TO_FaultTree_(event)" description="MOVEs BasicEvent from FaultTree(Reference:event) to FaultTree(Reference:event">
   <imports href="http://FaultTree/1.0#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="_k-lS0SkoEeSR5d0JIP8zig" name="moveBasicEvent_FROM_FaultTree_event_TO_FaultTree_FaultTree" description="Moves BasicEvent from FaultTree(Reference:event) toFaultTree(Reference:FaultTree)">
-    <parameters xmi:id="_k-lS0ikoEeSR5d0JIP8zig" name="Selected"/>
-    <parameters xmi:id="_k-lS0ykoEeSR5d0JIP8zig" name="OldSource"/>
-    <parameters xmi:id="_k-lS1CkoEeSR5d0JIP8zig" name="NewSource"/>
-    <lhs xmi:id="_k-lS1SkoEeSR5d0JIP8zig" name="Lhs">
-      <nodes xmi:id="_k-lS1ikoEeSR5d0JIP8zig" name="Selected" incoming="_k-lS2SkoEeSR5d0JIP8zig" outgoing="_k-lS2ikoEeSR5d0JIP8zig">
+  <units xsi:type="henshin:Rule" xmi:id="_abNP8Ui_EeSQR7cX9E7Q6g" name="moveBasicEvent_FROM_FaultTree_event_TO_FaultTree_FaultTree" description="Moves BasicEvent from FaultTree(Reference:event) toFaultTree(Reference:FaultTree)">
+    <parameters xmi:id="_abNP8ki_EeSQR7cX9E7Q6g" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//BasicEvent"/>
+    </parameters>
+    <parameters xmi:id="_abNP80i_EeSQR7cX9E7Q6g" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//FaultTree"/>
+    </parameters>
+    <parameters xmi:id="_abNP9Ei_EeSQR7cX9E7Q6g" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//FaultTree"/>
+    </parameters>
+    <lhs xmi:id="_abNP9Ui_EeSQR7cX9E7Q6g" name="Lhs">
+      <nodes xmi:id="_abNP9ki_EeSQR7cX9E7Q6g" name="Selected" incoming="_abNP-Ui_EeSQR7cX9E7Q6g" outgoing="_abNP-ki_EeSQR7cX9E7Q6g">
         <type href="http://FaultTree/1.0#//BasicEvent"/>
       </nodes>
-      <nodes xmi:id="_k-lS1ykoEeSR5d0JIP8zig" name="OldSource" incoming="_k-lS2ikoEeSR5d0JIP8zig" outgoing="_k-lS2SkoEeSR5d0JIP8zig">
+      <nodes xmi:id="_abNP90i_EeSQR7cX9E7Q6g" name="OldSource" incoming="_abNP-ki_EeSQR7cX9E7Q6g" outgoing="_abNP-Ui_EeSQR7cX9E7Q6g">
         <type href="http://FaultTree/1.0#//FaultTree"/>
       </nodes>
-      <nodes xmi:id="_k-lS2CkoEeSR5d0JIP8zig" name="NewSource">
+      <nodes xmi:id="_abNP-Ei_EeSQR7cX9E7Q6g" name="NewSource">
         <type href="http://FaultTree/1.0#//FaultTree"/>
       </nodes>
-      <edges xmi:id="_k-lS2SkoEeSR5d0JIP8zig" source="_k-lS1ykoEeSR5d0JIP8zig" target="_k-lS1ikoEeSR5d0JIP8zig">
+      <edges xmi:id="_abNP-Ui_EeSQR7cX9E7Q6g" source="_abNP90i_EeSQR7cX9E7Q6g" target="_abNP9ki_EeSQR7cX9E7Q6g">
         <type href="http://FaultTree/1.0#//FaultTree/event"/>
       </edges>
-      <edges xmi:id="_k-lS2ikoEeSR5d0JIP8zig" source="_k-lS1ikoEeSR5d0JIP8zig" target="_k-lS1ykoEeSR5d0JIP8zig">
+      <edges xmi:id="_abNP-ki_EeSQR7cX9E7Q6g" source="_abNP9ki_EeSQR7cX9E7Q6g" target="_abNP90i_EeSQR7cX9E7Q6g">
         <type href="http://FaultTree/1.0#//Event/root"/>
       </edges>
     </lhs>
-    <rhs xmi:id="_k-lS2ykoEeSR5d0JIP8zig" name="Rhs">
-      <nodes xmi:id="_k-lS3CkoEeSR5d0JIP8zig" name="Selected" incoming="_k-lS3ykoEeSR5d0JIP8zig" outgoing="_k-lS4CkoEeSR5d0JIP8zig">
+    <rhs xmi:id="_abNP-0i_EeSQR7cX9E7Q6g" name="Rhs">
+      <nodes xmi:id="_abNP_Ei_EeSQR7cX9E7Q6g" name="Selected" incoming="_abNP_0i_EeSQR7cX9E7Q6g" outgoing="_abNQAEi_EeSQR7cX9E7Q6g">
         <type href="http://FaultTree/1.0#//BasicEvent"/>
       </nodes>
-      <nodes xmi:id="_k-lS3SkoEeSR5d0JIP8zig" name="OldSource">
+      <nodes xmi:id="_abNP_Ui_EeSQR7cX9E7Q6g" name="OldSource">
         <type href="http://FaultTree/1.0#//FaultTree"/>
       </nodes>
-      <nodes xmi:id="_k-lS3ikoEeSR5d0JIP8zig" name="NewSource" incoming="_k-lS4CkoEeSR5d0JIP8zig" outgoing="_k-lS3ykoEeSR5d0JIP8zig">
+      <nodes xmi:id="_abNP_ki_EeSQR7cX9E7Q6g" name="NewSource" incoming="_abNQAEi_EeSQR7cX9E7Q6g" outgoing="_abNP_0i_EeSQR7cX9E7Q6g">
         <type href="http://FaultTree/1.0#//FaultTree"/>
       </nodes>
-      <edges xmi:id="_k-lS3ykoEeSR5d0JIP8zig" source="_k-lS3ikoEeSR5d0JIP8zig" target="_k-lS3CkoEeSR5d0JIP8zig">
+      <edges xmi:id="_abNP_0i_EeSQR7cX9E7Q6g" source="_abNP_ki_EeSQR7cX9E7Q6g" target="_abNP_Ei_EeSQR7cX9E7Q6g">
         <type href="http://FaultTree/1.0#//FaultTree/event"/>
       </edges>
-      <edges xmi:id="_k-lS4CkoEeSR5d0JIP8zig" source="_k-lS3CkoEeSR5d0JIP8zig" target="_k-lS3ikoEeSR5d0JIP8zig">
+      <edges xmi:id="_abNQAEi_EeSQR7cX9E7Q6g" source="_abNP_Ei_EeSQR7cX9E7Q6g" target="_abNP_ki_EeSQR7cX9E7Q6g">
         <type href="http://FaultTree/1.0#//Event/root"/>
       </edges>
     </rhs>
-    <mappings xmi:id="_k-lS4SkoEeSR5d0JIP8zig" origin="_k-lS1ikoEeSR5d0JIP8zig" image="_k-lS3CkoEeSR5d0JIP8zig"/>
-    <mappings xmi:id="_k-lS4ikoEeSR5d0JIP8zig" origin="_k-lS1ykoEeSR5d0JIP8zig" image="_k-lS3SkoEeSR5d0JIP8zig"/>
-    <mappings xmi:id="_k-lS4ykoEeSR5d0JIP8zig" origin="_k-lS2CkoEeSR5d0JIP8zig" image="_k-lS3ikoEeSR5d0JIP8zig"/>
+    <mappings xmi:id="_abNQAUi_EeSQR7cX9E7Q6g" origin="_abNP9ki_EeSQR7cX9E7Q6g" image="_abNP_Ei_EeSQR7cX9E7Q6g"/>
+    <mappings xmi:id="_abNQAki_EeSQR7cX9E7Q6g" origin="_abNP90i_EeSQR7cX9E7Q6g" image="_abNP_Ui_EeSQR7cX9E7Q6g"/>
+    <mappings xmi:id="_abNQA0i_EeSQR7cX9E7Q6g" origin="_abNP-Ei_EeSQR7cX9E7Q6g" image="_abNP_ki_EeSQR7cX9E7Q6g"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="_k-lS5CkoEeSR5d0JIP8zig" name="mainUnit" subUnits="_k-lS0SkoEeSR5d0JIP8zig">
-    <parameters xmi:id="_k-lS5SkoEeSR5d0JIP8zig" name="selectedEObject"/>
-    <parameters xmi:id="_k-lS5ikoEeSR5d0JIP8zig" name="OldSource"/>
-    <parameters xmi:id="_k-lS5ykoEeSR5d0JIP8zig" name="NewSource"/>
-    <parameterMappings xmi:id="_k-lS6CkoEeSR5d0JIP8zig" source="_k-lS5SkoEeSR5d0JIP8zig" target="_k-lS0ikoEeSR5d0JIP8zig"/>
-    <parameterMappings xmi:id="_k-lS6SkoEeSR5d0JIP8zig" source="_k-lS5ikoEeSR5d0JIP8zig" target="_k-lS0ykoEeSR5d0JIP8zig"/>
-    <parameterMappings xmi:id="_k-lS6ikoEeSR5d0JIP8zig" source="_k-lS5ykoEeSR5d0JIP8zig" target="_k-lS1CkoEeSR5d0JIP8zig"/>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_abNQBEi_EeSQR7cX9E7Q6g" name="mainUnit" subUnits="_abNP8Ui_EeSQR7cX9E7Q6g">
+    <parameters xmi:id="_abNQBUi_EeSQR7cX9E7Q6g" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//BasicEvent"/>
+    </parameters>
+    <parameters xmi:id="_abNQBki_EeSQR7cX9E7Q6g" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//FaultTree"/>
+    </parameters>
+    <parameters xmi:id="_abNQB0i_EeSQR7cX9E7Q6g" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//FaultTree"/>
+    </parameters>
+    <parameterMappings xmi:id="_abNQCEi_EeSQR7cX9E7Q6g" source="_abNQBUi_EeSQR7cX9E7Q6g" target="_abNP8ki_EeSQR7cX9E7Q6g"/>
+    <parameterMappings xmi:id="_abNQCUi_EeSQR7cX9E7Q6g" source="_abNQBki_EeSQR7cX9E7Q6g" target="_abNP80i_EeSQR7cX9E7Q6g"/>
+    <parameterMappings xmi:id="_abNQCki_EeSQR7cX9E7Q6g" source="_abNQB0i_EeSQR7cX9E7Q6g" target="_abNP9Ei_EeSQR7cX9E7Q6g"/>
   </units>
 </henshin:Module>

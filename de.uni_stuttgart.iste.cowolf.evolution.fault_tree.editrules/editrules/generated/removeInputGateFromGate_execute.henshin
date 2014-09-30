@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_abDe8Ei_EeSQR7cX9E7Q6g" name="removeInputGateFromGate" description="Removes Gate's reference inputGates the target Gate">
+  <imports href="http://FaultTree/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_abDe8Ui_EeSQR7cX9E7Q6g" name="removeFromGate_inputGates_Gate" description="Removes from Gate's reference inputGates the target Gate">
+    <parameters xmi:id="_abEGAEi_EeSQR7cX9E7Q6g" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//Gate"/>
+    </parameters>
+    <parameters xmi:id="_abEGAUi_EeSQR7cX9E7Q6g" name="OldTarget">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//Gate"/>
+    </parameters>
+    <lhs xmi:id="_abEGAki_EeSQR7cX9E7Q6g" name="LHS">
+      <nodes xmi:id="_abEGA0i_EeSQR7cX9E7Q6g" name="Selected" outgoing="_abEGBUi_EeSQR7cX9E7Q6g">
+        <type href="http://FaultTree/1.0#//Gate"/>
+      </nodes>
+      <nodes xmi:id="_abEGBEi_EeSQR7cX9E7Q6g" name="OldTarget" incoming="_abEGBUi_EeSQR7cX9E7Q6g">
+        <type href="http://FaultTree/1.0#//Gate"/>
+      </nodes>
+      <edges xmi:id="_abEGBUi_EeSQR7cX9E7Q6g" source="_abEGA0i_EeSQR7cX9E7Q6g" target="_abEGBEi_EeSQR7cX9E7Q6g">
+        <type href="http://FaultTree/1.0#//Gate/inputGates"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_abEGBki_EeSQR7cX9E7Q6g" name="RHS">
+      <nodes xmi:id="_abEGB0i_EeSQR7cX9E7Q6g" name="Selected">
+        <type href="http://FaultTree/1.0#//Gate"/>
+      </nodes>
+      <nodes xmi:id="_abEGCEi_EeSQR7cX9E7Q6g" name="OldTarget">
+        <type href="http://FaultTree/1.0#//Gate"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_abEGCUi_EeSQR7cX9E7Q6g" origin="_abEGA0i_EeSQR7cX9E7Q6g" image="_abEGB0i_EeSQR7cX9E7Q6g"/>
+    <mappings xmi:id="_abEGCki_EeSQR7cX9E7Q6g" origin="_abEGBEi_EeSQR7cX9E7Q6g" image="_abEGCEi_EeSQR7cX9E7Q6g"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_abEGC0i_EeSQR7cX9E7Q6g" name="mainUnit" subUnits="_abDe8Ui_EeSQR7cX9E7Q6g">
+    <parameters xmi:id="_abEGDEi_EeSQR7cX9E7Q6g" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//Gate"/>
+    </parameters>
+    <parameters xmi:id="_abEGDUi_EeSQR7cX9E7Q6g" name="OldTarget">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//Gate"/>
+    </parameters>
+    <parameterMappings xmi:id="_abEGDki_EeSQR7cX9E7Q6g" source="_abEGDEi_EeSQR7cX9E7Q6g" target="_abEGAEi_EeSQR7cX9E7Q6g"/>
+    <parameterMappings xmi:id="_abEGD0i_EeSQR7cX9E7Q6g" source="_abEGDUi_EeSQR7cX9E7Q6g" target="_abEGAUi_EeSQR7cX9E7Q6g"/>
+  </units>
+</henshin:Module>

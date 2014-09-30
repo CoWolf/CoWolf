@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_aURhgEi_EeSQR7cX9E7Q6g" name="removeFailureFromIntermediateEvent" description="Removes IntermediateEvent's reference instance the target FailureInstance">
+  <imports href="http://FaultTree/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_aURhgUi_EeSQR7cX9E7Q6g" name="removeFromIntermediateEvent_instance_FailureInstance" description="Removes from IntermediateEvent's reference instance the target FailureInstance">
+    <parameters xmi:id="_aURhgki_EeSQR7cX9E7Q6g" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//IntermediateEvent"/>
+    </parameters>
+    <parameters xmi:id="_aURhg0i_EeSQR7cX9E7Q6g" name="OldTarget">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//FailureInstance"/>
+    </parameters>
+    <lhs xmi:id="_aURhhEi_EeSQR7cX9E7Q6g" name="LHS">
+      <nodes xmi:id="_aURhhUi_EeSQR7cX9E7Q6g" name="Selected" incoming="_aURhiEi_EeSQR7cX9E7Q6g" outgoing="_aURhh0i_EeSQR7cX9E7Q6g">
+        <type href="http://FaultTree/1.0#//IntermediateEvent"/>
+      </nodes>
+      <nodes xmi:id="_aURhhki_EeSQR7cX9E7Q6g" name="OldTarget" incoming="_aURhh0i_EeSQR7cX9E7Q6g" outgoing="_aURhiEi_EeSQR7cX9E7Q6g">
+        <type href="http://FaultTree/1.0#//FailureInstance"/>
+      </nodes>
+      <edges xmi:id="_aURhh0i_EeSQR7cX9E7Q6g" source="_aURhhUi_EeSQR7cX9E7Q6g" target="_aURhhki_EeSQR7cX9E7Q6g">
+        <type href="http://FaultTree/1.0#//IntermediateEvent/instance"/>
+      </edges>
+      <edges xmi:id="_aURhiEi_EeSQR7cX9E7Q6g" source="_aURhhki_EeSQR7cX9E7Q6g" target="_aURhhUi_EeSQR7cX9E7Q6g">
+        <type href="http://FaultTree/1.0#//FailureInstance/event"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_aURhiUi_EeSQR7cX9E7Q6g" name="RHS">
+      <nodes xmi:id="_aURhiki_EeSQR7cX9E7Q6g" name="Selected">
+        <type href="http://FaultTree/1.0#//IntermediateEvent"/>
+      </nodes>
+      <nodes xmi:id="_aURhi0i_EeSQR7cX9E7Q6g" name="OldTarget">
+        <type href="http://FaultTree/1.0#//FailureInstance"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_aURhjEi_EeSQR7cX9E7Q6g" origin="_aURhhUi_EeSQR7cX9E7Q6g" image="_aURhiki_EeSQR7cX9E7Q6g"/>
+    <mappings xmi:id="_aURhjUi_EeSQR7cX9E7Q6g" origin="_aURhhki_EeSQR7cX9E7Q6g" image="_aURhi0i_EeSQR7cX9E7Q6g"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_aURhjki_EeSQR7cX9E7Q6g" name="mainUnit" subUnits="_aURhgUi_EeSQR7cX9E7Q6g">
+    <parameters xmi:id="_aURhj0i_EeSQR7cX9E7Q6g" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//IntermediateEvent"/>
+    </parameters>
+    <parameters xmi:id="_aURhkEi_EeSQR7cX9E7Q6g" name="OldTarget">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//FailureInstance"/>
+    </parameters>
+    <parameterMappings xmi:id="_aURhkUi_EeSQR7cX9E7Q6g" source="_aURhj0i_EeSQR7cX9E7Q6g" target="_aURhgki_EeSQR7cX9E7Q6g"/>
+    <parameterMappings xmi:id="_aURhkki_EeSQR7cX9E7Q6g" source="_aURhkEi_EeSQR7cX9E7Q6g" target="_aURhg0i_EeSQR7cX9E7Q6g"/>
+  </units>
+</henshin:Module>

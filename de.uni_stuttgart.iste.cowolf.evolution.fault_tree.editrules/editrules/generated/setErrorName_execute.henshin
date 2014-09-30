@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_aYi9gEi_EeSQR7cX9E7Q6g" name="setErrorName" description="Sets ErrorInstance Name">
+  <imports href="http://FaultTree/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_aYi9gUi_EeSQR7cX9E7Q6g" name="setErrorInstanceName" description="Sets the EAttribute name">
+    <parameters xmi:id="_aYi9gki_EeSQR7cX9E7Q6g" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//ErrorInstance"/>
+    </parameters>
+    <parameters xmi:id="_aYi9g0i_EeSQR7cX9E7Q6g" name="Name">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_aYi9hEi_EeSQR7cX9E7Q6g" name="Lhs">
+      <nodes xmi:id="_aYi9hUi_EeSQR7cX9E7Q6g" name="Selected">
+        <type href="http://FaultTree/1.0#//ErrorInstance"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_aYi9hki_EeSQR7cX9E7Q6g" name="Rhs">
+      <nodes xmi:id="_aYi9h0i_EeSQR7cX9E7Q6g" name="Selected">
+        <type href="http://FaultTree/1.0#//ErrorInstance"/>
+        <attributes xmi:id="_aYi9iEi_EeSQR7cX9E7Q6g" value="Name">
+          <type href="http://FaultTree/1.0#//ErrorInstance/name"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_aYi9iUi_EeSQR7cX9E7Q6g" origin="_aYi9hUi_EeSQR7cX9E7Q6g" image="_aYi9h0i_EeSQR7cX9E7Q6g"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_aYi9iki_EeSQR7cX9E7Q6g" name="mainUnit" subUnits="_aYi9gUi_EeSQR7cX9E7Q6g">
+    <parameters xmi:id="_aYi9i0i_EeSQR7cX9E7Q6g" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//ErrorInstance"/>
+    </parameters>
+    <parameters xmi:id="_aYi9jEi_EeSQR7cX9E7Q6g" name="Name">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_aYi9jUi_EeSQR7cX9E7Q6g" source="_aYi9i0i_EeSQR7cX9E7Q6g" target="_aYi9gki_EeSQR7cX9E7Q6g"/>
+    <parameterMappings xmi:id="_aYi9jki_EeSQR7cX9E7Q6g" source="_aYi9jEi_EeSQR7cX9E7Q6g" target="_aYi9g0i_EeSQR7cX9E7Q6g"/>
+  </units>
+</henshin:Module>

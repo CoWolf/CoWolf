@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_aVoMYEi_EeSQR7cX9E7Q6g" name="setEventName" description="Sets Event Name">
+  <imports href="http://FaultTree/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_aVoMYUi_EeSQR7cX9E7Q6g" name="setEventName" description="Sets the EAttribute name">
+    <parameters xmi:id="_aVoMYki_EeSQR7cX9E7Q6g" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//Event"/>
+    </parameters>
+    <parameters xmi:id="_aVoMY0i_EeSQR7cX9E7Q6g" name="Name">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_aVoMZEi_EeSQR7cX9E7Q6g" name="Lhs">
+      <nodes xmi:id="_aVoMZUi_EeSQR7cX9E7Q6g" name="Selected">
+        <type href="http://FaultTree/1.0#//Event"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_aVoMZki_EeSQR7cX9E7Q6g" name="Rhs">
+      <nodes xmi:id="_aVoMZ0i_EeSQR7cX9E7Q6g" name="Selected">
+        <type href="http://FaultTree/1.0#//Event"/>
+        <attributes xmi:id="_aVoMaEi_EeSQR7cX9E7Q6g" value="Name">
+          <type href="http://FaultTree/1.0#//Event/name"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_aVoMaUi_EeSQR7cX9E7Q6g" origin="_aVoMZUi_EeSQR7cX9E7Q6g" image="_aVoMZ0i_EeSQR7cX9E7Q6g"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_aVoMaki_EeSQR7cX9E7Q6g" name="mainUnit" subUnits="_aVoMYUi_EeSQR7cX9E7Q6g">
+    <parameters xmi:id="_aVoMa0i_EeSQR7cX9E7Q6g" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//Event"/>
+    </parameters>
+    <parameters xmi:id="_aVoMbEi_EeSQR7cX9E7Q6g" name="Name">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_aVoMbUi_EeSQR7cX9E7Q6g" source="_aVoMa0i_EeSQR7cX9E7Q6g" target="_aVoMYki_EeSQR7cX9E7Q6g"/>
+    <parameterMappings xmi:id="_aVoMbki_EeSQR7cX9E7Q6g" source="_aVoMbEi_EeSQR7cX9E7Q6g" target="_aVoMY0i_EeSQR7cX9E7Q6g"/>
+  </units>
+</henshin:Module>

@@ -1,40 +1,52 @@
 <?xml version="1.0" encoding="ASCII"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_lBGbUCkoEeSR5d0JIP8zig" name="CREATE_PriorAND_IN_FaultTree_(gate)" description="Creates one PriorAND in FaultTree">
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_aas5oEi_EeSQR7cX9E7Q6g" name="CREATE_PriorAND_IN_FaultTree_(gate)" description="Creates one PriorAND in FaultTree">
   <imports href="http://FaultTree/1.0#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="_lBGbUSkoEeSR5d0JIP8zig" name="createPriorAND_IN_FaultTree" description="creates one PriorAND in the context: FaultTree">
-    <parameters xmi:id="_lBGbUikoEeSR5d0JIP8zig" name="Selected"/>
-    <parameters xmi:id="_lBGbUykoEeSR5d0JIP8zig" name="New"/>
-    <parameters xmi:id="_lBGbVCkoEeSR5d0JIP8zig" name="Id"/>
-    <lhs xmi:id="_lBGbVSkoEeSR5d0JIP8zig" name="Lhs">
-      <nodes xmi:id="_lBGbVikoEeSR5d0JIP8zig" name="Selected">
+  <units xsi:type="henshin:Rule" xmi:id="_aas5oUi_EeSQR7cX9E7Q6g" name="createPriorAND_IN_FaultTree" description="creates one PriorAND in the context: FaultTree">
+    <parameters xmi:id="_aas5oki_EeSQR7cX9E7Q6g" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//FaultTree"/>
+    </parameters>
+    <parameters xmi:id="_aas5o0i_EeSQR7cX9E7Q6g" name="New">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//PriorAND"/>
+    </parameters>
+    <parameters xmi:id="_aas5pEi_EeSQR7cX9E7Q6g" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_aas5pUi_EeSQR7cX9E7Q6g" name="Lhs">
+      <nodes xmi:id="_aas5pki_EeSQR7cX9E7Q6g" name="Selected">
         <type href="http://FaultTree/1.0#//FaultTree"/>
       </nodes>
     </lhs>
-    <rhs xmi:id="_lBGbVykoEeSR5d0JIP8zig" name="Rhs">
-      <nodes xmi:id="_lBGbWCkoEeSR5d0JIP8zig" name="Selected" incoming="_lBGbXCkoEeSR5d0JIP8zig" outgoing="_lBGbWykoEeSR5d0JIP8zig">
+    <rhs xmi:id="_aas5p0i_EeSQR7cX9E7Q6g" name="Rhs">
+      <nodes xmi:id="_aas5qEi_EeSQR7cX9E7Q6g" name="Selected" incoming="_aas5rEi_EeSQR7cX9E7Q6g" outgoing="_aas5q0i_EeSQR7cX9E7Q6g">
         <type href="http://FaultTree/1.0#//FaultTree"/>
       </nodes>
-      <nodes xmi:id="_lBGbWSkoEeSR5d0JIP8zig" name="New" incoming="_lBGbWykoEeSR5d0JIP8zig" outgoing="_lBGbXCkoEeSR5d0JIP8zig">
+      <nodes xmi:id="_aas5qUi_EeSQR7cX9E7Q6g" name="New" incoming="_aas5q0i_EeSQR7cX9E7Q6g" outgoing="_aas5rEi_EeSQR7cX9E7Q6g">
         <type href="http://FaultTree/1.0#//PriorAND"/>
-        <attributes xmi:id="_lBGbWikoEeSR5d0JIP8zig" value="Id">
+        <attributes xmi:id="_aas5qki_EeSQR7cX9E7Q6g" value="Id">
           <type href="http://CommonBase/1.0#//IDBase/id"/>
         </attributes>
       </nodes>
-      <edges xmi:id="_lBGbWykoEeSR5d0JIP8zig" source="_lBGbWCkoEeSR5d0JIP8zig" target="_lBGbWSkoEeSR5d0JIP8zig">
+      <edges xmi:id="_aas5q0i_EeSQR7cX9E7Q6g" source="_aas5qEi_EeSQR7cX9E7Q6g" target="_aas5qUi_EeSQR7cX9E7Q6g">
         <type href="http://FaultTree/1.0#//FaultTree/gate"/>
       </edges>
-      <edges xmi:id="_lBGbXCkoEeSR5d0JIP8zig" source="_lBGbWSkoEeSR5d0JIP8zig" target="_lBGbWCkoEeSR5d0JIP8zig">
+      <edges xmi:id="_aas5rEi_EeSQR7cX9E7Q6g" source="_aas5qUi_EeSQR7cX9E7Q6g" target="_aas5qEi_EeSQR7cX9E7Q6g">
         <type href="http://FaultTree/1.0#//Gate/root"/>
       </edges>
     </rhs>
-    <mappings xmi:id="_lBGbXSkoEeSR5d0JIP8zig" origin="_lBGbVikoEeSR5d0JIP8zig" image="_lBGbWCkoEeSR5d0JIP8zig"/>
+    <mappings xmi:id="_aas5rUi_EeSQR7cX9E7Q6g" origin="_aas5pki_EeSQR7cX9E7Q6g" image="_aas5qEi_EeSQR7cX9E7Q6g"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="_lBGbXikoEeSR5d0JIP8zig" name="mainUnit" description="Creates one PriorAND depending on available contexts in model instance" subUnits="_lBGbUSkoEeSR5d0JIP8zig">
-    <parameters xmi:id="_lBGbXykoEeSR5d0JIP8zig" name="New"/>
-    <parameters xmi:id="_lBGbYCkoEeSR5d0JIP8zig" name="selectedEObject"/>
-    <parameters xmi:id="_lBGbYSkoEeSR5d0JIP8zig" name="Id"/>
-    <parameterMappings xmi:id="_lBGbYikoEeSR5d0JIP8zig" source="_lBGbYCkoEeSR5d0JIP8zig" target="_lBGbUikoEeSR5d0JIP8zig"/>
-    <parameterMappings xmi:id="_lBGbYykoEeSR5d0JIP8zig" source="_lBGbUykoEeSR5d0JIP8zig" target="_lBGbXykoEeSR5d0JIP8zig"/>
-    <parameterMappings xmi:id="_lBGbZCkoEeSR5d0JIP8zig" source="_lBGbYSkoEeSR5d0JIP8zig" target="_lBGbVCkoEeSR5d0JIP8zig"/>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_aas5rki_EeSQR7cX9E7Q6g" name="mainUnit" subUnits="_aas5oUi_EeSQR7cX9E7Q6g">
+    <parameters xmi:id="_aas5r0i_EeSQR7cX9E7Q6g" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//FaultTree"/>
+    </parameters>
+    <parameters xmi:id="_aas5sEi_EeSQR7cX9E7Q6g" name="New">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//PriorAND"/>
+    </parameters>
+    <parameters xmi:id="_aas5sUi_EeSQR7cX9E7Q6g" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_aas5ski_EeSQR7cX9E7Q6g" source="_aas5r0i_EeSQR7cX9E7Q6g" target="_aas5oki_EeSQR7cX9E7Q6g"/>
+    <parameterMappings xmi:id="_aas5s0i_EeSQR7cX9E7Q6g" source="_aas5o0i_EeSQR7cX9E7Q6g" target="_aas5sEi_EeSQR7cX9E7Q6g"/>
+    <parameterMappings xmi:id="_aas5tEi_EeSQR7cX9E7Q6g" source="_aas5sUi_EeSQR7cX9E7Q6g" target="_aas5pEi_EeSQR7cX9E7Q6g"/>
   </units>
 </henshin:Module>

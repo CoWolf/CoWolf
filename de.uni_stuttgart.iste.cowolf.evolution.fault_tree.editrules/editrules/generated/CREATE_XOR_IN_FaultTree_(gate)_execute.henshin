@@ -1,40 +1,52 @@
 <?xml version="1.0" encoding="ASCII"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_lAsysCkoEeSR5d0JIP8zig" name="CREATE_XOR_IN_FaultTree_(gate)" description="Creates one XOR in FaultTree">
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_aUBC0Ei_EeSQR7cX9E7Q6g" name="CREATE_XOR_IN_FaultTree_(gate)" description="Creates one XOR in FaultTree">
   <imports href="http://FaultTree/1.0#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="_lAsysSkoEeSR5d0JIP8zig" name="createXOR_IN_FaultTree" description="creates one XOR in the context: FaultTree">
-    <parameters xmi:id="_lAsysikoEeSR5d0JIP8zig" name="Selected"/>
-    <parameters xmi:id="_lAsysykoEeSR5d0JIP8zig" name="New"/>
-    <parameters xmi:id="_lAsytCkoEeSR5d0JIP8zig" name="Id"/>
-    <lhs xmi:id="_lAsytSkoEeSR5d0JIP8zig" name="Lhs">
-      <nodes xmi:id="_lAsytikoEeSR5d0JIP8zig" name="Selected">
+  <units xsi:type="henshin:Rule" xmi:id="_aUBC0Ui_EeSQR7cX9E7Q6g" name="createXOR_IN_FaultTree" description="creates one XOR in the context: FaultTree">
+    <parameters xmi:id="_aUBC0ki_EeSQR7cX9E7Q6g" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//FaultTree"/>
+    </parameters>
+    <parameters xmi:id="_aUBC00i_EeSQR7cX9E7Q6g" name="New">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//XOR"/>
+    </parameters>
+    <parameters xmi:id="_aUBC1Ei_EeSQR7cX9E7Q6g" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_aUBC1Ui_EeSQR7cX9E7Q6g" name="Lhs">
+      <nodes xmi:id="_aUBC1ki_EeSQR7cX9E7Q6g" name="Selected">
         <type href="http://FaultTree/1.0#//FaultTree"/>
       </nodes>
     </lhs>
-    <rhs xmi:id="_lAsytykoEeSR5d0JIP8zig" name="Rhs">
-      <nodes xmi:id="_lAsyuCkoEeSR5d0JIP8zig" name="Selected" incoming="_lAsyvCkoEeSR5d0JIP8zig" outgoing="_lAsyuykoEeSR5d0JIP8zig">
+    <rhs xmi:id="_aUBC10i_EeSQR7cX9E7Q6g" name="Rhs">
+      <nodes xmi:id="_aUBC2Ei_EeSQR7cX9E7Q6g" name="Selected" incoming="_aUBC3Ei_EeSQR7cX9E7Q6g" outgoing="_aUBC20i_EeSQR7cX9E7Q6g">
         <type href="http://FaultTree/1.0#//FaultTree"/>
       </nodes>
-      <nodes xmi:id="_lAsyuSkoEeSR5d0JIP8zig" name="New" incoming="_lAsyuykoEeSR5d0JIP8zig" outgoing="_lAsyvCkoEeSR5d0JIP8zig">
+      <nodes xmi:id="_aUBC2Ui_EeSQR7cX9E7Q6g" name="New" incoming="_aUBC20i_EeSQR7cX9E7Q6g" outgoing="_aUBC3Ei_EeSQR7cX9E7Q6g">
         <type href="http://FaultTree/1.0#//XOR"/>
-        <attributes xmi:id="_lAsyuikoEeSR5d0JIP8zig" value="Id">
+        <attributes xmi:id="_aUBC2ki_EeSQR7cX9E7Q6g" value="Id">
           <type href="http://CommonBase/1.0#//IDBase/id"/>
         </attributes>
       </nodes>
-      <edges xmi:id="_lAsyuykoEeSR5d0JIP8zig" source="_lAsyuCkoEeSR5d0JIP8zig" target="_lAsyuSkoEeSR5d0JIP8zig">
+      <edges xmi:id="_aUBC20i_EeSQR7cX9E7Q6g" source="_aUBC2Ei_EeSQR7cX9E7Q6g" target="_aUBC2Ui_EeSQR7cX9E7Q6g">
         <type href="http://FaultTree/1.0#//FaultTree/gate"/>
       </edges>
-      <edges xmi:id="_lAsyvCkoEeSR5d0JIP8zig" source="_lAsyuSkoEeSR5d0JIP8zig" target="_lAsyuCkoEeSR5d0JIP8zig">
+      <edges xmi:id="_aUBC3Ei_EeSQR7cX9E7Q6g" source="_aUBC2Ui_EeSQR7cX9E7Q6g" target="_aUBC2Ei_EeSQR7cX9E7Q6g">
         <type href="http://FaultTree/1.0#//Gate/root"/>
       </edges>
     </rhs>
-    <mappings xmi:id="_lAsyvSkoEeSR5d0JIP8zig" origin="_lAsytikoEeSR5d0JIP8zig" image="_lAsyuCkoEeSR5d0JIP8zig"/>
+    <mappings xmi:id="_aUBC3Ui_EeSQR7cX9E7Q6g" origin="_aUBC1ki_EeSQR7cX9E7Q6g" image="_aUBC2Ei_EeSQR7cX9E7Q6g"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="_lAsyvikoEeSR5d0JIP8zig" name="mainUnit" description="Creates one XOR depending on available contexts in model instance" subUnits="_lAsysSkoEeSR5d0JIP8zig">
-    <parameters xmi:id="_lAsyvykoEeSR5d0JIP8zig" name="New"/>
-    <parameters xmi:id="_lAsywCkoEeSR5d0JIP8zig" name="selectedEObject"/>
-    <parameters xmi:id="_lAsywSkoEeSR5d0JIP8zig" name="Id"/>
-    <parameterMappings xmi:id="_lAsywikoEeSR5d0JIP8zig" source="_lAsywCkoEeSR5d0JIP8zig" target="_lAsysikoEeSR5d0JIP8zig"/>
-    <parameterMappings xmi:id="_lAsywykoEeSR5d0JIP8zig" source="_lAsysykoEeSR5d0JIP8zig" target="_lAsyvykoEeSR5d0JIP8zig"/>
-    <parameterMappings xmi:id="_lAsyxCkoEeSR5d0JIP8zig" source="_lAsywSkoEeSR5d0JIP8zig" target="_lAsytCkoEeSR5d0JIP8zig"/>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_aUBC3ki_EeSQR7cX9E7Q6g" name="mainUnit" subUnits="_aUBC0Ui_EeSQR7cX9E7Q6g">
+    <parameters xmi:id="_aUBC30i_EeSQR7cX9E7Q6g" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//FaultTree"/>
+    </parameters>
+    <parameters xmi:id="_aUBC4Ei_EeSQR7cX9E7Q6g" name="New">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//XOR"/>
+    </parameters>
+    <parameters xmi:id="_aUBC4Ui_EeSQR7cX9E7Q6g" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_aUBC4ki_EeSQR7cX9E7Q6g" source="_aUBC30i_EeSQR7cX9E7Q6g" target="_aUBC0ki_EeSQR7cX9E7Q6g"/>
+    <parameterMappings xmi:id="_aUBC40i_EeSQR7cX9E7Q6g" source="_aUBC00i_EeSQR7cX9E7Q6g" target="_aUBC4Ei_EeSQR7cX9E7Q6g"/>
+    <parameterMappings xmi:id="_aUBC5Ei_EeSQR7cX9E7Q6g" source="_aUBC4Ui_EeSQR7cX9E7Q6g" target="_aUBC1Ei_EeSQR7cX9E7Q6g"/>
   </units>
 </henshin:Module>

@@ -193,20 +193,22 @@ public abstract class AbstractTransformationManager {
         // Break if there are no changes since the last transformation (old == current)
         if (oldSourceVersion.equals(sourceVersion)) {
         	LOGGER.info("No changes in source model.");
-        	for (ModelVersion version : latest.getTarget()) {
-	        	if (version.getModel().equals(targetModel)) {
-	        		return version;
-	        	} else if (version.getModel().equals(sourceModel)) {
-	        		break;
-	        	}
-	        }
-        	for (ModelVersion version : latest.getSource()) {
-	        	if (version.getModel().equals(targetModel)) {
-	        		return version;
-	        	} else if (version.getModel().equals(sourceModel)) {
-	        		break;
-	        	}
-	        }
+        	if (latest != null) {
+	        	for (ModelVersion version : latest.getTarget()) {
+		        	if (version.getModel().equals(targetModel)) {
+		        		return version;
+		        	} else if (version.getModel().equals(sourceModel)) {
+		        		break;
+		        	}
+		        }
+	        	for (ModelVersion version : latest.getSource()) {
+		        	if (version.getModel().equals(targetModel)) {
+		        		return version;
+		        	} else if (version.getModel().equals(sourceModel)) {
+		        		break;
+		        	}
+		        }
+        	}
         	return null;
         }
         

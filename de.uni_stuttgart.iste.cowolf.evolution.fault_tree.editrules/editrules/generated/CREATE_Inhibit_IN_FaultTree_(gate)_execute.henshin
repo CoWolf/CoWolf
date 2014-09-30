@@ -1,40 +1,52 @@
 <?xml version="1.0" encoding="ASCII"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_lBSokCkoEeSR5d0JIP8zig" name="CREATE_Inhibit_IN_FaultTree_(gate)" description="Creates one Inhibit in FaultTree">
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_aVwvQEi_EeSQR7cX9E7Q6g" name="CREATE_Inhibit_IN_FaultTree_(gate)" description="Creates one Inhibit in FaultTree">
   <imports href="http://FaultTree/1.0#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="_lBSokSkoEeSR5d0JIP8zig" name="createInhibit_IN_FaultTree" description="creates one Inhibit in the context: FaultTree">
-    <parameters xmi:id="_lBSokikoEeSR5d0JIP8zig" name="Selected"/>
-    <parameters xmi:id="_lBSokykoEeSR5d0JIP8zig" name="New"/>
-    <parameters xmi:id="_lBSolCkoEeSR5d0JIP8zig" name="Id"/>
-    <lhs xmi:id="_lBSolSkoEeSR5d0JIP8zig" name="Lhs">
-      <nodes xmi:id="_lBSolikoEeSR5d0JIP8zig" name="Selected">
+  <units xsi:type="henshin:Rule" xmi:id="_aVwvQUi_EeSQR7cX9E7Q6g" name="createInhibit_IN_FaultTree" description="creates one Inhibit in the context: FaultTree">
+    <parameters xmi:id="_aVwvQki_EeSQR7cX9E7Q6g" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//FaultTree"/>
+    </parameters>
+    <parameters xmi:id="_aVwvQ0i_EeSQR7cX9E7Q6g" name="New">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//Inhibit"/>
+    </parameters>
+    <parameters xmi:id="_aVwvREi_EeSQR7cX9E7Q6g" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_aVwvRUi_EeSQR7cX9E7Q6g" name="Lhs">
+      <nodes xmi:id="_aVwvRki_EeSQR7cX9E7Q6g" name="Selected">
         <type href="http://FaultTree/1.0#//FaultTree"/>
       </nodes>
     </lhs>
-    <rhs xmi:id="_lBSolykoEeSR5d0JIP8zig" name="Rhs">
-      <nodes xmi:id="_lBSomCkoEeSR5d0JIP8zig" name="Selected" incoming="_lBSonCkoEeSR5d0JIP8zig" outgoing="_lBSomykoEeSR5d0JIP8zig">
+    <rhs xmi:id="_aVwvR0i_EeSQR7cX9E7Q6g" name="Rhs">
+      <nodes xmi:id="_aVwvSEi_EeSQR7cX9E7Q6g" name="Selected" incoming="_aVwvTEi_EeSQR7cX9E7Q6g" outgoing="_aVwvS0i_EeSQR7cX9E7Q6g">
         <type href="http://FaultTree/1.0#//FaultTree"/>
       </nodes>
-      <nodes xmi:id="_lBSomSkoEeSR5d0JIP8zig" name="New" incoming="_lBSomykoEeSR5d0JIP8zig" outgoing="_lBSonCkoEeSR5d0JIP8zig">
+      <nodes xmi:id="_aVwvSUi_EeSQR7cX9E7Q6g" name="New" incoming="_aVwvS0i_EeSQR7cX9E7Q6g" outgoing="_aVwvTEi_EeSQR7cX9E7Q6g">
         <type href="http://FaultTree/1.0#//Inhibit"/>
-        <attributes xmi:id="_lBSomikoEeSR5d0JIP8zig" value="Id">
+        <attributes xmi:id="_aVwvSki_EeSQR7cX9E7Q6g" value="Id">
           <type href="http://CommonBase/1.0#//IDBase/id"/>
         </attributes>
       </nodes>
-      <edges xmi:id="_lBSomykoEeSR5d0JIP8zig" source="_lBSomCkoEeSR5d0JIP8zig" target="_lBSomSkoEeSR5d0JIP8zig">
+      <edges xmi:id="_aVwvS0i_EeSQR7cX9E7Q6g" source="_aVwvSEi_EeSQR7cX9E7Q6g" target="_aVwvSUi_EeSQR7cX9E7Q6g">
         <type href="http://FaultTree/1.0#//FaultTree/gate"/>
       </edges>
-      <edges xmi:id="_lBSonCkoEeSR5d0JIP8zig" source="_lBSomSkoEeSR5d0JIP8zig" target="_lBSomCkoEeSR5d0JIP8zig">
+      <edges xmi:id="_aVwvTEi_EeSQR7cX9E7Q6g" source="_aVwvSUi_EeSQR7cX9E7Q6g" target="_aVwvSEi_EeSQR7cX9E7Q6g">
         <type href="http://FaultTree/1.0#//Gate/root"/>
       </edges>
     </rhs>
-    <mappings xmi:id="_lBSonSkoEeSR5d0JIP8zig" origin="_lBSolikoEeSR5d0JIP8zig" image="_lBSomCkoEeSR5d0JIP8zig"/>
+    <mappings xmi:id="_aVwvTUi_EeSQR7cX9E7Q6g" origin="_aVwvRki_EeSQR7cX9E7Q6g" image="_aVwvSEi_EeSQR7cX9E7Q6g"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="_lBSonikoEeSR5d0JIP8zig" name="mainUnit" description="Creates one Inhibit depending on available contexts in model instance" subUnits="_lBSokSkoEeSR5d0JIP8zig">
-    <parameters xmi:id="_lBSonykoEeSR5d0JIP8zig" name="New"/>
-    <parameters xmi:id="_lBSooCkoEeSR5d0JIP8zig" name="selectedEObject"/>
-    <parameters xmi:id="_lBSooSkoEeSR5d0JIP8zig" name="Id"/>
-    <parameterMappings xmi:id="_lBSooikoEeSR5d0JIP8zig" source="_lBSooCkoEeSR5d0JIP8zig" target="_lBSokikoEeSR5d0JIP8zig"/>
-    <parameterMappings xmi:id="_lBSooykoEeSR5d0JIP8zig" source="_lBSokykoEeSR5d0JIP8zig" target="_lBSonykoEeSR5d0JIP8zig"/>
-    <parameterMappings xmi:id="_lBSopCkoEeSR5d0JIP8zig" source="_lBSooSkoEeSR5d0JIP8zig" target="_lBSolCkoEeSR5d0JIP8zig"/>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_aVwvTki_EeSQR7cX9E7Q6g" name="mainUnit" subUnits="_aVwvQUi_EeSQR7cX9E7Q6g">
+    <parameters xmi:id="_aVwvT0i_EeSQR7cX9E7Q6g" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//FaultTree"/>
+    </parameters>
+    <parameters xmi:id="_aVwvUEi_EeSQR7cX9E7Q6g" name="New">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//Inhibit"/>
+    </parameters>
+    <parameters xmi:id="_aVwvUUi_EeSQR7cX9E7Q6g" name="Id">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_aVwvUki_EeSQR7cX9E7Q6g" source="_aVwvT0i_EeSQR7cX9E7Q6g" target="_aVwvQki_EeSQR7cX9E7Q6g"/>
+    <parameterMappings xmi:id="_aVwvU0i_EeSQR7cX9E7Q6g" source="_aVwvQ0i_EeSQR7cX9E7Q6g" target="_aVwvUEi_EeSQR7cX9E7Q6g"/>
+    <parameterMappings xmi:id="_aVwvVEi_EeSQR7cX9E7Q6g" source="_aVwvUUi_EeSQR7cX9E7Q6g" target="_aVwvREi_EeSQR7cX9E7Q6g"/>
   </units>
 </henshin:Module>

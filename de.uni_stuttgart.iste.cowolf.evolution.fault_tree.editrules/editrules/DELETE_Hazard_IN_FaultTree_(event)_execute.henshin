@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_aV-xsEi_EeSQR7cX9E7Q6g" name="DELETE_Hazard_IN_FaultTree_(event)" description="Deletes one Hazard in FaultTree">
+  <imports href="http://FaultTree/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_aV-xsUi_EeSQR7cX9E7Q6g" name="deleteHazard_IN_FaultTree" description="deletes one Hazard in the context: FaultTree">
+    <parameters xmi:id="_aV-xski_EeSQR7cX9E7Q6g" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//FaultTree"/>
+    </parameters>
+    <parameters xmi:id="_aV-xs0i_EeSQR7cX9E7Q6g" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//Hazard"/>
+    </parameters>
+    <lhs xmi:id="_aV-xtEi_EeSQR7cX9E7Q6g" name="LHS">
+      <nodes xmi:id="_aV-xtUi_EeSQR7cX9E7Q6g" name="Selected" outgoing="_mMFqwEjEEeSQR7cX9E7Q6g">
+        <type href="http://FaultTree/1.0#//FaultTree"/>
+      </nodes>
+      <nodes xmi:id="_aV-xtki_EeSQR7cX9E7Q6g" name="ToBeDeleted" incoming="_mMFqwEjEEeSQR7cX9E7Q6g">
+        <type href="http://FaultTree/1.0#//Hazard"/>
+      </nodes>
+      <edges xmi:id="_mMFqwEjEEeSQR7cX9E7Q6g" source="_aV-xtUi_EeSQR7cX9E7Q6g" target="_aV-xtki_EeSQR7cX9E7Q6g">
+        <type href="http://FaultTree/1.0#//FaultTree/hazard"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_aV-xuUi_EeSQR7cX9E7Q6g" name="RHS">
+      <nodes xmi:id="_aV-xuki_EeSQR7cX9E7Q6g" name="Selected">
+        <type href="http://FaultTree/1.0#//FaultTree"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_aV-xu0i_EeSQR7cX9E7Q6g" origin="_aV-xtUi_EeSQR7cX9E7Q6g" image="_aV-xuki_EeSQR7cX9E7Q6g"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_aV-xvEi_EeSQR7cX9E7Q6g" name="mainUnit" subUnits="_aV-xsUi_EeSQR7cX9E7Q6g">
+    <parameters xmi:id="_aV-xvUi_EeSQR7cX9E7Q6g" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//FaultTree"/>
+    </parameters>
+    <parameters xmi:id="_aV-xvki_EeSQR7cX9E7Q6g" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//Hazard"/>
+    </parameters>
+    <parameterMappings xmi:id="_aV-xv0i_EeSQR7cX9E7Q6g" source="_aV-xvUi_EeSQR7cX9E7Q6g" target="_aV-xski_EeSQR7cX9E7Q6g"/>
+    <parameterMappings xmi:id="_aV-xwEi_EeSQR7cX9E7Q6g" source="_aV-xvki_EeSQR7cX9E7Q6g" target="_aV-xs0i_EeSQR7cX9E7Q6g"/>
+  </units>
+</henshin:Module>

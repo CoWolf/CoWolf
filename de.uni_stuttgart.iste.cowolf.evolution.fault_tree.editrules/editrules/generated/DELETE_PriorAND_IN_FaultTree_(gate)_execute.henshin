@@ -1,34 +1,42 @@
 <?xml version="1.0" encoding="ASCII"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_lBGbZSkoEeSR5d0JIP8zig" name="DELETE_PriorAND_IN_FaultTree_(gate)" description="Deletes one PriorAND in FaultTree">
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_aadCAEi_EeSQR7cX9E7Q6g" name="DELETE_PriorAND_IN_FaultTree_(gate)" description="Deletes one PriorAND in FaultTree">
   <imports href="http://FaultTree/1.0#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="_lBGbZikoEeSR5d0JIP8zig" name="deletePriorAND_IN_FaultTree" description="deletes one PriorAND in the context: FaultTree">
-    <parameters xmi:id="_lBGbZykoEeSR5d0JIP8zig" name="Selected"/>
-    <parameters xmi:id="_lBGbaCkoEeSR5d0JIP8zig" name="ToBeDeleted"/>
-    <lhs xmi:id="_lBGbaSkoEeSR5d0JIP8zig" name="LHS">
-      <nodes xmi:id="_lBGbaikoEeSR5d0JIP8zig" name="Selected" incoming="_lBGbbSkoEeSR5d0JIP8zig" outgoing="_lBGbbCkoEeSR5d0JIP8zig">
+  <units xsi:type="henshin:Rule" xmi:id="_aadCAUi_EeSQR7cX9E7Q6g" name="deletePriorAND_IN_FaultTree" description="deletes one PriorAND in the context: FaultTree">
+    <parameters xmi:id="_aadCAki_EeSQR7cX9E7Q6g" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//FaultTree"/>
+    </parameters>
+    <parameters xmi:id="_aadCA0i_EeSQR7cX9E7Q6g" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//PriorAND"/>
+    </parameters>
+    <lhs xmi:id="_aadCBEi_EeSQR7cX9E7Q6g" name="LHS">
+      <nodes xmi:id="_aadCBUi_EeSQR7cX9E7Q6g" name="Selected" incoming="_aadCCEi_EeSQR7cX9E7Q6g" outgoing="_aadCB0i_EeSQR7cX9E7Q6g">
         <type href="http://FaultTree/1.0#//FaultTree"/>
       </nodes>
-      <nodes xmi:id="_lBGbaykoEeSR5d0JIP8zig" name="ToBeDeleted" incoming="_lBGbbCkoEeSR5d0JIP8zig" outgoing="_lBGbbSkoEeSR5d0JIP8zig">
+      <nodes xmi:id="_aadCBki_EeSQR7cX9E7Q6g" name="ToBeDeleted" incoming="_aadCB0i_EeSQR7cX9E7Q6g" outgoing="_aadCCEi_EeSQR7cX9E7Q6g">
         <type href="http://FaultTree/1.0#//PriorAND"/>
       </nodes>
-      <edges xmi:id="_lBGbbCkoEeSR5d0JIP8zig" source="_lBGbaikoEeSR5d0JIP8zig" target="_lBGbaykoEeSR5d0JIP8zig">
+      <edges xmi:id="_aadCB0i_EeSQR7cX9E7Q6g" source="_aadCBUi_EeSQR7cX9E7Q6g" target="_aadCBki_EeSQR7cX9E7Q6g">
         <type href="http://FaultTree/1.0#//FaultTree/gate"/>
       </edges>
-      <edges xmi:id="_lBGbbSkoEeSR5d0JIP8zig" source="_lBGbaykoEeSR5d0JIP8zig" target="_lBGbaikoEeSR5d0JIP8zig">
+      <edges xmi:id="_aadCCEi_EeSQR7cX9E7Q6g" source="_aadCBki_EeSQR7cX9E7Q6g" target="_aadCBUi_EeSQR7cX9E7Q6g">
         <type href="http://FaultTree/1.0#//Gate/root"/>
       </edges>
     </lhs>
-    <rhs xmi:id="_lBGbbikoEeSR5d0JIP8zig" name="RHS">
-      <nodes xmi:id="_lBGbbykoEeSR5d0JIP8zig" name="Selected">
+    <rhs xmi:id="_aadCCUi_EeSQR7cX9E7Q6g" name="RHS">
+      <nodes xmi:id="_aadCCki_EeSQR7cX9E7Q6g" name="Selected">
         <type href="http://FaultTree/1.0#//FaultTree"/>
       </nodes>
     </rhs>
-    <mappings xmi:id="_lBGbcCkoEeSR5d0JIP8zig" origin="_lBGbaikoEeSR5d0JIP8zig" image="_lBGbbykoEeSR5d0JIP8zig"/>
+    <mappings xmi:id="_aadCC0i_EeSQR7cX9E7Q6g" origin="_aadCBUi_EeSQR7cX9E7Q6g" image="_aadCCki_EeSQR7cX9E7Q6g"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="_lBGbcSkoEeSR5d0JIP8zig" name="mainUnit" description="Deletes one PriorAND depending on available contexts in model instance" subUnits="_lBGbZikoEeSR5d0JIP8zig">
-    <parameters xmi:id="_lBGbcikoEeSR5d0JIP8zig" name="ToBeDeleted"/>
-    <parameters xmi:id="_lBGbcykoEeSR5d0JIP8zig" name="selectedEObject"/>
-    <parameterMappings xmi:id="_lBGbdCkoEeSR5d0JIP8zig" source="_lBGbcykoEeSR5d0JIP8zig" target="_lBGbZykoEeSR5d0JIP8zig"/>
-    <parameterMappings xmi:id="_lBGbdSkoEeSR5d0JIP8zig" source="_lBGbcikoEeSR5d0JIP8zig" target="_lBGbaCkoEeSR5d0JIP8zig"/>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_aadCDEi_EeSQR7cX9E7Q6g" name="mainUnit" subUnits="_aadCAUi_EeSQR7cX9E7Q6g">
+    <parameters xmi:id="_aadCDUi_EeSQR7cX9E7Q6g" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//FaultTree"/>
+    </parameters>
+    <parameters xmi:id="_aadCDki_EeSQR7cX9E7Q6g" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//PriorAND"/>
+    </parameters>
+    <parameterMappings xmi:id="_aadCD0i_EeSQR7cX9E7Q6g" source="_aadCDUi_EeSQR7cX9E7Q6g" target="_aadCAki_EeSQR7cX9E7Q6g"/>
+    <parameterMappings xmi:id="_aadCEEi_EeSQR7cX9E7Q6g" source="_aadCDki_EeSQR7cX9E7Q6g" target="_aadCA0i_EeSQR7cX9E7Q6g"/>
   </units>
 </henshin:Module>

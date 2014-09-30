@@ -1,34 +1,42 @@
 <?xml version="1.0" encoding="ASCII"?>
-<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_k-rZjSkoEeSR5d0JIP8zig" name="DELETE_UndevelopedEvent_IN_FaultTree_(event)" description="Deletes one UndevelopedEvent in FaultTree">
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_aamzAEi_EeSQR7cX9E7Q6g" name="DELETE_UndevelopedEvent_IN_FaultTree_(event)" description="Deletes one UndevelopedEvent in FaultTree">
   <imports href="http://FaultTree/1.0#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="_k-rZjikoEeSR5d0JIP8zig" name="deleteUndevelopedEvent_IN_FaultTree" description="deletes one UndevelopedEvent in the context: FaultTree">
-    <parameters xmi:id="_k-rZjykoEeSR5d0JIP8zig" name="Selected"/>
-    <parameters xmi:id="_k-rZkCkoEeSR5d0JIP8zig" name="ToBeDeleted"/>
-    <lhs xmi:id="_k-rZkSkoEeSR5d0JIP8zig" name="LHS">
-      <nodes xmi:id="_k-rZkikoEeSR5d0JIP8zig" name="Selected" incoming="_k-rZlSkoEeSR5d0JIP8zig" outgoing="_k-rZlCkoEeSR5d0JIP8zig">
+  <units xsi:type="henshin:Rule" xmi:id="_aamzAUi_EeSQR7cX9E7Q6g" name="deleteUndevelopedEvent_IN_FaultTree" description="deletes one UndevelopedEvent in the context: FaultTree">
+    <parameters xmi:id="_aamzAki_EeSQR7cX9E7Q6g" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//FaultTree"/>
+    </parameters>
+    <parameters xmi:id="_aamzA0i_EeSQR7cX9E7Q6g" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//UndevelopedEvent"/>
+    </parameters>
+    <lhs xmi:id="_aamzBEi_EeSQR7cX9E7Q6g" name="LHS">
+      <nodes xmi:id="_aamzBUi_EeSQR7cX9E7Q6g" name="Selected" incoming="_aamzCEi_EeSQR7cX9E7Q6g" outgoing="_aamzB0i_EeSQR7cX9E7Q6g">
         <type href="http://FaultTree/1.0#//FaultTree"/>
       </nodes>
-      <nodes xmi:id="_k-rZkykoEeSR5d0JIP8zig" name="ToBeDeleted" incoming="_k-rZlCkoEeSR5d0JIP8zig" outgoing="_k-rZlSkoEeSR5d0JIP8zig">
+      <nodes xmi:id="_aamzBki_EeSQR7cX9E7Q6g" name="ToBeDeleted" incoming="_aamzB0i_EeSQR7cX9E7Q6g" outgoing="_aamzCEi_EeSQR7cX9E7Q6g">
         <type href="http://FaultTree/1.0#//UndevelopedEvent"/>
       </nodes>
-      <edges xmi:id="_k-rZlCkoEeSR5d0JIP8zig" source="_k-rZkikoEeSR5d0JIP8zig" target="_k-rZkykoEeSR5d0JIP8zig">
+      <edges xmi:id="_aamzB0i_EeSQR7cX9E7Q6g" source="_aamzBUi_EeSQR7cX9E7Q6g" target="_aamzBki_EeSQR7cX9E7Q6g">
         <type href="http://FaultTree/1.0#//FaultTree/event"/>
       </edges>
-      <edges xmi:id="_k-rZlSkoEeSR5d0JIP8zig" source="_k-rZkykoEeSR5d0JIP8zig" target="_k-rZkikoEeSR5d0JIP8zig">
+      <edges xmi:id="_aamzCEi_EeSQR7cX9E7Q6g" source="_aamzBki_EeSQR7cX9E7Q6g" target="_aamzBUi_EeSQR7cX9E7Q6g">
         <type href="http://FaultTree/1.0#//Event/root"/>
       </edges>
     </lhs>
-    <rhs xmi:id="_k-rZlikoEeSR5d0JIP8zig" name="RHS">
-      <nodes xmi:id="_k-rZlykoEeSR5d0JIP8zig" name="Selected">
+    <rhs xmi:id="_aamzCUi_EeSQR7cX9E7Q6g" name="RHS">
+      <nodes xmi:id="_aamzCki_EeSQR7cX9E7Q6g" name="Selected">
         <type href="http://FaultTree/1.0#//FaultTree"/>
       </nodes>
     </rhs>
-    <mappings xmi:id="_k-rZmCkoEeSR5d0JIP8zig" origin="_k-rZkikoEeSR5d0JIP8zig" image="_k-rZlykoEeSR5d0JIP8zig"/>
+    <mappings xmi:id="_aamzC0i_EeSQR7cX9E7Q6g" origin="_aamzBUi_EeSQR7cX9E7Q6g" image="_aamzCki_EeSQR7cX9E7Q6g"/>
   </units>
-  <units xsi:type="henshin:PriorityUnit" xmi:id="_k-rZmSkoEeSR5d0JIP8zig" name="mainUnit" description="Deletes one UndevelopedEvent depending on available contexts in model instance" subUnits="_k-rZjikoEeSR5d0JIP8zig">
-    <parameters xmi:id="_k-rZmikoEeSR5d0JIP8zig" name="ToBeDeleted"/>
-    <parameters xmi:id="_k-rZmykoEeSR5d0JIP8zig" name="selectedEObject"/>
-    <parameterMappings xmi:id="_k-rZnCkoEeSR5d0JIP8zig" source="_k-rZmykoEeSR5d0JIP8zig" target="_k-rZjykoEeSR5d0JIP8zig"/>
-    <parameterMappings xmi:id="_k-rZnSkoEeSR5d0JIP8zig" source="_k-rZmikoEeSR5d0JIP8zig" target="_k-rZkCkoEeSR5d0JIP8zig"/>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_aamzDEi_EeSQR7cX9E7Q6g" name="mainUnit" subUnits="_aamzAUi_EeSQR7cX9E7Q6g">
+    <parameters xmi:id="_aamzDUi_EeSQR7cX9E7Q6g" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//FaultTree"/>
+    </parameters>
+    <parameters xmi:id="_aamzDki_EeSQR7cX9E7Q6g" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//UndevelopedEvent"/>
+    </parameters>
+    <parameterMappings xmi:id="_aamzD0i_EeSQR7cX9E7Q6g" source="_aamzDUi_EeSQR7cX9E7Q6g" target="_aamzAki_EeSQR7cX9E7Q6g"/>
+    <parameterMappings xmi:id="_aamzEEi_EeSQR7cX9E7Q6g" source="_aamzDki_EeSQR7cX9E7Q6g" target="_aamzA0i_EeSQR7cX9E7Q6g"/>
   </units>
 </henshin:Module>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_aU7o0Ei_EeSQR7cX9E7Q6g" name="setEventOutputGate" description="Sets Event's reference outputGate the target Gate">
+  <imports href="http://FaultTree/1.0#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_aU7o0Ui_EeSQR7cX9E7Q6g" name="setEvent_outputGate_TO_Gate" description="SetEventRefoutputGateToGate">
+    <parameters xmi:id="_aU7o0ki_EeSQR7cX9E7Q6g" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//Event"/>
+    </parameters>
+    <parameters xmi:id="_aU7o00i_EeSQR7cX9E7Q6g" name="NewTarget">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//Gate"/>
+    </parameters>
+    <lhs xmi:id="_aU7o1Ei_EeSQR7cX9E7Q6g" name="Lhs">
+      <nodes xmi:id="_aU7o1Ui_EeSQR7cX9E7Q6g" name="Selected">
+        <type href="http://FaultTree/1.0#//Event"/>
+      </nodes>
+      <nodes xmi:id="_aU7o1ki_EeSQR7cX9E7Q6g" name="NewTarget">
+        <type href="http://FaultTree/1.0#//Gate"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_aU7o10i_EeSQR7cX9E7Q6g">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_aU7o2Ei_EeSQR7cX9E7Q6g">
+          <conclusion xmi:id="_aU7o2Ui_EeSQR7cX9E7Q6g" name="ub0">
+            <nodes xmi:id="_aU7o2ki_EeSQR7cX9E7Q6g" outgoing="_aU7o3Ei_EeSQR7cX9E7Q6g">
+              <type href="http://FaultTree/1.0#//Event"/>
+            </nodes>
+            <nodes xmi:id="_aU7o20i_EeSQR7cX9E7Q6g" incoming="_aU7o3Ei_EeSQR7cX9E7Q6g">
+              <type href="http://FaultTree/1.0#//Gate"/>
+            </nodes>
+            <edges xmi:id="_aU7o3Ei_EeSQR7cX9E7Q6g" source="_aU7o2ki_EeSQR7cX9E7Q6g" target="_aU7o20i_EeSQR7cX9E7Q6g">
+              <type href="http://FaultTree/1.0#//Event/outputGate"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_aU7o3Ui_EeSQR7cX9E7Q6g" origin="_aU7o1Ui_EeSQR7cX9E7Q6g" image="_aU7o2ki_EeSQR7cX9E7Q6g"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_aU7o3ki_EeSQR7cX9E7Q6g" name="Rhs">
+      <nodes xmi:id="_aU7o30i_EeSQR7cX9E7Q6g" name="Selected" incoming="_aU7o4ki_EeSQR7cX9E7Q6g" outgoing="_aU7o4Ui_EeSQR7cX9E7Q6g">
+        <type href="http://FaultTree/1.0#//Event"/>
+      </nodes>
+      <nodes xmi:id="_aU7o4Ei_EeSQR7cX9E7Q6g" name="NewTarget" incoming="_aU7o4Ui_EeSQR7cX9E7Q6g" outgoing="_aU7o4ki_EeSQR7cX9E7Q6g">
+        <type href="http://FaultTree/1.0#//Gate"/>
+      </nodes>
+      <edges xmi:id="_aU7o4Ui_EeSQR7cX9E7Q6g" source="_aU7o30i_EeSQR7cX9E7Q6g" target="_aU7o4Ei_EeSQR7cX9E7Q6g">
+        <type href="http://FaultTree/1.0#//Event/outputGate"/>
+      </edges>
+      <edges xmi:id="_aU7o4ki_EeSQR7cX9E7Q6g" source="_aU7o4Ei_EeSQR7cX9E7Q6g" target="_aU7o30i_EeSQR7cX9E7Q6g">
+        <type href="http://FaultTree/1.0#//Gate/inputEvents"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_aU7o40i_EeSQR7cX9E7Q6g" origin="_aU7o1Ui_EeSQR7cX9E7Q6g" image="_aU7o30i_EeSQR7cX9E7Q6g"/>
+    <mappings xmi:id="_aU7o5Ei_EeSQR7cX9E7Q6g" origin="_aU7o1ki_EeSQR7cX9E7Q6g" image="_aU7o4Ei_EeSQR7cX9E7Q6g"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_aU7o5Ui_EeSQR7cX9E7Q6g" name="mainUnit" subUnits="_aU7o0Ui_EeSQR7cX9E7Q6g">
+    <parameters xmi:id="_aU7o5ki_EeSQR7cX9E7Q6g" name="selectedEObject">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//Event"/>
+    </parameters>
+    <parameters xmi:id="_aU7o50i_EeSQR7cX9E7Q6g" name="NewTarget">
+      <type xsi:type="ecore:EClass" href="http://FaultTree/1.0#//Gate"/>
+    </parameters>
+    <parameterMappings xmi:id="_aU7o6Ei_EeSQR7cX9E7Q6g" source="_aU7o5ki_EeSQR7cX9E7Q6g" target="_aU7o0ki_EeSQR7cX9E7Q6g"/>
+    <parameterMappings xmi:id="_aU7o6Ui_EeSQR7cX9E7Q6g" source="_aU7o50i_EeSQR7cX9E7Q6g" target="_aU7o00i_EeSQR7cX9E7Q6g"/>
+  </units>
+</henshin:Module>
