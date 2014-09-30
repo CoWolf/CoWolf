@@ -10,8 +10,6 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-import javax.swing.JOptionPane;
-
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
@@ -31,6 +29,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.sirius.business.api.dialect.DialectManager;
 import org.eclipse.sirius.business.api.dialect.command.CreateRepresentationCommand;
@@ -46,6 +45,7 @@ import org.eclipse.sirius.ui.business.internal.commands.ChangeViewpointSelection
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.slf4j.Logger;
@@ -104,8 +104,7 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 			Set<Viewpoint> availableViewpoints = ViewpointSelection
 					.getViewpoints(modelFile.getFileExtension());
 			if (availableViewpoints.isEmpty()) {
-				JOptionPane.showMessageDialog(null,
-						"There is no viewpoint for " + modelFile.getFullPath());
+				MessageDialog.openInformation(Display.getCurrent().getActiveShell(), "Viewpoint missing", "There is no viewpoint for " + modelFile.getFullPath());
 			} else {
 				// Now we have to create an aird file
 				URI airdFileURI = URI.createPlatformResourceURI(modelFile
@@ -279,9 +278,10 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 
 						// Sirius deleted the model entry
 						if (resources.size() == 0) {
-							JOptionPane
-									.showMessageDialog(null,
-											"It was not possible to copy the layout. Sorry");
+							MessageDialog.openInformation(
+									Display.getCurrent().getActiveShell(), 
+									"Can't copy the layout", 
+									"The layout file was deleted by Sirius before");
 
 							AddSemanticResourceCommand addResourceToSession = new AddSemanticResourceCommand(
 									newSession, newFileUri,
@@ -416,9 +416,10 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 
 						// Sirius deleted the model entry
 						if (resources.size() == 0) {
-							JOptionPane
-									.showMessageDialog(null,
-											"It was not possible to copy the layout. Sorry");
+							MessageDialog.openInformation(
+									Display.getCurrent().getActiveShell(), 
+									"Can't copy the layout", 
+									"The layout file was deleted by Sirius before");
 
 							AddSemanticResourceCommand addResourceToSession = new AddSemanticResourceCommand(
 									newSession, newFileUri,
