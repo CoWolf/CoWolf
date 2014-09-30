@@ -233,10 +233,14 @@ public class LqnModelTypeImpl extends IDBaseImpl implements LqnModelType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected LqnModelTypeImpl() {
 		super();
+		
+		//create solver parameters
+		SolverParamsType params = new SolverParamsTypeImpl();		
+		this.setSolverParams(params);
 	}
 
 	/**
