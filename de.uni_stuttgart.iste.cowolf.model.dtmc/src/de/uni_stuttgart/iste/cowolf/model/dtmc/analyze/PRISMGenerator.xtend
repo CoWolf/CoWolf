@@ -88,14 +88,14 @@ module «IF e.name.empty»Model«ELSE»«e.name»«ENDIF»
 	// As PRISM does not support names for states, they are translated to numbers.
 	// The mapping is as follows.
 	«FOR f : e.states»
-	// State "«if (f.name.empty) f.id else f.name»" => «getIntState(f)»
+	// State "«if (f.name == null || f.name.empty) f.id else f.name»" => «getIntState(f)»
 	«ENDFOR»
 	
 	«IF (e.states.size() <= 1)»s : [0 .. 1] init 0;«ELSE»s : [0..«e.states.size() - 1»] init «getStart(e)»;«ENDIF»
 		
 	«FOR f : e.states»		
 		«IF f.outgoing.size > 0»
-		// Transitions from state "«f.name»":
+		// Transitions from state "«if (f.name == null || f.name.empty) f.id else f.name»":
 		[] s=«getIntState(f)» -> «f.compilePM»
 		«ENDIF»
 	«ENDFOR»

@@ -67,7 +67,15 @@
         </edgeMappings>
         <edgeMappings name="EntryToEntryActivity" deletionDescription="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='DeleteEntryActivityEdge']" sourceMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@borderedNodeMappings[name='EntryTypeBorderedNode']" targetMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@subContainerMappings[name='ActivityDefTypeNode']" targetFinderExpression="[eAllContents()->filter(ActivityDefType)/]">
           <style sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="EntryToEntryReplyActivity" deletionDescription="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='DeleteEntryActivityEdge']" sourceMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@borderedNodeMappings[name='EntryTypeBorderedNode']" targetMapping="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@subContainerMappings[name='ReplyEntryActivityDefTypeNode']" targetFinderExpression="[eAllContents()->filter(ReplyActivityType)/]">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
             <centerLabelStyleDescription>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
@@ -126,8 +134,8 @@
               </style>
             </conditionnalStyles>
           </borderedNodeMappings>
-          <subContainerMappings name="TaskTypeContainer" pasteDescriptions="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='']" semanticCandidatesExpression="feature:eAllContents" domainClass="LqnCore.TaskType">
-            <borderedNodeMappings name="EntryTypeBorderedNode" pasteDescriptions="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='']" semanticCandidatesExpression="feature:eAllContents" domainClass="LqnCore.EntryType">
+          <subContainerMappings name="TaskTypeContainer" pasteDescriptions="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='']" labelDirectEdit="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='EditTaskLabel']" semanticCandidatesExpression="feature:eAllContents" domainClass="LqnCore.TaskType">
+            <borderedNodeMappings name="EntryTypeBorderedNode" pasteDescriptions="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='']" labelDirectEdit="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='EditEntryLabel']" semanticCandidatesExpression="feature:eAllContents" domainClass="LqnCore.EntryType">
               <borderedNodeMappings name="DummyEntryBorderedNode" pasteDescriptions="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='']" semanticCandidatesExpression="feature:eAllContents"/>
               <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="[name/]" sizeComputationExpression="6" labelPosition="node" resizeKind="NSEW" workspacePath="de.uni_stuttgart.iste.cowolf.model.lqn.sirius.editor/icons/entry.svg">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -169,6 +177,14 @@
                   <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
                 </style>
               </conditionnalStyles>
+            </subContainerMappings>
+            <subContainerMappings name="ReplyEntryActivityDefTypeNode" pasteDescriptions="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='']" labelDirectEdit="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@toolSections.6/@ownedTools[name='EditActivityDefTypeLabel']" semanticCandidatesExpression="feature:eAllContents" domainClass="LqnCore.ReplyActivityType">
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="2" showIcon="false" widthComputationExpression="9" heightComputationExpression="5">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+              </style>
             </subContainerMappings>
             <style xsi:type="style:ShapeContainerStyleDescription" showIcon="false" labelExpression="[name + ' {' +  multiplicity + '}'/]" widthComputationExpression="15" heightComputationExpression="5">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -238,6 +254,26 @@
                   <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[container.eGet('entryActivityGraph')/]">
                     <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.ActivityDefType" referenceName="activity">
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New Entry Activity"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Entry Reply Activity" nodeMappings="//@ownedViewpoints[name='LQN']/@ownedRepresentations[name='lqn%20diagram']/@defaultLayer/@containerMappings[name='ProcessorTypeContainer']/@subContainerMappings[name='TaskTypeContainer']/@borderedNodeMappings[name='EntryTypeBorderedNode']/@borderedNodeMappings[name='DummyEntryBorderedNode']" iconPath="de.uni_stuttgart.iste.cowolf.model.lqn.sirius.editor/icons/entryActivity.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[container.eContents()->filter(EntryActivityGraph)->size()=0/]">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.EntryActivityGraph" referenceName="entryActivityGraph">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New Entry Activity"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[container.eContents()->filter(EntryActivityGraph)->size()>0/]">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[container.eGet('entryActivityGraph')/]">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="LqnCore.ReplyActivityType" referenceName="replyActivity">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New Entry Reply Activity"/>
                     </subModelOperations>
                   </subModelOperations>
                 </subModelOperations>
@@ -593,6 +629,24 @@
             <mask mask="{0}"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:SetValue" featureName="callsMean" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="EditEntryReplyActivityLabel">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="EditTaskLabel">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="EditEntryLabel">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:0"/>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:DeleteElementDescription" name="DeletePostOrListEdge">
