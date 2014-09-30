@@ -461,6 +461,7 @@ public abstract class AbstractTransformationManager {
 	}
 
 	protected final EGraph generateGraph(ResourceSet transResSet) {
+	
 		ArrayList<EGraph> graphSources = new ArrayList<EGraph>(4);
         
 		Resource traceRes = transResSet.getResource(RESOURCE_URL_TRACES, false);
@@ -485,6 +486,7 @@ public abstract class AbstractTransformationManager {
         EGraph graph = mergeInstanceModels(graphSources);
         
         LOGGER.info("Finished merging graphs.");
+        
 		return graph;
 	}
     
@@ -548,23 +550,35 @@ public abstract class AbstractTransformationManager {
 		for (Trace trace : traces) {
     		Trace newTrace = EcoreUtil.copy(trace);
     		
-    		EReference field;
+    		EReference srcField;
+    		EReference tgtField;
     		if (this.getManagedClass1().isAssignableFrom(set.getResource(against, false).getContents().get(0).getClass())) {
-    			field = TracePackage.eINSTANCE.getTrace_Source();
+    			srcField = TracePackage.eINSTANCE.getTrace_Source();
+    			tgtField = TracePackage.eINSTANCE.getTrace_Target();
     		} else {
-    			field = TracePackage.eINSTANCE.getTrace_Target();
+    			srcField = TracePackage.eINSTANCE.getTrace_Target();
+    			tgtField = TracePackage.eINSTANCE.getTrace_Source();
     		}
     		
-    		((EList<EObject>) newTrace.eGet(field, false)).clear();
-    		for (EObject o : ((EList<EObject>) trace.eGet(field, false))) {
+    		((EList<EObject>) newTrace.eGet(srcField, false)).clear();
+    		for (EObject o : ((EList<EObject>) trace.eGet(srcField, false))) {
 				URI uri = URI.createURI(against.toString() + "#" + EcoreUtil.getURI(o).fragment());
 				EObject corres = set.getEObject(uri, false);
 				if (corres != null) {
-					((EList<EObject>) newTrace.eGet(field, false)).add(corres);
+					((EList<EObject>) newTrace.eGet(srcField, false)).add(corres);
+				}
+    		}
+    		
+    		((EList<EObject>) newTrace.eGet(tgtField, false)).clear();
+    		for (EObject o : ((EList<EObject>) trace.eGet(tgtField, false))) {
+				URI uri = URI.createURI(getTargetUri(set) + "#" + EcoreUtil.getURI(o).fragment());
+				EObject corres = set.getEObject(uri, false);
+				if (corres != null) {
+					((EList<EObject>) newTrace.eGet(tgtField, false)).add(corres);
 				}
     		}
 			
-    		if (((EList<EObject>) newTrace.eGet(field, false)).size() > 0) {
+    		if (((EList<EObject>) newTrace.eGet(srcField, false)).size() > 0) {
     			traceResource.getContents().add(newTrace);
     		}
     	}
@@ -642,6 +656,7 @@ public abstract class AbstractTransformationManager {
                 traces.getContents().add(EcoreUtil.copy(trace));
             }
         }
+
     }
     
     private ModelVersion saveTransformationResult(Model sourceModel,
