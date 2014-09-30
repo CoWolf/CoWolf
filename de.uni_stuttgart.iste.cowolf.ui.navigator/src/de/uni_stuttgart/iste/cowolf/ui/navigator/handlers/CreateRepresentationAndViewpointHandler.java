@@ -45,7 +45,6 @@ import org.eclipse.sirius.ui.business.internal.commands.ChangeViewpointSelection
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
-import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.slf4j.Logger;
@@ -99,12 +98,27 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 	 * @param firstCreation
 	 *            true if called in a model creation wizard, false else
 	 */
-	public static void createAll(IFile modelFile, boolean firstCreation) {
+	public static void createAll(final IFile modelFile, boolean firstCreation) {
 		try {
 			Set<Viewpoint> availableViewpoints = ViewpointSelection
 					.getViewpoints(modelFile.getFileExtension());
 			if (availableViewpoints.isEmpty()) {
-				MessageDialog.openInformation(Display.getCurrent().getActiveShell(), "Viewpoint missing", "There is no viewpoint for " + modelFile.getFullPath());
+				PlatformUI.getWorkbench().getDisplay()
+				.asyncExec(new Runnable() {
+					public void run() {
+						MessageDialog
+								.openError(
+										PlatformUI
+												.getWorkbench()
+												.getActiveWorkbenchWindow()
+												.getShell(),
+										"Error",
+										"There is no viewpoint for "
+												+ modelFile.getFullPath());
+					}
+				});
+			
+
 			} else {
 				// Now we have to create an aird file
 				URI airdFileURI = URI.createPlatformResourceURI(modelFile
@@ -153,16 +167,32 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 				AbstractModelManager modelManager = ModelRegistry.getInstance()
 						.getModelManager(modelFile.getFileExtension());
 
-				EObject rootObject = modelManager.getRootObject(resource);
+				final EObject rootObject = modelManager.getRootObject(resource);
 
 				Collection<RepresentationDescription> descriptions = DialectManager.INSTANCE
 						.getAvailableRepresentationDescriptions(
 								session.getSelectedViewpoints(false),
 								rootObject);
-				if (descriptions.isEmpty())
-					throw new Exception(
-							"Could not find representation description for object: "
-									+ rootObject);
+				if (descriptions.isEmpty()){
+
+					PlatformUI.getWorkbench().getDisplay()
+					.asyncExec(new Runnable() {
+						public void run() {
+							MessageDialog
+									.openError(
+											PlatformUI
+													.getWorkbench()
+													.getActiveWorkbenchWindow()
+													.getShell(),
+											"Error",
+											"Could not find representation description for object: "
+													+ rootObject);
+						}
+					});
+					
+
+				}
+
 				RepresentationDescription description = descriptions.iterator()
 						.next();
 
@@ -193,8 +223,21 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 				modelFile.getProject().refreshLocal(IResource.DEPTH_INFINITE,
 						new NullProgressMonitor());
 			}
-		} catch (Exception e) {
-			LOGGER.error("Loading resource failed.", e);
+		} catch (final Exception e) {
+			PlatformUI.getWorkbench().getDisplay()
+			.asyncExec(new Runnable() {
+				public void run() {
+					MessageDialog
+							.openError(
+									PlatformUI
+											.getWorkbench()
+											.getActiveWorkbenchWindow()
+											.getShell(),
+									"Error",
+									"Loading resource failed: " + e.getLocalizedMessage());
+				}
+			});
+
 
 		}
 	}
@@ -210,7 +253,7 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 	 */
 	public static void renameAirdFile(final IFile source, final IPath newPath) {
 		// update aird file
-		new WorkspaceJob("moced aird file") {
+		new WorkspaceJob("moved aird file") {
 
 			@Override
 			public IStatus runInWorkspace(IProgressMonitor monitor) {
@@ -236,6 +279,8 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 				if (oldAirdFile.exists()) {
 
 					try {
+						source.getProject().refreshLocal(IResource.DEPTH_INFINITE,
+								new NullProgressMonitor());
 						oldAirdFile.copy(newAirdPath, false,
 								new NullProgressMonitor());
 
@@ -257,8 +302,8 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 						}
 
 						String result = stringBuilder.toString();
-						result = result.replace(source.getProjectRelativePath()
-								.toString(), newFile.getProjectRelativePath()
+						result = result.replace(source.getName()
+								.toString(), newFile.getName()
 								.toString());
 
 						FileOutputStream stream = new FileOutputStream(
@@ -267,6 +312,8 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 						stream.write(myBytes);
 						stream.close();
 
+						source.getProject().refreshLocal(IResource.DEPTH_INFINITE,
+								new NullProgressMonitor());
 						oldAirdFile.delete(true, new NullProgressMonitor());
 
 						Session newSession = SessionManager.INSTANCE
@@ -278,10 +325,19 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 
 						// Sirius deleted the model entry
 						if (resources.size() == 0) {
-							MessageDialog.openInformation(
-									Display.getCurrent().getActiveShell(), 
-									"Can't copy the layout", 
-									"The layout file was deleted by Sirius before");
+							PlatformUI.getWorkbench().getDisplay()
+									.asyncExec(new Runnable() {
+										public void run() {
+											MessageDialog
+													.openError(
+															PlatformUI
+																	.getWorkbench()
+																	.getActiveWorkbenchWindow()
+																	.getShell(),
+															"Error",
+															"It was not possible to copy the layout. We are sorry for the 	inconvenience.");
+										}
+									});
 
 							AddSemanticResourceCommand addResourceToSession = new AddSemanticResourceCommand(
 									newSession, newFileUri,
@@ -323,13 +379,53 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 							stream1.close();
 
 						}
+						newFile.getProject().refreshLocal(IResource.DEPTH_INFINITE,
+								new NullProgressMonitor());
+						
+						
 
-					} catch (CoreException e) {
-						LOGGER.error("Renamin resource failed.", e);
-					} catch (FileNotFoundException e) {
-						LOGGER.error("Renamin resource failed.", e);
-					} catch (IOException e) {
-						LOGGER.error("Renamin resource failed.", e);
+					} catch (final CoreException e) {
+						PlatformUI.getWorkbench().getDisplay()
+						.asyncExec(new Runnable() {
+							public void run() {
+								MessageDialog
+										.openError(
+												PlatformUI
+														.getWorkbench()
+														.getActiveWorkbenchWindow()
+														.getShell(),
+												"Error",
+												"Renaming resource failed: " + e.getLocalizedMessage());
+							}
+						});
+					} catch (final FileNotFoundException e) {
+						PlatformUI.getWorkbench().getDisplay()
+						.asyncExec(new Runnable() {
+							public void run() {
+								MessageDialog
+										.openError(
+												PlatformUI
+														.getWorkbench()
+														.getActiveWorkbenchWindow()
+														.getShell(),
+												"Error",
+												"Renaming resource failed: " + e.getLocalizedMessage());
+							}
+						});
+					} catch (final IOException e) {
+						PlatformUI.getWorkbench().getDisplay()
+						.asyncExec(new Runnable() {
+							public void run() {
+								MessageDialog
+										.openError(
+												PlatformUI
+														.getWorkbench()
+														.getActiveWorkbenchWindow()
+														.getShell(),
+												"Error",
+												"Renaming resource failed: " + e.getLocalizedMessage());
+							}
+						});
 					}
 				}
 
@@ -376,6 +472,8 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 				if (oldAirdFile.exists()) {
 
 					try {
+						source.getProject().refreshLocal(IResource.DEPTH_INFINITE,
+								new NullProgressMonitor());
 						oldAirdFile.copy(newAirdPath, false,
 								new NullProgressMonitor());
 
@@ -416,11 +514,20 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 
 						// Sirius deleted the model entry
 						if (resources.size() == 0) {
-							MessageDialog.openInformation(
-									Display.getCurrent().getActiveShell(), 
-									"Can't copy the layout", 
-									"The layout file was deleted by Sirius before");
 
+							PlatformUI.getWorkbench().getDisplay()
+							.asyncExec(new Runnable() {
+								public void run() {
+									MessageDialog
+											.openError(
+													PlatformUI
+															.getWorkbench()
+															.getActiveWorkbenchWindow()
+															.getShell(),
+													"Error",
+													"It was not possible to copy the layout. We are sorry for the 	inconvenience.");
+								}
+							});
 							AddSemanticResourceCommand addResourceToSession = new AddSemanticResourceCommand(
 									newSession, newFileUri,
 									new NullProgressMonitor());
@@ -461,13 +568,53 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 							stream1.close();
 
 						}
+						
+						newFile.getProject().refreshLocal(IResource.DEPTH_INFINITE,
+								new NullProgressMonitor());
 
-					} catch (CoreException e) {
-						LOGGER.error("Copying resource failed.", e);
-					} catch (FileNotFoundException e) {
-						LOGGER.error("Copying resource failed.", e);
-					} catch (IOException e) {
-						LOGGER.error("Copying resource failed.", e);
+					} catch (final CoreException e) {
+						PlatformUI.getWorkbench().getDisplay()
+						.asyncExec(new Runnable() {
+							public void run() {
+								MessageDialog
+										.openError(
+												PlatformUI
+														.getWorkbench()
+														.getActiveWorkbenchWindow()
+														.getShell(),
+												"Error",
+												"Copying resource failed: " + e.getLocalizedMessage());
+							}
+						});
+						
+					} catch (final FileNotFoundException e) {
+						PlatformUI.getWorkbench().getDisplay()
+						.asyncExec(new Runnable() {
+							public void run() {
+								MessageDialog
+										.openError(
+												PlatformUI
+														.getWorkbench()
+														.getActiveWorkbenchWindow()
+														.getShell(),
+												"Error",
+												"Copying resource failed: " + e.getLocalizedMessage());
+							}
+						});
+					} catch (final IOException e) {
+						PlatformUI.getWorkbench().getDisplay()
+						.asyncExec(new Runnable() {
+							public void run() {
+								MessageDialog
+										.openError(
+												PlatformUI
+														.getWorkbench()
+														.getActiveWorkbenchWindow()
+														.getShell(),
+												"Error",
+												"Copying resource failed: " + e.getLocalizedMessage());
+							}
+						});
 					}
 				}
 
@@ -497,11 +644,16 @@ public class CreateRepresentationAndViewpointHandler extends AbstractHandler {
 				if (oldAirdFile.exists()) {
 					try {
 						oldAirdFile.delete(false, new NullProgressMonitor());
+						
+						source.getProject().refreshLocal(IResource.DEPTH_INFINITE,
+								new NullProgressMonitor());
 
 					} catch (CoreException e) {
 						LOGGER.error("Deleting resource failed.", e);
 					}
 				}
+				
+				
 				return Status.OK_STATUS;
 			}
 		}.schedule();

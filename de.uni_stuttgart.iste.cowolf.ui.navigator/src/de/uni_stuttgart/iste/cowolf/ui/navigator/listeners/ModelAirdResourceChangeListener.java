@@ -12,7 +12,6 @@ import org.eclipse.core.runtime.IPath;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.Model;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociation;
 import de.uni_stuttgart.iste.cowolf.core.ModelAssociation.ModelAssociationFactory;
 import de.uni_stuttgart.iste.cowolf.core.natures.ProjectNature;
@@ -102,33 +101,22 @@ public class ModelAirdResourceChangeListener implements IResourceChangeListener 
 							// moved from same project
 							LOGGER.debug("{}", from.makeRelativeTo(res
 									.getProject().getFullPath()));
-							Model model = ma.getModelByPath(from
-									.makeRelativeTo(
-											res.getProject().getFullPath())
-									.toString());
-
-							if (model != null) {
+							
 								CreateRepresentationAndViewpointHandler
 										.renameAirdFile(source,
 												res.getFullPath());
 								LOGGER.debug("Renamed model file.");
-							}
+							
 						} else if (source.getProject() != null
 								&& ModelAssociationFactory.eINSTANCE
 										.getModelAssociation(source
 												.getProject()) != null) {
 							LOGGER.debug("Moved to other project...");
-							final Model sourceModel = ModelAssociationFactory.eINSTANCE
-									.getModelAssociation(source.getProject())
-									.getModelByPath(
-											source.getProjectRelativePath()
-													.toString());
-
-							if (sourceModel != null) {
+							
 								CreateRepresentationAndViewpointHandler
 										.renameAirdFile(source,
 												res.getFullPath());
-							}
+							
 						}
 					} else if ((delta.getFlags() & IResourceDelta.COPIED_FROM) == IResourceDelta.COPIED_FROM) {
 						// copied files
@@ -139,15 +127,10 @@ public class ModelAirdResourceChangeListener implements IResourceChangeListener 
 						IFile source = ResourcesPlugin.getWorkspace().getRoot()
 								.getFile(from);
 
-						Model sourceModel = ModelAssociationFactory.eINSTANCE
-								.getModelAssociation(source.getProject())
-								.getModelByPath(
-										source.getProjectRelativePath()
-												.toString());
-						if (sourceModel != null) {
+						
 							CreateRepresentationAndViewpointHandler
 									.copyAirdFile(source, res.getFullPath());
-						}
+						
 
 					}
 					break;
