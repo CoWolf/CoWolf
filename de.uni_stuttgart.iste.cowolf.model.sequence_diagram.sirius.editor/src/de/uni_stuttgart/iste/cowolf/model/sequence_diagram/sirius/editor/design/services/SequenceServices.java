@@ -61,6 +61,7 @@ import org.eclipse.uml2.uml.InteractionOperand;
 import org.eclipse.uml2.uml.InterfaceRealization;
 import org.eclipse.uml2.uml.Lifeline;
 import org.eclipse.uml2.uml.Message;
+import org.eclipse.uml2.uml.MessageEnd;
 import org.eclipse.uml2.uml.MessageOccurrenceSpecification;
 import org.eclipse.uml2.uml.MessageSort;
 import org.eclipse.uml2.uml.NamedElement;
@@ -81,7 +82,6 @@ import com.google.common.collect.Sets;
 
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.Sequence_diagramFactory;
 import de.uni_stuttgart.iste.cowolf.model.sequence_diagram.sirius.editor.design.services.internal.NamedElementServices;
-
 
 /**
  * Utility services to manage sequence diagrams.
@@ -109,9 +109,8 @@ public class SequenceServices {
 	 */
 	private final String RECEIVER_MESSAGE_SUFFIX = "_receiver";
 
-private Logger LOGGER = LoggerFactory.getLogger(getClass());
-private OperationServices operationService = new OperationServices();
-
+	private Logger LOGGER = LoggerFactory.getLogger(getClass());
+	private OperationServices operationService = new OperationServices();
 
 	public NamedElement findOccurrenceSpecificationContextForSendEvent(
 			Message message) {
@@ -266,7 +265,7 @@ private OperationServices operationService = new OperationServices();
 	 *            Message
 	 * @return Execution
 	 */
-	private BehaviorExecutionSpecification getExecution(Message message) {
+	private static BehaviorExecutionSpecification getExecution(Message message) {
 		if (message == null)
 			return null;
 		final Map<Message, BehaviorExecutionSpecification> behaviors = new HashMap<Message, BehaviorExecutionSpecification>();
@@ -460,9 +459,7 @@ private OperationServices operationService = new OperationServices();
 		// return a warning in error log view
 		if (!(element instanceof org.eclipse.uml2.uml.Class)
 				&& !(element instanceof Property)) {
-			LOGGER.error(
-					"An instance specification or a property must be selected to import a lifeline but you have selected "
-							);
+			LOGGER.error("An instance specification or a property must be selected to import a lifeline but you have selected ");
 		}
 
 		// Create lifeline
@@ -1074,8 +1071,6 @@ private OperationServices operationService = new OperationServices();
 		EcoreUtil.delete(incomingMessageSpecification);
 		EcoreUtil.delete(incomingMessage);
 		EcoreUtil.delete(messageStart);
-		
-
 
 		// Delete start and finish behavior
 		final List<InteractionFragment> fragments = interaction.getFragments();
@@ -2055,7 +2050,6 @@ private OperationServices operationService = new OperationServices();
 		defaultOperand.getCovereds().addAll(coveredLifelines);
 		combinedFragment.getOperands().add(defaultOperand);
 
-
 		Comment endCombinedFragment = factory.createComment();
 		endCombinedFragment.setBody("endCF");
 		defaultOperand.getOwnedComments().add(endCombinedFragment);
@@ -2133,7 +2127,6 @@ private OperationServices operationService = new OperationServices();
 			if (eObject instanceof CombinedFragment) {
 				result.add(eObject);
 			}
-
 
 			if (eObject instanceof Comment) {
 				result.add(eObject);
@@ -2448,5 +2441,63 @@ private OperationServices operationService = new OperationServices();
 			}
 		}
 		return null;
+	}
+
+	public static void rename(Message message, String newName) {
+		// Operation
+		NamedElement signature = message.getSignature();
+		if (signature != null) {
+			signature.setName(newName);
+		}
+
+		// Message occurrence specification sender
+		MessageEnd sendEvent = message.getSendEvent();
+		if (sendEvent != null) {
+			sendEvent.setName(newName + "_sender");
+		}
+
+		// Message occurrence specification receiver
+		MessageEnd receiveEvent = message.getReceiveEvent();
+		if (receiveEvent != null) {
+			receiveEvent.setName(newName + "_receiver");
+		}
+
+		// Behavior occurrence specification
+
+		final BehaviorExecutionSpecification execution = getExecution(message);
+		if (execution != null) {
+			execution.setName(newName);
+
+			// Opaque behavior
+			Behavior behavior = execution.getBehavior();
+			if (behavior != null) {
+				behavior.setName(newName);
+			}
+
+			// execution occurrence specification
+			OccurrenceSpecification finish = execution.getFinish();
+			if (finish != null) {
+				finish.setName(newName + "_finish");
+			}
+		}
+
+		message.setName(newName);
+
+	}
+
+	public static void rename(Lifeline lifeline, String newName) {
+
+		lifeline.setName(newName);
+
+		ConnectableElement represents = lifeline.getRepresents();
+		if (represents != null) {
+			represents.setName(newName);
+			
+			Type type = represents.getType();
+			if(type != null){
+				type.setName(newName);
+			}
+		}
+
 	}
 }
