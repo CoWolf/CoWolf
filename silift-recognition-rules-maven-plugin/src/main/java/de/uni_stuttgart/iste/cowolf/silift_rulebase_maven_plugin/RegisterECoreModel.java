@@ -141,7 +141,7 @@ public class RegisterECoreModel extends AbstractMojo {
 
 		getLog().info(
 				"Artifact \"" + project.getArtifactId()
-						+ "\" is not an Ecore model.");
+						+ "\" contains no Ecore models.");
 
 	}
 
