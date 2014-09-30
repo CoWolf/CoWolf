@@ -6,11 +6,8 @@ This logback configuration logs all levels (from TRACE to ERROR).
 The logged entries will be directly printed to console. 
 
 -->
-
-<!-- scanning for file changes disabled -->
 <configuration>
 
-	<!-- uncomment to show logback status information -->
 	<!-- <statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener"/> -->		
 
 	<!-- file appender for console log -->
@@ -20,24 +17,21 @@ The logged entries will be directly printed to console.
 		</encoder>
 	</appender>
 
-	<!-- file appender for complete log -->
-	<!-- uncomment to use file logging -->
-<!-- 	<appender name="FILE-ALL"
+	<!-- file appender for all levels -->
+ 	<appender name="FILE-ALL"
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<encoder>
-			<pattern>%-24date %-6level %-46(%logger{40}:%line) %msg%n
-			</pattern>
+			<pattern>%-24date %-6level %-46(%logger{40}:%line) %msg%n</pattern>
 		</encoder>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			weekly rollover
-			<fileNamePattern>logs/%d{yyyy-'W'ww}_all.log</fileNamePattern>
-			keep logs for 12 weeks
+			<!-- weekly rollover -->
+			<fileNamePattern>logs/%d{yyyy-'W'ww}.log</fileNamePattern>
+			<!-- keep logs for 12 weeks -->
 			<maxHistory>12</maxHistory>
 		</rollingPolicy>
-	</appender> -->
+	</appender>
 
-	<!-- file appender for warning and error log -->
-	<!-- uncomment to use file logging -->
+	<!-- file appender for warnings and errors only -->
 <!-- 	<appender name="FILE-WARNING-AND-ERROR"
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<encoder>
@@ -55,26 +49,13 @@ The logged entries will be directly printed to console.
 			<maxHistory>12</maxHistory>
 		</rollingPolicy>
 	</appender> -->
-
-<!-- uncomment to use socket appender, e.g. for Lilith event viewer tool -->
-<!-- 	<appender name="SOCKET-ALL" class="ch.qos.logback.classic.net.SocketAppender">
-		<remoteHost>localhost</remoteHost>
-		<port>4560</port>
-		<reconnectionDelay>170</reconnectionDelay>
-		<includeCallerData>true</includeCallerData>
-	</appender> -->
 	
 	<root level="TRACE">
 	
-		<appender-ref ref="CONSOLE-ALL" />
-		
-		<!-- uncomment to enable file logging -->
-		<!-- <appender-ref ref="FILE-ALL" /> 
-		<appender-ref ref="FILE-WARNING" /> 
+		<appender-ref ref="CONSOLE-ALL" />		
+		<appender-ref ref="FILE-ALL" /> 
+		<!--  <appender-ref ref="FILE-FILE-WARNING-AND-ERROR" /> 
 		<appender-ref ref="FILE-ERROR" /> -->
-		
-		<!-- uncomment to use socket appender, e.g. for Lilith event viewer tool -->
-		<!-- <appender-ref ref="SOCKET-ALL" /> -->
 		
 	</root>
 
