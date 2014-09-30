@@ -93,7 +93,9 @@ class PRISMGenerator {
 	def addStatesNamesToMap(CTMC e) '''
 		«nameToIntMap = newHashMap()»
 		«FOR i : 0 .. e.states.size - 1»  
-			«nameToIntMap.put(e.states.get(i).name, i)»	
+	       «IF (e.states.get(i).name != null && !e.states.get(i).name.empty)»
+		      «nameToIntMap.put(e.states.get(i).name, i)»
+            «ENDIF»
 		«ENDFOR»
 	'''
 
@@ -145,7 +147,7 @@ module «IF e.name.empty»Model«ELSE»«e.name»«ENDIF»
 		 
 	«FOR f : e.states»		
 		«IF f.outgoing.size > 0»
-		// Transitions from state "«f.name»":
+		// Transitions from state "«if(f.name == null || f.name.empty) f.id else f.name»":
 		[] s=«getIntState(f)» -> «f.compilePM»
 		«ENDIF»
 	«ENDFOR»

@@ -87,7 +87,7 @@ public class DTMCAnalyzeJobListener implements IJobChangeListener {
 			for(Entry<Object, String> entry : job.getAnalysis().entrySet()) {
 				String key = "";
 				if (entry.getKey() instanceof State) {
-					key = "State: <b>" + ((State) entry.getKey()).getName() + "</b>";
+					key = "State: <b>" + getDisplayName((State) entry.getKey()) + "</b>";
 				} else if (entry.getKey() instanceof String) {
 					key = "Label: <b>" + (String) entry.getKey() + "</b>";
 				}
@@ -121,6 +121,13 @@ public class DTMCAnalyzeJobListener implements IJobChangeListener {
 		if (this.listener != null) {
 			this.listener.finished(resource, resultfile);
 		}
+	}
+
+	private String getDisplayName(State key) {
+		if (key.getName() == null || key.getName().isEmpty()) {
+				return "(id) " + key.getId();
+		}
+		return  key.getName();
 	}
 
 	/* (non-Javadoc)
