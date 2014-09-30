@@ -30,7 +30,7 @@ import org.eclipse.emf.common.util.EList;
  * @see de.uni_stuttgart.iste.cowolf.model.LqnCore.LQNPackage#getEntryType()
  * @model extendedMetaData="name='EntryType' kind='elementOnly'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='PH1PH2EntryTypeDefinedWithPhases GraphEntryTypeDefinedWithGraph'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL PH1PH2EntryTypeDefinedWithPhases='if self.type = TypeType::PH1PH2 then self.entryPhaseActivities->size() > 0 else true endif' GraphEntryTypeDefinedWithGraph='if self.type = TypeType::GRAPH or self.type = TypeType::NONE then self.entryActivityGraph->size() > 0 else true endif'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL PH1PH2EntryTypeDefinedWithPhases='if self.type = TypeType::PH1PH2 then self.entryPhaseActivities->size() > 0 else true endif' GraphEntryTypeDefinedWithGraph='if self.type = TypeType::GRAPH then self.entryActivityGraph->size() > 0 else true endif'"
  * @generated
  */
 public interface EntryType extends IDBase {
