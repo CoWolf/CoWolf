@@ -81,5 +81,13 @@ public class ComponentServices {
 		}
 		EcoreUtil.remove(component);
 	}
+	
+	public static String getName(ComponentInstance instance){
+		if(instance.getType() != null){
+			return instance.getName() + "\n <<" + instance.getType().getName() + ">>";
+		}else{
+			return instance.getName() + "\n << >>";
+		}
+	}
 
 }
