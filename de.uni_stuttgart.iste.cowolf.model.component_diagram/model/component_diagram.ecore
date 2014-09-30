@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="component_diagram" nsURI="http://component_diagram/1.0" nsPrefix="component_diagram">
+  <eAnnotations source="http://www.eclipse.org/OCL/Import">
+    <details key="commonBase" value="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#/"/>
+    <details key="ecore" value="http://www.eclipse.org/emf/2002/Ecore"/>
+  </eAnnotations>
   <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
     <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL"/>
     <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL"/>
@@ -54,6 +58,16 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Architecture" eSuperTypes="../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#//IDBase">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="UniqueComponentTypeNames UniqueConnectorNames UniquePortNames UniqueComponentInstanceNames UniquePortTypeNames"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+      <details key="UniqueComponentTypeNames" value="self.component.name -> asSet() -> size() = self.component.name -> size()"/>
+      <details key="UniqueConnectorNames" value="self.connectors.name -> asSet() -> size() = self.connectors.name -> size()"/>
+      <details key="UniquePortNames" value="self.ports.name -> asSet() -> size() = self.ports.name -> size()"/>
+      <details key="UniqueComponentInstanceNames" value="self.instances.name -> asSet() -> size() = self.instances.name -> size()"/>
+      <details key="UniquePortTypeNames" value="self.port_type.name -> asSet() -> size() = self.port_type.name -> size()"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="component" upperBound="-1"
         eType="#//ComponentType" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="connectors" upperBound="-1"

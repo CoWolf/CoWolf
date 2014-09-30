@@ -723,10 +723,29 @@ public class Component_diagramPackageImpl extends EPackageImpl implements Compon
 		createResource(eNS_URI);
 
 		// Create annotations
+		// http://www.eclipse.org/OCL/Import
+		createImportAnnotations();
 		// http://www.eclipse.org/emf/2002/Ecore
 		createEcoreAnnotations();
 		// http://www.eclipse.org/emf/2002/Ecore/OCL
 		createOCLAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/OCL/Import</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createImportAnnotations() {
+		String source = "http://www.eclipse.org/OCL/Import";	
+		addAnnotation
+		  (this, 
+		   source, 
+		   new String[] {
+			 "commonBase", "../../de.uni_stuttgart.iste.cowolf.model/model/CommonBase.ecore#/",
+			 "ecore", "http://www.eclipse.org/emf/2002/Ecore"
+		   });
 	}
 
 	/**
@@ -756,6 +775,12 @@ public class Component_diagramPackageImpl extends EPackageImpl implements Compon
 		   source, 
 		   new String[] {
 			 "constraints", "ExactlyOneConnector ExactlyOneComponent"
+		   });	
+		addAnnotation
+		  (architectureEClass, 
+		   source, 
+		   new String[] {
+			 "constraints", "UniqueComponentTypeNames UniqueConnectorNames UniquePortNames UniqueComponentInstanceNames UniquePortTypeNames"
 		   });
 	}
 
@@ -780,6 +805,16 @@ public class Component_diagramPackageImpl extends EPackageImpl implements Compon
 		   new String[] {
 			 "ExactlyOneConnector", "self.connect->size() = 1",
 			 "ExactlyOneComponent", "self.outComponent->size() + self.inComponent->size() = 1"
+		   });	
+		addAnnotation
+		  (architectureEClass, 
+		   source, 
+		   new String[] {
+			 "UniqueComponentTypeNames", "self.component.name -> asSet() -> size() = self.component.name -> size()",
+			 "UniqueConnectorNames", "self.connectors.name -> asSet() -> size() = self.connectors.name -> size()",
+			 "UniquePortNames", "self.ports.name -> asSet() -> size() = self.ports.name -> size()",
+			 "UniqueComponentInstanceNames", "self.instances.name -> asSet() -> size() = self.instances.name -> size()",
+			 "UniquePortTypeNames", "self.port_type.name -> asSet() -> size() = self.port_type.name -> size()"
 		   });
 	}
 

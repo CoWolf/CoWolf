@@ -22,7 +22,8 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  *
  * @see de.uni_stuttgart.iste.cowolf.model.component_diagram.Component_diagramPackage#getArchitecture()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='UniqueComponentTypeNames UniqueConnectorNames UniquePortNames UniqueComponentInstanceNames UniquePortTypeNames'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL UniqueComponentTypeNames='self.component.name -> asSet() -> size() = self.component.name -> size()' UniqueConnectorNames='self.connectors.name -> asSet() -> size() = self.connectors.name -> size()' UniquePortNames='self.ports.name -> asSet() -> size() = self.ports.name -> size()' UniqueComponentInstanceNames='self.instances.name -> asSet() -> size() = self.instances.name -> size()' UniquePortTypeNames='self.port_type.name -> asSet() -> size() = self.port_type.name -> size()'"
  * @generated
  */
 public interface Architecture extends IDBase {
