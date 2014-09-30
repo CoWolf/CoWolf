@@ -18,6 +18,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
 
+import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.WorkspaceJob;
@@ -319,6 +320,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 			@Override
 			public IStatus runInWorkspace(IProgressMonitor monitor) {
 				try {
+					this.prepare(versionfolder.getWorkspace().getRoot().getFolder(moveto).getParent());
 					versionfolder.move(moveto, true, monitor);
 					setModel(newPath);
 				} catch (CoreException e) {
@@ -326,6 +328,19 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 				}
 				
 				return Status.OK_STATUS;
+			}
+			
+			private void prepare(IContainer folder) {
+			    if (!folder.exists() && folder instanceof IFolder) {
+			    	if (folder.getParent() instanceof IFolder) {
+			    		prepare(folder.getParent());
+			    	}
+			        try {
+						((IFolder) folder).create(true, true, null);
+					} catch (CoreException e) {
+						LOGGER.error("",e);
+					}
+			    }
 			}
 		}.schedule();
 		
