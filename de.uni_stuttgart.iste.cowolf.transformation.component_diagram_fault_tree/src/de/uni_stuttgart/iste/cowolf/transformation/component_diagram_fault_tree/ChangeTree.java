@@ -239,13 +239,6 @@ public class ChangeTree {
 				 * We ensured now the error instance and the basic event. Now it's necessary to include the basic event in the correct position in the fault
 				 * tree, but this must be done based on other changes: new connectors...
 				 */
-				
-				
-				// If the hazard hasn't a input gate, create an AND gate and add it as an input to it.
-				if (!HenshinTransformations.hasHazardInputGate(saGraph, true)) {
-					HenshinTransformations.createANDGateForHazard(saGraph, true);
-				}
-
 			} else {
 				/* newComponentInstance has sub components or outgoing ports */
 
@@ -678,6 +671,11 @@ public class ChangeTree {
 	 * Disconnects the dependent ones.
 	 */
 	private static void connectIndependentEventsToHazard(){
+		// If the hazard hasn't a input gate, create an AND gate and add it as an input to it.
+		if (!HenshinTransformations.hasHazardInputGate(saGraph, true)) {
+			HenshinTransformations.createANDGateForHazard(saGraph, true);
+		}
+
 		HenshinTransformations.disconnectDependentBasicEventsFromHazard(saGraph, true);
 		HenshinTransformations.discconnectDependentIntermediateEventsFromHazard(saGraph, true);
 		
